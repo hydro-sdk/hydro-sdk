@@ -444,7 +444,7 @@ class Thread {
     } else if (x is Closure) {
       return x(args);
     } else {
-      throw "attempt to call a ${Context.getTypename(x)} value";
+      throw "attempt to call a ${Context.getTypename(x)} value $x with $args";
     }
   }
 

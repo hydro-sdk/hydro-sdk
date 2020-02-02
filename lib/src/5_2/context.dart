@@ -117,7 +117,7 @@ class Context {
     } else if (x is String) {
       return stringMetatable.rawget(y);
     } else { // TODO: strings
-      throw "attempt to index a ${getTypename(x)} value";
+      throw "attempt to index a ${getTypename(x)} value $x $y";
     }
   }
   
