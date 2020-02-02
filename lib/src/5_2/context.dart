@@ -146,7 +146,7 @@ class Context {
     return x.toString().replaceFirst(new RegExp(r"\.0$"), "");
   }
   
-  static dynamic luaToString(dynamic x) {
+  static String luaToString(dynamic x) {
     if (x == null) {
       return "nil";
     } else if (x is num) {
