@@ -1,0 +1,13 @@
+name: flua
+description:
+version: 0.0.1
+
+environment:
+  sdk: '>=2.0.0'
+
+dependencies:
+  tuple: '^1.0.2'
+  args: '^1.5.0'
+
+dev_dependencies:
+  test: '^1.3.0'
