@@ -81,6 +81,7 @@ class LuaState {
       loadString();
       loadBit();
       loadTable();
+      loadBit32();
     }
   }
 
@@ -89,6 +90,7 @@ class LuaState {
   void loadString() => lualib.loadString(_context);
   void loadBit() => lualib.loadBit(_context);
   void loadTable() => lualib.loadTable(_context);
+  void loadBit32() => lualib.loadBit32(_context);
 
   Future<LuaFunction> loadFile(String path) async {
     var f = File(path);

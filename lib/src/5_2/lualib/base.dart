@@ -9,6 +9,7 @@ export 'coroutine.dart';
 export 'math.dart';
 export 'string.dart';
 export 'table.dart';
+export 'bit32.dart';
 
 loadBase(Context ctx) {
   ctx.env["assert"] = (List<dynamic> args) {
