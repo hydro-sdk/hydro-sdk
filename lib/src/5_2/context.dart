@@ -6,21 +6,27 @@ import 'package:flua/src/util.dart';
 import 'package:meta/meta.dart';
 
 class LuaErrorImpl extends LuaError {
-  LuaErrorImpl(dynamic value, this.proto, this.inst, {this.dartStackTrace}) : value = value is LuaErrorImpl ? value.value : value;
+  LuaErrorImpl(dynamic value, this.proto, this.inst, {this.dartStackTrace})
+      : value = value is LuaErrorImpl ? value.value : value;
   final dynamic value;
   final Prototype proto;
   final int inst;
   String get source => proto.root.name;
   StackTrace dartStackTrace;
-  
+
   toStringShort() => "${proto.root.name}:${maybeAt(proto.lines, inst)}: $value";
-  toString() => "${toStringShort()}${dartStackTrace == null ? "" : "\n$dartStackTrace"}";
+  toString() =>
+      "${toStringShort()}${dartStackTrace == null ? "" : "\n$dartStackTrace"}";
 }
 
 typedef List<dynamic> LuaDartFunc(List<dynamic> params);
 typedef List<dynamic> LuaDartDebugFunc(Thread thread, List<dynamic> params);
 typedef num ArithCB(num x, num y);
 typedef num UArithCB(num x);
+
+LuaDartFunc makeLuaDartFunc({@required LuaDartFunc func}) {
+  return func;
+}
 
 class TypeMatcher<T> {
   const TypeMatcher();
@@ -42,13 +48,13 @@ class Context {
     this.userdata,
     @required this.env,
   });
-  
+
   dynamic userdata;
-  
+
   Table env;
   Table stringMetatable;
   LuaDartFunc yield;
-  
+
   static String getTypename(dynamic v) {
     if (v is String) return "string";
     if (v is Table) return "table";
@@ -59,40 +65,49 @@ class Context {
     if (v == null) return "nil";
     return "${v.runtimeType}";
   }
-  
+
   static dynamic getAny(List<dynamic> args, int idx, String name) {
-    if (args.length <= idx) throw "bad argument #${idx + 1} to '$name' (value expected, got no value)";
+    if (args.length <= idx)
+      throw "bad argument #${idx + 1} to '$name' (value expected, got no value)";
     return args[idx];
   }
 
   static T getArg1<T>(List<dynamic> args, int idx, String name) {
-    if (args.length <= idx) throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got no value)";
+    if (args.length <= idx)
+      throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got no value)";
     var x = args[idx];
     if (new TypeMatcher<T>().matches(x)) return x;
     throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got ${getTypename(x)})";
   }
 
   static dynamic getArg2<T, T2>(List<dynamic> args, int idx, String name) {
-    if (args.length <= idx) throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got no value)";
+    if (args.length <= idx)
+      throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got no value)";
     var x = args[idx];
-    if (new TypeMatcher<T>().matches(x) || new TypeMatcher<T2>().matches(x)) return x;
+    if (new TypeMatcher<T>().matches(x) || new TypeMatcher<T2>().matches(x))
+      return x;
     throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got ${getTypename(x)})";
   }
 
   static dynamic getArg3<T, T2, T3>(List<dynamic> args, int idx, String name) {
-    if (args.length <= idx) throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got no value)";
+    if (args.length <= idx)
+      throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got no value)";
     var x = args[idx];
-    if (new TypeMatcher<T>().matches(x) || new TypeMatcher<T2>().matches(x) || new TypeMatcher<T3>().matches(x)) return x;
+    if (new TypeMatcher<T>().matches(x) ||
+        new TypeMatcher<T2>().matches(x) ||
+        new TypeMatcher<T3>().matches(x)) return x;
     throw "bad argument #${idx + 1} to '$name' (${new TypeMatcher<T>()} expected, got ${getTypename(x)})";
   }
-  
+
   static dynamic getMetatable(dynamic x) {
     if (x is Table && x.metatable != null) {
-      return x.metatable.map.containsKey("__metatable") ? x.metatable.map["__metatable"] : x.metatable;
+      return x.metatable.map.containsKey("__metatable")
+          ? x.metatable.map["__metatable"]
+          : x.metatable;
     } // TODO: strings
     return null;
   }
-  
+
   static dynamic getLength(dynamic x) {
     if (hasMetamethod(x, "__len")) {
       return maybeAt(invokeMetamethod(x, "__len", [x]), 0);
@@ -104,7 +119,7 @@ class Context {
       throw "attempt to get length of a ${getTypename(x)} value";
     }
   }
-  
+
   dynamic tableIndex(dynamic x, dynamic y) {
     if (x is Table) {
       var o = x.rawget(y);
@@ -116,14 +131,17 @@ class Context {
       return tableIndex(ni, y);
     } else if (x is String) {
       return stringMetatable.rawget(y);
-    } else { // TODO: strings
+    } else {
+      // TODO: strings
       throw "attempt to index a ${getTypename(x)} value $x $y";
     }
   }
-  
+
   static void tableSet(dynamic x, dynamic k, dynamic v) {
     if (x is Table) {
-      if (x.map.containsKey(k) && x.metatable != null && x.metatable.map.containsKey("__newindex")) {
+      if (x.map.containsKey(k) &&
+          x.metatable != null &&
+          x.metatable.map.containsKey("__newindex")) {
         var ni = x.metatable.map["__newindex"];
         if (ni is Closure) {
           ni([x, k, v]);
@@ -133,11 +151,12 @@ class Context {
       } else {
         x.rawset(k, v);
       }
-    } else { // TODO: strings
+    } else {
+      // TODO: strings
       throw "attempt to index a ${getTypename(x)} value";
     }
   }
-  
+
   static String numToString(num x) {
     if (x is int) return x.toString();
     if (x == double.infinity) return "inf";
@@ -145,7 +164,7 @@ class Context {
     if (x == double.negativeInfinity) return "-inf";
     return x.toString().replaceFirst(new RegExp(r"\.0$"), "");
   }
-  
+
   static String luaToString(dynamic x) {
     if (x == null) {
       return "nil";
@@ -161,36 +180,58 @@ class Context {
       return "${getTypename(x)}: ${(x.hashCode % 0x100000000).toRadixString(16).padLeft(8, "0")}";
     }
   }
-  
+
   static const keywords = const [
-    "and", "break", "do", "else", "elseif", "or",
-    "end", "false", "for", "function", "goto",
-    "if", "in", "local", "nil", "not", "while",
-    "repeat", "return", "then", "true", "until",
+    "and",
+    "break",
+    "do",
+    "else",
+    "elseif",
+    "or",
+    "end",
+    "false",
+    "for",
+    "function",
+    "goto",
+    "if",
+    "in",
+    "local",
+    "nil",
+    "not",
+    "while",
+    "repeat",
+    "return",
+    "then",
+    "true",
+    "until",
   ];
-  
+
   static String luaSerialize(dynamic x) {
-    if (x is String) return "\"${luaEscape(x)}\"";
+    if (x is String)
+      return "\"${luaEscape(x)}\"";
     else if (x is Table) {
       var o = "{";
       for (var e in x.arr) {
         o += luaSerialize(e) + ",";
       }
-      
+
       for (var k in x.map.keys) {
-        if (k is String && new RegExp("^[a-zA-Z_][a-zA-Z0-9_]*\$").hasMatch(k) && !keywords.contains(k)) {
+        if (k is String &&
+            new RegExp("^[a-zA-Z_][a-zA-Z0-9_]*\$").hasMatch(k) &&
+            !keywords.contains(k)) {
           o += "$k = ";
         } else {
           o += "[${luaSerialize(k)}] = ";
         }
         o += "${luaSerialize(x)},";
       }
-      
+
       if (o.endsWith(",")) o = o.substring(0, o.length - 1);
       return "$o}";
-    } else return luaToString(x);
+    } else
+      return luaToString(x);
   }
-  
+
   static dynamic luaConcat(dynamic x, dynamic y) {
     if (hasMetamethod(x, "__concat")) {
       return maybeAt(invokeMetamethod(x, "__concat", [x, y]), 0);
@@ -204,20 +245,24 @@ class Context {
       return luaToString(x) + luaToString(y);
     }
   }
-  
-  static List<dynamic> invokeMetamethod(dynamic x, String name, List<dynamic> params) {
+
+  static List<dynamic> invokeMetamethod(
+      dynamic x, String name, List<dynamic> params) {
     if (x is Table) {
       if (x.map[name] is! Closure) throw "attempt to call table value";
       return x.map[name](params);
-    } else { // TODO: strings
+    } else {
+      // TODO: strings
       throw "attempt to invoke metamethod on a ${getTypename(x)} value";
     }
   }
-  
+
   // TODO: strings
-  static bool hasMetamethod(dynamic x, String method) => x is Table && x.metatable != null && x.metatable.map.containsKey(method);
-  
-  static dynamic attemptArithmetic(dynamic x, dynamic y, String method, ArithCB op) {
+  static bool hasMetamethod(dynamic x, String method) =>
+      x is Table && x.metatable != null && x.metatable.map.containsKey(method);
+
+  static dynamic attemptArithmetic(
+      dynamic x, dynamic y, String method, ArithCB op) {
     if (hasMetamethod(x, method)) {
       return maybeAt(invokeMetamethod(x, method, [x, y]), 0);
     } else if (hasMetamethod(y, method)) {
@@ -230,7 +275,7 @@ class Context {
       return op(x, y);
     }
   }
-  
+
   static num attemptUnary(dynamic x, String method, UArithCB op) {
     if (hasMetamethod(x, method)) {
       return maybeAt(invokeMetamethod(x, method, [x]), 0);
@@ -240,18 +285,17 @@ class Context {
       return op(x);
     }
   }
-  
+
   static bool checkEQ(dynamic x, dynamic y) {
-    if (
-    hasMetamethod(x, "__eq") && hasMetamethod(y, "__eq") &&
-      (x as Table).map["__eq"] == (y as Table).map["__eq"]
-    ) {
+    if (hasMetamethod(x, "__eq") &&
+        hasMetamethod(y, "__eq") &&
+        (x as Table).map["__eq"] == (y as Table).map["__eq"]) {
       return truthy(invokeMetamethod(x, "__eq", [x, y]));
     } else {
       return x == y;
     }
   }
-  
+
   static bool checkLT(dynamic x, dynamic y) {
     if (hasMetamethod(x, "__lt")) {
       return maybeAt(invokeMetamethod(x, "__lt", [x, y]), 0);
@@ -265,7 +309,7 @@ class Context {
       return x < y;
     }
   }
-  
+
   static bool checkLE(dynamic x, dynamic y) {
     if (hasMetamethod(x, "__le")) {
       return maybeAt(invokeMetamethod(x, "__le", [x, y]), 0);
@@ -279,7 +323,7 @@ class Context {
       return !checkLT(y, x);
     }
   }
-  
+
   static bool truthy(dynamic x) => x != null && x != false;
   static num add(num x, num y) => x + y;
   static num sub(num x, num y) => x - y;
