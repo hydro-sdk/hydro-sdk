@@ -74,37 +74,37 @@ loadMath(Context ctx) {
 
   math["frexp"] = (List<dynamic> args) {
     num x = Context.getArg1<num>(args, 0, "frexp");
-    
+
     int e = 0;
 
     while (x < 0.5) {
       x *= 2;
       e--;
     }
-    
+
     while (x > 1.0) {
       x /= 2;
       e++;
     }
-    
+
     return [x, e];
   };
-  
+
   math["huge"] = double.infinity;
-  
+
   math["ldexp"] = (List<dynamic> args) {
     num x = Context.getArg1<num>(args, 0, "ldexp");
     num y = Context.getArg1<num>(args, 1, "ldexp");
     return [x * pow(2, y)];
   };
-  
+
   math["log"] = (List<dynamic> args) {
     num x = Context.getArg1<num>(args, 0, "log");
     if (args.length < 2) return [log(x)];
     num y = Context.getArg1<num>(args, 1, "log");
     return [log(x) / log(y)];
   };
-  
+
   math["max"] = (List<dynamic> args) {
     num x = Context.getArg1<num>(args, 0, "max");
     for (int i = 1; i < args.length; i++) {
@@ -112,21 +112,21 @@ loadMath(Context ctx) {
     }
     return [x];
   };
-  
-  math["min"] = (List<dynamic>args) {
+
+  math["min"] = (List<dynamic> args) {
     num x = Context.getArg1<num>(args, 0, "min");
     for (int i = 1; i < args.length; i++) {
       x = min(x, Context.getArg1<num>(args, 0, "min"));
     }
     return [x];
   };
-  
+
   math["modf"] = (List<dynamic> args) {
     num x = Context.getArg1<num>(args, 0, "modf");
     var o = x.floor();
     return [o, x - o];
   };
-  
+
   math["pi"] = pi;
 
   math["pow"] = (List<dynamic> args) {
@@ -141,12 +141,12 @@ loadMath(Context ctx) {
   };
 
   var rng = new Random();
-  
+
   math["random"] = (List<dynamic> args) {
     if (args.length == 0) return [rng.nextDouble()];
     num mn = Context.getArg1<num>(args, 0, "random");
     num mx;
-    
+
     if (args.length < 2) {
       mx = mn;
       mn = 1;
@@ -154,7 +154,7 @@ loadMath(Context ctx) {
       mx = Context.getArg1<num>(args, 1, "random");
       if (mx < mn) throw "bad argument #2 to 'random' (interval is empty)";
     }
-    
+
     return [rng.nextInt(mx.floor() - mn.floor()) + mn.floor()];
   };
 

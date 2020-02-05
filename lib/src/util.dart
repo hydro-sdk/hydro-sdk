@@ -33,7 +33,9 @@ String luaEscape(String x) {
     if (_luaEscapeChars.containsKey(c)) {
       o += "\\${_luaEscapeChars[c]}";
     } else if (c.codeUnitAt(0) <= 0x1F || c.codeUnitAt(0) >= 0x7F) {
-      if (i < x.length - 1 && x[i + 1].codeUnitAt(0) >= 0x30 && x[i + 1].codeUnitAt(0) <= 0x39) {
+      if (i < x.length - 1 &&
+          x[i + 1].codeUnitAt(0) >= 0x30 &&
+          x[i + 1].codeUnitAt(0) <= 0x39) {
         o += "\\${c.codeUnitAt(0).toString().padLeft(3, "0")}";
       } else {
         o += "\\${c.codeUnitAt(0)}";

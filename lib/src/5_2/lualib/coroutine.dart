@@ -15,19 +15,19 @@ loadCoroutine(Context ctx) {
 
   coroutine["resume"] = (List<dynamic> args) {
     Thread x = Context.getArg1<Thread>(args, 0, "resume");
-    
+
     if (x.status != CoroutineStatus.SUSPENDED) {
       return [false, "cannot resume non-suspended coroutine"];
     }
-    
+
     var res = x.resume(args.skip(1).toList(growable: false));
-    
+
     if (!res.success) return [false, maybeAt(res.values, 0)];
-    
+
     var o = <dynamic>[true];
     o.addAll(res.values);
   };
-  
+
   coroutine["yield"] = ctx.yield = (List<dynamic> args) {
     throw "attempt to yield across Dart call boundry";
   };
@@ -35,10 +35,14 @@ loadCoroutine(Context ctx) {
   coroutine["status"] = (List<dynamic> args) {
     Thread x = Context.getArg1<Thread>(args, 0, "status");
     switch (x.status) {
-      case CoroutineStatus.SUSPENDED: return ["suspended"];
-      case CoroutineStatus.DEAD: return ["dead"];
-      case CoroutineStatus.NORMAL: return ["normal"];
-      case CoroutineStatus.RUNNING: return ["running"];
+      case CoroutineStatus.SUSPENDED:
+        return ["suspended"];
+      case CoroutineStatus.DEAD:
+        return ["dead"];
+      case CoroutineStatus.NORMAL:
+        return ["normal"];
+      case CoroutineStatus.RUNNING:
+        return ["running"];
     }
   };
 

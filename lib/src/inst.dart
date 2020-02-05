@@ -58,7 +58,8 @@ class RelJumpTo extends IO {
   int val;
 }
 
-_InstInfoIO iBasicInst({List<int> read, List<int> write, List<int> jmp, List<int> reljmp}) {
+_InstInfoIO iBasicInst(
+    {List<int> read, List<int> write, List<int> jmp, List<int> reljmp}) {
   return (Inst i, InstInfo info) {
     var params = info.getParams(i).item1;
     return [
@@ -70,7 +71,8 @@ _InstInfoIO iBasicInst({List<int> read, List<int> write, List<int> jmp, List<int
 
 List<IO> iLoadNil(Inst i, InstInfo info) {
   var param = info.getParams(i).item1;
-  return new Iterable.generate(param[1], (a) => new WriteRegister(param[0] + a + 1)).toList();
+  return new Iterable.generate(
+      param[1], (a) => new WriteRegister(param[0] + a + 1)).toList();
 }
 
 List<IO> iSelf(Inst i, InstInfo info) {
@@ -99,25 +101,25 @@ typedef List<IO> _InstInfoIO(Inst i, InstInfo info);
 class InstInfo {
   InstInfo.parse(this.name, String sLayout, String sParams, this.io) {
     layout = InstLayout.values[instLayoutStr.indexOf(sLayout)];
-    assert (sParams.length == 3);
+    assert(sParams.length == 3);
     params = [];
     for (int i = 0; i < 3; i++) {
       params.add(InstParamType.values[instParamTypeStr.indexOf(sParams[i])]);
     }
   }
-  
+
   _InstInfoIO io;
   InstInfo(this.name, this.layout, this.params);
   String name;
   InstLayout layout;
   List<InstParamType> params;
   int opcode;
-  
+
   Inst withParams(List<int> iparams) {
     int A = 0;
     int B = 0;
     int C = 0;
-    
+
     List<int> out = [0, 0, 0];
     int j = 0;
     for (int i = 0; i < 3; i++) {
@@ -137,53 +139,55 @@ class InstInfo {
     } else if (layout == InstLayout.LAYOUT_Ax) {
       A = out[0];
     }
-    
+
     return new Inst(opcode, A, B, C);
   }
-  
+
   Inst decode(int raw) {
     int OP = raw & 63;
     int A = 0;
     int B = 0;
     int C = 0;
-  
-    if (layout == InstLayout.LAYOUT_ABC || layout == InstLayout.LAYOUT_ABx || layout == InstLayout.LAYOUT_AsBx)
-      A = (raw >> 6) & 255;
-  
+
+    if (layout == InstLayout.LAYOUT_ABC ||
+        layout == InstLayout.LAYOUT_ABx ||
+        layout == InstLayout.LAYOUT_AsBx) A = (raw >> 6) & 255;
+
     if (layout == InstLayout.LAYOUT_ABC) {
       B = (raw >> 23) & 511;
       C = (raw >> 14) & 511;
     }
-  
+
     if (layout == InstLayout.LAYOUT_Ax) A = (raw >> 6) & 67108863;
     if (layout == InstLayout.LAYOUT_ABx) B = (raw >> 14) & 262143;
     if (layout == InstLayout.LAYOUT_AsBx) B = ((raw >> 14) & 262143) - 131071;
-  
+
     return new Inst(OP, A, B, C);
   }
-  
+
   int encode(Inst inst) {
     int raw = inst.OP & 63;
-  
-    if (layout == InstLayout.LAYOUT_ABC || layout == InstLayout.LAYOUT_ABx || layout == InstLayout.LAYOUT_AsBx)
-      raw |= (inst.A & 255) << 6;
-  
+
+    if (layout == InstLayout.LAYOUT_ABC ||
+        layout == InstLayout.LAYOUT_ABx ||
+        layout == InstLayout.LAYOUT_AsBx) raw |= (inst.A & 255) << 6;
+
     if (layout == InstLayout.LAYOUT_ABC) {
       raw |= (inst.B & 511) << 23;
       raw |= (inst.C & 511) << 14;
     }
-  
+
     if (layout == InstLayout.LAYOUT_Ax) raw |= (inst.A & 67108863) << 6;
     if (layout == InstLayout.LAYOUT_ABx) raw |= (inst.B & 262143) << 14;
     if (layout == InstLayout.LAYOUT_AsBx) raw |= (inst.B & 262143) + 131071;
-  
+
     return raw;
   }
 
   Tuple2<List<int>, List<InstParamType>> getParams(Inst inst) {
     List<int> data = [];
     List<InstParamType> types = [];
-  
+
     List<int> rparams;
     if (layout == InstLayout.LAYOUT_ABC) {
       rparams = [inst.A, inst.B, inst.C];
@@ -194,17 +198,21 @@ class InstInfo {
     } else if (layout == InstLayout.LAYOUT_Ax) {
       rparams = [inst.A];
     }
-  
+
     for (int i = 0; i < rparams.length; i++) {
       if (params[i] == InstParamType.PARAM_NONE) continue;
       if (params[i] == InstParamType.PARAM_RK) {
-        data.add(i == 0 ? lua_sign(rparams[i], 8) : rparams[i] >> 8 == 0 ? rparams[i] & 255 : -(rparams[i] & 255)); // assumes only A B or C
+        data.add(i == 0
+            ? lua_sign(rparams[i], 8)
+            : rparams[i] >> 8 == 0
+                ? rparams[i] & 255
+                : -(rparams[i] & 255)); // assumes only A B or C
       } else {
         data.add(rparams[i]);
       }
       types.add(params[i]);
     }
-  
+
     return new Tuple2(data, types);
   }
 }
@@ -219,14 +227,15 @@ class Inst {
 
 class InstBlock extends ListBase<Inst> {
   InstBlock(this._list);
-  
+
   after(Inst x) => new InstBlock(skipWhile((e) => e != x).toList());
   before(Inst x) => new InstBlock(takeWhile((e) => e != x).toList());
-  range(Inst x, Inst y) => new InstBlock(skip(indexOf(x)).take(indexOf(y) - indexOf(x)).toList());
-  
+  range(Inst x, Inst y) =>
+      new InstBlock(skip(indexOf(x)).take(indexOf(y) - indexOf(x)).toList());
+
   InstBlock get copy => new InstBlock(this.toList());
   List<Inst> _list;
-  
+
   int get length => _list.length;
   set length(int x) => _list.length = x;
   operator [](int i) => _list[i];
