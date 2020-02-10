@@ -1,4 +1,6 @@
-import 'func.dart';
+import 'package:flua/src/codedump.dart';
+import 'package:flua/src/local.dart';
+import 'package:flua/src/prototype.dart';
 import 'package:flua/src/util.dart';
 
 String disassemble(CodeDump code) {

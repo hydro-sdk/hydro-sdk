@@ -1,4 +1,4 @@
-import 'package:flua/src/5_2/state.dart';
+import 'package:flua/src/5_2/luastate.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

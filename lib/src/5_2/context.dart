@@ -1,9 +1,9 @@
-import 'package:flua/src/5_2/state.dart';
+import 'package:flua/src/5_2/luaerror.dart';
 import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/vm.dart';
-import 'package:flua/src/func.dart';
+import 'package:flua/src/prototype.dart';
 import 'package:flua/src/util.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/foundation.dart';
 
 class LuaErrorImpl extends LuaError {
   LuaErrorImpl(dynamic value, this.proto, this.inst, {this.dartStackTrace})

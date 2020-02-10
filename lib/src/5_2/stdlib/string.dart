@@ -1,10 +1,10 @@
 import 'dart:math';
 
-import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/context.dart';
+import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/util.dart';
 
-loadString(Context ctx) {
+loadStringLib(Context ctx) {
   var string = new Table();
 
   ctx.env["string"] = string;

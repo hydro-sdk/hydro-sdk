@@ -1,8 +1,8 @@
+//https://www.lua.org/manual/5.2/manual.html#6.7
 import 'package:flua/src/5_2/context.dart';
 import 'package:flua/src/5_2/table.dart';
 
-//https://www.lua.org/manual/5.2/manual.html#6.7
-void loadBit32(Context ctx) {
+void loadBit32Lib(Context ctx) {
   var bit32 = Table();
 
   bit32["band"] = makeLuaDartFunc(func: (List<dynamic> args) {

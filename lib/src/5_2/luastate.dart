@@ -1,53 +1,19 @@
-import 'dart:async';
 import 'dart:io';
-
 import 'dart:typed_data';
+
+import 'package:flua/src/5_2/context.dart';
+import 'package:flua/src/5_2/coroutineresult.dart';
+import 'package:flua/src/5_2/luafunction.dart';
+import 'package:flua/src/5_2/stdlib/base.dart';
+import 'package:flua/src/5_2/stdlib/bit.dart';
+import 'package:flua/src/5_2/stdlib/bit32.dart';
+import 'package:flua/src/5_2/stdlib/math.dart';
+import 'package:flua/src/5_2/stdlib/string.dart';
+import 'package:flua/src/5_2/stdlib/table.dart';
 import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/vm.dart';
-import 'package:flua/src/5_2/context.dart';
-import 'package:flua/src/5_2/lualib/base.dart' as lualib;
-import 'package:flua/src/decode.dart';
-
-class CoroutineResult {
-  CoroutineResult(this.success, this.values);
-  final bool success;
-  final List<dynamic> values;
-
-  String toString() {
-    return success ? values.map(Context.luaToString).join(", ") : values[0];
-  }
-}
-
-abstract class LuaFunction {
-  List<dynamic> call(List<dynamic> args);
-  CoroutineResult pcall(List<dynamic> args);
-  LuaState get state;
-}
-
-abstract class LuaError {
-  dynamic get value;
-  StackTrace get dartStackTrace;
-  String get source;
-  String toStringShort();
-  String toString();
-}
-
-enum CoroutineStatus {
-  RUNNING,
-  SUSPENDED,
-  NORMAL,
-  DEAD,
-}
-
-class Coroutine {
-  Coroutine(LuaFunction f);
-
-  CoroutineStatus _status;
-  CoroutineStatus get status => _status;
-  CoroutineResult resume([List<dynamic> args = const []]) {
-    return new CoroutineResult(true, []);
-  }
-}
+import 'package:flua/src/5_2/luaerror.dart';
+import 'package:flua/src/decoder.dart';
 
 class _LuaFunctionImpl extends LuaFunction {
   _LuaFunctionImpl(this.closure);
@@ -85,12 +51,12 @@ class LuaState {
     }
   }
 
-  void loadBase() => lualib.loadBase(_context);
-  void loadMath() => lualib.loadMath(_context);
-  void loadString() => lualib.loadString(_context);
-  void loadBit() => lualib.loadBit(_context);
-  void loadTable() => lualib.loadTable(_context);
-  void loadBit32() => lualib.loadBit32(_context);
+  void loadBase() => loadBaseLib(_context);
+  void loadMath() => loadMathLib(_context);
+  void loadString() => loadStringLib(_context);
+  void loadBit() => loadBitLib(_context);
+  void loadTable() => loadTableLib(_context);
+  void loadBit32() => loadBit32Lib(_context);
 
   Future<LuaFunction> loadFile(String path) async {
     var f = File(path);

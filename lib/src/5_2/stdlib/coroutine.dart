@@ -1,10 +1,10 @@
+import 'package:flua/src/5_2/context.dart';
+import 'package:flua/src/5_2/coroutinestatus.dart';
 import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/vm.dart';
-import 'package:flua/src/5_2/state.dart';
-import 'package:flua/src/5_2/context.dart';
 import 'package:flua/src/util.dart';
 
-loadCoroutine(Context ctx) {
+loadCoroutineLib(Context ctx) {
   var coroutine = new Table();
   ctx.env["coroutine"] = coroutine;
 

@@ -1,10 +1,11 @@
 import 'dart:math';
-import 'package:flua/src/5_2/table.dart';
+
 import 'package:flua/src/5_2/context.dart';
+import 'package:flua/src/5_2/table.dart';
 
 const rpd = pi / 180;
 
-loadMath(Context ctx) {
+loadMathLib(Context ctx) {
   var math = new Table();
   ctx.env["math"] = math;
 

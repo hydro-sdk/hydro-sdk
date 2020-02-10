@@ -1,14 +1,14 @@
 import 'dart:math';
 
-import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/context.dart';
+import 'package:flua/src/5_2/table.dart';
 
 int _tobit(num x) {
   if (x is int) return x % 0x100000000;
   return (x + 0.5).floor() % 0x100000000;
 }
 
-loadBit(Context ctx) {
+loadBitLib(Context ctx) {
   var bit = new Table();
   ctx.env["bit"] = bit;
 

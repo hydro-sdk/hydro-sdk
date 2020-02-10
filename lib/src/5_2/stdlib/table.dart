@@ -1,8 +1,8 @@
-import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/context.dart';
+import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/util.dart';
 
-loadTable(Context ctx) {
+loadTableLib(Context ctx) {
   var table = new Table();
 
   ctx.env["table"] = table;

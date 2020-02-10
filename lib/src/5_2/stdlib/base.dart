@@ -1,17 +1,10 @@
-import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/context.dart';
-import 'package:flua/src/5_2/state.dart';
+import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/vm.dart';
+import 'package:flua/src/5_2/luaerror.dart';
 import 'package:flua/src/util.dart';
 
-export 'bit.dart';
-export 'coroutine.dart';
-export 'math.dart';
-export 'string.dart';
-export 'table.dart';
-export 'bit32.dart';
-
-loadBase(Context ctx) {
+loadBaseLib(Context ctx) {
   ctx.env["assert"] = (List<dynamic> args) {
     if (args.length < 1 || args[0] == null || args[0] == false) {
       throw args.length < 2 ? "assertion failed!" : args[1];
