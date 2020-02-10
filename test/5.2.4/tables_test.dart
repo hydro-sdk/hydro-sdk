@@ -14,28 +14,15 @@ void main() {
     };
 
     List<String> expectedOutLines = [
-      "52",
-      "65",
-      "65",
-      "52",
-      "39",
-      "26",
-      "13",
-      "fib",
-      "1",
-      "1",
-      "2",
-      "3",
-      "5",
-      "8",
-      "13",
-      "21",
-      "34",
-      "55",
-      "89",
+      "1	12	123	1234	12345",
+      "42",
+      "420",
+      "nil",
+      "420",
+      "69",
     ];
 
-    var res = await state.doFile("forloops.lc");
+    var res = await state.doFile("5.2.4/tables.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

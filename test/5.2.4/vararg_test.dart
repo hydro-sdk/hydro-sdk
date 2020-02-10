@@ -13,16 +13,9 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    List<String> expectedOutLines = [
-      "1	12	123	1234	12345",
-      "42",
-      "420",
-      "nil",
-      "420",
-      "69",
-    ];
+    List<String> expectedOutLines = ["0", "4", "2", "1", "6"];
 
-    var res = await state.doFile("tables.lc");
+    var res = await state.doFile("5.2.4/vararg.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

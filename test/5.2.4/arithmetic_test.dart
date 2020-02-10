@@ -13,9 +13,20 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    List<String> expectedOutLines = ["0", "4", "2", "1", "6"];
+    List<String> expectedOutLines = [
+      "3",
+      "0.5",
+      "840",
+      "6",
+      "inf",
+      "-nan",
+      "-inf",
+      "0.333",
+      "0.6",
+      "-0.111"
+    ];
 
-    var res = await state.doFile("vararg.lc");
+    var res = await state.doFile("5.2.4/arithmetic.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

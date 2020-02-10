@@ -14,10 +14,21 @@ void main() {
     };
 
     List<String> expectedOutLines = [
-      "e91c254ad58860a02c788dfb5c1a65d6a8846ab1dc649631c7db16fef4af2dec"
+      "1",
+      "12",
+      "123",
+      "2",
+      "2",
+      "13",
+      "42",
+      "1234",
+      "42",
+      "421	422	423",
+      "691	692	693",
+      "421	422	423"
     ];
 
-    var res = await state.doFile("sha256.lc");
+    var res = await state.doFile("5.2.4/closures.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

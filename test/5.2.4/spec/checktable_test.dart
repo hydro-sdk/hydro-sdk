@@ -5,7 +5,7 @@ void main() {
   test('', () async {
     var state = LuaState();
 
-    var res = await state.doFile("spec/checktable.lc");
+    var res = await state.doFile("5.2.4/spec/checktable.lc");
     print(res.toString());
 
     expect(res.success, true);

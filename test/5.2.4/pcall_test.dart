@@ -15,12 +15,12 @@ void main() {
 
     List<String> expectedOutLines = [
       "ayy",
-      "false	pcall.lc:3: md",
+      "false	5.2.4/pcall.lc:3: md",
       "69",
       "true	420"
     ];
 
-    var res = await state.doFile("pcall.lc");
+    var res = await state.doFile("5.2.4/pcall.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

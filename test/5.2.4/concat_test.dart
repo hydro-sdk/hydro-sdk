@@ -13,15 +13,9 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    List<String> expectedOutLines = [
-      "1	1",
-      "2	2",
-      "3	3",
-      "4	4",
-      "done",
-    ];
+    List<String> expectedOutLines = ["potatowalrusfizzbuzz"];
 
-    var res = await state.doFile("pairs.lc");
+    var res = await state.doFile("5.2.4/concat.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

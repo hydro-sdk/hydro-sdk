@@ -14,19 +14,28 @@ void main() {
     };
 
     List<String> expectedOutLines = [
+      "52",
+      "65",
+      "65",
+      "52",
+      "39",
+      "26",
+      "13",
+      "fib",
+      "1",
+      "1",
+      "2",
       "3",
-      "0.5",
-      "840",
-      "6",
-      "inf",
-      "-nan",
-      "-inf",
-      "0.333",
-      "0.6",
-      "-0.111"
+      "5",
+      "8",
+      "13",
+      "21",
+      "34",
+      "55",
+      "89",
     ];
 
-    var res = await state.doFile("arithmetic.lc");
+    var res = await state.doFile("5.2.4/forloops.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);
