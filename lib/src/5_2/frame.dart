@@ -2,87 +2,17 @@ import 'dart:collection';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:flua/src/5_2/closure.dart';
 import 'package:flua/src/5_2/context.dart';
-import 'package:flua/src/5_2/coroutineresult.dart';
-import 'package:flua/src/5_2/coroutinestatus.dart';
 import 'package:flua/src/5_2/luaerror.dart';
 import 'package:flua/src/5_2/table.dart';
+import 'package:flua/src/5_2/thread.dart';
+import 'package:flua/src/5_2/threadResult.dart';
+import 'package:flua/src/5_2/upVal.dart';
 import 'package:flua/src/const.dart';
 import 'package:flua/src/prototype.dart';
 import 'package:flua/src/util.dart';
 import 'package:flutter/foundation.dart';
-
-class ThreadResult {
-  ThreadResult(this.success, this.values, {this.resumeTo});
-  final bool success;
-  final List<dynamic> values;
-  final Frame resumeTo;
-
-  String toString() {
-    return success ? values.map(Context.luaToString).join(", ") : values[0];
-  }
-}
-
-class Upval extends LinkedListEntry<Upval> {
-  Upval(this.reg, this.registers) : open = true;
-  Upval.store(this.storage) : open = false;
-
-  bool open;
-  int reg;
-  List<dynamic> registers;
-  dynamic storage;
-
-  void close() {
-    open = false;
-    storage = registers[reg];
-    registers = null;
-    unlink();
-  }
-
-  void set(dynamic v) {
-    if (open) {
-      registers[reg] = v;
-    } else {
-      storage = v;
-    }
-  }
-
-  dynamic get() => open ? registers[reg] : storage;
-}
-
-class Closure {
-  Closure(
-    this.proto, {
-    this.parent,
-    this.context,
-    this.upvalues,
-  });
-
-  final Prototype proto;
-  final Frame parent;
-  final Context context;
-  final List<Upval> upvalues;
-
-  List<dynamic> call(List<dynamic> args) {
-    var f = new Thread(closure: this).frame;
-    f.loadArgs(args);
-    ThreadResult x;
-    try {
-      x = f.cont();
-    } catch (err) {
-      print("Closure ${proto.name} threw");
-      print("${proto.source}");
-      throw err;
-    }
-    if (x.resumeTo != null) throw "cannot yield across dart call boundary";
-    if (!x.success) {
-      var v = maybeAt(x.values, 0);
-      if (v is LuaErrorImpl) throw v;
-      throw new LuaErrorImpl(maybeAt(x.values, 0), proto, f._pc);
-    }
-    return x.values;
-  }
-}
 
 class Frame {
   Frame(
@@ -109,11 +39,11 @@ class Frame {
   final Int32List _code;
   final _openUVs = new LinkedList<Upval>();
 
-  int _pc = 0;
+  int programCounter = 0;
   int _top = 0;
 
-  int _getExtraArg() => _code[_pc++ * 4 + 1];
-  int _getNextJump() => _code[_pc * 4 + 2];
+  int _getExtraArg() => _code[programCounter++ * 4 + 1];
+  int _getNextJump() => _code[programCounter * 4 + 2];
 
   dynamic _RK(int x) => x >= 256 ? _K[x - 256].value : _GR(x);
   // for debugging:
@@ -121,7 +51,7 @@ class Frame {
   dynamic _SR(int x, dynamic y) => _R[x] = y;
 
   void _loadReturns(List<dynamic> ret) {
-    var pc = _pc - 1;
+    var pc = programCounter - 1;
     var A = _code[pc * 4 + 1];
     var B = _code[pc * 4 + 2];
     var C = _code[pc * 4 + 3];
@@ -223,12 +153,12 @@ class Frame {
     if (_proto.varag > 0) _varargs = args;
   }
 
-  bool get finished => _pc >= _proto.code.length;
+  bool get finished => programCounter >= _proto.code.length;
 
   ThreadResult cont() {
     try {
       while (true) {
-        var pc = _pc++;
+        var pc = programCounter++;
         var OP = _code[pc * 4];
         var A = _code[pc * 4 + 1];
         var B = _code[pc * 4 + 2];
@@ -246,7 +176,7 @@ class Frame {
         } else if (OP == 3) {
           // LOADBOOL(ABC)
           _SR(A, B != 0);
-          if (C != 0) _pc++;
+          if (C != 0) programCounter++;
         } else if (OP == 4) {
           // LOADNIL(AB)
           var a = A;
@@ -318,43 +248,43 @@ class Frame {
           _SR(A, o);
         } else if (OP == 23) {
           // JMP(AsBx)
-          _pc += B;
+          programCounter += B;
           if (A > 0) _closeUpvals(A - 1);
         } else if (OP == 24) {
           // EQ
           if (Context.checkEQ(_RK(B), _RK(C)) == (A != 0)) {
-            _pc += _getNextJump() + 1;
+            programCounter += _getNextJump() + 1;
           } else {
-            _pc++;
+            programCounter++;
           }
         } else if (OP == 25) {
           // LT
           if (Context.checkLT(_RK(B), _RK(C)) == (A != 0)) {
-            _pc += _getNextJump() + 1;
+            programCounter += _getNextJump() + 1;
           } else {
-            _pc++;
+            programCounter++;
           }
         } else if (OP == 26) {
           // LE
           if (Context.checkLE(_RK(B), _RK(C)) == (A != 0)) {
-            _pc += _getNextJump() + 1;
+            programCounter += _getNextJump() + 1;
           } else {
-            _pc++;
+            programCounter++;
           }
         } else if (OP == 27) {
           // TEST
           if (!Context.truthy(_GR(A)) == (C != 0)) {
-            _pc++;
+            programCounter++;
           } else {
-            _pc += _getNextJump() + 1;
+            programCounter += _getNextJump() + 1;
           }
         } else if (OP == 28) {
           // TESTSET
           if (!Context.truthy(_GR(B)) == (C != 0)) {
-            _pc++;
+            programCounter++;
           } else {
             _SR(A, _GR(B));
-            _pc += _getNextJump() + 1;
+            programCounter += _getNextJump() + 1;
           }
         } else if (OP == 29) {
           // CALL
@@ -404,7 +334,7 @@ class Frame {
           var limit = _GR(A + 1);
 
           if ((step > 0 && idx <= limit) || (step < 0 && limit <= idx)) {
-            _pc += B;
+            programCounter += B;
             _SR(A + 3, _GR(A));
           }
         } else if (OP == 33) {
@@ -418,25 +348,25 @@ class Frame {
           if (step is! num) throw "'for' step value must be a number";
 
           _SR(A, _GR(A) - step);
-          _pc += B;
+          programCounter += B;
         } else if (OP == 34) {
           // TFORCALL(ABC)
           var ret = _thread.attemptCall(_GR(A), [_GR(A + 1), _GR(A + 2)]);
           var i = 0;
           for (int n = A + 3; n < A + C + 3; n++) _SR(n, maybeAt(ret, i++));
 
-          var b = _code[_pc * 4 + 2];
+          var b = _code[programCounter * 4 + 2];
           var a = _getExtraArg();
 
           if (_GR(a + 1) != null) {
             _SR(a, _GR(a + 1));
-            _pc += b;
+            programCounter += b;
           }
         } else if (OP == 35) {
           // TFORLOOP(AsBx)
           if (_GR(A + 1) != null) {
             _SR(A, _GR(A + 1));
-            _pc += B;
+            programCounter += B;
           }
         } else if (OP == 36) {
           // SETLIST(ABC)
@@ -479,84 +409,7 @@ class Frame {
       }
     } catch (e, bt) {
       if (e is LuaError) rethrow;
-      throw new LuaErrorImpl(e, _proto, _pc - 1, dartStackTrace: bt);
+      throw new LuaErrorImpl(e, _proto, programCounter - 1, dartStackTrace: bt);
     }
   }
-}
-
-class Thread {
-  Thread({@required Closure closure}) {
-    frame = newFrame(closure);
-  }
-
-  Frame newFrame(Closure closure) => new Frame(closure.proto,
-      context: closure.context, upvalues: closure.upvalues, thread: this);
-
-  Frame frame;
-  Frame _resumeTo;
-
-  CoroutineStatus status = CoroutineStatus.SUSPENDED;
-  bool started = false;
-
-  List<dynamic> attemptCall(dynamic x, [List<dynamic> args = const []]) {
-    if (x is Table) {
-      return Context.invokeMetamethod(x, "__call", args);
-    } else if (x is LuaDartFunc) {
-      return x(args);
-    } else if (x is LuaDartDebugFunc) {
-      return x(this, args);
-    } else if (x is Closure) {
-      return x(args);
-    } else {
-      throw "attempt to call a ${Context.getTypename(x)} value $x with $args";
-    }
-  }
-
-  CoroutineResult resume([List<dynamic> params = const []]) {
-    assert(status != CoroutineStatus.DEAD,
-        "Coroutine dead, check status before calling resume");
-
-    if (!started) {
-      started = true;
-      _resumeTo = frame;
-    }
-
-    status = CoroutineStatus.RUNNING;
-
-    try {
-      _resumeTo.loadArgs(params);
-      var res = _resumeTo.cont();
-      _resumeTo = res.resumeTo;
-      status =
-          _resumeTo != null ? CoroutineStatus.DEAD : CoroutineStatus.SUSPENDED;
-      return new CoroutineResult(true, res.values);
-    } catch (e) {
-      status = CoroutineStatus.DEAD;
-      return new CoroutineResult(false, [e]);
-    }
-
-    /*if (!started) {
-      _updateFrame();
-      // load main body arguments
-      
-      started = true;
-    } else if (status == CoroutineStatus.SUSPENDED) { // resume from yield
-      status = CoroutineStatus.RUNNING;
-      var pc = _pc - 1;
-      var OP = _code[pc * 4];
-      var A = _code[pc * 4 + 1];
-      var B = _code[pc * 4 + 2];
-      var C = _code[pc * 4 + 3];
-      
-      // ADD SUB MUL DIV MOD POW UNM LEN GETTABUP GETTABLE SELF
-      if ((OP >= 13 && OP <= 19) || OP == 21 || OP == 6 || OP == 7 || OP == 12) {
-        _SR(A, params[0]);
-      } else if (OP == 22) { // CONCAT
-      
-      }
-    }*/
-  }
-
-  toString() =>
-      "thread: 0x${(hashCode % 0x100000000).toRadixString(16).padLeft(8, "0")}";
 }

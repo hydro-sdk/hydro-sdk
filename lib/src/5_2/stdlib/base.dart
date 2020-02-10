@@ -1,6 +1,6 @@
 import 'package:flua/src/5_2/context.dart';
 import 'package:flua/src/5_2/table.dart';
-import 'package:flua/src/5_2/vm.dart';
+import 'package:flua/src/5_2/thread.dart';
 import 'package:flua/src/5_2/luaerror.dart';
 import 'package:flua/src/util.dart';
 

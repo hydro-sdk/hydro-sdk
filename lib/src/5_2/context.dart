@@ -1,6 +1,7 @@
+import 'package:flua/src/5_2/closure.dart';
 import 'package:flua/src/5_2/luaerror.dart';
 import 'package:flua/src/5_2/table.dart';
-import 'package:flua/src/5_2/vm.dart';
+import 'package:flua/src/5_2/thread.dart';
 import 'package:flua/src/prototype.dart';
 import 'package:flua/src/util.dart';
 import 'package:flutter/foundation.dart';
