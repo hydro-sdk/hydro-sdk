@@ -40,7 +40,7 @@ enum CoroutineStatus {
 }
 
 class Coroutine {
-  Coroutine(LuaFunction f) {}
+  Coroutine(LuaFunction f);
 
   CoroutineStatus _status;
   CoroutineStatus get status => _status;

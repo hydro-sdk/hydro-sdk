@@ -66,7 +66,7 @@ class Closure {
     ThreadResult x;
     try {
       x = f.cont();
-    } catch (err,stack) {
+    } catch (err) {
       print("Closure ${proto.name} threw");
       print("${proto.source}");
       throw err;

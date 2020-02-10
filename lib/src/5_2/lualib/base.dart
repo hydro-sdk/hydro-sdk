@@ -58,21 +58,21 @@ loadBase(Context ctx) {
     ];
   };
 
-  ctx.env["load"] = (List<dynamic> args) {
-    var ld = Context.getArg2<LuaDartFunc, dynamic>(args, 0, "load");
+  // ctx.env["load"] = (List<dynamic> args) {
+  //   var ld = Context.getArg2<LuaDartFunc, dynamic>(args, 0, "load");
 
-    if (ld is! LuaDartFunc) ld = Context.luaToString(ld);
+  //   if (ld is! LuaDartFunc) ld = Context.luaToString(ld);
 
-    var source = maybeAt(args, 1) ?? ld;
-    var mode = maybeAt(args, 2) ?? "bt";
-    var env = maybeAt(args, 3) ?? ctx.env;
+  //   var source = maybeAt(args, 1) ?? ld;
+  //   var mode = maybeAt(args, 2) ?? "bt";
+  //   var env = maybeAt(args, 3) ?? ctx.env;
 
-    throw "NYI"; // TODO
-  };
+  //   throw "NYI"; // TODO
+  // };
 
-  ctx.env["loadfile"] = (List<dynamic> args) {
-    throw "NYI"; // TODO
-  };
+  // ctx.env["loadfile"] = (List<dynamic> args) {
+  //   throw "NYI"; // TODO
+  // };
 
   ctx.env["next"] = (List<dynamic> args) {
     Table table = Context.getArg1<Table>(args, 0, "next");
