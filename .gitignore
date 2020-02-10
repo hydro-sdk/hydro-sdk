@@ -19,4 +19,5 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
-luac
+luac.5.2.4
+luac.5.3.5
