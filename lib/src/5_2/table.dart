@@ -24,7 +24,7 @@ class Table {
             : null) ??
         (map.containsKey(k) ? map[k] : null);
     if (res == null) {
-      throw "Failed to index by $k";
+      print("Failed to index by $k");
     }
     return res;
   }
