@@ -21,3 +21,7 @@ doc/api/
 *.js.map
 luac.5.2.4
 luac.5.3.5
+
+example/node_modules
+example/assets/apps/*.lc
+example/assets/apps/*.lua
