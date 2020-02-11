@@ -15,6 +15,7 @@ import 'package:flua/src/5_2/table.dart';
 import 'package:flua/src/5_2/upVal.dart';
 import 'package:flua/src/5_2/luaerror.dart';
 import 'package:flua/src/decoder.dart';
+import 'package:flutter/services.dart';
 
 class _LuaFunctionImpl extends LuaFunction {
   _LuaFunctionImpl(this.closure);
@@ -59,6 +60,15 @@ class LuaState {
   void loadTable() => loadTableLib(_context);
   void loadBit32() => loadBit32Lib(_context);
 
+  Future<LuaFunction> loadFileFromBundle(String path) async {
+    var contents = await rootBundle.load(path);
+    var decoder = Decoder(contents.buffer);
+    var dump = decoder.readCodeDump(path);
+
+    return _LuaFunctionImpl(Closure(dump.main,
+        context: _context, upvalues: [Upval.store(_context.env)]));
+  }
+
   Future<LuaFunction> loadFile(String path) async {
     var f = File(path);
 
@@ -81,6 +91,9 @@ class LuaState {
           {List<dynamic> args = const []}) async =>
       (await loadFile(path)).pcall(args);
 
+  Future<CoroutineResult> doFileFromBundle(String path,
+          {List<dynamic> args = const []}) async =>
+      (await loadFileFromBundle(path)).pcall(args);
   static dynamic _sanitize(dynamic x) {
     if (x is! LuaDartFunc && x is Function) {
       throw "Function does not match LuaDartFunc or LuaDebugFunc";
