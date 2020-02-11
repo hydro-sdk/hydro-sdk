@@ -1,4 +1,4 @@
-import 'package:flua/src/util.dart';
+import 'package:flua/util.dart';
 
 enum ConstType {
   CONST_NIL,

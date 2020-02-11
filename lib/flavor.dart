@@ -1,4 +1,4 @@
-import 'package:flua/src/inst.dart';
+import 'package:flua/inst.dart';
 
 class Flavor {
   Flavor(

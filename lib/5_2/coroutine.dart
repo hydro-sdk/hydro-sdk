@@ -1,6 +1,6 @@
-import 'package:flua/src/5_2/coroutineresult.dart';
-import 'package:flua/src/5_2/coroutinestatus.dart';
-import 'package:flua/src/5_2/luafunction.dart';
+import 'package:flua/5_2/coroutineresult.dart';
+import 'package:flua/5_2/coroutinestatus.dart';
+import 'package:flua/5_2/luafunction.dart';
 
 class Coroutine {
   Coroutine(LuaFunction f);

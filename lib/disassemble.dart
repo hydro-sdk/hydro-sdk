@@ -1,7 +1,7 @@
-import 'package:flua/src/codedump.dart';
-import 'package:flua/src/local.dart';
-import 'package:flua/src/prototype.dart';
-import 'package:flua/src/util.dart';
+import 'package:flua/codedump.dart';
+import 'package:flua/local.dart';
+import 'package:flua/prototype.dart';
+import 'package:flua/util.dart';
 
 String disassemble(CodeDump code) {
   String o = "";

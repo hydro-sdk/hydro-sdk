@@ -2,16 +2,16 @@ import 'dart:collection';
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:flua/src/5_2/closure.dart';
-import 'package:flua/src/5_2/context.dart';
-import 'package:flua/src/5_2/luaerror.dart';
-import 'package:flua/src/5_2/table.dart';
-import 'package:flua/src/5_2/thread.dart';
-import 'package:flua/src/5_2/threadResult.dart';
-import 'package:flua/src/5_2/upVal.dart';
-import 'package:flua/src/const.dart';
-import 'package:flua/src/prototype.dart';
-import 'package:flua/src/util.dart';
+import 'package:flua/5_2/closure.dart';
+import 'package:flua/5_2/context.dart';
+import 'package:flua/5_2/luaerror.dart';
+import 'package:flua/5_2/table.dart';
+import 'package:flua/5_2/thread.dart';
+import 'package:flua/5_2/threadResult.dart';
+import 'package:flua/5_2/upVal.dart';
+import 'package:flua/const.dart';
+import 'package:flua/prototype.dart';
+import 'package:flua/util.dart';
 import 'package:flutter/foundation.dart';
 
 class Frame {

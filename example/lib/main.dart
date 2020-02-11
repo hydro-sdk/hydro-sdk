@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flua/src/5_2/luastate.dart';
-import 'package:flua/src/5_2/coroutineresult.dart';
+import 'package:flua/5_2/luastate.dart';
+import 'package:flua/5_2/coroutineresult.dart';
 
 void main() => runApp(App());
 

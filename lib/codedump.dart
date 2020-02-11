@@ -1,5 +1,5 @@
-import 'package:flua/src/flavor.dart';
-import 'package:flua/src/prototype.dart';
+import 'package:flua/flavor.dart';
+import 'package:flua/prototype.dart';
 
 class CodeDump {
   String name;

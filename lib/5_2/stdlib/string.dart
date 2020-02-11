@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:flua/src/5_2/context.dart';
-import 'package:flua/src/5_2/table.dart';
-import 'package:flua/src/util.dart';
+import 'package:flua/5_2/context.dart';
+import 'package:flua/5_2/table.dart';
+import 'package:flua/util.dart';
 
 loadStringLib(Context ctx) {
   var string = new Table();

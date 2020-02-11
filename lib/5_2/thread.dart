@@ -1,9 +1,9 @@
-import 'package:flua/src/5_2/closure.dart';
-import 'package:flua/src/5_2/context.dart';
-import 'package:flua/src/5_2/coroutineresult.dart';
-import 'package:flua/src/5_2/coroutinestatus.dart';
-import 'package:flua/src/5_2/frame.dart';
-import 'package:flua/src/5_2/table.dart';
+import 'package:flua/5_2/closure.dart';
+import 'package:flua/5_2/context.dart';
+import 'package:flua/5_2/coroutineresult.dart';
+import 'package:flua/5_2/coroutinestatus.dart';
+import 'package:flua/5_2/frame.dart';
+import 'package:flua/5_2/table.dart';
 import 'package:flutter/foundation.dart';
 
 class Thread {

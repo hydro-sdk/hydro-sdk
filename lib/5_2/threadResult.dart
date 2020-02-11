@@ -1,5 +1,5 @@
-import 'package:flua/src/5_2/context.dart';
-import 'package:flua/src/5_2/frame.dart';
+import 'package:flua/5_2/context.dart';
+import 'package:flua/5_2/frame.dart';
 
 class ThreadResult {
   ThreadResult(this.success, this.values, {this.resumeTo});

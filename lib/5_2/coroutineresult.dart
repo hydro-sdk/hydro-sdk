@@ -1,4 +1,4 @@
-import 'package:flua/src/5_2/context.dart';
+import 'package:flua/5_2/context.dart';
 
 class CoroutineResult {
   CoroutineResult(this.success, this.values);
