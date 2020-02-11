@@ -14,16 +14,22 @@ class App extends StatefulWidget {
 class _App extends State<App> {
   LuaState luaState = LuaState();
 
-  CoroutineResult res;
+  Future<CoroutineResult> res;
+
+  App() {
+    res = luaState.doFileFromBundle("asset/apps/hw.lc");
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (res == null) {
-      Future.delayed(Duration(milliseconds: 100)).then((val) async {
-        res = await luaState.doFileFromBundle("assets/apps/hw.lc");
-        setState(() {});
-      });
-    }
-    return Scaffold();
+    return FutureBuilder<CoroutineResult>(
+      future: res,
+      builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
+        if (snapshot.hasData) {
+          return snapshot.data.values[0];
+        }
+        return Center(child: CircularProgressIndicator());
+      },
+    );
   }
 }
