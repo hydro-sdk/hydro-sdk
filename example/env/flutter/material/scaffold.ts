@@ -1,8 +1,11 @@
-export interface scaffold { tag: string }
 import { appBar } from './appBar';
+import { Widget } from '../widget';
+
+export interface scaffold { tag: string }
 
 interface ScaffoldProps {
     appBar: appBar;
+    body?: Widget | undefined;
 }
 
 declare const flutter: {

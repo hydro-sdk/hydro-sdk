@@ -35,6 +35,12 @@ class _App extends State<App> {
         if (snapshot.hasData) {
           return luaState.context.env["buildResult"];
         }
+         //return Center(
+        //   child: FlatButton(
+        //     child: Text("Press"),
+        //     onPressed: () {},
+        //   ),
+        // );
         return Center(child: CircularProgressIndicator());
       },
     );
