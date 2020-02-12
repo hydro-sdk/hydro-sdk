@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flua/5_2/luastate.dart';
 import 'package:flua/5_2/coroutineresult.dart';
 
-void main() => runApp(App());
+void main() => runApp(MaterialApp(
+      initialRoute: "/",
+      routes: {
+        "/": (BuildContext context) {
+          return App();
+        }
+      },
+    ));
 
 class App extends StatefulWidget {
   App();
@@ -16,8 +23,8 @@ class _App extends State<App> {
 
   Future<CoroutineResult> res;
 
-  App() {
-    res = luaState.doFileFromBundle("asset/apps/hw.lc");
+  _App() {
+    res = luaState.doFileFromBundle("assets/apps/hw.lc");
   }
 
   @override
@@ -26,7 +33,7 @@ class _App extends State<App> {
       future: res,
       builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
         if (snapshot.hasData) {
-          return snapshot.data.values[0];
+          return luaState.context.env["buildResult"];
         }
         return Center(child: CircularProgressIndicator());
       },
