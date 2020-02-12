@@ -1,4 +1,4 @@
-export interface scaffold { }
+export interface scaffold { tag: string }
 import { appBar } from './appBar';
 
 interface ScaffoldProps {
