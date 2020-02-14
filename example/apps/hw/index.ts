@@ -15,7 +15,7 @@ class MyWidget extends StatelessWidget {
 
     public build(): Widget {
         return new FlatButton({
-            child: Text(`Hello from ${this.label} ${this.count}`),
+            child: new Text(`Hello from ${this.label} ${this.count}`),
             onPressed: () => {
                 print(`Hello from ${this.label} ${this.count}`);
                 this.count += 1;
@@ -27,7 +27,7 @@ class MyWidget extends StatelessWidget {
 
 buildResult = new Scaffold({
     appBar: new AppBar({
-        title: Text("Hello")
+        title: new Text("Hello")
     }),
     body: new Center({ child: new MyWidget("MyWidget") })
 });

@@ -1,17 +1,20 @@
-export interface text {
-    tag: string;
-}
-
-interface TextProps {
-
-}
+import { StatelessWidget } from "./statelessWidget";
+import { Widget } from "flutter/widget";
 
 declare const flutter: {
     widgets: {
-        text: (this: void, text: string) => text;
+        text: (this: void, text: string) => { tag: string };
     }
 }
 
-export function Text(this: void, text: string) {
-    return flutter.widgets.text(text);
+export class Text extends StatelessWidget {
+    public text: string;
+    public constructor(text: string) {
+        super();
+        this.text = text;
+    }
+
+    public build(): Widget {
+        return flutter.widgets.text(this.text);
+    }
 }
