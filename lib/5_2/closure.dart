@@ -28,6 +28,7 @@ class Closure {
     } catch (err) {
       print("Closure ${proto.name} threw");
       print("${proto.source}");
+      print(err);
       throw err;
     }
     if (x.resumeTo != null) throw "cannot yield across dart call boundary";
