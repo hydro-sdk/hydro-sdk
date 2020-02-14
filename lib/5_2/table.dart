@@ -88,20 +88,20 @@ class Table {
   @override
   String toString() {
     String res = "";
-    var dumpTable = (Map<dynamic, dynamic> table) {
-      String res = "";
+    // var dumpTable = (Map<dynamic, dynamic> table) {
+    //   String res = "";
 
-      table.keys.forEach((x) {
-        res += "    ${x.runtimeType} ${x.toString()}\n";
-        res += "      ${table[x].runtimeType} ${table[x].toString()}\n";
-      });
+    //   table.keys.forEach((x) {
+    //     res += "    ${x.runtimeType} ${x.toString()}\n";
+    //     res += "      ${table[x].runtimeType} ${table[x].toString()}\n";
+    //   });
 
-      return res;
-    };
-    res += "map: \n";
-    res += dumpTable(map);
-    res += "metatable: \n";
-    res += metatable != null ? dumpTable(metatable.map) : "null\n";
+    //   return res;
+    // };
+    // res += "map: \n";
+    // res += dumpTable(map);
+    // res += "metatable: \n";
+    // res += metatable != null ? dumpTable(metatable.map) : "null\n";
     return res;
   }
 }
