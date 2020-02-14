@@ -132,6 +132,8 @@ class Context {
       return tableIndex(ni, y);
     } else if (x is String) {
       return stringMetatable.rawget(y);
+    } else if (x is Map<dynamic, dynamic>) {
+      return x[y];
     } else {
       // TODO: strings
       throw "attempt to index a ${getTypename(x)} value $x $y";
