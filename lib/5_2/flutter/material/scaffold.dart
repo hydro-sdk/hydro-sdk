@@ -1,4 +1,5 @@
 import 'package:flua/5_2/context.dart';
+import 'package:flua/5_2/flutter/maybeUnwrapAndBuildArgument.dart';
 import 'package:flua/5_2/table.dart' as l;
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ loadScaffold(l.Table table) {
     return [
       Scaffold(
         appBar: args[0]["appBar"],
-        body: args[0]["body"],
+        body: maybeUnwrapAndBuildArgument(args[0]["body"]),
       )
     ];
   });
