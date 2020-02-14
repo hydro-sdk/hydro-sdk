@@ -154,6 +154,8 @@ class Context {
       } else {
         x.rawset(k, v);
       }
+    } else if (x is Map<dynamic, dynamic>) {
+      x[k] = v;
     } else {
       // TODO: strings
       throw "attempt to index a ${getTypename(x)} value";
