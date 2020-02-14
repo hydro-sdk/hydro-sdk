@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 loadScaffold(l.Table table) {
   table["scaffold"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    print("called scaffold");
     return [
       Scaffold(
         appBar: args[0]["appBar"],

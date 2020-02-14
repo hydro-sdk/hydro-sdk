@@ -5,12 +5,10 @@ import 'package:flutter/material.dart';
 
 loadFlatButton(l.Table table) {
   table["flatButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    print("called flatButton");
     return [
       FlatButton(
         child: args[0]["child"],
         onPressed: () {
-          print("Called dart onPressed");
           Closure closure = args[0]["onPressed"];
           closure.call([]);
         },

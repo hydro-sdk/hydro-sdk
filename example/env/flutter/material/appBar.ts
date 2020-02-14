@@ -12,6 +12,5 @@ declare const flutter: {
 }
 
 export function AppBar(this: void, props: AppBarProps) {
-    print("Called ts appbar");
     return flutter.material.appBar({ title: props.title });
 }

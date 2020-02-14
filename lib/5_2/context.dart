@@ -178,7 +178,8 @@ class Context {
     } else if (x is bool) {
       return x.toString();
     } else {
-      return "${getTypename(x)}: ${(x.hashCode % 0x100000000).toRadixString(16).padLeft(8, "0")}";
+      return x.toString();
+      //return "${getTypename(x)}: ${(x.hashCode % 0x100000000).toRadixString(16).padLeft(8, "0")}";
     }
   }
 

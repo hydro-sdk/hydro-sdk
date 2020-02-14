@@ -15,6 +15,5 @@ declare const flutter: {
 }
 
 export function Scaffold(this: void, props: ScaffoldProps) {
-    print("Called ts scaffold");
     return flutter.material.scaffold(props);
 }

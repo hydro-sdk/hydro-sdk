@@ -23,8 +23,8 @@ class Table {
             ? arr[k.toInt() - 1]
             : null) ??
         (map.containsKey(k) ? map[k] : null);
-    if (res == null) {
-      print("Failed to index by $k");
+    if (res == null && metatable != null) {
+      return metatable.rawget(k);
     }
     return res;
   }
@@ -84,4 +84,24 @@ class Table {
   }
 
   Table metatable;
+
+  @override
+  String toString() {
+    String res = "";
+    var dumpTable = (Map<dynamic, dynamic> table) {
+      String res = "";
+
+      table.keys.forEach((x) {
+        res += "    ${x.runtimeType} ${x.toString()}\n";
+        res += "      ${table[x].runtimeType} ${table[x].toString()}\n";
+      });
+
+      return res;
+    };
+    res += "map: \n";
+    res += dumpTable(map);
+    res += "metatable: \n";
+    res += metatable != null ? dumpTable(metatable.map) : "null\n";
+    return res;
+  }
 }

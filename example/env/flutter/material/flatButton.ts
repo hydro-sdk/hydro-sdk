@@ -15,6 +15,5 @@ declare const flutter: {
 }
 
 export function FlatButton(this: void, props: FlatButtonProps) {
-    print("called ts flatbutton");
     return flutter.material.flatButton(props);
 }

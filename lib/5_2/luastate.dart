@@ -55,8 +55,6 @@ class LuaState {
       loadFlutter();
       loadStatelessWidget(context.env);
     }
-
-    print("");
   }
 
   void loadBase() => loadBaseLib(_context);

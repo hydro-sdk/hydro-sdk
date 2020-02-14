@@ -8,7 +8,9 @@
     "test": "test"
   },
   "scripts": {
-    "build":"tstl && ./../luac.5.2.4 -o assets/apps/hw.lc assets/apps/hw.lua",
+    "tstl":"tstl",
+    "luac":"./../luac.5.2.4 -o assets/apps/hw.lc assets/apps/hw.lua",
+    "build":"tstl && npm run luac",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

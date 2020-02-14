@@ -16,6 +16,5 @@ declare const flutter: {
 }
 
 export function Center(this: void, props: CenterProps) {
-    print("Called ts center");
     return flutter.widgets.center(props);
 }

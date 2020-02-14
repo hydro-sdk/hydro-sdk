@@ -13,6 +13,5 @@ declare const flutter: {
 }
 
 export function Text(this: void, text: string) {
-    print("called ts text");
     return flutter.widgets.text(text);
 }

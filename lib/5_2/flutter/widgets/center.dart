@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 loadCenter(l.Table table) {
   table["center"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    print("called center");
     return [
       Center(
         child: args[0]["child"],

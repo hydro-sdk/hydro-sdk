@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 loadText(l.Table table) {
   table["text"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    print("called text");
     return [
       Text(
         args[0],
