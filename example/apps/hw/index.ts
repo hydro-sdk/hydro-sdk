@@ -6,16 +6,20 @@ declare let buildResult: Widget;
 
 class MyWidget extends StatelessWidget {
     public label: string;
+    public count: number;
     public constructor(label: string) {
         super();
-
         this.label = label;
+        this.count = 0;
     }
 
     public build(): Widget {
         return new FlatButton({
-            child: Text(`Hello from ${this.label}`),
-            onPressed: () => { print(`Hello from ${this.label}`); }
+            child: Text(`Hello from ${this.label} ${this.count}`),
+            onPressed: () => {
+                print(`Hello from ${this.label} ${this.count}`);
+                this.count += 1;
+            }
         });
 
     }
