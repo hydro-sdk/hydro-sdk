@@ -1,9 +1,5 @@
 import { Widget } from '../widget';
-
-
-export interface center {
-    tag: string;
-}
+import { StatelessWidget } from './statelessWidget';
 
 interface CenterProps {
     child: Widget;
@@ -11,10 +7,18 @@ interface CenterProps {
 
 declare const flutter: {
     widgets: {
-        center: (this: void, props: CenterProps) => center;
+        center: (this: void, props: CenterProps) => { tag: string };
     }
 }
 
-export function Center(this: void, props: CenterProps) {
-    return flutter.widgets.center(props);
+export class Center extends StatelessWidget {
+    public props: CenterProps;
+    public constructor(props: CenterProps) {
+        super();
+        this.props = props;
+    }
+
+    public build(): Widget {
+        return flutter.widgets.center(this.props);
+    }
 }

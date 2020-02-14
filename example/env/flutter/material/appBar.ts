@@ -1,5 +1,5 @@
-export interface appBar { }
 import { Widget } from 'flutter/widget';
+import { StatelessWidget } from 'flutter/widgets/index';
 
 interface AppBarProps {
     title: Widget;
@@ -7,10 +7,18 @@ interface AppBarProps {
 
 declare const flutter: {
     material: {
-        appBar: (this: void, props: AppBarProps) => appBar;
+        appBar: (this: void, props: AppBarProps) => { tag: string };
     }
 }
 
-export function AppBar(this: void, props: AppBarProps) {
-    return flutter.material.appBar({ title: props.title });
+export class AppBar extends StatelessWidget {
+    public props: AppBarProps;
+    public constructor(props: AppBarProps) {
+        super();
+        this.props = props;
+    }
+
+    public build(): Widget {
+        return flutter.material.appBar(this.props);
+    }
 }

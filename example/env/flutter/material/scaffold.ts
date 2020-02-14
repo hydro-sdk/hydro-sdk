@@ -1,19 +1,26 @@
-import { appBar } from './appBar';
+import {  AppBar } from './appBar';
 import { Widget } from '../widget';
-
-export interface scaffold { tag: string }
+import { StatelessWidget } from 'flutter/widgets/index';
 
 interface ScaffoldProps {
-    appBar: appBar;
+    appBar: AppBar;
     body?: Widget | undefined;
 }
 
 declare const flutter: {
     material: {
-        scaffold: (this: void, props: ScaffoldProps) => scaffold;
+        scaffold: (this: void, props: ScaffoldProps) => { tag: string };
     }
 }
 
-export function Scaffold(this: void, props: ScaffoldProps) {
-    return flutter.material.scaffold(props);
+export class Scaffold extends StatelessWidget {
+    public props: ScaffoldProps;
+    public constructor(props: ScaffoldProps) {
+        super();
+        this.props = props;
+    }
+
+    public build(): Widget {
+        return flutter.material.scaffold(this.props);
+    }
 }

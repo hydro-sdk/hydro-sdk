@@ -7,7 +7,7 @@ loadScaffold(l.Table table) {
   table["scaffold"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Scaffold(
-        appBar: args[0]["appBar"],
+        appBar: maybeUnwrapAndBuildArgument(args[0]["appBar"]),
         body: maybeUnwrapAndBuildArgument(args[0]["body"]),
       )
     ];

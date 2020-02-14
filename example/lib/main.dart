@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flua/5_2/luastate.dart';
 import 'package:flua/5_2/coroutineresult.dart';
+import 'package:flua/5_2/flutter/maybeUnwrapAndBuildArgument.dart';
 
 void main() => runApp(MaterialApp(
       initialRoute: "/",
@@ -33,9 +34,10 @@ class _App extends State<App> {
       future: res,
       builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
         if (snapshot.hasData) {
-          return luaState.context.env["buildResult"];
+          return maybeUnwrapAndBuildArgument(
+              luaState.context.env["buildResult"]);
         }
-         //return Center(
+        //return Center(
         //   child: FlatButton(
         //     child: Text("Press"),
         //     onPressed: () {},

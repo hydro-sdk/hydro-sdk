@@ -1,7 +1,6 @@
 
 import { Widget } from '../widget';
-
-export interface flatButton { tag: string; }
+import { StatelessWidget } from 'flutter/widgets/index';
 
 interface FlatButtonProps {
     child: Widget;
@@ -10,10 +9,18 @@ interface FlatButtonProps {
 
 declare const flutter: {
     material: {
-        flatButton: (this: void, props: FlatButtonProps) => flatButton;
+        flatButton: (this: void, props: FlatButtonProps) => { tag: string };
     }
 }
 
-export function FlatButton(this: void, props: FlatButtonProps) {
-    return flutter.material.flatButton(props);
+export class FlatButton extends StatelessWidget {
+    public props: FlatButtonProps;
+    public constructor(props: FlatButtonProps) {
+        super();
+        this.props = props;
+    }
+
+    public build(): Widget {
+        return flutter.material.flatButton(this.props);
+    }
 }

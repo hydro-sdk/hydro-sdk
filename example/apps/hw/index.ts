@@ -1,17 +1,8 @@
 import { Scaffold, AppBar, Text, Widget } from 'flutter/index';
 import { FlatButton } from "flutter/material/flatButton";
-import { Center } from "flutter/widgets/index";
-import { console } from 'ts/console';
+import { StatelessWidget, Center } from "flutter/widgets/index";
 
 declare let buildResult: Widget;
-
-abstract class StatelessWidget implements Widget {
-    tag: string;
-    public abstract build(): Widget;
-    public constructor() {
-        this.tag = "";
-    }
-}
 
 class MyWidget extends StatelessWidget {
     public label: string;
@@ -22,20 +13,17 @@ class MyWidget extends StatelessWidget {
     }
 
     public build(): Widget {
-        return ((): Widget => {
-            return FlatButton({
-                child: Text(`Hello from ${this.label}`),
-                onPressed: () => { print(`Hello from ${this.label}`); }
-            });
-        })();
+        return new FlatButton({
+            child: Text(`Hello from ${this.label}`),
+            onPressed: () => { print(`Hello from ${this.label}`); }
+        });
+
     }
 }
 
-
-
-buildResult = Scaffold({
-    appBar: AppBar({
+buildResult = new Scaffold({
+    appBar: new AppBar({
         title: Text("Hello")
     }),
-    body: new MyWidget("MyWidget")
+    body: new Center({ child: new MyWidget("MyWidget") })
 });
