@@ -1,6 +1,7 @@
 import { Scaffold, AppBar, Text, Widget } from 'flutter/index';
 import { FlatButton } from "flutter/material/flatButton";
 import { StatelessWidget, Center, StatefulWidget, State } from "flutter/widgets/index";
+import { Column } from 'flutter/widgets/column';
 
 declare let buildResult: Widget;
 
@@ -41,5 +42,5 @@ buildResult = new Scaffold({
     appBar: new AppBar({
         title: new Text("Hello")
     }),
-    body: new Center({ child: new MyWidget("MyWidget") })
+    body: new Column({ children: [new Center({ child: new MyWidget("MyWidget") })] })
 });
