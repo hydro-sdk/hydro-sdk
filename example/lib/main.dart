@@ -25,7 +25,7 @@ class _App extends State<App> {
   Future<CoroutineResult> res;
 
   _App() {
-    res = luaState.doFileFromBundle("assets/apps/hw.lc");
+    res = luaState.doFileFromBundle("assets/apps/counter-test.lc");
   }
 
   @override

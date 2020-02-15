@@ -1,5 +1,5 @@
 import { StatelessWidget } from "./statelessWidget";
-import { Widget } from "flutter/widget";
+import { Widget } from "./../widget";
 
 declare const flutter: {
     widgets: {

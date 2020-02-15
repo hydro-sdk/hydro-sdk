@@ -1,4 +1,4 @@
-import { Widget } from "flutter/index";
+import { Widget } from "./../widget";
 
 export abstract class StatelessWidget implements Widget {
     tag: string;

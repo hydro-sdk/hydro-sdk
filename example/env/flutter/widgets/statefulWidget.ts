@@ -1,5 +1,5 @@
 
-import { Widget } from "flutter/index";
+import { Widget } from "./../widget";
 import { State } from "./state";
 
 export abstract class StatefulWidget implements Widget {

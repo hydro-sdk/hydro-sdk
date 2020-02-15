@@ -1,6 +1,6 @@
 import {  AppBar } from './appBar';
 import { Widget } from '../widget';
-import { StatelessWidget } from 'flutter/widgets/index';
+import { StatelessWidget } from './../widgets/statelessWidget';
 
 interface ScaffoldProps {
     appBar: AppBar;

@@ -46,7 +46,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/apps/hw.lc
+    - assets/apps/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

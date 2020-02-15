@@ -1,5 +1,5 @@
-import { Widget } from 'flutter/widget';
-import { StatelessWidget } from 'flutter/widgets/index';
+import { Widget } from './../widget';
+import { StatelessWidget } from './../widgets/statelessWidget';
 
 interface AppBarProps {
     title: Widget;
