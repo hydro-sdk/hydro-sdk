@@ -1,4 +1,5 @@
 import 'package:flua/5_2/closure.dart';
+import 'package:flua/5_2/flutter/widgets/statefulWidgetBox.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flua/5_2/table.dart' as l;
 
@@ -16,6 +17,12 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg) {
         //Call the widgets synthetic build method with the itself as first arg
         //(Effectively a this call) and unbox the result
         return maybeUnwrapAndBuildArgument(build([arg.map])[0]);
+      }
+
+      Closure createState = arg.metatable["createState"];
+      if (createState != null) {
+        return StatefulWidgetBox(table: arg);
+        // return maybeUnwrapAndBuildArgument(createState([arg.map])[0]);
       }
     }
   }

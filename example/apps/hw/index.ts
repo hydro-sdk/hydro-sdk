@@ -33,8 +33,20 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class MyStatefulWidgetState extends State<MyStatefulWidget> {
+    count: number;
+    public constructor() {
+        super();
+        this.count = 0;
+    }
     public build(): Widget {
-        return new Text("MyStatefulWidgetState");
+        return new FlatButton({
+            child: new Text(`Hello stateful ${this.count}`),
+            onPressed: () => {
+                (this as any).setState(() => {
+                    this.count += 1;
+                });
+            }
+        });
     }
 }
 
@@ -42,5 +54,14 @@ buildResult = new Scaffold({
     appBar: new AppBar({
         title: new Text("Hello")
     }),
-    body: new Column({ children: [new Center({ child: new MyWidget("MyWidget") })] })
+    body: new Column({
+        children: [
+            new Center({
+                child: new MyWidget("MyWidget")
+            }),
+            new Center({
+                child: new MyStatefulWidget()
+            })
+        ]
+    })
 });

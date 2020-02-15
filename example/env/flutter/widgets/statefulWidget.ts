@@ -11,4 +11,5 @@ export abstract class StatefulWidget implements Widget {
 
 export abstract class State<T> {
     public abstract build(): Widget;
+    // public setState(): void;
 }
