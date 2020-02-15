@@ -1,4 +1,6 @@
-export { Text } from "./text";
 export { Center } from "./center";
+export { Column } from "./column";
+export { State } from "./state";
+export { StatefulWidget } from "./statefulWidget";
 export { StatelessWidget } from "./statelessWidget";
-export { State, StatefulWidget } from "./statefulWidget";
+export { Text } from "./text";

@@ -1,7 +1,6 @@
-import { Scaffold, AppBar, Text, Widget } from 'flutter/index';
-import { FlatButton } from "flutter/material/flatButton";
-import { StatelessWidget, Center, StatefulWidget, State } from "flutter/widgets/index";
-import { Column } from 'flutter/widgets/column';
+import { StatelessWidget, Center, StatefulWidget, Text, State, Column } from "flutter/widgets/index";
+import { Widget } from "flutter/widget";
+import { Scaffold, AppBar, FlatButton } from "flutter/material/index";
 
 declare let buildResult: Widget;
 
@@ -42,7 +41,7 @@ class MyStatefulWidgetState extends State<MyStatefulWidget> {
         return new FlatButton({
             child: new Text(`Hello stateful ${this.count}`),
             onPressed: () => {
-                (this as any).setState(() => {
+                this.setState(() => {
                     this.count += 1;
                 });
             }

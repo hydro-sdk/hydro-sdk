@@ -1,4 +1,6 @@
+
 import { Widget } from "flutter/index";
+import { State } from "./state";
 
 export abstract class StatefulWidget implements Widget {
     tag: string;
@@ -7,9 +9,4 @@ export abstract class StatefulWidget implements Widget {
     public constructor() {
         this.tag = "";
     }
-}
-
-export abstract class State<T> {
-    public abstract build(): Widget;
-    // public setState(): void;
 }
