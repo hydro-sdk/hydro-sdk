@@ -1,10 +1,11 @@
-import {  AppBar } from './appBar';
+import { AppBar } from './appBar';
 import { Widget } from '../widget';
 import { StatelessWidget } from './../widgets/statelessWidget';
 
 interface ScaffoldProps {
     appBar: AppBar;
     body?: Widget | undefined;
+    floatingActionButton?: Widget | undefined;
 }
 
 declare const flutter: {

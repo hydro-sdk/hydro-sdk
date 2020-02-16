@@ -8,6 +8,9 @@ import { AppBar } from "./../../env/flutter/material/appBar";
 import { Text } from "./../../env/flutter/widgets/text";
 import { Center } from "./../../env/flutter/widgets/center";
 import { Column } from "./../../env/flutter/widgets/column";
+import { FloatingActionButton } from "./../../env/flutter/material/floatingActionButton";
+import { Icon } from "./../../env/flutter/widgets/icon";
+import { Icons } from "./../../env/flutter/material/icons";
 
 declare let buildResult: Widget;
 
@@ -42,9 +45,10 @@ class MyHomePageState extends State<MyHomePage> {
     public constructor(title: string) {
         super();
         this.title = title;
+        // this.incrementCounter = this.incrementCounter.bind(this);
     }
 
-    private incrementCounter() {
+    private incrementCounter = () => {
         this.setState(() => {
             this.counter++;
         });
@@ -62,6 +66,10 @@ class MyHomePageState extends State<MyHomePage> {
                         new Text(this.counter.toString())
                     ]
                 })
+            }),
+            floatingActionButton: new FloatingActionButton({
+                child: new Icon(Icons.add),
+                onPressed: this.incrementCounter
             })
         });
     }

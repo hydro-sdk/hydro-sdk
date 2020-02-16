@@ -25,14 +25,13 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg) {
         // return maybeUnwrapAndBuildArgument(createState([arg.map])[0]);
       }
     }
-  }
-
-  //Unbox an array of synthetic widgets
-  if (arg.arr != null && arg.arr.isNotEmpty) {
-    return arg.arr
-        .map((x) => maybeUnwrapAndBuildArgument(x))
-        .toList()
-        .cast<Widget>();
+    //Unbox an array of synthetic widgets
+    if (arg.arr != null && arg.arr.isNotEmpty) {
+      return arg.arr
+          .map((x) => maybeUnwrapAndBuildArgument(x))
+          .toList()
+          .cast<Widget>();
+    }
   }
   return arg;
 }

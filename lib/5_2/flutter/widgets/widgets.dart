@@ -1,6 +1,7 @@
 import 'package:flua/5_2/flutter/widgets/center.dart';
 import 'package:flua/5_2/flutter/widgets/column.dart';
 import 'package:flua/5_2/flutter/widgets/icon.dart';
+import 'package:flua/5_2/flutter/widgets/iconData.dart';
 import 'package:flua/5_2/flutter/widgets/text.dart';
 import 'package:flua/5_2/table.dart';
 
@@ -13,4 +14,5 @@ loadWidgets(Table table) {
   loadCenter(widgets);
   loadColumn(widgets);
   loadIcon(widgets);
+  loadIconData(widgets);
 }
