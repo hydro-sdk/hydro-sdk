@@ -7,6 +7,7 @@ loadText(l.Table table) {
     return [
       Text(
         args[0],
+        style: args[1] != null ? args[1]["style"] : null,
       )
     ];
   });

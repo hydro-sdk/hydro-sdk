@@ -3,6 +3,7 @@ import 'package:flua/5_2/flutter/material/flatButton.dart';
 import 'package:flua/5_2/flutter/material/floatingActionButton.dart';
 import 'package:flua/5_2/flutter/material/materialApp.dart';
 import 'package:flua/5_2/flutter/material/scaffold.dart';
+import 'package:flua/5_2/flutter/material/theme.dart';
 import 'package:flua/5_2/table.dart';
 
 loadMaterial(Table table) {
@@ -15,4 +16,5 @@ loadMaterial(Table table) {
   loadFlatButton(material);
   loadMaterialApp(material);
   loadFloatingActionButton(material);
+  loadThemeOf(material);
 }
