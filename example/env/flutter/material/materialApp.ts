@@ -4,6 +4,7 @@ import { StatelessWidget } from './../widgets/statelessWidget';
 interface MaterialAppProps {
     initialRoute: string;
     home: Widget;
+    title?: string | undefined;
 }
 
 declare const flutter: {
@@ -17,6 +18,7 @@ export class MaterialApp extends StatelessWidget {
     public constructor(props: MaterialAppProps) {
         super();
         this.props = props;
+        this.props.title = this.props.title != undefined ? this.props.title : "";
     }
 
     public build(): Widget {

@@ -9,6 +9,7 @@ loadMaterialApp(l.Table table) {
       MaterialApp(
         initialRoute: args[0]["initialRoute"],
         home: maybeUnwrapAndBuildArgument(args[0]["home"]),
+        title: args[0]["title"],
       )
     ];
   });
