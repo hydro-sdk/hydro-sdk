@@ -1,5 +1,7 @@
 import 'package:flua/5_2/flutter/material/appBar.dart';
 import 'package:flua/5_2/flutter/material/flatButton.dart';
+import 'package:flua/5_2/flutter/material/floatingActionButton.dart';
+import 'package:flua/5_2/flutter/material/iconData.dart';
 import 'package:flua/5_2/flutter/material/materialApp.dart';
 import 'package:flua/5_2/flutter/material/scaffold.dart';
 import 'package:flua/5_2/table.dart';
@@ -13,4 +15,6 @@ loadMaterial(Table table) {
   loadAppBar(material);
   loadFlatButton(material);
   loadMaterialApp(material);
+  loadFloatingActionButton(material);
+  loadIconData(material);
 }
