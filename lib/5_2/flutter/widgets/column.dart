@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 
 loadColumn(l.Table table) {
   table["column"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    print(args);
-    return [Column(children: maybeUnwrapAndBuildArgument(args[0]["children"]))];
+    return [
+      Column(
+          mainAxisAlignment: MainAxisAlignment.values
+              .firstWhere((x) => x.index == args[0]["mainAxisAlignment"]),
+          children: maybeUnwrapAndBuildArgument(args[0]["children"]))
+    ];
   });
 }
