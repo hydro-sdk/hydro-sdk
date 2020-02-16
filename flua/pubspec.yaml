@@ -27,9 +27,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_driver:
-    sdk: flutter
-  test: any
 
 
 # For information on the generic Dart part of this file, see the
@@ -42,9 +39,6 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
-  assets:
-    - assets/apps/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
