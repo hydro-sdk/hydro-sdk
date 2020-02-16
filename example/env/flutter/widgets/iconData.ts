@@ -1,5 +1,5 @@
 import { Widget } from '../widget';
-import { StatelessWidget } from './statelessWidget';
+import { SyntheticBox } from './syntheticBox';
 
 interface IconDataProps {
     fontFamily: string;
@@ -11,7 +11,7 @@ declare const flutter: {
     }
 }
 
-export class IconData extends StatelessWidget {
+export class IconData extends SyntheticBox {
     public codePoint: number;
     public props: IconDataProps;
     public constructor(codePoint: number, props: IconDataProps) {
@@ -20,7 +20,7 @@ export class IconData extends StatelessWidget {
         this.props = props;
     }
 
-    public build(): Widget {
+    public unwrap(): Widget {
         return flutter.widgets.iconData(this.codePoint, this.props);
     }
 }

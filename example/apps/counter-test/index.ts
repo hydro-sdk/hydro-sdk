@@ -11,8 +11,8 @@ import { Column } from "./../../env/flutter/widgets/column";
 import { FloatingActionButton } from "./../../env/flutter/material/floatingActionButton";
 import { Icon } from "./../../env/flutter/widgets/icon";
 import { Icons } from "./../../env/flutter/material/icons";
-import { TextStyle } from "../../env/flutter/package/textStyle";
-import { console } from "../../env/ts/console";
+import { Theme } from "../../env/flutter/material/theme";
+import { BuildContext } from "../../env/flutter/buildContext";
 
 declare let buildResult: Widget;
 
@@ -56,9 +56,7 @@ class MyHomePageState extends State<MyHomePage> {
         });
     }
 
-    public build(): Widget {
-        console.log("text style is");
-        console.log(TextStyle({ fontSize: 70 }) as any);
+    public build(context: BuildContext): Widget {
         return new Scaffold({
             appBar: new AppBar({
                 title: new Text(this.title)
@@ -67,7 +65,12 @@ class MyHomePageState extends State<MyHomePage> {
                 child: new Column({
                     children: [
                         new Text("You have pushed the button this many times"),
-                        new Text(this.counter.toString(), { style: TextStyle({ fontSize: 70 }) })
+                        new Text(
+                            this.counter.toString(),
+                            {
+                                style: Theme.of(context).textTheme.display1
+                            }
+                        )
                     ]
                 })
             }),

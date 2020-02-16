@@ -5,7 +5,6 @@ import 'package:flua/5_2/closure.dart';
 import 'package:flua/5_2/context.dart';
 import 'package:flua/5_2/coroutineresult.dart';
 import 'package:flua/5_2/flutter/flutter.dart';
-import 'package:flua/5_2/flutter/widgets/statelessWidget.dart';
 import 'package:flua/5_2/luafunction.dart';
 import 'package:flua/5_2/stdlib/base.dart';
 import 'package:flua/5_2/stdlib/bit.dart';
@@ -53,7 +52,6 @@ class LuaState {
       loadTable();
       loadBit32();
       loadFlutter();
-      loadStatelessWidget(context.env);
     }
   }
 

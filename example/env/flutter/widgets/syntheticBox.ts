@@ -1,8 +1,8 @@
 import { Widget } from "./../widget";
 
-export abstract class StatelessWidget implements Widget {
+export abstract class SyntheticBox implements Widget {
     tag: string;
-    public abstract build(): Widget;
+    public abstract unwrap(): Widget;
     public constructor() {
         this.tag = "";
     }

@@ -1,5 +1,6 @@
 import { Widget } from './../widget';
 import { StatelessWidget } from './../widgets/statelessWidget';
+import { SyntheticBox } from '../widgets/syntheticBox';
 
 interface AppBarProps {
     title: Widget;
@@ -11,14 +12,14 @@ declare const flutter: {
     }
 }
 
-export class AppBar extends StatelessWidget {
+export class AppBar extends SyntheticBox {
     public props: AppBarProps;
     public constructor(props: AppBarProps) {
         super();
         this.props = props;
     }
 
-    public build(): Widget {
+    public unwrap(): Widget {
         return flutter.material.appBar(this.props);
     }
 }
