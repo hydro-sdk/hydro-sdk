@@ -1,6 +1,13 @@
-import { StatelessWidget, Center, StatefulWidget, Text, State, Column } from "./../../env/flutter/widgets/index";
-import { Widget } from "../../env/flutter/widget";
-import { Scaffold, AppBar, MaterialApp } from "./../../env/flutter/material/index";
+import { Widget } from "./../../env/flutter/widget";
+import { StatelessWidget } from "./../../env/flutter/widgets/statelessWidget";
+import { StatefulWidget } from "./../../env/flutter/widgets/statefulWidget";
+import { State } from "./../../env/flutter/widgets/state";
+import { MaterialApp } from "./../../env/flutter/material/materialApp";
+import { Scaffold } from "./../../env/flutter/material/scaffold";
+import { AppBar } from "./../../env/flutter/material/appBar";
+import { Text } from "./../../env/flutter/widgets/text";
+import { Center } from "./../../env/flutter/widgets/center";
+import { Column } from "./../../env/flutter/widgets/column";
 
 declare let buildResult: Widget;
 
