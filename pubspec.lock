@@ -23,7 +23,7 @@ packages:
     source: hosted
     version: "2.0.11"
   args:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: args
       url: "https://pub.dartlang.org"
@@ -418,6 +418,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.15"
+  tuple:
+    dependency: "direct dev"
+    description:
+      name: tuple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   typed_data:
     dependency: transitive
     description:
