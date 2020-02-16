@@ -13,6 +13,7 @@ import { Icon } from "./../../env/flutter/widgets/icon";
 import { Icons } from "./../../env/flutter/material/icons";
 import { Theme } from "../../env/flutter/material/theme";
 import { BuildContext } from "../../env/flutter/buildContext";
+import { MainAxisAlignment } from "../../env/flutter/widgets/mainAxisAlignment";
 
 declare let buildResult: Widget;
 
@@ -47,7 +48,6 @@ class MyHomePageState extends State<MyHomePage> {
     public constructor(title: string) {
         super();
         this.title = title;
-        // this.incrementCounter = this.incrementCounter.bind(this);
     }
 
     private incrementCounter = () => {
@@ -63,6 +63,7 @@ class MyHomePageState extends State<MyHomePage> {
             }),
             body: new Center({
                 child: new Column({
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                         new Text("You have pushed the button this many times"),
                         new Text(
