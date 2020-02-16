@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 loadAppBar(l.Table table) {
   table["appBar"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    var zero = args[0];
     return [
       AppBar(
         title: maybeUnwrapAndBuildArgument(args[0]["title"]),
