@@ -1,70 +1,63 @@
 import { StatelessWidget, Center, StatefulWidget, Text, State, Column } from "./../../env/flutter/widgets/index";
 import { Widget } from "../../env/flutter/widget";
-import { Scaffold, AppBar, FlatButton, MaterialApp } from "./../../env/flutter/material/index";
-import { console } from "./../../env/ts/console";
+import { Scaffold, AppBar, MaterialApp } from "./../../env/flutter/material/index";
 
 declare let buildResult: Widget;
 
-class MyWidget extends StatelessWidget {
-    public label: string;
-    public count: number;
-    public constructor(label: string) {
-        super();
-        this.label = label;
-        this.count = 0;
-    }
-
-    public build(): Widget {
-        return new FlatButton({
-            child: new Text(`Hello from ${this.label} ${this.count}`),
-            onPressed: () => {
-                console.log(`Hello from ${this.label} ${this.count}`);
-                this.count += 1;
-            }
-        });
-
-    }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-    public createState(): MyStatefulWidgetState {
-        return new MyStatefulWidgetState();
-    }
-}
-
-class MyStatefulWidgetState extends State<MyStatefulWidget> {
-    count: number;
+class MyApp extends StatelessWidget {
     public constructor() {
         super();
-        this.count = 0;
     }
+
     public build(): Widget {
-        return new FlatButton({
-            child: new Text(`Hello stateful ${this.count}`),
-            onPressed: () => {
-                this.setState(() => {
-                    this.count += 1;
-                });
-            }
+        return new MaterialApp({
+            title: "Counter App",
+            initialRoute: "/",
+            home: new MyHomePage("Counter App Home Page")
         });
     }
 }
 
-buildResult = new MaterialApp({
-    initialRoute: "/",
-    home: new Scaffold({
-        appBar: new AppBar({
-            title: new Text("Hello")
-        }),
-        body: new Column({
-            children: [
-                new Center({
-                    child: new MyWidget("MyWidget")
-                }),
-                new Center({
-                    child: new MyStatefulWidget()
+class MyHomePage extends StatefulWidget {
+    public title: string;
+    public constructor(title: string) {
+        super();
+        this.title = title;
+    }
+    public createState() {
+        return new MyHomePageState(this.title);
+    }
+}
+
+class MyHomePageState extends State<MyHomePage> {
+    private counter: number = 0;
+    public title: string;
+    public constructor(title: string) {
+        super();
+        this.title = title;
+    }
+
+    private incrementCounter() {
+        this.setState(() => {
+            this.counter++;
+        });
+    }
+
+    public build(): Widget {
+        return new Scaffold({
+            appBar: new AppBar({
+                title: new Text(this.title)
+            }),
+            body: new Center({
+                child: new Column({
+                    children: [
+                        new Text("You have pushed the button this many times"),
+                        new Text(this.counter.toString())
+                    ]
                 })
-            ]
-        })
-    })
-});
+            })
+        });
+    }
+}
+
+buildResult = new MyApp();
