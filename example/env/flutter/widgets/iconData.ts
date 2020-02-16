@@ -1,5 +1,5 @@
 import { Widget } from '../widget';
-import { SyntheticBox } from './syntheticBox';
+import { SyntheticBox } from './../../syntheticBox';
 
 interface IconDataProps {
     fontFamily: string;

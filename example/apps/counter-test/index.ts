@@ -14,6 +14,7 @@ import { Icons } from "./../../env/flutter/material/icons";
 import { Theme } from "../../env/flutter/material/theme";
 import { BuildContext } from "../../env/flutter/buildContext";
 import { MainAxisAlignment } from "../../env/flutter/widgets/mainAxisAlignment";
+import { Key } from "../../env/flutter/key";
 
 declare let buildResult: Widget;
 
@@ -69,6 +70,7 @@ class MyHomePageState extends State<MyHomePage> {
                         new Text(
                             this.counter.toString(),
                             {
+                                key: new Key("counter"),
                                 style: Theme.of(context).textTheme.display1
                             }
                         )

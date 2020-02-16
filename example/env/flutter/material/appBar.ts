@@ -1,6 +1,5 @@
 import { Widget } from './../widget';
-import { StatelessWidget } from './../widgets/statelessWidget';
-import { SyntheticBox } from '../widgets/syntheticBox';
+import { SyntheticBox } from '../../syntheticBox';
 
 interface AppBarProps {
     title: Widget;

@@ -1,4 +1,4 @@
-import { Widget } from "./../widget";
+import { Widget } from "./flutter/widget";
 
 export abstract class SyntheticBox implements Widget {
     tag: string;

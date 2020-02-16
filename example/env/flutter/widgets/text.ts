@@ -1,8 +1,10 @@
 import { StatelessWidget } from "./statelessWidget";
 import { Widget } from "./../widget";
 import { TextStyleProps } from "./../package/textStyle";
+import { Key } from "./../key";
 
 interface TextProps {
+    key?: Key | undefined;
     style?: TextStyleProps | undefined;
 }
 

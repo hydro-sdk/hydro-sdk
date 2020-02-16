@@ -1,7 +1,9 @@
 import { Widget } from '../widget';
 import { StatelessWidget } from './../widgets/statelessWidget';
+import { Key } from '../key';
 
 interface FloatingActionButtonProps {
+    key?: Key | undefined;
     child: Widget;
     onPressed: () => void;
 }
