@@ -3,14 +3,7 @@ import 'package:flua/5_2/luastate.dart';
 import 'package:flua/5_2/coroutineresult.dart';
 import 'package:flua/5_2/flutter/maybeUnwrapAndBuildArgument.dart';
 
-void main() => runApp(MaterialApp(
-      initialRoute: "/",
-      routes: {
-        "/": (BuildContext context) {
-          return App();
-        }
-      },
-    ));
+void main() => runApp(App());
 
 class App extends StatefulWidget {
   App();
@@ -37,12 +30,6 @@ class _App extends State<App> {
           return maybeUnwrapAndBuildArgument(
               luaState.context.env["buildResult"]);
         }
-        //return Center(
-        //   child: FlatButton(
-        //     child: Text("Press"),
-        //     onPressed: () {},
-        //   ),
-        // );
         return Center(child: CircularProgressIndicator());
       },
     );
