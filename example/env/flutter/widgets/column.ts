@@ -20,7 +20,7 @@ export class Column extends StatelessWidget {
         this.props = props;
 
         if (!this.props.mainAxisAlignment) {
-            this.props.mainAxisAlignment = MainAxisAlignment.center;
+            this.props.mainAxisAlignment = MainAxisAlignment.start;
         }
     }
 
