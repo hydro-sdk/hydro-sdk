@@ -1,6 +1,6 @@
 import { StatelessWidget, Center, StatefulWidget, Text, State, Column } from "./../../env/flutter/widgets/index";
 import { Widget } from "../../env/flutter/widget";
-import { Scaffold, AppBar, FlatButton } from "./../../env/flutter/material/index";
+import { Scaffold, AppBar, FlatButton, MaterialApp } from "./../../env/flutter/material/index";
 import { console } from "./../../env/ts/console";
 
 declare let buildResult: Widget;
@@ -50,18 +50,21 @@ class MyStatefulWidgetState extends State<MyStatefulWidget> {
     }
 }
 
-buildResult = new Scaffold({
-    appBar: new AppBar({
-        title: new Text("Hello")
-    }),
-    body: new Column({
-        children: [
-            new Center({
-                child: new MyWidget("MyWidget")
-            }),
-            new Center({
-                child: new MyStatefulWidget()
-            })
-        ]
+buildResult = new MaterialApp({
+    initialRoute: "/",
+    home: new Scaffold({
+        appBar: new AppBar({
+            title: new Text("Hello")
+        }),
+        body: new Column({
+            children: [
+                new Center({
+                    child: new MyWidget("MyWidget")
+                }),
+                new Center({
+                    child: new MyStatefulWidget()
+                })
+            ]
+        })
     })
 });
