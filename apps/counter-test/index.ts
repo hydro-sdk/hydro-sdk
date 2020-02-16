@@ -78,6 +78,7 @@ class MyHomePageState extends State<MyHomePage> {
                 })
             }),
             floatingActionButton: new FloatingActionButton({
+                key: new Key("increment"),
                 child: new Icon(Icons.add),
                 onPressed: this.incrementCounter
             })

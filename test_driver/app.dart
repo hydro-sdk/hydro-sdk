@@ -1,71 +1,41 @@
+import 'package:flua/5_2/coroutineresult.dart';
+import 'package:flua/5_2/flutter/maybeUnwrapAndBuildArgument.dart';
+import 'package:flua/5_2/luastate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 
 void main() {
   enableFlutterDriverExtension();
-  return runApp(MyApp());
+  return runApp(App());
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Counter App',
-      home: MyHomePage(title: 'Counter App Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
+class App extends StatefulWidget {
+  App();
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _App createState() => _App();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _App extends State<App> {
+  LuaState luaState = LuaState();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  Future<CoroutineResult> res;
+
+  _App() {
+    res = luaState.doFileFromBundle("assets/apps/counter-test.lc");
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              // Provide a Key to this specific Text widget. This allows
-              // identifing the widget from inside the test suite,
-              // and reading the text.
-              key: Key('counter'),
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        // Provide a Key to this button. This allows finding this
-        // specific button inside the test suite, and tapping it.
-        key: Key('increment'),
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+    return FutureBuilder<CoroutineResult>(
+      future: res,
+      builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
+        if (snapshot.hasData) {
+          return maybeUnwrapAndBuildArgument(
+              luaState.context.env["buildResult"]);
+        }
+        return Center(child: CircularProgressIndicator());
+      },
     );
   }
 }

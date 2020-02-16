@@ -40,3 +40,4 @@ node_modules
 luac.5.2.4
 luac.5.3.5
 apps/**/*.lua
+assets/apps/*.lc
