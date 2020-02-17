@@ -145,6 +145,7 @@ class InstInfo {
   }
 
   Inst decode(int raw) {
+    // ignore: non_constant_identifier_names
     int OP = raw & 63;
     int A = 0;
     int B = 0;
@@ -220,6 +221,7 @@ class InstInfo {
 
 class Inst {
   Inst(this.OP, this.A, this.B, this.C);
+  // ignore: non_constant_identifier_names
   final int OP;
   final int A;
   final int B;

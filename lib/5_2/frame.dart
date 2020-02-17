@@ -26,14 +26,16 @@ class Frame {
         _K = _proto.constants,
         _R = new List.filled(_proto.registers, null, growable: true),
         _code = _proto.rawCode,
-        _thread = thread {}
+        _thread = thread;
 
   final Thread _thread;
   final Frame parent;
   final Context context;
   final Prototype _proto;
   final List<Upval> _upvalues;
+  // ignore: non_constant_identifier_names
   final List<Const> _K;
+  // ignore: non_constant_identifier_names
   final List<dynamic> _R;
   List<dynamic> _varargs;
   final Int32List _code;
@@ -45,9 +47,12 @@ class Frame {
   int _getExtraArg() => _code[programCounter++ * 4 + 1];
   int _getNextJump() => _code[programCounter * 4 + 2];
 
+  // ignore: non_constant_identifier_names
   dynamic _RK(int x) => x >= 256 ? _K[x - 256].value : _GR(x);
   // for debugging:
+  // ignore: non_constant_identifier_names
   dynamic _GR(int x) => _R[x];
+  // ignore: non_constant_identifier_names
   dynamic _SR(int x, dynamic y) => _R[x] = y;
 
   void _loadReturns(List<dynamic> ret) {
@@ -84,20 +89,6 @@ class Frame {
       _SR(reg, Context.numToString(x));
     else if (x is! String) return false;
     return true;
-  }
-
-  List<dynamic> _callTM() {}
-
-  List<dynamic> _concat(int total) {
-    do {
-      var top = _top;
-      var n = 2;
-
-      var a = _GR(top - 2);
-      if ((a is! String && a is! num) || !convertToString(top - 1)) {
-        var b = _GR(top - 1);
-      }
-    } while (total > 1);
   }
 
   dynamic _getUpval(int idx) => _upvalues[idx].get();
@@ -159,6 +150,7 @@ class Frame {
     try {
       while (true) {
         var pc = programCounter++;
+        // ignore: non_constant_identifier_names
         var OP = _code[pc * 4];
         var A = _code[pc * 4 + 1];
         var B = _code[pc * 4 + 2];

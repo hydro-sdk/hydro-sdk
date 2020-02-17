@@ -56,7 +56,9 @@ String disassemble(CodeDump code) {
               : " \"" + luaEscape(func.upvals[i].name) + "\""));
     }
     writeLine(".registers " + func.registers.toString());
+    // ignore: non_constant_identifier_names
     Map<int, List<Local>> local_start = {};
+    // ignore: non_constant_identifier_names
     Map<int, List<Local>> local_end = {};
     for (int i = 0; i < func.locals.length; i++) {
       var c = func.locals[i];

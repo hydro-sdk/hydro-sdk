@@ -105,7 +105,7 @@ class Context {
       return x.metatable.map.containsKey("__metatable")
           ? x.metatable.map["__metatable"]
           : x.metatable;
-    } // TODO: strings
+    }
     return null;
   }
 
@@ -135,7 +135,6 @@ class Context {
     } else if (x is Map<dynamic, dynamic>) {
       return x[y];
     } else {
-      // TODO: strings
       throw "attempt to index a ${getTypename(x)} value $x $y";
     }
   }
@@ -157,7 +156,6 @@ class Context {
     } else if (x is Map<dynamic, dynamic>) {
       x[k] = v;
     } else {
-      // TODO: strings
       throw "attempt to index a ${getTypename(x)} value";
     }
   }
@@ -258,12 +256,10 @@ class Context {
       if (x.map[name] is! Closure) throw "attempt to call table value";
       return x.map[name](params);
     } else {
-      // TODO: strings
       throw "attempt to invoke metamethod on a ${getTypename(x)} value";
     }
   }
 
-  // TODO: strings
   static bool hasMetamethod(dynamic x, String method) =>
       x is Table && x.metatable != null && x.metatable.map.containsKey(method);
 

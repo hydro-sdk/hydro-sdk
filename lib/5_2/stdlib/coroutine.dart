@@ -27,6 +27,8 @@ loadCoroutineLib(Context ctx) {
 
     var o = <dynamic>[true];
     o.addAll(res.values);
+
+    return [];
   };
 
   coroutine["yield"] = ctx.yield = (List<dynamic> args) {
@@ -45,6 +47,7 @@ loadCoroutineLib(Context ctx) {
       case CoroutineStatus.RUNNING:
         return ["running"];
     }
+    return [];
   };
 
   coroutine["running"] = (Thread thread, List<dynamic> args) {

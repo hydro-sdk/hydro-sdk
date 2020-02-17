@@ -3,12 +3,14 @@ int sign(int n, int bits) {
   return -(n & mask) + (n & ~mask);
 }
 
+// ignore: non_constant_identifier_names
 int lua_sign(int n, int bits) {
   return n - (1 << (bits - 1));
 }
 
 int unsign(n, bits) => n < 0 ? (~(n + 1)) & (1 << (bits - 1)) : n;
 
+// ignore: non_constant_identifier_names
 int lua_unsign(int n, int bits) {
   return n + (1 << (bits - 1));
 }

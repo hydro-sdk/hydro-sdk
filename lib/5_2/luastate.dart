@@ -37,6 +37,7 @@ class _LuaFunctionImpl extends LuaFunction {
 }
 
 class LuaState {
+  // ignore: non_constant_identifier_names
   Table get _G => _context.env;
   final Context _context;
   Context get context => _context;

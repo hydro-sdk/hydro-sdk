@@ -2,12 +2,19 @@ import 'package:flua/inst.dart';
 
 class Flavor {
   Flavor(
-      {this.name, this.version_major, this.version_minor, this.instructions}) {
+      {this.name,
+      // ignore: non_constant_identifier_names
+      this.version_major,
+      // ignore: non_constant_identifier_names
+      this.version_minor,
+      this.instructions}) {
     int i = 0;
     instructions.forEach((e) => e.opcode = i++);
   }
   final String name;
+  // ignore: non_constant_identifier_names
   final int version_major;
+  // ignore: non_constant_identifier_names
   final int version_minor;
   final List<InstInfo> instructions;
 

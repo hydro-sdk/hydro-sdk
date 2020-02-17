@@ -14,11 +14,11 @@ loadBaseLib(Context ctx) {
   };
 
   ctx.env["collectgarbage"] = (List<dynamic> args) {
-    throw "NYI"; // TODO
+    throw "NYI";
   };
 
   ctx.env["dofile"] = (List<dynamic> args) {
-    throw "NYI"; // TODO
+    throw "NYI";
   };
 
   ctx.env["error"] = (List<dynamic> args) {
@@ -50,22 +50,6 @@ loadBaseLib(Context ctx) {
       0,
     ];
   };
-
-  // ctx.env["load"] = (List<dynamic> args) {
-  //   var ld = Context.getArg2<LuaDartFunc, dynamic>(args, 0, "load");
-
-  //   if (ld is! LuaDartFunc) ld = Context.luaToString(ld);
-
-  //   var source = maybeAt(args, 1) ?? ld;
-  //   var mode = maybeAt(args, 2) ?? "bt";
-  //   var env = maybeAt(args, 3) ?? ctx.env;
-
-  //   throw "NYI"; // TODO
-  // };
-
-  // ctx.env["loadfile"] = (List<dynamic> args) {
-  //   throw "NYI"; // TODO
-  // };
 
   ctx.env["next"] = (List<dynamic> args) {
     Table table = Context.getArg1<Table>(args, 0, "next");
@@ -170,7 +154,7 @@ loadBaseLib(Context ctx) {
 
     if (x is String)
       return [
-        int.parse(x, onError: (_) => null) ?? double.parse(x, (_) => null),
+        int.tryParse(x) ?? double.tryParse(x),
       ];
 
     return [null];
