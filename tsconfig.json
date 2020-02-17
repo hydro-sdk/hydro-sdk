@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "lib": [
+            "esnext"
+        ],
+        "strict": true,
+    },
+    "include": [
+        "runtime",
+        "apps"
+    ],
+    "tstl": {
+        "luaTarget": "5.2",
+        "luaBundle": "index.lua",
+        "luaBundleEntry": "index.ts"
+    }
+}

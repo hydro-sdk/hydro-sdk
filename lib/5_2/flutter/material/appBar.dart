@@ -12,4 +12,3 @@ loadAppBar(l.Table table) {
     ];
   });
 }
-

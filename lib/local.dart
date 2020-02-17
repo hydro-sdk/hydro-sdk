@@ -4,4 +4,3 @@ class Local {
   int from;
   int to;
 }
-

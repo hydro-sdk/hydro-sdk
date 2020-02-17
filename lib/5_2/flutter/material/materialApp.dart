@@ -14,4 +14,3 @@ loadMaterialApp(l.Table table) {
     ];
   });
 }
-

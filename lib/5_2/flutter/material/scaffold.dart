@@ -9,7 +9,8 @@ loadScaffold(l.Table table) {
       Scaffold(
         appBar: maybeUnwrapAndBuildArgument(args[0]["appBar"]),
         body: maybeUnwrapAndBuildArgument(args[0]["body"]),
-        floatingActionButton: maybeUnwrapAndBuildArgument(args[0]["floatingActionButton"]),
+        floatingActionButton:
+            maybeUnwrapAndBuildArgument(args[0]["floatingActionButton"]),
       )
     ];
   });
