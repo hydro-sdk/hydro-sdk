@@ -1,7 +1,7 @@
 import {Widget} from "../widget";
 
 import {Object} from "./../../dart/core";
-import {JITAllocatingManagedBox} from "./../../syntheticBox";
+import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 interface IconDataProps {
     fontFamily: string;
@@ -13,7 +13,7 @@ declare const flutter: {
     }
 };
 
-export class IconData extends JITAllocatingManagedBox<IconDataProps,Widget> implements Readonly<Object>
+export class IconData extends JITAllocatingRTManagedBox<IconDataProps,Widget> implements Readonly<Object>
 {
     public runtimeType = "IconData";
     public codePoint: number;
