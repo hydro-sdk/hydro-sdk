@@ -1,5 +1,5 @@
-import 'package:flua/5_2/flutter/maybeUnwrapAndBuildArgument.dart';
 import 'package:flua/5_2/table.dart' as l;
+import 'package:flua/5_2/flutter/syntheticBox.dart';
 import 'package:flutter/widgets.dart';
 
 class StatelessWidgetBox extends StatelessWidget {

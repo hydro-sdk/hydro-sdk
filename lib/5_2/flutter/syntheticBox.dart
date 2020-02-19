@@ -41,3 +41,29 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
   }
   return arg;
 }
+
+abstract class Box<T> {
+  final l.Table table;
+  T vmObject;
+
+  Box({@required this.table, @required this.vmObject});
+
+  T unwrap();
+}
+
+class VMManagedBox<T> extends Box<T> {
+  final l.Table table;
+  T vmObject;
+
+  VMManagedBox({@required this.table, @required this.vmObject});
+
+  T unwrap() => vmObject;
+}
+
+class RTManagedBox<T> extends Box<T> {
+  final l.Table table;
+
+  RTManagedBox({@required this.table});
+
+  T unwrap() => table["unwrap"];
+}
