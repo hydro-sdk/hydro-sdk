@@ -1,6 +1,7 @@
-import { Widget } from '../widget';
-import { StatelessWidget } from './../widgets/statelessWidget';
-import { Key } from '../key';
+import {Widget} from "../widget";
+import {Key} from "../key";
+
+import {StatelessWidget} from "./../widgets/statelessWidget";
 
 interface FloatingActionButtonProps {
     key?: Key | undefined;
@@ -12,16 +13,19 @@ declare const flutter: {
     material: {
         floatingActionButton: (this: void, props: FloatingActionButtonProps) => { tag: string };
     }
-}
+};
 
-export class FloatingActionButton extends StatelessWidget {
+export class FloatingActionButton extends StatelessWidget 
+{
     public props: FloatingActionButtonProps;
-    public constructor(props: FloatingActionButtonProps) {
+    public constructor(props: FloatingActionButtonProps) 
+    {
         super();
         this.props = props;
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.material.floatingActionButton(this.props);
     }
 }

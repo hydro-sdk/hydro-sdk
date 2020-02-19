@@ -1,29 +1,33 @@
-import { Widget } from "./../../runtime/flutter/widget";
-import { StatelessWidget } from "./../../runtime/flutter/widgets/statelessWidget";
-import { StatefulWidget } from "./../../runtime/flutter/widgets/statefulWidget";
-import { State } from "./../../runtime/flutter/widgets/state";
-import { MaterialApp } from "./../../runtime/flutter/material/materialApp";
-import { Scaffold } from "./../../runtime/flutter/material/scaffold";
-import { AppBar } from "./../../runtime/flutter/material/appBar";
-import { Text } from "./../../runtime/flutter/widgets/text";
-import { Center } from "./../../runtime/flutter/widgets/center";
-import { Column } from "./../../runtime/flutter/widgets/column";
-import { FloatingActionButton } from "./../../runtime/flutter/material/floatingActionButton";
-import { Icon } from "./../../runtime/flutter/widgets/icon";
-import { Icons } from "./../../runtime/flutter/material/icons";
-import { Theme } from "../../runtime/flutter/material/theme";
-import { BuildContext } from "../../runtime/flutter/buildContext";
-import { MainAxisAlignment } from "../../runtime/flutter/widgets/mainAxisAlignment";
-import { Key } from "../../runtime/flutter/key";
+import {Theme} from "../../runtime/flutter/material/theme";
+import {BuildContext} from "../../runtime/flutter/buildContext";
+import {MainAxisAlignment} from "../../runtime/flutter/widgets/mainAxisAlignment";
+import {Key} from "../../runtime/flutter/key";
+
+import {Widget} from "./../../runtime/flutter/widget";
+import {StatelessWidget} from "./../../runtime/flutter/widgets/statelessWidget";
+import {StatefulWidget} from "./../../runtime/flutter/widgets/statefulWidget";
+import {State} from "./../../runtime/flutter/widgets/state";
+import {MaterialApp} from "./../../runtime/flutter/material/materialApp";
+import {Scaffold} from "./../../runtime/flutter/material/scaffold";
+import {AppBar} from "./../../runtime/flutter/material/appBar";
+import {Text} from "./../../runtime/flutter/widgets/text";
+import {Center} from "./../../runtime/flutter/widgets/center";
+import {Column} from "./../../runtime/flutter/widgets/column";
+import {FloatingActionButton} from "./../../runtime/flutter/material/floatingActionButton";
+import {Icon} from "./../../runtime/flutter/widgets/icon";
+import {Icons} from "./../../runtime/flutter/material/icons";
 
 declare let buildResult: Widget;
 
-class MyApp extends StatelessWidget {
-    public constructor() {
+class MyApp extends StatelessWidget 
+{
+    public constructor() 
+    {
         super();
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return new MaterialApp({
             title: "Counter App",
             initialRoute: "/",
@@ -32,32 +36,40 @@ class MyApp extends StatelessWidget {
     }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatefulWidget 
+{
     public title: string;
-    public constructor(title: string) {
+    public constructor(title: string) 
+    {
         super();
         this.title = title;
     }
-    public createState() {
+    public createState() 
+    {
         return new MyHomePageState(this.title);
     }
 }
 
-class MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> 
+{
     private counter: number = 0;
     public title: string;
-    public constructor(title: string) {
+    public constructor(title: string) 
+    {
         super();
         this.title = title;
     }
 
-    private incrementCounter = () => {
-        this.setState(() => {
+    private incrementCounter = () => 
+    {
+        this.setState(() => 
+        {
             this.counter++;
         });
     }
 
-    public build(context: BuildContext): Widget {
+    public build(context: BuildContext): Widget 
+    {
         return new Scaffold({
             appBar: new AppBar({
                 title: new Text(this.title)

@@ -1,10 +1,13 @@
-import { Widget } from "./../widget";
-import { BuildContext } from "../buildContext";
+import {BuildContext} from "../buildContext";
 
-export abstract class State<T> {
+import {Widget} from "./../widget";
+
+export abstract class State<T> 
+{
     public abstract build(context: BuildContext): Widget;
     public setState: (pred: () => void) => void;
-    public constructor() {
+    public constructor() 
+    {
         this.setState = undefined as any;
     }
 }

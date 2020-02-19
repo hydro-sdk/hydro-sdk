@@ -1,9 +1,11 @@
-import { Widget } from "./../widget";
+import {Widget} from "./../widget";
 
-export abstract class StatelessWidget implements Widget {
+export abstract class StatelessWidget implements Widget 
+{
     tag: string;
     public abstract build(): Widget;
-    public constructor() {
+    public constructor() 
+    {
         this.tag = "";
     }
 }

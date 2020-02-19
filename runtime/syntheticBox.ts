@@ -1,9 +1,8 @@
-import { Widget } from "./flutter/widget";
-
-export abstract class SyntheticBox implements Widget {
-    tag: string;
-    public abstract unwrap(): Widget;
-    public constructor() {
-        this.tag = "";
-    }
+export abstract class JITAllocatingManagedBox<T, U>
+{
+    public abstract props: T;
+    private vmObject: never;
+    public abstract unwrap(): U;
+    public constructor()
+    {}
 }
