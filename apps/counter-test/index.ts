@@ -15,7 +15,7 @@ import {Center} from "./../../runtime/flutter/widgets/center";
 import {Column} from "./../../runtime/flutter/widgets/column";
 import {FloatingActionButton} from "./../../runtime/flutter/material/floatingActionButton";
 import {Icon} from "./../../runtime/flutter/widgets/icon";
-import {Icons} from "./../../runtime/flutter/material/icons";
+import {add} from "./../../runtime/flutter/material/icons/add";
 
 declare let buildResult: Widget;
 
@@ -50,7 +50,7 @@ class MyHomePage extends StatefulWidget
     }
 }
 
-class MyHomePageState extends State<MyHomePage> 
+class MyHomePageState extends State<MyHomePage>
 {
     private counter: number = 0;
     public title: string;
@@ -91,7 +91,7 @@ class MyHomePageState extends State<MyHomePage>
             }),
             floatingActionButton: new FloatingActionButton({
                 key: new Key("increment"),
-                child: new Icon(Icons.add),
+                child: new Icon(add),
                 onPressed: this.incrementCounter
             })
         });

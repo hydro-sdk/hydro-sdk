@@ -16,9 +16,11 @@ import {Center} from "./../../runtime/flutter/widgets/center";
 import {Column} from "./../../runtime/flutter/widgets/column";
 import {FloatingActionButton} from "./../../runtime/flutter/material/floatingActionButton";
 import {Icon} from "./../../runtime/flutter/widgets/icon";
-import {Icons} from "./../../runtime/flutter/material/icons";
 import {AnimatedListState} from "./../../runtime/flutter/widgets/animatedListState";
 import {IconButton} from "./../../runtime/flutter/material/iconButton";
+import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
+import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
+
 
 declare let buildResult: Widget;
 
@@ -41,12 +43,12 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                     title: new Text("AnimatedList"),
                     actions: [
                         new IconButton({
-                            icon: new Icon(Icons.add_circle),
+                            icon: new Icon(add_circle),
                             onPressed: () => null,
                             tooltip: "insert a new item"
                         }),
                         new IconButton({
-                            icon: new Icon(Icons.remove_circle),
+                            icon: new Icon(remove_circle),
                             onPressed: () => null,
                             tooltip: "removed the selected item",
                         })

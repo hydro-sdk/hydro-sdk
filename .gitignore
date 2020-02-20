@@ -42,3 +42,4 @@ luac.5.3.5
 apps/**/*.lua
 assets/apps/*.lc
 flua/android/.project
+*.js
