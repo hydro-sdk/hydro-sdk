@@ -4,5 +4,5 @@ import 'package:flutter_driver/driver_extension.dart';
 
 void main() {
   enableFlutterDriverExtension();
-  runApp(RunFromBundle(path: "assets/apps/counter-test.lc"));
+  runApp(RunFromBundle(path: "assets/apps/animated-list.lc"));
 }

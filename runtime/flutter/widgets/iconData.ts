@@ -5,6 +5,7 @@ import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 interface IconDataProps {
     fontFamily: string;
+    matchTextDirection?: boolean | undefined;
 }
 
 declare const flutter: {
@@ -13,9 +14,9 @@ declare const flutter: {
     }
 };
 
-export class IconData extends JITAllocatingRTManagedBox<IconDataProps,Widget> implements Readonly<Object>
+export class IconData extends JITAllocatingRTManagedBox<IconDataProps, Widget> implements Readonly<Object>
 {
-    public runtimeType = "IconData";
+    public readonly runtimeType = "IconData";
     public codePoint: number;
     public props: IconDataProps;
     public constructor(codePoint: number, props: IconDataProps) 

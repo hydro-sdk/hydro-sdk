@@ -55,15 +55,20 @@ class VMManagedBox<T> extends Box<T> {
   final l.Table table;
   T vmObject;
 
-  VMManagedBox({@required this.table, @required this.vmObject});
+  VMManagedBox({@required this.table, @required this.vmObject}) {
+    table["vmObject"] = vmObject;
+  }
 
   T unwrap() => vmObject;
 }
 
 class RTManagedBox<T> extends Box<T> {
   final l.Table table;
+  final T vmObject;
 
-  RTManagedBox({@required this.table});
+  RTManagedBox({@required this.table, @required this.vmObject}) {
+    table["vmObject"] = vmObject;
+  }
 
   T unwrap() => table["unwrap"];
 }

@@ -5,6 +5,7 @@ import {Widget} from "./../widget";
 
 interface AppBarProps {
     title: Widget;
+    actions?: Array<Widget> | undefined;
 }
 
 declare const flutter: {
@@ -13,7 +14,7 @@ declare const flutter: {
     }
 };
 
-export class AppBar extends JITAllocatingRTManagedBox<AppBarProps,Widget> implements Readonly<Object>
+export class AppBar extends JITAllocatingRTManagedBox<AppBarProps, Widget> implements Readonly<Object>
 {
     public readonly runtimeType = "AppBar";
     public props: AppBarProps;

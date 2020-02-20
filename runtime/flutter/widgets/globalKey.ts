@@ -1,3 +1,5 @@
+import {RuntimeType} from "../../runtimeTypes";
+
 import {Object} from "./../../dart/core";
 import {StatefulWidget} from "./statefulWidget";
 import {State} from "./state";
@@ -18,10 +20,10 @@ export class GlobalKey<T extends State<StatefulWidget> & Object> implements Read
     {
         return this._currentState();
     }
-    public constructor(t: T) 
+    public constructor(runtimeType: RuntimeType) 
     {
         this._currentState = undefined as any;
-        this.targetRuntimeType = t.runtimeType;
+        this.targetRuntimeType = runtimeType;
         flutter.widgets.globalKeyCtor(this);
     }
 }
