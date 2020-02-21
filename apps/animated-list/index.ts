@@ -34,6 +34,26 @@ class AnimatedListSample extends StatefulWidget
 
 class _AnimatedListSampleState extends State<AnimatedListSample>
 {
+    private listKey: GlobalKey<AnimatedListState>;
+    private list: ListModel<number>;
+    private selectedItem: number | undefined;
+    private nextItem: number | undefined;
+
+    public constructor() 
+    {
+        super();
+        this.listKey = new GlobalKey<AnimatedListState>("AnimatedListState");
+        this.list = new ListModel({
+            listKey: this.listKey,
+            initialItems: [0, 1, 2],
+            removedItemBuilder: this.buildRemovedItem,
+        });
+    }
+
+    private buildRemovedItem = (item: number, context: BuildContext) => 
+    {
+        return new Center({});
+    }
     public build() 
     {
         return new MaterialApp({
@@ -65,11 +85,15 @@ class ListModel<E>
     public removedItemBuilder: (item: E, context: BuildContext, ) => Widget;
     private items: Array<E>;
 
-    public constructor(listKey: GlobalKey<AnimatedListState>, removedItemBuilder: (item: E, context: BuildContext, ) => Widget, items: Array<E>) 
+    public constructor(props: {
+        listKey: GlobalKey<AnimatedListState>,
+        removedItemBuilder: (item: E, context: BuildContext, ) => Widget,
+        initialItems: Array<E>
+    }) 
     {
-        this.listKey = listKey;
-        this.removedItemBuilder = removedItemBuilder;
-        this.items = items;
+        this.listKey = props.listKey;
+        this.removedItemBuilder = props.removedItemBuilder;
+        this.items = props.initialItems;
     }
 }
 

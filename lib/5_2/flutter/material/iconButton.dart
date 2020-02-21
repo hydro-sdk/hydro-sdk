@@ -8,7 +8,7 @@ loadIconButton(l.Table table) {
   table["iconButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       IconButton(
-        icon: args[0]["icon"],
+        icon: maybeUnwrapAndBuildArgument(args[0]["icon"]),
         tooltip: args[0]["tooltip"],
         onPressed: () {
           Closure closure = args[0]["onPressed"];
