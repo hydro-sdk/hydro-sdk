@@ -10,8 +10,8 @@ loadGlobalKey(l.Table table) {
       RTManagedBox<GlobalKey>(
           table: args[0],
           vmObject: translateRTTIToGenericGlobalKey(
-              runtimeType: RuntimeTypes.values
-                  .firstWhere((x) => x == args[0]["targetRunTimeType"])))
+              runtimeType: RuntimeTypes.values.firstWhere((x) =>
+                  x.toString().split(".")[1] == args[0]["targetRuntimeType"])))
     ];
   });
   return [];

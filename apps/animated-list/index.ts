@@ -1,26 +1,22 @@
-import {Theme} from "../../runtime/flutter/material/theme";
 import {BuildContext} from "../../runtime/flutter/buildContext";
-import {MainAxisAlignment} from "../../runtime/flutter/widgets/mainAxisAlignment";
-import {Key} from "../../runtime/flutter/key";
 import {GlobalKey} from "../../runtime/flutter/widgets/globalKey";
+import {EdgeInsets} from "../../runtime/flutter/painting/edgeInsets";
 
 import {Widget} from "./../../runtime/flutter/widget";
-import {StatelessWidget} from "./../../runtime/flutter/widgets/statelessWidget";
 import {StatefulWidget} from "./../../runtime/flutter/widgets/statefulWidget";
 import {State} from "./../../runtime/flutter/widgets/state";
 import {MaterialApp} from "./../../runtime/flutter/material/materialApp";
 import {Scaffold} from "./../../runtime/flutter/material/scaffold";
 import {AppBar} from "./../../runtime/flutter/material/appBar";
 import {Text} from "./../../runtime/flutter/widgets/text";
-import {Center} from "./../../runtime/flutter/widgets/center";
-import {Column} from "./../../runtime/flutter/widgets/column";
-import {FloatingActionButton} from "./../../runtime/flutter/material/floatingActionButton";
 import {Icon} from "./../../runtime/flutter/widgets/icon";
 import {AnimatedListState} from "./../../runtime/flutter/widgets/animatedListState";
 import {IconButton} from "./../../runtime/flutter/material/iconButton";
+import {SizedBox} from "./../../runtime/flutter/widgets/sizedBox";
+import {Padding} from "./../../runtime/flutter/widgets/padding";
+import {AnimatedList} from "./../../runtime/flutter/widgets/animatedList";
 import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
 import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
-
 
 declare let buildResult: Widget;
 
@@ -36,23 +32,24 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
 {
     private listKey: GlobalKey<AnimatedListState>;
     private list: ListModel<number>;
-    private selectedItem: number | undefined;
-    private nextItem: number | undefined;
 
     public constructor() 
     {
         super();
         this.listKey = new GlobalKey<AnimatedListState>("AnimatedListState");
-        this.list = new ListModel({
+        this.list = new ListModel<number>({
             listKey: this.listKey,
             initialItems: [0, 1, 2],
-            removedItemBuilder: this.buildRemovedItem,
+            removedItemBuilder: (item: number, context: BuildContext) => 
+            {
+                return new SizedBox({});
+            }
         });
     }
 
-    private buildRemovedItem = (item: number, context: BuildContext) => 
+    private buildRemovedItem = () => 
     {
-        return new Center({});
+        return new SizedBox({});
     }
     public build() 
     {
@@ -74,6 +71,17 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                         })
                     ]
                 }),
+                body: new Padding({
+                    padding: EdgeInsets.all(16.0),
+                    child: new AnimatedList({
+                        key: this.listKey,
+                        initialItemCount: this.list.length(),
+                        itemBuilder: (context: BuildContext, num: number, anim) => 
+                        {
+                            return new SizedBox({});
+                        }
+                    })
+                })
             })
         });
     }
@@ -81,9 +89,14 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
 
 class ListModel<E>
 {
+    private items: Array<E>;
     public readonly listKey: GlobalKey<AnimatedListState>;
     public removedItemBuilder: (item: E, context: BuildContext, ) => Widget;
-    private items: Array<E>;
+
+    public length = () => 
+    {
+        return this.items.length;
+    }
 
     public constructor(props: {
         listKey: GlobalKey<AnimatedListState>,

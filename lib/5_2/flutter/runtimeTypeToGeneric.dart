@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
-enum RuntimeTypes { animatedListState }
+enum RuntimeTypes { AnimatedListState }
 
 GlobalKey translateRTTIToGenericGlobalKey(
     {@required RuntimeTypes runtimeType}) {
   switch (runtimeType) {
-    case RuntimeTypes.animatedListState:
+    case RuntimeTypes.AnimatedListState:
       return GlobalKey<AnimatedListState>();
       break;
   }
