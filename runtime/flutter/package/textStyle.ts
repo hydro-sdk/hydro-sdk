@@ -1,3 +1,6 @@
+import {StatelessWidget} from "../widgets/statelessWidget";
+import {JITAllocatingRTManagedBox} from "../../syntheticBox";
+
 import {console} from "./../../ts/console";
 
 export interface TextStyleProps {
@@ -6,11 +9,22 @@ export interface TextStyleProps {
 
 declare const flutter: {
     package: {
-        textStyle: (this: void, props: TextStyleProps) => TextStyleProps;
+        textStyle: (this: void, props: TextStyleProps) => TextStyle;
     }
 };
 
-export function TextStyle(props: TextStyleProps) 
+export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps,TextStyle> implements Readonly<Object>
 {
-    return flutter.package.textStyle(props);
+    public readonly runtimeType = "TextStyle";
+    public props:TextStyleProps;
+    public constructor(props:TextStyleProps)
+    {
+        super();
+        this.props = props;
+    }
+
+    public unwrap()
+    {
+        return flutter.package.textStyle(this.props);
+    }
 }
