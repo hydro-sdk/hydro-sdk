@@ -17,6 +17,8 @@ import {SizedBox} from "./../../runtime/flutter/widgets/sizedBox";
 import {Padding} from "./../../runtime/flutter/widgets/padding";
 import {AnimatedList} from "./../../runtime/flutter/widgets/animatedList";
 import {Animation} from "./../../runtime/flutter/animation/animation";
+import {TextStyle} from "./../../runtime/flutter/package/textStyle";
+import {Theme} from "./../../runtime/flutter/material/theme";
 import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
 import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
 
@@ -155,8 +157,9 @@ class CardItem extends StatelessWidget
         this.selected = props.selected;
     }
 
-    public build(): Widget 
+    public build(context: BuildContext): Widget 
     {
+        const textStyle: TextStyle = Theme.of(context).textTheme.headline;
         return new SizedBox({});
     }
 }

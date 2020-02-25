@@ -6,6 +6,7 @@ l.Table textThemeToTable(TextTheme textTheme) {
   var table = l.Table();
 
   table["display1"] = textTheme.display1;
+  table["headline"] = textTheme.headline;
 
   return table;
 }
