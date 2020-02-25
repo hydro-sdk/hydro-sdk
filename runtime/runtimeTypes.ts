@@ -19,4 +19,5 @@ export type RuntimeType = "AppBar" |
     "StatelessWidget" |
     "Text" |
     "EdgeInsets" |
+    "Animation" |
     "Key";
