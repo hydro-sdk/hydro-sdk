@@ -1,3 +1,4 @@
+import 'package:flua/5_2/flutter/widgets/animatedList.dart';
 import 'package:flua/5_2/flutter/widgets/center.dart';
 import 'package:flua/5_2/flutter/widgets/column.dart';
 import 'package:flua/5_2/flutter/widgets/globalKey.dart';
@@ -21,4 +22,5 @@ loadWidgets(Table table) {
   loadGlobalKey(widgets);
   loadSizedBox(widgets);
   loadPadding(widgets);
+  loadAnimatedList(widgets);
 }
