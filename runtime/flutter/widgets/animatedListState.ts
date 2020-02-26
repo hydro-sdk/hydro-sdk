@@ -11,6 +11,10 @@ export class AnimatedListState extends State<StatefulWidget> implements Readonly
     {
         super();
     }
+
+    public insertItem(index: number): void 
+    { }
+
     public build(): Widget 
     {
         throw "This is a synthetic widget";

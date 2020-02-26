@@ -1,6 +1,15 @@
 import {RuntimeType} from "../runtimeTypes";
 
-export declare function print(this: void, arg: string): void;
+declare const dart: {
+    core: {
+        print: (this: void, args: string) => void;
+    }
+};
+
+export function print(this: void, args: string): void 
+{
+    dart.core.print(args);
+}
 
 export interface Object {
     runtimeType: RuntimeType;

@@ -2,6 +2,8 @@ import {BuildContext} from "../../runtime/flutter/buildContext";
 import {GlobalKey} from "../../runtime/flutter/widgets/globalKey";
 import {EdgeInsets} from "../../runtime/flutter/painting/edgeInsets";
 import {StatelessWidget} from "../../runtime/flutter/widgets/statelessWidget";
+import {console} from "../../runtime/ts/console";
+import {print} from "../../runtime/dart/core";
 
 import {Widget} from "./../../runtime/flutter/widget";
 import {StatefulWidget} from "./../../runtime/flutter/widgets/statefulWidget";
@@ -59,6 +61,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
 
     private buildItem = (context: BuildContext, index: number, animation: Animation<number>) => 
     {
+        print("Called builditem");
         return new CardItem({
             animation: animation,
             item: this.list.at(index),
@@ -71,6 +74,12 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                 });
             }
         });
+    }
+
+    private insert(): void 
+    {
+        const index: number = this.selectedItem != undefined ? this.list.length : this.list.indexOf(this.selectedItem!);
+        this.list;
     }
 
     public build() 
@@ -100,7 +109,14 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                         initialItemCount: this.list.length(),
                         itemBuilder: (context: BuildContext, num: number, anim) => 
                         {
-                            return new SizedBox({});
+                            // print("Called itemBuilder");
+                            // print("context");
+                            // print(context as any);
+                            // print("num");
+                            // print(num as any);
+                            // print("anim");
+                            // print(anim as any);
+                            return this.buildItem(context, num, anim);
                         }
                     })
                 })
@@ -111,7 +127,19 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
 
 class ListModel<E>
 {
-    public at: (idx: number) => E = (idx: number) => this.items[idx];
+    public at: (idx: number) => E = (idx: number) => 
+    {
+        print("called ListModel#at");
+        print("idx");
+        print(idx as any);
+        return this.items[idx];
+    }
+
+    public insert(index: number, item: E) 
+    {
+        this.items.splice(index, 0, item);
+        this.listKey.currentState.insertItem(index);
+    }
     public indexOf: (item: E) => number = (item: E) => this.items.indexOf(item)
     private items: Array<E>;
     public readonly listKey: GlobalKey<AnimatedListState>;
@@ -150,6 +178,7 @@ class CardItem extends StatelessWidget
 
     public constructor(props: CardItemProps) 
     {
+        print("called CardItem ctor");
         super();
         this.animation = props.animation;
         this.onTap = props.onTap;
@@ -159,6 +188,7 @@ class CardItem extends StatelessWidget
 
     public build(context: BuildContext): Widget 
     {
+        print("Build carditem");
         const textStyle: TextStyle = Theme.of(context).textTheme.headline;
         return new SizedBox({});
     }
