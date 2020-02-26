@@ -39,6 +39,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
     private listKey: GlobalKey<AnimatedListState>;
     private list: ListModel<number>;
     private selectedItem: number | undefined;
+    private nextItem: number = 3;
 
     public constructor() 
     {
@@ -76,10 +77,10 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
         });
     }
 
-    private insert(): void 
+    private insert: () => void = () => 
     {
-        const index: number = this.selectedItem != undefined ? this.list.length : this.list.indexOf(this.selectedItem!);
-        this.list;
+        const index: number = this.selectedItem != undefined ? this.list.length() : this.list.indexOf(this.selectedItem!);
+        this.list.insert(index, this.nextItem++);
     }
 
     public build() 
@@ -92,7 +93,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                     actions: [
                         new IconButton({
                             icon: new Icon(add_circle),
-                            onPressed: () => null,
+                            onPressed: () => this.insert(),
                             tooltip: "insert a new item"
                         }),
                         new IconButton({
@@ -138,7 +139,7 @@ class ListModel<E>
     public insert(index: number, item: E) 
     {
         this.items.splice(index, 0, item);
-        this.listKey.currentState.insertItem(index);
+        this.listKey.currentState().insertItem(index);
     }
     public indexOf: (item: E) => number = (item: E) => this.items.indexOf(item)
     private items: Array<E>;

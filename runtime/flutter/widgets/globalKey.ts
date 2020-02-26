@@ -1,7 +1,7 @@
 import {RuntimeType} from "../../runtimeTypes";
 import {RTManagedBox} from "../../syntheticBox";
 
-import {Object} from "./../../dart/core";
+import {Object, print} from "./../../dart/core";
 import {StatefulWidget} from "./statefulWidget";
 import {State} from "./state";
 
@@ -16,11 +16,7 @@ export class GlobalKey<T extends State<StatefulWidget> & Object> extends RTManag
     public readonly runtimeType = "GlobalKey";
     private readonly targetRuntimeType: string;
     protected vmObject: T;
-    private _currentState: () => T;
-    public get currentState(): T 
-    {
-        return this._currentState();
-    }
+    public currentState: () => T;
 
     protected unwrap(): T 
     {
@@ -30,7 +26,8 @@ export class GlobalKey<T extends State<StatefulWidget> & Object> extends RTManag
     {
         super();
         this.vmObject = undefined as any;
-        this._currentState = undefined as any;
+        this.currentState = undefined as any;
+        this.unwrap = undefined as any;
         this.targetRuntimeType = runtimeType;
         flutter.widgets.globalKeyCtor(this);
     }

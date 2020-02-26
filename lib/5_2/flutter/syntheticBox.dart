@@ -24,7 +24,11 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
         return StatelessWidgetBox(table: arg);
       }
 
-      Closure unwrap = arg.metatable["unwrap"];
+      Closure unwrap;
+      unwrap = arg.metatable["unwrap"];
+      if (unwrap == null) {
+        unwrap = arg.map["unwrap"];
+      }
       if (unwrap != null) {
         //Call the objects synthetic unwrap method with itself as first arg
         //(Effectively a this call) and unbox the result
