@@ -5,5 +5,15 @@
             "esnext"
         ],
         "strict": true,
-    }
+        "strictPropertyInitialization": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+    },
+    "include": [
+        "apps"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
