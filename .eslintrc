@@ -58,7 +58,5 @@
         "unusedExports": true
       }
     ],
-    "jsdoc/require-jsdoc": 1,
-    "jsdoc/require-param-description": 1,
   }
 }
