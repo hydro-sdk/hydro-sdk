@@ -58,5 +58,24 @@
         "unusedExports": true
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "runtime/flutter/material/icons/*.ts"
+      ],
+      "rules": {
+        "import/no-unused-modules": false,
+        "@typescript-eslint/camelcase": 0
+      }
+    },
+    {
+      "files": [
+        "runtime/**/*.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": 0
+      }
+    }
+  ]
 }
