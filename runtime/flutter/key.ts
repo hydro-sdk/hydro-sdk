@@ -1,11 +1,11 @@
-import {Object} from "./../dart/core";
+import {DartObject} from "./../dart/core";
 import {JITAllocatingRTManagedBox} from "./../syntheticBox";
 
 declare const flutter: {
     key: (this: void, value: string) => Key;
 };
 
-export class Key extends JITAllocatingRTManagedBox<{}, {}> implements Readonly<Object>
+export class Key extends JITAllocatingRTManagedBox<{}, {}> implements Readonly<DartObject>
 {
     public readonly runtimeType = "Key";
     public value: string;

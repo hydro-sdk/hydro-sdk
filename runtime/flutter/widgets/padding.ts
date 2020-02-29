@@ -13,7 +13,7 @@ interface PaddingProps {
 declare const flutter: {
     widgets: {
         padding: (this: void, props: PaddingProps) => { tag: string };
-    }
+    };
 };
 
 export class Padding extends StatelessWidget 

@@ -13,7 +13,8 @@ loadAnimatedList(l.Table table) {
             maybeUnwrapAndBuildArgument(args[0]["initialItemCount"]),
         itemBuilder: (BuildContext context, int num, Animation anim) {
           Closure closure = args[0]["itemBuilder"];
-          return maybeUnwrapAndBuildArgument(closure([null,context, num, anim])[0]);
+          return maybeUnwrapAndBuildArgument(
+              closure([null, context, num, anim])[0]);
         },
       )
     ];

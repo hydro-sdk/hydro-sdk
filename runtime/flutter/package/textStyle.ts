@@ -1,7 +1,5 @@
-import {StatelessWidget} from "../widgets/statelessWidget";
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-
-import {console} from "./../../ts/console";
+import {DartObject} from "../../dart/core";
 
 export interface TextStyleProps {
     fontSize?: number | undefined;
@@ -10,20 +8,20 @@ export interface TextStyleProps {
 declare const flutter: {
     package: {
         textStyle: (this: void, props: TextStyleProps) => TextStyle;
-    }
+    };
 };
 
-export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps,TextStyle> implements Readonly<Object>
+export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextStyle> implements Readonly<DartObject>
 {
     public readonly runtimeType = "TextStyle";
-    public props:TextStyleProps;
-    public constructor(props:TextStyleProps)
+    public props: TextStyleProps;
+    public constructor(props: TextStyleProps) 
     {
         super();
         this.props = props;
     }
 
-    public unwrap()
+    public unwrap() 
     {
         return flutter.package.textStyle(this.props);
     }

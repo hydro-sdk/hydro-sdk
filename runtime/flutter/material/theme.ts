@@ -5,7 +5,7 @@ import {ThemeData} from "./themeData";
 declare const flutter: {
     material: {
         themeOf: (this: void, context: BuildContext) => ThemeData;
-    }
+    };
 };
 
 export class Theme 

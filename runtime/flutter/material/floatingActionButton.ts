@@ -12,7 +12,7 @@ interface FloatingActionButtonProps {
 declare const flutter: {
     material: {
         floatingActionButton: (this: void, props: FloatingActionButtonProps) => { tag: string };
-    }
+    };
 };
 
 export class FloatingActionButton extends StatelessWidget 

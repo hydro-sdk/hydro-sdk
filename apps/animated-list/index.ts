@@ -39,7 +39,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
     private listKey: GlobalKey<AnimatedListState>;
     private list: ListModel<number>;
     private selectedItem: number | undefined;
-    private nextItem: number = 3;
+    private nextItem = 3;
 
     public constructor() 
     {
@@ -152,9 +152,9 @@ class ListModel<E>
     }
 
     public constructor(props: {
-        listKey: GlobalKey<AnimatedListState>,
-        removedItemBuilder: (item: E, context: BuildContext, ) => Widget,
-        initialItems: Array<E>
+        listKey: GlobalKey<AnimatedListState>;
+        removedItemBuilder: (item: E, context: BuildContext, ) => Widget;
+        initialItems: Array<E>;
     }) 
     {
         this.listKey = props.listKey;

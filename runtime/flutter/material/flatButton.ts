@@ -11,7 +11,7 @@ interface FlatButtonProps {
 declare const flutter: {
     material: {
         flatButton: (this: void, props: FlatButtonProps) => { tag: string };
-    }
+    };
 };
 
 export class FlatButton extends StatelessWidget 

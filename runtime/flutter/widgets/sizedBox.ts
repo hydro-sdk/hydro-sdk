@@ -13,7 +13,7 @@ interface SizedBoxProps {
 declare const flutter: {
     widgets: {
         sizedBox: (this: void, props: SizedBoxProps) => { tag: string };
-    }
+    };
 };
 
 export class SizedBox extends StatelessWidget 

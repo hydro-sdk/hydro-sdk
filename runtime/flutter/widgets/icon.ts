@@ -10,7 +10,7 @@ interface IconProps {
 declare const flutter: {
     widgets: {
         icon: (this: void, icon: IconData) => { tag: string };
-    }
+    };
 };
 
 export class Icon extends StatelessWidget 

@@ -9,7 +9,7 @@ interface CenterProps {
 declare const flutter: {
     widgets: {
         center: (this: void, props: CenterProps) => { tag: string };
-    }
+    };
 };
 
 export class Center extends StatelessWidget 

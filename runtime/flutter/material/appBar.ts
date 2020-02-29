@@ -1,6 +1,6 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 
-import {Object} from "./../../dart/core";
+import {DartObject} from "./../../dart/core";
 import {Widget} from "./../widget";
 
 interface AppBarProps {
@@ -11,10 +11,10 @@ interface AppBarProps {
 declare const flutter: {
     material: {
         appBar: (this: void, props: AppBarProps) => { tag: string };
-    }
+    };
 };
 
-export class AppBar extends JITAllocatingRTManagedBox<AppBarProps, Widget> implements Readonly<Object>
+export class AppBar extends JITAllocatingRTManagedBox<AppBarProps, Widget> implements Readonly<DartObject>
 {
     public readonly runtimeType = "AppBar";
     public props: AppBarProps;

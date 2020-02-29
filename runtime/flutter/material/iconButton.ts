@@ -10,7 +10,7 @@ interface IconButtonProps {
 declare const flutter: {
     material: {
         iconButton: (this: void, props: IconButtonProps) => { tag: string };
-    }
+    };
 };
 
 export class IconButton extends StatelessWidget 

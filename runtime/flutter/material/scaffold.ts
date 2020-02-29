@@ -12,7 +12,7 @@ interface ScaffoldProps {
 declare const flutter: {
     material: {
         scaffold: (this: void, props: ScaffoldProps) => { tag: string };
-    }
+    };
 };
 
 export class Scaffold extends StatelessWidget 

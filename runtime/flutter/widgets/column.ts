@@ -11,7 +11,7 @@ interface ColumnProps {
 declare const flutter: {
     widgets: {
         column: (this: void, props: ColumnProps) => { tag: string };
-    }
+    };
 };
 
 export class Column extends StatelessWidget 

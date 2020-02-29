@@ -52,7 +52,7 @@ class MyHomePage extends StatefulWidget
 
 class MyHomePageState extends State<MyHomePage>
 {
-    private counter: number = 0;
+    private counter = 0;
     public title: string;
     public constructor(title: string) 
     {

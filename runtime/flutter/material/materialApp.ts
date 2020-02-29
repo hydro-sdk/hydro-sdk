@@ -10,7 +10,7 @@ interface MaterialAppProps {
 declare const flutter: {
     material: {
         materialApp: (this: void, props: MaterialAppProps) => { tag: string };
-    }
+    };
 };
 
 export class MaterialApp extends StatelessWidget 

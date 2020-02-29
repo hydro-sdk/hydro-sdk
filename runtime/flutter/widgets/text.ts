@@ -11,7 +11,7 @@ interface TextProps {
 declare const flutter: {
     widgets: {
         text: (this: void, text: string, props?: TextProps | undefined) => { tag: string };
-    }
+    };
 };
 
 export class Text extends StatelessWidget 

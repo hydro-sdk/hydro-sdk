@@ -1,11 +1,11 @@
-import {Object} from "../../dart/core";
+import {DartObject} from "../../dart/core";
 import {Widget} from "../widget";
 import {RTManagedBox} from "../../syntheticBox";
 
 import {StatefulWidget} from "./statefulWidget";
 import {State} from "./state";
 
-export class AnimatedListState extends RTManagedBox<State<StatefulWidget>> implements Readonly<Object>
+export class AnimatedListState extends RTManagedBox<State<StatefulWidget>> implements Readonly<DartObject>
 {
     public readonly runtimeType = "AnimatedListState";
     protected vmObject: State<StatefulWidget>;

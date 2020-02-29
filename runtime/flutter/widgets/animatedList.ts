@@ -14,7 +14,7 @@ interface AnimatedListProps {
 declare const flutter: {
     widgets: {
         animatedList: (this: void, props: AnimatedListProps) => { tag: string };
-    }
+    };
 };
 
 export class AnimatedList extends StatelessWidget 

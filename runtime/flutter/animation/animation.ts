@@ -1,6 +1,6 @@
-import {Object} from "../../dart/core";
+import {DartObject} from "../../dart/core";
 
-export class Animation<T extends number> implements Readonly<Object>
+export class Animation<T extends number> implements Readonly<DartObject>
 {
     public readonly runtimeType = "Animation";
 }
