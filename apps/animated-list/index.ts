@@ -2,8 +2,8 @@ import {BuildContext} from "../../runtime/flutter/buildContext";
 import {GlobalKey} from "../../runtime/flutter/widgets/globalKey";
 import {EdgeInsets} from "../../runtime/flutter/painting/edgeInsets";
 import {StatelessWidget} from "../../runtime/flutter/widgets/statelessWidget";
-import {console} from "../../runtime/ts/console";
 import {print} from "../../runtime/dart/core";
+import {Axis} from "../../runtime/flutter/painting/axis";
 
 import {Widget} from "./../../runtime/flutter/widget";
 import {StatefulWidget} from "./../../runtime/flutter/widgets/statefulWidget";
@@ -21,6 +21,7 @@ import {AnimatedList} from "./../../runtime/flutter/widgets/animatedList";
 import {Animation} from "./../../runtime/flutter/animation/animation";
 import {TextStyle} from "./../../runtime/flutter/package/textStyle";
 import {Theme} from "./../../runtime/flutter/material/theme";
+import {SizeTransition} from "./../../runtime/flutter/widgets/sizeTransition";
 import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
 import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
 
@@ -28,7 +29,7 @@ declare let buildResult: Widget;
 
 class AnimatedListSample extends StatefulWidget 
 {
-    public createState() 
+    public createState(): _AnimatedListSampleState 
     {
         return new _AnimatedListSampleState();
     }
@@ -130,9 +131,6 @@ class ListModel<E>
 {
     public at: (idx: number) => E = (idx: number) => 
     {
-        print("called ListModel#at");
-        print("idx");
-        print(idx as any);
         return this.items[idx];
     }
 
@@ -191,7 +189,14 @@ class CardItem extends StatelessWidget
     {
         print("Build carditem");
         const textStyle: TextStyle = Theme.of(context).textTheme.headline;
-        return new SizedBox({});
+        return new Padding({
+            padding: EdgeInsets.all(2.0),
+            child: new SizeTransition({
+                axis: Axis.vertical,
+                sizeFactor: this.animation,
+                child: new SizedBox({})
+            })
+        });
     }
 }
 

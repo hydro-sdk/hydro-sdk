@@ -1,9 +1,13 @@
-import { Widget } from "../widget";
+import {Widget} from "../widget";
+import {Animation} from "../animation/animation";
 
-import { StatelessWidget } from "./statelessWidget";
+import {StatelessWidget} from "./statelessWidget";
+import {Axis} from "./../painting/axis";
 
 interface SizeTransitionProps {
-
+    axis: Axis;
+    sizeFactor: Animation<number>;
+    child: Widget;
 }
 
 declare const flutter: {
@@ -12,14 +16,17 @@ declare const flutter: {
     };
 };
 
-export class SizeTransition extends StatelessWidget {
+export class SizeTransition extends StatelessWidget 
+{
     public props: SizeTransitionProps;
-    public constructor(props: SizeTransitionProps) {
+    public constructor(props: SizeTransitionProps) 
+    {
         super();
         this.props = props;
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.sizeTransition(this.props);
     }
 }
