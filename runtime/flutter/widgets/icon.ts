@@ -3,10 +3,6 @@ import {Widget} from "../widget";
 import {StatelessWidget} from "./statelessWidget";
 import {IconData} from "./iconData";
 
-interface IconProps {
-
-}
-
 declare const flutter: {
     widgets: {
         icon: (this: void, icon: IconData) => { tag: string };
