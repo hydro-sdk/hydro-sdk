@@ -10,7 +10,11 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
 
   RTManagedGlobalKey({@required this.table, @required this.vmObject}) {
     table["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.currentState];
+      l.Table currentState = l.Table();
+      currentState["insertItem"] = (List<dynamic> args) {
+        (vmObject.currentState as dynamic).insertItem(args[1]);
+      };
+      return [currentState];
     });
   }
 }
