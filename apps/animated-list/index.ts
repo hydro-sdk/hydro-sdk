@@ -4,6 +4,7 @@ import {EdgeInsets} from "../../runtime/flutter/painting/edgeInsets";
 import {StatelessWidget} from "../../runtime/flutter/widgets/statelessWidget";
 import {print} from "../../runtime/dart/core";
 import {Axis} from "../../runtime/flutter/painting/axis";
+import {HitTestBehavior} from "../../runtime/flutter/rendering/hitTestBehavior";
 
 import {Widget} from "./../../runtime/flutter/widget";
 import {StatefulWidget} from "./../../runtime/flutter/widgets/statefulWidget";
@@ -21,6 +22,7 @@ import {AnimatedList} from "./../../runtime/flutter/widgets/animatedList";
 import {Animation} from "./../../runtime/flutter/animation/animation";
 import {TextStyle} from "./../../runtime/flutter/package/textStyle";
 import {Theme} from "./../../runtime/flutter/material/theme";
+import {GestureDetector} from "./../../runtime/flutter/widgets/gestureDetector";
 import {SizeTransition} from "./../../runtime/flutter/widgets/sizeTransition";
 import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
 import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
@@ -188,13 +190,23 @@ class CardItem extends StatelessWidget
     public build(context: BuildContext): Widget 
     {
         print("Build carditem");
-        const textStyle: TextStyle = Theme.of(context).textTheme.headline;
+        const textStyle: TextStyle = Theme.of(context).textTheme.display1;
+        // if(this.selected){
+        //     textStyle = textStyle.c
+        // }
         return new Padding({
             padding: EdgeInsets.all(2.0),
             child: new SizeTransition({
                 axis: Axis.vertical,
                 sizeFactor: this.animation,
-                child: new SizedBox({})
+                child: new GestureDetector({
+                    behavior: HitTestBehavior.opaque,
+                    onTap: (): void => 
+                    {
+                        ;
+                    },
+                    child: new SizedBox({})
+                })
             })
         });
     }
