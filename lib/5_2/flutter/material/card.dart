@@ -7,10 +7,9 @@ loadCard(l.Table table) {
   table["card"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Card(
-        borderOnForeground: args[0]["borderOnForeground"],
-        child: maybeUnwrapAndBuildArgument(args[0]["child"]),
-        color:args[0]["color"]
-      )
+          borderOnForeground: args[0]["borderOnForeground"],
+          child: maybeUnwrapAndBuildArgument(args[0]["child"]),
+          color: args[0]["color"])
     ];
   });
 }
