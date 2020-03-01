@@ -11,7 +11,9 @@ loadText(l.Table table) {
         key: args[1] != null
             ? maybeUnwrapAndBuildArgument(args[1]["key"])
             : null,
-        style: args[1] != null ? args[1]["style"] : null,
+        style: args[1] != null
+            ? maybeUnwrapAndBuildArgument(args[1]["style"])
+            : null,
       )
     ];
   });

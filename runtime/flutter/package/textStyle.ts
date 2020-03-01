@@ -21,6 +21,11 @@ export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextSty
         this.props = props;
     }
 
+    public copyWith(): any
+    {
+        
+    }
+
     public unwrap() 
     {
         return flutter.package.textStyle(this.props);

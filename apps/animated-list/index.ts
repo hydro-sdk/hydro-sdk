@@ -192,10 +192,11 @@ class CardItem extends StatelessWidget
     public build(context: BuildContext): Widget 
     {
         print("Build carditem");
-        const textStyle: TextStyle = Theme.of(context).textTheme.display1;
-        // if(this.selected){
-        //     textStyle = textStyle.c
-        // }
+        let textStyle: TextStyle = Theme.of(context).textTheme.display1;
+        if (this.selected) 
+        {
+            textStyle = textStyle.copyWith();
+        }
         return new Padding({
             padding: EdgeInsets.all(2.0),
             child: new SizeTransition({
@@ -205,7 +206,7 @@ class CardItem extends StatelessWidget
                     behavior: HitTestBehavior.opaque,
                     onTap: (): void => 
                     {
-                        ;
+                        this.onTap();
                     },
                     child: new SizedBox({
                         height: 128,
