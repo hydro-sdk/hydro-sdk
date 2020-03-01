@@ -24,6 +24,8 @@ import {TextStyle} from "./../../runtime/flutter/package/textStyle";
 import {Theme} from "./../../runtime/flutter/material/theme";
 import {GestureDetector} from "./../../runtime/flutter/widgets/gestureDetector";
 import {SizeTransition} from "./../../runtime/flutter/widgets/sizeTransition";
+import {Card} from "./../../runtime/flutter/material/card";
+import {Center} from "./../../runtime/flutter/widgets/center";
 import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
 import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
 
@@ -205,7 +207,14 @@ class CardItem extends StatelessWidget
                     {
                         ;
                     },
-                    child: new SizedBox({})
+                    child: new SizedBox({
+                        height: 128,
+                        child: new Card({
+                            child: new Center({
+                                child: new Text(`Item ${this.item}`, {style: textStyle})
+                            })
+                        })
+                    })
                 })
             })
         });
