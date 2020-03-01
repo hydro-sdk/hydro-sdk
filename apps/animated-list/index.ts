@@ -26,6 +26,8 @@ import {GestureDetector} from "./../../runtime/flutter/widgets/gestureDetector";
 import {SizeTransition} from "./../../runtime/flutter/widgets/sizeTransition";
 import {Card} from "./../../runtime/flutter/material/card";
 import {Center} from "./../../runtime/flutter/widgets/center";
+import {Colors} from "./../../runtime/flutter/material/colors";
+import {pauseInDebugger} from "./../../runtime/ts/debugger";
 import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
 import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
 
@@ -195,8 +197,9 @@ class CardItem extends StatelessWidget
         let textStyle: TextStyle = Theme.of(context).textTheme.display1;
         if (this.selected) 
         {
-            textStyle = textStyle.copyWith();
+            textStyle = textStyle.copyWith({color: Colors.lightGreenAccent[400]});
         }
+
         return new Padding({
             padding: EdgeInsets.all(2.0),
             child: new SizeTransition({
@@ -211,6 +214,7 @@ class CardItem extends StatelessWidget
                     child: new SizedBox({
                         height: 128,
                         child: new Card({
+                            color: Colors.primaries[this.item % Colors.primaries.length],
                             child: new Center({
                                 child: new Text(`Item ${this.item}`, {style: textStyle})
                             })

@@ -1,9 +1,11 @@
 import {Widget} from "../widget";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";
+import {Color} from "./../../dart/ui/color";
 
 interface CardProps {
     borderOnForeground?: boolean | undefined;
+    color?: Color | undefined;
     child: Widget;
 }
 

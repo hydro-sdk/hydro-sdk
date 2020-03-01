@@ -1,5 +1,6 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 import {DartObject} from "../../dart/core";
+import {Color} from "../../dart/ui/color";
 
 export interface TextStyleProps {
     fontSize?: number | undefined;
@@ -21,9 +22,9 @@ export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextSty
         this.props = props;
     }
 
-    public copyWith(): any
+    public copyWith(props: { color: Color }): any 
     {
-        
+
     }
 
     public unwrap() 

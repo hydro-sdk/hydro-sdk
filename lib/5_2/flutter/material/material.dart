@@ -6,6 +6,7 @@ import 'package:flua/5_2/flutter/material/iconButton.dart';
 import 'package:flua/5_2/flutter/material/materialApp.dart';
 import 'package:flua/5_2/flutter/material/scaffold.dart';
 import 'package:flua/5_2/flutter/material/theme.dart';
+import 'package:flua/5_2/flutter/material/wireupColors.dart';
 import 'package:flua/5_2/table.dart';
 
 loadMaterial(Table table) {
@@ -21,4 +22,5 @@ loadMaterial(Table table) {
   loadThemeOf(material);
   loadIconButton(material);
   loadCard(material);
+  loadWireupColors(material);
 }
