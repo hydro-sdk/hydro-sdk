@@ -7,9 +7,7 @@ declare const flutter: {
 };
 
 export const Colors: {
-    primaries: [
-
-    ];
+    primaries: Array<Color>;
     lightGreenAccent: {
         400: Color;
     };
