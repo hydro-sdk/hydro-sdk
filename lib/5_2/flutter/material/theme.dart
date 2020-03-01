@@ -1,27 +1,32 @@
 import 'package:flua/5_2/context.dart';
+import 'package:flua/5_2/flutter/syntheticBox.dart';
 import 'package:flua/5_2/table.dart' as l;
 import 'package:flutter/material.dart';
 
-l.Table textThemeToTable(TextTheme textTheme) {
-  var table = l.Table();
+class VMManagedTextTheme extends VMManagedBox<TextTheme> {
+  final l.Table table;
+  final TextTheme vmObject;
 
-  table["display1"] = textTheme.display1;
-  table["headline"] = textTheme.headline;
-
-  return table;
+  VMManagedTextTheme({@required this.table, @required this.vmObject}) {
+    table["display1"] = vmObject.display1;
+    table["headline"] = vmObject.headline;
+  }
 }
 
-l.Table themeDataToTable(ThemeData themeData) {
-  var table = l.Table();
-
-  table["textTheme"] = textThemeToTable(themeData.textTheme);
-
-  return table;
+class VMManagedThemeData extends VMManagedBox<ThemeData> {
+  final l.Table table;
+  final ThemeData vmObject;
+  VMManagedThemeData({@required this.table, @required this.vmObject}) {
+    table["textTheme"] =
+        VMManagedTextTheme(table: l.Table(), vmObject: vmObject.textTheme)
+            .table;
+  }
 }
 
 loadThemeOf(l.Table table) {
   table["themeOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    var themeData = Theme.of(args[0]);
-    return [themeDataToTable(themeData)];
+    return [
+      VMManagedThemeData(table: l.Table(), vmObject: Theme.of(args[0])).table
+    ];
   });
 }

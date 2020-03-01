@@ -1,4 +1,5 @@
 import 'package:flua/5_2/closure.dart';
+import 'package:flua/5_2/context.dart';
 import 'package:flua/5_2/flutter/widgets/statefulWidgetBox.dart';
 import 'package:flua/5_2/flutter/widgets/statelessWidgetBox.dart';
 import 'package:flutter/widgets.dart';
@@ -61,6 +62,9 @@ class VMManagedBox<T> extends Box<T> {
 
   VMManagedBox({@required this.table, @required this.vmObject}) {
     table["vmObject"] = vmObject;
+    table["unwrap"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [unwrap()];
+    });
   }
 
   T unwrap() => vmObject;
