@@ -6,6 +6,7 @@ import 'package:flua/5_2/context.dart';
 import 'package:flua/5_2/coroutineresult.dart';
 import 'package:flua/5_2/dart/dart.dart';
 import 'package:flua/5_2/flutter/flutter.dart';
+import 'package:flua/5_2/ts/ts.dart';
 import 'package:flua/5_2/luafunction.dart';
 import 'package:flua/5_2/stdlib/base.dart';
 import 'package:flua/5_2/stdlib/bit.dart';
@@ -55,6 +56,7 @@ class LuaState {
       loadBit32();
       loadFlutter();
       loadDart();
+      loadTs();
     }
   }
 
@@ -66,6 +68,7 @@ class LuaState {
   void loadBit32() => loadBit32Lib(_context);
   void loadFlutter() => loadFlutterLib(_context);
   void loadDart() => loadDartLib(_context);
+  void loadTs() => loadTsLib(_context);
 
   Future<LuaFunction> loadFileFromBundle(String path) async {
     var contents = await rootBundle.load(path);
