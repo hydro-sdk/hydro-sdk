@@ -8,8 +8,8 @@ loadSizedBox(l.Table table) {
     return [
       SizedBox(
         key: maybeUnwrapAndBuildArgument(args[0]["key"]),
-        width: args[0]["width"],
-        height: args[0]["height"],
+        width: args[0]["width"]?.toDouble(),
+        height: args[0]["height"]?.toDouble(),
         child: maybeUnwrapAndBuildArgument(args[0]["child"]),
       )
     ];
