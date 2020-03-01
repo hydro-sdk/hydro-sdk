@@ -1,5 +1,5 @@
 class Table {
-List<dynamic> arr = [];
+  List<dynamic> arr = [];
   final Map<dynamic, dynamic> map = {};
 
   void rawset(dynamic k, dynamic v) {

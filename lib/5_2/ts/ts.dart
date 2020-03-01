@@ -6,6 +6,6 @@ loadTsLib(Context ctx) {
   var ts = Table();
 
   ctx.env["ts"] = ts;
-  
+
   loadDebugger(ts);
 }
