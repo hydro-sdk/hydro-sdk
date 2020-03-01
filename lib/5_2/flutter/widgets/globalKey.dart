@@ -1,3 +1,4 @@
+import 'package:flua/5_2/closure.dart';
 import 'package:flua/5_2/context.dart';
 import 'package:flua/5_2/flutter/runtimeTypeToGeneric.dart';
 import 'package:flua/5_2/flutter/syntheticBox.dart';
@@ -13,6 +14,15 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
       l.Table currentState = l.Table();
       currentState["insertItem"] = (List<dynamic> args) {
         (vmObject.currentState as dynamic).insertItem(args[1]);
+      };
+
+      currentState["removeItem"] = (List<dynamic> args) {
+        (vmObject.currentState as dynamic).removeItem(args[1],
+            (BuildContext context, Animation<double> animation) {
+          Closure closure = args[2];
+          return maybeUnwrapAndBuildArgument(
+              closure([args[0], context, animation])[0]) as Widget;
+        });
       };
       return [currentState];
     });

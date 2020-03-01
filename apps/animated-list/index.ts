@@ -55,16 +55,18 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
         this.list = new ListModel<number>({
             listKey: this.listKey,
             initialItems: [0, 1, 2],
-            removedItemBuilder: (item: number, context: BuildContext) => 
-            {
-                return new SizedBox({});
-            }
+            removedItemBuilder: this.buildRemovedItem
         });
     }
 
-    private buildRemovedItem = () => 
+    private buildRemovedItem = (item: number, context: BuildContext, animation: Animation<number>) => 
     {
-        return new SizedBox({});
+        return new CardItem({
+            animation: animation,
+            item: item,
+            selected: false,
+            onTap: () => null
+        });
     }
 
     private buildItem = (context: BuildContext, index: number, animation: Animation<number>) => 
@@ -90,6 +92,18 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
         this.list.insert(index, this.nextItem++);
     }
 
+    private remove: () => void = () => 
+    {
+        if (this.selectedItem !== undefined) 
+        {
+            this.list.removeAt(this.list.indexOf(this.selectedItem));
+            this.setState(() => 
+            {
+                this.selectedItem = undefined;
+            });
+        }
+    }
+
     public build() 
     {
         return new MaterialApp({
@@ -105,7 +119,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                         }),
                         new IconButton({
                             icon: new Icon(remove_circle),
-                            onPressed: () => null,
+                            onPressed: () => this.remove(),
                             tooltip: "removed the selected item",
                         })
                     ]
@@ -140,15 +154,32 @@ class ListModel<E>
         return this.items[idx];
     }
 
+    public removeAt: (idx: number) => E = (idx: number) => 
+    {
+        const removedItem: E = this.items.splice(idx, 1)[0];
+
+        if (removedItem !== undefined) 
+        {
+            this.listKey.currentState().removeItem(idx, (context: BuildContext, animation: Animation<number>) => 
+            {
+                return this.removedItemBuilder(removedItem, context, animation);
+            });
+        }
+        return removedItem;
+    }
+
     public insert(index: number, item: E) 
     {
         this.items.splice(index, 0, item);
         this.listKey.currentState().insertItem(index);
     }
-    public indexOf: (item: E) => number = (item: E) => this.items.indexOf(item)
+    public indexOf = (item: E) => 
+    {
+        return this.items.indexOf(item);
+    }
     private items: Array<E>;
     public readonly listKey: GlobalKey<AnimatedListState>;
-    public removedItemBuilder: (item: E, context: BuildContext, ) => Widget;
+    public removedItemBuilder: (item: E, context: BuildContext, animation: Animation<number>) => CardItem;
 
     public length = () => 
     {
@@ -157,7 +188,7 @@ class ListModel<E>
 
     public constructor(props: {
         listKey: GlobalKey<AnimatedListState>;
-        removedItemBuilder: (item: E, context: BuildContext, ) => Widget;
+        removedItemBuilder: (item: E, context: BuildContext, animation: Animation<number>) => CardItem;
         initialItems: Array<E>;
     }) 
     {
@@ -180,10 +211,10 @@ class CardItem extends StatelessWidget
     public onTap: () => void;
     public item: number;
     public selected: boolean;
+    public tag = "";
 
     public constructor(props: CardItemProps) 
     {
-        print("called CardItem ctor");
         super();
         this.animation = props.animation;
         this.onTap = props.onTap;
