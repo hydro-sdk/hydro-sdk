@@ -15,9 +15,8 @@ import {Center} from "./../../runtime/flutter/widgets/center";
 import {Column} from "./../../runtime/flutter/widgets/column";
 import {FloatingActionButton} from "./../../runtime/flutter/material/floatingActionButton";
 import {Icon} from "./../../runtime/flutter/widgets/icon";
+import {runApp} from "./../../runtime/flutter/runApp";
 import {add} from "./../../runtime/flutter/material/icons/add";
-
-declare let buildResult: Widget;
 
 class MyApp extends StatelessWidget 
 {
@@ -44,7 +43,7 @@ class MyHomePage extends StatefulWidget
         super();
         this.title = title;
     }
-    public createState() 
+    public createState(): MyHomePageState
     {
         return new MyHomePageState(this.title);
     }
@@ -60,7 +59,7 @@ class MyHomePageState extends State<MyHomePage>
         this.title = title;
     }
 
-    private incrementCounter = () => 
+    private incrementCounter = (): void => 
     {
         this.setState(() => 
         {
@@ -98,4 +97,4 @@ class MyHomePageState extends State<MyHomePage>
     }
 }
 
-buildResult = new MyApp();
+runApp(() => new MyApp());

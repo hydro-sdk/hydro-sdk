@@ -26,10 +26,9 @@ import {SizeTransition} from "./../../runtime/flutter/widgets/sizeTransition";
 import {Card} from "./../../runtime/flutter/material/card";
 import {Center} from "./../../runtime/flutter/widgets/center";
 import {Colors} from "./../../runtime/flutter/material/colors";
+import {runApp} from "./../../runtime/flutter/runApp";
 import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
 import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
-
-declare let buildResult: Widget;
 
 class AnimatedListSample extends StatefulWidget 
 {
@@ -263,4 +262,4 @@ class CardItem extends StatelessWidget
     }
 }
 
-buildResult = new AnimatedListSample();
+runApp(() => new AnimatedListSample());
