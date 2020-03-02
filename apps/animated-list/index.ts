@@ -120,7 +120,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                         new IconButton({
                             icon: new Icon(remove_circle),
                             onPressed: () => this.remove(),
-                            tooltip: "removed the selected item",
+                            tooltip: "remove the selected item",
                         })
                     ]
                 }),
