@@ -47,8 +47,17 @@ void main() {
     expect(find.text('Item 5'), findsOneWidget);
     expect(find.text('Item 6'), findsOneWidget);
 
+    // Insert items 7, 8 at item 3's position (at the top)
+    await tester.tap(find.text('Item 3'));
+    await tester.tap(insertButton);
+    await tester.tap(insertButton);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Item 7'), findsOneWidget);
+    expect(find.text('Item 8'), findsOneWidget);
+
     // Scroll to the end.
-    await tester.fling(find.text('Item 6'), const Offset(0.0, -200.0), 1000.0);
+    await tester.fling(find.text('Item 7'), const Offset(0.0, -200.0), 1000.0);
     await tester.pumpAndSettle();
     expect(find.text('Item 6'), findsOneWidget);
     expect(find.text('Item 8'), findsNothing);
