@@ -2,7 +2,6 @@ import {BuildContext} from "../../runtime/flutter/buildContext";
 import {GlobalKey} from "../../runtime/flutter/widgets/globalKey";
 import {EdgeInsets} from "../../runtime/flutter/painting/edgeInsets";
 import {StatelessWidget} from "../../runtime/flutter/widgets/statelessWidget";
-import {print} from "../../runtime/dart/core";
 import {Axis} from "../../runtime/flutter/painting/axis";
 import {HitTestBehavior} from "../../runtime/flutter/rendering/hitTestBehavior";
 
@@ -27,7 +26,6 @@ import {SizeTransition} from "./../../runtime/flutter/widgets/sizeTransition";
 import {Card} from "./../../runtime/flutter/material/card";
 import {Center} from "./../../runtime/flutter/widgets/center";
 import {Colors} from "./../../runtime/flutter/material/colors";
-import {pauseInDebugger} from "./../../runtime/ts/debugger";
 import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
 import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
 
@@ -45,7 +43,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
 {
     private listKey: GlobalKey<AnimatedListState>;
     private list: ListModel<number>;
-    private selectedItem: number | undefined;
+    private selectedItem: number | null = null;
     private nextItem = 3;
 
     public constructor() 
@@ -59,28 +57,30 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
         });
     }
 
-    private buildRemovedItem = (item: number, context: BuildContext, animation: Animation<number>) => 
+    private buildRemovedItem = (item: number, context: BuildContext, animation: Animation<number>): CardItem => 
     {
         return new CardItem({
             animation: animation,
             item: item,
             selected: false,
-            onTap: () => null
+            onTap: (): void => 
+            {
+                ;
+            }
         });
     }
 
-    private buildItem = (context: BuildContext, index: number, animation: Animation<number>) => 
+    private buildItem = (context: BuildContext, index: number, animation: Animation<number>): CardItem => 
     {
-        print("Called builditem");
         return new CardItem({
             animation: animation,
             item: this.list.at(index),
             selected: this.selectedItem == this.list.at(index),
-            onTap: () => 
+            onTap: (): void => 
             {
                 this.setState(() => 
                 {
-                    this.selectedItem = this.selectedItem == this.list.at(index) ? undefined : this.list.at(index);
+                    this.selectedItem = this.selectedItem == this.list.at(index) ? null : this.list.at(index);
                 });
             }
         });
@@ -88,23 +88,36 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
 
     private insert: () => void = () => 
     {
-        const index: number = this.selectedItem != undefined ? this.list.length() : this.list.indexOf(this.selectedItem!);
+        let index = 0;
+        if (this.selectedItem == null) 
+        {
+            index = this.list.length();
+        }
+        else 
+        {
+            index = this.list.indexOf(this.selectedItem);
+        }
+        if (index > this.list.length()) 
+        {
+            index = 0;
+        }
+
         this.list.insert(index, this.nextItem++);
     }
 
     private remove: () => void = () => 
     {
-        if (this.selectedItem !== undefined) 
+        if (this.selectedItem !== null) 
         {
             this.list.removeAt(this.list.indexOf(this.selectedItem));
             this.setState(() => 
             {
-                this.selectedItem = undefined;
+                this.selectedItem = null;
             });
         }
     }
 
-    public build() 
+    public build(): MaterialApp 
     {
         return new MaterialApp({
             initialRoute: "/",
@@ -114,12 +127,12 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                     actions: [
                         new IconButton({
                             icon: new Icon(add_circle),
-                            onPressed: () => this.insert(),
+                            onPressed: (): void => this.insert(),
                             tooltip: "insert a new item"
                         }),
                         new IconButton({
                             icon: new Icon(remove_circle),
-                            onPressed: () => this.remove(),
+                            onPressed: (): void => this.remove(),
                             tooltip: "remove the selected item",
                         })
                     ]
@@ -129,15 +142,8 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                     child: new AnimatedList({
                         key: this.listKey,
                         initialItemCount: this.list.length(),
-                        itemBuilder: (context: BuildContext, num: number, anim) => 
+                        itemBuilder: (context: BuildContext, num: number, anim): Widget => 
                         {
-                            // print("Called itemBuilder");
-                            // print("context");
-                            // print(context as any);
-                            // print("num");
-                            // print(num as any);
-                            // print("anim");
-                            // print(anim as any);
                             return this.buildItem(context, num, anim);
                         }
                     })
@@ -157,8 +163,9 @@ class ListModel<E>
     public removeAt: (idx: number) => E = (idx: number) => 
     {
         const removedItem: E = this.items.splice(idx, 1)[0];
+        this.items = this.items.filter((x) => x !== null);
 
-        if (removedItem !== undefined) 
+        if (removedItem !== null) 
         {
             this.listKey.currentState().removeItem(idx, (context: BuildContext, animation: Animation<number>) => 
             {
@@ -168,12 +175,12 @@ class ListModel<E>
         return removedItem;
     }
 
-    public insert(index: number, item: E) 
+    public insert(index: number, item: E): void 
     {
         this.items.splice(index, 0, item);
         this.listKey.currentState().insertItem(index);
     }
-    public indexOf = (item: E) => 
+    public indexOf = (item: E): number => 
     {
         return this.items.indexOf(item);
     }
@@ -181,7 +188,7 @@ class ListModel<E>
     public readonly listKey: GlobalKey<AnimatedListState>;
     public removedItemBuilder: (item: E, context: BuildContext, animation: Animation<number>) => CardItem;
 
-    public length = () => 
+    public length = (): number => 
     {
         return this.items.length;
     }
@@ -224,7 +231,6 @@ class CardItem extends StatelessWidget
 
     public build(context: BuildContext): Widget 
     {
-        print("Build carditem");
         let textStyle: TextStyle = Theme.of(context).textTheme.display1;
         if (this.selected) 
         {
