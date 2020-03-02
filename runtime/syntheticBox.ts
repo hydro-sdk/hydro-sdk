@@ -4,7 +4,9 @@ export abstract class JITAllocatingRTManagedBox<T, U>
     private vmObject: never;
     public abstract unwrap(): U;
     public constructor() 
-    { }
+    {
+        ;
+    }
 }
 
 export abstract class RTManagedBox<T>

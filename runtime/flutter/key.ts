@@ -16,7 +16,7 @@ export class Key extends JITAllocatingRTManagedBox<{}, {}> implements Readonly<D
         this.value = value;
     }
 
-    public unwrap() 
+    public unwrap(): Key 
     {
         return flutter.key(this.value);
     }

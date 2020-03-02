@@ -22,12 +22,12 @@ export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextSty
         this.props = props;
     }
 
-    public copyWith(props: { color: Color }): any 
+    public copyWith(props: { color: Color }): TextStyle 
     {
-
+        return {} as any;
     }
 
-    public unwrap() 
+    public unwrap(): TextStyle
     {
         return flutter.package.textStyle(this.props);
     }
