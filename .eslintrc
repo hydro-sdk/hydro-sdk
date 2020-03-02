@@ -63,7 +63,7 @@
     {
       "files": [
         "runtime/flutter/material/icons/*.ts",
-        "apps/**/*.ts"
+        "examples/**/*.ts"
       ],
       "rules": {
         "import/no-unused-modules": false,

@@ -1,4 +1,4 @@
-for f in apps/*; 
+for f in examples/*; 
 do
     printf "$f\n"
     ./node_modules/.bin/tstl -p $f/tsconfig.json

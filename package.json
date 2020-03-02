@@ -9,7 +9,7 @@
   },
   "scripts": {
     "tstl": "tstl",
-    "luac": "./../luac.5.2.4 -o assets/apps/hw.lc assets/apps/hw.lua",
+    "luac": "./../luac.5.2.4 -o assets/examples/hw.lc assets/examples/hw.lua",
     "build": "tstl && npm run luac",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

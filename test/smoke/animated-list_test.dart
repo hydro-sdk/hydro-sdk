@@ -9,7 +9,7 @@ import 'package:flua/integrationTestHarness.dart' as harness;
 void main() {
   testWidgets('animated_list sample app smoke test',
       (WidgetTester tester) async {
-    harness.main("assets/apps/animated-list.lc");
+    harness.main("assets/examples/animated-list.lc");
     await tester.pump();
 
     expect(find.text('Item 0'), findsOneWidget);

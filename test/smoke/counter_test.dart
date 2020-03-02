@@ -4,7 +4,7 @@ import 'package:flua/integrationTestHarness.dart' as harness;
 
 void main() {
   testWidgets('counter sample app smoke test', (WidgetTester tester) async {
-    harness.main("assets/apps/counter.lc");
+    harness.main("assets/examples/counter.lc");
     await tester.pump();
 
     expect(find.byKey(Key("counter")), findsOneWidget);
