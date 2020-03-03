@@ -43,3 +43,4 @@ examples/**/*.lua
 assets/examples/*.lc
 flua/android/.project
 *.js
+.hydroc
