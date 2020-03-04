@@ -1,8 +1,5 @@
 for f in examples/*; 
 do
-    printf "$f\n"
-    ./node_modules/.bin/tstl -p $f/tsconfig.json
-    ./luac.5.2.4 -o assets/$f.lc $f/index.lua
-    printf "    $(du -sh assets/$f.lc)\n"
+    node compiler -t "$f/index.ts" -m "$(basename $f)" -d "assets/examples" -p $1
 done
 

@@ -10,7 +10,8 @@
   "scripts": {
     "tstl": "tstl",
     "luac": "./../luac.5.2.4 -o assets/examples/hw.lc assets/examples/hw.lua",
-    "build": "tstl && npm run luac",
+    "build:debug": "bash scripts/buildAll.bash debug",
+    "build:release": "bash scripts/buildAll.bash release",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
