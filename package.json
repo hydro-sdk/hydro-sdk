@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/minimist": "^1.2.0",
     "@types/node": "^13.7.7",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^1.10.2",
@@ -24,5 +25,9 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsdoc": "^10.0.3",
     "typescript-to-lua": "^0.31.0"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "minimist": "^1.2.0"
   }
 }

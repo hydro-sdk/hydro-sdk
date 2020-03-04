@@ -1,29 +1,45 @@
 import * as fs from "fs";
-import * as path from "path";
-import * as cp from "child_process";
 
-import * as tstl from "typescript-to-lua";
-import {LuaTarget, LuaLibImportKind} from "typescript-to-lua";
+import * as minimist from "minimist";
+import * as chalk from "chalk";
 
-const assert = require("assert").strict;
+import {emit} from "./src/ts/emit";
+import {BuildOptions} from "./src/ts/buildOptions";
+import {transpile} from "./src/ts/transpile";
+import {squishAndCopy} from "./src/ts/squishAndCopy";
+import {configHash} from "./src/ts/configHash";
 
-const args = process.argv.slice(1, process.argv.length);
-const outName = args[2];
-const outDir = args[3];
-assert(args[2] !== undefined);
-assert(outDir !== undefined);
+const argv = minimist(process.argv.slice(2));
 
-const bundlePrelude = `
-local package = {preload={}}
-local function require(file)
-    return package.preload[file]()
-end\n`;
+const entry = argv.t;
+const modName = argv.m;
+const outDir = argv.d;
+const profile = argv.p;
 
-const res = tstl.transpileFiles([args[1]], {luaTarget: LuaTarget.Lua53, luaLibImport: LuaLibImportKind.Inline});
-
-function makeRelativePath(absPath: string): string 
+if (!entry) 
 {
-    return path.relative(process.cwd(), absPath);
+    console.log("Entry file must be specified with -t switch");
+    process.exit(1);
+}
+else 
+{
+    if (!fs.statSync(entry)) 
+    {
+        console.log("Entry file does not exist");
+        process.exit(1);
+    }
+}
+
+if (!modName) 
+{
+    console.log("Output module name must be specified with -m switch");
+    process.exit(1);
+}
+
+if (!outDir) 
+{
+    console.log("Output directory must be specified with -d switch");
+    process.exit(1);
 }
 
 if (!fs.existsSync(".hydroc")) 
@@ -31,35 +47,19 @@ if (!fs.existsSync(".hydroc"))
     fs.mkdirSync(".hydroc");
 }
 
-let squishy = "";
-
-squishy += `Output "${outName}"\n`;
-
-squishy += `Main "${makeRelativePath(args[1]).split(".")[0]}.lua"\n`;
-
-for (let i = 0; i != res.emitResult.length; ++i) 
+function transpileTS(config: BuildOptions): void
 {
-    const target = `.hydroc/${makeRelativePath(res.emitResult[i].name)}`;
-    const targetDir = path.dirname(target);
-    fs.mkdirSync(targetDir, {recursive: true});
-    fs.writeFileSync(target, res.emitResult[i].text);
-
-    if (res.emitResult[i].name != `${makeRelativePath(args[1]).split(".")[0]}.lua`) 
-    {
-        squishy += `Module "${makeRelativePath(res.emitResult[i].name).split(path.sep).join(".").split(".lua")[0]}" "${makeRelativePath(res.emitResult[i].name)}"\n`;
-    }
+    const hash = configHash(config);
+    console.log(`Build ${chalk.yellow(hash)}`);
+    const res = transpile(config);
+    emit(config,res);
+    squishAndCopy(config);
+    console.log(`${chalk.green(config.entry)} ----> ${chalk.blue(`${config.outDir}/${config.modName}`)}`);
 }
 
-fs.writeFileSync(".hydroc/squishy", squishy);
-
-if (process.platform == "darwin") 
-{
-    cp.execSync("./../compiler/res/darwin/lua52 ./../compiler/res/squish.lua", {cwd: "./.hydroc",});
-    const rawOut = fs.readFileSync(`.hydroc/${outName}`).toString();
-    fs.writeFileSync(`.hydroc/${outName}`,bundlePrelude.concat(rawOut));
-
-    cp.execSync(`./../compiler/res/darwin/luac52 -o ${outName}.lc ${outName}`,{cwd:"./.hydroc"});
-    fs.copyFileSync(`.hydroc/${outName}.lc`,`${outDir}/${outName}.lc`);
-}
-
-// fs.writeFileSync("out.json",JSON.stringify(res.emitResult,undefined,4));
+transpileTS({
+    entry:entry,
+    modName:modName,
+    outDir:outDir,
+    profile:profile
+});
