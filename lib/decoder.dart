@@ -103,7 +103,9 @@ class Decoder {
       return new UpvalDef(read(1)[0] == 1, read(1)[0]);
     });
     doing = "reading source code";
-    prim.source = readString();
+    try {
+      prim.source = readString();
+    } catch (err) {}
     doing = "reading debug lines";
     prim.lines = new List.generate(readInt(code.intSize, code.bigEndian),
         (i) => readInt(code.intSize, code.bigEndian));
