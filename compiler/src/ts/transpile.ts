@@ -9,7 +9,7 @@ export function transpile(config: BuildOptions): TranspileFilesResult
 
     if (config.profile == "debug") 
     {
-        tstlOpt.sourceMapTraceback = true;
+        // tstlOpt.sourceMapTraceback = true;
     }
     const res = transpileFiles([config.entry], tstlOpt);
 
