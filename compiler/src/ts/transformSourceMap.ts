@@ -65,7 +65,7 @@ export function transformSourceMap(fileName: string, file: string): string
         {
             if (!new RegExp("(return )").test(lines[srcMap[i].out + insertions - 2])) 
             {
-                lines.splice(srcMap[i].out + insertions - 1, 0, `__hydro__filename="${fileName}";__hydro__linenumber=${srcMap[i].in.toString()};`);
+                // lines.splice(srcMap[i].out + insertions - 1, 0, `__hydro__filename="${fileName}";__hydro__linenumber=${srcMap[i].in.toString()};`);
                 insertions += 1;
 
                 const inLine = srcMap[i].in;

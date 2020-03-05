@@ -13,7 +13,7 @@ export function squishAndCopy(config: BuildOptions): void
     const rawOut = fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}`).toString();
     fs.writeFileSync(`.hydroc/${configHash(config)}/${config.modName}`, bundlePrelude.concat(rawOut));
 
-    cp.execSync(`./../../compiler/res/darwin/luac52 -o ${config.modName}.lc ${config.modName}`, {cwd: `./.hydroc/${configHash(config)}`});
+    cp.execSync(`./../../compiler/res/darwin/luac52 ${config.profile == "release" ? "-s" : ""} -o ${config.modName}.lc ${config.modName}`, {cwd: `./.hydroc/${configHash(config)}`});
 
     const outFile = `${config.outDir}/${config.modName}.lc`;
 

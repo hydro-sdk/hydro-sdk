@@ -5,7 +5,7 @@ import {BuildOptions} from "./buildOptions";
 
 export function transpile(config: BuildOptions): TranspileFilesResult 
 {
-    const tstlOpt: CompilerOptions = {luaTarget: LuaTarget.Lua53, luaLibImport: LuaLibImportKind.Inline};
+    const tstlOpt: CompilerOptions = {strict: true, luaTarget: LuaTarget.Lua53, luaLibImport: LuaLibImportKind.Inline};
 
     if (config.profile == "debug") 
     {
