@@ -15,7 +15,7 @@ export function transpile(config: BuildOptions): TranspileFilesResult
 
     for(let i = 0; i != res.diagnostics.length; ++i)
     {
-        console.log(`${res.diagnostics[i].file?.fileName}:${(res.diagnostics[i].file as any).identifierCount}`);
+        console.log(`${res.diagnostics[i].file?.fileName}:${(res.diagnostics[i].file as any)?.identifierCount}`);
         console.log(chalk.red(res.diagnostics[i].messageText));
         process.exit(1);
     }
