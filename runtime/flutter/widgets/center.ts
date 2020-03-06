@@ -1,8 +1,10 @@
 import {Widget} from "../widget";
+import {Key} from "../key";
 
 import {StatelessWidget} from "./statelessWidget";
 
 interface CenterProps {
+    key?: Key;
     child: Widget;
 }
 

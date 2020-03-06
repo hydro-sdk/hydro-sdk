@@ -7,6 +7,7 @@ loadCenter(l.Table table) {
   table["center"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Center(
+        key: maybeUnwrapAndBuildArgument(args[0]["key"]),
         child: maybeUnwrapAndBuildArgument(args[0]["child"]),
       )
     ];
