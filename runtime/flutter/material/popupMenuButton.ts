@@ -10,7 +10,7 @@ interface PopupMenuButtonProps<T> {
 }
 
 declare const flutter: {
-    widgets: {
+    material: {
         popupMenuButton: (this: void, props: PopupMenuButtonProps<any>) => PopupMenuButton<any>;
     };
 };
@@ -26,6 +26,6 @@ export class PopupMenuButton<T> extends StatelessWidget
 
     public build(): Widget 
     {
-        return flutter.widgets.popupMenuButton(this.props);
+        return flutter.material.popupMenuButton(this.props);
     }
 }
