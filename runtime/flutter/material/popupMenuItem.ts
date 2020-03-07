@@ -1,5 +1,5 @@
-import { Widget } from "./../widget";
-import { StatelessWidget } from "./../widgets/statelessWidget";
+import {Widget} from "./../widget";
+import {StatelessWidget} from "./../widgets/statelessWidget";
 
 interface PopupMenuItemProps<T> {
     value: T;
@@ -12,14 +12,17 @@ declare const flutter: {
     };
 };
 
-export class PopupMenuItem<T> extends StatelessWidget {
+export class PopupMenuItem<T> extends StatelessWidget 
+{
     public props: PopupMenuItemProps<T>;
-    public constructor(props: PopupMenuItemProps<T>) {
+    public constructor(props: PopupMenuItemProps<T>) 
+    {
         super();
         this.props = props;
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.material.popupMenuItem(this.props);
     }
 }
