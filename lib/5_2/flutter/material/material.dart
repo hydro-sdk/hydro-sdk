@@ -5,6 +5,7 @@ import 'package:flua/5_2/flutter/material/floatingActionButton.dart';
 import 'package:flua/5_2/flutter/material/iconButton.dart';
 import 'package:flua/5_2/flutter/material/materialApp.dart';
 import 'package:flua/5_2/flutter/material/popupMenuButton.dart';
+import 'package:flua/5_2/flutter/material/popupMenuItem.dart';
 import 'package:flua/5_2/flutter/material/scaffold.dart';
 import 'package:flua/5_2/flutter/material/theme.dart';
 import 'package:flua/5_2/flutter/material/wireupColors.dart';
@@ -25,4 +26,5 @@ loadMaterial(Table table) {
   loadCard(material);
   loadWireupColors(material);
   loadPopupMenuButton(material);
+  loadPopupMenuItem(material);
 }

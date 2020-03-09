@@ -14,11 +14,11 @@ loadPopupMenuButton(l.Table table) {
         },
         itemBuilder: (BuildContext context) {
           Closure closure = args[0]["itemBuilder"];
-          return closure
-              .call([context])
-              .map((x) => maybeUnwrapAndBuildArgument(x))
+          l.Table closureRes = closure.call([context])[0];
+          return maybeUnwrapAndBuildArgument(closureRes)
+              .map((x) => x.build(context))
               .toList()
-              .cast<PopupMenuEntry<dynamic>>();
+              .cast<PopupMenuItem<dynamic>>();
         },
       )
     ];
