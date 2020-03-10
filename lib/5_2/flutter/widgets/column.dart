@@ -9,6 +9,10 @@ loadColumn(l.Table table) {
       Column(
           mainAxisAlignment: MainAxisAlignment.values
               .firstWhere((x) => x.index == args[0]["mainAxisAlignment"]),
+          mainAxisSize: MainAxisSize.values
+              .firstWhere((x) => x.index == args[0]["mainAxisSize"]),
+          crossAxisAlignment: CrossAxisAlignment.values
+              .firstWhere((x) => x.index == args[0]["crossAxisAlignment"]),
           children: maybeUnwrapAndBuildArgument(args[0]["children"]))
     ];
   });

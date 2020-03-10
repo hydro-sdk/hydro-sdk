@@ -26,6 +26,8 @@ import { Padding } from "../../runtime/flutter/widgets/padding";
 import { EdgeInsets } from "../../runtime/flutter/painting/edgeInsets";
 import { Center } from "../../runtime/flutter/widgets/center";
 import { Column } from "../../runtime/flutter/widgets/column";
+import { MainAxisSize } from "../../runtime/flutter/rendering/mainAxisSize";
+import { CrossAxisAlignment } from "../../runtime/flutter/rendering/crossAxisAlignment";
 
 class BasicAppBarSample extends StatefulWidget {
     public constructor() {
@@ -69,7 +71,9 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample>
                             }
                         }),
                         new PopupMenuButton<Choice>({
-                            onSelected: () => this.select,
+                            onSelected: (choice: Choice) => {
+                                this.select(choice);
+                            },
                             itemBuilder: (): PopupMenuItem<Choice>[] => {
                                 return choices.map((choice) => {
                                     return new PopupMenuItem<Choice>({
@@ -122,8 +126,10 @@ class ChoiceCard extends StatelessWidget {
         return new Card({
             child: new Center({
                 child: new Column({
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                        new Icon(this.choice.icon),
+                        new Icon(this.choice.icon, { size: 128.0 }),
                         new Text(this.choice.title, { style: textStyle })
                     ]
                 })
