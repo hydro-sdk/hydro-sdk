@@ -1,24 +1,27 @@
-import {Widget} from "../widget";
+import { Widget } from "../widget";
 
-import {StatelessWidget} from "./statelessWidget";
-import {IconData} from "./iconData";
+import { StatelessWidget } from "./statelessWidget";
+import { IconData } from "./iconData";
+
+interface IconProps {
+    size?: number | undefined;
+}
 
 declare const flutter: {
     widgets: {
-        icon: (this: void, icon: IconData) => { tag: string };
+        icon: (this: void, icon: IconData, props?: IconProps | undefined) => Icon;
     };
 };
 
-export class Icon extends StatelessWidget 
-{
+export class Icon extends StatelessWidget {
     public icon: IconData;
-    public constructor(icon: IconData) 
-    {
+    public props: IconProps | undefined;
+    public constructor(icon: IconData, props?: IconProps | undefined) {
         super();
         this.icon = icon;
+        this.props = props;
     }
-    public build(): Widget 
-    {
-        return flutter.widgets.icon(this.icon);
+    public build(): Widget {
+        return flutter.widgets.icon(this.icon,this.props);
     }
 }
