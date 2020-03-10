@@ -4,6 +4,7 @@ import {Color} from "../../dart/ui/color";
 
 export interface TextStyleProps {
     fontSize?: number | undefined;
+    color?: Color | undefined;
 }
 
 declare const flutter: {
@@ -16,6 +17,7 @@ export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextSty
 {
     public readonly runtimeType = "TextStyle";
     public props: TextStyleProps;
+    public color?: Color;
     public constructor(props: TextStyleProps) 
     {
         super();
@@ -27,7 +29,7 @@ export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextSty
         return {} as any;
     }
 
-    public unwrap(): TextStyle
+    public unwrap(): TextStyle 
     {
         return flutter.package.textStyle(this.props);
     }

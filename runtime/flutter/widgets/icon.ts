@@ -1,10 +1,12 @@
 import {Widget} from "../widget";
+import {Color} from "../../dart/ui/color";
 
 import {StatelessWidget} from "./statelessWidget";
 import {IconData} from "./iconData";
 
 interface IconProps {
     size?: number | undefined;
+    color?: Color | undefined;
 }
 
 declare const flutter: {
@@ -25,6 +27,6 @@ export class Icon extends StatelessWidget
     }
     public build(): Widget 
     {
-        return flutter.widgets.icon(this.icon,this.props);
+        return flutter.widgets.icon(this.icon, this.props);
     }
 }
