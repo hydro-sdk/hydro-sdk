@@ -10,7 +10,7 @@ loadPopupMenuButton(l.Table table) {
       PopupMenuButton(
         onSelected: (dynamic arg) {
           Closure closure = args[0]["onSelected"];
-          return closure.call([arg]);
+          return closure.call([args[0], arg]);
         },
         itemBuilder: (BuildContext context) {
           Closure closure = args[0]["itemBuilder"];
