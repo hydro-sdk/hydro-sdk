@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flua/integrationTestHarness.dart' as harness;
 
 class Choice {
-  const Choice({ this.title, this.icon });
+  const Choice({this.title, this.icon});
   final String title;
   final IconData icon;
 }
@@ -22,7 +22,7 @@ const List<Choice> choices = <Choice>[
 ];
 
 class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({ Key key, this.choice }) : super(key: key);
+  const ChoiceCard({Key key, this.choice}) : super(key: key);
 
   final Choice choice;
 
@@ -45,7 +45,7 @@ class ChoiceCard extends StatelessWidget {
   }
 }
 
-int choiceCount =choices.length;
+int choiceCount = choices.length;
 IconData iconAt(int index) => choices[index].icon;
 String titleAt(int index) => choices[index].title;
 
