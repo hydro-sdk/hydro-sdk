@@ -15,7 +15,7 @@ declare const flutter: {
     };
 };
 
-export class FlatButton extends StatelessWidget implements DartObject
+export class FlatButton extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "FlatButton";
     public props: FlatButtonProps;

@@ -14,7 +14,7 @@ declare const flutter: {
     };
 };
 
-export class MaterialApp extends StatelessWidget  implements DartObject
+export class MaterialApp extends StatelessWidget  implements Readonly<DartObject>
 {
     public readonly runtimeType = "MaterialApp";
     public props: MaterialAppProps;

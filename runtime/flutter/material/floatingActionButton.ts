@@ -16,7 +16,7 @@ declare const flutter: {
     };
 };
 
-export class FloatingActionButton extends StatelessWidget implements DartObject
+export class FloatingActionButton extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "FloatingActionButton";
     public props: FloatingActionButtonProps;

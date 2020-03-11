@@ -13,7 +13,7 @@ declare const flutter: {
     };
 };
 
-export class PreferredSize extends StatelessWidget implements DartObject
+export class PreferredSize extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "PreferredSize";
     public props: PreferredSizeProps;

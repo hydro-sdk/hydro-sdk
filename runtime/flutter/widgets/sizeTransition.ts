@@ -17,7 +17,7 @@ declare const flutter: {
     };
 };
 
-export class SizeTransition extends StatelessWidget  implements DartObject
+export class SizeTransition extends StatelessWidget  implements Readonly<DartObject>
 {
     public readonly runtimeType = "SizeTransition";
     public props: SizeTransitionProps;

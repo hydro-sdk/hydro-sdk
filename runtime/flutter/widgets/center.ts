@@ -15,7 +15,7 @@ declare const flutter: {
     };
 };
 
-export class Center extends StatelessWidget  implements DartObject
+export class Center extends StatelessWidget  implements Readonly<DartObject>
 {
     public readonly runtimeType = "Center";
     public props: CenterProps;

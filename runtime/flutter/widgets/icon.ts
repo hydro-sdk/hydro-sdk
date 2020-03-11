@@ -16,7 +16,7 @@ declare const flutter: {
     };
 };
 
-export class Icon extends StatelessWidget  implements DartObject
+export class Icon extends StatelessWidget  implements Readonly<DartObject>
 {
     public readonly runtimeType = "Icon";
     public icon: IconData;

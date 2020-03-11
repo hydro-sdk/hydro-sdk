@@ -16,7 +16,7 @@ declare const flutter: {
     };
 };
 
-export class Card extends StatelessWidget  implements DartObject
+export class Card extends StatelessWidget  implements Readonly<DartObject>
 {
     public readonly runtimeType = "Card";
     public props: CardProps;

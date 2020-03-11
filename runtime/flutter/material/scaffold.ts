@@ -16,7 +16,7 @@ declare const flutter: {
     };
 };
 
-export class Scaffold extends StatelessWidget implements DartObject
+export class Scaffold extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "Scaffold";
     public props: ScaffoldProps;

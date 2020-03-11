@@ -19,7 +19,7 @@ declare const flutter: {
     };
 };
 
-export class Column extends StatelessWidget  implements DartObject
+export class Column extends StatelessWidget  implements Readonly<DartObject>
 {
     public readonly runtimeType = "Column";
     public props: ColumnProps;

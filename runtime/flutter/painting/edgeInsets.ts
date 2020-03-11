@@ -9,7 +9,7 @@ declare const flutter: {
     };
 };
 
-export class EdgeInsets implements DartObject 
+export class EdgeInsets implements Readonly<DartObject> 
 {
     public readonly runtimeType = "EdgeInsets";
     public static all(value: number): EdgeInsets 

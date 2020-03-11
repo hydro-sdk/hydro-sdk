@@ -17,7 +17,7 @@ declare const flutter: {
     };
 };
 
-export class SizedBox extends StatelessWidget implements DartObject
+export class SizedBox extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "SizedBox";
     public props: SizedBoxProps;

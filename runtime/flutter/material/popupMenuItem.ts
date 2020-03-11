@@ -13,7 +13,7 @@ declare const flutter: {
     };
 };
 
-export class PopupMenuItem<T> extends StatelessWidget implements DartObject
+export class PopupMenuItem<T> extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "PopupMenuItem";
     public props: PopupMenuItemProps<T>;

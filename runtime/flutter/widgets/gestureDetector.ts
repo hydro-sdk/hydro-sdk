@@ -17,7 +17,7 @@ declare const flutter: {
     };
 };
 
-export class GestureDetector extends StatelessWidget  implements DartObject
+export class GestureDetector extends StatelessWidget  implements Readonly<DartObject>
 {
     public readonly runtimeType = "GestureDetector";
     public props: GestureDetectorProps;

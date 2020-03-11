@@ -17,7 +17,7 @@ declare const flutter: {
     };
 };
 
-export class Padding extends StatelessWidget implements DartObject
+export class Padding extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "Padding";
     public props: PaddingProps;

@@ -18,7 +18,7 @@ declare const flutter: {
     };
 };
 
-export class AnimatedList extends StatelessWidget implements DartObject
+export class AnimatedList extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "AnimatedList";
     public props: AnimatedListProps;
