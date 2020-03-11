@@ -1,5 +1,6 @@
-import { StatelessWidget } from "./statelessWidget";
-import { Widget } from "../widget";
+import {Widget} from "../widget";
+
+import {StatelessWidget} from "./statelessWidget";
 
 interface PreferredSizeProps {
     child: Widget;
@@ -8,18 +9,21 @@ interface PreferredSizeProps {
 declare const flutter: {
     widgets: {
         preferredSize: (this: void, props: PreferredSizeProps) => PreferredSize;
-    }
-}
+    };
+};
 
-export class PreferredSize extends StatelessWidget {
+export class PreferredSize extends StatelessWidget 
+{
     public readonly runtimeType = "PreferredSize";
     public props: PreferredSizeProps;
-    public constructor(props: PreferredSizeProps) {
+    public constructor(props: PreferredSizeProps) 
+    {
         super();
         this.props = props;
     }
 
-    public build(): PreferredSize {
+    public build(): PreferredSize 
+    {
         return flutter.widgets.preferredSize(this.props);
     }
 }
