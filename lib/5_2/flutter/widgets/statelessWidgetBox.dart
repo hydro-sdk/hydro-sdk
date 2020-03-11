@@ -20,8 +20,8 @@ class StatelessPreferredSizeBox extends PreferredSize {
   StatelessPreferredSizeBox({@required this.table});
 
   @override
-  Size get preferredSize => maybeUnwrapAndBuildArgument(
-      table["preferredSize"]([table.map])[0]);
+  Size get preferredSize =>
+      maybeUnwrapAndBuildArgument(table["preferredSize"]([table.map])[0]);
 
   @override
   Widget build(BuildContext context) {

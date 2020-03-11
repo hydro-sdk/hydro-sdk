@@ -1,7 +1,7 @@
-import {RuntimeType} from "../../dart/core/object";
+import {RuntimeType,DartObject} from "../../dart/core/object";
 import {RTManagedBox} from "../../syntheticBox";
 
-import {DartObject} from "./../../dart/core/object";
+
 import {StatefulWidget} from "./statefulWidget";
 import {State} from "./state";
 

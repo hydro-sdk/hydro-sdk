@@ -6,7 +6,7 @@ import {Size} from "./../../dart/ui/size";
 
 interface PreferredSizeProps {
     child: Widget;
-    preferredSize:Size;
+    preferredSize: Size;
 }
 
 declare const flutter: {
