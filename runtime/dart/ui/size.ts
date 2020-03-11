@@ -1,4 +1,5 @@
 import {DartObject} from "./../../dart/core/object";
+import {double} from "./../../dart/core/double";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 
@@ -24,7 +25,7 @@ export class Size extends JITAllocatingRTManagedBox<undefined, Size> implements 
 
     public static fromHeight(height: number): Size 
     {
-        return new Size(1.0 / 0.0, height);
+        return new Size(double.infinity, height);
     }
 
     public unwrap(): Size 
