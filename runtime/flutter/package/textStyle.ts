@@ -1,5 +1,5 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-import {DartObject} from "../../dart/core";
+import {DartObject} from "../../dart/core/object";
 import {Color} from "../../dart/ui/color";
 
 export interface TextStyleProps {

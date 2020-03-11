@@ -1,7 +1,7 @@
 import {Key} from "../key";
 import {Widget} from "../widget";
 import {EdgeInsets} from "../painting/edgeInsets";
-import {DartObject} from "../../dart/core";
+import {DartObject} from "../../dart/core/object";
 
 import {StatelessWidget} from "./statelessWidget";
 

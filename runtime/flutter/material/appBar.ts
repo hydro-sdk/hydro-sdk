@@ -1,6 +1,6 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 
-import {DartObject} from "./../../dart/core";
+import {DartObject} from "./../../dart/core/object";
 import {Widget} from "./../widget";
 import {PreferredSize} from "./../widgets/preferredSize";
 

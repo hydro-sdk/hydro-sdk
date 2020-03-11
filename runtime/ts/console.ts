@@ -1,4 +1,4 @@
-import {print} from "./../dart/core";
+import {print} from "./../dart/core/print";
 
 export const console = {
     log: function (this: void, arg: string): void

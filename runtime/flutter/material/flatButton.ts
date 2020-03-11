@@ -1,6 +1,6 @@
 
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core";
+import {DartObject} from "../../dart/core/object";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";
 

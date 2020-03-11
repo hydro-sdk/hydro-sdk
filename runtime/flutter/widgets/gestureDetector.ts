@@ -1,5 +1,5 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core";
+import {DartObject} from "../../dart/core/object";
 
 import {HitTestBehavior} from "./../rendering/hitTestBehavior";
 import {StatelessWidget} from "./statelessWidget";

@@ -1,4 +1,4 @@
-import {DartObject} from "./../dart/core";
+import {DartObject} from "./../dart/core/object";
 import {JITAllocatingRTManagedBox} from "./../syntheticBox";
 
 declare const flutter: {

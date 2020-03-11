@@ -1,7 +1,7 @@
 import {Key} from "../key";
 import {BuildContext} from "../buildContext";
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core";
+import {DartObject} from "../../dart/core/object";
 
 import {StatelessWidget} from "./statelessWidget";
 import {GlobalKey} from "./globalKey";

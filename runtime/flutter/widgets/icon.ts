@@ -1,6 +1,6 @@
 import {Widget} from "../widget";
 import {Color} from "../../dart/ui/color";
-import {DartObject} from "../../dart/core";
+import {DartObject} from "../../dart/core/object";
 
 import {StatelessWidget} from "./statelessWidget";
 import {IconData} from "./iconData";
