@@ -22,6 +22,11 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
 
     Closure build = arg?.metatable != null ? arg.metatable["build"] : null;
     if (build != null) {
+      if (arg["runtimeType"] == "PreferredSize") {
+        return StatelessPreferredSizeBox(
+          table: arg,
+        );
+      }
       return StatelessWidgetBox(table: arg);
     }
 

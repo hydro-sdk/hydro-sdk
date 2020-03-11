@@ -9,6 +9,7 @@ loadAppBar(l.Table table) {
       AppBar(
         title: maybeUnwrapAndBuildArgument(args[0]["title"]),
         actions: maybeUnwrapAndBuildArgument(args[0]["actions"]),
+        bottom: maybeUnwrapAndBuildArgument(args[0]["bottom"]),
       )
     ];
   });

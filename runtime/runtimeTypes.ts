@@ -31,4 +31,5 @@ export type RuntimeType = "AppBar" |
     "GestureDetector" |
     "Padding" |
     "SizedBox" |
-    "SizeTransition";
+    "SizeTransition" |
+    "Size";

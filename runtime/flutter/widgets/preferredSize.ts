@@ -2,9 +2,11 @@ import {Widget} from "../widget";
 import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./statelessWidget";
+import {Size} from "./../../dart/ui/size";
 
 interface PreferredSizeProps {
     child: Widget;
+    preferredSize:Size;
 }
 
 declare const flutter: {
@@ -22,6 +24,8 @@ export class PreferredSize extends StatelessWidget implements Readonly<DartObjec
         super();
         this.props = props;
     }
+
+    private preferredSize = () => this.props.preferredSize;
 
     public build(): PreferredSize 
     {

@@ -13,3 +13,19 @@ class StatelessWidgetBox extends StatelessWidget {
         table.metatable["build"]([table.map, context])[0]);
   }
 }
+
+class StatelessPreferredSizeBox extends PreferredSize {
+  final l.Table table;
+
+  StatelessPreferredSizeBox({@required this.table});
+
+  @override
+  Size get preferredSize => maybeUnwrapAndBuildArgument(
+      table["preferredSize"]([table.map])[0]);
+
+  @override
+  Widget build(BuildContext context) {
+    return maybeUnwrapAndBuildArgument(
+        table.metatable["build"]([table.map, context])[0]);
+  }
+}

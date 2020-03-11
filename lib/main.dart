@@ -3,5 +3,5 @@ import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(RunFromBundle(path: "assets/examples/basic-app-bar.lc"));
+  runApp(RunFromBundle(path: "assets/examples/app-bar-bottom.lc"));
 }
