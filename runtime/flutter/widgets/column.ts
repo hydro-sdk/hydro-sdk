@@ -31,11 +31,13 @@ export class Column extends StatelessWidget
             this.props.mainAxisAlignment = MainAxisAlignment.start;
         }
 
-        if(!this.props.mainAxisSize){
+        if(!this.props.mainAxisSize)
+        {
             this.props.mainAxisSize = MainAxisSize.max;
         }
 
-        if(!this.props.crossAxisAlignment){
+        if(!this.props.crossAxisAlignment)
+        {
             this.props.crossAxisAlignment = CrossAxisAlignment.center;
         }
     }
