@@ -9,7 +9,7 @@ loadCard(l.Table table) {
       Card(
           borderOnForeground: args[0]["borderOnForeground"],
           child: maybeUnwrapAndBuildArgument(args[0]["child"]),
-          color: args[0]["color"])
+          color: maybeUnwrapAndBuildArgument(args[0]["color"]))
     ];
   });
 }
