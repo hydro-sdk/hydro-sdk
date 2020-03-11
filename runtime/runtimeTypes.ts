@@ -20,5 +20,6 @@ export type RuntimeType = "AppBar" |
     "Text" |
     "EdgeInsets" |
     "Animation" |
-    "Key" |
+    "Key" | 
+    "PreferredSize" |
     "Color";

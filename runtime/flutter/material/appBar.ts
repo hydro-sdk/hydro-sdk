@@ -2,10 +2,12 @@ import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 
 import {DartObject} from "./../../dart/core";
 import {Widget} from "./../widget";
+import {PreferredSize} from "./../widgets/preferredSize";
 
 interface AppBarProps {
     title: Widget;
     actions?: Array<Widget> | undefined;
+    bottom?: PreferredSize | undefined;
 }
 
 declare const flutter: {
