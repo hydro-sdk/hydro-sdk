@@ -1,8 +1,8 @@
 import {Widget} from "../widget";
+import {DartObject} from "../../dart/core";
 
 import {AppBar} from "./appBar";
 import {StatelessWidget} from "./../widgets/statelessWidget";
-import { DartObject } from "../../dart/core";
 
 interface ScaffoldProps {
     appBar: AppBar;

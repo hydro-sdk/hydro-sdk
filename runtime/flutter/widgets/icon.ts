@@ -1,9 +1,9 @@
 import {Widget} from "../widget";
 import {Color} from "../../dart/ui/color";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./statelessWidget";
 import {IconData} from "./iconData";
-import { DartObject } from "../../dart/core";
 
 interface IconProps {
     size?: number | undefined;

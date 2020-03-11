@@ -1,9 +1,9 @@
 import {Widget} from "../widget";
 import {Animation} from "../animation/animation";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Axis} from "./../painting/axis";
-import { DartObject } from "../../dart/core";
 
 interface SizeTransitionProps {
     axis: Axis;

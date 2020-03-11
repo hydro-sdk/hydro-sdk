@@ -1,8 +1,8 @@
 import {Widget} from "../widget";
 import {Key} from "../key";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";
-import { DartObject } from "../../dart/core";
 
 interface FloatingActionButtonProps {
     key?: Key | undefined;

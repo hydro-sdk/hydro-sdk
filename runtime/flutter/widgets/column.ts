@@ -1,10 +1,10 @@
 import {Widget} from "../widget";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./statelessWidget";
 import {MainAxisAlignment} from "./mainAxisAlignment";
 import {MainAxisSize} from "./../rendering/mainAxisSize";
 import {CrossAxisAlignment} from "./../rendering/crossAxisAlignment";
-import { DartObject } from "../../dart/core";
 
 interface ColumnProps {
     mainAxisAlignment?: MainAxisAlignment | undefined;

@@ -1,7 +1,7 @@
 import {Widget} from "../widget";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./statelessWidget";
-import { DartObject } from "../../dart/core";
 
 interface PreferredSizeProps {
     child: Widget;

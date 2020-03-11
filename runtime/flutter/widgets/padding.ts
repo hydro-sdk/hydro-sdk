@@ -1,9 +1,9 @@
 import {Key} from "../key";
 import {Widget} from "../widget";
 import {EdgeInsets} from "../painting/edgeInsets";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./statelessWidget";
-import { DartObject } from "../../dart/core";
 
 interface PaddingProps {
     key?: Key | undefined;

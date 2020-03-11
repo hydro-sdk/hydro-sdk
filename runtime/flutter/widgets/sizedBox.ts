@@ -1,8 +1,8 @@
 import {Widget} from "../widget";
 import {Key} from "../key";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./statelessWidget";
-import { DartObject } from "../../dart/core";
 
 interface SizedBoxProps {
     key?: Key | undefined;

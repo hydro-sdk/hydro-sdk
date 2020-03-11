@@ -1,8 +1,8 @@
 import {Widget} from "../widget";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";
 import {Color} from "./../../dart/ui/color";
-import { DartObject } from "../../dart/core";
 
 interface CardProps {
     borderOnForeground?: boolean | undefined;

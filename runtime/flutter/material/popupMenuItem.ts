@@ -1,6 +1,7 @@
+import {DartObject} from "../../dart/core";
+
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
-import { DartObject } from "../../dart/core";
 
 interface PopupMenuItemProps<T> {
     value: T;

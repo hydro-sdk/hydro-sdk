@@ -1,9 +1,9 @@
 import {BuildContext} from "../buildContext";
+import {DartObject} from "../../dart/core";
 
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 import {PopupMenuItem} from "./popupMenuItem";
-import { DartObject } from "../../dart/core";
 
 interface PopupMenuButtonProps<T> {
     onSelected: (val: T) => void;

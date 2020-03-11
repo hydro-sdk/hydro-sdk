@@ -1,8 +1,8 @@
 import {Widget} from "../widget";
+import {DartObject} from "../../dart/core";
 
 import {HitTestBehavior} from "./../rendering/hitTestBehavior";
 import {StatelessWidget} from "./statelessWidget";
-import { DartObject } from "../../dart/core";
 
 
 interface GestureDetectorProps {
