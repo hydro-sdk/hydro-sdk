@@ -33,3 +33,7 @@ export type RuntimeType = "AppBar" |
     "SizedBox" |
     "SizeTransition" |
     "Size";
+
+export interface DartObject {
+    runtimeType: RuntimeType;
+}
