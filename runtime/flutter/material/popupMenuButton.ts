@@ -3,6 +3,7 @@ import {BuildContext} from "../buildContext";
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 import {PopupMenuItem} from "./popupMenuItem";
+import { DartObject } from "../../dart/core";
 
 interface PopupMenuButtonProps<T> {
     onSelected: (val: T) => void;
@@ -15,8 +16,9 @@ declare const flutter: {
     };
 };
 
-export class PopupMenuButton<T> extends StatelessWidget 
+export class PopupMenuButton<T> extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "PopupMenuButton";
     public props: PopupMenuButtonProps<T>;
     public constructor(props: PopupMenuButtonProps<T>) 
     {

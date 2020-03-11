@@ -1,5 +1,6 @@
 
 import {Widget} from "../widget";
+import {DartObject} from "../../dart/core";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";
 
@@ -14,8 +15,9 @@ declare const flutter: {
     };
 };
 
-export class FlatButton extends StatelessWidget 
+export class FlatButton extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "FlatButton";
     public props: FlatButtonProps;
     public constructor(props: FlatButtonProps) 
     {

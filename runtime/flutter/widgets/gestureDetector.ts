@@ -2,6 +2,7 @@ import {Widget} from "../widget";
 
 import {HitTestBehavior} from "./../rendering/hitTestBehavior";
 import {StatelessWidget} from "./statelessWidget";
+import { DartObject } from "../../dart/core";
 
 
 interface GestureDetectorProps {
@@ -16,8 +17,9 @@ declare const flutter: {
     };
 };
 
-export class GestureDetector extends StatelessWidget 
+export class GestureDetector extends StatelessWidget  implements DartObject
 {
+    public readonly runtimeType = "GestureDetector";
     public props: GestureDetectorProps;
     public constructor(props: GestureDetectorProps) 
     {

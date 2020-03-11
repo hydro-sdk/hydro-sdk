@@ -1,5 +1,6 @@
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface MaterialAppProps {
     initialRoute: string;
@@ -13,8 +14,9 @@ declare const flutter: {
     };
 };
 
-export class MaterialApp extends StatelessWidget 
+export class MaterialApp extends StatelessWidget  implements DartObject
 {
+    public readonly runtimeType = "MaterialApp";
     public props: MaterialAppProps;
     public constructor(props: MaterialAppProps) 
     {

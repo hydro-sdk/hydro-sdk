@@ -3,6 +3,7 @@ import {Widget} from "../widget";
 import {EdgeInsets} from "../painting/edgeInsets";
 
 import {StatelessWidget} from "./statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface PaddingProps {
     key?: Key | undefined;
@@ -16,8 +17,9 @@ declare const flutter: {
     };
 };
 
-export class Padding extends StatelessWidget 
+export class Padding extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "Padding";
     public props: PaddingProps;
     public constructor(props: PaddingProps) 
     {

@@ -4,6 +4,7 @@ import {StatelessWidget} from "./statelessWidget";
 import {MainAxisAlignment} from "./mainAxisAlignment";
 import {MainAxisSize} from "./../rendering/mainAxisSize";
 import {CrossAxisAlignment} from "./../rendering/crossAxisAlignment";
+import { DartObject } from "../../dart/core";
 
 interface ColumnProps {
     mainAxisAlignment?: MainAxisAlignment | undefined;
@@ -18,8 +19,9 @@ declare const flutter: {
     };
 };
 
-export class Column extends StatelessWidget 
+export class Column extends StatelessWidget  implements DartObject
 {
+    public readonly runtimeType = "Column";
     public props: ColumnProps;
     public constructor(props: ColumnProps) 
     {

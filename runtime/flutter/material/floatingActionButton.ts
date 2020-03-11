@@ -2,6 +2,7 @@ import {Widget} from "../widget";
 import {Key} from "../key";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface FloatingActionButtonProps {
     key?: Key | undefined;
@@ -15,8 +16,9 @@ declare const flutter: {
     };
 };
 
-export class FloatingActionButton extends StatelessWidget 
+export class FloatingActionButton extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "FloatingActionButton";
     public props: FloatingActionButtonProps;
     public constructor(props: FloatingActionButtonProps) 
     {

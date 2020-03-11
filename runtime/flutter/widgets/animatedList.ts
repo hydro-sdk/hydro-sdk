@@ -4,6 +4,7 @@ import {Widget} from "../widget";
 
 import {StatelessWidget} from "./statelessWidget";
 import {GlobalKey} from "./globalKey";
+import { DartObject } from "../../dart/core";
 
 interface AnimatedListProps {
     key?: Key | GlobalKey<any> | undefined;
@@ -17,8 +18,9 @@ declare const flutter: {
     };
 };
 
-export class AnimatedList extends StatelessWidget 
+export class AnimatedList extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "AnimatedList";
     public props: AnimatedListProps;
     public constructor(props: AnimatedListProps) 
     {

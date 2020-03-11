@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
 import {StatelessWidget} from "../widgets/statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface IconButtonProps {
     icon: Widget;
@@ -13,8 +14,9 @@ declare const flutter: {
     };
 };
 
-export class IconButton extends StatelessWidget 
+export class IconButton extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "IconButton";
     public props: IconButtonProps;
     public constructor(props: IconButtonProps) 
     {

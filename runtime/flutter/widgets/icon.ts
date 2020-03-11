@@ -3,6 +3,7 @@ import {Color} from "../../dart/ui/color";
 
 import {StatelessWidget} from "./statelessWidget";
 import {IconData} from "./iconData";
+import { DartObject } from "../../dart/core";
 
 interface IconProps {
     size?: number | undefined;
@@ -15,8 +16,9 @@ declare const flutter: {
     };
 };
 
-export class Icon extends StatelessWidget 
+export class Icon extends StatelessWidget  implements DartObject
 {
+    public readonly runtimeType = "Icon";
     public icon: IconData;
     public props: IconProps | undefined;
     public constructor(icon: IconData, props?: IconProps | undefined) 

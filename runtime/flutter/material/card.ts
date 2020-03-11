@@ -2,6 +2,7 @@ import {Widget} from "../widget";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";
 import {Color} from "./../../dart/ui/color";
+import { DartObject } from "../../dart/core";
 
 interface CardProps {
     borderOnForeground?: boolean | undefined;
@@ -15,8 +16,9 @@ declare const flutter: {
     };
 };
 
-export class Card extends StatelessWidget 
+export class Card extends StatelessWidget  implements DartObject
 {
+    public readonly runtimeType = "Card";
     public props: CardProps;
     public constructor(props: CardProps) 
     {

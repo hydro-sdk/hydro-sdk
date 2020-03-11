@@ -2,6 +2,7 @@ import {Widget} from "../widget";
 import {Key} from "../key";
 
 import {StatelessWidget} from "./statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface CenterProps {
     key?: Key;
@@ -14,8 +15,9 @@ declare const flutter: {
     };
 };
 
-export class Center extends StatelessWidget 
+export class Center extends StatelessWidget  implements DartObject
 {
+    public readonly runtimeType = "Center";
     public props: CenterProps;
     public constructor(props: CenterProps) 
     {

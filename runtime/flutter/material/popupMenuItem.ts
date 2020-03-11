@@ -1,5 +1,6 @@
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface PopupMenuItemProps<T> {
     value: T;
@@ -12,8 +13,9 @@ declare const flutter: {
     };
 };
 
-export class PopupMenuItem<T> extends StatelessWidget 
+export class PopupMenuItem<T> extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "PopupMenuItem";
     public props: PopupMenuItemProps<T>;
     public constructor(props: PopupMenuItemProps<T>) 
     {

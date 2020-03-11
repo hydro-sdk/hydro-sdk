@@ -2,6 +2,7 @@ import {Widget} from "../widget";
 import {Key} from "../key";
 
 import {StatelessWidget} from "./statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface SizedBoxProps {
     key?: Key | undefined;
@@ -16,8 +17,9 @@ declare const flutter: {
     };
 };
 
-export class SizedBox extends StatelessWidget 
+export class SizedBox extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "SizedBox";
     public props: SizedBoxProps;
     public constructor(props: SizedBoxProps) 
     {

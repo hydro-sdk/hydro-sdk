@@ -1,6 +1,7 @@
 import {Widget} from "../widget";
 
 import {StatelessWidget} from "./statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface PreferredSizeProps {
     child: Widget;
@@ -12,7 +13,7 @@ declare const flutter: {
     };
 };
 
-export class PreferredSize extends StatelessWidget 
+export class PreferredSize extends StatelessWidget implements DartObject
 {
     public readonly runtimeType = "PreferredSize";
     public props: PreferredSizeProps;

@@ -2,6 +2,7 @@ import {Widget} from "../widget";
 
 import {AppBar} from "./appBar";
 import {StatelessWidget} from "./../widgets/statelessWidget";
+import { DartObject } from "../../dart/core";
 
 interface ScaffoldProps {
     appBar: AppBar;
@@ -15,8 +16,9 @@ declare const flutter: {
     };
 };
 
-export class Scaffold extends StatelessWidget 
+export class Scaffold extends StatelessWidget implements DartObject
 {
+    public readonly runtimeType = "Scaffold";
     public props: ScaffoldProps;
     public constructor(props: ScaffoldProps) 
     {

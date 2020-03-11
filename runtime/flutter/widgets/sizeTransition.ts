@@ -3,6 +3,7 @@ import {Animation} from "../animation/animation";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Axis} from "./../painting/axis";
+import { DartObject } from "../../dart/core";
 
 interface SizeTransitionProps {
     axis: Axis;
@@ -16,8 +17,9 @@ declare const flutter: {
     };
 };
 
-export class SizeTransition extends StatelessWidget 
+export class SizeTransition extends StatelessWidget  implements DartObject
 {
+    public readonly runtimeType = "SizeTransition";
     public props: SizeTransitionProps;
     public constructor(props: SizeTransitionProps) 
     {
