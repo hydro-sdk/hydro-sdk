@@ -18,10 +18,11 @@ import 'package:flua/5_2/table.dart';
 import 'package:flua/5_2/upVal.dart';
 import 'package:flua/5_2/luaerror.dart';
 import 'package:flua/decoder.dart';
+import 'package:flua/disassemble.dart';
 import 'package:flutter/services.dart';
 
-class _LuaFunctionImpl extends LuaFunction {
-  _LuaFunctionImpl(this.closure);
+class LuaFunctionImpl extends LuaFunction {
+  LuaFunctionImpl(this.closure);
   Closure closure;
   LuaState get state => closure.context.userdata as LuaState;
   List<dynamic> call(List<dynamic> args) => closure(args);
@@ -34,7 +35,7 @@ class _LuaFunctionImpl extends LuaFunction {
   }
 
   bool operator ==(dynamic other) =>
-      other is _LuaFunctionImpl && other.closure == closure;
+      other is LuaFunctionImpl && other.closure == closure;
   int get hashCode => closure.hashCode;
 }
 
@@ -75,7 +76,7 @@ class LuaState {
     var decoder = Decoder(contents.buffer);
     var dump = decoder.readCodeDump(path);
 
-    return _LuaFunctionImpl(Closure(dump.main,
+    return LuaFunctionImpl(Closure(dump.main,
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
@@ -90,7 +91,7 @@ class LuaState {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(path);
 
-    return _LuaFunctionImpl(Closure(
+    return LuaFunctionImpl(Closure(
       dump.main,
       context: _context,
       upvalues: [Upval.store(_context.env)],
@@ -113,7 +114,7 @@ class LuaState {
 
   static dynamic _convert(dynamic x) {
     if (x is Closure) {
-      return new _LuaFunctionImpl(x);
+      return new LuaFunctionImpl(x);
     } else
       return x;
   }
