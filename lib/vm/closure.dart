@@ -1,9 +1,3 @@
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/frame.dart';
-import 'package:flua/5_2/thread.dart';
-import 'package:flua/5_2/threadResult.dart';
-import 'package:flua/5_2/upVal.dart';
-import 'package:flua/prototype.dart';
 import 'package:flua/util.dart';
 
 class Closure {
