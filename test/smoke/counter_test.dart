@@ -9,6 +9,8 @@ void main() {
 
     expect(find.byKey(Key("counter")), findsOneWidget);
     expect(find.byKey(Key("increment")), findsOneWidget);
+    expect(find.text("You have pushed the button this many times"),
+        findsOneWidget);
 
     expect(find.text("0"), findsOneWidget);
     await tester.tap(find.byKey(Key("increment")));
