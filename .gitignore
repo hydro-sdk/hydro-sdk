@@ -42,6 +42,8 @@ luac.5.3.5
 examples/**/*.lua
 assets/examples/*.lc
 assets/test/widget/*.lc
+assets/test/hot/*.lc
 flua/android/.project
 *.js
 .hydroc
+*.sha256
