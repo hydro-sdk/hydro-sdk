@@ -2,6 +2,22 @@ import 'dart:io';
 import 'dart:typed_data';
 
 
+import 'package:flua/builtins/dart/dart.dart';
+import 'package:flua/builtins/flutter/flutter.dart';
+import 'package:flua/builtins/stdlib/base.dart';
+import 'package:flua/builtins/stdlib/bit.dart';
+import 'package:flua/builtins/stdlib/bit32.dart';
+import 'package:flua/builtins/stdlib/math.dart';
+import 'package:flua/builtins/stdlib/string.dart';
+import 'package:flua/builtins/stdlib/table.dart';
+import 'package:flua/builtins/ts/ts.dart';
+import 'package:flua/coroutine/coroutineresult.dart';
+import 'package:flua/decode/decoder.dart';
+import 'package:flua/vm/closure.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/vm/luafunction.dart';
+import 'package:flua/vm/table.dart';
+import 'package:flua/vm/upVal.dart';
 import 'package:flutter/services.dart';
 
 class LuaFunctionImpl extends LuaFunction {

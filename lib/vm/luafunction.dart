@@ -1,5 +1,5 @@
-import 'package:flua/5_2/coroutineresult.dart';
-import 'package:flua/5_2/luastate.dart';
+import 'package:flua/coroutine/coroutineresult.dart';
+import 'package:flua/luastate.dart';
 
 abstract class LuaFunction {
   List<dynamic> call(List<dynamic> args);

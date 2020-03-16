@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 
-import 'package:flua/codedump.dart';
-import 'package:flua/const.dart';
-import 'package:flua/inst.dart';
-import 'package:flua/local.dart';
-import 'package:flua/upvaldef.dart';
+import 'package:flua/decode/codedump.dart';
+import 'package:flua/vm/const.dart';
+import 'package:flua/vm/inst.dart';
+import 'package:flua/vm/local.dart';
+import 'package:flua/vm/upvaldef.dart';
 
 class Prototype {
   Prototype(this.root);

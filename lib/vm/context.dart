@@ -1,9 +1,9 @@
-import 'package:flua/5_2/closure.dart';
-import 'package:flua/5_2/luaerror.dart';
-import 'package:flua/5_2/table.dart';
-import 'package:flua/5_2/thread.dart';
-import 'package:flua/prototype.dart';
+import 'package:flua/thread/thread.dart';
 import 'package:flua/util.dart';
+import 'package:flua/vm/closure.dart';
+import 'package:flua/vm/luaerror.dart';
+import 'package:flua/vm/prototype.dart';
+import 'package:flua/vm/table.dart';
 import 'package:flutter/foundation.dart';
 
 class LuaErrorImpl extends LuaError {

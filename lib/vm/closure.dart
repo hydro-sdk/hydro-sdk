@@ -1,4 +1,10 @@
+import 'package:flua/thread/thread.dart';
+import 'package:flua/thread/threadResult.dart';
 import 'package:flua/util.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/vm/frame.dart';
+import 'package:flua/vm/prototype.dart';
+import 'package:flua/vm/upVal.dart';
 
 class Closure {
   Closure(
