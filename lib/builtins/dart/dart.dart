@@ -1,7 +1,7 @@
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/dart/core/core.dart';
-import 'package:flua/5_2/dart/ui/ui.dart';
-import 'package:flua/5_2/table.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/builtins/dart/core/core.dart';
+import 'package:flua/builtins/dart/ui/ui.dart';
+import 'package:flua/vm/table.dart';
 
 loadDartLib(Context ctx) {
   var dart = Table();

@@ -1,5 +1,5 @@
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/table.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/vm/table.dart';
 import 'package:flua/util.dart';
 
 loadTableLib(Context ctx) {

@@ -1,5 +1,5 @@
-import 'package:flua/5_2/flutter/painting/edgeInsets.dart';
-import 'package:flua/5_2/table.dart';
+import 'package:flua/builtins/flutter/painting/edgeInsets.dart';
+import 'package:flua/vm/table.dart';
 
 loadPainting(Table table) {
   var painting = Table();

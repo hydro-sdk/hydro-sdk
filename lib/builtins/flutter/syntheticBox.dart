@@ -1,9 +1,9 @@
-import 'package:flua/5_2/closure.dart';
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/flutter/widgets/statefulWidgetBox.dart';
-import 'package:flua/5_2/flutter/widgets/statelessWidgetBox.dart';
+import 'package:flua/vm/closure.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/builtins/flutter/widgets/statefulWidgetBox.dart';
+import 'package:flua/builtins/flutter/widgets/statelessWidgetBox.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flua/5_2/table.dart' as l;
+import 'package:flua/vm/table.dart' as l;
 
 dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
   //Unboxed Flutter widgets

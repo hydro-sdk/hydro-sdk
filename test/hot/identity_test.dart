@@ -1,9 +1,9 @@
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/luastate.dart';
-import 'package:flua/const.dart';
-import 'package:flua/inst.dart';
-import 'package:flua/prototype.dart';
-import 'package:flua/upvaldef.dart';
+import 'package:flua/luastate.dart';
+import 'package:flua/vm/const.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/vm/inst.dart';
+import 'package:flua/vm/prototype.dart';
+import 'package:flua/vm/upvaldef.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:convert/convert.dart';

@@ -1,6 +1,6 @@
-import 'package:flua/5_2/coroutineresult.dart';
-import 'package:flua/5_2/flutter/syntheticBox.dart';
-import 'package:flua/5_2/luastate.dart';
+import 'package:flua/coroutine/coroutineresult.dart';
+import 'package:flua/builtins/flutter/syntheticBox.dart';
+import 'package:flua/luastate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

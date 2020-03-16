@@ -1,6 +1,6 @@
 //https://www.lua.org/manual/5.2/manual.html#6.7
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/table.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/vm/table.dart';
 
 void loadBit32Lib(Context ctx) {
   var bit32 = Table();

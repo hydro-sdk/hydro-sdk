@@ -1,6 +1,6 @@
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/table.dart';
-import 'package:flua/5_2/ts/debugger.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/vm/table.dart';
+import 'package:flua/builtins/ts/debugger.dart';
 
 loadTsLib(Context ctx) {
   var ts = Table();

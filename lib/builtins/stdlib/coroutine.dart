@@ -1,8 +1,8 @@
-import 'package:flua/5_2/closure.dart';
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/coroutinestatus.dart';
-import 'package:flua/5_2/table.dart';
-import 'package:flua/5_2/thread.dart';
+import 'package:flua/vm/closure.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/coroutine/coroutinestatus.dart';
+import 'package:flua/vm/table.dart';
+import 'package:flua/thread/thread.dart';
 import 'package:flua/util.dart';
 
 loadCoroutineLib(Context ctx) {

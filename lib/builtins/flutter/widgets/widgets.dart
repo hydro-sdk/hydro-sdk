@@ -1,16 +1,16 @@
-import 'package:flua/5_2/flutter/widgets/animatedList.dart';
-import 'package:flua/5_2/flutter/widgets/center.dart';
-import 'package:flua/5_2/flutter/widgets/column.dart';
-import 'package:flua/5_2/flutter/widgets/gestureDetector.dart';
-import 'package:flua/5_2/flutter/widgets/globalKey.dart';
-import 'package:flua/5_2/flutter/widgets/icon.dart';
-import 'package:flua/5_2/flutter/widgets/iconData.dart';
-import 'package:flua/5_2/flutter/widgets/padding.dart';
-import 'package:flua/5_2/flutter/widgets/preferredSize.dart';
-import 'package:flua/5_2/flutter/widgets/sizeTransition.dart';
-import 'package:flua/5_2/flutter/widgets/sizedBox.dart';
-import 'package:flua/5_2/flutter/widgets/text.dart';
-import 'package:flua/5_2/table.dart';
+import 'package:flua/builtins/flutter/widgets/animatedList.dart';
+import 'package:flua/builtins/flutter/widgets/center.dart';
+import 'package:flua/builtins/flutter/widgets/column.dart';
+import 'package:flua/builtins/flutter/widgets/gestureDetector.dart';
+import 'package:flua/builtins/flutter/widgets/globalKey.dart';
+import 'package:flua/builtins/flutter/widgets/icon.dart';
+import 'package:flua/builtins/flutter/widgets/iconData.dart';
+import 'package:flua/builtins/flutter/widgets/padding.dart';
+import 'package:flua/builtins/flutter/widgets/preferredSize.dart';
+import 'package:flua/builtins/flutter/widgets/sizeTransition.dart';
+import 'package:flua/builtins/flutter/widgets/sizedBox.dart';
+import 'package:flua/builtins/flutter/widgets/text.dart';
+import 'package:flua/vm/table.dart';
 
 loadWidgets(Table table) {
   var widgets = Table();

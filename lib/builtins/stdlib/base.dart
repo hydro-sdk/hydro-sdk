@@ -1,7 +1,7 @@
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/table.dart';
-import 'package:flua/5_2/thread.dart';
-import 'package:flua/5_2/luaerror.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/vm/table.dart';
+import 'package:flua/thread/thread.dart';
+import 'package:flua/vm/luaerror.dart';
 import 'package:flua/util.dart';
 
 loadBaseLib(Context ctx) {

@@ -1,15 +1,15 @@
-import 'package:flua/5_2/flutter/material/appBar.dart';
-import 'package:flua/5_2/flutter/material/card.dart';
-import 'package:flua/5_2/flutter/material/flatButton.dart';
-import 'package:flua/5_2/flutter/material/floatingActionButton.dart';
-import 'package:flua/5_2/flutter/material/iconButton.dart';
-import 'package:flua/5_2/flutter/material/materialApp.dart';
-import 'package:flua/5_2/flutter/material/popupMenuButton.dart';
-import 'package:flua/5_2/flutter/material/popupMenuItem.dart';
-import 'package:flua/5_2/flutter/material/scaffold.dart';
-import 'package:flua/5_2/flutter/material/theme.dart';
-import 'package:flua/5_2/flutter/material/wireupColors.dart';
-import 'package:flua/5_2/table.dart';
+import 'package:flua/builtins/flutter/material/appBar.dart';
+import 'package:flua/builtins/flutter/material/card.dart';
+import 'package:flua/builtins/flutter/material/flatButton.dart';
+import 'package:flua/builtins/flutter/material/floatingActionButton.dart';
+import 'package:flua/builtins/flutter/material/iconButton.dart';
+import 'package:flua/builtins/flutter/material/materialApp.dart';
+import 'package:flua/builtins/flutter/material/popupMenuButton.dart';
+import 'package:flua/builtins/flutter/material/popupMenuItem.dart';
+import 'package:flua/builtins/flutter/material/scaffold.dart';
+import 'package:flua/builtins/flutter/material/theme.dart';
+import 'package:flua/builtins/flutter/material/wireupColors.dart';
+import 'package:flua/vm/table.dart';
 
 loadMaterial(Table table) {
   var material = Table();

@@ -1,7 +1,7 @@
-import 'package:flua/5_2/closure.dart';
-import 'package:flua/5_2/context.dart';
-import 'package:flua/5_2/flutter/syntheticBox.dart';
-import 'package:flua/5_2/table.dart' as l;
+import 'package:flua/vm/closure.dart';
+import 'package:flua/vm/context.dart';
+import 'package:flua/builtins/flutter/syntheticBox.dart';
+import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
 class StatefulWidgetBox extends StatefulWidget {
