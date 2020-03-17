@@ -2,7 +2,7 @@ import 'package:flua/reassembler/hashPrototype.dart';
 import 'package:flua/reassembler/hashedPrototype.dart';
 import 'package:flua/reassembler/isRelocationCandidate.dart';
 import 'package:flua/reassembler/reassembleStatus.dart';
-import 'package:flua/reassembler/relocate.dart';
+import 'package:flua/reassembler/relocatePrototype.dart';
 import 'package:flua/vm/prototype.dart';
 import 'package:meta/meta.dart';
 
@@ -18,7 +18,7 @@ void maybeDoPrototypeRelocation(
         destinationHashWithoutSourceInformation: destinationHash,
         source: sourceProtos[i].prototype,
         sourceHash: sourceProtos[i].hashWithoutSourceInformation)) {
-      relocate(destination: destination, source: sourceProtos[i].prototype);
+      relocatePrototype(destination: destination, source: sourceProtos[i].prototype);
       reassembleStatus.relocatedProtos++;
       break;
     }
