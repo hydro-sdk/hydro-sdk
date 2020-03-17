@@ -1,5 +1,4 @@
 import 'package:flua/luastate.dart';
-import 'package:flua/reassembler/reassemble.dart';
 import 'package:flua/reassembler/reassembleClosures.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flutter_test/flutter_test.dart';
