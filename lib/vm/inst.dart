@@ -229,7 +229,7 @@ class Inst {
 }
 
 class InstBlock extends ListBase<Inst> {
-  InstBlock(this._list);
+  InstBlock(this.list);
 
   after(Inst x) => new InstBlock(skipWhile((e) => e != x).toList());
   before(Inst x) => new InstBlock(takeWhile((e) => e != x).toList());
@@ -237,12 +237,12 @@ class InstBlock extends ListBase<Inst> {
       new InstBlock(skip(indexOf(x)).take(indexOf(y) - indexOf(x)).toList());
 
   InstBlock get copy => new InstBlock(this.toList());
-  List<Inst> _list;
+  List<Inst> list;
 
-  int get length => _list.length;
-  set length(int x) => _list.length = x;
-  operator [](int i) => _list[i];
+  int get length => list.length;
+  set length(int x) => list.length = x;
+  operator [](int i) => list[i];
   operator []=(int i, Inst v) {
-    _list[i] = v;
+    list[i] = v;
   }
 }

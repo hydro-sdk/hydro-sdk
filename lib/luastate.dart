@@ -97,7 +97,7 @@ class LuaState {
     ));
   }
 
-  Future<LuaFunction> loadBuffer(Uint8List buffer, String name) async {
+  Future<LuaFunctionImpl> loadBuffer(Uint8List buffer, String name) async {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(name);
 

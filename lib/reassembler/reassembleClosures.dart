@@ -41,6 +41,13 @@ ReassembleStatus reassembleClosures(
   _hashProtos(sourceProtos: sourceProtos, prototype: source.proto);
   _hashProtos(sourceProtos: destinationProtos, prototype: destination.proto);
 
+  if (sourceProtos.length > destinationProtos.length) {
+    res.bailedOut = true;
+    res.bailOutReason =
+        "${sourceProtos.length - destinationProtos.length} more incoming function prototypes than currently running. Hot-reload aborted";
+    return res;
+  }
+
   maybeDoRelocation(
       reassembleStatus: res,
       destination: destination.proto,
@@ -65,7 +72,6 @@ void maybeDoRelocation(
       break;
     }
   }
-
   if (destination.prototypes != null && destination.prototypes.isNotEmpty) {
     destination.prototypes.forEach((x) {
       maybeDoRelocation(
@@ -80,14 +86,6 @@ void maybeDoReassembly(
     {@required ReassembleStatus reassembleStatus,
     @required Prototype destination,
     @required List<HashedPrototype> sourceProtos}) {
-  for (var i = 0; i != sourceProtos.length; ++i) {
-    if (isReassemblyCandidate(destination, sourceProtos[i].prototype)) {
-      reassemble(destination: destination, source: sourceProtos[i].prototype);
-      reassembleStatus.reassembledProtos++;
-      break;
-    }
-  }
-
   if (destination.prototypes != null && destination.prototypes.isNotEmpty) {
     destination.prototypes.forEach((x) {
       maybeDoReassembly(
@@ -95,6 +93,14 @@ void maybeDoReassembly(
           destination: x,
           sourceProtos: sourceProtos);
     });
+  }
+
+  for (var i = 0; i != sourceProtos.length; ++i) {
+    if (isReassemblyCandidate(destination, sourceProtos[i].prototype)) {
+      reassemble(destination: destination, source: sourceProtos[i].prototype);
+      reassembleStatus.reassembledProtos++;
+      break;
+    }
   }
 }
 

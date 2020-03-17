@@ -30,17 +30,17 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    LuaFunctionImpl res1 = await state1.loadFile("test/hot/simple1.lc");
+    LuaFunctionImpl res1 = await state1.loadFile("hot/simple1.lc");
 
     var global1 = res1.closure.proto.prototypes[0];
     var local1 = res1.closure.proto.prototypes[1];
 
-    LuaFunctionImpl res2 = await state2.loadFile("test/hot/simple2.lc");
+    LuaFunctionImpl res2 = await state2.loadFile("hot/simple2.lc");
 
     var global2 = res2.closure.proto.prototypes[0];
     var local2 = res2.closure.proto.prototypes[1];
 
-    LuaFunctionImpl res3 = await state2.loadFile("test/hot/simple3.lc");
+    LuaFunctionImpl res3 = await state2.loadFile("hot/simple3.lc");
 
     var global3 = res3.closure.proto.prototypes[1];
     var local3 = res3.closure.proto.prototypes[2];

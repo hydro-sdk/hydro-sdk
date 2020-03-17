@@ -1,10 +1,18 @@
 import 'dart:async';
 import 'dart:typed_data';
+import 'package:flua/hotReloadable.dart';
 import 'package:http/http.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
-import 'package:flua/coroutine/coroutineresult.dart';
-import 'package:flua/luastate.dart';
 import 'package:flutter/material.dart';
+
+void _rebuildAllChildren(BuildContext context) {
+  void rebuild(Element el) {
+    el.markNeedsBuild();
+    el.visitChildren(rebuild);
+  }
+
+  (context as Element).visitChildren(rebuild);
+}
 
 class RunFromNetwork extends StatefulWidget {
   final String baseUrl;
@@ -15,50 +23,65 @@ class RunFromNetwork extends StatefulWidget {
   _RunFromNetwork createState() => _RunFromNetwork(baseUrl: baseUrl);
 }
 
-class _RunFromNetwork extends State<RunFromNetwork> {
+class _RunFromNetwork extends State<RunFromNetwork>
+    with HotReloadable<RunFromNetwork> {
   final String baseUrl;
 
-  LuaState luaState = LuaState();
-  String lastHash;
-  CoroutineResult res;
   Timer timer;
+  bool requiresRebuild = false;
 
   _RunFromNetwork({@required this.baseUrl}) {
     maybeReload();
-    timer = Timer.periodic(Duration(seconds: 2), (Timer timer) {
+    timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
       maybeReload();
     });
   }
 
   Future<void> maybeReload() async {
     String newHash = await downloadHash();
-    if (newHash != lastHash) {
+    if (newHash != null && newHash != lastHash) {
       var image = await downloadByteCodeImage();
-
-      setState(() {
-        lastHash = newHash;
-        res = null;
-      });
-
-      Future.delayed(Duration(seconds: 2)).then((val) {
-        luaState.doBuffer(image, baseUrl).then((val) {
-          setState(() {
-            res = val;
-          });
+      if (image != null) {
+        setState(() {
+          lastHash = newHash;
         });
-      });
-      return;
+
+        //First time load
+        if (res == null) {
+          await fullRestart(bytecodeImage: image, baseUrl: baseUrl);
+        } else {
+          var status = await hotReload(bytecodeImage: image, baseUrl: baseUrl);
+          if (!status) {
+            await fullRestart(bytecodeImage: image, baseUrl: baseUrl);
+          }
+          setState(() {
+            requiresRebuild = true;
+          });
+        }
+
+        return;
+      }
     }
   }
 
   Future<String> downloadHash() async {
-    var res = await get("$baseUrl.sha256");
-    return res.body;
+    try {
+      var res = await get("$baseUrl.sha256");
+      return res.body;
+    } catch (err) {
+      print(err);
+      return null;
+    }
   }
 
   Future<Uint8List> downloadByteCodeImage() async {
-    var res = await get(baseUrl);
-    return res.bodyBytes;
+    try {
+      var res = await get(baseUrl);
+      return res.bodyBytes;
+    } catch (err) {
+      print(err);
+      return null;
+    }
   }
 
   @override
@@ -74,6 +97,23 @@ class _RunFromNetwork extends State<RunFromNetwork> {
         child: CircularProgressIndicator(),
       );
     } else {
+      if (requiresRebuild) {
+        Future.delayed(Duration(seconds: 1)).then((val) {
+          print("attempting forced rebuild");
+          _rebuildAllChildren(context);
+          Future.delayed(Duration(seconds: 1)).then((val) {
+            print("attempting forced rebuild");
+            _rebuildAllChildren(context);
+            Future.delayed(Duration(seconds: 1)).then((val) {
+              print("attempting forced rebuild");
+              _rebuildAllChildren(context);
+            });
+          });
+        });
+        setState(() {
+          requiresRebuild = false;
+        });
+      }
       return maybeUnwrapAndBuildArgument(luaState.context.env["buildResult"]);
     }
   }
