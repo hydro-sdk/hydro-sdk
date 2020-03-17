@@ -33,21 +33,17 @@ void main() {
 
     LuaFunctionImpl res1 = await state1.loadFile("test/hot/simple1.lc");
 
-    var global1 = res1.closure.proto.prototypes[0];
-    var local1 = res1.closure.proto.prototypes[1];
-
     LuaFunctionImpl res2 = await state2.loadFile("test/hot/simple2.lc");
-
-    var global2 = res2.closure.proto.prototypes[0];
-    var local2 = res2.closure.proto.prototypes[1];
 
     LuaFunctionImpl res3 = await state2.loadFile("test/hot/simple3.lc");
 
-    var global3 = res3.closure.proto.prototypes[1];
-    var local3 = res3.closure.proto.prototypes[2];
-
     var res = reassemble(destination: res1.closure, source: res2.closure);
+    expect(res.relocatedProtos, 0);
 
+    res = reassemble(destination: res1.closure, source: res3.closure);
+    expect(res.relocatedProtos, 2);
+
+    res = reassemble(destination: res2.closure, source: res3.closure);
     expect(res.relocatedProtos, 0);
   });
 }

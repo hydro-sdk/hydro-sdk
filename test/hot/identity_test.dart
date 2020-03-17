@@ -99,8 +99,5 @@ void main() {
     expect(isRelocationCandidate(local3, local1), true);
     expect(isRelocationCandidate(local2, local3), false);
     expect(isRelocationCandidate(local2, local1), false);
-
-    var res = reassemble(destination: res1.closure, source: res2.closure);
-    print(res.relocatedProtos);
   });
 }
