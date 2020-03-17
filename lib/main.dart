@@ -1,7 +1,7 @@
-import 'package:flua/runFromBundle.dart';
+import 'package:flua/runFromNetwork.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(RunFromBundle(path: "assets/examples/app-bar-bottom.lc"));
+  runApp(RunFromNetwork(baseUrl: "http://10.0.2.2:5000/examples/counter.lc"));
 }
