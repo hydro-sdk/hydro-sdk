@@ -35,7 +35,8 @@ void main() {
 
     LuaFunctionImpl res3 = await state2.loadFile("test/hot/simple3.lc");
 
-    var res = reassembleClosures(destination: res1.closure, source: res2.closure);
+    var res =
+        reassembleClosures(destination: res1.closure, source: res2.closure);
     expect(res.relocatedProtos, 0);
     expect(res.reassembledProtos, 3);
 
