@@ -92,7 +92,7 @@ void main() {
             source: global1,
             destinationHashWithoutSourceInformation:
                 hashPrototype(global1, includeSourceLocations: false),
-            sourceHash: hashPrototype(global1, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(global1, includeSourceLocations: false)),
         false);
     expect(
         isRelocationCandidate(
@@ -100,7 +100,7 @@ void main() {
             source: local1,
             destinationHashWithoutSourceInformation:
                 hashPrototype(local1, includeSourceLocations: false),
-            sourceHash: hashPrototype(local1, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(local1, includeSourceLocations: false)),
         false);
 
     expect(
@@ -109,7 +109,7 @@ void main() {
             source: global3,
             destinationHashWithoutSourceInformation:
                 hashPrototype(global1, includeSourceLocations: false),
-            sourceHash: hashPrototype(global3, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(global3, includeSourceLocations: false)),
         false);
     expect(
         isRelocationCandidate(
@@ -117,7 +117,7 @@ void main() {
             source: global1,
             destinationHashWithoutSourceInformation:
                 hashPrototype(global3, includeSourceLocations: false),
-            sourceHash: hashPrototype(global1, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(global1, includeSourceLocations: false)),
         false);
     expect(
         isRelocationCandidate(
@@ -125,7 +125,7 @@ void main() {
             source: global3,
             destinationHashWithoutSourceInformation:
                 hashPrototype(global2, includeSourceLocations: false),
-            sourceHash: hashPrototype(global3, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(global3, includeSourceLocations: false)),
         false);
     expect(
         isRelocationCandidate(
@@ -133,7 +133,7 @@ void main() {
             source: global1,
             destinationHashWithoutSourceInformation:
                 hashPrototype(global2, includeSourceLocations: false),
-            sourceHash: hashPrototype(global1, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(global1, includeSourceLocations: false)),
         false);
 
     expect(
@@ -142,7 +142,7 @@ void main() {
             source: local3,
             destinationHashWithoutSourceInformation:
                 hashPrototype(local1, includeSourceLocations: false),
-            sourceHash: hashPrototype(local3, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(local3, includeSourceLocations: false)),
         false);
     expect(
         isRelocationCandidate(
@@ -150,7 +150,7 @@ void main() {
             source: local1,
             destinationHashWithoutSourceInformation:
                 hashPrototype(local3, includeSourceLocations: false),
-            sourceHash: hashPrototype(local1, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(local1, includeSourceLocations: false)),
         false);
     expect(
         isRelocationCandidate(
@@ -158,7 +158,7 @@ void main() {
             source: local3,
             destinationHashWithoutSourceInformation:
                 hashPrototype(local2, includeSourceLocations: false),
-            sourceHash: hashPrototype(local3, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(local3, includeSourceLocations: false)),
         false);
     expect(
         isRelocationCandidate(
@@ -166,7 +166,7 @@ void main() {
             source: local1,
             destinationHashWithoutSourceInformation:
                 hashPrototype(local2, includeSourceLocations: false),
-            sourceHash: hashPrototype(local1, includeSourceLocations: false)),
+            sourceHashWithoutSourceInformation: hashPrototype(local1, includeSourceLocations: false)),
         false);
   });
 }

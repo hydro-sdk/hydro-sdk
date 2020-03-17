@@ -17,7 +17,7 @@ void maybeDoPrototypeRelocation(
         destination: destination,
         destinationHashWithoutSourceInformation: destinationHash,
         source: sourceProtos[i].prototype,
-        sourceHash: sourceProtos[i].hashWithoutSourceInformation)) {
+        sourceHashWithoutSourceInformation: sourceProtos[i].hashWithoutSourceInformation)) {
       relocatePrototype(destination: destination, source: sourceProtos[i].prototype);
       reassembleStatus.relocatedProtos++;
       break;
