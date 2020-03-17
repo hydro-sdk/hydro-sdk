@@ -39,9 +39,9 @@ void main() {
     expect(res.relocatedProtos, 1);
 
     res = reassembleClosures(destination: res1.closure, source: res3.closure);
-    expect(res.bailedOut,true);
+    expect(res.bailedOut, true);
     expect(res.relocatedProtos, 0);
-    expect(res.reassembledProtos,0);
+    expect(res.reassembledProtos, 0);
 
     res = reassembleClosures(destination: res2.closure, source: res3.closure);
     expect(res.relocatedProtos, 0);
