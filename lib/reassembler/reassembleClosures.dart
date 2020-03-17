@@ -1,35 +1,15 @@
 import 'package:flua/reassembler/hashPrototype.dart';
+import 'package:flua/reassembler/hashedPrototype.dart';
 import 'package:flua/reassembler/isReassemblyCandidate.dart';
 import 'package:flua/reassembler/isRelocationCandidate.dart';
+import 'package:flua/reassembler/maybeDoPrototypeReassembly.dart';
+import 'package:flua/reassembler/maybeDoPrototypeRelocation.dart';
 import 'package:flua/reassembler/reassemblePrototype.dart';
+import 'package:flua/reassembler/reassembleStatus.dart';
 import 'package:flua/reassembler/relocate.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/prototype.dart';
 import 'package:meta/meta.dart';
-
-class ReassembleStatus {
-  int relocatedProtos;
-  int reassembledProtos;
-  bool bailedOut;
-  String bailOutReason;
-
-  ReassembleStatus(
-      {@required this.relocatedProtos,
-      @required this.reassembledProtos,
-      @required this.bailedOut,
-      @required this.bailOutReason});
-}
-
-class HashedPrototype {
-  final String hash;
-  final String hashWithoutSourceInformation;
-  final Prototype prototype;
-
-  HashedPrototype(
-      {@required this.hash,
-      @required this.hashWithoutSourceInformation,
-      @required this.prototype});
-}
 
 ReassembleStatus reassembleClosures(
     {@required Closure destination, @required Closure source}) {
@@ -52,66 +32,17 @@ ReassembleStatus reassembleClosures(
     return res;
   }
 
-  maybeDoRelocation(
+  maybeDoPrototypeRelocation(
       reassembleStatus: res,
       destination: destination.proto,
       sourceProtos: sourceProtos);
 
-  maybeDoReassembly(
+  maybeDoPrototypeReassembly(
       reassembleStatus: res,
       destination: destination.proto,
       sourceProtos: sourceProtos);
 
   return res;
-}
-
-void maybeDoRelocation(
-    {@required ReassembleStatus reassembleStatus,
-    @required Prototype destination,
-    @required List<HashedPrototype> sourceProtos}) {
-  String destinationHash =
-      hashPrototype(destination, includeSourceLocations: false);
-  for (var i = 0; i != sourceProtos.length; ++i) {
-    if (isRelocationCandidate(
-        destination: destination,
-        destinationHashWithoutSourceInformation: destinationHash,
-        source: sourceProtos[i].prototype,
-        sourceHash: sourceProtos[i].hashWithoutSourceInformation)) {
-      relocate(destination: destination, source: sourceProtos[i].prototype);
-      reassembleStatus.relocatedProtos++;
-      break;
-    }
-  }
-  if (destination.prototypes != null && destination.prototypes.isNotEmpty) {
-    destination.prototypes.forEach((x) {
-      maybeDoRelocation(
-          reassembleStatus: reassembleStatus,
-          destination: x,
-          sourceProtos: sourceProtos);
-    });
-  }
-}
-
-void maybeDoReassembly(
-    {@required ReassembleStatus reassembleStatus,
-    @required Prototype destination,
-    @required List<HashedPrototype> sourceProtos}) {
-  if (destination.prototypes != null && destination.prototypes.isNotEmpty) {
-    destination.prototypes.forEach((x) {
-      maybeDoReassembly(
-          reassembleStatus: reassembleStatus,
-          destination: x,
-          sourceProtos: sourceProtos);
-    });
-  }
-
-  for (var i = 0; i != sourceProtos.length; ++i) {
-    if (isReassemblyCandidate(destination, sourceProtos[i].prototype)) {
-      reassemblePrototype(destination: destination, source: sourceProtos[i].prototype);
-      reassembleStatus.reassembledProtos++;
-      break;
-    }
-  }
 }
 
 void _hashProtos(
