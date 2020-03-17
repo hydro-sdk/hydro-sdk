@@ -7,7 +7,8 @@ bool isRelocationCandidate(
     @required String destinationHashWithoutSourceInformation,
     @required Prototype source,
     @required String sourceHashWithoutSourceInformation}) {
-  if (destinationHashWithoutSourceInformation == sourceHashWithoutSourceInformation) {
+  if (destinationHashWithoutSourceInformation ==
+      sourceHashWithoutSourceInformation) {
     if (destination.lineStart != source.lineStart) {
       return true;
     }

@@ -20,7 +20,8 @@ void maybeDoPrototypeReassembly(
 
   for (var i = 0; i != sourceProtos.length; ++i) {
     if (isReassemblyCandidate(destination, sourceProtos[i].prototype)) {
-      reassemblePrototype(destination: destination, source: sourceProtos[i].prototype);
+      reassemblePrototype(
+          destination: destination, source: sourceProtos[i].prototype);
       reassembleStatus.reassembledProtos++;
       break;
     }
