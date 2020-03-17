@@ -22,9 +22,13 @@ class ReassembleStatus {
 
 class HashedPrototype {
   final String hash;
+  final String hashWithoutSourceInformation;
   final Prototype prototype;
 
-  HashedPrototype({@required this.hash, @required this.prototype});
+  HashedPrototype(
+      {@required this.hash,
+      @required this.hashWithoutSourceInformation,
+      @required this.prototype});
 }
 
 ReassembleStatus reassembleClosures(
@@ -65,8 +69,14 @@ void maybeDoRelocation(
     {@required ReassembleStatus reassembleStatus,
     @required Prototype destination,
     @required List<HashedPrototype> sourceProtos}) {
+  String destinationHash =
+      hashPrototype(destination, includeSourceLocations: false);
   for (var i = 0; i != sourceProtos.length; ++i) {
-    if (isRelocationCandidate(destination, sourceProtos[i].prototype)) {
+    if (isRelocationCandidate(
+        destination: destination,
+        destinationHashWithoutSourceInformation: destinationHash,
+        source: sourceProtos[i].prototype,
+        sourceHash: sourceProtos[i].hashWithoutSourceInformation)) {
       relocate(destination: destination, source: sourceProtos[i].prototype);
       reassembleStatus.relocatedProtos++;
       break;
@@ -107,12 +117,19 @@ void maybeDoReassembly(
 void _hashProtos(
     {@required List<HashedPrototype> sourceProtos,
     @required Prototype prototype}) {
-  sourceProtos.add(
-      HashedPrototype(hash: hashPrototype(prototype), prototype: prototype));
+  sourceProtos.add(HashedPrototype(
+      hash: hashPrototype(prototype),
+      hashWithoutSourceInformation:
+          hashPrototype(prototype, includeSourceLocations: false),
+      prototype: prototype));
 
   if (prototype.prototypes != null && prototype.prototypes.isNotEmpty) {
     prototype.prototypes.forEach((x) {
-      sourceProtos.add(HashedPrototype(hash: hashPrototype(x), prototype: x));
+      sourceProtos.add(HashedPrototype(
+          hash: hashPrototype(x),
+          hashWithoutSourceInformation:
+              hashPrototype(prototype, includeSourceLocations: false),
+          prototype: x));
 
       if (x.prototypes != null && x.prototypes.isNotEmpty) {
         _hashProtos(sourceProtos: sourceProtos, prototype: x);
