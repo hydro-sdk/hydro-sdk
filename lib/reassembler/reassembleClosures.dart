@@ -1,7 +1,7 @@
 import 'package:flua/reassembler/hashPrototype.dart';
 import 'package:flua/reassembler/isReassemblyCandidate.dart';
 import 'package:flua/reassembler/isRelocationCandidate.dart';
-import 'package:flua/reassembler/reassemble.dart';
+import 'package:flua/reassembler/reassemblePrototype.dart';
 import 'package:flua/reassembler/relocate.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/prototype.dart';
@@ -107,7 +107,7 @@ void maybeDoReassembly(
 
   for (var i = 0; i != sourceProtos.length; ++i) {
     if (isReassemblyCandidate(destination, sourceProtos[i].prototype)) {
-      reassemble(destination: destination, source: sourceProtos[i].prototype);
+      reassemblePrototype(destination: destination, source: sourceProtos[i].prototype);
       reassembleStatus.reassembledProtos++;
       break;
     }
