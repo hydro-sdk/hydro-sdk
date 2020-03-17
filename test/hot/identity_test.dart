@@ -1,21 +1,10 @@
 import 'package:flua/luastate.dart';
 import 'package:flua/reassembler/hashInstructionBlock.dart';
 import 'package:flua/reassembler/hashPrototype.dart';
+import 'package:flua/reassembler/isRelocationCandidate.dart';
+import 'package:flua/reassembler/reassemble.dart';
 import 'package:flua/vm/context.dart';
-import 'package:flua/vm/prototype.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-bool isCopyCandidate(Prototype a, Prototype b) {
-  var aHash = hashPrototype(a, includeSourceLocations: false);
-  var bHash = hashPrototype(b, includeSourceLocations: false);
-
-  if (aHash == bHash) {
-    if (a.lineStart != b.lineStart) {
-      return true;
-    }
-  }
-  return false;
-}
 
 void main() {
   test('', () async {
@@ -98,17 +87,20 @@ void main() {
     expect(hashPrototype(local1), isNot(hashPrototype(local3)));
     expect(hashPrototype(global1), isNot(hashPrototype(global3)));
 
-    expect(isCopyCandidate(global1, global1), false);
-    expect(isCopyCandidate(local1, local1), false);
+    expect(isRelocationCandidate(global1, global1), false);
+    expect(isRelocationCandidate(local1, local1), false);
 
-    expect(isCopyCandidate(global1, global3), true);
-    expect(isCopyCandidate(global3, global1), true);
-    expect(isCopyCandidate(global2, global3), false);
-    expect(isCopyCandidate(global2, global1), false);
+    expect(isRelocationCandidate(global1, global3), true);
+    expect(isRelocationCandidate(global3, global1), true);
+    expect(isRelocationCandidate(global2, global3), false);
+    expect(isRelocationCandidate(global2, global1), false);
 
-    expect(isCopyCandidate(local1, local3), true);
-    expect(isCopyCandidate(local3, local1), true);
-    expect(isCopyCandidate(local2, local3), false);
-    expect(isCopyCandidate(local2, local1), false);
+    expect(isRelocationCandidate(local1, local3), true);
+    expect(isRelocationCandidate(local3, local1), true);
+    expect(isRelocationCandidate(local2, local3), false);
+    expect(isRelocationCandidate(local2, local1), false);
+
+    var res = reassemble(destination: res1.closure, source: res2.closure);
+    print(res.relocatedProtos);
   });
 }
