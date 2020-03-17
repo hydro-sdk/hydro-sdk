@@ -2,7 +2,6 @@ import 'package:flua/luastate.dart';
 import 'package:flua/reassembler/hashInstructionBlock.dart';
 import 'package:flua/reassembler/hashPrototype.dart';
 import 'package:flua/reassembler/isRelocationCandidate.dart';
-import 'package:flua/reassembler/reassemble.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flutter_test/flutter_test.dart';
 
