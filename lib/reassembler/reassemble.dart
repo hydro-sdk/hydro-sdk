@@ -14,6 +14,4 @@ void reassemble({@required Prototype destination, @required Prototype source}) {
   destination.source = source.source;
   destination.lines = List.from(source.lines);
   destination.locals = List.from(source.locals);
-
-  print("Reassembled ${destination.lineStart} ${source.lineStart}");
 }
