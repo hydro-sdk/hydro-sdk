@@ -36,7 +36,7 @@ void main() {
 
     var res =
         reassembleClosures(destination: res1.closure, source: res2.closure);
-    expect(res.relocatedProtos, 0);
+    expect(res.relocatedProtos, 1);
     expect(res.reassembledProtos, 3);
 
     res = reassembleClosures(destination: res1.closure, source: res3.closure);

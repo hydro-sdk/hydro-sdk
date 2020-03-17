@@ -86,17 +86,87 @@ void main() {
     expect(hashPrototype(local1), isNot(hashPrototype(local3)));
     expect(hashPrototype(global1), isNot(hashPrototype(global3)));
 
-    expect(isRelocationCandidate(global1, global1), false);
-    expect(isRelocationCandidate(local1, local1), false);
+    expect(
+        isRelocationCandidate(
+            destination: global1,
+            source: global1,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(global1, includeSourceLocations: false),
+            sourceHash: hashPrototype(global1, includeSourceLocations: false)),
+        false);
+    expect(
+        isRelocationCandidate(
+            destination: local1,
+            source: local1,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(local1, includeSourceLocations: false),
+            sourceHash: hashPrototype(local1, includeSourceLocations: false)),
+        false);
 
-    expect(isRelocationCandidate(global1, global3), true);
-    expect(isRelocationCandidate(global3, global1), true);
-    expect(isRelocationCandidate(global2, global3), false);
-    expect(isRelocationCandidate(global2, global1), false);
+    expect(
+        isRelocationCandidate(
+            destination: global1,
+            source: global3,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(global1, includeSourceLocations: false),
+            sourceHash: hashPrototype(global3, includeSourceLocations: false)),
+        false);
+    expect(
+        isRelocationCandidate(
+            destination: global3,
+            source: global1,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(global3, includeSourceLocations: false),
+            sourceHash: hashPrototype(global1, includeSourceLocations: false)),
+        false);
+    expect(
+        isRelocationCandidate(
+            destination: global2,
+            source: global3,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(global2, includeSourceLocations: false),
+            sourceHash: hashPrototype(global3, includeSourceLocations: false)),
+        false);
+    expect(
+        isRelocationCandidate(
+            destination: global2,
+            source: global1,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(global2, includeSourceLocations: false),
+            sourceHash: hashPrototype(global1, includeSourceLocations: false)),
+        false);
 
-    expect(isRelocationCandidate(local1, local3), true);
-    expect(isRelocationCandidate(local3, local1), true);
-    expect(isRelocationCandidate(local2, local3), false);
-    expect(isRelocationCandidate(local2, local1), false);
+    expect(
+        isRelocationCandidate(
+            destination: local1,
+            source: local3,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(local1, includeSourceLocations: false),
+            sourceHash: hashPrototype(local3, includeSourceLocations: false)),
+        false);
+    expect(
+        isRelocationCandidate(
+            destination: local3,
+            source: local1,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(local3, includeSourceLocations: false),
+            sourceHash: hashPrototype(local1, includeSourceLocations: false)),
+        false);
+    expect(
+        isRelocationCandidate(
+            destination: local2,
+            source: local3,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(local2, includeSourceLocations: false),
+            sourceHash: hashPrototype(local3, includeSourceLocations: false)),
+        false);
+    expect(
+        isRelocationCandidate(
+            destination: local2,
+            source: local1,
+            destinationHashWithoutSourceInformation:
+                hashPrototype(local2, includeSourceLocations: false),
+            sourceHash: hashPrototype(local1, includeSourceLocations: false)),
+        false);
   });
 }
