@@ -1,7 +1,6 @@
 import 'package:flua/reassembler/hashPrototype.dart';
 import 'package:flua/reassembler/hashedPrototype.dart';
 import 'package:flua/reassembler/isRelocationCandidate.dart';
-import 'package:flua/reassembler/reassembleClosures.dart';
 import 'package:flua/reassembler/reassembleStatus.dart';
 import 'package:flua/reassembler/relocate.dart';
 import 'package:flua/vm/prototype.dart';
