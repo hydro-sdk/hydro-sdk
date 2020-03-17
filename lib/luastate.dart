@@ -97,6 +97,18 @@ class LuaState {
     ));
   }
 
+  Future<LuaFunction> loadBuffer(Uint8List buffer, String name) async {
+    var decoder = Decoder(buffer.buffer);
+    var dump = decoder.readCodeDump(name);
+
+    return LuaFunctionImpl(Closure(dump.main,
+        context: _context, upvalues: [Upval.store(_context.env)]));
+  }
+
+  Future<CoroutineResult> doBuffer(Uint8List buffer, String name) async {
+    return (await loadBuffer(buffer, name)).pcall([]);
+  }
+
   Future<CoroutineResult> doFile(String path,
           {List<dynamic> args = const []}) async =>
       (await loadFile(path)).pcall(args);
