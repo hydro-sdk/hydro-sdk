@@ -1,5 +1,4 @@
 import 'package:flua/luastate.dart';
-import 'package:flua/reassembler/reassemble.dart';
 import 'package:flua/reassembler/reassembleClosures.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -35,9 +34,9 @@ void main() {
 
     LuaFunctionImpl res3 = await state2.loadFile("test/hot/simple3.lc");
 
-    var res = reassembleClosures(destination: res1.closure, source: res2.closure);
+    var res =
+        reassembleClosures(destination: res1.closure, source: res2.closure);
     expect(res.relocatedProtos, 0);
-    expect(res.reassembledProtos, 3);
 
     res = reassembleClosures(destination: res1.closure, source: res3.closure);
     expect(res.relocatedProtos, 2);
