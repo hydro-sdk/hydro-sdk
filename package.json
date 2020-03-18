@@ -21,6 +21,7 @@
     "@types/node": "^13.7.7",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^1.10.2",
+    "chokidar": "^3.3.1",
     "escape-regex-string": "^1.0.6",
     "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.17.3",
@@ -28,7 +29,9 @@
     "typescript-to-lua": "^0.31.0"
   },
   "dependencies": {
+    "@types/rimraf": "^2.0.3",
     "chalk": "^3.0.0",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "rimraf": "^3.0.2"
   }
 }

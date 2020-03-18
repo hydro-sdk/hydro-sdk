@@ -2,6 +2,7 @@ import * as fs from "fs";
 
 import * as minimist from "minimist";
 import * as chalk from "chalk";
+import * as rimraf from "rimraf";
 
 import {emit} from "./src/ts/emit";
 import {BuildOptions} from "./src/ts/buildOptions";
@@ -15,6 +16,13 @@ const entry = argv.t;
 const modName = argv.m;
 const outDir = argv.d;
 const profile = argv.p;
+
+const clean = argv.clean;
+
+if(clean){
+    rimraf.sync(".hydroc");
+    process.exit(0);
+}
 
 if (!entry) 
 {
