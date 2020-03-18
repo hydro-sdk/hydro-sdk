@@ -99,13 +99,10 @@ class _RunFromNetwork extends State<RunFromNetwork>
     } else {
       if (requiresRebuild) {
         Future.delayed(Duration(seconds: 1)).then((val) {
-          print("attempting forced rebuild");
           _rebuildAllChildren(context);
           Future.delayed(Duration(seconds: 1)).then((val) {
-            print("attempting forced rebuild");
             _rebuildAllChildren(context);
             Future.delayed(Duration(seconds: 1)).then((val) {
-              print("attempting forced rebuild");
               _rebuildAllChildren(context);
             });
           });
