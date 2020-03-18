@@ -3,6 +3,7 @@ import * as fs from "fs";
 import * as minimist from "minimist";
 import * as chalk from "chalk";
 import * as rimraf from "rimraf";
+import * as chokidar from "chokidar";
 
 import {emit} from "./src/ts/emit";
 import {BuildOptions} from "./src/ts/buildOptions";
@@ -23,6 +24,10 @@ if(clean){
     rimraf.sync(".hydroc");
     process.exit(0);
 }
+
+const watch = argv.w;
+
+console.log(watch);
 
 if (!entry) 
 {
@@ -65,9 +70,14 @@ function transpileTS(config: BuildOptions): void
     squishAndCopy(config);
 }
 
+if(watch!== undefined){
+
+    chokidar.watch(watch).on("all",()=>{
 transpileTS({
     entry:entry,
     modName:modName,
     outDir:outDir,
     profile:profile
 });
+});
+}
