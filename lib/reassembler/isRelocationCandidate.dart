@@ -9,8 +9,11 @@ bool isRelocationCandidate(
     @required String sourceHashWithoutSourceInformation}) {
   if (destinationHashWithoutSourceInformation ==
       sourceHashWithoutSourceInformation) {
-    if (destination.lineStart != source.lineStart) {
-      return true;
+    if ((destination.lineStart != source.lineStart) &&
+        (destination.lineEnd != source.lineEnd)) {
+      if (destination.lines.length == source.lines.length) {
+        return true;
+      }
     }
   }
   return false;

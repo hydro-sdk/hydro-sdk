@@ -21,6 +21,10 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
       print("I/Hydro: Relocated ${status.relocatedProtos} function prototypes");
       print(
           "I/Hydro: Reassembled ${status.reassembledProtos} function prototypes");
+      setState(() {
+        func = val;
+        res = func.pcall([]);
+      });
       return true;
     } else {
       print("I/Hydro: Bailed out of hot-reload");

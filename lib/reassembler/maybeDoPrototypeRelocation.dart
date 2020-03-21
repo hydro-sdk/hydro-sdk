@@ -12,6 +12,9 @@ void maybeDoPrototypeRelocation(
     @required List<HashedPrototype> sourceProtos}) {
   String destinationHash =
       hashPrototype(destination, includeSourceLocations: false);
+  if (reassembleStatus.bailedOut) {
+    return;
+  }
   for (var i = 0; i != sourceProtos.length; ++i) {
     if (isRelocationCandidate(
         destination: destination,
@@ -20,7 +23,9 @@ void maybeDoPrototypeRelocation(
         sourceHashWithoutSourceInformation:
             sourceProtos[i].hashWithoutSourceInformation)) {
       relocatePrototype(
-          destination: destination, source: sourceProtos[i].prototype);
+          reassembleStatus: reassembleStatus,
+          destination: destination,
+          source: sourceProtos[i].prototype);
       reassembleStatus.relocatedProtos++;
       break;
     }

@@ -9,15 +9,9 @@ void maybeDoPrototypeReassembly(
     {@required ReassembleStatus reassembleStatus,
     @required Prototype destination,
     @required List<HashedPrototype> sourceProtos}) {
-  if (destination.prototypes != null && destination.prototypes.isNotEmpty) {
-    destination.prototypes.forEach((x) {
-      maybeDoPrototypeReassembly(
-          reassembleStatus: reassembleStatus,
-          destination: x,
-          sourceProtos: sourceProtos);
-    });
+  if (reassembleStatus.bailedOut) {
+    return;
   }
-
   for (var i = 0; i != sourceProtos.length; ++i) {
     if (isReassemblyCandidate(destination, sourceProtos[i].prototype)) {
       reassemblePrototype(
@@ -25,5 +19,13 @@ void maybeDoPrototypeReassembly(
       reassembleStatus.reassembledProtos++;
       break;
     }
+  }
+  if (destination.prototypes != null && destination.prototypes.isNotEmpty) {
+    destination.prototypes.forEach((x) {
+      maybeDoPrototypeReassembly(
+          reassembleStatus: reassembleStatus,
+          destination: x,
+          sourceProtos: sourceProtos);
+    });
   }
 }

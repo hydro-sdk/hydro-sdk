@@ -12,8 +12,9 @@ loadFloatingActionButton(l.Table table) {
         child: maybeUnwrapAndBuildArgument(args[0]["child"]),
         tooltip: args[0]["tooltip"],
         onPressed: () {
-          Closure closure = args[0]["onPressed"];
-          closure.call([]);
+          // Closure closure = args[0]["onPressed"];
+          // closure.call([]);
+          args[0]["onPressed"].call([]);
         },
       )
     ];
