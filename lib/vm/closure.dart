@@ -1,3 +1,4 @@
+import 'package:flua/buildProfile.dart';
 import 'package:flua/thread/thread.dart';
 import 'package:flua/thread/threadResult.dart';
 import 'package:flua/util.dart';
@@ -18,6 +19,8 @@ class Closure {
   final Frame parent;
   final Context context;
   final List<Upval> upvalues;
+
+  BuildProfile get buildProfile => proto.buildProfile;
 
   List<dynamic> call(List<dynamic> args) {
     var f = new Thread(closure: this).frame;
