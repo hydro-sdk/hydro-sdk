@@ -16,11 +16,17 @@ void _rebuildAllChildren(BuildContext context) {
 
 class RunFromNetwork extends StatefulWidget {
   final String baseUrl;
+  final Future<String> Function(String) downloadHash;
+  final Future<Uint8List> Function(String) downloadByteCodeImage;
 
-  RunFromNetwork({@required this.baseUrl});
+  RunFromNetwork(
+      {@required this.baseUrl, this.downloadHash, this.downloadByteCodeImage});
 
   @override
-  _RunFromNetwork createState() => _RunFromNetwork(baseUrl: baseUrl);
+  _RunFromNetwork createState() => _RunFromNetwork(
+      baseUrl: baseUrl,
+      downloadHash: downloadHash,
+      downloadByteCodeImage: downloadByteCodeImage);
 }
 
 class _RunFromNetwork extends State<RunFromNetwork>
@@ -30,7 +36,37 @@ class _RunFromNetwork extends State<RunFromNetwork>
   Timer timer;
   bool requiresRebuild = false;
 
-  _RunFromNetwork({@required this.baseUrl}) {
+  Future<String> Function(String) downloadHash;
+  Future<Uint8List> Function(String) downloadByteCodeImage;
+
+  _RunFromNetwork(
+      {@required this.baseUrl, this.downloadHash, this.downloadByteCodeImage}) {
+    if (downloadHash == null) {
+      downloadHash = (String uri) async {
+        try {
+          var res = await get(uri);
+          if (res.statusCode == 200) {
+            return res.body;
+          }
+        } catch (err) {
+          print(err);
+        }
+
+        return null;
+      };
+    }
+
+    if (downloadByteCodeImage == null) {
+      downloadByteCodeImage = (String uri) async {
+        try {
+          var res = await get(uri);
+          return res.bodyBytes;
+        } catch (err) {
+          print(err);
+          return null;
+        }
+      };
+    }
     maybeReload();
     timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
       maybeReload();
@@ -38,9 +74,9 @@ class _RunFromNetwork extends State<RunFromNetwork>
   }
 
   Future<void> maybeReload() async {
-    String newHash = await downloadHash();
+    String newHash = await downloadHash("$baseUrl.sha256");
     if (newHash != null && newHash != lastHash) {
-      var image = await downloadByteCodeImage();
+      var image = await downloadByteCodeImage(baseUrl);
       if (image != null) {
         setState(() {
           lastHash = newHash;
@@ -61,29 +97,6 @@ class _RunFromNetwork extends State<RunFromNetwork>
 
         return;
       }
-    }
-  }
-
-  Future<String> downloadHash() async {
-    try {
-      var res = await get("$baseUrl.sha256");
-      if (res.statusCode == 200) {
-        return res.body;
-      }
-    } catch (err) {
-      print(err);
-      return null;
-    }
-    return null;
-  }
-
-  Future<Uint8List> downloadByteCodeImage() async {
-    try {
-      var res = await get(baseUrl);
-      return res.bodyBytes;
-    } catch (err) {
-      print(err);
-      return null;
     }
   }
 
