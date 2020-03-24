@@ -67,11 +67,14 @@ class _RunFromNetwork extends State<RunFromNetwork>
   Future<String> downloadHash() async {
     try {
       var res = await get("$baseUrl.sha256");
-      return res.body;
+      if (res.statusCode == 200) {
+        return res.body;
+      }
     } catch (err) {
       print(err);
       return null;
     }
+    return null;
   }
 
   Future<Uint8List> downloadByteCodeImage() async {
