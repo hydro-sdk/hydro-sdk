@@ -14,7 +14,7 @@ loadFloatingActionButton(l.Table table) {
         onPressed: () {
           // Closure closure = args[0]["onPressed"];
           // closure.call([]);
-          args[0]["onPressed"].call([]);
+          args[0]["onPressed"].dispatch([]);
         },
       )
     ];

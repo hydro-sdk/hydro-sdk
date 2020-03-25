@@ -22,6 +22,8 @@ class Closure {
 
   BuildProfile get buildProfile => proto.buildProfile;
 
+  List<dynamic> dispatch(List<dynamic> args) => call(args);
+
   List<dynamic> call(List<dynamic> args) {
     var f = new Thread(closure: this).frame;
     f.loadArgs(args);

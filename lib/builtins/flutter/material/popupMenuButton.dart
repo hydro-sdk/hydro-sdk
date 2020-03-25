@@ -10,11 +10,11 @@ loadPopupMenuButton(l.Table table) {
       PopupMenuButton(
         onSelected: (dynamic arg) {
           Closure closure = args[0]["onSelected"];
-          return closure.call([args[0], arg]);
+          return closure.dispatch([args[0], arg]);
         },
         itemBuilder: (BuildContext context) {
           Closure closure = args[0]["itemBuilder"];
-          l.Table closureRes = closure.call([context])[0];
+          l.Table closureRes = closure.dispatch([context])[0];
           return maybeUnwrapAndBuildArgument(closureRes)
               .map((x) => x.build(context))
               .toList()

@@ -11,7 +11,7 @@ loadFlatButton(l.Table table) {
         child: maybeUnwrapAndBuildArgument(args[0]["child"]),
         onPressed: () {
           Closure closure = args[0]["onPressed"];
-          closure.call([]);
+          closure.dispatch([]);
         },
       )
     ];

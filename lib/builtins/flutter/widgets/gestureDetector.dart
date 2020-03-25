@@ -13,7 +13,7 @@ loadGestureDetector(l.Table table) {
         child: maybeUnwrapAndBuildArgument(args[0]["child"]),
         onTap: () {
           Closure closure = args[0]["onTap"];
-          closure.call([]);
+          closure.dispatch([]);
         },
       )
     ];

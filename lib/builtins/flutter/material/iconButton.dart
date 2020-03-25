@@ -12,7 +12,7 @@ loadIconButton(l.Table table) {
         tooltip: args[0]["tooltip"],
         onPressed: () {
           Closure closure = args[0]["onPressed"];
-          closure.call([]);
+          closure.dispatch([]);
         },
       )
     ];
