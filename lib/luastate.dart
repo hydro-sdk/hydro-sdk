@@ -40,11 +40,13 @@ class LuaFunctionImpl extends LuaFunction {
 
 class LuaState {
   // ignore: non_constant_identifier_names
-  Table get _G => _context.env;
+  HydroTable get _G => _context.env;
   final Context _context;
   Context get context => _context;
+  
+  LuaFunctionImpl dispatchContext;
 
-  LuaState({bool loadLibs = true}) : _context = new Context(env: new Table()) {
+  LuaState({bool loadLibs = true}) : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;
 
     if (loadLibs) {

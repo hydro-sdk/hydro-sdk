@@ -3,12 +3,12 @@ import 'package:flua/vm/table.dart';
 import 'package:flua/util.dart';
 
 loadTableLib(Context ctx) {
-  var table = new Table();
+  var table = new HydroTable();
 
   ctx.env["table"] = table;
 
   table["concat"] = (List<dynamic> args) {
-    Table t = Context.getArg1<Table>(args, 0, "concat");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "concat");
     var delim = Context.luaToString(maybeAt(args, 1) ?? "");
     num s =
         maybeAt(args, 2) == null ? 1 : Context.getArg1<num>(args, 2, "concat");
@@ -32,7 +32,7 @@ loadTableLib(Context ctx) {
     if (args.length < 2 || args.length > 3)
       throw "wrong number of arguments to 'insert";
 
-    Table t = Context.getArg1<Table>(args, 0, "insert");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "insert");
     var len = t.length;
 
     var v = args[args.length < 3 ? 1 : 2];
@@ -49,12 +49,12 @@ loadTableLib(Context ctx) {
   };
 
   table["maxn"] = (List<dynamic> args) {
-    Table t = Context.getArg1<Table>(args, 0, "maxn");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "maxn");
     return [t.map.keys.fold(t.length, (s, e) => e is num && e > s ? e : s)];
   };
 
   table["remove"] = (List<dynamic> args) {
-    Table t = Context.getArg1<Table>(args, 0, "remove");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "remove");
     int pos = maybeAt(args, 1) == null
         ? t.length
         : Context.getArg1<num>(args, 1, "remove").floor();
@@ -74,7 +74,7 @@ loadTableLib(Context ctx) {
   };
 
   table["sort"] = (List<dynamic> args) {
-    Table t = Context.getArg1<Table>(args, 0, "maxn");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "maxn");
     LuaDartFunc f = maybeAt(args, 1) == null
         ? null
         : Context.getArg1<LuaDartFunc>(args, 1, "sort");
@@ -86,8 +86,8 @@ loadTableLib(Context ctx) {
         return lt ? -1 : gt ? 1 : 0;
       } else if (a is num && b is num) {
         return a.compareTo(b);
-      } else if ((a is Table && Context.hasMetamethod(a, "__le")) ||
-          (b is Table && Context.hasMetamethod(b, "__le"))) {
+      } else if ((a is HydroTable && Context.hasMetamethod(a, "__le")) ||
+          (b is HydroTable && Context.hasMetamethod(b, "__le"))) {
         var lt = Context.checkLT(a, b);
         var gt = Context.checkLT(b, a);
         return lt ? -1 : gt ? 1 : 0;

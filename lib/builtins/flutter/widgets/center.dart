@@ -3,7 +3,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadCenter(l.Table table) {
+loadCenter(l.HydroTable table) {
   table["center"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Center(

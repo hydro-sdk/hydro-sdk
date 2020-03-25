@@ -7,7 +7,7 @@ import 'package:flua/builtins/flutter/widgets/widgets.dart';
 import 'package:flua/vm/table.dart';
 
 loadFlutterLib(Context ctx) {
-  var flutter = Table();
+  var flutter = HydroTable();
 
   ctx.env["flutter"] = flutter;
 

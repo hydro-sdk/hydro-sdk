@@ -1,4 +1,4 @@
-class Table {
+class HydroTable {
   List<dynamic> arr = [];
   final Map<dynamic, dynamic> map = {};
 
@@ -83,7 +83,7 @@ class Table {
     return i;
   }
 
-  Table metatable;
+  HydroTable metatable;
 
   @override
   String toString() {

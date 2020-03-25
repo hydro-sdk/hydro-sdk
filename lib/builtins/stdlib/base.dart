@@ -52,13 +52,13 @@ loadBaseLib(Context ctx) {
   };
 
   ctx.env["next"] = (List<dynamic> args) {
-    Table table = Context.getArg1<Table>(args, 0, "next");
+    HydroTable table = Context.getArg1<HydroTable>(args, 0, "next");
     var k = table.next(maybeAt(args, 1));
     return [k, table.rawget(k)];
   };
 
   ctx.env["pairs"] = (List<dynamic> args) {
-    return [ctx.env["next"], Context.getArg1<Table>(args, 0, "pairs"), null];
+    return [ctx.env["next"], Context.getArg1<HydroTable>(args, 0, "pairs"), null];
   };
 
   ctx.env["pcall"] = (Thread thread, List<dynamic> args) {
@@ -90,7 +90,7 @@ loadBaseLib(Context ctx) {
   };
 
   ctx.env["rawget"] = (List<dynamic> args) {
-    Table t = Context.getArg1<Table>(args, 0, "rawget");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "rawget");
     var k = Context.getAny(
       args,
       1,
@@ -102,14 +102,14 @@ loadBaseLib(Context ctx) {
   };
 
   ctx.env["rawlen"] = (List<dynamic> args) {
-    Table t = Context.getArg1<Table>(args, 0, "rawlen");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "rawlen");
     return [
       t.length,
     ];
   };
 
   ctx.env["rawset"] = (List<dynamic> args) {
-    Table t = Context.getArg1<Table>(args, 0, "rawset");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "rawset");
     var k = Context.getAny(args, 1, "rawset");
     var v = Context.getAny(args, 2, "rawset");
     t.rawset(k, v);
@@ -133,12 +133,12 @@ loadBaseLib(Context ctx) {
   };
 
   ctx.env["setmetatable"] = (List<dynamic> args) {
-    Table t = Context.getArg1<Table>(args, 0, "setmetatable");
+    HydroTable t = Context.getArg1<HydroTable>(args, 0, "setmetatable");
 
     if (args.length < 2)
       throw "bad argument #2 to 'setmetatable' (nil or table expected)";
 
-    Table v = Context.getArg1<Table>(args, 1, "setmetatable");
+    HydroTable v = Context.getArg1<HydroTable>(args, 1, "setmetatable");
 
     t.metatable = v;
 

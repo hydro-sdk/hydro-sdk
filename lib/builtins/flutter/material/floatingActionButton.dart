@@ -4,7 +4,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadFloatingActionButton(l.Table table) {
+loadFloatingActionButton(l.HydroTable table) {
   table["floatingActionButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       FloatingActionButton(

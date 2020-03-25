@@ -3,7 +3,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadSizeTransition(l.Table table) {
+loadSizeTransition(l.HydroTable table) {
   table["sizeTransition"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       SizeTransition(

@@ -36,7 +36,7 @@ class TypeMatcher<T> {
   bool matches(dynamic x) => x is T;
   toString() {
     if (T == String) return "string";
-    if (T == Table) return "table";
+    if (T == HydroTable) return "table";
     if (T == num) return "number";
     if (T == Closure) return "function";
     if (T == LuaDartFunc) return "function";
@@ -54,13 +54,13 @@ class Context {
 
   dynamic userdata;
 
-  Table env;
-  Table stringMetatable;
+  HydroTable env;
+  HydroTable stringMetatable;
   LuaDartFunc yield;
 
   static String getTypename(dynamic v) {
     if (v is String) return "string";
-    if (v is Table) return "table";
+    if (v is HydroTable) return "table";
     if (v is num) return "number";
     if (v is Closure) return "function";
     if (v is LuaDartFunc) return "function";
@@ -103,7 +103,7 @@ class Context {
   }
 
   static dynamic getMetatable(dynamic x) {
-    if (x is Table && x.metatable != null) {
+    if (x is HydroTable && x.metatable != null) {
       return x.metatable.map.containsKey("__metatable")
           ? x.metatable.map["__metatable"]
           : x.metatable;
@@ -114,7 +114,7 @@ class Context {
   static dynamic getLength(dynamic x) {
     if (hasMetamethod(x, "__len")) {
       return maybeAt(invokeMetamethod(x, "__len", [x]), 0);
-    } else if (x is Table) {
+    } else if (x is HydroTable) {
       return x.length;
     } else if (x is String) {
       return x.length;
@@ -124,7 +124,7 @@ class Context {
   }
 
   dynamic tableIndex(dynamic x, dynamic y) {
-    if (x is Table) {
+    if (x is HydroTable) {
       var o = x.rawget(y);
       if (o != null) return o;
       if (x.metatable == null) return null;
@@ -142,7 +142,7 @@ class Context {
   }
 
   static void tableSet(dynamic x, dynamic k, dynamic v) {
-    if (x is Table) {
+    if (x is HydroTable) {
       if (x.map.containsKey(k) &&
           x.metatable != null &&
           x.metatable.map.containsKey("__newindex")) {
@@ -215,7 +215,7 @@ class Context {
   static String luaSerialize(dynamic x) {
     if (x is String)
       return "\"${luaEscape(x)}\"";
-    else if (x is Table) {
+    else if (x is HydroTable) {
       var o = "{";
       for (var e in x.arr) {
         o += luaSerialize(e) + ",";
@@ -254,7 +254,7 @@ class Context {
 
   static List<dynamic> invokeMetamethod(
       dynamic x, String name, List<dynamic> params) {
-    if (x is Table) {
+    if (x is HydroTable) {
       if (x.map[name] is! Closure) throw "attempt to call table value";
       return x.map[name](params);
     } else {
@@ -263,7 +263,7 @@ class Context {
   }
 
   static bool hasMetamethod(dynamic x, String method) =>
-      x is Table && x.metatable != null && x.metatable.map.containsKey(method);
+      x is HydroTable && x.metatable != null && x.metatable.map.containsKey(method);
 
   static dynamic attemptArithmetic(
       dynamic x, dynamic y, String method, ArithCB op) {
@@ -293,7 +293,7 @@ class Context {
   static bool checkEQ(dynamic x, dynamic y) {
     if (hasMetamethod(x, "__eq") &&
         hasMetamethod(y, "__eq") &&
-        (x as Table).map["__eq"] == (y as Table).map["__eq"]) {
+        (x as HydroTable).map["__eq"] == (y as HydroTable).map["__eq"]) {
       return truthy(invokeMetamethod(x, "__eq", [x, y]));
     } else {
       return x == y;

@@ -4,7 +4,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadGestureDetector(l.Table table) {
+loadGestureDetector(l.HydroTable table) {
   table["gestureDetector"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       GestureDetector(

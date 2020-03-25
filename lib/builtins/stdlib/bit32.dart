@@ -3,7 +3,7 @@ import 'package:flua/vm/context.dart';
 import 'package:flua/vm/table.dart';
 
 void loadBit32Lib(Context ctx) {
-  var bit32 = Table();
+  var bit32 = HydroTable();
 
   bit32["band"] = makeLuaDartFunc(func: (List<dynamic> args) {
     int r = ~0;

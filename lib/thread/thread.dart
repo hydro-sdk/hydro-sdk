@@ -21,7 +21,7 @@ class Thread {
   bool started = false;
 
   List<dynamic> attemptCall(dynamic x, [List<dynamic> args = const []]) {
-    if (x is Table) {
+    if (x is HydroTable) {
       return Context.invokeMetamethod(x, "__call", args);
     } else if (x is LuaDartFunc) {
       return x(args);

@@ -6,7 +6,7 @@ import 'package:flua/vm/table.dart';
 const rpd = pi / 180;
 
 loadMathLib(Context ctx) {
-  var math = new Table();
+  var math = new HydroTable();
   ctx.env["math"] = math;
 
   math["abs"] = (List<dynamic> args) {

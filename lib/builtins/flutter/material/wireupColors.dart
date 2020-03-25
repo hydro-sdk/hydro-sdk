@@ -4,7 +4,7 @@ import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
 class VMManagedMaterialAccentColor extends VMManagedBox<MaterialAccentColor> {
-  final l.Table table;
+  final l.HydroTable table;
   final MaterialAccentColor vmObject;
   VMManagedMaterialAccentColor(
       {@required this.table, @required this.vmObject}) {
@@ -13,18 +13,18 @@ class VMManagedMaterialAccentColor extends VMManagedBox<MaterialAccentColor> {
 }
 
 class VMManagedColors extends VMManagedBox<dynamic> {
-  final l.Table table;
+  final l.HydroTable table;
 
   VMManagedColors({@required this.table}) {
-    table["primaries"] = l.Table()..arr = Colors.primaries;
+    table["primaries"] = l.HydroTable()..arr = Colors.primaries;
     table["lightGreenAccent"] = VMManagedMaterialAccentColor(
-            table: l.Table(), vmObject: Colors.lightGreenAccent)
+            table: l.HydroTable(), vmObject: Colors.lightGreenAccent)
         .table;
   }
 }
 
-loadWireupColors(l.Table table) {
+loadWireupColors(l.HydroTable table) {
   table["wireupColors"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [VMManagedColors(table: l.Table()).table];
+    return [VMManagedColors(table: l.HydroTable()).table];
   });
 }

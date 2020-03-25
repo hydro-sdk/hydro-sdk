@@ -9,7 +9,7 @@ int _tobit(num x) {
 }
 
 loadBitLib(Context ctx) {
-  var bit = new Table();
+  var bit = new HydroTable();
   ctx.env["bit"] = bit;
 
   bit["tobit"] = (List<dynamic> args) {

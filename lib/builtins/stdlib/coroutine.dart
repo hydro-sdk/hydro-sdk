@@ -6,7 +6,7 @@ import 'package:flua/thread/thread.dart';
 import 'package:flua/util.dart';
 
 loadCoroutineLib(Context ctx) {
-  var coroutine = new Table();
+  var coroutine = new HydroTable();
   ctx.env["coroutine"] = coroutine;
 
   coroutine["create"] = (List<dynamic> args) {

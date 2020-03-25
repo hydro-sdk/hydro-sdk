@@ -3,7 +3,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadPopupMenuItem(l.Table table) {
+loadPopupMenuItem(l.HydroTable table) {
   table["popupMenuItem"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       PopupMenuItem(

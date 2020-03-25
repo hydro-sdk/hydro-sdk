@@ -5,7 +5,7 @@ import 'package:flua/vm/table.dart';
 import 'package:flua/util.dart';
 
 loadStringLib(Context ctx) {
-  var string = new Table();
+  var string = new HydroTable();
 
   ctx.env["string"] = string;
   ctx.stringMetatable = string;

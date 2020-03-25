@@ -3,7 +3,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadPreferredSize(l.Table table) {
+loadPreferredSize(l.HydroTable table) {
   table["preferredSize"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       PreferredSize(

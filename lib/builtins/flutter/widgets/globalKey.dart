@@ -6,12 +6,12 @@ import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/widgets.dart';
 
 class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
-  final l.Table table;
+  final l.HydroTable table;
   final GlobalKey vmObject;
 
   RTManagedGlobalKey({@required this.table, @required this.vmObject}) {
     table["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
-      l.Table currentState = l.Table();
+      l.HydroTable currentState = l.HydroTable();
       currentState["insertItem"] = (List<dynamic> args) {
         (vmObject.currentState as dynamic).insertItem(args[1]);
       };
@@ -29,7 +29,7 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
   }
 }
 
-loadGlobalKey(l.Table table) {
+loadGlobalKey(l.HydroTable table) {
   table["globalKeyCtor"] = makeLuaDartFunc(func: (List<dynamic> args) {
     GlobalKey key = translateRTTIToGenericGlobalKey(
         runtimeType: RuntimeTypes.values.firstWhere(

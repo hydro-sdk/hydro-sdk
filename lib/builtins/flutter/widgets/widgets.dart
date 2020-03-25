@@ -12,8 +12,8 @@ import 'package:flua/builtins/flutter/widgets/sizedBox.dart';
 import 'package:flua/builtins/flutter/widgets/text.dart';
 import 'package:flua/vm/table.dart';
 
-loadWidgets(Table table) {
-  var widgets = Table();
+loadWidgets(HydroTable table) {
+  var widgets = HydroTable();
 
   table["widgets"] = widgets;
 

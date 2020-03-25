@@ -1,4 +1,5 @@
 import 'package:flua/buildProfile.dart';
+import 'package:flua/luastate.dart';
 import 'package:flua/thread/thread.dart';
 import 'package:flua/thread/threadResult.dart';
 import 'package:flua/util.dart';
@@ -6,6 +7,8 @@ import 'package:flua/vm/context.dart';
 import 'package:flua/vm/frame.dart';
 import 'package:flua/vm/prototype.dart';
 import 'package:flua/vm/upVal.dart';
+
+import 'package:meta/meta.dart';
 
 class Closure {
   Closure(
@@ -22,7 +25,9 @@ class Closure {
 
   BuildProfile get buildProfile => proto.buildProfile;
 
-  List<dynamic> dispatch(List<dynamic> args) => call(args);
+  List<dynamic> dispatch(List<dynamic> args,
+          {@required LuaState dispatchContext}) =>
+      call(args);
 
   List<dynamic> call(List<dynamic> args) {
     var f = new Thread(closure: this).frame;

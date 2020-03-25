@@ -3,7 +3,7 @@ import 'package:flua/vm/table.dart';
 import 'package:flua/builtins/ts/debugger.dart';
 
 loadTsLib(Context ctx) {
-  var ts = Table();
+  var ts = HydroTable();
 
   ctx.env["ts"] = ts;
 

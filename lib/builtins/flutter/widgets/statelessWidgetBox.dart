@@ -3,7 +3,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flutter/widgets.dart';
 
 class StatelessWidgetBox extends StatelessWidget {
-  final l.Table table;
+  final l.HydroTable table;
 
   StatelessWidgetBox({@required this.table});
 
@@ -15,7 +15,7 @@ class StatelessWidgetBox extends StatelessWidget {
 }
 
 class StatelessPreferredSizeBox extends PreferredSize {
-  final l.Table table;
+  final l.HydroTable table;
 
   StatelessPreferredSizeBox({@required this.table});
 

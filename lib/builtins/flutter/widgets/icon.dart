@@ -3,7 +3,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadIcon(l.Table table) {
+loadIcon(l.HydroTable table) {
   table["icon"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Icon(maybeUnwrapAndBuildArgument(args[0]),

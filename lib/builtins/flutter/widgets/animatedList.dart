@@ -4,7 +4,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadAnimatedList(l.Table table) {
+loadAnimatedList(l.HydroTable table) {
   table["animatedList"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       AnimatedList(

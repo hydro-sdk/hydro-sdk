@@ -11,8 +11,8 @@ import 'package:flua/builtins/flutter/material/theme.dart';
 import 'package:flua/builtins/flutter/material/wireupColors.dart';
 import 'package:flua/vm/table.dart';
 
-loadMaterial(Table table) {
-  var material = Table();
+loadMaterial(HydroTable table) {
+  var material = HydroTable();
 
   table["material"] = material;
 

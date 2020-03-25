@@ -1,8 +1,8 @@
 import 'package:flua/builtins/flutter/painting/edgeInsets.dart';
 import 'package:flua/vm/table.dart';
 
-loadPainting(Table table) {
-  var painting = Table();
+loadPainting(HydroTable table) {
+  var painting = HydroTable();
 
   table["painting"] = painting;
 

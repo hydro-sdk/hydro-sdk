@@ -194,7 +194,7 @@ class Frame {
           Context.tableSet(_GR(A), _RK(B), _RK(C));
         } else if (OP == 11) {
           // NEWTABLE(ABC)
-          _SR(A, new Table());
+          _SR(A, new HydroTable());
         } else if (OP == 12) {
           // SELF(ABC)
           _SR(A + 1, _GR(B));

@@ -7,19 +7,19 @@ import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
 class StatefulWidgetBox extends StatefulWidget {
-  final l.Table table;
+  final l.HydroTable table;
 
   StatefulWidgetBox({@required this.table});
 
   @override
   StatefulWidgetBoxState createState() {
-    l.Table newTable = table.metatable["createState"]([table.map])[0];
+    l.HydroTable newTable = table.metatable["createState"]([table.map])[0];
     return StatefulWidgetBoxState(table: newTable);
   }
 }
 
 class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
-  final l.Table table;
+  final l.HydroTable table;
 
   StatefulWidgetBoxState({@required this.table}) {
     table.map["setState"] = makeLuaDartFunc(func: (List<dynamic> args) {

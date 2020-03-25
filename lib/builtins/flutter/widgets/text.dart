@@ -3,7 +3,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart' as l;
 import 'package:flutter/material.dart';
 
-loadText(l.Table table) {
+loadText(l.HydroTable table) {
   table["text"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Text(
