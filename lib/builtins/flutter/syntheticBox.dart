@@ -3,7 +3,7 @@ import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/widgets/statefulWidgetBox.dart';
 import 'package:flua/builtins/flutter/widgets/statelessWidgetBox.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flua/vm/table.dart' as l;
+import 'package:flua/vm/table.dart';
 
 dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
   //Unboxed Flutter widgets
@@ -11,7 +11,7 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
     return arg;
   }
   //Synthetic Flutter widgets
-  if (arg is l.HydroTable) {
+  if (arg is HydroTable) {
     //Metatable will contain an inherited build function from the StatlessWidget base class
     Closure createState =
         arg?.metatable != null ? arg.metatable["createState"] : null;
@@ -52,7 +52,7 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
 }
 
 abstract class Box<T> {
-  final l.HydroTable table;
+  final HydroTable table;
   T vmObject;
 
   Box({@required this.table, @required this.vmObject});
@@ -61,7 +61,7 @@ abstract class Box<T> {
 }
 
 class VMManagedBox<T> extends Box<T> {
-  final l.HydroTable table;
+  final HydroTable table;
   T vmObject;
 
   VMManagedBox({@required this.table, @required this.vmObject}) {
@@ -75,7 +75,7 @@ class VMManagedBox<T> extends Box<T> {
 }
 
 class RTManagedBox<T> extends Box<T> {
-  final l.HydroTable table;
+  final HydroTable table;
   final T vmObject;
 
   RTManagedBox({@required this.table, @required this.vmObject}) {

@@ -1,8 +1,8 @@
 import 'package:flua/vm/context.dart';
-import 'package:flua/vm/table.dart' as l;
+import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadEdgeInsets(l.HydroTable table) {
+loadEdgeInsets(HydroTable table) {
   table["edgeInsetsAll"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [EdgeInsets.all(args[0].toDouble())];
   });

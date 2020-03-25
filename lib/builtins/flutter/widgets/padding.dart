@@ -1,9 +1,9 @@
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
-import 'package:flua/vm/table.dart' as l;
+import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadPadding(l.HydroTable table) {
+loadPadding(HydroTable table) {
   table["padding"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Padding(
