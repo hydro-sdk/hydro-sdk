@@ -47,3 +47,4 @@ flua/android/.project
 *.js
 .hydroc
 *.sha256
+!test/hot/**/*.sha256
