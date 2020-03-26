@@ -26,13 +26,15 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    LuaFunctionImpl res1 = await state1.loadFile("hot/debug.lc");
+    await state1.loadFile("hot/debug.lc");
+    LuaFunctionImpl res1 = state1.dispatchContext;
     expect(res1.closure.buildProfile, BuildProfile.debug);
     res1.pcall([]);
 
     expect(outLines1[0], "3");
 
-    LuaFunctionImpl res2 = await state2.loadFile("hot/release.lc");
+    await state2.loadFile("hot/release.lc");
+    LuaFunctionImpl res2 = state2.dispatchContext;
     expect(res2.closure.buildProfile, BuildProfile.release);
     res2.pcall([]);
 
