@@ -28,14 +28,11 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    await state1.loadFile("hot/simple1.lc");
-    LuaFunctionImpl res1 = state1.dispatchContext;
+    LuaFunctionImpl res1 = await state1.loadFile("hot/simple1.lc");
 
-    await state2.loadFile("hot/simple2.lc");
-    LuaFunctionImpl res2 = state2.dispatchContext;
+    LuaFunctionImpl res2 = await state2.loadFile("hot/simple2.lc");
 
-    await state3.loadFile("hot/simple3.lc");
-    LuaFunctionImpl res3 = state3.dispatchContext;
+    LuaFunctionImpl res3 = await state2.loadFile("hot/simple3.lc");
 
     var res =
         reassembleClosures(destination: res1.closure, source: res2.closure);

@@ -43,11 +43,10 @@ class LuaState {
   HydroTable get _G => _context.env;
   final Context _context;
   Context get context => _context;
-
+  
   LuaFunctionImpl dispatchContext;
 
-  LuaState({bool loadLibs = true})
-      : _context = new Context(env: new HydroTable()) {
+  LuaState({bool loadLibs = true}) : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;
 
     if (loadLibs) {
@@ -73,16 +72,16 @@ class LuaState {
   void loadDart() => loadDartLib(_context);
   void loadTs() => loadTsLib(_context);
 
-  Future<void> loadFileFromBundle(String path) async {
+  Future<LuaFunction> loadFileFromBundle(String path) async {
     var contents = await rootBundle.load(path);
     var decoder = Decoder(contents.buffer);
     var dump = decoder.readCodeDump(path);
 
-    dispatchContext = LuaFunctionImpl(Closure(dump.main,
+    return LuaFunctionImpl(Closure(dump.main,
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
-  Future<void> loadFile(String path) async {
+  Future<LuaFunction> loadFile(String path) async {
     var f = File(path);
 
     if (!f.existsSync()) throw "$path not found";
@@ -93,38 +92,32 @@ class LuaState {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(path);
 
-    dispatchContext = LuaFunctionImpl(Closure(
+    return LuaFunctionImpl(Closure(
       dump.main,
       context: _context,
       upvalues: [Upval.store(_context.env)],
     ));
   }
 
-  Future<void> loadBuffer(Uint8List buffer, String name) async {
+  Future<LuaFunctionImpl> loadBuffer(Uint8List buffer, String name) async {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(name);
 
-    dispatchContext = LuaFunctionImpl(Closure(dump.main,
+    return LuaFunctionImpl(Closure(dump.main,
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
   Future<CoroutineResult> doBuffer(Uint8List buffer, String name) async {
-    await loadBuffer(buffer, name);
-    return dispatchContext.pcall([]);
+    return (await loadBuffer(buffer, name)).pcall([]);
   }
 
   Future<CoroutineResult> doFile(String path,
-      {List<dynamic> args = const []}) async {
-    await loadFile(path);
-    return dispatchContext.pcall(args);
-  }
+          {List<dynamic> args = const []}) async =>
+      (await loadFile(path)).pcall(args);
 
   Future<CoroutineResult> doFileFromBundle(String path,
-      {List<dynamic> args = const []}) async {
-    await loadFileFromBundle(path);
-    return dispatchContext.pcall(args);
-  }
-
+          {List<dynamic> args = const []}) async =>
+      (await loadFileFromBundle(path)).pcall(args);
   static dynamic _sanitize(dynamic x) {
     if (x is! LuaDartFunc && x is Function) {
       throw "Function does not match LuaDartFunc or LuaDebugFunc";
