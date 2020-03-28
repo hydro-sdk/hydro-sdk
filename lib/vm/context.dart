@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flua/thread/thread.dart';
 import 'package:flua/util.dart';
 import 'package:flua/vm/closure.dart';

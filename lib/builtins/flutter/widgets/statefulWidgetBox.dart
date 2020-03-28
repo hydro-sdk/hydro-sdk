@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';

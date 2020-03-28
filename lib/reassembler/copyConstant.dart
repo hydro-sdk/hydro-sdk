@@ -19,4 +19,5 @@ Const copyConstant({@required Const source}) {
       return StringConst(source.value);
       break;
   }
+  return null;
 }

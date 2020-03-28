@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-import 'dart:developer';
 import 'package:flua/vm/prototype.dart';
 import 'package:flua/reassembler/copyConstant.dart';
 import 'package:meta/meta.dart';
