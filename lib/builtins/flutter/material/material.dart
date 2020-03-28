@@ -9,9 +9,12 @@ import 'package:flua/builtins/flutter/material/popupMenuItem.dart';
 import 'package:flua/builtins/flutter/material/scaffold.dart';
 import 'package:flua/builtins/flutter/material/theme.dart';
 import 'package:flua/builtins/flutter/material/wireupColors.dart';
+import 'package:flua/luastate.dart';
 import 'package:flua/vm/table.dart';
 
-loadMaterial(HydroTable table) {
+import 'package:meta/meta.dart';
+
+loadMaterial({@required LuaState luaState, @required HydroTable table}) {
   var material = HydroTable();
 
   table["material"] = material;
@@ -20,7 +23,7 @@ loadMaterial(HydroTable table) {
   loadAppBar(material);
   loadFlatButton(material);
   loadMaterialApp(material);
-  loadFloatingActionButton(material);
+  loadFloatingActionButton(luaState: luaState, table: material);
   loadThemeOf(material);
   loadIconButton(material);
   loadCard(material);

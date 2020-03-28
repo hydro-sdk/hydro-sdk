@@ -13,7 +13,8 @@ ReassembleStatus reassembleClosures(
       relocatedProtos: 0,
       reassembledProtos: 0,
       bailedOut: false,
-      bailOutReason: "");
+      bailOutReason: "",
+      reassemblyMap: []);
 
   List<HashedPrototype> sourceProtos = [];
   List<HashedPrototype> destinationProtos = [];

@@ -1,5 +1,6 @@
 import 'package:flua/buildProfile.dart';
 import 'package:flua/luastate.dart';
+import 'package:flua/reassembler/hashPrototype.dart';
 import 'package:flua/thread/thread.dart';
 import 'package:flua/thread/threadResult.dart';
 import 'package:flua/util.dart';
@@ -25,9 +26,39 @@ class Closure {
 
   BuildProfile get buildProfile => proto.buildProfile;
 
-  List<dynamic> dispatch(List<dynamic> args,
-          {@required LuaState dispatchContext}) =>
-      call(args);
+  List<dynamic> dispatch(List<dynamic> args, {@required LuaState parentState}) {
+    if (buildProfile == BuildProfile.release ||
+        parentState?.dispatchContext?.dispatchContext == null ||
+        parentState?.dispatchContext?.resssemblyMap == null) {
+      return call(args);
+    } else if (buildProfile == BuildProfile.debug) {
+      String currentHash = hashPrototype(proto);
+      String nextHash;
+      bool foundReassambledHash = true;
+      while (foundReassambledHash) {
+        foundReassambledHash = false;
+        for (var i = 0;
+            i != parentState.dispatchContext.resssemblyMap.length;
+            ++i) {
+          var entry = parentState.dispatchContext.resssemblyMap[i];
+          if (entry.containsKey(nextHash ?? currentHash)) {
+            nextHash = entry[nextHash ?? currentHash];
+            foundReassambledHash = true;
+          }
+        }
+      }
+
+      String targetHash = nextHash ?? currentHash;
+
+      Prototype targetProto = parentState
+          ?.dispatchContext?.dispatchContext?.closure?.proto
+          ?.findPrototypeByHash(targetHash: targetHash);
+
+      assert(targetProto != null);
+    }
+
+    return call(args);
+  }
 
   List<dynamic> call(List<dynamic> args) {
     var f = new Thread(closure: this).frame;

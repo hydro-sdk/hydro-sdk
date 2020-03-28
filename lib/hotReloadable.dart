@@ -18,6 +18,14 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
     var status =
         reassembleClosures(destination: func.closure, source: val.closure);
     if (!status.bailedOut) {
+      luaState.dispatchContext = DispatchContext(
+          dispatchContext: val,
+          resssemblyMap: luaState?.dispatchContext?.resssemblyMap != null
+              ? [
+                  ...luaState.dispatchContext.resssemblyMap,
+                  ...status.reassemblyMap
+                ]
+              : status.reassemblyMap);
       print("I/Hydro: Relocated ${status.relocatedProtos} function prototypes");
       print(
           "I/Hydro: Reassembled ${status.reassembledProtos} function prototypes");

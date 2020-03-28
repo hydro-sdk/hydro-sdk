@@ -1,3 +1,4 @@
+import 'package:flua/luastate.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/key.dart';
 import 'package:flua/builtins/flutter/material/material.dart';
@@ -6,13 +7,15 @@ import 'package:flua/builtins/flutter/painting/painting.dart';
 import 'package:flua/builtins/flutter/widgets/widgets.dart';
 import 'package:flua/vm/table.dart';
 
-loadFlutterLib(Context ctx) {
+import 'package:meta/meta.dart';
+
+loadFlutterLib({@required LuaState luaState, @required Context ctx}) {
   var flutter = HydroTable();
 
   ctx.env["flutter"] = flutter;
 
   loadKey(flutter);
-  loadMaterial(flutter);
+  loadMaterial(luaState: luaState, table: flutter);
   loadPackage(flutter);
   loadWidgets(flutter);
   loadPainting(flutter);

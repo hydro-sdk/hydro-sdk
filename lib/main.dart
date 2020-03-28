@@ -1,3 +1,4 @@
+import 'package:flua/runFromBundle.dart';
 import 'package:flua/runFromNetwork.dart';
 import 'package:flutter/material.dart';
 

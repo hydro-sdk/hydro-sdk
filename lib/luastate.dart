@@ -18,7 +18,9 @@ import 'package:flua/vm/luaerror.dart';
 import 'package:flua/vm/luafunction.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flua/vm/upVal.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:meta/meta.dart';
 
 class LuaFunctionImpl extends LuaFunction {
   LuaFunctionImpl(this.closure);
@@ -38,39 +40,39 @@ class LuaFunctionImpl extends LuaFunction {
   int get hashCode => closure.hashCode;
 }
 
+class DispatchContext {
+  final LuaFunctionImpl dispatchContext;
+
+  final List<Map<String, String>> resssemblyMap;
+
+  DispatchContext(
+      {@required this.dispatchContext, @required this.resssemblyMap});
+}
+
 class LuaState {
   // ignore: non_constant_identifier_names
   HydroTable get _G => _context.env;
   final Context _context;
   Context get context => _context;
-  
-  LuaFunctionImpl dispatchContext;
 
-  LuaState({bool loadLibs = true}) : _context = new Context(env: new HydroTable()) {
+  DispatchContext dispatchContext;
+
+  LuaState({bool loadLibs = true})
+      : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;
 
     if (loadLibs) {
-      loadBase();
-      loadMath();
-      loadString();
-      loadBit();
-      loadTable();
-      loadBit32();
-      loadFlutter();
-      loadDart();
-      loadTs();
+      loadBaseLib(_context);
+      loadMathLib(_context);
+      loadStringLib(_context);
+      loadBitLib(_context);
+      loadTableLib(_context);
+      loadBit32Lib(_context);
+      loadFlutterLib(luaState: this, ctx: _context);
+      loadDartLib(_context);
+      loadTsLib(_context);
     }
   }
-
-  void loadBase() => loadBaseLib(_context);
-  void loadMath() => loadMathLib(_context);
-  void loadString() => loadStringLib(_context);
-  void loadBit() => loadBitLib(_context);
-  void loadTable() => loadTableLib(_context);
-  void loadBit32() => loadBit32Lib(_context);
-  void loadFlutter() => loadFlutterLib(_context);
-  void loadDart() => loadDartLib(_context);
-  void loadTs() => loadTsLib(_context);
 
   Future<LuaFunction> loadFileFromBundle(String path) async {
     var contents = await rootBundle.load(path);

@@ -1,3 +1,4 @@
+import 'package:flua/reassembler/hashPrototype.dart';
 import 'package:flua/reassembler/hashedPrototype.dart';
 import 'package:flua/reassembler/isReassemblyCandidate.dart';
 import 'package:flua/reassembler/reassemblePrototype.dart';
@@ -14,9 +15,17 @@ void maybeDoPrototypeReassembly(
   }
   for (var i = 0; i != sourceProtos.length; ++i) {
     if (isReassemblyCandidate(destination, sourceProtos[i].prototype)) {
+      String beforeHash = hashPrototype(destination);
       reassemblePrototype(
           destination: destination, source: sourceProtos[i].prototype);
       reassembleStatus.reassembledProtos++;
+
+      String afterHash = hashPrototype(destination);
+
+      if (beforeHash != afterHash) {
+        reassembleStatus.reassemblyMap.add({beforeHash: afterHash});
+      }
+
       break;
     }
   }

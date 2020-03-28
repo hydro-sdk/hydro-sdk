@@ -2,10 +2,12 @@ import 'dart:typed_data';
 
 import 'package:flua/buildProfile.dart';
 import 'package:flua/decode/codedump.dart';
+import 'package:flua/reassembler/hashPrototype.dart';
 import 'package:flua/vm/const.dart';
 import 'package:flua/vm/inst.dart';
 import 'package:flua/vm/local.dart';
 import 'package:flua/vm/upvaldef.dart';
+import 'package:meta/meta.dart';
 
 class Prototype {
   Prototype(this.root);
@@ -26,6 +28,23 @@ class Prototype {
   String source;
   List<int> lines;
   List<Local> locals;
+
+  Prototype findPrototypeByHash({@required String targetHash}) {
+    if (hashPrototype(this) == targetHash) {
+      return this;
+    } else {
+      if (prototypes != null && prototypes.isNotEmpty) {
+        for (var i = 0; i != prototypes.length; ++i) {
+          var target =
+              prototypes[i].findPrototypeByHash(targetHash: targetHash);
+          if (target != null) {
+            return target;
+          }
+        }
+      }
+    }
+    return null;
+  }
 
   BuildProfile get topBuildProfile {
     if (lineStart == null ||
