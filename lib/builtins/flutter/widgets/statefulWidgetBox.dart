@@ -2,24 +2,28 @@ import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
+import 'package:flua/luastate.dart';
 import 'package:flutter/material.dart';
 
 class StatefulWidgetBox extends StatefulWidget {
   final HydroTable table;
+  final LuaState parentState;
 
-  StatefulWidgetBox({@required this.table});
+  StatefulWidgetBox({@required this.table, @required this.parentState});
 
   @override
   StatefulWidgetBoxState createState() {
-    HydroTable newTable = table.metatable["createState"]([table.map])[0];
-    return StatefulWidgetBoxState(table: newTable);
+    HydroTable newTable = table.metatable["createState"]([table.map],
+        parentState: parentState)[0];
+    return StatefulWidgetBoxState(table: newTable, parentState: parentState);
   }
 }
 
 class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
   final HydroTable table;
+  final LuaState parentState;
 
-  StatefulWidgetBoxState({@required this.table}) {
+  StatefulWidgetBoxState({@required this.table, @required this.parentState}) {
     table.map["setState"] = makeLuaDartFunc(func: (List<dynamic> args) {
       //args[0] will be a self reference
       //args[1] will be setState closure to call
@@ -34,6 +38,9 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
 
   @override
   Widget build(BuildContext context) {
-    return maybeUnwrapAndBuildArgument(table);
+    Closure managedBuild = table.metatable["build"];
+    var buildResult =
+        managedBuild.dispatch([table, context], parentState: parentState)[0];
+    return maybeUnwrapAndBuildArgument(buildResult, parentState: parentState);
   }
 }

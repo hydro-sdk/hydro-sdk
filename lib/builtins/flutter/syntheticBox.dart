@@ -1,3 +1,4 @@
+import 'package:flua/luastate.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/widgets/statefulWidgetBox.dart';
@@ -5,7 +6,9 @@ import 'package:flua/builtins/flutter/widgets/statelessWidgetBox.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flua/vm/table.dart';
 
-dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
+dynamic maybeUnwrapAndBuildArgument(dynamic arg,
+    {BuildContext context, @required LuaState parentState}) {
+      assert(parentState != null);
   //Unboxed Flutter widgets
   if (arg is Widget) {
     return arg;
@@ -16,7 +19,7 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
     Closure createState =
         arg?.metatable != null ? arg.metatable["createState"] : null;
     if (createState != null) {
-      return StatefulWidgetBox(table: arg);
+      return StatefulWidgetBox(table: arg,parentState: parentState,);
       // return maybeUnwrapAndBuildArgument(createState([arg.map])[0]);
     }
 
@@ -25,9 +28,13 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
       if (arg["runtimeType"] == "PreferredSize") {
         return StatelessPreferredSizeBox(
           table: arg,
+          parentState: parentState,
         );
       }
-      return StatelessWidgetBox(table: arg);
+      return StatelessWidgetBox(
+        table: arg,
+        parentState: parentState,
+      );
     }
 
     dynamic unwrap;
@@ -38,12 +45,13 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg, {BuildContext context}) {
     if (unwrap != null) {
       //Call the objects synthetic unwrap method with itself as first arg
       //(Effectively a this call) and unbox the result
-      return maybeUnwrapAndBuildArgument(unwrap([arg.map, context])[0]);
+      return maybeUnwrapAndBuildArgument(unwrap([arg.map, context])[0],
+          parentState: parentState);
     }
     //Unbox an array of synthetic widgets
     if (arg.arr != null && arg.arr.isNotEmpty) {
       return arg.arr
-          .map((x) => maybeUnwrapAndBuildArgument(x))
+          .map((x) => maybeUnwrapAndBuildArgument(x, parentState: parentState))
           .toList()
           .cast<Widget>();
     }

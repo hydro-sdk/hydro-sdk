@@ -52,7 +52,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
       var val = await luaState.loadBuffer(bytecodeImage, baseUrl);
       setState(() {
         func = val;
-        res = func.pcall([]);
+        res = func.pcall([],parentState: luaState);
       });
     });
   }

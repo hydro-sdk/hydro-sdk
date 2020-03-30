@@ -27,9 +27,9 @@ class LuaFunctionImpl extends LuaFunction {
   Closure closure;
   LuaState get state => closure.context.userdata as LuaState;
   List<dynamic> call(List<dynamic> args) => closure(args);
-  CoroutineResult pcall(List<dynamic> args) {
+  CoroutineResult pcall(List<dynamic> args, {@required LuaState parentState}) {
     try {
-      return new CoroutineResult(true, closure(args));
+      return new CoroutineResult(true, closure(args, parentState: parentState));
     } on LuaError catch (e) {
       return new CoroutineResult(false, [e.toString()]);
     }
@@ -43,7 +43,7 @@ class LuaFunctionImpl extends LuaFunction {
 class DispatchContext {
   final LuaFunctionImpl dispatchContext;
 
-  final List<Map<String, String>> resssemblyMap;
+  final List<List<String>> resssemblyMap;
 
   DispatchContext(
       {@required this.dispatchContext, @required this.resssemblyMap});

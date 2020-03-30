@@ -5,7 +5,7 @@ class ReassembleStatus {
   int reassembledProtos;
   bool bailedOut;
   String bailOutReason;
-  List<Map<String, String>> reassemblyMap;
+  List<List<String>> reassemblyMap;
 
   ReassembleStatus(
       {@required this.relocatedProtos,

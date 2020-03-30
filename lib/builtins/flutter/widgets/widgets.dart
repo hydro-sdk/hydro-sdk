@@ -10,23 +10,25 @@ import 'package:flua/builtins/flutter/widgets/preferredSize.dart';
 import 'package:flua/builtins/flutter/widgets/sizeTransition.dart';
 import 'package:flua/builtins/flutter/widgets/sizedBox.dart';
 import 'package:flua/builtins/flutter/widgets/text.dart';
+import 'package:flua/luastate.dart';
 import 'package:flua/vm/table.dart';
+import 'package:meta/meta.dart';
 
-loadWidgets(HydroTable table) {
+loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   var widgets = HydroTable();
 
   table["widgets"] = widgets;
 
-  loadText(widgets);
-  loadCenter(widgets);
-  loadColumn(widgets);
-  loadIcon(widgets);
+  loadText(luaState: luaState,table: widgets);
+  loadCenter(luaState: luaState,table: widgets);
+  loadColumn(luaState: luaState,table: widgets);
+  loadIcon(luaState: luaState,table: widgets);
   loadIconData(widgets);
-  loadGlobalKey(widgets);
-  loadSizedBox(widgets);
-  loadPadding(widgets);
-  loadAnimatedList(widgets);
-  loadSizeTransition(widgets);
-  loadGestureDetector(widgets);
-  loadPreferredSize(widgets);
+  loadGlobalKey(luaState: luaState,table: widgets);
+  loadSizedBox(luaState: luaState,table: widgets);
+  loadPadding(luaState: luaState,table: widgets);
+  loadAnimatedList(luaState: luaState,table: widgets);
+  loadSizeTransition(luaState: luaState,table: widgets);
+  loadGestureDetector(luaState: luaState,table: widgets);
+  loadPreferredSize(luaState: luaState,table: widgets);
 }

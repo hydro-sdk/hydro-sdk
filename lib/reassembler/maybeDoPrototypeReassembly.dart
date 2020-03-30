@@ -23,7 +23,7 @@ void maybeDoPrototypeReassembly(
       String afterHash = hashPrototype(destination);
 
       if (beforeHash != afterHash) {
-        reassembleStatus.reassemblyMap.add({beforeHash: afterHash});
+        reassembleStatus.reassemblyMap.add([afterHash, beforeHash]);
       }
 
       break;

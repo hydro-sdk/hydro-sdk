@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:flua/buildProfile.dart';
@@ -30,7 +31,14 @@ class Prototype {
   List<Local> locals;
 
   Prototype findPrototypeByHash({@required String targetHash}) {
-    if (hashPrototype(this) == targetHash) {
+    constants.forEach((x)  {
+      if(x.value == "Why is it so fucking slow now"){
+        print(this);
+        print(hashPrototype(this));
+        // debugger();
+      }
+    });
+    if (hashPrototype(this,includeSourceLocations: false) == targetHash) {
       return this;
     } else {
       if (prototypes != null && prototypes.isNotEmpty) {

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flua/buildProfile.dart';
 import 'package:flua/luastate.dart';
 import 'package:flua/reassembler/hashPrototype.dart';
@@ -19,7 +21,7 @@ class Closure {
     this.upvalues,
   });
 
-  final Prototype proto;
+  Prototype proto;
   final Frame parent;
   final Context context;
   final List<Upval> upvalues;
@@ -30,37 +32,55 @@ class Closure {
     if (buildProfile == BuildProfile.release ||
         parentState?.dispatchContext?.dispatchContext == null ||
         parentState?.dispatchContext?.resssemblyMap == null) {
-      return call(args);
+      return call(args, parentState: parentState);
     } else if (buildProfile == BuildProfile.debug) {
-      String currentHash = hashPrototype(proto);
+      String currentHash = hashPrototype(proto,includeSourceLocations: false);
       String nextHash;
+      String priorHash;
       bool foundReassambledHash = true;
-      while (foundReassambledHash) {
-        foundReassambledHash = false;
-        for (var i = 0;
-            i != parentState.dispatchContext.resssemblyMap.length;
-            ++i) {
-          var entry = parentState.dispatchContext.resssemblyMap[i];
-          if (entry.containsKey(nextHash ?? currentHash)) {
-            nextHash = entry[nextHash ?? currentHash];
-            foundReassambledHash = true;
-          }
-        }
-      }
 
       String targetHash = nextHash ?? currentHash;
 
       Prototype targetProto = parentState
           ?.dispatchContext?.dispatchContext?.closure?.proto
           ?.findPrototypeByHash(targetHash: targetHash);
+      if (targetProto != null) {
+        print("target $targetHash");
+        proto = targetProto;
+      }
+      if (targetProto == null) {
+        print("initially lost $targetHash");
+        for (var i = 0;
+            i != parentState?.dispatchContext?.resssemblyMap?.length;
+            ++i) {
+          var entry = parentState?.dispatchContext?.resssemblyMap[i];
+          if (entry[0] == targetHash) {
+            print("Swapped $targetHash for ${entry[1]}");
+            targetHash = entry[1];
+          } else if (entry[1] == targetHash) {
+            print("Swapped $targetHash for ${entry[0]}");
+            targetHash = entry[0];
+          }
+        }
 
-      assert(targetProto != null);
+        Prototype targetProto = parentState
+            ?.dispatchContext?.dispatchContext?.closure?.proto
+            ?.findPrototypeByHash(targetHash: targetHash);
+        
+        if(targetProto == null){
+          debugger();
+        }
+        if(targetProto != null){
+        proto = targetProto;
+        }
+      }
     }
 
     return call(args);
   }
 
-  List<dynamic> call(List<dynamic> args) {
+  List<dynamic> call(List<dynamic> args, {LuaState parentState}) {
+    // assert(parentState != null);
     var f = new Thread(closure: this).frame;
     f.loadArgs(args);
     ThreadResult x;
