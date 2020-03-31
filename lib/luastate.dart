@@ -110,7 +110,7 @@ class LuaState {
   }
 
   Future<CoroutineResult> doBuffer(Uint8List buffer, String name) async {
-    return (await loadBuffer(buffer, name)).pcall([]);
+    return (await loadBuffer(buffer, name)).pcall([],parentState: this);
   }
 
   Future<CoroutineResult> doFile(String path,

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flua/buildProfile.dart';
 import 'package:flua/luastate.dart';
 import 'package:flua/reassembler/hashPrototype.dart';
