@@ -7,6 +7,7 @@ import 'package:flua/builtins/flutter/widgets/icon.dart';
 import 'package:flua/builtins/flutter/widgets/iconData.dart';
 import 'package:flua/builtins/flutter/widgets/padding.dart';
 import 'package:flua/builtins/flutter/widgets/preferredSize.dart';
+import 'package:flua/builtins/flutter/widgets/safeArea.dart';
 import 'package:flua/builtins/flutter/widgets/sizeTransition.dart';
 import 'package:flua/builtins/flutter/widgets/sizedBox.dart';
 import 'package:flua/builtins/flutter/widgets/text.dart';
@@ -31,4 +32,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadSizeTransition(luaState: luaState, table: widgets);
   loadGestureDetector(luaState: luaState, table: widgets);
   loadPreferredSize(luaState: luaState, table: widgets);
+  loadSafeArea(luaState: luaState, table: widgets);
 }
