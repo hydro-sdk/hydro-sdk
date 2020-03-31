@@ -2,11 +2,15 @@ import { DartObject } from "../../dart/core/object";
 
 import { Widget } from "./../widget";
 import { StatelessWidget } from "./../widgets/statelessWidget";
+import { BuildContext } from "../buildContext";
 
 interface MaterialAppProps {
     initialRoute?: string | undefined;
     home: Widget;
     title?: string | undefined;
+    routes?: {
+        [index: string]: (context: BuildContext) => Widget
+    } | undefined;
 }
 
 declare const flutter: {
