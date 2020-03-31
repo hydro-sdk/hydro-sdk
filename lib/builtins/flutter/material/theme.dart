@@ -25,7 +25,8 @@ class VMManagedTextTheme extends VMManagedBox<TextTheme> {
 
   VMManagedTextTheme({@required this.table, @required this.vmObject}) {
     table["display1"] =
-        VMManagedTextStyle(table: HydroTable(), vmObject: vmObject.display1).table;
+        VMManagedTextStyle(table: HydroTable(), vmObject: vmObject.display1)
+            .table;
     table["headline"] = vmObject.headline;
   }
 }

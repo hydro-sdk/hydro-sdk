@@ -8,7 +8,7 @@ import 'package:flua/vm/table.dart';
 
 dynamic maybeUnwrapAndBuildArgument(dynamic arg,
     {BuildContext context, @required LuaState parentState}) {
-      assert(parentState != null);
+  assert(parentState != null);
   //Unboxed Flutter widgets
   if (arg is Widget) {
     return arg;
@@ -19,7 +19,10 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg,
     Closure createState =
         arg?.metatable != null ? arg.metatable["createState"] : null;
     if (createState != null) {
-      return StatefulWidgetBox(table: arg,parentState: parentState,);
+      return StatefulWidgetBox(
+        table: arg,
+        parentState: parentState,
+      );
       // return maybeUnwrapAndBuildArgument(createState([arg.map])[0]);
     }
 

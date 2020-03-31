@@ -4,12 +4,13 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadCenter(    {@required LuaState luaState, @required HydroTable table}) {
+loadCenter({@required LuaState luaState, @required HydroTable table}) {
   table["center"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Center(
-        key: maybeUnwrapAndBuildArgument(args[0]["key"],parentState: luaState),
-        child: maybeUnwrapAndBuildArgument(args[0]["child"],parentState: luaState),
+        key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
+        child: maybeUnwrapAndBuildArgument(args[0]["child"],
+            parentState: luaState),
       )
     ];
   });

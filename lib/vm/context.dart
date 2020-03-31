@@ -261,7 +261,9 @@ class Context {
   }
 
   static bool hasMetamethod(dynamic x, String method) =>
-      x is HydroTable && x.metatable != null && x.metatable.map.containsKey(method);
+      x is HydroTable &&
+      x.metatable != null &&
+      x.metatable.map.containsKey(method);
 
   static dynamic attemptArithmetic(
       dynamic x, dynamic y, String method, ArithCB op) {

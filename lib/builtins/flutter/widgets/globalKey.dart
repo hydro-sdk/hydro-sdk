@@ -11,7 +11,10 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
   final GlobalKey vmObject;
   final LuaState parentState;
 
-  RTManagedGlobalKey({@required this.table,@required this.parentState, @required this.vmObject}) {
+  RTManagedGlobalKey(
+      {@required this.table,
+      @required this.parentState,
+      @required this.vmObject}) {
     table["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
       HydroTable currentState = HydroTable();
       currentState["insertItem"] = (List<dynamic> args) {
@@ -23,7 +26,8 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
             (BuildContext context, Animation<double> animation) {
           Closure closure = args[2];
           return maybeUnwrapAndBuildArgument(
-              closure([args[0], context, animation])[0],parentState: parentState) as Widget;
+              closure([args[0], context, animation])[0],
+              parentState: parentState) as Widget;
         });
       };
       return [currentState];
@@ -31,13 +35,15 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
   }
 }
 
-loadGlobalKey(    {@required LuaState luaState, @required HydroTable table}) {
+loadGlobalKey({@required LuaState luaState, @required HydroTable table}) {
   table["globalKeyCtor"] = makeLuaDartFunc(func: (List<dynamic> args) {
     GlobalKey key = translateRTTIToGenericGlobalKey(
         runtimeType: RuntimeTypes.values.firstWhere(
             (x) => x.toString().split(".")[1] == args[0]["targetRuntimeType"]));
 
-    return [RTManagedGlobalKey(table: args[0],parentState: luaState, vmObject: key)];
+    return [
+      RTManagedGlobalKey(table: args[0], parentState: luaState, vmObject: key)
+    ];
   });
   return [];
 }

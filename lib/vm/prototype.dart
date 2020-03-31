@@ -30,7 +30,7 @@ class Prototype {
   List<Local> locals;
 
   Prototype findPrototypeByHash({@required String targetHash}) {
-    if (hashPrototype(this,includeSourceLocations: false) == targetHash) {
+    if (hashPrototype(this, includeSourceLocations: false) == targetHash) {
       return this;
     } else {
       if (prototypes != null && prototypes.isNotEmpty) {

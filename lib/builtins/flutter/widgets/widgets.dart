@@ -19,16 +19,16 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
 
   table["widgets"] = widgets;
 
-  loadText(luaState: luaState,table: widgets);
-  loadCenter(luaState: luaState,table: widgets);
-  loadColumn(luaState: luaState,table: widgets);
-  loadIcon(luaState: luaState,table: widgets);
+  loadText(luaState: luaState, table: widgets);
+  loadCenter(luaState: luaState, table: widgets);
+  loadColumn(luaState: luaState, table: widgets);
+  loadIcon(luaState: luaState, table: widgets);
   loadIconData(widgets);
-  loadGlobalKey(luaState: luaState,table: widgets);
-  loadSizedBox(luaState: luaState,table: widgets);
-  loadPadding(luaState: luaState,table: widgets);
-  loadAnimatedList(luaState: luaState,table: widgets);
-  loadSizeTransition(luaState: luaState,table: widgets);
-  loadGestureDetector(luaState: luaState,table: widgets);
-  loadPreferredSize(luaState: luaState,table: widgets);
+  loadGlobalKey(luaState: luaState, table: widgets);
+  loadSizedBox(luaState: luaState, table: widgets);
+  loadPadding(luaState: luaState, table: widgets);
+  loadAnimatedList(luaState: luaState, table: widgets);
+  loadSizeTransition(luaState: luaState, table: widgets);
+  loadGestureDetector(luaState: luaState, table: widgets);
+  loadPreferredSize(luaState: luaState, table: widgets);
 }

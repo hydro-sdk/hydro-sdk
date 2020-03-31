@@ -4,10 +4,10 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadIcon(    {@required LuaState luaState, @required HydroTable table}) {
+loadIcon({@required LuaState luaState, @required HydroTable table}) {
   table["icon"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      Icon(maybeUnwrapAndBuildArgument(args[0],parentState: luaState),
+      Icon(maybeUnwrapAndBuildArgument(args[0], parentState: luaState),
           size: args.length >= 2 && args[1] != null
               ? args[1]["size"].toDouble()
               : null,

@@ -17,7 +17,7 @@ loadPopupMenuButton({@required LuaState luaState, @required HydroTable table}) {
           Closure closure = args[0]["itemBuilder"];
           HydroTable closureRes =
               closure.dispatch([context], parentState: luaState)[0];
-          return maybeUnwrapAndBuildArgument(closureRes,parentState: luaState)
+          return maybeUnwrapAndBuildArgument(closureRes, parentState: luaState)
               .map((x) => x.build(context))
               .toList()
               .cast<PopupMenuItem<dynamic>>();

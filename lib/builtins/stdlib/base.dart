@@ -58,7 +58,11 @@ loadBaseLib(Context ctx) {
   };
 
   ctx.env["pairs"] = (List<dynamic> args) {
-    return [ctx.env["next"], Context.getArg1<HydroTable>(args, 0, "pairs"), null];
+    return [
+      ctx.env["next"],
+      Context.getArg1<HydroTable>(args, 0, "pairs"),
+      null
+    ];
   };
 
   ctx.env["pcall"] = (Thread thread, List<dynamic> args) {

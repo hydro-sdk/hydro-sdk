@@ -4,7 +4,7 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadColumn(    {@required LuaState luaState, @required HydroTable table}) {
+loadColumn({@required LuaState luaState, @required HydroTable table}) {
   table["column"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Column(
@@ -17,7 +17,8 @@ loadColumn(    {@required LuaState luaState, @required HydroTable table}) {
           crossAxisAlignment: CrossAxisAlignment.values.firstWhere(
               (x) => x.index == args[0]["crossAxisAlignment"],
               orElse: () => null),
-          children: maybeUnwrapAndBuildArgument(args[0]["children"],parentState: luaState))
+          children: maybeUnwrapAndBuildArgument(args[0]["children"],
+              parentState: luaState))
     ];
   });
 }

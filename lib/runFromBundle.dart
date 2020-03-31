@@ -29,7 +29,8 @@ class _RunFromBundle extends State<RunFromBundle> {
       builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
         if (snapshot.hasData) {
           return maybeUnwrapAndBuildArgument(
-              luaState.context.env["buildResult"],parentState: luaState);
+              luaState.context.env["buildResult"],
+              parentState: luaState);
         }
         return Center(child: CircularProgressIndicator());
       },
