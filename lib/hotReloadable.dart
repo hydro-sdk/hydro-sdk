@@ -31,7 +31,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
           "I/Hydro: Reassembled ${status.reassembledProtos} function prototypes");
       setState(() {
         func = val;
-        res = func.pcall([]);
+        res = func.pcall([],parentState: luaState);
       });
       return true;
     } else {

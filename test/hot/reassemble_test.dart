@@ -38,7 +38,6 @@ void main() {
         reassembleClosures(destination: res1.closure, source: res2.closure);
     expect(res.relocatedProtos, 1);
     expect(res.reassembledProtos, 3);
-    print(res.reassemblyMap);
     expect(res.reassemblyMap, isNotNull);
     expect(res.reassemblyMap.isNotEmpty, true);
 

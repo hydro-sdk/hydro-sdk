@@ -31,13 +31,6 @@ class Prototype {
   List<Local> locals;
 
   Prototype findPrototypeByHash({@required String targetHash}) {
-    constants.forEach((x)  {
-      if(x.value == "Why is it so fucking slow now"){
-        print(this);
-        print(hashPrototype(this));
-        // debugger();
-      }
-    });
     if (hashPrototype(this,includeSourceLocations: false) == targetHash) {
       return this;
     } else {

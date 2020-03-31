@@ -34,31 +34,24 @@ class Closure {
         parentState?.dispatchContext?.resssemblyMap == null) {
       return call(args, parentState: parentState);
     } else if (buildProfile == BuildProfile.debug) {
-      String currentHash = hashPrototype(proto,includeSourceLocations: false);
-      String nextHash;
-      String priorHash;
-      bool foundReassambledHash = true;
+      String currentHash = hashPrototype(proto, includeSourceLocations: false);
 
-      String targetHash = nextHash ?? currentHash;
+      String targetHash = currentHash;
 
       Prototype targetProto = parentState
           ?.dispatchContext?.dispatchContext?.closure?.proto
           ?.findPrototypeByHash(targetHash: targetHash);
       if (targetProto != null) {
-        print("target $targetHash");
         proto = targetProto;
       }
       if (targetProto == null) {
-        print("initially lost $targetHash");
         for (var i = 0;
             i != parentState?.dispatchContext?.resssemblyMap?.length;
             ++i) {
           var entry = parentState?.dispatchContext?.resssemblyMap[i];
           if (entry[0] == targetHash) {
-            print("Swapped $targetHash for ${entry[1]}");
             targetHash = entry[1];
           } else if (entry[1] == targetHash) {
-            print("Swapped $targetHash for ${entry[0]}");
             targetHash = entry[0];
           }
         }
@@ -66,12 +59,9 @@ class Closure {
         Prototype targetProto = parentState
             ?.dispatchContext?.dispatchContext?.closure?.proto
             ?.findPrototypeByHash(targetHash: targetHash);
-        
-        if(targetProto == null){
-          debugger();
-        }
-        if(targetProto != null){
-        proto = targetProto;
+
+        if (targetProto != null) {
+          proto = targetProto;
         }
       }
     }
