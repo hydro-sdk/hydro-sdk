@@ -13,9 +13,22 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    List<String> expectedOutLines = ["potatowalrusfizzbuzz"];
+    List<String> expectedOutLines = [
+      "1",
+      "12",
+      "123",
+      "2",
+      "2",
+      "13",
+      "42",
+      "1234",
+      "42",
+      "421	422	423",
+      "691	692	693",
+      "421	422	423"
+    ];
 
-    var res = await state.doFile("5.2.4/concat.lc");
+    var res = await state.doFile("lua/closures.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

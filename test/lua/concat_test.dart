@@ -13,14 +13,9 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    List<String> expectedOutLines = [
-      "ayy",
-      "false	5.2.4/pcall.lc:3: md",
-      "69",
-      "true	420"
-    ];
+    List<String> expectedOutLines = ["potatowalrusfizzbuzz"];
 
-    var res = await state.doFile("5.2.4/pcall.lc");
+    var res = await state.doFile("lua/concat.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

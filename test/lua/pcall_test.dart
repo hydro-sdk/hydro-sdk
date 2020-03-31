@@ -14,10 +14,13 @@ void main() {
     };
 
     List<String> expectedOutLines = [
-      "e91c254ad58860a02c788dfb5c1a65d6a8846ab1dc649631c7db16fef4af2dec"
+      "ayy",
+      "false	lua/pcall.lc:3: md",
+      "69",
+      "true	420"
     ];
 
-    var res = await state.doFile("5.2.4/sha256.lc");
+    var res = await state.doFile("lua/pcall.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

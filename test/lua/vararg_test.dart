@@ -13,29 +13,9 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    List<String> expectedOutLines = [
-      "52",
-      "65",
-      "65",
-      "52",
-      "39",
-      "26",
-      "13",
-      "fib",
-      "1",
-      "1",
-      "2",
-      "3",
-      "5",
-      "8",
-      "13",
-      "21",
-      "34",
-      "55",
-      "89",
-    ];
+    List<String> expectedOutLines = ["0", "4", "2", "1", "6"];
 
-    var res = await state.doFile("5.2.4/forloops.lc");
+    var res = await state.doFile("lua/vararg.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

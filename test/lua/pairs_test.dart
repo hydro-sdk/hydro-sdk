@@ -14,15 +14,14 @@ void main() {
     };
 
     List<String> expectedOutLines = [
-      "1	12	123	1234	12345",
-      "42",
-      "420",
-      "nil",
-      "420",
-      "69",
+      "1	1",
+      "2	2",
+      "3	3",
+      "4	4",
+      "done",
     ];
 
-    var res = await state.doFile("5.2.4/tables.lc");
+    var res = await state.doFile("lua/pairs.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

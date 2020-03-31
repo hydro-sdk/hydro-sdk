@@ -14,14 +14,19 @@ void main() {
     };
 
     List<String> expectedOutLines = [
-      "1	1",
-      "2	2",
-      "3	3",
-      "4	4",
-      "done",
+      "3",
+      "0.5",
+      "840",
+      "6",
+      "inf",
+      "-nan",
+      "-inf",
+      "0.333",
+      "0.6",
+      "-0.111"
     ];
 
-    var res = await state.doFile("5.2.4/pairs.lc");
+    var res = await state.doFile("lua/arithmetic.lc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);
