@@ -32,7 +32,8 @@ export type RuntimeType = "AppBar" |
     "Padding" |
     "SizedBox" |
     "SizeTransition" |
-    "Size";
+    "Size" |
+    "SafeArea";
 
 export interface DartObject {
     runtimeType: RuntimeType;
