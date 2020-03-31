@@ -1,10 +1,10 @@
-import {DartObject} from "../../dart/core/object";
+import { DartObject } from "../../dart/core/object";
 
-import {Widget} from "./../widget";
-import {StatelessWidget} from "./../widgets/statelessWidget";
+import { Widget } from "./../widget";
+import { StatelessWidget } from "./../widgets/statelessWidget";
 
 interface MaterialAppProps {
-    initialRoute: string;
+    initialRoute?: string | undefined;
     home: Widget;
     title?: string | undefined;
 }
@@ -15,19 +15,17 @@ declare const flutter: {
     };
 };
 
-export class MaterialApp extends StatelessWidget  implements Readonly<DartObject>
+export class MaterialApp extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "MaterialApp";
     public props: MaterialAppProps;
-    public constructor(props: MaterialAppProps) 
-    {
+    public constructor(props: MaterialAppProps) {
         super();
         this.props = props;
         this.props.title = this.props.title != undefined ? this.props.title : "";
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.material.materialApp(this.props);
     }
 }

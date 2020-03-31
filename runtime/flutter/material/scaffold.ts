@@ -5,7 +5,7 @@ import {AppBar} from "./appBar";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 
 interface ScaffoldProps {
-    appBar: AppBar;
+    appBar?: AppBar | undefined;
     body?: Widget | undefined;
     floatingActionButton?: Widget | undefined;
 }
