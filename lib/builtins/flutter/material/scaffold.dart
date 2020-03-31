@@ -15,6 +15,8 @@ loadScaffold({@required LuaState luaState, @required HydroTable table}) {
         floatingActionButton: maybeUnwrapAndBuildArgument(
             args[0]["floatingActionButton"],
             parentState: luaState),
+        backgroundColor: maybeUnwrapAndBuildArgument(args[0]["backgroundColor"],
+            parentState: luaState),
       )
     ];
   });
