@@ -37,7 +37,8 @@ export type RuntimeType = "AppBar" |
     "Stack" |
     "Positioned"|
     "Row" |
-    "Flexible";
+    "Flexible" | 
+    "Container";
 
 export interface DartObject {
     runtimeType: RuntimeType;
