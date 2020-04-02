@@ -1,3 +1,4 @@
+import 'package:flua/luastate.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
@@ -6,13 +7,20 @@ import 'package:flutter/material.dart';
 class VMManagedTextStyle extends VMManagedBox<TextStyle> {
   final HydroTable table;
   final TextStyle vmObject;
+  final LuaState luaState;
 
-  VMManagedTextStyle({@required this.table, @required this.vmObject}) {
+  VMManagedTextStyle(
+      {@required this.table,
+      @required this.vmObject,
+      @required this.luaState}) {
     table["copyWith"] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         VMManagedTextStyle(
+                luaState: luaState,
                 table: HydroTable(),
-                vmObject: vmObject.copyWith(color: args[1]["color"]))
+                vmObject: vmObject.copyWith(
+                    color: maybeUnwrapAndBuildArgument(args[1]["color"],
+                        parentState: luaState)))
             .table
       ];
     });
@@ -22,11 +30,17 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
 class VMManagedTextTheme extends VMManagedBox<TextTheme> {
   final HydroTable table;
   final TextTheme vmObject;
+  final LuaState luaState;
 
-  VMManagedTextTheme({@required this.table, @required this.vmObject}) {
-    table["display1"] =
-        VMManagedTextStyle(table: HydroTable(), vmObject: vmObject.display1)
-            .table;
+  VMManagedTextTheme(
+      {@required this.table,
+      @required this.vmObject,
+      @required this.luaState}) {
+    table["display1"] = VMManagedTextStyle(
+            luaState: luaState,
+            table: HydroTable(),
+            vmObject: vmObject.display1)
+        .table;
     table["headline"] = vmObject.headline;
   }
 }
@@ -34,17 +48,27 @@ class VMManagedTextTheme extends VMManagedBox<TextTheme> {
 class VMManagedThemeData extends VMManagedBox<ThemeData> {
   final HydroTable table;
   final ThemeData vmObject;
-  VMManagedThemeData({@required this.table, @required this.vmObject}) {
-    table["textTheme"] =
-        VMManagedTextTheme(table: HydroTable(), vmObject: vmObject.textTheme)
-            .table;
+  final LuaState luaState;
+  VMManagedThemeData(
+      {@required this.table,
+      @required this.vmObject,
+      @required this.luaState}) {
+    table["textTheme"] = VMManagedTextTheme(
+            luaState: luaState,
+            table: HydroTable(),
+            vmObject: vmObject.textTheme)
+        .table;
   }
 }
 
-loadThemeOf(HydroTable table) {
+loadThemeOf({@required LuaState luaState, @required HydroTable table}) {
   table["themeOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      VMManagedThemeData(table: HydroTable(), vmObject: Theme.of(args[0])).table
+      VMManagedThemeData(
+              luaState: luaState,
+              table: HydroTable(),
+              vmObject: Theme.of(args[0]))
+          .table
     ];
   });
 }

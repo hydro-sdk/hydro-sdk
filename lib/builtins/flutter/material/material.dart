@@ -24,7 +24,7 @@ loadMaterial({@required LuaState luaState, @required HydroTable table}) {
   loadFlatButton(luaState: luaState, table: material);
   loadMaterialApp(luaState: luaState, table: material);
   loadFloatingActionButton(luaState: luaState, table: material);
-  loadThemeOf(material);
+  loadThemeOf(luaState: luaState, table: material);
   loadIconButton(luaState: luaState, table: material);
   loadCard(luaState: luaState, table: material);
   loadWireupColors(material);

@@ -17,6 +17,9 @@ import { Column } from "../../../runtime/flutter/widgets/column";
 import { CrossAxisAlignment } from "../../../runtime/flutter/rendering/crossAxisAlignment";
 import { Text } from "../../../runtime/flutter/widgets/text";
 import { Spacer } from "../../../runtime/flutter/widgets/spacer";
+import { Theme } from "../../../runtime/flutter/material/theme";
+import { Colors } from "../../../runtime/flutter/material/colors";
+import { white } from "../../../runtime/flutter/material/colors/white";
 
 export class HomeScreen extends StatelessWidget {
     public build(context: BuildContext): Widget {
@@ -58,7 +61,11 @@ export class HomeScreen extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                         new Spacer({}),
-                                        new Text("My Profile")
+                                        new Text("My Profile", {
+                                            style: Theme.of(context).textTheme.display1.copyWith({
+                                                color: white
+                                            })
+                                        })
                                     ]
                                 })
                             })
