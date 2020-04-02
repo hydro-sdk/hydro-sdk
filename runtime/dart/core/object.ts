@@ -36,7 +36,8 @@ export type RuntimeType = "AppBar" |
     "SafeArea" |
     "Stack" |
     "Positioned"|
-    "Row";
+    "Row" |
+    "Flexible";
 
 export interface DartObject {
     runtimeType: RuntimeType;

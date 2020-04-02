@@ -1,6 +1,7 @@
 import 'package:flua/builtins/flutter/widgets/animatedList.dart';
 import 'package:flua/builtins/flutter/widgets/center.dart';
 import 'package:flua/builtins/flutter/widgets/column.dart';
+import 'package:flua/builtins/flutter/widgets/flexible.dart';
 import 'package:flua/builtins/flutter/widgets/gestureDetector.dart';
 import 'package:flua/builtins/flutter/widgets/globalKey.dart';
 import 'package:flua/builtins/flutter/widgets/icon.dart';
@@ -39,4 +40,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadStack(luaState: luaState, table: widgets);
   loadPositioned(luaState: luaState, table: widgets);
   loadMediaQuery(widgets);
+  loadFlexible(luaState: luaState, table: widgets);
 }
