@@ -15,12 +15,14 @@ loadRow({@required LuaState luaState, @required HydroTable table}) {
             .firstWhere((x) => x.index == args[0]["mainAxisSize"]),
         crossAxisAlignment: CrossAxisAlignment.values
             .firstWhere((x) => x.index == args[0]["crossAxisAlignment"]),
-        textDirection: TextDirection.values
-            .firstWhere((x) => x.index == args[0]["textDirection"]),
+        textDirection: TextDirection.values.firstWhere(
+            (x) => x.index == args[0]["textDirection"],
+            orElse: () => null),
         verticalDirection: VerticalDirection.values
             .firstWhere((x) => x.index == args[0]["verticalDirection"]),
-        textBaseline: TextBaseline.values
-            .firstWhere((x) => x.index == args[0]["textBaseline"]),
+        textBaseline: TextBaseline.values.firstWhere(
+            (x) => x.index == args[0]["textBaseline"],
+            orElse: () => null),
         children: maybeUnwrapAndBuildArgument(args[0]["children"],
             parentState: luaState),
       )

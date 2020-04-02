@@ -11,6 +11,7 @@ import 'package:flua/builtins/flutter/widgets/mediaQuery.dart';
 import 'package:flua/builtins/flutter/widgets/padding.dart';
 import 'package:flua/builtins/flutter/widgets/positioned.dart';
 import 'package:flua/builtins/flutter/widgets/preferredSize.dart';
+import 'package:flua/builtins/flutter/widgets/row.dart';
 import 'package:flua/builtins/flutter/widgets/safeArea.dart';
 import 'package:flua/builtins/flutter/widgets/sizeTransition.dart';
 import 'package:flua/builtins/flutter/widgets/sizedBox.dart';
@@ -41,6 +42,7 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadStack(luaState: luaState, table: widgets);
   loadPositioned(luaState: luaState, table: widgets);
   loadMediaQuery(widgets);
+  loadRow(luaState: luaState, table: widgets);
   loadFlexible(luaState: luaState, table: widgets);
   loadContainer(luaState: luaState, table: widgets);
 }
