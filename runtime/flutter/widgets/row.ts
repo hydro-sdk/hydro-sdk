@@ -7,7 +7,7 @@ import { MainAxisSize } from "./../rendering/mainAxisSize";
 import { CrossAxisAlignment } from "./../rendering/crossAxisAlignment";
 import { TextDirection } from "./../../dart/ui/textDirection";
 import { VerticalDirection } from "./../painting/verticalDirection";
-import { Key } from "readline";
+import { Key } from "./../key";
 
 interface RowProps {
     key?: Key | undefined;
