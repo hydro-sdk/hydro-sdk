@@ -65,6 +65,9 @@ export class HomeScreen extends StatelessWidget {
                                             style: Theme.of(context).textTheme.display1.copyWith({
                                                 color: white
                                             })
+                                        }),
+                                        new SizedBox({
+                                            height: 15
                                         })
                                     ]
                                 })
