@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 
 loadSpacer({@required LuaState luaState, @required HydroTable table}) {
   table["spacer"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [Spacer(
-      key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
-      flex: args[0]["flex"],
-    )];
+    return [
+      Spacer(
+        key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
+        flex: args[0]["flex"],
+      )
+    ];
   });
 }
