@@ -15,6 +15,7 @@ import 'package:flua/builtins/flutter/widgets/row.dart';
 import 'package:flua/builtins/flutter/widgets/safeArea.dart';
 import 'package:flua/builtins/flutter/widgets/sizeTransition.dart';
 import 'package:flua/builtins/flutter/widgets/sizedBox.dart';
+import 'package:flua/builtins/flutter/widgets/spacer.dart';
 import 'package:flua/builtins/flutter/widgets/stack.dart';
 import 'package:flua/builtins/flutter/widgets/text.dart';
 import 'package:flua/luastate.dart';
@@ -45,4 +46,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadRow(luaState: luaState, table: widgets);
   loadFlexible(luaState: luaState, table: widgets);
   loadContainer(luaState: luaState, table: widgets);
+  loadSpacer(luaState: luaState, table: widgets);
 }
