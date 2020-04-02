@@ -6,10 +6,12 @@ import 'package:flua/builtins/flutter/widgets/globalKey.dart';
 import 'package:flua/builtins/flutter/widgets/icon.dart';
 import 'package:flua/builtins/flutter/widgets/iconData.dart';
 import 'package:flua/builtins/flutter/widgets/padding.dart';
+import 'package:flua/builtins/flutter/widgets/positioned.dart';
 import 'package:flua/builtins/flutter/widgets/preferredSize.dart';
 import 'package:flua/builtins/flutter/widgets/safeArea.dart';
 import 'package:flua/builtins/flutter/widgets/sizeTransition.dart';
 import 'package:flua/builtins/flutter/widgets/sizedBox.dart';
+import 'package:flua/builtins/flutter/widgets/stack.dart';
 import 'package:flua/builtins/flutter/widgets/text.dart';
 import 'package:flua/luastate.dart';
 import 'package:flua/vm/table.dart';
@@ -33,4 +35,6 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadGestureDetector(luaState: luaState, table: widgets);
   loadPreferredSize(luaState: luaState, table: widgets);
   loadSafeArea(luaState: luaState, table: widgets);
+  loadStack(luaState: luaState, table: widgets);
+  loadPositioned(luaState: luaState, table: widgets);
 }
