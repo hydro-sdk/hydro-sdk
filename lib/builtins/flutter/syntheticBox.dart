@@ -57,6 +57,8 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg,
           .map((x) => maybeUnwrapAndBuildArgument(x, parentState: parentState))
           .toList()
           .cast<Widget>();
+    } else if (arg.arr != null && arg.arr.isEmpty) {
+      return [].cast<Widget>();
     }
   }
   return arg;
