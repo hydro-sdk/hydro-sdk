@@ -17,7 +17,7 @@ interface ContainerProps {
 
 declare const flutter: {
     widgets: {
-        container: (this: void, ContainerProps) => Container;
+        container: (this: void, props: ContainerProps) => Container;
     }
 }
 
