@@ -25,6 +25,7 @@ import { Image } from "../../../runtime/flutter/widgets/image";
 import { BorderRadius } from "../../../runtime/flutter/painting/borderRadius";
 import { BoxFit } from "../../../runtime/flutter/painting/boxFit";
 import { User } from "../data";
+import { BoxDecoration } from "../../../runtime/flutter/painting/boxDecoration";
 
 export class HomeScreen extends StatelessWidget {
     public build(context: BuildContext): Widget {
@@ -77,8 +78,9 @@ export class HomeScreen extends StatelessWidget {
                                         new ClipRRect({
                                             borderRadius: BorderRadius.circular(15.0),
                                             child: new Container({
-                                                //boxDecoration
-
+                                                decoration: new BoxDecoration({
+                                                    color: white
+                                                }),
                                                 child: new Column({
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
