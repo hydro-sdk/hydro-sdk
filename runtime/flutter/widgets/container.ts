@@ -10,7 +10,7 @@ interface ContainerProps {
     key?: Key | undefined;
     color?: Color | undefined;
     child?: Widget;
-    decoration?:BoxDecoration|undefined;
+    decoration?: BoxDecoration|undefined;
 }
 
 declare const flutter: {
