@@ -3,12 +3,14 @@ import {DartObject} from "../../dart/core/object";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Color} from "./../../dart/ui/color";
+import {BoxDecoration} from "./../painting/boxDecoration";
 import {Key} from "./../key";
 
 interface ContainerProps {
     key?: Key | undefined;
     color?: Color | undefined;
     child?: Widget;
+    decoration?:BoxDecoration|undefined;
 }
 
 declare const flutter: {
