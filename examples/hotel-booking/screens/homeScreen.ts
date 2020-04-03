@@ -26,6 +26,9 @@ import { BorderRadius } from "../../../runtime/flutter/painting/borderRadius";
 import { BoxFit } from "../../../runtime/flutter/painting/boxFit";
 import { User, MyColors } from "../data";
 import { BoxDecoration } from "../../../runtime/flutter/painting/boxDecoration";
+import { IconButton } from "../../../runtime/flutter/material/iconButton";
+import { Icon } from "../../../runtime/flutter/widgets/icon";
+import { menu } from "../../../runtime/flutter/material/icons/menu";
 
 export class HomeScreen extends StatelessWidget {
     public build(context: BuildContext): Widget {
@@ -103,15 +106,26 @@ export class HomeScreen extends StatelessWidget {
                                                                         )
                                                                     }),
                                                                     new SizedBox({
-                                                                        width:15.0
+                                                                        width: 15.0
                                                                     }),
-                                                                    new Text(User.fullname,{
-                                                                        style:Theme.of(context).textTheme.headline.copyWith({
+                                                                    new Text(User.fullname, {
+                                                                        style: Theme.of(context).textTheme.headline.copyWith({
                                                                             color: MyColors.darkBlue
                                                                         })
+                                                                    }),
+                                                                    new Spacer({}),
+                                                                    new IconButton({
+                                                                        icon: new Icon(menu, { color: MyColors.red }),
+                                                                        onPressed: () => null
                                                                     })
                                                                 ]
                                                             })
+                                                        }),
+                                                        new SizedBox({
+                                                            height: 15.0
+                                                        }),
+                                                        new Padding({
+                                                            padding: EdgeInsets.symmetric({ horizontal: 15.0 })
                                                         })
                                                     ]
                                                 })
