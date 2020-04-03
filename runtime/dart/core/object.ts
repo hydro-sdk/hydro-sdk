@@ -35,9 +35,9 @@ export type RuntimeType = "AppBar" |
     "Size" |
     "SafeArea" |
     "Stack" |
-    "Positioned"|
+    "Positioned" |
     "Row" |
-    "Flexible" | 
+    "Flexible" |
     "Container" |
     "Spacer" |
     "BorderRadius" |
@@ -45,9 +45,11 @@ export type RuntimeType = "AppBar" |
     "ClipRRect" |
     "Alignment" |
     "Image" |
-    "ImageProvider" | 
-    "NetworkImage"|
-    "BoxDecoration";
+    "ImageProvider" |
+    "NetworkImage" |
+    "BoxDecoration" |
+    "RichText" |
+    "InlineSpan";
 
 export interface DartObject {
     runtimeType: RuntimeType;
