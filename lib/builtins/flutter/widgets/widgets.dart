@@ -1,5 +1,6 @@
 import 'package:flua/builtins/flutter/widgets/animatedList.dart';
 import 'package:flua/builtins/flutter/widgets/center.dart';
+import 'package:flua/builtins/flutter/widgets/clipRRect.dart';
 import 'package:flua/builtins/flutter/widgets/column.dart';
 import 'package:flua/builtins/flutter/widgets/container.dart';
 import 'package:flua/builtins/flutter/widgets/flexible.dart';
@@ -47,4 +48,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadFlexible(luaState: luaState, table: widgets);
   loadContainer(luaState: luaState, table: widgets);
   loadSpacer(luaState: luaState, table: widgets);
+  loadClipRRect(luaState: luaState, table: widgets);
 }

@@ -1,3 +1,4 @@
+import 'package:flua/builtins/dart/ui/radius.dart';
 import 'package:flua/builtins/dart/ui/size.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flua/builtins/dart/ui/color.dart';
@@ -9,4 +10,5 @@ loadUi(HydroTable table) {
 
   loadColor(ui);
   loadSize(ui);
+  loadRadius(ui);
 }
