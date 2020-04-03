@@ -8,7 +8,7 @@ import {Key} from "./../key";
 interface ContainerProps {
     key?: Key | undefined;
     color?: Color | undefined;
-    child?:Widget;
+    child?: Widget;
 }
 
 declare const flutter: {

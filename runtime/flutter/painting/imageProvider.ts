@@ -1,5 +1,6 @@
-import { DartObject } from "../../dart/core/object";
+import {DartObject} from "../../dart/core/object";
 
-export class ImageProvider implements Readonly<DartObject>{
+export class ImageProvider implements Readonly<DartObject>
+{
     public readonly runtimeType = "ImageProvider";
 }
