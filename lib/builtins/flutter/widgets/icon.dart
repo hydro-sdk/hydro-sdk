@@ -8,10 +8,13 @@ loadIcon({@required LuaState luaState, @required HydroTable table}) {
   table["icon"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Icon(maybeUnwrapAndBuildArgument(args[0], parentState: luaState),
-          size: args.length >= 2 && args[1] != null
+          size: args.length >= 2 && args[1] != null && args[1]["size"] != null
               ? args[1]["size"].toDouble()
               : null,
-          color: args.length >= 2 && args[1] != null ? args[1]["color"] : null)
+          color: args.length >= 2 && args[1] != null
+              ? maybeUnwrapAndBuildArgument(args[1]["color"],
+                  parentState: luaState)
+              : null)
     ];
   });
 }
