@@ -41,7 +41,11 @@ class VMManagedTextTheme extends VMManagedBox<TextTheme> {
             table: HydroTable(),
             vmObject: vmObject.display1)
         .table;
-    table["headline"] = vmObject.headline;
+    table["headline"] = VMManagedTextStyle(
+            luaState: luaState,
+            table: HydroTable(),
+            vmObject: vmObject.headline)
+        .table;
   }
 }
 

@@ -24,7 +24,7 @@ import { white } from "../../../runtime/flutter/material/colors/white";
 import { Image } from "../../../runtime/flutter/widgets/image";
 import { BorderRadius } from "../../../runtime/flutter/painting/borderRadius";
 import { BoxFit } from "../../../runtime/flutter/painting/boxFit";
-import { User } from "../data";
+import { User, MyColors } from "../data";
 import { BoxDecoration } from "../../../runtime/flutter/painting/boxDecoration";
 
 export class HomeScreen extends StatelessWidget {
@@ -101,6 +101,14 @@ export class HomeScreen extends StatelessWidget {
                                                                                 width: 35
                                                                             }
                                                                         )
+                                                                    }),
+                                                                    new SizedBox({
+                                                                        width:15.0
+                                                                    }),
+                                                                    new Text(User.fullname,{
+                                                                        style:Theme.of(context).textTheme.headline.copyWith({
+                                                                            color: MyColors.darkBlue
+                                                                        })
                                                                     })
                                                                 ]
                                                             })

@@ -1,3 +1,8 @@
+import { Color } from "../../runtime/dart/ui/color"
+
+export const MyColors = {
+    darkBlue : new Color(0xff2446a6)
+}
 
 export const User = {
     fullname: "Cybdom Tech",
