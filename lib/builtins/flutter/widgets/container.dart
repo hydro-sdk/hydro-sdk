@@ -11,6 +11,8 @@ loadContainer({@required LuaState luaState, @required HydroTable table}) {
         key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
         color: maybeUnwrapAndBuildArgument(args[0]["color"],
             parentState: luaState),
+        child: maybeUnwrapAndBuildArgument(args[0]["child"],
+            parentState: luaState),
       )
     ];
   });

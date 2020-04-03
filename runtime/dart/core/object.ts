@@ -42,7 +42,11 @@ export type RuntimeType = "AppBar" |
     "Spacer" |
     "BorderRadius" |
     "Radius" |
-    "ClipRRect";
+    "ClipRRect" |
+    "Alignment" |
+    "Image" |
+    "ImageProvider" | 
+    "NetworkImage";
 
 export interface DartObject {
     runtimeType: RuntimeType;

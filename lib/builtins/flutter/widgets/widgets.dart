@@ -8,6 +8,7 @@ import 'package:flua/builtins/flutter/widgets/gestureDetector.dart';
 import 'package:flua/builtins/flutter/widgets/globalKey.dart';
 import 'package:flua/builtins/flutter/widgets/icon.dart';
 import 'package:flua/builtins/flutter/widgets/iconData.dart';
+import 'package:flua/builtins/flutter/widgets/image.dart';
 import 'package:flua/builtins/flutter/widgets/mediaQuery.dart';
 import 'package:flua/builtins/flutter/widgets/padding.dart';
 import 'package:flua/builtins/flutter/widgets/positioned.dart';
@@ -49,4 +50,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadContainer(luaState: luaState, table: widgets);
   loadSpacer(luaState: luaState, table: widgets);
   loadClipRRect(luaState: luaState, table: widgets);
+  loadImage(luaState: luaState, table: widgets);
 }
