@@ -13,6 +13,7 @@ import 'package:flua/builtins/flutter/widgets/mediaQuery.dart';
 import 'package:flua/builtins/flutter/widgets/padding.dart';
 import 'package:flua/builtins/flutter/widgets/positioned.dart';
 import 'package:flua/builtins/flutter/widgets/preferredSize.dart';
+import 'package:flua/builtins/flutter/widgets/richText.dart';
 import 'package:flua/builtins/flutter/widgets/row.dart';
 import 'package:flua/builtins/flutter/widgets/safeArea.dart';
 import 'package:flua/builtins/flutter/widgets/sizeTransition.dart';
@@ -51,4 +52,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadSpacer(luaState: luaState, table: widgets);
   loadClipRRect(luaState: luaState, table: widgets);
   loadImage(luaState: luaState, table: widgets);
+  loadRichText(luaState: luaState, table: widgets);
 }
