@@ -1,0 +1,102 @@
+import { Widget } from "../widget";
+import { DartObject } from "../../dart/core/object";
+
+import { StatelessWidget } from "./statelessWidget";
+import { MainAxisAlignment } from "./mainAxisAlignment";
+import { MainAxisSize } from "./../rendering/mainAxisSize";
+import { CrossAxisAlignment } from "./../rendering/crossAxisAlignment";
+import { TextDirection } from "./../../dart/ui/textDirection";
+import { VerticalDirection } from "./../painting/verticalDirection";
+import { Color } from "../../dart/ui/color";
+import { BlendMode } from "../../dart/ui/blendMode";
+import { FilterQuality } from "../../dart/ui/filterQuality";
+import { BoxFit } from "../painting/boxFit"
+import { ImageRepeat } from "../painting/imageRepeat";
+import { State } from "./state";
+import { SizedBox } from "./sizedBox";
+import { Key } from "./../key";
+import { Alignment } from "../painting/alignment";
+import { StatefulWidget } from "./statefulWidget";
+import { ImageProvider } from "../painting/imageProvider";
+import { ResizeImage } from "../painting/resizeImage";
+import { NetworkImage } from "../painting/networkImage";
+
+interface ImageProps {
+    image: ImageProvider;
+    key?: Key | undefined;
+    scale?: number | undefined;
+    semanticLabel?: string | undefined;
+    excludeFromSemantics?: boolean | undefined;
+    width?: number | undefined;
+    height?: number | undefined;
+    color?: Color | undefined;
+    colorBlendMode?: BlendMode | undefined;
+    fit?: BoxFit | undefined;
+    alignment?: Alignment | undefined;
+    repeat?: ImageRepeat | undefined;
+    matchTextDirection?: boolean | undefined;
+    gaplessPlayback?: boolean | undefined;
+    filterQuality?: FilterQuality | undefined;
+    cacheWidth?: number | undefined;
+    cacheHeight?: number | undefined;
+}
+
+declare const flutter: {
+    widgets: {
+        image: (this: void, props: ImageProps) => Image;
+    }
+}
+
+export class Image extends StatelessWidget implements Readonly<DartObject>{
+    public readonly runtimeType = "Image";
+    public src: string;
+    public props: ImageProps;
+    private constructor(src: string, props: ImageProps) {
+        super();
+        this.src = src;
+        this.props = props;
+    }
+
+    public static network(src: string, props: Omit<ImageProps, "image">): Image {
+        const {
+            key,
+            scale = 1.0,
+            semanticLabel,
+            excludeFromSemantics = false,
+            width,
+            height,
+            color,
+            colorBlendMode,
+            fit,
+            alignment = Alignment.center,
+            repeat = ImageRepeat.noRepeat,
+            matchTextDirection = false,
+            gaplessPlayback = false,
+            filterQuality = FilterQuality.low,
+            cacheWidth,
+            cacheHeight
+        } = props;
+
+        return new Image(src, {
+            key,
+            scale,
+            semanticLabel,
+            excludeFromSemantics,
+            width,
+            height,
+            color,
+            colorBlendMode,
+            fit,
+            alignment,
+            repeat,
+            matchTextDirection,
+            gaplessPlayback,
+            filterQuality,
+            image: ResizeImage.resizeIfNeeded(cacheWidth, cacheHeight, new NetworkImage(src, { scale: scale }))
+        });
+    }
+
+   public build():Widget{
+       return flutter.widgets.image(this.props);
+   }
+}
