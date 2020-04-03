@@ -1,15 +1,11 @@
-import { Widget } from "../widget";
-import { DartObject } from "../../dart/core/object";
+import {Widget} from "../widget";
+import {DartObject} from "../../dart/core/object";
+import {Clip} from "../painting/clip";
+import {BorderRadius} from "../painting/borderRadius";
 
-import { StatelessWidget } from "./statelessWidget";
-import { MainAxisAlignment } from "./mainAxisAlignment";
-import { MainAxisSize } from "./../rendering/mainAxisSize";
-import { CrossAxisAlignment } from "./../rendering/crossAxisAlignment";
-import { TextDirection } from "./../../dart/ui/textDirection";
-import { VerticalDirection } from "./../painting/verticalDirection";
-import { Clip } from "../painting/clip";
-import { Key } from "./../key";
-import { BorderRadius } from "../painting/borderRadius";
+import {StatelessWidget} from "./statelessWidget";
+import {Key} from "./../key";
+
 
 interface ClipRRectProps {
     key?: Key | undefined;
@@ -21,22 +17,26 @@ interface ClipRRectProps {
 declare const flutter: {
     widgets: {
         clipRRect: (this: void, props: ClipRRectProps) => ClipRRect;
-    }
-}
+    };
+};
 
-export class ClipRRect extends StatelessWidget implements Readonly<DartObject>{
+export class ClipRRect extends StatelessWidget implements Readonly<DartObject>
+{
     public readonly runtimeType = "ClipRRect";
     public props: ClipRRectProps;
-    public constructor(props: ClipRRectProps) {
+    public constructor(props: ClipRRectProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.clipBehavior === undefined) {
+        if (this.props.clipBehavior === undefined) 
+        {
             this.props.clipBehavior = Clip.antiAlias;
         }
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.clipRRect(this.props);
     }
 }

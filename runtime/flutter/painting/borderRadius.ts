@@ -1,5 +1,5 @@
-import { DartObject } from "../../dart/core/object";
-import { Radius } from "../../dart/ui/radius";
+import {DartObject} from "../../dart/core/object";
+import {Radius} from "../../dart/ui/radius";
 
 interface BorderRadiusProps {
     topLeft: Radius;
@@ -10,14 +10,16 @@ interface BorderRadiusProps {
 
 declare const flutter: {
     painting: {
-        borderRadiusOnly: (this: void, props: BorderRadiusProps) => BorderRadius
-    }
-}
+        borderRadiusOnly: (this: void, props: BorderRadiusProps) => BorderRadius;
+    };
+};
 
-export class BorderRadius implements Readonly<DartObject>{
+export class BorderRadius implements Readonly<DartObject>
+{
     public readonly runtimeType = "BorderRadius";
 
-    public static all(radius: Radius): BorderRadius {
+    public static all(radius: Radius): BorderRadius 
+    {
         return BorderRadius.only({
             topLeft: radius,
             topRight: radius,
@@ -26,12 +28,14 @@ export class BorderRadius implements Readonly<DartObject>{
         });
     }
 
-    public static circular(radius: number): BorderRadius {
+    public static circular(radius: number): BorderRadius 
+    {
         return BorderRadius.all(Radius.circular(radius));
     }
 
-    public static vertical(props: { top: Radius, bottom: Radius }): BorderRadius {
-        let {
+    public static vertical(props: { top: Radius; bottom: Radius }): BorderRadius 
+    {
+        const {
             top = Radius.zero,
             bottom = Radius.zero,
         } = props;
@@ -44,8 +48,9 @@ export class BorderRadius implements Readonly<DartObject>{
         });
     }
 
-    public static horizontal(props: { left: Radius, right: Radius }): BorderRadius {
-        let {
+    public static horizontal(props: { left: Radius; right: Radius }): BorderRadius 
+    {
+        const {
             left = Radius.zero,
             right = Radius.zero
         } = props;
@@ -58,8 +63,9 @@ export class BorderRadius implements Readonly<DartObject>{
         });
     }
 
-    public static only(props: BorderRadiusProps): BorderRadius {
-        let {
+    public static only(props: BorderRadiusProps): BorderRadius 
+    {
+        const {
             topLeft = Radius.zero,
             topRight = Radius.zero,
             bottomLeft = Radius.zero,

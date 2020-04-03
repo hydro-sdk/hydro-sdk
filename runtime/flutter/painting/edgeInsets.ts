@@ -1,4 +1,4 @@
-import { DartObject } from "../../dart/core/object";
+import {DartObject} from "../../dart/core/object";
 
 declare const flutter: {
     painting: {
@@ -12,16 +12,19 @@ declare const flutter: {
 export class EdgeInsets implements Readonly<DartObject>
 {
     public readonly runtimeType = "EdgeInsets";
-    public static all(value: number): EdgeInsets {
+    public static all(value: number): EdgeInsets 
+    {
         return flutter.painting.edgeInsetsAll(value);
     }
 
-    public static zero(): EdgeInsets {
-        return EdgeInsets.only({ left: 0.0, top: 0.0, right: 0.0, bottom: 0.0 });
+    public static zero(): EdgeInsets 
+    {
+        return EdgeInsets.only({left: 0.0, top: 0.0, right: 0.0, bottom: 0.0});
     }
 
-    public static only(props: { left?: number; top?: number; right?: number; bottom?: number; }): EdgeInsets {
-        let { left = 0.0, top = 0.0, right = 0.0, bottom = 0.0 } = props;
+    public static only(props: { left?: number; top?: number; right?: number; bottom?: number }): EdgeInsets 
+    {
+        const {left = 0.0, top = 0.0, right = 0.0, bottom = 0.0} = props;
         return flutter.painting.edgeInsetsOnly({
             left,
             top,
@@ -30,8 +33,9 @@ export class EdgeInsets implements Readonly<DartObject>
         });
     }
 
-    public static symmetric(props: { vertical?: number; horizontal?: number }): EdgeInsets {
-        let { vertical = 0.0, horizontal = 0.0 } = props;
+    public static symmetric(props: { vertical?: number; horizontal?: number }): EdgeInsets 
+    {
+        const {vertical = 0.0, horizontal = 0.0} = props;
         return flutter.painting.edgeInsetsSymmetric({
             vertical,
             horizontal
