@@ -1,3 +1,4 @@
+import 'package:flua/builtins/flutter/widgets/align.dart';
 import 'package:flua/builtins/flutter/widgets/animatedList.dart';
 import 'package:flua/builtins/flutter/widgets/center.dart';
 import 'package:flua/builtins/flutter/widgets/clipRRect.dart';
@@ -53,4 +54,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadClipRRect(luaState: luaState, table: widgets);
   loadImage(luaState: luaState, table: widgets);
   loadRichText(luaState: luaState, table: widgets);
+  loadAlign(luaState: luaState, table: widgets);
 }

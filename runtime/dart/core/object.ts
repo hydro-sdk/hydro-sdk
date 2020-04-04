@@ -49,7 +49,8 @@ export type RuntimeType = "AppBar" |
     "NetworkImage" |
     "BoxDecoration" |
     "RichText" |
-    "InlineSpan";
+    "InlineSpan" |
+    "Align";
 
 export interface DartObject {
     runtimeType: RuntimeType;

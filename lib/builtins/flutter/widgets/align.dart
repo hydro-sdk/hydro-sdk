@@ -4,19 +4,18 @@ import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadContainer({@required LuaState luaState, @required HydroTable table}) {
-  table["container"] = makeLuaDartFunc(func: (List<dynamic> args) {
+loadAlign({@required LuaState luaState, @required HydroTable table}) {
+  table["align"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      Container(
+      Align(
         key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
             parentState: luaState),
-        color: maybeUnwrapAndBuildArgument<Widget>(args[0]["color"],
+        alignment: maybeUnwrapAndBuildArgument<AlignmentGeometry>(
+            args[0]["alignment"],
             parentState: luaState),
+        widthFactor: args[0]["widthFactor"],
+        heightFactor: args[0]["heightFactor"],
         child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
-            parentState: luaState),
-        decoration: maybeUnwrapAndBuildArgument<Widget>(args[0]["decoration"],
-            parentState: luaState),
-        padding: maybeUnwrapAndBuildArgument<Widget>(args[0]["padding"],
             parentState: luaState),
       )
     ];
