@@ -24,6 +24,20 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
             .table
       ];
     });
+    table["apply"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        VMManagedTextStyle(
+                luaState: luaState,
+                table: HydroTable(),
+                vmObject: vmObject.apply(
+                    color: maybeUnwrapAndBuildArgument<Color>(args[1]["color"],
+                        parentState: luaState),
+                    fontWeightDelta: args[1]["fontWeightDelta"] != null
+                        ? args[1]["fontWeightDelta"]
+                        : 0))
+            .table
+      ];
+    });
   }
 }
 
@@ -45,6 +59,9 @@ class VMManagedTextTheme extends VMManagedBox<TextTheme> {
             luaState: luaState,
             table: HydroTable(),
             vmObject: vmObject.headline)
+        .table;
+    table["body2"] = VMManagedTextStyle(
+            luaState: luaState, table: HydroTable(), vmObject: vmObject.body2)
         .table;
   }
 }
