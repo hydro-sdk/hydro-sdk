@@ -73,7 +73,7 @@ export class HomeScreen extends StatelessWidget {
                                     children: [
                                         new Spacer({}),
                                         new Text("My Profile", {
-                                            style: Theme.of(context).textTheme.display1.copyWith({
+                                            style: Theme.of(context).textTheme.display1.apply({
                                                 color: white
                                             })
                                         }),
@@ -111,8 +111,9 @@ export class HomeScreen extends StatelessWidget {
                                                                         width: 15.0
                                                                     }),
                                                                     new Text(User.fullname, {
-                                                                        style: Theme.of(context).textTheme.headline.copyWith({
-                                                                            color: MyColors.darkBlue
+                                                                        style: Theme.of(context).textTheme.headline.apply({
+                                                                            color: MyColors.darkBlue,
+                                                                            fontWeightDelta: 2
                                                                         })
                                                                     }),
                                                                     new Spacer({}),
@@ -133,7 +134,14 @@ export class HomeScreen extends StatelessWidget {
                                                                     children: [
                                                                         new TextSpan({
                                                                             text: "3191",
-                                                                            style: Theme.of(context).textTheme.headline.copyWith({ color: MyColors.darkBlue })
+                                                                            style: Theme.of(context).textTheme.headline.apply({
+                                                                                color: MyColors.darkBlue,
+                                                                                fontWeightDelta: 2
+                                                                            })
+                                                                        }),
+                                                                        new TextSpan({
+                                                                            text: "Travelers points",
+                                                                            style: Theme.of(context).textTheme.body2.apply({ color: MyColors.darkBlue })
                                                                         })
                                                                     ]
                                                                 })
