@@ -8,13 +8,13 @@ loadContainer({@required LuaState luaState, @required HydroTable table}) {
   table["container"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Container(
-          key: maybeUnwrapAndBuildArgument(args[0]["key"],
+          key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
               parentState: luaState),
-          color: maybeUnwrapAndBuildArgument(args[0]["color"],
+          color: maybeUnwrapAndBuildArgument<Widget>(args[0]["color"],
               parentState: luaState),
-          child: maybeUnwrapAndBuildArgument(args[0]["child"],
+          child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
               parentState: luaState),
-          decoration: maybeUnwrapAndBuildArgument(args[0]["decoration"],
+          decoration: maybeUnwrapAndBuildArgument<Widget>(args[0]["decoration"],
               parentState: luaState))
     ];
   });

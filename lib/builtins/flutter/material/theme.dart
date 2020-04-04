@@ -19,7 +19,7 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
                 luaState: luaState,
                 table: HydroTable(),
                 vmObject: vmObject.copyWith(
-                    color: maybeUnwrapAndBuildArgument(args[1]["color"],
+                    color: maybeUnwrapAndBuildArgument<Color>(args[1]["color"],
                         parentState: luaState)))
             .table
       ];

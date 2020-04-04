@@ -11,7 +11,7 @@ loadGestureDetector({@required LuaState luaState, @required HydroTable table}) {
       GestureDetector(
         behavior: HitTestBehavior.values
             .firstWhere((x) => x.index == args[0]["behavior"]),
-        child: maybeUnwrapAndBuildArgument(args[0]["child"],
+        child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
         onTap: () {
           Closure closure = args[0]["onTap"];

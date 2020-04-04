@@ -8,7 +8,7 @@ loadStack({@required LuaState luaState, @required HydroTable table}) {
   table["stack"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Stack(
-        key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
         textDirection: TextDirection.values.firstWhere(
             (x) => x.index == args[0]["textDirection"],
             orElse: () => null),
@@ -17,7 +17,7 @@ loadStack({@required LuaState luaState, @required HydroTable table}) {
         overflow: Overflow.values.firstWhere(
             (x) => x.index == args[0]["overflow"],
             orElse: () => null),
-        children: maybeUnwrapAndBuildArgument(args[0]["children"],
+        children: maybeUnwrapAndBuildArgument<Widget>(args[0]["children"],
             parentState: luaState),
       )
     ];

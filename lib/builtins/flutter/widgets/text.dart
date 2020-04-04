@@ -10,10 +10,10 @@ loadText({@required LuaState luaState, @required HydroTable table}) {
       Text(
         args[0],
         key: args[1] != null
-            ? maybeUnwrapAndBuildArgument(args[1]["key"], parentState: luaState)
+            ? maybeUnwrapAndBuildArgument<Widget>(args[1]["key"], parentState: luaState)
             : null,
         style: args[1] != null
-            ? maybeUnwrapAndBuildArgument(args[1]["style"],
+            ? maybeUnwrapAndBuildArgument<Widget>(args[1]["style"],
                 parentState: luaState)
             : null,
       )

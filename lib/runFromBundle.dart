@@ -28,7 +28,7 @@ class _RunFromBundle extends State<RunFromBundle> {
       future: res,
       builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
         if (snapshot.hasData) {
-          return maybeUnwrapAndBuildArgument(
+          return maybeUnwrapAndBuildArgument<Widget>(
               luaState.context.env["buildResult"],
               parentState: luaState);
         }

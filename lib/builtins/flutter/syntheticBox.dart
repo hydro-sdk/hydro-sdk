@@ -6,14 +6,14 @@ import 'package:flua/builtins/flutter/widgets/statelessWidgetBox.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flua/vm/table.dart';
 
-dynamic maybeUnwrapAndBuildArgument(dynamic arg,
+dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
     {BuildContext context, @required LuaState parentState}) {
   assert(parentState != null);
-  //Unboxed Flutter widgets
-  if (arg is Widget) {
+  //Unboxed target object
+  if (arg is T) {
     return arg;
   }
-  //Synthetic Flutter widgets
+  //Managed object
   if (arg is HydroTable) {
     //Metatable will contain an inherited build function from the StatlessWidget base class
     Closure createState =
@@ -23,7 +23,6 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg,
         table: arg,
         parentState: parentState,
       );
-      // return maybeUnwrapAndBuildArgument(createState([arg.map])[0]);
     }
 
     Closure build = arg?.metatable != null ? arg.metatable["build"] : null;
@@ -46,19 +45,20 @@ dynamic maybeUnwrapAndBuildArgument(dynamic arg,
       unwrap = arg.map["unwrap"];
     }
     if (unwrap != null) {
-      //Call the objects synthetic unwrap method with itself as first arg
+      //Call the objects managed unwrap method with itself as first arg
       //(Effectively a this call) and unbox the result
-      return maybeUnwrapAndBuildArgument(unwrap([arg.map, context])[0],
+      return maybeUnwrapAndBuildArgument<T>(unwrap([arg.map, context])[0],
           parentState: parentState);
     }
-    //Unbox an array of synthetic widgets
+    //Unbox an array of managed objects
     if (arg.arr != null && arg.arr.isNotEmpty) {
       return arg.arr
-          .map((x) => maybeUnwrapAndBuildArgument(x, parentState: parentState))
+          .map((x) =>
+              maybeUnwrapAndBuildArgument<T>(x, parentState: parentState))
           .toList()
-          .cast<Widget>();
+          .cast<T>();
     } else if (arg.arr != null && arg.arr.isEmpty) {
-      return [].cast<Widget>();
+      return [].cast<T>();
     }
   }
   return arg;

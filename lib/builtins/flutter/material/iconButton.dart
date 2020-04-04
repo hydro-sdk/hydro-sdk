@@ -10,7 +10,7 @@ loadIconButton({@required LuaState luaState, @required HydroTable table}) {
     return [
       IconButton(
         icon:
-            maybeUnwrapAndBuildArgument(args[0]["icon"], parentState: luaState),
+            maybeUnwrapAndBuildArgument<Widget>(args[0]["icon"], parentState: luaState),
         tooltip: args[0]["tooltip"],
         onPressed: () {
           Closure closure = args[0]["onPressed"];

@@ -8,21 +8,21 @@ loadImage({@required LuaState luaState, @required HydroTable table}) {
   table["image"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Image(
-        image: maybeUnwrapAndBuildArgument(args[0]["image"],
+        image: maybeUnwrapAndBuildArgument<Widget>(args[0]["image"],
             parentState: luaState),
-        key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
         semanticLabel: args[0]["semanticLabel"],
         excludeFromSemantics: args[0]["excludeFromSemantics"],
         width: args[0]["width"].toDouble(),
         height: args[0]["height"].toDouble(),
-        color: maybeUnwrapAndBuildArgument(args[0]["color"],
+        color: maybeUnwrapAndBuildArgument<Widget>(args[0]["color"],
             parentState: luaState),
         colorBlendMode: BlendMode.values.firstWhere(
             (x) => x.index == args[0]["colorBlendMode"],
             orElse: () => null),
         fit: BoxFit.values
             .firstWhere((x) => x.index == args[0]["fit"], orElse: () => null),
-        alignment: maybeUnwrapAndBuildArgument(args[0]["alignment"],
+        alignment: maybeUnwrapAndBuildArgument<Widget>(args[0]["alignment"],
             parentState: luaState),
         repeat: ImageRepeat.values.firstWhere(
             (x) => x.index == args[0]["repeat"],

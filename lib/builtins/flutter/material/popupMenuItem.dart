@@ -9,7 +9,7 @@ loadPopupMenuItem({@required LuaState luaState, @required HydroTable table}) {
     return [
       PopupMenuItem(
         value: args[0]["value"],
-        child: maybeUnwrapAndBuildArgument(args[0]["child"],
+        child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
       )
     ];

@@ -41,6 +41,6 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
     Closure managedBuild = table.metatable["build"];
     var buildResult =
         managedBuild.dispatch([table, context], parentState: parentState)[0];
-    return maybeUnwrapAndBuildArgument(buildResult, parentState: parentState);
+    return maybeUnwrapAndBuildArgument<Widget>(buildResult, parentState: parentState);
   }
 }

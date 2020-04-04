@@ -25,7 +25,7 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
         (vmObject.currentState as dynamic).removeItem(args[1],
             (BuildContext context, Animation<double> animation) {
           Closure closure = args[2];
-          return maybeUnwrapAndBuildArgument(
+          return maybeUnwrapAndBuildArgument<Widget>(
               closure([args[0], context, animation])[0],
               parentState: parentState) as Widget;
         });

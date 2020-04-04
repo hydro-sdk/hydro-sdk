@@ -10,7 +10,7 @@ loadSizeTransition({@required LuaState luaState, @required HydroTable table}) {
       SizeTransition(
         sizeFactor: args[0]["sizeFactor"],
         axis: Axis.values.firstWhere((x) => x.index == args[0]["axis"]),
-        child: maybeUnwrapAndBuildArgument(args[0]["child"],
+        child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
       ),
     ];

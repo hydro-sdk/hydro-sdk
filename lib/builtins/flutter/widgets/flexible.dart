@@ -8,10 +8,10 @@ loadFlexible({@required LuaState luaState, @required HydroTable table}) {
   table["flexible"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Flexible(
-        key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
         flex: args[0]["flex"],
         fit: FlexFit.values.firstWhere((x) => x.index == args[0]["fit"]),
-        child: maybeUnwrapAndBuildArgument(args[0]["child"],
+        child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
       )
     ];

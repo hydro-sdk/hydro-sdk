@@ -9,9 +9,9 @@ loadCard({@required LuaState luaState, @required HydroTable table}) {
     return [
       Card(
           borderOnForeground: args[0]["borderOnForeground"],
-          child: maybeUnwrapAndBuildArgument(args[0]["child"],
+          child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
               parentState: luaState),
-          color: maybeUnwrapAndBuildArgument(args[0]["color"],
+          color: maybeUnwrapAndBuildArgument<Widget>(args[0]["color"],
               parentState: luaState))
     ];
   });

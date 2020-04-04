@@ -17,7 +17,7 @@ loadColumn({@required LuaState luaState, @required HydroTable table}) {
           crossAxisAlignment: CrossAxisAlignment.values.firstWhere(
               (x) => x.index == args[0]["crossAxisAlignment"],
               orElse: () => null),
-          children: maybeUnwrapAndBuildArgument(args[0]["children"],
+          children: maybeUnwrapAndBuildArgument<Widget>(args[0]["children"],
               parentState: luaState))
     ];
   });

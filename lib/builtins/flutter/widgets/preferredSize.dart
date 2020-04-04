@@ -8,11 +8,11 @@ loadPreferredSize({@required LuaState luaState, @required HydroTable table}) {
   table["preferredSize"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       PreferredSize(
-        child: maybeUnwrapAndBuildArgument(args[0]["child"],
+        child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
-        preferredSize: maybeUnwrapAndBuildArgument(args[0]["preferredSize"],
+        preferredSize: maybeUnwrapAndBuildArgument<Widget>(args[0]["preferredSize"],
             parentState: luaState),
-        key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
       )
     ];
   });
