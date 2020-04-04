@@ -9,7 +9,8 @@ loadAnimatedList({@required LuaState luaState, @required HydroTable table}) {
   table["animatedList"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       AnimatedList(
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
         initialItemCount: maybeUnwrapAndBuildArgument<Widget>(
             args[0]["initialItemCount"],
             parentState: luaState),

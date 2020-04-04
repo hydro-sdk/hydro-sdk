@@ -8,7 +8,8 @@ loadCenter({@required LuaState luaState, @required HydroTable table}) {
   table["center"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Center(
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
         child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
       )

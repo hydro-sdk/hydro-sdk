@@ -8,7 +8,8 @@ loadSpacer({@required LuaState luaState, @required HydroTable table}) {
   table["spacer"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Spacer(
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
         flex: args[0]["flex"],
       )
     ];

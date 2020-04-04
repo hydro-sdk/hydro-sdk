@@ -9,8 +9,8 @@ loadMaterialApp({@required LuaState luaState, @required HydroTable table}) {
     return [
       MaterialApp(
         initialRoute: args[0]["initialRoute"],
-        home:
-            maybeUnwrapAndBuildArgument<Widget>(args[0]["home"], parentState: luaState),
+        home: maybeUnwrapAndBuildArgument<Widget>(args[0]["home"],
+            parentState: luaState),
         title: args[0]["title"],
       )
     ];

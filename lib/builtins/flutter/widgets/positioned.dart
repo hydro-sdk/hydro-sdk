@@ -8,7 +8,8 @@ loadPositioned({@required LuaState luaState, @required HydroTable table}) {
   table["positioned"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Positioned(
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
         left: args[0]["left"] != null ? args[0]["left"].toDouble() : null,
         top: args[0]["top"] != null ? args[0]["top"].toDouble() : null,
         right: args[0]["right"] != null ? args[0]["right"].toDouble() : null,

@@ -15,7 +15,8 @@ class StatelessWidgetBox extends StatelessWidget {
     Closure managedBuild = table.metatable["build"];
     var buildResult = managedBuild
         .dispatch([table.map, context], parentState: parentState)[0];
-    return maybeUnwrapAndBuildArgument<Widget>(buildResult, parentState: parentState);
+    return maybeUnwrapAndBuildArgument<Widget>(buildResult,
+        parentState: parentState);
   }
 }
 
@@ -26,15 +27,16 @@ class StatelessPreferredSizeBox extends PreferredSize {
   StatelessPreferredSizeBox({@required this.table, @required this.parentState});
 
   @override
-  Size get preferredSize =>
-      maybeUnwrapAndBuildArgument<Widget>(table["preferredSize"]([table.map])[0],
-          parentState: parentState);
+  Size get preferredSize => maybeUnwrapAndBuildArgument<Widget>(
+      table["preferredSize"]([table.map])[0],
+      parentState: parentState);
 
   @override
   Widget build(BuildContext context) {
     Closure managedBuild = table.metatable["build"];
     var buildResult = managedBuild
         .dispatch([table.map, context], parentState: parentState)[0];
-    return maybeUnwrapAndBuildArgument<Widget>(buildResult, parentState: parentState);
+    return maybeUnwrapAndBuildArgument<Widget>(buildResult,
+        parentState: parentState);
   }
 }

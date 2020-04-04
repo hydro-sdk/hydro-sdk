@@ -8,9 +8,10 @@ loadRichText({@required LuaState luaState, @required HydroTable table}) {
   table["richText"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RichText(
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
-        text:
-            maybeUnwrapAndBuildArgument<Widget>(args[0]["text"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
+        text: maybeUnwrapAndBuildArgument<Widget>(args[0]["text"],
+            parentState: luaState),
         textAlign: TextAlign.values.firstWhere(
             (x) => x.index == args[0]["textAlign"],
             orElse: () => null),

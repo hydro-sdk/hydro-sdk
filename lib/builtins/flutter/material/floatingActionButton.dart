@@ -10,7 +10,8 @@ loadFloatingActionButton(
   table["floatingActionButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       FloatingActionButton(
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
         child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
         tooltip: args[0]["tooltip"],

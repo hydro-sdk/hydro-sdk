@@ -1,4 +1,4 @@
-import { DartObject } from "../../dart/core/object";
+import {DartObject} from "../../dart/core/object";
 
 export class InlineSpan implements Readonly<DartObject>
 {

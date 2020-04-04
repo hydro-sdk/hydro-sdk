@@ -10,9 +10,11 @@ loadPreferredSize({@required LuaState luaState, @required HydroTable table}) {
       PreferredSize(
         child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
-        preferredSize: maybeUnwrapAndBuildArgument<Widget>(args[0]["preferredSize"],
+        preferredSize: maybeUnwrapAndBuildArgument<Widget>(
+            args[0]["preferredSize"],
             parentState: luaState),
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
       )
     ];
   });

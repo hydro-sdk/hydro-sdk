@@ -1,4 +1,4 @@
-import { TextStyle } from "../package/textStyle";
+import {TextStyle} from "../package/textStyle";
 
 export interface TextTheme {
     display1: TextStyle;

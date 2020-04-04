@@ -10,7 +10,8 @@ loadImage({@required LuaState luaState, @required HydroTable table}) {
       Image(
         image: maybeUnwrapAndBuildArgument<Widget>(args[0]["image"],
             parentState: luaState),
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
         semanticLabel: args[0]["semanticLabel"],
         excludeFromSemantics: args[0]["excludeFromSemantics"],
         width: args[0]["width"].toDouble(),

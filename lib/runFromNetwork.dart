@@ -127,7 +127,8 @@ class _RunFromNetwork extends State<RunFromNetwork>
           requiresRebuild = false;
         });
       }
-      return maybeUnwrapAndBuildArgument<Widget>(luaState.context.env["buildResult"],
+      return maybeUnwrapAndBuildArgument<Widget>(
+          luaState.context.env["buildResult"],
           parentState: luaState);
     }
   }

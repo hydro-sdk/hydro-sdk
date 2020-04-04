@@ -10,12 +10,13 @@ loadScaffold({@required LuaState luaState, @required HydroTable table}) {
       Scaffold(
         appBar: maybeUnwrapAndBuildArgument<Widget>(args[0]["appBar"],
             parentState: luaState),
-        body:
-            maybeUnwrapAndBuildArgument<Widget>(args[0]["body"], parentState: luaState),
+        body: maybeUnwrapAndBuildArgument<Widget>(args[0]["body"],
+            parentState: luaState),
         floatingActionButton: maybeUnwrapAndBuildArgument<Widget>(
             args[0]["floatingActionButton"],
             parentState: luaState),
-        backgroundColor: maybeUnwrapAndBuildArgument<Widget>(args[0]["backgroundColor"],
+        backgroundColor: maybeUnwrapAndBuildArgument<Widget>(
+            args[0]["backgroundColor"],
             parentState: luaState),
       )
     ];

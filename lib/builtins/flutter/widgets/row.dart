@@ -8,7 +8,8 @@ loadRow({@required LuaState luaState, @required HydroTable table}) {
   table["row"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Row(
-        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"], parentState: luaState),
+        key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
+            parentState: luaState),
         mainAxisAlignment: MainAxisAlignment.values
             .firstWhere((x) => x.index == args[0]["mainAxisAlignment"]),
         mainAxisSize: MainAxisSize.values

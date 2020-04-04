@@ -1,12 +1,14 @@
-import { Key } from "readline";
-import { TextAlign } from "../../dart/ui/textAlign";
-import { TextDirection } from "../../dart/ui/textDirection";
-import { TextOverflow } from "../rendering/textOverflow";
-import { TextWidthBasis } from "../painting/textWidthBasis";
-import { StatelessWidget } from "./statelessWidget";
-import { InlineSpan } from "../painting/inlineSpan";
-import { DartObject } from "../../dart/core/object";
-import { Widget } from "../widget";
+import {Key} from "readline";
+
+import {TextAlign} from "../../dart/ui/textAlign";
+import {TextDirection} from "../../dart/ui/textDirection";
+import {TextOverflow} from "../rendering/textOverflow";
+import {TextWidthBasis} from "../painting/textWidthBasis";
+import {InlineSpan} from "../painting/inlineSpan";
+import {DartObject} from "../../dart/core/object";
+import {Widget} from "../widget";
+
+import {StatelessWidget} from "./statelessWidget";
 
 interface RichTextProps {
     key?: Key | undefined;
@@ -23,38 +25,46 @@ interface RichTextProps {
 declare const flutter: {
     widgets: {
         richText: (this: void, props: RichTextProps) => RichText;
-    }
-}
+    };
+};
 
-export class RichText extends StatelessWidget implements Readonly<DartObject>{
+export class RichText extends StatelessWidget implements Readonly<DartObject>
+{
     public readonly runtimeType = "RichText";
     public props: RichTextProps;
-    public constructor(props: RichTextProps) {
+    public constructor(props: RichTextProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.textAlign === undefined) {
+        if (this.props.textAlign === undefined) 
+        {
             this.props.textAlign = TextAlign.start;
         }
 
-        if (this.props.softWrap === undefined) {
+        if (this.props.softWrap === undefined) 
+        {
             this.props.softWrap = true;
         }
 
-        if (this.props.overflow === undefined) {
+        if (this.props.overflow === undefined) 
+        {
             this.props.overflow = TextOverflow.clip;
         }
 
-        if (this.props.textScaleFactor === undefined) {
+        if (this.props.textScaleFactor === undefined) 
+        {
             this.props.textScaleFactor = 1.0;
         }
 
-        if (this.props.textWidthBasis === undefined) {
+        if (this.props.textWidthBasis === undefined) 
+        {
             this.props.textWidthBasis = TextWidthBasis.parent;
         }
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.richText(this.props);
     }
 }

@@ -1,7 +1,8 @@
-import { InlineSpan } from "./inlineSpan";
-import { TextStyle } from "../package/textStyle";
-import { Widget } from "../widget";
-import { JITAllocatingRTManagedBox } from "../../syntheticBox";
+import {TextStyle} from "../package/textStyle";
+import {Widget} from "../widget";
+import {JITAllocatingRTManagedBox} from "../../syntheticBox";
+
+import {InlineSpan} from "./inlineSpan";
 
 interface TextSpanProps {
     text?: string | undefined;
@@ -13,18 +14,21 @@ interface TextSpanProps {
 declare const flutter: {
     painting: {
         textSpan: (this: void, props: TextSpanProps) => TextSpan;
-    }
-}
+    };
+};
 
-export class TextSpan extends JITAllocatingRTManagedBox<TextSpanProps, TextSpan> implements InlineSpan {
+export class TextSpan extends JITAllocatingRTManagedBox<TextSpanProps, TextSpan> implements InlineSpan 
+{
     public readonly runtimeType = "InlineSpan";
     public props: TextSpanProps;
-    public constructor(props: TextSpanProps) {
+    public constructor(props: TextSpanProps) 
+    {
         super();
         this.props = props;
     }
 
-    public unwrap(): TextSpan {
+    public unwrap(): TextSpan 
+    {
         return flutter.painting.textSpan(this.props);
     }
 }
