@@ -77,7 +77,7 @@ class MyHomePageState extends State<MyHomePage>
                 child: new Column({
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                        new Text("You have pushed the button this manys times"),
+                        new Text("You have pushed the button this many times"),
                         new Text(
                             this.counter.toString(),
                             {
