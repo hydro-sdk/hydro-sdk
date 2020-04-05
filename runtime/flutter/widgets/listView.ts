@@ -1,12 +1,13 @@
-import { Key } from "./../key";
-import { BuildContext } from "./../buildContext";
-import { Widget } from "./../widget";
-import { StatelessWidget } from "./../widgets/statelessWidget";
-import { SliverChildBuilderDelegate } from "./../widgets/sliverChildBuilderDelegate";
-import { Axis } from "../painting/axis";
-import { EdgeInsets } from "../painting/edgeInsets";
-import { DragStartBehavior } from "../gestures/dragStartBehavior";
-import { DartObject } from "../../dart/core/object";
+import {Axis} from "../painting/axis";
+import {EdgeInsets} from "../painting/edgeInsets";
+import {DragStartBehavior} from "../gestures/dragStartBehavior";
+import {DartObject} from "../../dart/core/object";
+
+import {Key} from "./../key";
+import {BuildContext} from "./../buildContext";
+import {Widget} from "./../widget";
+import {StatelessWidget} from "./../widgets/statelessWidget";
+import {SliverChildBuilderDelegate} from "./../widgets/sliverChildBuilderDelegate";
 
 interface ListViewProps {
     key?: Key | undefined;
@@ -31,24 +32,27 @@ declare const flutter: {
         listView: (
             this: void,
             props: ListViewProps & {
-                childrenDelegate: SliverChildBuilderDelegate
+                childrenDelegate: SliverChildBuilderDelegate;
             }
         ) => ListView;
-    }
-}
+    };
+};
 
-export class ListView extends StatelessWidget implements Readonly<DartObject> {
+export class ListView extends StatelessWidget implements Readonly<DartObject> 
+{
     public readonly runtimeType = "ListView";
     public props: ListViewProps;
     private childrenDelegate: SliverChildBuilderDelegate;
-    private constructor(childrenDelegate: SliverChildBuilderDelegate, props: ListViewProps) {
+    private constructor(childrenDelegate: SliverChildBuilderDelegate, props: ListViewProps) 
+    {
         super();
 
         this.childrenDelegate = childrenDelegate;
         this.props = props;
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.listView({
             childrenDelegate: this.childrenDelegate,
             ...this.props
@@ -59,7 +63,8 @@ export class ListView extends StatelessWidget implements Readonly<DartObject> {
         props: Omit<ListViewProps, "itemBuilder"> & {
             itemBuilder: (context: BuildContext, index: number) => Widget;
         }
-    ): ListView {
+    ): ListView 
+    {
         const {
             key,
             scrollDirection = Axis.vertical,

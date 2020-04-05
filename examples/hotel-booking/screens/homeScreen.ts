@@ -1,43 +1,45 @@
-import { StatelessWidget } from "../../../runtime/flutter/widgets/statelessWidget";
-import { Widget } from "../../../runtime/flutter/widget";
-import { Scaffold } from "../../../runtime/flutter/material/scaffold";
-import { SafeArea } from "../../../runtime/flutter/widgets/safeArea";
-import { Color } from "../../../runtime/dart/ui/color";
-import { Stack } from "../../../runtime/flutter/widgets/stack";
-import { Positioned } from "../../../runtime/flutter/widgets/positioned";
-import { SizedBox } from "../../../runtime/flutter/widgets/sizedBox";
-import { MediaQuery } from "../../../runtime/flutter/widgets/mediaQuery";
-import { Row } from "../../../runtime/flutter/widgets/row";
-import { Flexible } from "../../../runtime/flutter/widgets/flexible";
-import { Container } from "../../../runtime/flutter/widgets/container";
-import { BuildContext } from "../../../runtime/flutter/buildContext";
-import { Padding } from "../../../runtime/flutter/widgets/padding";
-import { EdgeInsets } from "../../../runtime/flutter/painting/edgeInsets";
-import { Column } from "../../../runtime/flutter/widgets/column";
-import { CrossAxisAlignment } from "../../../runtime/flutter/rendering/crossAxisAlignment";
-import { Text } from "../../../runtime/flutter/widgets/text";
-import { Spacer } from "../../../runtime/flutter/widgets/spacer";
-import { Theme } from "../../../runtime/flutter/material/theme";
-import { Colors } from "../../../runtime/flutter/material/colors";
-import { ClipRRect } from "../../../runtime/flutter/widgets/clipRRect";
-import { white } from "../../../runtime/flutter/material/colors/white";
-import { Image } from "../../../runtime/flutter/widgets/image";
-import { BorderRadius } from "../../../runtime/flutter/painting/borderRadius";
-import { BoxFit } from "../../../runtime/flutter/painting/boxFit";
-import { User, MyColors } from "../data";
-import { BoxDecoration } from "../../../runtime/flutter/painting/boxDecoration";
-import { IconButton } from "../../../runtime/flutter/material/iconButton";
-import { Icon } from "../../../runtime/flutter/widgets/icon";
-import { menu } from "../../../runtime/flutter/material/icons/menu";
-import { RichText } from "../../../runtime/flutter/widgets/richText";
-import { TextSpan } from "../../../runtime/flutter/painting/textSpan";
-import { Align } from "../../../runtime/flutter/widgets/align";
-import { ListView } from "../../../runtime/flutter/widgets/listView";
-import { Alignment } from "../../../runtime/flutter/painting/alignment";
-import { Axis } from "../../../runtime/flutter/painting/axis";
+import {StatelessWidget} from "../../../runtime/flutter/widgets/statelessWidget";
+import {Widget} from "../../../runtime/flutter/widget";
+import {Scaffold} from "../../../runtime/flutter/material/scaffold";
+import {SafeArea} from "../../../runtime/flutter/widgets/safeArea";
+import {Color} from "../../../runtime/dart/ui/color";
+import {Stack} from "../../../runtime/flutter/widgets/stack";
+import {Positioned} from "../../../runtime/flutter/widgets/positioned";
+import {SizedBox} from "../../../runtime/flutter/widgets/sizedBox";
+import {MediaQuery} from "../../../runtime/flutter/widgets/mediaQuery";
+import {Row} from "../../../runtime/flutter/widgets/row";
+import {Flexible} from "../../../runtime/flutter/widgets/flexible";
+import {Container} from "../../../runtime/flutter/widgets/container";
+import {BuildContext} from "../../../runtime/flutter/buildContext";
+import {Padding} from "../../../runtime/flutter/widgets/padding";
+import {EdgeInsets} from "../../../runtime/flutter/painting/edgeInsets";
+import {Column} from "../../../runtime/flutter/widgets/column";
+import {CrossAxisAlignment} from "../../../runtime/flutter/rendering/crossAxisAlignment";
+import {Text} from "../../../runtime/flutter/widgets/text";
+import {Spacer} from "../../../runtime/flutter/widgets/spacer";
+import {Theme} from "../../../runtime/flutter/material/theme";
+import {Colors} from "../../../runtime/flutter/material/colors";
+import {ClipRRect} from "../../../runtime/flutter/widgets/clipRRect";
+import {white} from "../../../runtime/flutter/material/colors/white";
+import {Image} from "../../../runtime/flutter/widgets/image";
+import {BorderRadius} from "../../../runtime/flutter/painting/borderRadius";
+import {BoxFit} from "../../../runtime/flutter/painting/boxFit";
+import {User, MyColors} from "../data";
+import {BoxDecoration} from "../../../runtime/flutter/painting/boxDecoration";
+import {IconButton} from "../../../runtime/flutter/material/iconButton";
+import {Icon} from "../../../runtime/flutter/widgets/icon";
+import {menu} from "../../../runtime/flutter/material/icons/menu";
+import {RichText} from "../../../runtime/flutter/widgets/richText";
+import {TextSpan} from "../../../runtime/flutter/painting/textSpan";
+import {Align} from "../../../runtime/flutter/widgets/align";
+import {ListView} from "../../../runtime/flutter/widgets/listView";
+import {Alignment} from "../../../runtime/flutter/painting/alignment";
+import {Axis} from "../../../runtime/flutter/painting/axis";
 
-export class HomeScreen extends StatelessWidget {
-    public build(context: BuildContext): Widget {
+export class HomeScreen extends StatelessWidget 
+{
+    public build(context: BuildContext): Widget 
+    {
         return new Scaffold({
             backgroundColor: new Color(0xff2446a6),
             body: new SafeArea({
@@ -97,7 +99,7 @@ export class HomeScreen extends StatelessWidget {
                                                             height: 15.0
                                                         }),
                                                         new Padding({
-                                                            padding: EdgeInsets.symmetric({ horizontal: 15.0 }),
+                                                            padding: EdgeInsets.symmetric({horizontal: 15.0}),
                                                             child: new Row({
                                                                 children: [
                                                                     new ClipRRect({
@@ -122,7 +124,7 @@ export class HomeScreen extends StatelessWidget {
                                                                     }),
                                                                     new Spacer({}),
                                                                     new IconButton({
-                                                                        icon: new Icon(menu, { color: MyColors.red }),
+                                                                        icon: new Icon(menu, {color: MyColors.red}),
                                                                         onPressed: () => null
                                                                     })
                                                                 ]
@@ -132,7 +134,7 @@ export class HomeScreen extends StatelessWidget {
                                                             height: 15.0
                                                         }),
                                                         new Padding({
-                                                            padding: EdgeInsets.symmetric({ horizontal: 15.0 }),
+                                                            padding: EdgeInsets.symmetric({horizontal: 15.0}),
                                                             child: new RichText({
                                                                 text: new TextSpan({
                                                                     children: [
@@ -145,7 +147,7 @@ export class HomeScreen extends StatelessWidget {
                                                                         }),
                                                                         new TextSpan({
                                                                             text: "Travelers points",
-                                                                            style: Theme.of(context).textTheme.body2.apply({ color: MyColors.darkBlue })
+                                                                            style: Theme.of(context).textTheme.body2.apply({color: MyColors.darkBlue})
                                                                         })
                                                                     ]
                                                                 })
@@ -164,15 +166,15 @@ export class HomeScreen extends StatelessWidget {
                                                                         alignment: Alignment.center,
                                                                         child: new Text(
                                                                             "My next trip", {
-                                                                            style: Theme.of(context).textTheme.headline.apply({ color: white })
-                                                                        })
+                                                                                style: Theme.of(context).textTheme.headline.apply({color: white})
+                                                                            })
                                                                     }),
                                                                     new Spacer({}),
                                                                     new Text("28", {
-                                                                        style: Theme.of(context).textTheme.headline.apply({ color: white })
+                                                                        style: Theme.of(context).textTheme.headline.apply({color: white})
                                                                     }),
                                                                     new Text("Nov", {
-                                                                        style: Theme.of(context).textTheme.body1.apply({ color: white })
+                                                                        style: Theme.of(context).textTheme.body1.apply({color: white})
                                                                     })
                                                                 ]
                                                             })
@@ -183,7 +185,7 @@ export class HomeScreen extends StatelessWidget {
                                         }),
                                         new Spacer({}),
                                         new Text("My Bookings", {
-                                            style: Theme.of(context).textTheme.display1.apply({ color: white })
+                                            style: Theme.of(context).textTheme.display1.apply({color: white})
                                         }),
                                         new SizedBox({
                                             height: 15
@@ -193,7 +195,8 @@ export class HomeScreen extends StatelessWidget {
                                             child: ListView.builder({
                                                 scrollDirection: Axis.horizontal,
                                                 itemCount: 0,
-                                                itemBuilder: (context: BuildContext, index: number) => {
+                                                itemBuilder: (context: BuildContext, index: number) => 
+                                                {
                                                     return new SizedBox({});
                                                 }
                                             })
