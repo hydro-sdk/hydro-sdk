@@ -1,15 +1,15 @@
-import {Axis} from "../painting/axis";
-import {EdgeInsets} from "../painting/edgeInsets";
-import {DragStartBehavior} from "../gestures/dragStartBehavior";
-import {DartObject} from "../../dart/core/object";
+import { Axis } from "../painting/axis";
+import { EdgeInsets } from "../painting/edgeInsets";
+import { DragStartBehavior } from "../gestures/dragStartBehavior";
+import { DartObject } from "../../dart/core/object";
 
-import {Key} from "./../key";
-import {BuildContext} from "./../buildContext";
-import {Widget} from "./../widget";
-import {StatelessWidget} from "./../widgets/statelessWidget";
-import {SliverChildBuilderDelegate} from "./../widgets/sliverChildBuilderDelegate";
+import { Key } from "./../key";
+import { BuildContext } from "./../buildContext";
+import { Widget } from "./../widget";
+import { StatelessWidget } from "./../widgets/statelessWidget";
+import { SliverChildBuilderDelegate } from "./../widgets/sliverChildBuilderDelegate";
 
-interface ListViewProps {
+interface ListViewBuilderProps {
     key?: Key | undefined;
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
@@ -29,82 +29,66 @@ interface ListViewProps {
 
 declare const flutter: {
     widgets: {
-        listView: (
+        listViewBuilder: (
             this: void,
-            props: ListViewProps & {
-                childrenDelegate: SliverChildBuilderDelegate;
-            }
+            props: ListViewBuilderProps
         ) => ListView;
     };
 };
 
-export class ListView extends StatelessWidget implements Readonly<DartObject> 
+type ListViewType = "builder";
+type ListViewProps = {} & ListViewBuilderProps;
+
+export class ListView extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "ListView";
-    public props: ListViewProps;
-    private childrenDelegate: SliverChildBuilderDelegate;
-    private constructor(childrenDelegate: SliverChildBuilderDelegate, props: ListViewProps) 
-    {
+    private readonly listViewType: ListViewType;
+    private readonly props: ListViewProps
+    private constructor(listViewType: ListViewType, props: ListViewProps) {
         super();
 
-        this.childrenDelegate = childrenDelegate;
+        this.listViewType = listViewType;
         this.props = props;
     }
 
-    public build(): Widget 
-    {
-        return flutter.widgets.listView({
-            childrenDelegate: this.childrenDelegate,
-            ...this.props
-        });
+    public build(): Widget {
+        switch (this.listViewType) {
+            case "builder":
+                return flutter.widgets.listViewBuilder(this.props);
+                break;
+        }
     }
 
-    public static builder(
-        props: Omit<ListViewProps, "itemBuilder"> & {
-            itemBuilder: (context: BuildContext, index: number) => Widget;
+    public static builder(props: ListViewBuilderProps): ListView {
+
+        if(props.scrollDirection === undefined){
+            props.scrollDirection = Axis.vertical;
         }
-    ): ListView 
-    {
-        const {
-            key,
-            scrollDirection = Axis.vertical,
-            reverse = false,
-            primary,
-            shrinkWrap = false,
-            padding,
-            itemExtent,
-            itemBuilder,
-            itemCount,
-            addAutomaticKeepAlives = true,
-            addRepaintBoundaries = true,
-            addSemanticIndexes = true,
-            cacheExtent,
-            semanticChildCount,
-            dragStartBehavior = DragStartBehavior.start
-        } = props;
 
-        const childrenDelegate = new SliverChildBuilderDelegate(itemBuilder, {
-            childCount: itemCount,
-            addAutomaticKeepAlives,
-            addRepaintBoundaries,
-            addSemanticIndexes
-        });
+        if(props.reverse === undefined){
+            props.reverse = false;
+        }
 
-        return new ListView(childrenDelegate, {
-            key,
-            scrollDirection,
-            reverse,
-            primary,
-            shrinkWrap,
-            padding,
-            itemExtent,
-            itemBuilder,
-            addAutomaticKeepAlives,
-            addRepaintBoundaries,
-            addSemanticIndexes,
-            cacheExtent,
-            semanticChildCount,
-            dragStartBehavior
-        });
+        if(props.shrinkWrap === undefined){
+            props.shrinkWrap = false;
+        }
+
+        if(props.addAutomaticKeepAlives === undefined){
+            props.addAutomaticKeepAlives = true;
+        }
+
+        if(props.addRepaintBoundaries === undefined){
+            props.addRepaintBoundaries = true;
+        }
+
+        if(props.addSemanticIndexes === undefined){
+            props.addSemanticIndexes = true;
+        }
+
+        if(props.dragStartBehavior === undefined){
+            props.dragStartBehavior = DragStartBehavior.start;
+        }
+
+        return new ListView("builder", props);
     }
 }

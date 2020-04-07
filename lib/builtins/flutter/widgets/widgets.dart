@@ -10,6 +10,7 @@ import 'package:flua/builtins/flutter/widgets/globalKey.dart';
 import 'package:flua/builtins/flutter/widgets/icon.dart';
 import 'package:flua/builtins/flutter/widgets/iconData.dart';
 import 'package:flua/builtins/flutter/widgets/image.dart';
+import 'package:flua/builtins/flutter/widgets/listview.dart';
 import 'package:flua/builtins/flutter/widgets/mediaQuery.dart';
 import 'package:flua/builtins/flutter/widgets/padding.dart';
 import 'package:flua/builtins/flutter/widgets/positioned.dart';
@@ -55,4 +56,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadImage(luaState: luaState, table: widgets);
   loadRichText(luaState: luaState, table: widgets);
   loadAlign(luaState: luaState, table: widgets);
+  loadListView(luaState: luaState, table: widgets);
 }
