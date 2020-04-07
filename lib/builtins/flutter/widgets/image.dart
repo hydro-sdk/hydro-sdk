@@ -14,8 +14,8 @@ loadImage({@required LuaState luaState, @required HydroTable table}) {
             parentState: luaState),
         semanticLabel: args[0]["semanticLabel"],
         excludeFromSemantics: args[0]["excludeFromSemantics"],
-        width: args[0]["width"].toDouble(),
-        height: args[0]["height"].toDouble(),
+        width: args[0]["width"]?.toDouble(),
+        height: args[0]["height"]?.toDouble(),
         color: maybeUnwrapAndBuildArgument<Widget>(args[0]["color"],
             parentState: luaState),
         colorBlendMode: BlendMode.values.firstWhere(
