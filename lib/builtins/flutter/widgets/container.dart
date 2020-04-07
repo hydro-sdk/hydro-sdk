@@ -16,6 +16,8 @@ loadContainer({@required LuaState luaState, @required HydroTable table}) {
             parentState: luaState),
         decoration: maybeUnwrapAndBuildArgument<Widget>(args[0]["decoration"],
             parentState: luaState),
+        margin: maybeUnwrapAndBuildArgument<Widget>(args[0]["margin"],
+            parentState: luaState),
         padding: maybeUnwrapAndBuildArgument<Widget>(args[0]["padding"],
             parentState: luaState),
         width: args[0]["width"],
