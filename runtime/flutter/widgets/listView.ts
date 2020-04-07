@@ -1,13 +1,13 @@
-import { Axis } from "../painting/axis";
-import { EdgeInsets } from "../painting/edgeInsets";
-import { DragStartBehavior } from "../gestures/dragStartBehavior";
-import { DartObject } from "../../dart/core/object";
+import {Axis} from "../painting/axis";
+import {EdgeInsets} from "../painting/edgeInsets";
+import {DragStartBehavior} from "../gestures/dragStartBehavior";
+import {DartObject} from "../../dart/core/object";
 
-import { Key } from "./../key";
-import { BuildContext } from "./../buildContext";
-import { Widget } from "./../widget";
-import { StatelessWidget } from "./../widgets/statelessWidget";
-import { SliverChildBuilderDelegate } from "./../widgets/sliverChildBuilderDelegate";
+import {Key} from "./../key";
+import {BuildContext} from "./../buildContext";
+import {Widget} from "./../widget";
+import {StatelessWidget} from "./../widgets/statelessWidget";
+import {SliverChildBuilderDelegate} from "./../widgets/sliverChildBuilderDelegate";
 
 interface ListViewBuilderProps {
     key?: Key | undefined;
@@ -44,48 +44,59 @@ export class ListView extends StatelessWidget implements Readonly<DartObject>
     public readonly runtimeType = "ListView";
     private readonly listViewType: ListViewType;
     private readonly props: ListViewProps
-    private constructor(listViewType: ListViewType, props: ListViewProps) {
+    private constructor(listViewType: ListViewType, props: ListViewProps) 
+    {
         super();
 
         this.listViewType = listViewType;
         this.props = props;
     }
 
-    public build(): Widget {
-        switch (this.listViewType) {
-            case "builder":
-                return flutter.widgets.listViewBuilder(this.props);
-                break;
+    public build(): Widget 
+    {
+        switch (this.listViewType) 
+        {
+        case "builder":
+            return flutter.widgets.listViewBuilder(this.props);
+            break;
         }
     }
 
-    public static builder(props: ListViewBuilderProps): ListView {
+    public static builder(props: ListViewBuilderProps): ListView 
+    {
 
-        if(props.scrollDirection === undefined){
+        if(props.scrollDirection === undefined)
+        {
             props.scrollDirection = Axis.vertical;
         }
 
-        if(props.reverse === undefined){
+        if(props.reverse === undefined)
+        {
             props.reverse = false;
         }
 
-        if(props.shrinkWrap === undefined){
+        if(props.shrinkWrap === undefined)
+        {
             props.shrinkWrap = false;
         }
 
-        if(props.addAutomaticKeepAlives === undefined){
+        if(props.addAutomaticKeepAlives === undefined)
+        {
             props.addAutomaticKeepAlives = true;
         }
 
-        if(props.addRepaintBoundaries === undefined){
+        if(props.addRepaintBoundaries === undefined)
+        {
             props.addRepaintBoundaries = true;
         }
 
-        if(props.addSemanticIndexes === undefined){
+        if(props.addSemanticIndexes === undefined)
+        {
             props.addSemanticIndexes = true;
         }
 
-        if(props.dragStartBehavior === undefined){
+        if(props.dragStartBehavior === undefined)
+        {
             props.dragStartBehavior = DragStartBehavior.start;
         }
 
