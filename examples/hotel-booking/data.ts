@@ -2,7 +2,8 @@ import { Color } from "../../runtime/dart/ui/color";
 
 export const MyColors = {
     darkBlue: new Color(0xff2446a6),
-    red: new Color(0xfffa9d85)
+    red: new Color(0xfffa9d85),
+    lighterBlue: new Color(0xff4169d8)
 };
 
 export const User = {
