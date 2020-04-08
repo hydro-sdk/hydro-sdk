@@ -16,7 +16,7 @@ loadFlutterLib({@required LuaState luaState, @required Context ctx}) {
 
   loadKey(flutter);
   loadMaterial(luaState: luaState, table: flutter);
-  loadPackage(flutter);
+  loadPackage(luaState: luaState, table: flutter);
   loadWidgets(luaState: luaState, table: flutter);
   loadPainting(luaState: luaState, table: flutter);
 }
