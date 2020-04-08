@@ -52,7 +52,9 @@ export type RuntimeType = "AppBar" |
     "InlineSpan" |
     "Align" |
     "ListView" |
-    "SliverChildBuilderDelegate";
+    "SliverChildBuilderDelegate" |
+    "Rect" |
+    "Offset";
 
 export interface DartObject {
     runtimeType: RuntimeType;
