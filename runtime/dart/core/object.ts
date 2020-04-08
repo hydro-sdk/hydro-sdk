@@ -56,7 +56,9 @@ export type RuntimeType = "AppBar" |
     "Rect" |
     "Offset" | 
     "FontWeight" |
-    "MaterialPageRoute";
+    "MaterialPageRoute" |
+    "Expanded" |
+    "Gradient";
 
 export interface DartObject {
     runtimeType: RuntimeType;
