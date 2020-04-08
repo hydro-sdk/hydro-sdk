@@ -10,8 +10,11 @@ loadBoxDecoration({@required LuaState luaState, @required HydroTable table}) {
       BoxDecoration(
           color: maybeUnwrapAndBuildArgument<Widget>(args[0]["color"],
               parentState: luaState),
+          borderRadius: maybeUnwrapAndBuildArgument<BorderRadiusGeometry>(
+              args[0]["borderRadius"],
+              parentState: luaState),
           shape: BoxShape.values.firstWhere((x) => x.index == args[0]["shape"],
-              orElse: () => null))
+              orElse: () => null)),
     ];
   });
 }
