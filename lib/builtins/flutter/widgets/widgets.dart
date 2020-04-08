@@ -12,6 +12,7 @@ import 'package:flua/builtins/flutter/widgets/iconData.dart';
 import 'package:flua/builtins/flutter/widgets/image.dart';
 import 'package:flua/builtins/flutter/widgets/listview.dart';
 import 'package:flua/builtins/flutter/widgets/mediaQuery.dart';
+import 'package:flua/builtins/flutter/widgets/navigator.dart';
 import 'package:flua/builtins/flutter/widgets/padding.dart';
 import 'package:flua/builtins/flutter/widgets/positioned.dart';
 import 'package:flua/builtins/flutter/widgets/preferredSize.dart';
@@ -57,4 +58,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadRichText(luaState: luaState, table: widgets);
   loadAlign(luaState: luaState, table: widgets);
   loadListView(luaState: luaState, table: widgets);
+  loadNavigator(luaState: luaState, table: widgets);
 }
