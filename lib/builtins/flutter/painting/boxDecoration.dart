@@ -14,7 +14,9 @@ loadBoxDecoration({@required LuaState luaState, @required HydroTable table}) {
               args[0]["borderRadius"],
               parentState: luaState),
           shape: BoxShape.values.firstWhere((x) => x.index == args[0]["shape"],
-              orElse: () => null)),
+              orElse: () => null),
+          gradient: maybeUnwrapAndBuildArgument<Gradient>(args[0]["gradient"],
+              parentState: luaState)),
     ];
   });
 }
