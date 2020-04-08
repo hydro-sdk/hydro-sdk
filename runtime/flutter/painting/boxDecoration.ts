@@ -1,9 +1,9 @@
-import { DartObject } from "../../dart/core/object";
-import { JITAllocatingRTManagedBox } from "../../syntheticBox";
+import {DartObject} from "../../dart/core/object";
+import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 
-import { Color } from "./../../dart/ui/color";
-import { BoxShape } from "./boxShape";
-import { BorderRadius } from "./borderRadius";
+import {Color} from "./../../dart/ui/color";
+import {BoxShape} from "./boxShape";
+import {BorderRadius} from "./borderRadius";
 
 interface BoxDecorationProps {
     color?: Color | undefined;
@@ -21,16 +21,19 @@ export class BoxDecoration extends JITAllocatingRTManagedBox<BoxDecorationProps,
 {
     public readonly runtimeType = "BoxDecoration";
     public props: BoxDecorationProps;
-    public constructor(props: BoxDecorationProps) {
+    public constructor(props: BoxDecorationProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.shape === undefined) {
+        if (this.props.shape === undefined) 
+        {
             this.props.shape = BoxShape.rectangle;
         }
     }
 
-    public unwrap(): BoxDecoration {
+    public unwrap(): BoxDecoration 
+    {
         return flutter.painting.boxDecoration(this.props);
     }
 }

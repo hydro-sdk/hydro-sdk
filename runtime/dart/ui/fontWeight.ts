@@ -1,18 +1,20 @@
-import { DartObject } from "./../core/object";
-import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import {DartObject} from "./../core/object";
+import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 declare const dart: {
     ui: {
         fontWeight: (this: void, index: number) => FontWeight;
-    }
-}
+    };
+};
 
-export class FontWeight extends JITAllocatingRTManagedBox<undefined, FontWeight> implements Readonly<DartObject>{
+export class FontWeight extends JITAllocatingRTManagedBox<undefined, FontWeight> implements Readonly<DartObject>
+{
     public readonly runtimeType = "FontWeight";
     public props = undefined;
     protected readonly index: number;
 
-    private constructor(index: number) {
+    private constructor(index: number) 
+    {
         super();
 
         this.index = index;
@@ -43,7 +45,8 @@ export class FontWeight extends JITAllocatingRTManagedBox<undefined, FontWeight>
         FontWeight.w900,
     ]
 
-    public unwrap(): FontWeight {
+    public unwrap(): FontWeight 
+    {
         return dart.ui.fontWeight(this.index);
     }
 }

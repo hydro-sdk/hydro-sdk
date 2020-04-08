@@ -1,4 +1,4 @@
-import { Color } from "../../runtime/dart/ui/color";
+import {Color} from "../../runtime/dart/ui/color";
 
 export const MyColors = {
     darkBlue: new Color(0xff2446a6),
@@ -11,7 +11,8 @@ export const User = {
     profilePicture: "https://cdn.pixabay.com/photo/2019/11/19/21/44/animal-4638598_960_720.jpg"
 };
 
-class DestinationModel {
+class DestinationModel 
+{
     public placeName: string;
     public imageUrl: string;
     public date: string;
@@ -21,7 +22,8 @@ class DestinationModel {
         imageUrl: string;
         date: string;
         hotelName: string;
-    }) {
+    }) 
+    {
         this.placeName = props.placeName;
         this.imageUrl = props.imageUrl;
         this.date = props.date;
