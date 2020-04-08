@@ -39,6 +39,7 @@ import { GestureDetector } from "../../../runtime/flutter/widgets/gestureDetecto
 import { Radius } from "../../../runtime/dart/ui/radius";
 import { TextStyle } from "../../../runtime/flutter/package/textStyle";
 import { FontWeight } from "../../../runtime/dart/ui/fontWeight";
+import { MyBottomNavBar } from "../widgets/myBottomNavBar";
 
 export class HomeScreen extends StatelessWidget {
     public build(context: BuildContext): Widget {
@@ -232,7 +233,10 @@ export class HomeScreen extends StatelessWidget {
                                                                                                 fontSize: 17,
                                                                                                 fontWeight: FontWeight.bold,
                                                                                                 color: white
-                                                                                            })
+                                                                                            }),
+                                                                                        }),
+                                                                                        new Text(destinationList[index].date, {
+                                                                                            style: Theme.of(context).textTheme.subtitle.apply({ color: white })
                                                                                         })
                                                                                     ]
                                                                                 })
@@ -245,9 +249,20 @@ export class HomeScreen extends StatelessWidget {
                                                     });
                                                 }
                                             })
-                                        })
+                                        }),
+                                        new Spacer({})
                                     ]
                                 })
+                            })
+                        }),
+                        new Positioned({
+                            bottom: 0,
+                            height: 70,
+                            left: 0,
+                            right: 0,
+                            child: new Padding({
+                                padding: EdgeInsets.all(11.0),
+                                child: new MyBottomNavBar()
                             })
                         })
                     ]
