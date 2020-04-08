@@ -4,6 +4,7 @@ import 'package:flua/builtins/flutter/widgets/center.dart';
 import 'package:flua/builtins/flutter/widgets/clipRRect.dart';
 import 'package:flua/builtins/flutter/widgets/column.dart';
 import 'package:flua/builtins/flutter/widgets/container.dart';
+import 'package:flua/builtins/flutter/widgets/expanded.dart';
 import 'package:flua/builtins/flutter/widgets/flexible.dart';
 import 'package:flua/builtins/flutter/widgets/gestureDetector.dart';
 import 'package:flua/builtins/flutter/widgets/globalKey.dart';
@@ -59,4 +60,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadAlign(luaState: luaState, table: widgets);
   loadListView(luaState: luaState, table: widgets);
   loadNavigator(luaState: luaState, table: widgets);
+  loadExpanded(luaState: luaState, table: widgets);
 }
