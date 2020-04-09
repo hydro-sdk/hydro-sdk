@@ -1,10 +1,10 @@
-import { Widget } from "../widget";
-import { DartObject } from "../../dart/core/object";
-import { Color } from "../../dart/ui/color";
+import {Widget} from "../widget";
+import {DartObject} from "../../dart/core/object";
+import {Color} from "../../dart/ui/color";
+import {StatelessWidget} from "../widgets/statelessWidget";
+import {BorderRadius} from "../painting/borderRadius";
 
-import { StatelessWidget } from "../widgets/statelessWidget";
-import { BorderRadius } from "../painting/borderRadius";
-import { Key } from "./../key";
+import {Key} from "./../key";
 
 
 interface InkWellProps {
@@ -26,34 +26,41 @@ interface InkWellProps {
 declare const flutter: {
     material: {
         inkWell: (this: void, props: InkWellProps) => InkWell;
-    }
-}
+    };
+};
 
-export class InkWell extends StatelessWidget implements Readonly<DartObject>{
+export class InkWell extends StatelessWidget implements Readonly<DartObject>
+{
     public readonly runtimeType = "InkWell";
     public props: InkWellProps;
-    public constructor(props: InkWellProps) {
+    public constructor(props: InkWellProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.enableFeedback === undefined) {
+        if (this.props.enableFeedback === undefined) 
+        {
             this.props.enableFeedback = true;
         }
 
-        if (this.props.excludeFromSemantics === undefined) {
+        if (this.props.excludeFromSemantics === undefined) 
+        {
             this.props.excludeFromSemantics = false;
         }
 
-        if (this.props.canRequestFocus === undefined) {
+        if (this.props.canRequestFocus === undefined) 
+        {
             this.props.canRequestFocus = true;
         }
 
-        if (this.props.autoFocus === undefined) {
+        if (this.props.autoFocus === undefined) 
+        {
             this.props.autoFocus = false;
         }
     }
 
-    public build() {
+    public build() 
+    {
         return flutter.material.inkWell(this.props);
     }
 }
