@@ -25,6 +25,7 @@ import 'package:flua/builtins/flutter/widgets/sizedBox.dart';
 import 'package:flua/builtins/flutter/widgets/spacer.dart';
 import 'package:flua/builtins/flutter/widgets/stack.dart';
 import 'package:flua/builtins/flutter/widgets/text.dart';
+import 'package:flua/builtins/flutter/widgets/transform.dart';
 import 'package:flua/luastate.dart';
 import 'package:flua/vm/table.dart';
 import 'package:meta/meta.dart';
@@ -61,4 +62,5 @@ loadWidgets({@required LuaState luaState, @required HydroTable table}) {
   loadListView(luaState: luaState, table: widgets);
   loadNavigator(luaState: luaState, table: widgets);
   loadExpanded(luaState: luaState, table: widgets);
+  loadTransform(luaState: luaState, table: widgets);
 }

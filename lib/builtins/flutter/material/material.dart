@@ -3,6 +3,7 @@ import 'package:flua/builtins/flutter/material/card.dart';
 import 'package:flua/builtins/flutter/material/flatButton.dart';
 import 'package:flua/builtins/flutter/material/floatingActionButton.dart';
 import 'package:flua/builtins/flutter/material/iconButton.dart';
+import 'package:flua/builtins/flutter/material/inkWell.dart';
 import 'package:flua/builtins/flutter/material/materialApp.dart';
 import 'package:flua/builtins/flutter/material/materialPageRoute.dart';
 import 'package:flua/builtins/flutter/material/popupMenuButton.dart';
@@ -32,4 +33,5 @@ loadMaterial({@required LuaState luaState, @required HydroTable table}) {
   loadPopupMenuButton(luaState: luaState, table: material);
   loadPopupMenuItem(luaState: luaState, table: material);
   loadMaterialPageRoute(luaState: luaState, table: material);
+  loadInkWell(luaState: luaState, table: material);
 }
