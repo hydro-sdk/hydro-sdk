@@ -1,6 +1,6 @@
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:hydro_sdk/reassembler/reassembleClosures.dart';
-import 'package:hydro_sdk/vm/context.dart';
+import 'package:hydro_sdk/cfr/reassembler/reassembleClosures.dart';
+import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

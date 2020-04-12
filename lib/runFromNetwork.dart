@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:typed_data';
-import 'package:hydro_sdk/hotReloadable.dart';
+import 'package:hydro_sdk/cfr/hotReloadable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
-import 'package:hydro_sdk/builtins/flutter/syntheticBox.dart';
+import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:flutter/material.dart';
 
 void _rebuildAllChildren(BuildContext context) {

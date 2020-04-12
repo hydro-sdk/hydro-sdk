@@ -1,5 +1,5 @@
-import 'package:hydro_sdk/coroutine/coroutineresult.dart';
-import 'package:hydro_sdk/builtins/flutter/syntheticBox.dart';
+import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
+import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
