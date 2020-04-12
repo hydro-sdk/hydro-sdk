@@ -1,4 +1,4 @@
-package com.example.flua
+package com.example.hydro_sdk
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

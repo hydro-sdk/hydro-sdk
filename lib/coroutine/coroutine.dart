@@ -1,6 +1,6 @@
-import 'package:flua/coroutine/coroutineresult.dart';
-import 'package:flua/coroutine/coroutinestatus.dart';
-import 'package:flua/vm/hydroFunction.dart';
+import 'package:hydro_sdk/coroutine/coroutineresult.dart';
+import 'package:hydro_sdk/coroutine/coroutinestatus.dart';
+import 'package:hydro_sdk/vm/hydroFunction.dart';
 
 class Coroutine {
   Coroutine(HydroFunction f);

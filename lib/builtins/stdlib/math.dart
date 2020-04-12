@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:flua/vm/context.dart';
-import 'package:flua/vm/table.dart';
+import 'package:hydro_sdk/vm/context.dart';
+import 'package:hydro_sdk/vm/table.dart';
 
 const rpd = pi / 180;
 

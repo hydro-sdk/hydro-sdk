@@ -1,6 +1,6 @@
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
-import 'package:flua/vm/local.dart';
+import 'package:hydro_sdk/vm/local.dart';
 
 List<int> hashLocal(Local local) {
   var output = AccumulatorSink<Digest>();

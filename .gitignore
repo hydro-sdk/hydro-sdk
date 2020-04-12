@@ -43,7 +43,7 @@ examples/**/*.lua
 assets/examples/*.lc
 assets/test/widget/*.lc
 assets/test/hot/*.lc
-flua/android/.project
+hydro_sdk/android/.project
 *.js
 .hydroc
 *.sha256

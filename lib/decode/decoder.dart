@@ -1,14 +1,14 @@
 import 'dart:typed_data';
 
-import 'package:flua/decode/codedump.dart';
-import 'package:flua/decode/decoderException.dart';
-import 'package:flua/decode/flavor.dart';
-import 'package:flua/util.dart';
-import 'package:flua/vm/const.dart';
-import 'package:flua/vm/inst.dart';
-import 'package:flua/vm/local.dart';
-import 'package:flua/vm/prototype.dart';
-import 'package:flua/vm/upvaldef.dart';
+import 'package:hydro_sdk/decode/codedump.dart';
+import 'package:hydro_sdk/decode/decoderException.dart';
+import 'package:hydro_sdk/decode/flavor.dart';
+import 'package:hydro_sdk/util.dart';
+import 'package:hydro_sdk/vm/const.dart';
+import 'package:hydro_sdk/vm/inst.dart';
+import 'package:hydro_sdk/vm/local.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
+import 'package:hydro_sdk/vm/upvaldef.dart';
 
 class Decoder {
   Decoder(this.buffer);

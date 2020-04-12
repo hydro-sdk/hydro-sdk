@@ -1,5 +1,5 @@
-import 'package:flua/reassembler/reassembleStatus.dart';
-import 'package:flua/vm/prototype.dart';
+import 'package:hydro_sdk/reassembler/reassembleStatus.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
 import 'package:meta/meta.dart';
 import 'dart:core';
 

@@ -1,10 +1,10 @@
-import 'package:flua/reassembler/hashPrototype.dart';
-import 'package:flua/reassembler/hashedPrototype.dart';
-import 'package:flua/reassembler/maybeDoPrototypeReassembly.dart';
-import 'package:flua/reassembler/maybeDoPrototypeRelocation.dart';
-import 'package:flua/reassembler/reassembleStatus.dart';
-import 'package:flua/vm/closure.dart';
-import 'package:flua/vm/prototype.dart';
+import 'package:hydro_sdk/reassembler/hashPrototype.dart';
+import 'package:hydro_sdk/reassembler/hashedPrototype.dart';
+import 'package:hydro_sdk/reassembler/maybeDoPrototypeReassembly.dart';
+import 'package:hydro_sdk/reassembler/maybeDoPrototypeRelocation.dart';
+import 'package:hydro_sdk/reassembler/reassembleStatus.dart';
+import 'package:hydro_sdk/vm/closure.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
 import 'package:meta/meta.dart';
 
 ReassembleStatus reassembleClosures(

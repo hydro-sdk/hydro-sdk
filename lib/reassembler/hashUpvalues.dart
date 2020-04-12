@@ -1,5 +1,5 @@
-import 'package:flua/reassembler/hashUpvalue.dart';
-import 'package:flua/vm/upvaldef.dart';
+import 'package:hydro_sdk/reassembler/hashUpvalue.dart';
+import 'package:hydro_sdk/vm/upvaldef.dart';
 
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';

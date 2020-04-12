@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:flua/vm/context.dart';
-import 'package:flua/vm/table.dart';
-import 'package:flua/util.dart';
+import 'package:hydro_sdk/vm/context.dart';
+import 'package:hydro_sdk/vm/table.dart';
+import 'package:hydro_sdk/util.dart';
 
 loadStringLib(Context ctx) {
   var string = new HydroTable();

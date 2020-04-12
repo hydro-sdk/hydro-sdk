@@ -1,9 +1,9 @@
-import 'package:flua/reassembler/hashPrototype.dart';
-import 'package:flua/reassembler/hashedPrototype.dart';
-import 'package:flua/reassembler/isReassemblyCandidate.dart';
-import 'package:flua/reassembler/reassemblePrototype.dart';
-import 'package:flua/reassembler/reassembleStatus.dart';
-import 'package:flua/vm/prototype.dart';
+import 'package:hydro_sdk/reassembler/hashPrototype.dart';
+import 'package:hydro_sdk/reassembler/hashedPrototype.dart';
+import 'package:hydro_sdk/reassembler/isReassemblyCandidate.dart';
+import 'package:hydro_sdk/reassembler/reassemblePrototype.dart';
+import 'package:hydro_sdk/reassembler/reassembleStatus.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
 import 'package:meta/meta.dart';
 
 void maybeDoPrototypeReassembly(

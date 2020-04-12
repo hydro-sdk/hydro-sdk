@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flua/runFromNetwork.dart';
+import 'package:hydro_sdk/runFromNetwork.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:flua/coroutine/coroutineresult.dart';
-import 'package:flua/hydroState.dart';
-import 'package:flua/reassembler/reassembleClosures.dart';
+import 'package:hydro_sdk/coroutine/coroutineresult.dart';
+import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/reassembler/reassembleClosures.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 

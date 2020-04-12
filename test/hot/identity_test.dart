@@ -1,8 +1,8 @@
-import 'package:flua/hydroState.dart';
-import 'package:flua/reassembler/hashInstructionBlock.dart';
-import 'package:flua/reassembler/hashPrototype.dart';
-import 'package:flua/reassembler/isRelocationCandidate.dart';
-import 'package:flua/vm/context.dart';
+import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/reassembler/hashInstructionBlock.dart';
+import 'package:hydro_sdk/reassembler/hashPrototype.dart';
+import 'package:hydro_sdk/reassembler/isRelocationCandidate.dart';
+import 'package:hydro_sdk/vm/context.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

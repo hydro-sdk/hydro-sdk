@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flua/integrationTestHarness.dart' as harness;
+import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
 
 void main() {
   testWidgets('counter sample app smoke test', (WidgetTester tester) async {

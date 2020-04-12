@@ -1,4 +1,4 @@
-import 'package:flua/vm/prototype.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
 import 'package:meta/meta.dart';
 
 class HashedPrototype {

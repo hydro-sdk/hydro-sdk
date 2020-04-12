@@ -1,5 +1,5 @@
-import 'package:flua/reassembler/hashInstruction.dart';
-import 'package:flua/vm/inst.dart';
+import 'package:hydro_sdk/reassembler/hashInstruction.dart';
+import 'package:hydro_sdk/vm/inst.dart';
 
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';

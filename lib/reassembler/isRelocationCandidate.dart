@@ -1,6 +1,6 @@
 import "package:meta/meta.dart";
 
-import 'package:flua/vm/prototype.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
 
 bool isRelocationCandidate(
     {@required Prototype destination,

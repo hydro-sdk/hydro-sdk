@@ -1,7 +1,7 @@
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
-import 'package:flua/reassembler/hashPrototype.dart';
-import 'package:flua/vm/prototype.dart';
+import 'package:hydro_sdk/reassembler/hashPrototype.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
 
 List<int> hashPrototypes(List<Prototype> prototypes) {
   var output = AccumulatorSink<Digest>();

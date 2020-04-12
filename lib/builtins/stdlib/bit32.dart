@@ -1,6 +1,6 @@
 //https://www.lua.org/manual/5.2/manual.html#6.7
-import 'package:flua/vm/context.dart';
-import 'package:flua/vm/table.dart';
+import 'package:hydro_sdk/vm/context.dart';
+import 'package:hydro_sdk/vm/table.dart';
 
 void loadBit32Lib(Context ctx) {
   var bit32 = HydroTable();

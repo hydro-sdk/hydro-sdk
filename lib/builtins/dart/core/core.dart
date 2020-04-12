@@ -1,5 +1,5 @@
-import 'package:flua/builtins/dart/core/print.dart';
-import 'package:flua/vm/table.dart';
+import 'package:hydro_sdk/builtins/dart/core/print.dart';
+import 'package:hydro_sdk/vm/table.dart';
 
 loadCore(HydroTable table) {
   var core = HydroTable();

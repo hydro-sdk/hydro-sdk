@@ -1,8 +1,8 @@
-import 'package:flua/vm/context.dart';
-import 'package:flua/vm/table.dart';
-import 'package:flua/thread/thread.dart';
-import 'package:flua/vm/luaerror.dart';
-import 'package:flua/util.dart';
+import 'package:hydro_sdk/vm/context.dart';
+import 'package:hydro_sdk/vm/table.dart';
+import 'package:hydro_sdk/thread/thread.dart';
+import 'package:hydro_sdk/vm/luaerror.dart';
+import 'package:hydro_sdk/util.dart';
 
 loadBaseLib(Context ctx) {
   ctx.env["assert"] = (List<dynamic> args) {

@@ -1,5 +1,5 @@
-import 'package:flua/builtins/flutter/syntheticBox.dart';
-import 'package:flua/hydroState.dart';
+import 'package:hydro_sdk/builtins/flutter/syntheticBox.dart';
+import 'package:hydro_sdk/hydroState.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 

@@ -1,12 +1,12 @@
 import 'dart:typed_data';
 
-import 'package:flua/buildProfile.dart';
-import 'package:flua/decode/codedump.dart';
-import 'package:flua/reassembler/hashPrototype.dart';
-import 'package:flua/vm/const.dart';
-import 'package:flua/vm/inst.dart';
-import 'package:flua/vm/local.dart';
-import 'package:flua/vm/upvaldef.dart';
+import 'package:hydro_sdk/buildProfile.dart';
+import 'package:hydro_sdk/decode/codedump.dart';
+import 'package:hydro_sdk/reassembler/hashPrototype.dart';
+import 'package:hydro_sdk/vm/const.dart';
+import 'package:hydro_sdk/vm/inst.dart';
+import 'package:hydro_sdk/vm/local.dart';
+import 'package:hydro_sdk/vm/upvaldef.dart';
 import 'package:meta/meta.dart';
 
 class Prototype {

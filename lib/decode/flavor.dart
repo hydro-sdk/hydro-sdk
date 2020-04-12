@@ -1,4 +1,4 @@
-import 'package:flua/vm/inst.dart';
+import 'package:hydro_sdk/vm/inst.dart';
 
 class Flavor {
   Flavor(

@@ -1,7 +1,7 @@
-import 'package:flua/vm/context.dart';
-import 'package:flua/builtins/dart/core/core.dart';
-import 'package:flua/builtins/dart/ui/ui.dart';
-import 'package:flua/vm/table.dart';
+import 'package:hydro_sdk/vm/context.dart';
+import 'package:hydro_sdk/builtins/dart/core/core.dart';
+import 'package:hydro_sdk/builtins/dart/ui/ui.dart';
+import 'package:hydro_sdk/vm/table.dart';
 
 loadDartLib(Context ctx) {
   var dart = HydroTable();

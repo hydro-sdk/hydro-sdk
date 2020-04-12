@@ -1,5 +1,5 @@
-import 'package:flua/decode/flavor.dart';
-import 'package:flua/vm/prototype.dart';
+import 'package:hydro_sdk/decode/flavor.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
 
 class CodeDump {
   String name;

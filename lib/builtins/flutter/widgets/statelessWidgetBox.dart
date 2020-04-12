@@ -1,7 +1,7 @@
-import 'package:flua/hydroState.dart';
-import 'package:flua/vm/closure.dart';
-import 'package:flua/vm/table.dart';
-import 'package:flua/builtins/flutter/syntheticBox.dart';
+import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/vm/closure.dart';
+import 'package:hydro_sdk/vm/table.dart';
+import 'package:hydro_sdk/builtins/flutter/syntheticBox.dart';
 import 'package:flutter/widgets.dart';
 
 class StatelessWidgetBox extends StatelessWidget {

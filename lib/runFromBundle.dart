@@ -1,6 +1,6 @@
-import 'package:flua/coroutine/coroutineresult.dart';
-import 'package:flua/builtins/flutter/syntheticBox.dart';
-import 'package:flua/hydroState.dart';
+import 'package:hydro_sdk/coroutine/coroutineresult.dart';
+import 'package:hydro_sdk/builtins/flutter/syntheticBox.dart';
+import 'package:hydro_sdk/hydroState.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

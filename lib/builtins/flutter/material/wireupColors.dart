@@ -1,6 +1,6 @@
-import 'package:flua/vm/context.dart';
-import 'package:flua/builtins/flutter/syntheticBox.dart';
-import 'package:flua/vm/table.dart';
+import 'package:hydro_sdk/vm/context.dart';
+import 'package:hydro_sdk/builtins/flutter/syntheticBox.dart';
+import 'package:hydro_sdk/vm/table.dart';
 import 'package:flutter/material.dart';
 
 class VMManagedMaterialAccentColor extends VMManagedBox<MaterialAccentColor> {

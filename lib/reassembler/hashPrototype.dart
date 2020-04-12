@@ -1,9 +1,9 @@
-import 'package:flua/reassembler/hashConstants.dart';
-import 'package:flua/reassembler/hashInstructionBlock.dart';
-import 'package:flua/reassembler/hashLocals.dart';
-import 'package:flua/reassembler/hashUpvalues.dart';
-import 'package:flua/vm/prototype.dart';
-import 'package:flua/vm/const.dart';
+import 'package:hydro_sdk/reassembler/hashConstants.dart';
+import 'package:hydro_sdk/reassembler/hashInstructionBlock.dart';
+import 'package:hydro_sdk/reassembler/hashLocals.dart';
+import 'package:hydro_sdk/reassembler/hashUpvalues.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
+import 'package:hydro_sdk/vm/const.dart';
 
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';

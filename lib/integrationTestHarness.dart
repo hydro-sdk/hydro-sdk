@@ -1,4 +1,4 @@
-import 'package:flua/runFromBundle.dart';
+import 'package:hydro_sdk/runFromBundle.dart';
 import 'package:flutter/material.dart';
 
 void main(String path) {

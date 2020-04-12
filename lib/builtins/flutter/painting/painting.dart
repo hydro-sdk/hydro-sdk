@@ -1,12 +1,12 @@
-import 'package:flua/builtins/flutter/painting/alignment.dart';
-import 'package:flua/builtins/flutter/painting/borderRadius.dart';
-import 'package:flua/builtins/flutter/painting/boxDecoration.dart';
-import 'package:flua/builtins/flutter/painting/edgeInsets.dart';
-import 'package:flua/builtins/flutter/painting/linearGradient.dart';
-import 'package:flua/builtins/flutter/painting/networkImage.dart';
-import 'package:flua/builtins/flutter/painting/textSpan.dart';
-import 'package:flua/hydroState.dart';
-import 'package:flua/vm/table.dart';
+import 'package:hydro_sdk/builtins/flutter/painting/alignment.dart';
+import 'package:hydro_sdk/builtins/flutter/painting/borderRadius.dart';
+import 'package:hydro_sdk/builtins/flutter/painting/boxDecoration.dart';
+import 'package:hydro_sdk/builtins/flutter/painting/edgeInsets.dart';
+import 'package:hydro_sdk/builtins/flutter/painting/linearGradient.dart';
+import 'package:hydro_sdk/builtins/flutter/painting/networkImage.dart';
+import 'package:hydro_sdk/builtins/flutter/painting/textSpan.dart';
+import 'package:hydro_sdk/hydroState.dart';
+import 'package:hydro_sdk/vm/table.dart';
 import 'package:meta/meta.dart';
 
 loadPainting({@required HydroState luaState, @required HydroTable table}) {

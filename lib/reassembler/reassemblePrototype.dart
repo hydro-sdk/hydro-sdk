@@ -1,6 +1,6 @@
 import 'dart:typed_data';
-import 'package:flua/vm/prototype.dart';
-import 'package:flua/reassembler/copyConstant.dart';
+import 'package:hydro_sdk/vm/prototype.dart';
+import 'package:hydro_sdk/reassembler/copyConstant.dart';
 import 'package:meta/meta.dart';
 
 void reassemblePrototype(

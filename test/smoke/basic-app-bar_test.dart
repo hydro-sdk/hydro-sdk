@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flua/integrationTestHarness.dart' as harness;
+import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
 
 class Choice {
   const Choice({this.title, this.icon});
