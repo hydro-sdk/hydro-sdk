@@ -1,8 +1,8 @@
 import 'package:flua/coroutine/coroutineresult.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 
-abstract class LuaFunction {
+abstract class HydroFunction {
   List<dynamic> call(List<dynamic> args);
   CoroutineResult pcall(List<dynamic> args);
-  LuaState get state;
+  HydroState get state;
 }

@@ -1,5 +1,5 @@
 import 'package:flua/buildProfile.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/reassembler/hashPrototype.dart';
 import 'package:flua/thread/thread.dart';
 import 'package:flua/thread/threadResult.dart';
@@ -26,7 +26,7 @@ class Closure {
 
   BuildProfile get buildProfile => proto.buildProfile;
 
-  List<dynamic> dispatch(List<dynamic> args, {@required LuaState parentState}) {
+  List<dynamic> dispatch(List<dynamic> args, {@required HydroState parentState}) {
     if (buildProfile == BuildProfile.release ||
         parentState?.dispatchContext?.dispatchContext == null ||
         parentState?.dispatchContext?.resssemblyMap == null) {
@@ -67,7 +67,7 @@ class Closure {
     return call(args);
   }
 
-  List<dynamic> call(List<dynamic> args, {LuaState parentState}) {
+  List<dynamic> call(List<dynamic> args, {HydroState parentState}) {
     // assert(parentState != null);
     var f = new Thread(closure: this).frame;
     f.loadArgs(args);

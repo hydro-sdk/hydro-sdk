@@ -15,19 +15,19 @@ import 'package:flua/decode/decoder.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/vm/luaerror.dart';
-import 'package:flua/vm/luafunction.dart';
+import 'package:flua/vm/hydroFunction.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flua/vm/upVal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 
-class LuaFunctionImpl extends LuaFunction {
-  LuaFunctionImpl(this.closure);
+class HydroFunctionImpl extends HydroFunction {
+  HydroFunctionImpl(this.closure);
   Closure closure;
-  LuaState get state => closure.context.userdata as LuaState;
+  HydroState get state => closure.context.userdata as HydroState;
   List<dynamic> call(List<dynamic> args) => closure(args);
-  CoroutineResult pcall(List<dynamic> args, {@required LuaState parentState}) {
+  CoroutineResult pcall(List<dynamic> args, {@required HydroState parentState}) {
     try {
       return new CoroutineResult(true, closure(args, parentState: parentState));
     } on LuaError catch (e) {
@@ -36,12 +36,12 @@ class LuaFunctionImpl extends LuaFunction {
   }
 
   bool operator ==(dynamic other) =>
-      other is LuaFunctionImpl && other.closure == closure;
+      other is HydroFunctionImpl && other.closure == closure;
   int get hashCode => closure.hashCode;
 }
 
 class DispatchContext {
-  final LuaFunctionImpl dispatchContext;
+  final HydroFunctionImpl dispatchContext;
 
   final List<List<String>> resssemblyMap;
 
@@ -49,7 +49,7 @@ class DispatchContext {
       {@required this.dispatchContext, @required this.resssemblyMap});
 }
 
-class LuaState {
+class HydroState {
   // ignore: non_constant_identifier_names
   HydroTable get _G => _context.env;
   final Context _context;
@@ -57,7 +57,7 @@ class LuaState {
 
   DispatchContext dispatchContext;
 
-  LuaState({bool loadLibs = true})
+  HydroState({bool loadLibs = true})
       : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;
 
@@ -74,16 +74,16 @@ class LuaState {
     }
   }
 
-  Future<LuaFunction> loadFileFromBundle(String path) async {
+  Future<HydroFunction> loadFileFromBundle(String path) async {
     var contents = await rootBundle.load(path);
     var decoder = Decoder(contents.buffer);
     var dump = decoder.readCodeDump(path);
 
-    return LuaFunctionImpl(Closure(dump.main,
+    return HydroFunctionImpl(Closure(dump.main,
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
-  Future<LuaFunction> loadFile(String path) async {
+  Future<HydroFunction> loadFile(String path) async {
     var f = File(path);
 
     if (!f.existsSync()) throw "$path not found";
@@ -94,18 +94,18 @@ class LuaState {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(path);
 
-    return LuaFunctionImpl(Closure(
+    return HydroFunctionImpl(Closure(
       dump.main,
       context: _context,
       upvalues: [Upval.store(_context.env)],
     ));
   }
 
-  Future<LuaFunctionImpl> loadBuffer(Uint8List buffer, String name) async {
+  Future<HydroFunctionImpl> loadBuffer(Uint8List buffer, String name) async {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(name);
 
-    return LuaFunctionImpl(Closure(dump.main,
+    return HydroFunctionImpl(Closure(dump.main,
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
@@ -129,7 +129,7 @@ class LuaState {
 
   static dynamic _convert(dynamic x) {
     if (x is Closure) {
-      return new LuaFunctionImpl(x);
+      return new HydroFunctionImpl(x);
     } else
       return x;
   }

@@ -1,10 +1,10 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadIcon({@required LuaState luaState, @required HydroTable table}) {
+loadIcon({@required HydroState luaState, @required HydroTable table}) {
   table["icon"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Icon(maybeUnwrapAndBuildArgument<Widget>(args[0], parentState: luaState),

@@ -1,10 +1,10 @@
 import 'package:flua/vm/context.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('', () async {
-    var state = LuaState();
+    var state = HydroState();
 
     List<String> outLines = [];
 

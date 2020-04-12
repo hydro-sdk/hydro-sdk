@@ -1,4 +1,4 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 
 class StatelessWidgetBox extends StatelessWidget {
   final HydroTable table;
-  final LuaState parentState;
+  final HydroState parentState;
 
   StatelessWidgetBox({@required this.table, @required this.parentState});
 
@@ -22,7 +22,7 @@ class StatelessWidgetBox extends StatelessWidget {
 
 class StatelessPreferredSizeBox extends PreferredSize {
   final HydroTable table;
-  final LuaState parentState;
+  final HydroState parentState;
 
   StatelessPreferredSizeBox({@required this.table, @required this.parentState});
 

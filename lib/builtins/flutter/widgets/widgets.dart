@@ -26,11 +26,11 @@ import 'package:flua/builtins/flutter/widgets/spacer.dart';
 import 'package:flua/builtins/flutter/widgets/stack.dart';
 import 'package:flua/builtins/flutter/widgets/text.dart';
 import 'package:flua/builtins/flutter/widgets/transform.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/table.dart';
 import 'package:meta/meta.dart';
 
-loadWidgets({@required LuaState luaState, @required HydroTable table}) {
+loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   var widgets = HydroTable();
 
   table["widgets"] = widgets;

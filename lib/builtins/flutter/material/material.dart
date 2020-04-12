@@ -12,12 +12,12 @@ import 'package:flua/builtins/flutter/material/popupMenuItem.dart';
 import 'package:flua/builtins/flutter/material/scaffold.dart';
 import 'package:flua/builtins/flutter/material/theme.dart';
 import 'package:flua/builtins/flutter/material/wireupColors.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/table.dart';
 
 import 'package:meta/meta.dart';
 
-loadMaterial({@required LuaState luaState, @required HydroTable table}) {
+loadMaterial({@required HydroState luaState, @required HydroTable table}) {
   var material = HydroTable();
 
   table["material"] = material;

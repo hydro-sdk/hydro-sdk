@@ -1,9 +1,9 @@
 import 'package:flua/coroutine/coroutineresult.dart';
 import 'package:flua/coroutine/coroutinestatus.dart';
-import 'package:flua/vm/luafunction.dart';
+import 'package:flua/vm/hydroFunction.dart';
 
 class Coroutine {
-  Coroutine(LuaFunction f);
+  Coroutine(HydroFunction f);
 
   CoroutineStatus _status;
   CoroutineStatus get status => _status;

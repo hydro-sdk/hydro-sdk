@@ -1,11 +1,11 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/reassembler/reassembleClosures.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('', () async {
-    var state1 = LuaState();
+    var state1 = HydroState();
 
     List<String> outLines = [];
 
@@ -14,25 +14,25 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    var state2 = LuaState();
+    var state2 = HydroState();
 
     state2.context.env["print"] = (List<dynamic> args) {
       outLines
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    var state3 = LuaState();
+    var state3 = HydroState();
 
     state3.context.env["print"] = (List<dynamic> args) {
       outLines
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    LuaFunctionImpl res1 = await state1.loadFile("hot/simple1.lc");
+    HydroFunctionImpl res1 = await state1.loadFile("hot/simple1.lc");
 
-    LuaFunctionImpl res2 = await state2.loadFile("hot/simple2.lc");
+    HydroFunctionImpl res2 = await state2.loadFile("hot/simple2.lc");
 
-    LuaFunctionImpl res3 = await state2.loadFile("hot/simple3.lc");
+    HydroFunctionImpl res3 = await state2.loadFile("hot/simple3.lc");
 
     var res =
         reassembleClosures(destination: res1.closure, source: res2.closure);

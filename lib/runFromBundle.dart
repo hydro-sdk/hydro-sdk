@@ -1,6 +1,6 @@
 import 'package:flua/coroutine/coroutineresult.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,7 +15,7 @@ class RunFromBundle extends StatefulWidget {
 
 class _RunFromBundle extends State<RunFromBundle> {
   final String path;
-  LuaState luaState = LuaState();
+  HydroState luaState = HydroState();
   Future<CoroutineResult> res;
 
   _RunFromBundle({@required this.path}) {

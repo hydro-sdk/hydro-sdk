@@ -1,6 +1,4 @@
-import 'dart:developer';
-
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/runtimeTypeToGeneric.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
@@ -8,7 +6,7 @@ import 'package:flua/vm/table.dart';
 import 'package:flutter/widgets.dart';
 
 loadAlwaysStoppedAnimation(
-    {@required LuaState luaState, @required HydroTable table}) {
+    {@required HydroState luaState, @required HydroTable table}) {
   table["alwaysStoppedAnimation"] = makeLuaDartFunc(func: (List<dynamic> args) {
     AlwaysStoppedAnimation res = translateRTTIToAlwaysStoppedAnimation(
         luaState: luaState,

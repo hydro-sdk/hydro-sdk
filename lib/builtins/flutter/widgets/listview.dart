@@ -1,4 +1,4 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
@@ -6,7 +6,7 @@ import 'package:flua/vm/table.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-loadListView({@required LuaState luaState, @required HydroTable table}) {
+loadListView({@required HydroState luaState, @required HydroTable table}) {
   table["listViewBuilder"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       ListView.builder(

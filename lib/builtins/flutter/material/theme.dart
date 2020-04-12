@@ -1,4 +1,4 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class VMManagedTextStyle extends VMManagedBox<TextStyle> {
   final HydroTable table;
   final TextStyle vmObject;
-  final LuaState luaState;
+  final HydroState luaState;
 
   VMManagedTextStyle(
       {@required this.table,
@@ -44,7 +44,7 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
 class VMManagedTextTheme extends VMManagedBox<TextTheme> {
   final HydroTable table;
   final TextTheme vmObject;
-  final LuaState luaState;
+  final HydroState luaState;
 
   VMManagedTextTheme(
       {@required this.table,
@@ -77,7 +77,7 @@ class VMManagedTextTheme extends VMManagedBox<TextTheme> {
 class VMManagedThemeData extends VMManagedBox<ThemeData> {
   final HydroTable table;
   final ThemeData vmObject;
-  final LuaState luaState;
+  final HydroState luaState;
   VMManagedThemeData(
       {@required this.table,
       @required this.vmObject,
@@ -90,7 +90,7 @@ class VMManagedThemeData extends VMManagedBox<ThemeData> {
   }
 }
 
-loadThemeOf({@required LuaState luaState, @required HydroTable table}) {
+loadThemeOf({@required HydroState luaState, @required HydroTable table}) {
   table["themeOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       VMManagedThemeData(

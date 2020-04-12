@@ -1,4 +1,4 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/runtimeTypeToGeneric.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
   final HydroTable table;
   final GlobalKey vmObject;
-  final LuaState parentState;
+  final HydroState parentState;
 
   RTManagedGlobalKey(
       {@required this.table,
@@ -35,7 +35,7 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
   }
 }
 
-loadGlobalKey({@required LuaState luaState, @required HydroTable table}) {
+loadGlobalKey({@required HydroState luaState, @required HydroTable table}) {
   table["globalKeyCtor"] = makeLuaDartFunc(func: (List<dynamic> args) {
     GlobalKey key = translateRTTIToGenericGlobalKey(
         runtimeType: RuntimeTypes.values.firstWhere(

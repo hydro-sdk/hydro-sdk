@@ -1,11 +1,11 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadInkWell({@required LuaState luaState, @required HydroTable table}) {
+loadInkWell({@required HydroState luaState, @required HydroTable table}) {
   table["inkWell"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       InkWell(

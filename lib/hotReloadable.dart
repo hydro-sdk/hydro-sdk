@@ -1,15 +1,15 @@
 import 'dart:typed_data';
 
 import 'package:flua/coroutine/coroutineresult.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/reassembler/reassembleClosures.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 mixin HotReloadable<T extends StatefulWidget> on State<T> {
-  LuaState luaState = LuaState();
+  HydroState luaState = HydroState();
   String lastHash;
-  LuaFunctionImpl func;
+  HydroFunctionImpl func;
   CoroutineResult res;
 
   Future<bool> hotReload(
@@ -44,7 +44,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
   Future<void> fullRestart(
       {@required Uint8List bytecodeImage, @required String baseUrl}) async {
     setState(() {
-      luaState = LuaState();
+      luaState = HydroState();
       func = null;
       res = null;
     });

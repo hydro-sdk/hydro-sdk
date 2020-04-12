@@ -2,12 +2,12 @@ import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flutter/material.dart';
 
 class StatefulWidgetBox extends StatefulWidget {
   final HydroTable table;
-  final LuaState parentState;
+  final HydroState parentState;
 
   StatefulWidgetBox({@required this.table, @required this.parentState});
 
@@ -21,7 +21,7 @@ class StatefulWidgetBox extends StatefulWidget {
 
 class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
   final HydroTable table;
-  final LuaState parentState;
+  final HydroState parentState;
 
   StatefulWidgetBoxState({@required this.table, @required this.parentState}) {
     table.map["setState"] = makeLuaDartFunc(func: (List<dynamic> args) {

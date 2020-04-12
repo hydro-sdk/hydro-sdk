@@ -1,10 +1,10 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flua/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadImage({@required LuaState luaState, @required HydroTable table}) {
+loadImage({@required HydroState luaState, @required HydroTable table}) {
   table["image"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Image(

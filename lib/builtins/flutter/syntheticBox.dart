@@ -1,4 +1,4 @@
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flua/vm/closure.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/widgets/statefulWidgetBox.dart';
@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flua/vm/table.dart';
 
 dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
-    {BuildContext context, @required LuaState parentState}) {
+    {BuildContext context, @required HydroState parentState}) {
   assert(parentState != null);
   //Unboxed target object
   if (arg is T) {

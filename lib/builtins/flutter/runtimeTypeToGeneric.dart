@@ -1,5 +1,5 @@
 import 'package:flua/builtins/flutter/syntheticBox.dart';
-import 'package:flua/luastate.dart';
+import 'package:flua/hydroState.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
@@ -20,7 +20,7 @@ GlobalKey translateRTTIToGenericGlobalKey(
 
 AlwaysStoppedAnimation translateRTTIToAlwaysStoppedAnimation(
     {@required RuntimeTypes runtimeType,
-    @required LuaState luaState,
+    @required HydroState luaState,
     @required dynamic value}) {
   switch (runtimeType) {
     case RuntimeTypes.AnimatedListState:
