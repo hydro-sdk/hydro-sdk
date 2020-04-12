@@ -39,6 +39,14 @@ type TransformScaleInner = TransformScaleProps & { transformType: "scale" };
 
 type TransformProps = TransformRotateInner | TransformTranslateInner | TransformScaleInner;
 
+declare const flutter: {
+    widgets: {
+        transformRotate: (this: void, props: TransformRotateProps) => Transform;
+        transformTranslate: (this: void, props: TransformTranslateProps) => Transform;
+        transformScale: (this: void, props: TransformScaleProps) => Transform;
+    };
+};
+
 export class Transform extends StatelessWidget implements Readonly<DartObject>
 {
     public readonly runtimeType = "Transform";
@@ -128,11 +136,3 @@ export class Transform extends StatelessWidget implements Readonly<DartObject>
         }
     }
 }
-
-declare const flutter: {
-    widgets: {
-        transformRotate: (this: void, props: TransformRotateProps) => Transform;
-        transformTranslate: (this: void, props: TransformTranslateProps) => Transform;
-        transformScale: (this: void, props: TransformScaleProps) => Transform;
-    };
-};

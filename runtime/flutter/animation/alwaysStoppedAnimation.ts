@@ -4,9 +4,15 @@ import {Color} from "../../dart/ui/color";
 
 import {Animation} from "./animation";
 
+declare const flutter: {
+    animation: {
+        alwaysStoppedAnimation: (this: void, arg: AlwaysStoppedAnimation<any>) => AlwaysStoppedAnimation<any>;
+    };
+};
+
 export class AlwaysStoppedAnimation<T extends number | Color>
     extends JITAllocatingRTManagedBox<undefined, AlwaysStoppedAnimation<T>>
-    implements Readonly<DartObject>, Animation<T> 
+    implements Readonly<DartObject>, Animation<T>
 {
     public readonly runtimeType = "Animation";
     private readonly targetRuntimeType: string;
@@ -24,9 +30,3 @@ export class AlwaysStoppedAnimation<T extends number | Color>
         this.targetRuntimeType = runtimType;
     }
 }
-
-declare const flutter: {
-    animation: {
-        alwaysStoppedAnimation: (this: void, arg: AlwaysStoppedAnimation<any>) => AlwaysStoppedAnimation<any>;
-    };
-};
