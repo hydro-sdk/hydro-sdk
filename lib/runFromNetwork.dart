@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'package:flua/hotReloadable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:flua/builtins/flutter/syntheticBox.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,9 @@ class _RunFromNetwork extends State<RunFromNetwork>
       };
     }
     maybeReload();
-    timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+    timer = Timer.periodic(
+        kDebugMode ? Duration(milliseconds: 500) : Duration(hours: 10),
+        (Timer timer) {
       maybeReload();
     });
   }

@@ -1,3 +1,4 @@
+import 'package:flua/builtins/flutter/animation/animation.dart';
 import 'package:flua/luastate.dart';
 import 'package:flua/vm/context.dart';
 import 'package:flua/builtins/flutter/key.dart';
@@ -19,4 +20,5 @@ loadFlutterLib({@required LuaState luaState, @required Context ctx}) {
   loadPackage(luaState: luaState, table: flutter);
   loadWidgets(luaState: luaState, table: flutter);
   loadPainting(luaState: luaState, table: flutter);
+  loadAnimation(luaState: luaState, table: flutter);
 }

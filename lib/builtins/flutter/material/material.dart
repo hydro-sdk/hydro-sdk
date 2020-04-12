@@ -1,5 +1,6 @@
 import 'package:flua/builtins/flutter/material/appBar.dart';
 import 'package:flua/builtins/flutter/material/card.dart';
+import 'package:flua/builtins/flutter/material/circularProgressIndicator.dart';
 import 'package:flua/builtins/flutter/material/flatButton.dart';
 import 'package:flua/builtins/flutter/material/floatingActionButton.dart';
 import 'package:flua/builtins/flutter/material/iconButton.dart';
@@ -34,4 +35,5 @@ loadMaterial({@required LuaState luaState, @required HydroTable table}) {
   loadPopupMenuItem(luaState: luaState, table: material);
   loadMaterialPageRoute(luaState: luaState, table: material);
   loadInkWell(luaState: luaState, table: material);
+  loadCircularProgressIndicator(luaState: luaState, table: material);
 }

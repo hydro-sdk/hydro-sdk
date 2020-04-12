@@ -60,7 +60,9 @@ export type RuntimeType = "AppBar" |
     "Expanded" |
     "Gradient" |
     "InkWell" |
-    "Transform";
+    "Transform" |
+    "AlwaysStoppedAnimation" |
+    "CircularProgressIndicator";
 
 export interface DartObject {
     runtimeType: RuntimeType;
