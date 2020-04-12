@@ -1,5 +1,5 @@
 import {DartObject} from "../../dart/core/object";
-import { Color } from "../../dart/ui/color";
+import {Color} from "../../dart/ui/color";
 
 export class Animation<T extends number | Color> implements Readonly<DartObject>
 {
