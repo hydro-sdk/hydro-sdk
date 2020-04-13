@@ -13,14 +13,19 @@
     "build:debug": "bash scripts/buildAll.bash debug",
     "build:release": "bash scripts/buildAll.bash release",
     "build:docs": "bash scripts/buildDocs.bash",
-    "build:examplesForDist":" cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
+    "build:examplesForDist": " cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
     "build:compiler": "(./node_modules/.bin/tsc -p compiler/tsconfig.json || true) && ./node_modules/.bin/browserify compiler/index.js -o dist/compiler.js --node --ignore-missing --exclude fsevents",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "@types/rimraf": "^2.0.3",
+    "chalk": "^3.0.0",
+    "minimist": "^1.2.0",
+    "rimraf": "^3.0.2",
     "@types/minimist": "^1.2.0",
     "@types/node": "^13.7.7",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
@@ -35,11 +40,5 @@
     "typedoc-neo-theme": "^1.0.8",
     "typescript": "^3.8.3",
     "typescript-to-lua": "^0.31.0"
-  },
-  "dependencies": {
-    "@types/rimraf": "^2.0.3",
-    "chalk": "^3.0.0",
-    "minimist": "^1.2.0",
-    "rimraf": "^3.0.2"
   }
 }
