@@ -26,6 +26,9 @@
     "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsdoc": "^10.0.3",
+    "typedoc": "^0.17.0-3",
+    "typedoc-neo-theme": "^1.0.8",
+    "typescript": "^3.8.3",
     "typescript-to-lua": "^0.31.0"
   },
   "dependencies": {
