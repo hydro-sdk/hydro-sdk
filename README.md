@@ -6,6 +6,14 @@ Author native [Flutter](https://flutter.dev/docs) experiences in Typescript and 
 
 # What
 Hydro provides a projection of Dart and Flutter into Typescript. Not everything Flutter provides has been projected yet. See https://chgibb.github.io/hydro-sdk/  
+Hydro compiles your code into a single `.hc` bytecode file which can be easily packed into an existing Flutter app or loaded over the network.
+
+# Why
+## Easier Delivery
+Serve complete experiences over HTTP. Deliver updates to parts of your app, or deliver your entire app as a packaged bytecode image over the air to users. No app stores or long reviews.
+
+## Author Experiences in More Expressive Languages
+
 
 
 # Limitations
@@ -14,6 +22,7 @@ Hydro provides a projection of Dart and Flutter into Typescript. Not everything 
     - Most patterns that look like `Widget<OtherWidget>` aren't possible to express in guest code
     - Stateful hot-reload of guest code works with some limits. Incoming code with a higher number of function prototypes than what is currently running, or incoming code which would force a relocation of a running function prototype to a much higher source mapping will cause an abort and full restart.
     - Incoming code built in release mode will cause a full restart.
+    - It's not yet possible to pass arguments at startup from Dart -> guest code
 - Typescript
     - The compiler toolchain needs to control `tsconfig` options in order to control compilation for different build profiles. `strict` is always turned on by default.
     - No `async` or `await` 
