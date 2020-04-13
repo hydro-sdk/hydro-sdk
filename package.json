@@ -12,7 +12,11 @@
     "luac": "./../luac.lua -o assets/examples/hw.hc assets/examples/hw.lua",
     "build:debug": "bash scripts/buildAll.bash debug",
     "build:release": "bash scripts/buildAll.bash release",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:docs": "bash scripts/buildDocs.bash",
+    "build:examplesForDist":" cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
+    "build:compiler": "(./node_modules/.bin/tsc -p compiler/tsconfig.json || true) && ./node_modules/.bin/browserify compiler/index.js -o dist/compiler.js --node --ignore-missing --exclude fsevents",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +25,7 @@
     "@types/node": "^13.7.7",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^1.10.2",
+    "browserify": "^16.5.1",
     "chokidar": "^3.3.1",
     "escape-regex-string": "^1.0.6",
     "eslint": "^5.16.0",
