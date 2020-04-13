@@ -5,7 +5,7 @@ void main() {
   test('', () async {
     var state = HydroState();
 
-    var res = await state.doFile("lua/spec/checktable.lc");
+    var res = await state.doFile("lua/spec/checktable.hc");
     print(res.toString());
 
     expect(res.success, true);

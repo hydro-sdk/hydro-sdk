@@ -17,7 +17,7 @@ void main() {
       "e91c254ad58860a02c788dfb5c1a65d6a8846ab1dc649631c7db16fef4af2dec"
     ];
 
-    var res = await state.doFile("lua/sha256.lc");
+    var res = await state.doFile("lua/sha256.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

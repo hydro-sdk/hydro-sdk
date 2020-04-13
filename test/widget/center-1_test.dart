@@ -4,7 +4,7 @@ import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
 
 void main() {
   testWidgets('center widget test', (WidgetTester tester) async {
-    harness.main("assets/test/widget/center-1.ts.lc");
+    harness.main("assets/test/widget/center-1.ts.hc");
     await tester.pump();
 
     expect(find.byKey(Key("non-null child")), findsOneWidget);

@@ -5,7 +5,7 @@ import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
 void main() {
   testWidgets('animated_list sample app smoke test',
       (WidgetTester tester) async {
-    harness.main("assets/test/widget/sizedBox-1.ts.lc");
+    harness.main("assets/test/widget/sizedBox-1.ts.hc");
     await tester.pump();
 
     expect(find.byKey(Key("empty")), findsOneWidget);

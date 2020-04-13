@@ -5,7 +5,7 @@ import { transpileFiles, CompilerOptions, LuaTarget, LuaLibImportKind, Transpile
 import { BuildOptions } from "./buildOptions";
 
 export function transpile(config: BuildOptions): TranspileFilesResult {
-    const tstlOpt: CompilerOptions = { strict: true, luaTarget: LuaTarget.Lua51, luaLibImport: LuaLibImportKind.Inline };
+    const tstlOpt: CompilerOptions = { strict: true, luaTarget: LuaTarget.Lua52, luaLibImport: LuaLibImportKind.Inline };
 
     if (config.profile == "debug") {
         // tstlOpt.sourceMapTraceback = true;

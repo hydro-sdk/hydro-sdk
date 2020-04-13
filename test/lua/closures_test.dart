@@ -28,7 +28,7 @@ void main() {
       "421	422	423"
     ];
 
-    var res = await state.doFile("lua/closures.lc");
+    var res = await state.doFile("lua/closures.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

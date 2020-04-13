@@ -20,7 +20,7 @@ void main() {
       "4	17",
     ];
 
-    var res = await state.doFile("lua/ipairs.lc");
+    var res = await state.doFile("lua/ipairs.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

@@ -26,7 +26,7 @@ void main() {
       "-0.111"
     ];
 
-    var res = await state.doFile("lua/arithmetic.lc");
+    var res = await state.doFile("lua/arithmetic.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

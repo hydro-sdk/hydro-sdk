@@ -35,7 +35,7 @@ void main() {
       "89",
     ];
 
-    var res = await state.doFile("lua/forloops.lc");
+    var res = await state.doFile("lua/forloops.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

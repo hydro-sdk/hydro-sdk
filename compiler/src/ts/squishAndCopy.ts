@@ -15,19 +15,19 @@ export function squishAndCopy(config: BuildOptions): void {
     const rawOut = fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}`).toString();
     fs.writeFileSync(`.hydroc/${configHash(config)}/${config.modName}`, bundlePrelude.concat(rawOut));
 
-    cp.execSync(`./../../compiler/res/darwin/luac52 ${config.profile == "release" ? "-s" : ""} -o ${config.modName}.lc ${config.modName}`, { cwd: `./.hydroc/${configHash(config)}` });
+    cp.execSync(`./../../compiler/res/darwin/luac52 ${config.profile == "release" ? "-s" : ""} -o ${config.modName}.hc ${config.modName}`, { cwd: `./.hydroc/${configHash(config)}` });
 
-    const outFile = `${config.outDir}/${config.modName}.lc`;
+    const outFile = `${config.outDir}/${config.modName}.hc`;
 
     fs.mkdirSync(path.dirname(outFile), { recursive: true });
 
-    fs.copyFileSync(`.hydroc/${configHash(config)}/${config.modName}.lc`, outFile);
+    fs.copyFileSync(`.hydroc/${configHash(config)}/${config.modName}.hc`, outFile);
 
     const hash = crypto.createHash("sha256");
-    hash.update(fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}.lc`).toString());
+    hash.update(fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}.hc`).toString());
     fs.writeFileSync(
-        `${config.outDir}/${config.modName}.lc.sha256`,
+        `${config.outDir}/${config.modName}.hc.sha256`,
         hash.digest("hex"));
 
-    console.log(`${chalk.green(config.entry)} ----> ${chalk.blue(`${config.outDir}/${config.modName}.lc.sha256`)}`);
+    console.log(`${chalk.green(config.entry)} ----> ${chalk.blue(`${config.outDir}/${config.modName}.hc.sha256`)}`);
 }

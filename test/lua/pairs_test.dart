@@ -21,7 +21,7 @@ void main() {
       "done",
     ];
 
-    var res = await state.doFile("lua/pairs.lc");
+    var res = await state.doFile("lua/pairs.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

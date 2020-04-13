@@ -57,7 +57,7 @@ function transpileTS(config: BuildOptions): void {
     console.log(`Build ${chalk.yellow(hash)}`);
     const res = transpile(config);
     emit(config, res);
-    console.log(`${chalk.green(config.entry)} ----> ${chalk.blue(`${config.outDir}/${config.modName}.lc`)}`);
+    console.log(`${chalk.green(config.entry)} ----> ${chalk.blue(`${config.outDir}/${config.modName}.hc`)}`);
     squishAndCopy(config);
 }
 

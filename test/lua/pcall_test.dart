@@ -15,12 +15,12 @@ void main() {
 
     List<String> expectedOutLines = [
       "ayy",
-      "false	lua/pcall.lc:3: md",
+      "false	lua/pcall.hc:3: md",
       "69",
       "true	420"
     ];
 
-    var res = await state.doFile("lua/pcall.lc");
+    var res = await state.doFile("lua/pcall.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

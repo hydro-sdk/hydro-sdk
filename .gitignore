@@ -40,9 +40,9 @@ node_modules
 luac.lua
 luac.5.3.5
 examples/**/*.lua
-assets/examples/*.lc
-assets/test/widget/*.lc
-assets/test/hot/*.lc
+assets/examples/*.hc
+assets/test/widget/*.hc
+assets/test/hot/*.hc
 hydro_sdk/android/.project
 *.js
 .hydroc

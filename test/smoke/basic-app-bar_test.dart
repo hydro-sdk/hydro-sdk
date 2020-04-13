@@ -59,7 +59,7 @@ Finder findChoiceCard(IconData icon) {
 
 void main() {
   testWidgets('basic_app_bar sample smoke test', (WidgetTester tester) async {
-    harness.main("assets/examples/basic-app-bar.lc");
+    harness.main("assets/examples/basic-app-bar.hc");
     await tester.pump();
 
     // Tap on the two action buttons and all of the overflow menu items.
