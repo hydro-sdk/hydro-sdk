@@ -48,4 +48,4 @@ hydro_sdk/android/.project
 .hydroc
 *.sha256
 !test/hot/**/*.sha256
-!dist/**
+!dist/compiler/**/*.js

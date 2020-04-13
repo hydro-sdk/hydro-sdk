@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "lib": [
+            "ES2015",
+            "DOM"
+        ],
+        "module": "commonjs",
+        "strict": true,
+        "strictPropertyInitialization": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+    },
+    "files": [
+        "index.ts"
+    ],
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
