@@ -12,6 +12,8 @@ Hydro provides a projection of Dart and Flutter into Typescript. Not everything 
 - General
     - Flutter, and some of it's most popular third party packages (Like `Provider` and `ScopedModel`) rely on a lot of widget tree walking with RTTI to identify ancestors. The interface between guest code -> host code is a natural type-erasure barrier. This could be overcome to some degree if Dart supported generic constructors.
     - Most patterns that look like `Widget<OtherWidget>` aren't possible to express in guest code
+    - Stateful hot-reload of guest code works with some limits. Incoming code with a higher number of function prototypes than what is currently running, or incoming code which would force a relocation of a running function prototype to a much higher source mapping will cause an abort and full restart.
+    - Incoming code built in release mode will cause a full restart.
 - Typescript
     - The compiler toolchain needs to control `tsconfig` options in order to control compilation for different build profiles. `strict` is always turned on by default.
     - No `async` or `await` 
