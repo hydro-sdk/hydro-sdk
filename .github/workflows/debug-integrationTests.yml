@@ -49,7 +49,7 @@ jobs:
       run: flutter doctor -v
     - name: Build Debug Fixtures
       run:
-        bash scripts/buildAll.bash debug
+        pwd && ls && bash scripts/buildAll.bash debug
     - name: Run Tests	
       run: |	
         flutter test
