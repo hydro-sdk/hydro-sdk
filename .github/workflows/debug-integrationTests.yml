@@ -50,7 +50,7 @@ jobs:
       # working-directory: hydro
     # - name: Flutter Format
       # run: flutter format --set-exit-if-changed --dry-run .
-      working-directory: hydro
+      # working-directory: hydro
     - name: Run Flutter unit tests.
       run: flutter test
       working-directory: hydro
