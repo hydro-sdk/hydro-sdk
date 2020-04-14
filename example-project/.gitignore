@@ -35,18 +35,3 @@ lib/generated_plugin_registrant.dart
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-
-node_modules
-luac.lua
-luac.5.3.5
-examples/**/*.lua
-assets/examples/*.hc
-assets/test/widget/*.hc
-assets/test/hot/*.hc
-hydro_sdk/android/.project
-*.js
-.hydroc
-*.sha256
-!test/hot/**/*.sha256
-!dist/compiler/**/*.js
-dist/**/*.ts
