@@ -52,5 +52,6 @@ jobs:
         npm run build:compiler
         pwd && ls && bash scripts/buildAll.bash debug
     - name: Run Tests	
+      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
       run: |	
-        flutter test
+        $GITHUB_WORKSPACE/flutter/bin/flutter test
