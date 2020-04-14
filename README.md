@@ -12,9 +12,77 @@ Hydro compiles your code into a single `.hc` bytecode file which can be easily p
 ## Easier Delivery
 Serve complete experiences over HTTP. Deliver updates to parts of your app, or deliver your entire app as a packaged bytecode image over the air to users. No app stores or long reviews.
 
+
 ## Author Experiences in More Expressive Languages
+The Flutter team has written at length about why Flutter uses Dart. Most prolifically on [Hackernoon](https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf) as well on the Flutter website and across Github and Reddit threads. Dart undeniably brings a world class tool chain, build and deployment experience. However, Dart undeniably is less expressive than competitors.
 
+For example, Flutter's Positioned widget is better expressed here as the following;
 
+Full file is here https://github.com/chgibb/hydro-sdk/blob/master/runtime/flutter/widgets/positioned.ts
+```typescript
+export class Positioned extends StatelessWidget implements Readonly<DartObject>
+{
+    public readonly runtimeType = "Positioned";
+    public props: PositionedProps;
+    public constructor(props: PositionedProps) 
+    {
+        super();
+        this.props = props;
+    }
+
+    public static directional(
+        //if the named arguments that the regular constructor expects changes,
+        //call sights to this method will become compilation errors if not changed
+        props: NonNullable<Omit<PositionedProps, "left" | "right">> & {
+            start: number;
+            end: number;
+            textDirection: TextDirection;
+        }
+    ): Positioned 
+    {
+        let left: number | undefined;
+        let right: number | undefined;
+
+        switch (props.textDirection) 
+        {
+        case TextDirection.rtl:
+            left = props.end;
+            right = props.start;
+            break;
+        case TextDirection.ltr:
+            left = props.start;
+            right = props.end;
+            break;
+        default:
+            //if the TextDirection enum gains new entries,
+            //this will become a compiler error
+            //until the switch becomes exhaustive
+            ((args: never): never => 
+            {
+                throw new Error(""); 
+            })(props.textDirection);
+            break;
+        }
+
+        return new Positioned({
+            key: props.key,
+            left,
+            top: props.top,
+            right,
+            bottom: props.bottom,
+            width: props.width,
+            height: props.height,
+            child: props.child
+        });
+    }
+...
+```
+
+# Getting Started
+Check out the example project at https://github.com/chgibb/hydro-sdk/tree/master/example-project for documentation about getting started
+
+# How
+A Common Flutter Runtime (CFR) is composed of a virtual machine implementing a subset of a Lua 5.2 environment, together with a runtime function reassembler powering hot-reload, bindings for Flutter, Dart, Dart UI, some Javascript builtins, and a set of Flutter widgets exposing it all to embedders. All written in pure Dart. Hydro-SDK combines the Common Flutter Runtime together with guest language projections and a compilation toolchain for compiling supported languages into Lua bytecode.
 
 # Limitations
 - General
