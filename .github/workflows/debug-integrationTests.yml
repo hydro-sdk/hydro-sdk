@@ -45,11 +45,11 @@ jobs:
     - name: Get packages for the Flutter project.
       run: flutter pub get
       working-directory: hydro
-    - name: Flutter Analyze
-      run: flutter analyze
-      working-directory: hydro
-    - name: Flutter Format
-      run: flutter format --set-exit-if-changed --dry-run .
+    # - name: Flutter Analyze
+      # run: flutter analyze
+      # working-directory: hydro
+    # - name: Flutter Format
+      # run: flutter format --set-exit-if-changed --dry-run .
       working-directory: hydro
     - name: Run Flutter unit tests.
       run: flutter test
