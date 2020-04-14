@@ -8,14 +8,16 @@ import * as chalk from "chalk";
 import { BuildOptions } from "./buildOptions";
 import { bundlePrelude } from "./bundlePrelude";
 import { configHash } from "./configHash";
+import { reconcileResourcePath } from "./reconcileResourcePath";
 
 export function squishAndCopy(config: BuildOptions): void {
     const platform = process.platform;
-    cp.execSync(`./../../compiler/res/${platform}/lua52 ./../../compiler/res/squish.lua`, { cwd: `./.hydroc/${configHash(config)}`, });
+
+    cp.execSync(`${reconcileResourcePath(`res/${platform}/lua52`)} ${reconcileResourcePath(`res/squish.lua`)}`, { cwd: `./.hydroc/${configHash(config)}`, });
     const rawOut = fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}`).toString();
     fs.writeFileSync(`.hydroc/${configHash(config)}/${config.modName}`, bundlePrelude.concat(rawOut));
 
-    cp.execSync(`./../../compiler/res/darwin/luac52 ${config.profile == "release" ? "-s" : ""} -o ${config.modName}.hc ${config.modName}`, { cwd: `./.hydroc/${configHash(config)}` });
+    cp.execSync(`${reconcileResourcePath(`res/${platform}/luac52`)} ${config.profile == "release" ? "-s" : ""} -o ${config.modName}.hc ${config.modName}`, { cwd: `./.hydroc/${configHash(config)}` });
 
     const outFile = `${config.outDir}/${config.modName}.hc`;
 
