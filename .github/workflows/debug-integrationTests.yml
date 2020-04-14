@@ -42,7 +42,7 @@ jobs:
         path: 'hydro'
 
     # Run the tests for the repository.
-    - name: Get packages for the Flutter project.
+    - name: Get packages for Hydro-SDK Dart
       run: flutter pub get
       working-directory: hydro
     # - name: Flutter Analyze
@@ -51,6 +51,12 @@ jobs:
     # - name: Flutter Format
       # run: flutter format --set-exit-if-changed --dry-run .
       # working-directory: hydro
-    - name: Run Flutter unit tests.
+    - name: Get packages for Hydro-SDK JS
+      run: npm install
+      working-directory: hydro
+    - name: Build Debug fixtures
+      run: bash scripts/buildAll.bash debug
+      working-directory: hydro
+    - name: Run Hydro-SDK tests
       run: flutter test
       working-directory: hydro
