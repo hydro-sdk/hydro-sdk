@@ -44,6 +44,7 @@ jobs:
     - name: Doctor
       # Run doctor, for ease of debugging any issues.
       run: flutter doctor -v
+    - uses: actions/checkout@v2	
     - name: Build Debug Fixtures
       working-directory: ${{ github.workspace }}
       run:
