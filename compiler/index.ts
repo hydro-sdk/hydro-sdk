@@ -1,4 +1,6 @@
 import * as fs from "fs";
+import * as cp from "child_process";
+import * as crypto from "crypto";
 
 import * as minimist from "minimist";
 import * as chalk from "chalk";
@@ -10,6 +12,11 @@ import { BuildOptions } from "./src/ts/buildOptions";
 import { transpile } from "./src/ts/transpile";
 import { squishAndCopy } from "./src/ts/squishAndCopy";
 import { configHash } from "./src/ts/configHash";
+
+import { DiagnosticMessageChain } from "typescript";
+import { transpileFiles, CompilerOptions, LuaTarget, LuaLibImportKind, TranspileFilesResult } from "typescript-to-lua";
+import { maybeReturnExecutableExtension } from "./src/ts/maybeReturnExecutableExtension";
+import { reconcileResourcePath } from "./src/ts/reconcileResourcePath";
 
 const argv = minimist(process.argv.slice(2));
 
@@ -53,12 +60,37 @@ if (!fs.existsSync(".hydroc")) {
 }
 
 function transpileTS(config: BuildOptions): void {
-    const hash = configHash(config);
-    console.log(`Build ${chalk.yellow(hash)}`);
-    const res = transpile(config);
-    emit(config, res);
-    console.log(`${chalk.green(config.entry)} ----> ${chalk.blue(`${config.outDir}/${config.modName}.hc`)}`);
-    squishAndCopy(config);
+    const buildHash = configHash(config);
+    console.log(`Build ${chalk.yellow(buildHash)}`);
+
+    const tempDir = `.hydroc/${buildHash}`;
+    const tempFile = `.hydroc/${buildHash}/${config.modName}`;
+    const outFile = `${config.outDir}/${config.modName}.hc`;
+    const outFileHash = `${config.outDir}/${config.modName}.hc.sha256`;
+
+    fs.mkdirSync(config.outDir, { recursive: true });
+    fs.mkdirSync(tempDir, { recursive: true });
+
+    const tstlOpt: CompilerOptions = {
+        strict: true,
+        sourceMapTraceback: false,
+        luaTarget: LuaTarget.Lua52,
+        luaLibImport: LuaLibImportKind.Require,
+        luaBundleEntry: config.entry,
+        luaBundle: tempFile
+    };
+
+    const res = transpileFiles([config.entry], tstlOpt);
+    fs.writeFileSync(tempFile, res.emitResult[0].text);
+
+    cp.execSync(`${reconcileResourcePath(`res/${process.platform}/luac52${maybeReturnExecutableExtension()}`)} ${config.profile == "release" ? "-s" : ""} -o ${outFile} ${tempFile}`);
+
+    const hash = crypto.createHash("sha256");
+    hash.update(fs.readFileSync(outFile).toString());
+    fs.writeFileSync(outFileHash, hash.digest("hex"));
+
+    console.log(`${chalk.green(config.entry)} ----> ${chalk.blue(outFile)}`);
+    console.log(`${chalk.green(config.entry)} ----> ${chalk.blue(outFileHash)}`);
 }
 
 if (watch !== undefined) {

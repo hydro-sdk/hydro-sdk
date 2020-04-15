@@ -14,19 +14,19 @@ import { maybeReturnExecutableExtension } from "./maybeReturnExecutableExtension
 export function squishAndCopy(config: BuildOptions): void {
     const platform = process.platform;
 
-    try{
-    var l = cp.execSync(`${reconcileResourcePath(`res/${platform}/lua52${maybeReturnExecutableExtension()}`)} ${reconcileResourcePath(`res/squish.lua`)}`, { cwd: `./.hydroc/${configHash(config)}`, });
-    console.log(l.toString())
-    }
-    catch(err){
-        console.log(typeof err);
-        console.log(err.status);
-        console.log(err.message);
-        console.log(err.stdout.toString());
-        console.log(err.stderr.toString());
-    }
-    const rawOut = fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}`).toString();
-    fs.writeFileSync(`.hydroc/${configHash(config)}/${config.modName}`, bundlePrelude.concat(rawOut));
+    // try{
+    // var l = cp.execSync(`${reconcileResourcePath(`res/${platform}/lua52${maybeReturnExecutableExtension()}`)} ${reconcileResourcePath(`res/squish.lua`)}`, { cwd: `./.hydroc/${configHash(config)}`, });
+    // console.log(l.toString())
+    // }
+    // catch(err){
+    //     console.log(typeof err);
+    //     console.log(err.status);
+    //     console.log(err.message);
+    //     console.log(err.stdout.toString());
+    //     console.log(err.stderr.toString());
+    // }
+    // const rawOut = fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}`).toString();
+    // fs.writeFileSync(`.hydroc/${configHash(config)}/${config.modName}`, bundlePrelude.concat(rawOut));
 
     cp.execSync(`${reconcileResourcePath(`res/${platform}/luac52${maybeReturnExecutableExtension()}`)} ${config.profile == "release" ? "-s" : ""} -o ${config.modName}.hc ${config.modName}`, { cwd: `./.hydroc/${configHash(config)}` });
 

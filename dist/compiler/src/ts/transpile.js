@@ -2,11 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var chalk = require("chalk");
 var typescript_to_lua_1 = require("typescript-to-lua");
+var configHash_1 = require("./configHash");
 function transpile(config) {
     var _a, _b;
-    var tstlOpt = { strict: true, luaTarget: typescript_to_lua_1.LuaTarget.Lua52, luaLibImport: typescript_to_lua_1.LuaLibImportKind.Inline };
+    var tstlOpt = {
+        strict: true,
+        sourceMapTraceback: false,
+        luaTarget: typescript_to_lua_1.LuaTarget.Lua52,
+        luaLibImport: typescript_to_lua_1.LuaLibImportKind.Require,
+        luaBundleEntry: config.entry,
+        luaBundle: ".hydroc/" + configHash_1.configHash(config) + "/" + config.modName
+    };
+    console.log(config.modName);
     if (config.profile == "debug") {
-        // tstlOpt.sourceMapTraceback = true;
+        tstlOpt.sourceMapTraceback = true;
     }
     var res = typescript_to_lua_1.transpileFiles([config.entry], tstlOpt);
     for (var i = 0; i != res.diagnostics.length; ++i) {
@@ -21,7 +30,8 @@ function transpile(config) {
         console.log(chalk.red(message));
         process.exit(1);
     }
-    console.log("    " + chalk.yellow("" + res.emitResult.length) + " inputs");
+    // fs.renameSync(`.hydroc/${configHash(config)}/.lua`, `.hydroc/${configHash(config)}/${config.modName}`);
+    // console.log(`    ${chalk.yellow(`${res.emitResult.length}`)} inputs`);
     return res;
 }
 exports.transpile = transpile;

@@ -1,14 +1,26 @@
+import * as fs from "fs";
+
 import * as chalk from "chalk";
 import { DiagnosticMessageChain } from "typescript";
 import { transpileFiles, CompilerOptions, LuaTarget, LuaLibImportKind, TranspileFilesResult } from "typescript-to-lua";
 
 import { BuildOptions } from "./buildOptions";
+import { configHash } from "./configHash";
 
 export function transpile(config: BuildOptions): TranspileFilesResult {
-    const tstlOpt: CompilerOptions = { strict: true, luaTarget: LuaTarget.Lua52, luaLibImport: LuaLibImportKind.Inline };
+    const tstlOpt: CompilerOptions = {
+        strict: true,
+        sourceMapTraceback:false,
+        luaTarget: LuaTarget.Lua52,
+        luaLibImport: LuaLibImportKind.Require,
+        luaBundleEntry: config.entry,
+        luaBundle: `.hydroc/${configHash(config)}/${config.modName}`
+    };
+
+    console.log(config.modName)
 
     if (config.profile == "debug") {
-        // tstlOpt.sourceMapTraceback = true;
+        tstlOpt.sourceMapTraceback = true;
     }
     const res = transpileFiles([config.entry], tstlOpt);
 
@@ -28,7 +40,8 @@ export function transpile(config: BuildOptions): TranspileFilesResult {
         process.exit(1);
     }
 
-    console.log(`    ${chalk.yellow(`${res.emitResult.length}`)} inputs`);
+    // fs.renameSync(`.hydroc/${configHash(config)}/.lua`, `.hydroc/${configHash(config)}/${config.modName}`);
+    // console.log(`    ${chalk.yellow(`${res.emitResult.length}`)} inputs`);
 
     return res;
 }
