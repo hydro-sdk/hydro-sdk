@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
-import 'package:hydro_sdk/runFromBundle.dart';
 
 //Hotel booking is a line for line port of https://github.com/cybdom/hotel_booking_ui
 void main() => runApp(RunFromNetwork(
