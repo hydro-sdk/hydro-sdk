@@ -49,4 +49,5 @@ hydro_sdk/android/.project
 *.sha256
 !test/hot/**/*.sha256
 !dist/compiler/**/*.js
+!dist/*.sha256
 dist/**/*.ts
