@@ -20,7 +20,10 @@ export function squishAndCopy(config: BuildOptions): void {
     }
     catch(err){
         console.log(typeof err);
-        console.log(err.toString());
+        console.log(err.status);
+        console.log(err.message);
+        console.log(err.stdout.toString());
+        console.log(err.stderr.toString());
     }
     const rawOut = fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}`).toString();
     fs.writeFileSync(`.hydroc/${configHash(config)}/${config.modName}`, bundlePrelude.concat(rawOut));

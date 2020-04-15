@@ -17,7 +17,10 @@ function squishAndCopy(config) {
     }
     catch (err) {
         console.log(typeof err);
-        console.log(err.toString());
+        console.log(err.status);
+        console.log(err.message);
+        console.log(err.stdout.toString());
+        console.log(err.stderr.toString());
     }
     var rawOut = fs.readFileSync(".hydroc/" + configHash_1.configHash(config) + "/" + config.modName).toString();
     fs.writeFileSync(".hydroc/" + configHash_1.configHash(config) + "/" + config.modName, bundlePrelude_1.bundlePrelude.concat(rawOut));
