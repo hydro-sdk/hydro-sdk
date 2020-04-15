@@ -50,3 +50,10 @@ or from an iOS simulator
 RunFromNetwork(baseUrl: "localhost:5000/assets/hello-world.hc")
 ```
 can be used
+
+## Debugging
+The following function
+```typescript
+import {pauseInDebugger} from "hydro-sdk/runtime/ts/debugger";
+```
+can be called to cause IDE dev tools to pause execution if the host application is running in debug mode and connected to a debugger. `pauseInDebugger` can optionally take a single argument, the value of which will be inspectable in the connected debugger. This can useful to inspect class layouts at runtime or to step between sequential `pauseInDebugger` calls.
