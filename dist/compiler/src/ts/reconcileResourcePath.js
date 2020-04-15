@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
 function reconcileResourcePath(resPath) {
+    console.log("cwd " + process.cwd());
     var devPath = path.resolve("compiler/" + resPath);
     if (fs.existsSync(devPath)) {
         console.log("Found " + devPath);

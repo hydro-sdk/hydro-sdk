@@ -2,6 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 export function reconcileResourcePath(resPath: string): string | undefined {
+    console.log(`cwd ${process.cwd()}`);
     const devPath = path.resolve(`compiler/${resPath}`);
 
     if (fs.existsSync(devPath)) {
