@@ -7,14 +7,10 @@ import * as chalk from "chalk";
 import * as rimraf from "rimraf";
 import * as chokidar from "chokidar";
 
-import { emit } from "./src/ts/emit";
 import { BuildOptions } from "./src/ts/buildOptions";
-import { transpile } from "./src/ts/transpile";
-import { squishAndCopy } from "./src/ts/squishAndCopy";
 import { configHash } from "./src/ts/configHash";
 
-import { DiagnosticMessageChain } from "typescript";
-import { transpileFiles, CompilerOptions, LuaTarget, LuaLibImportKind, TranspileFilesResult } from "typescript-to-lua";
+import { transpileFiles, CompilerOptions, LuaTarget, LuaLibImportKind } from "typescript-to-lua";
 import { maybeReturnExecutableExtension } from "./src/ts/maybeReturnExecutableExtension";
 import { reconcileResourcePath } from "./src/ts/reconcileResourcePath";
 
