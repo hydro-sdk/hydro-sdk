@@ -14,7 +14,14 @@ import { maybeReturnExecutableExtension } from "./maybeReturnExecutableExtension
 export function squishAndCopy(config: BuildOptions): void {
     const platform = process.platform;
 
-    cp.execSync(`${reconcileResourcePath(`res/${platform}/lua52${maybeReturnExecutableExtension()}`)} ${reconcileResourcePath(`res/squish.lua`)}`, { cwd: `./.hydroc/${configHash(config)}`, });
+    try{
+    var l = cp.execSync(`${reconcileResourcePath(`res/${platform}/lua52${maybeReturnExecutableExtension()}`)} ${reconcileResourcePath(`res/squish.lua`)}`, { cwd: `./.hydroc/${configHash(config)}`, });
+    console.log(l.toString())
+    }
+    catch(err){
+        console.log(typeof err);
+        console.log(err.toString());
+    }
     const rawOut = fs.readFileSync(`.hydroc/${configHash(config)}/${config.modName}`).toString();
     fs.writeFileSync(`.hydroc/${configHash(config)}/${config.modName}`, bundlePrelude.concat(rawOut));
 
