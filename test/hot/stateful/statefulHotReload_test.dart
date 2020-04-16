@@ -12,6 +12,7 @@ void main() {
 
       WidgetsFlutterBinding.ensureInitialized();
       await tester.pumpWidget(RunFromNetwork(
+        args: [],
         baseUrl: "http://127.0.0.1:3000/hot/stateful/counter.hc",
         downloadHash: (String uri) async {
           var file = File(hashPath);
