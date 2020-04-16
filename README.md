@@ -107,7 +107,7 @@ A Common Flutter Runtime (CFR) is composed of a virtual machine implementing a s
     - Most patterns that look like `Widget<OtherWidget>` aren't possible to express in guest code
     - Stateful hot-reload of guest code works with some limits. Incoming code with a higher number of function prototypes than what is currently running, or incoming code which would force a relocation of a running function prototype to a much higher source mapping will cause an abort and full restart.
     - Incoming code built in release mode will cause a full restart.
-    - It's not yet possible to pass arguments at startup from Dart -> guest code
+    - ~~It's not yet possible to pass arguments at startup from Dart -> guest code~~
 - Typescript
     - The compiler toolchain needs to control `tsconfig` options in order to control compilation for different build profiles. `strict` is always turned on by default.
     - No `async` or `await` 
