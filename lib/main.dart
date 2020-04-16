@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(RunFromNetwork(
-      baseUrl: "http://127.0.0.1:5000/examples/hotel-booking.hc"));
+      args: [], baseUrl: "http://127.0.0.1:5000/examples/hotel-booking.hc"));
 }
