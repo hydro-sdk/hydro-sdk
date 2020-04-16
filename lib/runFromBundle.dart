@@ -6,19 +6,21 @@ import 'package:flutter/widgets.dart';
 
 class RunFromBundle extends StatefulWidget {
   final String path;
+  final List<dynamic> args;
 
-  RunFromBundle({@required this.path});
+  RunFromBundle({@required this.path, @required this.args});
 
   @override
-  _RunFromBundle createState() => _RunFromBundle(path: path);
+  _RunFromBundle createState() => _RunFromBundle(path: path, args: args);
 }
 
 class _RunFromBundle extends State<RunFromBundle> {
   final String path;
+  final List<dynamic> args;
   HydroState luaState = HydroState();
   Future<CoroutineResult> res;
 
-  _RunFromBundle({@required this.path}) {
+  _RunFromBundle({@required this.path, @required this.args}) {
     res = luaState.doFileFromBundle(path);
   }
 
@@ -29,7 +31,8 @@ class _RunFromBundle extends State<RunFromBundle> {
       builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
         if (snapshot.hasData) {
           return maybeUnwrapAndBuildArgument<Widget>(
-              luaState.context.env["buildResult"],
+              luaState.context.env["hydroGlobalBuildResult"](
+                  args != null ? [null, ...args] : [])[0],
               parentState: luaState);
         }
         return Center(child: CircularProgressIndicator());

@@ -17,15 +17,20 @@ void _rebuildAllChildren(BuildContext context) {
 
 class RunFromNetwork extends StatefulWidget {
   final String baseUrl;
+  final List<dynamic> args;
   final Future<String> Function(String) downloadHash;
   final Future<Uint8List> Function(String) downloadByteCodeImage;
 
   RunFromNetwork(
-      {@required this.baseUrl, this.downloadHash, this.downloadByteCodeImage});
+      {@required this.baseUrl,
+      @required this.args,
+      this.downloadHash,
+      this.downloadByteCodeImage});
 
   @override
   _RunFromNetwork createState() => _RunFromNetwork(
       baseUrl: baseUrl,
+      args: args,
       downloadHash: downloadHash,
       downloadByteCodeImage: downloadByteCodeImage);
 }
@@ -33,6 +38,7 @@ class RunFromNetwork extends StatefulWidget {
 class _RunFromNetwork extends State<RunFromNetwork>
     with HotReloadable<RunFromNetwork> {
   final String baseUrl;
+  final List<dynamic> args;
 
   Timer timer;
   bool requiresRebuild = false;
@@ -41,7 +47,10 @@ class _RunFromNetwork extends State<RunFromNetwork>
   Future<Uint8List> Function(String) downloadByteCodeImage;
 
   _RunFromNetwork(
-      {@required this.baseUrl, this.downloadHash, this.downloadByteCodeImage}) {
+      {@required this.baseUrl,
+      @required this.args,
+      this.downloadHash,
+      this.downloadByteCodeImage}) {
     if (downloadHash == null) {
       downloadHash = (String uri) async {
         try {
@@ -131,7 +140,8 @@ class _RunFromNetwork extends State<RunFromNetwork>
         });
       }
       return maybeUnwrapAndBuildArgument<Widget>(
-          luaState.context.env["buildResult"],
+          luaState.context.env["hydroGlobalBuildResult"](
+              args != null ? [null, ...args] : [])[0],
           parentState: luaState);
     }
   }
