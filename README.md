@@ -78,6 +78,7 @@ export class Positioned extends StatelessWidget implements Readonly<DartObject>
 ...
 ```
 # Examples
+Each example can be run over the air directly off of Github using it's corresponding `.hc` file under assets/examples/
 ## examples/animated-list/
 A line for line port of the Flutter catalog example https://github.com/flutter/flutter/blob/master/examples/catalog/lib/animated_list.dart  
 
@@ -89,10 +90,10 @@ A line for line port of the Flutter catalog example https://github.com/flutter/f
 Obligatory Flutter stateful counter showcase
 
 ## examples/host-args/
-An example demonstrating how to pass arguments from a host Flutter application through to embedded Hydro content. See also https://github.com/chgibb/hydro-sdk/blob/master/test/smoke/host-args_test.dart
+An example demonstrating how to pass non-trivial arguments, including `Widget` trees from a host Flutter application through to embedded Hydro content. See also https://github.com/chgibb/hydro-sdk/blob/master/test/smoke/host-args_test.dart
 
 ## examples/hotel-booking/
-A line for line port of https://github.com/cybdom/hotel_booking_ui .  
+A line for line port of https://github.com/cybdom/hotel_booking_ui   
 Demonstrates a small but non-trivial UI in 800 lines of Typescript.
 # Getting Started
 Check out the example project at https://github.com/chgibb/hydro-sdk/tree/master/example-project for documentation about getting started
