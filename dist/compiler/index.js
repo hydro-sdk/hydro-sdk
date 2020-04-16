@@ -7,6 +7,7 @@ var minimist = require("minimist");
 var chalk = require("chalk");
 var rimraf = require("rimraf");
 var chokidar = require("chokidar");
+var ts = require("typescript");
 var configHash_1 = require("./src/ts/configHash");
 var typescript_to_lua_1 = require("typescript-to-lua");
 var maybeReturnExecutableExtension_1 = require("./src/ts/maybeReturnExecutableExtension");
@@ -61,6 +62,30 @@ function transpileTS(config) {
         luaBundle: tempFile
     };
     var res = typescript_to_lua_1.transpileFiles([config.entry], tstlOpt);
+    if (res.diagnostics && res.diagnostics.length) {
+        res.diagnostics.forEach(function (x) {
+            // console.log(x.messageText);
+            // console.log(x.category);
+            // console.log(x.file?.fileName);
+            // console.log(x.messageText);
+            // console.log(x.source);
+            if (x.file) {
+                var _a = x.file.getLineAndCharacterOfPosition(x.start), line = _a.line, character = _a.character;
+                var message = ts.flattenDiagnosticMessageText(x.messageText, "\n");
+                // console.log(`${x.file.fileName} (${line + 1},${character + 1}): ${message}`);
+                var fileNameMsg = chalk.blue(x.file.fileName);
+                var lineMsg = chalk.yellow(line + 1);
+                var characterMsg = chalk.yellow(character + 1);
+                var diagMsg = chalk.red(message);
+                console.log(fileNameMsg + ":" + lineMsg + ":" + characterMsg + " - " + diagMsg);
+            }
+            else {
+                var diagMsg = chalk.red(ts.flattenDiagnosticMessageText(x.messageText, "\n"));
+                console.log(diagMsg);
+            }
+        });
+        return;
+    }
     fs.writeFileSync(tempFile, res.emitResult[0].text);
     cp.execSync(reconcileResourcePath_1.reconcileResourcePath("res/" + process.platform + "/luac52" + maybeReturnExecutableExtension_1.maybeReturnExecutableExtension()) + " " + (config.profile == "release" ? "-s" : "") + " -o " + outFile + " " + tempFile);
     var hash = crypto.createHash("sha256");
