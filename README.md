@@ -77,7 +77,19 @@ export class Positioned extends StatelessWidget implements Readonly<DartObject>
     }
 ...
 ```
+# Examples
+## examples/animated-list/
+A line for line port of the Flutter catalog example https://github.com/flutter/flutter/blob/master/examples/catalog/lib/animated_list.dart  
 
+## examples/basic-app-bar/
+
+A line for line port of the Flutter catalog example https://github.com/flutter/flutter/blob/master/examples/catalog/lib/basic_app_bar.dart  
+
+## examples/counter/
+Obligatory Flutter stateful counter showcase
+
+## examples/host-args/
+An example demonstrating how to pass arguments from a host Flutter application through to embedded Hydro content. See also 
 # Getting Started
 Check out the example project at https://github.com/chgibb/hydro-sdk/tree/master/example-project for documentation about getting started
 
