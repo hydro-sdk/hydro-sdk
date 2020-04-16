@@ -1,1 +1,1 @@
-export * from './textStyle';
+export * from "./textStyle";

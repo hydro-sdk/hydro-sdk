@@ -4,7 +4,8 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadLinearGradient({@required HydroState luaState, @required HydroTable table}) {
+loadLinearGradient(
+    {@required HydroState luaState, @required HydroTable table}) {
   table["linearGradient"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       LinearGradient(

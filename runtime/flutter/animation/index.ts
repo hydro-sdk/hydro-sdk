@@ -1,2 +1,2 @@
-export * from './alwaysStoppedAnimation';
-export * from './animation';
+export * from "./alwaysStoppedAnimation";
+export * from "./animation";

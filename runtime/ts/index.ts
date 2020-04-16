@@ -1,2 +1,2 @@
-export * from './debugger';
-export * from './console';
+export * from "./debugger";
+export * from "./console";

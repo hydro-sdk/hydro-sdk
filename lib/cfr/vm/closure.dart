@@ -26,7 +26,8 @@ class Closure {
 
   BuildProfile get buildProfile => proto.buildProfile;
 
-  List<dynamic> dispatch(List<dynamic> args, {@required HydroState parentState}) {
+  List<dynamic> dispatch(List<dynamic> args,
+      {@required HydroState parentState}) {
     if (buildProfile == BuildProfile.release ||
         parentState?.dispatchContext?.dispatchContext == null ||
         parentState?.dispatchContext?.resssemblyMap == null) {

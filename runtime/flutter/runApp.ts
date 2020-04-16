@@ -1,7 +1,8 @@
-import { Widget } from "./widget";
+import {Widget} from "./widget";
 
 declare let hydroGlobalBuildResult: () => Widget;
 
-export function runApp(pred: (...args: any) => Widget): void {
+export function runApp(pred: (...args: any) => Widget): void 
+{
     hydroGlobalBuildResult = pred;
 }

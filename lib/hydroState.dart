@@ -27,7 +27,8 @@ class HydroFunctionImpl extends HydroFunction {
   Closure closure;
   HydroState get state => closure.context.userdata as HydroState;
   List<dynamic> call(List<dynamic> args) => closure(args);
-  CoroutineResult pcall(List<dynamic> args, {@required HydroState parentState}) {
+  CoroutineResult pcall(List<dynamic> args,
+      {@required HydroState parentState}) {
     try {
       return new CoroutineResult(true, closure(args, parentState: parentState));
     } on LuaError catch (e) {
