@@ -16,7 +16,7 @@ import {Column} from "./../../runtime/flutter/widgets/column";
 import {FloatingActionButton} from "./../../runtime/flutter/material/floatingActionButton";
 import {Icon} from "./../../runtime/flutter/widgets/icon";
 import {runApp} from "./../../runtime/flutter/runApp";
-import {add} from "./../../runtime/flutter/material/icons/add";
+import {add} from "./../../runtime/flutter/material/icons/ad";
 
 class MyApp extends StatelessWidget 
 {
