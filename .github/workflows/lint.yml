@@ -52,6 +52,9 @@ jobs:
     - name: Get packages for Hydro-SDK Dart
       run: flutter pub get
       working-directory: hydro
+    - name: Get packages for Hydro-SDK JS
+      run: npm install
+      working-directory: hydro
     - name: Flutter Format
       run: flutter format lib test --set-exit-if-changed
       working-directory: hydro
