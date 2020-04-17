@@ -84,7 +84,7 @@ class HydroState {
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
-  Future<HydroFunction> loadFile(String path) async {
+  Future<HydroFunctionImpl> loadFile(String path) async {
     var f = File(path);
 
     if (!f.existsSync()) throw "$path not found";

@@ -46,6 +46,17 @@ class Prototype {
     return null;
   }
 
+  List<int> opCodeRange() {
+    return code.list
+        .map((x) {
+          return x.OP;
+        })
+        .toList()
+        .cast<int>()
+        .toSet()
+        .toList();
+  }
+
   BuildProfile get topBuildProfile {
     if (lineStart == null ||
         lineEnd == null ||
