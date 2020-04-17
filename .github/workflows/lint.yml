@@ -53,7 +53,7 @@ jobs:
       run: flutter pub get
       working-directory: hydro
     - name: Flutter Format
-      run: flutter format --set-exit-if-changed --dry-run .
+      run: flutter format lib test --set-exit-if-changed
       working-directory: hydro
     - name: ESLint
       run: ./node_modules/.bin/eslint "examples/**/*.ts" "runtime/**/*.ts" --ext .ts --fix.
