@@ -1,4 +1,4 @@
-name: Debug Integration Tests
+name: Lint
 
 on: [push, pull_request]	
 
