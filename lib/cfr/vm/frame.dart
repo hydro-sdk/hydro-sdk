@@ -53,6 +53,8 @@ class Frame {
   // ignore: non_constant_identifier_names
   dynamic SR(int x, dynamic y) => R[x] = y;
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void loadReturns(List<dynamic> ret) {
     var pc = programCounter - 1;
     var A = code[pc * 4 + 1];
@@ -81,6 +83,8 @@ class Frame {
     }
   }
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   bool convertToString(int reg) {
     var x = GR(reg);
     if (x is num)
@@ -92,6 +96,8 @@ class Frame {
   dynamic getUpval(int idx) => upvalues[idx].get();
   dynamic setUpval(int idx, dynamic value) => upvalues[idx].set(value);
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void closeUpvals(int from) {
     if (_openUVs.isEmpty) return;
 
@@ -103,6 +109,8 @@ class Frame {
     }
   }
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   Upval openUpval(int reg) {
     if (_openUVs.isEmpty) {
       var uv = new Upval(reg, R);
@@ -126,6 +134,8 @@ class Frame {
     return uv;
   }
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void setTop(int x) {
     if (x >= R.length) {
       // expand registers when 1full
@@ -134,6 +144,8 @@ class Frame {
     top = x;
   }
 
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void loadArgs(List<dynamic> args) {
     for (int i = 0; i < min(args.length, prototype.params); i++) {
       SR(i, maybeAt(args, i));

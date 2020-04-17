@@ -2,6 +2,8 @@ import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:meta/meta.dart';
 
+@pragma('vm:prefer-inline')
+@pragma('dart2js:tryInline')
 ThreadResult instReturn(
     {@required Frame frame,
     @required int A,
