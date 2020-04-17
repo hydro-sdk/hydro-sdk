@@ -33,7 +33,7 @@ void main() {
   test('', () async {
     var state = HydroState();
 
-    var res = await state.loadFile("test/lua/sha256.hc");
+    var res = await state.loadFile("lua/sha256.hc");
 
     recurse(res.closure.proto);
 
