@@ -13,7 +13,7 @@
     "build:debug": "bash scripts/buildAll.bash debug",
     "build:release": "bash scripts/buildAll.bash release",
     "build:docs": "bash scripts/buildDocs.bash && cp _config.yml docs",
-    "build:examplesForDist": " cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
+    "build:examplesForDist": "npm run build:release && cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
     "build:compiler": "./node_modules/.bin/tsc -p compiler/tsconfig.json; rm -rf dist/compiler; cp -R compiler dist/compiler; rm -rf dist/compiler/**/*.ts;",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
