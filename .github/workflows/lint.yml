@@ -55,3 +55,6 @@ jobs:
     - name: Flutter Format
       run: flutter format --set-exit-if-changed --dry-run .
       working-directory: hydro
+    - name: ESLint
+      run: ./node_modules/.bin/eslint "examples/**/*.ts" "runtime/**/*.ts" --ext .ts --fix.
+      working-directory: hydro
