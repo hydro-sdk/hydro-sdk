@@ -45,6 +45,15 @@ void main() {
       print(" ${x.inst}");
     });
 
-    print("");
+    var status = res.staticallySelectInterpreters();
+    expect(status.length, 2);
+    expect(status[0].lineStart, 7);
+    expect(status[0].lineEnd, 9);
+    expect(status[0].selectedInterpreter, "charlie");
+
+    expect(status[1].lineStart, 11);
+    expect(status[1].lineEnd, 13);
+    expect(status[1].selectedInterpreter, "bravo");
+    print(status);
   });
 }

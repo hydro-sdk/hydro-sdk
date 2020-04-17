@@ -3,7 +3,9 @@ import 'dart:typed_data';
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
+import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
+import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:hydro_sdk/cfr/vm/inst.dart';
 import 'package:hydro_sdk/cfr/vm/local.dart';
 import 'package:hydro_sdk/cfr/vm/upvaldef.dart';
@@ -28,6 +30,8 @@ class Prototype {
   String source;
   List<int> lines;
   List<Local> locals;
+  ThreadResult Function({@required Frame frame, @required Prototype prototype})
+      interpreter;
 
   Prototype findPrototypeByHash({@required String targetHash}) {
     if (hashPrototype(this, includeSourceLocations: false) == targetHash) {
