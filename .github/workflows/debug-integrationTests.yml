@@ -15,7 +15,6 @@ jobs:
           TARGET: linux     
         - os: windows-2019
           TARGET: windows
-      # Disable fail-fast; we want results from all OSes even if one fails.
       fail-fast: false
 
     steps:
