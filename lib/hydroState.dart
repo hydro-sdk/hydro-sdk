@@ -35,7 +35,7 @@ class HydroFunctionImpl extends HydroFunction {
       return new CoroutineResult(false, [e.toString()]);
     }
   }
-  
+
   bool operator ==(dynamic other) =>
       other is HydroFunctionImpl && other.closure == closure;
   int get hashCode => closure.hashCode;
@@ -116,7 +116,7 @@ class HydroState {
 
   Future<CoroutineResult> doFile(String path,
           {List<dynamic> args = const []}) async =>
-      (await loadFile(path)).pcall(args,parentState: this);
+      (await loadFile(path)).pcall(args, parentState: this);
 
   Future<CoroutineResult> doFileFromBundle(String path,
           {List<dynamic> args = const []}) async =>
