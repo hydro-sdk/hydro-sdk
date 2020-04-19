@@ -116,7 +116,7 @@ class HydroState {
 
   Future<CoroutineResult> doFile(String path,
           {List<dynamic> args = const []}) async =>
-      (await loadFile(path)).pcall(args);
+      (await loadFile(path)).pcall(args,parentState: this);
 
   Future<CoroutineResult> doFileFromBundle(String path,
           {List<dynamic> args = const []}) async =>
