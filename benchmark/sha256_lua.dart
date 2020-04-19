@@ -58,9 +58,22 @@ class MinimalSha256Benchmark extends BenchmarkBase {
 void main() async {
   Sha256Benchmark sha256benchmark = Sha256Benchmark();
   await sha256benchmark.asyncSetup();
-  print(sha256benchmark.measure());
-
   MinimalSha256Benchmark minimalSha256Benchmark = MinimalSha256Benchmark();
   await minimalSha256Benchmark.asyncSetup();
-  print(minimalSha256Benchmark.measure());
+
+  double shaMeasure = 0;
+  double minShaMeasure = 0;
+
+  double repetitions = 5;
+
+  for (var i = 0; i != repetitions; ++i) {
+    shaMeasure += sha256benchmark.measure();
+  }
+
+  for (var i = 0; i != repetitions; ++i) {
+    minShaMeasure += minimalSha256Benchmark.measure();
+  }
+
+  print("Regular average ${shaMeasure / repetitions}");
+  print("Opt average ${minShaMeasure / repetitions}");
 }
