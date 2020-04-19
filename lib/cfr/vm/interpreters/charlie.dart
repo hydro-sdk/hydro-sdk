@@ -29,23 +29,28 @@ class CharlieInterpreter extends Interpreter {
         var B = frame.code[pc * 4 + 2];
         var C = frame.code[pc * 4 + 3];
 
-        if (OP == 1) {
-          loadk(frame: frame, A: A, B: B);
-        } else if (OP == 12) {
-          self(frame: frame, A: A, B: B, C: C);
-        } else if (OP == 13) {
-          add(frame: frame, A: A, B: B, C: C);
-        } else if (OP == 15) {
-          mul(frame: frame, A: A, B: B, C: C);
-        } else if (OP == 29) {
-          var res = call(frame: frame, A: A, B: B, C: C);
-          if (res != null) {
-            return res;
-          }
-        } else if (OP == 31) {
-          return instReturn(frame: frame, A: A, B: B, C: C);
-        } else {
-          throw "invalid instruction";
+        switch (OP) {
+          case 1:
+            loadk(frame: frame, A: A, B: B);
+            break;
+          case 12:
+            self(frame: frame, A: A, B: B, C: C);
+            break;
+          case 13:
+            add(frame: frame, A: A, B: B, C: C);
+            break;
+          case 15:
+            mul(frame: frame, A: A, B: B, C: C);
+            break;
+          case 29:
+            var res = call(frame: frame, A: A, B: B, C: C);
+            if (res != null) {
+              return res;
+            }
+            break;
+          case 31:
+            return instReturn(frame: frame, A: A, B: B, C: C);
+            break;
         }
       }
     } catch (e, bt) {

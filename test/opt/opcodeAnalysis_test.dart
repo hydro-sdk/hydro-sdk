@@ -33,7 +33,7 @@ void main() {
   test('', () async {
     var state = HydroState();
 
-    var res = await state.loadFile("lua/sha256.hc");
+    var res = await state.loadFile("test/lua/sha256.hc");
 
     recurse(res.closure.proto);
 
@@ -46,14 +46,15 @@ void main() {
     });
 
     var status = res.staticallySelectInterpreters();
-    expect(status.length, 2);
-    expect(status[0].lineStart, 7);
-    expect(status[0].lineEnd, 9);
-    expect(status[0].selectedInterpreter, "charlie");
+    expect(status.length, 4);
 
-    expect(status[1].lineStart, 11);
-    expect(status[1].lineEnd, 13);
-    expect(status[1].selectedInterpreter, "bravo");
-    print(status);
+    expect(
+        status.firstWhere((x) => x.selectedInterpreter == "bravo"), isNotNull);
+    expect(status.firstWhere((x) => x.selectedInterpreter == "charlie"),
+        isNotNull);
+    expect(
+        status.firstWhere((x) => x.selectedInterpreter == "delta"), isNotNull);
+    expect(
+        status.firstWhere((x) => x.selectedInterpreter == "echo"), isNotNull);
   });
 }
