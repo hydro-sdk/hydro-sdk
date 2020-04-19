@@ -12,7 +12,6 @@ import 'package:hydro_sdk/cfr/builtins/stdlib/table.dart';
 import 'package:hydro_sdk/cfr/builtins/ts/ts.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
-import 'package:hydro_sdk/cfr/opt/static/selectInterpreter.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/luaerror.dart';
@@ -36,15 +35,7 @@ class HydroFunctionImpl extends HydroFunction {
       return new CoroutineResult(false, [e.toString()]);
     }
   }
-
-  List<InterpreterSelectionStatus> staticallySelectInterpreters() {
-    List<InterpreterSelectionStatus> res = [];
-
-    maybeSelectInterpreter(status: res, prototype: closure.proto);
-
-    return res;
-  }
-
+  
   bool operator ==(dynamic other) =>
       other is HydroFunctionImpl && other.closure == closure;
   int get hashCode => closure.hashCode;

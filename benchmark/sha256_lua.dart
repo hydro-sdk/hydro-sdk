@@ -64,7 +64,7 @@ void main() async {
   double shaMeasure = 0;
   double minShaMeasure = 0;
 
-  double repetitions = 5;
+  double repetitions = 50;
 
   for (var i = 0; i != repetitions; ++i) {
     shaMeasure += sha256benchmark.measure();
