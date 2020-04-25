@@ -10,8 +10,8 @@
   "scripts": {
     "tstl": "tstl",
     "luac": "./../luac.lua -o assets/examples/hw.hc assets/examples/hw.lua",
-    "build:debug": "bash scripts/buildAll.bash debug",
-    "build:release": "bash scripts/buildAll.bash release",
+    "build:debug": "bash scripts/buildAllTs.bash debug",
+    "build:release": "bash scripts/buildAllTs.bash release",
     "build:docs": "bash scripts/buildDocs.bash && cp _config.yml docs",
     "build:examplesForDist": "npm run build:release && cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
     "build:compiler": "./node_modules/.bin/tsc -p compiler/tsconfig.json; rm -rf dist/compiler; cp -R compiler dist/compiler; rm -rf dist/compiler/**/*.ts;",

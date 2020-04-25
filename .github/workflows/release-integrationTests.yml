@@ -56,7 +56,7 @@ jobs:
       run: npm install
       working-directory: hydro
     - name: Build release fixtures
-      run: bash scripts/buildAll.bash release
+      run: bash scripts/buildAllTs.bash release
       working-directory: hydro
     - name: Run Hydro-SDK tests
       run: flutter test
