@@ -30,7 +30,7 @@ import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:meta/meta.dart';
 
-loadWidgets({@required HydroState luaState, @required HydroTable table}) {
+void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   var widgets = HydroTable();
 
   table["widgets"] = widgets;

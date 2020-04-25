@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 
-loadCoroutineLib(Context ctx) {
+void loadCoroutineLib(Context ctx) {
   var coroutine = new HydroTable();
   ctx.env["coroutine"] = coroutine;
 

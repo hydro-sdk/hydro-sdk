@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadCenter({@required HydroState luaState, @required HydroTable table}) {
+void loadCenter({@required HydroState luaState, @required HydroTable table}) {
   table["center"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Center(

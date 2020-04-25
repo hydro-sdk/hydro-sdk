@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadAnimatedList({@required HydroState luaState, @required HydroTable table}) {
+void loadAnimatedList({@required HydroState luaState, @required HydroTable table}) {
   table["animatedList"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       AnimatedList(

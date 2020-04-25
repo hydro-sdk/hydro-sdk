@@ -13,7 +13,7 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
   }
 }
 
-loadMediaQuery(HydroTable table) {
+void loadMediaQuery(HydroTable table) {
   table["mediaQueryOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       VMManagedMediaQueryData(

@@ -90,7 +90,7 @@ class VMManagedThemeData extends VMManagedBox<ThemeData> {
   }
 }
 
-loadThemeOf({@required HydroState luaState, @required HydroTable table}) {
+void loadThemeOf({@required HydroState luaState, @required HydroTable table}) {
   table["themeOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       VMManagedThemeData(

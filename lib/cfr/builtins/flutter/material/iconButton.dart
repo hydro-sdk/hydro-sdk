@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadIconButton({@required HydroState luaState, @required HydroTable table}) {
+void loadIconButton({@required HydroState luaState, @required HydroTable table}) {
   table["iconButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       IconButton(

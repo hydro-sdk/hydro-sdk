@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadSpacer({@required HydroState luaState, @required HydroTable table}) {
+void loadSpacer({@required HydroState luaState, @required HydroTable table}) {
   table["spacer"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Spacer(
