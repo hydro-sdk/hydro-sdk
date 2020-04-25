@@ -11,4 +11,6 @@ TestMode getTestMode() {
   if (envVar == "hx") {
     return TestMode.haxe;
   }
+
+  return null;
 }
