@@ -11,7 +11,7 @@ import {ResizeImage} from "../painting/resizeImage";
 import {NetworkImage} from "../painting/networkImage";
 
 import {StatelessWidget} from "./statelessWidget";
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 
 
 interface ImageProps {

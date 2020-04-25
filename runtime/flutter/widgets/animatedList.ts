@@ -1,4 +1,4 @@
-import {Key} from "../key";
+import {Key} from "./../foundation/key";
 import {BuildContext} from "../buildContext";
 import {Widget} from "../widget";
 import {DartObject} from "../../dart/core/object";

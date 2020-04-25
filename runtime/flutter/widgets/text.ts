@@ -1,7 +1,7 @@
 import {StatelessWidget} from "./statelessWidget";
 import {Widget} from "./../widget";
 import {TextStyle} from "./../package/textStyle";
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 
 interface TextProps {
     key?: Key | undefined;

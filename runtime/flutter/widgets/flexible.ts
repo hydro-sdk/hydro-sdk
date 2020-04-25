@@ -3,7 +3,7 @@ import {DartObject} from "../../dart/core/object";
 
 import {FlexFit} from "./../rendering/flexFit";
 import {StatelessWidget} from "./statelessWidget";
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 
 interface FlexibleProps {
     key?: Key | undefined;

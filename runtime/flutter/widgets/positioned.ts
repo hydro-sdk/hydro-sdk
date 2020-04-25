@@ -1,4 +1,4 @@
-import {Key} from "../key";
+import {Key} from "./../foundation/key";
 import {Widget} from "../widget";
 import {DartObject} from "../../dart/core/object";
 import {Rect} from "../../dart/ui/rect";

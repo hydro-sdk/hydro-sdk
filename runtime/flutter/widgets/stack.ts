@@ -2,7 +2,7 @@ import {DartObject} from "../../dart/core/object";
 import {TextDirection} from "../../dart/ui/textDirection";
 import {StackFit} from "../../flutter/rendering/stackFit";
 import {Overflow} from "../../flutter/rendering/overflow";
-import {Key} from "../key";
+import {Key} from "./../foundation/key";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Widget} from "./../widget";

@@ -1,4 +1,4 @@
-import {Key} from "../key";
+import {Key} from "./../foundation/key";
 import {Widget} from "../widget";
 import {EdgeInsets} from "../painting/edgeInsets";
 import {DartObject} from "../../dart/core/object";

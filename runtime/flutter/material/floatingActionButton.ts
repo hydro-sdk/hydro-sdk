@@ -1,5 +1,5 @@
 import {Widget} from "../widget";
-import {Key} from "../key";
+import {Key} from "./../foundation/key";
 import {DartObject} from "../../dart/core/object";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";

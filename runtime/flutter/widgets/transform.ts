@@ -3,7 +3,7 @@ import {DartObject} from "../../dart/core/object";
 import {Offset} from "../../dart/ui/offset";
 
 import {Alignment} from "./../painting/alignment";
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 
 interface TransformRotateProps {

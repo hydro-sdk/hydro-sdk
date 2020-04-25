@@ -3,7 +3,7 @@ import {EdgeInsets} from "../painting/edgeInsets";
 import {DragStartBehavior} from "../gestures/dragStartBehavior";
 import {DartObject} from "../../dart/core/object";
 
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 import {BuildContext} from "./../buildContext";
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
