@@ -1,4 +1,4 @@
-name: Release Integration Tests
+name: Release Mode Typescript Integration Tests
 
 on: [push, pull_request]	
 
