@@ -1,7 +1,7 @@
 import 'package:hydro_sdk/cfr/builtins/flutter/animation/animation.dart';
+import 'package:hydro_sdk/cfr/builtins/flutter/foundation/foundation.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/builtins/flutter/key.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/material/material.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/package/package.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/painting/painting.dart';
@@ -15,7 +15,7 @@ loadFlutterLib({@required HydroState luaState, @required Context ctx}) {
 
   ctx.env["flutter"] = flutter;
 
-  loadKey(flutter);
+  loadFoundation(luaState: luaState, table: flutter);
   loadMaterial(luaState: luaState, table: flutter);
   loadPackage(luaState: luaState, table: flutter);
   loadWidgets(luaState: luaState, table: flutter);
