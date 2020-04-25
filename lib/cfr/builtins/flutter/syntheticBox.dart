@@ -6,6 +6,19 @@ import 'package:hydro_sdk/cfr/builtins/flutter/widgets/statelessWidgetBox.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 
+Closure maybeFindInheritedMethod(
+    {@required HydroTable managedObject, @required String methodName}) {
+  return managedObject?.metatable != null
+      ? managedObject.metatable[methodName] != null
+          //For Typescript, TSTL places inherited methods directly onto an object's meta-table
+          ? managedObject.metatable[methodName]
+          : managedObject.metatable["__index"] != null
+              //Haxe places inherited methods onto a meta-meta table for some reason
+              ? managedObject.metatable["__index"][methodName]
+              : null
+      : null;
+}
+
 dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
     {BuildContext context, @required HydroState parentState}) {
   assert(parentState != null);
@@ -17,7 +30,7 @@ dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
   if (arg is HydroTable) {
     //Metatable will contain an inherited build function from the StatlessWidget base class
     Closure createState =
-        arg?.metatable != null ? arg.metatable["createState"] : null;
+        maybeFindInheritedMethod(managedObject: arg, methodName: "createState");
     if (createState != null) {
       return StatefulWidgetBox(
         table: arg,
@@ -25,7 +38,8 @@ dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
       );
     }
 
-    Closure build = arg?.metatable != null ? arg.metatable["build"] : null;
+    Closure build =
+        maybeFindInheritedMethod(managedObject: arg, methodName: "build");
     if (build != null) {
       if (arg["runtimeType"] == "PreferredSize") {
         return StatelessPreferredSizeBox(
@@ -40,7 +54,7 @@ dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
     }
 
     dynamic unwrap;
-    unwrap = arg?.metatable != null ? arg.metatable["unwrap"] : null;
+    unwrap = maybeFindInheritedMethod(managedObject: arg, methodName: "unwrap");
     if (unwrap == null) {
       unwrap = arg.map["unwrap"];
     }
