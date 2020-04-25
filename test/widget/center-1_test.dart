@@ -14,6 +14,7 @@ Future<void> testBody(
 void main() {
   testWidgets('center widget test', (WidgetTester tester) async {
     var testMode = getTestMode();
+    expect(testMode, isNotNull);
 
     if (testMode == TestMode.typescript) {
       await testBody(
