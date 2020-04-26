@@ -59,7 +59,11 @@ jobs:
       uses: krdlab/setup-haxe@v1
       with:
         haxe-version: 4.0.5
-    - name: Build Haxe Fixtures
+    - name: Build Haxe debug Fixtures
       shell: bash
-      run: bash scripts/buildAllHx.bash
+      run: bash scripts/buildAllHx.bash debug
+      working-directory: hydro
+    - name: Run Hydro-SDK tests
+      shell: bash
+      run: export HYDRO_TEST_MODE=hx; flutter test
       working-directory: hydro
