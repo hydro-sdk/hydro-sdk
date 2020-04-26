@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadSafeArea({@required HydroState luaState, @required HydroTable table}) {
+void loadSafeArea({@required HydroState luaState, @required HydroTable table}) {
   table["safeArea"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       SafeArea(

@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadInkWell({@required HydroState luaState, @required HydroTable table}) {
+void loadInkWell({@required HydroState luaState, @required HydroTable table}) {
   table["inkWell"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       InkWell(

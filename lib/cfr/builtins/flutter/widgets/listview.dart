@@ -6,7 +6,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-loadListView({@required HydroState luaState, @required HydroTable table}) {
+void loadListView({@required HydroState luaState, @required HydroTable table}) {
   table["listViewBuilder"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       ListView.builder(

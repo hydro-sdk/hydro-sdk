@@ -1,7 +1,7 @@
 import {Theme} from "../../runtime/flutter/material/theme";
 import {BuildContext} from "../../runtime/flutter/buildContext";
 import {MainAxisAlignment} from "../../runtime/flutter/widgets/mainAxisAlignment";
-import {Key} from "../../runtime/flutter/key";
+import {Key} from "../../runtime/flutter/foundation/key";
 
 import {Widget} from "./../../runtime/flutter/widget";
 import {StatelessWidget} from "./../../runtime/flutter/widgets/statelessWidget";

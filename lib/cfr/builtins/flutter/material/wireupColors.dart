@@ -23,7 +23,7 @@ class VMManagedColors extends VMManagedBox<dynamic> {
   }
 }
 
-loadWireupColors(HydroTable table) {
+void loadWireupColors(HydroTable table) {
   table["wireupColors"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [VMManagedColors(table: HydroTable()).table];
   });

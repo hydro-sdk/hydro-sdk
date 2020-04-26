@@ -4,7 +4,7 @@ import {Clip} from "../painting/clip";
 import {BorderRadius} from "../painting/borderRadius";
 
 import {StatelessWidget} from "./statelessWidget";
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 
 
 interface ClipRRectProps {

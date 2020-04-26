@@ -4,7 +4,8 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadTransform({@required HydroState luaState, @required HydroTable table}) {
+void loadTransform(
+    {@required HydroState luaState, @required HydroTable table}) {
   table["transformRotate"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Transform.rotate(

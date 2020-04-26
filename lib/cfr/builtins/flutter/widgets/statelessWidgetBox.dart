@@ -12,7 +12,8 @@ class StatelessWidgetBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Closure managedBuild = table.metatable["build"];
+    Closure managedBuild =
+        maybeFindInheritedMethod(managedObject: table, methodName: "build");
     var buildResult = managedBuild
         .dispatch([table.map, context], parentState: parentState)[0];
     return maybeUnwrapAndBuildArgument<Widget>(buildResult,
@@ -33,7 +34,8 @@ class StatelessPreferredSizeBox extends PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    Closure managedBuild = table.metatable["build"];
+    Closure managedBuild =
+        maybeFindInheritedMethod(managedObject: table, methodName: "build");
     var buildResult = managedBuild
         .dispatch([table.map, context], parentState: parentState)[0];
     return maybeUnwrapAndBuildArgument<Widget>(buildResult,

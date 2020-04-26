@@ -3,7 +3,7 @@ import 'package:hydro_sdk/cfr/builtins/dart/core/core.dart';
 import 'package:hydro_sdk/cfr/builtins/dart/ui/ui.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 
-loadDartLib(Context ctx) {
+void loadDartLib(Context ctx) {
   var dart = HydroTable();
 
   ctx.env["dart"] = dart;

@@ -1,4 +1,4 @@
-name: Debug Integration Tests
+name: Release Mode Typescript Integration Tests
 
 on: [push, pull_request]	
 
@@ -55,9 +55,10 @@ jobs:
     - name: Get packages for Hydro-SDK JS
       run: npm install
       working-directory: hydro
-    - name: Build debug fixtures
-      run: bash scripts/buildAll.bash debug
+    - name: Build Typescript release fixtures
+      run: bash scripts/buildAllTs.bash release
       working-directory: hydro
     - name: Run Hydro-SDK tests
-      run: flutter test
+      shell: bash
+      run: export HYDRO_TEST_MODE=ts; flutter test
       working-directory: hydro

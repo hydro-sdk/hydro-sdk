@@ -1,4 +1,4 @@
-import {Key} from "../../runtime/flutter/key";
+import {Key} from "../../runtime/flutter/foundation/key";
 
 import {runApp} from "./../../runtime/flutter/runApp";
 import {Center} from "./../../runtime/flutter/widgets/center";

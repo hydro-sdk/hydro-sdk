@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 
 const rpd = pi / 180;
 
-loadMathLib(Context ctx) {
+void loadMathLib(Context ctx) {
   var math = new HydroTable();
   ctx.env["math"] = math;
 

@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/builtins/dart/ui/size.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/builtins/dart/ui/color.dart';
 
-loadUi(HydroTable table) {
+void loadUi(HydroTable table) {
   var ui = HydroTable();
 
   table["ui"] = ui;

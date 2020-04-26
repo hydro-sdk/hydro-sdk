@@ -1,8 +1,10 @@
-import {DartObject} from "./../dart/core/object";
-import {JITAllocatingRTManagedBox} from "./../syntheticBox";
+import {DartObject} from "./../../dart/core/object";
+import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 declare const flutter: {
-    key: (this: void, value: string) => Key;
+    foundation: {
+        key: (this: void, value: string) => Key;
+    };
 };
 
 export class Key extends JITAllocatingRTManagedBox<{}, {}> implements Readonly<DartObject>
@@ -18,6 +20,6 @@ export class Key extends JITAllocatingRTManagedBox<{}, {}> implements Readonly<D
 
     public unwrap(): Key 
     {
-        return flutter.key(this.value);
+        return flutter.foundation.key(this.value);
     }
 }

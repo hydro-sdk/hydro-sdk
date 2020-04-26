@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 
-loadStringLib(Context ctx) {
+void loadStringLib(Context ctx) {
   var string = new HydroTable();
 
   ctx.env["string"] = string;

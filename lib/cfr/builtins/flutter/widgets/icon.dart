@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadIcon({@required HydroState luaState, @required HydroTable table}) {
+void loadIcon({@required HydroState luaState, @required HydroTable table}) {
   table["icon"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Icon(maybeUnwrapAndBuildArgument<Widget>(args[0], parentState: luaState),

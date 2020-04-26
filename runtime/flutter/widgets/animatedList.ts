@@ -1,8 +1,8 @@
-import {Key} from "../key";
 import {BuildContext} from "../buildContext";
 import {Widget} from "../widget";
 import {DartObject} from "../../dart/core/object";
 
+import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 import {GlobalKey} from "./globalKey";
 

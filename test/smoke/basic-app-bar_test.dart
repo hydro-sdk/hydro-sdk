@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
+import 'package:hydro_sdk/testMode.dart';
 
 class Choice {
   const Choice({this.title, this.icon});
@@ -59,6 +60,13 @@ Finder findChoiceCard(IconData icon) {
 
 void main() {
   testWidgets('basic_app_bar sample smoke test', (WidgetTester tester) async {
+    var testMode = getTestMode();
+    expect(testMode, isNotNull);
+
+    if (testMode != TestMode.typescript) {
+      return;
+    }
+
     harness.main("assets/examples/basic-app-bar.hc");
     await tester.pump();
 

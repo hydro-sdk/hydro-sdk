@@ -2,7 +2,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadBorderRadius(HydroTable table) {
+void loadBorderRadius(HydroTable table) {
   table["borderRadiusOnly"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       BorderRadius.only(

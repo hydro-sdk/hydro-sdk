@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:flutter/material.dart';
 
-loadPopupMenuButton(
+void loadPopupMenuButton(
     {@required HydroState luaState, @required HydroTable table}) {
   table["popupMenuButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
