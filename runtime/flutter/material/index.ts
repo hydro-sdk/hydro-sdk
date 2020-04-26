@@ -14,5 +14,4 @@ export * from "./inkWell";
 export * from "./circularProgressIndicator";
 export * from "./flatButton";
 export * from "./appBar";
-export * from "./colors";
 export * from "./icons";

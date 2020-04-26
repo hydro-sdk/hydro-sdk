@@ -49,4 +49,6 @@ String luaEscape(String x) {
   return o;
 }
 
+@pragma('vm:prefer-inline')
+@pragma('dart2js:tryInline')
 T maybeAt<T>(List<T> l, int idx) => idx < 0 || idx >= l.length ? null : l[idx];
