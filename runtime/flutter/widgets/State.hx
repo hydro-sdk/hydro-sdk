@@ -7,6 +7,7 @@ class State<T:StatefulWidget> {
 
 	public function new() {}
 
+	@:keep
 	public function build(context:BuildContext):Widget {
 		return new Widget();
 	}

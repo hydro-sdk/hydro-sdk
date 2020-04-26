@@ -9,6 +9,7 @@ class StatefulWidget extends Widget {
 		super();
 	}
 
+	@:keep
 	public function createState(): State<Dynamic> {
 		return new State();
 	}
