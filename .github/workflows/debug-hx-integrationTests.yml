@@ -59,4 +59,5 @@ jobs:
       uses: krdlab/setup-haxe@v1
       with:
         haxe-version: 4.0.5
-    - run: bash scripts/buildAllHx.bash
+      run: bash scripts/buildAllHx.bash
+      working-directory: hydro
