@@ -84,7 +84,7 @@ class HydroState {
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
-  Future<HydroFunction> loadFile(String path) async {
+  Future<HydroFunctionImpl> loadFile(String path) async {
     var f = File(path);
 
     if (!f.existsSync()) throw "$path not found";
@@ -116,7 +116,7 @@ class HydroState {
 
   Future<CoroutineResult> doFile(String path,
           {List<dynamic> args = const []}) async =>
-      (await loadFile(path)).pcall(args);
+      (await loadFile(path)).pcall(args, parentState: this);
 
   Future<CoroutineResult> doFileFromBundle(String path,
           {List<dynamic> args = const []}) async =>
