@@ -24,7 +24,7 @@
   "dependencies": {
     "@types/rimraf": "^2.0.3",
     "chalk": "^3.0.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "rimraf": "^3.0.2",
     "@types/minimist": "^1.2.0",
     "@types/node": "^13.7.7",
