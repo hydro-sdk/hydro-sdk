@@ -130,6 +130,7 @@ A Common Flutter Runtime (CFR) is composed of a virtual machine implementing a s
         https://github.com/TypeScriptToLua/TypeScriptToLua  
 - [ ] Haxe  
         https://haxe.org/  
+        - In progress. Early toolchain support and some projections.
 - [ ] Java  
         https://github.com/jtransc/jtransc  
 - [ ] Kotlin  
