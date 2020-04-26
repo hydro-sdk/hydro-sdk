@@ -8,9 +8,9 @@ import runtime.flutter.foundation.Key;
 
 class CenterOne {
 	static function main() {
-		Binding.runApp((rest : Rest<Dynamic>) -> {
+		Binding.runApp((rest:Rest<Dynamic>) -> {
 			return new Center({
-				key : new Key("non-null child"),
+				key: new Key("non-null child"),
 				child: new SizedBox({})
 			});
 		});
