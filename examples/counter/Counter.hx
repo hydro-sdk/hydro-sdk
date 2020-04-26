@@ -19,7 +19,7 @@ private class MyApp extends StatelessWidget {
 		return new MaterialApp({
 			title: "Counter App",
 			initialRoute: "/",
-			home: new SizedBox({})
+			home: new MyHomePage("Counter App Home Page")
 		});
 	}
 }
