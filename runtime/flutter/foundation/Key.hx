@@ -1,6 +1,7 @@
 package runtime.flutter.foundation;
 
 import runtime.SyntheticBox.JITAllocatingRTManagedBox;
+import runtime.dart.core.DartObject;
 
 @:nullSafety(Strict)
 private extern class FoundationBinding {
@@ -14,7 +15,8 @@ private extern class FlutterBinding {
 	public static var foundation:FoundationBinding;
 }
 
-class Key implements JITAllocatingRTManagedBox<{}, {}> {
+class Key implements JITAllocatingRTManagedBox<{}, {}> implements DartObject {
+	public var runtimeType = "Key";
 	public var value:String;
 	public var props:{};
 

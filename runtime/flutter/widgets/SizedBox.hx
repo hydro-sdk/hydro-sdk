@@ -1,5 +1,6 @@
 package runtime.flutter.widgets;
 
+import runtime.dart.core.DartObject;
 import runtime.flutter.Widget;
 import runtime.flutter.foundation.Key;
 
@@ -24,7 +25,8 @@ private extern class FlutterBinding {
 }
 
 @:nullSafety(Strict)
-class SizedBox extends StatelessWidget {
+class SizedBox extends StatelessWidget implements DartObject {
+	public var runtimeType = "SizedBox";
 	public var props:SizedBoxProps;
 
 	public function new(props:SizedBoxProps) {

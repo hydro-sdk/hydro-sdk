@@ -1,5 +1,6 @@
 package runtime.flutter.widgets;
 
+import runtime.dart.core.DartObject;
 import runtime.flutter.rendering.CrossAxisAlignment;
 import runtime.flutter.rendering.MainAxisSize;
 import runtime.flutter.widgets.MainAxisAlignment;
@@ -26,7 +27,8 @@ private extern class FlutterBinding {
 }
 
 @:nullSafety(Strict)
-class Column extends StatelessWidget {
+class Column extends StatelessWidget implements DartObject {
+	public var runtimeType = "Column";
 	public var props:ColumnProps;
 
 	public function new(props:ColumnProps) {

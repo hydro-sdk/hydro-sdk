@@ -1,5 +1,6 @@
 package runtime.flutter.widgets;
 
+import runtime.dart.core.DartObject;
 import runtime.flutter.Widget;
 import runtime.flutter.foundation.Key;
 
@@ -22,7 +23,8 @@ private extern class FlutterBinding {
 }
 
 @:nullSafety(Strict)
-class Center extends StatelessWidget {
+class Center extends StatelessWidget implements DartObject {
+	public var runtimeType = "Center";
 	public var props:CenterProps;
 
 	public function new(props:CenterProps) {
