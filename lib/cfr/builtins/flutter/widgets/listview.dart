@@ -11,9 +11,8 @@ void loadListView({@required HydroState luaState, @required HydroTable table}) {
     return [
       ListView.builder(
         key: maybeUnwrapAndBuildArgument(args[0]["key"], parentState: luaState),
-        scrollDirection: Axis.values.firstWhere(
-            (x) => x.index == args[0]["scrollDirection"],
-            orElse: () => null),
+        scrollDirection: maybeUnwrapEnum<Axis>(
+            values: Axis.values, boxedEnum: args[0]["scrollDirection"]),
         reverse: args[0]["reverse"],
         primary: args[0]["primary"],
         shrinkWrap: args[0]["shrinkWrap"],
@@ -25,9 +24,9 @@ void loadListView({@required HydroState luaState, @required HydroTable table}) {
         addSemanticIndexes: args[0]["addSemanticIndexes"],
         cacheExtent: args[0]["cacheExtent"],
         semanticChildCount: args[0]["semanticChildCount"],
-        dragStartBehavior: DragStartBehavior.values.firstWhere(
-            (x) => x.index == args[0]["dragStartBehavior"],
-            orElse: () => null),
+        dragStartBehavior: maybeUnwrapEnum<DragStartBehavior>(
+            values: DragStartBehavior.values,
+            boxedEnum: args[0]["dragStartBehavior"]),
         itemCount: args[0]["itemCount"],
         itemBuilder: (BuildContext context, int index) {
           Closure closure = args[0]["itemBuilder"];

@@ -15,8 +15,8 @@ void loadLinearGradient(
               parentState: luaState),
           colors: maybeUnwrapAndBuildArgument<Color>(args[0]["colors"],
               parentState: luaState),
-          tileMode:
-              TileMode.values.firstWhere((x) => x.index == args[0]["tileMode"]))
+          tileMode: maybeUnwrapEnum<TileMode>(
+              values: TileMode.values, boxedEnum: args[0]["tileMode"]))
     ];
   });
 }

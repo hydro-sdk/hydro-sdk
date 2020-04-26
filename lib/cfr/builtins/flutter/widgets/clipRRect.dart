@@ -14,8 +14,8 @@ void loadClipRRect(
         borderRadius: maybeUnwrapAndBuildArgument<Widget>(
             args[0]["borderRadius"],
             parentState: luaState),
-        clipBehavior:
-            Clip.values.firstWhere((x) => x.index == args[0]["clipBehavior"]),
+        clipBehavior: maybeUnwrapEnum<Clip>(
+            values: Clip.values, boxedEnum: args[0]["clipBehavior"]),
         child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
       )

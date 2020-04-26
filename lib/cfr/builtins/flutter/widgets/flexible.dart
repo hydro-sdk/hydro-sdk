@@ -11,7 +11,8 @@ void loadFlexible({@required HydroState luaState, @required HydroTable table}) {
         key: maybeUnwrapAndBuildArgument<Widget>(args[0]["key"],
             parentState: luaState),
         flex: args[0]["flex"],
-        fit: FlexFit.values.firstWhere((x) => x.index == args[0]["fit"]),
+        fit: maybeUnwrapEnum<FlexFit>(
+            values: FlexFit.values, boxedEnum: args[0]["fit"]),
         child: maybeUnwrapAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
       )
