@@ -55,9 +55,11 @@ jobs:
     - name: Get packages for Hydro-SDK JS
       run: npm install
       working-directory: hydro
-    - name: Setup Haxe and build fixtures
+    - name: Setup Haxe
       uses: krdlab/setup-haxe@v1
       with:
         haxe-version: 4.0.5
+    - name: Build Haxe Fixtures
+      shell: bash
       run: bash scripts/buildAllHx.bash
       working-directory: hydro
