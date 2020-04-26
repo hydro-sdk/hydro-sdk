@@ -17,7 +17,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 
 import 'package:meta/meta.dart';
 
-loadMaterial({@required HydroState luaState, @required HydroTable table}) {
+void loadMaterial({@required HydroState luaState, @required HydroTable table}) {
   var material = HydroTable();
 
   table["material"] = material;

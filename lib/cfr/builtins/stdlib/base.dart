@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/vm/luaerror.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 
-loadBaseLib(Context ctx) {
+void loadBaseLib(Context ctx) {
   ctx.env["assert"] = (List<dynamic> args) {
     if (args.length < 1 || args[0] == null || args[0] == false) {
       throw args.length < 2 ? "assertion failed!" : args[1];

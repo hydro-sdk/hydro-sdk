@@ -5,7 +5,7 @@ import {EdgeInsets} from "../painting/edgeInsets";
 import {StatelessWidget} from "./statelessWidget";
 import {Color} from "./../../dart/ui/color";
 import {BoxDecoration} from "./../painting/boxDecoration";
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 
 interface ContainerProps {
     key?: Key | undefined;

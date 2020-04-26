@@ -13,8 +13,9 @@ class StatefulWidgetBox extends StatefulWidget {
 
   @override
   StatefulWidgetBoxState createState() {
-    HydroTable newTable = table.metatable["createState"]([table.map],
-        parentState: parentState)[0];
+    HydroTable newTable = maybeFindInheritedMethod(
+        managedObject: table,
+        methodName: "createState")([table.map], parentState: parentState)[0];
     return StatefulWidgetBoxState(table: newTable, parentState: parentState);
   }
 }
@@ -38,7 +39,8 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
 
   @override
   Widget build(BuildContext context) {
-    Closure managedBuild = table.metatable["build"];
+    Closure managedBuild =
+        maybeFindInheritedMethod(managedObject: table, methodName: "build");
     var buildResult =
         managedBuild.dispatch([table, context], parentState: parentState)[0];
     return maybeUnwrapAndBuildArgument<Widget>(buildResult,

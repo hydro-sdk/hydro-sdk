@@ -12,7 +12,7 @@ class VMManagedSize extends VMManagedBox<Size> {
   }
 }
 
-loadSize(HydroTable table) {
+void loadSize(HydroTable table) {
   table["size"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [Size(args[0].toDouble(), args[1].toDouble())];
   });

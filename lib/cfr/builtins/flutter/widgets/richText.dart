@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadRichText({@required HydroState luaState, @required HydroTable table}) {
+void loadRichText({@required HydroState luaState, @required HydroTable table}) {
   table["richText"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RichText(

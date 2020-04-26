@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
+import 'package:hydro_sdk/testMode.dart';
 
 void main() {
-  testWidgets('animated_list sample app smoke test',
-      (WidgetTester tester) async {
-    harness.main("assets/test/widget/sizedBox-1.ts.hc");
+  testWidgets('sizedbox widget test', (WidgetTester tester) async {
+    var testMode = getTestMode();
+    expect(testMode, isNotNull);
+
+    harness.main(testMode == TestMode.typescript
+        ? "assets/test/widget/sizedBox-1.ts.hc"
+        : testMode == TestMode.haxe
+            ? "assets/test/widget/sizedBox-1.hx.hc"
+            : "");
     await tester.pump();
 
     expect(find.byKey(Key("empty")), findsOneWidget);

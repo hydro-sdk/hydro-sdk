@@ -9,7 +9,7 @@ import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:meta/meta.dart';
 
-loadPainting({@required HydroState luaState, @required HydroTable table}) {
+void loadPainting({@required HydroState luaState, @required HydroTable table}) {
   var painting = HydroTable();
 
   table["painting"] = painting;

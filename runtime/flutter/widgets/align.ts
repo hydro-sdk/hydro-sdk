@@ -8,7 +8,7 @@ import {CrossAxisAlignment} from "./../rendering/crossAxisAlignment";
 import {TextDirection} from "./../../dart/ui/textDirection";
 import {VerticalDirection} from "./../painting/verticalDirection";
 import {Alignment} from "./../painting/alignment";
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 
 
 interface AlignProps {

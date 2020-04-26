@@ -4,7 +4,7 @@ import {Color} from "../../dart/ui/color";
 import {StatelessWidget} from "../widgets/statelessWidget";
 import {BorderRadius} from "../painting/borderRadius";
 
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 
 
 interface InkWellProps {

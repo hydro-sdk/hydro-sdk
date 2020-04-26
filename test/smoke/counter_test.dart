@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
+import 'package:hydro_sdk/testMode.dart';
 
 void main() {
   testWidgets('counter sample app smoke test', (WidgetTester tester) async {
+    var testMode = getTestMode();
+    expect(testMode, isNotNull);
+
+    if (testMode != TestMode.typescript) {
+      return;
+    }
+
     harness.main("assets/examples/counter.hc");
     await tester.pump();
 

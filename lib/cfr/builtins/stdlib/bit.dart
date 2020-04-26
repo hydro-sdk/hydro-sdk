@@ -8,7 +8,7 @@ int _tobit(num x) {
   return (x + 0.5).floor() % 0x100000000;
 }
 
-loadBitLib(Context ctx) {
+void loadBitLib(Context ctx) {
   var bit = new HydroTable();
   ctx.env["bit"] = bit;
 

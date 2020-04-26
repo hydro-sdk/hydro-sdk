@@ -1,10 +1,17 @@
 import 'package:hydro_sdk/runFromBundle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/testMode.dart';
 
 void main() {
   testWidgets('stateful hot reload', (WidgetTester tester) async {
     await tester.runAsync(() async {
+      var testMode = getTestMode();
+      expect(testMode, isNotNull);
+
+      if (testMode != TestMode.typescript) {
+        return;
+      }
       WidgetsFlutterBinding.ensureInitialized();
 
       await tester.pumpWidget(RunFromBundle(

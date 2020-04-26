@@ -3,7 +3,7 @@ import {Animation} from "../animation/animation";
 import {Color} from "../../dart/ui/color";
 import {StatelessWidget} from "../widgets/statelessWidget";
 
-import {Key} from "./../key";
+import {Key} from "./../foundation/key";
 
 interface CircularProgressIndicatorProps {
     key?: Key | undefined;

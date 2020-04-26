@@ -51,3 +51,4 @@ hydro_sdk/android/.project
 !dist/compiler/**/*.js
 !dist/*.sha256
 dist/**/*.ts
+haxe-4.0.5

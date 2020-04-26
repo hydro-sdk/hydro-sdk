@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-loadAppBar({@required HydroState luaState, @required HydroTable table}) {
+void loadAppBar({@required HydroState luaState, @required HydroTable table}) {
   table["appBar"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       AppBar(

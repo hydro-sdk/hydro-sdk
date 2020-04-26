@@ -4,5 +4,6 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-    "eslint.enable": false
+    "eslint.enable": false,
+    "haxe.executable": "haxe-4.0.5/haxe"
 }

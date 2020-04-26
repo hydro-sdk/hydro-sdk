@@ -2,7 +2,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 
-loadTableLib(Context ctx) {
+void loadTableLib(Context ctx) {
   var table = new HydroTable();
 
   ctx.env["table"] = table;

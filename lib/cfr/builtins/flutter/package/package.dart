@@ -3,7 +3,7 @@ import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:meta/meta.dart';
 
-loadPackage({@required HydroState luaState, @required HydroTable table}) {
+void loadPackage({@required HydroState luaState, @required HydroTable table}) {
   var package = HydroTable();
 
   table["package"] = package;

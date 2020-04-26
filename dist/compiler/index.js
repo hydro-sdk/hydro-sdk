@@ -1,17 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
-var cp = require("child_process");
-var crypto = require("crypto");
+var path = require("path");
 var minimist = require("minimist");
-var chalk = require("chalk");
 var rimraf = require("rimraf");
 var chokidar = require("chokidar");
-var ts = require("typescript");
-var configHash_1 = require("./src/ts/configHash");
-var typescript_to_lua_1 = require("typescript-to-lua");
-var maybeReturnExecutableExtension_1 = require("./src/ts/maybeReturnExecutableExtension");
-var reconcileResourcePath_1 = require("./src/ts/reconcileResourcePath");
+var transpileTs_1 = require("./src/ts/transpileTs");
+var buildOptions_1 = require("./src/buildOptions");
+var transpileHx_1 = require("./src/hx/transpileHx");
 var argv = minimist(process.argv.slice(2));
 var entry = argv.t;
 var modName = argv.m;
@@ -33,6 +29,42 @@ else {
         process.exit(1);
     }
 }
+if (!profile) {
+    console.log("Build profile must be specified with -p switch");
+    process.exit(1);
+}
+if (profile !== "debug" && profile !== "release") {
+    console.log(profile + " is not a valid profile argument. Must be debug or release");
+    process.exit(1);
+}
+var inputLanguage;
+var extName = path.extname(entry);
+switch (extName) {
+    case ".ts":
+        inputLanguage = buildOptions_1.InputLanguage.typescript;
+        break;
+    case ".hx":
+        inputLanguage = buildOptions_1.InputLanguage.haxe;
+        break;
+}
+var classPath = [];
+var mainClass;
+if (argv["class-path"] !== undefined) {
+    if (typeof argv["class-path"] === "string") {
+        classPath.push(argv["class-path"]);
+    }
+    else {
+        classPath = argv["class-path"];
+    }
+}
+if (inputLanguage == buildOptions_1.InputLanguage.haxe) {
+    if (argv["main-class"] !== undefined) {
+        mainClass = argv["main-class"];
+    }
+    else if (argv["main-class"] === undefined || argv["main-class"] === "" || mainClass === undefined || mainClass === "") {
+        console.log("A main class must be provided. Use --main-class");
+    }
+}
 if (!modName) {
     console.log("Output module name must be specified with -m switch");
     process.exit(1);
@@ -44,71 +76,49 @@ if (!outDir) {
 if (!fs.existsSync(".hydroc")) {
     fs.mkdirSync(".hydroc");
 }
-function transpileTS(config) {
-    var buildHash = configHash_1.configHash(config);
-    console.log("Build " + chalk.yellow(buildHash));
-    var tempDir = ".hydroc/" + buildHash;
-    var tempFile = ".hydroc/" + buildHash + "/" + config.modName;
-    var outFile = config.outDir + "/" + config.modName + ".hc";
-    var outFileHash = config.outDir + "/" + config.modName + ".hc.sha256";
-    fs.mkdirSync(config.outDir, { recursive: true });
-    fs.mkdirSync(tempDir, { recursive: true });
-    var tstlOpt = {
-        strict: true,
-        sourceMapTraceback: false,
-        luaTarget: typescript_to_lua_1.LuaTarget.Lua52,
-        luaLibImport: typescript_to_lua_1.LuaLibImportKind.Require,
-        luaBundleEntry: config.entry,
-        luaBundle: tempFile
-    };
-    var res = typescript_to_lua_1.transpileFiles([config.entry], tstlOpt);
-    if (res.diagnostics && res.diagnostics.length) {
-        res.diagnostics.forEach(function (x) {
-            // console.log(x.messageText);
-            // console.log(x.category);
-            // console.log(x.file?.fileName);
-            // console.log(x.messageText);
-            // console.log(x.source);
-            if (x.file) {
-                var _a = x.file.getLineAndCharacterOfPosition(x.start), line = _a.line, character = _a.character;
-                var message = ts.flattenDiagnosticMessageText(x.messageText, "\n");
-                // console.log(`${x.file.fileName} (${line + 1},${character + 1}): ${message}`);
-                var fileNameMsg = chalk.blue(x.file.fileName);
-                var lineMsg = chalk.yellow(line + 1);
-                var characterMsg = chalk.yellow(character + 1);
-                var diagMsg = chalk.red(message);
-                console.log(fileNameMsg + ":" + lineMsg + ":" + characterMsg + " - " + diagMsg);
-            }
-            else {
-                var diagMsg = chalk.red(ts.flattenDiagnosticMessageText(x.messageText, "\n"));
-                console.log(diagMsg);
-            }
-        });
-        return;
-    }
-    fs.writeFileSync(tempFile, res.emitResult[0].text);
-    cp.execSync(reconcileResourcePath_1.reconcileResourcePath("res/" + process.platform + "/luac52" + maybeReturnExecutableExtension_1.maybeReturnExecutableExtension()) + " " + (config.profile == "release" ? "-s" : "") + " -o " + outFile + " " + tempFile);
-    var hash = crypto.createHash("sha256");
-    hash.update(fs.readFileSync(outFile).toString());
-    fs.writeFileSync(outFileHash, hash.digest("hex"));
-    console.log(chalk.green(config.entry) + " ----> " + chalk.blue(outFile));
-    console.log(chalk.green(config.entry) + " ----> " + chalk.blue(outFileHash));
-}
 if (watch !== undefined) {
     chokidar.watch(watch).on("all", function () {
-        transpileTS({
+        if (inputLanguage == buildOptions_1.InputLanguage.typescript) {
+            transpileTs_1.transpileTS({
+                inputLanguage: inputLanguage,
+                entry: entry,
+                modName: modName,
+                outDir: outDir,
+                profile: profile
+            });
+        }
+        else if (inputLanguage == buildOptions_1.InputLanguage.haxe && mainClass) {
+            transpileHx_1.transpileHx({
+                inputLanguage: inputLanguage,
+                mainClass: mainClass,
+                classPath: classPath,
+                entry: entry,
+                modName: modName,
+                outDir: outDir,
+                profile: profile
+            });
+        }
+    });
+}
+else {
+    if (inputLanguage == buildOptions_1.InputLanguage.typescript) {
+        transpileTs_1.transpileTS({
+            inputLanguage: inputLanguage,
             entry: entry,
             modName: modName,
             outDir: outDir,
             profile: profile
         });
-    });
-}
-else {
-    transpileTS({
-        entry: entry,
-        modName: modName,
-        outDir: outDir,
-        profile: profile
-    });
+    }
+    else if (inputLanguage == buildOptions_1.InputLanguage.haxe && mainClass) {
+        transpileHx_1.transpileHx({
+            inputLanguage: inputLanguage,
+            classPath: classPath,
+            mainClass: mainClass,
+            entry: entry,
+            modName: modName,
+            outDir: outDir,
+            profile: profile
+        });
+    }
 }

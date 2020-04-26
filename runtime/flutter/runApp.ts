@@ -1,8 +1,10 @@
 import {Widget} from "./widget";
 
-declare let hydroGlobalBuildResult: () => Widget;
+declare const hydro: {
+    globalBuildResult: () => Widget;
+};
 
 export function runApp(pred: (...args: any) => Widget): void 
 {
-    hydroGlobalBuildResult = pred;
+    hydro.globalBuildResult = pred;
 }
