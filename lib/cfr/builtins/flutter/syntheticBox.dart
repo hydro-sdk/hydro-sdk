@@ -6,6 +6,24 @@ import 'package:hydro_sdk/cfr/builtins/flutter/widgets/statelessWidgetBox.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 
+T maybeUnwrapEnum<T>(
+    {@required List<dynamic> values, @required dynamic boxedEnum}) {
+  //For Typescript, TSTL represents enums as their integer indices
+  if (boxedEnum is int) {
+    return values.firstWhere((x) => x.index == boxedEnum, orElse: () => null);
+  }
+  //For Haxe, the enum index is placed onto the zero entry of the object's table for some reason.
+  //This gets optimized into array storage by the VM
+  else if (boxedEnum is HydroTable &&
+      boxedEnum.arr != null &&
+      boxedEnum.arr.isNotEmpty) {
+    return values.firstWhere((x) => x.index == boxedEnum.arr[0],
+        orElse: () => null);
+  }
+  return null;
+}
+
+
 Closure maybeFindInheritedMethod(
     {@required HydroTable managedObject, @required String methodName}) {
   return managedObject?.metatable != null
@@ -66,7 +84,14 @@ dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
     }
     //Unbox an array of managed objects
     if (arg.arr != null && arg.arr.isNotEmpty) {
-      return arg.arr
+      List<dynamic> target = arg.arr;
+      //Haxe likes to place the first element of arrays using the string "0" as key instead of using integers
+      //The VM will optimize tables with integer keys into array storage but this pattern will get missed
+      //We need to check for it when unboxing arrays
+      if (arg.map[0] != null && arg.map[0] is HydroTable) {
+        target = [arg.map[0], ...arg.arr];
+      }
+      return target
           .map((x) =>
               maybeUnwrapAndBuildArgument<T>(x, parentState: parentState))
           .toList()
