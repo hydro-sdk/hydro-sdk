@@ -55,7 +55,7 @@ jobs:
     - name: Get packages for Hydro-SDK JS
       run: npm install
       working-directory: hydro
-    - name: Build debug fixtures
+    - name: Build Typescript debug fixtures
       run: bash scripts/buildAllTs.bash debug
       working-directory: hydro
     - name: Run Hydro-SDK tests
