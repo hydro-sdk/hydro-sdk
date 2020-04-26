@@ -4,7 +4,8 @@ import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-void loadBoxDecoration({@required HydroState luaState, @required HydroTable table}) {
+void loadBoxDecoration(
+    {@required HydroState luaState, @required HydroTable table}) {
   table["boxDecoration"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       BoxDecoration(

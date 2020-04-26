@@ -16,7 +16,7 @@ void main() {
     if (testMode != TestMode.typescript) {
       return;
     }
-    
+
     harness.main("assets/examples/animated-list.hc");
     await tester.pump();
 

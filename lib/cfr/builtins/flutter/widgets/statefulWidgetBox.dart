@@ -39,7 +39,8 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
 
   @override
   Widget build(BuildContext context) {
-    Closure managedBuild = maybeFindInheritedMethod(managedObject: table, methodName: "build");
+    Closure managedBuild =
+        maybeFindInheritedMethod(managedObject: table, methodName: "build");
     var buildResult =
         managedBuild.dispatch([table, context], parentState: parentState)[0];
     return maybeUnwrapAndBuildArgument<Widget>(buildResult,

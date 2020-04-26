@@ -1,9 +1,10 @@
-import { Widget } from "./widget";
+import {Widget} from "./widget";
 
-declare const hydro : {
+declare const hydro: {
     globalBuildResult: () => Widget;
-}
+};
 
-export function runApp(pred: (...args: any) => Widget): void {
+export function runApp(pred: (...args: any) => Widget): void 
+{
     hydro.globalBuildResult = pred;
 }

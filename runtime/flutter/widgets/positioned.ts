@@ -1,9 +1,9 @@
-import {Key} from "./../foundation/key";
 import {Widget} from "../widget";
 import {DartObject} from "../../dart/core/object";
 import {Rect} from "../../dart/ui/rect";
 import {TextDirection} from "../../dart/ui/textDirection";
 
+import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 
 interface PositionedProps {

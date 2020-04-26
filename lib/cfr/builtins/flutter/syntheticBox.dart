@@ -23,7 +23,6 @@ T maybeUnwrapEnum<T>(
   return null;
 }
 
-
 Closure maybeFindInheritedMethod(
     {@required HydroTable managedObject, @required String methodName}) {
   return managedObject?.metatable != null
