@@ -9,6 +9,8 @@ import runtime.flutter.widgets.StatelessWidget;
 import runtime.flutter.widgets.SizedBox;
 import runtime.flutter.widgets.Binding;
 import runtime.flutter.material.MaterialApp;
+import runtime.flutter.material.Scaffold;
+import runtime.flutter.material.AppBar;
 
 private class MyApp extends StatelessWidget {
 	public function new() {
@@ -47,8 +49,18 @@ class MyHomePageState extends State<MyHomePage> {
 		this.title = title;
 	}
 
+	private function incrementcounter() {
+		this.setState(() -> {
+			this.counter++;
+		});
+	}
+
 	public override function build(context:BuildContext) {
-		return new SizedBox({});
+		return new Scaffold({
+			appBar: new AppBar({
+				title:new SizedBox({})
+			})
+		});
 	}
 }
 
