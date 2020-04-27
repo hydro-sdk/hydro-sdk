@@ -3,7 +3,6 @@ import 'package:hydro_sdk/cfr/builtins/flutter/foundation/foundation.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/material/material.dart';
-import 'package:hydro_sdk/cfr/builtins/flutter/package/package.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/painting/painting.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/widgets/widgets.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -17,7 +16,6 @@ void loadFlutterLib({@required HydroState luaState, @required Context ctx}) {
 
   loadFoundation(luaState: luaState, table: flutter);
   loadMaterial(luaState: luaState, table: flutter);
-  loadPackage(luaState: luaState, table: flutter);
   loadWidgets(luaState: luaState, table: flutter);
   loadPainting(luaState: luaState, table: flutter);
   loadAnimation(luaState: luaState, table: flutter);

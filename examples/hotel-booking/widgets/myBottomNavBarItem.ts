@@ -14,7 +14,7 @@ import {Icon} from "../../../runtime/flutter/widgets/icon";
 import {MyColors} from "../data";
 import {SizedBox} from "../../../runtime/flutter/widgets/sizedBox";
 import {Text} from "../../../runtime/flutter/widgets/text";
-import {TextStyle} from "../../../runtime/flutter/package/textStyle";
+import {TextStyle} from "../../../runtime/flutter/painting/textStyle";
 import {FontWeight} from "../../../runtime/dart/ui/fontWeight";
 
 export class MyBottomNavBarItem extends StatelessWidget 

@@ -1,4 +1,4 @@
-import {TextStyle} from "../package/textStyle";
+import {TextStyle} from "../painting/textStyle";
 import {Widget} from "../widget";
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 

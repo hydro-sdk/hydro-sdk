@@ -19,7 +19,7 @@ import {SizedBox} from "./../../runtime/flutter/widgets/sizedBox";
 import {Padding} from "./../../runtime/flutter/widgets/padding";
 import {AnimatedList} from "./../../runtime/flutter/widgets/animatedList";
 import {Animation} from "./../../runtime/flutter/animation/animation";
-import {TextStyle} from "./../../runtime/flutter/package/textStyle";
+import {TextStyle} from "./../../runtime/flutter/painting/textStyle";
 import {Theme} from "./../../runtime/flutter/material/theme";
 import {GestureDetector} from "./../../runtime/flutter/widgets/gestureDetector";
 import {SizeTransition} from "./../../runtime/flutter/widgets/sizeTransition";

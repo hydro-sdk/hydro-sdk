@@ -1,6 +1,6 @@
 import {StatelessWidget} from "./statelessWidget";
 import {Widget} from "./../widget";
-import {TextStyle} from "./../package/textStyle";
+import {TextStyle} from "./../painting/textStyle";
 import {Key} from "./../foundation/key";
 
 interface TextProps {

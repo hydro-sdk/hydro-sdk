@@ -10,7 +10,7 @@ export interface TextStyleProps {
 }
 
 declare const flutter: {
-    package: {
+    painting: {
         textStyle: (this: void, props: TextStyleProps) => TextStyle;
     };
 };

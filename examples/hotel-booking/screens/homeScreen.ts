@@ -37,7 +37,7 @@ import {Alignment} from "../../../runtime/flutter/painting/alignment";
 import {Axis} from "../../../runtime/flutter/painting/axis";
 import {GestureDetector} from "../../../runtime/flutter/widgets/gestureDetector";
 import {Radius} from "../../../runtime/dart/ui/radius";
-import {TextStyle} from "../../../runtime/flutter/package/textStyle";
+import {TextStyle} from "../../../runtime/flutter/painting/textStyle";
 import {FontWeight} from "../../../runtime/dart/ui/fontWeight";
 import {MyBottomNavBar} from "../widgets/myBottomNavBar";
 import {Navigator} from "../../../runtime/flutter/widgets/navigator";
