@@ -41,6 +41,6 @@ export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextSty
 
     public unwrap(): TextStyle 
     {
-        return flutter.package.textStyle(this.props);
+        return flutter.painting.textStyle(this.props);
     }
 }
