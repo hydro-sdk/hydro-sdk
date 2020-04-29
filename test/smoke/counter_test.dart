@@ -8,10 +8,6 @@ void main() {
     var testMode = getTestMode();
     expect(testMode, isNotNull);
 
-    if (testMode != TestMode.typescript) {
-      return;
-    }
-
     harness.main("assets/examples/counter.hc");
     await tester.pump();
 
