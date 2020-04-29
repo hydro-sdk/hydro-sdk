@@ -9,7 +9,6 @@ import 'package:hydro_sdk/cfr/builtins/stdlib/bit32.dart';
 import 'package:hydro_sdk/cfr/builtins/stdlib/math.dart';
 import 'package:hydro_sdk/cfr/builtins/stdlib/string.dart';
 import 'package:hydro_sdk/cfr/builtins/stdlib/table.dart';
-import 'package:hydro_sdk/cfr/builtins/ts/ts.dart';
 import 'package:hydro_sdk/cfr/builtins/hydro/hydro.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
@@ -72,7 +71,6 @@ class HydroState {
       loadBit32Lib(_context);
       loadFlutterLib(luaState: this, ctx: _context);
       loadDartLib(_context);
-      loadTsLib(_context);
       loadHydroLib(_context);
     }
   }
