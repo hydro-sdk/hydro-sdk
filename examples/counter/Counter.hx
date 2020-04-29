@@ -1,16 +1,10 @@
 package examples.counter;
 
 import haxe.extern.Rest;
-import runtime.flutter.BuildContext;
-import runtime.flutter.Widget;
-import runtime.flutter.widgets.StatefulWidget;
-import runtime.flutter.widgets.State;
-import runtime.flutter.widgets.StatelessWidget;
-import runtime.flutter.widgets.SizedBox;
-import runtime.flutter.widgets.Binding;
-import runtime.flutter.material.MaterialApp;
-import runtime.flutter.material.Scaffold;
-import runtime.flutter.material.AppBar;
+import runtime.flutter.*;
+import runtime.flutter.foundation.*;
+import runtime.flutter.widgets.*;
+import runtime.flutter.material.*;
 
 private class MyApp extends StatelessWidget {
 	public function new() {
@@ -58,7 +52,24 @@ class MyHomePageState extends State<MyHomePage> {
 	public override function build(context:BuildContext) {
 		return new Scaffold({
 			appBar: new AppBar({
-				title:new SizedBox({})
+				title: new Text(this.title)
+			}),
+			body: new Center({
+				child: new Column({
+					mainAxisAlignment: MainAxisAlignment.center,
+					children: [
+						new Text("You have pushed the button this many times"),
+						new Text(Std.string(this.counter), {
+							key: new Key("counter"),
+							style: Theme.of(context).textTheme.display1
+						})
+					]
+				})
+			}),
+			floatingActionButton: new FloatingActionButton({
+				key: new Key("increment"),
+				child: new Icon(Icons.add),
+				onPressed: this.incrementcounter
 			})
 		});
 	}
