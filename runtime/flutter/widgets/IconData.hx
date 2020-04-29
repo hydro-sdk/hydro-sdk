@@ -21,7 +21,6 @@ private extern class FlutterBinding {
 	public static var widgets:WidgetsBinding;
 }
 
-@:nullSafety(Strict)
 class IconData implements JITAllocatingRTManagedBox<IconDataProps, IconData> implements DartObject {
 	public var runtimeType = "IconData";
 	public var codePoint:Int;
