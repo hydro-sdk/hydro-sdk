@@ -32,7 +32,7 @@ class _RunFromBundle extends State<RunFromBundle> {
         if (snapshot.hasData) {
           return maybeUnwrapAndBuildArgument<Widget>(
               luaState.context.env["hydro"]
-                  ["globalBuildResult"](args != null ? [null, ...args] : [])[0],
+                  ["globalBuildResult"](args != null ? [...args] : [])[0],
               parentState: luaState);
         }
         return Center(child: CircularProgressIndicator());
