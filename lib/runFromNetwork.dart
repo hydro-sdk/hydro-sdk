@@ -141,7 +141,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
       }
       return maybeUnwrapAndBuildArgument<Widget>(
           luaState.context.env["hydro"]
-              ["globalBuildResult"](args != null ? [ ...args] : [])[0],
+              ["globalBuildResult"](args != null ? [...args] : [])[0],
           parentState: luaState);
     }
   }
