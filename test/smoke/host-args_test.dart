@@ -8,14 +8,10 @@ void main() {
     await tester.runAsync(() async {
       var testMode = getTestMode();
       expect(testMode, isNotNull);
-
-      if (testMode != TestMode.typescript) {
-        return;
-      }
       WidgetsFlutterBinding.ensureInitialized();
 
       await tester.pumpWidget(RunFromBundle(
-        path: "assets/examples/host-args.hc",
+        path: "assets/examples/hostArgs.hc",
         args: [
           "hello world",
           Column(

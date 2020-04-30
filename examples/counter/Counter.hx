@@ -1,6 +1,5 @@
 package examples.counter;
 
-import haxe.extern.Rest;
 import runtime.flutter.*;
 import runtime.flutter.foundation.*;
 import runtime.flutter.widgets.*;
@@ -77,7 +76,7 @@ class MyHomePageState extends State<MyHomePage> {
 
 class Counter {
 	static function main() {
-		Binding.runApp((rest:Rest<Dynamic>) -> {
+		Binding.runApp((rest:Array<Dynamic>) -> {
 			return new MyApp();
 		});
 	}

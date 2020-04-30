@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/dart/developer/developer.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/builtins/dart/core/core.dart';
 import 'package:hydro_sdk/cfr/builtins/dart/ui/ui.dart';
@@ -10,4 +11,5 @@ void loadDartLib(Context ctx) {
 
   loadCore(dart);
   loadUi(dart);
+  loadDeveloper(dart);
 }

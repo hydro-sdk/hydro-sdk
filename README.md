@@ -89,8 +89,8 @@ A line for line port of the Flutter catalog example https://github.com/flutter/f
 ## examples/counter/
 Obligatory Flutter stateful counter showcase
 
-## examples/host-args/
-An example demonstrating how to pass non-trivial arguments, including `Widget` trees from a host Flutter application through to embedded Hydro content. See also https://github.com/chgibb/hydro-sdk/blob/master/test/smoke/host-args_test.dart
+## examples/hostArgs/
+An example demonstrating how to pass non-trivial arguments, including `Widget` trees from a host Flutter application through to embedded Hydro content. See also https://github.com/chgibb/hydro-sdk/blob/master/test/smoke/hostArgs_test.dart
 
 ## examples/hotel-booking/
 A line for line port of https://github.com/cybdom/hotel_booking_ui   
