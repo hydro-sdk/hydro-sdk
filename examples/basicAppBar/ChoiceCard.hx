@@ -2,6 +2,9 @@ package examples.basicAppBar;
 
 import runtime.flutter.*;
 import runtime.flutter.widgets.*;
+import runtime.flutter.material.*;
+import runtime.flutter.rendering.*;
+import runtime.flutter.painting.*;
 
 class ChoiceCard extends StatelessWidget {
 	public var choice:Choice;
@@ -12,7 +15,16 @@ class ChoiceCard extends StatelessWidget {
 	}
 
 	public override function build(context:BuildContext):Widget {
-		var textStyle = Theme.of(context).textTheme.display1;
-		return new SizedBox({});
+		var textStyle:TextStyle = Theme.of(context).textTheme.display1;
+		return new Card({
+			color: Colors.white,
+			child: new Center({
+				child: new Column({
+					mainAxisSize: MainAxisSize.min,
+					crossAxisAlignment: CrossAxisAlignment.center,
+					children: [new Icon(this.choice.icon, {size: 128.0, color: textStyle.color})]
+				})
+			})
+		});
 	}
 }

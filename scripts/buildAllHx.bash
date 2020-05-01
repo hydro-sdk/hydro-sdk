@@ -3,3 +3,4 @@ node dist/compiler --class-path runtime --class-path test -t test/widget/SizedBo
 
 node dist/compiler --class-path runtime --class-path examples -t examples/counter/Counter.hx --main-class examples.counter.Counter -m counter -d assets/examples -p $1
 node dist/compiler --class-path runtime --class-path examples -t examples/hostArgs/HostArgs.hx --main-class examples.hostArgs.HostArgs -m hostArgs -d assets/examples -p $1
+node dist/compiler --class-path runtime --class-path examples -t examples/basicAppBar/BasicAppBar.hx --main-class examples.basicAppBar.BasicAppBar -m hostArgs -d assets/examples -p $1
