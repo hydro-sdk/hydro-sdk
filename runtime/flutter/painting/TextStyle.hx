@@ -26,6 +26,7 @@ private extern class FlutterBinding {
 class TextStyle implements JITAllocatingRTManagedBox<TextStyleProps, TextStyle> implements DartObject {
 	public var runtimeType = "TextStyle";
 	public var props:TextStyleProps;
+	public var color:Null<Color>;
 
 	private var vmObject:Dynamic;
 
