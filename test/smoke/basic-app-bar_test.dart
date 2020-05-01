@@ -67,7 +67,7 @@ void main() {
       return;
     }
 
-    harness.main("assets/examples/basic-app-bar.hc");
+    harness.main("assets/examples/basicAppBar.hc");
     await tester.pump();
 
     // Tap on the two action buttons and all of the overflow menu items.
