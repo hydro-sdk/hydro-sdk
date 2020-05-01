@@ -34,7 +34,7 @@ class SizedBox extends StatelessWidget implements DartObject {
 		this.props = props;
 	}
 
-	public override function build() {
+	public override function build(buildContext:BuildContext) {
 		return FlutterBinding.widgets.sizedBox(this.props);
 	}
 }

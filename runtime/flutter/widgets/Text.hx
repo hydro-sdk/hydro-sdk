@@ -34,7 +34,7 @@ class Text extends StatelessWidget implements DartObject {
 		this.props = props;
 	}
 
-	public override function build() {
+	public override function build(buildContext:BuildContext) {
 		return FlutterBinding.widgets.text(this.text, this.props);
 	}
 }

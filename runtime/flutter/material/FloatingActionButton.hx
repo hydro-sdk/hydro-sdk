@@ -33,7 +33,7 @@ class FloatingActionButton extends StatelessWidget implements DartObject {
 		this.props = props;
 	}
 
-	public override function build() {
+	public override function build(buildContext:BuildContext) {
 		return FlutterBinding.material.floatingActionButton(this.props);
 	}
 }

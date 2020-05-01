@@ -32,7 +32,7 @@ class Center extends StatelessWidget implements DartObject {
 		this.props = props;
 	}
 
-	public override function build() {
+	public override function build(buildContext:BuildContext) {
 		return FlutterBinding.widgets.center(this.props);
 	}
 }

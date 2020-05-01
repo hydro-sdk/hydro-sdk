@@ -25,7 +25,7 @@ class PreferredSize extends StatelessWidget implements DartObject {
 	public var runtimeType = "PreferredSize";
 	public var props:PreferredSizeProps;
 
-	public override function build():PreferredSize {
+	public override function build(buildContext:BuildContext):PreferredSize {
 		return FlutterBinding.widgets.preferredSize(this.props);
 	}
 }

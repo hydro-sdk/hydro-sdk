@@ -36,7 +36,7 @@ class MaterialApp extends StatelessWidget implements DartObject {
 		this.props.title = this.props.title != null ? this.props.title : "";
 	}
 
-	public override function build() {
+	public override function build(buildContext:BuildContext) {
 		return FlutterBinding.material.materialApp(this.props);
 	}
 }

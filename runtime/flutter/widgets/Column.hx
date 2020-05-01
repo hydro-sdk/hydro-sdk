@@ -48,7 +48,7 @@ class Column extends StatelessWidget implements DartObject {
 		}
 	}
 
-	public override function build() {
+	public override function build(buildContext:BuildContext) {
 		return FlutterBinding.widgets.column(this.props);
 	}
 }

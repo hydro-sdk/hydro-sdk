@@ -6,7 +6,7 @@ class StatelessWidget extends Widget {
 	}
 
 	@:keep
-	private function build() : Widget {
+	private function build(buildContext:BuildContext):Widget {
 		return new Widget();
 	}
 }

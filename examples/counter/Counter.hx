@@ -10,7 +10,7 @@ private class MyApp extends StatelessWidget {
 		super();
 	}
 
-	public override function build():Widget {
+	public override function build(buildContext:BuildContext):Widget {
 		return new MaterialApp({
 			title: "Counter App",
 			initialRoute: "/",
