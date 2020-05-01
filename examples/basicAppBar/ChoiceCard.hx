@@ -22,7 +22,10 @@ class ChoiceCard extends StatelessWidget {
 				child: new Column({
 					mainAxisSize: MainAxisSize.min,
 					crossAxisAlignment: CrossAxisAlignment.center,
-					children: [new Icon(this.choice.icon, {size: 128.0, color: textStyle.color})]
+					children: [
+						new Icon(this.choice.icon, {size: 128.0, color: textStyle.color}),
+						new Text(this.choice.title, {style: textStyle})
+					]
 				})
 			})
 		});
