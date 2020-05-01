@@ -4,7 +4,7 @@ import runtime.dart.core.DartObject;
 import runtime.dart.ui.Color;
 
 private typedef IconProps = {
-	var ?size:Null<Int>;
+	var ?size:Null<Float>;
 	var ?color:Null<Color>;
 }
 
