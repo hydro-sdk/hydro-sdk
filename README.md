@@ -1,5 +1,5 @@
 # Hydro-SDK
-![Logo](https://gthub.com/chgibb/hydro-sdk/blob/master/images/socialImage.png)
+![Logo](https://github.com/chgibb/hydro-sdk/blob/master/images/socialImage.png)
 
 Author native [Flutter](https://flutter.dev/docs) experiences in Typescript and deliver updates directly to users over the air and out of band.
 
