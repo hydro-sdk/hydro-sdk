@@ -82,7 +82,7 @@ dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
           parentState: parentState);
     }
     //Unbox an array of managed objects
-    if (arg.arr != null && arg.arr.isNotEmpty) {
+    if (arg.arr != null) {
       List<dynamic> target = arg.arr;
       //Haxe likes to place the first element of arrays using the string "0" as key instead of using integers
       //The VM will optimize tables with integer keys into array storage but this pattern will get missed
