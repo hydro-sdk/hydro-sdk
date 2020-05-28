@@ -29,7 +29,7 @@ String hashPrototype(Prototype prototype,
     input.add([
       prototype.lineStart,
       prototype.lineEnd,
-      ...prototype.source.codeUnits
+      ...(prototype.source?.codeUnits ?? [])
     ]);
   }
 
