@@ -1,8 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
+import 'package:hydro_sdk/cfr/decode/codedump.dart';
+import 'package:hydro_sdk/cfr/lasm/stub.dart';
+import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/reassembler/reassembleClosures.dart';
+import 'package:hydro_sdk/cfr/lasm/linkNativePrototypes.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
@@ -42,7 +46,13 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
   }
 
   Future<void> fullRestart(
-      {@required Uint8List bytecodeImage, @required String baseUrl}) async {
+      {@required
+          Uint8List bytecodeImage,
+      @required
+          String baseUrl,
+      @required
+          Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+              stubs}) async {
     setState(() {
       luaState = HydroState();
       func = null;
@@ -50,6 +60,8 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
     });
     Future.delayed(Duration(seconds: 2)).then((val) async {
       var val = await luaState.loadBuffer(bytecodeImage, baseUrl);
+      var linkStatus = linkNativePrototypes(destination: val.closure, stubs: stubs);
+       print("I/Hydro Linked ${linkStatus.linkedNativePrototypes} native prototypes");
       setState(() {
         func = val;
         res = func.pcall([], parentState: luaState);

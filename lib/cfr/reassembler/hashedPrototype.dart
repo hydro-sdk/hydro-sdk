@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 class HashedPrototype {
   final String hash;
   final String hashWithoutSourceInformation;
-  final Prototype prototype;
+  Prototype prototype;
 
   HashedPrototype(
       {@required this.hash,

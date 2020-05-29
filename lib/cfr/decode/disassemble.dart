@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
+import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/local.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
@@ -22,7 +23,7 @@ String disassemble(CodeDump code) {
 
   void writeFunc(Prototype func, String name) {
     if (name != "main") {
-      writeLine(".func " + name);
+      writeLine(".func " + name+" "+hashPrototype(func));
       indent++;
     }
     if (func.lineStart != 0 || func.lineEnd != 0)
