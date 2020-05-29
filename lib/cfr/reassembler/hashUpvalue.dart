@@ -8,7 +8,7 @@ List<int> hashUpvalue(UpvalDef upvalue) {
 
   var input = sha256.startChunkedConversion(output);
 
-  input.add(upvalue.name?.codeUnits??[]);
+  input.add(upvalue.name?.codeUnits ?? []);
   input.add(upvalue.stack.toString().codeUnits);
   input.add([upvalue.reg]);
 
