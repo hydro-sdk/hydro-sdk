@@ -33,17 +33,14 @@ NativeLinkStatus linkNativePrototypes(
 
   for (var i = 0; i != destinationProtos.length; ++i) {
     if (stubs[destinationProtos[i].hash] != null) {
-      destinationProtos[i].prototype = stubs[destinationProtos[i].hash](
-          codeDump: destinationProtos[i].prototype.root,
-          parent: destinationProtos[i].prototype.parent);
+      maybeLinkNativePrototype(
+          thunk: stubs[destinationProtos[i].hash],
+          prototype: destination.proto,
+          target: destinationProtos[i].hash);
+
       nativeLinkStatus.linkedNativePrototypes++;
     }
   }
-
-  // maybeLinkNativePrototype(
-  //     nativeLinkStatus: nativeLinkStatus,
-  //     destination: destination.proto,
-  //     stubs: stubs);
 
   return nativeLinkStatus;
 }

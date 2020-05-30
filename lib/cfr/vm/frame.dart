@@ -196,6 +196,10 @@ class Frame {
   bool get finished => programCounter >= prototype.code.length;
 
   ThreadResult cont() {
+    if (prototype.interpreter != null) {
+      print("Native frame");
+      return prototype.interpreter(frame: this, prototype: prototype);
+    }
     try {
       while (true) {
         var pc = programCounter++;
@@ -288,7 +292,7 @@ class Frame {
         } else if (OP == 37) {
           closure(frame: this, A: A, B: B);
         } else if (OP == 38) {
-          vararg(frame: this, A: A, B: B);
+          instVararg(frame: this, A: A, B: B);
         } else {
           throw "invalid instruction";
         }
