@@ -3,6 +3,8 @@ import 'dart:typed_data';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/decode/decoderException.dart';
 import 'package:hydro_sdk/cfr/decode/flavor.dart';
+import 'package:hydro_sdk/cfr/lasm/stub.dart';
+import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/inst.dart';
@@ -58,7 +60,11 @@ class Decoder {
     return flavor.decode(raw);
   }
 
-  Prototype readFunc(Prototype parent, CodeDump root) {
+  Prototype readFunc(
+      Prototype parent,
+      CodeDump root,
+      Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+          thunks) {
     doing = "reading primitive";
     var prim = new Prototype(root);
     prim.parent = parent;
@@ -96,8 +102,8 @@ class Decoder {
     prim.constantScope = parent == null
         ? prim.constants
         : [parent.constantScope, prim.constants].expand((f) => f);
-    prim.prototypes = new List.generate(
-        readInt(code.intSize, code.bigEndian), (i) => readFunc(prim, root));
+    prim.prototypes = new List.generate(readInt(code.intSize, code.bigEndian),
+        (i) => readFunc(prim, root, thunks));
     doing = "reading upvals";
     prim.upvals = new List.generate(readInt(code.intSize, code.bigEndian), (i) {
       return new UpvalDef(read(1)[0] == 1, read(1)[0]);
@@ -117,11 +123,21 @@ class Decoder {
     doing = "reading debug upvals";
     int len = readInt(code.intSize, code.bigEndian);
     for (int i = 0; i < len; i++) prim.upvals[i].name = readString();
+
+    if (thunks != null) {
+      if (thunks[hashPrototype(prim)] != null) {
+        var res = thunks[hashPrototype(prim)](codeDump: root, parent: parent);
+        return res;
+      }
+    }
     return prim;
   }
 
   CodeDump code;
-  CodeDump readCodeDump([String name = "stdin"]) {
+  CodeDump readCodeDump(
+      [String name = "stdin",
+      Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+          thunks]) {
     try {
       code = new CodeDump();
 
@@ -164,7 +180,7 @@ class Decoder {
               read(1)[0] != 0x1a ||
               read(1)[0] != 0x0a) throw "Invalid magic";
 
-          code.main = readFunc(null, code);
+          code.main = readFunc(null, code, thunks);
           code.flavor = flavor;
 
           return code;

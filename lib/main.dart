@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(RunFromNetwork(
-    stubs: thunks,
+    thunks: thunks,
       args: [],
       baseUrl:
           "https://github.com/chgibb/hydro-sdk/raw/master/dist/counter.hc"));

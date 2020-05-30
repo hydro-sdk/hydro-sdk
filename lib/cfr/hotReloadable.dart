@@ -17,8 +17,14 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
   CoroutineResult res;
 
   Future<bool> hotReload(
-      {@required Uint8List bytecodeImage, @required String baseUrl}) async {
-    var val = await luaState.loadBuffer(bytecodeImage, baseUrl);
+      {@required
+          Uint8List bytecodeImage,
+      @required
+          String baseUrl,
+      @required
+          Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+              thunks}) async {
+    var val = await luaState.loadBuffer(bytecodeImage, baseUrl, thunks);
     var status =
         reassembleClosures(destination: func.closure, source: val.closure);
     if (!status.bailedOut) {
@@ -52,16 +58,16 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
           String baseUrl,
       @required
           Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
-              stubs}) async {
+              thunks}) async {
     setState(() {
       luaState = HydroState();
       func = null;
       res = null;
     });
     Future.delayed(Duration(seconds: 2)).then((val) async {
-      var val = await luaState.loadBuffer(bytecodeImage, baseUrl);
-      var linkStatus = linkNativePrototypes(destination: val.closure, stubs: stubs);
-       print("I/Hydro Linked ${linkStatus.linkedNativePrototypes} native prototypes");
+      var val = await luaState.loadBuffer(bytecodeImage, baseUrl,thunks);
+      // var linkStatus = linkNativePrototypes(destination: val.closure, stubs: stubs);
+      //  print("I/Hydro Linked ${linkStatus.linkedNativePrototypes} native prototypes");
       setState(() {
         func = val;
         res = func.pcall([], parentState: luaState);

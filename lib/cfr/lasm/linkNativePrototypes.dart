@@ -21,13 +21,6 @@ NativeLinkStatus linkNativePrototypes(
 
   hashProtos(sourceProtos: destinationProtos, prototype: destination.proto);
 
-  destinationProtos.forEach((x) {
-    if (x.hash ==
-        "7e9d338625474a4ed9ab253199d7a1f14ff2579804e12f2164ad9a232a91853d") {
-      print(x);
-    }
-  });
-
   NativeLinkStatus nativeLinkStatus =
       NativeLinkStatus(linkedNativePrototypes: 0);
 

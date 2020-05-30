@@ -10,12 +10,15 @@ void maybeLinkNativePrototype({
   @required Prototype prototype,
   @required String target,
 }) {
-  String destinationHash =
-      hashPrototype(prototype, includeSourceLocations: false);
+  String destinationHash = prototype.hash;
+  if (destinationHash == null) {
+    prototype.hash = hashPrototype(prototype, includeSourceLocations: true);
+    destinationHash = prototype.hash;
+  }
 
   if (destinationHash == target) {
     prototype = thunk(codeDump: prototype.root, parent: prototype.parent);
-    print("Found target");
+    // print("Found target");
     return;
   }
 

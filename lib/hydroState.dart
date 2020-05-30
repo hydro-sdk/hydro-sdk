@@ -11,11 +11,14 @@ import 'package:hydro_sdk/cfr/builtins/stdlib/string.dart';
 import 'package:hydro_sdk/cfr/builtins/stdlib/table.dart';
 import 'package:hydro_sdk/cfr/builtins/hydro/hydro.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
+import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
+import 'package:hydro_sdk/cfr/lasm/stub.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/luaerror.dart';
 import 'package:hydro_sdk/cfr/vm/hydroFunction.dart';
+import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/vm/upVal.dart';
 import 'package:flutter/material.dart';
@@ -102,16 +105,20 @@ class HydroState {
     ));
   }
 
-  Future<HydroFunctionImpl> loadBuffer(Uint8List buffer, String name) async {
+  Future<HydroFunctionImpl> loadBuffer(
+      Uint8List buffer,
+      String name,
+      Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+          thunks) async {
     var decoder = Decoder(buffer.buffer);
-    var dump = decoder.readCodeDump(name);
+    var dump = decoder.readCodeDump(name, thunks);
 
     return HydroFunctionImpl(Closure(dump.main,
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
   Future<CoroutineResult> doBuffer(Uint8List buffer, String name) async {
-    return (await loadBuffer(buffer, name)).pcall([], parentState: this);
+    return (await loadBuffer(buffer, name,null)).pcall([], parentState: this);
   }
 
   Future<CoroutineResult> doFile(String path,

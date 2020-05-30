@@ -10,4 +10,14 @@ class HashedPrototype {
       {@required this.hash,
       @required this.hashWithoutSourceInformation,
       @required this.prototype});
+
+  @override
+  bool operator ==(o) =>
+      o is HashedPrototype &&
+      (o.hash ?? o.hashWithoutSourceInformation) ==
+          (hash ?? hashWithoutSourceInformation);
+
+  @override
+  int get hashCode =>
+      (hash?.hashCode ?? hashWithoutSourceInformation?.hashCode);
 }
