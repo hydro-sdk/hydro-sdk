@@ -82,7 +82,8 @@ class Frame {
   int top = 0;
 
   int getExtraArg() => code[programCounter++ * 4 + 1];
-  int getNextJump() => code[programCounter * 4 + 2];
+  int getNextJump() =>
+      code != null ? code[programCounter * 4 + 2] : programCounter * 4 + 2;
 
   // ignore: non_constant_identifier_names
   dynamic RK(int x) => x >= 256 ? K[x - 256].value : GR(x);
@@ -197,7 +198,6 @@ class Frame {
 
   ThreadResult cont() {
     if (prototype.interpreter != null) {
-      print("Native frame");
       return prototype.interpreter(frame: this, prototype: prototype);
     }
     try {

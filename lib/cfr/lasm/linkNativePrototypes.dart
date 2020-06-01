@@ -1,5 +1,4 @@
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
-import 'package:hydro_sdk/cfr/lasm/stub.dart';
 import 'package:hydro_sdk/cfr/lasm/maybeLinkNativePrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashedPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/reassembleClosures.dart';
@@ -15,7 +14,7 @@ class NativeLinkStatus {
 
 NativeLinkStatus linkNativePrototypes(
     {@required Closure destination,
-    Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+    Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
         stubs}) {
   List<HashedPrototype> destinationProtos = [];
 

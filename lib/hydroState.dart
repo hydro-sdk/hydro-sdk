@@ -108,7 +108,7 @@ class HydroState {
   Future<HydroFunctionImpl> loadBuffer(
       Uint8List buffer,
       String name,
-      Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+      Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
           thunks) async {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(name, thunks);

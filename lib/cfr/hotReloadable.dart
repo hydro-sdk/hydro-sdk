@@ -22,7 +22,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
       @required
           String baseUrl,
       @required
-          Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+          Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
               thunks}) async {
     var val = await luaState.loadBuffer(bytecodeImage, baseUrl, thunks);
     var status =
@@ -57,7 +57,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
       @required
           String baseUrl,
       @required
-          Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+          Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
               thunks}) async {
     setState(() {
       luaState = HydroState();

@@ -63,7 +63,7 @@ class Decoder {
   Prototype readFunc(
       Prototype parent,
       CodeDump root,
-      Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+      Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
           thunks) {
     doing = "reading primitive";
     var prim = new Prototype(root);
@@ -127,6 +127,7 @@ class Decoder {
     if (thunks != null) {
       if (thunks[hashPrototype(prim)] != null) {
         var res = thunks[hashPrototype(prim)](codeDump: root, parent: parent);
+        res.parent = parent;
         return res;
       }
     }
@@ -136,7 +137,7 @@ class Decoder {
   CodeDump code;
   CodeDump readCodeDump(
       [String name = "stdin",
-      Map<String, LasmStub Function({CodeDump codeDump, Prototype parent})>
+      Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
           thunks]) {
     try {
       code = new CodeDump();
