@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/decode/decoderException.dart';
 import 'package:hydro_sdk/cfr/decode/flavor.dart';
-import 'package:hydro_sdk/cfr/lasm/stub.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';

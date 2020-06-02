@@ -23,7 +23,6 @@ class LStubGenerator {
 
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
-import 'package:hydro_sdk/cfr/lasm/stub.dart';
 import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:hydro_sdk/cfr/vm/local.dart';

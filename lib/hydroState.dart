@@ -13,7 +13,6 @@ import 'package:hydro_sdk/cfr/builtins/hydro/hydro.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
-import 'package:hydro_sdk/cfr/lasm/stub.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/luaerror.dart';
