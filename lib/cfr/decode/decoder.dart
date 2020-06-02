@@ -1,8 +1,12 @@
 import 'dart:typed_data';
 
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/decode/decoderException.dart';
 import 'package:hydro_sdk/cfr/decode/flavor.dart';
+import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
+import 'package:hydro_sdk/cfr/linkStatus.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
@@ -60,10 +64,10 @@ class Decoder {
   }
 
   Prototype readFunc(
-      Prototype parent,
-      CodeDump root,
-      Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
-          thunks) {
+      {@required Prototype parent,
+      @required CodeDump root,
+      @required LinkStatus linkStatus,
+      @required Map<String, NativeThunk> thunks}) {
     doing = "reading primitive";
     var prim = new Prototype(root);
     prim.parent = parent;
@@ -101,8 +105,10 @@ class Decoder {
     prim.constantScope = parent == null
         ? prim.constants
         : [parent.constantScope, prim.constants].expand((f) => f);
-    prim.prototypes = new List.generate(readInt(code.intSize, code.bigEndian),
-        (i) => readFunc(prim, root, thunks));
+    prim.prototypes = new List.generate(
+        readInt(code.intSize, code.bigEndian),
+        (i) => readFunc(
+            parent: prim, root: root, linkStatus: linkStatus, thunks: thunks));
     doing = "reading upvals";
     prim.upvals = new List.generate(readInt(code.intSize, code.bigEndian), (i) {
       return new UpvalDef(read(1)[0] == 1, read(1)[0]);
@@ -127,17 +133,20 @@ class Decoder {
       if (thunks[hashPrototype(prim)] != null) {
         var res = thunks[hashPrototype(prim)](codeDump: root, parent: parent);
         res.parent = parent;
+        linkStatus?.nativePrototypes += 1;
         return res;
       }
     }
+    linkStatus?.virtualPrototypes += 1;
     return prim;
   }
 
   CodeDump code;
   CodeDump readCodeDump(
-      [String name = "stdin",
-      Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
-          thunks]) {
+      {String name = "stdin",
+      @required CodeDump dump,
+      @required LinkStatus linkStatus,
+      @required Map<String, NativeThunk> thunks}) {
     try {
       code = new CodeDump();
 
@@ -180,7 +189,8 @@ class Decoder {
               read(1)[0] != 0x1a ||
               read(1)[0] != 0x0a) throw "Invalid magic";
 
-          code.main = readFunc(null, code, thunks);
+          code.main = readFunc(
+              parent: null, root: code, linkStatus: linkStatus, thunks: thunks);
           code.flavor = flavor;
 
           return code;

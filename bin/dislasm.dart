@@ -42,7 +42,10 @@ void main() {
 
     HydroState counter = HydroState();
     var counterClosure = await counter.loadBuffer(
-        File("dist/counter.hc").readAsBytesSync(), "counter", null);
+        buffer: File("dist/counter.hc").readAsBytesSync(),
+        name: "counter",
+        linkStatus: null,
+        thunks: null);
 
     List<HashedPrototype> protos = [];
     hashProtos(sourceProtos: protos, prototype: counterClosure.closure.proto);

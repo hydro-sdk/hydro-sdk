@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
+import 'package:hydro_sdk/cfr/linkStatus.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/reassembler/reassembleClosures.dart';
@@ -22,7 +23,12 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
       @required
           Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
               thunks}) async {
-    var val = await luaState.loadBuffer(bytecodeImage, baseUrl, thunks);
+    var linkStatus = LinkStatus();
+    var val = await luaState.loadBuffer(
+        buffer: bytecodeImage,
+        name: baseUrl,
+        thunks: thunks,
+        linkStatus: linkStatus);
     var status =
         reassembleClosures(destination: func.closure, source: val.closure);
     if (!status.bailedOut) {
@@ -63,7 +69,14 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
       res = null;
     });
     Future.delayed(Duration(seconds: 2)).then((val) async {
-      var val = await luaState.loadBuffer(bytecodeImage, baseUrl,thunks);
+      var linkStatus = LinkStatus();
+      var val = await luaState.loadBuffer(
+          buffer: bytecodeImage,
+          name: baseUrl,
+          thunks: thunks,
+          linkStatus: linkStatus);
+      print(
+          "I/Hydro ${linkStatus.nativePrototypes} native, ${linkStatus.virtualPrototypes} virtual prototypes");
       // var linkStatus = linkNativePrototypes(destination: val.closure, stubs: stubs);
       //  print("I/Hydro Linked ${linkStatus.linkedNativePrototypes} native prototypes");
       setState(() {
