@@ -30,6 +30,7 @@ import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/upvaldef.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
+import 'package:hydro_sdk/cfr/vm/inst.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/add.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/call.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/closure.dart';
@@ -131,14 +132,24 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
     });
     res += "]\n";
 
-    res += " ..source = ${prototype.source}\n";
+    res += " ..source = \"${prototype.source}\"\n";
 
     res += "..locals =[\n";
 
     prototype.locals.forEach((x) {
-      res += "Local(${x.name},${x.from},${x.to}),\n";
+      res += "Local(\"${x.name}\",${x.from},${x.to}),\n";
     });
     res += "]\n";
+    res += "..lines = const [\n";
+    prototype.lines?.forEach((element) { 
+      res += "$element,";
+    });
+    res += "]\n";
+    res += "..code = InstBlock([\n";
+    prototype.code?.forEach((x) {
+      res += "Inst(${x.OP},${x.A},${x.B},${x.C}),";
+    });
+    res += "])\n";
     res += "..rawCode = Int32List.fromList(${prototype.rawCode})";
     res +=
         """..interpreter= ({@required Frame frame, @required Prototype prototype}){
