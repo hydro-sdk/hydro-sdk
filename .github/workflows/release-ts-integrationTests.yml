@@ -64,7 +64,8 @@ jobs:
     - name: Build Typescript release fixtures
       run: bash scripts/buildAllTs.bash release
       working-directory: hydro
-    - name: AOT debug fixtures
+    - name: AOT release fixtures
+      shell: bash
       run: dart bin/hc2Dart.dart assets/**/*
       working-directory: hydro
     - name: Run Hydro-SDK tests
