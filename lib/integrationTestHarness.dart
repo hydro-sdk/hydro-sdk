@@ -7,6 +7,6 @@ void main(String path) {
   runApp(RunFromBundle(
     path: path,
     args: [],
-    thunks:thunks,
+    thunks: thunks,
   ));
 }

@@ -10,7 +10,7 @@ import 'package:hydro_sdk/hydroState.dart';
 Future<HydroFunction> loadFileFromBundle({
   @required HydroState hydroState,
   @required String path,
-  @required Map<String,NativeThunk> thunks,
+  @required Map<String, NativeThunk> thunks,
 }) async {
   var contents = await rootBundle.load(path);
   var decoder = Decoder(contents.buffer);
