@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:hydro_sdk/cfr/builtins/loadBuiltins.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/linkStatus.dart';
@@ -65,6 +66,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
               thunks}) async {
     setState(() {
       luaState = HydroState();
+      loadBuiltins(hydroState: luaState);
       func = null;
       res = null;
     });
