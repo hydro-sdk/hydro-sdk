@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:args/args.dart';
 import 'package:path/path.dart';
 
 import 'package:hydro_sdk/cfr/lasm/generate.dart';
@@ -16,6 +17,14 @@ void main(List<String> args) async {
     print("Got no bytecode files");
     exit(1);
   }
+
+  var parser = ArgParser();
+
+  parser.addOption("out-file",
+      help: "The file to write transpiled output to",
+      defaultsTo: "lib/hc.g.dart");
+
+  var argResults = parser.parse(args);
 
   print("Got ${hcPaths.length} bytecode files");
 
@@ -42,20 +51,5 @@ void main(List<String> args) async {
 
   print("${generator.protoypes.length} unqiue candidates to be transpiled");
 
-  File("lib/buildStub.dart").writeAsStringSync(generator.generate());
-
-  // HydroState counter = HydroState();
-  // var counterClosure = await counter.loadBuffer(
-  //     buffer: File("assets/examples/counter.hc").readAsBytesSync(),
-  //     name: "counter",
-  //     linkStatus: null,
-  //     thunks: null);
-
-  // List<HashedPrototype> protos = [];
-  // hashProtos(sourceProtos: protos, prototype: counterClosure.closure.proto);
-
-  // File("lib/buildStub.dart").writeAsStringSync(LStubGenerator(
-  //         prototypes:
-  //             protos.where((x) => x.prototype.prototypes.isEmpty).toList())
-  //     .generate());
+  File(argResults["out-file"]).writeAsStringSync(generator.generate());
 }
