@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 void _rebuildAllChildren(BuildContext context) {
@@ -20,8 +21,7 @@ void _rebuildAllChildren(BuildContext context) {
 class RunFromNetwork extends StatefulWidget {
   final String baseUrl;
   final List<dynamic> args;
-  final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
-      thunks;
+  final Map<String, NativeThunk> thunks;
   final Future<String> Function(String) downloadHash;
   final Future<Uint8List> Function(String) downloadByteCodeImage;
 

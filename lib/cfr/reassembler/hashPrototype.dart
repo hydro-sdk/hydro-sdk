@@ -4,7 +4,6 @@ import 'package:hydro_sdk/cfr/reassembler/hashInstructionBlock.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashLocals.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashUpvalues.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
-import 'package:hydro_sdk/cfr/vm/const.dart';
 
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';

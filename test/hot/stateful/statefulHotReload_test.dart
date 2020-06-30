@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,6 +14,7 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
       await tester.pumpWidget(RunFromNetwork(
         args: [],
+        thunks: thunks,
         baseUrl: "http://127.0.0.1:3000/hot/stateful/counter.hc",
         downloadHash: (String uri) async {
           var file = File(hashPath);
