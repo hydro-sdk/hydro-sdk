@@ -1,4 +1,4 @@
-name: Release Mode Typescript Integration Tests
+name: Debug Mode Typescript with AOT Integration Tests
 
 on: [push, pull_request]	
 
@@ -61,8 +61,12 @@ jobs:
     - name: Get packages for Hydro-SDK JS
       run: npm install
       working-directory: hydro
-    - name: Build Typescript release fixtures
-      run: bash scripts/buildAllTs.bash release
+    - name: Build Typescript debug fixtures
+      run: bash scripts/buildAllTs.bash debug
+      working-directory: hydro
+    - name: AOT debug fixtures
+      shell: bash
+      run: dart bin/hc2Dart.dart assets/**/*
       working-directory: hydro
     - name: Run Hydro-SDK tests
       shell: bash
