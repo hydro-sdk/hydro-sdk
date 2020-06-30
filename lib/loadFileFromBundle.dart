@@ -16,5 +16,6 @@ Future<HydroFunction> loadFileFromBundle({
       name: path, linkStatus: null, dump: null, thunks: null);
 
   return HydroFunctionImpl(Closure(dump.main,
-      context: hydroState.context, upvalues: [Upval.store(hydroState.context.env)]));
+      context: hydroState.context,
+      upvalues: [Upval.store(hydroState.context.env)]));
 }

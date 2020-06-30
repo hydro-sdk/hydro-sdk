@@ -4,7 +4,6 @@ import 'package:hydro_sdk/cfr/reassembler/hashedPrototype.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
-
 class LStubGenerator {
   List<HashedPrototype> _prototypes;
   LStubGenerator({@required List<HashedPrototype> prototypes}) {
@@ -140,7 +139,7 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
     });
     res += "]\n";
     res += "..lines = const [\n";
-    prototype.lines?.forEach((element) { 
+    prototype.lines?.forEach((element) {
       res += "$element,";
     });
     res += "]\n";

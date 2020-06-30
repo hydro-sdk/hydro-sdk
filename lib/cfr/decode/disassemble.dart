@@ -23,7 +23,7 @@ String disassemble(CodeDump code) {
 
   void writeFunc(Prototype func, String name) {
     if (name != "main") {
-      writeLine(".func " + name+" "+hashPrototype(func));
+      writeLine(".func " + name + " " + hashPrototype(func));
       indent++;
     }
     if (func.lineStart != 0 || func.lineEnd != 0)
