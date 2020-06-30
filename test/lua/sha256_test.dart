@@ -6,9 +6,12 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   test('', () async {
     var state = HydroState();
-    loadBuiltins(
-        hydroState: state,
-        builtins: [BuiltinLib.math, BuiltinLib.base, BuiltinLib.bit,BuiltinLib.string]);
+    loadBuiltins(hydroState: state, builtins: [
+      BuiltinLib.math,
+      BuiltinLib.base,
+      BuiltinLib.bit,
+      BuiltinLib.string
+    ]);
 
     List<String> outLines = [];
 
