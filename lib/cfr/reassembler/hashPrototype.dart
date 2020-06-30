@@ -19,8 +19,6 @@ String hashPrototype(Prototype prototype,
   var instHash = hashInstructionBlock(prototype.code);
   input.add(prototype.rawCode);
   var constantsHash = hashConstants(prototype.constants);
-  var constScopeHash =
-      hashConstants(prototype.constantScope.toList().cast<Const>());
   var upvalueHash = hashUpvalues(prototype.upvals);
   var localHash = hashLocals(prototype.locals);
 
@@ -35,7 +33,6 @@ String hashPrototype(Prototype prototype,
 
   input.add(instHash);
   input.add(constantsHash);
-  input.add(constScopeHash);
   input.add(upvalueHash);
   input.add(localHash);
 

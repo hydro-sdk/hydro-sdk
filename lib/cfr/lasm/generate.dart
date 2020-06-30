@@ -6,6 +6,7 @@ import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 class LStubGenerator {
   List<HashedPrototype> _prototypes;
+  List<HashedPrototype> get protoypes => _prototypes;
   LStubGenerator({@required List<HashedPrototype> prototypes}) {
     var unique = List<HashedPrototype>();
     prototypes.forEach((x) {
@@ -107,23 +108,6 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
       }
     });
     res += "]\n";
-    res += "..constantScope = const [\n";
-    prototype.constantScope.forEach((x) {
-      if (x.type == ConstType.CONST_NIL) {
-        res += "const Const(),\n";
-      }
-      if (x.type == ConstType.CONST_BOOL) {
-        res += "const BoolConst(${x.value}),\n";
-      }
-      if (x.type == ConstType.CONST_NUMBER) {
-        res += "const NumberConst(${x.value}),\n";
-      }
-      if (x.type == ConstType.CONST_STRING) {
-        res +=
-            "const StringConst(\"${(x.value as String).replaceAll("\$", "\\\$").replaceAll("\n", "\\n")}\"),\n";
-      }
-    });
-    res += "]\n";
     res += "..upvals =[\n";
     prototype.upvals.forEach((x) {
       res += "UpvalDef(${x.stack},${x.reg}),\n";
@@ -156,7 +140,6 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
       switch(pc){
     """;
     for (var i = 0; i != prototype.code.list.length; ++i) {
-      print(prototype.code.list[i].OP);
       switch (prototype.code.list[i].OP) {
         case 0:
           res += "case $i:\n";
