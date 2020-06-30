@@ -8,8 +8,8 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('stateful hot reload', (WidgetTester tester) async {
     await tester.runAsync(() async {
-      String hashPath = "hot/stateful/counter1.hc.sha256";
-      String bytecodePath = "hot/stateful/counter1.hc";
+      String hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
+      String bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
 
       WidgetsFlutterBinding.ensureInitialized();
       await tester.pumpWidget(RunFromNetwork(
@@ -48,8 +48,8 @@ void main() {
 
       //Switch out files in response to polling
       //Should trigger a hot reload
-      hashPath = "hot/stateful/counter2.hc.sha256";
-      bytecodePath = "hot/stateful/counter2.hc";
+      hashPath = "../assets/test/hot/stateful/counter2.ts.hc.sha256";
+      bytecodePath = "../assets/test/hot/stateful/counter2.ts.hc";
 
       expect(tester.takeException(), isNull);
 
@@ -74,8 +74,8 @@ void main() {
       expect(find.text("3"), findsOneWidget);
 
       //Switch back to original files
-      hashPath = "hot/stateful/counter1.hc.sha256";
-      bytecodePath = "hot/stateful/counter1.hc";
+      hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
+      bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
 
       expect(tester.takeException(), isNull);
 
