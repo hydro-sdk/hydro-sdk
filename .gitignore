@@ -52,3 +52,4 @@ hydro_sdk/android/.project
 !dist/*.sha256
 dist/**/*.ts
 haxe-4.0.5
+lib/hc.g.dart
