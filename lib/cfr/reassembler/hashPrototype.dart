@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashConstants.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashInstructionBlock.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashLocals.dart';
@@ -22,7 +23,7 @@ String hashPrototype(Prototype prototype,
   var upvalueHash = hashUpvalues(prototype.upvals);
   var localHash = hashLocals(prototype.locals);
 
-  if (includeSourceLocations) {
+  if (includeSourceLocations && prototype.buildProfile == BuildProfile.debug) {
     input.add(prototype.lines);
     input.add([
       prototype.lineStart,
