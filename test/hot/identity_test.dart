@@ -113,7 +113,7 @@ void main() {
                 hashPrototype(global1, includeSourceLocations: false),
             sourceHashWithoutSourceInformation:
                 hashPrototype(global3, includeSourceLocations: false)),
-        false);
+        true);
     expect(
         isRelocationCandidate(
             destination: global3,
@@ -122,7 +122,7 @@ void main() {
                 hashPrototype(global3, includeSourceLocations: false),
             sourceHashWithoutSourceInformation:
                 hashPrototype(global1, includeSourceLocations: false)),
-        false);
+        true);
     expect(
         isRelocationCandidate(
             destination: global2,
@@ -150,7 +150,7 @@ void main() {
                 hashPrototype(local1, includeSourceLocations: false),
             sourceHashWithoutSourceInformation:
                 hashPrototype(local3, includeSourceLocations: false)),
-        false);
+        true);
     expect(
         isRelocationCandidate(
             destination: local3,
@@ -159,7 +159,7 @@ void main() {
                 hashPrototype(local3, includeSourceLocations: false),
             sourceHashWithoutSourceInformation:
                 hashPrototype(local1, includeSourceLocations: false)),
-        false);
+        true);
     expect(
         isRelocationCandidate(
             destination: local2,
