@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 
 class Thread {
   Thread({@required Closure closure}) {

@@ -1,10 +1,9 @@
-import 'dart:collection';
-
-import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashedPrototype.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
+
 
 class LStubGenerator {
   List<HashedPrototype> _prototypes;
@@ -450,9 +449,6 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
   String generate() {
     String res = "";
     res += _lasmPreamble;
-    // _prototypes.forEach((x) {
-    //   res += _generateStubClass(prototype: x.prototype);
-    // });
 
     res += _thunkPreamble;
     _prototypes.forEach((x) {

@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/luaerror.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 
 class LuaErrorImpl extends LuaError {
   LuaErrorImpl(dynamic value, this.proto, this.inst, {this.dartStackTrace})
