@@ -289,7 +289,7 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
         case 21:
           res += "case $i:\n";
           res +=
-              "not(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "len(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
 
           res += "break;\n";
           break;
