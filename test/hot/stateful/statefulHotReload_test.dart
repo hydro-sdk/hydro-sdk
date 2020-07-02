@@ -4,10 +4,17 @@ import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/testMode.dart';
 
 void main() {
   testWidgets('stateful hot reload', (WidgetTester tester) async {
     await tester.runAsync(() async {
+      var testMode = getTestMode();
+      expect(testMode, isNotNull);
+
+      if (testMode != TestMode.typescript) {
+        return;
+      }
       String hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
       String bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
 
