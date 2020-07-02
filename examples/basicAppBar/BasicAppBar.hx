@@ -26,6 +26,41 @@ private class BasicAppBarSampleState extends State<BasicAppBarSample> {
 			this.selectedChoice = choice;
 		});
 	}
+
+	public override function build(context:BuildContext) {
+		return new MaterialApp({
+			home: new Scaffold({
+				appBar: new AppBar({
+					title: new Text("Basic Appbar"),
+					actions: [
+						new IconButton({
+							icon: new Icon(Choice.choices[0].icon),
+							onPressed: () -> {
+								this.select(Choice.choices[0]);
+							}
+						}),
+						new IconButton({
+							icon: new Icon(Choice.choices[1].icon),
+							onPressed: () -> {
+								this.select(Choice.choices[1]);
+							}
+						}),
+						new PopupMenuButton<Choice>({
+							onSelected: (choice:Choice) -> {},
+							itemBuilder: (context:BuildContext) -> {
+								return Choice.choices.map((choice:Choice) -> {
+									return new PopupMenuItem<Choice>({
+										value: choice,
+										child: new Text(choice.title)
+									});
+								});
+							}
+						})
+					]
+				})
+			})
+		});
+	}
 }
 
 class BasicAppBar {
