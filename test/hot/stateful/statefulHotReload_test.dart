@@ -18,7 +18,7 @@ void main() {
       if (testMode != TestMode.typescript) {
         return;
       }
-      
+
       String hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
       String bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
 
