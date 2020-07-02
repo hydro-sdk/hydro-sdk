@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/hc.g.dart';
+import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,11 +14,27 @@ void main() {
       var testMode = getTestMode();
       expect(testMode, isNotNull);
 
+      //If we're not running Typescript tests, the fixtures for this test weren't built
       if (testMode != TestMode.typescript) {
         return;
       }
+      
       String hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
       String bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
+
+      HydroState state = HydroState();
+      var closure = await state.loadBuffer(
+          buffer: File(bytecodePath).readAsBytesSync(),
+          name: bytecodePath,
+          linkStatus: null,
+          thunks: null);
+
+      //This test doesn't make any sense if the fixtures were built in release mode.
+      //Hot reload doesn't work in release mode.
+      if (closure.closure.buildProfile == BuildProfile.mixed ||
+          closure.closure.buildProfile == BuildProfile.release) {
+        return;
+      }
 
       WidgetsFlutterBinding.ensureInitialized();
       await tester.pumpWidget(RunFromNetwork(
