@@ -133,9 +133,6 @@ Hydro includes a CLI utility under `bin` to compile `.hc` bytecode files into Da
 # Supported Languages  
 - [&check;] Typescript  
         https://github.com/TypeScriptToLua/TypeScriptToLua  
-- [ ] Haxe  
-        https://haxe.org/  
-        - In progress. Early toolchain support and some projections.
 - [ ] Java  
         https://github.com/jtransc/jtransc  
 - [ ] Kotlin  
