@@ -1,25 +1,16 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:hydro_sdk/cfr/builtins/dart/dart.dart';
-import 'package:hydro_sdk/cfr/builtins/flutter/flutter.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/base.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/bit.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/bit32.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/math.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/string.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/table.dart';
-import 'package:hydro_sdk/cfr/builtins/hydro/hydro.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
+import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
+import 'package:hydro_sdk/cfr/linkStatus.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/luaerror.dart';
 import 'package:hydro_sdk/cfr/vm/hydroFunction.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/vm/upVal.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 
 class HydroFunctionImpl extends HydroFunction {
@@ -58,30 +49,8 @@ class HydroState {
 
   DispatchContext dispatchContext;
 
-  HydroState({bool loadLibs = true})
-      : _context = new Context(env: new HydroTable()) {
+  HydroState() : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;
-
-    if (loadLibs) {
-      loadBaseLib(_context);
-      loadMathLib(_context);
-      loadStringLib(_context);
-      loadBitLib(_context);
-      loadTableLib(_context);
-      loadBit32Lib(_context);
-      loadFlutterLib(luaState: this, ctx: _context);
-      loadDartLib(_context);
-      loadHydroLib(_context);
-    }
-  }
-
-  Future<HydroFunction> loadFileFromBundle(String path) async {
-    var contents = await rootBundle.load(path);
-    var decoder = Decoder(contents.buffer);
-    var dump = decoder.readCodeDump(path);
-
-    return HydroFunctionImpl(Closure(dump.main,
-        context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
   Future<HydroFunctionImpl> loadFile(String path) async {
@@ -93,7 +62,8 @@ class HydroState {
     fh.readIntoSync(buffer);
 
     var decoder = Decoder(buffer.buffer);
-    var dump = decoder.readCodeDump(path);
+    var dump = decoder.readCodeDump(
+        name: path, dump: null, linkStatus: null, thunks: null);
 
     return HydroFunctionImpl(Closure(
       dump.main,
@@ -102,25 +72,29 @@ class HydroState {
     ));
   }
 
-  Future<HydroFunctionImpl> loadBuffer(Uint8List buffer, String name) async {
+  Future<HydroFunctionImpl> loadBuffer(
+      {@required Uint8List buffer,
+      @required String name,
+      @required LinkStatus linkStatus,
+      @required Map<String, NativeThunk> thunks}) async {
     var decoder = Decoder(buffer.buffer);
-    var dump = decoder.readCodeDump(name);
+    var dump = decoder.readCodeDump(
+        name: name, dump: null, linkStatus: linkStatus, thunks: thunks);
 
     return HydroFunctionImpl(Closure(dump.main,
         context: _context, upvalues: [Upval.store(_context.env)]));
   }
 
   Future<CoroutineResult> doBuffer(Uint8List buffer, String name) async {
-    return (await loadBuffer(buffer, name)).pcall([], parentState: this);
+    return (await loadBuffer(
+            buffer: buffer, name: name, linkStatus: null, thunks: null))
+        .pcall([], parentState: this);
   }
 
   Future<CoroutineResult> doFile(String path,
           {List<dynamic> args = const []}) async =>
       (await loadFile(path)).pcall(args, parentState: this);
 
-  Future<CoroutineResult> doFileFromBundle(String path,
-          {List<dynamic> args = const []}) async =>
-      (await loadFileFromBundle(path)).pcall(args);
   static dynamic _sanitize(dynamic x) {
     if (x is! LuaDartFunc && x is Function) {
       throw "Function does not match LuaDartFunc or LuaDebugFunc";

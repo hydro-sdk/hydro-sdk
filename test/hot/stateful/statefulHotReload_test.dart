@@ -1,18 +1,45 @@
 import 'dart:io';
 
+import 'package:hydro_sdk/cfr/buildProfile.dart';
+import 'package:hydro_sdk/hc.g.dart';
+import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/testMode.dart';
 
 void main() {
   testWidgets('stateful hot reload', (WidgetTester tester) async {
     await tester.runAsync(() async {
-      String hashPath = "hot/stateful/counter1.hc.sha256";
-      String bytecodePath = "hot/stateful/counter1.hc";
+      var testMode = getTestMode();
+      expect(testMode, isNotNull);
+
+      //If we're not running Typescript tests, the fixtures for this test weren't built
+      if (testMode != TestMode.typescript) {
+        return;
+      }
+
+      String hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
+      String bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
+
+      HydroState state = HydroState();
+      var closure = await state.loadBuffer(
+          buffer: File(bytecodePath).readAsBytesSync(),
+          name: bytecodePath,
+          linkStatus: null,
+          thunks: null);
+
+      //This test doesn't make any sense if the fixtures were built in release mode.
+      //Hot reload doesn't work in release mode.
+      if (closure.closure.buildProfile == BuildProfile.mixed ||
+          closure.closure.buildProfile == BuildProfile.release) {
+        return;
+      }
 
       WidgetsFlutterBinding.ensureInitialized();
       await tester.pumpWidget(RunFromNetwork(
         args: [],
+        thunks: thunks,
         baseUrl: "http://127.0.0.1:3000/hot/stateful/counter.hc",
         downloadHash: (String uri) async {
           var file = File(hashPath);
@@ -46,8 +73,8 @@ void main() {
 
       //Switch out files in response to polling
       //Should trigger a hot reload
-      hashPath = "hot/stateful/counter2.hc.sha256";
-      bytecodePath = "hot/stateful/counter2.hc";
+      hashPath = "../assets/test/hot/stateful/counter2.ts.hc.sha256";
+      bytecodePath = "../assets/test/hot/stateful/counter2.ts.hc";
 
       expect(tester.takeException(), isNull);
 
@@ -72,8 +99,8 @@ void main() {
       expect(find.text("3"), findsOneWidget);
 
       //Switch back to original files
-      hashPath = "hot/stateful/counter1.hc.sha256";
-      bytecodePath = "hot/stateful/counter1.hc";
+      hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
+      bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
 
       expect(tester.takeException(), isNull);
 

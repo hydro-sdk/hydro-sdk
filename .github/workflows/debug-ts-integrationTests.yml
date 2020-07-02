@@ -37,6 +37,12 @@ jobs:
     - name: Add Flutter to the PATH for Windows
       run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
       if: runner.os == 'Windows'
+    - name: Add Dart to the PATH for Unix
+      run: echo "::add-path::/$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin"
+      if: runner.os != 'Windows'
+    - name: Add Dart to the PATH for Windows
+      run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin"
+      if: runner.os == 'Windows'
     - name: Run Flutter doctor
       run: flutter doctor -v
 

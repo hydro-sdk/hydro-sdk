@@ -7,7 +7,7 @@ void relocatePrototype(
     {@required ReassembleStatus reassembleStatus,
     @required Prototype destination,
     @required Prototype source}) {
-  if ((destination.lineStart - source.lineStart).abs() >= 25) {
+  if ((destination.lineStart - source.lineStart).abs() >= 500) {
     reassembleStatus.bailedOut = true;
     reassembleStatus.bailOutReason =
         "Tried to relocate ${source.lineStart} to ${destination.lineStart}";

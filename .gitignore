@@ -43,6 +43,7 @@ examples/**/*.lua
 assets/examples/*.hc
 assets/test/widget/*.hc
 assets/test/hot/*.hc
+assets/test/hot/stateful/*.hc
 hydro_sdk/android/.project
 *.js
 .hydroc
@@ -52,3 +53,4 @@ hydro_sdk/android/.project
 !dist/*.sha256
 dist/**/*.ts
 haxe-4.0.5
+lib/hc.g.dart

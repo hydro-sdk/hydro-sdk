@@ -82,7 +82,8 @@ class Frame {
   int top = 0;
 
   int getExtraArg() => code[programCounter++ * 4 + 1];
-  int getNextJump() => code[programCounter * 4 + 2];
+  int getNextJump() =>
+      code != null ? code[programCounter * 4 + 2] : programCounter * 4 + 2;
 
   // ignore: non_constant_identifier_names
   dynamic RK(int x) => x >= 256 ? K[x - 256].value : GR(x);
@@ -196,6 +197,9 @@ class Frame {
   bool get finished => programCounter >= prototype.code.length;
 
   ThreadResult cont() {
+    if (prototype.interpreter != null) {
+      return prototype.interpreter(frame: this, prototype: prototype);
+    }
     try {
       while (true) {
         var pc = programCounter++;
@@ -288,7 +292,7 @@ class Frame {
         } else if (OP == 37) {
           closure(frame: this, A: A, B: B);
         } else if (OP == 38) {
-          vararg(frame: this, A: A, B: B);
+          instVararg(frame: this, A: A, B: B);
         } else {
           throw "invalid instruction";
         }

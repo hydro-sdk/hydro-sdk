@@ -1,10 +1,13 @@
 import 'dart:async';
 import 'dart:typed_data';
+import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/hotReloadable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
+import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 void _rebuildAllChildren(BuildContext context) {
   void rebuild(Element el) {
@@ -18,12 +21,14 @@ void _rebuildAllChildren(BuildContext context) {
 class RunFromNetwork extends StatefulWidget {
   final String baseUrl;
   final List<dynamic> args;
+  final Map<String, NativeThunk> thunks;
   final Future<String> Function(String) downloadHash;
   final Future<Uint8List> Function(String) downloadByteCodeImage;
 
   RunFromNetwork(
       {@required this.baseUrl,
       @required this.args,
+      @required this.thunks,
       this.downloadHash,
       this.downloadByteCodeImage});
 
@@ -31,6 +36,7 @@ class RunFromNetwork extends StatefulWidget {
   _RunFromNetwork createState() => _RunFromNetwork(
       baseUrl: baseUrl,
       args: args,
+      thunks: thunks,
       downloadHash: downloadHash,
       downloadByteCodeImage: downloadByteCodeImage);
 }
@@ -39,6 +45,8 @@ class _RunFromNetwork extends State<RunFromNetwork>
     with HotReloadable<RunFromNetwork> {
   final String baseUrl;
   final List<dynamic> args;
+  final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+      thunks;
 
   Timer timer;
   bool requiresRebuild = false;
@@ -49,6 +57,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
   _RunFromNetwork(
       {@required this.baseUrl,
       @required this.args,
+      @required this.thunks,
       this.downloadHash,
       this.downloadByteCodeImage}) {
     if (downloadHash == null) {
@@ -96,11 +105,14 @@ class _RunFromNetwork extends State<RunFromNetwork>
 
         //First time load
         if (res == null) {
-          await fullRestart(bytecodeImage: image, baseUrl: baseUrl);
+          await fullRestart(
+              bytecodeImage: image, baseUrl: baseUrl, thunks: thunks);
         } else {
-          var status = await hotReload(bytecodeImage: image, baseUrl: baseUrl);
+          var status = await hotReload(
+              bytecodeImage: image, baseUrl: baseUrl, thunks: thunks);
           if (!status) {
-            await fullRestart(bytecodeImage: image, baseUrl: baseUrl);
+            await fullRestart(
+                bytecodeImage: image, baseUrl: baseUrl, thunks: thunks);
           }
           setState(() {
             requiresRebuild = true;
@@ -139,6 +151,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
           requiresRebuild = false;
         });
       }
+
       return maybeUnwrapAndBuildArgument<Widget>(
           luaState.context.env["hydro"]
               ["globalBuildResult"](args != null ? [...args] : [])[0],

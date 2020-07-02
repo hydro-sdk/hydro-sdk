@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 
 @pragma('vm:prefer-inline')
 @pragma('dart2js:tryInline')
-void vararg({@required Frame frame, @required int A, @required int B}) {
+void instVararg({@required Frame frame, @required int A, @required int B}) {
   if (B > 0) {
     var i = 0;
     for (int n = A; n <= A + B - 2; n++) frame.SR(n, frame.varargs[i++]);

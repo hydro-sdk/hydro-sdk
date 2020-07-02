@@ -1,4 +1,4 @@
-name: Release Mode Typescript Integration Tests
+name: Release Mode Typescript With AOT Integration Tests
 
 on: [push, pull_request]	
 
@@ -63,6 +63,10 @@ jobs:
       working-directory: hydro
     - name: Build Typescript release fixtures
       run: bash scripts/buildAllTs.bash release
+      working-directory: hydro
+    - name: AOT release fixtures
+      shell: bash
+      run: dart bin/hc2Dart.dart assets/**/*
       working-directory: hydro
     - name: Run Hydro-SDK tests
       shell: bash

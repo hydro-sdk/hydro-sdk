@@ -15,6 +15,7 @@ class Prototype {
   Prototype(this.root);
   final CodeDump root;
   Prototype parent;
+  String hash;
   String name;
   int lineStart;
   int lineEnd;

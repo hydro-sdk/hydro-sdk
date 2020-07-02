@@ -19,8 +19,8 @@ ReassembleStatus reassembleClosures(
   List<HashedPrototype> sourceProtos = [];
   List<HashedPrototype> destinationProtos = [];
 
-  _hashProtos(sourceProtos: sourceProtos, prototype: source.proto);
-  _hashProtos(sourceProtos: destinationProtos, prototype: destination.proto);
+  hashProtos(sourceProtos: sourceProtos, prototype: source.proto);
+  hashProtos(sourceProtos: destinationProtos, prototype: destination.proto);
 
   if (sourceProtos.length > destinationProtos.length) {
     res.bailedOut = true;
@@ -42,7 +42,7 @@ ReassembleStatus reassembleClosures(
   return res;
 }
 
-void _hashProtos(
+void hashProtos(
     {@required List<HashedPrototype> sourceProtos,
     @required Prototype prototype}) {
   sourceProtos.add(HashedPrototype(
@@ -60,7 +60,7 @@ void _hashProtos(
           prototype: x));
 
       if (x.prototypes != null && x.prototypes.isNotEmpty) {
-        _hashProtos(sourceProtos: sourceProtos, prototype: x);
+        hashProtos(sourceProtos: sourceProtos, prototype: x);
       }
     });
   }

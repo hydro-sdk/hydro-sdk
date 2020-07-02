@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/runFromBundle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,6 +12,7 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
 
       await tester.pumpWidget(RunFromBundle(
+        thunks: thunks,
         path: "assets/examples/hostArgs.hc",
         args: [
           "hello world",
