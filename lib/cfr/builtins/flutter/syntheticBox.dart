@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/flutter/widgets/inheritedWidgetBox.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
@@ -45,6 +46,19 @@ dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
   }
   //Managed object
   if (arg is HydroTable) {
+    HydroTable internalRuntimeType = arg["internalRuntimeType"];
+    if (internalRuntimeType != null) {
+      String displayName = internalRuntimeType["displayName"];
+      if (displayName != null) {
+        if (displayName == "InheritedWidget") {
+          return InheritedWidgetBox(
+            table: arg,
+            parentState: parentState,
+          );
+        }
+      }
+    }
+
     //Metatable will contain an inherited build function from the StatlessWidget base class
     Closure createState =
         maybeFindInheritedMethod(managedObject: arg, methodName: "createState");

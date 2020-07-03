@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:hydro_sdk/cfr/builtins/flutter/managedBuild.dart';
+import 'package:hydro_sdk/cfr/builtins/flutter/widgets/buildContext.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -12,12 +16,8 @@ class StatelessWidgetBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Closure managedBuild =
-        maybeFindInheritedMethod(managedObject: table, methodName: "build");
-    var buildResult = managedBuild
-        .dispatch([table.map, context], parentState: parentState)[0];
-    return maybeUnwrapAndBuildArgument<Widget>(buildResult,
-        parentState: parentState);
+    return managedBuild(
+        context: context, hydroState: parentState, hydroTable: table);
   }
 }
 

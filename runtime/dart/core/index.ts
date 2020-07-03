@@ -1,3 +1,4 @@
-export * from "./double";
-export * from "./print";
-export * from "./object";
+export * from './double';
+export * from './print';
+export * from './type';
+export * from './object';
