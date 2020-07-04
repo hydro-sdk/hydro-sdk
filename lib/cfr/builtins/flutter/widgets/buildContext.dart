@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/widgets/inheritedWidgetBox.dart';
@@ -30,7 +28,9 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
       activeContext.visitAncestorElements((element) {
         if (element.widget is InheritedWidgetBox) {
           InheritedWidgetBox inheritedWidgetBox = element.widget;
-          if (inheritedWidgetBox.table["runtimeType"]["displayName"] ==
+          if (maybeUnwrapRuntimeType(
+                  managedObject: inheritedWidgetBox.table,
+                  runtimeTypePropName: "runtimeType") ==
               args[1]["displayName"]) {
             res = inheritedWidgetBox.table;
             return false;
