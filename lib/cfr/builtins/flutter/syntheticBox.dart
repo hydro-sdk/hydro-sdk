@@ -38,8 +38,7 @@ Closure maybeFindInheritedMethod(
 }
 
 String maybeUnwrapRuntimeType(
-    {@required dynamic managedObject,
-    @required String runtimeTypePropName}) {
+    {@required dynamic managedObject, @required String runtimeTypePropName}) {
   return managedObject[runtimeTypePropName] != null
       ? managedObject[runtimeTypePropName]["displayName"] != null
           ? managedObject[runtimeTypePropName]["displayName"]
