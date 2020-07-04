@@ -37,6 +37,16 @@ Closure maybeFindInheritedMethod(
       : null;
 }
 
+String maybeUnwrapRuntimeType(
+    {@required dynamic managedObject,
+    @required String runtimeTypePropName}) {
+  return managedObject[runtimeTypePropName] != null
+      ? managedObject[runtimeTypePropName]["displayName"] != null
+          ? managedObject[runtimeTypePropName]["displayName"]
+          : null
+      : null;
+}
+
 dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
     {BuildContext context, @required HydroState parentState}) {
   assert(parentState != null);
@@ -46,17 +56,14 @@ dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
   }
   //Managed object
   if (arg is HydroTable) {
-    HydroTable internalRuntimeType = arg["internalRuntimeType"];
-    if (internalRuntimeType != null) {
-      String displayName = internalRuntimeType["displayName"];
-      if (displayName != null) {
-        if (displayName == "InheritedWidget") {
-          return InheritedWidgetBox(
-            table: arg,
-            parentState: parentState,
-          );
-        }
-      }
+    String internalRuntimeType = maybeUnwrapRuntimeType(
+        managedObject: arg, runtimeTypePropName: "internalRuntimeType");
+
+    if (internalRuntimeType == "InheritedWidget") {
+      return InheritedWidgetBox(
+        table: arg,
+        parentState: parentState,
+      );
     }
 
     //Metatable will contain an inherited build function from the StatlessWidget base class
