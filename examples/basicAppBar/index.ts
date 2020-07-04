@@ -11,7 +11,6 @@ import {StatelessWidget} from "../../runtime/flutter/widgets/statelessWidget";
 import {Theme} from "../../runtime/flutter/material/theme";
 import {BuildContext} from "../../runtime/flutter/buildContext";
 import {Card} from "../../runtime/flutter/material/card";
-import {SizedBox} from "../../runtime/flutter/widgets/sizedBox";
 import {IconButton} from "../../runtime/flutter/material/iconButton";
 import {Icon} from "../../runtime/flutter/widgets/icon";
 import {PopupMenuItem} from "../../runtime/flutter/material/popupMenuItem";
