@@ -3,6 +3,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
   final HydroTable table;
@@ -13,11 +14,15 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
   }
 }
 
-void loadMediaQuery(HydroTable table) {
+void loadMediaQuery(
+    {@required HydroState luaState, @required HydroTable table}) {
   table["mediaQueryOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       VMManagedMediaQueryData(
-              table: HydroTable(), vmObject: MediaQuery.of(args[0]))
+              table: HydroTable(),
+              vmObject: MediaQuery.of(maybeUnwrapAndBuildArgument<BuildContext>(
+                  args[0],
+                  parentState: luaState)))
           .table
     ];
   });
