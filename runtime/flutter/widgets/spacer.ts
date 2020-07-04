@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
@@ -15,9 +16,9 @@ declare const flutter: {
     };
 };
 
-export class Spacer extends StatelessWidget implements Readonly<DartObject>
+export class Spacer extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Spacer";
+    public readonly internalRuntimeType = new Type(Spacer);
     public props: SpacerProps;
     public constructor(props: SpacerProps) 
     {

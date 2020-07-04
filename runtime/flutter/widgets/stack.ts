@@ -1,7 +1,8 @@
-import {DartObject} from "../../dart/core/object";
 import {TextDirection} from "../../dart/ui/textDirection";
 import {StackFit} from "../../flutter/rendering/stackFit";
 import {Overflow} from "../../flutter/rendering/overflow";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
@@ -21,9 +22,9 @@ declare const flutter: {
     };
 };
 
-export class Stack extends StatelessWidget implements Readonly<DartObject>
+export class Stack extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Stack";
+    public readonly internalRuntimeType = new Type(Stack);
     public props: StackProps;
     public constructor(props: StackProps) 
     {

@@ -1,5 +1,6 @@
-import {DartObject} from "../../dart/core/object";
 import {Radius} from "../../dart/ui/radius";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 interface BorderRadiusProps {
     topLeft: Radius;
@@ -14,9 +15,9 @@ declare const flutter: {
     };
 };
 
-export class BorderRadius implements Readonly<DartObject>
+export class BorderRadius implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "BorderRadius";
+    public readonly internalRuntimeType = new Type(BorderRadius);
 
     public static all(radius: Radius): BorderRadius 
     {

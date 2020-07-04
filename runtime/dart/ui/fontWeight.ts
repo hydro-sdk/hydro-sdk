@@ -1,5 +1,6 @@
-import {DartObject} from "./../core/object";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../core/type";
 
 declare const dart: {
     ui: {
@@ -7,9 +8,9 @@ declare const dart: {
     };
 };
 
-export class FontWeight extends JITAllocatingRTManagedBox<undefined, FontWeight> implements Readonly<DartObject>
+export class FontWeight extends JITAllocatingRTManagedBox<undefined, FontWeight> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "FontWeight";
+    public readonly internalRuntimeType = new Type(FontWeight);
     public props = undefined;
     protected readonly index: number;
 

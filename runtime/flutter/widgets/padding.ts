@@ -1,6 +1,7 @@
 import {Widget} from "../widget";
 import {EdgeInsets} from "../painting/edgeInsets";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
@@ -17,9 +18,9 @@ declare const flutter: {
     };
 };
 
-export class Padding extends StatelessWidget implements Readonly<DartObject>
+export class Padding extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Padding";
+    public readonly internalRuntimeType = new Type(Padding);
     public props: PaddingProps;
     public constructor(props: PaddingProps) 
     {

@@ -1,7 +1,8 @@
-import {DartObject} from "../../dart/core/object";
 import {Animation} from "../animation/animation";
 import {Color} from "../../dart/ui/color";
 import {StatelessWidget} from "../widgets/statelessWidget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 
@@ -21,9 +22,9 @@ declare const flutter: {
     };
 };
 
-export class CircularProgressIndicator extends StatelessWidget implements Readonly<DartObject>
+export class CircularProgressIndicator extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "CircularProgressIndicator";
+    public readonly internalRuntimeType = new Type(CircularProgressIndicator);
     public props: CircularProgressIndicatorProps;
     public constructor(props: CircularProgressIndicatorProps) 
     {

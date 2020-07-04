@@ -1,4 +1,6 @@
-import {DartObject} from "./../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 declare const flutter: {
@@ -7,9 +9,9 @@ declare const flutter: {
     };
 };
 
-export class Alignment extends JITAllocatingRTManagedBox<undefined, Alignment> implements Readonly<DartObject>
+export class Alignment extends JITAllocatingRTManagedBox<undefined, Alignment> implements RuntimeBaseClass
 {
-    public readonly runtimeType = "Alignment";
+    public readonly internalRuntimeType = new Type(Alignment);
     public props = undefined;
     public readonly x: number;
     public readonly y: number;

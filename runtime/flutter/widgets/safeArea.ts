@@ -1,4 +1,5 @@
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {EdgeInsets} from "./../painting/edgeInsets";
 import {Widget} from "./../widget";
@@ -19,9 +20,9 @@ declare const flutter: {
     };
 };
 
-export class SafeArea extends StatelessWidget implements Readonly<DartObject>
+export class SafeArea extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "SafeArea";
+    public readonly internalRuntimeType = new Type(SafeArea);
     public props: SafeAreaProps;
     public constructor(props: SafeAreaProps) 
     {

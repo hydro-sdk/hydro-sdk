@@ -1,13 +1,13 @@
 import {Axis} from "../painting/axis";
 import {EdgeInsets} from "../painting/edgeInsets";
 import {DragStartBehavior} from "../gestures/dragStartBehavior";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 import {BuildContext} from "./../buildContext";
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
-import {SliverChildBuilderDelegate} from "./../widgets/sliverChildBuilderDelegate";
 
 interface ListViewBuilderProps {
     key?: Key | undefined;
@@ -39,9 +39,9 @@ declare const flutter: {
 type ListViewType = "builder";
 type ListViewProps = {} & ListViewBuilderProps;
 
-export class ListView extends StatelessWidget implements Readonly<DartObject>
+export class ListView extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "ListView";
+    public readonly internalRuntimeType = new Type(ListView);
     private readonly listViewType: ListViewType;
     private readonly props: ListViewProps
     private constructor(listViewType: ListViewType, props: ListViewProps) 
@@ -65,37 +65,37 @@ export class ListView extends StatelessWidget implements Readonly<DartObject>
     public static builder(props: ListViewBuilderProps): ListView 
     {
 
-        if(props.scrollDirection === undefined)
+        if (props.scrollDirection === undefined) 
         {
             props.scrollDirection = Axis.vertical;
         }
 
-        if(props.reverse === undefined)
+        if (props.reverse === undefined) 
         {
             props.reverse = false;
         }
 
-        if(props.shrinkWrap === undefined)
+        if (props.shrinkWrap === undefined) 
         {
             props.shrinkWrap = false;
         }
 
-        if(props.addAutomaticKeepAlives === undefined)
+        if (props.addAutomaticKeepAlives === undefined) 
         {
             props.addAutomaticKeepAlives = true;
         }
 
-        if(props.addRepaintBoundaries === undefined)
+        if (props.addRepaintBoundaries === undefined) 
         {
             props.addRepaintBoundaries = true;
         }
 
-        if(props.addSemanticIndexes === undefined)
+        if (props.addSemanticIndexes === undefined) 
         {
             props.addSemanticIndexes = true;
         }
 
-        if(props.dragStartBehavior === undefined)
+        if (props.dragStartBehavior === undefined) 
         {
             props.dragStartBehavior = DragStartBehavior.start;
         }

@@ -1,6 +1,7 @@
 import {Widget} from "../widget";
 import {Color} from "../../dart/ui/color";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {IconData} from "./iconData";
@@ -16,9 +17,9 @@ declare const flutter: {
     };
 };
 
-export class Icon extends StatelessWidget  implements Readonly<DartObject>
+export class Icon extends StatelessWidget  implements RuntimeBaseClass
 {
-    public readonly runtimeType = "Icon";
+    public readonly internalRuntimeType = new Type(Icon);
     public icon: IconData;
     public props: IconProps | undefined;
     public constructor(icon: IconData, props?: IconProps | undefined) 

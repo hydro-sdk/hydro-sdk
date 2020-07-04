@@ -1,7 +1,8 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-import {DartObject} from "../../dart/core/object";
 import {Color} from "../../dart/ui/color";
 import {FontWeight} from "../../dart/ui/fontWeight";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 export interface TextStyleProps {
     fontSize?: number | undefined;
@@ -15,9 +16,9 @@ declare const flutter: {
     };
 };
 
-export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextStyle> implements Readonly<DartObject>
+export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextStyle> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "TextStyle";
+    public readonly internalRuntimeType = new Type(TextStyle);
     public props: TextStyleProps;
     public color?: Color;
     public constructor(props: TextStyleProps) 

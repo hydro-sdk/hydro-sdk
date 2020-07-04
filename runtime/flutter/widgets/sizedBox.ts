@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
@@ -17,9 +18,9 @@ declare const flutter: {
     };
 };
 
-export class SizedBox extends StatelessWidget implements Readonly<DartObject>
+export class SizedBox extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "SizedBox";
+    public readonly internalRuntimeType = new Type(SizedBox);
     public props: SizedBoxProps;
     public constructor(props: SizedBoxProps) 
     {

@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {HitTestBehavior} from "./../rendering/hitTestBehavior";
 import {StatelessWidget} from "./statelessWidget";
@@ -17,9 +18,9 @@ declare const flutter: {
     };
 };
 
-export class GestureDetector extends StatelessWidget  implements Readonly<DartObject>
+export class GestureDetector extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "GestureDetector";
+    public readonly internalRuntimeType = new Type(GestureDetector);
     public props: GestureDetectorProps;
     public constructor(props: GestureDetectorProps) 
     {

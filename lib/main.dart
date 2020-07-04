@@ -7,6 +7,5 @@ void main() {
   runApp(RunFromNetwork(
       thunks: thunks,
       args: [],
-      baseUrl:
-          "https://github.com/chgibb/hydro-sdk/raw/master/dist/counter.hc"));
+      baseUrl: "http://localhost:5000/examples/hotel-booking.hc"));
 }

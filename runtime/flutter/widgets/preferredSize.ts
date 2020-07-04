@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Size} from "./../../dart/ui/size";
@@ -15,9 +16,9 @@ declare const flutter: {
     };
 };
 
-export class PreferredSize extends StatelessWidget implements Readonly<DartObject>
+export class PreferredSize extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "PreferredSize";
+    public readonly internalRuntimeType = new Type(PreferredSize);
     public props: PreferredSizeProps;
     public constructor(props: PreferredSizeProps) 
     {

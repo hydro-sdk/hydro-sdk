@@ -96,7 +96,9 @@ void loadThemeOf({@required HydroState luaState, @required HydroTable table}) {
       VMManagedThemeData(
               luaState: luaState,
               table: HydroTable(),
-              vmObject: Theme.of(args[0]))
+              vmObject: Theme.of(maybeUnwrapAndBuildArgument<BuildContext>(
+                  args[0],
+                  parentState: luaState)))
           .table
     ];
   });

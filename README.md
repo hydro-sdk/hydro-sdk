@@ -21,7 +21,7 @@ For example, Flutter's Positioned widget is better expressed here as the followi
 
 Full file is here https://github.com/chgibb/hydro-sdk/blob/master/runtime/flutter/widgets/positioned.ts
 ```typescript
-export class Positioned extends StatelessWidget implements Readonly<DartObject>
+export class Positioned extends StatelessWidget implements RuntimeBaseClass
 {
     public readonly runtimeType = "Positioned";
     public props: PositionedProps;

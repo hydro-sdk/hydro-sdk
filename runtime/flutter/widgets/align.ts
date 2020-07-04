@@ -1,12 +1,8 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
-import {MainAxisAlignment} from "./mainAxisAlignment";
-import {MainAxisSize} from "./../rendering/mainAxisSize";
-import {CrossAxisAlignment} from "./../rendering/crossAxisAlignment";
-import {TextDirection} from "./../../dart/ui/textDirection";
-import {VerticalDirection} from "./../painting/verticalDirection";
 import {Alignment} from "./../painting/alignment";
 import {Key} from "./../foundation/key";
 
@@ -25,9 +21,9 @@ declare const flutter: {
     };
 };
 
-export class Align extends StatelessWidget implements Readonly<DartObject>
+export class Align extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Align";
+    public readonly internalRuntimeType = new Type(Align);
     public props: AlignProps;
     public constructor(props: AlignProps) 
     {

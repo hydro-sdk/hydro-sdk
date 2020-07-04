@@ -1,4 +1,5 @@
-import {DartObject} from "./../../dart/core/object";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../core/type";
 import {double} from "./../../dart/core/double";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
@@ -9,9 +10,9 @@ declare const dart: {
     };
 };
 
-export class Size extends JITAllocatingRTManagedBox<undefined, Size> implements Readonly<DartObject>
+export class Size extends JITAllocatingRTManagedBox<undefined, Size> implements RuntimeBaseClass
 {
-    public readonly runtimeType = "Size";
+    public readonly internalRuntimeType = new Type(Size);
     public readonly width: number;
     public readonly height: number;
     public props = undefined;

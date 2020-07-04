@@ -1,8 +1,9 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
 import {Color} from "../../dart/ui/color";
 import {StatelessWidget} from "../widgets/statelessWidget";
 import {BorderRadius} from "../painting/borderRadius";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 
@@ -29,9 +30,9 @@ declare const flutter: {
     };
 };
 
-export class InkWell extends StatelessWidget implements Readonly<DartObject>
+export class InkWell extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "InkWell";
+    public readonly internalRuntimeType = new Type(InkWell);
     public props: InkWellProps;
     public constructor(props: InkWellProps) 
     {

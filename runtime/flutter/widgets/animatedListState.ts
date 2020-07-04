@@ -1,15 +1,16 @@
-import {DartObject} from "../../dart/core/object";
 import {Widget} from "../widget";
 import {RTManagedBox} from "../../syntheticBox";
 import {BuildContext} from "../buildContext";
 import {Animation} from "../animation/animation";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatefulWidget} from "./statefulWidget";
 import {State} from "./state";
 
-export class AnimatedListState extends RTManagedBox<State<StatefulWidget>> implements Readonly<DartObject>
+export class AnimatedListState extends RTManagedBox<State<StatefulWidget>> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "AnimatedListState";
+    public readonly internalRuntimeType = new Type(AnimatedListState);
     protected vmObject: State<StatefulWidget>;
     public constructor() 
     {

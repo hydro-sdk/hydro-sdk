@@ -1,14 +1,9 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
-import {MainAxisAlignment} from "./mainAxisAlignment";
-import {MainAxisSize} from "./../rendering/mainAxisSize";
-import {CrossAxisAlignment} from "./../rendering/crossAxisAlignment";
-import {TextDirection} from "./../../dart/ui/textDirection";
-import {VerticalDirection} from "./../painting/verticalDirection";
 import {Key} from "./../foundation/key";
-import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 interface ExpandedProps {
     key?: Key | undefined;
@@ -22,9 +17,9 @@ declare const flutter: {
     };
 };
 
-export class Expanded extends StatelessWidget implements Readonly<DartObject>
+export class Expanded extends StatelessWidget implements RuntimeBaseClass
 {
-    public readonly runtimeType = "Expanded";
+    public readonly internalRuntimeType = new Type(Expanded);
     public props: ExpandedProps;
     public constructor(props: ExpandedProps) 
     {

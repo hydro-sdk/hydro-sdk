@@ -50,7 +50,7 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadSafeArea(luaState: luaState, table: widgets);
   loadStack(luaState: luaState, table: widgets);
   loadPositioned(luaState: luaState, table: widgets);
-  loadMediaQuery(widgets);
+  loadMediaQuery(luaState: luaState, table: widgets);
   loadRow(luaState: luaState, table: widgets);
   loadFlexible(luaState: luaState, table: widgets);
   loadContainer(luaState: luaState, table: widgets);

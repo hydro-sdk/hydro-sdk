@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
@@ -15,9 +16,9 @@ declare const flutter: {
     };
 };
 
-export class Center extends StatelessWidget  implements Readonly<DartObject>
+export class Center extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Center";
+    public readonly internalRuntimeType = new Type(Center);
     public props: CenterProps;
     public constructor(props: CenterProps) 
     {

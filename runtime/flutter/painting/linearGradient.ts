@@ -1,6 +1,7 @@
-import {DartObject} from "../../dart/core/object";
 import {Color} from "../../dart/ui/color";
 import {TileMode} from "../../dart/ui/tileMode";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 import {Alignment} from "./alignment";
@@ -19,9 +20,9 @@ declare const flutter: {
     };
 };
 
-export class LinearGradient extends JITAllocatingRTManagedBox<LinearGradientProps, LinearGradient> implements Readonly<DartObject>
+export class LinearGradient extends JITAllocatingRTManagedBox<LinearGradientProps, LinearGradient> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Gradient";
+    public readonly internalRuntimeType = new Type(LinearGradient);
     public props: LinearGradientProps;
     public constructor(props: LinearGradientProps) 
     {

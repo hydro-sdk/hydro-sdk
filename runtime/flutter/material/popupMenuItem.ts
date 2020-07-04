@@ -1,4 +1,5 @@
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
@@ -14,9 +15,9 @@ declare const flutter: {
     };
 };
 
-export class PopupMenuItem<T> extends StatelessWidget implements Readonly<DartObject>
+export class PopupMenuItem<T> extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "PopupMenuItem";
+    public readonly internalRuntimeType = new Type(PopupMenuItem);
     public props: PopupMenuItemProps<T>;
     public constructor(props: PopupMenuItemProps<T>) 
     {

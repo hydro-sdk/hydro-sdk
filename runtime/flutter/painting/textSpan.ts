@@ -1,6 +1,7 @@
 import {TextStyle} from "../painting/textStyle";
-import {Widget} from "../widget";
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {InlineSpan} from "./inlineSpan";
 
@@ -17,9 +18,9 @@ declare const flutter: {
     };
 };
 
-export class TextSpan extends JITAllocatingRTManagedBox<TextSpanProps, TextSpan> implements InlineSpan 
+export class TextSpan extends JITAllocatingRTManagedBox<TextSpanProps, TextSpan> implements InlineSpan, RuntimeBaseClass 
 {
-    public readonly runtimeType = "InlineSpan";
+    public readonly internalRuntimeType = new Type(TextSpan);
     public props: TextSpanProps;
     public constructor(props: TextSpanProps) 
     {

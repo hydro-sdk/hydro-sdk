@@ -1,7 +1,8 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
 import {Clip} from "../painting/clip";
 import {BorderRadius} from "../painting/borderRadius";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
@@ -20,9 +21,9 @@ declare const flutter: {
     };
 };
 
-export class ClipRRect extends StatelessWidget implements Readonly<DartObject>
+export class ClipRRect extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "ClipRRect";
+    public readonly internalRuntimeType = new Type(ClipRRect);
     public props: ClipRRectProps;
     public constructor(props: ClipRRectProps) 
     {

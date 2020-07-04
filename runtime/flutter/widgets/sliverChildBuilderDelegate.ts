@@ -1,7 +1,8 @@
 import {BuildContext} from "../buildContext";
 import {Widget} from "../widget";
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 interface SliverChildBuilderDelegateProps {
     childCount?: number | undefined;
@@ -20,9 +21,9 @@ declare const flutter: {
     };
 };
 
-export class SliverChildBuilderDelegate extends JITAllocatingRTManagedBox<SliverChildBuilderDelegateProps, SliverChildBuilderDelegate> implements Readonly<DartObject>
+export class SliverChildBuilderDelegate extends JITAllocatingRTManagedBox<SliverChildBuilderDelegateProps, SliverChildBuilderDelegate> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "SliverChildBuilderDelegate";
+    public readonly internalRuntimeType = new Type(SliverChildBuilderDelegate);
     public builder: (context: BuildContext, index: number) => Widget;
     public props: SliverChildBuilderDelegateProps;
     public constructor(builder: (context: BuildContext, index: number) => Widget, props: SliverChildBuilderDelegateProps) 

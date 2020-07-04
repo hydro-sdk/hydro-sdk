@@ -1,4 +1,5 @@
-import {DartObject} from "./../core/object";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../core/type";
 
 declare const dart: {
     ui: {
@@ -6,9 +7,9 @@ declare const dart: {
     };
 };
 
-export class Radius implements Readonly<DartObject>
+export class Radius implements RuntimeBaseClass
 {
-    public readonly runtimeType = "Radius";
+    public readonly internalRuntimeType = new Type(Radius);
 
     public static elliptical(x: number, y: number) 
     {

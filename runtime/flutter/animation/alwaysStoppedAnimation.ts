@@ -1,5 +1,6 @@
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-import {DartObject, RuntimeType} from "../../dart/core/object";
 import {Color} from "../../dart/ui/color";
 
 import {Animation} from "./animation";
@@ -12,10 +13,11 @@ declare const flutter: {
 
 export class AlwaysStoppedAnimation<T extends number | Color>
     extends JITAllocatingRTManagedBox<undefined, AlwaysStoppedAnimation<T>>
-    implements Readonly<DartObject>, Animation<T>
+    implements RuntimeBaseClass, Animation<T>
 {
-    public readonly runtimeType = "Animation";
-    private readonly targetRuntimeType: string;
+    public readonly internalRuntimeType = new Type(AlwaysStoppedAnimation);
+    public readonly runtimeType = new Type(Animation);
+    private readonly targetRuntimeType: Type;
     protected value: T;
     public props = undefined;
     public unwrap(): AlwaysStoppedAnimation<T> 
@@ -23,7 +25,7 @@ export class AlwaysStoppedAnimation<T extends number | Color>
         return flutter.animation.alwaysStoppedAnimation(this);
     }
 
-    public constructor(runtimType: RuntimeType, value: T) 
+    public constructor(runtimType: Type, value: T) 
     {
         super();
         this.value = value;

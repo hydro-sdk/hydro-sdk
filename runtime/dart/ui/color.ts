@@ -1,5 +1,6 @@
-import {DartObject} from "./../../dart/core/object";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../core/type";
 
 declare const dart: {
     ui: {
@@ -7,9 +8,9 @@ declare const dart: {
     };
 };
 
-export class Color extends JITAllocatingRTManagedBox<undefined, Color> implements Readonly<DartObject>
+export class Color extends JITAllocatingRTManagedBox<undefined, Color> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Color";
+    public readonly internalRuntimeType = new Type(Color);
     public props = undefined;
     private hex: number;
     public constructor(hex: number) 

@@ -1,3 +1,5 @@
+import {Type} from "../../dart/core/type";
+
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 import {ImageProvider} from "./imageProvider";
 
@@ -13,7 +15,7 @@ declare const flutter: {
 
 export class NetworkImage extends JITAllocatingRTManagedBox<NetworkImageProps, NetworkImage> implements ImageProvider 
 {
-    public readonly runtimeType = "ImageProvider";
+    public readonly internalRuntimeType = new Type(NetworkImage);
     public url: string;
     public props: NetworkImageProps
     public constructor(url: string, props: NetworkImageProps) 

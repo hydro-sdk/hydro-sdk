@@ -1,6 +1,7 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
 import {EdgeInsets} from "../painting/edgeInsets";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Color} from "./../../dart/ui/color";
@@ -24,9 +25,9 @@ declare const flutter: {
     };
 };
 
-export class Container extends StatelessWidget implements Readonly<DartObject>
+export class Container extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Container";
+    public readonly internalRuntimeType = new Type(Container);
     public props: ContainerProps;
     public constructor(props: ContainerProps) 
     {

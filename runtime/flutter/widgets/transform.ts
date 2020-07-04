@@ -1,6 +1,7 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
 import {Offset} from "../../dart/ui/offset";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Alignment} from "./../painting/alignment";
 import {Key} from "./../foundation/key";
@@ -47,9 +48,9 @@ declare const flutter: {
     };
 };
 
-export class Transform extends StatelessWidget implements Readonly<DartObject>
+export class Transform extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Transform";
+    public readonly internalRuntimeType = new Type(Transform);
     public props: TransformProps
     private constructor(props: TransformProps) 
     {

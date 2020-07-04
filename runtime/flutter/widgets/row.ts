@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {MainAxisAlignment} from "./mainAxisAlignment";
@@ -25,9 +26,9 @@ declare const flutter: {
     };
 };
 
-export class Row extends StatelessWidget implements Readonly<DartObject>
+export class Row extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Row";
+    public readonly internalRuntimeType = new Type(Row);
     public props: RowProps;
     public constructor(props: RowProps) 
     {

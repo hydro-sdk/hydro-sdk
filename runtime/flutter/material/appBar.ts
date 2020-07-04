@@ -1,6 +1,7 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
-import {DartObject} from "./../../dart/core/object";
 import {Widget} from "./../widget";
 import {PreferredSize} from "./../widgets/preferredSize";
 
@@ -17,9 +18,9 @@ declare const flutter: {
     };
 };
 
-export class AppBar extends JITAllocatingRTManagedBox<AppBarProps, Widget> implements Readonly<DartObject>
+export class AppBar extends JITAllocatingRTManagedBox<AppBarProps, Widget> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "AppBar";
+    public readonly internalRuntimeType = new Type(AppBar);
     public props: AppBarProps;
     public constructor(props: AppBarProps) 
     {

@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {MainAxisAlignment} from "./mainAxisAlignment";
@@ -19,9 +20,9 @@ declare const flutter: {
     };
 };
 
-export class Column extends StatelessWidget  implements Readonly<DartObject>
+export class Column extends StatelessWidget  implements RuntimeBaseClass
 {
-    public readonly runtimeType = "Column";
+    public readonly internalRuntimeType = new Type(Column);
     public props: ColumnProps;
     public constructor(props: ColumnProps) 
     {

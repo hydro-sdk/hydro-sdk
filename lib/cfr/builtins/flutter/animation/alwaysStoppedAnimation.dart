@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/runtimeTypeToGeneric.dart';
@@ -10,8 +12,11 @@ void loadAlwaysStoppedAnimation(
   table["alwaysStoppedAnimation"] = makeLuaDartFunc(func: (List<dynamic> args) {
     AlwaysStoppedAnimation res = translateRTTIToAlwaysStoppedAnimation(
         luaState: luaState,
-        runtimeType: RuntimeTypes.values.firstWhere(
-            (x) => x.toString().split(".")[1] == args[0]["targetRuntimeType"]),
+        runtimeType: RuntimeTypes.values.firstWhere((x) =>
+            x.toString().split(".")[1] ==
+            maybeUnwrapRuntimeType(
+                managedObject: args[0],
+                runtimeTypePropName: "targetRuntimeType")),
         value: maybeUnwrapAndBuildArgument(args[0]["value"],
             parentState: luaState));
     return [res];

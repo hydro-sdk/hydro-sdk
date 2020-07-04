@@ -39,8 +39,11 @@ void loadGlobalKey(
     {@required HydroState luaState, @required HydroTable table}) {
   table["globalKeyCtor"] = makeLuaDartFunc(func: (List<dynamic> args) {
     GlobalKey key = translateRTTIToGenericGlobalKey(
-        runtimeType: RuntimeTypes.values.firstWhere(
-            (x) => x.toString().split(".")[1] == args[0]["targetRuntimeType"]));
+        runtimeType: RuntimeTypes.values.firstWhere((x) =>
+            x.toString().split(".")[1] ==
+            maybeUnwrapRuntimeType(
+                managedObject: args[0],
+                runtimeTypePropName: "targetRuntimeType")));
 
     return [
       RTManagedGlobalKey(table: args[0], parentState: luaState, vmObject: key)

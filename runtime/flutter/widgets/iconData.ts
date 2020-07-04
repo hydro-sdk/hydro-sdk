@@ -1,6 +1,7 @@
 import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
-import {DartObject} from "./../../dart/core/object";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 interface IconDataProps {
@@ -14,9 +15,9 @@ declare const flutter: {
     };
 };
 
-export class IconData extends JITAllocatingRTManagedBox<IconDataProps, Widget> implements Readonly<DartObject>
+export class IconData extends JITAllocatingRTManagedBox<IconDataProps, Widget> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "IconData";
+    public readonly internalRuntimeType = new Type(IconData);
     public codePoint: number;
     public props: IconDataProps;
     public constructor(codePoint: number, props: IconDataProps) 

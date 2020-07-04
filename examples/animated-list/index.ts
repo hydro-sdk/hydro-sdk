@@ -4,6 +4,7 @@ import {EdgeInsets} from "../../runtime/flutter/painting/edgeInsets";
 import {StatelessWidget} from "../../runtime/flutter/widgets/statelessWidget";
 import {Axis} from "../../runtime/flutter/painting/axis";
 import {HitTestBehavior} from "../../runtime/flutter/rendering/hitTestBehavior";
+import {Type} from "../../runtime/dart/core/type";
 
 import {Widget} from "./../../runtime/flutter/widget";
 import {StatefulWidget} from "./../../runtime/flutter/widgets/statefulWidget";
@@ -48,7 +49,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
     public constructor() 
     {
         super();
-        this.listKey = new GlobalKey<AnimatedListState>("AnimatedListState");
+        this.listKey = new GlobalKey<AnimatedListState>(new Type(AnimatedListState));
         this.list = new ListModel<number>({
             listKey: this.listKey,
             initialItems: [0, 1, 2],

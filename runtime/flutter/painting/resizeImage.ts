@@ -1,4 +1,5 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
+import {Type} from "../../dart/core/type";
 
 import {ImageProvider} from "./imageProvider";
 
@@ -15,7 +16,7 @@ declare const flutter: {
 
 export class ResizeImage extends JITAllocatingRTManagedBox<ResizeImageProps, ResizeImage> implements ImageProvider 
 {
-    public readonly runtimeType = "ImageProvider";
+    public readonly internalRuntimeType = new Type(ResizeImage);;
     public imageProvider: ImageProvider;
     public props: ResizeImageProps;
     private constructor(imageProvider: ImageProvider, props: ResizeImageProps) 

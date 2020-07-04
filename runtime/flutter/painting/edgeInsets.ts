@@ -1,4 +1,5 @@
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 declare const flutter: {
     painting: {
@@ -9,9 +10,9 @@ declare const flutter: {
     };
 };
 
-export class EdgeInsets implements Readonly<DartObject>
+export class EdgeInsets implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "EdgeInsets";
+    public readonly internalRuntimeType = new Type(EdgeInsets);
     public static all(value: number): EdgeInsets 
     {
         return flutter.painting.edgeInsetsAll(value);

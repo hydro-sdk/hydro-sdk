@@ -1,7 +1,8 @@
 import {BuildContext} from "../buildContext";
 import {Widget} from "../widget";
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 interface MaterialPageRouteProps {
     builder: (context: BuildContext) => Widget;
@@ -15,9 +16,9 @@ declare const flutter: {
     };
 };
 
-export class MaterialPageRoute extends JITAllocatingRTManagedBox<MaterialPageRouteProps, MaterialPageRoute> implements Readonly<DartObject>
+export class MaterialPageRoute extends JITAllocatingRTManagedBox<MaterialPageRouteProps, MaterialPageRoute> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "MaterialPageRoute";
+    public readonly internalRuntimeType = new Type(MaterialPageRoute);
     public props: MaterialPageRouteProps;
     public constructor(props: MaterialPageRouteProps) 
     {

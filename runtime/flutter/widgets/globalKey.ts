@@ -1,6 +1,6 @@
-import {RuntimeType,DartObject} from "../../dart/core/object";
 import {RTManagedBox} from "../../syntheticBox";
-
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatefulWidget} from "./statefulWidget";
 import {State} from "./state";
@@ -11,10 +11,10 @@ declare const flutter: {
     };
 };
 
-export class GlobalKey<T extends State<StatefulWidget> & DartObject> extends RTManagedBox<T> implements Readonly<DartObject>
+export class GlobalKey<T extends State<StatefulWidget>> extends RTManagedBox<T> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "GlobalKey";
-    private readonly targetRuntimeType: string;
+    public readonly internalRuntimeType = new Type(GlobalKey);
+    private readonly targetRuntimeType: Type;
     protected vmObject: T;
     public currentState: () => T;
 
@@ -22,7 +22,7 @@ export class GlobalKey<T extends State<StatefulWidget> & DartObject> extends RTM
     {
         return this.vmObject;
     }
-    public constructor(runtimeType: RuntimeType) 
+    public constructor(runtimeType: Type) 
     {
         super();
         this.vmObject = undefined as any;

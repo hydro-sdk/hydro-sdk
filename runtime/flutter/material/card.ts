@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./../widgets/statelessWidget";
 import {Color} from "./../../dart/ui/color";
@@ -16,9 +17,9 @@ declare const flutter: {
     };
 };
 
-export class Card extends StatelessWidget  implements Readonly<DartObject>
+export class Card extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Card";
+    public readonly internalRuntimeType = new Type(Card);
     public props: CardProps;
     public constructor(props: CardProps) 
     {

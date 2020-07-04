@@ -1,6 +1,7 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
 import {Color} from "../../dart/ui/color";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {AppBar} from "./appBar";
 import {StatelessWidget} from "./../widgets/statelessWidget";
@@ -18,9 +19,9 @@ declare const flutter: {
     };
 };
 
-export class Scaffold extends StatelessWidget implements Readonly<DartObject>
+export class Scaffold extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Scaffold";
+    public readonly internalRuntimeType = new Type(Scaffold);
     public props: ScaffoldProps;
     public constructor(props: ScaffoldProps) 
     {

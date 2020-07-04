@@ -1,5 +1,6 @@
-import {DartObject} from "../../dart/core/object";
 import {BuildContext} from "../buildContext";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
@@ -19,9 +20,9 @@ declare const flutter: {
     };
 };
 
-export class MaterialApp extends StatelessWidget implements Readonly<DartObject>
+export class MaterialApp extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "MaterialApp";
+    public readonly internalRuntimeType = new Type(MaterialApp);
     public props: MaterialAppProps;
     public constructor(props: MaterialAppProps) 
     {

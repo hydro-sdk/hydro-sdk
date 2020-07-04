@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./../widgets/statelessWidget";
@@ -16,9 +17,9 @@ declare const flutter: {
     };
 };
 
-export class FloatingActionButton extends StatelessWidget implements Readonly<DartObject>
+export class FloatingActionButton extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "FloatingActionButton";
+    public readonly internalRuntimeType = new Type(FloatingActionButton);
     public props: FloatingActionButtonProps;
     public constructor(props: FloatingActionButtonProps) 
     {

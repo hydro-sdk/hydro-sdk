@@ -34,7 +34,6 @@ import {CrossAxisAlignment} from "../../../runtime/flutter/rendering/crossAxisAl
 import {Theme} from "../../../runtime/flutter/material/theme";
 import {Spacer} from "../../../runtime/flutter/widgets/spacer";
 import {MainAxisAlignment} from "../../../runtime/flutter/widgets/mainAxisAlignment";
-import {SizedBox} from "../../../runtime/flutter/widgets/sizedBox";
 import {Align} from "../../../runtime/flutter/widgets/align";
 import {MediaQuery} from "../../../runtime/flutter/widgets/mediaQuery";
 import {InkWell} from "../../../runtime/flutter/material/inkWell";
@@ -45,6 +44,7 @@ import {clear} from "../../../runtime/flutter/material/icons/clear";
 import {white60} from "../../../runtime/flutter/material/colors/white60";
 import {CircularProgressIndicator} from "../../../runtime/flutter/material/circularProgressIndicator";
 import {AlwaysStoppedAnimation} from "../../../runtime/flutter/animation/alwaysStoppedAnimation";
+import {Type} from "../../../runtime/dart/core/type";
 
 export class DetailsScreen extends StatelessWidget 
 {
@@ -87,7 +87,7 @@ export class DetailsScreen extends StatelessWidget
                                                             chevron_left, {
                                                                 color: white,
                                                             }),
-                                                        onPressed: () =>null// Navigator.pop(context),
+                                                        onPressed: () => null// Navigator.pop(context),
                                                     }),
                                                 }),
                                                 new Positioned({
@@ -163,7 +163,7 @@ export class DetailsScreen extends StatelessWidget
                                                                                 value: .25,
                                                                                 backgroundColor: MyColors.lighterBlue,
                                                                                 valueColor: new AlwaysStoppedAnimation(
-                                                                                    "Color",
+                                                                                    new Type(Color),
                                                                                     white
                                                                                 ),
                                                                             }),
@@ -212,7 +212,7 @@ export class DetailsScreen extends StatelessWidget
                                                                             child: new CircularProgressIndicator({
                                                                                 value: .25,
                                                                                 backgroundColor: MyColors.lighterBlue,
-                                                                                valueColor: new AlwaysStoppedAnimation("Color",
+                                                                                valueColor: new AlwaysStoppedAnimation(new Type(Color),
                                                                                     white
                                                                                 ),
                                                                             }),

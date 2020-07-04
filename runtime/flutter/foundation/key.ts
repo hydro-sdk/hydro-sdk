@@ -1,4 +1,7 @@
-import {DartObject} from "./../../dart/core/object";
+
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 declare const flutter: {
@@ -7,9 +10,9 @@ declare const flutter: {
     };
 };
 
-export class Key extends JITAllocatingRTManagedBox<{}, {}> implements Readonly<DartObject>
+export class Key extends JITAllocatingRTManagedBox<{}, {}> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Key";
+    public readonly internalRuntimeType = new Type(Key);
     public value: string;
     public props: never;
     public constructor(value: string) 

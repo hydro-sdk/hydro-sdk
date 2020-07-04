@@ -1,6 +1,7 @@
 import {Widget} from "../widget";
 import {Animation} from "../animation/animation";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Axis} from "./../painting/axis";
@@ -17,9 +18,9 @@ declare const flutter: {
     };
 };
 
-export class SizeTransition extends StatelessWidget  implements Readonly<DartObject>
+export class SizeTransition extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "SizeTransition";
+    public readonly internalRuntimeType = new Type(SizeTransition);
     public props: SizeTransitionProps;
     public constructor(props: SizeTransitionProps) 
     {

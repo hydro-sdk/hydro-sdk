@@ -5,8 +5,9 @@ import {TextDirection} from "../../dart/ui/textDirection";
 import {TextOverflow} from "../rendering/textOverflow";
 import {TextWidthBasis} from "../painting/textWidthBasis";
 import {InlineSpan} from "../painting/inlineSpan";
-import {DartObject} from "../../dart/core/object";
 import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 
@@ -28,9 +29,9 @@ declare const flutter: {
     };
 };
 
-export class RichText extends StatelessWidget implements Readonly<DartObject>
+export class RichText extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "RichText";
+    public readonly internalRuntimeType = new Type(RichText);
     public props: RichTextProps;
     public constructor(props: RichTextProps) 
     {

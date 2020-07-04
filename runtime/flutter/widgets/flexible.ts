@@ -1,5 +1,6 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {FlexFit} from "./../rendering/flexFit";
 import {StatelessWidget} from "./statelessWidget";
@@ -18,9 +19,9 @@ declare const flutter: {
     };
 };
 
-export class Flexible extends StatelessWidget implements Readonly<DartObject>
+export class Flexible extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Flexible";
+    public readonly internalRuntimeType = new Type(Flexible);
     public props: FlexibleProps;
     public constructor(props: FlexibleProps) 
     {

@@ -1,7 +1,8 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
 import {Rect} from "../../dart/ui/rect";
 import {TextDirection} from "../../dart/ui/textDirection";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
@@ -23,9 +24,9 @@ declare const flutter: {
     };
 };
 
-export class Positioned extends StatelessWidget implements Readonly<DartObject>
+export class Positioned extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Positioned";
+    public readonly internalRuntimeType = new Type(Positioned);
     public props: PositionedProps;
     public constructor(props: PositionedProps) 
     {
@@ -57,7 +58,7 @@ export class Positioned extends StatelessWidget implements Readonly<DartObject>
         default:
             ((args: never): never => 
             {
-                throw new Error(""); 
+                throw new Error("");
             })(props.textDirection);
             break;
         }

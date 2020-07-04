@@ -1,6 +1,7 @@
-import {DartObject} from "../../dart/core/object";
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 import {Gradient} from "../painting/gradient";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {Color} from "./../../dart/ui/color";
 import {BoxShape} from "./boxShape";
@@ -19,9 +20,9 @@ declare const flutter: {
     };
 };
 
-export class BoxDecoration extends JITAllocatingRTManagedBox<BoxDecorationProps, BoxDecoration> implements Readonly<DartObject>
+export class BoxDecoration extends JITAllocatingRTManagedBox<BoxDecorationProps, BoxDecoration> implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "BoxDecoration";
+    public readonly internalRuntimeType = new Type(BoxDecoration);
     public props: BoxDecorationProps;
     public constructor(props: BoxDecorationProps) 
     {

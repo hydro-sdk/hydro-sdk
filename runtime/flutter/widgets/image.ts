@@ -1,5 +1,4 @@
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
 import {Color} from "../../dart/ui/color";
 import {BlendMode} from "../../dart/ui/blendMode";
 import {FilterQuality} from "../../dart/ui/filterQuality";
@@ -9,6 +8,8 @@ import {Alignment} from "../painting/alignment";
 import {ImageProvider} from "../painting/imageProvider";
 import {ResizeImage} from "../painting/resizeImage";
 import {NetworkImage} from "../painting/networkImage";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
@@ -40,9 +41,9 @@ declare const flutter: {
     };
 };
 
-export class Image extends StatelessWidget implements Readonly<DartObject>
+export class Image extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly runtimeType = "Image";
+    public readonly internalRuntimeType = new Type(Image);
     public src: string;
     public props: ImageProps;
     private constructor(src: string, props: ImageProps) 
@@ -92,7 +93,7 @@ export class Image extends StatelessWidget implements Readonly<DartObject>
         });
     }
 
-    public build(): Widget
+    public build(): Widget 
     {
         return flutter.widgets.image(this.props);
     }
