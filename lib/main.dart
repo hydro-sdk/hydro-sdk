@@ -192,8 +192,7 @@ class CounterHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CounterModel model = ScopedModel.of(context,
-        rebuildOnChange: true,
-        targetType: FakeRuntimeType(name: "synthetic"));
+        rebuildOnChange: true, targetType: FakeRuntimeType(name: "synthetic"));
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
@@ -225,6 +224,5 @@ void main() {
   runApp(RunFromNetwork(
       thunks: thunks,
       args: [],
-      baseUrl:
-          "http://localhost:5000/test/widget/inheritedWidget-1.ts.hc"));
+      baseUrl: "http://localhost:5000/test/widget/inheritedWidget-1.ts.hc"));
 }
