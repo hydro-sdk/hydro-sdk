@@ -1,5 +1,5 @@
 import {Type} from "./dart/core/type";
 
-export abstract class RuntimeBaseClass {
-    protected abstract internalRuntimeType: Type;
+export interface RuntimeBaseClass {
+ readonly internalRuntimeType: Type;
 }

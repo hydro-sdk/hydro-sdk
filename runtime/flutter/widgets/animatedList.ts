@@ -1,10 +1,10 @@
 import {BuildContext} from "../buildContext";
 import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
-
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 import {GlobalKey} from "./globalKey";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface AnimatedListProps {
     key?: Key | GlobalKey<any> | undefined;
@@ -18,9 +18,9 @@ declare const flutter: {
     };
 };
 
-export class AnimatedList extends StatelessWidget implements Readonly<DartObject>
+export class AnimatedList extends StatelessWidget implements RuntimeBaseClass
 {
-    public readonly runtimeType = "AnimatedList";
+    public readonly internalRuntimeType = new Type(AnimatedList);
     public props: AnimatedListProps;
     public constructor(props: AnimatedListProps) 
     {

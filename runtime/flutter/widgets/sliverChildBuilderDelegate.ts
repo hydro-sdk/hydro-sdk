@@ -1,7 +1,8 @@
-import {BuildContext} from "../buildContext";
-import {Widget} from "../widget";
-import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-import {DartObject} from "../../dart/core/object";
+import { BuildContext } from "../buildContext";
+import { Widget } from "../widget";
+import { JITAllocatingRTManagedBox } from "../../syntheticBox";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface SliverChildBuilderDelegateProps {
     childCount?: number | undefined;
@@ -20,35 +21,29 @@ declare const flutter: {
     };
 };
 
-export class SliverChildBuilderDelegate extends JITAllocatingRTManagedBox<SliverChildBuilderDelegateProps, SliverChildBuilderDelegate> implements Readonly<DartObject>
-{
-    public readonly runtimeType = "SliverChildBuilderDelegate";
+export class SliverChildBuilderDelegate extends JITAllocatingRTManagedBox<SliverChildBuilderDelegateProps, SliverChildBuilderDelegate> implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(SliverChildBuilderDelegate);
     public builder: (context: BuildContext, index: number) => Widget;
     public props: SliverChildBuilderDelegateProps;
-    public constructor(builder: (context: BuildContext, index: number) => Widget, props: SliverChildBuilderDelegateProps) 
-    {
+    public constructor(builder: (context: BuildContext, index: number) => Widget, props: SliverChildBuilderDelegateProps) {
         super();
         this.builder = builder;
         this.props = props;
 
-        if (this.props.addAutomaticKeepAlives === undefined) 
-        {
+        if (this.props.addAutomaticKeepAlives === undefined) {
             this.props.addAutomaticKeepAlives = true;
         }
 
-        if (this.props.addRepaintBoundaries === undefined) 
-        {
+        if (this.props.addRepaintBoundaries === undefined) {
             this.props.addRepaintBoundaries = true;
         }
 
-        if (this.props.addSemanticIndexes === undefined) 
-        {
+        if (this.props.addSemanticIndexes === undefined) {
             this.props.addSemanticIndexes = true;
         }
     }
 
-    public unwrap(): SliverChildBuilderDelegate 
-    {
+    public unwrap(): SliverChildBuilderDelegate {
         return flutter.widgets.sliverChildBuilderDelegate(this.builder, this.props);
     }
 }

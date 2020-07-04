@@ -1,8 +1,9 @@
 
-import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import { Widget } from "../widget";
 
-import {StatelessWidget} from "./../widgets/statelessWidget";
+import { StatelessWidget } from "./../widgets/statelessWidget";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "./../../runtimeBaseClass";
 
 interface FlatButtonProps {
     child: Widget;
@@ -15,18 +16,15 @@ declare const flutter: {
     };
 };
 
-export class FlatButton extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "FlatButton";
+export class FlatButton extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(FlatButton);
     public props: FlatButtonProps;
-    public constructor(props: FlatButtonProps) 
-    {
+    public constructor(props: FlatButtonProps) {
         super();
         this.props = props;
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.material.flatButton(this.props);
     }
 }

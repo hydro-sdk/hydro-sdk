@@ -1,8 +1,9 @@
-import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
+import { Widget } from "../widget";
 
-import {Key} from "./../foundation/key";
-import {StatelessWidget} from "./../widgets/statelessWidget";
+import { Key } from "./../foundation/key";
+import { StatelessWidget } from "./../widgets/statelessWidget";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface FloatingActionButtonProps {
     key?: Key | undefined;
@@ -16,18 +17,15 @@ declare const flutter: {
     };
 };
 
-export class FloatingActionButton extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "FloatingActionButton";
+export class FloatingActionButton extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(FloatingActionButton);
     public props: FloatingActionButtonProps;
-    public constructor(props: FloatingActionButtonProps) 
-    {
+    public constructor(props: FloatingActionButtonProps) {
         super();
         this.props = props;
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.material.floatingActionButton(this.props);
     }
 }

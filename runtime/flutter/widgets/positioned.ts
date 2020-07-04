@@ -1,10 +1,10 @@
-import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
-import {Rect} from "../../dart/ui/rect";
-import {TextDirection} from "../../dart/ui/textDirection";
-
-import {Key} from "./../foundation/key";
-import {StatelessWidget} from "./statelessWidget";
+import { Widget } from "../widget";
+import { Rect } from "../../dart/ui/rect";
+import { TextDirection } from "../../dart/ui/textDirection";
+import { Key } from "./../foundation/key";
+import { StatelessWidget } from "./statelessWidget";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface PositionedProps {
     key?: Key | undefined;
@@ -23,12 +23,10 @@ declare const flutter: {
     };
 };
 
-export class Positioned extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "Positioned";
+export class Positioned extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(Positioned);
     public props: PositionedProps;
-    public constructor(props: PositionedProps) 
-    {
+    public constructor(props: PositionedProps) {
         super();
         this.props = props;
     }
@@ -39,27 +37,24 @@ export class Positioned extends StatelessWidget implements Readonly<DartObject>
             end: number;
             textDirection: TextDirection;
         }
-    ): Positioned 
-    {
+    ): Positioned {
         let left: number | undefined;
         let right: number | undefined;
 
-        switch (props.textDirection) 
-        {
-        case TextDirection.rtl:
-            left = props.end;
-            right = props.start;
-            break;
-        case TextDirection.ltr:
-            left = props.start;
-            right = props.end;
-            break;
-        default:
-            ((args: never): never => 
-            {
-                throw new Error(""); 
-            })(props.textDirection);
-            break;
+        switch (props.textDirection) {
+            case TextDirection.rtl:
+                left = props.end;
+                right = props.start;
+                break;
+            case TextDirection.ltr:
+                left = props.start;
+                right = props.end;
+                break;
+            default:
+                ((args: never): never => {
+                    throw new Error("");
+                })(props.textDirection);
+                break;
         }
 
         return new Positioned({
@@ -78,8 +73,7 @@ export class Positioned extends StatelessWidget implements Readonly<DartObject>
         key?: Key | undefined;
         rect: Rect;
         child: Widget;
-    }): Positioned 
-    {
+    }): Positioned {
         return new Positioned({
             left: props.rect.left,
             top: props.rect.top,
@@ -90,8 +84,7 @@ export class Positioned extends StatelessWidget implements Readonly<DartObject>
         });
     }
 
-    public static fill(props: Omit<PositionedProps, "width" | "height">): Positioned 
-    {
+    public static fill(props: Omit<PositionedProps, "width" | "height">): Positioned {
         const {
             left = 0.0,
             top = 0.0,
@@ -106,8 +99,7 @@ export class Positioned extends StatelessWidget implements Readonly<DartObject>
         });
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.widgets.positioned(this.props);
     }
 }

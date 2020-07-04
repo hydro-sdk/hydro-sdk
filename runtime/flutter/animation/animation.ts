@@ -1,7 +1,7 @@
-import {DartObject} from "../../dart/core/object";
 import {Color} from "../../dart/ui/color";
+import { Type } from "../../dart/core/type";
 
-export class Animation<T extends number | Color> implements Readonly<DartObject>
+export class Animation<T extends number | Color>
 {
-    public readonly runtimeType = "Animation";
+    public readonly runtimeType = new Type(Animation);
 }

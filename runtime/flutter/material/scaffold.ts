@@ -1,9 +1,10 @@
-import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
-import {Color} from "../../dart/ui/color";
+import { Widget } from "../widget";
+import { Color } from "../../dart/ui/color";
 
-import {AppBar} from "./appBar";
-import {StatelessWidget} from "./../widgets/statelessWidget";
+import { AppBar } from "./appBar";
+import { StatelessWidget } from "./../widgets/statelessWidget";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface ScaffoldProps {
     appBar?: AppBar | undefined;
@@ -18,18 +19,15 @@ declare const flutter: {
     };
 };
 
-export class Scaffold extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "Scaffold";
+export class Scaffold extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(Scaffold);
     public props: ScaffoldProps;
-    public constructor(props: ScaffoldProps) 
-    {
+    public constructor(props: ScaffoldProps) {
         super();
         this.props = props;
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.material.scaffold(this.props);
     }
 }

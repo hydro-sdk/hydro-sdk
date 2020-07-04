@@ -1,6 +1,6 @@
-export class Type {
+export class Type<T extends Function = Function> {
     protected displayName: string;
-    public constructor(displayName: string) {
-        this.displayName = displayName;
+    public constructor(func: T) {
+        this.displayName = func.name;
     }
 }

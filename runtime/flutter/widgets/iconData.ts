@@ -1,7 +1,7 @@
-import {Widget} from "../widget";
-
-import {DartObject} from "./../../dart/core/object";
-import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
+import { Widget } from "../widget";
+import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface IconDataProps {
     fontFamily: string;
@@ -14,20 +14,17 @@ declare const flutter: {
     };
 };
 
-export class IconData extends JITAllocatingRTManagedBox<IconDataProps, Widget> implements Readonly<DartObject>
-{
-    public readonly runtimeType = "IconData";
+export class IconData extends JITAllocatingRTManagedBox<IconDataProps, Widget> implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(IconData);
     public codePoint: number;
     public props: IconDataProps;
-    public constructor(codePoint: number, props: IconDataProps) 
-    {
+    public constructor(codePoint: number, props: IconDataProps) {
         super();
         this.codePoint = codePoint;
         this.props = props;
     }
 
-    public unwrap(): Widget 
-    {
+    public unwrap(): Widget {
         return flutter.widgets.iconData(this.codePoint, this.props);
     }
 }

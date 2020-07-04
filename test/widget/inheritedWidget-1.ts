@@ -9,8 +9,7 @@ import { Type } from "../../runtime/dart/core/type";
 import { BuildContext } from "../../runtime/flutter/buildContext";
 
 class Inherited extends InheritedWidget {
-    public static runtimeType = new Type(Inherited.name);
-    public runtimeType = Inherited.runtimeType;
+    public readonly runtimeType = new Type(Inherited);
     public child: Widget;
     public message: string;
     public constructor(props: {
@@ -23,7 +22,7 @@ class Inherited extends InheritedWidget {
     }
 
     public static of(context: BuildContext) {
-        return context.ancestorInheritedElementForWidgetOfExactType<Inherited>(Inherited.runtimeType);
+        return context.ancestorInheritedElementForWidgetOfExactType<Inherited>(new Type(Inherited));
     }
 }
 

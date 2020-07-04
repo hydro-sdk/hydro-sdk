@@ -1,17 +1,18 @@
-import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
-import {Color} from "../../dart/ui/color";
-import {BlendMode} from "../../dart/ui/blendMode";
-import {FilterQuality} from "../../dart/ui/filterQuality";
-import {BoxFit} from "../painting/boxFit";
-import {ImageRepeat} from "../painting/imageRepeat";
-import {Alignment} from "../painting/alignment";
-import {ImageProvider} from "../painting/imageProvider";
-import {ResizeImage} from "../painting/resizeImage";
-import {NetworkImage} from "../painting/networkImage";
+import { Widget } from "../widget";
+import { Color } from "../../dart/ui/color";
+import { BlendMode } from "../../dart/ui/blendMode";
+import { FilterQuality } from "../../dart/ui/filterQuality";
+import { BoxFit } from "../painting/boxFit";
+import { ImageRepeat } from "../painting/imageRepeat";
+import { Alignment } from "../painting/alignment";
+import { ImageProvider } from "../painting/imageProvider";
+import { ResizeImage } from "../painting/resizeImage";
+import { NetworkImage } from "../painting/networkImage";
 
-import {StatelessWidget} from "./statelessWidget";
-import {Key} from "./../foundation/key";
+import { StatelessWidget } from "./statelessWidget";
+import { Key } from "./../foundation/key";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 
 interface ImageProps {
@@ -40,20 +41,17 @@ declare const flutter: {
     };
 };
 
-export class Image extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "Image";
+export class Image extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(Image);
     public src: string;
     public props: ImageProps;
-    private constructor(src: string, props: ImageProps) 
-    {
+    private constructor(src: string, props: ImageProps) {
         super();
         this.src = src;
         this.props = props;
     }
 
-    public static network(src: string, props: Omit<ImageProps, "image">): Image 
-    {
+    public static network(src: string, props: Omit<ImageProps, "image">): Image {
         const {
             key,
             scale = 1.0,
@@ -88,12 +86,11 @@ export class Image extends StatelessWidget implements Readonly<DartObject>
             matchTextDirection,
             gaplessPlayback,
             filterQuality,
-            image: ResizeImage.resizeIfNeeded(cacheWidth, cacheHeight, new NetworkImage(src, {scale: scale}))
+            image: ResizeImage.resizeIfNeeded(cacheWidth, cacheHeight, new NetworkImage(src, { scale: scale }))
         });
     }
 
-    public build(): Widget
-    {
+    public build(): Widget {
         return flutter.widgets.image(this.props);
     }
 }

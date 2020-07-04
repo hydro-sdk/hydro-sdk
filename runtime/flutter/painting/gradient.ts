@@ -1,6 +1,7 @@
-import {DartObject} from "../../dart/core/object";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
-export class Gradient implements Readonly<DartObject>
+export class Gradient implements RuntimeBaseClass
 {
-    public readonly runtimeType = "Gradient";
+    public readonly internalRuntimeType = new Type(Gradient);
 }

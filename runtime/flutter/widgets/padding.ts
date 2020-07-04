@@ -1,9 +1,9 @@
-import {Widget} from "../widget";
-import {EdgeInsets} from "../painting/edgeInsets";
-import {DartObject} from "../../dart/core/object";
-
-import {Key} from "./../foundation/key";
-import {StatelessWidget} from "./statelessWidget";
+import { Widget } from "../widget";
+import { EdgeInsets } from "../painting/edgeInsets";
+import { Key } from "./../foundation/key";
+import { StatelessWidget } from "./statelessWidget";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface PaddingProps {
     key?: Key | undefined;
@@ -17,18 +17,15 @@ declare const flutter: {
     };
 };
 
-export class Padding extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "Padding";
+export class Padding extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(Padding);
     public props: PaddingProps;
-    public constructor(props: PaddingProps) 
-    {
+    public constructor(props: PaddingProps) {
         super();
         this.props = props;
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.widgets.padding(this.props);
     }
 }

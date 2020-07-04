@@ -1,6 +1,7 @@
-import {Widget} from "../widget";
-import {StatelessWidget} from "../widgets/statelessWidget";
-import {DartObject} from "../../dart/core/object";
+import { Widget } from "../widget";
+import { StatelessWidget } from "../widgets/statelessWidget";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface IconButtonProps {
     icon: Widget;
@@ -14,18 +15,15 @@ declare const flutter: {
     };
 };
 
-export class IconButton extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "IconButton";
+export class IconButton extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(IconButton);
     public props: IconButtonProps;
-    public constructor(props: IconButtonProps) 
-    {
+    public constructor(props: IconButtonProps) {
         super();
         this.props = props;
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.material.iconButton(this.props);
     }
 }

@@ -1,8 +1,8 @@
-import {Widget} from "../widget";
-import {DartObject} from "../../dart/core/object";
-
-import {StatelessWidget} from "./statelessWidget";
-import {Key} from "./../foundation/key";
+import { Widget } from "../widget";
+import { StatelessWidget } from "./statelessWidget";
+import { Key } from "./../foundation/key";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface SpacerProps {
     key?: Key | undefined;
@@ -15,23 +15,19 @@ declare const flutter: {
     };
 };
 
-export class Spacer extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "Spacer";
+export class Spacer extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(Spacer);
     public props: SpacerProps;
-    public constructor(props: SpacerProps) 
-    {
+    public constructor(props: SpacerProps) {
         super();
         this.props = props;
 
-        if (this.props.flex === undefined) 
-        {
+        if (this.props.flex === undefined) {
             this.props.flex = 1;
         }
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.widgets.spacer(this.props);
     }
 }

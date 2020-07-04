@@ -1,11 +1,12 @@
-import {DartObject} from "../../dart/core/object";
-import {TextDirection} from "../../dart/ui/textDirection";
-import {StackFit} from "../../flutter/rendering/stackFit";
-import {Overflow} from "../../flutter/rendering/overflow";
+import { TextDirection } from "../../dart/ui/textDirection";
+import { StackFit } from "../../flutter/rendering/stackFit";
+import { Overflow } from "../../flutter/rendering/overflow";
 
-import {Key} from "./../foundation/key";
-import {StatelessWidget} from "./statelessWidget";
-import {Widget} from "./../widget";
+import { Key } from "./../foundation/key";
+import { StatelessWidget } from "./statelessWidget";
+import { Widget } from "./../widget";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
 
 interface StackProps {
     key?: Key | undefined;
@@ -21,28 +22,23 @@ declare const flutter: {
     };
 };
 
-export class Stack extends StatelessWidget implements Readonly<DartObject>
-{
-    public readonly runtimeType = "Stack";
+export class Stack extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(Stack);
     public props: StackProps;
-    public constructor(props: StackProps) 
-    {
+    public constructor(props: StackProps) {
         super();
         this.props = props;
 
-        if (this.props.fit === undefined) 
-        {
+        if (this.props.fit === undefined) {
             this.props.fit = StackFit.loose;
         }
 
-        if (this.props.overflow === undefined) 
-        {
+        if (this.props.overflow === undefined) {
             this.props.overflow = Overflow.clip;
         }
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.widgets.stack(this.props);
     }
 }
