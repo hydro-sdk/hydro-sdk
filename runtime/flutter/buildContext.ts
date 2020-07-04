@@ -5,5 +5,5 @@ class StaticRuntimeType {
 }
 
 export interface BuildContext {
-    ancestorInheritedElementForWidgetOfExactType: <T extends StaticRuntimeType>(targetType: Type) => T;
+    ancestorInheritedElementForWidgetOfExactType: <T extends StaticRuntimeType>(targetType: Type) => T | undefined;
 }

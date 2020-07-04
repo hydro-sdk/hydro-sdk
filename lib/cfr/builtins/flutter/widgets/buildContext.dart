@@ -11,13 +11,15 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
   final HydroTable table;
   final BuildContext context;
   final HydroState hydroState;
-  VMManagedBuildContext(
-      {@required this.table,
-      @required this.context,
-      @required this.hydroState}) {
-    table["unwrap"] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [context];
-    });
+  VMManagedBuildContext({
+    @required this.table,
+    @required this.context,
+    @required this.hydroState,
+  }) : super(table: table, vmObject: context) {
+    /*
+      The real ancestorInheritedElementForWidgetOfExactType is deprecated https://api.flutter.dev/flutter/widgets/BuildContext/ancestorInheritedElementForWidgetOfExactType.html
+      This accomplishes the same thing with the same signature
+    */
     table["ancestorInheritedElementForWidgetOfExactType"] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       HydroTable res;
@@ -28,8 +30,6 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
       activeContext.visitAncestorElements((element) {
         if (element.widget is InheritedWidgetBox) {
           InheritedWidgetBox inheritedWidgetBox = element.widget;
-          print(inheritedWidgetBox.table["runtimeType"]);
-
           if (inheritedWidgetBox.table["runtimeType"]["displayName"] ==
               args[1]["displayName"]) {
             res = inheritedWidgetBox.table;

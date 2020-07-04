@@ -20,12 +20,10 @@ class Inherited extends InheritedWidget {
         super();
         this.child = props.child;
         this.message = props.message;
-
-        pauseInDebugger(this);
     }
 
-    public static of(context: BuildContext): Inherited {
-        return context.ancestorInheritedElementForWidgetOfExactType(Inherited.runtimeType);
+    public static of(context: BuildContext) {
+        return context.ancestorInheritedElementForWidgetOfExactType<Inherited>(Inherited.runtimeType);
     }
 }
 
@@ -33,7 +31,7 @@ class InnerApp extends StatelessWidget {
     public build(context: BuildContext) {
         const inherited = Inherited.of(context);
         return new SizedBox({
-            key: new Key(inherited.message)
+            key: new Key(inherited ? inherited.message : "")
         });
     }
 }

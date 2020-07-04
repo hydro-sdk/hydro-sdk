@@ -5,6 +5,7 @@ import { RuntimeBaseClass } from "../../runtimeBaseClass";
 export abstract class InheritedWidget extends RuntimeBaseClass implements Widget {
     tag: string;
     protected internalRuntimeType = new Type("InheritedWidget");
+    public abstract runtimeType : Type;
     public abstract child: Widget;
 
     public constructor() {
