@@ -1,10 +1,10 @@
 import {Widget} from "../widget";
 import {Color} from "../../dart/ui/color";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {IconData} from "./iconData";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
 
 interface IconProps {
     size?: number | undefined;

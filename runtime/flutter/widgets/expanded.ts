@@ -1,9 +1,9 @@
 import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
 
 interface ExpandedProps {
     key?: Key | undefined;

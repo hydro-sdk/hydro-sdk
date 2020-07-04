@@ -1,6 +1,7 @@
+import {Type} from "../../dart/core/type";
+
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 import {ImageProvider} from "./imageProvider";
-import { Type } from "../../dart/core/type";
 
 interface NetworkImageProps {
     scale: number;

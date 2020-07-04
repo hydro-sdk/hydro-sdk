@@ -1,5 +1,5 @@
-import { RuntimeBaseClass } from "./../../runtimeBaseClass";
-import { Type } from "./../core/type";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../core/type";
 import {double} from "./../../dart/core/double";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 

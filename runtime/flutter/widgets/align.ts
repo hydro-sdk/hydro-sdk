@@ -1,9 +1,10 @@
-import { Widget } from "../widget";
-import { StatelessWidget } from "./statelessWidget";
-import { Alignment } from "./../painting/alignment";
-import { Key } from "./../foundation/key";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
+import {StatelessWidget} from "./statelessWidget";
+import {Alignment} from "./../painting/alignment";
+import {Key} from "./../foundation/key";
 
 
 interface AlignProps {
@@ -20,19 +21,23 @@ declare const flutter: {
     };
 };
 
-export class Align extends StatelessWidget implements RuntimeBaseClass {
+export class Align extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(Align);
     public props: AlignProps;
-    public constructor(props: AlignProps) {
+    public constructor(props: AlignProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.alignment === undefined) {
+        if (this.props.alignment === undefined) 
+        {
             this.props.alignment = Alignment.center;
         }
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.align(this.props);
     }
 }

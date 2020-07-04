@@ -1,11 +1,11 @@
-import { JITAllocatingRTManagedBox } from "../../syntheticBox";
-import { Gradient } from "../painting/gradient";
+import {JITAllocatingRTManagedBox} from "../../syntheticBox";
+import {Gradient} from "../painting/gradient";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
-import { Color } from "./../../dart/ui/color";
-import { BoxShape } from "./boxShape";
-import { BorderRadius } from "./borderRadius";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {Color} from "./../../dart/ui/color";
+import {BoxShape} from "./boxShape";
+import {BorderRadius} from "./borderRadius";
 
 interface BoxDecorationProps {
     color?: Color | undefined;
@@ -20,19 +20,23 @@ declare const flutter: {
     };
 };
 
-export class BoxDecoration extends JITAllocatingRTManagedBox<BoxDecorationProps, BoxDecoration> implements RuntimeBaseClass {
+export class BoxDecoration extends JITAllocatingRTManagedBox<BoxDecorationProps, BoxDecoration> implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(BoxDecoration);
     public props: BoxDecorationProps;
-    public constructor(props: BoxDecorationProps) {
+    public constructor(props: BoxDecorationProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.shape === undefined) {
+        if (this.props.shape === undefined) 
+        {
             this.props.shape = BoxShape.rectangle;
         }
     }
 
-    public unwrap(): BoxDecoration {
+    public unwrap(): BoxDecoration 
+    {
         return flutter.painting.boxDecoration(this.props);
     }
 }

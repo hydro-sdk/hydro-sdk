@@ -1,11 +1,11 @@
-import { Widget } from "../widget";
-import { Clip } from "../painting/clip";
-import { BorderRadius } from "../painting/borderRadius";
+import {Widget} from "../widget";
+import {Clip} from "../painting/clip";
+import {BorderRadius} from "../painting/borderRadius";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
-import { StatelessWidget } from "./statelessWidget";
-import { Key } from "./../foundation/key";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {StatelessWidget} from "./statelessWidget";
+import {Key} from "./../foundation/key";
 
 
 interface ClipRRectProps {
@@ -21,19 +21,23 @@ declare const flutter: {
     };
 };
 
-export class ClipRRect extends StatelessWidget implements RuntimeBaseClass {
+export class ClipRRect extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(ClipRRect);
     public props: ClipRRectProps;
-    public constructor(props: ClipRRectProps) {
+    public constructor(props: ClipRRectProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.clipBehavior === undefined) {
+        if (this.props.clipBehavior === undefined) 
+        {
             this.props.clipBehavior = Clip.antiAlias;
         }
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.clipRRect(this.props);
     }
 }

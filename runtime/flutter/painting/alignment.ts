@@ -1,6 +1,7 @@
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
 
 declare const flutter: {
     painting: {

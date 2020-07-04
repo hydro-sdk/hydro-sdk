@@ -1,7 +1,7 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
+import {Type} from "../../dart/core/type";
 
 import {ImageProvider} from "./imageProvider";
-import { Type } from "../../dart/core/type";
 
 interface ResizeImageProps {
     width?: number | undefined;

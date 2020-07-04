@@ -1,5 +1,5 @@
-import { RuntimeBaseClass } from "./../../runtimeBaseClass";
-import { Type } from "./../core/type";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../core/type";
 
 declare const dart: {
     ui: {

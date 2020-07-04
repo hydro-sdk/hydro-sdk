@@ -1,9 +1,10 @@
-import { Widget } from "../widget";
-import { Animation } from "../animation/animation";
-import { StatelessWidget } from "./statelessWidget";
-import { Axis } from "./../painting/axis";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {Widget} from "../widget";
+import {Animation} from "../animation/animation";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
+import {StatelessWidget} from "./statelessWidget";
+import {Axis} from "./../painting/axis";
 
 interface SizeTransitionProps {
     axis: Axis;
@@ -17,15 +18,18 @@ declare const flutter: {
     };
 };
 
-export class SizeTransition extends StatelessWidget implements RuntimeBaseClass {
+export class SizeTransition extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(SizeTransition);
     public props: SizeTransitionProps;
-    public constructor(props: SizeTransitionProps) {
+    public constructor(props: SizeTransitionProps) 
+    {
         super();
         this.props = props;
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.sizeTransition(this.props);
     }
 }

@@ -1,8 +1,9 @@
-import { Widget } from "../widget";
-import { Key } from "./../foundation/key";
-import { StatelessWidget } from "./statelessWidget";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
+import {Key} from "./../foundation/key";
+import {StatelessWidget} from "./statelessWidget";
 
 interface SizedBoxProps {
     key?: Key | undefined;
@@ -17,15 +18,18 @@ declare const flutter: {
     };
 };
 
-export class SizedBox extends StatelessWidget implements RuntimeBaseClass {
+export class SizedBox extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(SizedBox);
     public props: SizedBoxProps;
-    public constructor(props: SizedBoxProps) {
+    public constructor(props: SizedBoxProps) 
+    {
         super();
         this.props = props;
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.sizedBox(this.props);
     }
 }

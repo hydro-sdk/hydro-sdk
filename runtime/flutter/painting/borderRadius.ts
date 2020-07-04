@@ -1,6 +1,6 @@
-import { Radius } from "../../dart/ui/radius";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {Radius} from "../../dart/ui/radius";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
 interface BorderRadiusProps {
     topLeft: Radius;
@@ -15,10 +15,12 @@ declare const flutter: {
     };
 };
 
-export class BorderRadius implements RuntimeBaseClass {
+export class BorderRadius implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(BorderRadius);
 
-    public static all(radius: Radius): BorderRadius {
+    public static all(radius: Radius): BorderRadius 
+    {
         return BorderRadius.only({
             topLeft: radius,
             topRight: radius,
@@ -27,11 +29,13 @@ export class BorderRadius implements RuntimeBaseClass {
         });
     }
 
-    public static circular(radius: number): BorderRadius {
+    public static circular(radius: number): BorderRadius 
+    {
         return BorderRadius.all(Radius.circular(radius));
     }
 
-    public static vertical(props: { top: Radius; bottom: Radius }): BorderRadius {
+    public static vertical(props: { top: Radius; bottom: Radius }): BorderRadius 
+    {
         const {
             top = Radius.zero,
             bottom = Radius.zero,
@@ -45,7 +49,8 @@ export class BorderRadius implements RuntimeBaseClass {
         });
     }
 
-    public static horizontal(props: { left: Radius; right: Radius }): BorderRadius {
+    public static horizontal(props: { left: Radius; right: Radius }): BorderRadius 
+    {
         const {
             left = Radius.zero,
             right = Radius.zero
@@ -59,7 +64,8 @@ export class BorderRadius implements RuntimeBaseClass {
         });
     }
 
-    public static only(props: Partial<BorderRadiusProps>): BorderRadius {
+    public static only(props: Partial<BorderRadiusProps>): BorderRadius 
+    {
         const {
             topLeft = Radius.zero,
             topRight = Radius.zero,

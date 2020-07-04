@@ -1,10 +1,11 @@
 import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
 import {StatelessWidget} from "./statelessWidget";
 import {MainAxisAlignment} from "./mainAxisAlignment";
 import {MainAxisSize} from "./../rendering/mainAxisSize";
 import {CrossAxisAlignment} from "./../rendering/crossAxisAlignment";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
 
 interface ColumnProps {
     mainAxisAlignment?: MainAxisAlignment | undefined;

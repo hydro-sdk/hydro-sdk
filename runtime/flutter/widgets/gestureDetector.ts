@@ -1,8 +1,9 @@
-import { Widget } from "../widget";
-import { HitTestBehavior } from "./../rendering/hitTestBehavior";
-import { StatelessWidget } from "./statelessWidget";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
+import {HitTestBehavior} from "./../rendering/hitTestBehavior";
+import {StatelessWidget} from "./statelessWidget";
 
 
 interface GestureDetectorProps {
@@ -17,22 +18,27 @@ declare const flutter: {
     };
 };
 
-export class GestureDetector extends StatelessWidget implements RuntimeBaseClass {
+export class GestureDetector extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(GestureDetector);
     public props: GestureDetectorProps;
-    public constructor(props: GestureDetectorProps) {
+    public constructor(props: GestureDetectorProps) 
+    {
         super();
         this.props = props;
 
-        if (!this.props.child) {
+        if (!this.props.child) 
+        {
             this.props.behavior = HitTestBehavior.translucent;
         }
-        else {
+        else 
+        {
             this.props.behavior = HitTestBehavior.deferToChild;
         }
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.gestureDetector(this.props);
     }
 }

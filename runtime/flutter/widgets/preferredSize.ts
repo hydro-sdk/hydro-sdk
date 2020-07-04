@@ -1,8 +1,9 @@
-import { Widget } from "../widget";
-import { StatelessWidget } from "./statelessWidget";
-import { Size } from "./../../dart/ui/size";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
+import {StatelessWidget} from "./statelessWidget";
+import {Size} from "./../../dart/ui/size";
 
 interface PreferredSizeProps {
     child: Widget;
@@ -15,17 +16,20 @@ declare const flutter: {
     };
 };
 
-export class PreferredSize extends StatelessWidget implements RuntimeBaseClass {
+export class PreferredSize extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(PreferredSize);
     public props: PreferredSizeProps;
-    public constructor(props: PreferredSizeProps) {
+    public constructor(props: PreferredSizeProps) 
+    {
         super();
         this.props = props;
     }
 
     private preferredSize = () => this.props.preferredSize;
 
-    public build(): PreferredSize {
+    public build(): PreferredSize 
+    {
         return flutter.widgets.preferredSize(this.props);
     }
 }

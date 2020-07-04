@@ -1,6 +1,7 @@
-import { Type } from "./../dart/core/type";
+import {Type} from "./../dart/core/type";
 
-class StaticRuntimeType {
+class StaticRuntimeType 
+{
     public static runtimeType: Type;
 }
 

@@ -1,10 +1,11 @@
 import {BuildContext} from "../buildContext";
 import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 import {GlobalKey} from "./globalKey";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
 
 interface AnimatedListProps {
     key?: Key | GlobalKey<any> | undefined;

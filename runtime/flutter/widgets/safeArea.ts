@@ -1,8 +1,9 @@
-import { EdgeInsets } from "./../painting/edgeInsets";
-import { Widget } from "./../widget";
-import { StatelessWidget } from "./statelessWidget";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
+
+import {EdgeInsets} from "./../painting/edgeInsets";
+import {Widget} from "./../widget";
+import {StatelessWidget} from "./statelessWidget";
 interface SafeAreaProps {
     left?: boolean | undefined;
     top?: boolean | undefined;
@@ -19,34 +20,43 @@ declare const flutter: {
     };
 };
 
-export class SafeArea extends StatelessWidget implements RuntimeBaseClass {
+export class SafeArea extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(SafeArea);
     public props: SafeAreaProps;
-    public constructor(props: SafeAreaProps) {
+    public constructor(props: SafeAreaProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.left === undefined) {
+        if (this.props.left === undefined) 
+        {
             this.props.left = true;
         }
-        if (this.props.top === undefined) {
+        if (this.props.top === undefined) 
+        {
             this.props.top = true;
         }
-        if (this.props.right === undefined) {
+        if (this.props.right === undefined) 
+        {
             this.props.right = true;
         }
-        if (this.props.bottom === undefined) {
+        if (this.props.bottom === undefined) 
+        {
             this.props.bottom = true;
         }
-        if (this.props.minimum === undefined) {
+        if (this.props.minimum === undefined) 
+        {
             this.props.minimum = EdgeInsets.zero();
         }
-        if (this.props.maintainBottomViewPadding === undefined) {
+        if (this.props.maintainBottomViewPadding === undefined) 
+        {
             this.props.maintainBottomViewPadding = false;
         }
     }
 
-    public build(): Widget {
+    public build(): Widget 
+    {
         return flutter.widgets.safeArea(this.props);
     }
 }
