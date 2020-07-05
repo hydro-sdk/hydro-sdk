@@ -11,7 +11,7 @@
         "noImplicitThis": true,
     },
     "include": [
-        "examples"
+        "examples",
     ],
     "exclude": [
         "node_modules"

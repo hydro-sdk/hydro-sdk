@@ -54,3 +54,4 @@ hydro_sdk/android/.project
 dist/**/*.ts
 haxe-4.0.5
 lib/hc.g.dart
+!jest.config.js
