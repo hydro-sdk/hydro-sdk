@@ -14,6 +14,7 @@ import { compileByteCodeAndWriteHash } from "../compileByteCodeAndWriteHash";
 import { makeRelativePath } from "../makeRelativePath";
 import { reconcileResourcePath } from "../reconcileResourcePath";
 import { bundlePrelude } from "./bundlePrelude";
+import { insertFrameMapsInDeclarationSites } from "./insertFrameMapsInDeclarationSites";
 
 export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): void {
     const buildHash = configHash(config);
@@ -23,7 +24,7 @@ export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguag
 
     const tstlOpt: CompilerOptions = {
         strict: true,
-        sourceMapTraceback: true,
+        sourceMapTraceback: false,
         luaTarget: LuaTarget.Lua52,
         luaLibImport: LuaLibImportKind.Require,
         luaBundleEntry: config.entry,
@@ -66,6 +67,10 @@ export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguag
             const target = `${tempDir}/${makeRelativePath(res.emitResult[i].name)}`;
             const targetDir = path.dirname(target);
             fs.mkdirSync(targetDir, { recursive: true });
+
+            if (!res.emitResult[i].name.match(/lualib_bundle/)) {
+                // insertFrameMapsInDeclarationSites(res.emitResult[i]);
+            }
 
             fs.writeFileSync(target, res.emitResult[i].text);
 

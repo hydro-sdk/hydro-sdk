@@ -37,6 +37,8 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsdoc": "^10.0.3",
     "jest": "^26.1.0",
+    "luacodegen": "^1.0.1",
+    "luamin": "^1.0.4",
     "luaparse": "^0.3.0",
     "minimist": "^1.2.3",
     "rimraf": "^3.0.2",

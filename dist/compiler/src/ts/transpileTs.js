@@ -18,7 +18,7 @@ function transpileTS(config) {
     var _a = setupArtifactDirectories_1.setupArtifactDirectories(buildHash, config), outFileHash = _a.outFileHash, outFile = _a.outFile, tempFile = _a.tempFile, tempDir = _a.tempDir;
     var tstlOpt = {
         strict: true,
-        sourceMapTraceback: true,
+        sourceMapTraceback: false,
         luaTarget: typescript_to_lua_1.LuaTarget.Lua52,
         luaLibImport: typescript_to_lua_1.LuaLibImportKind.Require,
         luaBundleEntry: config.entry,
@@ -51,10 +51,12 @@ function transpileTS(config) {
         squishy += "Output \"" + config.modName + "\"\n";
         squishy += "Main \"" + makeRelativePath_1.makeRelativePath(config.entry).split(".")[0] + ".lua\"\n";
         for (var i = 0; i < res.emitResult.length; ++i) {
-            // console.log(res.emitResult[0].name);
             var target = tempDir + "/" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name);
             var targetDir = path.dirname(target);
             fs.mkdirSync(targetDir, { recursive: true });
+            if (!res.emitResult[i].name.match(/lualib_bundle/)) {
+                // insertFrameMapsInDeclarationSites(res.emitResult[i]);
+            }
             fs.writeFileSync(target, res.emitResult[i].text);
             if (res.emitResult[i].name != makeRelativePath_1.makeRelativePath(config.entry).split(".")[0] + ".lua") {
                 squishy += "Module \"" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name).split(path.sep).join(".").split(".lua")[0] + "\" \"" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name) + "\"\n";
