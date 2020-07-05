@@ -1,4 +1,6 @@
 import * as fs from "fs";
+import * as path from "path";
+import * as cp from "child_process";
 
 import * as chalk from "chalk";
 import * as ts from "typescript";
@@ -9,20 +11,23 @@ import { configHash } from "../configHash";
 import { transpileFiles, CompilerOptions, LuaTarget, LuaLibImportKind } from "typescript-to-lua";
 import { setupArtifactDirectories } from "../setupArtifactDirectories";
 import { compileByteCodeAndWriteHash } from "../compileByteCodeAndWriteHash";
+import { makeRelativePath } from "../makeRelativePath";
+import { reconcileResourcePath } from "../reconcileResourcePath";
+import { bundlePrelude } from "./bundlePrelude";
 
 export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): void {
     const buildHash = configHash(config);
     console.log(`Build ${chalk.yellow(buildHash)}`);
 
-    const { outFileHash, outFile, tempFile } = setupArtifactDirectories(buildHash, config);
+    const { outFileHash, outFile, tempFile, tempDir } = setupArtifactDirectories(buildHash, config);
 
     const tstlOpt: CompilerOptions = {
         strict: true,
-        sourceMapTraceback: false,
+        sourceMapTraceback: true,
         luaTarget: LuaTarget.Lua52,
         luaLibImport: LuaLibImportKind.Require,
         luaBundleEntry: config.entry,
-        luaBundle: tempFile
+        luaBundle: config.profile == "release" ? tempFile : undefined
     };
 
     const res = transpileFiles([config.entry], tstlOpt);
@@ -33,7 +38,6 @@ export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguag
             if (x.file) {
                 const { line, character } = x.file.getLineAndCharacterOfPosition(x.start!);
                 const message = ts.flattenDiagnosticMessageText(x.messageText, "\n");
-                // console.log(`${x.file.fileName} (${line + 1},${character + 1}): ${message}`);
                 const fileNameMsg = chalk.blue(x.file.fileName);
                 const lineMsg = chalk.yellow(line + 1);
                 const characterMsg = chalk.yellow(character + 1);
@@ -49,7 +53,34 @@ export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguag
         return;
     }
 
-    fs.writeFileSync(tempFile, res.emitResult[0].text);
+    if (config.profile == "release") {
+        fs.writeFileSync(tempFile, res.emitResult[0].text);
+    } else if (config.profile == "debug") {
+        let squishy = "";
+
+        squishy += `Output "${config.modName}"\n`;
+
+        squishy += `Main "${makeRelativePath(config.entry).split(".")[0]}.lua"\n`;
+
+        for (let i = 0; i < res.emitResult.length; ++i) {
+            const target = `${tempDir}/${makeRelativePath(res.emitResult[i].name)}`;
+            const targetDir = path.dirname(target);
+            fs.mkdirSync(targetDir, { recursive: true });
+
+            fs.writeFileSync(target, res.emitResult[i].text);
+
+            if (res.emitResult[i].name != `${makeRelativePath(config.entry).split(".")[0]}.lua`) {
+                squishy += `Module "${makeRelativePath(res.emitResult[i].name).split(path.sep).join(".").split(".lua")[0]}" "${makeRelativePath(res.emitResult[i].name)}"\n`;
+            }
+        }
+
+        fs.writeFileSync(`.hydroc/${configHash(config)}/squishy`, squishy);
+
+        cp.execSync(`${reconcileResourcePath(`res/${process.platform}/lua52`)} ${reconcileResourcePath("res/squish.lua")}`, { cwd: `./${tempDir}`, });
+        const rawOut = fs.readFileSync(`${tempDir}/${config.modName}`).toString();
+        fs.writeFileSync(`${tempDir}/${config.modName}`, bundlePrelude.concat(rawOut));
+
+    }
 
     compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
 
