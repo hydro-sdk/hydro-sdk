@@ -5,5 +5,9 @@
         "source.fixAll.eslint": true
     },
     "eslint.enable": false,
-    "haxe.executable": "haxe-4.0.5/haxe"
+    "haxe.executable": "haxe-4.0.5/haxe",
+    "files.exclude": {
+        "compiler/src/**/*.js": true,
+        "compiler/*.js": true
+    }
 }
