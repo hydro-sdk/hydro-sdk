@@ -68,10 +68,6 @@ export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguag
             const targetDir = path.dirname(target);
             fs.mkdirSync(targetDir, { recursive: true });
 
-            if (!res.emitResult[i].name.match(/lualib_bundle/)) {
-                // insertFrameMapsInDeclarationSites(res.emitResult[i]);
-            }
-
             fs.writeFileSync(target, res.emitResult[i].text);
 
             if (res.emitResult[i].name != `${makeRelativePath(config.entry).split(".")[0]}.lua`) {

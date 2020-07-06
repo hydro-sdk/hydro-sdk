@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var lparse = require("luaparse");
-var callStatement_1 = require("./../../ast/callStatement");
-var callExpression_1 = require("./../../ast/callExpression");
-var identifier_1 = require("./../../ast/identifier");
-var stringLiteral_1 = require("./../../ast/stringLiteral");
-var extractFullyQualifiedFunctionName_1 = require("./../../ast/extractFullyQualifiedFunctionName");
+var callStatement_1 = require("../ast/callStatement");
+var callExpression_1 = require("../ast/callExpression");
+var identifier_1 = require("../ast/identifier");
+var stringLiteral_1 = require("../ast/stringLiteral");
+var extractFullyQualifiedFunctionName_1 = require("../ast/extractFullyQualifiedFunctionName");
 var lcodegen = require("luacodegen");
 function insertFrameMapsInDeclarationSites(file) {
     // try {

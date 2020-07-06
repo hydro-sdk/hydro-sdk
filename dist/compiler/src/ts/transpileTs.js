@@ -54,9 +54,6 @@ function transpileTS(config) {
             var target = tempDir + "/" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name);
             var targetDir = path.dirname(target);
             fs.mkdirSync(targetDir, { recursive: true });
-            if (!res.emitResult[i].name.match(/lualib_bundle/)) {
-                // insertFrameMapsInDeclarationSites(res.emitResult[i]);
-            }
             fs.writeFileSync(target, res.emitResult[i].text);
             if (res.emitResult[i].name != makeRelativePath_1.makeRelativePath(config.entry).split(".")[0] + ".lua") {
                 squishy += "Module \"" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name).split(path.sep).join(".").split(".lua")[0] + "\" \"" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name) + "\"\n";

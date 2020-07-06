@@ -1,11 +1,11 @@
 import * as lparse from "luaparse";
 import { OutputFile } from "typescript-to-lua";
 
-import { callStatement } from "./../../ast/callStatement"
-import { callExpression } from "./../../ast/callExpression";
-import { identifier } from "./../../ast/identifier";
-import { stringLiteral } from "./../../ast/stringLiteral";
-import { extractFullyQualifiedFunctionName } from "./../../ast/extractFullyQualifiedFunctionName";
+import { callStatement } from "../ast/callStatement"
+import { callExpression } from "../ast/callExpression";
+import { identifier } from "../ast/identifier";
+import { stringLiteral } from "../ast/stringLiteral";
+import { extractFullyQualifiedFunctionName } from "../ast/extractFullyQualifiedFunctionName";
 
 const lcodegen = require("luacodegen");
 
