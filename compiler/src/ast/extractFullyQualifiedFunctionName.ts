@@ -1,6 +1,6 @@
 import * as lparse from "luaparse";
 
-export function extractFullyQualifiedFunctionName(func: lparse.FunctionDeclaration): string {
+export function extractFullyQualifiedFunctionName(func: lparse.FunctionDeclaration | lparse.MemberExpression): string {
     let res = "";
     let cont: Array<string> = [];
     extract(func, cont);
@@ -13,6 +13,8 @@ function extract(exp: lparse.MemberExpression | lparse.FunctionDeclaration | lpa
         case "FunctionDeclaration":
             if (exp.identifier) {
                 extract(exp.identifier, cont);
+            } else {
+                cont.push("anonymous closure");
             }
             break;
         case "MemberExpression":
@@ -26,6 +28,7 @@ function extract(exp: lparse.MemberExpression | lparse.FunctionDeclaration | lpa
             break;
         case "Identifier":
             cont.push(exp.name);
+            return;
             break;
     }
 }

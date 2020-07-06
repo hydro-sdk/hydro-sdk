@@ -14,6 +14,9 @@ function extract(exp, cont) {
             if (exp.identifier) {
                 extract(exp.identifier, cont);
             }
+            else {
+                cont.push("anonymous closure");
+            }
             break;
         case "MemberExpression":
             if (exp.base && exp.base.type == "MemberExpression" || exp.base.type == "Identifier") {
@@ -24,6 +27,7 @@ function extract(exp, cont) {
             break;
         case "Identifier":
             cont.push(exp.name);
+            return;
             break;
     }
 }
