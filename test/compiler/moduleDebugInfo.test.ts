@@ -93,8 +93,8 @@ test("",async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,        
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 23,
+        originalColumnStart: 4,
         symbolName: "MyApp.prototype.____constructor"
     });
     expect(debugInfo[1]).toEqual({
@@ -105,8 +105,8 @@ test("",async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 28,
+        originalColumnStart: 4,
         
         symbolName: "MyApp.prototype.build"
     });
@@ -118,8 +118,8 @@ test("",async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,        
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 41,
+        originalColumnStart: 4,
         symbolName: "MyHomePage.prototype.____constructor"
     });
     expect(debugInfo[3]).toEqual({
@@ -130,8 +130,8 @@ test("",async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 46,
+        originalColumnStart: 4,
         symbolName: "MyHomePage.prototype.createState"
     });
     expect(debugInfo[4]).toEqual({
@@ -142,8 +142,8 @@ test("",async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 56,
+        originalColumnStart: 4,
         symbolName: "MyHomePageState.prototype.____constructor"
     });
     expect(debugInfo[5]).toEqual({
@@ -154,8 +154,8 @@ test("",async () => {
         columnStart: 28,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 62,
+        originalColumnStart: 31,
         symbolName: "anonymous closure"
     });
     expect(debugInfo[6]).toEqual({
@@ -166,8 +166,8 @@ test("",async () => {
         columnStart: 12,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 64,
+        originalColumnStart: 22,
         symbolName: "anonymous closure"
     });
     expect(debugInfo[7]).toEqual({
@@ -178,8 +178,8 @@ test("",async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 70,
+        originalColumnStart: 4,
         symbolName: "MyHomePageState.prototype.build"
     });
     expect(debugInfo[8]).toEqual({
@@ -190,8 +190,8 @@ test("",async () => {
         columnStart: 4,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 0,
-        originalColumnStart: 0,
+        originalLineStart: 100,
+        originalColumnStart: 7,
         symbolName: "anonymous closure"
     });
 });
