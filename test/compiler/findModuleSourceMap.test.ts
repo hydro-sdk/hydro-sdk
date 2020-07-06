@@ -3,7 +3,7 @@ import * as fs from "fs";
 import { LuaTarget, LuaLibImportKind, transpileString } from "typescript-to-lua";
 import * as lparse from "luaparse";
 
-import { findModuleSourceMap } from "./../../compiler/src/ast/findModuleSourceMap";
+import {findModuleSourceMap} from "./../../compiler/src/ast/findModuleSourceMap";
 
 test("", () => {
     let res = transpileString(fs.readFileSync("./runtime/dart/core/type.ts").toString(), {
