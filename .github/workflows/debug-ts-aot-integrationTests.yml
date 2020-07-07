@@ -66,7 +66,7 @@ jobs:
       working-directory: hydro
     - name: AOT debug fixtures
       shell: bash
-      run: dart bin/hc2Dart.dart assets/**/*
+      run: dart bin/hc2Dart.dart assets/examples/* assets/test/hot/stateful/* assets/test/widget/*
       working-directory: hydro
     - name: Run Hydro-SDK tests
       shell: bash
