@@ -16,7 +16,7 @@ export function bundle(bundleInfo: BundleInfo): BundleResult {
         let bundleLines = bundlePrelude.split(/\n/);
 
         bundleEntries.forEach((x) => {
-            bundleLines.push(`package.preload["${x.moduleName}"] = function (...)`)
+            bundleLines.push(`package.preload["${x.moduleName}"] = (function (...)`)
             x.debugSymbols.forEach((dbg) => {
                 dbg.lineStart += bundleLines.length;
                 dbg.lineEnd += bundleLines.length;
