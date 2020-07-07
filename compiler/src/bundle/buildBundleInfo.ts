@@ -14,7 +14,8 @@ import { BundleInfo } from "./bundleInfo";
 export async function buildBundleInfo(buildOptions: BuildOptions): Promise<BundleInfo> {
     let res: BundleInfo = {
         ...buildOptions,
-        entries: []
+        entries: [],
+        diagnostics: [],
     };
 
     const program = ts.createProgram({
@@ -30,6 +31,8 @@ export async function buildBundleInfo(buildOptions: BuildOptions): Promise<Bundl
     const { transpiledFiles, diagnostics: transpileDiagnostics } = tstl.transpile({
         program: program as any
     });
+
+    res.diagnostics = transpileDiagnostics as any;
 
     for (const transpiledFile of transpiledFiles) {
         const debugInfo = findModuleDebugInfo({

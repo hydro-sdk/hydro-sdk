@@ -19,7 +19,8 @@ function findModuleDebugInfo(props) {
         comments: true,
         scope: true,
         locations: true,
-        ranges: true
+        ranges: true,
+        luaVersion: "5.2"
     });
     last.body.forEach(function (x) {
         findModuleDebugInfoInner(__assign(__assign({}, props), { last: x, cont: res }));

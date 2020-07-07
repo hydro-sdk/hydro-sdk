@@ -1,4 +1,9 @@
-import { BuildOptions } from "../buildOptions";
-import {BundleEntry} from "./bundleEntry";
+import * as ts from "typescript";
 
-export type BundleInfo = BuildOptions & { entries: Array<BundleEntry>; }
+import { BuildOptions } from "../buildOptions";
+import { BundleEntry } from "./bundleEntry";
+
+export type BundleInfo = BuildOptions & {
+    entries: Array<BundleEntry>;
+    diagnostics: Array<ts.Diagnostic>;
+}

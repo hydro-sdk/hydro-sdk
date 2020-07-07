@@ -61,7 +61,7 @@ function buildBundleInfo(buildOptions) {
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    res = __assign(__assign({}, buildOptions), { entries: [] });
+                    res = __assign(__assign({}, buildOptions), { entries: [], diagnostics: [] });
                     program = ts.createProgram({
                         rootNames: [buildOptions.entry],
                         options: {
@@ -74,6 +74,7 @@ function buildBundleInfo(buildOptions) {
                     _a = tstl.transpile({
                         program: program
                     }), transpiledFiles = _a.transpiledFiles, transpileDiagnostics = _a.diagnostics;
+                    res.diagnostics = transpileDiagnostics;
                     _i = 0, transpiledFiles_1 = transpiledFiles;
                     _b.label = 1;
                 case 1:

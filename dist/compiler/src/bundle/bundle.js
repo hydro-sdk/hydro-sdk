@@ -19,7 +19,7 @@ function bundle(bundleInfo) {
         var bundleEntries = bundleInfo.entries.filter(function (x) { return x.originalFileName != bundleInfo.entry; });
         var bundleLines_1 = bundlePrelude_1.bundlePrelude.split(/\n/);
         bundleEntries.forEach(function (x) {
-            bundleLines_1.push("package.preload[\"" + x.moduleName + "\"] = function (...)");
+            bundleLines_1.push("package.preload[\"" + x.moduleName + "\"] = (function (...)");
             x.debugSymbols.forEach(function (dbg) {
                 dbg.lineStart += bundleLines_1.length;
                 dbg.lineEnd += bundleLines_1.length;

@@ -1,71 +1,88 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
-var path = require("path");
-var cp = require("child_process");
 var chalk = require("chalk");
 var ts = require("typescript");
 var configHash_1 = require("../configHash");
-var typescript_to_lua_1 = require("typescript-to-lua");
 var setupArtifactDirectories_1 = require("../setupArtifactDirectories");
 var compileByteCodeAndWriteHash_1 = require("../compileByteCodeAndWriteHash");
-var makeRelativePath_1 = require("../makeRelativePath");
-var reconcileResourcePath_1 = require("../reconcileResourcePath");
-var bundlePrelude_1 = require("./../bundle/bundlePrelude");
+var buildBundleInfo_1 = require("../bundle/buildBundleInfo");
+var bundle_1 = require("../bundle/bundle");
 function transpileTS(config) {
-    var buildHash = configHash_1.configHash(config);
-    console.log("Build " + chalk.yellow(buildHash));
-    var _a = setupArtifactDirectories_1.setupArtifactDirectories(buildHash, config), outFileHash = _a.outFileHash, outFile = _a.outFile, tempFile = _a.tempFile, tempDir = _a.tempDir;
-    var tstlOpt = {
-        strict: true,
-        sourceMapTraceback: false,
-        luaTarget: typescript_to_lua_1.LuaTarget.Lua52,
-        luaLibImport: typescript_to_lua_1.LuaLibImportKind.Require,
-        luaBundleEntry: config.entry,
-        luaBundle: config.profile == "release" ? tempFile : undefined
-    };
-    var res = typescript_to_lua_1.transpileFiles([config.entry], tstlOpt);
-    if (res.diagnostics && res.diagnostics.length) {
-        res.diagnostics.forEach(function (x) {
-            if (x.file) {
-                var _a = x.file.getLineAndCharacterOfPosition(x.start), line = _a.line, character = _a.character;
-                var message = ts.flattenDiagnosticMessageText(x.messageText, "\n");
-                var fileNameMsg = chalk.blue(x.file.fileName);
-                var lineMsg = chalk.yellow(line + 1);
-                var characterMsg = chalk.yellow(character + 1);
-                var diagMsg = chalk.red(message);
-                console.log(fileNameMsg + ":" + lineMsg + ":" + characterMsg + " - " + diagMsg);
-            }
-            else {
-                var diagMsg = chalk.red(ts.flattenDiagnosticMessageText(x.messageText, "\n"));
-                console.log(diagMsg);
+    return __awaiter(this, void 0, void 0, function () {
+        var buildHash, _a, outFileHash, outFile, tempFile, tempDir, bundleInfo, bundleResult;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    buildHash = configHash_1.configHash(config);
+                    console.log("Build " + chalk.yellow(buildHash));
+                    _a = setupArtifactDirectories_1.setupArtifactDirectories(buildHash, config), outFileHash = _a.outFileHash, outFile = _a.outFile, tempFile = _a.tempFile, tempDir = _a.tempDir;
+                    return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config)];
+                case 1:
+                    bundleInfo = _b.sent();
+                    if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
+                        bundleInfo.diagnostics.forEach(function (x) {
+                            if (x.file) {
+                                var _a = x.file.getLineAndCharacterOfPosition(x.start), line = _a.line, character = _a.character;
+                                var message = ts.flattenDiagnosticMessageText(x.messageText, "\n");
+                                var fileNameMsg = chalk.blue(x.file.fileName);
+                                var lineMsg = chalk.yellow(line + 1);
+                                var characterMsg = chalk.yellow(character + 1);
+                                var diagMsg = chalk.red(message);
+                                console.log(fileNameMsg + ":" + lineMsg + ":" + characterMsg + " - " + diagMsg);
+                            }
+                            else {
+                                var diagMsg = chalk.red(ts.flattenDiagnosticMessageText(x.messageText, "\n"));
+                                console.log(diagMsg);
+                            }
+                        });
+                        return [2 /*return*/];
+                    }
+                    bundleResult = bundle_1.bundle(bundleInfo);
+                    fs.writeFileSync(tempDir + "/" + config.modName, bundleResult.bundle);
+                    fs.writeFileSync(tempDir + "/" + config.modName + ".symbols", JSON.stringify(bundleResult.debugSymbols));
+                    compileByteCodeAndWriteHash_1.compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
+                    console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFile));
+                    console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFileHash));
+                    return [2 /*return*/];
             }
         });
-        return;
-    }
-    if (config.profile == "release") {
-        fs.writeFileSync(tempFile, res.emitResult[0].text);
-    }
-    else if (config.profile == "debug") {
-        var squishy = "";
-        squishy += "Output \"" + config.modName + "\"\n";
-        squishy += "Main \"" + makeRelativePath_1.makeRelativePath(config.entry).split(".")[0] + ".lua\"\n";
-        for (var i = 0; i < res.emitResult.length; ++i) {
-            var target = tempDir + "/" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name);
-            var targetDir = path.dirname(target);
-            fs.mkdirSync(targetDir, { recursive: true });
-            fs.writeFileSync(target, res.emitResult[i].text);
-            if (res.emitResult[i].name != makeRelativePath_1.makeRelativePath(config.entry).split(".")[0] + ".lua") {
-                squishy += "Module \"" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name).split(path.sep).join(".").split(".lua")[0] + "\" \"" + makeRelativePath_1.makeRelativePath(res.emitResult[i].name) + "\"\n";
-            }
-        }
-        fs.writeFileSync(".hydroc/" + configHash_1.configHash(config) + "/squishy", squishy);
-        cp.execSync(reconcileResourcePath_1.reconcileResourcePath("res/" + process.platform + "/lua52") + " " + reconcileResourcePath_1.reconcileResourcePath("res/squish.lua"), { cwd: "./" + tempDir, });
-        var rawOut = fs.readFileSync(tempDir + "/" + config.modName).toString();
-        fs.writeFileSync(tempDir + "/" + config.modName, bundlePrelude_1.bundlePrelude.concat(rawOut));
-    }
-    compileByteCodeAndWriteHash_1.compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
-    console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFile));
-    console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFileHash));
+    });
 }
 exports.transpileTS = transpileTS;
