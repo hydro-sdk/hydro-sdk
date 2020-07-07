@@ -10,6 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var bundlePrelude_1 = require("./bundlePrelude");
 function bundle(bundleInfo) {
     var _a;
+    //inspired by https://github.com/LuaDist/squish
     var res = {
         bundle: "",
         debugSymbols: []
