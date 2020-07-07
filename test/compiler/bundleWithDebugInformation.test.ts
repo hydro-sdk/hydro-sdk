@@ -3,6 +3,7 @@ import * as path from "path";
 
 import * as ts from "typescript";
 import * as tstl from "typescript-to-lua";
+import { getLuaLibBundle } from "typescript-to-lua/dist/LuaLib";
 
 import { BuildOptions, InputLanguage } from "../../compiler/src/buildOptions";
 import { bundlePrelude } from "../../compiler/src/ts/bundlePrelude";
@@ -55,6 +56,18 @@ async function buildBundleInfo(buildOptions: BuildOptions): Promise<BundleInfo> 
         });
     }
 
+    if (!res.entries.some((x) => x.moduleName == "lualib_bundle")) {
+        res.entries.push({
+            debugSymbols: [],
+            moduleText: getLuaLibBundle({
+                getCurrentDirectory: () => "",
+                readFile: (path: string) => fs.readFileSync(path).toString()
+            }),
+            moduleName: "lualib_bundle",
+            originalFileName: "lualib_bundle"
+        });
+    }
+
     return res;
 }
 
@@ -70,10 +83,36 @@ function bundle(bundleInfo: BundleInfo): BundleResult {
     };
 
     let entry = bundleInfo.entries.find((x) => x.originalFileName == bundleInfo.entry);
-    let bundleEntries = bundleInfo.entries.filter((x) => x.originalFileName != bundleInfo.entry);
 
-    let bundleLines = bundlePrelude.split(/\n/);
+    if (entry) {
+        let bundleEntries = bundleInfo.entries.filter((x) => x.originalFileName != bundleInfo.entry);
 
+        let bundleLines = bundlePrelude.split(/\n/);
+
+        bundleEntries.forEach((x) => {
+            bundleLines.push(`package.preload["${x.moduleName}"] = function (...)`)
+            x.debugSymbols.forEach((dbg) => {
+                dbg.lineStart += bundleLines.length;
+                dbg.lineEnd += bundleLines.length;
+            });
+            bundleLines.push(...x.moduleText.split(/\n/));
+            bundleLines.push("end)");
+        });
+
+        bundleLines.push(...entry.moduleText.split("\n"));
+        entry.debugSymbols.forEach((dbg) => {
+            dbg.lineStart += bundleLines.length;
+            dbg.lineEnd += bundleLines.length;
+        });
+
+        res.bundle = bundleLines.join("\n");
+
+
+        res.debugSymbols.push(
+            ...bundleEntries.map((x) => x.debugSymbols).reduce((a, b) => a.concat(b)),
+            ...entry.debugSymbols
+        );
+    }
     return res;
 }
 
@@ -86,8 +125,20 @@ test("", async () => {
         profile: "debug"
     });
 
-    expect(bundleInfo.entries.length).toBe(3);
+    expect(bundleInfo.entries.length).toBe(4);
     expect(bundleInfo.entries[0].moduleName).toBe("test.compiler.res.dir.fooClass");
     expect(bundleInfo.entries[1].moduleName).toBe("test.compiler.res.dir.bar");
     expect(bundleInfo.entries[2].moduleName).toBe("test.compiler.res.bundle-1");
+    expect(bundleInfo.entries[3].moduleName).toBe("lualib_bundle");
+
+    const bundleResult = bundle(bundleInfo);
+
+    expect(bundleResult.debugSymbols.length).toBe(2);
+    expect(bundleResult.debugSymbols[0].lineStart).toBe(14);
+    expect(bundleResult.debugSymbols[0].lineEnd).toBe(16);
+    expect(bundleResult.debugSymbols[0].symbolName).toBe("FooClass.prototype.____constructor");
+
+    expect(bundleResult.debugSymbols[1].lineStart).toBe(26);
+    expect(bundleResult.debugSymbols[1].lineEnd).toBe(28);
+    expect(bundleResult.debugSymbols[1].symbolName).toBe("____exports.bar");
 })
