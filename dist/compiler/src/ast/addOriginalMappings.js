@@ -41,7 +41,7 @@ function addOriginalMappings(debugInfo, src) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, srcMap.SourceMapConsumer.with(JSON.parse(src.file.sourceMap), null, function (consumer) {
+                case 0: return [4 /*yield*/, srcMap.SourceMapConsumer.with(JSON.parse(src.sourceMap), null, function (consumer) {
                         debugInfo.forEach(function (x) {
                             var _a = consumer.originalPositionFor({
                                 line: x.lineStart,

@@ -5,9 +5,12 @@ import * as ts from "typescript";
 import * as tstl from "typescript-to-lua";
 
 import { BuildOptions, InputLanguage } from "../../compiler/src/buildOptions";
+import { bundlePrelude } from "../../compiler/src/ts/bundlePrelude";
+import { makeRelativePath } from "../../compiler/src/makeRelativePath";
 import { ModuleDebugInfo } from "../../compiler/src/ast/moduleDebugInfo"
 import { findModuleDebugInfo } from "../../compiler/src/ast/findModuleDebugInfo";
 import { addOriginalMappings } from "../../compiler/src/ast/addOriginalMappings";
+
 
 type BundleEntry = {
     debugSymbols: Array<ModuleDebugInfo>;
@@ -24,37 +27,52 @@ async function buildBundleInfo(buildOptions: BuildOptions): Promise<BundleInfo> 
     const program = ts.createProgram({
         rootNames: [buildOptions.entry],
         options: {
-            strict: true
-        }
-    });
-
-    const sourceFiles = program.getSourceFiles();
-
-    for (const sourceFile of sourceFiles) {
-        if (sourceFile.isDeclarationFile) {
-            continue;
-        }
-        const transpileResult = tstl.transpileString(sourceFile.text, {
+            strict: true,
             luaTarget: tstl.LuaTarget.Lua52,
             luaLibImport: tstl.LuaLibImportKind.Require,
             sourceMapTraceback: false,
-        });
+        }
+    });
 
+    const { transpiledFiles, diagnostics: transpileDiagnostics } = tstl.transpile({
+        program: program as any
+    });
+
+    for (const transpiledFile of transpiledFiles) {
         const debugInfo = findModuleDebugInfo({
-            originalFileName: sourceFile.fileName,
-            filename: sourceFile.fileName + ".lua",
-            fileContent: transpileResult.file!.lua!
+            originalFileName: transpiledFile.fileName,
+            filename: transpiledFile.fileName,
+            fileContent: transpiledFile.lua!
         });
 
-        await addOriginalMappings(debugInfo, transpileResult);
+        await addOriginalMappings(debugInfo, transpiledFile);
 
         res.entries.push({
             debugSymbols: debugInfo,
-            moduleText: transpileResult.file!.lua!,
-            moduleName: sourceFile.fileName + ".lua",
-            originalFileName: sourceFile.fileName
+            moduleText: transpiledFile.lua!,
+            moduleName: `${makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0]}`,
+            originalFileName: transpiledFile.fileName
         });
     }
+
+    return res;
+}
+
+interface BundleResult {
+    bundle: string;
+    debugSymbols: Array<ModuleDebugInfo>;
+}
+
+function bundle(bundleInfo: BundleInfo): BundleResult {
+    let res: BundleResult = {
+        bundle: "",
+        debugSymbols: []
+    };
+
+    let entry = bundleInfo.entries.find((x) => x.originalFileName == bundleInfo.entry);
+    let bundleEntries = bundleInfo.entries.filter((x) => x.originalFileName != bundleInfo.entry);
+
+    let bundleLines = bundlePrelude.split(/\n/);
 
     return res;
 }
@@ -69,4 +87,7 @@ test("", async () => {
     });
 
     expect(bundleInfo.entries.length).toBe(3);
+    expect(bundleInfo.entries[0].moduleName).toBe("test.compiler.res.dir.fooClass");
+    expect(bundleInfo.entries[1].moduleName).toBe("test.compiler.res.dir.bar");
+    expect(bundleInfo.entries[2].moduleName).toBe("test.compiler.res.bundle-1");
 })

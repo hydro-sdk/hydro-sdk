@@ -19,7 +19,7 @@ test("",async () => {
         fileContent: res.file!.lua!
     });
 
-    await addOriginalMappings(debugInfo, res);
+    await addOriginalMappings(debugInfo, res.file!);
 
     expect(debugInfo.length).toEqual(1);
     expect(debugInfo[0]).toEqual({
@@ -51,7 +51,7 @@ test("", async () => {
         fileContent: res.file!.lua!
     });
 
-    await addOriginalMappings(debugInfo, res);
+    await addOriginalMappings(debugInfo, res.file!);
 
     expect(debugInfo.length).toEqual(1);
     expect(debugInfo[0]).toEqual({
@@ -82,7 +82,7 @@ test("",async () => {
         fileContent: res.file!.lua!
     });
 
-    await addOriginalMappings(debugInfo, res);
+    await addOriginalMappings(debugInfo, res.file!);
 
     expect(debugInfo.length).toEqual(9);
     expect(debugInfo[0]).toEqual({
