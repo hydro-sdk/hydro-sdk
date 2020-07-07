@@ -1,0 +1,1 @@
+./node_modules/.bin/tsc -p compiler/tsconfig.json && rm -rf dist/compiler && cp -R compiler dist/compiler && rm -rf "dist/compiler/**/*.ts"
