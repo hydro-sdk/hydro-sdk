@@ -13,8 +13,7 @@ import { setupArtifactDirectories } from "../setupArtifactDirectories";
 import { compileByteCodeAndWriteHash } from "../compileByteCodeAndWriteHash";
 import { makeRelativePath } from "../makeRelativePath";
 import { reconcileResourcePath } from "../reconcileResourcePath";
-import { bundlePrelude } from "./bundlePrelude";
-import { insertFrameMapsInDeclarationSites } from "./insertFrameMapsInDeclarationSites";
+import { bundlePrelude } from "./../bundle/bundlePrelude";
 
 export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): void {
     const buildHash = configHash(config);

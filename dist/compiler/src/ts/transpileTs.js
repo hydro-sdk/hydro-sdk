@@ -11,7 +11,7 @@ var setupArtifactDirectories_1 = require("../setupArtifactDirectories");
 var compileByteCodeAndWriteHash_1 = require("../compileByteCodeAndWriteHash");
 var makeRelativePath_1 = require("../makeRelativePath");
 var reconcileResourcePath_1 = require("../reconcileResourcePath");
-var bundlePrelude_1 = require("./bundlePrelude");
+var bundlePrelude_1 = require("./../bundle/bundlePrelude");
 function transpileTS(config) {
     var buildHash = configHash_1.configHash(config);
     console.log("Build " + chalk.yellow(buildHash));
