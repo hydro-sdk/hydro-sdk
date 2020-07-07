@@ -99,11 +99,11 @@ function bundle(bundleInfo: BundleInfo): BundleResult {
             bundleLines.push("end)");
         });
 
-        bundleLines.push(...entry.moduleText.split("\n"));
         entry.debugSymbols.forEach((dbg) => {
             dbg.lineStart += bundleLines.length;
             dbg.lineEnd += bundleLines.length;
         });
+        bundleLines.push(...entry.moduleText.split("\n"));
 
         res.bundle = bundleLines.join("\n");
 
