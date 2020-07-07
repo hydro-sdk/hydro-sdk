@@ -62,6 +62,5 @@ jobs:
       run: npm install
       working-directory: hydro
     - name: Run compiler tests
-      shell: bash
       run: npm run test:compiler
       working-directory: hydro
