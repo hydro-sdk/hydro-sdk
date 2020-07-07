@@ -3,6 +3,7 @@ import { BundleInfo } from "./bundleInfo";
 import { BundleResult } from "./bundleResult";
 
 export function bundle(bundleInfo: BundleInfo): BundleResult {
+    //inspired by https://github.com/LuaDist/squish
     let res: BundleResult = {
         bundle: "",
         debugSymbols: []
