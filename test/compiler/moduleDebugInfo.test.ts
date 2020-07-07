@@ -1,13 +1,14 @@
 import * as fs from "fs";
 
-import { LuaTarget, LuaLibImportKind, transpileString } from "typescript-to-lua";
+import {LuaTarget, LuaLibImportKind, transpileString} from "typescript-to-lua";
 
-import { findModuleDebugInfo } from "./../../compiler/src/ast/findModuleDebugInfo";
-import { addOriginalMappings } from "./../../compiler/src/ast/addOriginalMappings";
+import {findModuleDebugInfo} from "./../../compiler/src/ast/findModuleDebugInfo";
+import {addOriginalMappings} from "./../../compiler/src/ast/addOriginalMappings";
 
-test("",async () => {
+test("",async () => 
+{
     const inFilename = "./runtime/dart/core/type.ts";
-    let res = transpileString(fs.readFileSync(inFilename).toString(), {
+    const res = transpileString(fs.readFileSync(inFilename).toString(), {
         luaTarget: LuaTarget.Lua52,
         luaLibImport: LuaLibImportKind.Require,
         sourceMapTraceback: false
@@ -37,9 +38,10 @@ test("",async () => {
 
 });
 
-test("", async () => {
+test("", async () => 
+{
     const inFilename = "./test/widget/center-1.ts";
-    let res = transpileString(fs.readFileSync(inFilename).toString(), {
+    const res = transpileString(fs.readFileSync(inFilename).toString(), {
         luaTarget: LuaTarget.Lua52,
         luaLibImport: LuaLibImportKind.Require,
         sourceMapTraceback: false
@@ -68,9 +70,10 @@ test("", async () => {
     });
 });
 
-test("",async () => {
+test("",async () => 
+{
     const inFilename = "./examples/counter/index.ts";
-    let res = transpileString(fs.readFileSync(inFilename).toString(), {
+    const res = transpileString(fs.readFileSync(inFilename).toString(), {
         luaTarget: LuaTarget.Lua52,
         luaLibImport: LuaLibImportKind.Require,
         sourceMapTraceback: false

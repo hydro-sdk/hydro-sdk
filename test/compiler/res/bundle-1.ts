@@ -1,4 +1,4 @@
-import { bar } from "./dir/bar";
+import {bar} from "./dir/bar";
 import {FooClass} from "./dir/fooClass";
 
 const fooClass = bar();

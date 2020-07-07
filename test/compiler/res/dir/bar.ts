@@ -1,5 +1,6 @@
-import { FooClass } from "./fooClass";
+import {FooClass} from "./fooClass";
 
-export function bar(): FooClass {
-    return new FooClass("FooClass from bar")
+export function bar(): FooClass 
+{
+    return new FooClass("FooClass from bar");
 }

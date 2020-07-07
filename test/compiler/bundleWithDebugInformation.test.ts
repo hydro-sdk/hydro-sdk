@@ -3,7 +3,8 @@ import {buildBundleInfo} from "./../../compiler/src/bundle/buildBundleInfo";
 import {bundle} from "./../../compiler/src/bundle/bundle";
 
 
-test("", async () => {
+test("", async () => 
+{
     const bundleInfo = await buildBundleInfo({
         inputLanguage: InputLanguage.typescript,
         entry: "test/compiler/res/bundle-1.ts",
@@ -28,4 +29,4 @@ test("", async () => {
     expect(bundleResult.debugSymbols[1].lineStart).toBe(26);
     expect(bundleResult.debugSymbols[1].lineEnd).toBe(28);
     expect(bundleResult.debugSymbols[1].symbolName).toBe("____exports.bar");
-})
+});

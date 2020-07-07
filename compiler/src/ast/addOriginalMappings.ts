@@ -1,4 +1,4 @@
-import { TranspileStringResult, TranspiledFile } from "typescript-to-lua";
+import {  TranspiledFile } from "typescript-to-lua";
 import * as srcMap from "source-map";
 import { ModuleDebugInfo } from "./moduleDebugInfo";
 
