@@ -16,7 +16,7 @@
     "build:examplesForDist": "npm run build:release && cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
     "build:compiler": "bash scripts/buildCompiler.bash",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:compiler": "npm run build:compiler && ./node_modules/.bin/jest",
+    "test:compiler": "npm run build:compiler && bash scripts/jest.bash",
     "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
   },
   "author": "",
