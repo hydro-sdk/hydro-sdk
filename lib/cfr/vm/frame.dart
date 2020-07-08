@@ -196,10 +196,10 @@ class Frame {
   bool get finished => programCounter >= prototype.code.length;
 
   ThreadResult cont() {
+    try {
     if (prototype.interpreter != null) {
       return prototype.interpreter(frame: this, prototype: prototype);
     }
-    try {
       while (true) {
         var pc = programCounter++;
         // ignore: non_constant_identifier_names
