@@ -21,9 +21,9 @@ void main() {
         return;
       }
 
-      String hashPath = "assets/test/hot/stateful/counter1.ts.hc.sha256";
-      String bytecodePath = "assets/test/hot/stateful/counter1.ts.hc";
-      String symbolsPath = "assets/test/hot/stateful/counter1.ts.hc.symbols";
+      String hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
+      String bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
+      String symbolsPath = "../assets/test/hot/stateful/counter1.ts.hc.symbols";
 
       HydroState state = HydroState();
       var closure = await state.loadBuffer(
@@ -79,11 +79,11 @@ void main() {
       expect(find.text("2"), findsOneWidget);
 
       hashPath =
-          "assets/test/hot/stateful/statefulHotReloadStackTrace-1.ts.hc.sha256";
+          "../assets/test/hot/stateful/statefulHotReloadStackTrace-1.ts.hc.sha256";
       bytecodePath =
-          "assets/test/hot/stateful/statefulHotReloadStackTrace-1.ts.hc";
+          "../assets/test/hot/stateful/statefulHotReloadStackTrace-1.ts.hc";
       symbolsPath =
-          "assets/test/hot/stateful/statefulHotReloadStackTrace-1.ts.hc.symbols";
+          "../assets/test/hot/stateful/statefulHotReloadStackTrace-1.ts.hc.symbols";
 
       await Future.delayed(Duration(seconds: 5));
       await tester.pump();
@@ -113,9 +113,9 @@ void main() {
           "test/hot/stateful/statefulHotReloadStackTrace-1.ts");
       expect(exception.extractedSymbols[1].originalLineStart, 62);
 
-      hashPath = "assets/test/hot/stateful/counter1.ts.hc.sha256";
-      bytecodePath = "assets/test/hot/stateful/counter1.ts.hc";
-      symbolsPath = "assets/test/hot/stateful/counter1.ts.hc.symbols";
+      hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
+      bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
+      symbolsPath = "../assets/test/hot/stateful/counter1.ts.hc.symbols";
 
       //switching back to old code should work
       await Future.delayed(Duration(seconds: 5));
