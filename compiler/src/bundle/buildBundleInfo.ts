@@ -52,12 +52,17 @@ export async function buildBundleInfo(buildOptions: BuildOptions): Promise<Bundl
     }
 
     if (!res.entries.some((x) => x.moduleName == "lualib_bundle")) {
+        const lualiBundle = getLuaLibBundle({
+            getCurrentDirectory: () => "",
+            readFile: (filePath: string) => fs.readFileSync(filePath).toString()
+        });
         res.entries.push({
-            debugSymbols: [],
-            moduleText: getLuaLibBundle({
-                getCurrentDirectory: () => "",
-                readFile: (filePath: string) => fs.readFileSync(filePath).toString()
+            debugSymbols: findModuleDebugInfo({
+                originalFileName: "lualib_bundle",
+                filename: "lualib_bundle",
+                fileContent: lualiBundle,
             }),
+            moduleText: lualiBundle,
             moduleName: "lualib_bundle",
             originalFileName: "lualib_bundle"
         });

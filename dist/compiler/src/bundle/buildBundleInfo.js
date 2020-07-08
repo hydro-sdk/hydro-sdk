@@ -57,7 +57,7 @@ var makeRelativePath_1 = require("../makeRelativePath");
 var LuaLib_1 = require("typescript-to-lua/dist/LuaLib");
 function buildBundleInfo(buildOptions) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, _a, transpiledFiles, transpileDiagnostics, _i, transpiledFiles_1, transpiledFile, debugInfo;
+        var res, program, _a, transpiledFiles, transpileDiagnostics, _i, transpiledFiles_1, transpiledFile, debugInfo, lualiBundle;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -100,12 +100,17 @@ function buildBundleInfo(buildOptions) {
                     return [3 /*break*/, 1];
                 case 4:
                     if (!res.entries.some(function (x) { return x.moduleName == "lualib_bundle"; })) {
+                        lualiBundle = LuaLib_1.getLuaLibBundle({
+                            getCurrentDirectory: function () { return ""; },
+                            readFile: function (filePath) { return fs.readFileSync(filePath).toString(); }
+                        });
                         res.entries.push({
-                            debugSymbols: [],
-                            moduleText: LuaLib_1.getLuaLibBundle({
-                                getCurrentDirectory: function () { return ""; },
-                                readFile: function (filePath) { return fs.readFileSync(filePath).toString(); }
+                            debugSymbols: findModuleDebugInfo_1.findModuleDebugInfo({
+                                originalFileName: "lualib_bundle",
+                                filename: "lualib_bundle",
+                                fileContent: lualiBundle,
                             }),
+                            moduleText: lualiBundle,
                             moduleName: "lualib_bundle",
                             originalFileName: "lualib_bundle"
                         });
