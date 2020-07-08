@@ -15,7 +15,7 @@ export async function transpileTS(config: BuildOptions & { inputLanguage: InputL
     const buildHash = configHash(config);
     console.log(`Build ${chalk.yellow(buildHash)}`);
 
-    const { outFileHash, outFile, tempFile, tempDir } = setupArtifactDirectories(buildHash, config);
+    const { outFileHash, outFile, outFileSymbols, tempFile, tempDir } = setupArtifactDirectories(buildHash, config);
 
     const bundleInfo = await buildBundleInfo(config);
 
@@ -43,10 +43,13 @@ export async function transpileTS(config: BuildOptions & { inputLanguage: InputL
     const bundleResult = bundle(bundleInfo);
 
     fs.writeFileSync(`${tempDir}/${config.modName}`, bundleResult.bundle);
-    fs.writeFileSync(`${tempDir}/${config.modName}.symbols`, JSON.stringify(bundleResult.debugSymbols));
+    const symbolsString = JSON.stringify(bundleResult.debugSymbols);
+    fs.writeFileSync(`${tempDir}/${config.modName}.symbols`, symbolsString);
+    fs.writeFileSync(outFileSymbols, symbolsString);
 
     compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
 
     console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFile)}`);
     console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFileHash)}`);
+    console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFileSymbols)}`);
 }

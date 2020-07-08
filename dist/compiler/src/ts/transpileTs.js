@@ -46,13 +46,13 @@ var buildBundleInfo_1 = require("../bundle/buildBundleInfo");
 var bundle_1 = require("../bundle/bundle");
 function transpileTS(config) {
     return __awaiter(this, void 0, void 0, function () {
-        var buildHash, _a, outFileHash, outFile, tempFile, tempDir, bundleInfo, bundleResult;
+        var buildHash, _a, outFileHash, outFile, outFileSymbols, tempFile, tempDir, bundleInfo, bundleResult, symbolsString;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     buildHash = configHash_1.configHash(config);
                     console.log("Build " + chalk.yellow(buildHash));
-                    _a = setupArtifactDirectories_1.setupArtifactDirectories(buildHash, config), outFileHash = _a.outFileHash, outFile = _a.outFile, tempFile = _a.tempFile, tempDir = _a.tempDir;
+                    _a = setupArtifactDirectories_1.setupArtifactDirectories(buildHash, config), outFileHash = _a.outFileHash, outFile = _a.outFile, outFileSymbols = _a.outFileSymbols, tempFile = _a.tempFile, tempDir = _a.tempDir;
                     return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config)];
                 case 1:
                     bundleInfo = _b.sent();
@@ -76,10 +76,13 @@ function transpileTS(config) {
                     }
                     bundleResult = bundle_1.bundle(bundleInfo);
                     fs.writeFileSync(tempDir + "/" + config.modName, bundleResult.bundle);
-                    fs.writeFileSync(tempDir + "/" + config.modName + ".symbols", JSON.stringify(bundleResult.debugSymbols));
+                    symbolsString = JSON.stringify(bundleResult.debugSymbols);
+                    fs.writeFileSync(tempDir + "/" + config.modName + ".symbols", symbolsString);
+                    fs.writeFileSync(outFileSymbols, symbolsString);
                     compileByteCodeAndWriteHash_1.compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
                     console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFile));
                     console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFileHash));
+                    console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFileSymbols));
                     return [2 /*return*/];
             }
         });
