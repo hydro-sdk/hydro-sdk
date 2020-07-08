@@ -47,7 +47,6 @@ import 'package:hydro_sdk/cfr/vm/instructions/tforcall.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/tforloop.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/unm.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/vararg.dart';
-import 'package:hydro_sdk/cfr/vm/luaerror.dart';
 import 'package:hydro_sdk/cfr/vm/upVal.dart';
 import 'package:meta/meta.dart';
 
@@ -297,10 +296,12 @@ class Frame {
           throw "invalid instruction";
         }
       }
-    } catch (e, bt) {
-      if (e is LuaError) rethrow;
-      throw new LuaErrorImpl(e, prototype, programCounter - 1,
-          dartStackTrace: bt);
+    } catch (e, st) {
+      throw LuaError(
+          errMsg: e,
+          frame: this,
+          inst: programCounter - 1,
+          dartStackTrace: st);
     }
   }
 }

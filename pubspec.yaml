@@ -24,6 +24,8 @@ dependencies:
   http: '0.12.0+4'
   benchmark_harness: any
   collection: any
+  json_serializable: 3.3.0
+  build_runner: any
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

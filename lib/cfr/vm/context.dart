@@ -1,23 +1,74 @@
+import 'dart:convert';
+
+import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/luaerror.dart';
-import 'package:hydro_sdk/cfr/vm/prototype.dart';
+import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:meta/meta.dart';
 
-class LuaErrorImpl extends LuaError {
-  LuaErrorImpl(dynamic value, this.proto, this.inst, {this.dartStackTrace})
-      : value = value is LuaErrorImpl ? value.value : value;
-  final dynamic value;
-  final Prototype proto;
-  final int inst;
-  String get source => proto.root.name;
-  StackTrace dartStackTrace;
+class SymbolWithDistance {
+  final int distance;
+  final ModuleDebugInfo moduleDebugInfo;
 
-  toStringShort() => "${proto.root.name}:${maybeAt(proto.lines, inst)}: $value";
-  toString() =>
-      "${toStringShort()}${dartStackTrace == null ? "" : "\n$dartStackTrace"}";
+  SymbolWithDistance({@required this.distance, @required this.moduleDebugInfo});
+}
+
+class LuaError {
+  LuaError(
+      {@required this.errMsg,
+      @required this.frame,
+      @required this.inst,
+      @required this.dartStackTrace});
+  final String errMsg;
+  final Frame frame;
+  final int inst;
+  final StackTrace dartStackTrace;
+  List<ModuleDebugInfo> _extractedSymbols = [];
+  List<ModuleDebugInfo> get extractedSymbols => _extractedSymbols;
+
+  void addSymbolicatedStackTrace(
+      {@required ModuleDebugInfoRaw moduleDebugInfoRaw}) {
+    List<ModuleDebugInfo> symbols = json
+        .decode(moduleDebugInfoRaw.raw)
+        ?.map((x) => ModuleDebugInfo.fromJson(x))
+        ?.toList()
+        ?.cast<ModuleDebugInfo>();
+
+    int moduleLineNumber = maybeAt(frame.prototype.lines, inst);
+
+    List<SymbolWithDistance> symbolsWithDistance = symbols
+        .map((e) => SymbolWithDistance(
+            distance: moduleLineNumber - e.lineStart, moduleDebugInfo: e))
+        ?.toList();
+    symbolsWithDistance.removeWhere((element) => element.distance < 0);
+    symbolsWithDistance.sort((a, b) => a.distance.compareTo(b.distance));
+
+    ModuleDebugInfo closestSymbol = symbolsWithDistance[0].moduleDebugInfo;
+
+    _extractedSymbols.add(closestSymbol);
+  }
+
+  String toString() {
+    var res = "";
+    if (_extractedSymbols?.isNotEmpty ?? false) {
+      res += "Error raised in: \n";
+
+      _extractedSymbols.forEach((element) {
+        if (element != null) {
+          res += "  ${element.symbolName}\n";
+          res +=
+              "  defined in ${element.originalFileName}:${element.originalLineStart}\n";
+        }
+        res += "VM stacktrace follows:\n";
+        res += dartStackTrace.toString();
+      });
+    }
+
+    return res;
+  }
 }
 
 typedef List<dynamic> LuaDartFunc(List<dynamic> params);
