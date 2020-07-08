@@ -58,9 +58,11 @@ void main() {
       LuaError exception = tester.takeException();
 
       expect(exception, isNotNull);
-      expect(exception.extractedSymbols[0].symbolName,"MyWidget.prototype.build");
-      expect(exception.extractedSymbols[0].originalFileName,"test/widget/stackTrace-1.ts");
-      expect(exception.extractedSymbols[0].originalLineStart,28);
+      expect(
+          exception.extractedSymbols[0].symbolName, "MyWidget.prototype.build");
+      expect(exception.extractedSymbols[0].originalFileName,
+          "test/widget/stackTrace-1.ts");
+      expect(exception.extractedSymbols[0].originalLineStart, 28);
     });
   });
 }

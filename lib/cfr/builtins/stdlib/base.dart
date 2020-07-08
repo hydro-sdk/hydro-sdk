@@ -70,7 +70,7 @@ void loadBaseLib(Context ctx) {
       return <dynamic>[true]
         ..addAll(thread.attemptCall(f, args.skip(1).toList(growable: false)));
     } on LuaError catch (e) {
-        return [false, e.errMsg];
+      return [false, e.errMsg];
     } catch (e) {
       return [
         false,
