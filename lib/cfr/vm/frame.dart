@@ -297,11 +297,16 @@ class Frame {
         }
       }
     } catch (e, st) {
-      throw LuaError(
-          errMsg: e,
-          frame: this,
-          inst: programCounter - 1,
-          dartStackTrace: st);
+      if (e is LuaError) {
+        e.addFrame(frame: this);
+        throw e;
+      } else {
+        throw LuaError(
+            errMsg: e.toString(),
+            frame: this,
+            inst: programCounter - 1,
+            dartStackTrace: st);
+      }
     }
   }
 }

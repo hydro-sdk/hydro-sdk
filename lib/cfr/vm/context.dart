@@ -19,18 +19,22 @@ class SymbolWithDistance {
 class LuaError {
   LuaError(
       {@required this.errMsg,
-      @required this.frame,
+      @required Frame frame,
       @required this.inst,
-      @required this.dartStackTrace});
+      @required this.dartStackTrace})
+      : _frames = [frame];
   final String errMsg;
-  final Frame frame;
+  List<Frame> _frames;
   final int inst;
   final StackTrace dartStackTrace;
   List<ModuleDebugInfo> _extractedSymbols = [];
   List<ModuleDebugInfo> get extractedSymbols => _extractedSymbols;
 
-  void addSymbolicatedStackTrace(
-      {@required ModuleDebugInfoRaw moduleDebugInfoRaw}) {
+  void addFrame({@required Frame frame}) => _frames = [..._frames, frame];
+
+  void _symbolicateFrame(
+      {@required ModuleDebugInfoRaw moduleDebugInfoRaw,
+      @required Frame frame}) {
     List<ModuleDebugInfo> symbols = json
         .decode(moduleDebugInfoRaw.raw)
         ?.map((x) => ModuleDebugInfo.fromJson(x))
@@ -51,21 +55,35 @@ class LuaError {
     _extractedSymbols.add(closestSymbol);
   }
 
+  void addSymbolicatedStackTrace(
+      {@required ModuleDebugInfoRaw moduleDebugInfoRaw}) {
+    _frames.forEach((x) {
+      _symbolicateFrame(frame: x, moduleDebugInfoRaw: moduleDebugInfoRaw);
+    });
+  }
+
   String toString() {
     var res = "";
     if (_extractedSymbols?.isNotEmpty ?? false) {
+      res += "$errMsg\n";
       res += "Error raised in: \n";
 
       _extractedSymbols.forEach((element) {
         if (element != null) {
           res += "  ${element.symbolName}\n";
-          res +=
-              "  defined in ${element.originalFileName}:${element.originalLineStart}\n";
+
+          if (element.originalFileName != "lualib_bundle") {
+            res +=
+                "     defined in ${element.originalFileName}:${element.originalLineStart}\n";
+          } else {
+            res += "    <generated function>\n";
+          }
         }
-        res += "VM stacktrace follows:\n";
-        res += dartStackTrace.toString();
       });
     }
+
+    res += "VM stacktrace follows:\n";
+    res += dartStackTrace.toString();
 
     return res;
   }
