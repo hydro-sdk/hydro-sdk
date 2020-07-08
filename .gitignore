@@ -44,6 +44,7 @@ assets/examples/*.hc
 assets/test/widget/*.hc
 assets/test/hot/*.hc
 assets/test/hot/stateful/*.hc
+*.symbols
 hydro_sdk/android/.project
 *.js
 .hydroc
