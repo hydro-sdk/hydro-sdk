@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:hydro_sdk/cfr/buildProfile.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
@@ -21,6 +22,7 @@ void main() {
 
       String hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
       String bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
+      String symbolsPath = "../assets/test/hot/stateful/counter1.ts.hc.symbols";
 
       HydroState state = HydroState();
       var closure = await state.loadBuffer(
@@ -50,6 +52,11 @@ void main() {
           var file = File(bytecodePath);
           var res = file.readAsBytesSync();
           return res;
+        },
+        downloadDebugInfo: (String uri) async {
+          var file = File(symbolsPath);
+          var res = file.readAsStringSync();
+          return ModuleDebugInfoRaw(res);
         },
       ));
 
