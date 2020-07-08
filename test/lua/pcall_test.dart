@@ -17,7 +17,7 @@ void main() {
 
     List<String> expectedOutLines = [
       "ayy",
-      "false	lua/pcall.hc:3: md",
+      "false\tmd",
       "69",
       "true	420"
     ];
