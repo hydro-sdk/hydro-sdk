@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/cfr/builtins/flutter/widgets/align.dart';
+import 'package:hydro_sdk/cfr/builtins/flutter/widgets/animatedBuilder.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/widgets/animatedList.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/widgets/center.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/widgets/clipRRect.dart';
@@ -63,4 +64,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadNavigator(luaState: luaState, table: widgets);
   loadExpanded(luaState: luaState, table: widgets);
   loadTransform(luaState: luaState, table: widgets);
+  loadAnimatedBuilder(luaState: luaState, table: widgets);
 }

@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/flutter/foundation/changeNotifierBox.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/widgets/inheritedWidgetBox.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -63,6 +64,8 @@ dynamic maybeUnwrapAndBuildArgument<T>(dynamic arg,
         table: arg,
         parentState: parentState,
       );
+    } else if (internalRuntimeType == "ChangeNotifier") {
+      return ChangeNotifierBox(table: arg);
     }
 
     //Metatable will contain an inherited build function from the StatlessWidget base class
