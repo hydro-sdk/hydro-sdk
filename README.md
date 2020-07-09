@@ -9,13 +9,13 @@ Hydro compiles your code into a single `.hc` bytecode file which can be easily p
 
 # Features
 ## Hot Reload
-![Stateful Hot-reload Demo](https://github.com/chgibb/hydro-sdk/blob/master/readme-video.gerif)
+![Stateful Hot-reload Demo](https://github.com/chgibb/hydro-sdk/blob/master/readme-video.gif)
 
 ## Source Maps
 ![Source maps screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/sourceMapScreenShot.png)
 
 ## Incremental Compiler
-![Incremental compiler screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/compilerMapScreenShot.png)
+![Incremental compiler screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/compilerScreenShot.png)
 
 # Why
 ## Easier Delivery
