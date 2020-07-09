@@ -123,7 +123,10 @@ class _RunFromNetwork extends State<RunFromNetwork>
     String newHash = await downloadHash("$baseUrl.sha256");
     if (newHash != null && newHash != lastHash) {
       var image = await downloadByteCodeImage(baseUrl);
-      var debugInfo = await downloadDebugInfo("$baseUrl.symbols");
+      ModuleDebugInfoRaw debugInfo;
+      if (kDebugMode) {
+        debugInfo = await downloadDebugInfo("$baseUrl.symbols");
+      }
       if (image != null) {
         setState(() {
           lastHash = newHash;

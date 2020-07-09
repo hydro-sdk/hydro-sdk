@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
@@ -43,23 +45,30 @@ class LuaError {
 
     int moduleLineNumber = maybeAt(frame.prototype.lines, inst);
 
-    List<SymbolWithDistance> symbolsWithDistance = symbols
-        .map((e) => SymbolWithDistance(
-            distance: moduleLineNumber - e.lineStart, moduleDebugInfo: e))
-        ?.toList();
-    symbolsWithDistance.removeWhere((element) => element.distance < 0);
-    symbolsWithDistance.sort((a, b) => a.distance.compareTo(b.distance));
+    if (moduleLineNumber != null) {
+      List<SymbolWithDistance> symbolsWithDistance = symbols
+          .map((e) => SymbolWithDistance(
+              distance: moduleLineNumber - (e?.lineStart ?? 0),
+              moduleDebugInfo: e))
+          ?.toList();
+      symbolsWithDistance.removeWhere((element) => element.distance < 0);
+      symbolsWithDistance.sort((a, b) => a.distance.compareTo(b.distance));
 
-    ModuleDebugInfo closestSymbol = symbolsWithDistance[0].moduleDebugInfo;
+      ModuleDebugInfo closestSymbol = symbolsWithDistance[0].moduleDebugInfo;
 
-    _extractedSymbols.add(closestSymbol);
+      _extractedSymbols.add(closestSymbol);
+    }
   }
 
   void addSymbolicatedStackTrace(
       {@required ModuleDebugInfoRaw moduleDebugInfoRaw}) {
-    _frames.forEach((x) {
-      _symbolicateFrame(frame: x, moduleDebugInfoRaw: moduleDebugInfoRaw);
-    });
+    if (kDebugMode) {
+      _frames.forEach((x) {
+        if (x.prototype.buildProfile == BuildProfile.debug) {
+          _symbolicateFrame(frame: x, moduleDebugInfoRaw: moduleDebugInfoRaw);
+        }
+      });
+    }
   }
 
   String toString() {
@@ -68,7 +77,7 @@ class LuaError {
       res += "$errMsg\n";
       res += "Error raised in: \n";
 
-      _extractedSymbols.forEach((element) {
+      _extractedSymbols?.forEach((element) {
         if (element != null) {
           res += "  ${element.symbolName}\n";
 
