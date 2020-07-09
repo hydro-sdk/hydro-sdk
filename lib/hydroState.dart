@@ -8,6 +8,7 @@ import 'package:hydro_sdk/cfr/linkStatus.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
+import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/hydroFunction.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/vm/upVal.dart';
@@ -22,7 +23,7 @@ class HydroFunctionImpl extends HydroFunction {
       {@required HydroState parentState}) {
     try {
       return new CoroutineResult(true, closure(args, parentState: parentState));
-    } on LuaError catch (e) {
+    } on HydroError catch (e) {
       return new CoroutineResult(false, [e.toString()]);
     }
   }

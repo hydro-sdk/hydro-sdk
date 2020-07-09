@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/cfr/buildProfile.dart';
+import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
@@ -68,7 +69,7 @@ class Closure {
       }
 
       return call(args);
-    } on LuaError catch (err) {
+    } on HydroError catch (err) {
       err.addSymbolicatedStackTrace(
           moduleDebugInfoRaw: parentState.moduleDebugInfoRaw);
       throw err;
@@ -84,7 +85,7 @@ class Closure {
     if (x.resumeTo != null) throw "cannot yield across dart call boundary";
     if (!x.success) {
       var v = maybeAt(x.values, 0);
-      if (v is LuaError) throw v;
+      if (v is HydroError) throw v;
       throw maybeAt(x.values, 0);
     }
     return x.values;

@@ -7,6 +7,7 @@ import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
+import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/add.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/call.dart';
@@ -297,11 +298,11 @@ class Frame {
         }
       }
     } catch (e, st) {
-      if (e is LuaError) {
+      if (e is HydroError) {
         e.addFrame(frame: this);
         throw e;
       } else {
-        throw LuaError(
+        throw HydroError(
             errMsg: e.toString(),
             frame: this,
             inst: programCounter - 1,

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
-import 'package:hydro_sdk/cfr/vm/context.dart';
+import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
@@ -55,7 +55,7 @@ void main() {
 
       await tester.pump();
 
-      LuaError exception = tester.takeException();
+      HydroError exception = tester.takeException();
 
       expect(exception, isNotNull);
       expect(

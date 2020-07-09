@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/cfr/vm/context.dart';
+import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
@@ -69,7 +70,7 @@ void loadBaseLib(Context ctx) {
     try {
       return <dynamic>[true]
         ..addAll(thread.attemptCall(f, args.skip(1).toList(growable: false)));
-    } on LuaError catch (e) {
+    } on HydroError catch (e) {
       return [false, e.errMsg];
     } catch (e) {
       return [
