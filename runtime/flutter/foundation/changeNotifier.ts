@@ -1,10 +1,12 @@
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Type } from "../../dart/core/type";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
-export abstract class ChangeNotifier implements RuntimeBaseClass {
+export abstract class ChangeNotifier implements RuntimeBaseClass 
+{
     readonly internalRuntimeType = new Type(ChangeNotifier);
     public notifyListeners: () => void;
-    public constructor() {
+    public constructor() 
+    {
         this.notifyListeners = undefined as any;
     }
 }
