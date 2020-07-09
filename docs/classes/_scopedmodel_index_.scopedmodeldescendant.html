@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PopupMenuItem | Hydro-SDK</title>
+	<title>ScopedModelDescendant | Hydro-SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_flutter_material_index_.html">&quot;flutter/material/index&quot;</a>
+					<a href="../modules/_scopedmodel_index_.html">&quot;scopedModel/index&quot;</a>
 				</li>
 				<li>
-					<a href="_flutter_material_index_.popupmenuitem.html">PopupMenuItem</a>
+					<a href="_scopedmodel_index_.scopedmodeldescendant.html">ScopedModelDescendant</a>
 				</li>
 			</ul>
-			<h1>Class PopupMenuItem&lt;T&gt;</h1>
+			<h1>Class ScopedModelDescendant&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>T</h4>
+						<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ChangeNotifier</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>runtimeType<span class="tsd-signature-symbol">: </span><a href="_dart_core_index_.type.html" class="tsd-signature-type">Type</a><span class="tsd-signature-symbol"> }</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -84,7 +84,7 @@
 						<a href="_flutter_widgets_index_.statelesswidget.html" class="tsd-signature-type">StatelessWidget</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">PopupMenuItem</span>
+								<span class="target">ScopedModelDescendant</span>
 							</li>
 						</ul>
 					</li>
@@ -95,7 +95,6 @@
 				<ul class="tsd-hierarchy">
 					<li><span class="tsd-signature-type">Widget</span></li>
 					<li><span class="tsd-signature-type">RuntimeBaseClass</span></li>
-					<li><span class="tsd-signature-type">RuntimeBaseClass</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -105,21 +104,23 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_flutter_material_index_.popupmenuitem.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_scopedmodel_index_.scopedmodeldescendant.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_flutter_material_index_.popupmenuitem.html#internalruntimetype" class="tsd-kind-icon">internal<wbr>Runtime<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_flutter_material_index_.popupmenuitem.html#props" class="tsd-kind-icon">props</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_flutter_material_index_.popupmenuitem.html#tag" class="tsd-kind-icon">tag</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_scopedmodel_index_.scopedmodeldescendant.html#builder" class="tsd-kind-icon">builder</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_scopedmodel_index_.scopedmodeldescendant.html#child" class="tsd-kind-icon">child</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_scopedmodel_index_.scopedmodeldescendant.html#internalruntimetype" class="tsd-kind-icon">internal<wbr>Runtime<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_scopedmodel_index_.scopedmodeldescendant.html#tag" class="tsd-kind-icon">tag</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_scopedmodel_index_.scopedmodeldescendant.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_flutter_material_index_.popupmenuitem.html#build" class="tsd-kind-icon">build</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_scopedmodel_index_.scopedmodeldescendant.html#build" class="tsd-kind-icon">build</a></li>
 							</ul>
 						</section>
 					</div>
@@ -131,47 +132,92 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Popup<wbr>Menu<wbr>Item<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PopupMenuItemProps</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_flutter_material_index_.popupmenuitem.html" class="tsd-signature-type">PopupMenuItem</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Scoped<wbr>Model<wbr>Descendant<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BuildContext</span>, child<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Widget</span><span class="tsd-signature-symbol">; </span>child<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T[&quot;runtimeType&quot;]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_scopedmodel_index_.scopedmodeldescendant.html" class="tsd-signature-type">ScopedModelDescendant</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_flutter_widgets_index_.statelesswidget.html">StatelessWidget</a>.<a href="_flutter_widgets_index_.statelesswidget.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/flutter/material/popupMenuItem.ts#L21">flutter/material/popupMenuItem.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/scopedModel/scopedModelDescendant.ts#L17">scopedModel/scopedModelDescendant.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>props: <span class="tsd-signature-type">PopupMenuItemProps</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BuildContext</span>, child<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Widget</span><span class="tsd-signature-symbol">; </span>child<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T[&quot;runtimeType&quot;]</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BuildContext</span>, child<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Widget</span></h5>
+											<ul class="tsd-parameters">
+												<li class="tsd-parameter-signature">
+													<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable">
+														<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BuildContext</span>, child<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span></li>
+													</ul>
+													<ul class="tsd-descriptions">
+														<li class="tsd-description">
+															<h4 class="tsd-parameters-title">Parameters</h4>
+															<ul class="tsd-parameters">
+																<li>
+																	<h5>context: <span class="tsd-signature-type">BuildContext</span></h5>
+																</li>
+																<li>
+																	<h5>child: <span class="tsd-signature-type">Widget</span></h5>
+																</li>
+																<li>
+																	<h5>model: <span class="tsd-signature-type">T</span></h5>
+																</li>
+															</ul>
+															<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Widget</span></h4>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										<li class="tsd-parameter">
+											<h5>child<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T[&quot;runtimeType&quot;]</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_flutter_material_index_.popupmenuitem.html" class="tsd-signature-type">PopupMenuItem</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_scopedmodel_index_.scopedmodeldescendant.html" class="tsd-signature-type">ScopedModelDescendant</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="internalruntimetype" class="tsd-anchor"></a>
-					<h3>internal<wbr>Runtime<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">internal<wbr>Runtime<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="_dart_core_index_.type.html" class="tsd-signature-type">Type</a><span class="tsd-signature-symbol">&lt;</span><a href="_flutter_material_index_.popupmenuitem.html" class="tsd-signature-type">PopupMenuItem</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Type(PopupMenuItem)</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="builder" class="tsd-anchor"></a>
+					<h3>builder</h3>
+					<div class="tsd-signature tsd-kind-icon">builder<span class="tsd-signature-symbol">:</span> <a href="../modules/_scopedmodel_index_.html#scopedmodeldescendantbuilder" class="tsd-signature-type">ScopedModelDescendantBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="_flutter_widgets_index_.text.html">Text</a>.<a href="_flutter_widgets_index_.text.html#internalruntimetype">internalRuntimeType</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/flutter/material/popupMenuItem.ts#L20">flutter/material/popupMenuItem.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/scopedModel/scopedModelDescendant.ts#L15">scopedModel/scopedModelDescendant.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="props" class="tsd-anchor"></a>
-					<h3>props</h3>
-					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PopupMenuItemProps</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="child" class="tsd-anchor"></a>
+					<h3>child</h3>
+					<div class="tsd-signature tsd-kind-icon">child<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Widget</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/flutter/material/popupMenuItem.ts#L21">flutter/material/popupMenuItem.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/scopedModel/scopedModelDescendant.ts#L16">scopedModel/scopedModelDescendant.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="internalruntimetype" class="tsd-anchor"></a>
+					<h3>internal<wbr>Runtime<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">internal<wbr>Runtime<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="_dart_core_index_.type.html" class="tsd-signature-type">Type</a><span class="tsd-signature-symbol">&lt;</span><a href="_flutter_widgets_index_.statelesswidget.html" class="tsd-signature-type">StatelessWidget</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Type(StatelessWidget)</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_flutter_widgets_index_.text.html">Text</a>.<a href="_flutter_widgets_index_.text.html#internalruntimetype">internalRuntimeType</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/flutter/widgets/statelessWidget.ts#L10">flutter/widgets/statelessWidget.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,6 +232,16 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"runtimeType"</span><span class="tsd-signature-symbol">]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/scopedModel/scopedModelDescendant.ts#L17">scopedModel/scopedModelDescendant.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
@@ -193,16 +249,22 @@
 					<a name="build" class="tsd-anchor"></a>
 					<h3>build</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span></li>
+						<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BuildContext</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Widget</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_flutter_widgets_index_.statelesswidget.html">StatelessWidget</a>.<a href="_flutter_widgets_index_.statelesswidget.html#build">build</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/flutter/material/popupMenuItem.ts#L28">flutter/material/popupMenuItem.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/chgibb/flua/blob/76a574e/runtime/scopedModel/scopedModelDescendant.ts#L36">scopedModel/scopedModelDescendant.ts:36</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>context: <span class="tsd-signature-type">BuildContext</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Widget</span></h4>
 						</li>
 					</ul>
@@ -233,7 +295,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_flutter_material_icons_index_.html">&quot;flutter/material/icons/index&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_flutter_material_index_.html">&quot;flutter/material/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -245,7 +307,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_flutter_widgets_index_.html">&quot;flutter/widgets/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_scopedmodel_index_.html">&quot;scoped<wbr>Model/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -255,74 +317,44 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.appbar.html" class="tsd-kind-icon">App<wbr>Bar</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.card.html" class="tsd-kind-icon">Card</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.circularprogressindicator.html" class="tsd-kind-icon">Circular<wbr>Progress<wbr>Indicator</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.flatbutton.html" class="tsd-kind-icon">Flat<wbr>Button</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.floatingactionbutton.html" class="tsd-kind-icon">Floating<wbr>Action<wbr>Button</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.iconbutton.html" class="tsd-kind-icon">Icon<wbr>Button</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.inkwell.html" class="tsd-kind-icon">Ink<wbr>Well</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.materialapp.html" class="tsd-kind-icon">Material<wbr>App</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.materialpageroute.html" class="tsd-kind-icon">Material<wbr>Page<wbr>Route</a>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_scopedmodel_index_.inheritedmodel.html" class="tsd-kind-icon">Inherited<wbr>Model</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_flutter_material_index_.popupmenubutton.html" class="tsd-kind-icon">Popup<wbr>Menu<wbr>Button</a>
+						<a href="_scopedmodel_index_.scopedmodel.html" class="tsd-kind-icon">Scoped<wbr>Model</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_flutter_material_index_.popupmenuitem.html" class="tsd-kind-icon">Popup<wbr>Menu<wbr>Item</a>
+						<a href="_scopedmodel_index_.scopedmodeldescendant.html" class="tsd-kind-icon">Scoped<wbr>Model<wbr>Descendant</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_flutter_material_index_.popupmenuitem.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_flutter_material_index_.popupmenuitem.html#internalruntimetype" class="tsd-kind-icon">internal<wbr>Runtime<wbr>Type</a>
+								<a href="_scopedmodel_index_.scopedmodeldescendant.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_flutter_material_index_.popupmenuitem.html#props" class="tsd-kind-icon">props</a>
+								<a href="_scopedmodel_index_.scopedmodeldescendant.html#builder" class="tsd-kind-icon">builder</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_scopedmodel_index_.scopedmodeldescendant.html#child" class="tsd-kind-icon">child</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_flutter_material_index_.popupmenuitem.html#tag" class="tsd-kind-icon">tag</a>
+								<a href="_scopedmodel_index_.scopedmodeldescendant.html#internalruntimetype" class="tsd-kind-icon">internal<wbr>Runtime<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_scopedmodel_index_.scopedmodeldescendant.html#tag" class="tsd-kind-icon">tag</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_scopedmodel_index_.scopedmodeldescendant.html#type" class="tsd-kind-icon">type</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_flutter_material_index_.popupmenuitem.html#build" class="tsd-kind-icon">build</a>
+								<a href="_scopedmodel_index_.scopedmodeldescendant.html#build" class="tsd-kind-icon">build</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.scaffold.html" class="tsd-kind-icon">Scaffold</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_material_index_.theme.html" class="tsd-kind-icon">Theme</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_flutter_material_index_.texttheme.html" class="tsd-kind-icon">Text<wbr>Theme</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_flutter_material_index_.themedata.html" class="tsd-kind-icon">Theme<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/_flutter_material_index_.html#colors" class="tsd-kind-icon">Colors</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/_scopedmodel_index_.html#scopedmodeldescendantbuilder" class="tsd-kind-icon">Scoped<wbr>Model<wbr>Descendant<wbr>Builder</a>
 					</li>
 				</ul>
 			</nav>
