@@ -15,9 +15,9 @@ function bundle(bundleInfo) {
         bundle: "",
         debugSymbols: []
     };
-    var entry = bundleInfo.entries.find(function (x) { return x.originalFileName == bundleInfo.entry; });
+    var entry = Object.values(bundleInfo.entries).find(function (x) { return x.originalFileName == bundleInfo.entry; });
     if (entry) {
-        var bundleEntries = bundleInfo.entries.filter(function (x) { return x.originalFileName != bundleInfo.entry; });
+        var bundleEntries = Object.values(bundleInfo.entries).filter(function (x) { return x.originalFileName != bundleInfo.entry; });
         var bundleLines_1 = bundlePrelude_1.bundlePrelude.split(/\n/);
         bundleEntries.forEach(function (x) {
             bundleLines_1.push("package.preload[\"" + x.moduleName + "\"] = (function (...)");

@@ -10,14 +10,24 @@ import { setupArtifactDirectories } from "../setupArtifactDirectories";
 import { compileByteCodeAndWriteHash } from "../compileByteCodeAndWriteHash";
 import { buildBundleInfo } from "../bundle/buildBundleInfo";
 import { bundle } from "../bundle/bundle";
+import { BundleInfo } from "../bundle/bundleInfo";
 
 export async function transpileTS(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): Promise<void> {
+    const startTime = new Date().getTime();
+
     const buildHash = configHash(config);
     console.log(`Build ${chalk.yellow(buildHash)}`);
 
-    const { outFileHash, outFile, outFileSymbols, tempFile, tempDir } = setupArtifactDirectories(buildHash, config);
+    const { outFileHash, outFile, outFileSymbols, tempFile, tempDir, oldBundleInfo } = setupArtifactDirectories(buildHash, config);
 
-    const bundleInfo = await buildBundleInfo(config);
+    let oldBuild: BundleInfo | undefined;
+    if (fs.existsSync(oldBundleInfo)) {
+        oldBuild = JSON.parse(fs.readFileSync(oldBundleInfo).toString());
+    }
+
+    const bundleInfo = await buildBundleInfo(config, oldBuild);
+    
+    fs.writeFileSync(oldBundleInfo,JSON.stringify(bundleInfo,undefined,0));
 
     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
         bundleInfo.diagnostics.forEach((x) => {
@@ -48,6 +58,9 @@ export async function transpileTS(config: BuildOptions & { inputLanguage: InputL
     fs.writeFileSync(outFileSymbols, symbolsString);
 
     compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
+
+    const endTime = new Date().getTime();
+    console.log(`Finished build in ${endTime - startTime}ms`);
 
     console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFile)}`);
     console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFileHash)}`);

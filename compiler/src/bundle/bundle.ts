@@ -9,10 +9,10 @@ export function bundle(bundleInfo: BundleInfo): BundleResult {
         debugSymbols: []
     };
 
-    let entry = bundleInfo.entries.find((x) => x.originalFileName == bundleInfo.entry);
+    let entry = Object.values(bundleInfo.entries).find((x) => x.originalFileName == bundleInfo.entry);
 
     if (entry) {
-        let bundleEntries = bundleInfo.entries.filter((x) => x.originalFileName != bundleInfo.entry);
+        let bundleEntries = Object.values(bundleInfo.entries).filter((x) => x.originalFileName != bundleInfo.entry);
 
         let bundleLines = bundlePrelude.split(/\n/);
 

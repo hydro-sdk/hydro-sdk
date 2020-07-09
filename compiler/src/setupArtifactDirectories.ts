@@ -4,6 +4,7 @@ import { BuildOptions } from "./buildOptions";
 
 export function setupArtifactDirectories(buildHash: string, config: BuildOptions) {
     const tempDir = `.hydroc/${buildHash}`;
+    const oldBundleInfo = `.hydroc/${buildHash}/build.json`;
     const tempFile = `.hydroc/${buildHash}/${config.modName}`;
     const outFile = `${config.outDir}/${config.modName}.hc`;
     const outFileHash = `${config.outDir}/${config.modName}.hc.sha256`;
@@ -13,6 +14,6 @@ export function setupArtifactDirectories(buildHash: string, config: BuildOptions
     fs.mkdirSync(tempDir, { recursive: true });
 
     return {
-        tempDir, tempFile, outFile, outFileHash, outFileSymbols
+        tempDir, tempFile, outFile, outFileHash, outFileSymbols, oldBundleInfo
     };
 }

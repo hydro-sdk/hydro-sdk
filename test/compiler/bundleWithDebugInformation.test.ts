@@ -13,11 +13,13 @@ test("", async () =>
         profile: "debug"
     });
 
-    expect(bundleInfo.entries.length).toBe(4);
-    expect(bundleInfo.entries[0].moduleName).toBe("test.compiler.res.dir.fooClass");
-    expect(bundleInfo.entries[1].moduleName).toBe("test.compiler.res.dir.bar");
-    expect(bundleInfo.entries[2].moduleName).toBe("test.compiler.res.bundle-1");
-    expect(bundleInfo.entries[3].moduleName).toBe("lualib_bundle");
+    const entries = Object.values(bundleInfo.entries);
+
+    expect(entries.length).toBe(4);
+    expect(entries[0].moduleName).toBe("test.compiler.res.dir.fooClass");
+    expect(entries[1].moduleName).toBe("test.compiler.res.dir.bar");
+    expect(entries[2].moduleName).toBe("test.compiler.res.bundle-1");
+    expect(entries[3].moduleName).toBe("lualib_bundle");
 
     const bundleResult = bundle(bundleInfo);
 
