@@ -15,7 +15,9 @@ import { MainAxisAlignment } from "../../runtime/flutter/widgets/mainAxisAlignme
 import { Theme } from "../../runtime/flutter/material/theme";
 import { pauseInDebugger } from "../../runtime/dart/developer/debugger";
 
-import { ScopedModel, ScopedModelDescendant } from "../../runtime/scopedModel";
+// import { ScopedModel, ScopedModelDescendant } from "../../runtime/scopedModel";
+import {ScopedModel} from "../../runtime/scopedModel/scopedModel";
+import {ScopedModelDescendant} from "../../runtime/scopedModel/scopedModelDescendant";
 
 class CounterModel extends ChangeNotifier {
     public counter = 0;
@@ -73,7 +75,7 @@ class CounterHome extends StatelessWidget {
                         new ScopedModelDescendant<CounterModel>({
                             builder: (context, __, model) => {
                                 return new Text(
-                                    (model as any).counter.toString(), {
+                                    model.counter.toString(), {
                                     style: Theme.of(context).textTheme.display1
                                 });
                             },
@@ -86,7 +88,7 @@ class CounterHome extends StatelessWidget {
             floatingActionButton: new ScopedModelDescendant<CounterModel>({
                 builder: (_, __, model) => {
                     return new FloatingActionButton({
-                        onPressed: (model as any).increment,
+                        onPressed: model.increment,
                         child: new Icon(add)
 
                     });
