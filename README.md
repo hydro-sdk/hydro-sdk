@@ -3,81 +3,25 @@
 
 Author native [Flutter](https://flutter.dev/docs) experiences in Typescript and deliver updates directly to users over the air and out of band.
 
-![Stateful Hot-reload Demo](https://github.com/chgibb/hydro-sdk/blob/master/readme-video.gif)
-
 # What
 Hydro provides a projection of Dart and Flutter into Typescript. Not everything Flutter provides has been projected yet. See https://chgibb.github.io/hydro-sdk/  
 Hydro compiles your code into a single `.hc` bytecode file which can be easily packed into an existing Flutter app or loaded over the network.
+
+# Features
+## Hot Reload
+![Stateful Hot-reload Demo](https://github.com/chgibb/hydro-sdk/blob/master/readme-video.gerif)
+
+## Source Maps
+![Source maps screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/sourceMapScreenShot.png)
+
+## Incremental Compiler
+![Incremental compiler screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/compilerMapScreenShot.png)
 
 # Why
 ## Easier Delivery
 Serve complete experiences over HTTP. Deliver updates to parts of your app, or deliver your entire app as a packaged bytecode image over the air to users. No app stores or long reviews.
 
 
-## Author Experiences in More Expressive Languages
-The Flutter team has written at length about why Flutter uses Dart. Most prolifically on [Hackernoon](https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf) as well on the Flutter website and across Github and Reddit threads. Dart undeniably brings a world class tool chain, build and deployment experience. However, Dart undeniably is less expressive than competitors.
-
-For example, Flutter's Positioned widget is better expressed here as the following;
-
-Full file is here https://github.com/chgibb/hydro-sdk/blob/master/runtime/flutter/widgets/positioned.ts
-```typescript
-export class Positioned extends StatelessWidget implements RuntimeBaseClass
-{
-    public readonly runtimeType = "Positioned";
-    public props: PositionedProps;
-    public constructor(props: PositionedProps) 
-    {
-        super();
-        this.props = props;
-    }
-
-    public static directional(
-        //if the named arguments that the regular constructor expects changes,
-        //call sights to this method will become compilation errors if not changed
-        props: NonNullable<Omit<PositionedProps, "left" | "right">> & {
-            start: number;
-            end: number;
-            textDirection: TextDirection;
-        }
-    ): Positioned 
-    {
-        let left: number | undefined;
-        let right: number | undefined;
-
-        switch (props.textDirection) 
-        {
-        case TextDirection.rtl:
-            left = props.end;
-            right = props.start;
-            break;
-        case TextDirection.ltr:
-            left = props.start;
-            right = props.end;
-            break;
-        default:
-            //if the TextDirection enum gains new entries,
-            //this will become a compiler error
-            //until the switch becomes exhaustive
-            ((args: never): never => 
-            {
-                throw new Error(""); 
-            })(props.textDirection);
-            break;
-        }
-
-        return new Positioned({
-            key: props.key,
-            left,
-            top: props.top,
-            right,
-            bottom: props.bottom,
-            width: props.width,
-            height: props.height,
-            child: props.child
-        });
-    }
-...
-```
 # Examples
 Each example can be run over the air directly off of Github using it's corresponding `.hc` file under assets/examples/
 ## examples/animated-list/
