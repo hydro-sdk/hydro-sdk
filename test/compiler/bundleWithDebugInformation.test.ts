@@ -21,7 +21,7 @@ test("", async () =>
 
     const bundleResult = bundle(bundleInfo);
 
-    expect(bundleResult.debugSymbols.length).toBe(2);
+    expect(bundleResult.debugSymbols.length).toBe(72);
     expect(bundleResult.debugSymbols[0].lineStart).toBe(14);
     expect(bundleResult.debugSymbols[0].lineEnd).toBe(16);
     expect(bundleResult.debugSymbols[0].symbolName).toBe("FooClass.prototype.____constructor");
