@@ -4,6 +4,8 @@ import { BuildOptions } from "../buildOptions";
 import { BundleEntry } from "./bundleEntry";
 
 export type BundleInfo = BuildOptions & {
-    entries: Array<BundleEntry>;
+    entries: {
+        [originalFileName: string]: BundleEntry
+    };
     diagnostics: Array<ts.Diagnostic>;
 }

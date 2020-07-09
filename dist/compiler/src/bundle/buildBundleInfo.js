@@ -55,13 +55,15 @@ var findModuleDebugInfo_1 = require("../ast/findModuleDebugInfo");
 var addOriginalMappings_1 = require("../ast/addOriginalMappings");
 var makeRelativePath_1 = require("../makeRelativePath");
 var LuaLib_1 = require("typescript-to-lua/dist/LuaLib");
-function buildBundleInfo(buildOptions) {
+var hashSourcefile_1 = require("../ast/hashSourcefile");
+var hashText_1 = require("../ast/hashText");
+function buildBundleInfo(buildOptions, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, _a, transpiledFiles, transpileDiagnostics, _i, transpiledFiles_1, transpiledFile, debugInfo, lualiBundle;
+        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, _a, transpiledFiles, transpileDiagnostics, _loop_1, _i, transpiledFiles_1, transpiledFile, lualiBundle;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    res = __assign(__assign({}, buildOptions), { entries: [], diagnostics: [] });
+                    res = __assign(__assign({}, buildOptions), { entries: {}, diagnostics: [] });
                     program = ts.createProgram({
                         rootNames: [buildOptions.entry],
                         options: {
@@ -71,40 +73,59 @@ function buildBundleInfo(buildOptions) {
                             sourceMapTraceback: false,
                         }
                     });
+                    sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
+                    oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
+                    sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourcefile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
+                    console.log("Reused " + Math.abs(sourceFiles.length - sourceFilesToTranspile.length) + " inputs");
                     _a = tstl.transpile({
-                        program: program
+                        program: program,
+                        sourceFiles: sourceFilesToTranspile
                     }), transpiledFiles = _a.transpiledFiles, transpileDiagnostics = _a.diagnostics;
                     res.diagnostics = transpileDiagnostics;
+                    res.entries = oldEntries !== null && oldEntries !== void 0 ? oldEntries : {};
+                    _loop_1 = function (transpiledFile) {
+                        var debugInfo;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
+                                        originalFileName: transpiledFile.fileName,
+                                        filename: transpiledFile.fileName,
+                                        fileContent: transpiledFile.lua
+                                    });
+                                    return [4 /*yield*/, addOriginalMappings_1.addOriginalMappings(debugInfo, transpiledFile)];
+                                case 1:
+                                    _a.sent();
+                                    res.entries[transpiledFile.fileName] = {
+                                        debugSymbols: debugInfo,
+                                        moduleText: transpiledFile.lua,
+                                        moduleName: "" + makeRelativePath_1.makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0],
+                                        originalFileName: transpiledFile.fileName,
+                                        originalFileHash: hashSourcefile_1.hashSourceFile(sourceFilesToTranspile.find(function (x) { return x.fileName == transpiledFile.fileName; }))
+                                    };
+                                    return [2 /*return*/];
+                            }
+                        });
+                    };
                     _i = 0, transpiledFiles_1 = transpiledFiles;
                     _b.label = 1;
                 case 1:
                     if (!(_i < transpiledFiles_1.length)) return [3 /*break*/, 4];
                     transpiledFile = transpiledFiles_1[_i];
-                    debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
-                        originalFileName: transpiledFile.fileName,
-                        filename: transpiledFile.fileName,
-                        fileContent: transpiledFile.lua
-                    });
-                    return [4 /*yield*/, addOriginalMappings_1.addOriginalMappings(debugInfo, transpiledFile)];
+                    return [5 /*yield**/, _loop_1(transpiledFile)];
                 case 2:
                     _b.sent();
-                    res.entries.push({
-                        debugSymbols: debugInfo,
-                        moduleText: transpiledFile.lua,
-                        moduleName: "" + makeRelativePath_1.makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0],
-                        originalFileName: transpiledFile.fileName
-                    });
                     _b.label = 3;
                 case 3:
                     _i++;
                     return [3 /*break*/, 1];
                 case 4:
-                    if (!res.entries.some(function (x) { return x.moduleName == "lualib_bundle"; })) {
+                    if (!Object.values(res.entries).some(function (x) { return x.moduleName == "lualib_bundle"; })) {
                         lualiBundle = LuaLib_1.getLuaLibBundle({
                             getCurrentDirectory: function () { return ""; },
                             readFile: function (filePath) { return fs.readFileSync(filePath).toString(); }
                         });
-                        res.entries.push({
+                        res.entries["lualib_bundle"] = {
                             debugSymbols: findModuleDebugInfo_1.findModuleDebugInfo({
                                 originalFileName: "lualib_bundle",
                                 filename: "lualib_bundle",
@@ -112,8 +133,9 @@ function buildBundleInfo(buildOptions) {
                             }),
                             moduleText: lualiBundle,
                             moduleName: "lualib_bundle",
-                            originalFileName: "lualib_bundle"
-                        });
+                            originalFileName: "lualib_bundle",
+                            originalFileHash: hashText_1.hashText(lualiBundle)
+                        };
                     }
                     return [2 /*return*/, res];
             }

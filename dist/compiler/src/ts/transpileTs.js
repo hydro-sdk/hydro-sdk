@@ -46,16 +46,21 @@ var buildBundleInfo_1 = require("../bundle/buildBundleInfo");
 var bundle_1 = require("../bundle/bundle");
 function transpileTS(config) {
     return __awaiter(this, void 0, void 0, function () {
-        var buildHash, _a, outFileHash, outFile, outFileSymbols, tempFile, tempDir, bundleInfo, bundleResult, symbolsString;
+        var startTime, buildHash, _a, outFileHash, outFile, outFileSymbols, tempFile, tempDir, oldBundleInfo, oldBuild, bundleInfo, bundleResult, symbolsString, endTime;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
+                    startTime = new Date().getTime();
                     buildHash = configHash_1.configHash(config);
                     console.log("Build " + chalk.yellow(buildHash));
-                    _a = setupArtifactDirectories_1.setupArtifactDirectories(buildHash, config), outFileHash = _a.outFileHash, outFile = _a.outFile, outFileSymbols = _a.outFileSymbols, tempFile = _a.tempFile, tempDir = _a.tempDir;
-                    return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config)];
+                    _a = setupArtifactDirectories_1.setupArtifactDirectories(buildHash, config), outFileHash = _a.outFileHash, outFile = _a.outFile, outFileSymbols = _a.outFileSymbols, tempFile = _a.tempFile, tempDir = _a.tempDir, oldBundleInfo = _a.oldBundleInfo;
+                    if (fs.existsSync(oldBundleInfo)) {
+                        oldBuild = JSON.parse(fs.readFileSync(oldBundleInfo).toString());
+                    }
+                    return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config, oldBuild)];
                 case 1:
                     bundleInfo = _b.sent();
+                    fs.writeFileSync(oldBundleInfo, JSON.stringify(bundleInfo, undefined, 0));
                     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
                         bundleInfo.diagnostics.forEach(function (x) {
                             if (x.file) {
@@ -80,6 +85,8 @@ function transpileTS(config) {
                     fs.writeFileSync(tempDir + "/" + config.modName + ".symbols", symbolsString);
                     fs.writeFileSync(outFileSymbols, symbolsString);
                     compileByteCodeAndWriteHash_1.compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
+                    endTime = new Date().getTime();
+                    console.log("Finished build in " + (endTime - startTime) + "ms");
                     console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFile));
                     console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFileHash));
                     console.log(chalk.blue(config.entry) + " ----> " + chalk.yellow(outFileSymbols));
