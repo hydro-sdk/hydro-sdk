@@ -1,10 +1,6 @@
 import { ChangeNotifier } from "../../runtime/flutter/foundation/changeNotifier";
-import { InheritedWidget } from "../../runtime/flutter/widgets/inheritedWidget";
 import { Type } from "../../runtime/dart/core/type";
-import { Widget } from "../../runtime/flutter/widget";
 import { StatelessWidget } from "../../runtime/flutter/widgets/statelessWidget";
-import { BuildContext } from "../../runtime/flutter/buildContext";
-import { AnimatedBuilder } from "../../runtime/flutter/widgets/animatedBuilder";
 import { MaterialApp } from "../../runtime/flutter/material/materialApp";
 import { Scaffold } from "../../runtime/flutter/material/scaffold";
 import { AppBar } from "../../runtime/flutter/material/appBar";
@@ -19,6 +15,8 @@ import { MainAxisAlignment } from "../../runtime/flutter/widgets/mainAxisAlignme
 import { Theme } from "../../runtime/flutter/material/theme";
 import { pauseInDebugger } from "../../runtime/dart/developer/debugger";
 
+import { ScopedModel, ScopedModelDescendant } from "../../runtime/scopedModel";
+
 class CounterModel extends ChangeNotifier {
     public counter = 0;
 
@@ -29,92 +27,9 @@ class CounterModel extends ChangeNotifier {
         super();
     }
 
-    public increment = ():void =>{
+    public increment = (): void => {
         this.counter += 1;
         this.notifyListeners();
-    }
-}
-
-class InheritedModel<T extends ChangeNotifier & { runtimeType: Type }> extends InheritedWidget {
-    public model: T;
-    public runtimeType: Type;
-    public child: Widget;
-
-    public constructor({
-        model,
-        child
-    }: {
-        model: T,
-        child: Widget
-    }) {
-        super();
-        this.model = model;
-        this.child = child;
-        this.runtimeType = model.runtimeType;
-    }
-}
-
-class ScopedModel<T extends ChangeNotifier & { runtimeType: Type }> extends StatelessWidget {
-    public model: T;
-    public child: Widget;
-
-    public constructor({
-        model,
-        child
-    }: {
-        model: T,
-        child: Widget
-    }) {
-        super();
-        this.model = model;
-        this.child = child;
-    }
-
-    public build() {
-        return new AnimatedBuilder({
-            animation: this.model,
-            builder: (context) => new InheritedModel<T>({
-                model: this.model,
-                child: this.child
-            })
-        });
-    }
-
-    public static of<T extends ChangeNotifier & { runtimeType: Type }>(context: BuildContext, type: T["runtimeType"]): T {
-        const inheritedModel: InheritedModel<T> = context.ancestorInheritedElementForWidgetOfExactType(type);
-        return inheritedModel.model;
-    }
-}
-
-type ScopedModelDescendantBuilder<T extends ChangeNotifier & { runtimeType: Type }> = (context: BuildContext, child: Widget, model: T) => Widget;
-
-class ScopedModelDescendant<T extends ChangeNotifier & { runtimeType: Type }> extends StatelessWidget {
-    public builder: ScopedModelDescendantBuilder<T>;
-    public child: Widget;
-    public type: T["runtimeType"];
-
-    public constructor({
-        builder,
-        child,
-        type
-    }: {
-        builder: ScopedModelDescendantBuilder<T>,
-        child: Widget,
-        type: T["runtimeType"]
-    }) {
-        super();
-
-        this.builder = builder;
-        this.child = child;
-        this.type = type;
-    }
-
-    public build(context: BuildContext) {
-        return this.builder(
-            context,
-            this.child,
-            ScopedModel.of<T>(context, this.type)
-        );
     }
 }
 
