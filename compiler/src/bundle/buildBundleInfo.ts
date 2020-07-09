@@ -10,7 +10,7 @@ import { addOriginalMappings } from "../ast/addOriginalMappings";
 import { makeRelativePath } from "../makeRelativePath";
 import { getLuaLibBundle } from "typescript-to-lua/dist/LuaLib";
 import { BundleInfo } from "./bundleInfo";
-import { hashSourceFile } from "../ast/hashSourcefile";
+import { hashSourceFile } from "../ast/hashSourceFile";
 import { hashText } from "../ast/hashText";
 
 export async function buildBundleInfo(
