@@ -13,11 +13,10 @@ import { runApp } from "./../../runtime/flutter/runApp";
 import { add } from "./../../runtime/flutter/material/icons/add";
 import { MainAxisAlignment } from "../../runtime/flutter/widgets/mainAxisAlignment";
 import { Theme } from "../../runtime/flutter/material/theme";
-import { pauseInDebugger } from "../../runtime/dart/developer/debugger";
 
-// import { ScopedModel, ScopedModelDescendant } from "../../runtime/scopedModel";
-import {ScopedModel} from "../../runtime/scopedModel/scopedModel";
-import {ScopedModelDescendant} from "../../runtime/scopedModel/scopedModelDescendant";
+import { ScopedModel } from "../../runtime/scopedModel/scopedModel";
+import { ScopedModelDescendant } from "../../runtime/scopedModel/scopedModelDescendant";
+import { Key } from "../../runtime/flutter/foundation/key";
 
 class CounterModel extends ChangeNotifier {
     public counter = 0;
@@ -76,6 +75,7 @@ class CounterHome extends StatelessWidget {
                             builder: (context, __, model) => {
                                 return new Text(
                                     model.counter.toString(), {
+                                    key: new Key("counter"),
                                     style: Theme.of(context).textTheme.display1
                                 });
                             },
@@ -89,6 +89,7 @@ class CounterHome extends StatelessWidget {
                 builder: (_, __, model) => {
                     return new FloatingActionButton({
                         onPressed: model.increment,
+                        key: new Key("increment"),
                         child: new Icon(add)
 
                     });
