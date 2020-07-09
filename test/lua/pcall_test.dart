@@ -15,12 +15,7 @@ void main() {
           .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
     };
 
-    List<String> expectedOutLines = [
-      "ayy",
-      "false	lua/pcall.hc:3: md",
-      "69",
-      "true	420"
-    ];
+    List<String> expectedOutLines = ["ayy", "false\tmd", "69", "true	420"];
 
     var res = await state.doFile("lua/pcall.hc");
 

@@ -4,6 +4,7 @@ import 'package:hydro_sdk/cfr/builtins/loadBuiltins.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/linkStatus.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/reassembler/reassembleClosures.dart';
@@ -19,6 +20,8 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
   Future<bool> hotReload(
       {@required
           Uint8List bytecodeImage,
+      @required
+          ModuleDebugInfoRaw moduleDebugInfoRaw,
       @required
           String baseUrl,
       @required
@@ -41,6 +44,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
                   ...status.reassemblyMap
                 ]
               : status.reassemblyMap);
+      luaState.moduleDebugInfoRaw = moduleDebugInfoRaw;
       print("I/Hydro: Relocated ${status.relocatedProtos} function prototypes");
       print(
           "I/Hydro: Reassembled ${status.reassembledProtos} function prototypes");
@@ -62,10 +66,13 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
       @required
           String baseUrl,
       @required
+          ModuleDebugInfoRaw moduleDebugInfoRaw,
+      @required
           Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
               thunks}) async {
     setState(() {
       luaState = HydroState();
+      luaState.moduleDebugInfoRaw = moduleDebugInfoRaw;
       loadBuiltins(hydroState: luaState);
       func = null;
       res = null;

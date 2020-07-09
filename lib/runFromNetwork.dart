@@ -7,6 +7,7 @@ import 'package:http/http.dart';
 import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 void _rebuildAllChildren(BuildContext context) {
@@ -24,21 +25,26 @@ class RunFromNetwork extends StatefulWidget {
   final Map<String, NativeThunk> thunks;
   final Future<String> Function(String) downloadHash;
   final Future<Uint8List> Function(String) downloadByteCodeImage;
+  final Future<ModuleDebugInfoRaw> Function(String) downloadDebugInfo;
 
-  RunFromNetwork(
-      {@required this.baseUrl,
-      @required this.args,
-      @required this.thunks,
-      this.downloadHash,
-      this.downloadByteCodeImage});
+  RunFromNetwork({
+    @required this.baseUrl,
+    @required this.args,
+    @required this.thunks,
+    this.downloadHash,
+    this.downloadByteCodeImage,
+    this.downloadDebugInfo,
+  });
 
   @override
   _RunFromNetwork createState() => _RunFromNetwork(
-      baseUrl: baseUrl,
-      args: args,
-      thunks: thunks,
-      downloadHash: downloadHash,
-      downloadByteCodeImage: downloadByteCodeImage);
+        baseUrl: baseUrl,
+        args: args,
+        thunks: thunks,
+        downloadHash: downloadHash,
+        downloadByteCodeImage: downloadByteCodeImage,
+        downloadDebugInfo: downloadDebugInfo,
+      );
 }
 
 class _RunFromNetwork extends State<RunFromNetwork>
@@ -53,13 +59,16 @@ class _RunFromNetwork extends State<RunFromNetwork>
 
   Future<String> Function(String) downloadHash;
   Future<Uint8List> Function(String) downloadByteCodeImage;
+  Future<ModuleDebugInfoRaw> Function(String) downloadDebugInfo;
 
-  _RunFromNetwork(
-      {@required this.baseUrl,
-      @required this.args,
-      @required this.thunks,
-      this.downloadHash,
-      this.downloadByteCodeImage}) {
+  _RunFromNetwork({
+    @required this.baseUrl,
+    @required this.args,
+    @required this.thunks,
+    this.downloadHash,
+    this.downloadByteCodeImage,
+    this.downloadDebugInfo,
+  }) {
     if (downloadHash == null) {
       downloadHash = (String uri) async {
         try {
@@ -86,6 +95,22 @@ class _RunFromNetwork extends State<RunFromNetwork>
         }
       };
     }
+
+    if (downloadDebugInfo == null) {
+      downloadDebugInfo = (String uri) async {
+        try {
+          var res = await get(uri);
+          if (res.statusCode == 200) {
+            return ModuleDebugInfoRaw(res.body);
+          }
+        } catch (err) {
+          print(err);
+        }
+
+        return null;
+      };
+    }
+
     maybeReload();
     timer = Timer.periodic(
         kDebugMode ? Duration(milliseconds: 500) : Duration(hours: 10),
@@ -98,6 +123,10 @@ class _RunFromNetwork extends State<RunFromNetwork>
     String newHash = await downloadHash("$baseUrl.sha256");
     if (newHash != null && newHash != lastHash) {
       var image = await downloadByteCodeImage(baseUrl);
+      ModuleDebugInfoRaw debugInfo;
+      if (kDebugMode) {
+        debugInfo = await downloadDebugInfo("$baseUrl.symbols");
+      }
       if (image != null) {
         setState(() {
           lastHash = newHash;
@@ -106,13 +135,22 @@ class _RunFromNetwork extends State<RunFromNetwork>
         //First time load
         if (res == null) {
           await fullRestart(
-              bytecodeImage: image, baseUrl: baseUrl, thunks: thunks);
+              bytecodeImage: image,
+              baseUrl: baseUrl,
+              moduleDebugInfoRaw: debugInfo,
+              thunks: thunks);
         } else {
           var status = await hotReload(
-              bytecodeImage: image, baseUrl: baseUrl, thunks: thunks);
+              bytecodeImage: image,
+              baseUrl: baseUrl,
+              moduleDebugInfoRaw: debugInfo,
+              thunks: thunks);
           if (!status) {
             await fullRestart(
-                bytecodeImage: image, baseUrl: baseUrl, thunks: thunks);
+                bytecodeImage: image,
+                baseUrl: baseUrl,
+                moduleDebugInfoRaw: debugInfo,
+                thunks: thunks);
           }
           setState(() {
             requiresRebuild = true;

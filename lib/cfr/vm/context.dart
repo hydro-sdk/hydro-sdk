@@ -1,24 +1,8 @@
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
-import 'package:hydro_sdk/cfr/vm/luaerror.dart';
-import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:meta/meta.dart';
-
-class LuaErrorImpl extends LuaError {
-  LuaErrorImpl(dynamic value, this.proto, this.inst, {this.dartStackTrace})
-      : value = value is LuaErrorImpl ? value.value : value;
-  final dynamic value;
-  final Prototype proto;
-  final int inst;
-  String get source => proto.root.name;
-  StackTrace dartStackTrace;
-
-  toStringShort() => "${proto.root.name}:${maybeAt(proto.lines, inst)}: $value";
-  toString() =>
-      "${toStringShort()}${dartStackTrace == null ? "" : "\n$dartStackTrace"}";
-}
 
 typedef List<dynamic> LuaDartFunc(List<dynamic> params);
 typedef List<dynamic> LuaDartDebugFunc(Thread thread, List<dynamic> params);

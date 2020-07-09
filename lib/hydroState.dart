@@ -5,9 +5,10 @@ import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
 import 'package:hydro_sdk/cfr/linkStatus.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/cfr/vm/luaerror.dart';
+import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/hydroFunction.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/vm/upVal.dart';
@@ -22,7 +23,7 @@ class HydroFunctionImpl extends HydroFunction {
       {@required HydroState parentState}) {
     try {
       return new CoroutineResult(true, closure(args, parentState: parentState));
-    } on LuaError catch (e) {
+    } on HydroError catch (e) {
       return new CoroutineResult(false, [e.toString()]);
     }
   }
@@ -48,6 +49,7 @@ class HydroState {
   Context get context => _context;
 
   DispatchContext dispatchContext;
+  ModuleDebugInfoRaw moduleDebugInfoRaw;
 
   HydroState() : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;

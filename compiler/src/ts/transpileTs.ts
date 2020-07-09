@@ -6,34 +6,25 @@ import * as ts from "typescript";
 import { BuildOptions, InputLanguage } from "../buildOptions";
 import { configHash } from "../configHash";
 
-import { transpileFiles, CompilerOptions, LuaTarget, LuaLibImportKind } from "typescript-to-lua";
 import { setupArtifactDirectories } from "../setupArtifactDirectories";
 import { compileByteCodeAndWriteHash } from "../compileByteCodeAndWriteHash";
+import { buildBundleInfo } from "../bundle/buildBundleInfo";
+import { bundle } from "../bundle/bundle";
 
-export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): void {
+export async function transpileTS(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): Promise<void> {
     const buildHash = configHash(config);
     console.log(`Build ${chalk.yellow(buildHash)}`);
 
-    const { outFileHash, outFile, tempFile } = setupArtifactDirectories(buildHash, config);
+    const { outFileHash, outFile, outFileSymbols, tempFile, tempDir } = setupArtifactDirectories(buildHash, config);
 
-    const tstlOpt: CompilerOptions = {
-        strict: true,
-        sourceMapTraceback: false,
-        luaTarget: LuaTarget.Lua52,
-        luaLibImport: LuaLibImportKind.Require,
-        luaBundleEntry: config.entry,
-        luaBundle: tempFile
-    };
+    const bundleInfo = await buildBundleInfo(config);
 
-    const res = transpileFiles([config.entry], tstlOpt);
-
-    if (res.diagnostics && res.diagnostics.length) {
-        res.diagnostics.forEach((x) => {
+    if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
+        bundleInfo.diagnostics.forEach((x) => {
 
             if (x.file) {
                 const { line, character } = x.file.getLineAndCharacterOfPosition(x.start!);
                 const message = ts.flattenDiagnosticMessageText(x.messageText, "\n");
-                // console.log(`${x.file.fileName} (${line + 1},${character + 1}): ${message}`);
                 const fileNameMsg = chalk.blue(x.file.fileName);
                 const lineMsg = chalk.yellow(line + 1);
                 const characterMsg = chalk.yellow(character + 1);
@@ -49,10 +40,16 @@ export function transpileTS(config: BuildOptions & { inputLanguage: InputLanguag
         return;
     }
 
-    fs.writeFileSync(tempFile, res.emitResult[0].text);
+    const bundleResult = bundle(bundleInfo);
+
+    fs.writeFileSync(`${tempDir}/${config.modName}`, bundleResult.bundle);
+    const symbolsString = JSON.stringify(bundleResult.debugSymbols);
+    fs.writeFileSync(`${tempDir}/${config.modName}.symbols`, symbolsString);
+    fs.writeFileSync(outFileSymbols, symbolsString);
 
     compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
 
     console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFile)}`);
     console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFileHash)}`);
+    console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFileSymbols)}`);
 }

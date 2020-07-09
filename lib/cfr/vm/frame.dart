@@ -7,6 +7,7 @@ import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
+import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/add.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/call.dart';
@@ -47,7 +48,6 @@ import 'package:hydro_sdk/cfr/vm/instructions/tforcall.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/tforloop.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/unm.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/vararg.dart';
-import 'package:hydro_sdk/cfr/vm/luaerror.dart';
 import 'package:hydro_sdk/cfr/vm/upVal.dart';
 import 'package:meta/meta.dart';
 
@@ -197,10 +197,10 @@ class Frame {
   bool get finished => programCounter >= prototype.code.length;
 
   ThreadResult cont() {
-    if (prototype.interpreter != null) {
-      return prototype.interpreter(frame: this, prototype: prototype);
-    }
     try {
+      if (prototype.interpreter != null) {
+        return prototype.interpreter(frame: this, prototype: prototype);
+      }
       while (true) {
         var pc = programCounter++;
         // ignore: non_constant_identifier_names
@@ -297,10 +297,17 @@ class Frame {
           throw "invalid instruction";
         }
       }
-    } catch (e, bt) {
-      if (e is LuaError) rethrow;
-      throw new LuaErrorImpl(e, prototype, programCounter - 1,
-          dartStackTrace: bt);
+    } catch (e, st) {
+      if (e is HydroError) {
+        e.addFrame(frame: this);
+        throw e;
+      } else {
+        throw HydroError(
+            errMsg: e.toString(),
+            frame: this,
+            inst: programCounter - 1,
+            dartStackTrace: st);
+      }
     }
   }
 }

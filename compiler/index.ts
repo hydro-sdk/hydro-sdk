@@ -94,9 +94,9 @@ if (!fs.existsSync(".hydroc")) {
 
 if (watch !== undefined) {
 
-    chokidar.watch(watch).on("all", () => {
+    chokidar.watch(watch).on("all", async () => {
         if (inputLanguage == InputLanguage.typescript) {
-            transpileTS({
+            await transpileTS({
                 inputLanguage: inputLanguage,
                 entry: entry,
                 modName: modName,
@@ -116,25 +116,27 @@ if (watch !== undefined) {
         }
     });
 }
-
 else {
-    if (inputLanguage == InputLanguage.typescript) {
-        transpileTS({
-            inputLanguage: inputLanguage,
-            entry: entry,
-            modName: modName,
-            outDir: outDir,
-            profile: profile
-        });
-    } else if (inputLanguage == InputLanguage.haxe && mainClass) {
-        transpileHx({
-            inputLanguage: inputLanguage,
-            classPath: classPath,
-            mainClass: mainClass,
-            entry: entry,
-            modName: modName,
-            outDir: outDir,
-            profile: profile
-        });
-    }
+    (async () => {
+        if (inputLanguage == InputLanguage.typescript) {
+            await transpileTS({
+                inputLanguage: inputLanguage,
+                entry: entry,
+                modName: modName,
+                outDir: outDir,
+                profile: profile
+            });
+        } else if (inputLanguage == InputLanguage.haxe && mainClass) {
+            transpileHx({
+                inputLanguage: inputLanguage,
+                classPath: classPath,
+                mainClass: mainClass,
+                entry: entry,
+                modName: modName,
+                outDir: outDir,
+                profile: profile
+            });
+        }
+
+    })();
 }

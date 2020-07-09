@@ -7,5 +7,5 @@ void main() {
   runApp(RunFromNetwork(
       thunks: thunks,
       args: [],
-      baseUrl: "http://localhost:5000/examples/hotel-booking.hc"));
+      baseUrl: "http://localhost:5000/examples/counter.hc"));
 }
