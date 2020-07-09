@@ -55,7 +55,7 @@ var findModuleDebugInfo_1 = require("../ast/findModuleDebugInfo");
 var addOriginalMappings_1 = require("../ast/addOriginalMappings");
 var makeRelativePath_1 = require("../makeRelativePath");
 var LuaLib_1 = require("typescript-to-lua/dist/LuaLib");
-var hashSourcefile_1 = require("../ast/hashSourcefile");
+var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
 function buildBundleInfo(buildOptions, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
@@ -75,7 +75,7 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                     });
                     sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
                     oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
-                    sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourcefile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
+                    sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourceFile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
                     console.log("Reused " + Math.abs(sourceFiles.length - sourceFilesToTranspile.length) + " inputs");
                     _a = tstl.transpile({
                         program: program,
@@ -101,7 +101,7 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                                         moduleText: transpiledFile.lua,
                                         moduleName: "" + makeRelativePath_1.makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0],
                                         originalFileName: transpiledFile.fileName,
-                                        originalFileHash: hashSourcefile_1.hashSourceFile(sourceFilesToTranspile.find(function (x) { return x.fileName == transpiledFile.fileName; }))
+                                        originalFileHash: hashSourceFile_1.hashSourceFile(sourceFilesToTranspile.find(function (x) { return x.fileName == transpiledFile.fileName; }))
                                     };
                                     return [2 /*return*/];
                             }
