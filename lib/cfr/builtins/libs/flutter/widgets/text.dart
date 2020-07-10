@@ -14,7 +14,7 @@ void loadText({@required HydroState luaState, @required HydroTable table}) {
                 parentState: luaState)
             : null,
         style: args[1] != null
-            ? maybeUnBoxAndBuildArgument<Widget>(args[1]["style"],
+            ? maybeUnBoxAndBuildArgument<TextStyle>(args[1]["style"],
                 parentState: luaState)
             : null,
       )
