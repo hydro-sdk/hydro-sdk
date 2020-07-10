@@ -27,26 +27,28 @@ class HydroError {
   void _symbolicateFrame(
       {@required ModuleDebugInfoRaw moduleDebugInfoRaw,
       @required Frame frame}) {
-    List<ModuleDebugInfo> symbols = json
-        .decode(moduleDebugInfoRaw.raw)
-        ?.map((x) => ModuleDebugInfo.fromJson(x))
-        ?.toList()
-        ?.cast<ModuleDebugInfo>();
+    if (moduleDebugInfoRaw?.raw != null) {
+      List<ModuleDebugInfo> symbols = json
+          .decode(moduleDebugInfoRaw.raw)
+          ?.map((x) => ModuleDebugInfo.fromJson(x))
+          ?.toList()
+          ?.cast<ModuleDebugInfo>();
 
-    int moduleLineNumber = maybeAt(frame.prototype.lines, inst);
+      int moduleLineNumber = maybeAt(frame.prototype.lines, inst);
 
-    if (moduleLineNumber != null) {
-      List<SymbolWithDistance> symbolsWithDistance = symbols
-          .map((e) => SymbolWithDistance(
-              distance: moduleLineNumber - (e?.lineStart ?? 0),
-              moduleDebugInfo: e))
-          ?.toList();
-      symbolsWithDistance.removeWhere((element) => element.distance < 0);
-      symbolsWithDistance.sort((a, b) => a.distance.compareTo(b.distance));
+      if (moduleLineNumber != null) {
+        List<SymbolWithDistance> symbolsWithDistance = symbols
+            .map((e) => SymbolWithDistance(
+                distance: moduleLineNumber - (e?.lineStart ?? 0),
+                moduleDebugInfo: e))
+            ?.toList();
+        symbolsWithDistance.removeWhere((element) => element.distance < 0);
+        symbolsWithDistance.sort((a, b) => a.distance.compareTo(b.distance));
 
-      ModuleDebugInfo closestSymbol = symbolsWithDistance[0].moduleDebugInfo;
+        ModuleDebugInfo closestSymbol = symbolsWithDistance[0].moduleDebugInfo;
 
-      _extractedSymbols.add(closestSymbol);
+        _extractedSymbols.add(closestSymbol);
+      }
     }
   }
 
