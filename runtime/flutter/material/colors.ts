@@ -1,8 +1,10 @@
-import { Color } from "../../dart/ui/color";
-import { MaterialAccentColor } from "./materialAccentColor";
-import { MaterialColor } from "./materialColor";
+import {Color} from "../../dart/ui/color";
 
-export class Colors {
+import {MaterialAccentColor} from "./materialAccentColor";
+import {MaterialColor} from "./materialColor";
+
+export class Colors 
+{
     public static transparent = new Color(0x00000000);
 
     public static black = new Color(0xFF000000);

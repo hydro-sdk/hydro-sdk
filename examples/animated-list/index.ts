@@ -234,7 +234,7 @@ class CardItem extends StatelessWidget
         let textStyle: TextStyle = Theme.of(context).textTheme.display1;
         if (this.selected) 
         {
-            textStyle = textStyle.copyWith({color: Colors.lightGreenAccent.swatch[400] });
+            textStyle = textStyle.copyWith({color: Colors.lightGreenAccent.swatch[400]});
         }
 
         return new Padding({

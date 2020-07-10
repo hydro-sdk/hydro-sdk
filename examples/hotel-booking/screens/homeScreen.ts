@@ -40,9 +40,9 @@ import {FontWeight} from "../../../runtime/dart/ui/fontWeight";
 import {MyBottomNavBar} from "../widgets/myBottomNavBar";
 import {Navigator} from "../../../runtime/flutter/widgets/navigator";
 import {MaterialPageRoute} from "../../../runtime/flutter/material/materialPageRoute";
+import {Colors} from "../../../runtime/flutter/material/colors";
 
 import {DetailsScreen} from "./detailsScreen";
-import { Colors } from "../../../runtime/flutter/material/colors";
 
 export class HomeScreen extends StatelessWidget 
 {

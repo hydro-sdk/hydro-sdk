@@ -27,7 +27,7 @@ import {Center} from "../../runtime/flutter/widgets/center";
 import {Column} from "../../runtime/flutter/widgets/column";
 import {MainAxisSize} from "../../runtime/flutter/rendering/mainAxisSize";
 import {CrossAxisAlignment} from "../../runtime/flutter/rendering/crossAxisAlignment";
-import { Colors } from "../../runtime/flutter/material/colors";
+import {Colors} from "../../runtime/flutter/material/colors";
 
 class BasicAppBarSample extends StatefulWidget 
 {

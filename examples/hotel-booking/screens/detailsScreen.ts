@@ -41,7 +41,7 @@ import {clear} from "../../../runtime/flutter/material/icons/clear";
 import {CircularProgressIndicator} from "../../../runtime/flutter/material/circularProgressIndicator";
 import {AlwaysStoppedAnimation} from "../../../runtime/flutter/animation/alwaysStoppedAnimation";
 import {Type} from "../../../runtime/dart/core/type";
-import { Colors } from "../../../runtime/flutter/material/colors";
+import {Colors} from "../../../runtime/flutter/material/colors";
 
 export class DetailsScreen extends StatelessWidget 
 {
@@ -210,7 +210,7 @@ export class DetailsScreen extends StatelessWidget
                                                                                 value: .25,
                                                                                 backgroundColor: MyColors.lighterBlue,
                                                                                 valueColor: new AlwaysStoppedAnimation(new Type(Color),
-                                                                                Colors.white
+                                                                                    Colors.white
                                                                                 ),
                                                                             }),
                                                                         }),
