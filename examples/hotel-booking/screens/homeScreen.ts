@@ -18,9 +18,7 @@ import {CrossAxisAlignment} from "../../../runtime/flutter/rendering/crossAxisAl
 import {Text} from "../../../runtime/flutter/widgets/text";
 import {Spacer} from "../../../runtime/flutter/widgets/spacer";
 import {Theme} from "../../../runtime/flutter/material/theme";
-import {Colors} from "../../../runtime/flutter/material/colors";
 import {ClipRRect} from "../../../runtime/flutter/widgets/clipRRect";
-import {white} from "../../../runtime/flutter/material/colors/white";
 import {Image} from "../../../runtime/flutter/widgets/image";
 import {BorderRadius} from "../../../runtime/flutter/painting/borderRadius";
 import {BoxFit} from "../../../runtime/flutter/painting/boxFit";
@@ -44,6 +42,7 @@ import {Navigator} from "../../../runtime/flutter/widgets/navigator";
 import {MaterialPageRoute} from "../../../runtime/flutter/material/materialPageRoute";
 
 import {DetailsScreen} from "./detailsScreen";
+import { Colors } from "../../../runtime/flutter/material/colors";
 
 export class HomeScreen extends StatelessWidget 
 {
@@ -89,7 +88,7 @@ export class HomeScreen extends StatelessWidget
                                         new Spacer({}),
                                         new Text("My Profile", {
                                             style: Theme.of(context).textTheme.display1.apply({
-                                                color: white
+                                                color: Colors.white
                                             })
                                         }),
                                         new SizedBox({
@@ -99,7 +98,7 @@ export class HomeScreen extends StatelessWidget
                                             borderRadius: BorderRadius.circular(15.0),
                                             child: new Container({
                                                 decoration: new BoxDecoration({
-                                                    color: white
+                                                    color: Colors.white
                                                 }),
                                                 child: new Column({
                                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,15 +174,15 @@ export class HomeScreen extends StatelessWidget
                                                                         alignment: Alignment.center,
                                                                         child: new Text(
                                                                             "My next trip", {
-                                                                                style: Theme.of(context).textTheme.headline.apply({color: white})
+                                                                                style: Theme.of(context).textTheme.headline.apply({color: Colors.white})
                                                                             })
                                                                     }),
                                                                     new Spacer({}),
                                                                     new Text("28", {
-                                                                        style: Theme.of(context).textTheme.headline.apply({color: white})
+                                                                        style: Theme.of(context).textTheme.headline.apply({color: Colors.white})
                                                                     }),
                                                                     new Text("Nov", {
-                                                                        style: Theme.of(context).textTheme.body1.apply({color: white})
+                                                                        style: Theme.of(context).textTheme.body1.apply({color: Colors.white})
                                                                     })
                                                                 ]
                                                             })
@@ -194,7 +193,7 @@ export class HomeScreen extends StatelessWidget
                                         }),
                                         new Spacer({}),
                                         new Text("My Bookings", {
-                                            style: Theme.of(context).textTheme.display1.apply({color: white})
+                                            style: Theme.of(context).textTheme.display1.apply({color: Colors.white})
                                         }),
                                         new SizedBox({
                                             height: 15
@@ -247,11 +246,11 @@ export class HomeScreen extends StatelessWidget
                                                                                             style: new TextStyle({
                                                                                                 fontSize: 17,
                                                                                                 fontWeight: FontWeight.bold,
-                                                                                                color: white
+                                                                                                color: Colors.white
                                                                                             }),
                                                                                         }),
                                                                                         new Text(destinationList[index].date, {
-                                                                                            style: Theme.of(context).textTheme.subtitle.apply({color: white})
+                                                                                            style: Theme.of(context).textTheme.subtitle.apply({color: Colors.white})
                                                                                         })
                                                                                     ]
                                                                                 })

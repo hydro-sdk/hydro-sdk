@@ -234,7 +234,7 @@ class CardItem extends StatelessWidget
         let textStyle: TextStyle = Theme.of(context).textTheme.display1;
         if (this.selected) 
         {
-            textStyle = textStyle.copyWith({color: Colors.lightGreenAccent[400]});
+            textStyle = textStyle.copyWith({color: Colors.lightGreenAccent.swatch[400] });
         }
 
         return new Padding({
@@ -251,7 +251,7 @@ class CardItem extends StatelessWidget
                     child: new SizedBox({
                         height: 128,
                         child: new Card({
-                            color: Colors.primaries[this.item % Colors.primaries.length],
+                            color: Colors.primaries[this.item % Colors.primaries.length].swatch[500],
                             child: new Center({
                                 child: new Text(`Item ${this.item}`, {style: textStyle})
                             })

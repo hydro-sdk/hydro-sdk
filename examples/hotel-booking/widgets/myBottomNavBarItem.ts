@@ -6,8 +6,6 @@ import {GestureDetector} from "../../../runtime/flutter/widgets/gestureDetector"
 import {Container} from "../../../runtime/flutter/widgets/container";
 import {EdgeInsets} from "../../../runtime/flutter/painting/edgeInsets";
 import {BoxDecoration} from "../../../runtime/flutter/painting/boxDecoration";
-import {white} from "../../../runtime/flutter/material/colors/white";
-import {transparent} from "../../../runtime/flutter/material/colors/transparent";
 import {BorderRadius} from "../../../runtime/flutter/painting/borderRadius";
 import {Row} from "../../../runtime/flutter/widgets/row";
 import {Icon} from "../../../runtime/flutter/widgets/icon";
@@ -16,6 +14,7 @@ import {SizedBox} from "../../../runtime/flutter/widgets/sizedBox";
 import {Text} from "../../../runtime/flutter/widgets/text";
 import {TextStyle} from "../../../runtime/flutter/painting/textStyle";
 import {FontWeight} from "../../../runtime/dart/ui/fontWeight";
+import { Colors } from "../../../runtime/flutter/material/colors";
 
 export class MyBottomNavBarItem extends StatelessWidget 
 {
@@ -49,13 +48,13 @@ export class MyBottomNavBarItem extends StatelessWidget
             child: new Container({
                 padding: EdgeInsets.symmetric({horizontal: 15.0, vertical: 9.0}),
                 decoration: new BoxDecoration({
-                    color: this.active == this.id ? white : transparent,
+                    color: this.active == this.id ? Colors.white : Colors.transparent,
                     borderRadius: BorderRadius.circular(25.0)
                 }),
                 child: new Row({
                     children: [
                         new Icon(this.icon, {
-                            color: this.active == this.id ? MyColors.darkBlue : white
+                            color: this.active == this.id ? MyColors.darkBlue : Colors.white
                         }),
                         new SizedBox({width: 5}),
                         this.active == this.id ?

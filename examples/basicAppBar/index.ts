@@ -27,8 +27,7 @@ import {Center} from "../../runtime/flutter/widgets/center";
 import {Column} from "../../runtime/flutter/widgets/column";
 import {MainAxisSize} from "../../runtime/flutter/rendering/mainAxisSize";
 import {CrossAxisAlignment} from "../../runtime/flutter/rendering/crossAxisAlignment";
-
-import {white} from "./../../runtime/flutter/material/colors/white";
+import { Colors } from "../../runtime/flutter/material/colors";
 
 class BasicAppBarSample extends StatefulWidget 
 {
@@ -142,7 +141,7 @@ class ChoiceCard extends StatelessWidget
     {
         const textStyle = Theme.of(context).textTheme.display1;
         return new Card({
-            color: white,
+            color: Colors.white,
             child: new Center({
                 child: new Column({
                     mainAxisSize: MainAxisSize.min,
