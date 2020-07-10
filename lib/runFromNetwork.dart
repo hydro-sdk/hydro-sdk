@@ -4,7 +4,7 @@ import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/hotReloadable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
-import 'package:hydro_sdk/cfr/builtins/flutter/syntheticBox.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
@@ -190,7 +190,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
         });
       }
 
-      return maybeUnwrapAndBuildArgument<Widget>(
+      return maybeUnBoxAndBuildArgument<Widget>(
           luaState.context.env["hydro"]
               ["globalBuildResult"](args != null ? [...args] : [])[0],
           parentState: luaState);

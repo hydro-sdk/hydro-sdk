@@ -14,18 +14,9 @@ import {destinationList, MyColors} from "../data";
 import {BoxFit} from "../../../runtime/flutter/painting/boxFit";
 import {IconButton} from "../../../runtime/flutter/material/iconButton";
 import {Icon} from "../../../runtime/flutter/widgets/icon";
-import {chevron_left} from "../../../runtime/flutter/material/icons/chevron_left";
-import {brightness_3} from "../../../runtime/flutter/material/icons/brightness_3";
-import {calendar_today} from "../../../runtime/flutter/material/icons/calendar_today";
-import {map} from "../../../runtime/flutter/material/icons/map";
-import {more_horiz} from "../../../runtime/flutter/material/icons/more_horiz";
-import {cloud} from "../../../runtime/flutter/material/icons/cloud";
-import {white} from "../../../runtime/flutter/material/colors/white";
-import {white70} from "../../../runtime/flutter/material/colors/white70";
 import {Container} from "../../../runtime/flutter/widgets/container";
 import {BoxDecoration} from "../../../runtime/flutter/painting/boxDecoration";
 import {LinearGradient} from "../../../runtime/flutter/painting/linearGradient";
-import {transparent} from "../../../runtime/flutter/material/colors/transparent";
 import {Alignment} from "../../../runtime/flutter/painting/alignment";
 import {Padding} from "../../../runtime/flutter/widgets/padding";
 import {EdgeInsets} from "../../../runtime/flutter/painting/edgeInsets";
@@ -40,11 +31,11 @@ import {InkWell} from "../../../runtime/flutter/material/inkWell";
 import {BorderRadius} from "../../../runtime/flutter/painting/borderRadius";
 import {Radius} from "../../../runtime/dart/ui/radius";
 import {Transform} from "../../../runtime/flutter/widgets/transform";
-import {clear} from "../../../runtime/flutter/material/icons/clear";
-import {white60} from "../../../runtime/flutter/material/colors/white60";
 import {CircularProgressIndicator} from "../../../runtime/flutter/material/circularProgressIndicator";
 import {AlwaysStoppedAnimation} from "../../../runtime/flutter/animation/alwaysStoppedAnimation";
 import {Type} from "../../../runtime/dart/core/type";
+import {Colors} from "../../../runtime/flutter/material/colors";
+import {Icons} from "../../../runtime/flutter/material/icons";
 
 export class DetailsScreen extends StatelessWidget 
 {
@@ -84,8 +75,8 @@ export class DetailsScreen extends StatelessWidget
                                                     top: 5,
                                                     child: new IconButton({
                                                         icon: new Icon(
-                                                            chevron_left, {
-                                                                color: white,
+                                                            Icons.chevron_left, {
+                                                                color: Colors.white,
                                                             }),
                                                         onPressed: () => null// Navigator.pop(context),
                                                     }),
@@ -99,7 +90,7 @@ export class DetailsScreen extends StatelessWidget
                                                         decoration: new BoxDecoration({
                                                             gradient: new LinearGradient({
                                                                 colors: [
-                                                                    transparent,
+                                                                    Colors.transparent,
                                                                     MyColors.darkBlue,
                                                                 ],
                                                                 begin: Alignment.topCenter,
@@ -120,7 +111,7 @@ export class DetailsScreen extends StatelessWidget
                                                     new Text(
                                                         destinationList[this.id].hotelName, {
                                                             style: Theme.of(context).textTheme.display1.apply({
-                                                                color: white,
+                                                                color: Colors.white,
                                                             }),
                                                         }),
                                                     new Text(
@@ -128,7 +119,7 @@ export class DetailsScreen extends StatelessWidget
                                                             style: Theme.of(context)
                                                                 .textTheme
                                                                 .subtitle
-                                                                .apply({color: white70}),
+                                                                .apply({color: Colors.white70}),
                                                         }),
                                                     new Spacer({}),
                                                     new Row({
@@ -142,14 +133,14 @@ export class DetailsScreen extends StatelessWidget
                                                                             style: Theme.of(context)
                                                                                 .textTheme
                                                                                 .display1
-                                                                                .apply({color: white}),
+                                                                                .apply({color: Colors.white}),
                                                                         }),
                                                                     new Text(
                                                                         "4 nights", {
                                                                             style: Theme.of(context)
                                                                                 .textTheme
                                                                                 .body2
-                                                                                .apply({color: white70}),
+                                                                                .apply({color: Colors.white70}),
                                                                         })
                                                                 ],
                                                             }),
@@ -164,15 +155,15 @@ export class DetailsScreen extends StatelessWidget
                                                                                 backgroundColor: MyColors.lighterBlue,
                                                                                 valueColor: new AlwaysStoppedAnimation(
                                                                                     new Type(Color),
-                                                                                    white
+                                                                                    Colors.white
                                                                                 ),
                                                                             }),
                                                                         }),
                                                                         new Align({
                                                                             alignment: Alignment.center,
                                                                             child: new Icon(
-                                                                                brightness_3, {
-                                                                                    color: white,
+                                                                                Icons.brightness_3, {
+                                                                                    color: Colors.white,
                                                                                 }),
                                                                         })
                                                                     ],
@@ -192,14 +183,14 @@ export class DetailsScreen extends StatelessWidget
                                                                             style: Theme.of(context)
                                                                                 .textTheme
                                                                                 .display1
-                                                                                .apply({color: white}),
+                                                                                .apply({color: Colors.white}),
                                                                         }),
                                                                     new Text(
                                                                         "until trip", {
                                                                             style: Theme.of(context)
                                                                                 .textTheme
                                                                                 .body2
-                                                                                .apply({color: white70}),
+                                                                                .apply({color: Colors.white70}),
                                                                         })
                                                                 ],
                                                             }),
@@ -213,15 +204,15 @@ export class DetailsScreen extends StatelessWidget
                                                                                 value: .25,
                                                                                 backgroundColor: MyColors.lighterBlue,
                                                                                 valueColor: new AlwaysStoppedAnimation(new Type(Color),
-                                                                                    white
+                                                                                    Colors.white
                                                                                 ),
                                                                             }),
                                                                         }),
                                                                         new Align({
                                                                             alignment: Alignment.center,
                                                                             child: new Icon(
-                                                                                calendar_today, {
-                                                                                    color: white,
+                                                                                Icons.calendar_today, {
+                                                                                    color: Colors.white,
                                                                                 }),
                                                                         })
                                                                     ],
@@ -245,8 +236,8 @@ export class DetailsScreen extends StatelessWidget
                                     new Expanded({
                                         child: new IconButton({
                                             icon: new Icon(
-                                                more_horiz, {
-                                                    color: white,
+                                                Icons.more_horiz, {
+                                                    color: Colors.white,
                                                 }),
                                             onPressed: () => null,
                                         }),
@@ -254,8 +245,8 @@ export class DetailsScreen extends StatelessWidget
                                     new Expanded({
                                         child: new IconButton({
                                             icon: new Icon(
-                                                map, {
-                                                    color: white,
+                                                Icons.map, {
+                                                    color: Colors.white,
                                                 }),
                                             onPressed: () => null,
                                         }),
@@ -263,8 +254,8 @@ export class DetailsScreen extends StatelessWidget
                                     new Expanded({
                                         child: new IconButton({
                                             icon: new Icon(
-                                                cloud, {
-                                                    color: white,
+                                                Icons.cloud, {
+                                                    color: Colors.white,
                                                 }),
                                             onPressed: () => null,
                                         }),
@@ -289,10 +280,10 @@ export class DetailsScreen extends StatelessWidget
                                                                         style: Theme.of(context)
                                                                             .textTheme
                                                                             .body1
-                                                                            .apply({color: white}),
+                                                                            .apply({color: Colors.white}),
                                                                     }),
                                                             }),
-                                                            new Icon(clear, {color: white60}),
+                                                            new Icon(Icons.clear, {color: Colors.white60}),
                                                         ],
                                                     }),
                                                 }),

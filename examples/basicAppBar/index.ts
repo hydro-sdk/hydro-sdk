@@ -15,20 +15,14 @@ import {IconButton} from "../../runtime/flutter/material/iconButton";
 import {Icon} from "../../runtime/flutter/widgets/icon";
 import {PopupMenuItem} from "../../runtime/flutter/material/popupMenuItem";
 import {PopupMenuButton} from "../../runtime/flutter/material/popupMenuButton";
-import {directions_car} from "../../runtime/flutter/material/icons/directions_car";
-import {directions_bike} from "../../runtime/flutter/material/icons/directions_bike";
-import {directions_boat} from "../../runtime/flutter/material/icons/directions_boat";
-import {directions_bus} from "../../runtime/flutter/material/icons/directions_bus";
-import {directions_railway} from "../../runtime/flutter/material/icons/directions_railway";
-import {directions_walk} from "../../runtime/flutter/material/icons/directions_walk";
 import {Padding} from "../../runtime/flutter/widgets/padding";
 import {EdgeInsets} from "../../runtime/flutter/painting/edgeInsets";
 import {Center} from "../../runtime/flutter/widgets/center";
 import {Column} from "../../runtime/flutter/widgets/column";
 import {MainAxisSize} from "../../runtime/flutter/rendering/mainAxisSize";
 import {CrossAxisAlignment} from "../../runtime/flutter/rendering/crossAxisAlignment";
-
-import {white} from "./../../runtime/flutter/material/colors/white";
+import {Colors} from "../../runtime/flutter/material/colors";
+import {Icons} from "../../runtime/flutter/material/icons";
 
 class BasicAppBarSample extends StatefulWidget 
 {
@@ -121,12 +115,12 @@ class Choice
 }
 
 const choices = [
-    new Choice({title: "Car", icon: directions_car}),
-    new Choice({title: "Bicycle", icon: directions_bike}),
-    new Choice({title: "Boat", icon: directions_boat}),
-    new Choice({title: "Bus", icon: directions_bus}),
-    new Choice({title: "Train", icon: directions_railway}),
-    new Choice({title: "Walk", icon: directions_walk})
+    new Choice({title: "Car", icon: Icons.directions_car}),
+    new Choice({title: "Bicycle", icon: Icons.directions_bike}),
+    new Choice({title: "Boat", icon: Icons.directions_boat}),
+    new Choice({title: "Bus", icon: Icons.directions_bus}),
+    new Choice({title: "Train", icon: Icons.directions_railway}),
+    new Choice({title: "Walk", icon: Icons.directions_walk})
 ];
 
 class ChoiceCard extends StatelessWidget 
@@ -142,7 +136,7 @@ class ChoiceCard extends StatelessWidget
     {
         const textStyle = Theme.of(context).textTheme.display1;
         return new Card({
-            color: white,
+            color: Colors.white,
             child: new Center({
                 child: new Column({
                     mainAxisSize: MainAxisSize.min,

@@ -4,10 +4,7 @@ import {BuildContext} from "../../../runtime/flutter/buildContext";
 import {Row} from "../../../runtime/flutter/widgets/row";
 import {Widget} from "../../../runtime/flutter/widget";
 import {MainAxisAlignment} from "../../../runtime/flutter/widgets/mainAxisAlignment";
-import {home} from "../../../runtime/flutter/material/icons/home";
-import {book} from "../../../runtime/flutter/material/icons/book";
-import {flight} from "../../../runtime/flutter/material/icons/flight";
-import {person} from "../../../runtime/flutter/material/icons/person";
+import {Icons} from "../../../runtime/flutter/material/icons";
 
 import {MyBottomNavBarItem} from "./myBottomNavBarItem";
 
@@ -31,7 +28,7 @@ class MyBottomNavBarState extends State<MyBottomNavBar>
                 new MyBottomNavBarItem({
                     active: this.active,
                     id: 0,
-                    icon: home,
+                    icon: Icons.home,
                     text: "Home",
                     function: () => 
                     {
@@ -44,7 +41,7 @@ class MyBottomNavBarState extends State<MyBottomNavBar>
                 new MyBottomNavBarItem({
                     active: this.active,
                     id: 1,
-                    icon: book,
+                    icon: Icons.book,
                     text: "Booked",
                     function: () => 
                     {
@@ -57,7 +54,7 @@ class MyBottomNavBarState extends State<MyBottomNavBar>
                 new MyBottomNavBarItem({
                     active: this.active,
                     id: 2,
-                    icon: flight,
+                    icon: Icons.flight,
                     text: "Tickets",
                     function: () => 
                     {
@@ -70,7 +67,7 @@ class MyBottomNavBarState extends State<MyBottomNavBar>
                 new MyBottomNavBarItem({
                     active: this.active,
                     id: 3,
-                    icon: person,
+                    icon: Icons.person,
                     text: "Profile",
                     function: () => 
                     {
