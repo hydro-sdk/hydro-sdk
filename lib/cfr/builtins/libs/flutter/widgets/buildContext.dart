@@ -7,7 +7,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedBuildContext extends VMManagedBox<BuildContext> implements Box<BuildContext> {
+class VMManagedBuildContext extends VMManagedBox<BuildContext> {
   final HydroTable table;
   final BuildContext vmObject;
   final HydroState hydroState;
