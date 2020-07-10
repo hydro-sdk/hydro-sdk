@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/buildContext.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -18,10 +19,7 @@ void loadAnimatedBuilder(
           Closure closure = args[0]["builder"];
           var res = maybeUnBoxAndBuildArgument<Widget>(
               closure.dispatch([
-                VMManagedBuildContext(
-                    vmObject: context,
-                    table: HydroTable(),
-                    hydroState: luaState),
+                maybeBoxObject(object: context, hydroState: luaState),
                 args[0]["child"],
               ], parentState: luaState)[0],
               parentState: luaState);
