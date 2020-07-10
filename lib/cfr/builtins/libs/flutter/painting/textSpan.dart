@@ -11,7 +11,7 @@ void loadTextSpan({@required HydroState luaState, @required HydroTable table}) {
           text: args[0]["text"],
           children: maybeUnBoxAndBuildArgument<InlineSpan>(args[0]["children"],
               parentState: luaState),
-          style: maybeUnBoxAndBuildArgument<Widget>(args[0]["style"],
+          style: maybeUnBoxAndBuildArgument<TextStyle>(args[0]["style"],
               parentState: luaState),
           semanticsLabel: args[0]["semanticsLabel"])
     ];

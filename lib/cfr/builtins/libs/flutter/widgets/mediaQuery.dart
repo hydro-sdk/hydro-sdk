@@ -20,7 +20,10 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
           hydroState: hydroState,
           vmObject: vmObject,
         ) {
-    table["size"] = maybeBoxObject(object: vmObject.size, hydroState: null);
+    table["size"] = maybeBoxObject(
+      object: vmObject.size,
+      hydroState: hydroState,
+    );
   }
 }
 
