@@ -4,9 +4,9 @@ import {BuildContext} from "../../../runtime/flutter/buildContext";
 import {Row} from "../../../runtime/flutter/widgets/row";
 import {Widget} from "../../../runtime/flutter/widget";
 import {MainAxisAlignment} from "../../../runtime/flutter/widgets/mainAxisAlignment";
+import {Icons} from "../../../runtime/flutter/material/icons";
 
 import {MyBottomNavBarItem} from "./myBottomNavBarItem";
-import { Icons } from "../../../runtime/flutter/material/icons";
 
 export class MyBottomNavBar extends StatefulWidget 
 {

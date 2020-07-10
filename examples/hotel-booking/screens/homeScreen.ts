@@ -40,9 +40,9 @@ import {MyBottomNavBar} from "../widgets/myBottomNavBar";
 import {Navigator} from "../../../runtime/flutter/widgets/navigator";
 import {MaterialPageRoute} from "../../../runtime/flutter/material/materialPageRoute";
 import {Colors} from "../../../runtime/flutter/material/colors";
+import {Icons} from "../../../runtime/flutter/material/icons";
 
 import {DetailsScreen} from "./detailsScreen";
-import { Icons } from "../../../runtime/flutter/material/icons";
 
 export class HomeScreen extends StatelessWidget 
 {

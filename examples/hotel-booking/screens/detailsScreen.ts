@@ -35,7 +35,7 @@ import {CircularProgressIndicator} from "../../../runtime/flutter/material/circu
 import {AlwaysStoppedAnimation} from "../../../runtime/flutter/animation/alwaysStoppedAnimation";
 import {Type} from "../../../runtime/dart/core/type";
 import {Colors} from "../../../runtime/flutter/material/colors";
-import { Icons } from "../../../runtime/flutter/material/icons";
+import {Icons} from "../../../runtime/flutter/material/icons";
 
 export class DetailsScreen extends StatelessWidget 
 {
