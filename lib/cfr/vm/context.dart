@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -118,6 +119,8 @@ class Context {
       return stringMetatable.rawget(y);
     } else if (x is Map<dynamic, dynamic>) {
       return x[y];
+    } else if (x is Box) {
+      return tableIndex(x.table, y);
     } else {
       throw "attempt to index a ${getTypename(x)} value $x $y";
     }
@@ -139,6 +142,8 @@ class Context {
       }
     } else if (x is Map<dynamic, dynamic>) {
       x[k] = v;
+    } else if (x is Box) {
+      tableSet(x.table, k, v);
     } else {
       throw "attempt to index a ${getTypename(x)} value";
     }
