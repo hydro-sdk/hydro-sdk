@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/inheritedWidget.dart';
@@ -6,15 +7,15 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedBuildContext extends VMManagedBox<BuildContext> {
+class VMManagedBuildContext extends VMManagedBox<BuildContext> implements Box<BuildContext> {
   final HydroTable table;
-  final BuildContext context;
+  final BuildContext vmObject;
   final HydroState hydroState;
   VMManagedBuildContext({
     @required this.table,
-    @required this.context,
+    @required this.vmObject,
     @required this.hydroState,
-  }) : super(table: table, vmObject: context) {
+  }) : super(table: table, vmObject: vmObject) {
     /*
       The real ancestorInheritedElementForWidgetOfExactType is deprecated https://api.flutter.dev/flutter/widgets/BuildContext/ancestorInheritedElementForWidgetOfExactType.html
       This accomplishes the same thing with the same signature
@@ -43,4 +44,11 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
       return [res];
     });
   }
+}
+
+void loadBuildContext() {
+  registerBoxer(boxer: ({BuildContext vmObject, HydroState hydroState}) {
+    return VMManagedBuildContext(
+        vmObject: vmObject, hydroState: hydroState, table: HydroTable());
+  });
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
@@ -96,6 +97,8 @@ dynamic maybeUnBoxAndBuildArgument<T>(dynamic arg,
     } else if (arg.arr != null && arg.arr.isEmpty) {
       return [].cast<T>();
     }
+  } else if (arg is Box<T>) {
+    return maybeUnBoxAndBuildArgument<T>(arg.table, parentState: parentState);
   }
   return arg;
 }

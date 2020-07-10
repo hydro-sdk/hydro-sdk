@@ -1,20 +1,19 @@
-
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:meta/meta.dart';
 
 abstract class Box<T> {
   final HydroTable table;
-  T vmObject;
+  final T vmObject;
 
-  Box({@required this.table, @required this.vmObject});
+  Box({this.table, this.vmObject});
 
   T unwrap();
 }
 
-class VMManagedBox<T> extends Box<T> {
+class VMManagedBox<T> implements Box<T> {
   final HydroTable table;
-  T vmObject;
+  final T vmObject;
 
   VMManagedBox({@required this.table, @required this.vmObject}) {
     table["vmObject"] = vmObject;

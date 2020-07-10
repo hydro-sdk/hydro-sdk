@@ -1,6 +1,7 @@
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/align.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/animatedBuilder.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/animatedList.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/buildContext.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/center.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/clipRRect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/column.dart';
@@ -74,4 +75,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadExpanded(luaState: luaState, table: widgets);
   loadTransform(luaState: luaState, table: widgets);
   loadAnimatedBuilder(luaState: luaState, table: widgets);
+  loadBuildContext();
 }

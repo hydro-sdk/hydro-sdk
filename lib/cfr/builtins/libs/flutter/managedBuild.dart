@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/buildContext.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -13,9 +14,7 @@ Widget managedBuild(
       maybeFindInheritedMethod(managedObject: hydroTable, methodName: "build");
   var buildResult = managedBuild.dispatch([
     hydroTable.map,
-    VMManagedBuildContext(
-            context: context, hydroState: hydroState, table: HydroTable())
-        .table
+    maybeBoxObject(object: context, hydroState: hydroState)
   ], parentState: hydroState)[0];
   return maybeUnBoxAndBuildArgument<Widget>(buildResult,
       parentState: hydroState);

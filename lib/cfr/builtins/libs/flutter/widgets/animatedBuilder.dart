@@ -19,7 +19,7 @@ void loadAnimatedBuilder(
           var res = maybeUnBoxAndBuildArgument<Widget>(
               closure.dispatch([
                 VMManagedBuildContext(
-                    context: context,
+                    vmObject: context,
                     table: HydroTable(),
                     hydroState: luaState),
                 args[0]["child"],
