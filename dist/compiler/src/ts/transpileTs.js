@@ -60,7 +60,6 @@ function transpileTS(config) {
                     return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config, oldBuild)];
                 case 1:
                     bundleInfo = _b.sent();
-                    fs.writeFileSync(oldBundleInfo, JSON.stringify(bundleInfo, undefined, 0));
                     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
                         bundleInfo.diagnostics.forEach(function (x) {
                             if (x.file) {
@@ -79,6 +78,7 @@ function transpileTS(config) {
                         });
                         return [2 /*return*/];
                     }
+                    fs.writeFileSync(oldBundleInfo, JSON.stringify(bundleInfo, undefined, 0));
                     bundleResult = bundle_1.bundle(bundleInfo);
                     fs.writeFileSync(tempDir + "/" + config.modName, bundleResult.bundle);
                     symbolsString = JSON.stringify(bundleResult.debugSymbols);

@@ -26,8 +26,6 @@ export async function transpileTS(config: BuildOptions & { inputLanguage: InputL
     }
 
     const bundleInfo = await buildBundleInfo(config, oldBuild);
-    
-    fs.writeFileSync(oldBundleInfo,JSON.stringify(bundleInfo,undefined,0));
 
     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
         bundleInfo.diagnostics.forEach((x) => {
@@ -49,6 +47,8 @@ export async function transpileTS(config: BuildOptions & { inputLanguage: InputL
 
         return;
     }
+
+    fs.writeFileSync(oldBundleInfo,JSON.stringify(bundleInfo,undefined,0));
 
     const bundleResult = bundle(bundleInfo);
 

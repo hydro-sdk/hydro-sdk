@@ -41,12 +41,30 @@ export async function buildBundleInfo(
 
     console.log(`Reused ${Math.abs(sourceFiles.length - sourceFilesToTranspile.length)} inputs`);
 
-    const { transpiledFiles, diagnostics: transpileDiagnostics } = tstl.transpile({
+    const concatDiagnostics = (diagnostics: Readonly<Array<ts.DiagnosticRelatedInformation>>) =>
+        diagnostics && diagnostics.length ? res.diagnostics = [
+            ...res.diagnostics,
+            ...diagnostics.map((x) => x)
+        ] : undefined;
+    if (sourceFilesToTranspile.length > 0) {
+        for (const sourceFile of sourceFilesToTranspile) {
+            let diagnostics:
+                Readonly<Array<ts.Diagnostic>> |
+                Readonly<Array<ts.DiagnosticWithLocation>> = program.getSyntacticDiagnostics(sourceFile);
+            concatDiagnostics(diagnostics);
+
+            diagnostics = program.getSemanticDiagnostics(sourceFile);
+            concatDiagnostics(diagnostics);
+
+            diagnostics = program.getDeclarationDiagnostics(sourceFile);
+            concatDiagnostics(diagnostics);
+        }
+    }
+
+    const { transpiledFiles } = tstl.transpile({
         program: program as any,
         sourceFiles: (sourceFilesToTranspile as any)
     });
-
-    res.diagnostics = transpileDiagnostics as any;
 
     res.entries = oldEntries ?? {};
 

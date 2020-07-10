@@ -46,6 +46,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
@@ -59,7 +66,7 @@ var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
 function buildBundleInfo(buildOptions, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, _a, transpiledFiles, transpileDiagnostics, _loop_1, _i, transpiledFiles_1, transpiledFile, lualiBundle;
+        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, _i, sourceFilesToTranspile_1, sourceFile, diagnostics, transpiledFiles, _loop_1, _a, transpiledFiles_1, transpiledFile, lualiBundle;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -77,11 +84,24 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                     oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
                     sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourceFile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
                     console.log("Reused " + Math.abs(sourceFiles.length - sourceFilesToTranspile.length) + " inputs");
-                    _a = tstl.transpile({
+                    concatDiagnostics = function (diagnostics) {
+                        return diagnostics && diagnostics.length ? res.diagnostics = __spreadArrays(res.diagnostics, diagnostics.map(function (x) { return x; })) : undefined;
+                    };
+                    if (sourceFilesToTranspile.length > 0) {
+                        for (_i = 0, sourceFilesToTranspile_1 = sourceFilesToTranspile; _i < sourceFilesToTranspile_1.length; _i++) {
+                            sourceFile = sourceFilesToTranspile_1[_i];
+                            diagnostics = program.getSyntacticDiagnostics(sourceFile);
+                            concatDiagnostics(diagnostics);
+                            diagnostics = program.getSemanticDiagnostics(sourceFile);
+                            concatDiagnostics(diagnostics);
+                            diagnostics = program.getDeclarationDiagnostics(sourceFile);
+                            concatDiagnostics(diagnostics);
+                        }
+                    }
+                    transpiledFiles = tstl.transpile({
                         program: program,
                         sourceFiles: sourceFilesToTranspile
-                    }), transpiledFiles = _a.transpiledFiles, transpileDiagnostics = _a.diagnostics;
-                    res.diagnostics = transpileDiagnostics;
+                    }).transpiledFiles;
                     res.entries = oldEntries !== null && oldEntries !== void 0 ? oldEntries : {};
                     _loop_1 = function (transpiledFile) {
                         var debugInfo;
@@ -107,17 +127,17 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                             }
                         });
                     };
-                    _i = 0, transpiledFiles_1 = transpiledFiles;
+                    _a = 0, transpiledFiles_1 = transpiledFiles;
                     _b.label = 1;
                 case 1:
-                    if (!(_i < transpiledFiles_1.length)) return [3 /*break*/, 4];
-                    transpiledFile = transpiledFiles_1[_i];
+                    if (!(_a < transpiledFiles_1.length)) return [3 /*break*/, 4];
+                    transpiledFile = transpiledFiles_1[_a];
                     return [5 /*yield**/, _loop_1(transpiledFile)];
                 case 2:
                     _b.sent();
                     _b.label = 3;
                 case 3:
-                    _i++;
+                    _a++;
                     return [3 /*break*/, 1];
                 case 4:
                     if (!Object.values(res.entries).some(function (x) { return x.moduleName == "lualib_bundle"; })) {

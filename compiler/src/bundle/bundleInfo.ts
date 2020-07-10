@@ -7,5 +7,5 @@ export type BundleInfo = BuildOptions & {
     entries: {
         [originalFileName: string]: BundleEntry
     };
-    diagnostics: Array<ts.Diagnostic>;
+    diagnostics: Array<ts.DiagnosticRelatedInformation>;
 }
