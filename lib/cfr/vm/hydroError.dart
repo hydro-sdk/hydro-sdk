@@ -63,8 +63,8 @@ class HydroError {
 
   String toString() {
     var res = "";
+    res += "$errMsg\n";
     if (_extractedSymbols?.isNotEmpty ?? false) {
-      res += "$errMsg\n";
       res += "Error raised in: \n";
 
       _extractedSymbols?.forEach((element) {
