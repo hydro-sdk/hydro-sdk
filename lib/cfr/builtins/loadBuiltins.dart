@@ -1,12 +1,12 @@
-import 'package:hydro_sdk/cfr/builtins/dart/dart.dart';
-import 'package:hydro_sdk/cfr/builtins/flutter/flutter.dart';
-import 'package:hydro_sdk/cfr/builtins/hydro/hydro.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/base.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/bit.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/bit32.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/math.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/string.dart';
-import 'package:hydro_sdk/cfr/builtins/stdlib/table.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/dart.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/flutter.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/hydro/hydro.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/stdlib/base.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/stdlib/bit.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/stdlib/bit32.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/stdlib/math.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/stdlib/string.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/stdlib/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
