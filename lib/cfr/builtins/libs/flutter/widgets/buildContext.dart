@@ -15,7 +15,11 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
     @required this.table,
     @required this.vmObject,
     @required this.hydroState,
-  }) : super(table: table, vmObject: vmObject) {
+  }) : super(
+          table: table,
+          vmObject: vmObject,
+          hydroState: hydroState,
+        ) {
     /*
       The real ancestorInheritedElementForWidgetOfExactType is deprecated https://api.flutter.dev/flutter/widgets/BuildContext/ancestorInheritedElementForWidgetOfExactType.html
       This accomplishes the same thing with the same signature

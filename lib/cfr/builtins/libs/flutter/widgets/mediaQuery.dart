@@ -9,9 +9,17 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
   final HydroTable table;
+  final HydroState hydroState;
   final MediaQueryData vmObject;
-  VMManagedMediaQueryData({@required this.table, @required this.vmObject})
-      : super(table: table, vmObject: vmObject) {
+  VMManagedMediaQueryData(
+      {@required this.table,
+      @required this.vmObject,
+      @required this.hydroState})
+      : super(
+          table: table,
+          hydroState: hydroState,
+          vmObject: vmObject,
+        ) {
     table["size"] = maybeBoxObject(object: vmObject.size, hydroState: null);
   }
 }
@@ -19,16 +27,22 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
 void loadMediaQuery(
     {@required HydroState luaState, @required HydroTable table}) {
   registerBoxer(boxer: ({MediaQueryData vmObject, HydroState hydroState}) {
-    return VMManagedMediaQueryData(vmObject: vmObject, table: HydroTable());
+    return VMManagedMediaQueryData(
+      vmObject: vmObject,
+      hydroState: hydroState,
+      table: HydroTable(),
+    );
   });
 
   table["mediaQueryOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject(
-          object: MediaQuery.of(maybeUnBoxAndBuildArgument<BuildContext>(
-              args[0],
-              parentState: luaState)),
-          hydroState: null)
+        object: MediaQuery.of(maybeUnBoxAndBuildArgument<BuildContext>(
+          args[0],
+          parentState: luaState,
+        )),
+        hydroState: luaState,
+      )
     ];
   });
 }

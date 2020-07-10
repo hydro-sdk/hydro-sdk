@@ -14,6 +14,7 @@ void registerBoxer<T>({@required Boxer<T> boxer}) {
 
 Box<T> maybeBoxObject<T>(
     {@required T object, @required HydroState hydroState}) {
+  assert(hydroState != null);
   var boxer = _boxers[T];
   if (boxer != null) {
     var res = boxer(vmObject: object, hydroState: hydroState);

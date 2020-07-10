@@ -10,7 +10,9 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialPageRoute.d
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/popupMenuButton.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/popupMenuItem.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/scaffold.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/textTheme.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/theme.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/themeData.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/wireupColors.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -36,4 +38,6 @@ void loadMaterial({@required HydroState luaState, @required HydroTable table}) {
   loadMaterialPageRoute(luaState: luaState, table: material);
   loadInkWell(luaState: luaState, table: material);
   loadCircularProgressIndicator(luaState: luaState, table: material);
+  loadTextTheme(hydroState: luaState);
+  loadThemeData(hydroState: luaState);
 }
