@@ -27,9 +27,8 @@ import {SizeTransition} from "./../../runtime/flutter/widgets/sizeTransition";
 import {Card} from "./../../runtime/flutter/material/card";
 import {Center} from "./../../runtime/flutter/widgets/center";
 import {Colors} from "./../../runtime/flutter/material/colors";
+import {Icons} from "./../../runtime/flutter/material/icons";
 import {runApp} from "./../../runtime/flutter/runApp";
-import {add_circle} from "./../../runtime/flutter/material/icons/add_circle";
-import {remove_circle} from "./../../runtime/flutter/material/icons/remove_circle";
 
 class AnimatedListSample extends StatefulWidget 
 {
@@ -126,12 +125,12 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
                     title: new Text("AnimatedList"),
                     actions: [
                         new IconButton({
-                            icon: new Icon(add_circle),
+                            icon: new Icon(Icons.add_circle),
                             onPressed: (): void => this.insert(),
                             tooltip: "insert a new item"
                         }),
                         new IconButton({
-                            icon: new Icon(remove_circle),
+                            icon: new Icon(Icons.remove_circle),
                             onPressed: (): void => this.remove(),
                             tooltip: "remove the selected item",
                         })

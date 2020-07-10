@@ -14,12 +14,6 @@ import {destinationList, MyColors} from "../data";
 import {BoxFit} from "../../../runtime/flutter/painting/boxFit";
 import {IconButton} from "../../../runtime/flutter/material/iconButton";
 import {Icon} from "../../../runtime/flutter/widgets/icon";
-import {chevron_left} from "../../../runtime/flutter/material/icons/chevron_left";
-import {brightness_3} from "../../../runtime/flutter/material/icons/brightness_3";
-import {calendar_today} from "../../../runtime/flutter/material/icons/calendar_today";
-import {map} from "../../../runtime/flutter/material/icons/map";
-import {more_horiz} from "../../../runtime/flutter/material/icons/more_horiz";
-import {cloud} from "../../../runtime/flutter/material/icons/cloud";
 import {Container} from "../../../runtime/flutter/widgets/container";
 import {BoxDecoration} from "../../../runtime/flutter/painting/boxDecoration";
 import {LinearGradient} from "../../../runtime/flutter/painting/linearGradient";
@@ -37,11 +31,11 @@ import {InkWell} from "../../../runtime/flutter/material/inkWell";
 import {BorderRadius} from "../../../runtime/flutter/painting/borderRadius";
 import {Radius} from "../../../runtime/dart/ui/radius";
 import {Transform} from "../../../runtime/flutter/widgets/transform";
-import {clear} from "../../../runtime/flutter/material/icons/clear";
 import {CircularProgressIndicator} from "../../../runtime/flutter/material/circularProgressIndicator";
 import {AlwaysStoppedAnimation} from "../../../runtime/flutter/animation/alwaysStoppedAnimation";
 import {Type} from "../../../runtime/dart/core/type";
 import {Colors} from "../../../runtime/flutter/material/colors";
+import { Icons } from "../../../runtime/flutter/material/icons";
 
 export class DetailsScreen extends StatelessWidget 
 {
@@ -81,7 +75,7 @@ export class DetailsScreen extends StatelessWidget
                                                     top: 5,
                                                     child: new IconButton({
                                                         icon: new Icon(
-                                                            chevron_left, {
+                                                            Icons.chevron_left, {
                                                                 color: Colors.white,
                                                             }),
                                                         onPressed: () => null// Navigator.pop(context),
@@ -168,7 +162,7 @@ export class DetailsScreen extends StatelessWidget
                                                                         new Align({
                                                                             alignment: Alignment.center,
                                                                             child: new Icon(
-                                                                                brightness_3, {
+                                                                                Icons.brightness_3, {
                                                                                     color: Colors.white,
                                                                                 }),
                                                                         })
@@ -217,7 +211,7 @@ export class DetailsScreen extends StatelessWidget
                                                                         new Align({
                                                                             alignment: Alignment.center,
                                                                             child: new Icon(
-                                                                                calendar_today, {
+                                                                                Icons.calendar_today, {
                                                                                     color: Colors.white,
                                                                                 }),
                                                                         })
@@ -242,7 +236,7 @@ export class DetailsScreen extends StatelessWidget
                                     new Expanded({
                                         child: new IconButton({
                                             icon: new Icon(
-                                                more_horiz, {
+                                                Icons.more_horiz, {
                                                     color: Colors.white,
                                                 }),
                                             onPressed: () => null,
@@ -251,7 +245,7 @@ export class DetailsScreen extends StatelessWidget
                                     new Expanded({
                                         child: new IconButton({
                                             icon: new Icon(
-                                                map, {
+                                                Icons.map, {
                                                     color: Colors.white,
                                                 }),
                                             onPressed: () => null,
@@ -260,7 +254,7 @@ export class DetailsScreen extends StatelessWidget
                                     new Expanded({
                                         child: new IconButton({
                                             icon: new Icon(
-                                                cloud, {
+                                                Icons.cloud, {
                                                     color: Colors.white,
                                                 }),
                                             onPressed: () => null,
@@ -289,7 +283,7 @@ export class DetailsScreen extends StatelessWidget
                                                                             .apply({color: Colors.white}),
                                                                     }),
                                                             }),
-                                                            new Icon(clear, {color: Colors.white60}),
+                                                            new Icon(Icons.clear, {color: Colors.white60}),
                                                         ],
                                                     }),
                                                 }),

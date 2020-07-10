@@ -26,7 +26,6 @@ import {User, MyColors, destinationList} from "../data";
 import {BoxDecoration} from "../../../runtime/flutter/painting/boxDecoration";
 import {IconButton} from "../../../runtime/flutter/material/iconButton";
 import {Icon} from "../../../runtime/flutter/widgets/icon";
-import {menu} from "../../../runtime/flutter/material/icons/menu";
 import {RichText} from "../../../runtime/flutter/widgets/richText";
 import {TextSpan} from "../../../runtime/flutter/painting/textSpan";
 import {Align} from "../../../runtime/flutter/widgets/align";
@@ -43,6 +42,7 @@ import {MaterialPageRoute} from "../../../runtime/flutter/material/materialPageR
 import {Colors} from "../../../runtime/flutter/material/colors";
 
 import {DetailsScreen} from "./detailsScreen";
+import { Icons } from "../../../runtime/flutter/material/icons";
 
 export class HomeScreen extends StatelessWidget 
 {
@@ -132,7 +132,7 @@ export class HomeScreen extends StatelessWidget
                                                                     }),
                                                                     new Spacer({}),
                                                                     new IconButton({
-                                                                        icon: new Icon(menu, {color: MyColors.red}),
+                                                                        icon: new Icon(Icons.menu, {color: MyColors.red}),
                                                                         onPressed: () => null
                                                                     })
                                                                 ]

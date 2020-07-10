@@ -16,7 +16,7 @@ import { Column } from "./../../runtime/flutter/widgets/column";
 import { FloatingActionButton } from "./../../runtime/flutter/material/floatingActionButton";
 import { Icon } from "./../../runtime/flutter/widgets/icon";
 import { runApp } from "./../../runtime/flutter/runApp";
-import { add } from "./../../runtime/flutter/material/icons/add";
+import {Icons}from "./../../runtime/flutter/material/icons";
 
 class CounterModel extends ChangeNotifier {
     public counter = 0;
@@ -90,7 +90,7 @@ class CounterHome extends StatelessWidget {
                     return new FloatingActionButton({
                         onPressed: model ? model.increment : () => undefined,
                         key: new Key("increment"),
-                        child: new Icon(add)
+                        child: new Icon(Icons.add)
 
                     });
                 },
