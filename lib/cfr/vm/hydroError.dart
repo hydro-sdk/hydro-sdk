@@ -79,6 +79,9 @@ class HydroError {
           }
         }
       });
+    } else {
+      res +=
+          "${_frames[0].prototype.source}:${maybeAt(_frames[0].prototype.lines, inst)}\n";
     }
 
     res += "VM stacktrace follows:\n";
