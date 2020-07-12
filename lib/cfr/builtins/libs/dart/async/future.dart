@@ -23,30 +23,23 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
       VMManagedFuture caller = args[0];
       Closure catchError = args[1];
       Closure test = args.length >= 3 ? args[2]["test"] : null;
-      return [
-        maybeBoxObject<Future<dynamic>>(
-          object: caller.unwrap().catchError((obj) {
-            catchError.dispatch([obj], parentState: hydroState);
-          },
-              test: test != null
-                  ? (obj) {
-                      return test.dispatch([obj], parentState: hydroState)[0];
-                    }
-                  : null),
-          hydroState: hydroState,
-        )
-      ];
+      caller.unwrap().catchError((obj) {
+        catchError.dispatch([obj], parentState: hydroState);
+      },
+          test: test != null
+              ? (obj) {
+                  return test.dispatch([obj], parentState: hydroState)[0];
+                }
+              : null);
+      return [caller];
     });
     table["then"] = makeLuaDartFunc(func: (List<dynamic> args) {
       VMManagedFuture caller = args[0];
       Closure then = args[1];
-      return [
-        maybeBoxObject<Future<dynamic>>(
-            object: caller.unwrap().then((val) {
-              then.dispatch([val], parentState: hydroState);
-            }),
-            hydroState: hydroState)
-      ];
+      caller.unwrap().then((val) {
+        then.dispatch([val], parentState: hydroState);
+      });
+      return [caller];
     });
   }
 }
