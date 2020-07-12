@@ -80,8 +80,10 @@ class HydroError {
         }
       });
     } else {
+      _frames.forEach((element) { 
       res +=
-          "${_frames[0].prototype.source}:${maybeAt(_frames[0].prototype.lines, inst)}\n";
+          "${element.prototype.source}:${maybeAt(element.prototype.lines, element.programCounter-1)}\n";
+      });
     }
 
     res += "VM stacktrace follows:\n";
