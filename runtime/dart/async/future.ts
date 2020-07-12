@@ -4,6 +4,7 @@ declare const dart: {
     async: {
         future: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
         futureError: <T>(this: void, error: any, stackTrace?: any | undefined) => Future<T>;
+        futureSync: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
         futureValue: <T>(this: void, value?: FutureOr<T> | undefined) => Future<T>;
         futureAny: <T>(this: void, futures: Array<Future<T>>) => Future<T>;
         futureDoWhile: <T>(this: void, action: () => FutureOr<boolean>) => Future<any>;
@@ -15,35 +16,35 @@ declare const dart: {
         futureWait: <T>(
             this: void,
             futures: Array<Future<T>>,
-            {eagerError, cleanUp}: { eagerError: boolean; cleanUp: (successValue: T) => void }
+            { eagerError, cleanUp }: { eagerError: boolean; cleanUp: (successValue: T) => void }
         ) => Future<Array<T>>;
     };
 };
 
-export class Future<T> 
+export class Future<T>
 {
     //TSTL won't let us cheat and return the result of a function from a constructor.
     //This needs to be private to force consumers to use the static methods to make new Futures
-    private constructor() 
-    {
+    private constructor() {
         this.catchError = undefined as any;
         this.then = undefined as any;
         this.whenComplete = undefined as any;
         // (self as any) = dart.async.future(computation);
     }
 
-    public static create<T>(computation: () => FutureOr<T>) 
-    {
+    public static create<T>(computation: () => FutureOr<T>) {
         return dart.async.future(computation);
     }
 
-    public static error<T>(error: T, stackTrace?: any | undefined): Future<T> 
-    {
+    public static error<T>(error: T, stackTrace?: any | undefined): Future<T> {
         return dart.async.futureError(error, stackTrace);
     }
 
-    public static value<T>(value?: FutureOr<T> | undefined): Future<T> 
-    {
+    public static sync<T>(computation: () => FutureOr<T>): Future<T> {
+        return dart.async.futureSync(computation);
+    }
+
+    public static value<T>(value?: FutureOr<T> | undefined): Future<T> {
         return dart.async.futureValue(value);
     }
 
@@ -59,29 +60,25 @@ export class Future<T>
 
     public whenComplete: (action: () => FutureOr<any>) => Future<T>;
 
-    public static any<T>(futures: Array<Future<T>>): Future<T> 
-    {
+    public static any<T>(futures: Array<Future<T>>): Future<T> {
         return dart.async.futureAny(futures);
     }
 
-    public static doWhile(action: () => FutureOr<boolean>): Future<any> 
-    {
+    public static doWhile(action: () => FutureOr<boolean>): Future<any> {
         return dart.async.futureDoWhile(action);
     }
 
     public static forEach<T>(
         element: Array<T>,
         action: (element: T) => FutureOr<any>
-    ): Future<any> 
-    {
+    ): Future<any> {
         return dart.async.futureForEach(element, action);
     }
 
     public static wait<T>(
         futures: Array<Future<T>>,
-        {eagerError, cleanUp}: { eagerError: boolean; cleanUp: (successValue: T) => void }
-    ): Future<Array<T>> 
-    {
-        return dart.async.futureWait(futures, {eagerError, cleanUp});
+        { eagerError, cleanUp }: { eagerError: boolean; cleanUp: (successValue: T) => void }
+    ): Future<Array<T>> {
+        return dart.async.futureWait(futures, { eagerError, cleanUp });
     }
 }

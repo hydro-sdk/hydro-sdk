@@ -62,16 +62,28 @@ void loadFuture({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
 
+  table["futureError"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    var future = Future.error(args[0], args[1]);
+    return [
+      maybeBoxObject<Future<dynamic>>(object: future, hydroState: hydroState)
+    ];
+  });
+
+  table["futureSync"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<Future<dynamic>>(
+          object: Future.sync(() {
+            Closure computation = args[0];
+            return [computation.dispatch([], parentState: hydroState)];
+          }),
+          hydroState: hydroState)
+    ];
+  });
+
   table["futureValue"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Future<dynamic>>(
           object: Future.value(args[0]), hydroState: hydroState)
-    ];
-  });
-  table["futureError"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [
-      maybeBoxObject<Future<dynamic>>(
-          object: Future.error(args[0], args[1]), hydroState: hydroState)
     ];
   });
 }
