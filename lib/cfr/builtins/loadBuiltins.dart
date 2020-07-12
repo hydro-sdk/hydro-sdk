@@ -49,7 +49,7 @@ void loadBuiltins(
         loadFlutterLib(luaState: hydroState, ctx: hydroState.context);
         break;
       case BuiltinLib.dart:
-        loadDartLib(hydroState.context);
+        loadDartLib(hydroState: hydroState, ctx: hydroState.context);
         break;
       case BuiltinLib.hydro:
         loadHydroLib(hydroState.context);
