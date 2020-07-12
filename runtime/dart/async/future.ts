@@ -4,6 +4,7 @@ declare const dart: {
     async: {
         future: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
         futureError: <T>(this: void, error: any, stackTrace?: any | undefined) => Future<T>;
+        futureSync: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
         futureValue: <T>(this: void, value?: FutureOr<T> | undefined) => Future<T>;
         futureAny: <T>(this: void, futures: Array<Future<T>>) => Future<T>;
         futureDoWhile: <T>(this: void, action: () => FutureOr<boolean>) => Future<any>;
@@ -20,7 +21,7 @@ declare const dart: {
     };
 };
 
-export class Future<T> 
+export class Future<T>
 {
     //TSTL won't let us cheat and return the result of a function from a constructor.
     //This needs to be private to force consumers to use the static methods to make new Futures
@@ -37,9 +38,14 @@ export class Future<T>
         return dart.async.future(computation);
     }
 
-    public static error<T>(error: any, stackTrace?: any | undefined): Future<T> 
+    public static error<T>(error: T, stackTrace?: any | undefined): Future<T> 
     {
         return dart.async.futureError(error, stackTrace);
+    }
+
+    public static sync<T>(computation: () => FutureOr<T>): Future<T> 
+    {
+        return dart.async.futureSync(computation);
     }
 
     public static value<T>(value?: FutureOr<T> | undefined): Future<T> 
@@ -48,8 +54,8 @@ export class Future<T>
     }
 
     public catchError: (
-        onError: (error?: any | undefined) => void,
-        props?: { test?: (error: any) => boolean | undefined } | undefined
+        onError: (error?: T | undefined) => void,
+        props?: { test?: (error: T) => boolean | undefined } | undefined
     ) => Future<T>;
 
     public then: <R>(
