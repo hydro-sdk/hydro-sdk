@@ -16,8 +16,8 @@ void main() async {
     ]);
     CoroutineResult res;
 
-    res =
-        await state.doFile("../assets/test/unit/async/futureValueChain-1.ts.hc");
+    res = await state
+        .doFile("../assets/test/unit/async/futureValueChain-1.ts.hc");
 
     if (!res.success) {
       print(res.values[0]);
