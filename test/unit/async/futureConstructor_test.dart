@@ -17,7 +17,7 @@ void main() {
       CoroutineResult res;
 
       res =
-          await state.doFile("assets/test/unit/async/futureConstructor.ts.hc");
+          await state.doFile("../assets/test/unit/async/futureConstructor.ts.hc");
 
       if (!res.success) {
         print(res.values[0]);
