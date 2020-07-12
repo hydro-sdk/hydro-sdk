@@ -31,9 +31,6 @@ compare(() => {
     return val;
 });
 compare(() => {
-    throw "Flif";
-});
-compare(() => {
     return err1;
 });
 let hasExecuted = false;
