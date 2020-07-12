@@ -24,11 +24,11 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
       Closure catchError = args[1];
       Closure test = args.length >= 3 ? args[2]["test"] : null;
       caller.unwrap().catchError((obj) {
-        catchError.dispatch([obj], parentState: hydroState);
+        catchError.dispatch([null, obj], parentState: hydroState);
       },
           test: test != null
               ? (obj) {
-                  return test.dispatch([obj], parentState: hydroState)[0];
+                  return test.dispatch([null, obj], parentState: hydroState)[0];
                 }
               : null);
       return [caller];
@@ -37,7 +37,7 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
       VMManagedFuture caller = args[0];
       Closure then = args[1];
       caller.unwrap().then((val) {
-        then.dispatch([val], parentState: hydroState);
+        return then.dispatch([val], parentState: hydroState);
       });
       return [caller];
     });
