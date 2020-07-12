@@ -1,8 +1,27 @@
 export type FutureOr<T> = Future<T> | T;
 
+declare const dart: {
+    async: {
+        future: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
+        futureError: <T>(this: void, error: any, stackTrace?: any | undefined) => Future<T>;
+        futureValue: <T>(this: void, value?: FutureOr<T> | undefined) => Future<T>;
+        futureAny: <T>(this: void, futures: Array<Future<T>>) => Future<T>;
+        futureDoWhile: <T>(this: void, action: () => FutureOr<boolean>) => Future<any>;
+        futureForEach: <T>(
+            this: void,
+            element: Array<T>,
+            action: (element: T) => FutureOr<any>
+        ) => Future<any>;
+        futureWait: <T>(
+            this: void,
+            futures: Array<Future<T>>,
+            {eagerError, cleanUp}: { eagerError: boolean; cleanUp: (successValue: T) => void }
+        ) => Future<Array<T>>;
+    };
+};
+
 export class Future<T> 
 {
-
     //TSTL won't let us cheat and return the result of a function from a constructor.
     //This needs to be private to force consumers to use the static methods to make new Futures
     private constructor() 
@@ -66,23 +85,3 @@ export class Future<T>
         return dart.async.futureWait(futures, {eagerError, cleanUp});
     }
 }
-
-declare const dart: {
-    async: {
-        future: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
-        futureError: <T>(this: void, error: any, stackTrace?: any | undefined) => Future<T>;
-        futureValue: <T>(this: void, value?: FutureOr<T> | undefined) => Future<T>;
-        futureAny: <T>(this: void, futures: Array<Future<T>>) => Future<T>;
-        futureDoWhile: <T>(this: void, action: () => FutureOr<boolean>) => Future<any>;
-        futureForEach: <T>(
-            this: void,
-            element: Array<T>,
-            action: (element: T) => FutureOr<any>
-        ) => Future<any>;
-        futureWait: <T>(
-            this: void,
-            futures: Array<Future<T>>,
-            {eagerError, cleanUp}: { eagerError: boolean; cleanUp: (successValue: T) => void }
-        ) => Future<Array<T>>;
-    };
-};
