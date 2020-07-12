@@ -37,7 +37,7 @@ export class Future<T>
         return dart.async.future(computation);
     }
 
-    public static error<T>(error: any, stackTrace?: any | undefined): Future<T> 
+    public static error<T>(error: T, stackTrace?: any | undefined): Future<T> 
     {
         return dart.async.futureError(error, stackTrace);
     }
@@ -48,8 +48,8 @@ export class Future<T>
     }
 
     public catchError: (
-        onError: (error?: any | undefined) => void,
-        props?: { test?: (error: any) => boolean | undefined } | undefined
+        onError: (error?: T | undefined) => void,
+        props?: { test?: (error: T) => boolean | undefined } | undefined
     ) => Future<T>;
 
     public then: <R>(
