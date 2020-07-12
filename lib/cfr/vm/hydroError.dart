@@ -80,9 +80,9 @@ class HydroError {
         }
       });
     } else {
-      _frames.forEach((element) { 
-      res +=
-          "${element.prototype.source}:${maybeAt(element.prototype.lines, element.programCounter-1)}\n";
+      _frames.forEach((element) {
+        res +=
+            "${element.prototype.source}:${maybeAt(element.prototype.lines, element.programCounter - 1)}\n";
       });
     }
 
