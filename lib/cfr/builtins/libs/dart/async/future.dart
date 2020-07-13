@@ -37,7 +37,7 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
       VMManagedFuture caller = args[0];
       Closure then = args[1];
       caller.unwrap().then((val) {
-        return then.dispatch([val], parentState: hydroState);
+        return then.dispatch([null,val], parentState: hydroState);
       });
       return [caller];
     });

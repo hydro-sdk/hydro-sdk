@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/cfr/builtins/libs/dart/dart.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/flutter.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/http/http.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/hydro/hydro.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/stdlib/base.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/stdlib/bit.dart';
@@ -10,7 +11,18 @@ import 'package:hydro_sdk/cfr/builtins/libs/stdlib/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
-enum BuiltinLib { base, math, string, bit, table, bit32, flutter, dart, hydro }
+enum BuiltinLib {
+  base,
+  math,
+  string,
+  bit,
+  table,
+  bit32,
+  flutter,
+  dart,
+  hydro,
+  http
+}
 
 void loadBuiltins(
     {@required HydroState hydroState,
@@ -24,6 +36,7 @@ void loadBuiltins(
       BuiltinLib.flutter,
       BuiltinLib.dart,
       BuiltinLib.hydro,
+      BuiltinLib.http,
     ]}) {
   builtins.forEach((lib) {
     switch (lib) {
@@ -53,6 +66,9 @@ void loadBuiltins(
         break;
       case BuiltinLib.hydro:
         loadHydroLib(hydroState.context);
+        break;
+      case BuiltinLib.http:
+        loadHttpLib(hydroState: hydroState, ctx: hydroState.context);
         break;
     }
   });
