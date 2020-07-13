@@ -11,6 +11,7 @@ import { pauseInDebugger } from "../../runtime/dart/developer/debugger";
 import { runApp } from "../../runtime/flutter/runApp";
 import { CircularProgressIndicator } from "../../runtime/flutter/material/circularProgressIndicator";
 import { Center } from "../../runtime/flutter/widgets/center";
+import { PokeHub } from "./pokeHub";
 
 console.log("main chunk");
 
@@ -32,7 +33,7 @@ class PokeAppState extends State<PokeApp>{
     }
 
     private readonly url = "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
-    private pokeHub: any;
+    private pokeHub: PokeHub | undefined;
     private fetchData() {
         const res = get(this.url);
 
@@ -47,7 +48,6 @@ class PokeAppState extends State<PokeApp>{
     }
 
     public build() {
-        console.log(this.pokeHub.pokemon);
         return new MaterialApp({
             home:
                 new Scaffold({
