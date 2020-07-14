@@ -101,6 +101,8 @@ class Context {
       return x.length;
     } else if (x is String) {
       return x.length;
+    } else if (x is List) {
+      return x.length;
     } else {
       throw "attempt to get length of a ${getTypename(x)} value";
     }
@@ -121,6 +123,8 @@ class Context {
       return x[y];
     } else if (x is Box) {
       return tableIndex(x.table, y);
+    } else if (x is List) {
+      return x[y];
     } else {
       throw "attempt to index a ${getTypename(x)} value $x $y";
     }
