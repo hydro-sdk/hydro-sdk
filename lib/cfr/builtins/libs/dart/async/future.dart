@@ -6,10 +6,10 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
-class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
+class VMManagedFuture extends VMManagedBox<Future<List<dynamic>>> {
   final HydroTable table;
   final HydroState hydroState;
-  final Future<dynamic> vmObject;
+  final Future<List<dynamic>> vmObject;
   VMManagedFuture({
     @required this.table,
     @required this.hydroState,
@@ -36,42 +36,48 @@ class VMManagedFuture extends VMManagedBox<Future<dynamic>> {
     table["then"] = makeLuaDartFunc(func: (List<dynamic> args) {
       VMManagedFuture caller = args[0];
       Closure then = args[1];
-      caller.unwrap().then((val) {
-        return then.dispatch([val], parentState: hydroState);
-      });
-      return [caller];
+      return [
+        maybeBoxObject<Future<List<dynamic>>>(
+            object: caller.unwrap().then((val) {
+              List res = then.dispatch(val, parentState: hydroState);
+
+              return res;
+            }),
+            hydroState: hydroState)
+      ];
     });
   }
 }
 
 void loadFuture({@required HydroState hydroState, @required HydroTable table}) {
-  registerBoxer<Future<dynamic>>(
-      boxer: ({Future<dynamic> vmObject, HydroState hydroState}) {
+  registerBoxer<Future<List<dynamic>>>(
+      boxer: ({Future<List<dynamic>> vmObject, HydroState hydroState}) {
     return VMManagedFuture(
         vmObject: vmObject, hydroState: hydroState, table: HydroTable());
   });
 
   table["future"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<Future<dynamic>>(
+      maybeBoxObject<Future<List<dynamic>>>(
           object: Future(() {
             Closure computation = args[0];
-            return [computation.dispatch([], parentState: hydroState)];
+            return computation.dispatch([], parentState: hydroState);
           }),
           hydroState: hydroState)
     ];
   });
 
   table["futureError"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    var future = Future.error(args[0], args[1]);
+    var future = Future<List<dynamic>>.error(args[0], args[1]);
     return [
-      maybeBoxObject<Future<dynamic>>(object: future, hydroState: hydroState)
+      maybeBoxObject<Future<List<dynamic>>>(
+          object: future, hydroState: hydroState)
     ];
   });
 
   table["futureSync"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<Future<dynamic>>(
+      maybeBoxObject<Future<List<dynamic>>>(
           object: Future.sync(() {
             Closure computation = args[0];
             return [computation.dispatch([], parentState: hydroState)];
@@ -82,8 +88,8 @@ void loadFuture({@required HydroState hydroState, @required HydroTable table}) {
 
   table["futureValue"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<Future<dynamic>>(
-          object: Future.value(args[0]), hydroState: hydroState)
+      maybeBoxObject<Future<List<dynamic>>>(
+          object: Future.value([args[0]]), hydroState: hydroState)
     ];
   });
 }

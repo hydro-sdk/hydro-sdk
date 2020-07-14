@@ -6,6 +6,7 @@ const errorFuture = Future.error(499);
 errorFuture.catchError((error) => {
     const valueChainFuture = Future.sync(() => errorFuture);
     valueChainFuture.catchError((error) => {
+        assert(error != undefined);
         assert(499 == error);
     });
 });

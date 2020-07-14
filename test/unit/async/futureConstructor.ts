@@ -8,6 +8,8 @@ function compare<T>(func: () => T) {
     f2.catchError(() => { });
     f1.then((v1) => {
         f2.then((v2) => {
+            assert(v1 != undefined);
+            assert(v2 != undefined);
             assert(v1 == v2);
         });
     }, {
@@ -16,6 +18,8 @@ function compare<T>(func: () => T) {
                 assert(false);
             }, {
                 onError: (e2) => {
+                    assert(e1 != undefined);
+                    assert(e2 != undefined);
                     assert(e1 == e2);
                 }
             });
