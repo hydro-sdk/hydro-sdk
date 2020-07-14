@@ -4,9 +4,11 @@ declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 const errorFuture = Future.error(499);
 errorFuture.catchError((x) => {
+    assert(x != undefined);
     assert(499 == x);
     const valueChainFuture = Future.sync(() => errorFuture);
     valueChainFuture.catchError((error) => {
+        assert(error != undefined);
         assert(499 == error);
     });
 });
