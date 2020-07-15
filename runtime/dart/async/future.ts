@@ -59,7 +59,7 @@ export class Future<T>
     ) => Future<T>;
 
     public then: <R>(
-        onValue: (this: void,value: T ) => R extends undefined ? void : R,
+        onValue: (this: void,value: T ) => R ,
         props?: { onError?: (err: any) => void | undefined } | undefined
     ) => Future<R>
 
