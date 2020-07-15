@@ -27,6 +27,7 @@ import { Navigator } from "../../../runtime/flutter/widgets/navigator";
 import { MaterialPageRoute } from "../../../runtime/flutter/material/materialPageRoute";
 import { DetailScreen } from "./detailScreen";
 import { BuildContext } from "../../../runtime/flutter/buildContext";
+import { Colors } from "../../../runtime/flutter/material/colors";
 
 export class PokeGridScreen extends StatefulWidget {
     public constructor() {
@@ -63,6 +64,8 @@ class PokeGridScreenState extends State<PokeGridScreen>{
         return new Scaffold({
             appBar: new AppBar({
                 title: new Text("Poke App"),
+                elevation:0,
+                backgroundColor: Colors.cyan.swatch[500],
             }),
             body: !this.pokeHub ? new Center({ child: new CircularProgressIndicator() })
                 : GridView.count({

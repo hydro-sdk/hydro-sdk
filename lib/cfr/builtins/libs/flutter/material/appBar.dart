@@ -9,6 +9,9 @@ void loadAppBar({@required HydroState luaState, @required HydroTable table}) {
   table["appBar"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       AppBar(
+        backgroundColor: maybeUnBoxAndBuildArgument<Color>(
+            args[0]["backgroundColor"],
+            parentState: luaState),
         title: maybeUnBoxAndBuildArgument<Widget>(args[0]["title"],
             parentState: luaState),
         leading: maybeUnBoxAndBuildArgument<Widget>(args[0]["leading"],
@@ -17,6 +20,7 @@ void loadAppBar({@required HydroState luaState, @required HydroTable table}) {
             parentState: luaState),
         bottom: maybeUnBoxAndBuildArgument<Widget>(args[0]["bottom"],
             parentState: luaState),
+        elevation: args[0]["elevation"]?.toDouble(),
       )
     ];
   });

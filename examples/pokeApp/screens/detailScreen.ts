@@ -17,7 +17,9 @@ export class DetailScreen extends StatelessWidget {
         return new Scaffold({
             backgroundColor: Colors.cyan.swatch[500],
             appBar: new AppBar({
-                title: new Text(this.pokemon.name)
+                title: new Text(this.pokemon.name),
+                backgroundColor: Colors.cyan.swatch[500],
+                elevation: 0
             }),
         });
     }
