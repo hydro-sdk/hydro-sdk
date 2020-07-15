@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -82,13 +83,31 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
         vmObject: vmObject, hydroState: hydroState, table: HydroTable());
   });
 
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+    if (box is VMManagedList) {
+      return box.unwrap();
+    }
+    return null;
+  });
+
   table["fromArray"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    HydroTable arg = args[0];
-    return [
-      maybeBoxObject<List<dynamic>>(
-        object: arg.arr,
-        hydroState: hydroState,
-      )
-    ];
+    if (args[0] is HydroTable) {
+      HydroTable arg = args[0];
+      return [
+        maybeBoxObject<List<dynamic>>(
+          object: arg.arr,
+          hydroState: hydroState,
+        )
+      ];
+    } else if (args[0] is List<dynamic>) {
+      List<dynamic> arg = args[0];
+      return [
+        maybeBoxObject<List<dynamic>>(
+          object: arg,
+          hydroState: hydroState,
+        )
+      ];
+    }
+    return [];
   });
 }

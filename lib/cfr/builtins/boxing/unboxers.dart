@@ -44,31 +44,40 @@ String maybeUnBoxRuntimeType(
       : null;
 }
 
-typedef dynamic UnBoxer(
-    {@required HydroTable box, @required HydroState parentState});
+typedef dynamic UnBoxer<T>({
+  @required dynamic box,
+  @required HydroState parentState,
+});
 
-List<UnBoxer> _unboxers = [];
+List<UnBoxer<dynamic>> _unboxers = [];
 
 void registerUnBoxer({@required UnBoxer unBoxer}) {
   _unboxers.add(unBoxer);
 }
 
-dynamic maybeUnBoxAndBuildArgument<T>(dynamic arg,
-    {BuildContext context, @required HydroState parentState}) {
+dynamic maybeUnBoxAndBuildArgument<T>(
+  dynamic arg, {
+  BuildContext context,
+  @required HydroState parentState,
+}) {
   assert(parentState != null);
   //Unboxed target object
   if (arg is T) {
     return arg;
   }
+
+  for (var i = 0; i != _unboxers.length; ++i) {
+    var res = _unboxers[i](
+      box: arg,
+      parentState: parentState,
+    );
+    if (res != null) {
+      return maybeUnBoxAndBuildArgument<T>(res, parentState: parentState);
+    }
+  }
+
   //Managed object
   if (arg is HydroTable) {
-    for (var i = 0; i != _unboxers.length; ++i) {
-      var res = _unboxers[i](box: arg, parentState: parentState);
-      if (res != null) {
-        return res;
-      }
-    }
-
     dynamic unwrap;
     unwrap = maybeFindInheritedMethod(managedObject: arg, methodName: "unwrap");
     if (unwrap == null) {
@@ -97,8 +106,12 @@ dynamic maybeUnBoxAndBuildArgument<T>(dynamic arg,
     } else if (arg.arr != null && arg.arr.isEmpty) {
       return [].cast<T>();
     }
+  } else if (arg is List) {
+    return maybeUnBoxAndBuildArgument<T>(HydroTable()..arr = arg,
+        parentState: parentState);
   } else if (arg is Box<T>) {
     return maybeUnBoxAndBuildArgument<T>(arg.table, parentState: parentState);
   }
+
   return arg;
 }

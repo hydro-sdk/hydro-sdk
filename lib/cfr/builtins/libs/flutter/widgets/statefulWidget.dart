@@ -50,15 +50,17 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
 
 void loadStatefulWidget(
     {@required HydroState luaState, @required HydroTable table}) {
-  registerUnBoxer(unBoxer: ({HydroTable box, HydroState parentState}) {
-    //Metatable will contain an inherited build function from the StatlessWidget base class
-    Closure createState =
-        maybeFindInheritedMethod(managedObject: box, methodName: "createState");
-    if (createState != null) {
-      return StatefulWidgetBox(
-        table: box,
-        parentState: parentState,
-      );
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+    if (box is HydroTable) {
+      //Metatable will contain an inherited build function from the StatlessWidget base class
+      Closure createState = maybeFindInheritedMethod(
+          managedObject: box, methodName: "createState");
+      if (createState != null) {
+        return StatefulWidgetBox(
+          table: box,
+          parentState: parentState,
+        );
+      }
     }
     return null;
   });
