@@ -17,7 +17,7 @@ void main() async {
     CoroutineResult res;
 
     res =
-        await state.doFile("assets/test/unit/collection/listMap-1.ts.hc");
+        await state.doFile("../assets/test/unit/collection/listMap-1.ts.hc");
 
     if (!res.success) {
       print(res.values[0]);
