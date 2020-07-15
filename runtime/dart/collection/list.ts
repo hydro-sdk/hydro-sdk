@@ -6,7 +6,8 @@ declare const dart: {
 
 export class List<T>
 {
-    private constructor() {
+    private constructor() 
+    {
         this.unwrap = undefined as any;
         this.first = undefined as any;
         this.isEmpty = undefined as any;
@@ -17,7 +18,8 @@ export class List<T>
         this.map = undefined as any;
     }
 
-    public static fromArray<T>(arr: Array<T>): List<T> {
+    public static fromArray<T>(arr: Array<T>): List<T> 
+    {
         return dart.collection.fromArray(arr);
     }
 
