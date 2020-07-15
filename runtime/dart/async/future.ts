@@ -33,7 +33,7 @@ export class Future<T>
         // (self as any) = dart.async.future(computation);
     }
 
-    public static create<T>(computation: () => FutureOr<T>) 
+    public static create<T>(computation: () => FutureOr<T>) :Future<T>
     {
         return dart.async.future(computation);
     }
@@ -59,9 +59,9 @@ export class Future<T>
     ) => Future<T>;
 
     public then: <R>(
-        onValue: (this: void,value: T) => FutureOr<R>,
+        onValue: (this: void,value: T ) => R extends undefined ? void : R,
         props?: { onError?: (err: any) => void | undefined } | undefined
-    ) => Future<R>;
+    ) => Future<R>
 
     public whenComplete: (action: () => FutureOr<any>) => Future<T>;
 
