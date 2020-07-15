@@ -30,5 +30,5 @@ export class List<T>
     public last: () => T | never;
     public length: () => number;
     public elementAt: (index: number) => T;
-    public map: (f: (e: T) => T) => List<T>;
+    public map: <R>(f: (e: T) => R) => List<R>;
 }
