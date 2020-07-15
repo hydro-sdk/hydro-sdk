@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
@@ -30,8 +31,11 @@ void loadListView({@required HydroState luaState, @required HydroTable table}) {
         itemCount: args[0]["itemCount"],
         itemBuilder: (BuildContext context, int index) {
           Closure closure = args[0]["itemBuilder"];
-          var res = closure
-              .dispatch([null, context, index], parentState: luaState)[0];
+          var res = closure.dispatch([
+            null,
+            maybeBoxObject(object: context, hydroState: luaState),
+            index
+          ], parentState: luaState)[0];
           return maybeUnBoxAndBuildArgument<Widget>(res, parentState: luaState);
         },
       )

@@ -10,7 +10,8 @@ void loadNavigator(
     return [
       maybeUnBoxAndBuildArgument<Widget>(
           Navigator.push(
-              args[0],
+              maybeUnBoxAndBuildArgument<BuildContext>(args[0],
+                  parentState: luaState),
               maybeUnBoxAndBuildArgument<Route<Object>>(args[1],
                   parentState: luaState)),
           parentState: luaState)
