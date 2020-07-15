@@ -23,6 +23,10 @@ import { Image } from "../../runtime/flutter/widgets/image";
 import { List } from "../../runtime/dart/collection/list";
 import { TextStyle } from "../../runtime/flutter/painting/textStyle";
 import { FontWeight } from "../../runtime/dart/ui/fontWeight";
+import { Navigator } from "../../runtime/flutter/widgets/navigator";
+import { MaterialPageRoute } from "../../runtime/flutter/material/materialPageRoute";
+import { DetailScreen } from "./screens/detailScreen";
+import { BuildContext } from "../../runtime/flutter/buildContext";
 
 class PokeApp extends StatefulWidget {
     public constructor() {
@@ -55,8 +59,9 @@ class PokeAppState extends State<PokeApp>{
         });
     }
 
-    public build() {
+    public build(context:BuildContext) {
         return new MaterialApp({
+            routes:{},
             home:
                 new Scaffold({
                     appBar: new AppBar({
@@ -70,7 +75,14 @@ class PokeAppState extends State<PokeApp>{
                                 (poke) => new Padding({
                                     padding: EdgeInsets.all(2.0),
                                     child: new InkWell({
-                                        onTap: () => { },
+                                        onTap: () => {
+                                            Navigator.push(
+                                                context,
+                                                new MaterialPageRoute({
+                                                    builder:()=>new DetailScreen(poke)
+                                                })
+                                                );
+                                         },
                                         child: new Card({
                                             child: new Column({
                                                 mainAxisSize: MainAxisSize.min,
