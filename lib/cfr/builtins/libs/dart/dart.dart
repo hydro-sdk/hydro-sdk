@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/cfr/builtins/libs/dart/async/async.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/convert/convert.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/collection.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/developer/developer.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/core/core.dart';
@@ -18,4 +19,5 @@ void loadDartLib({@required HydroState hydroState, @required Context ctx}) {
   loadDeveloper(dart);
   loadAsync(table: dart, hydroState: hydroState);
   loadConvert(table: dart, hydroState: hydroState);
+  loadCollection(hydroState: hydroState, table: dart);
 }
