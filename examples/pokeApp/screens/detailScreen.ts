@@ -16,6 +16,7 @@ import { TextStyle } from "../../../runtime/flutter/painting/textStyle";
 import { FontWeight } from "../../../runtime/dart/ui/fontWeight";
 import { Row } from "../../../runtime/flutter/widgets/row";
 import { List } from "../../../runtime/dart/collection/list";
+import {pauseInDebugger} from "../../../runtime/dart/developer/debugger";
 
 export class DetailScreen extends StatelessWidget {
     public pokemon: Pokemon;
@@ -26,6 +27,7 @@ export class DetailScreen extends StatelessWidget {
     }
 
     public build(context: BuildContext) {
+        pauseInDebugger(this.pokemon);
         return new Scaffold({
             backgroundColor: Colors.cyan.swatch[500],
             appBar: new AppBar({
@@ -65,14 +67,16 @@ export class DetailScreen extends StatelessWidget {
                                             .map((w) => new Text(w))
                                             .unwrap()
                                     }),
-                                    new Text("Next Evolution",{
-                                        style: new TextStyle({fontWeight: FontWeight.bold})
+                                    new Text("Next Evolution", {
+                                        style: new TextStyle({ fontWeight: FontWeight.bold })
                                     }),
                                     new Row({
-                                        mainAxisAlignment:MainAxisAlignment.spaceEvenly,
-                                        children: !this.pokemon.nextEvolution
-                                        ? [new Text("This is the final form")]
-                                        : List.fromArray()
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: this.pokemon.nextEvolution == undefined || List.fromArray(this.pokemon.nextEvolution).isEmpty()
+                                            ? [new Text("This is the final form")]
+                                            : List.fromArray(this.pokemon.nextEvolution)
+                                                .map((n) => new Text(n.name))
+                                                .unwrap()
                                     })
                                 ]
                             })
