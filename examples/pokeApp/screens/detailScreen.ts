@@ -1,5 +1,5 @@
 import { StatelessWidget } from "../../../runtime/flutter/widgets/statelessWidget";
-import { Pokemon } from "../pokeHub";
+import { Pokemon } from "../data/pokeHub";
 import { Scaffold } from "../../../runtime/flutter/material/scaffold";
 import { Colors } from "../../../runtime/flutter/material/colors";
 import { AppBar } from "../../../runtime/flutter/material/appBar";
