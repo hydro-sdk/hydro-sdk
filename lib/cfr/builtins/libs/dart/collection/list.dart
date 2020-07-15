@@ -24,6 +24,36 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
       return [HydroTable()..arr = caller.unwrap()];
     });
 
+    table["first"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      VMManagedList caller = args[0];
+      return [caller.unwrap().first];
+    });
+
+    table["last"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      VMManagedList caller = args[0];
+      return [caller.unwrap().last];
+    });
+
+    table["isEmpty"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      VMManagedList caller = args[0];
+      return [caller.unwrap().isEmpty];
+    });
+
+    table["isNotEmpty"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      VMManagedList caller = args[0];
+      return [caller.unwrap().isNotEmpty];
+    });
+
+    table["last"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      VMManagedList caller = args[0];
+      return [caller.unwrap().last];
+    });
+
+    table["length"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      VMManagedList caller = args[0];
+      return [caller.unwrap().length];
+    });
+
     table["map"] = makeLuaDartFunc(func: (List<dynamic> args) {
       VMManagedList caller = args[0];
       Closure map = args[1];
