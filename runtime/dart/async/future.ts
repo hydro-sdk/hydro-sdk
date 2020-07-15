@@ -33,7 +33,7 @@ export class Future<T>
         // (self as any) = dart.async.future(computation);
     }
 
-    public static create<T>(computation: () => FutureOr<T>) :Future<T>
+    public static create<T>(computation: () => FutureOr<T>): Future<T>
     {
         return dart.async.future(computation);
     }

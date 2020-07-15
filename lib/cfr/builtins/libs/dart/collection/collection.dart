@@ -3,7 +3,8 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
-void loadCollection({@required HydroTable table, @required HydroState hydroState}) {
+void loadCollection(
+    {@required HydroTable table, @required HydroState hydroState}) {
   var collection = HydroTable();
 
   table["collection"] = collection;
