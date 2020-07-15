@@ -1,6 +1,7 @@
 import { Widget } from "../widget";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { Type } from "../../dart/core/type";
+import {List} from "../../dart/collection/list";
 
 import { StatelessWidget } from "./statelessWidget";
 import { Key } from "./../foundation/key";
@@ -18,12 +19,12 @@ interface GridViewCountProps {
     crossAxisCount: number;
     mainAxisSpacing?: number | undefined;
     crossAxisSpacing?: number | undefined;
-    childAspectRation?: number | undefined;
+    childAspectRatio?: number | undefined;
     addAutomaticKeepAlives?: boolean | undefined;
     addRepaintBoundaries?: boolean | undefined;
     addSemanticIndexes?: boolean | undefined;
     cacheExtent?: number | undefined;
-    children: Array<Widget>;
+    children: List<Widget>;
     dragStartBehavior?: DragStartBehavior | undefined;
 }
 
@@ -65,8 +66,8 @@ export class GridView extends StatelessWidget implements RuntimeBaseClass {
             props.crossAxisSpacing = 0.0;
         }
 
-        if (!props.childAspectRation) {
-            props.childAspectRation = 0.0;
+        if (!props.childAspectRatio) {
+            props.childAspectRatio = 1.0;
         }
 
         if (props.addAutomaticKeepAlives == undefined) {
