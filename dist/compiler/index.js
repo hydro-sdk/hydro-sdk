@@ -113,7 +113,26 @@ if (!fs.existsSync(".hydroc")) {
     fs.mkdirSync(".hydroc");
 }
 if (watch !== undefined) {
-    chokidar.watch(watch).on("all", function () { return __awaiter(void 0, void 0, void 0, function () {
+    (function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!(inputLanguage == buildOptions_1.InputLanguage.typescript)) return [3 /*break*/, 2];
+                    return [4 /*yield*/, transpileTs_1.transpileTS({
+                            inputLanguage: inputLanguage,
+                            entry: entry,
+                            modName: modName,
+                            outDir: outDir,
+                            profile: profile
+                        })];
+                case 1:
+                    _a.sent();
+                    _a.label = 2;
+                case 2: return [2 /*return*/];
+            }
+        });
+    }); })();
+    chokidar.watch(watch).on("change", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
