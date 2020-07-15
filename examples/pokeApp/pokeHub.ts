@@ -5,6 +5,7 @@ export interface PokeHub {
 export interface Pokemon {
     id: number;
     num: string;
+    name: string;
     img: string;
     type: Array<string>;
     height: string;

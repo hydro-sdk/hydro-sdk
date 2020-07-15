@@ -20,8 +20,9 @@ import { MainAxisSize } from "../../runtime/flutter/rendering/mainAxisSize";
 import { MainAxisAlignment } from "../../runtime/flutter/widgets/mainAxisAlignment";
 import { Container } from "../../runtime/flutter/widgets/container";
 import { Image } from "../../runtime/flutter/widgets/image";
-
-console.log("main chunk");
+import { List } from "../../runtime/dart/collection/list";
+import { TextStyle } from "../../runtime/flutter/painting/textStyle";
+import { FontWeight } from "../../runtime/dart/ui/fontWeight";
 
 class PokeApp extends StatefulWidget {
     public constructor() {
@@ -65,7 +66,7 @@ class PokeAppState extends State<PokeApp>{
                         : GridView.count({
                             crossAxisCount: 2,
                             shrinkWrap: true,
-                            children: this.pokeHub.pokemon.concat([]).map(
+                            children: List.fromArray(this.pokeHub.pokemon).map(
                                 (poke) => new Padding({
                                     padding: EdgeInsets.all(2.0),
                                     child: new InkWell({
@@ -79,6 +80,12 @@ class PokeAppState extends State<PokeApp>{
                                                         child: Image.network(poke.img, {
                                                             width: 120,
                                                             height: 120,
+                                                        })
+                                                    }),
+                                                    new Text(poke.name, {
+                                                        style: new TextStyle({
+                                                            fontSize: 20.0,
+                                                            fontWeight: FontWeight.bold
                                                         })
                                                     })
                                                 ]
