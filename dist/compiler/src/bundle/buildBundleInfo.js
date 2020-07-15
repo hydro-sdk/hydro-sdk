@@ -66,9 +66,9 @@ var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
 function buildBundleInfo(buildOptions, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, _i, sourceFilesToTranspile_1, sourceFile, diagnostics, transpiledFiles, _loop_1, _a, transpiledFiles_1, transpiledFile, lualiBundle;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, transpiledFiles, _loop_1, _i, transpiledFiles_1, transpiledFile, lualiBundle;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
                     res = __assign(__assign({}, buildOptions), { entries: {}, diagnostics: [] });
                     program = ts.createProgram({
@@ -84,19 +84,35 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                     oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
                     sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourceFile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
                     console.log("Reused " + Math.abs(sourceFiles.length - sourceFilesToTranspile.length) + " inputs");
-                    concatDiagnostics = function (diagnostics) {
-                        return diagnostics && diagnostics.length ? res.diagnostics = __spreadArrays(res.diagnostics, diagnostics.map(function (x) { return x; })) : undefined;
+                    concatDiagnostics = function (newDiagnostics) {
+                        return newDiagnostics && newDiagnostics.length ? res.diagnostics = __spreadArrays(res.diagnostics, newDiagnostics.map(function (x) { return x; })) : undefined;
                     };
-                    if (sourceFilesToTranspile.length > 0) {
-                        for (_i = 0, sourceFilesToTranspile_1 = sourceFilesToTranspile; _i < sourceFilesToTranspile_1.length; _i++) {
-                            sourceFile = sourceFilesToTranspile_1[_i];
-                            diagnostics = program.getSyntacticDiagnostics(sourceFile);
-                            concatDiagnostics(diagnostics);
-                            diagnostics = program.getSemanticDiagnostics(sourceFile);
-                            concatDiagnostics(diagnostics);
-                            diagnostics = program.getDeclarationDiagnostics(sourceFile);
-                            concatDiagnostics(diagnostics);
+                    getFullDiagnostics = function () {
+                        var diagnostics = program.getSyntacticDiagnostics();
+                        concatDiagnostics(diagnostics);
+                        diagnostics = program.getSemanticDiagnostics();
+                        concatDiagnostics(diagnostics);
+                        diagnostics = program.getDeclarationDiagnostics();
+                        concatDiagnostics(diagnostics);
+                    };
+                    getIncrementalDiagnostics = function () {
+                        if (sourceFilesToTranspile.length > 0) {
+                            for (var _i = 0, sourceFilesToTranspile_1 = sourceFilesToTranspile; _i < sourceFilesToTranspile_1.length; _i++) {
+                                var sourceFile = sourceFilesToTranspile_1[_i];
+                                var diagnostics = program.getSyntacticDiagnostics(sourceFile);
+                                concatDiagnostics(diagnostics);
+                                diagnostics = program.getSemanticDiagnostics(sourceFile);
+                                concatDiagnostics(diagnostics);
+                                diagnostics = program.getDeclarationDiagnostics(sourceFile);
+                                concatDiagnostics(diagnostics);
+                            }
                         }
+                    };
+                    if (sourceFilesToTranspile.length == 0) {
+                        getIncrementalDiagnostics();
+                    }
+                    else {
+                        getFullDiagnostics();
                     }
                     transpiledFiles = tstl.transpile({
                         program: program,
@@ -127,17 +143,17 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                             }
                         });
                     };
-                    _a = 0, transpiledFiles_1 = transpiledFiles;
-                    _b.label = 1;
+                    _i = 0, transpiledFiles_1 = transpiledFiles;
+                    _a.label = 1;
                 case 1:
-                    if (!(_a < transpiledFiles_1.length)) return [3 /*break*/, 4];
-                    transpiledFile = transpiledFiles_1[_a];
+                    if (!(_i < transpiledFiles_1.length)) return [3 /*break*/, 4];
+                    transpiledFile = transpiledFiles_1[_i];
                     return [5 /*yield**/, _loop_1(transpiledFile)];
                 case 2:
-                    _b.sent();
-                    _b.label = 3;
+                    _a.sent();
+                    _a.label = 3;
                 case 3:
-                    _a++;
+                    _i++;
                     return [3 /*break*/, 1];
                 case 4:
                     if (!Object.values(res.entries).some(function (x) { return x.moduleName == "lualib_bundle"; })) {

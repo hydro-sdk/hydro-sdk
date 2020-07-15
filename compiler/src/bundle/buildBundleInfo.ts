@@ -41,25 +41,48 @@ export async function buildBundleInfo(
 
     console.log(`Reused ${Math.abs(sourceFiles.length - sourceFilesToTranspile.length)} inputs`);
 
-    const concatDiagnostics = (diagnostics: Readonly<Array<ts.DiagnosticRelatedInformation>>) =>
-        diagnostics && diagnostics.length ? res.diagnostics = [
+    const concatDiagnostics = (newDiagnostics: Readonly<Array<ts.DiagnosticRelatedInformation>>) =>
+        newDiagnostics && newDiagnostics.length ? res.diagnostics = [
             ...res.diagnostics,
-            ...diagnostics.map((x) => x)
+            ...newDiagnostics.map((x) => x)
         ] : undefined;
-    if (sourceFilesToTranspile.length > 0) {
-        for (const sourceFile of sourceFilesToTranspile) {
-            let diagnostics:
-                Readonly<Array<ts.Diagnostic>> |
-                Readonly<Array<ts.DiagnosticWithLocation>> = program.getSyntacticDiagnostics(sourceFile);
-            concatDiagnostics(diagnostics);
 
-            diagnostics = program.getSemanticDiagnostics(sourceFile);
-            concatDiagnostics(diagnostics);
+    const getFullDiagnostics = () => {
+        let diagnostics:
+            Readonly<Array<ts.Diagnostic>> |
+            Readonly<Array<ts.DiagnosticWithLocation>> = program.getSyntacticDiagnostics();
+        concatDiagnostics(diagnostics);
 
-            diagnostics = program.getDeclarationDiagnostics(sourceFile);
-            concatDiagnostics(diagnostics);
+        diagnostics = program.getSemanticDiagnostics();
+        concatDiagnostics(diagnostics);
+
+        diagnostics = program.getDeclarationDiagnostics();
+        concatDiagnostics(diagnostics);
+    }
+
+    const getIncrementalDiagnostics = () => {
+        if (sourceFilesToTranspile.length > 0) {
+            for (const sourceFile of sourceFilesToTranspile) {
+                let diagnostics:
+                    Readonly<Array<ts.Diagnostic>> |
+                    Readonly<Array<ts.DiagnosticWithLocation>> = program.getSyntacticDiagnostics(sourceFile);
+                concatDiagnostics(diagnostics);
+
+                diagnostics = program.getSemanticDiagnostics(sourceFile);
+                concatDiagnostics(diagnostics);
+
+                diagnostics = program.getDeclarationDiagnostics(sourceFile);
+                concatDiagnostics(diagnostics);
+            }
         }
     }
+
+    if (sourceFilesToTranspile.length == 0) {
+        getIncrementalDiagnostics();
+    } else {
+        getFullDiagnostics();
+    }
+
 
     const { transpiledFiles } = tstl.transpile({
         program: program as any,
