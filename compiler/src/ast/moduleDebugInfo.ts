@@ -11,4 +11,6 @@ export interface ModuleDebugInfo {
     originalColumnStart: number;
     parameterNames: Array<string>;
     symbolMangleName?: string;
+    symbolFullyQualifiedMangleName?: string;
+    symbolDisambiguationIndex: number;
 }

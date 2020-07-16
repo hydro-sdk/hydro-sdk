@@ -12,6 +12,7 @@ import { getLuaLibBundle } from "typescript-to-lua/dist/LuaLib";
 import { BundleInfo } from "./bundleInfo";
 import { hashSourceFile } from "../ast/hashSourceFile";
 import { hashText } from "../ast/hashText";
+import { mangleSymbols } from "../ast/mangleSymbols";
 
 export async function buildBundleInfo(
     buildOptions: BuildOptions,
@@ -99,6 +100,7 @@ export async function buildBundleInfo(
         });
 
         await addOriginalMappings(debugInfo, transpiledFile);
+        mangleSymbols(debugInfo);
 
         res.entries[transpiledFile.fileName] = {
             debugSymbols: debugInfo,

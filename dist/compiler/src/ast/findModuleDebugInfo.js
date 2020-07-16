@@ -70,6 +70,7 @@ function extract(props) {
             originalColumnStart: 0,
             parameterNames: props.exp.type == "FunctionDeclaration" ?
                 extractFunctionDeclarationArguments_1.extractFunctionDeclarationArguments(props.exp) : [],
+            symbolDisambiguationIndex: -1,
         });
     }
 }
