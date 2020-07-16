@@ -111,7 +111,7 @@ void main() {
       expect(exception.extractedSymbols[1].symbolName, "anonymous closure");
       expect(exception.extractedSymbols[1].originalFileName,
           "test/hot/stateful/statefulHotReloadStackTrace-1.ts");
-      expect(exception.extractedSymbols[1].originalLineStart, 62);
+      expect(exception.extractedSymbols[1].originalLineStart, 64);
 
       hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
       bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";

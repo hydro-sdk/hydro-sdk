@@ -1,6 +1,7 @@
 import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
+import {Color} from "../../dart/ui/color";
 
 import {Widget} from "./../widget";
 import {PreferredSize} from "./../widgets/preferredSize";
@@ -10,6 +11,8 @@ interface AppBarProps {
     actions?: Array<Widget> | undefined;
     leading?: Widget | undefined;
     bottom?: PreferredSize | undefined;
+    backgroundColor?: Color | undefined;
+    elevation?: number | undefined;
 }
 
 declare const flutter: {

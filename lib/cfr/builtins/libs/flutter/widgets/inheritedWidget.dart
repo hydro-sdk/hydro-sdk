@@ -16,15 +16,17 @@ class InheritedWidgetBox extends InheritedWidget {
 }
 
 void loadInheritedWidget() {
-  registerUnBoxer(unBoxer: ({HydroTable box, HydroState parentState}) {
-    String internalRuntimeType = maybeUnBoxRuntimeType(
-        managedObject: box, runtimeTypePropName: "internalRuntimeType");
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+    if (box is HydroTable) {
+      String internalRuntimeType = maybeUnBoxRuntimeType(
+          managedObject: box, runtimeTypePropName: "internalRuntimeType");
 
-    if (internalRuntimeType == "InheritedWidget") {
-      return InheritedWidgetBox(
-        table: box,
-        parentState: parentState,
-      );
+      if (internalRuntimeType == "InheritedWidget") {
+        return InheritedWidgetBox(
+          table: box,
+          parentState: parentState,
+        );
+      }
     }
     return null;
   });

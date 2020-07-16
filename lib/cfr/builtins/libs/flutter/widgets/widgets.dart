@@ -10,6 +10,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/expanded.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/flexible.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/gestureDetector.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/globalKey.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/gridView.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/icon.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/iconData.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/image.dart';
@@ -76,4 +77,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadTransform(luaState: luaState, table: widgets);
   loadAnimatedBuilder(luaState: luaState, table: widgets);
   loadBuildContext();
+  loadGridView(luaState: luaState, table: widgets);
 }

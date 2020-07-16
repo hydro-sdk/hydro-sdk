@@ -29,15 +29,17 @@ class StatelessPreferredSizeBox extends PreferredSize {
 
 void loadPreferredSize(
     {@required HydroState luaState, @required HydroTable table}) {
-  registerUnBoxer(unBoxer: ({HydroTable box, HydroState parentState}) {
-    Closure build =
-        maybeFindInheritedMethod(managedObject: box, methodName: "build");
-    if (build != null) {
-      if (box["runtimeType"] == "PreferredSize") {
-        return StatelessPreferredSizeBox(
-          table: box,
-          parentState: parentState,
-        );
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+    if (box is HydroTable) {
+      Closure build =
+          maybeFindInheritedMethod(managedObject: box, methodName: "build");
+      if (build != null) {
+        if (box["runtimeType"] == "PreferredSize") {
+          return StatelessPreferredSizeBox(
+            table: box,
+            parentState: parentState,
+          );
+        }
       }
     }
     return null;

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
@@ -9,20 +11,25 @@ void loadCircularProgressIndicator(
     {@required HydroState luaState, @required HydroTable table}) {
   table["circularProgressIndicator"] =
       makeLuaDartFunc(func: (List<dynamic> args) {
+    dynamic arg = args.length >= 1 && args[0] != null ? args[0] : null;
+    // debugger();
     return [
       CircularProgressIndicator(
-        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
-            parentState: luaState),
-        backgroundColor: maybeUnBoxAndBuildArgument<Color>(
-            args[0]["backgrounColor"],
-            parentState: luaState),
-        value: args[0]["value"],
-        valueColor: maybeUnBoxAndBuildArgument<Animation<Color>>(
-            args[0]["valueColor"],
-            parentState: luaState),
-        strokeWidth: args[0]["strokeWidth"]?.toDouble(),
-        semanticsLabel: args[0]["semanticsLabel"],
-        semanticsValue: args[0]["semanticsValue"],
+        key: arg != null
+            ? maybeUnBoxAndBuildArgument<Key>(arg["key"], parentState: luaState)
+            : null,
+        backgroundColor: arg != null
+            ? maybeUnBoxAndBuildArgument<Color>(arg["backgrounColor"],
+                parentState: luaState)
+            : null,
+        value: arg != null ? args[0]["value"] : null,
+        valueColor: arg != null
+            ? maybeUnBoxAndBuildArgument<Animation<Color>>(arg["valueColor"],
+                parentState: luaState)
+            : null,
+        strokeWidth: arg != null ? arg["strokeWidth"]?.toDouble() : 4.0,
+        semanticsLabel: arg != null ? arg["semanticsLabel"] : null,
+        semanticsValue: arg != null ? arg["semanticsValue"] : null,
       )
     ];
   });

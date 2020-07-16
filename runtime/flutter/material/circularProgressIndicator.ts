@@ -18,22 +18,25 @@ interface CircularProgressIndicatorProps {
 
 declare const flutter: {
     material: {
-        circularProgressIndicator: (this: void, props: CircularProgressIndicatorProps) => CircularProgressIndicator;
+        circularProgressIndicator: (this: void, props?: CircularProgressIndicatorProps | undefined) => CircularProgressIndicator;
     };
 };
 
 export class CircularProgressIndicator extends StatelessWidget implements RuntimeBaseClass 
 {
     public readonly internalRuntimeType = new Type(CircularProgressIndicator);
-    public props: CircularProgressIndicatorProps;
-    public constructor(props: CircularProgressIndicatorProps) 
+    public props?: CircularProgressIndicatorProps | undefined;
+    public constructor(props?: CircularProgressIndicatorProps | undefined) 
     {
         super();
         this.props = props;
 
-        if (this.props.strokeWidth === undefined) 
+        if (this.props) 
         {
-            this.props.strokeWidth = 4.0;
+            if (this.props.strokeWidth === undefined) 
+            {
+                this.props.strokeWidth = 4.0;
+            }
         }
     }
 

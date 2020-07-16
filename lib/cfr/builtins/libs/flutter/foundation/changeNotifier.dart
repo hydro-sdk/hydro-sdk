@@ -16,12 +16,14 @@ class ChangeNotifierBox extends ChangeNotifier {
 }
 
 void loadChangeNotifier() {
-  registerUnBoxer(unBoxer: ({HydroTable box, HydroState parentState}) {
-    String internalRuntimeType = maybeUnBoxRuntimeType(
-        managedObject: box, runtimeTypePropName: "internalRuntimeType");
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+    if (box is HydroTable) {
+      String internalRuntimeType = maybeUnBoxRuntimeType(
+          managedObject: box, runtimeTypePropName: "internalRuntimeType");
 
-    if (internalRuntimeType == "ChangeNotifier") {
-      return ChangeNotifierBox(table: box);
+      if (internalRuntimeType == "ChangeNotifier") {
+        return ChangeNotifierBox(table: box);
+      }
     }
     return null;
   });

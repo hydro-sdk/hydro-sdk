@@ -93,8 +93,18 @@ if (!fs.existsSync(".hydroc")) {
 
 
 if (watch !== undefined) {
-
-    chokidar.watch(watch).on("all", async () => {
+    (async () => {
+        if (inputLanguage == InputLanguage.typescript) {
+            await transpileTS({
+                inputLanguage: inputLanguage,
+                entry: entry,
+                modName: modName,
+                outDir: outDir,
+                profile: profile
+            });
+        } 
+    })();
+    chokidar.watch(watch).on("change", async () => {
         if (inputLanguage == InputLanguage.typescript) {
             await transpileTS({
                 inputLanguage: inputLanguage,
