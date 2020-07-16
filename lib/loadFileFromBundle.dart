@@ -17,7 +17,11 @@ Future<HydroFunction> loadFileFromBundle({
   var contents = await rootBundle.load(path);
   var decoder = Decoder(contents.buffer);
   var dump = decoder.readCodeDump(
-      name: path, linkStatus: linkStatus, dump: null, thunks: thunks);
+      name: path,
+      hydroState: hydroState,
+      linkStatus: linkStatus,
+      dump: null,
+      thunks: thunks);
 
   return HydroFunctionImpl(Closure(dump.main,
       context: hydroState.context,

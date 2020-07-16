@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
@@ -50,6 +51,7 @@ class HydroState {
 
   DispatchContext dispatchContext;
   List<ModuleDebugInfo> symbols;
+  bool debugFunctionsMustHaveDebugSymbols = kDebugMode;
 
   HydroState() : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;
@@ -65,7 +67,11 @@ class HydroState {
 
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(
-        name: path, dump: null, linkStatus: null, thunks: null);
+        name: path,
+        dump: null,
+        hydroState: this,
+        linkStatus: null,
+        thunks: null);
 
     return HydroFunctionImpl(Closure(
       dump.main,
@@ -81,7 +87,11 @@ class HydroState {
       @required Map<String, NativeThunk> thunks}) async {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(
-        name: name, dump: null, linkStatus: linkStatus, thunks: thunks);
+        name: name,
+        dump: null,
+        hydroState: this,
+        linkStatus: linkStatus,
+        thunks: thunks);
 
     return HydroFunctionImpl(Closure(dump.main,
         context: _context, upvalues: [Upval.store(_context.env)]));
