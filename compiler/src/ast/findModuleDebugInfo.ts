@@ -1,6 +1,7 @@
 import * as lparse from "luaparse";
 import { ModuleDebugInfo } from "./moduleDebugInfo";
 import { extractFullyQualifiedFunctionName } from "./extractFullyQualifiedFunctionName";
+import { extractFunctionDeclarationArguments } from "./extractFunctionDeclarationArguments";
 
 export function findModuleDebugInfo(props: {
     originalFileName: string,
@@ -95,6 +96,9 @@ function extract(props: {
             originalFileName: props.originalFileName,
             originalLineStart: 0,
             originalColumnStart: 0,
+            parameterNames:
+                props.exp.type == "FunctionDeclaration" ?
+                    extractFunctionDeclarationArguments(props.exp) : [],
         });
     }
 }

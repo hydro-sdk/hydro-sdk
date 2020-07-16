@@ -27,6 +27,7 @@ test("", async () =>
     expect(bundleResult.debugSymbols[0].lineStart).toBe(14);
     expect(bundleResult.debugSymbols[0].lineEnd).toBe(16);
     expect(bundleResult.debugSymbols[0].symbolName).toBe("FooClass.prototype.____constructor");
+    expect(bundleResult.debugSymbols[0].parameterNames).toStrictEqual(["self","foo"]);
 
     expect(bundleResult.debugSymbols[1].lineStart).toBe(26);
     expect(bundleResult.debugSymbols[1].lineEnd).toBe(28);

@@ -33,7 +33,11 @@ test("",async () =>
         originalFileName: "./runtime/dart/core/type.ts",
         originalLineStart: 4,
         originalColumnStart: 4,
-        symbolName: "Type.prototype.____constructor"
+        symbolName: "Type.prototype.____constructor",
+        parameterNames:[
+            "self",
+            "func"
+        ]
     });
 
 });
@@ -66,7 +70,8 @@ test("", async () =>
         originalFileName: inFilename,
         originalLineStart: 7,
         originalColumnStart: 7,
-        symbolName: "anonymous closure"
+        symbolName: "anonymous closure",
+        parameterNames:[],
     });
 });
 
@@ -98,7 +103,10 @@ test("",async () =>
         originalFileName: inFilename,        
         originalLineStart: 23,
         originalColumnStart: 4,
-        symbolName: "MyApp.prototype.____constructor"
+        symbolName: "MyApp.prototype.____constructor",
+        parameterNames:[
+            "self"
+        ]
     });
     expect(debugInfo[1]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -111,7 +119,10 @@ test("",async () =>
         originalLineStart: 28,
         originalColumnStart: 4,
         
-        symbolName: "MyApp.prototype.build"
+        symbolName: "MyApp.prototype.build",
+        parameterNames:[
+            "self"
+        ]
     });
     expect(debugInfo[2]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -123,7 +134,11 @@ test("",async () =>
         originalFileName: inFilename,        
         originalLineStart: 41,
         originalColumnStart: 4,
-        symbolName: "MyHomePage.prototype.____constructor"
+        symbolName: "MyHomePage.prototype.____constructor",
+        parameterNames:[
+            "self",
+            "title"
+        ]
     });
     expect(debugInfo[3]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -135,7 +150,10 @@ test("",async () =>
         originalFileName: inFilename,
         originalLineStart: 46,
         originalColumnStart: 4,
-        symbolName: "MyHomePage.prototype.createState"
+        symbolName: "MyHomePage.prototype.createState",
+        parameterNames:[
+            "self"
+        ]
     });
     expect(debugInfo[4]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -147,7 +165,11 @@ test("",async () =>
         originalFileName: inFilename,
         originalLineStart: 56,
         originalColumnStart: 4,
-        symbolName: "MyHomePageState.prototype.____constructor"
+        symbolName: "MyHomePageState.prototype.____constructor",
+        parameterNames:[
+            "self",
+            "title",
+        ]
     });
     expect(debugInfo[5]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -159,7 +181,8 @@ test("",async () =>
         originalFileName: inFilename,
         originalLineStart: 62,
         originalColumnStart: 31,
-        symbolName: "anonymous closure"
+        symbolName: "anonymous closure",
+        parameterNames:[]
     });
     expect(debugInfo[6]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -171,7 +194,8 @@ test("",async () =>
         originalFileName: inFilename,
         originalLineStart: 64,
         originalColumnStart: 22,
-        symbolName: "anonymous closure"
+        symbolName: "anonymous closure",
+        parameterNames:[]
     });
     expect(debugInfo[7]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -183,7 +207,11 @@ test("",async () =>
         originalFileName: inFilename,
         originalLineStart: 70,
         originalColumnStart: 4,
-        symbolName: "MyHomePageState.prototype.build"
+        symbolName: "MyHomePageState.prototype.build",
+        parameterNames:[
+            "self",
+            "context",
+        ]
     });
     expect(debugInfo[8]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -195,6 +223,7 @@ test("",async () =>
         originalFileName: inFilename,
         originalLineStart: 100,
         originalColumnStart: 7,
-        symbolName: "anonymous closure"
+        symbolName: "anonymous closure",
+        parameterNames:[]
     });
 });

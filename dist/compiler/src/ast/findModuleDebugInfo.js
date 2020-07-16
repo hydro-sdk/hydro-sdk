@@ -13,6 +13,7 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var lparse = require("luaparse");
 var extractFullyQualifiedFunctionName_1 = require("./extractFullyQualifiedFunctionName");
+var extractFunctionDeclarationArguments_1 = require("./extractFunctionDeclarationArguments");
 function findModuleDebugInfo(props) {
     var res = new Array();
     var last = lparse.parse(props.fileContent, {
@@ -67,6 +68,8 @@ function extract(props) {
             originalFileName: props.originalFileName,
             originalLineStart: 0,
             originalColumnStart: 0,
+            parameterNames: props.exp.type == "FunctionDeclaration" ?
+                extractFunctionDeclarationArguments_1.extractFunctionDeclarationArguments(props.exp) : [],
         });
     }
 }
