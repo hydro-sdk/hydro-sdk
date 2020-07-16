@@ -1,7 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:hydro_sdk/cfr/buildProfile.dart';
-import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/hydroState.dart';
@@ -57,7 +58,11 @@ void main() {
         downloadDebugInfo: (String uri) async {
           var file = File(symbolsPath);
           var res = file.readAsStringSync();
-          return ModuleDebugInfoRaw(res);
+          return json
+              .decode(res)
+              ?.map((x) => ModuleDebugInfo.fromJson(x))
+              ?.toList()
+              ?.cast<ModuleDebugInfo>();
         },
       ));
 

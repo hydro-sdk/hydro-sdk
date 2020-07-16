@@ -70,8 +70,7 @@ class Closure {
 
       return call(args);
     } on HydroError catch (err) {
-      err.addSymbolicatedStackTrace(
-          moduleDebugInfoRaw: parentState.moduleDebugInfoRaw);
+      err.addSymbolicatedStackTrace(symbols: parentState.symbols);
       throw err;
     }
   }

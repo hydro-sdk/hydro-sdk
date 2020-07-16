@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
 import 'package:hydro_sdk/cfr/linkStatus.dart';
-import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
@@ -49,7 +49,7 @@ class HydroState {
   Context get context => _context;
 
   DispatchContext dispatchContext;
-  ModuleDebugInfoRaw moduleDebugInfoRaw;
+  List<ModuleDebugInfo> symbols;
 
   HydroState() : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;
