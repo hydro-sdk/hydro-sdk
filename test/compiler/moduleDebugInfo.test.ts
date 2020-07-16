@@ -4,6 +4,7 @@ import {LuaTarget, LuaLibImportKind, transpileString} from "typescript-to-lua";
 
 import {findModuleDebugInfo} from "./../../compiler/src/ast/findModuleDebugInfo";
 import {addOriginalMappings} from "./../../compiler/src/ast/addOriginalMappings";
+import {mangleSymbols} from "./../../compiler/src/ast/mangleSymbols";
 
 test("",async () => 
 {
@@ -21,6 +22,7 @@ test("",async () =>
     });
 
     await addOriginalMappings(debugInfo, res.file!);
+    mangleSymbols(debugInfo);
 
     expect(debugInfo.length).toEqual(1);
     expect(debugInfo[0]).toEqual({
@@ -37,7 +39,8 @@ test("",async () =>
         parameterNames:[
             "self",
             "func"
-        ]
+        ],
+        symbolMangleName: "Type.prototype.____constructor::self_func"
     });
 
 });
@@ -58,6 +61,7 @@ test("", async () =>
     });
 
     await addOriginalMappings(debugInfo, res.file!);
+    mangleSymbols(debugInfo);
 
     expect(debugInfo.length).toEqual(1);
     expect(debugInfo[0]).toEqual({
@@ -72,6 +76,7 @@ test("", async () =>
         originalColumnStart: 7,
         symbolName: "anonymous closure",
         parameterNames:[],
+        symbolMangleName:"anonymous closure",
     });
 });
 
@@ -91,6 +96,7 @@ test("",async () =>
     });
 
     await addOriginalMappings(debugInfo, res.file!);
+    mangleSymbols(debugInfo);
 
     expect(debugInfo.length).toEqual(9);
     expect(debugInfo[0]).toEqual({
@@ -106,7 +112,8 @@ test("",async () =>
         symbolName: "MyApp.prototype.____constructor",
         parameterNames:[
             "self"
-        ]
+        ],
+        symbolMangleName: "MyApp.prototype.____constructor::self",
     });
     expect(debugInfo[1]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -122,7 +129,8 @@ test("",async () =>
         symbolName: "MyApp.prototype.build",
         parameterNames:[
             "self"
-        ]
+        ],
+        symbolMangleName: "MyApp.prototype.build::self",
     });
     expect(debugInfo[2]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -138,7 +146,8 @@ test("",async () =>
         parameterNames:[
             "self",
             "title"
-        ]
+        ],
+        symbolMangleName:"MyHomePage.prototype.____constructor::self_title",
     });
     expect(debugInfo[3]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -153,7 +162,8 @@ test("",async () =>
         symbolName: "MyHomePage.prototype.createState",
         parameterNames:[
             "self"
-        ]
+        ],
+        symbolMangleName: "MyHomePage.prototype.createState::self",
     });
     expect(debugInfo[4]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -165,11 +175,12 @@ test("",async () =>
         originalFileName: inFilename,
         originalLineStart: 56,
         originalColumnStart: 4,
+        symbolMangleName: "MyHomePageState.prototype.____constructor::self_title",
         symbolName: "MyHomePageState.prototype.____constructor",
         parameterNames:[
             "self",
             "title",
-        ]
+        ],
     });
     expect(debugInfo[5]).toEqual({
         fileName: "examples/counter/index.lua",
@@ -182,6 +193,7 @@ test("",async () =>
         originalLineStart: 62,
         originalColumnStart: 31,
         symbolName: "anonymous closure",
+        symbolMangleName: "anonymous closure",
         parameterNames:[]
     });
     expect(debugInfo[6]).toEqual({
@@ -195,6 +207,7 @@ test("",async () =>
         originalLineStart: 64,
         originalColumnStart: 22,
         symbolName: "anonymous closure",
+        symbolMangleName: "anonymous closure",
         parameterNames:[]
     });
     expect(debugInfo[7]).toEqual({
@@ -208,6 +221,7 @@ test("",async () =>
         originalLineStart: 70,
         originalColumnStart: 4,
         symbolName: "MyHomePageState.prototype.build",
+        symbolMangleName: "MyHomePageState.prototype.build::self_context",
         parameterNames:[
             "self",
             "context",
@@ -224,6 +238,7 @@ test("",async () =>
         originalLineStart: 100,
         originalColumnStart: 7,
         symbolName: "anonymous closure",
+        symbolMangleName: "anonymous closure",
         parameterNames:[]
     });
 });

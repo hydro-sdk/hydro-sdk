@@ -64,6 +64,9 @@ var makeRelativePath_1 = require("../makeRelativePath");
 var LuaLib_1 = require("typescript-to-lua/dist/LuaLib");
 var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
+var mangleSymbols_1 = require("../ast/mangleSymbols");
+//{symbol name}::{parameter}_{parameter}::{occurence}
+//_L{file path hash}::{mangled parents}::{mangled symbol}
 function buildBundleInfo(buildOptions, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
         var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, transpiledFiles, _loop_1, _i, transpiledFiles_1, transpiledFile, lualiBundle;
@@ -132,6 +135,7 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                                     return [4 /*yield*/, addOriginalMappings_1.addOriginalMappings(debugInfo, transpiledFile)];
                                 case 1:
                                     _a.sent();
+                                    mangleSymbols_1.mangleSymbols(debugInfo);
                                     res.entries[transpiledFile.fileName] = {
                                         debugSymbols: debugInfo,
                                         moduleText: transpiledFile.lua,
