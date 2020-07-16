@@ -16,7 +16,10 @@ import { TextStyle } from "../../../runtime/flutter/painting/textStyle";
 import { FontWeight } from "../../../runtime/dart/ui/fontWeight";
 import { Row } from "../../../runtime/flutter/widgets/row";
 import { List } from "../../../runtime/dart/collection/list";
-import {pauseInDebugger} from "../../../runtime/dart/developer/debugger";
+import { Align } from "../../../runtime/flutter/widgets/align";
+import { Alignment } from "../../../runtime/flutter/painting/alignment";
+import { Container } from "../../../runtime/flutter/widgets/container";
+import { Image } from "../../../runtime/flutter/widgets/image";
 
 export class DetailScreen extends StatelessWidget {
     public pokemon: Pokemon;
@@ -27,7 +30,6 @@ export class DetailScreen extends StatelessWidget {
     }
 
     public build(context: BuildContext) {
-        pauseInDebugger(this.pokemon);
         return new Scaffold({
             backgroundColor: Colors.cyan.swatch[500],
             appBar: new AppBar({
@@ -57,7 +59,10 @@ export class DetailScreen extends StatelessWidget {
                                     new Text("Types", {
                                         style: new TextStyle({ fontWeight: FontWeight.bold })
                                     }),
-
+                                    new Row({
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: List.fromArray(this.pokemon.type).map((t) => new Text(t)).unwrap()
+                                    }),
                                     new Text("Weakness", {
                                         style: new TextStyle({ fontWeight: FontWeight.bold })
                                     }),
@@ -72,13 +77,24 @@ export class DetailScreen extends StatelessWidget {
                                     }),
                                     new Row({
                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: this.pokemon.nextEvolution == undefined || List.fromArray(this.pokemon.nextEvolution).isEmpty()
+                                        children: this.pokemon.next_evolution == undefined || List.fromArray(this.pokemon.next_evolution).isEmpty()
                                             ? [new Text("This is the final form")]
-                                            : List.fromArray(this.pokemon.nextEvolution)
+                                            : List.fromArray(this.pokemon.next_evolution)
                                                 .map((n) => new Text(n.name))
                                                 .unwrap()
                                     })
                                 ]
+                            })
+                        })
+                    }),
+                    new Align({
+                        alignment: Alignment.topCenter,
+                        child: new Container({
+                            height: 200,
+                            width: 200,
+                            child: Image.network(this.pokemon.img, {
+                                height: 600,
+                                width: 600
                             })
                         })
                     })

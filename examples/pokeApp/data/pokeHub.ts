@@ -18,7 +18,7 @@ export interface Pokemon {
     spawnTime: string;
     multipliers: Array<number>;
     weaknesses: Array<string>;
-    nextEvolution: Array<NextEvolution>;
+    next_evolution: Array<NextEvolution>;
 }
 
 export interface NextEvolution {
