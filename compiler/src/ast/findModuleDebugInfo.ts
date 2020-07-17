@@ -35,7 +35,11 @@ function findModuleDebugInfoInner(props: {
     originalFileName: string,
     filename: string,
     fileContent: string,
-    last: lparse.Statement | lparse.CallExpression | lparse.TableConstructorExpression,
+    last: lparse.Statement |
+    lparse.CallExpression |
+    lparse.TableConstructorExpression |
+    lparse.IfClause |
+    lparse.IfStatement,
     cont: Array<ModuleDebugInfo>,
     log?: boolean
 }) {
@@ -121,6 +125,24 @@ function findModuleDebugInfoInner(props: {
                     });
                 }
             }
+        });
+    }
+    if (props.last.type == "IfStatement") {
+        props.last.clauses.forEach((k) => {
+            if (k.type == "IfClause") {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k
+                });
+            }
+        });
+    }
+    if (props.last.type == "IfClause") {
+        props.last.body.forEach((k) => {
+            findModuleDebugInfoInner({
+                ...props,
+                last: k
+            });
         });
     }
 }
