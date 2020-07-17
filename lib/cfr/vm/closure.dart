@@ -39,38 +39,6 @@ class Closure {
         }
 
         print(proto.debugSymbol.symbolFullyQualifiedMangleName);
-
-        String currentHash =
-            hashPrototype(proto, includeSourceLocations: false);
-
-        String targetHash = currentHash;
-
-        Prototype targetProto = parentState
-            ?.dispatchContext?.dispatchContext?.closure?.proto
-            ?.findPrototypeByHash(targetHash: targetHash);
-        if (targetProto != null) {
-          proto = targetProto;
-        }
-        if (targetProto == null) {
-          for (var i = 0;
-              i != parentState?.dispatchContext?.resssemblyMap?.length;
-              ++i) {
-            var entry = parentState?.dispatchContext?.resssemblyMap[i];
-            if (entry[0] == targetHash) {
-              targetHash = entry[1];
-            } else if (entry[1] == targetHash) {
-              targetHash = entry[0];
-            }
-          }
-
-          Prototype targetProto = parentState
-              ?.dispatchContext?.dispatchContext?.closure?.proto
-              ?.findPrototypeByHash(targetHash: targetHash);
-
-          if (targetProto != null) {
-            proto = targetProto;
-          }
-        }
       }
 
       return call(args);

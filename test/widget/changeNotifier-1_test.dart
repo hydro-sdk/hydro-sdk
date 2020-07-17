@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
+import 'package:hydro_sdk/integrationTestHarness.dart';
 
 void main() {
   testWidgets('', (WidgetTester tester) async {
-    harness.main("assets/test/widget/changeNotifier-1.ts.hc");
-    await tester.pump();
+    await tester.pumpWidget(
+        integrationTestHarness("../assets/test/widget/changeNotifier-1.ts"));
+    await tester.pumpAndSettle();
 
     expect(find.byKey(Key("counter")), findsOneWidget);
     expect(find.byKey(Key("increment")), findsOneWidget);
