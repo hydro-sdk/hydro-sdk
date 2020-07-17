@@ -9,12 +9,11 @@ void maybeAssignDebugSymbol({
 }) {
   if (prototype.buildProfile == BuildProfile.debug &&
       hydroState.debugFunctionsMustHaveDebugSymbols) {
-    prototype.debugSymbol = hydroState?.symbols?.firstWhere((element) =>
-        element.lineStart == prototype.lineStart &&
-        element.lineEnd == prototype.lineEnd &&
-        element.parameterNames.length == prototype.params);
-    if (prototype.debugSymbol == null) {
-      throw "Function prototypes are required to have debug symbols but the prototype from ${prototype.lineStart}-${prototype.lineEnd} in ${prototype.source} could not be matched to a debug symbol";
-    }
+    prototype.debugSymbol = hydroState?.symbols?.firstWhere(
+        (element) =>
+            element.lineStart == prototype.lineStart &&
+            element.lineEnd == prototype.lineEnd &&
+            element.parameterNames.length == prototype.params,
+        orElse: () => null);
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/hydroState.dart';
@@ -30,11 +31,15 @@ class Closure {
   List<dynamic> dispatch(List<dynamic> args,
       {@required HydroState parentState}) {
     try {
-      if (buildProfile == BuildProfile.release ||
-          parentState?.dispatchContext?.dispatchContext == null ||
-          parentState?.dispatchContext?.resssemblyMap == null) {
+      if (buildProfile == BuildProfile.release || !kDebugMode) {
         return call(args, parentState: parentState);
       } else if (buildProfile == BuildProfile.debug) {
+        if (proto.debugSymbol == null) {
+          throw "Dispatched function prototypes are required to have debug symbols but the prototype from ${proto.lineStart}-${proto.lineEnd} in ${proto.source} could not be matched to a debug symbol";
+        }
+
+        print(proto.debugSymbol.symbolFullyQualifiedMangleName);
+
         String currentHash =
             hashPrototype(proto, includeSourceLocations: false);
 
