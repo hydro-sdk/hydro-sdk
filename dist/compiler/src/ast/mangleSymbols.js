@@ -15,6 +15,14 @@ function mangleSymbols(symbols) {
         We're starting from the assumption that we have zero type information from the source language and only have insight into the output Lua.
         We've taken some liberties given that we're attempting to provide reasonable mangling for a dynamic language.
         Function type information is completely ignored. Function arity, along with parameter names and declaration order is used to disambiguate otherwise identical functions
+        We're looking to output a format roughly equivalent to:
+            <function-arity> ::= <function param1> _ <function paramn>
+            <mangled-symbol> ::= <symbol-name> :: <function-arity> :: <disambiguation-index>
+            <fully-qualified-mangled-symbol> ::= _L <sha256(filePath)> ::
+                                                 <mangled-parent-scope1> ::
+                                                 <mangled-parent-scopen> ::
+                                                 <mangled-symbol>
+
     */
     symbols.forEach(function (x) {
         var paramSuffix = x.parameterNames.length > 0 ? x.parameterNames.join("_") : "";
@@ -52,7 +60,6 @@ function mangleSymbols(symbols) {
     var symbolsWithParents = new Array();
     Object.keys(parentLevels).forEach(function (x) {
         parentLevels[parseInt(x)].forEach(function (k) {
-            var inc = 0;
             parentLevels[parseInt(x)].forEach(function (j) {
                 if (j.symbol.symbolMangleName == k.symbol.symbolMangleName) {
                     k.symbol.symbolDisambiguationIndex += 1;
@@ -62,18 +69,8 @@ function mangleSymbols(symbols) {
         });
     });
     symbolsWithParents.forEach(function (x) {
-        // let parents = Object.keys(parentLevels).map((parent)=>{})
         var parentQualifiers = x.parents.map(function (e) { return e.symbolMangleName + "::" + e.symbolDisambiguationIndex; }).join("::");
         x.symbol.symbolFullyQualifiedMangleName = "_L" + hashText_1.hashText(x.symbol.originalFileName) + (parentQualifiers ? "::" + parentQualifiers : "") + "::" + x.symbol.symbolMangleName + "::" + x.symbol.symbolDisambiguationIndex;
     });
-    // symbols.forEach((x) => {
-    //     let inc = 0;
-    //     symbols.forEach((k) => {
-    //         if (k.symbolFullyQualifiedMangleName == x.symbolFullyQualifiedMangleName) {
-    // k.symbolFullyQualifiedMangleName += `::${inc}`;
-    //             inc += 1;
-    //         }
-    //     });
-    // });
 }
 exports.mangleSymbols = mangleSymbols;
