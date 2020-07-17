@@ -9,5 +9,5 @@ void main() {
   runApp(RunFromNetwork(
       thunks: thunks,
       args: [],
-      baseUrl: "http://localhost:5000/examples/pokeApp.hc"));
+      baseUrl: "http://localhost:5000/examples/basicAppBar.hc"));
 }
