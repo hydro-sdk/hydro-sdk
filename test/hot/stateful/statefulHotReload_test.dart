@@ -64,11 +64,12 @@ void main() {
               ?.cast<ModuleDebugInfo>();
         },
       ));
-
+      
       expect(tester.takeException(), isNull);
       await Future.delayed(Duration(seconds: 5));
 
-      await tester.pump();
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       expect(find.byKey(Key("counter")), findsOneWidget);
       expect(find.byKey(Key("increment")), findsOneWidget);
@@ -87,10 +88,14 @@ void main() {
       //Should trigger a hot reload
       hashPath = "../assets/test/hot/stateful/counter2.ts.hc.sha256";
       bytecodePath = "../assets/test/hot/stateful/counter2.ts.hc";
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       expect(tester.takeException(), isNull);
 
       await Future.delayed(Duration(seconds: 5));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       await tester.pump();
 
@@ -113,12 +118,15 @@ void main() {
       //Switch back to original files
       hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
       bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       expect(tester.takeException(), isNull);
 
       await Future.delayed(Duration(seconds: 5));
 
-      await tester.pump();
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       expect(find.byKey(Key("counter")), findsOneWidget);
       expect(find.byKey(Key("increment")), findsOneWidget);

@@ -28,36 +28,20 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
           Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
               thunks}) async {
     var linkStatus = LinkStatus();
+    luaState.symbols = symbols;
     var val = await luaState.loadBuffer(
         buffer: bytecodeImage,
         name: baseUrl,
         thunks: thunks,
         linkStatus: linkStatus);
-    var status =
-        reassembleClosures(destination: func.closure, source: val.closure);
-    if (!status.bailedOut) {
-      luaState.dispatchContext = DispatchContext(
-          dispatchContext: val,
-          resssemblyMap: luaState?.dispatchContext?.resssemblyMap != null
-              ? [
-                  ...luaState.dispatchContext.resssemblyMap,
-                  ...status.reassemblyMap
-                ]
-              : status.reassemblyMap);
-      luaState.symbols = symbols;
-      print("I/Hydro: Relocated ${status.relocatedProtos} function prototypes");
-      print(
-          "I/Hydro: Reassembled ${status.reassembledProtos} function prototypes");
-      setState(() {
-        func = val;
-        res = func.pcall([], parentState: luaState);
-      });
-      return true;
-    } else {
-      print("I/Hydro: Bailed out of hot-reload");
-      print("I/Hydro: ${status.bailOutReason}");
-      return false;
-    }
+    luaState.dispatchContext = DispatchContext(dispatchContext: val);
+    print("I/Hydro: Reloaded function prototypes");
+    setState(() {
+      func = val;
+      res = func.pcall([], parentState: luaState);
+    });
+    WidgetsBinding.instance.performReassemble();
+    return true;
   }
 
   Future<void> fullRestart(
@@ -84,6 +68,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
           name: baseUrl,
           thunks: thunks,
           linkStatus: linkStatus);
+          luaState.dispatchContext = DispatchContext(dispatchContext: val);
       print(
           "I/Hydro ${linkStatus.nativePrototypes} native, ${linkStatus.virtualPrototypes} virtual prototypes");
       // var linkStatus = linkNativePrototypes(destination: val.closure, stubs: stubs);

@@ -37,10 +37,7 @@ class HydroFunctionImpl extends HydroFunction {
 class DispatchContext {
   final HydroFunctionImpl dispatchContext;
 
-  final List<List<String>> resssemblyMap;
-
-  DispatchContext(
-      {@required this.dispatchContext, @required this.resssemblyMap});
+  DispatchContext({@required this.dispatchContext});
 }
 
 class HydroState {

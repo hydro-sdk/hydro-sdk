@@ -39,6 +39,15 @@ class Closure {
         }
       }
 
+      Prototype targetProto = parentState
+          .dispatchContext?.dispatchContext?.closure?.proto
+          ?.findPrototypeByDebugSymbol(symbol: proto.debugSymbol);
+
+      if (targetProto != null) {
+        proto = targetProto;
+      } else {
+        throw "Failed to dispatch to ${proto.debugSymbol.symbolFullyQualifiedMangleName} from ${proto.lineStart}-${proto.lineEnd} in ${proto.source}";
+      }
       return call(args);
     } on HydroError catch (err) {
       err.addSymbolicatedStackTrace(symbols: parentState.symbols);
