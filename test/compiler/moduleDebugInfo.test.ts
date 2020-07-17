@@ -100,7 +100,7 @@ test("", async () => {
     await addOriginalMappings(debugInfo, res.file!);
     mangleSymbols(debugInfo);
 
-    expect(debugInfo.length).toEqual(9);
+    expect(debugInfo.length).toEqual(11);
     expect(debugInfo[0]).toEqual({
         fileName: "examples/counter/index.lua",
         lineEnd: 42,
