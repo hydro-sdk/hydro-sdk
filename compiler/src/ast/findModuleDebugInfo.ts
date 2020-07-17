@@ -91,6 +91,14 @@ function findModuleDebugInfoInner(props: {
             ...props,
             exp: props.last,
         });
+        props.last.init.forEach((k) => {
+            if (k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression" || k.type == "CallExpression") {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k
+                });
+            }
+        });
     }
     if (props.last.type == "CallExpression") {
         if (props.log) {
