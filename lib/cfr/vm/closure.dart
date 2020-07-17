@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/util.dart';

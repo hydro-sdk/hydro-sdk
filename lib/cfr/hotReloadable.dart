@@ -7,7 +7,6 @@ import 'package:hydro_sdk/cfr/linkStatus.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:hydro_sdk/cfr/reassembler/reassembleClosures.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 

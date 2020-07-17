@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
-import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
