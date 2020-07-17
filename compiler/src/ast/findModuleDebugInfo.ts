@@ -39,7 +39,8 @@ function findModuleDebugInfoInner(props: {
     lparse.CallExpression |
     lparse.TableConstructorExpression |
     lparse.IfClause |
-    lparse.IfStatement,
+    lparse.IfStatement |
+    lparse.LocalStatement,
     cont: Array<ModuleDebugInfo>,
     log?: boolean
 }) {
@@ -143,6 +144,16 @@ function findModuleDebugInfoInner(props: {
                 ...props,
                 last: k
             });
+        });
+    }
+    if (props.last.type == "LocalStatement") {
+        props.last.init.forEach((k) => {
+            if (k.type == "CallExpression" || k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression") {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k
+                });
+            }
         });
     }
 }
