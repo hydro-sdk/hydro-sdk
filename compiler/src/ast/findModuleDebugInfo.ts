@@ -64,7 +64,7 @@ function findModuleDebugInfoInner(props: {
             console.log(`ReturnStatement ${props.last?.loc?.start?.line}`);
         }
         props.last.arguments.forEach((k) => {
-            if (k.type == "CallExpression") {
+            if (k.type == "CallExpression" || k.type == "FunctionDeclaration") {
                 findModuleDebugInfoInner({
                     ...props,
                     last: k
@@ -97,18 +97,20 @@ function findModuleDebugInfoInner(props: {
             console.log(`CallExpression ${props.last.loc?.start?.line}`);
         }
         props.last.arguments.forEach((k) => {
-            if (k.type == "FunctionDeclaration") {
-                extract({
-                    ...props,
-                    exp: k,
-                });
-            } else if (k.type == "TableConstructorExpression") {
+            if (k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression") {
                 findModuleDebugInfoInner({
                     ...props,
                     last: k
                 });
             }
         });
+
+        if (props.last.base.type == "FunctionDeclaration") {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.base
+            });
+        }
     }
     if (props.last.type == "TableConstructorExpression") {
         if (props.log) {
