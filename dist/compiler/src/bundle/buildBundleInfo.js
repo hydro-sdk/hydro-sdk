@@ -65,6 +65,7 @@ var LuaLib_1 = require("typescript-to-lua/dist/LuaLib");
 var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
 var mangleSymbols_1 = require("../ast/mangleSymbols");
+var process_1 = require("process");
 function buildBundleInfo(buildOptions, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
         var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, transpiledFiles, _loop_1, _i, transpiledFiles_1, transpiledFile, lualiBundle;
@@ -134,6 +135,19 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                                 case 1:
                                     _a.sent();
                                     mangleSymbols_1.mangleSymbols(debugInfo);
+                                    debugInfo.forEach(function (x) {
+                                        debugInfo.forEach(function (k) {
+                                            if (x.symbolFullyQualifiedMangleName == k.symbolFullyQualifiedMangleName &&
+                                                x.originalLineStart != k.originalLineStart &&
+                                                x.originalColumnStart != k.originalColumnStart) {
+                                                console.log(x.symbolName + " and " + k.symbolName);
+                                                console.log("Defined at " + x.originalFileName + ":" + x.lineStart + "," + x.originalColumnStart);
+                                                console.log("and " + k.originalFileName + ":" + k.lineStart + "," + k.originalColumnStart);
+                                                console.log("both mangled to the following: " + x.symbolFullyQualifiedMangleName);
+                                                process_1.exit(1);
+                                            }
+                                        });
+                                    });
                                     res.entries[transpiledFile.fileName] = {
                                         debugSymbols: debugInfo,
                                         moduleText: transpiledFile.lua,
