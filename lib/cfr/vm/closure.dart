@@ -37,8 +37,6 @@ class Closure {
         if (proto.debugSymbol == null) {
           throw "Dispatched function prototypes are required to have debug symbols but the prototype from ${proto.lineStart}-${proto.lineEnd} in ${proto.source} could not be matched to a debug symbol";
         }
-
-        print(proto.debugSymbol.symbolFullyQualifiedMangleName);
       }
 
       return call(args);
