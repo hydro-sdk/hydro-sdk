@@ -8,11 +8,12 @@ void main() {
     var testMode = getTestMode();
     expect(testMode, isNotNull);
 
-    await tester.pumpWidget(integrationTestHarness("../assets/examples/counter"));
+    await tester
+        .pumpWidget(integrationTestHarness("../assets/examples/counter"));
     await tester.pumpAndSettle();
 
     var exception = tester.takeException();
-    expect(exception,isNull);
+    expect(exception, isNull);
 
     expect(find.byKey(Key("counter")), findsOneWidget);
     expect(find.byKey(Key("increment")), findsOneWidget);

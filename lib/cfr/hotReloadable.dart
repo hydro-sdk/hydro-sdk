@@ -67,7 +67,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T> {
           name: baseUrl,
           thunks: thunks,
           linkStatus: linkStatus);
-          luaState.dispatchContext = DispatchContext(dispatchContext: val);
+      luaState.dispatchContext = DispatchContext(dispatchContext: val);
       print(
           "I/Hydro ${linkStatus.nativePrototypes} native, ${linkStatus.virtualPrototypes} virtual prototypes");
       // var linkStatus = linkNativePrototypes(destination: val.closure, stubs: stubs);

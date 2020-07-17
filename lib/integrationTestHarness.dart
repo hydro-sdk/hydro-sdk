@@ -6,7 +6,7 @@ import 'package:hydro_sdk/hc.g.dart';
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
 
-Widget integrationTestHarness(String path,{List<dynamic>args=const []}) {
+Widget integrationTestHarness(String path, {List<dynamic> args = const []}) {
   WidgetsFlutterBinding.ensureInitialized();
   return RunFromNetwork(
     args: args,

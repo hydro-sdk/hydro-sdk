@@ -64,7 +64,7 @@ void main() {
               ?.cast<ModuleDebugInfo>();
         },
       ));
-      
+
       expect(tester.takeException(), isNull);
       await Future.delayed(Duration(seconds: 5));
 
