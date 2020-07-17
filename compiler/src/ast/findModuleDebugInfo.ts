@@ -199,7 +199,7 @@ function extract(props: {
             parameterNames:
                 props.exp.type == "FunctionDeclaration" ?
                     extractFunctionDeclarationArguments(props.exp) : [],
-            symbolDisambiguationIndex: -1,
+            symbolDisambiguationIndex: 0,
 
         });
     }

@@ -1,6 +1,11 @@
 import { ModuleDebugInfo } from "./moduleDebugInfo";
 import { hashText } from "./hashText";
 
+type SymbolWithParents = {
+    symbol: ModuleDebugInfo;
+    parents: Array<ModuleDebugInfo>;
+};
+
 export function mangleSymbols(symbols: Array<ModuleDebugInfo>): void {
     /*
         Inspired by Rust's name mangling https://github.com/rust-lang/rfcs/blob/master/text/2603-rust-symbol-name-mangling-v0.md
@@ -30,10 +35,7 @@ export function mangleSymbols(symbols: Array<ModuleDebugInfo>): void {
     */
 
     let parentLevels: {
-        [i: number]: Array<{
-            symbol: ModuleDebugInfo;
-            parents: Array<ModuleDebugInfo>;
-        }>
+        [i: number]: Array<SymbolWithParents>
     } = {};
     symbols.forEach((x) => {
         let parents = new Array<ModuleDebugInfo>();
@@ -60,16 +62,21 @@ export function mangleSymbols(symbols: Array<ModuleDebugInfo>): void {
         ];
     });
 
-    let symbolsWithParents = new Array<{
-        symbol: ModuleDebugInfo;
-        parents: Array<ModuleDebugInfo>;
-    }>();
+    let symbolsWithParents = new Array<SymbolWithParents>();
+
+    const buildParentQualifiers = (sym: Readonly<SymbolWithParents>) =>
+        sym.parents.map((e) => `${e.symbolMangleName}::${e.symbolDisambiguationIndex}`).join("::");
+
+    const buildFullyQualifiedName = (sym: Readonly<SymbolWithParents>) =>
+        `_L${hashText(sym.symbol.originalFileName)}${buildParentQualifiers(sym) ? `::${buildParentQualifiers(sym)}` : ""}::${sym.symbol.symbolMangleName}::${sym.symbol.symbolDisambiguationIndex}`;
 
     Object.keys(parentLevels).forEach((x) => {
         parentLevels[parseInt(x)].forEach((k) => {
             parentLevels[parseInt(x)].forEach((j) => {
-                if (j.symbol.symbolMangleName == k.symbol.symbolMangleName) {
-                    k.symbol.symbolDisambiguationIndex += 1;
+                if (k.symbol.lineStart != j.symbol.lineStart) {
+                    if (buildFullyQualifiedName(k) == buildFullyQualifiedName(j)) {
+                        j.symbol.symbolDisambiguationIndex += 1;
+                    }
                 }
             });
             symbolsWithParents.push(k);
@@ -77,7 +84,6 @@ export function mangleSymbols(symbols: Array<ModuleDebugInfo>): void {
     });
 
     symbolsWithParents.forEach((x) => {
-        let parentQualifiers = x.parents.map((e) => `${e.symbolMangleName}::${e.symbolDisambiguationIndex}`).join("::");
-        x.symbol.symbolFullyQualifiedMangleName = `_L${hashText(x.symbol.originalFileName)}${parentQualifiers ? `::${parentQualifiers}` : ""}::${x.symbol.symbolMangleName}::${x.symbol.symbolDisambiguationIndex}`;
+        x.symbol.symbolFullyQualifiedMangleName = buildFullyQualifiedName(x);
     });
 }

@@ -58,19 +58,26 @@ function mangleSymbols(symbols) {
         ]);
     });
     var symbolsWithParents = new Array();
+    var buildParentQualifiers = function (sym) {
+        return sym.parents.map(function (e) { return e.symbolMangleName + "::" + e.symbolDisambiguationIndex; }).join("::");
+    };
+    var buildFullyQualifiedName = function (sym) {
+        return "_L" + hashText_1.hashText(sym.symbol.originalFileName) + (buildParentQualifiers(sym) ? "::" + buildParentQualifiers(sym) : "") + "::" + sym.symbol.symbolMangleName + "::" + sym.symbol.symbolDisambiguationIndex;
+    };
     Object.keys(parentLevels).forEach(function (x) {
         parentLevels[parseInt(x)].forEach(function (k) {
             parentLevels[parseInt(x)].forEach(function (j) {
-                if (j.symbol.symbolMangleName == k.symbol.symbolMangleName) {
-                    k.symbol.symbolDisambiguationIndex += 1;
+                if (k.symbol.lineStart != j.symbol.lineStart) {
+                    if (buildFullyQualifiedName(k) == buildFullyQualifiedName(j)) {
+                        j.symbol.symbolDisambiguationIndex += 1;
+                    }
                 }
             });
             symbolsWithParents.push(k);
         });
     });
     symbolsWithParents.forEach(function (x) {
-        var parentQualifiers = x.parents.map(function (e) { return e.symbolMangleName + "::" + e.symbolDisambiguationIndex; }).join("::");
-        x.symbol.symbolFullyQualifiedMangleName = "_L" + hashText_1.hashText(x.symbol.originalFileName) + (parentQualifiers ? "::" + parentQualifiers : "") + "::" + x.symbol.symbolMangleName + "::" + x.symbol.symbolDisambiguationIndex;
+        x.symbol.symbolFullyQualifiedMangleName = buildFullyQualifiedName(x);
     });
 }
 exports.mangleSymbols = mangleSymbols;
