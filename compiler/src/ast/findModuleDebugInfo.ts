@@ -7,6 +7,7 @@ export function findModuleDebugInfo(props: {
     originalFileName: string,
     filename: string,
     fileContent: string,
+    log?: boolean,
 }): Array<ModuleDebugInfo> {
     let res = new Array<ModuleDebugInfo>();
 
@@ -22,7 +23,8 @@ export function findModuleDebugInfo(props: {
         findModuleDebugInfoInner({
             ...props,
             last: x,
-            cont: res
+            cont: res,
+            log: props.log,
         });
     });
 
@@ -33,14 +35,18 @@ function findModuleDebugInfoInner(props: {
     originalFileName: string,
     filename: string,
     fileContent: string,
-    last: lparse.Statement,
-    cont: Array<ModuleDebugInfo>
+    last: lparse.Statement | lparse.CallExpression | lparse.TableConstructorExpression,
+    cont: Array<ModuleDebugInfo>,
+    log?: boolean
 }) {
     if (props.last.type == "FunctionDeclaration") {
         extract({
             ...props,
             exp: props.last,
         });
+        if (props.log) {
+            console.log(`FunctionDeclaration ${props.last.loc?.start?.line}`);
+        }
         props.last.body.forEach((k) => {
             findModuleDebugInfoInner({
                 ...props,
@@ -48,22 +54,73 @@ function findModuleDebugInfoInner(props: {
             });
         });
     }
+    if (props.last.type == "ReturnStatement") {
+        if (props.log) {
+            console.log(`ReturnStatement ${props.last?.loc?.start?.line}`);
+        }
+        props.last.arguments.forEach((k) => {
+            if (k.type == "CallExpression") {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k
+                });
+            }
+        });
+    }
     if (props.last.type == "CallStatement") {
+        if (props.log) {
+            console.log(`CallStatement ${props.last.loc?.start?.line}`);
+        }
         if (props.last.expression.type == "CallExpression") {
-            props.last.expression.arguments.forEach((k) => {
-                if (k.type == "FunctionDeclaration") {
-                    extract({
-                        ...props,
-                        exp: k,
-                    });
-                }
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.expression
             });
         }
     }
     if (props.last.type == "AssignmentStatement") {
+        if (props.log) {
+            console.log(`AssignmentStatement ${props.last.loc?.start?.line}`);
+        }
         extract({
             ...props,
             exp: props.last,
+        });
+    }
+    if (props.last.type == "CallExpression") {
+        if (props.log) {
+            console.log(`CallExpression ${props.last.loc?.start?.line}`);
+        }
+        props.last.arguments.forEach((k) => {
+            if (k.type == "FunctionDeclaration") {
+                extract({
+                    ...props,
+                    exp: k,
+                });
+            } else if (k.type == "TableConstructorExpression") {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k
+                });
+            }
+        });
+    }
+    if (props.last.type == "TableConstructorExpression") {
+        if (props.log) {
+            console.log(`TableConstructorExpression ${props.last.loc?.start?.line}`);
+        }
+        props.last.fields.forEach((k) => {
+            if (k.type == "TableKeyString") {
+                if (props.log) {
+                    console.log(`TableKeyString ${k.key.name} ${k.loc?.start?.line}`);
+                }
+                if (k.value.type == "CallExpression" || k.value.type == "FunctionDeclaration") {
+                    findModuleDebugInfoInner({
+                        ...props,
+                        last: k.value
+                    });
+                }
+            }
         });
     }
 }
