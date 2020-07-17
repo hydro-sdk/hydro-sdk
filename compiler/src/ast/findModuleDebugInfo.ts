@@ -110,11 +110,11 @@ function findModuleDebugInfoInner(props: {
             console.log(`TableConstructorExpression ${props.last.loc?.start?.line}`);
         }
         props.last.fields.forEach((k) => {
-            if (k.type == "TableKeyString") {
-                if (props.log) {
-                    console.log(`TableKeyString ${k.key.name} ${k.loc?.start?.line}`);
-                }
-                if (k.value.type == "CallExpression" || k.value.type == "FunctionDeclaration") {
+            if (k.type == "TableKeyString" || k.type == "TableValue") {
+                if (k.value.type == "CallExpression" || k.value.type == "FunctionDeclaration" || k.value.type == "TableConstructorExpression") {
+                    if (props.log) {
+                        console.log(`${k.value.type} ${k.type == "TableKeyString" ? k.key.name : ""} ${k.loc?.start?.line}`);
+                    }
                     findModuleDebugInfoInner({
                         ...props,
                         last: k.value
