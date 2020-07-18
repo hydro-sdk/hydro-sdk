@@ -44,7 +44,7 @@ var setupArtifactDirectories_1 = require("./setupArtifactDirectories");
 var compileByteCodeAndWriteHash_1 = require("./compileByteCodeAndWriteHash");
 var buildBundleInfo_1 = require("./bundle/buildBundleInfo");
 var bundle_1 = require("./bundle/bundle");
-var tui_1 = require("./tui");
+var progressBar_1 = require("./progressBar");
 function buildTs(config) {
     return __awaiter(this, void 0, void 0, function () {
         var startTime, buildHash, _a, outFileHash, outFile, outFileSymbols, tempFile, tempDir, oldBundleInfo, oldBuild, compileProgressBar, bundleInfo, bundleResult, symbolsString, endTime;
@@ -58,7 +58,7 @@ function buildTs(config) {
                     if (fs.existsSync(oldBundleInfo)) {
                         oldBuild = JSON.parse(fs.readFileSync(oldBundleInfo).toString());
                     }
-                    compileProgressBar = new tui_1.Tui("Compiling");
+                    compileProgressBar = new progressBar_1.ProgressBar("Compiling");
                     return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config, function (currentStep, totalSteps, suffixMessage) {
                             // console.log(`${currentStep}/${totalSteps} ${suffixMessage}`);
                             compileProgressBar.update(currentStep, totalSteps, suffixMessage);

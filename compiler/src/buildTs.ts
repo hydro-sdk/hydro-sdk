@@ -11,7 +11,7 @@ import { compileByteCodeAndWriteHash } from "./compileByteCodeAndWriteHash";
 import { buildBundleInfo } from "./bundle/buildBundleInfo";
 import { bundle } from "./bundle/bundle";
 import { BundleInfo } from "./bundle/bundleInfo";
-import { Tui } from "./tui";
+import { ProgressBar } from "./progressBar";
 
 export async function buildTs(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): Promise<void> {
     const startTime = new Date().getTime();
@@ -26,7 +26,7 @@ export async function buildTs(config: BuildOptions & { inputLanguage: InputLangu
         oldBuild = JSON.parse(fs.readFileSync(oldBundleInfo).toString());
     }
 
-    const compileProgressBar = new Tui("Compiling");
+    const compileProgressBar = new ProgressBar("Compiling");
 
     const bundleInfo = await buildBundleInfo(
         config,

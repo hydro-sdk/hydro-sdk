@@ -1,7 +1,7 @@
 import * as clip from "cli-progress";
 import * as colors from "colors";
 
-export class Tui {
+export class ProgressBar {
     private bar: clip.Bar;
     public leadingMessage: string;
 
