@@ -141,8 +141,8 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                                                 x.originalLineStart != k.originalLineStart &&
                                                 x.originalColumnStart != k.originalColumnStart) {
                                                 console.log(x.symbolName + " and " + k.symbolName);
-                                                console.log("Defined at " + x.originalFileName + ":" + x.lineStart + "," + x.originalColumnStart + " (" + x.lineStart + "," + x.columnStart + ")");
-                                                console.log("and " + k.originalFileName + ":" + k.lineStart + "," + k.originalColumnStart + " (" + k.lineStart + "," + k.columnStart + ")");
+                                                console.log("Defined at " + x.originalFileName + ":" + x.originalLineStart + "," + x.originalColumnStart + " (" + x.lineStart + "," + x.columnStart + ")");
+                                                console.log("and " + k.originalFileName + ":" + k.originalLineStart + "," + k.originalColumnStart + " (" + k.lineStart + "," + k.columnStart + ")");
                                                 console.log("both mangled to the following: " + x.symbolFullyQualifiedMangleName);
                                                 process_1.exit(1);
                                             }

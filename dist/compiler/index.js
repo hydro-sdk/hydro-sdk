@@ -41,9 +41,8 @@ var path = require("path");
 var minimist = require("minimist");
 var rimraf = require("rimraf");
 var chokidar = require("chokidar");
-var transpileTs_1 = require("./src/ts/transpileTs");
+var buildTs_1 = require("./src/buildTs");
 var buildOptions_1 = require("./src/buildOptions");
-var transpileHx_1 = require("./src/hx/transpileHx");
 var argv = minimist(process.argv.slice(2));
 var entry = argv.t;
 var modName = argv.m;
@@ -118,7 +117,7 @@ if (watch !== undefined) {
             switch (_a.label) {
                 case 0:
                     if (!(inputLanguage == buildOptions_1.InputLanguage.typescript)) return [3 /*break*/, 2];
-                    return [4 /*yield*/, transpileTs_1.transpileTS({
+                    return [4 /*yield*/, buildTs_1.buildTs({
                             inputLanguage: inputLanguage,
                             entry: entry,
                             modName: modName,
@@ -137,7 +136,7 @@ if (watch !== undefined) {
             switch (_a.label) {
                 case 0:
                     if (!(inputLanguage == buildOptions_1.InputLanguage.typescript)) return [3 /*break*/, 2];
-                    return [4 /*yield*/, transpileTs_1.transpileTS({
+                    return [4 /*yield*/, buildTs_1.buildTs({
                             inputLanguage: inputLanguage,
                             entry: entry,
                             modName: modName,
@@ -146,21 +145,8 @@ if (watch !== undefined) {
                         })];
                 case 1:
                     _a.sent();
-                    return [3 /*break*/, 3];
-                case 2:
-                    if (inputLanguage == buildOptions_1.InputLanguage.haxe && mainClass) {
-                        transpileHx_1.transpileHx({
-                            inputLanguage: inputLanguage,
-                            mainClass: mainClass,
-                            classPath: classPath,
-                            entry: entry,
-                            modName: modName,
-                            outDir: outDir,
-                            profile: profile
-                        });
-                    }
-                    _a.label = 3;
-                case 3: return [2 /*return*/];
+                    _a.label = 2;
+                case 2: return [2 /*return*/];
             }
         });
     }); });
@@ -171,7 +157,7 @@ else {
             switch (_a.label) {
                 case 0:
                     if (!(inputLanguage == buildOptions_1.InputLanguage.typescript)) return [3 /*break*/, 2];
-                    return [4 /*yield*/, transpileTs_1.transpileTS({
+                    return [4 /*yield*/, buildTs_1.buildTs({
                             inputLanguage: inputLanguage,
                             entry: entry,
                             modName: modName,
@@ -180,21 +166,8 @@ else {
                         })];
                 case 1:
                     _a.sent();
-                    return [3 /*break*/, 3];
-                case 2:
-                    if (inputLanguage == buildOptions_1.InputLanguage.haxe && mainClass) {
-                        transpileHx_1.transpileHx({
-                            inputLanguage: inputLanguage,
-                            classPath: classPath,
-                            mainClass: mainClass,
-                            entry: entry,
-                            modName: modName,
-                            outDir: outDir,
-                            profile: profile
-                        });
-                    }
-                    _a.label = 3;
-                case 3: return [2 /*return*/];
+                    _a.label = 2;
+                case 2: return [2 /*return*/];
             }
         });
     }); })();

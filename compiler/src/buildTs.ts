@@ -3,16 +3,16 @@ import * as fs from "fs";
 import * as chalk from "chalk";
 import * as ts from "typescript";
 
-import { BuildOptions, InputLanguage } from "../buildOptions";
-import { configHash } from "../configHash";
+import { BuildOptions, InputLanguage } from "./buildOptions";
+import { configHash } from "./configHash";
 
-import { setupArtifactDirectories } from "../setupArtifactDirectories";
-import { compileByteCodeAndWriteHash } from "../compileByteCodeAndWriteHash";
-import { buildBundleInfo } from "../bundle/buildBundleInfo";
-import { bundle } from "../bundle/bundle";
-import { BundleInfo } from "../bundle/bundleInfo";
+import { setupArtifactDirectories } from "./setupArtifactDirectories";
+import { compileByteCodeAndWriteHash } from "./compileByteCodeAndWriteHash";
+import { buildBundleInfo } from "./bundle/buildBundleInfo";
+import { bundle } from "./bundle/bundle";
+import { BundleInfo } from "./bundle/bundleInfo";
 
-export async function transpileTS(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): Promise<void> {
+export async function buildTs(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): Promise<void> {
     const startTime = new Date().getTime();
 
     const buildHash = configHash(config);
