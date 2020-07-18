@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
@@ -48,7 +47,6 @@ class HydroState {
 
   DispatchContext dispatchContext;
   List<ModuleDebugInfo> symbols;
-  bool debugFunctionsMustHaveDebugSymbols = kDebugMode;
 
   HydroState() : _context = new Context(env: new HydroTable()) {
     _context.userdata = this;
