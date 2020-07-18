@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/hydroState.dart';
@@ -30,7 +29,7 @@ class Closure {
   List<dynamic> dispatch(List<dynamic> args,
       {@required HydroState parentState}) {
     try {
-      if (buildProfile == BuildProfile.release || !kDebugMode) {
+      if (buildProfile == BuildProfile.release) {
         return call(args, parentState: parentState);
       } else if (buildProfile == BuildProfile.debug) {
         if (proto.debugSymbol == null) {
