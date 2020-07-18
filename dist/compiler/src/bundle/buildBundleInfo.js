@@ -83,11 +83,11 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                         }
                     });
                     sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
-                    updateBuildProgress(0, sourceFiles.length, "");
+                    updateBuildProgress(0, sourceFiles.length + 1, "");
                     oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
                     sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourceFile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
-                    currentStep = Math.abs(sourceFiles.length - sourceFilesToTranspile.length);
-                    updateBuildProgress(currentStep, sourceFiles.length, "");
+                    currentStep = Math.abs(sourceFiles.length + 1 - sourceFilesToTranspile.length);
+                    updateBuildProgress(currentStep, sourceFiles.length + 1, "");
                     concatDiagnostics = function (newDiagnostics) {
                         return newDiagnostics && newDiagnostics.length ? res.diagnostics = __spreadArrays(res.diagnostics, newDiagnostics.map(function (x) { return x; })) : undefined;
                     };
@@ -126,10 +126,12 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                 case 0: return [4 /*yield*/, new Promise(function (resolve) {
                                         var dirname = path.dirname(sourceFileToTranspile.fileName);
                                         var dirnames = dirname.split(path.sep);
-                                        updateBuildProgress(currentStep, sourceFiles.length, "" + dirnames[dirnames.length - 1] + path.sep + path.basename(sourceFileToTranspile.fileName));
+                                        var parentDir = dirnames.length >= 1 ? "" + path.sep + dirnames[dirnames.length - 1] : "";
+                                        var grandParentDir = dirname.length >= 2 ? "" + dirnames[dirnames.length - 2] : "";
+                                        updateBuildProgress(currentStep, sourceFiles.length + 1, "" + grandParentDir + parentDir + path.sep + path.basename(sourceFileToTranspile.fileName));
                                         setTimeout(function () {
                                             resolve();
-                                        }, 100);
+                                        }, 200);
                                     })];
                                 case 1:
                                     _a.sent();
@@ -186,6 +188,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     return [3 /*break*/, 1];
                 case 4:
                     if (!Object.values(res.entries).some(function (x) { return x.moduleName == "lualib_bundle"; })) {
+                        updateBuildProgress(currentStep, sourceFiles.length + 1, "lualib_bundle");
                         lualiBundle = LuaLib_1.getLuaLibBundle({
                             getCurrentDirectory: function () { return ""; },
                             readFile: function (filePath) { return fs.readFileSync(filePath).toString(); }
@@ -202,6 +205,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                             originalFileHash: hashText_1.hashText(lualiBundle)
                         };
                     }
+                    updateBuildProgress(currentStep, sourceFiles.length + 1, buildOptions.entry);
                     return [2 /*return*/, res];
             }
         });

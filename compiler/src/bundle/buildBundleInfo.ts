@@ -37,17 +37,15 @@ export async function buildBundleInfo(
     });
 
     const sourceFiles = program.getSourceFiles().filter((x) => !x.isDeclarationFile);
-    updateBuildProgress(0, sourceFiles.length, "");
+    updateBuildProgress(0, sourceFiles.length+1, "");
 
     const oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
 
     const sourceFilesToTranspile = oldEntries ? sourceFiles.filter((x) => hashSourceFile(x) != (oldEntries[x.fileName]?.originalFileHash ?? "")) : sourceFiles;
 
-    // console.log(`Reused ${Math.abs(sourceFiles.length - sourceFilesToTranspile.length)} inputs`);
+    let currentStep = Math.abs(sourceFiles.length+1 - sourceFilesToTranspile.length);
 
-    let currentStep = Math.abs(sourceFiles.length - sourceFilesToTranspile.length);
-    
-    updateBuildProgress(currentStep, sourceFiles.length, "");
+    updateBuildProgress(currentStep, sourceFiles.length+1, "");
 
     const concatDiagnostics = (newDiagnostics: Readonly<Array<ts.DiagnosticRelatedInformation>>) =>
         newDiagnostics && newDiagnostics.length ? res.diagnostics = [
@@ -94,13 +92,15 @@ export async function buildBundleInfo(
     res.entries = oldEntries ?? {};
 
     for (const sourceFileToTranspile of sourceFilesToTranspile) {
-        await new Promise((resolve)=>{
+        await new Promise((resolve) => {
             let dirname = path.dirname(sourceFileToTranspile.fileName);
             let dirnames = dirname.split(path.sep);
-            updateBuildProgress(currentStep,sourceFiles.length,`${dirnames[dirnames.length-1]}${path.sep}${path.basename(sourceFileToTranspile.fileName)}`);
-            setTimeout(()=>{
+            let parentDir = dirnames.length >= 1 ? `${path.sep}${dirnames[dirnames.length - 1]}` : "";
+            let grandParentDir = dirname.length >= 2 ? `${dirnames[dirnames.length - 2]}` : "";
+            updateBuildProgress(currentStep, sourceFiles.length+1, `${grandParentDir}${parentDir}${path.sep}${path.basename(sourceFileToTranspile.fileName)}`);
+            setTimeout(() => {
                 resolve();
-            },100);
+            }, 200);
         });
         const { transpiledFiles } = tstl.transpile({
             program: program as any,
@@ -144,6 +144,7 @@ export async function buildBundleInfo(
     }
 
     if (!Object.values(res.entries).some((x) => x.moduleName == "lualib_bundle")) {
+        updateBuildProgress(currentStep, sourceFiles.length+1,"lualib_bundle");
         const lualiBundle = getLuaLibBundle({
             getCurrentDirectory: () => "",
             readFile: (filePath: string) => fs.readFileSync(filePath).toString()
@@ -160,6 +161,7 @@ export async function buildBundleInfo(
             originalFileHash: hashText(lualiBundle)
         };
     }
+    updateBuildProgress(currentStep, sourceFiles.length+1,buildOptions.entry);
 
     return res;
 }

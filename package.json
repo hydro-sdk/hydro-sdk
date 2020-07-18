@@ -24,6 +24,7 @@
   "devDependencies": {},
   "dependencies": {
     "@types/cli-progress": "^3.7.0",
+    "@types/colors": "^1.2.1",
     "@types/jest": "^26.0.3",
     "@types/luaparse": "^0.2.6",
     "@types/minimist": "^1.2.0",
@@ -36,6 +37,7 @@
     "chalk": "^3.0.0",
     "chokidar": "^3.3.1",
     "cli-progress": "^3.8.2",
+    "colors": "^1.4.0",
     "escape-regex-string": "^1.0.6",
     "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.17.3",

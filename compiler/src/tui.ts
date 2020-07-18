@@ -1,4 +1,5 @@
 import * as clip from "cli-progress";
+import * as colors from "colors";
 
 export class Tui {
     private bar: clip.Bar;
@@ -7,7 +8,8 @@ export class Tui {
     public constructor(leadingMessage: string) {
         this.leadingMessage = leadingMessage;
         this.bar = new clip.Bar({
-            format: `${this.leadingMessage}  [{bar}] {value}/{total} {suffixMessage}`,
+            format: `${this.leadingMessage}  ${colors.green(`[{bar}]`)} {value}/{total} {suffixMessage}`,
+            barCompleteChar: '\u2588',
         });
         this.bar.start(0, 0, { suffixMessage: "" });
     }
