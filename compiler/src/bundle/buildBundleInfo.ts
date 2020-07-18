@@ -85,15 +85,16 @@ export async function buildBundleInfo(
         getFullDiagnostics();
     }
 
-
-    const { transpiledFiles } = tstl.transpile({
-        program: program as any,
-        sourceFiles: (sourceFilesToTranspile as any)
-    });
-
     res.entries = oldEntries ?? {};
 
-    for (const transpiledFile of transpiledFiles) {
+    for (const sourceFileToTranspile of sourceFilesToTranspile) {
+        const { transpiledFiles } = tstl.transpile({
+            program: program as any,
+            sourceFiles: [(sourceFileToTranspile as any)]
+        });
+
+        const transpiledFile = transpiledFiles[0];
+
         const debugInfo = findModuleDebugInfo({
             originalFileName: transpiledFile.fileName,
             filename: transpiledFile.fileName,

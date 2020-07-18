@@ -68,7 +68,7 @@ var mangleSymbols_1 = require("../ast/mangleSymbols");
 var process_1 = require("process");
 function buildBundleInfo(buildOptions, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, transpiledFiles, _loop_1, _i, transpiledFiles_1, transpiledFile, lualiBundle;
+        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -99,8 +99,8 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                     };
                     getIncrementalDiagnostics = function () {
                         if (sourceFilesToTranspile.length > 0) {
-                            for (var _i = 0, sourceFilesToTranspile_1 = sourceFilesToTranspile; _i < sourceFilesToTranspile_1.length; _i++) {
-                                var sourceFile = sourceFilesToTranspile_1[_i];
+                            for (var _i = 0, sourceFilesToTranspile_2 = sourceFilesToTranspile; _i < sourceFilesToTranspile_2.length; _i++) {
+                                var sourceFile = sourceFilesToTranspile_2[_i];
                                 var diagnostics = program.getSyntacticDiagnostics(sourceFile);
                                 concatDiagnostics(diagnostics);
                                 diagnostics = program.getSemanticDiagnostics(sourceFile);
@@ -116,16 +116,17 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                     else {
                         getFullDiagnostics();
                     }
-                    transpiledFiles = tstl.transpile({
-                        program: program,
-                        sourceFiles: sourceFilesToTranspile
-                    }).transpiledFiles;
                     res.entries = oldEntries !== null && oldEntries !== void 0 ? oldEntries : {};
-                    _loop_1 = function (transpiledFile) {
-                        var debugInfo;
+                    _loop_1 = function (sourceFileToTranspile) {
+                        var transpiledFiles, transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0:
+                                    transpiledFiles = tstl.transpile({
+                                        program: program,
+                                        sourceFiles: [sourceFileToTranspile]
+                                    }).transpiledFiles;
+                                    transpiledFile = transpiledFiles[0];
                                     debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
                                         originalFileName: transpiledFile.fileName,
                                         filename: transpiledFile.fileName,
@@ -159,12 +160,12 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                             }
                         });
                     };
-                    _i = 0, transpiledFiles_1 = transpiledFiles;
+                    _i = 0, sourceFilesToTranspile_1 = sourceFilesToTranspile;
                     _a.label = 1;
                 case 1:
-                    if (!(_i < transpiledFiles_1.length)) return [3 /*break*/, 4];
-                    transpiledFile = transpiledFiles_1[_i];
-                    return [5 /*yield**/, _loop_1(transpiledFile)];
+                    if (!(_i < sourceFilesToTranspile_1.length)) return [3 /*break*/, 4];
+                    sourceFileToTranspile = sourceFilesToTranspile_1[_i];
+                    return [5 /*yield**/, _loop_1(sourceFileToTranspile)];
                 case 2:
                     _a.sent();
                     _a.label = 3;
