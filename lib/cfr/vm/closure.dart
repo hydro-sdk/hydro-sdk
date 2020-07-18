@@ -1,7 +1,6 @@
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/util.dart';
@@ -30,48 +29,26 @@ class Closure {
   List<dynamic> dispatch(List<dynamic> args,
       {@required HydroState parentState}) {
     try {
-      if (buildProfile == BuildProfile.release ||
-          parentState?.dispatchContext?.dispatchContext == null ||
-          parentState?.dispatchContext?.resssemblyMap == null) {
+      if (buildProfile == BuildProfile.release) {
         return call(args, parentState: parentState);
       } else if (buildProfile == BuildProfile.debug) {
-        String currentHash =
-            hashPrototype(proto, includeSourceLocations: false);
-
-        String targetHash = currentHash;
-
-        Prototype targetProto = parentState
-            ?.dispatchContext?.dispatchContext?.closure?.proto
-            ?.findPrototypeByHash(targetHash: targetHash);
-        if (targetProto != null) {
-          proto = targetProto;
-        }
-        if (targetProto == null) {
-          for (var i = 0;
-              i != parentState?.dispatchContext?.resssemblyMap?.length;
-              ++i) {
-            var entry = parentState?.dispatchContext?.resssemblyMap[i];
-            if (entry[0] == targetHash) {
-              targetHash = entry[1];
-            } else if (entry[1] == targetHash) {
-              targetHash = entry[0];
-            }
-          }
-
-          Prototype targetProto = parentState
-              ?.dispatchContext?.dispatchContext?.closure?.proto
-              ?.findPrototypeByHash(targetHash: targetHash);
-
-          if (targetProto != null) {
-            proto = targetProto;
-          }
+        if (proto.debugSymbol == null) {
+          throw "Dispatched function prototypes are required to have debug symbols but the prototype from ${proto.lineStart}-${proto.lineEnd} in ${proto.source} could not be matched to a debug symbol";
         }
       }
 
+      Prototype targetProto = parentState
+          .dispatchContext?.dispatchContext?.closure?.proto
+          ?.findPrototypeByDebugSymbol(symbol: proto.debugSymbol);
+
+      if (targetProto != null) {
+        proto = targetProto;
+      } else {
+        throw "Failed to dispatch to ${proto.debugSymbol.symbolFullyQualifiedMangleName} from ${proto.lineStart}-${proto.lineEnd} in ${proto.source}";
+      }
       return call(args);
     } on HydroError catch (err) {
-      err.addSymbolicatedStackTrace(
-          moduleDebugInfoRaw: parentState.moduleDebugInfoRaw);
+      err.addSymbolicatedStackTrace(symbols: parentState.symbols);
       throw err;
     }
   }

@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 
+import 'package:hydro_sdk/cfr/decode/maybeAssignDebugSymbol.dart';
+import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
@@ -67,6 +69,7 @@ class Decoder {
       {@required Prototype parent,
       @required CodeDump root,
       @required LinkStatus linkStatus,
+      @required HydroState hydroState,
       @required Map<String, NativeThunk> thunks}) {
     doing = "reading primitive";
     var prim = new Prototype(root);
@@ -108,7 +111,11 @@ class Decoder {
     prim.prototypes = new List.generate(
         readInt(code.intSize, code.bigEndian),
         (i) => readFunc(
-            parent: prim, root: root, linkStatus: linkStatus, thunks: thunks));
+            parent: prim,
+            root: root,
+            linkStatus: linkStatus,
+            hydroState: hydroState,
+            thunks: thunks));
     doing = "reading upvals";
     prim.upvals = new List.generate(readInt(code.intSize, code.bigEndian), (i) {
       return new UpvalDef(read(1)[0] == 1, read(1)[0]);
@@ -133,11 +140,14 @@ class Decoder {
       if (thunks[hashPrototype(prim)] != null) {
         var res = thunks[hashPrototype(prim)](codeDump: root, parent: parent);
         res.parent = parent;
+        maybeAssignDebugSymbol(hydroState: hydroState, prototype: res);
         linkStatus?.nativePrototypes += 1;
         return res;
       }
     }
     linkStatus?.virtualPrototypes += 1;
+    maybeAssignDebugSymbol(hydroState: hydroState, prototype: prim);
+
     return prim;
   }
 
@@ -146,6 +156,7 @@ class Decoder {
       {String name = "stdin",
       @required CodeDump dump,
       @required LinkStatus linkStatus,
+      @required HydroState hydroState,
       @required Map<String, NativeThunk> thunks}) {
     try {
       code = new CodeDump();
@@ -190,7 +201,11 @@ class Decoder {
               read(1)[0] != 0x0a) throw "Invalid magic";
 
           code.main = readFunc(
-              parent: null, root: code, linkStatus: linkStatus, thunks: thunks);
+              parent: null,
+              root: code,
+              hydroState: hydroState,
+              linkStatus: linkStatus,
+              thunks: thunks);
           code.flavor = flavor;
 
           return code;

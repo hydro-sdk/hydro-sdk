@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:typed_data';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/hotReloadable.dart';
@@ -7,7 +8,7 @@ import 'package:http/http.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
-import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 void _rebuildAllChildren(BuildContext context) {
@@ -25,7 +26,7 @@ class RunFromNetwork extends StatefulWidget {
   final Map<String, NativeThunk> thunks;
   final Future<String> Function(String) downloadHash;
   final Future<Uint8List> Function(String) downloadByteCodeImage;
-  final Future<ModuleDebugInfoRaw> Function(String) downloadDebugInfo;
+  final Future<List<ModuleDebugInfo>> Function(String) downloadDebugInfo;
 
   RunFromNetwork({
     @required this.baseUrl,
@@ -59,7 +60,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
 
   Future<String> Function(String) downloadHash;
   Future<Uint8List> Function(String) downloadByteCodeImage;
-  Future<ModuleDebugInfoRaw> Function(String) downloadDebugInfo;
+  Future<List<ModuleDebugInfo>> Function(String) downloadDebugInfo;
 
   _RunFromNetwork({
     @required this.baseUrl,
@@ -101,7 +102,11 @@ class _RunFromNetwork extends State<RunFromNetwork>
         try {
           var res = await get(uri);
           if (res.statusCode == 200) {
-            return ModuleDebugInfoRaw(res.body);
+            return json
+                .decode(res.body)
+                ?.map((x) => ModuleDebugInfo.fromJson(x))
+                ?.toList()
+                ?.cast<ModuleDebugInfo>();
           }
         } catch (err) {
           print(err);
@@ -123,9 +128,9 @@ class _RunFromNetwork extends State<RunFromNetwork>
     String newHash = await downloadHash("$baseUrl.sha256");
     if (newHash != null && newHash != lastHash) {
       var image = await downloadByteCodeImage(baseUrl);
-      ModuleDebugInfoRaw debugInfo;
+      List<ModuleDebugInfo> symbols;
       if (kDebugMode) {
-        debugInfo = await downloadDebugInfo("$baseUrl.symbols");
+        symbols = await downloadDebugInfo("$baseUrl.symbols");
       }
       if (image != null) {
         setState(() {
@@ -137,19 +142,19 @@ class _RunFromNetwork extends State<RunFromNetwork>
           await fullRestart(
               bytecodeImage: image,
               baseUrl: baseUrl,
-              moduleDebugInfoRaw: debugInfo,
+              symbols: symbols,
               thunks: thunks);
         } else {
           var status = await hotReload(
               bytecodeImage: image,
               baseUrl: baseUrl,
-              moduleDebugInfoRaw: debugInfo,
+              symbols: symbols,
               thunks: thunks);
           if (!status) {
             await fullRestart(
                 bytecodeImage: image,
                 baseUrl: baseUrl,
-                moduleDebugInfoRaw: debugInfo,
+                symbols: symbols,
                 thunks: thunks);
           }
           setState(() {

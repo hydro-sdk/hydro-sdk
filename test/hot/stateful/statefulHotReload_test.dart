@@ -1,7 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:hydro_sdk/cfr/buildProfile.dart';
-import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
@@ -56,14 +57,19 @@ void main() {
         downloadDebugInfo: (String uri) async {
           var file = File(symbolsPath);
           var res = file.readAsStringSync();
-          return ModuleDebugInfoRaw(res);
+          return json
+              .decode(res)
+              ?.map((x) => ModuleDebugInfo.fromJson(x))
+              ?.toList()
+              ?.cast<ModuleDebugInfo>();
         },
       ));
 
       expect(tester.takeException(), isNull);
       await Future.delayed(Duration(seconds: 5));
 
-      await tester.pump();
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       expect(find.byKey(Key("counter")), findsOneWidget);
       expect(find.byKey(Key("increment")), findsOneWidget);
@@ -82,10 +88,14 @@ void main() {
       //Should trigger a hot reload
       hashPath = "../assets/test/hot/stateful/counter2.ts.hc.sha256";
       bytecodePath = "../assets/test/hot/stateful/counter2.ts.hc";
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       expect(tester.takeException(), isNull);
 
       await Future.delayed(Duration(seconds: 5));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       await tester.pump();
 
@@ -108,12 +118,15 @@ void main() {
       //Switch back to original files
       hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
       bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       expect(tester.takeException(), isNull);
 
       await Future.delayed(Duration(seconds: 5));
 
-      await tester.pump();
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
 
       expect(find.byKey(Key("counter")), findsOneWidget);
       expect(find.byKey(Key("increment")), findsOneWidget);

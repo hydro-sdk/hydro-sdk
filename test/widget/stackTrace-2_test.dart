@@ -1,25 +1,21 @@
 import 'dart:io';
 
 import 'package:hydro_sdk/cfr/buildProfile.dart';
-import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
-import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:hydro_sdk/runFromNetwork.dart';
+import 'package:hydro_sdk/integrationTestHarness.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('', (WidgetTester tester) async {
     await tester.runAsync(() async {
-      String hashPath = "../assets/test/widget/stackTrace-2.ts.hc.sha256";
-      String bytecodePath = "../assets/test/widget/stackTrace-2.ts.hc";
-      String symbolsPath = "../assets/test/widget/stackTrace-2.ts.hc.symbols";
+      String fixturePath = "../assets/test/widget/stackTrace-2.ts";
 
       HydroState state = HydroState();
       var closure = await state.loadBuffer(
-          buffer: File(bytecodePath).readAsBytesSync(),
-          name: bytecodePath,
+          buffer: File("$fixturePath.hc").readAsBytesSync(),
+          name: fixturePath,
           linkStatus: null,
           thunks: null);
 
@@ -30,26 +26,7 @@ void main() {
       }
 
       WidgetsFlutterBinding.ensureInitialized();
-      await tester.pumpWidget(RunFromNetwork(
-        args: [],
-        thunks: thunks,
-        baseUrl: "http://127.0.0.1:3000/test/widget/stackTrace-2.hc",
-        downloadHash: (String uri) async {
-          var file = File(hashPath);
-          var res = file.readAsStringSync();
-          return res;
-        },
-        downloadByteCodeImage: (String uri) async {
-          var file = File(bytecodePath);
-          var res = file.readAsBytesSync();
-          return res;
-        },
-        downloadDebugInfo: (String uri) async {
-          var file = File(symbolsPath);
-          var res = file.readAsStringSync();
-          return ModuleDebugInfoRaw(res);
-        },
-      ));
+      await tester.pumpWidget(integrationTestHarness(fixturePath));
 
       await Future.delayed(Duration(seconds: 5));
 

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
-import 'package:hydro_sdk/cfr/moduleDebugInfoRaw.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/symbolWithDistance.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
@@ -25,15 +24,8 @@ class HydroError {
   void addFrame({@required Frame frame}) => _frames = [..._frames, frame];
 
   void _symbolicateFrame(
-      {@required ModuleDebugInfoRaw moduleDebugInfoRaw,
-      @required Frame frame}) {
-    if (moduleDebugInfoRaw?.raw != null) {
-      List<ModuleDebugInfo> symbols = json
-          .decode(moduleDebugInfoRaw.raw)
-          ?.map((x) => ModuleDebugInfo.fromJson(x))
-          ?.toList()
-          ?.cast<ModuleDebugInfo>();
-
+      {@required List<ModuleDebugInfo> symbols, @required Frame frame}) {
+    if (symbols != null) {
       int moduleLineNumber = maybeAt(frame.prototype.lines, inst);
 
       if (moduleLineNumber != null) {
@@ -52,11 +44,10 @@ class HydroError {
     }
   }
 
-  void addSymbolicatedStackTrace(
-      {@required ModuleDebugInfoRaw moduleDebugInfoRaw}) {
+  void addSymbolicatedStackTrace({@required List<ModuleDebugInfo> symbols}) {
     _frames.forEach((x) {
       if (x.prototype.buildProfile == BuildProfile.debug) {
-        _symbolicateFrame(frame: x, moduleDebugInfoRaw: moduleDebugInfoRaw);
+        _symbolicateFrame(frame: x, symbols: symbols);
       }
     });
   }

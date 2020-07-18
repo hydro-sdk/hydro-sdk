@@ -12,6 +12,8 @@ import { getLuaLibBundle } from "typescript-to-lua/dist/LuaLib";
 import { BundleInfo } from "./bundleInfo";
 import { hashSourceFile } from "../ast/hashSourceFile";
 import { hashText } from "../ast/hashText";
+import { mangleSymbols } from "../ast/mangleSymbols";
+import { exit } from "process";
 
 export async function buildBundleInfo(
     buildOptions: BuildOptions,
@@ -99,6 +101,22 @@ export async function buildBundleInfo(
         });
 
         await addOriginalMappings(debugInfo, transpiledFile);
+        mangleSymbols(debugInfo);
+
+        debugInfo.forEach((x) => {
+            debugInfo.forEach((k) => {
+                if (x.symbolFullyQualifiedMangleName == k.symbolFullyQualifiedMangleName &&
+                    x.originalLineStart != k.originalLineStart &&
+                    x.originalColumnStart != k.originalColumnStart
+                ) {
+                    console.log(`${x.symbolName} and ${k.symbolName}`);
+                    console.log(`Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart},${x.columnStart})`);
+                    console.log(`and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart},${k.columnStart})`);
+                    console.log(`both mangled to the following: ${x.symbolFullyQualifiedMangleName}`);
+                    exit(1);
+                }
+            })
+        });
 
         res.entries[transpiledFile.fileName] = {
             debugSymbols: debugInfo,

@@ -9,4 +9,8 @@ export interface ModuleDebugInfo {
     originalFileName: string;
     originalLineStart: number;
     originalColumnStart: number;
+    parameterNames: Array<string>;
+    symbolMangleName?: string;
+    symbolFullyQualifiedMangleName?: string;
+    symbolDisambiguationIndex: number;
 }

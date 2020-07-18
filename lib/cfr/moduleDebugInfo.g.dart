@@ -18,6 +18,12 @@ ModuleDebugInfo _$ModuleDebugInfoFromJson(Map<String, dynamic> json) {
     originalFileName: json['originalFileName'] as String,
     originalLineStart: json['originalLineStart'] as int,
     originalColumnStart: json['originalColumnStart'] as int,
+    parameterNames:
+        (json['parameterNames'] as List)?.map((e) => e as String)?.toList(),
+    symbolMangleName: json['symbolMangleName'] as String,
+    symbolFullyQualifiedMangleName:
+        json['symbolFullyQualifiedMangleName'] as String,
+    symbolDisambiguationIndex: json['symbolDisambiguationIndex'] as int,
   );
 }
 
@@ -33,4 +39,8 @@ Map<String, dynamic> _$ModuleDebugInfoToJson(ModuleDebugInfo instance) =>
       'originalFileName': instance.originalFileName,
       'originalLineStart': instance.originalLineStart,
       'originalColumnStart': instance.originalColumnStart,
+      'parameterNames': instance.parameterNames,
+      'symbolMangleName': instance.symbolMangleName,
+      'symbolFullyQualifiedMangleName': instance.symbolFullyQualifiedMangleName,
+      'symbolDisambiguationIndex': instance.symbolDisambiguationIndex,
     };

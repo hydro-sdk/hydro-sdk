@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
-import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
+import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
@@ -31,17 +31,19 @@ class Prototype {
   String source;
   List<int> lines;
   List<Local> locals;
+  ModuleDebugInfo debugSymbol;
   ThreadResult Function({@required Frame frame, @required Prototype prototype})
       interpreter;
 
-  Prototype findPrototypeByHash({@required String targetHash}) {
-    if (hashPrototype(this, includeSourceLocations: false) == targetHash) {
+  Prototype findPrototypeByDebugSymbol({@required ModuleDebugInfo symbol}) {
+    if (debugSymbol != null &&
+        debugSymbol.symbolFullyQualifiedMangleName ==
+            symbol.symbolFullyQualifiedMangleName) {
       return this;
     } else {
       if (prototypes != null && prototypes.isNotEmpty) {
         for (var i = 0; i != prototypes.length; ++i) {
-          var target =
-              prototypes[i].findPrototypeByHash(targetHash: targetHash);
+          var target = prototypes[i].findPrototypeByDebugSymbol(symbol: symbol);
           if (target != null) {
             return target;
           }

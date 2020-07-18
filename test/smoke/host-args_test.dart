@@ -1,19 +1,16 @@
-import 'package:hydro_sdk/hc.g.dart';
-import 'package:hydro_sdk/runFromBundle.dart';
+import 'package:hydro_sdk/integrationTestHarness.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/testMode.dart';
 
 void main() {
-  testWidgets('stateful hot reload', (WidgetTester tester) async {
+  testWidgets('host arguments', (WidgetTester tester) async {
     await tester.runAsync(() async {
       var testMode = getTestMode();
       expect(testMode, isNotNull);
-      WidgetsFlutterBinding.ensureInitialized();
 
-      await tester.pumpWidget(RunFromBundle(
-        thunks: thunks,
-        path: "assets/examples/hostArgs.hc",
+      await tester.pumpWidget(integrationTestHarness(
+        "../assets/examples/hostArgs",
         args: [
           "hello world",
           Column(
@@ -28,7 +25,7 @@ void main() {
         ],
       ));
       await Future.delayed(Duration(seconds: 5));
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
 
       expect(find.text("hello world"), findsOneWidget);

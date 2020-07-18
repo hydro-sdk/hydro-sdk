@@ -14,6 +14,10 @@ class ModuleDebugInfo {
   final String originalFileName;
   final int originalLineStart;
   final int originalColumnStart;
+  final List<String> parameterNames;
+  final String symbolMangleName;
+  final String symbolFullyQualifiedMangleName;
+  final int symbolDisambiguationIndex;
 
   ModuleDebugInfo({
     this.lineStart,
@@ -26,6 +30,10 @@ class ModuleDebugInfo {
     this.originalFileName,
     this.originalLineStart,
     this.originalColumnStart,
+    this.parameterNames,
+    this.symbolMangleName,
+    this.symbolFullyQualifiedMangleName,
+    this.symbolDisambiguationIndex,
   });
 
   factory ModuleDebugInfo.fromJson(Map<String, dynamic> json) =>

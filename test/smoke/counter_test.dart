@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/integrationTestHarness.dart' as harness;
+import 'package:hydro_sdk/integrationTestHarness.dart';
 import 'package:hydro_sdk/testMode.dart';
 
 void main() {
@@ -8,8 +8,12 @@ void main() {
     var testMode = getTestMode();
     expect(testMode, isNotNull);
 
-    harness.main("assets/examples/counter.hc");
-    await tester.pump();
+    await tester
+        .pumpWidget(integrationTestHarness("../assets/examples/counter"));
+    await tester.pumpAndSettle();
+
+    var exception = tester.takeException();
+    expect(exception, isNull);
 
     expect(find.byKey(Key("counter")), findsOneWidget);
     expect(find.byKey(Key("increment")), findsOneWidget);
