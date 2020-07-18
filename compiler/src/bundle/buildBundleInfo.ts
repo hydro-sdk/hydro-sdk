@@ -110,8 +110,8 @@ export async function buildBundleInfo(
                     x.originalColumnStart != k.originalColumnStart
                 ) {
                     console.log(`${x.symbolName} and ${k.symbolName}`);
-                    console.log(`Defined at ${x.originalFileName}:${x.lineStart},${x.originalColumnStart} (${x.lineStart},${x.columnStart})`);
-                    console.log(`and ${k.originalFileName}:${k.lineStart},${k.originalColumnStart} (${k.lineStart},${k.columnStart})`);
+                    console.log(`Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart},${x.columnStart})`);
+                    console.log(`and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart},${k.columnStart})`);
                     console.log(`both mangled to the following: ${x.symbolFullyQualifiedMangleName}`);
                     exit(1);
                 }
