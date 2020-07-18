@@ -44,9 +44,10 @@ var setupArtifactDirectories_1 = require("./setupArtifactDirectories");
 var compileByteCodeAndWriteHash_1 = require("./compileByteCodeAndWriteHash");
 var buildBundleInfo_1 = require("./bundle/buildBundleInfo");
 var bundle_1 = require("./bundle/bundle");
+var tui_1 = require("./tui");
 function buildTs(config) {
     return __awaiter(this, void 0, void 0, function () {
-        var startTime, buildHash, _a, outFileHash, outFile, outFileSymbols, tempFile, tempDir, oldBundleInfo, oldBuild, bundleInfo, bundleResult, symbolsString, endTime;
+        var startTime, buildHash, _a, outFileHash, outFile, outFileSymbols, tempFile, tempDir, oldBundleInfo, oldBuild, compileProgressBar, bundleInfo, bundleResult, symbolsString, endTime;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -57,9 +58,14 @@ function buildTs(config) {
                     if (fs.existsSync(oldBundleInfo)) {
                         oldBuild = JSON.parse(fs.readFileSync(oldBundleInfo).toString());
                     }
-                    return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config, oldBuild)];
+                    compileProgressBar = new tui_1.Tui("Compiling");
+                    return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config, function (currentStep, totalSteps, suffixMessage) {
+                            // console.log(`${currentStep}/${totalSteps} ${suffixMessage}`);
+                            compileProgressBar.update(currentStep, totalSteps, suffixMessage);
+                        }, oldBuild)];
                 case 1:
                     bundleInfo = _b.sent();
+                    compileProgressBar.stop();
                     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
                         bundleInfo.diagnostics.forEach(function (x) {
                             if (x.file) {

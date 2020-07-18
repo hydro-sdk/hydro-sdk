@@ -66,9 +66,9 @@ var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
 var mangleSymbols_1 = require("../ast/mangleSymbols");
 var process_1 = require("process");
-function buildBundleInfo(buildOptions, oldBundleInfo) {
+function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle;
+        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, currentStep, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -83,9 +83,11 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                         }
                     });
                     sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
+                    updateBuildProgress(0, sourceFiles.length, "");
                     oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
                     sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourceFile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
-                    console.log("Reused " + Math.abs(sourceFiles.length - sourceFilesToTranspile.length) + " inputs");
+                    currentStep = Math.abs(sourceFiles.length - sourceFilesToTranspile.length);
+                    updateBuildProgress(currentStep, sourceFiles.length, "");
                     concatDiagnostics = function (newDiagnostics) {
                         return newDiagnostics && newDiagnostics.length ? res.diagnostics = __spreadArrays(res.diagnostics, newDiagnostics.map(function (x) { return x; })) : undefined;
                     };
@@ -121,7 +123,16 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                         var transpiledFiles, transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0:
+                                case 0: return [4 /*yield*/, new Promise(function (resolve) {
+                                        var dirname = path.dirname(sourceFileToTranspile.fileName);
+                                        var dirnames = dirname.split(path.sep);
+                                        updateBuildProgress(currentStep, sourceFiles.length, "" + dirnames[dirnames.length - 1] + path.sep + path.basename(sourceFileToTranspile.fileName));
+                                        setTimeout(function () {
+                                            resolve();
+                                        }, 100);
+                                    })];
+                                case 1:
+                                    _a.sent();
                                     transpiledFiles = tstl.transpile({
                                         program: program,
                                         sourceFiles: [sourceFileToTranspile]
@@ -133,7 +144,7 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                                         fileContent: transpiledFile.lua
                                     });
                                     return [4 /*yield*/, addOriginalMappings_1.addOriginalMappings(debugInfo, transpiledFile)];
-                                case 1:
+                                case 2:
                                     _a.sent();
                                     mangleSymbols_1.mangleSymbols(debugInfo);
                                     debugInfo.forEach(function (x) {
@@ -156,6 +167,7 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                                         originalFileName: transpiledFile.fileName,
                                         originalFileHash: hashSourceFile_1.hashSourceFile(sourceFilesToTranspile.find(function (x) { return x.fileName == transpiledFile.fileName; }))
                                     };
+                                    currentStep++;
                                     return [2 /*return*/];
                             }
                         });

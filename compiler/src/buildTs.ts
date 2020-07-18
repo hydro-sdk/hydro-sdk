@@ -11,6 +11,7 @@ import { compileByteCodeAndWriteHash } from "./compileByteCodeAndWriteHash";
 import { buildBundleInfo } from "./bundle/buildBundleInfo";
 import { bundle } from "./bundle/bundle";
 import { BundleInfo } from "./bundle/bundleInfo";
+import { Tui } from "./tui";
 
 export async function buildTs(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): Promise<void> {
     const startTime = new Date().getTime();
@@ -25,7 +26,18 @@ export async function buildTs(config: BuildOptions & { inputLanguage: InputLangu
         oldBuild = JSON.parse(fs.readFileSync(oldBundleInfo).toString());
     }
 
-    const bundleInfo = await buildBundleInfo(config, oldBuild);
+    const compileProgressBar = new Tui("Compiling");
+
+    const bundleInfo = await buildBundleInfo(
+        config,
+        (currentStep, totalSteps, suffixMessage) =>{
+            // console.log(`${currentStep}/${totalSteps} ${suffixMessage}`);
+            compileProgressBar.update(currentStep, totalSteps, suffixMessage);
+        },
+        oldBuild,
+    );
+
+    compileProgressBar.stop();
 
     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
         bundleInfo.diagnostics.forEach((x) => {
@@ -48,7 +60,7 @@ export async function buildTs(config: BuildOptions & { inputLanguage: InputLangu
         return;
     }
 
-    fs.writeFileSync(oldBundleInfo,JSON.stringify(bundleInfo,undefined,0));
+    fs.writeFileSync(oldBundleInfo, JSON.stringify(bundleInfo, undefined, 0));
 
     const bundleResult = bundle(bundleInfo);
 

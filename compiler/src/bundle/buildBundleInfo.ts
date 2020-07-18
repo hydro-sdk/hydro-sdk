@@ -17,6 +17,7 @@ import { exit } from "process";
 
 export async function buildBundleInfo(
     buildOptions: BuildOptions,
+    updateBuildProgress: (currentStep: number, totalSteps: number, suffixMessage: string) => void,
     oldBundleInfo?: BundleInfo | undefined
 ): Promise<BundleInfo> {
     let res: BundleInfo = {
@@ -36,12 +37,17 @@ export async function buildBundleInfo(
     });
 
     const sourceFiles = program.getSourceFiles().filter((x) => !x.isDeclarationFile);
+    updateBuildProgress(0, sourceFiles.length, "");
 
     const oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
 
     const sourceFilesToTranspile = oldEntries ? sourceFiles.filter((x) => hashSourceFile(x) != (oldEntries[x.fileName]?.originalFileHash ?? "")) : sourceFiles;
 
-    console.log(`Reused ${Math.abs(sourceFiles.length - sourceFilesToTranspile.length)} inputs`);
+    // console.log(`Reused ${Math.abs(sourceFiles.length - sourceFilesToTranspile.length)} inputs`);
+
+    let currentStep = Math.abs(sourceFiles.length - sourceFilesToTranspile.length);
+    
+    updateBuildProgress(currentStep, sourceFiles.length, "");
 
     const concatDiagnostics = (newDiagnostics: Readonly<Array<ts.DiagnosticRelatedInformation>>) =>
         newDiagnostics && newDiagnostics.length ? res.diagnostics = [
@@ -88,6 +94,14 @@ export async function buildBundleInfo(
     res.entries = oldEntries ?? {};
 
     for (const sourceFileToTranspile of sourceFilesToTranspile) {
+        await new Promise((resolve)=>{
+            let dirname = path.dirname(sourceFileToTranspile.fileName);
+            let dirnames = dirname.split(path.sep);
+            updateBuildProgress(currentStep,sourceFiles.length,`${dirnames[dirnames.length-1]}${path.sep}${path.basename(sourceFileToTranspile.fileName)}`);
+            setTimeout(()=>{
+                resolve();
+            },100);
+        });
         const { transpiledFiles } = tstl.transpile({
             program: program as any,
             sourceFiles: [(sourceFileToTranspile as any)]
@@ -126,6 +140,7 @@ export async function buildBundleInfo(
             originalFileName: transpiledFile.fileName,
             originalFileHash: hashSourceFile(sourceFilesToTranspile.find((x) => x.fileName == transpiledFile.fileName))
         };
+        currentStep++;
     }
 
     if (!Object.values(res.entries).some((x) => x.moduleName == "lualib_bundle")) {
