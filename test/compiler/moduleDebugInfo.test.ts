@@ -212,6 +212,22 @@ test("", async () => {
     });
     expect(debugInfo[6]).toEqual({
         fileName: "examples/counter/index.lua",
+        lineEnd: 75,
+        lineStart: 69,
+        columnEnd: 7,
+        columnStart: 28,
+        moduleName: "",
+        originalFileName: inFilename,
+        originalLineStart: 62,
+        originalColumnStart: 31,
+        symbolDisambiguationIndex: 0,
+        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0",
+        symbolMangleName: "anonymous_closure",
+        symbolName: "anonymous closure",
+        parameterNames: []
+    });
+    expect(debugInfo[7]).toEqual({
+        fileName: "examples/counter/index.lua",
         lineEnd: 73,
         lineStart: 71,
         columnEnd: 15,
@@ -221,42 +237,23 @@ test("", async () => {
         originalLineStart: 64,
         originalColumnStart: 22,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0::anonymous_closure::0",
+        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0::anonymous_closure::0::anonymous_closure::0",
         symbolMangleName: "anonymous_closure",
         symbolName: "anonymous closure",
         parameterNames: []
     });
-    expect(debugInfo[7]).toEqual({
-        fileName: "examples/counter/index.lua",
-        lineEnd: 120,
-        lineStart: 78,
-        columnEnd: 3,
-        columnStart: 0,
-        moduleName: "",
-        originalFileName: inFilename,
-        originalLineStart: 70,
-        originalColumnStart: 4,
-        symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.build::self_context::0",
-        symbolMangleName: "MyHomePageState.prototype.build::self_context",
-        symbolName: "MyHomePageState.prototype.build",
-        parameterNames: [
-            "self",
-            "context",
-        ]
-    });
     expect(debugInfo[8]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 123,
-        lineStart: 123,
-        columnEnd: 42,
-        columnStart: 4,
+        lineEnd: 73,
+        lineStart: 71,
+        columnEnd: 15,
+        columnStart: 12,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 100,
-        originalColumnStart: 7,
+        originalLineStart: 64,
+        originalColumnStart: 22,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::anonymous_closure::0",
+        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0::anonymous_closure::0::anonymous_closure::0",
         symbolMangleName: "anonymous_closure",
         symbolName: "anonymous closure",
         parameterNames: []
