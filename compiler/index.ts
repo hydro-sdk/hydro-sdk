@@ -5,6 +5,8 @@ import * as minimist from "minimist";
 import * as rimraf from "rimraf";
 import * as chokidar from "chokidar";
 
+const clear = require("clear");
+
 import { buildTs } from "./src/buildTs";
 import { InputLanguage } from "./src/buildOptions";
 const argv = minimist(process.argv.slice(2));
@@ -94,6 +96,7 @@ if (!fs.existsSync(".hydroc")) {
 if (watch !== undefined) {
     (async () => {
         if (inputLanguage == InputLanguage.typescript) {
+            clear();
             await buildTs({
                 inputLanguage: inputLanguage,
                 entry: entry,
@@ -105,6 +108,7 @@ if (watch !== undefined) {
     })();
     chokidar.watch(watch).on("change", async () => {
         if (inputLanguage == InputLanguage.typescript) {
+            clear();
             await buildTs({
                 inputLanguage: inputLanguage,
                 entry: entry,

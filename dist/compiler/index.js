@@ -41,6 +41,7 @@ var path = require("path");
 var minimist = require("minimist");
 var rimraf = require("rimraf");
 var chokidar = require("chokidar");
+var clear = require("clear");
 var buildTs_1 = require("./src/buildTs");
 var buildOptions_1 = require("./src/buildOptions");
 var argv = minimist(process.argv.slice(2));
@@ -117,6 +118,7 @@ if (watch !== undefined) {
             switch (_a.label) {
                 case 0:
                     if (!(inputLanguage == buildOptions_1.InputLanguage.typescript)) return [3 /*break*/, 2];
+                    clear();
                     return [4 /*yield*/, buildTs_1.buildTs({
                             inputLanguage: inputLanguage,
                             entry: entry,
@@ -136,6 +138,7 @@ if (watch !== undefined) {
             switch (_a.label) {
                 case 0:
                     if (!(inputLanguage == buildOptions_1.InputLanguage.typescript)) return [3 /*break*/, 2];
+                    clear();
                     return [4 /*yield*/, buildTs_1.buildTs({
                             inputLanguage: inputLanguage,
                             entry: entry,
