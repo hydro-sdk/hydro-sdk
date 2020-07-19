@@ -3,16 +3,17 @@ import * as fs from "fs";
 import * as chalk from "chalk";
 import * as ts from "typescript";
 
-import { BuildOptions, InputLanguage } from "../buildOptions";
-import { configHash } from "../configHash";
+import { BuildOptions, InputLanguage } from "./buildOptions";
+import { configHash } from "./configHash";
 
-import { setupArtifactDirectories } from "../setupArtifactDirectories";
-import { compileByteCodeAndWriteHash } from "../compileByteCodeAndWriteHash";
-import { buildBundleInfo } from "../bundle/buildBundleInfo";
-import { bundle } from "../bundle/bundle";
-import { BundleInfo } from "../bundle/bundleInfo";
+import { setupArtifactDirectories } from "./setupArtifactDirectories";
+import { compileByteCodeAndWriteHash } from "./compileByteCodeAndWriteHash";
+import { buildBundleInfo } from "./bundle/buildBundleInfo";
+import { bundle } from "./bundle/bundle";
+import { BundleInfo } from "./bundle/bundleInfo";
+import { ProgressBar } from "./progressBar";
 
-export async function transpileTS(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): Promise<void> {
+export async function buildTs(config: BuildOptions & { inputLanguage: InputLanguage.typescript }): Promise<void> {
     const startTime = new Date().getTime();
 
     const buildHash = configHash(config);
@@ -25,7 +26,17 @@ export async function transpileTS(config: BuildOptions & { inputLanguage: InputL
         oldBuild = JSON.parse(fs.readFileSync(oldBundleInfo).toString());
     }
 
-    const bundleInfo = await buildBundleInfo(config, oldBuild);
+    const compileProgressBar = new ProgressBar("Compiling");
+
+    const bundleInfo = await buildBundleInfo(
+        config,
+        (currentStep, totalSteps, suffixMessage) =>{
+            compileProgressBar.update(currentStep, totalSteps, suffixMessage);
+        },
+        oldBuild,
+    );
+
+    compileProgressBar.stop();
 
     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
         bundleInfo.diagnostics.forEach((x) => {
@@ -48,7 +59,7 @@ export async function transpileTS(config: BuildOptions & { inputLanguage: InputL
         return;
     }
 
-    fs.writeFileSync(oldBundleInfo,JSON.stringify(bundleInfo,undefined,0));
+    fs.writeFileSync(oldBundleInfo, JSON.stringify(bundleInfo, undefined, 0));
 
     const bundleResult = bundle(bundleInfo);
 

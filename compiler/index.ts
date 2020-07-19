@@ -5,9 +5,12 @@ import * as minimist from "minimist";
 import * as rimraf from "rimraf";
 import * as chokidar from "chokidar";
 
-import { transpileTS } from "./src/ts/transpileTs";
+const clear = require("clear");
+const handler = require('serve-handler');
+import * as http from "http";
+
+import { buildTs } from "./src/buildTs";
 import { InputLanguage } from "./src/buildOptions";
-import { transpileHx } from "./src/hx/transpileHx";
 const argv = minimist(process.argv.slice(2));
 
 const entry = argv.t;
@@ -22,7 +25,7 @@ if (clean) {
     process.exit(0);
 }
 
-const watch = argv.w;
+const watch:string = argv.w;
 
 if (!entry) {
     console.log("Entry file must be specified with -t switch");
@@ -93,31 +96,35 @@ if (!fs.existsSync(".hydroc")) {
 
 
 if (watch !== undefined) {
+    const server = http.createServer((request, response) => {
+        
+        return handler(request, response,{public: outDir});
+      });
+       
+      server.listen(5000, () => {});
+      const printServerInfo = ()=>{
+        console.log(`Watching for changes in ${watch}`);
+        console.log(`Serving ${outDir} on port 5000`);
+      };
     (async () => {
         if (inputLanguage == InputLanguage.typescript) {
-            await transpileTS({
+            clear();
+            printServerInfo();
+            await buildTs({
                 inputLanguage: inputLanguage,
                 entry: entry,
                 modName: modName,
                 outDir: outDir,
                 profile: profile
             });
-        } 
+        }
     })();
     chokidar.watch(watch).on("change", async () => {
         if (inputLanguage == InputLanguage.typescript) {
-            await transpileTS({
+            clear();
+            printServerInfo();
+            await buildTs({
                 inputLanguage: inputLanguage,
-                entry: entry,
-                modName: modName,
-                outDir: outDir,
-                profile: profile
-            });
-        } else if (inputLanguage == InputLanguage.haxe && mainClass) {
-            transpileHx({
-                inputLanguage: inputLanguage,
-                mainClass: mainClass,
-                classPath: classPath,
                 entry: entry,
                 modName: modName,
                 outDir: outDir,
@@ -129,24 +136,13 @@ if (watch !== undefined) {
 else {
     (async () => {
         if (inputLanguage == InputLanguage.typescript) {
-            await transpileTS({
+            await buildTs({
                 inputLanguage: inputLanguage,
-                entry: entry,
-                modName: modName,
-                outDir: outDir,
-                profile: profile
-            });
-        } else if (inputLanguage == InputLanguage.haxe && mainClass) {
-            transpileHx({
-                inputLanguage: inputLanguage,
-                classPath: classPath,
-                mainClass: mainClass,
                 entry: entry,
                 modName: modName,
                 outDir: outDir,
                 profile: profile
             });
         }
-
     })();
 }

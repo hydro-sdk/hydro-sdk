@@ -66,9 +66,9 @@ var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
 var mangleSymbols_1 = require("../ast/mangleSymbols");
 var process_1 = require("process");
-function buildBundleInfo(buildOptions, oldBundleInfo) {
+function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, transpiledFiles, _loop_1, _i, transpiledFiles_1, transpiledFile, lualiBundle;
+        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, currentStep, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -83,56 +83,59 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                         }
                     });
                     sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
+                    updateBuildProgress(0, sourceFiles.length + 1, "");
                     oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
                     sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourceFile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
-                    console.log("Reused " + Math.abs(sourceFiles.length - sourceFilesToTranspile.length) + " inputs");
+                    currentStep = Math.abs(sourceFiles.length + 1 - sourceFilesToTranspile.length);
+                    updateBuildProgress(currentStep, sourceFiles.length + 1, "");
                     concatDiagnostics = function (newDiagnostics) {
                         return newDiagnostics && newDiagnostics.length ? res.diagnostics = __spreadArrays(res.diagnostics, newDiagnostics.map(function (x) { return x; })) : undefined;
                     };
                     getFullDiagnostics = function () {
-                        var diagnostics = program.getSyntacticDiagnostics();
-                        concatDiagnostics(diagnostics);
-                        diagnostics = program.getSemanticDiagnostics();
+                        var diagnostics = program.getSemanticDiagnostics();
                         concatDiagnostics(diagnostics);
                         diagnostics = program.getDeclarationDiagnostics();
                         concatDiagnostics(diagnostics);
                     };
-                    getIncrementalDiagnostics = function () {
-                        if (sourceFilesToTranspile.length > 0) {
-                            for (var _i = 0, sourceFilesToTranspile_1 = sourceFilesToTranspile; _i < sourceFilesToTranspile_1.length; _i++) {
-                                var sourceFile = sourceFilesToTranspile_1[_i];
-                                var diagnostics = program.getSyntacticDiagnostics(sourceFile);
-                                concatDiagnostics(diagnostics);
-                                diagnostics = program.getSemanticDiagnostics(sourceFile);
-                                concatDiagnostics(diagnostics);
-                                diagnostics = program.getDeclarationDiagnostics(sourceFile);
-                                concatDiagnostics(diagnostics);
-                            }
-                        }
+                    getIncrementalDiagnostics = function (sourceFile) {
+                        var diagnostics = program.getSyntacticDiagnostics(sourceFile);
+                        concatDiagnostics(diagnostics);
+                        diagnostics = program.getSemanticDiagnostics(sourceFile);
+                        concatDiagnostics(diagnostics);
+                        diagnostics = program.getDeclarationDiagnostics(sourceFile);
+                        concatDiagnostics(diagnostics);
                     };
-                    if (sourceFilesToTranspile.length == 0) {
-                        getIncrementalDiagnostics();
-                    }
-                    else {
-                        getFullDiagnostics();
-                    }
-                    transpiledFiles = tstl.transpile({
-                        program: program,
-                        sourceFiles: sourceFilesToTranspile
-                    }).transpiledFiles;
+                    getFullDiagnostics();
                     res.entries = oldEntries !== null && oldEntries !== void 0 ? oldEntries : {};
-                    _loop_1 = function (transpiledFile) {
-                        var debugInfo;
+                    _loop_1 = function (sourceFileToTranspile) {
+                        var transpiledFiles, transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0:
+                                case 0: return [4 /*yield*/, new Promise(function (resolve) {
+                                        var dirname = path.dirname(sourceFileToTranspile.fileName);
+                                        var dirnames = dirname.split(path.sep);
+                                        var parentDir = dirnames.length >= 1 ? "" + path.sep + dirnames[dirnames.length - 1] : "";
+                                        var grandParentDir = dirname.length >= 2 ? "" + dirnames[dirnames.length - 2] : "";
+                                        updateBuildProgress(currentStep, sourceFiles.length + 1, "" + grandParentDir + parentDir + path.sep + path.basename(sourceFileToTranspile.fileName));
+                                        setTimeout(function () {
+                                            resolve();
+                                        }, 200);
+                                    })];
+                                case 1:
+                                    _a.sent();
+                                    getIncrementalDiagnostics(sourceFileToTranspile);
+                                    transpiledFiles = tstl.transpile({
+                                        program: program,
+                                        sourceFiles: [sourceFileToTranspile]
+                                    }).transpiledFiles;
+                                    transpiledFile = transpiledFiles[0];
                                     debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
                                         originalFileName: transpiledFile.fileName,
                                         filename: transpiledFile.fileName,
                                         fileContent: transpiledFile.lua
                                     });
                                     return [4 /*yield*/, addOriginalMappings_1.addOriginalMappings(debugInfo, transpiledFile)];
-                                case 1:
+                                case 2:
                                     _a.sent();
                                     mangleSymbols_1.mangleSymbols(debugInfo);
                                     debugInfo.forEach(function (x) {
@@ -141,8 +144,8 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                                                 x.originalLineStart != k.originalLineStart &&
                                                 x.originalColumnStart != k.originalColumnStart) {
                                                 console.log(x.symbolName + " and " + k.symbolName);
-                                                console.log("Defined at " + x.originalFileName + ":" + x.lineStart + "," + x.originalColumnStart + " (" + x.lineStart + "," + x.columnStart + ")");
-                                                console.log("and " + k.originalFileName + ":" + k.lineStart + "," + k.originalColumnStart + " (" + k.lineStart + "," + k.columnStart + ")");
+                                                console.log("Defined at " + x.originalFileName + ":" + x.originalLineStart + "," + x.originalColumnStart + " (" + x.lineStart + "," + x.columnStart + ")");
+                                                console.log("and " + k.originalFileName + ":" + k.originalLineStart + "," + k.originalColumnStart + " (" + k.lineStart + "," + k.columnStart + ")");
                                                 console.log("both mangled to the following: " + x.symbolFullyQualifiedMangleName);
                                                 process_1.exit(1);
                                             }
@@ -155,16 +158,17 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                                         originalFileName: transpiledFile.fileName,
                                         originalFileHash: hashSourceFile_1.hashSourceFile(sourceFilesToTranspile.find(function (x) { return x.fileName == transpiledFile.fileName; }))
                                     };
+                                    currentStep++;
                                     return [2 /*return*/];
                             }
                         });
                     };
-                    _i = 0, transpiledFiles_1 = transpiledFiles;
+                    _i = 0, sourceFilesToTranspile_1 = sourceFilesToTranspile;
                     _a.label = 1;
                 case 1:
-                    if (!(_i < transpiledFiles_1.length)) return [3 /*break*/, 4];
-                    transpiledFile = transpiledFiles_1[_i];
-                    return [5 /*yield**/, _loop_1(transpiledFile)];
+                    if (!(_i < sourceFilesToTranspile_1.length)) return [3 /*break*/, 4];
+                    sourceFileToTranspile = sourceFilesToTranspile_1[_i];
+                    return [5 /*yield**/, _loop_1(sourceFileToTranspile)];
                 case 2:
                     _a.sent();
                     _a.label = 3;
@@ -173,6 +177,7 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                     return [3 /*break*/, 1];
                 case 4:
                     if (!Object.values(res.entries).some(function (x) { return x.moduleName == "lualib_bundle"; })) {
+                        updateBuildProgress(currentStep, sourceFiles.length + 1, "lualib_bundle");
                         lualiBundle = LuaLib_1.getLuaLibBundle({
                             getCurrentDirectory: function () { return ""; },
                             readFile: function (filePath) { return fs.readFileSync(filePath).toString(); }
@@ -189,6 +194,7 @@ function buildBundleInfo(buildOptions, oldBundleInfo) {
                             originalFileHash: hashText_1.hashText(lualiBundle)
                         };
                     }
+                    updateBuildProgress(currentStep, sourceFiles.length + 1, buildOptions.entry);
                     return [2 /*return*/, res];
             }
         });

@@ -10,8 +10,10 @@ test("", async () =>
         entry: "test/compiler/res/bundle-1.ts",
         modName: "bundle-1",
         outDir: "tmp",
-        profile: "debug"
-    });
+        profile: "debug",
+    },
+    (currentStep, totalSteps, suffixMessage) =>{}
+    );
 
     const entries = Object.values(bundleInfo.entries);
 
