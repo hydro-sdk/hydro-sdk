@@ -27,7 +27,7 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
             (BuildContext context, Animation<double> animation) {
           Closure closure = args[2];
           return maybeUnBoxAndBuildArgument<Widget>(
-              closure([args[0], context, animation])[0],
+              closure.dispatch([args[0], context, animation],parentState: parentState)[0],
               parentState: parentState) as Widget;
         });
       };

@@ -28,34 +28,37 @@ class Closure {
 
   List<dynamic> dispatch(List<dynamic> args,
       {@required HydroState parentState}) {
+    assert(parentState != null);
     try {
-      if (buildProfile == BuildProfile.release) {
-        return call(args, parentState: parentState);
-      } else if (buildProfile == BuildProfile.debug) {
+      if (buildProfile != BuildProfile.debug) {
+        return _dispatch(args, parentState: parentState);
+      } else if (buildProfile == BuildProfile.debug &&
+          proto.lineStart != 0 &&
+          proto.lineEnd != 0) {
         if (proto.debugSymbol == null) {
           throw "Dispatched function prototypes are required to have debug symbols but the prototype from ${proto.lineStart}-${proto.lineEnd} in ${proto.source} could not be matched to a debug symbol";
         }
       }
 
       Prototype targetProto = parentState
-          .dispatchContext?.dispatchContext?.closure?.proto
+          ?.dispatchContext?.dispatchContext?.closure?.proto
           ?.findPrototypeByDebugSymbol(symbol: proto.debugSymbol);
 
       if (targetProto != null) {
         proto = targetProto;
-      } else {
-        throw "Failed to dispatch to ${proto.debugSymbol.symbolFullyQualifiedMangleName} from ${proto.lineStart}-${proto.lineEnd} in ${proto.source}";
+      } else if (proto.lineStart != 0 && proto.lineEnd != 0) {
+        throw "Failed to dispatch to ${proto?.debugSymbol?.symbolFullyQualifiedMangleName} from ${proto.lineStart}-${proto.lineEnd} in ${proto.source}";
       }
-      return call(args);
+      return _dispatch(args,parentState: parentState);
     } on HydroError catch (err) {
       err.addSymbolicatedStackTrace(symbols: parentState.symbols);
       throw err;
     }
   }
 
-  List<dynamic> call(List<dynamic> args, {HydroState parentState}) {
-    // assert(parentState != null);
-    var f = new Thread(closure: this).frame;
+  List<dynamic> _dispatch(List<dynamic> args, {HydroState parentState}) {
+    assert(parentState != null);
+    var f = new Thread(closure: this, hydroState: parentState).frame;
     f.loadArgs(args);
     ThreadResult x;
     x = f.cont();

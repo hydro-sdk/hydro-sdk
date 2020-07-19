@@ -9,5 +9,5 @@ void settable(
     @required int A,
     @required int B,
     @required int C}) {
-  Context.tableSet(frame.GR(A), frame.RK(B), frame.RK(C));
+  Context.tableSet(frame.GR(A), frame.RK(B), frame.RK(C),frame.context.hydroState);
 }

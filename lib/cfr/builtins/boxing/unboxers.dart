@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -86,8 +87,25 @@ dynamic maybeUnBoxAndBuildArgument<T>(
     if (unwrap != null) {
       //Call the objects managed unwrap method with itself as first arg
       //(Effectively a this call) and unbox the result
-      return maybeUnBoxAndBuildArgument<T>(unwrap([arg.map, context])[0],
-          parentState: parentState);
+      if (unwrap is Closure) {
+        //unwrap is a table method
+        return maybeUnBoxAndBuildArgument<T>(
+            unwrap.dispatch([
+              arg.map,
+              maybeBoxObject<BuildContext>(
+                  object: context, hydroState: parentState)
+            ], parentState: parentState)[0],
+            parentState: parentState);
+      } else {
+        //unwrap is a method on a box
+        return maybeUnBoxAndBuildArgument<T>(
+            unwrap([
+              arg.map,
+              maybeBoxObject<BuildContext>(
+                  object: context, hydroState: parentState)
+            ])[0],
+            parentState: parentState);
+      }
     }
     //Unbox an array of managed objects
     if (arg.arr != null) {

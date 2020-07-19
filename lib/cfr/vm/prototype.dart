@@ -37,6 +37,7 @@ class Prototype {
 
   Prototype findPrototypeByDebugSymbol({@required ModuleDebugInfo symbol}) {
     if (debugSymbol != null &&
+        symbol != null &&
         debugSymbol.symbolFullyQualifiedMangleName ==
             symbol.symbolFullyQualifiedMangleName) {
       return this;

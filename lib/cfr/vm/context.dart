@@ -3,6 +3,7 @@ import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
+import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
 typedef List<dynamic> LuaDartFunc(List<dynamic> params);
@@ -33,10 +34,12 @@ class Context {
   Context({
     this.userdata,
     @required this.env,
+    @required this.hydroState,
   });
 
   dynamic userdata;
 
+  HydroState hydroState;
   HydroTable env;
   HydroTable stringMetatable;
   LuaDartFunc yield;
@@ -115,7 +118,7 @@ class Context {
       if (x.metatable == null) return null;
       var ni = x.metatable.map["__index"];
       if (ni == null) return null;
-      if (ni is Closure) return ni([this, y]);
+      if (ni is Closure) return ni.dispatch([this, y],parentState: hydroState);
       return tableIndex(ni, y);
     } else if (x is String) {
       return stringMetatable.rawget(y);
@@ -130,16 +133,16 @@ class Context {
     }
   }
 
-  static void tableSet(dynamic x, dynamic k, dynamic v) {
+  static void tableSet(dynamic x, dynamic k, dynamic v,HydroState hydroState) {
     if (x is HydroTable) {
       if (x.map.containsKey(k) &&
           x.metatable != null &&
           x.metatable.map.containsKey("__newindex")) {
         var ni = x.metatable.map["__newindex"];
         if (ni is Closure) {
-          ni([x, k, v]);
+          ni.dispatch([x, k, v],parentState: hydroState);
         } else {
-          tableSet(ni, k, v);
+          tableSet(ni, k, v,hydroState);
         }
       } else {
         x.rawset(k, v);
@@ -147,7 +150,7 @@ class Context {
     } else if (x is Map<dynamic, dynamic>) {
       x[k] = v;
     } else if (x is Box) {
-      tableSet(x.table, k, v);
+      tableSet(x.table, k, v,hydroState);
     } else {
       throw "attempt to index a ${getTypename(x)} value";
     }

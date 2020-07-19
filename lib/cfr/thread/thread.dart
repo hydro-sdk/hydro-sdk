@@ -4,12 +4,15 @@ import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
+import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
 class Thread {
-  Thread({@required Closure closure}) {
+  Thread({@required Closure closure,@required this.hydroState}) {
     frame = newFrame(closure);
   }
+
+  HydroState hydroState;
 
   Frame newFrame(Closure closure) => new Frame(closure.proto,
       context: closure.context, upvalues: closure.upvalues, thread: this);
@@ -28,7 +31,7 @@ class Thread {
     } else if (x is LuaDartDebugFunc) {
       return x(this, args);
     } else if (x is Closure) {
-      return x(args);
+      return x.dispatch(args,parentState: hydroState);
     } else {
       throw "attempt to call a ${Context.getTypename(x)} value $x with $args";
     }
