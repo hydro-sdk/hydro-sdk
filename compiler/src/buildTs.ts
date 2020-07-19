@@ -31,7 +31,6 @@ export async function buildTs(config: BuildOptions & { inputLanguage: InputLangu
     const bundleInfo = await buildBundleInfo(
         config,
         (currentStep, totalSteps, suffixMessage) =>{
-            // console.log(`${currentStep}/${totalSteps} ${suffixMessage}`);
             compileProgressBar.update(currentStep, totalSteps, suffixMessage);
         },
         oldBuild,
