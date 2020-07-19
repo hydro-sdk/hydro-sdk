@@ -14,6 +14,7 @@ import { hashSourceFile } from "../ast/hashSourceFile";
 import { hashText } from "../ast/hashText";
 import { mangleSymbols } from "../ast/mangleSymbols";
 import { exit } from "process";
+import { ModuleDebugInfo } from "../ast/moduleDebugInfo";
 
 export async function buildBundleInfo(
     buildOptions: BuildOptions,
@@ -108,7 +109,10 @@ export async function buildBundleInfo(
         });
 
         await addOriginalMappings(debugInfo, transpiledFile);
-        mangleSymbols(debugInfo);
+        mangleSymbols(
+            debugInfo,
+            (symbol: Readonly<ModuleDebugInfo>) => hashText(symbol.originalFileName)
+        );
 
         debugInfo.forEach((x) => {
             debugInfo.forEach((k) => {
@@ -141,12 +145,19 @@ export async function buildBundleInfo(
             getCurrentDirectory: () => "",
             readFile: (filePath: string) => fs.readFileSync(filePath).toString()
         });
+        const debugInfo = findModuleDebugInfo({
+            originalFileName: "lualib_bundle",
+            filename: "lualib_bundle",
+            fileContent: lualiBundle,
+        });
+
+        mangleSymbols(
+            debugInfo,
+            (symbol: Readonly<ModuleDebugInfo>) => `lualib_bundle${hashText(symbol.originalFileName)}`
+        );
+
         res.entries["lualib_bundle"] = {
-            debugSymbols: findModuleDebugInfo({
-                originalFileName: "lualib_bundle",
-                filename: "lualib_bundle",
-                fileContent: lualiBundle,
-            }),
+            debugSymbols: debugInfo,
             moduleText: lualiBundle,
             moduleName: "lualib_bundle",
             originalFileName: "lualib_bundle",
