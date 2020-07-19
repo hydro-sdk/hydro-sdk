@@ -33,23 +33,29 @@ class Closure {
       if (buildProfile != BuildProfile.debug) {
         return _dispatch(args, parentState: parentState);
       } else if (buildProfile == BuildProfile.debug &&
+          //Main chunk is reported as being from 0-0
           proto.lineStart != 0 &&
-          proto.lineEnd != 0) {
+          proto.lineEnd != 0 &&
+          parentState.dispatchContext != null) {
         if (proto.debugSymbol == null) {
           throw "Dispatched function prototypes are required to have debug symbols but the prototype from ${proto.lineStart}-${proto.lineEnd} in ${proto.source} could not be matched to a debug symbol";
         }
       }
 
-      Prototype targetProto = parentState
-          ?.dispatchContext?.dispatchContext?.closure?.proto
-          ?.findPrototypeByDebugSymbol(symbol: proto.debugSymbol);
+      //If the calling environment didn't setup a dispatch context then
+      //there's no point trying to dispatch and enforce one
+      if (parentState.dispatchContext != null) {
+        Prototype targetProto = parentState
+            ?.dispatchContext?.dispatchContext?.closure?.proto
+            ?.findPrototypeByDebugSymbol(symbol: proto.debugSymbol);
 
-      if (targetProto != null) {
-        proto = targetProto;
-      } else if (proto.lineStart != 0 && proto.lineEnd != 0) {
-        throw "Failed to dispatch to ${proto?.debugSymbol?.symbolFullyQualifiedMangleName} from ${proto.lineStart}-${proto.lineEnd} in ${proto.source}";
+        if (targetProto != null) {
+          proto = targetProto;
+        } else if (proto.lineStart != 0 && proto.lineEnd != 0) {
+          throw "Failed to dispatch to ${proto?.debugSymbol?.symbolFullyQualifiedMangleName} from ${proto.lineStart}-${proto.lineEnd} in ${proto.source}";
+        }
       }
-      return _dispatch(args,parentState: parentState);
+      return _dispatch(args, parentState: parentState);
     } on HydroError catch (err) {
       err.addSymbolicatedStackTrace(symbols: parentState.symbols);
       throw err;
