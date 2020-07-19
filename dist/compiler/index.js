@@ -42,6 +42,8 @@ var minimist = require("minimist");
 var rimraf = require("rimraf");
 var chokidar = require("chokidar");
 var clear = require("clear");
+var handler = require('serve-handler');
+var http = require("http");
 var buildTs_1 = require("./src/buildTs");
 var buildOptions_1 = require("./src/buildOptions");
 var argv = minimist(process.argv.slice(2));
@@ -113,12 +115,21 @@ if (!fs.existsSync(".hydroc")) {
     fs.mkdirSync(".hydroc");
 }
 if (watch !== undefined) {
+    var server = http.createServer(function (request, response) {
+        return handler(request, response, { public: outDir });
+    });
+    server.listen(5000, function () { });
+    var printServerInfo_1 = function () {
+        console.log("Watching for changes in " + watch);
+        console.log("Serving " + outDir + " on port 5000");
+    };
     (function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     if (!(inputLanguage == buildOptions_1.InputLanguage.typescript)) return [3 /*break*/, 2];
                     clear();
+                    printServerInfo_1();
                     return [4 /*yield*/, buildTs_1.buildTs({
                             inputLanguage: inputLanguage,
                             entry: entry,
@@ -139,6 +150,7 @@ if (watch !== undefined) {
                 case 0:
                     if (!(inputLanguage == buildOptions_1.InputLanguage.typescript)) return [3 /*break*/, 2];
                     clear();
+                    printServerInfo_1();
                     return [4 /*yield*/, buildTs_1.buildTs({
                             inputLanguage: inputLanguage,
                             entry: entry,

@@ -60,7 +60,6 @@ function buildTs(config) {
                     }
                     compileProgressBar = new progressBar_1.ProgressBar("Compiling");
                     return [4 /*yield*/, buildBundleInfo_1.buildBundleInfo(config, function (currentStep, totalSteps, suffixMessage) {
-                            // console.log(`${currentStep}/${totalSteps} ${suffixMessage}`);
                             compileProgressBar.update(currentStep, totalSteps, suffixMessage);
                         }, oldBuild)];
                 case 1:

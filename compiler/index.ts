@@ -6,6 +6,8 @@ import * as rimraf from "rimraf";
 import * as chokidar from "chokidar";
 
 const clear = require("clear");
+const handler = require('serve-handler');
+import * as http from "http";
 
 import { buildTs } from "./src/buildTs";
 import { InputLanguage } from "./src/buildOptions";
@@ -23,7 +25,7 @@ if (clean) {
     process.exit(0);
 }
 
-const watch = argv.w;
+const watch:string = argv.w;
 
 if (!entry) {
     console.log("Entry file must be specified with -t switch");
@@ -94,9 +96,20 @@ if (!fs.existsSync(".hydroc")) {
 
 
 if (watch !== undefined) {
+    const server = http.createServer((request, response) => {
+        
+        return handler(request, response,{public: outDir});
+      });
+       
+      server.listen(5000, () => {});
+      const printServerInfo = ()=>{
+        console.log(`Watching for changes in ${watch}`);
+        console.log(`Serving ${outDir} on port 5000`);
+      };
     (async () => {
         if (inputLanguage == InputLanguage.typescript) {
             clear();
+            printServerInfo();
             await buildTs({
                 inputLanguage: inputLanguage,
                 entry: entry,
@@ -109,6 +122,7 @@ if (watch !== undefined) {
     chokidar.watch(watch).on("change", async () => {
         if (inputLanguage == InputLanguage.typescript) {
             clear();
+            printServerInfo();
             await buildTs({
                 inputLanguage: inputLanguage,
                 entry: entry,
