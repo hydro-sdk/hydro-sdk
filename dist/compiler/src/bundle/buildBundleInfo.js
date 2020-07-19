@@ -92,32 +92,20 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                         return newDiagnostics && newDiagnostics.length ? res.diagnostics = __spreadArrays(res.diagnostics, newDiagnostics.map(function (x) { return x; })) : undefined;
                     };
                     getFullDiagnostics = function () {
-                        var diagnostics = program.getSyntacticDiagnostics();
-                        concatDiagnostics(diagnostics);
-                        diagnostics = program.getSemanticDiagnostics();
+                        var diagnostics = program.getSemanticDiagnostics();
                         concatDiagnostics(diagnostics);
                         diagnostics = program.getDeclarationDiagnostics();
                         concatDiagnostics(diagnostics);
                     };
-                    getIncrementalDiagnostics = function () {
-                        if (sourceFilesToTranspile.length > 0) {
-                            for (var _i = 0, sourceFilesToTranspile_2 = sourceFilesToTranspile; _i < sourceFilesToTranspile_2.length; _i++) {
-                                var sourceFile = sourceFilesToTranspile_2[_i];
-                                var diagnostics = program.getSyntacticDiagnostics(sourceFile);
-                                concatDiagnostics(diagnostics);
-                                diagnostics = program.getSemanticDiagnostics(sourceFile);
-                                concatDiagnostics(diagnostics);
-                                diagnostics = program.getDeclarationDiagnostics(sourceFile);
-                                concatDiagnostics(diagnostics);
-                            }
-                        }
+                    getIncrementalDiagnostics = function (sourceFile) {
+                        var diagnostics = program.getSyntacticDiagnostics(sourceFile);
+                        concatDiagnostics(diagnostics);
+                        diagnostics = program.getSemanticDiagnostics(sourceFile);
+                        concatDiagnostics(diagnostics);
+                        diagnostics = program.getDeclarationDiagnostics(sourceFile);
+                        concatDiagnostics(diagnostics);
                     };
-                    if (sourceFilesToTranspile.length == 0) {
-                        getIncrementalDiagnostics();
-                    }
-                    else {
-                        getFullDiagnostics();
-                    }
+                    getFullDiagnostics();
                     res.entries = oldEntries !== null && oldEntries !== void 0 ? oldEntries : {};
                     _loop_1 = function (sourceFileToTranspile) {
                         var transpiledFiles, transpiledFile, debugInfo;
@@ -135,6 +123,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                     })];
                                 case 1:
                                     _a.sent();
+                                    getIncrementalDiagnostics(sourceFileToTranspile);
                                     transpiledFiles = tstl.transpile({
                                         program: program,
                                         sourceFiles: [sourceFileToTranspile]

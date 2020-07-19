@@ -37,15 +37,15 @@ export async function buildBundleInfo(
     });
 
     const sourceFiles = program.getSourceFiles().filter((x) => !x.isDeclarationFile);
-    updateBuildProgress(0, sourceFiles.length+1, "");
+    updateBuildProgress(0, sourceFiles.length + 1, "");
 
     const oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
 
     const sourceFilesToTranspile = oldEntries ? sourceFiles.filter((x) => hashSourceFile(x) != (oldEntries[x.fileName]?.originalFileHash ?? "")) : sourceFiles;
 
-    let currentStep = Math.abs(sourceFiles.length+1 - sourceFilesToTranspile.length);
+    let currentStep = Math.abs(sourceFiles.length + 1 - sourceFilesToTranspile.length);
 
-    updateBuildProgress(currentStep, sourceFiles.length+1, "");
+    updateBuildProgress(currentStep, sourceFiles.length + 1, "");
 
     const concatDiagnostics = (newDiagnostics: Readonly<Array<ts.DiagnosticRelatedInformation>>) =>
         newDiagnostics && newDiagnostics.length ? res.diagnostics = [
@@ -56,38 +56,27 @@ export async function buildBundleInfo(
     const getFullDiagnostics = () => {
         let diagnostics:
             Readonly<Array<ts.Diagnostic>> |
-            Readonly<Array<ts.DiagnosticWithLocation>> = program.getSyntacticDiagnostics();
-        concatDiagnostics(diagnostics);
-
-        diagnostics = program.getSemanticDiagnostics();
+            Readonly<Array<ts.DiagnosticWithLocation>> = program.getSemanticDiagnostics();
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getDeclarationDiagnostics();
         concatDiagnostics(diagnostics);
     }
 
-    const getIncrementalDiagnostics = () => {
-        if (sourceFilesToTranspile.length > 0) {
-            for (const sourceFile of sourceFilesToTranspile) {
-                let diagnostics:
-                    Readonly<Array<ts.Diagnostic>> |
-                    Readonly<Array<ts.DiagnosticWithLocation>> = program.getSyntacticDiagnostics(sourceFile);
-                concatDiagnostics(diagnostics);
+    const getIncrementalDiagnostics = (sourceFile: Readonly<ts.SourceFile>) => {
+        let diagnostics:
+            Readonly<Array<ts.Diagnostic>> |
+            Readonly<Array<ts.DiagnosticWithLocation>> = program.getSyntacticDiagnostics(sourceFile);
+        concatDiagnostics(diagnostics);
 
-                diagnostics = program.getSemanticDiagnostics(sourceFile);
-                concatDiagnostics(diagnostics);
+        diagnostics = program.getSemanticDiagnostics(sourceFile);
+        concatDiagnostics(diagnostics);
 
-                diagnostics = program.getDeclarationDiagnostics(sourceFile);
-                concatDiagnostics(diagnostics);
-            }
-        }
+        diagnostics = program.getDeclarationDiagnostics(sourceFile);
+        concatDiagnostics(diagnostics);
     }
 
-    if (sourceFilesToTranspile.length == 0) {
-        getIncrementalDiagnostics();
-    } else {
-        getFullDiagnostics();
-    }
+    getFullDiagnostics();
 
     res.entries = oldEntries ?? {};
 
@@ -97,11 +86,14 @@ export async function buildBundleInfo(
             let dirnames = dirname.split(path.sep);
             let parentDir = dirnames.length >= 1 ? `${path.sep}${dirnames[dirnames.length - 1]}` : "";
             let grandParentDir = dirname.length >= 2 ? `${dirnames[dirnames.length - 2]}` : "";
-            updateBuildProgress(currentStep, sourceFiles.length+1, `${grandParentDir}${parentDir}${path.sep}${path.basename(sourceFileToTranspile.fileName)}`);
+            updateBuildProgress(currentStep, sourceFiles.length + 1, `${grandParentDir}${parentDir}${path.sep}${path.basename(sourceFileToTranspile.fileName)}`);
             setTimeout(() => {
                 resolve();
             }, 200);
         });
+
+        getIncrementalDiagnostics(sourceFileToTranspile);
+
         const { transpiledFiles } = tstl.transpile({
             program: program as any,
             sourceFiles: [(sourceFileToTranspile as any)]
@@ -144,7 +136,7 @@ export async function buildBundleInfo(
     }
 
     if (!Object.values(res.entries).some((x) => x.moduleName == "lualib_bundle")) {
-        updateBuildProgress(currentStep, sourceFiles.length+1,"lualib_bundle");
+        updateBuildProgress(currentStep, sourceFiles.length + 1, "lualib_bundle");
         const lualiBundle = getLuaLibBundle({
             getCurrentDirectory: () => "",
             readFile: (filePath: string) => fs.readFileSync(filePath).toString()
@@ -161,7 +153,7 @@ export async function buildBundleInfo(
             originalFileHash: hashText(lualiBundle)
         };
     }
-    updateBuildProgress(currentStep, sourceFiles.length+1,buildOptions.entry);
+    updateBuildProgress(currentStep, sourceFiles.length + 1, buildOptions.entry);
 
     return res;
 }
