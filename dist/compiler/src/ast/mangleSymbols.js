@@ -7,7 +7,9 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var hashText_1 = require("./hashText");
 function mangleSymbols(symbols, hashSymbol) {
+    if (hashSymbol === void 0) { hashSymbol = function (symbol) { return hashText_1.hashText(symbol.originalFileName); }; }
     /*
         Inspired by Rust's name mangling https://github.com/rust-lang/rfcs/blob/master/text/2603-rust-symbol-name-mangling-v0.md
         Inspired by Itanium C++'s lambda name mangling https://itanium-cxx-abi.github.io/cxx-abi/abi.html

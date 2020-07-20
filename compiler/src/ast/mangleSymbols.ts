@@ -1,4 +1,5 @@
 import { ModuleDebugInfo } from "./moduleDebugInfo";
+import { hashText } from "./hashText";
 
 type SymbolWithParents = {
     symbol: ModuleDebugInfo;
@@ -7,7 +8,8 @@ type SymbolWithParents = {
 
 export function mangleSymbols(
     symbols: Array<ModuleDebugInfo>,
-    hashSymbol: (symbol: Readonly<ModuleDebugInfo>) => string
+    hashSymbol: (symbol: Readonly<ModuleDebugInfo>) => string =
+        (symbol) => hashText(symbol.originalFileName)
 ): void {
     /*
         Inspired by Rust's name mangling https://github.com/rust-lang/rfcs/blob/master/text/2603-rust-symbol-name-mangling-v0.md
