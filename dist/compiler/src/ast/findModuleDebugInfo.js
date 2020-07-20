@@ -48,10 +48,16 @@ function maybeNarrowNodeType(node) {
     else if (node.type == "LocalStatement") {
         return node;
     }
+    else if (node.type == "ForGenericStatement") {
+        return node;
+    }
+    else if (node.type == "AssignmentStatement") {
+        return node;
+    }
     return;
 }
 function findModuleDebugInfoInner(props) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
     if (props.last.type == "FunctionDeclaration") {
         extract(__assign(__assign({}, props), { exp: props.last }));
         if (props.log) {
@@ -133,6 +139,21 @@ function findModuleDebugInfoInner(props) {
     }
     if (props.last.type == "LocalStatement") {
         props.last.init.forEach(function (k) {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
+            }
+        });
+    }
+    if (props.last.type == "ForGenericStatement") {
+        if (props.log) {
+            console.log("ForGenericStatement " + ((_q = (_p = props.last.loc) === null || _p === void 0 ? void 0 : _p.start) === null || _q === void 0 ? void 0 : _q.line));
+        }
+        props.last.iterators.forEach(function (k) {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
+            }
+        });
+        props.last.body.forEach(function (k) {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }

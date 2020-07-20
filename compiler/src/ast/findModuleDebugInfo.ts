@@ -36,7 +36,9 @@ type ExplorableNode = lparse.CallExpression |
     lparse.TableConstructorExpression |
     lparse.IfClause |
     lparse.IfStatement |
-    lparse.LocalStatement;
+    lparse.LocalStatement |
+    lparse.ForGenericStatement |
+    lparse.AssignmentStatement;
 
 function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefined {
     if (node.type == "CallExpression") {
@@ -51,6 +53,10 @@ function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefi
         return node as lparse.IfStatement;
     } else if (node.type == "LocalStatement") {
         return node as lparse.LocalStatement;
+    } else if (node.type == "ForGenericStatement") {
+        return node as lparse.ForGenericStatement;
+    } else if(node.type == "AssignmentStatement"){
+        return node as lparse.AssignmentStatement;
     }
     return;
 }
@@ -184,6 +190,27 @@ function findModuleDebugInfoInner(props: {
                 });
             }
         });
+    }
+    if (props.last.type == "ForGenericStatement") {
+        if (props.log) {
+            console.log(`ForGenericStatement ${props.last.loc?.start?.line}`);
+        }
+        props.last.iterators.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode
+                });
+            }
+        });
+        props.last.body.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode
+                });
+            }
+        })
     }
 }
 
