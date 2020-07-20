@@ -20,23 +20,24 @@ class Closure {
   });
 
   Prototype proto;
-  final Frame parent;
+  Frame parent;
   final Context context;
-  final List<Upval> upvalues;
+  List<Upval> upvalues;
 
   BuildProfile get buildProfile => proto.buildProfile;
 
-  Prototype maybeLookupReloadedPrototype({@required HydroState parentState}) {
+  static Prototype maybeLookupReloadedPrototype(
+      {@required Prototype prototype, @required HydroState parentState}) {
     assert(parentState != null);
-    if (buildProfile != BuildProfile.debug) {
-      return proto;
-    } else if (buildProfile == BuildProfile.debug &&
+    if (prototype.buildProfile != BuildProfile.debug) {
+      return prototype;
+    } else if (prototype.buildProfile == BuildProfile.debug &&
         //Main chunk is reported as being from 0-0
-        proto.lineStart != 0 &&
-        proto.lineEnd != 0 &&
+        prototype.lineStart != 0 &&
+        prototype.lineEnd != 0 &&
         parentState.dispatchContext != null) {
-      if (proto.debugSymbol == null) {
-        throw "Dispatched function prototypes are required to have debug symbols but the prototype from ${proto.lineStart}-${proto.lineEnd} in ${proto.source} could not be matched to a debug symbol";
+      if (prototype.debugSymbol == null) {
+        throw "Dispatched function prototypes are required to have debug symbols but the prototype from ${prototype.lineStart}-${prototype.lineEnd} in ${prototype.source} could not be matched to a debug symbol";
       }
     }
 
@@ -45,31 +46,51 @@ class Closure {
     if (parentState.dispatchContext != null) {
       Prototype targetProto = parentState
           ?.dispatchContext?.dispatchContext?.closure?.proto
-          ?.findPrototypeByDebugSymbol(symbol: proto.debugSymbol);
+          ?.findPrototypeByDebugSymbol(symbol: prototype.debugSymbol);
 
       if (targetProto != null) {
-        proto = targetProto;
-      } else if (proto.lineStart != 0 && proto.lineEnd != 0) {
-        throw "Failed to dispatch to ${proto?.debugSymbol?.symbolFullyQualifiedMangleName} from ${proto.lineStart}-${proto.lineEnd} in ${proto.source}";
+        prototype = targetProto;
+      } else if (prototype.lineStart != 0 && prototype.lineEnd != 0) {
+        throw "Failed to dispatch to ${prototype?.debugSymbol?.symbolFullyQualifiedMangleName} from ${prototype.lineStart}-${prototype.lineEnd} in ${prototype.source}";
       }
     }
-    return proto;
+    return prototype;
   }
 
   List<dynamic> dispatch(List<dynamic> args,
-      {@required HydroState parentState}) {
+      {@required HydroState parentState,
+      bool resetEnclosingLexicalEnvironment = false}) {
     try {
-      proto = maybeLookupReloadedPrototype(parentState: parentState);
-      return _dispatch(args, parentState: parentState);
+      proto = maybeLookupReloadedPrototype(
+          prototype: proto, parentState: parentState);
+      if (resetEnclosingLexicalEnvironment) {
+        //Quietly rebuild this closure from scratch with the (potentially)
+        //updated function prototype, and pass that along to be executed
+        return _dispatch(args,
+            parentState: parentState,
+            closure: Closure(
+              proto,
+              context: context,
+              parent: parent,
+              upvalues: List.generate(proto.upvals.length, (i) {
+                var def = proto.upvals[i];
+                return def.stack
+                    ? parent.openUpval(def.reg)
+                    : parent.upvalues[def.reg];
+              }),
+            ));
+      }
+      return _dispatch(args, parentState: parentState, closure: this);
     } on HydroError catch (err) {
       err.addSymbolicatedStackTrace(symbols: parentState.symbols);
       throw err;
     }
   }
 
-  List<dynamic> _dispatch(List<dynamic> args, {HydroState parentState}) {
+  static List<dynamic> _dispatch(List<dynamic> args,
+      {HydroState parentState, Closure closure}) {
     assert(parentState != null);
-    var f = new Thread(closure: this, hydroState: parentState).frame;
+    var f = new Thread(closure: closure, hydroState: parentState).frame;
     f.loadArgs(args);
     ThreadResult x;
     x = f.cont();

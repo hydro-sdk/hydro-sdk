@@ -13,7 +13,7 @@ Widget managedBuild(
       maybeFindInheritedMethod(managedObject: hydroTable, methodName: "build");
   var buildResult = managedBuild.dispatch(
       [hydroTable.map, maybeBoxObject(object: context, hydroState: hydroState)],
-      parentState: hydroState)[0];
+      parentState: hydroState, resetEnclosingLexicalEnvironment: true)[0];
   return maybeUnBoxAndBuildArgument<Widget>(buildResult,
       parentState: hydroState);
 }

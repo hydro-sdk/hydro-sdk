@@ -17,7 +17,6 @@ ThreadResult call(
     for (int i = 0; i < args.length; i++) args[i] = frame.GR(i + A + 1);
 
   if (x is Closure) {
-    x.proto = x.maybeLookupReloadedPrototype(parentState: frame.thread.hydroState);
     var f = frame.thread.newFrame(x);
     f.loadArgs(args);
     var res = f.cont();
