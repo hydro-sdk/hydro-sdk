@@ -12,7 +12,21 @@ void maybeAssignDebugSymbol({
         (element) =>
             element.lineStart == prototype.lineStart &&
             element.lineEnd == prototype.lineEnd &&
-            element.parameterNames.length == prototype.params,
+            (element.parameterNames.length -
+                    (element.parameterNames.firstWhere(
+                                    (param) => param == "...",
+                                    orElse: () => null) !=
+                                null
+                            ? 1
+                            : 0)
+                        .abs()) ==
+                prototype.params &&
+            (prototype.varag == 1 ? true : false) ==
+                (element.parameterNames.firstWhere((param) => param == "...",
+                            orElse: () => null) !=
+                        null
+                    ? true
+                    : false),
         orElse: () => null);
   }
 }
