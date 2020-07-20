@@ -8,7 +8,7 @@ import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
 class Thread {
-  Thread({@required Closure closure,@required this.hydroState}) {
+  Thread({@required Closure closure, @required this.hydroState}) {
     frame = newFrame(closure);
   }
 
@@ -31,7 +31,7 @@ class Thread {
     } else if (x is LuaDartDebugFunc) {
       return x(this, args);
     } else if (x is Closure) {
-      return x.dispatch(args,parentState: hydroState);
+      return x.dispatch(args, parentState: hydroState);
     } else {
       throw "attempt to call a ${Context.getTypename(x)} value $x with $args";
     }

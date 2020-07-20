@@ -9,5 +9,6 @@ void settabup(
     @required int A,
     @required int B,
     @required int C}) {
-  Context.tableSet(frame.getUpval(A), frame.RK(B), frame.RK(C),frame.context.hydroState);
+  Context.tableSet(
+      frame.getUpval(A), frame.RK(B), frame.RK(C), frame.context.hydroState);
 }

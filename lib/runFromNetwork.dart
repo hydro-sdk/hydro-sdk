@@ -200,8 +200,9 @@ class _RunFromNetwork extends State<RunFromNetwork>
       }
 
       return maybeUnBoxAndBuildArgument<Widget>(
-          luaState.context.env["hydro"]["globalBuildResult"]
-              .dispatch(args != null ? [...args] : [],parentState:luaState)[0],
+          luaState.context.env["hydro"]["globalBuildResult"].dispatch(
+              args != null ? [...args] : [],
+              parentState: luaState)[0],
           parentState: luaState);
     }
   }
