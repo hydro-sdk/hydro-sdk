@@ -81,6 +81,23 @@ export async function buildBundleInfo(
 
     res.entries = oldEntries ?? {};
 
+    const sanityCheckDebugSymbols = (debugInfo: Readonly<Array<ModuleDebugInfo>>): void => {
+        debugInfo.forEach((x) => {
+            debugInfo.forEach((k) => {
+                if (x.symbolFullyQualifiedMangleName == k.symbolFullyQualifiedMangleName &&
+                    x.originalLineStart != k.originalLineStart &&
+                    x.originalColumnStart != k.originalColumnStart
+                ) {
+                    console.log(`${x.symbolName} and ${k.symbolName}`);
+                    console.log(`Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart},${x.columnStart})`);
+                    console.log(`and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart},${k.columnStart})`);
+                    console.log(`both mangled to the following: ${x.symbolFullyQualifiedMangleName}`);
+                    exit(1);
+                }
+            });
+        });
+    };
+
     for (const sourceFileToTranspile of sourceFilesToTranspile) {
         await new Promise((resolve) => {
             let dirname = path.dirname(sourceFileToTranspile.fileName);
@@ -114,21 +131,8 @@ export async function buildBundleInfo(
             (symbol: Readonly<ModuleDebugInfo>) => hashText(symbol.originalFileName)
         );
 
-        debugInfo.forEach((x) => {
-            debugInfo.forEach((k) => {
-                if (x.symbolFullyQualifiedMangleName == k.symbolFullyQualifiedMangleName &&
-                    x.originalLineStart != k.originalLineStart &&
-                    x.originalColumnStart != k.originalColumnStart
-                ) {
-                    console.log(`${x.symbolName} and ${k.symbolName}`);
-                    console.log(`Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart},${x.columnStart})`);
-                    console.log(`and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart},${k.columnStart})`);
-                    console.log(`both mangled to the following: ${x.symbolFullyQualifiedMangleName}`);
-                    exit(1);
-                }
-            })
-        });
-
+        sanityCheckDebugSymbols(debugInfo);
+        
         res.entries[transpiledFile.fileName] = {
             debugSymbols: debugInfo,
             moduleText: transpiledFile.lua!,
@@ -155,6 +159,8 @@ export async function buildBundleInfo(
             debugInfo,
             (symbol: Readonly<ModuleDebugInfo>) => `lualib_bundle${hashText(symbol.originalFileName)}`
         );
+
+        sanityCheckDebugSymbols(debugInfo);
 
         res.entries["lualib_bundle"] = {
             debugSymbols: debugInfo,
