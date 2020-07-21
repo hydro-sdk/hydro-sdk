@@ -98,13 +98,20 @@ export async function buildBundleInfo(
         });
     };
 
+    const buildSourceFileShortPath = (sourceFile: Readonly<ts.SourceFile>): string => {
+        let dirname = path.dirname(sourceFile.fileName);
+        let dirnames = dirname.split(path.sep);
+        let parentDir = dirnames.length >= 1 ? `${path.sep}${dirnames[dirnames.length - 1]}` : "";
+        let grandParentDir = dirname.length >= 2 ? `${dirnames[dirnames.length - 2]}` : "";
+        return `${grandParentDir}${parentDir}${path.sep}${path.basename(sourceFile.fileName)}`;
+    }
+
+    sourceFilesToTranspile.sort((a, b) => buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b)));
+
     for (const sourceFileToTranspile of sourceFilesToTranspile) {
         await new Promise((resolve) => {
-            let dirname = path.dirname(sourceFileToTranspile.fileName);
-            let dirnames = dirname.split(path.sep);
-            let parentDir = dirnames.length >= 1 ? `${path.sep}${dirnames[dirnames.length - 1]}` : "";
-            let grandParentDir = dirname.length >= 2 ? `${dirnames[dirnames.length - 2]}` : "";
-            updateBuildProgress(currentStep, sourceFiles.length + 1, `${grandParentDir}${parentDir}${path.sep}${path.basename(sourceFileToTranspile.fileName)}`);
+
+            updateBuildProgress(currentStep, sourceFiles.length + 1, buildSourceFileShortPath(sourceFileToTranspile));
             setTimeout(() => {
                 resolve();
             }, 200);
@@ -132,7 +139,7 @@ export async function buildBundleInfo(
         );
 
         sanityCheckDebugSymbols(debugInfo);
-        
+
         res.entries[transpiledFile.fileName] = {
             debugSymbols: debugInfo,
             moduleText: transpiledFile.lua!,

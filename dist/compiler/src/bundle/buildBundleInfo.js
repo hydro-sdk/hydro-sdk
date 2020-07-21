@@ -68,7 +68,7 @@ var mangleSymbols_1 = require("../ast/mangleSymbols");
 var process_1 = require("process");
 function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, currentStep, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, sanityCheckDebugSymbols, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle, debugInfo;
+        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, currentStep, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, sanityCheckDebugSymbols, buildSourceFileShortPath, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle, debugInfo;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -122,16 +122,20 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                             });
                         });
                     };
+                    buildSourceFileShortPath = function (sourceFile) {
+                        var dirname = path.dirname(sourceFile.fileName);
+                        var dirnames = dirname.split(path.sep);
+                        var parentDir = dirnames.length >= 1 ? "" + path.sep + dirnames[dirnames.length - 1] : "";
+                        var grandParentDir = dirname.length >= 2 ? "" + dirnames[dirnames.length - 2] : "";
+                        return "" + grandParentDir + parentDir + path.sep + path.basename(sourceFile.fileName);
+                    };
+                    sourceFilesToTranspile.sort(function (a, b) { return buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b)); });
                     _loop_1 = function (sourceFileToTranspile) {
                         var transpiledFiles, transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, new Promise(function (resolve) {
-                                        var dirname = path.dirname(sourceFileToTranspile.fileName);
-                                        var dirnames = dirname.split(path.sep);
-                                        var parentDir = dirnames.length >= 1 ? "" + path.sep + dirnames[dirnames.length - 1] : "";
-                                        var grandParentDir = dirname.length >= 2 ? "" + dirnames[dirnames.length - 2] : "";
-                                        updateBuildProgress(currentStep, sourceFiles.length + 1, "" + grandParentDir + parentDir + path.sep + path.basename(sourceFileToTranspile.fileName));
+                                        updateBuildProgress(currentStep, sourceFiles.length + 1, buildSourceFileShortPath(sourceFileToTranspile));
                                         setTimeout(function () {
                                             resolve();
                                         }, 200);
