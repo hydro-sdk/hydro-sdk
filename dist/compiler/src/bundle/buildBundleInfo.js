@@ -68,7 +68,7 @@ var mangleSymbols_1 = require("../ast/mangleSymbols");
 var process_1 = require("process");
 function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, currentStep, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle;
+        var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, currentStep, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, sanityCheckDebugSymbols, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle, debugInfo;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -107,6 +107,21 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     };
                     getFullDiagnostics();
                     res.entries = oldEntries !== null && oldEntries !== void 0 ? oldEntries : {};
+                    sanityCheckDebugSymbols = function (debugInfo) {
+                        debugInfo.forEach(function (x) {
+                            debugInfo.forEach(function (k) {
+                                if (x.symbolFullyQualifiedMangleName == k.symbolFullyQualifiedMangleName &&
+                                    x.originalLineStart != k.originalLineStart &&
+                                    x.originalColumnStart != k.originalColumnStart) {
+                                    console.log(x.symbolName + " and " + k.symbolName);
+                                    console.log("Defined at " + x.originalFileName + ":" + x.originalLineStart + "," + x.originalColumnStart + " (" + x.lineStart + "," + x.columnStart + ")");
+                                    console.log("and " + k.originalFileName + ":" + k.originalLineStart + "," + k.originalColumnStart + " (" + k.lineStart + "," + k.columnStart + ")");
+                                    console.log("both mangled to the following: " + x.symbolFullyQualifiedMangleName);
+                                    process_1.exit(1);
+                                }
+                            });
+                        });
+                    };
                     _loop_1 = function (sourceFileToTranspile) {
                         var transpiledFiles, transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
@@ -137,20 +152,8 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                     return [4 /*yield*/, addOriginalMappings_1.addOriginalMappings(debugInfo, transpiledFile)];
                                 case 2:
                                     _a.sent();
-                                    mangleSymbols_1.mangleSymbols(debugInfo);
-                                    debugInfo.forEach(function (x) {
-                                        debugInfo.forEach(function (k) {
-                                            if (x.symbolFullyQualifiedMangleName == k.symbolFullyQualifiedMangleName &&
-                                                x.originalLineStart != k.originalLineStart &&
-                                                x.originalColumnStart != k.originalColumnStart) {
-                                                console.log(x.symbolName + " and " + k.symbolName);
-                                                console.log("Defined at " + x.originalFileName + ":" + x.originalLineStart + "," + x.originalColumnStart + " (" + x.lineStart + "," + x.columnStart + ")");
-                                                console.log("and " + k.originalFileName + ":" + k.originalLineStart + "," + k.originalColumnStart + " (" + k.lineStart + "," + k.columnStart + ")");
-                                                console.log("both mangled to the following: " + x.symbolFullyQualifiedMangleName);
-                                                process_1.exit(1);
-                                            }
-                                        });
-                                    });
+                                    mangleSymbols_1.mangleSymbols(debugInfo, function (symbol) { return hashText_1.hashText(symbol.originalFileName); });
+                                    sanityCheckDebugSymbols(debugInfo);
                                     res.entries[transpiledFile.fileName] = {
                                         debugSymbols: debugInfo,
                                         moduleText: transpiledFile.lua,
@@ -182,12 +185,15 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                             getCurrentDirectory: function () { return ""; },
                             readFile: function (filePath) { return fs.readFileSync(filePath).toString(); }
                         });
+                        debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
+                            originalFileName: "lualib_bundle",
+                            filename: "lualib_bundle",
+                            fileContent: lualiBundle,
+                        });
+                        mangleSymbols_1.mangleSymbols(debugInfo, function (symbol) { return "lualib_bundle" + hashText_1.hashText(symbol.originalFileName); });
+                        sanityCheckDebugSymbols(debugInfo);
                         res.entries["lualib_bundle"] = {
-                            debugSymbols: findModuleDebugInfo_1.findModuleDebugInfo({
-                                originalFileName: "lualib_bundle",
-                                filename: "lualib_bundle",
-                                fileContent: lualiBundle,
-                            }),
+                            debugSymbols: debugInfo,
                             moduleText: lualiBundle,
                             moduleName: "lualib_bundle",
                             originalFileName: "lualib_bundle",

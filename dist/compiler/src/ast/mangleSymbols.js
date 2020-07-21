@@ -8,7 +8,8 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var hashText_1 = require("./hashText");
-function mangleSymbols(symbols) {
+function mangleSymbols(symbols, hashSymbol) {
+    if (hashSymbol === void 0) { hashSymbol = function (symbol) { return hashText_1.hashText(symbol.originalFileName); }; }
     /*
         Inspired by Rust's name mangling https://github.com/rust-lang/rfcs/blob/master/text/2603-rust-symbol-name-mangling-v0.md
         Inspired by Itanium C++'s lambda name mangling https://itanium-cxx-abi.github.io/cxx-abi/abi.html
@@ -62,7 +63,7 @@ function mangleSymbols(symbols) {
         return sym.parents.map(function (e) { return e.symbolMangleName + "::" + e.symbolDisambiguationIndex; }).join("::");
     };
     var buildFullyQualifiedName = function (sym) {
-        return "_L" + hashText_1.hashText(sym.symbol.originalFileName) + (buildParentQualifiers(sym) ? "::" + buildParentQualifiers(sym) : "") + "::" + sym.symbol.symbolMangleName + "::" + sym.symbol.symbolDisambiguationIndex;
+        return "_L" + hashSymbol(sym.symbol) + (buildParentQualifiers(sym) ? "::" + buildParentQualifiers(sym) : "") + "::" + sym.symbol.symbolMangleName + "::" + sym.symbol.symbolDisambiguationIndex;
     };
     Object.keys(parentLevels).forEach(function (x) {
         parentLevels[parseInt(x)].forEach(function (k) {

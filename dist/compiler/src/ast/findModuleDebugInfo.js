@@ -29,8 +29,35 @@ function findModuleDebugInfo(props) {
     return res;
 }
 exports.findModuleDebugInfo = findModuleDebugInfo;
+function maybeNarrowNodeType(node) {
+    if (node.type == "CallExpression") {
+        return node;
+    }
+    else if (node.type == "FunctionDeclaration") {
+        return node;
+    }
+    else if (node.type == "TableConstructorExpression") {
+        return node;
+    }
+    else if (node.type == "IfClause") {
+        return node;
+    }
+    else if (node.type == "IfStatement") {
+        return node;
+    }
+    else if (node.type == "LocalStatement") {
+        return node;
+    }
+    else if (node.type == "ForGenericStatement") {
+        return node;
+    }
+    else if (node.type == "AssignmentStatement") {
+        return node;
+    }
+    return;
+}
 function findModuleDebugInfoInner(props) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
     if (props.last.type == "FunctionDeclaration") {
         extract(__assign(__assign({}, props), { exp: props.last }));
         if (props.log) {
@@ -45,7 +72,7 @@ function findModuleDebugInfoInner(props) {
             console.log("ReturnStatement " + ((_e = (_d = (_c = props.last) === null || _c === void 0 ? void 0 : _c.loc) === null || _d === void 0 ? void 0 : _d.start) === null || _e === void 0 ? void 0 : _e.line));
         }
         props.last.arguments.forEach(function (k) {
-            if (k.type == "CallExpression" || k.type == "FunctionDeclaration") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }
         });
@@ -54,7 +81,7 @@ function findModuleDebugInfoInner(props) {
         if (props.log) {
             console.log("CallStatement " + ((_g = (_f = props.last.loc) === null || _f === void 0 ? void 0 : _f.start) === null || _g === void 0 ? void 0 : _g.line));
         }
-        if (props.last.expression.type == "CallExpression") {
+        if (maybeNarrowNodeType(props.last.expression)) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.expression }));
         }
     }
@@ -64,7 +91,7 @@ function findModuleDebugInfoInner(props) {
         }
         extract(__assign(__assign({}, props), { exp: props.last }));
         props.last.init.forEach(function (k) {
-            if (k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression" || k.type == "CallExpression") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }
         });
@@ -74,11 +101,11 @@ function findModuleDebugInfoInner(props) {
             console.log("CallExpression " + ((_l = (_k = props.last.loc) === null || _k === void 0 ? void 0 : _k.start) === null || _l === void 0 ? void 0 : _l.line));
         }
         props.last.arguments.forEach(function (k) {
-            if (k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }
         });
-        if (props.last.base.type == "FunctionDeclaration") {
+        if (maybeNarrowNodeType(props.last.base)) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.base }));
         }
     }
@@ -89,7 +116,7 @@ function findModuleDebugInfoInner(props) {
         props.last.fields.forEach(function (k) {
             var _a, _b;
             if (k.type == "TableKeyString" || k.type == "TableValue") {
-                if (k.value.type == "CallExpression" || k.value.type == "FunctionDeclaration" || k.value.type == "TableConstructorExpression") {
+                if (maybeNarrowNodeType(k.value)) {
                     if (props.log) {
                         console.log(k.value.type + " " + (k.type == "TableKeyString" ? k.key.name : "") + " " + ((_b = (_a = k.loc) === null || _a === void 0 ? void 0 : _a.start) === null || _b === void 0 ? void 0 : _b.line));
                     }
@@ -100,7 +127,7 @@ function findModuleDebugInfoInner(props) {
     }
     if (props.last.type == "IfStatement") {
         props.last.clauses.forEach(function (k) {
-            if (k.type == "IfClause") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }
         });
@@ -112,7 +139,22 @@ function findModuleDebugInfoInner(props) {
     }
     if (props.last.type == "LocalStatement") {
         props.last.init.forEach(function (k) {
-            if (k.type == "CallExpression" || k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression") {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
+            }
+        });
+    }
+    if (props.last.type == "ForGenericStatement") {
+        if (props.log) {
+            console.log("ForGenericStatement " + ((_q = (_p = props.last.loc) === null || _p === void 0 ? void 0 : _p.start) === null || _q === void 0 ? void 0 : _q.line));
+        }
+        props.last.iterators.forEach(function (k) {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
+            }
+        });
+        props.last.body.forEach(function (k) {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }
         });

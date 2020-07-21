@@ -6,7 +6,11 @@ type SymbolWithParents = {
     parents: Array<ModuleDebugInfo>;
 };
 
-export function mangleSymbols(symbols: Array<ModuleDebugInfo>): void {
+export function mangleSymbols(
+    symbols: Array<ModuleDebugInfo>,
+    hashSymbol: (symbol: Readonly<ModuleDebugInfo>) => string =
+        (symbol) => hashText(symbol.originalFileName)
+): void {
     /*
         Inspired by Rust's name mangling https://github.com/rust-lang/rfcs/blob/master/text/2603-rust-symbol-name-mangling-v0.md
         Inspired by Itanium C++'s lambda name mangling https://itanium-cxx-abi.github.io/cxx-abi/abi.html
@@ -68,7 +72,7 @@ export function mangleSymbols(symbols: Array<ModuleDebugInfo>): void {
         sym.parents.map((e) => `${e.symbolMangleName}::${e.symbolDisambiguationIndex}`).join("::");
 
     const buildFullyQualifiedName = (sym: Readonly<SymbolWithParents>) =>
-        `_L${hashText(sym.symbol.originalFileName)}${buildParentQualifiers(sym) ? `::${buildParentQualifiers(sym)}` : ""}::${sym.symbol.symbolMangleName}::${sym.symbol.symbolDisambiguationIndex}`;
+        `_L${hashSymbol(sym.symbol)}${buildParentQualifiers(sym) ? `::${buildParentQualifiers(sym)}` : ""}::${sym.symbol.symbolMangleName}::${sym.symbol.symbolDisambiguationIndex}`;
 
     Object.keys(parentLevels).forEach((x) => {
         parentLevels[parseInt(x)].forEach((k) => {

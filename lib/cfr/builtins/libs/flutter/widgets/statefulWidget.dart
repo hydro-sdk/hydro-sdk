@@ -30,7 +30,11 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
       //args[1] will be setState closure to call
       //Do a this call of args[1]
       if (args[1] != null && args[1] is Closure) {
-        args[1].dispatch([args[0]], parentState: parentState);
+        args[1].dispatch(
+          [args[0]],
+          parentState: parentState,
+          resetEnclosingLexicalEnvironment: true,
+        );
       }
       setState(() {});
       return [];
@@ -41,8 +45,11 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
   Widget build(BuildContext context) {
     Closure managedBuild =
         maybeFindInheritedMethod(managedObject: table, methodName: "build");
-    var buildResult =
-        managedBuild.dispatch([table, context], parentState: parentState)[0];
+    var buildResult = managedBuild.dispatch(
+      [table, context],
+      parentState: parentState,
+      resetEnclosingLexicalEnvironment: true,
+    )[0];
     return maybeUnBoxAndBuildArgument<Widget>(buildResult,
         parentState: parentState);
   }

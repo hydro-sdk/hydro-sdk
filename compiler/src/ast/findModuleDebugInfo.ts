@@ -31,16 +31,41 @@ export function findModuleDebugInfo(props: {
     return res;
 }
 
+type ExplorableNode = lparse.CallExpression |
+    lparse.FunctionDeclaration |
+    lparse.TableConstructorExpression |
+    lparse.IfClause |
+    lparse.IfStatement |
+    lparse.LocalStatement |
+    lparse.ForGenericStatement |
+    lparse.AssignmentStatement;
+
+function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefined {
+    if (node.type == "CallExpression") {
+        return node as lparse.CallExpression;
+    } else if (node.type == "FunctionDeclaration") {
+        return node as lparse.FunctionDeclaration;
+    } else if (node.type == "TableConstructorExpression") {
+        return node as lparse.TableConstructorExpression;
+    } else if (node.type == "IfClause") {
+        return node as lparse.IfClause;
+    } else if (node.type == "IfStatement") {
+        return node as lparse.IfStatement;
+    } else if (node.type == "LocalStatement") {
+        return node as lparse.LocalStatement;
+    } else if (node.type == "ForGenericStatement") {
+        return node as lparse.ForGenericStatement;
+    } else if(node.type == "AssignmentStatement"){
+        return node as lparse.AssignmentStatement;
+    }
+    return;
+}
+
 function findModuleDebugInfoInner(props: {
     originalFileName: string,
     filename: string,
     fileContent: string,
-    last: lparse.Statement |
-    lparse.CallExpression |
-    lparse.TableConstructorExpression |
-    lparse.IfClause |
-    lparse.IfStatement |
-    lparse.LocalStatement,
+    last: lparse.Statement | ExplorableNode,
     cont: Array<ModuleDebugInfo>,
     log?: boolean
 }) {
@@ -64,10 +89,10 @@ function findModuleDebugInfoInner(props: {
             console.log(`ReturnStatement ${props.last?.loc?.start?.line}`);
         }
         props.last.arguments.forEach((k) => {
-            if (k.type == "CallExpression" || k.type == "FunctionDeclaration") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k
+                    last: k as ExplorableNode
                 });
             }
         });
@@ -76,10 +101,10 @@ function findModuleDebugInfoInner(props: {
         if (props.log) {
             console.log(`CallStatement ${props.last.loc?.start?.line}`);
         }
-        if (props.last.expression.type == "CallExpression") {
+        if (maybeNarrowNodeType(props.last.expression)) {
             findModuleDebugInfoInner({
                 ...props,
-                last: props.last.expression
+                last: props.last.expression as ExplorableNode
             });
         }
     }
@@ -92,10 +117,10 @@ function findModuleDebugInfoInner(props: {
             exp: props.last,
         });
         props.last.init.forEach((k) => {
-            if (k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression" || k.type == "CallExpression") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k
+                    last: k as ExplorableNode
                 });
             }
         });
@@ -105,18 +130,18 @@ function findModuleDebugInfoInner(props: {
             console.log(`CallExpression ${props.last.loc?.start?.line}`);
         }
         props.last.arguments.forEach((k) => {
-            if (k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k
+                    last: k as ExplorableNode
                 });
             }
         });
 
-        if (props.last.base.type == "FunctionDeclaration") {
+        if (maybeNarrowNodeType(props.last.base)) {
             findModuleDebugInfoInner({
                 ...props,
-                last: props.last.base
+                last: props.last.base as ExplorableNode
             });
         }
     }
@@ -126,13 +151,13 @@ function findModuleDebugInfoInner(props: {
         }
         props.last.fields.forEach((k) => {
             if (k.type == "TableKeyString" || k.type == "TableValue") {
-                if (k.value.type == "CallExpression" || k.value.type == "FunctionDeclaration" || k.value.type == "TableConstructorExpression") {
+                if (maybeNarrowNodeType(k.value)) {
                     if (props.log) {
                         console.log(`${k.value.type} ${k.type == "TableKeyString" ? k.key.name : ""} ${k.loc?.start?.line}`);
                     }
                     findModuleDebugInfoInner({
                         ...props,
-                        last: k.value
+                        last: k.value as ExplorableNode
                     });
                 }
             }
@@ -140,10 +165,10 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "IfStatement") {
         props.last.clauses.forEach((k) => {
-            if (k.type == "IfClause") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k
+                    last: k as ExplorableNode
                 });
             }
         });
@@ -158,13 +183,34 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "LocalStatement") {
         props.last.init.forEach((k) => {
-            if (k.type == "CallExpression" || k.type == "FunctionDeclaration" || k.type == "TableConstructorExpression") {
+            if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k
+                    last: k as ExplorableNode
                 });
             }
         });
+    }
+    if (props.last.type == "ForGenericStatement") {
+        if (props.log) {
+            console.log(`ForGenericStatement ${props.last.loc?.start?.line}`);
+        }
+        props.last.iterators.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode
+                });
+            }
+        });
+        props.last.body.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode
+                });
+            }
+        })
     }
 }
 

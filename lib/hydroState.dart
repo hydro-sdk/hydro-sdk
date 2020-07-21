@@ -18,11 +18,13 @@ class HydroFunctionImpl extends HydroFunction {
   HydroFunctionImpl(this.closure);
   Closure closure;
   HydroState get state => closure.context.userdata as HydroState;
-  List<dynamic> call(List<dynamic> args) => closure(args);
+  List<dynamic> call(List<dynamic> args) =>
+      closure.dispatch(args, parentState: state);
   CoroutineResult pcall(List<dynamic> args,
       {@required HydroState parentState}) {
     try {
-      return new CoroutineResult(true, closure(args, parentState: parentState));
+      return new CoroutineResult(
+          true, closure.dispatch(args, parentState: parentState));
     } on HydroError catch (e) {
       return new CoroutineResult(false, [e.toString()]);
     }
@@ -42,13 +44,14 @@ class DispatchContext {
 class HydroState {
   // ignore: non_constant_identifier_names
   HydroTable get _G => _context.env;
-  final Context _context;
+  Context _context;
   Context get context => _context;
 
   DispatchContext dispatchContext;
   List<ModuleDebugInfo> symbols;
 
-  HydroState() : _context = new Context(env: new HydroTable()) {
+  HydroState() {
+    _context = new Context(env: new HydroTable(), hydroState: this);
     _context.userdata = this;
   }
 
