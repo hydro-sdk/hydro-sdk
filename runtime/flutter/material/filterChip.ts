@@ -1,13 +1,15 @@
-import { Color } from "../../dart/ui/color";
-import { StatelessWidget } from "./../widgets/statelessWidget";
-import { Key } from "./../../flutter/foundation/key";
-import { Widget } from "../widget";
-import { TextStyle } from "./../../flutter/painting/textStyle";
-import { EdgeInsets } from "./../../flutter/painting/edgeInsets";
-import { Clip } from "./../../flutter/painting/clip";
-import { MaterialTapTargetSize } from "./materialTapTargetSize";
-import { RawChip } from "./rawChip";
-import { CircleBorder } from "../painting/circleBorder";
+import {Color} from "../../dart/ui/color";
+import {Widget} from "../widget";
+import {CircleBorder} from "../painting/circleBorder";
+
+import {StatelessWidget} from "./../widgets/statelessWidget";
+import {Key} from "./../../flutter/foundation/key";
+import {TextStyle} from "./../../flutter/painting/textStyle";
+import {EdgeInsets} from "./../../flutter/painting/edgeInsets";
+import {Clip} from "./../../flutter/painting/clip";
+import {MaterialTapTargetSize} from "./materialTapTargetSize";
+import {RawChip} from "./rawChip";
+
 
 
 interface FilterChipProps {
@@ -17,7 +19,7 @@ interface FilterChipProps {
     labelStyle?: TextStyle | undefined;
     labelPadding?: EdgeInsets | undefined;
     selected?: boolean | undefined;
-    onSelected: (this:void,val: boolean) => void;
+    onSelected: (this: void,val: boolean) => void;
     pressElevation?: number | undefined;
     disabledColor?: Color | undefined;
     selectedColor?: Color | undefined;
@@ -42,32 +44,39 @@ interface FilterChipProps {
 declare const flutter: {
     material: {
         filterChip: (this: void, props: FilterChipProps) => FilterChip;
-    }
-}
+    };
+};
 
-export class FilterChip extends StatelessWidget {
+export class FilterChip extends StatelessWidget 
+{
     public props: FilterChipProps;
-    public constructor(props: FilterChipProps) {
+    public constructor(props: FilterChipProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.selected === undefined) {
+        if (this.props.selected === undefined) 
+        {
             this.props.selected = false;
         }
 
-        if (this.props.avatarBorder === undefined) {
+        if (this.props.avatarBorder === undefined) 
+        {
             this.props.avatarBorder = new CircleBorder({});
         }
 
-        if (this.props.clipBehavior === undefined) {
+        if (this.props.clipBehavior === undefined) 
+        {
             this.props.clipBehavior = Clip.none;
         }
-        if (this.props.autofocus === undefined) {
+        if (this.props.autofocus === undefined) 
+        {
             this.props.autofocus = false;
         }
     }
 
-    public build() {
+    public build() 
+    {
         return new RawChip({
             avatar: this.props.avatar,
             label: this.props.label,

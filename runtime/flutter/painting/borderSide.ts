@@ -1,9 +1,9 @@
-import { JITAllocatingRTManagedBox } from "../../syntheticBox";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import {JITAllocatingRTManagedBox} from "../../syntheticBox";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+import {Type} from "../../dart/core/type";
 
-import { Type } from "../../dart/core/type";
-import { Color } from "./../../dart/ui/color";
-import { BorderStyle } from "./borderStyle";
+import {Color} from "./../../dart/ui/color";
+import {BorderStyle} from "./borderStyle";
 
 interface BorderSideProps {
     color?: Color | undefined;
@@ -17,20 +17,25 @@ declare const flutter: {
     };
 };
 
-export class BorderSide extends JITAllocatingRTManagedBox<BorderSideProps, BorderSide> implements RuntimeBaseClass {
+export class BorderSide extends JITAllocatingRTManagedBox<BorderSideProps, BorderSide> implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(BorderSide);
     public props: BorderSideProps;
-    public constructor(props: BorderSideProps) {
+    public constructor(props: BorderSideProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.color === undefined) {
+        if (this.props.color === undefined) 
+        {
             this.props.color = new Color(0xFF000000);
         }
-        if (this.props.width === undefined) {
+        if (this.props.width === undefined) 
+        {
             this.props.width = 1.0;
         }
-        if (this.props.style === undefined) {
+        if (this.props.style === undefined) 
+        {
             this.props.style = BorderStyle.solid;
         }
     }
@@ -40,7 +45,8 @@ export class BorderSide extends JITAllocatingRTManagedBox<BorderSideProps, Borde
         style: BorderStyle.none,
     });
 
-    public unwrap(): BorderSide {
+    public unwrap(): BorderSide 
+    {
         return flutter.painting.borderSide(this.props);
     }
 }
