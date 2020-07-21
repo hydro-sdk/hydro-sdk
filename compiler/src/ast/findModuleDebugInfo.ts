@@ -38,7 +38,12 @@ type ExplorableNode = lparse.CallExpression |
     lparse.IfStatement |
     lparse.LocalStatement |
     lparse.ForGenericStatement |
-    lparse.AssignmentStatement;
+    lparse.AssignmentStatement |
+    lparse.UnaryExpression |
+    lparse.LogicalExpression |
+    lparse.TableKeyString |
+    lparse.TableValue |
+    lparse.MemberExpression;
 
 function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefined {
     if (node.type == "CallExpression") {
@@ -55,8 +60,18 @@ function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefi
         return node as lparse.LocalStatement;
     } else if (node.type == "ForGenericStatement") {
         return node as lparse.ForGenericStatement;
-    } else if(node.type == "AssignmentStatement"){
+    } else if (node.type == "AssignmentStatement") {
         return node as lparse.AssignmentStatement;
+    } else if (node.type == "UnaryExpression") {
+        return node as lparse.UnaryExpression;
+    } else if (node.type == "LogicalExpression") {
+        return node as lparse.LogicalExpression;
+    } else if (node.type == "TableKeyString") {
+        return node as lparse.TableKeyString;
+    } else if (node.type == "TableValue") {
+        return node as lparse.TableValue;
+    } else if (node.type == "MemberExpression") {
+        return node as lparse.MemberExpression;
     }
     return;
 }
@@ -70,13 +85,13 @@ function findModuleDebugInfoInner(props: {
     log?: boolean
 }) {
     if (props.last.type == "FunctionDeclaration") {
+        if (props.log) {
+            console.log(`FunctionDeclaration ${props.last.loc?.start?.line}`);
+        }
         extract({
             ...props,
             exp: props.last,
         });
-        if (props.log) {
-            console.log(`FunctionDeclaration ${props.last.loc?.start?.line}`);
-        }
         props.last.body.forEach((k) => {
             findModuleDebugInfoInner({
                 ...props,
@@ -150,16 +165,11 @@ function findModuleDebugInfoInner(props: {
             console.log(`TableConstructorExpression ${props.last.loc?.start?.line}`);
         }
         props.last.fields.forEach((k) => {
-            if (k.type == "TableKeyString" || k.type == "TableValue") {
-                if (maybeNarrowNodeType(k.value)) {
-                    if (props.log) {
-                        console.log(`${k.value.type} ${k.type == "TableKeyString" ? k.key.name : ""} ${k.loc?.start?.line}`);
-                    }
-                    findModuleDebugInfoInner({
-                        ...props,
-                        last: k.value as ExplorableNode
-                    });
-                }
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode
+                });
             }
         });
     }
@@ -211,6 +221,85 @@ function findModuleDebugInfoInner(props: {
                 });
             }
         })
+    }
+    if (props.last.type == "UnaryExpression") {
+        if (props.log) {
+            console.log(`UnaryExpression ${props.last.loc?.start?.line}`);
+        }
+        if (props.last.operator == "not") {
+            if (maybeNarrowNodeType(props.last.argument)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: props.last.argument as ExplorableNode
+                });
+            }
+        }
+    }
+    if (props.last.type == "LogicalExpression") {
+        if (props.log) {
+            console.log(`LogicalExpression ${props.last.loc?.start?.line}`);
+        }
+        if (props.last.operator == "and") {
+            if (maybeNarrowNodeType(props.last.left)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: props.last.left as ExplorableNode
+                });
+            }
+            if (maybeNarrowNodeType(props.last.right)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: props.last.right as ExplorableNode
+                });
+            }
+        }
+        if (props.last.operator == "or") {
+            if (maybeNarrowNodeType(props.last.left)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: props.last.left as ExplorableNode
+                });
+            }
+            if (maybeNarrowNodeType(props.last.right)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: props.last.right as ExplorableNode
+                });
+            }
+        }
+    }
+    if (props.last.type == "TableKeyString") {
+        if (props.log) {
+            console.log(`TableKeyString ${props.last.loc?.start?.line}`);
+        }
+        if (maybeNarrowNodeType(props.last.value)) {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.value as ExplorableNode
+            });
+        }
+    }
+    if (props.last.type == "TableValue") {
+        if (props.log) {
+            console.log(`TableValue ${props.last.loc?.start?.line}`);
+        }
+        if (maybeNarrowNodeType(props.last.value)) {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.value as ExplorableNode
+            });
+        }
+    }
+    if (props.last.type == "MemberExpression") {
+        if (props.log) {
+            console.log(`MemberExpression ${props.last.loc?.start?.line}`);
+        }
+        if (maybeNarrowNodeType(props.last.base)) {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.base as ExplorableNode
+            });
+        }
     }
 }
 
