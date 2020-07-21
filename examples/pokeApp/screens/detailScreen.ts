@@ -71,8 +71,7 @@ export class DetailScreen extends StatelessWidget
                                                 new FilterChip({
                                                     backgroundColor: Colors.amber.swatch[500],
                                                     label: new Text(t),
-                                                    onSelected: () => 
-                                                    { }
+                                                    onSelected: () => undefined
                                                 })
                                             ).unwrap()
                                     }),
@@ -88,8 +87,7 @@ export class DetailScreen extends StatelessWidget
                                                     label: new Text(t, {
                                                         style: new TextStyle({color: Colors.white})
                                                     }),
-                                                    onSelected: () => 
-                                                    { }
+                                                    onSelected: () => undefined
                                                 })
                                             )
                                             .unwrap()
@@ -108,8 +106,7 @@ export class DetailScreen extends StatelessWidget
                                                         label: new Text(n.name, {
                                                             style: new TextStyle({color: Colors.white})
                                                         }),
-                                                        onSelected: () => 
-                                                        { }
+                                                        onSelected: () => undefined
                                                     })
                                                 )
                                                 .unwrap()
