@@ -10,8 +10,6 @@ import {Clip} from "./../../flutter/painting/clip";
 import {MaterialTapTargetSize} from "./materialTapTargetSize";
 import {RawChip} from "./rawChip";
 
-
-
 interface FilterChipProps {
     key?: Key | undefined;
     avatar?: Widget | undefined;
@@ -40,12 +38,6 @@ interface FilterChipProps {
     avatarBorder?: CircleBorder | undefined;//this should be the base class type
 
 }
-
-declare const flutter: {
-    material: {
-        filterChip: (this: void, props: FilterChipProps) => FilterChip;
-    };
-};
 
 export class FilterChip extends StatelessWidget 
 {
