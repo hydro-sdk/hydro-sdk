@@ -1,10 +1,9 @@
-import {InputLanguage} from "./../../compiler/src/buildOptions";
-import {buildBundleInfo} from "./../../compiler/src/bundle/buildBundleInfo";
-import {bundle} from "./../../compiler/src/bundle/bundle";
+import { InputLanguage } from "./../../compiler/src/buildOptions";
+import { buildBundleInfo } from "./../../compiler/src/bundle/buildBundleInfo";
+import { bundle } from "./../../compiler/src/bundle/bundle";
 
 
-test("", async () => 
-{
+test("", async () => {
     const bundleInfo = await buildBundleInfo({
         inputLanguage: InputLanguage.typescript,
         entry: "test/compiler/res/bundle-1.ts",
@@ -12,16 +11,17 @@ test("", async () =>
         outDir: "tmp",
         profile: "debug",
     },
-    (currentStep, totalSteps, suffixMessage) =>{}
+        (currentStep, totalSteps, suffixMessage) => { }
     );
 
     const entries = Object.values(bundleInfo.entries);
 
     expect(entries.length).toBe(4);
-    expect(entries[0].moduleName).toBe("test.compiler.res.bundle-1");
-    expect(entries[1].moduleName).toBe("test.compiler.res.dir.bar");
-    expect(entries[2].moduleName).toBe("test.compiler.res.dir.fooClass");
-    expect(entries[3].moduleName).toBe("lualib_bundle");
+
+    expect(entries.find((x) => x.moduleName == "test.compiler.res.bundle-1")).toBeTruthy();
+    expect(entries.find((x) => x.moduleName == "test.compiler.res.dir.bar")).toBeTruthy();
+    expect(entries.find((x) => x.moduleName == "test.compiler.res.dir.fooClass")).toBeTruthy();
+    expect(entries.find((x) => x.moduleName == "lualib_bundle")).toBeTruthy();
 
     const bundleResult = bundle(bundleInfo);
 
