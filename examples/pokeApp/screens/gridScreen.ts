@@ -28,6 +28,7 @@ import {Hero} from "../../../runtime/flutter/widgets/hero";
 
 import {DetailScreen} from "./detailScreen";
 import {PokeHub} from "./../data/pokeHub";
+import { Key } from "../../../runtime/flutter/foundation/key";
 
 export class PokeGridScreen extends StatefulWidget 
 {
@@ -84,6 +85,7 @@ class PokeGridScreenState extends State<PokeGridScreen>
                     children: List.fromArray(this.pokeHub.pokemon).map(
                         (poke) => new Padding({
                             padding: EdgeInsets.all(2.0),
+                            key: new Key(poke.name),
                             child: new InkWell({
                                 onTap: () => 
                                 {
