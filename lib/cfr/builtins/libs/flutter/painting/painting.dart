@@ -1,6 +1,8 @@
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/alignment.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/borderRadius.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/borderSide.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/boxDecoration.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/circleBorder.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/edgeInsets.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/linearGradient.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/networkImage.dart';
@@ -23,4 +25,6 @@ void loadPainting({@required HydroState luaState, @required HydroTable table}) {
   loadBoxDecoration(luaState: luaState, table: painting);
   loadTextSpan(luaState: luaState, table: painting);
   loadLinearGradient(luaState: luaState, table: painting);
+  loadCircleBorder(luaState: luaState, table: painting);
+  loadBorderSide(luaState: luaState, table: painting);
 }
