@@ -17,7 +17,7 @@ interface FilterChipProps {
     labelStyle?: TextStyle | undefined;
     labelPadding?: EdgeInsets | undefined;
     selected?: boolean | undefined;
-    onSelected: (val: boolean) => void;
+    onSelected: (this:void,val: boolean) => void;
     pressElevation?: number | undefined;
     disabledColor?: Color | undefined;
     selectedColor?: Color | undefined;

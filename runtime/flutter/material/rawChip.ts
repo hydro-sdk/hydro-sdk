@@ -24,7 +24,7 @@ interface RawChipProps {
     deleteIconColor?: Color | undefined;
     deleteButtonTooltipMessage?: string | undefined;
     onPressed?: () => void;
-    onSelected?: (val: boolean) => void | undefined;
+    onSelected?: (this:void,val: boolean) => void | undefined;
     pressElevation?: number | undefined;
     tapEnabled?: boolean | undefined;
     selected?: boolean | undefined;

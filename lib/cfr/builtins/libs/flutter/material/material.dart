@@ -9,6 +9,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialApp.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialPageRoute.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/popupMenuButton.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/popupMenuItem.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/rawChip.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/scaffold.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/textTheme.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/theme.dart';
@@ -38,4 +39,5 @@ void loadMaterial({@required HydroState luaState, @required HydroTable table}) {
   loadCircularProgressIndicator(luaState: luaState, table: material);
   loadTextTheme(hydroState: luaState);
   loadThemeData(hydroState: luaState);
+  loadRawChip(luaState: luaState, table: material);
 }
