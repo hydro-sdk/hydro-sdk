@@ -21,6 +21,7 @@ import { Alignment } from "../../../runtime/flutter/painting/alignment";
 import { Container } from "../../../runtime/flutter/widgets/container";
 import { Image } from "../../../runtime/flutter/widgets/image";
 import { FilterChip } from "../../../runtime/flutter/material/filterChip";
+import {Hero} from "../../../runtime/flutter/widgets/hero";
 
 export class DetailScreen extends StatelessWidget {
     public pokemon: Pokemon;
@@ -113,14 +114,18 @@ export class DetailScreen extends StatelessWidget {
                     }),
                     new Align({
                         alignment: Alignment.topCenter,
-                        child: new Container({
-                            height: 200,
-                            width: 200,
-                            child: Image.network(this.pokemon.img, {
-                                height: 600,
-                                width: 600
+                        child:
+                            new Hero({
+                                tag: this.pokemon.img,
+                                child: new Container({
+                                    height: 200,
+                                    width: 200,
+                                    child: Image.network(this.pokemon.img, {
+                                        height: 600,
+                                        width: 600
+                                    })
+                                })
                             })
-                        })
                     })
                 ]
             })
