@@ -18,20 +18,21 @@ test("", async () =>
     const entries = Object.values(bundleInfo.entries);
 
     expect(entries.length).toBe(4);
-    expect(entries[0].moduleName).toBe("test.compiler.res.dir.fooClass");
+    expect(entries[0].moduleName).toBe("test.compiler.res.bundle-1");
     expect(entries[1].moduleName).toBe("test.compiler.res.dir.bar");
-    expect(entries[2].moduleName).toBe("test.compiler.res.bundle-1");
+    expect(entries[2].moduleName).toBe("test.compiler.res.dir.fooClass");
     expect(entries[3].moduleName).toBe("lualib_bundle");
 
     const bundleResult = bundle(bundleInfo);
 
     expect(bundleResult.debugSymbols.length).toBe(134);
-    expect(bundleResult.debugSymbols[0].lineStart).toBe(14);
-    expect(bundleResult.debugSymbols[0].lineEnd).toBe(16);
-    expect(bundleResult.debugSymbols[0].symbolName).toBe("FooClass.prototype.____constructor");
-    expect(bundleResult.debugSymbols[0].parameterNames).toStrictEqual(["self","foo"]);
+    expect(bundleResult.debugSymbols[0].lineStart).toBe(13);
+    expect(bundleResult.debugSymbols[0].lineEnd).toBe(15);
+    expect(bundleResult.debugSymbols[0].symbolName).toBe("____exports.bar");
+    expect(bundleResult.debugSymbols[0].parameterNames).toStrictEqual(["self"]);
 
     expect(bundleResult.debugSymbols[1].lineStart).toBe(26);
     expect(bundleResult.debugSymbols[1].lineEnd).toBe(28);
-    expect(bundleResult.debugSymbols[1].symbolName).toBe("____exports.bar");
+    expect(bundleResult.debugSymbols[1].symbolName).toBe("FooClass.prototype.____constructor");
+    expect(bundleResult.debugSymbols[0].parameterNames).toStrictEqual(["self"]);
 });
