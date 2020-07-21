@@ -8,14 +8,11 @@ Hydro provides a projection of Dart and Flutter into Typescript. Not everything 
 Hydro compiles your code into a single `.hc` bytecode file which can be easily packed into an existing Flutter app or loaded over the network.
 
 # Features
-## Hot Reload
+## Hot Reload, Incremental Compilation
 ![Stateful Hot-reload Demo](https://github.com/chgibb/hydro-sdk/blob/master/readme-video.gif)
 
 ## Source Maps
 ![Source maps screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/sourceMapScreenShot.png)
-
-## Incremental Compiler
-![Incremental compiler screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/compilerScreenShot.png)
 
 # Why
 ## Easier Delivery
