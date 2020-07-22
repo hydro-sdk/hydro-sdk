@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
             home: new Column({
                 children: [
                     new SizedBox({
-                        key: new Key(this.controller.text)
+                        key: new Key(this.controller.getText())
                     }),
-                    new Text(this.controller.text)
+                    new Text(this.controller.getText())
                 ]
             })
         });
