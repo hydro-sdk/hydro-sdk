@@ -14,7 +14,7 @@ interface PaddingProps {
 
 declare const flutter: {
     widgets: {
-        padding: (this: void, props: PaddingProps) => { tag: string };
+        padding: (this: void, props: PaddingProps) => Padding;
     };
 };
 

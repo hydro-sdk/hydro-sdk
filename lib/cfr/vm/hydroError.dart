@@ -37,9 +37,12 @@ class HydroError {
         symbolsWithDistance.removeWhere((element) => element.distance < 0);
         symbolsWithDistance.sort((a, b) => a.distance.compareTo(b.distance));
 
-        ModuleDebugInfo closestSymbol = symbolsWithDistance[0].moduleDebugInfo;
+        if (symbolsWithDistance.isNotEmpty) {
+          ModuleDebugInfo closestSymbol =
+              symbolsWithDistance[0].moduleDebugInfo;
 
-        _extractedSymbols.add(closestSymbol);
+          _extractedSymbols.add(closestSymbol);
+        }
       }
     }
   }

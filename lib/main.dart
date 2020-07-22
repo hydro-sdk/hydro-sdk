@@ -7,7 +7,5 @@ import 'package:flutter/material.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(RunFromNetwork(
-      thunks: thunks,
-      args: [],
-      baseUrl: "http://localhost:5000/hotel-booking.hc"));
+      thunks: thunks, args: [], baseUrl: "http://localhost:5000/pokeApp.hc"));
 }

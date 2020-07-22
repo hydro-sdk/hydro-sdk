@@ -20,6 +20,8 @@ import {Align} from "../../../runtime/flutter/widgets/align";
 import {Alignment} from "../../../runtime/flutter/painting/alignment";
 import {Container} from "../../../runtime/flutter/widgets/container";
 import {Image} from "../../../runtime/flutter/widgets/image";
+import {FilterChip} from "../../../runtime/flutter/material/filterChip";
+import {Hero} from "../../../runtime/flutter/widgets/hero";
 
 export class DetailScreen extends StatelessWidget 
 {
@@ -64,7 +66,14 @@ export class DetailScreen extends StatelessWidget
                                     }),
                                     new Row({
                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: List.fromArray(this.pokemon.type).map((t) => new Text(t)).unwrap()
+                                        children: List.fromArray(this.pokemon.type)
+                                            .map((t) =>
+                                                new FilterChip({
+                                                    backgroundColor: Colors.amber.swatch[500],
+                                                    label: new Text(t),
+                                                    onSelected: () => undefined
+                                                })
+                                            ).unwrap()
                                     }),
                                     new Text("Weakness", {
                                         style: new TextStyle({fontWeight: FontWeight.bold})
@@ -72,7 +81,15 @@ export class DetailScreen extends StatelessWidget
                                     new Row({
                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                         children: List.fromArray(this.pokemon.weaknesses)
-                                            .map((w) => new Text(w))
+                                            .map((t) =>
+                                                new FilterChip({
+                                                    backgroundColor: Colors.red.swatch[500],
+                                                    label: new Text(t, {
+                                                        style: new TextStyle({color: Colors.white})
+                                                    }),
+                                                    onSelected: () => undefined
+                                                })
+                                            )
                                             .unwrap()
                                     }),
                                     new Text("Next Evolution", {
@@ -83,7 +100,15 @@ export class DetailScreen extends StatelessWidget
                                         children: this.pokemon.next_evolution == undefined || List.fromArray(this.pokemon.next_evolution).isEmpty()
                                             ? [new Text("This is the final form")]
                                             : List.fromArray(this.pokemon.next_evolution)
-                                                .map((n) => new Text(n.name))
+                                                .map((n) =>
+                                                    new FilterChip({
+                                                        backgroundColor: Colors.green.swatch[500],
+                                                        label: new Text(n.name, {
+                                                            style: new TextStyle({color: Colors.white})
+                                                        }),
+                                                        onSelected: () => undefined
+                                                    })
+                                                )
                                                 .unwrap()
                                     })
                                 ]
@@ -92,14 +117,18 @@ export class DetailScreen extends StatelessWidget
                     }),
                     new Align({
                         alignment: Alignment.topCenter,
-                        child: new Container({
-                            height: 200,
-                            width: 200,
-                            child: Image.network(this.pokemon.img, {
-                                height: 600,
-                                width: 600
+                        child:
+                            new Hero({
+                                tag: this.pokemon.img,
+                                child: new Container({
+                                    height: 200,
+                                    width: 200,
+                                    child: Image.network(this.pokemon.img, {
+                                        height: 600,
+                                        width: 600
+                                    })
+                                })
                             })
-                        })
                     })
                 ]
             })

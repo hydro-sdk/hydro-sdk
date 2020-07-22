@@ -54,15 +54,30 @@ function maybeNarrowNodeType(node) {
     else if (node.type == "AssignmentStatement") {
         return node;
     }
+    else if (node.type == "UnaryExpression") {
+        return node;
+    }
+    else if (node.type == "LogicalExpression") {
+        return node;
+    }
+    else if (node.type == "TableKeyString") {
+        return node;
+    }
+    else if (node.type == "TableValue") {
+        return node;
+    }
+    else if (node.type == "MemberExpression") {
+        return node;
+    }
     return;
 }
 function findModuleDebugInfoInner(props) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0;
     if (props.last.type == "FunctionDeclaration") {
-        extract(__assign(__assign({}, props), { exp: props.last }));
         if (props.log) {
             console.log("FunctionDeclaration " + ((_b = (_a = props.last.loc) === null || _a === void 0 ? void 0 : _a.start) === null || _b === void 0 ? void 0 : _b.line));
         }
+        extract(__assign(__assign({}, props), { exp: props.last }));
         props.last.body.forEach(function (k) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
         });
@@ -114,14 +129,8 @@ function findModuleDebugInfoInner(props) {
             console.log("TableConstructorExpression " + ((_o = (_m = props.last.loc) === null || _m === void 0 ? void 0 : _m.start) === null || _o === void 0 ? void 0 : _o.line));
         }
         props.last.fields.forEach(function (k) {
-            var _a, _b;
-            if (k.type == "TableKeyString" || k.type == "TableValue") {
-                if (maybeNarrowNodeType(k.value)) {
-                    if (props.log) {
-                        console.log(k.value.type + " " + (k.type == "TableKeyString" ? k.key.name : "") + " " + ((_b = (_a = k.loc) === null || _a === void 0 ? void 0 : _a.start) === null || _b === void 0 ? void 0 : _b.line));
-                    }
-                    findModuleDebugInfoInner(__assign(__assign({}, props), { last: k.value }));
-                }
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }
         });
     }
@@ -158,6 +167,61 @@ function findModuleDebugInfoInner(props) {
                 findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }
         });
+    }
+    if (props.last.type == "UnaryExpression") {
+        if (props.log) {
+            console.log("UnaryExpression " + ((_s = (_r = props.last.loc) === null || _r === void 0 ? void 0 : _r.start) === null || _s === void 0 ? void 0 : _s.line));
+        }
+        if (props.last.operator == "not") {
+            if (maybeNarrowNodeType(props.last.argument)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.argument }));
+            }
+        }
+    }
+    if (props.last.type == "LogicalExpression") {
+        if (props.log) {
+            console.log("LogicalExpression " + ((_u = (_t = props.last.loc) === null || _t === void 0 ? void 0 : _t.start) === null || _u === void 0 ? void 0 : _u.line));
+        }
+        if (props.last.operator == "and") {
+            if (maybeNarrowNodeType(props.last.left)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.left }));
+            }
+            if (maybeNarrowNodeType(props.last.right)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.right }));
+            }
+        }
+        if (props.last.operator == "or") {
+            if (maybeNarrowNodeType(props.last.left)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.left }));
+            }
+            if (maybeNarrowNodeType(props.last.right)) {
+                findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.right }));
+            }
+        }
+    }
+    if (props.last.type == "TableKeyString") {
+        if (props.log) {
+            console.log("TableKeyString " + ((_w = (_v = props.last.loc) === null || _v === void 0 ? void 0 : _v.start) === null || _w === void 0 ? void 0 : _w.line));
+        }
+        if (maybeNarrowNodeType(props.last.value)) {
+            findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.value }));
+        }
+    }
+    if (props.last.type == "TableValue") {
+        if (props.log) {
+            console.log("TableValue " + ((_y = (_x = props.last.loc) === null || _x === void 0 ? void 0 : _x.start) === null || _y === void 0 ? void 0 : _y.line));
+        }
+        if (maybeNarrowNodeType(props.last.value)) {
+            findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.value }));
+        }
+    }
+    if (props.last.type == "MemberExpression") {
+        if (props.log) {
+            console.log("MemberExpression " + ((_0 = (_z = props.last.loc) === null || _z === void 0 ? void 0 : _z.start) === null || _0 === void 0 ? void 0 : _0.line));
+        }
+        if (maybeNarrowNodeType(props.last.base)) {
+            findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.base }));
+        }
     }
 }
 function extract(props) {

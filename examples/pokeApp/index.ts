@@ -2,8 +2,9 @@
 import {runApp} from "../../runtime/flutter/runApp";
 import {MaterialApp} from "../../runtime/flutter/material/materialApp";
 
-import {PokeGridScreen} from "./screens/gridScreen";
+import {PokeApp} from "./pokeApp";
+import {PokeHubModel} from "./data/pokeHubModel";
 
 runApp(() => new MaterialApp({
-    home: new PokeGridScreen()
+    home: new PokeApp(new PokeHubModel())
 }));

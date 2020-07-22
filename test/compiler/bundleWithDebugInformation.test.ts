@@ -25,7 +25,7 @@ test("", async () => {
 
     const bundleResult = bundle(bundleInfo);
 
-    expect(bundleResult.debugSymbols.length).toBe(134);
+    expect(bundleResult.debugSymbols.length).toBe(136);
     expect(bundleResult.debugSymbols[0].lineStart).toBe(13);
     expect(bundleResult.debugSymbols[0].lineEnd).toBe(15);
     expect(bundleResult.debugSymbols[0].symbolName).toBe("____exports.bar");
