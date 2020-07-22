@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -34,11 +35,14 @@ class VMManagedFuture extends VMManagedBox<Future<List<dynamic>>> {
       return [caller];
     });
     table["then"] = makeLuaDartFunc(func: (List<dynamic> args) {
-      VMManagedFuture caller = args[0];
+      dynamic rawCaller = args[0];
+      Future<List<dynamic>> caller;
+      caller = maybeUnBoxAndBuildArgument<Future<List<dynamic>>>(rawCaller,
+          parentState: hydroState);
       Closure then = args[1];
       return [
         maybeBoxObject<Future<List<dynamic>>>(
-          object: caller.unwrap().then((val) {
+          object: caller.then((val) {
             List res = then.dispatch(val, parentState: hydroState);
 
             return res;
@@ -61,14 +65,15 @@ void loadFuture({@required HydroState hydroState, @required HydroTable table}) {
   });
 
   table["future"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    HydroTable caller = args[0];
+    Closure computation = args[1];
     return [
       maybeBoxObject<Future<List<dynamic>>>(
         object: Future(() {
-          Closure computation = args[0];
           return computation.dispatch([], parentState: hydroState);
         }),
         hydroState: hydroState,
-        table: HydroTable(),
+        table: caller,
       )
     ];
   });
