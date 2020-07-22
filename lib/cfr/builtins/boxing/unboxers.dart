@@ -31,7 +31,9 @@ Closure maybeFindInheritedMethod(
           ? managedObject.metatable[methodName]
           : managedObject.metatable["__index"] != null
               //Haxe places inherited methods onto a meta-meta table for some reason
-              ? managedObject.metatable["__index"][methodName]
+              ? managedObject.metatable["__index"] is HydroTable
+                  ? managedObject.metatable["__index"][methodName]
+                  : null
               : null
       : null;
 }
@@ -43,6 +45,11 @@ String maybeUnBoxRuntimeType(
           ? managedObject[runtimeTypePropName]["displayName"]
           : null
       : null;
+}
+
+class DescriptorWrapper {
+  dynamic descriptor;
+  DescriptorWrapper({@required this.descriptor});
 }
 
 typedef dynamic UnBoxer<T>({

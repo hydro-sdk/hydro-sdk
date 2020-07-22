@@ -32,6 +32,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/stack.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/statefulWidget.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/statelessWidget.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/text.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/textEditingController.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/transform.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -80,4 +81,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadBuildContext();
   loadGridView(luaState: luaState, table: widgets);
   loadHero(luaState: luaState, table: widgets);
+  loadTextEditingController(luaState: luaState, table: widgets);
 }
