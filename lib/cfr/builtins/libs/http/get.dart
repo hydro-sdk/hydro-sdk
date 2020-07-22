@@ -9,12 +9,17 @@ void loadGet({@required HydroState hydroState, @required HydroTable table}) {
   table["get"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Future<List<dynamic>>>(
-          object: get(args[0], headers: args.length >= 2 ? args[1] : null).then(
-              (res) => [
-                    maybeBoxObject<Response>(
-                        object: res, hydroState: hydroState)
-                  ]),
-          hydroState: hydroState)
+        object: get(args[0], headers: args.length >= 2 ? args[1] : null)
+            .then((res) => [
+                  maybeBoxObject<Response>(
+                    object: res,
+                    hydroState: hydroState,
+                    table: HydroTable(),
+                  )
+                ]),
+        hydroState: hydroState,
+        table: HydroTable(),
+      )
     ];
   });
 }

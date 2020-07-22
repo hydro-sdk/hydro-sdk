@@ -20,16 +20,18 @@ class VMManagedThemeData extends VMManagedBox<ThemeData> {
     table["textTheme"] = maybeBoxObject<TextTheme>(
       object: vmObject.textTheme,
       hydroState: hydroState,
+      table: HydroTable(),
     );
   }
 }
 
 void loadThemeData({@required HydroState hydroState}) {
-  registerBoxer(boxer: ({ThemeData vmObject, HydroState hydroState}) {
+  registerBoxer(
+      boxer: ({ThemeData vmObject, HydroState hydroState, HydroTable table}) {
     return VMManagedThemeData(
       vmObject: vmObject,
       hydroState: hydroState,
-      table: HydroTable(),
+      table: table,
     );
   });
 }

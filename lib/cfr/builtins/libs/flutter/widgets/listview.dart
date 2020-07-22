@@ -33,7 +33,11 @@ void loadListView({@required HydroState luaState, @required HydroTable table}) {
           Closure closure = args[0]["itemBuilder"];
           var res = closure.dispatch([
             null,
-            maybeBoxObject(object: context, hydroState: luaState),
+            maybeBoxObject(
+              object: context,
+              hydroState: luaState,
+              table: HydroTable(),
+            ),
             index
           ], parentState: luaState)[0];
           return maybeUnBoxAndBuildArgument<Widget>(res, parentState: luaState);

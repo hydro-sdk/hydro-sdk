@@ -18,7 +18,11 @@ void loadAnimatedBuilder(
           Closure closure = args[0]["builder"];
           var res = maybeUnBoxAndBuildArgument<Widget>(
               closure.dispatch([
-                maybeBoxObject(object: context, hydroState: luaState),
+                maybeBoxObject(
+                  object: context,
+                  hydroState: luaState,
+                  table: HydroTable(),
+                ),
                 args[0]["child"],
               ], parentState: luaState)[0],
               parentState: luaState);

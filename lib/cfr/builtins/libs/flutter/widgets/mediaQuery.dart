@@ -22,17 +22,19 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
     table["size"] = maybeBoxObject(
       object: vmObject.size,
       hydroState: hydroState,
+      table: HydroTable(),
     );
   }
 }
 
 void loadMediaQuery(
     {@required HydroState luaState, @required HydroTable table}) {
-  registerBoxer(boxer: ({MediaQueryData vmObject, HydroState hydroState}) {
+  registerBoxer(boxer: (
+      {MediaQueryData vmObject, HydroState hydroState, HydroTable table}) {
     return VMManagedMediaQueryData(
       vmObject: vmObject,
       hydroState: hydroState,
-      table: HydroTable(),
+      table: table,
     );
   });
 
@@ -44,6 +46,7 @@ void loadMediaQuery(
           parentState: luaState,
         )),
         hydroState: luaState,
+        table: HydroTable(),
       )
     ];
   });

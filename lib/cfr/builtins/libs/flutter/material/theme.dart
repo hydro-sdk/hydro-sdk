@@ -9,11 +9,13 @@ void loadThemeOf({@required HydroState luaState, @required HydroTable table}) {
   table["themeOf"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<ThemeData>(
-          object: Theme.of(
-            maybeUnBoxAndBuildArgument<BuildContext>(args[0],
-                parentState: luaState),
-          ),
-          hydroState: luaState)
+        object: Theme.of(
+          maybeUnBoxAndBuildArgument<BuildContext>(args[0],
+              parentState: luaState),
+        ),
+        hydroState: luaState,
+        table: HydroTable(),
+      )
     ];
   });
 }
