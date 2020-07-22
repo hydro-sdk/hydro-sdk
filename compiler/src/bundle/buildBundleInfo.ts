@@ -31,6 +31,7 @@ export async function buildBundleInfo(
         rootNames: [buildOptions.entry],
         options: {
             strict: true,
+            target:ts.ScriptTarget.ES5,
             luaTarget: tstl.LuaTarget.Lua52,
             luaLibImport: tstl.LuaLibImportKind.Require,
             sourceMapTraceback: false,
