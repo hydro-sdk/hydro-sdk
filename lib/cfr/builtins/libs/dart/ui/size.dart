@@ -24,11 +24,12 @@ class VMManagedSize extends VMManagedBox<Size> {
 }
 
 void loadSize(HydroTable table) {
-  registerBoxer(boxer: ({Size vmObject, HydroState hydroState}) {
+  registerBoxer(
+      boxer: ({Size vmObject, HydroState hydroState, HydroTable table}) {
     return VMManagedSize(
       vmObject: vmObject,
       hydroState: hydroState,
-      table: HydroTable(),
+      table: table,
     );
   });
 

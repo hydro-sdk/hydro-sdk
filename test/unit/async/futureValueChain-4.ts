@@ -21,7 +21,7 @@ Future
         assert(a1[0] == 0);
         assert(a1[1] == 1);
         assert(a1[2] == 2);
-        return Future.create(() => List.fromArray(a1).map((x) => x + 1))
+        return new Future(() => List.fromArray(a1).map((x) => x + 1))
             .then((l1) => {
                 assert(a1 != undefined);
                 assert(a1[0] == 0);

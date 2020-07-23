@@ -25,8 +25,12 @@ class VMManagedResponse extends VMManagedBox<Response> {
 
 void loadResponse(
     {@required HydroState hydroState, @required HydroTable table}) {
-  registerBoxer<Response>(boxer: ({Response vmObject, HydroState hydroState}) {
+  registerBoxer<Response>(
+      boxer: ({Response vmObject, HydroState hydroState, HydroTable table}) {
     return VMManagedResponse(
-        vmObject: vmObject, hydroState: hydroState, table: HydroTable());
+      vmObject: vmObject,
+      hydroState: hydroState,
+      table: table,
+    );
   });
 }

@@ -2,6 +2,7 @@ import {Widget} from "../widget";
 import {EdgeInsets} from "../painting/edgeInsets";
 import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
+import {Alignment} from "../painting/alignment";
 
 import {StatelessWidget} from "./statelessWidget";
 import {Color} from "./../../dart/ui/color";
@@ -10,6 +11,7 @@ import {Key} from "./../foundation/key";
 
 interface ContainerProps {
     key?: Key | undefined;
+    alignment?: Alignment|undefined;
     color?: Color | undefined;
     child?: Widget;
     decoration?: BoxDecoration | undefined;

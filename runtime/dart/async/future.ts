@@ -2,7 +2,7 @@ export type FutureOr<T> = Future<T> | T;
 
 declare const dart: {
     async: {
-        future: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
+        future: <T>(this: void,future: Future<T>, computation: () => FutureOr<T>) => Future<T>;
         futureError: <T>(this: void, error: any, stackTrace?: any | undefined) => Future<T>;
         futureSync: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
         futureValue: <T>(this: void, value?: FutureOr<T> | undefined) => Future<T>;
@@ -23,19 +23,12 @@ declare const dart: {
 
 export class Future<T>
 {
-    //TSTL won't let us cheat and return the result of a function from a constructor.
-    //This needs to be private to force consumers to use the static methods to make new Futures
-    private constructor() 
+    public constructor(computation: () => FutureOr<T>) 
     {
         this.catchError = undefined as any;
         this.then = undefined as any;
         this.whenComplete = undefined as any;
-        // (self as any) = dart.async.future(computation);
-    }
-
-    public static create<T>(computation: () => FutureOr<T>): Future<T>
-    {
-        return dart.async.future(computation);
+        dart.async.future(this,computation);
     }
 
     public static error<T>(error: T, stackTrace?: any | undefined): Future<T> 

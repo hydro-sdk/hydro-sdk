@@ -21,33 +21,39 @@ class VMManagedTextTheme extends VMManagedBox<TextTheme> {
     table["display1"] = maybeBoxObject<TextStyle>(
       object: vmObject.display1,
       hydroState: hydroState,
+      table: HydroTable(),
     );
     table["headline"] = maybeBoxObject<TextStyle>(
       object: vmObject.headline,
       hydroState: hydroState,
+      table: HydroTable(),
     );
     table["body1"] = maybeBoxObject<TextStyle>(
       object: vmObject.body1,
       hydroState: hydroState,
+      table: HydroTable(),
     );
 
     table["body2"] = maybeBoxObject<TextStyle>(
       object: vmObject.body2,
       hydroState: hydroState,
+      table: HydroTable(),
     );
     table["subtitle"] = maybeBoxObject<TextStyle>(
       object: vmObject.subtitle,
       hydroState: hydroState,
+      table: HydroTable(),
     );
   }
 }
 
 void loadTextTheme({@required HydroState hydroState}) {
-  registerBoxer(boxer: ({TextTheme vmObject, HydroState hydroState}) {
+  registerBoxer(
+      boxer: ({TextTheme vmObject, HydroState hydroState, HydroTable table}) {
     return VMManagedTextTheme(
       vmObject: vmObject,
       hydroState: hydroState,
-      table: HydroTable(),
+      table: table,
     );
   });
 }

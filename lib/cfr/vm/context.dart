@@ -118,7 +118,7 @@ class Context {
       if (x.metatable == null) return null;
       var ni = x.metatable.map["__index"];
       if (ni == null) return null;
-      if (ni is Closure) return ni.dispatch([this, y], parentState: hydroState);
+      if (ni is Closure) return ni.dispatch([x, y], parentState: hydroState);
       return tableIndex(ni, y);
     } else if (x is String) {
       return stringMetatable.rawget(y);

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/util.dart';
@@ -73,16 +71,17 @@ class HydroError {
           }
         }
       });
-    } else {
-      _frames.forEach((element) {
-        res +=
-            "${element.prototype.source}:${maybeAt(element.prototype.lines, element.programCounter - 1)}\n";
-      });
     }
-
     res += "VM stacktrace follows:\n";
-    res += dartStackTrace.toString();
+    _frames.forEach((element) {
+      res +=
+          "${element.prototype.source}:${maybeAt(element.prototype.lines, element.programCounter - 1)}\n";
+      res +=
+          "  (${element.prototype?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
+    });
 
+    res += "Dart stacktrace follows:\n";
+    res += dartStackTrace.toString();
     return res;
   }
 }

@@ -20,6 +20,16 @@ class MyBottomNavBarState extends State<MyBottomNavBar>
 {
     private active = 0;
 
+    public dispose()
+    {
+        
+    }
+
+    public initState()
+    {
+        
+    }
+
     public build(context: BuildContext): Widget 
     {
         return new Row({

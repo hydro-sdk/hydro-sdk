@@ -8,6 +8,36 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void loadListView({@required HydroState luaState, @required HydroTable table}) {
+  table["listViewRegular"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      ListView(
+        key: maybeUnBoxAndBuildArgument(args[0]["key"], parentState: luaState),
+        scrollDirection: maybeUnBoxEnum<Axis>(
+            values: Axis.values, boxedEnum: args[0]["scrollDirection"]),
+        reverse: args[0]["reverse"],
+        primary: args[0]["primary"],
+        shrinkWrap: args[0]["shrinkWrap"],
+        padding: maybeUnBoxAndBuildArgument(args[0]["padding"],
+            parentState: luaState),
+        itemExtent: args[0]["itemExtent"],
+        addAutomaticKeepAlives: args[0]["addAutomaticKeepAlives"],
+        addRepaintBoundaries: args[0]["addRepaintBoundaries"],
+        addSemanticIndexes: args[0]["addSemanticIndexes"],
+        cacheExtent: args[0]["cacheExtent"],
+        semanticChildCount: args[0]["semanticChildCount"],
+        dragStartBehavior: maybeUnBoxEnum<DragStartBehavior>(
+            values: DragStartBehavior.values,
+            boxedEnum: args[0]["dragStartBehavior"]),
+        children: maybeUnBoxAndBuildArgument<Widget>(args[0]["children"],
+            parentState: luaState),
+        keyboardDismissBehavior:
+            maybeUnBoxEnum<ScrollViewKeyboardDismissBehavior>(
+                values: ScrollViewKeyboardDismissBehavior.values,
+                boxedEnum: args[0]["keyboardDismissBehavior"]),
+      )
+    ];
+  });
+
   table["listViewBuilder"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       ListView.builder(
@@ -33,7 +63,11 @@ void loadListView({@required HydroState luaState, @required HydroTable table}) {
           Closure closure = args[0]["itemBuilder"];
           var res = closure.dispatch([
             null,
-            maybeBoxObject(object: context, hydroState: luaState),
+            maybeBoxObject(
+              object: context,
+              hydroState: luaState,
+              table: HydroTable(),
+            ),
             index
           ], parentState: luaState)[0];
           return maybeUnBoxAndBuildArgument<Widget>(res, parentState: luaState);

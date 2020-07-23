@@ -3,7 +3,7 @@ import { Future } from "../../../runtime/dart/async/future";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 function compare<T>(func: () => T) {
-    const f1 = Future.create(func);
+    const f1 = new Future(func);
     const f2 = Future.value().then(() => func());
     f2.catchError(() => { });
     f1.then((v1) => {

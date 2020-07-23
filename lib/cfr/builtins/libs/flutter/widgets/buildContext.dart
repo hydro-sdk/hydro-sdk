@@ -51,8 +51,12 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
 }
 
 void loadBuildContext() {
-  registerBoxer(boxer: ({BuildContext vmObject, HydroState hydroState}) {
+  registerBoxer(boxer: (
+      {BuildContext vmObject, HydroState hydroState, HydroTable table}) {
     return VMManagedBuildContext(
-        vmObject: vmObject, hydroState: hydroState, table: HydroTable());
+      vmObject: vmObject,
+      hydroState: hydroState,
+      table: table,
+    );
   });
 }

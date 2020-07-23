@@ -60,11 +60,13 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
       Closure map = args[1];
       return [
         maybeBoxObject<List<dynamic>>(
-            object: caller
-                .unwrap()
-                .map((e) => map.dispatch([null, e], parentState: hydroState)[0])
-                ?.toList(),
-            hydroState: hydroState)
+          object: caller
+              .unwrap()
+              .map((e) => map.dispatch([null, e], parentState: hydroState)[0])
+              ?.toList(),
+          hydroState: hydroState,
+          table: HydroTable(),
+        )
       ];
     });
 
@@ -73,14 +75,33 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
       int index = args[1];
       return [caller.unwrap().elementAt(index)];
     });
+
+    table["where"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      VMManagedList caller = args[0];
+      Closure predicate = args[1];
+      return [
+        maybeBoxObject<List<dynamic>>(
+          object: caller
+              .unwrap()
+              .where((element) => predicate.dispatch(
+                    [null, element],
+                    parentState: hydroState,
+                    resetEnclosingLexicalEnvironment: true,
+                  )[0])
+              .toList(),
+          hydroState: hydroState,
+          table: HydroTable(),
+        )
+      ];
+    });
   }
 }
 
 void loadList({@required HydroState hydroState, @required HydroTable table}) {
-  registerBoxer<List<dynamic>>(
-      boxer: ({List<dynamic> vmObject, HydroState hydroState}) {
+  registerBoxer<List<dynamic>>(boxer: (
+      {List<dynamic> vmObject, HydroState hydroState, HydroTable table}) {
     return VMManagedList(
-        vmObject: vmObject, hydroState: hydroState, table: HydroTable());
+        vmObject: vmObject, hydroState: hydroState, table: table);
   });
 
   registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
@@ -97,6 +118,7 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
         maybeBoxObject<List<dynamic>>(
           object: arg.arr,
           hydroState: hydroState,
+          table: HydroTable(),
         )
       ];
     } else if (args[0] is List<dynamic>) {
@@ -105,6 +127,7 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
         maybeBoxObject<List<dynamic>>(
           object: arg,
           hydroState: hydroState,
+          table: HydroTable(),
         )
       ];
     }

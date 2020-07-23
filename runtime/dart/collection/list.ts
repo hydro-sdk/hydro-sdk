@@ -16,6 +16,7 @@ export class List<T>
         this.length = undefined as any;
         this.elementAt = undefined as any;
         this.map = undefined as any;
+        this.where = undefined as any;
     }
 
     public static fromArray<T>(arr: Array<T>): List<T> 
@@ -31,4 +32,5 @@ export class List<T>
     public length: () => number;
     public elementAt: (index: number) => T;
     public map: <R>(f: (e: T) => R) => List<R>;
+    public where: (f: (e: T) => boolean) => List<T>;
 }

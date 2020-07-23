@@ -11,6 +11,8 @@ void loadContainer(
       Container(
         key: maybeUnBoxAndBuildArgument<Widget>(args[0]["key"],
             parentState: luaState),
+        alignment: maybeUnBoxAndBuildArgument<Alignment>(args[0]["alignment"],
+            parentState: luaState),
         color: maybeUnBoxAndBuildArgument<Widget>(args[0]["color"],
             parentState: luaState),
         child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],

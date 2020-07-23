@@ -27,6 +27,7 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
               color: maybeUnBoxAndBuildArgument<Color>(args[1]["color"],
                   parentState: hydroState)),
           hydroState: hydroState,
+          table: HydroTable(),
         ),
       ];
     });
@@ -40,6 +41,7 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
                   ? args[1]["fontWeightDelta"]
                   : 0),
           hydroState: hydroState,
+          table: HydroTable(),
         ),
       ];
     });
@@ -48,11 +50,12 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
 
 void loadTextStyle(
     {@required HydroState luaState, @required HydroTable table}) {
-  registerBoxer(boxer: ({TextStyle vmObject, HydroState hydroState}) {
+  registerBoxer(
+      boxer: ({TextStyle vmObject, HydroState hydroState, HydroTable table}) {
     return VMManagedTextStyle(
       vmObject: vmObject,
       hydroState: hydroState,
-      table: HydroTable(),
+      table: table,
     );
   });
 

@@ -3,8 +3,8 @@ import {runApp} from "../../runtime/flutter/runApp";
 import {MaterialApp} from "../../runtime/flutter/material/materialApp";
 
 import {PokeApp} from "./pokeApp";
-import {PokeHubModel} from "./data/pokeHubModel";
+import {PokeHubService} from "./data/pokeHubService";
 
 runApp(() => new MaterialApp({
-    home: new PokeApp(new PokeHubModel())
+    home: new PokeApp(new PokeHubService())
 }));

@@ -5,12 +5,15 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/flatButton.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/floatingActionButton.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/iconButton.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/inkWell.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/inputDecoration.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialApp.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/materialPageRoute.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/outlineInputBorder.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/popupMenuButton.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/popupMenuItem.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/rawChip.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/scaffold.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/textFormField.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/textTheme.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/theme.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/themeData.dart';
@@ -40,4 +43,7 @@ void loadMaterial({@required HydroState luaState, @required HydroTable table}) {
   loadTextTheme(hydroState: luaState);
   loadThemeData(hydroState: luaState);
   loadRawChip(luaState: luaState, table: material);
+  loadInputDecoration(luaState: luaState, table: material);
+  loadOutlineInputBorder(luaState: luaState, table: material);
+  loadTextFormField(luaState: luaState, table: material);
 }

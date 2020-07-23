@@ -9,6 +9,7 @@ void main() async {
         path: "../assets/test/unit/async/futureValueChain-4.ts.hc",
         libs: [
           BuiltinLib.dart,
+          BuiltinLib.flutter,
           BuiltinLib.base,
           BuiltinLib.string,
           BuiltinLib.table,
