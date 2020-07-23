@@ -10,6 +10,6 @@ void main() {
     expect(tester.takeException(), isNull);
 
     await tester.enterText(find.byKey(Key("textFormField")), "Hello world");
-    expect(find.text("hello world"),findsOneWidget);
+    expect(find.text("hello world"), findsOneWidget);
   });
 }

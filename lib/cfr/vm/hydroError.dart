@@ -76,7 +76,8 @@ class HydroError {
     _frames.forEach((element) {
       res +=
           "${element.prototype.source}:${maybeAt(element.prototype.lines, element.programCounter - 1)}\n";
-          res += "  (${element.prototype?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
+      res +=
+          "  (${element.prototype?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
     });
 
     res += "Dart stacktrace follows:\n";

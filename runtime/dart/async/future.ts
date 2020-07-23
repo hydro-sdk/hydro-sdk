@@ -2,7 +2,7 @@ export type FutureOr<T> = Future<T> | T;
 
 declare const dart: {
     async: {
-        future: <T>(this: void,future:Future<T>, computation: () => FutureOr<T>) => Future<T>;
+        future: <T>(this: void,future: Future<T>, computation: () => FutureOr<T>) => Future<T>;
         futureError: <T>(this: void, error: any, stackTrace?: any | undefined) => Future<T>;
         futureSync: <T>(this: void, computation: () => FutureOr<T>) => Future<T>;
         futureValue: <T>(this: void, value?: FutureOr<T> | undefined) => Future<T>;

@@ -81,7 +81,7 @@ void loadStringLib(Context ctx) {
     return start > end ? [] : str.substring(start - 1, end).codeUnits;
   };
 
-  string["lower"] = (List<dynamic>args){
+  string["lower"] = (List<dynamic> args) {
     return [args[0].toLowerCase()];
   };
 }

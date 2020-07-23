@@ -1,6 +1,6 @@
-import { RuntimeBaseClass } from "./../../runtimeBaseClass";
-import { Type } from "./../core/type";
-import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../core/type";
+import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 interface TextRangeProps {
     start: number;
@@ -13,24 +13,28 @@ declare const dart: {
     };
 };
 
-export class TextRange extends JITAllocatingRTManagedBox<TextRangeProps, TextRange> implements RuntimeBaseClass {
+export class TextRange extends JITAllocatingRTManagedBox<TextRangeProps, TextRange> implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(TextRange);
     public props: TextRangeProps;
-    public constructor(props: TextRangeProps) {
+    public constructor(props: TextRangeProps) 
+    {
         super();
         this.props = props;
     }
 
-    public static collapsed(offset: number) {
+    public static collapsed(offset: number) 
+    {
         return new TextRange({
             start: offset,
             end: offset
         });
     }
 
-    public static empty = new TextRange({ start: -1, end: -1 });
+    public static empty = new TextRange({start: -1, end: -1});
 
-    public unwrap() {
+    public unwrap() 
+    {
         return dart.ui.textRange(this.props);
     }
 }

@@ -33,11 +33,13 @@ export class AnimatedListState extends RTManagedBox<State<StatefulWidget>> imple
         return this.vmObject;
     }
 
-    public dispose(){
+    public dispose()
+    {
         
     }
 
-    public initState(){
+    public initState()
+    {
         
     }
 

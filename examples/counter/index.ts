@@ -67,11 +67,13 @@ class MyHomePageState extends State<MyHomePage>
         });
     }
 
-    public dispose(){
+    public dispose()
+    {
         
     }
 
-    public initState(){
+    public initState()
+    {
         
     }
 

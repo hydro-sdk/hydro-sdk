@@ -53,11 +53,13 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample>
         });
     }
 
-    public dispose(){
+    public dispose()
+    {
         
     }
 
-    public initState(){
+    public initState()
+    {
         
     }
 

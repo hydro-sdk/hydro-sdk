@@ -1,7 +1,7 @@
-import { RuntimeBaseClass } from "./../../runtimeBaseClass";
-import { Type } from "./../core/type";
-import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
-import { TextAffinity } from "./textAffinity";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../core/type";
+import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
+import {TextAffinity} from "./textAffinity";
 
 interface TextPositionProps {
     offset: number;
@@ -14,19 +14,23 @@ declare const dart: {
     };
 };
 
-export class TextPosition extends JITAllocatingRTManagedBox<TextPositionProps, TextPosition> implements RuntimeBaseClass {
+export class TextPosition extends JITAllocatingRTManagedBox<TextPositionProps, TextPosition> implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(TextPosition);
     public props: TextPositionProps;
-    public constructor(props: TextPositionProps) {
+    public constructor(props: TextPositionProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.affinity === undefined) {
+        if (this.props.affinity === undefined) 
+        {
             this.props.affinity = TextAffinity.downstream;
         }
     }
 
-    public unwrap() {
+    public unwrap() 
+    {
         return dart.ui.textPosition(this.props);
     }
 }

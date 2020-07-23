@@ -56,11 +56,13 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
         });
     }
 
-    public dispose(){
+    public dispose()
+    {
         
     }
 
-    public initState(){
+    public initState()
+    {
         
     }
 

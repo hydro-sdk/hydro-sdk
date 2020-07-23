@@ -1,4 +1,4 @@
-import { BorderSide } from "../painting/borderSide";
+import {BorderSide} from "../painting/borderSide";
 
 export interface InputBorder {
     borderSide: BorderSide;

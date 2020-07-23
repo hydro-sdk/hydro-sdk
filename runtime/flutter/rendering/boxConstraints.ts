@@ -1,21 +1,22 @@
-import { RuntimeBaseClass } from "./../../runtimeBaseClass";
-import { Type } from "./../../dart/core/type";
-import { double } from "./../../dart/core/double";
-import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import {RuntimeBaseClass} from "./../../runtimeBaseClass";
+import {Type} from "./../../dart/core/type";
+import {double} from "./../../dart/core/double";
+import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
 
 declare const flutter: {
     rendering: {
         boxConstraints: (this: void, props: {
-            minWidth: number,
-            maxWidth: number,
-            minHeight: number,
-            maxHeight: number
+            minWidth: number;
+            maxWidth: number;
+            minHeight: number;
+            maxHeight: number;
         }) => BoxConstraints;
     };
 };
 
-export class BoxConstraints extends JITAllocatingRTManagedBox<undefined, BoxConstraints> implements RuntimeBaseClass {
+export class BoxConstraints extends JITAllocatingRTManagedBox<undefined, BoxConstraints> implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(BoxConstraints);
     public props = undefined as any;
     public minWidth: number;
@@ -23,35 +24,41 @@ export class BoxConstraints extends JITAllocatingRTManagedBox<undefined, BoxCons
     public minHeight: number;
     public maxHeight: number;
     public constructor(props: {
-        minWidth: number,
-        maxWidth: number,
-        minHeight: number,
-        maxHeight: number
-    }) {
+        minWidth: number;
+        maxWidth: number;
+        minHeight: number;
+        maxHeight: number;
+    }) 
+    {
         super();
         this.minWidth = props.minWidth;
         this.maxWidth = props.maxWidth;
         this.minHeight = props.minHeight;
         this.maxHeight = props.maxHeight;
 
-        if (this.minWidth === undefined) {
+        if (this.minWidth === undefined) 
+        {
             this.minWidth = 0.0;
         }
 
-        if (this.maxWidth === undefined) {
+        if (this.maxWidth === undefined) 
+        {
             this.maxWidth = double.infinity;
         }
 
-        if (this.minHeight === undefined) {
+        if (this.minHeight === undefined) 
+        {
             this.minHeight = 0.0;
         }
 
-        if (this.maxHeight === undefined) {
+        if (this.maxHeight === undefined) 
+        {
             this.maxHeight = double.infinity;
         }
     }
 
-    public unwrap() {
+    public unwrap() 
+    {
         return flutter.rendering.boxConstraints({
             minWidth: this.minWidth,
             maxWidth: this.maxWidth,
