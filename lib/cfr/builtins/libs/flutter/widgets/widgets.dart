@@ -6,6 +6,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/center.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/clipRRect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/column.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/container.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/customScrollView.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/expanded.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/flexible.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/gestureDetector.dart';
@@ -27,6 +28,9 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/row.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/safeArea.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sizeTransition.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sizedBox.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverGrid.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverPadding.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverToBoxAdapter.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/spacer.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/stack.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/statefulWidget.dart';
@@ -84,4 +88,8 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadHero(luaState: luaState, table: widgets);
   loadTextEditingController(luaState: luaState, table: widgets);
   loadToolbarOptions(luaState: luaState, table: widgets);
+  loadCustomScrollView(luaState: luaState, table: widgets);
+  loadSliverToBoxAdapter(luaState: luaState, table: widgets);
+  loadSliverGrid(luaState: luaState, table: widgets);
+  loadSliverPadding(luaState: luaState, table: widgets);
 }
