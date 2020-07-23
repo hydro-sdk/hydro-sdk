@@ -51,6 +51,15 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Closure managedDispose =
+        maybeFindInheritedMethod(managedObject: table, methodName: "dispose");
+    managedDispose.dispatch([table],
+        parentState: parentState, resetEnclosingLexicalEnvironment: true);
+  }
+
+  @override
   Widget build(BuildContext context) {
     Closure managedBuild =
         maybeFindInheritedMethod(managedObject: table, methodName: "build");
