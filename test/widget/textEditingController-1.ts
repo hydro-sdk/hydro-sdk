@@ -68,6 +68,7 @@ class MyStatefulWidgetState extends State<MyStatefulWidget>{
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(6),
                 child: new TextFormField({
+                    key: new Key("textFormField"),
                     controller: this.controller,
                     decoration: new InputDecoration({
                         border: new OutlineInputBorder({})

@@ -8,5 +8,8 @@ void main() {
         "assets/test/widget/textEditingController-1.ts"));
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
+
+    await tester.enterText(find.byKey(Key("textFormField")), "Hello world");
+    expect(find.text("hello world"),findsOneWidget);
   });
 }
