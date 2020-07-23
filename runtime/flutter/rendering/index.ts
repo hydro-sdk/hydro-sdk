@@ -1,3 +1,4 @@
+export * from "./boxConstraints";
 export * from "./flexFit";
 export * from "./mainAxisSize";
 export * from "./hitTestBehavior";
