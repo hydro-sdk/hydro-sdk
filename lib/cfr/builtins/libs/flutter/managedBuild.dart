@@ -18,7 +18,17 @@ Widget managedBuild(
       hydroState: hydroState,
       table: HydroTable(),
     )
-  ], parentState: hydroState, resetEnclosingLexicalEnvironment: true)[0];
-  return maybeUnBoxAndBuildArgument<Widget>(buildResult,
+  ], parentState: hydroState, resetEnclosingLexicalEnvironment: true);
+  if (buildResult == null || buildResult.isEmpty) {
+    String errMsg =
+        "A build function returned null ${managedBuild?.proto?.debugSymbol?.symbolName}\n";
+    errMsg +=
+        "defined in   ${managedBuild?.proto?.debugSymbol?.originalFileName}:${managedBuild?.proto?.debugSymbol?.originalLineStart}\n";
+
+    errMsg +=
+        "     (${managedBuild?.proto?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
+    throw errMsg;
+  }
+  return maybeUnBoxAndBuildArgument<Widget>(buildResult[0],
       parentState: hydroState);
 }
