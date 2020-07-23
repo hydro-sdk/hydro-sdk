@@ -67,6 +67,14 @@ class MyHomePageState extends State<MyHomePage>
         });
     }
 
+    public dispose(){
+        
+    }
+
+    public initState(){
+        
+    }
+
     public build(context: BuildContext): Widget 
     {
         return new Scaffold({

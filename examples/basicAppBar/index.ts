@@ -53,6 +53,14 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample>
         });
     }
 
+    public dispose(){
+        
+    }
+
+    public initState(){
+        
+    }
+
     public build(): Widget 
     {
         return new MaterialApp({

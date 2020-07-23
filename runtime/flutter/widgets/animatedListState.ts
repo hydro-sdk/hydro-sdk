@@ -33,6 +33,14 @@ export class AnimatedListState extends RTManagedBox<State<StatefulWidget>> imple
         return this.vmObject;
     }
 
+    public dispose(){
+        
+    }
+
+    public initState(){
+        
+    }
+
     public build(): Widget 
     {
         throw "This is a synthetic widget";

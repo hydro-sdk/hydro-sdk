@@ -56,6 +56,14 @@ class _AnimatedListSampleState extends State<AnimatedListSample>
         });
     }
 
+    public dispose(){
+        
+    }
+
+    public initState(){
+        
+    }
+
     private buildRemovedItem = (item: number, context: BuildContext, animation: Animation<number>): CardItem => 
     {
         return new CardItem({
