@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
+import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -34,6 +35,42 @@ class VMManagedTextEditingController
       maybeUnBoxAndBuildArgument<TextEditingController>(rawCaller,
               parentState: hydroState)
           .text = args[1];
+      return [];
+    });
+
+    table["getValue"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      dynamic rawCaller = args[0];
+      return [
+        maybeBoxObject<TextEditingValue>(
+            object: maybeUnBoxAndBuildArgument<TextEditingController>(rawCaller,
+                    parentState: hydroState)
+                .value,
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+
+    table["setValue"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      dynamic rawCaller = args[0];
+      maybeUnBoxAndBuildArgument<TextEditingController>(rawCaller,
+                  parentState: hydroState)
+              .value =
+          maybeUnBoxAndBuildArgument<TextEditingValue>(args[1],
+              parentState: hydroState);
+      return [];
+    });
+
+    table["addListener"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.addListener(() {
+        Closure callback = args[1];
+        callback.dispatch([],
+            parentState: hydroState, resetEnclosingLexicalEnvironment: true);
+      });
+      return [];
+    });
+
+    table["dispose"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.dispose();
       return [];
     });
   }

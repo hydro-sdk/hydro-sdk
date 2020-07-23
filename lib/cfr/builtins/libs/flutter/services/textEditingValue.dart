@@ -28,9 +28,11 @@ class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue> {
         maybeBoxObject(
             object: caller.copyWith(
                 text: args[1]["text"],
-                selection: maybeUnBoxAndBuildArgument(args[1]["selection"],
+                selection: maybeUnBoxAndBuildArgument<TextSelection>(
+                    args[1]["selection"],
                     parentState: hydroState),
-                composing: maybeUnBoxAndBuildArgument(args[1]["composing"],
+                composing: maybeUnBoxAndBuildArgument<TextRange>(
+                    args[1]["composing"],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable()),
