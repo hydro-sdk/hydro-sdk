@@ -10,7 +10,6 @@ void loadGridView({@required HydroState luaState, @required HydroTable table}) {
   table["gridViewCount"] = makeLuaDartFunc(func: (List<dynamic> args) {
     var children = maybeUnBoxAndBuildArgument<Widget>(args[0]["children"],
         parentState: luaState);
-    // debugger();
     return [
       GridView.count(
         key: maybeUnBoxAndBuildArgument(args[0]["key"], parentState: luaState),
