@@ -75,6 +75,25 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
       int index = args[1];
       return [caller.unwrap().elementAt(index)];
     });
+
+    table["where"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      VMManagedList caller = args[0];
+      Closure predicate = args[1];
+      return [
+        maybeBoxObject<List<dynamic>>(
+          object: caller
+              .unwrap()
+              .where((element) => predicate.dispatch(
+                    [null, element],
+                    parentState: hydroState,
+                    resetEnclosingLexicalEnvironment: true,
+                  )[0])
+              .toList(),
+          hydroState: hydroState,
+          table: HydroTable(),
+        )
+      ];
+    });
   }
 }
 
