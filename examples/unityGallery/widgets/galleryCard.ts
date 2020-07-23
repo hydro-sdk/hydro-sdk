@@ -34,7 +34,7 @@ export class GalleryCard extends StatelessWidget {
             child:
                 new Container({
                     height: 200,
-                    width: 200,
+                    width: 120,
                     decoration: new BoxDecoration({
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.white

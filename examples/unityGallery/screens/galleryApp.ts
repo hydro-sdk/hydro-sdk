@@ -27,6 +27,7 @@ import { BuildContext } from "../../../runtime/flutter/buildContext";
 import { MaterialPageRoute } from "../../../runtime/flutter/material/materialPageRoute";
 import { PokeApp } from "../../pokeApp/pokeApp";
 import { PokeHubService } from "../../pokeApp/data/pokeHubService";
+import { HomeScreen } from "../../hotel-booking/screens/homeScreen";
 
 
 export class GalleryApp extends StatelessWidget {
@@ -88,6 +89,8 @@ export class GalleryApp extends StatelessWidget {
                                     padding: EdgeInsets.all(26.0),
                                     sliver: SliverGrid.count({
                                         crossAxisCount: 2,
+                                        mainAxisSpacing: 20,
+                                        crossAxisSpacing: 20,
                                         children: List.fromArray([
                                             new GalleryCard({
                                                 icon: Icons.cake,
@@ -100,7 +103,19 @@ export class GalleryApp extends StatelessWidget {
                                                         })
                                                     );
                                                 }
-                                            })
+                                            }),
+                                            new GalleryCard({
+                                                icon: Icons.hotel,
+                                                name: "Hotel App",
+                                                onTap: () => {
+                                                    Navigator.push(
+                                                        context,
+                                                        new MaterialPageRoute({
+                                                            builder: () => new HomeScreen()
+                                                        })
+                                                    );
+                                                }
+                                            }),
                                         ])
                                     })
                                 })
