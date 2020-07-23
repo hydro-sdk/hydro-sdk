@@ -42,6 +42,15 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    Closure managedInitState =
+        maybeFindInheritedMethod(managedObject: table, methodName: "initState");
+    managedInitState.dispatch([table],
+        parentState: parentState, resetEnclosingLexicalEnvironment: true);
+  }
+
+  @override
   Widget build(BuildContext context) {
     Closure managedBuild =
         maybeFindInheritedMethod(managedObject: table, methodName: "build");
