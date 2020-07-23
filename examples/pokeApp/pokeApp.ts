@@ -2,23 +2,23 @@ import {StatelessWidget} from "../../runtime/flutter/widgets/statelessWidget";
 import {ScopedModel} from "../../runtime/scopedModel/scopedModel";
 
 import {PokeGridScreen} from "./screens/gridScreen";
-import {PokeHubModel} from "./data/pokeHubModel";
+import {PokeHubService} from "./data/pokeHubService";
 
 export class PokeApp extends StatelessWidget 
 {
-    private pokeHubModel: PokeHubModel;
+    private pokeHubService: PokeHubService;
 
-    public constructor(pokeHubModel: PokeHubModel) 
+    public constructor(pokeHubService: PokeHubService) 
     {
         super();
 
-        this.pokeHubModel = pokeHubModel;
+        this.pokeHubService = pokeHubService;
     }
 
     public build() 
     {
         return new ScopedModel({
-            model: this.pokeHubModel,
+            model: this.pokeHubService,
             child: new PokeGridScreen()
         });
     }

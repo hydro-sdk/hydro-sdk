@@ -24,7 +24,7 @@ import {Hero} from "../../../runtime/flutter/widgets/hero";
 import {Key} from "../../../runtime/flutter/foundation/key";
 import {StatelessWidget} from "../../../runtime/flutter/widgets/statelessWidget";
 import {ScopedModel} from "../../../runtime/scopedModel/scopedModel";
-import {PokeHubModel} from "../data/pokeHubModel";
+import {PokeHubService} from "../data/pokeHubService";
 
 import {PokeHub} from "./../data/pokeHub";
 import {DetailScreen} from "./detailScreen";
@@ -38,11 +38,11 @@ export class PokeGridScreen extends StatelessWidget
 
     public build(context: BuildContext) 
     {
-        const pokeHubModel = ScopedModel.of<PokeHubModel>(context, PokeHubModel.staticType);
+        const pokeHubService = ScopedModel.of<PokeHubService>(context, PokeHubService.staticType);
         let pokeHub: PokeHub | undefined;
-        if (pokeHubModel) 
+        if (pokeHubService) 
         {
-            pokeHub = pokeHubModel.getPokeHub();
+            pokeHub = pokeHubService.getPokeHub();
         }
         return new Scaffold({
             appBar: new AppBar({
