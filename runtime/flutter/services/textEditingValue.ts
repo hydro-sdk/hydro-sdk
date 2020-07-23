@@ -12,17 +12,14 @@ interface TextEditingValueProps {
 
 declare const flutter: {
     services: {
-        textEditingValue: (this: void, props: TextEditingValueProps) => TextEditingValue;
+        textEditingValue: (this: void, inst: TextEditingValue, props: TextEditingValueProps) => TextEditingValue;
     }
 }
 
-export class TextEditingValue extends JITAllocatingRTManagedBox<TextEditingValueProps, TextEditingValue> implements RuntimeBaseClass {
-    public readonly internalRuntimeType = new Type(TextEditingValue);
+export class TextEditingValue {
     public props: TextEditingValueProps;
 
     public constructor(props: TextEditingValueProps) {
-        super();
-
         this.props = props;
 
         if (this.props.text === undefined) {
@@ -36,9 +33,9 @@ export class TextEditingValue extends JITAllocatingRTManagedBox<TextEditingValue
         if (this.props.composing === undefined) {
             this.props.composing = TextRange.empty;
         }
+
+        flutter.services.textEditingValue(this, this.props);
     }
 
-    public unwrap() {
-        return flutter.services.textEditingValue(this.props);
-    }
+    public copyWith: (props: TextEditingValueProps) => TextEditingValue = undefined as any;
 }

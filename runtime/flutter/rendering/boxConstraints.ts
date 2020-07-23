@@ -17,6 +17,7 @@ declare const flutter: {
 
 export class BoxConstraints extends JITAllocatingRTManagedBox<undefined, BoxConstraints> implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(BoxConstraints);
+    public props = undefined as any;
     public minWidth: number;
     public maxWidth: number;
     public minHeight: number;

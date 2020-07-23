@@ -16,7 +16,7 @@ void loadOutlineInputBorder(
         borderRadius: maybeUnBoxAndBuildArgument<BorderRadius>(
             args[0]["borderRadius"],
             parentState: luaState),
-        gapPadding: args[0]["gapPadding"],
+        gapPadding: args[0]["gapPadding"]?.toDouble(),
       )
     ];
   });

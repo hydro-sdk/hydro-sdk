@@ -71,6 +71,10 @@ export class InputDecoration extends JITAllocatingRTManagedBox<InputDecorationPr
         if (this.props.floatingLabelBehavior === undefined) {
             this.props.floatingLabelBehavior = FloatingLabelBehavior.auto;
         }
+
+        if (this.props.enabled === undefined) {
+            this.props.enabled = true;
+        }
     }
 
     public unwrap() {

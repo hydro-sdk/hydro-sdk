@@ -7,9 +7,11 @@ import {StatelessWidget} from "./statelessWidget";
 import {Color} from "./../../dart/ui/color";
 import {BoxDecoration} from "./../painting/boxDecoration";
 import {Key} from "./../foundation/key";
+import { Alignment } from "../painting/alignment";
 
 interface ContainerProps {
     key?: Key | undefined;
+    alignment?:Alignment|undefined;
     color?: Color | undefined;
     child?: Widget;
     decoration?: BoxDecoration | undefined;

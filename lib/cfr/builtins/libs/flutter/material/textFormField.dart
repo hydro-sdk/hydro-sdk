@@ -116,7 +116,7 @@ void loadTextFormField(
                 }
               : null,
           enabled: args[0]["enabled"],
-          cursorWidth: args[0]["cursorWidth"],
+          cursorWidth: args[0]["cursorWidth"]?.toDouble(),
           cursorRadius: args[0]["cursorRadius"],
           cursorColor: maybeUnBoxAndBuildArgument<Color>(args[0]["cursorColor"], parentState: luaState),
           keyboardAppearance: maybeUnBoxEnum(values: Brightness.values, boxedEnum: args[0]["keyboardAppearance"]),

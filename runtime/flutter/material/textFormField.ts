@@ -115,6 +115,9 @@ export class TextFormField extends StatelessWidget implements RuntimeBaseClass {
         if (this.props.enableSuggestions === undefined) {
             this.props.enableSuggestions = true;
         }
+        if (this.props.autocorrect === undefined) {
+            this.props.autocorrect = true;
+        }
 
         if (this.props.autovalidate === undefined) {
             this.props.autovalidate = false;
