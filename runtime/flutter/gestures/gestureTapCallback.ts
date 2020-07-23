@@ -1,1 +1,1 @@
-export type GestureTapCallback = () => void;
+export type GestureTapCallback = (this: void) => void;

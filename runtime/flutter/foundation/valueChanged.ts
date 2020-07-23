@@ -1,1 +1,1 @@
-export type ValueChanged<T> = (value: T) => void;
+export type ValueChanged<T> = (this: void, value: T) => void;

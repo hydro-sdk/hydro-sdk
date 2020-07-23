@@ -1,1 +1,1 @@
-export type VoidCallback = () => void;
+export type VoidCallback = (this: void) => void;
