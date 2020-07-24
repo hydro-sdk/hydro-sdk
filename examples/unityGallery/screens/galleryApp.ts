@@ -28,6 +28,9 @@ import { MaterialPageRoute } from "../../../runtime/flutter/material/materialPag
 import { PokeApp } from "../../pokeApp/pokeApp";
 import { PokeHubService } from "../../pokeApp/data/pokeHubService";
 import { HomeScreen } from "../../hotel-booking/screens/homeScreen";
+import { AnimatedListSample } from "../../animated-list/animatedListSample";
+import { BasicAppBarSample } from "../../basicAppBar/basicAppBarSample";
+import { CounterApp } from "../../counter/counterApp";
 
 
 export class GalleryApp extends StatelessWidget {
@@ -37,7 +40,7 @@ export class GalleryApp extends StatelessWidget {
 
     public build(context: BuildContext) {
         return new Scaffold({
-            backgroundColor: Colors.white70,
+            backgroundColor: Colors.blueGrey.swatch[50],
             body: new SafeArea({
                 child: new Stack({
                     children: [
@@ -112,6 +115,42 @@ export class GalleryApp extends StatelessWidget {
                                                         context,
                                                         new MaterialPageRoute({
                                                             builder: () => new HomeScreen()
+                                                        })
+                                                    );
+                                                }
+                                            }),
+                                            new GalleryCard({
+                                                icon: Icons.list,
+                                                name: "Animated List App",
+                                                onTap: () => {
+                                                    Navigator.push(
+                                                        context,
+                                                        new MaterialPageRoute({
+                                                            builder: () => new AnimatedListSample()
+                                                        })
+                                                    );
+                                                }
+                                            }),
+                                            new GalleryCard({
+                                                icon: Icons.directions_bike,
+                                                name: "Basic App Bar App",
+                                                onTap: () => {
+                                                    Navigator.push(
+                                                        context,
+                                                        new MaterialPageRoute({
+                                                            builder: () => new BasicAppBarSample()
+                                                        })
+                                                    );
+                                                }
+                                            }),
+                                            new GalleryCard({
+                                                icon: Icons.add,
+                                                name: "Counter App",
+                                                onTap: () => {
+                                                    Navigator.push(
+                                                        context,
+                                                        new MaterialPageRoute({
+                                                            builder: () => new CounterApp()
                                                         })
                                                     );
                                                 }
