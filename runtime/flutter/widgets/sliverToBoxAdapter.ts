@@ -1,8 +1,9 @@
-import { Type } from "../../dart/core/type";
-import { Widget } from "../widget";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Key } from "./../foundation/key";
-import { StatelessWidget } from "./statelessWidget";
+import {Type} from "../../dart/core/type";
+import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+
+import {Key} from "./../foundation/key";
+import {StatelessWidget} from "./statelessWidget";
 
 interface SliverToBoxAdapterProps {
     key?: Key | undefined;
@@ -15,15 +16,18 @@ declare const flutter: {
     };
 };
 
-export class SliverToBoxAdapter extends StatelessWidget implements RuntimeBaseClass {
+export class SliverToBoxAdapter extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(SliverToBoxAdapter);
     public props: SliverToBoxAdapterProps;
-    public constructor(props: SliverToBoxAdapterProps) {
+    public constructor(props: SliverToBoxAdapterProps) 
+    {
         super();
         this.props = props;
     }
 
-    public build() {
+    public build() 
+    {
         return flutter.widgets.sliverToBoxAdapter(this.props);
     }
 }

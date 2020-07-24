@@ -1,11 +1,12 @@
-import { Type } from "../../dart/core/type";
-import { List } from "../../dart/collection/list";
-import { Widget } from "../widget";
-import { RuntimeBaseClass } from "../../runtimeBaseClass";
-import { Key } from "./../foundation/key";
-import { Axis } from "./../painting/axis";
-import { DragStartBehavior } from "./../gestures/dragStartBehavior";
-import { StatelessWidget } from "./statelessWidget";
+import {Type} from "../../dart/core/type";
+import {List} from "../../dart/collection/list";
+import {Widget} from "../widget";
+import {RuntimeBaseClass} from "../../runtimeBaseClass";
+
+import {Key} from "./../foundation/key";
+import {Axis} from "./../painting/axis";
+import {DragStartBehavior} from "./../gestures/dragStartBehavior";
+import {StatelessWidget} from "./statelessWidget";
 
 interface CustomScrollViewProps {
     key?: Key | undefined;
@@ -27,39 +28,48 @@ declare const flutter: {
     };
 };
 
-export class CustomScrollView extends StatelessWidget implements RuntimeBaseClass {
+export class CustomScrollView extends StatelessWidget implements RuntimeBaseClass 
+{
     public readonly internalRuntimeType = new Type(CustomScrollView);
     public props: CustomScrollViewProps;
-    public constructor(props: CustomScrollViewProps) {
+    public constructor(props: CustomScrollViewProps) 
+    {
         super();
         this.props = props;
 
-        if (this.props.scrollDirection === undefined) {
+        if (this.props.scrollDirection === undefined) 
+        {
             this.props.scrollDirection = Axis.vertical;
         }
 
-        if (this.props.reverse === undefined) {
+        if (this.props.reverse === undefined) 
+        {
             this.props.reverse = false;
         }
 
-        if (this.props.shrinkWrap === undefined) {
+        if (this.props.shrinkWrap === undefined) 
+        {
             this.props.shrinkWrap = false;
         }
 
-        if (this.props.anchor === undefined) {
+        if (this.props.anchor === undefined) 
+        {
             this.props.anchor = 0.0;
         }
 
-        if (this.props.slivers === undefined) {
+        if (this.props.slivers === undefined) 
+        {
             this.props.slivers = List.fromArray([]);
         }
 
-        if (this.props.dragStartBehavior === undefined) {
+        if (this.props.dragStartBehavior === undefined) 
+        {
             this.props.dragStartBehavior = DragStartBehavior.start;
         }
     }
 
-    public build() {
+    public build() 
+    {
         return flutter.widgets.customScrollView(this.props);
     }
 }

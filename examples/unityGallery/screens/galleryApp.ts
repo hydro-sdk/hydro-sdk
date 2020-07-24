@@ -1,44 +1,47 @@
-import { StatelessWidget } from "../../../runtime/flutter/widgets/statelessWidget";
-import { Scaffold } from "../../../runtime/flutter/material/scaffold";
-import { Colors } from "../../../runtime/flutter/material/colors";
-import { SafeArea } from "../../../runtime/flutter/widgets/safeArea";
-import { Stack } from "../../../runtime/flutter/widgets/stack";
-import { Container } from "../../../runtime/flutter/widgets/container";
-import { CustomScrollView } from "../../../runtime/flutter/widgets/customScrollView";
-import { SliverToBoxAdapter } from "../../../runtime/flutter/widgets/sliverToBoxAdapter";
-import { BoxDecoration } from "../../../runtime/flutter/painting/boxDecoration";
-import { BorderRadius } from "../../../runtime/flutter/painting/borderRadius";
-import { Radius } from "../../../runtime/dart/ui/radius";
-import { EdgeInsets } from "../../../runtime/flutter/painting/edgeInsets";
-import { List } from "../../../runtime/dart/collection/list";
-import { Padding } from "../../../runtime/flutter/widgets/padding";
-import { Column } from "../../../runtime/flutter/widgets/column";
-import { Text } from "../../../runtime/flutter/widgets/text";
-import { TextStyle } from "../../../runtime/flutter/painting/textStyle";
-import { FontWeight } from "../../../runtime/dart/ui/fontWeight";
-import { MainAxisSize } from "../../../runtime/flutter/rendering/mainAxisSize";
-import { CrossAxisAlignment } from "../../../runtime/flutter/rendering/crossAxisAlignment";
-import { SliverGrid } from "../../../runtime/flutter/widgets/sliverGrid";
-import { SliverPadding } from "../../../runtime/flutter/widgets/sliverPadding";
-import { GalleryCard } from "../widgets/galleryCard";
-import { Icons } from "../../../runtime/flutter/material/icons";
-import { Navigator } from "../../../runtime/flutter/widgets/navigator";
-import { BuildContext } from "../../../runtime/flutter/buildContext";
-import { MaterialPageRoute } from "../../../runtime/flutter/material/materialPageRoute";
-import { PokeApp } from "../../pokeApp/pokeApp";
-import { PokeHubService } from "../../pokeApp/data/pokeHubService";
-import { HomeScreen } from "../../hotel-booking/screens/homeScreen";
-import { AnimatedListSample } from "../../animated-list/animatedListSample";
-import { BasicAppBarSample } from "../../basicAppBar/basicAppBarSample";
-import { CounterApp } from "../../counter/counterApp";
+import {StatelessWidget} from "../../../runtime/flutter/widgets/statelessWidget";
+import {Scaffold} from "../../../runtime/flutter/material/scaffold";
+import {Colors} from "../../../runtime/flutter/material/colors";
+import {SafeArea} from "../../../runtime/flutter/widgets/safeArea";
+import {Stack} from "../../../runtime/flutter/widgets/stack";
+import {Container} from "../../../runtime/flutter/widgets/container";
+import {CustomScrollView} from "../../../runtime/flutter/widgets/customScrollView";
+import {SliverToBoxAdapter} from "../../../runtime/flutter/widgets/sliverToBoxAdapter";
+import {BoxDecoration} from "../../../runtime/flutter/painting/boxDecoration";
+import {BorderRadius} from "../../../runtime/flutter/painting/borderRadius";
+import {Radius} from "../../../runtime/dart/ui/radius";
+import {EdgeInsets} from "../../../runtime/flutter/painting/edgeInsets";
+import {List} from "../../../runtime/dart/collection/list";
+import {Padding} from "../../../runtime/flutter/widgets/padding";
+import {Column} from "../../../runtime/flutter/widgets/column";
+import {Text} from "../../../runtime/flutter/widgets/text";
+import {TextStyle} from "../../../runtime/flutter/painting/textStyle";
+import {FontWeight} from "../../../runtime/dart/ui/fontWeight";
+import {MainAxisSize} from "../../../runtime/flutter/rendering/mainAxisSize";
+import {CrossAxisAlignment} from "../../../runtime/flutter/rendering/crossAxisAlignment";
+import {SliverGrid} from "../../../runtime/flutter/widgets/sliverGrid";
+import {SliverPadding} from "../../../runtime/flutter/widgets/sliverPadding";
+import {GalleryCard} from "../widgets/galleryCard";
+import {Icons} from "../../../runtime/flutter/material/icons";
+import {Navigator} from "../../../runtime/flutter/widgets/navigator";
+import {BuildContext} from "../../../runtime/flutter/buildContext";
+import {MaterialPageRoute} from "../../../runtime/flutter/material/materialPageRoute";
+import {PokeApp} from "../../pokeApp/pokeApp";
+import {PokeHubService} from "../../pokeApp/data/pokeHubService";
+import {HomeScreen} from "../../hotel-booking/screens/homeScreen";
+import {AnimatedListSample} from "../../animated-list/animatedListSample";
+import {BasicAppBarSample} from "../../basicAppBar/basicAppBarSample";
+import {CounterApp} from "../../counter/counterApp";
 
 
-export class GalleryApp extends StatelessWidget {
-    public constructor() {
+export class GalleryApp extends StatelessWidget 
+{
+    public constructor() 
+    {
         super();
     }
 
-    public build(context: BuildContext) {
+    public build(context: BuildContext) 
+    {
         return new Scaffold({
             backgroundColor: Colors.blueGrey.swatch[50],
             body: new SafeArea({
@@ -55,7 +58,7 @@ export class GalleryApp extends StatelessWidget {
                             })
                         }),
                         new Container({
-                            margin: EdgeInsets.only({ left: 90, bottom: 20 }),
+                            margin: EdgeInsets.only({left: 90, bottom: 20}),
                             width: 299,
                             height: 279,
                             decoration: new BoxDecoration({
@@ -98,7 +101,8 @@ export class GalleryApp extends StatelessWidget {
                                             new GalleryCard({
                                                 icon: Icons.cake,
                                                 name: "PokeApp",
-                                                onTap: () => {
+                                                onTap: () => 
+                                                {
                                                     Navigator.push(
                                                         context,
                                                         new MaterialPageRoute({
@@ -110,7 +114,8 @@ export class GalleryApp extends StatelessWidget {
                                             new GalleryCard({
                                                 icon: Icons.hotel,
                                                 name: "Hotel App",
-                                                onTap: () => {
+                                                onTap: () => 
+                                                {
                                                     Navigator.push(
                                                         context,
                                                         new MaterialPageRoute({
@@ -122,7 +127,8 @@ export class GalleryApp extends StatelessWidget {
                                             new GalleryCard({
                                                 icon: Icons.list,
                                                 name: "Animated List App",
-                                                onTap: () => {
+                                                onTap: () => 
+                                                {
                                                     Navigator.push(
                                                         context,
                                                         new MaterialPageRoute({
@@ -134,7 +140,8 @@ export class GalleryApp extends StatelessWidget {
                                             new GalleryCard({
                                                 icon: Icons.directions_bike,
                                                 name: "Basic App Bar App",
-                                                onTap: () => {
+                                                onTap: () => 
+                                                {
                                                     Navigator.push(
                                                         context,
                                                         new MaterialPageRoute({
@@ -146,7 +153,8 @@ export class GalleryApp extends StatelessWidget {
                                             new GalleryCard({
                                                 icon: Icons.add,
                                                 name: "Counter App",
-                                                onTap: () => {
+                                                onTap: () => 
+                                                {
                                                     Navigator.push(
                                                         context,
                                                         new MaterialPageRoute({
