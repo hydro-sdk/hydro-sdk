@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/hotReloadable.dart';
@@ -22,6 +23,7 @@ void _rebuildAllChildren(BuildContext context) {
 
 class RunFromNetwork extends StatefulWidget {
   final String baseUrl;
+  final String filePath;
   final List<dynamic> args;
   final Map<String, NativeThunk> thunks;
   final Future<String> Function(String) downloadHash;
@@ -30,6 +32,7 @@ class RunFromNetwork extends StatefulWidget {
 
   RunFromNetwork({
     @required this.baseUrl,
+    @required this.filePath,
     @required this.args,
     @required this.thunks,
     this.downloadHash,
@@ -40,6 +43,7 @@ class RunFromNetwork extends StatefulWidget {
   @override
   _RunFromNetwork createState() => _RunFromNetwork(
         baseUrl: baseUrl,
+        filePath: filePath,
         args: args,
         thunks: thunks,
         downloadHash: downloadHash,
@@ -51,6 +55,7 @@ class RunFromNetwork extends StatefulWidget {
 class _RunFromNetwork extends State<RunFromNetwork>
     with HotReloadable<RunFromNetwork> {
   final String baseUrl;
+  final String filePath;
   final List<dynamic> args;
   final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
       thunks;
@@ -62,18 +67,40 @@ class _RunFromNetwork extends State<RunFromNetwork>
   Future<Uint8List> Function(String) downloadByteCodeImage;
   Future<List<ModuleDebugInfo>> Function(String) downloadDebugInfo;
 
+  String _debugUrl;
+
   _RunFromNetwork({
     @required this.baseUrl,
+    @required this.filePath,
     @required this.args,
     @required this.thunks,
     this.downloadHash,
     this.downloadByteCodeImage,
     this.downloadDebugInfo,
   }) {
+    _debugUrl = kDebugMode && Platform.isAndroid
+        ? "http://10.0.2.2:5000"
+        : kDebugMode && Platform.isIOS ? "http://localhost:5000" : "";
+
+    Future<Response> _attemptDownloadWithDegradation(String uri) async {
+      if (_debugUrl != "") {
+        try {
+          return await get("$_debugUrl/$uri");
+        } catch (err) {}
+      }
+      try {
+        return await get("$baseUrl/$uri");
+      } catch (err) {
+        print(err);
+      }
+
+      return null;
+    }
+
     if (downloadHash == null) {
       downloadHash = (String uri) async {
         try {
-          var res = await get(uri);
+          var res = await _attemptDownloadWithDegradation(uri);
           if (res.statusCode == 200) {
             return res.body;
           }
@@ -88,7 +115,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
     if (downloadByteCodeImage == null) {
       downloadByteCodeImage = (String uri) async {
         try {
-          var res = await get(uri);
+          var res = await _attemptDownloadWithDegradation(uri);
           return res.bodyBytes;
         } catch (err) {
           print(err);
@@ -99,18 +126,19 @@ class _RunFromNetwork extends State<RunFromNetwork>
 
     if (downloadDebugInfo == null) {
       downloadDebugInfo = (String uri) async {
-        try {
-          var res = await get(uri)
-              .timeout(Duration(seconds: 2), onTimeout: () => null);
-          if (res?.statusCode == 200) {
-            return json
-                .decode(res.body)
-                ?.map((x) => ModuleDebugInfo.fromJson(x))
-                ?.toList()
-                ?.cast<ModuleDebugInfo>();
+        if (_debugUrl != "") {
+          try {
+            var res = await _attemptDownloadWithDegradation(uri);
+            if (res?.statusCode == 200) {
+              return json
+                  .decode(res.body)
+                  ?.map((x) => ModuleDebugInfo.fromJson(x))
+                  ?.toList()
+                  ?.cast<ModuleDebugInfo>();
+            }
+          } catch (err) {
+            print(err);
           }
-        } catch (err) {
-          print(err);
         }
 
         return null;
@@ -126,12 +154,12 @@ class _RunFromNetwork extends State<RunFromNetwork>
   }
 
   Future<void> maybeReload() async {
-    String newHash = await downloadHash("$baseUrl.sha256");
+    String newHash = await downloadHash("$filePath.sha256");
     if (newHash != null && newHash != lastHash) {
-      var image = await downloadByteCodeImage(baseUrl);
+      var image = await downloadByteCodeImage("$filePath");
       List<ModuleDebugInfo> symbols;
       if (kDebugMode) {
-        symbols = await downloadDebugInfo("$baseUrl.symbols");
+        symbols = await downloadDebugInfo("$filePath.symbols");
       }
       if (image != null) {
         setState(() {

@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(RunFromNetwork(
-      thunks: thunks,
-      args: [],
-      baseUrl: "http://10.0.2.2:5000/unityGallery.hc"));
+    thunks: thunks,
+    args: [],
+    baseUrl: "https://github.com/chgibb/hydro-sdk/raw/master/dist",
+    filePath: "unityGallery.hc",
+  ));
 }
