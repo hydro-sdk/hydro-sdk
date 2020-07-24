@@ -100,8 +100,9 @@ class _RunFromNetwork extends State<RunFromNetwork>
     if (downloadDebugInfo == null) {
       downloadDebugInfo = (String uri) async {
         try {
-          var res = await get(uri);
-          if (res.statusCode == 200) {
+          var res = await get(uri)
+              .timeout(Duration(seconds: 2), onTimeout: () => null);
+          if (res?.statusCode == 200) {
             return json
                 .decode(res.body)
                 ?.map((x) => ModuleDebugInfo.fromJson(x))
