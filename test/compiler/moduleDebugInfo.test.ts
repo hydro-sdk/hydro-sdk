@@ -84,7 +84,7 @@ test("", async () => {
 });
 
 test("", async () => {
-    const inFilename = "./examples/counter/index.ts";
+    const inFilename = "./examples/counter/counterApp.ts";
     const res = transpileString(fs.readFileSync(inFilename).toString(), {
         luaTarget: LuaTarget.Lua52,
         luaLibImport: LuaLibImportKind.Require,
@@ -100,11 +100,11 @@ test("", async () => {
     await addOriginalMappings(debugInfo, res.file!);
     mangleSymbols(debugInfo);
 
-    expect(debugInfo.length).toEqual(13);
+    expect(debugInfo.length).toEqual(12);
     expect(debugInfo[0]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 42,
-        lineStart: 40,
+        lineEnd: 41,
+        lineStart: 39,
         columnEnd: 3,
         columnStart: 0,
         moduleName: "",
@@ -112,17 +112,17 @@ test("", async () => {
         originalLineStart: 23,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyApp.prototype.____constructor::self::0",
-        symbolMangleName: "MyApp.prototype.____constructor::self",
-        symbolName: "MyApp.prototype.____constructor",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::CounterApp.prototype.____constructor::self::0",
+        symbolMangleName: "CounterApp.prototype.____constructor::self",
+        symbolName: "CounterApp.prototype.____constructor",
         parameterNames: [
             "self"
         ],
     });
     expect(debugInfo[1]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 52,
-        lineStart: 43,
+        lineEnd: 51,
+        lineStart: 42,
         columnEnd: 3,
         columnStart: 0,
         moduleName: "",
@@ -130,17 +130,17 @@ test("", async () => {
         originalLineStart: 28,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyApp.prototype.build::self::0",
-        symbolMangleName: "MyApp.prototype.build::self",
-        symbolName: "MyApp.prototype.build",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::CounterApp.prototype.build::self::0",
+        symbolMangleName: "CounterApp.prototype.build::self",
+        symbolName: "CounterApp.prototype.build",
         parameterNames: [
             "self"
         ],
     });
     expect(debugInfo[2]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 59,
-        lineStart: 56,
+        lineEnd: 58,
+        lineStart: 55,
         columnEnd: 3,
         columnStart: 0,
         moduleName: "",
@@ -148,7 +148,7 @@ test("", async () => {
         originalLineStart: 41,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePage.prototype.____constructor::self_title::0",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::MyHomePage.prototype.____constructor::self_title::0",
         symbolMangleName: "MyHomePage.prototype.____constructor::self_title",
         symbolName: "MyHomePage.prototype.____constructor",
         parameterNames: [
@@ -158,8 +158,8 @@ test("", async () => {
     });
     expect(debugInfo[3]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 62,
-        lineStart: 60,
+        lineEnd: 61,
+        lineStart: 59,
         columnEnd: 3,
         columnStart: 0,
         moduleName: "",
@@ -168,7 +168,7 @@ test("", async () => {
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
         symbolMangleName: "MyHomePage.prototype.createState::self",
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePage.prototype.createState::self::0",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::MyHomePage.prototype.createState::self::0",
         symbolName: "MyHomePage.prototype.createState",
         parameterNames: [
             "self"
@@ -177,8 +177,8 @@ test("", async () => {
     });
     expect(debugInfo[4]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 77,
-        lineStart: 66,
+        lineEnd: 76,
+        lineStart: 65,
         columnEnd: 3,
         columnStart: 0,
         moduleName: "",
@@ -186,7 +186,7 @@ test("", async () => {
         originalLineStart: 56,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::MyHomePageState.prototype.____constructor::self_title::0",
         symbolMangleName: "MyHomePageState.prototype.____constructor::self_title",
         symbolName: "MyHomePageState.prototype.____constructor",
         parameterNames: [
@@ -196,8 +196,8 @@ test("", async () => {
     });
     expect(debugInfo[5]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 75,
-        lineStart: 69,
+        lineEnd: 74,
+        lineStart: 68,
         columnEnd: 7,
         columnStart: 28,
         moduleName: "",
@@ -205,15 +205,15 @@ test("", async () => {
         originalLineStart: 62,
         originalColumnStart: 31,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0",
         symbolMangleName: "anonymous_closure",
         symbolName: "anonymous closure",
         parameterNames: []
     });
     expect(debugInfo[6]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 75,
-        lineStart: 69,
+        lineEnd: 74,
+        lineStart: 68,
         columnEnd: 7,
         columnStart: 28,
         moduleName: "",
@@ -221,15 +221,15 @@ test("", async () => {
         originalLineStart: 62,
         originalColumnStart: 31,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0",
         symbolMangleName: "anonymous_closure",
         symbolName: "anonymous closure",
         parameterNames: []
     });
     expect(debugInfo[7]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 73,
-        lineStart: 71,
+        lineEnd: 72,
+        lineStart: 70,
         columnEnd: 15,
         columnStart: 12,
         moduleName: "",
@@ -237,15 +237,15 @@ test("", async () => {
         originalLineStart: 64,
         originalColumnStart: 22,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0::anonymous_closure::0::anonymous_closure::0",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0::anonymous_closure::0::anonymous_closure::0",
         symbolMangleName: "anonymous_closure",
         symbolName: "anonymous closure",
         parameterNames: []
     });
     expect(debugInfo[8]).toEqual({
         fileName: "examples/counter/index.lua",
-        lineEnd: 73,
-        lineStart: 71,
+        lineEnd: 72,
+        lineStart: 70,
         columnEnd: 15,
         columnStart: 12,
         moduleName: "",
@@ -253,7 +253,7 @@ test("", async () => {
         originalLineStart: 64,
         originalColumnStart: 22,
         symbolDisambiguationIndex: 0,
-        symbolFullyQualifiedMangleName: "_Laffb9944dc60d4a2ae46a1a49c2fd54e10f8eff497f213c94c07931a44eb2fb1::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0::anonymous_closure::0::anonymous_closure::0",
+        symbolFullyQualifiedMangleName: "_L79542b31fcdb1120e5bf9db0e427255da02dd603888fc2e66406a792f9d5fd4f::MyHomePageState.prototype.____constructor::self_title::0::anonymous_closure::0::anonymous_closure::0::anonymous_closure::0",
         symbolMangleName: "anonymous_closure",
         symbolName: "anonymous closure",
         parameterNames: []
