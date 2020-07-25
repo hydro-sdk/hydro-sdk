@@ -7,12 +7,14 @@ import {Key} from "./../foundation/key";
 import {Axis} from "./../painting/axis";
 import {DragStartBehavior} from "./../gestures/dragStartBehavior";
 import {StatelessWidget} from "./statelessWidget";
+import {ScrollPhysics} from "./scrollPhysics";
 
 interface CustomScrollViewProps {
     key?: Key | undefined;
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
     //controller
+    physics?:ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     center?: Key | undefined;
     anchor?: number | undefined;

@@ -17,6 +17,8 @@ void loadGridView({@required HydroState luaState, @required HydroTable table}) {
             values: Axis.values, boxedEnum: args[0]["scrollDirection"]),
         reverse: args[0]["reverse"],
         primary: args[0]["primary"],
+        physics: maybeUnBoxAndBuildArgument<ScrollPhysics>(args[0]["physics"],
+            parentState: luaState),
         shrinkWrap: args[0]["shrinkWrap"],
         padding: args[0]["padding"],
         crossAxisCount: args[0]["crossAxisCount"],

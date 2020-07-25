@@ -10,12 +10,14 @@ import {BuildContext} from "./../buildContext";
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./statelessWidget";
 import {ScrollViewKeyboardDismissBehavior} from "./scrollViewKeyboardDismissBehavior";
+import {ScrollPhysics} from "./scrollPhysics";
 
 interface ListviewRegularProps {
     key?: Key | undefined;
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
     primary?: boolean | undefined;
+    physics?:ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     padding?: EdgeInsets | undefined;
     itemExtent?: number | undefined;
@@ -35,6 +37,7 @@ interface ListViewBuilderProps {
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
     primary?: boolean | undefined;
+    physics?:ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     padding?: EdgeInsets | undefined;
     itemExtent?: number | undefined;

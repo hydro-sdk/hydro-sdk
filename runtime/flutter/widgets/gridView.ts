@@ -3,17 +3,19 @@ import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
 import {List} from "../../dart/collection/list";
 
-import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
 import {Axis} from "./../painting/axis";
 import {EdgeInsets} from "./../painting/edgeInsets";
 import {DragStartBehavior} from "./../gestures/dragStartBehavior";
+import {StatelessWidget} from "./statelessWidget";
+import {ScrollPhysics} from "./scrollPhysics";
 
 interface GridViewCountProps {
     key?: Key | undefined;
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
     primary?: boolean | undefined;
+    physics?:ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     padding?: EdgeInsets | undefined;
     crossAxisCount: number;
