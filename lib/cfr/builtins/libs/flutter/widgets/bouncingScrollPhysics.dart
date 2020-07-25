@@ -21,7 +21,7 @@ class VMManagedBouncingScrollPhysics
           hydroState: hydroState,
           vmObject: vmObject,
         ) {
-    table["getParent"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table["applyTo"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       BouncingScrollPhysics caller;
       caller = maybeUnBoxAndBuildArgument<BouncingScrollPhysics>(rawCaller,
