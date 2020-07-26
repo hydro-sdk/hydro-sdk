@@ -13,6 +13,7 @@ import {StatelessWidget} from "../../../runtime/flutter/widgets/statelessWidget"
 import {ScopedModel} from "../../../runtime/scopedModel/scopedModel";
 import {PokeHubService} from "../data/pokeHubService";
 import {ListView} from "../../../runtime/flutter/widgets/listView";
+import {NeverScrollableScrollPhysics} from "../../../runtime/flutter/widgets/neverScrollableScrollPhysics";
 import {TextFormField} from "../../../runtime/flutter/material/textFormField";
 import {PokeCard} from "../widgets/pokeCard";
 import {TextSearchService} from "../data/textSearchService";
@@ -62,6 +63,7 @@ export class PokeGridScreen extends StatelessWidget
                         GridView.count({
                             crossAxisCount: 2,
                             shrinkWrap: true,
+                            physics: new NeverScrollableScrollPhysics(),
                             children: List.fromArray(pokeHub.pokemon).where((poke) => 
                             {
                                 if(textSearchService)
