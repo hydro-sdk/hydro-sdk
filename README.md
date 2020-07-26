@@ -41,7 +41,7 @@ Demonstrates a small but non-trivial UI in 800 lines of Typescript.
 Check out the example project at https://github.com/chgibb/hydro-sdk/tree/master/example-project for documentation about getting started
 
 # How
-A Common Flutter Runtime (CFR) is composed of a virtual machine implementing a subset of a Lua 5.2 environment, together with a runtime function reassembler powering hot-reload, bindings for Flutter, Dart, Dart UI, some Javascript builtins, and a set of Flutter widgets exposing it all to embedders. All written in pure Dart. Hydro-SDK combines the Common Flutter Runtime together with guest language projections and a compilation toolchain for compiling supported languages into Lua bytecode, and Lua bytecode into Dart.
+Common Flutter Runtime (CFR) is composed of a virtual machine implementing a subset of a Lua 5.2 environment, together with a runtime function reassembler powering hot-reload, bindings for Flutter, Dart, Dart UI, some Javascript builtins, and a set of Flutter widgets exposing it all to embedders. All written in pure Dart. Hydro-SDK combines the Common Flutter Runtime together with guest language projections and a compilation toolchain for compiling supported languages into Lua bytecode, and Lua bytecode into Dart.
 
 # Advanced Uses
 ## Run Code in Mixed Mode With Mixed Native and Virtual (bytecode) Functions
@@ -56,8 +56,19 @@ Hydro includes a CLI utility under `bin` to compile `.hc` bytecode files into Da
     - ~~It's not yet possible to pass arguments at startup from Dart -> guest code~~
 - Typescript
     - The compiler toolchain needs to control `tsconfig` options in order to control compilation for different build profiles. `strict` is always turned on by default.
-    - No `async` or `await` 
+    - No `async` or `await`. Though, asynchronous programming is possible using a projection of Dart's `Future` class. 
     - No `yield` or generators
+    - We make best efforts to create an environment where APIs written for Dart's nominal, reified type system feel natural being consumed from Typescript's structural, erased type system. In some cases, this involves passing extra parameters into an API which in Dart would have expected only a type parameter. This is most used in widget tree walking APIs like `ScopedModel`.
+    An example from the `PokeApp` example:
+    ```typescript  
+    public build(context: BuildContext) 
+    {
+        const pokeHubService = ScopedModel.of<PokeHubService>(context, PokeHubService.staticType);
+        ...
+    ```
+    Our port of `ScopedModel` can be found here https://github.com/chgibb/hydro-sdk/tree/master/runtime/scopedModel
+    Full `PokeApp` example here https://github.com/chgibb/hydro-sdk/tree/master/examples/pokeApp  
+
     - The current compiler toolchain is really bad at tree-shaking. For example,
      ```typescript
      import {SizedBox} from "hydro-sdk/runtime/flutter/widgets/sizedBox"
@@ -70,6 +81,20 @@ Hydro includes a CLI utility under `bin` to compile `.hc` bytecode files into Da
      ```typescript
      import {SizedBox} from "hydro-sdk/runtime/flutter"
      ```
+
+# Edge-Cases and Errors at Compile Time
+## `method-name and other-method-name Defined at some-file:line,column (x,y) and some-other-file:other-line,other-column (a,b) both mangled to the following: big-hashed-name`
+In debug mode, the compiler tracks the identity of functions across different compiles by mangling function names. This information is passed on to (and required by) the CFR's virtual machine in debug mode in order to enable hot-reload. The above error is a santiy check performed by the compiler during compilation to ensure it hasn't accidentally assigned the same identity to two functions that it knows are not the same. This is NOT an error with your code. If you encounter this, please file an issue so we can make the compiler smarter.
+
+# Edge-Cases and Errors at Runtime
+## `Dispatched function prototypes are required to have debug symbols but the prototype from x-y in big-hashed-name could not be matched to a debug symbol`
+In debug mode, the CFR's virtual machine needs code being called into from the Flutter framework as part of Flutter's normal widget lifecycle to have debugging information attached to it in order to provide hot reload. This error can usually be observed being raised when trying to execute `build` methods in Typescript classes which extend `StatelessWidget` or `State`. This is NOT an error with your code. This usually means the compiler wasn't quite smart enough to find all of the anonymous functions/tear offs you're using in your `build` methods and report them to the VM for debugging and hot-reload. If you encounter this, please file an issue so we can make the compiler smarter.
+
+## `Failed to dispatch to big-hashed-method-name from x-y in big-hashed-name`
+In debug mode, the CFR's virtual machine will enforce that all code being called into from the Flutter framework as part of Flutter's normal widget lifecycle is looked up just in time before it's executed. If the virtual machine fails to lookup a function that is being called, this error will be thrown. This error can be observed when running code that is in the middle of attempting to call code that has just been deleted as part of a hot-reload.
+
+## `attempt to index a nil value null foo`
+This error can be seen by regular Typescript code that attempts to access a field `foo` on an uninitialized object. If this error is observed originating in `hydro-sdk/runtime` Typescript code, after a hot-reload is performed, it may indicate a limitation of hot-reload. In debug mode, functions have their enclosing scopes refreshed before they are executed. This error can sometimes be caused by adding an `import` statement for a file which has never been imported before anywhere in the life of the currently running program. In this case, the code being executed is having it's enclosing scope refreshed to include the new symbols being `import`ed, but the `import`ed file itself is not being executed in order to initialise the new symbols being used, resulting in trying to index into `nil` values. This issue can be remedied by performing a hot-restart of the Dart code running the CFR virtual machine. This error does NOT necessarily indicate an error with your code.
 
 # Supported Languages  
 - [&check;] Typescript  
