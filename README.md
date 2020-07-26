@@ -99,12 +99,21 @@ This error can be seen by regular Typescript code that attempts to access a fiel
 # Supported Languages  
 - [&check;] Typescript  
         https://github.com/TypeScriptToLua/TypeScriptToLua  
-- [ ] Java  
-        https://github.com/jtransc/jtransc  
-- [ ] Kotlin  
-        https://github.com/jtransc/jtransc  
-- [ ] Scala  
-        https://github.com/jtransc/jtransc  
 - [ ] C#  
         https://github.com/yanghuan/CSharp.lua 
 
+# Prior Art
+- Dartlua, Andre Lipke https://github.com/PixelToast/dartlua
+- React Native, Facebook https://reactnative.dev/
+- LuaViewSdk, Alibaba https://github.com/alibaba/LuaViewSDK
+- ILRuntime, Ourpalm https://github.com/Ourpalm/ILRuntime
+- Flutterscript, Charles Lowell https://github.com/cowboyd/flutterscript
+- Lisp in Dart, Suzuki Hisao https://github.com/nukata/lisp-in-dart
+
+# Interesting Links and Resources
+- John C. Reynolds, Definitional Interpreters for Higher-Order Programming Languages https://surface.syr.edu/cgi/viewcontent.cgi?article=1012&context=lcsmith_other
+- Fabio Mascarenhas de Queiroz, Optimized Compilation of a Dynamic Language to a Managed Runtime Environment http://www.lua.inf.puc-rio.br/publications/mascarenhas09optimized.pdf
+- Ravi Lua 5.3 bytecode reference https://the-ravi-programming-language.readthedocs.io/en/latest/lua_bytecode_reference.html
+- Kein-Hong Man, A No-Frills Introduction to Lua 5.1 VM Instructions http://luaforge.net/docman/83/98/ANoFrillsIntroToLua51VMInstructions.pdf
+- Rust Programming Language Request for Comments 2603, Symbol Name Mangling https://github.com/rust-lang/rfcs/blob/master/text/2603-rust-symbol-name-mangling-v0.md
+- Itanium C++ Application Binary Interface Specification https://itanium-cxx-abi.github.io/cxx-abi/abi.html
