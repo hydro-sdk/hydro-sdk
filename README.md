@@ -109,6 +109,7 @@ This error can be seen by regular Typescript code that attempts to access a fiel
 - ILRuntime, Ourpalm https://github.com/Ourpalm/ILRuntime
 - Flutterscript, Charles Lowell https://github.com/cowboyd/flutterscript
 - Lisp in Dart, Suzuki Hisao https://github.com/nukata/lisp-in-dart
+- widget_extensions https://github.com/canewsin/widget_extensions
 
 # Interesting Links and Resources
 - John C. Reynolds, Definitional Interpreters for Higher-Order Programming Languages https://surface.syr.edu/cgi/viewcontent.cgi?article=1012&context=lcsmith_other
