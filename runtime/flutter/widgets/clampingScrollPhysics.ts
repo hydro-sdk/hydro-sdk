@@ -1,4 +1,4 @@
-import { ScrollPhysics } from "./scrollPhysics";
+import {ScrollPhysics} from "./scrollPhysics";
 
 interface ClampingScrollPhysicsProps {
     parent?: ScrollPhysics | undefined;
@@ -7,13 +7,15 @@ interface ClampingScrollPhysicsProps {
 declare const flutter: {
     widgets: {
         clampingScrollPhysics: (this: void, physics: ClampingScrollPhysics, props?: ClampingScrollPhysicsProps) => ClampingScrollPhysics;
-    }
-}
+    };
+};
 
-export class ClampingScrollPhysics extends ScrollPhysics {
+export class ClampingScrollPhysics extends ScrollPhysics 
+{
     public applyTo: (ancestor: ScrollPhysics) => ScrollPhysics;
 
-    public constructor(props?: ClampingScrollPhysicsProps) {
+    public constructor(props?: ClampingScrollPhysicsProps) 
+    {
         super();
 
         this.applyTo = undefined as any;

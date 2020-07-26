@@ -17,7 +17,7 @@ interface ListviewRegularProps {
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
     primary?: boolean | undefined;
-    physics?:ScrollPhysics|undefined;
+    physics?: ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     padding?: EdgeInsets | undefined;
     itemExtent?: number | undefined;
@@ -37,7 +37,7 @@ interface ListViewBuilderProps {
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
     primary?: boolean | undefined;
-    physics?:ScrollPhysics|undefined;
+    physics?: ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     padding?: EdgeInsets | undefined;
     itemExtent?: number | undefined;

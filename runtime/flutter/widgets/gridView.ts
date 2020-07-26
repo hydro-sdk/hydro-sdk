@@ -15,7 +15,7 @@ interface GridViewCountProps {
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
     primary?: boolean | undefined;
-    physics?:ScrollPhysics|undefined;
+    physics?: ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     padding?: EdgeInsets | undefined;
     crossAxisCount: number;

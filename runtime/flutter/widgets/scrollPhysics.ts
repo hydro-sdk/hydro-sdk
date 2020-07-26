@@ -1,3 +1,4 @@
-export abstract class ScrollPhysics {
+export abstract class ScrollPhysics 
+{
     public abstract applyTo: (ancestor: ScrollPhysics) => ScrollPhysics;
 }

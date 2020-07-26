@@ -24,7 +24,8 @@ class VMManagedNeverScrollableScrollPhysics
     table["applyTo"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       NeverScrollableScrollPhysics caller;
-      caller = maybeUnBoxAndBuildArgument<NeverScrollableScrollPhysics>(rawCaller,
+      caller = maybeUnBoxAndBuildArgument<NeverScrollableScrollPhysics>(
+          rawCaller,
           parentState: hydroState);
       ScrollPhysics ancestor;
       if (args.length >= 2) {
@@ -55,7 +56,8 @@ void loadNeverScrollableScrollPhysics(
       table: table,
     );
   });
-  table["neverScrollableScrollPhysics"] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table["neverScrollableScrollPhysics"] =
+      makeLuaDartFunc(func: (List<dynamic> args) {
     HydroTable caller = args[0];
     ScrollPhysics parent;
     if (args.length >= 2 && args[1] != null) {

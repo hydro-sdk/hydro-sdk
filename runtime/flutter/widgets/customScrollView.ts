@@ -14,7 +14,7 @@ interface CustomScrollViewProps {
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
     //controller
-    physics?:ScrollPhysics|undefined;
+    physics?: ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     center?: Key | undefined;
     anchor?: number | undefined;
