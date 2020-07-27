@@ -16,6 +16,8 @@ void loadCustomScrollView(
             values: Axis.values, boxedEnum: args[0]["scrollDirection"]),
         reverse: args[0]["reverse"],
         primary: args[0]["primary"],
+        physics: maybeUnBoxAndBuildArgument<ScrollPhysics>(args[0]["physics"],
+            parentState: luaState),
         shrinkWrap: args[0]["shrinkWrap"],
         center: maybeUnBoxAndBuildArgument<Key>(args[0]["center"],
             parentState: luaState),

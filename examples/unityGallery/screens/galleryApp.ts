@@ -14,6 +14,8 @@ import {List} from "../../../runtime/dart/collection/list";
 import {Padding} from "../../../runtime/flutter/widgets/padding";
 import {Column} from "../../../runtime/flutter/widgets/column";
 import {Text} from "../../../runtime/flutter/widgets/text";
+import {BouncingScrollPhysics} from "../../../runtime/flutter/widgets/bouncingScrollPhysics";
+import {AlwaysScrollableScrollPhysics} from "../../../runtime/flutter/widgets/alwaysScrollableScrollPhysics";
 import {TextStyle} from "../../../runtime/flutter/painting/textStyle";
 import {FontWeight} from "../../../runtime/dart/ui/fontWeight";
 import {MainAxisSize} from "../../../runtime/flutter/rendering/mainAxisSize";
@@ -72,6 +74,9 @@ export class GalleryApp extends StatelessWidget
                             })
                         }),
                         new CustomScrollView({
+                            physics: new BouncingScrollPhysics({
+                                parent:new AlwaysScrollableScrollPhysics()
+                            }),
                             slivers: List.fromArray([
                                 new SliverToBoxAdapter({
                                     child: new Padding({

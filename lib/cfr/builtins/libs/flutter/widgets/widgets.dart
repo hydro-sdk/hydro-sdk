@@ -1,8 +1,11 @@
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/align.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/alwaysScrollableScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/animatedBuilder.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/animatedList.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/bouncingScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/buildContext.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/center.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/clampingScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/clipRRect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/column.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/container.dart';
@@ -20,6 +23,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/inheritedWidget.dart
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/listview.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/mediaQuery.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/navigator.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/neverScrollableScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/padding.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/positioned.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/preferredSize.dart';
@@ -92,4 +96,8 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadSliverToBoxAdapter(luaState: luaState, table: widgets);
   loadSliverGrid(luaState: luaState, table: widgets);
   loadSliverPadding(luaState: luaState, table: widgets);
+  loadBouncingScrollPhysics(hydroState: luaState, table: widgets);
+  loadAlwaysScrollableScrollPhysics(hydroState: luaState, table: widgets);
+  loadNeverScrollableScrollPhysics(hydroState: luaState, table: widgets);
+  loadClampingScrollPhysics(hydroState: luaState, table: widgets);
 }
