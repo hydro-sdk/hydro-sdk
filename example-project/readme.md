@@ -36,24 +36,10 @@ The provided `hello-world.ts` file can be compiled into a bytecode image to `ass
 `-w` (Optional) watch a directory and rebuild the gievnt target with the given options when changes are detected
 
 Development time hot-reload is only possible when running bytecode over the network with `RunFromNetwork`. This can be accomplished with the `-w` switch.
-```
-npx serve assets
-```
-can be used.
-
-To consume from an Android emulator
-```
-RunFromNetwork(baseUrl: "10.0.2.2:5000/assets/hello-world.hc")
-```
-or from an iOS simulator
-```
-RunFromNetwork(baseUrl: "localhost:5000/assets/hello-world.hc")
-```
-can be used
 
 ## Debugging
 The following function
 ```typescript
-import {pauseInDebugger} from "hydro-sdk/runtime/ts/debugger";
+import {pauseInDebugger} from "hydro-sdk/runtime/dart/developer/debugger";
 ```
 can be called to cause IDE dev tools to pause execution if the host application is running in debug mode and connected to a debugger. `pauseInDebugger` can optionally take a single argument, the value of which will be inspectable in the connected debugger. This can useful to inspect class layouts at runtime or to step between sequential `pauseInDebugger` calls.
