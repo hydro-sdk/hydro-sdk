@@ -92,6 +92,7 @@ Hydro includes a CLI utility under `bin` to compile `.hc` bytecode files into Da
      ```typescript
      import {SizedBox} from "hydro-sdk/runtime/flutter"
      ```
+     - The compiler is built on https://github.com/TypeScriptToLua/TypeScriptToLua . We inherit the same limitations https://typescripttolua.github.io/docs/caveats
 
 # Edge-Cases and Errors at Compile Time
 ## `method-name and other-method-name Defined at some-file:line,column (x,y) and some-other-file:other-line,other-column (a,b) both mangled to the following: big-hashed-name`
