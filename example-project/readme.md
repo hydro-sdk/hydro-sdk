@@ -18,11 +18,10 @@ hydro_sdk:
 ```
 Its important that Hydro-SDK is included as a `dependency` and NOT a `devDependency` in both `package.json` and `pubspec.yaml`.
 
-
 Once Hydro-SDK is mature enough, it will be available as separate packages.
 
-By default, running `flutter run` or starting a debug session in your IDE will open a host application which will download and run a line for line port of https://github.com/cybdom/hotel_booking_ui using Github as the file host.
-![Hotel Booking Port Demo](https://github.com/chgibb/hydro-sdk/blob/master/example-project/hotel-booking-port.gif)
+By default, running `flutter run` or starting a debug session in your IDE will open a host application which will download and run the Hydro Gallery from Github.
+![Hydro Gallery Demo](https://github.com/chgibb/hydro-sdk/blob/master/example-project/hydro-gallery.gif)
 
 The provided `hello-world.ts` file can be compiled into a bytecode image to `assets/hello-world.hc` by running
 ```
@@ -36,7 +35,7 @@ The provided `hello-world.ts` file can be compiled into a bytecode image to `ass
 `-p` is the build profile. Either `debug` or `release`  
 `-w` (Optional) watch a directory and rebuild the gievnt target with the given options when changes are detected
 
-Development time hot-reload is only possible when running bytecode over the network with `RunFromNetwork`. This can be accomplished with the `-w` switch and something like the `serve` package. To serve the `assets` directory on `localhost`, something like
+Development time hot-reload is only possible when running bytecode over the network with `RunFromNetwork`. This can be accomplished with the `-w` switch.
 ```
 npx serve assets
 ```
