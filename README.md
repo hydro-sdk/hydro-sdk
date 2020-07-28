@@ -7,6 +7,9 @@ Author native [Flutter](https://flutter.dev/docs) experiences in Typescript and 
 Hydro provides a projection of Dart and Flutter into Typescript. Not everything Flutter provides has been projected yet. See https://chgibb.github.io/hydro-sdk/  
 Hydro compiles your code into a single `.hc` bytecode file which can be easily packed into an existing Flutter app or loaded over the network.
 
+## What About Performance?
+While your code is interpreted, ensuring it will work on all platforms that Flutter will, most of the heavy lifting is done in Dart code by Flutter itself. You don't need to sacrifice FPS or portability for quick iteration.
+
 # Features
 ## Hot Reload, Incremental Compilation
 ![Stateful Hot-reload Demo](https://github.com/chgibb/hydro-sdk/blob/master/readme-video.gif)
@@ -20,23 +23,31 @@ Serve complete experiences over HTTP. Deliver updates to parts of your app, or d
 
 
 # Examples
-Each example can be run over the air directly off of Github using it's corresponding `.hc` file under assets/examples/
-## examples/animated-list/
-A line for line port of the Flutter catalog example https://github.com/flutter/flutter/blob/master/examples/catalog/lib/animated_list.dart  
+Each example can be run over the air directly off of Github using it's corresponding `.hc` file under dist/.
 
-## examples/basic-app-bar/
+## examples/pokeApp
+An adaptation of https://github.com/iampawan/PokemonApp  
+Shows off how to load data over HTTP using a port of the `http` package, wait until it's ready with `Future`s, parse it from JSON into `interface`s with `dart:convert`, pass it down the widget tree with a port of `ScopedModel`, let the user search on it with `TextFormField`s and animate transitions between screens with `Hero` animations.
 
-A line for line port of the Flutter catalog example https://github.com/flutter/flutter/blob/master/examples/catalog/lib/basic_app_bar.dart  
+## examples/hotel-booking
+A line for line port of https://github.com/cybdom/hotel_booking_ui   
+Shows off a highly customised UI with `Clip`s and `Stack`s.
 
-## examples/counter/
-Obligatory Flutter stateful counter showcase
+## examples/animated-list
+A line for line port of the Flutter catalog example showing off basic transition animations.
 
-## examples/hostArgs/
+## examples/basic-app-bar
+A line for line port of the Flutter catalog example showing off app bars and material icons.
+
+## examples/counter
+Obligatory Flutter stateful counter showcase showing a simple use of state.
+
+## examples/hostArgs
 An example demonstrating how to pass non-trivial arguments, including `Widget` trees from a host Flutter application through to embedded Hydro content. See also https://github.com/chgibb/hydro-sdk/blob/master/test/smoke/hostArgs_test.dart
 
-## examples/hotel-booking/
-A line for line port of https://github.com/cybdom/hotel_booking_ui   
-Demonstrates a small but non-trivial UI in 800 lines of Typescript.
+## examples/unityGallery
+Shows off how to use `CustomScrollView`s with `Sliver`s and override `ScrollPhysic`s to create a selection screen with all the other examples embedded.
+
 # Getting Started
 Check out the example project at https://github.com/chgibb/hydro-sdk/tree/master/example-project for documentation about getting started
 
@@ -44,7 +55,7 @@ Check out the example project at https://github.com/chgibb/hydro-sdk/tree/master
 Common Flutter Runtime (CFR) is composed of a virtual machine implementing a subset of a Lua 5.2 environment, together with a runtime function reassembler powering hot-reload, bindings for Flutter, Dart, Dart UI, some Javascript builtins, and a set of Flutter widgets exposing it all to embedders. All written in pure Dart. Hydro-SDK combines the Common Flutter Runtime together with guest language projections and a compilation toolchain for compiling supported languages into Lua bytecode, and Lua bytecode into Dart.
 
 # Advanced Uses
-## Run Code in Mixed Mode With Mixed Native and Virtual (bytecode) Functions
+## Transpile Typescript to Dart, Run Code in Mixed Mode With Mixed Native and Virtual (bytecode) Functions
 Hydro includes a CLI utility under `bin` to compile `.hc` bytecode files into Dart code. The resulting Dart code exports a single variable called `thunks` which can be passed to any Dart-level Hydro widget, allowing the CFR's code-loader to swap out virtual functions with their native counterparts at run time. This effectively provides a Typescript -> Dart transpiler. The ouput doesn't look very similiar to the input Typescript, but is semantically equivalent. This can be leveraged for applications which rely on many separate `.hc` files at runtime, or to help keep the edit-debug experience for large `.hc` files fast and responsive.
 
 # Limitations
