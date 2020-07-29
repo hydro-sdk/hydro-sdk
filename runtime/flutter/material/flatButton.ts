@@ -12,7 +12,7 @@ interface FlatButtonProps {
 
 declare const flutter: {
     material: {
-        flatButton: (this: void, props: FlatButtonProps) => { tag: string };
+        flatButton: (this: void, props: FlatButtonProps) => FlatButton;
     };
 };
 
