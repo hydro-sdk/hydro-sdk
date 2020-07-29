@@ -16,7 +16,7 @@ interface MaterialAppProps {
 
 declare const flutter: {
     material: {
-        materialApp: (this: void, props: MaterialAppProps) => { tag: string };
+        materialApp: (this: void, props: MaterialAppProps) => MaterialApp;
     };
 };
 
