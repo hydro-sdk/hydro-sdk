@@ -40,6 +40,7 @@ class HydroTable {
         return 1;
       } else if (map.isNotEmpty) {
         _nextIter = map.keys.iterator;
+        if (!_nextIter.moveNext()) return null;
         return _nextIter.current;
       } else
         return null;
