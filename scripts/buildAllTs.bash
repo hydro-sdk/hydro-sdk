@@ -22,3 +22,8 @@ for f in test/unit/collection/*.ts;
 do
     node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/collection" -p $1
 done
+
+for f in test/unit/ts/*.ts;
+do
+    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/ts" -p $1
+done
