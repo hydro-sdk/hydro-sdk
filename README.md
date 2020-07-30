@@ -8,7 +8,7 @@ Hydro provides a projection of Dart and Flutter into Typescript. Not everything 
 Hydro compiles your code into a single `.hc` bytecode file which can be easily packed into an existing Flutter app or loaded over the network.
 
 ## What About Performance?
-While your code is interpreted, ensuring it will work on all platforms that Flutter will, most of the heavy lifting is done in Dart code by Flutter itself. You don't need to sacrifice FPS or portability for quick iteration.
+While your code is interpreted, ensuring it will work on all platforms that Flutter will, most of the heavy lifting is done in Dart code by Flutter itself. You don't need to sacrifice FPS or portability for quick iteration. See "Advanced Uses" below for documentation about compiling directly from Typescript to Dart for maximum performance.
 
 # Features
 ## Hot Reload, Incremental Compilation
