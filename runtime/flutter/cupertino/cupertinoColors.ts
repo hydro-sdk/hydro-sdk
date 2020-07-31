@@ -1,7 +1,8 @@
-import { Color } from "./../../dart/ui/color";
-import { CupertinoDynamicColor } from "./cupertinoDynamicColor";
+import {Color} from "./../../dart/ui/color";
+import {CupertinoDynamicColor} from "./cupertinoDynamicColor";
 
-export class CupertinoColors {
+export class CupertinoColors 
+{
     static white = new Color(0xFFFFFFFF);
     static black = new Color(0xFF000000);
     static lightBackgroundGray = new Color(0xFFE5E5EA);
@@ -9,13 +10,13 @@ export class CupertinoColors {
     static darkBackgroundGray = new Color(0xFF171717);
 
     static inactiveGray = CupertinoDynamicColor.withBrightness({
-        debugLabel: 'inactiveGray',
+        debugLabel: "inactiveGray",
         color: new Color(0xFF999999),
         darkColor: new Color(0xFF757575),
     });
 
     static systemBlue = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemBlue',
+        debugLabel: "systemBlue",
         color: Color.fromARGB(255, 0, 122, 255),
         darkColor: Color.fromARGB(255, 10, 132, 255),
         highContrastColor: Color.fromARGB(255, 0, 64, 221),
@@ -23,7 +24,7 @@ export class CupertinoColors {
     });
 
     static systemGreen = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemGreen',
+        debugLabel: "systemGreen",
         color: Color.fromARGB(255, 52, 199, 89),
         darkColor: Color.fromARGB(255, 48, 209, 88),
         highContrastColor: Color.fromARGB(255, 36, 138, 61),
@@ -31,7 +32,7 @@ export class CupertinoColors {
     });
 
     static systemIndigo = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemIndigo',
+        debugLabel: "systemIndigo",
         color: Color.fromARGB(255, 88, 86, 214),
         darkColor: Color.fromARGB(255, 94, 92, 230),
         highContrastColor: Color.fromARGB(255, 54, 52, 163),
@@ -39,7 +40,7 @@ export class CupertinoColors {
     });
 
     static systemOrange = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemOrange',
+        debugLabel: "systemOrange",
         color: Color.fromARGB(255, 255, 149, 0),
         darkColor: Color.fromARGB(255, 255, 159, 10),
         highContrastColor: Color.fromARGB(255, 201, 52, 0),
@@ -47,7 +48,7 @@ export class CupertinoColors {
     });
 
     static systemPink = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemPink',
+        debugLabel: "systemPink",
         color: Color.fromARGB(255, 255, 45, 85),
         darkColor: Color.fromARGB(255, 255, 55, 95),
         highContrastColor: Color.fromARGB(255, 211, 15, 69),
@@ -55,7 +56,7 @@ export class CupertinoColors {
     });
 
     static systemPurple = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemPurple',
+        debugLabel: "systemPurple",
         color: Color.fromARGB(255, 175, 82, 222),
         darkColor: Color.fromARGB(255, 191, 90, 242),
         highContrastColor: Color.fromARGB(255, 137, 68, 171),
@@ -63,7 +64,7 @@ export class CupertinoColors {
     });
 
     static systemRed = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemRed',
+        debugLabel: "systemRed",
         color: Color.fromARGB(255, 255, 59, 48),
         darkColor: Color.fromARGB(255, 255, 69, 58),
         highContrastColor: Color.fromARGB(255, 215, 0, 21),
@@ -71,7 +72,7 @@ export class CupertinoColors {
     });
 
     static systemTeal = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemTeal',
+        debugLabel: "systemTeal",
         color: Color.fromARGB(255, 90, 200, 250),
         darkColor: Color.fromARGB(255, 100, 210, 255),
         highContrastColor: Color.fromARGB(255, 0, 113, 164),
@@ -79,7 +80,7 @@ export class CupertinoColors {
     });
 
     static systemYellow = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemYellow',
+        debugLabel: "systemYellow",
         color: Color.fromARGB(255, 255, 204, 0),
         darkColor: Color.fromARGB(255, 255, 214, 10),
         highContrastColor: Color.fromARGB(255, 160, 90, 0),
@@ -87,7 +88,7 @@ export class CupertinoColors {
     });
 
     static systemGrey = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemGrey',
+        debugLabel: "systemGrey",
         color: Color.fromARGB(255, 142, 142, 147),
         darkColor: Color.fromARGB(255, 142, 142, 147),
         highContrastColor: Color.fromARGB(255, 108, 108, 112),
@@ -95,7 +96,7 @@ export class CupertinoColors {
     });
 
     static systemGrey2 = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemGrey2',
+        debugLabel: "systemGrey2",
         color: Color.fromARGB(255, 174, 174, 178),
         darkColor: Color.fromARGB(255, 99, 99, 102),
         highContrastColor: Color.fromARGB(255, 142, 142, 147),
@@ -103,7 +104,7 @@ export class CupertinoColors {
     });
 
     static systemGrey3 = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemGrey3',
+        debugLabel: "systemGrey3",
         color: Color.fromARGB(255, 199, 199, 204),
         darkColor: Color.fromARGB(255, 72, 72, 74),
         highContrastColor: Color.fromARGB(255, 174, 174, 178),
@@ -111,7 +112,7 @@ export class CupertinoColors {
     });
 
     static systemGrey4 = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemGrey4',
+        debugLabel: "systemGrey4",
         color: Color.fromARGB(255, 209, 209, 214),
         darkColor: Color.fromARGB(255, 58, 58, 60),
         highContrastColor: Color.fromARGB(255, 188, 188, 192),
@@ -119,7 +120,7 @@ export class CupertinoColors {
     });
 
     static systemGrey5 = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemGrey5',
+        debugLabel: "systemGrey5",
         color: Color.fromARGB(255, 229, 229, 234),
         darkColor: Color.fromARGB(255, 44, 44, 46),
         highContrastColor: Color.fromARGB(255, 216, 216, 220),
@@ -127,7 +128,7 @@ export class CupertinoColors {
     });
 
     static systemGrey6 = CupertinoDynamicColor.withBrightnessAndContrast({
-        debugLabel: 'systemGrey6',
+        debugLabel: "systemGrey6",
         color: Color.fromARGB(255, 242, 242, 247),
         darkColor: Color.fromARGB(255, 28, 28, 30),
         highContrastColor: Color.fromARGB(255, 235, 235, 240),
@@ -135,7 +136,7 @@ export class CupertinoColors {
     });
 
     static label = new CupertinoDynamicColor({
-        debugLabel: 'label',
+        debugLabel: "label",
         color: Color.fromARGB(255, 0, 0, 0),
         darkColor: Color.fromARGB(255, 255, 255, 255),
         highContrastColor: Color.fromARGB(255, 0, 0, 0),
@@ -147,7 +148,7 @@ export class CupertinoColors {
     });
 
     static secondaryLabel = new CupertinoDynamicColor({
-        debugLabel: 'secondaryLabel',
+        debugLabel: "secondaryLabel",
         color: Color.fromARGB(153, 60, 60, 67),
         darkColor: Color.fromARGB(153, 235, 235, 245),
         highContrastColor: Color.fromARGB(173, 60, 60, 67),
@@ -159,7 +160,7 @@ export class CupertinoColors {
     });
 
     static tertiaryLabel = new CupertinoDynamicColor({
-        debugLabel: 'tertiaryLabel',
+        debugLabel: "tertiaryLabel",
         color: Color.fromARGB(76, 60, 60, 67),
         darkColor: Color.fromARGB(76, 235, 235, 245),
         highContrastColor: Color.fromARGB(96, 60, 60, 67),
@@ -171,7 +172,7 @@ export class CupertinoColors {
     });
 
     static quaternaryLabel = new CupertinoDynamicColor({
-        debugLabel: 'quaternaryLabel',
+        debugLabel: "quaternaryLabel",
         color: Color.fromARGB(45, 60, 60, 67),
         darkColor: Color.fromARGB(40, 235, 235, 245),
         highContrastColor: Color.fromARGB(66, 60, 60, 67),
@@ -183,7 +184,7 @@ export class CupertinoColors {
     });
 
     static systemFill = new CupertinoDynamicColor({
-        debugLabel: 'systemFill',
+        debugLabel: "systemFill",
         color: Color.fromARGB(51, 120, 120, 128),
         darkColor: Color.fromARGB(91, 120, 120, 128),
         highContrastColor: Color.fromARGB(71, 120, 120, 128),
@@ -195,7 +196,7 @@ export class CupertinoColors {
     });
 
     static secondarySystemFill = new CupertinoDynamicColor({
-        debugLabel: 'secondarySystemFill',
+        debugLabel: "secondarySystemFill",
         color: Color.fromARGB(40, 120, 120, 128),
         darkColor: Color.fromARGB(81, 120, 120, 128),
         highContrastColor: Color.fromARGB(61, 120, 120, 128),
@@ -207,7 +208,7 @@ export class CupertinoColors {
     });
 
     static tertiarySystemFill = new CupertinoDynamicColor({
-        debugLabel: 'tertiarySystemFill',
+        debugLabel: "tertiarySystemFill",
         color: Color.fromARGB(30, 118, 118, 128),
         darkColor: Color.fromARGB(61, 118, 118, 128),
         highContrastColor: Color.fromARGB(51, 118, 118, 128),
@@ -219,7 +220,7 @@ export class CupertinoColors {
     });
 
     static quaternarySystemFill = new CupertinoDynamicColor({
-        debugLabel: 'quaternarySystemFill',
+        debugLabel: "quaternarySystemFill",
         color: Color.fromARGB(20, 116, 116, 128),
         darkColor: Color.fromARGB(45, 118, 118, 128),
         highContrastColor: Color.fromARGB(40, 116, 116, 128),
@@ -231,7 +232,7 @@ export class CupertinoColors {
     });
 
     static placeholderText = new CupertinoDynamicColor({
-        debugLabel: 'placeholderText',
+        debugLabel: "placeholderText",
         color: Color.fromARGB(76, 60, 60, 67),
         darkColor: Color.fromARGB(76, 235, 235, 245),
         highContrastColor: Color.fromARGB(96, 60, 60, 67),
@@ -243,7 +244,7 @@ export class CupertinoColors {
     });
 
     static systemBackground = new CupertinoDynamicColor({
-        debugLabel: 'systemBackground',
+        debugLabel: "systemBackground",
         color: Color.fromARGB(255, 255, 255, 255),
         darkColor: Color.fromARGB(255, 0, 0, 0),
         highContrastColor: Color.fromARGB(255, 255, 255, 255),
@@ -255,7 +256,7 @@ export class CupertinoColors {
     });
 
     static secondarySystemBackground = new CupertinoDynamicColor({
-        debugLabel: 'secondarySystemBackground',
+        debugLabel: "secondarySystemBackground",
         color: Color.fromARGB(255, 242, 242, 247),
         darkColor: Color.fromARGB(255, 28, 28, 30),
         highContrastColor: Color.fromARGB(255, 235, 235, 240),
@@ -267,7 +268,7 @@ export class CupertinoColors {
     });
 
     static tertiarySystemBackground = new CupertinoDynamicColor({
-        debugLabel: 'tertiarySystemBackground',
+        debugLabel: "tertiarySystemBackground",
         color: Color.fromARGB(255, 255, 255, 255),
         darkColor: Color.fromARGB(255, 44, 44, 46),
         highContrastColor: Color.fromARGB(255, 255, 255, 255),
@@ -279,7 +280,7 @@ export class CupertinoColors {
     });
 
     static systemGroupedBackground = new CupertinoDynamicColor({
-        debugLabel: 'systemGroupedBackground',
+        debugLabel: "systemGroupedBackground",
         color: Color.fromARGB(255, 242, 242, 247),
         darkColor: Color.fromARGB(255, 0, 0, 0),
         highContrastColor: Color.fromARGB(255, 235, 235, 240),
@@ -291,7 +292,7 @@ export class CupertinoColors {
     });
 
     static secondarySystemGroupedBackground = new CupertinoDynamicColor({
-        debugLabel: 'secondarySystemGroupedBackground',
+        debugLabel: "secondarySystemGroupedBackground",
         color: Color.fromARGB(255, 255, 255, 255),
         darkColor: Color.fromARGB(255, 28, 28, 30),
         highContrastColor: Color.fromARGB(255, 255, 255, 255),
@@ -303,7 +304,7 @@ export class CupertinoColors {
     });
 
     static tertiarySystemGroupedBackground = new CupertinoDynamicColor({
-        debugLabel: 'tertiarySystemGroupedBackground',
+        debugLabel: "tertiarySystemGroupedBackground",
         color: Color.fromARGB(255, 242, 242, 247),
         darkColor: Color.fromARGB(255, 44, 44, 46),
         highContrastColor: Color.fromARGB(255, 235, 235, 240),
@@ -315,7 +316,7 @@ export class CupertinoColors {
     });
 
     static separator = new CupertinoDynamicColor({
-        debugLabel: 'separator',
+        debugLabel: "separator",
         color: Color.fromARGB(73, 60, 60, 67),
         darkColor: Color.fromARGB(153, 84, 84, 88),
         highContrastColor: Color.fromARGB(94, 60, 60, 67),
@@ -327,7 +328,7 @@ export class CupertinoColors {
     });
 
     static opaqueSeparator = new CupertinoDynamicColor({
-        debugLabel: 'opaqueSeparator',
+        debugLabel: "opaqueSeparator",
         color: Color.fromARGB(255, 198, 198, 200),
         darkColor: Color.fromARGB(255, 56, 56, 58),
         highContrastColor: Color.fromARGB(255, 198, 198, 200),
@@ -339,7 +340,7 @@ export class CupertinoColors {
     });
 
     static link = new CupertinoDynamicColor({
-        debugLabel: 'link',
+        debugLabel: "link",
         color: Color.fromARGB(255, 0, 122, 255),
         darkColor: Color.fromARGB(255, 9, 132, 255),
         highContrastColor: Color.fromARGB(255, 0, 122, 255),

@@ -1,6 +1,7 @@
-import { Color } from "./../../dart/ui/color";
+import {Color} from "./../../dart/ui/color";
 
-export class CupertinoDynamicColor {
+export class CupertinoDynamicColor 
+{
     public debugLabel: string;
     public color: Color;
     public darkColor: Color;
@@ -20,7 +21,8 @@ export class CupertinoDynamicColor {
         darkElevatedColor: Color;
         highContrastElevatedColor: Color;
         darkHighContrastElevatedColor: Color;
-    }) {
+    }) 
+    {
         this.debugLabel = props.debugLabel ? props.debugLabel : "";
         this.color = props.color;
         this.darkColor = props.darkColor;
@@ -38,7 +40,8 @@ export class CupertinoDynamicColor {
         darkColor: Color;
         highContrastColor: Color;
         darkHighContrastColor: Color;
-    }): CupertinoDynamicColor {
+    }): CupertinoDynamicColor 
+    {
         return new CupertinoDynamicColor({
             ...props,
             elevatedColor: props.color,
@@ -52,7 +55,8 @@ export class CupertinoDynamicColor {
         debugLabel?: string | undefined;
         color: Color;
         darkColor: Color;
-    }): CupertinoDynamicColor {
+    }): CupertinoDynamicColor 
+    {
         return new CupertinoDynamicColor({
             ...props,
             highContrastColor: props.color,
