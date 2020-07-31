@@ -56,7 +56,9 @@ export class CupertinoButton extends StatelessWidget implements RuntimeBaseClass
     }
 
     public static filled(props: Omit<CupertinoButtonProps, "color">) {
-        return new CupertinoButton(props);
+        const res = new CupertinoButton(props);
+        res.filled = true;
+        return res;
     }
 
     public build() {
