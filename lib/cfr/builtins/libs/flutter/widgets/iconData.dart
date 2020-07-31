@@ -8,6 +8,7 @@ void loadIconData(HydroTable table) {
       IconData(
         args[0],
         fontFamily: args[1]["fontFamily"],
+        fontPackage: args[1]["fontPackage"],
       )
     ];
   });
