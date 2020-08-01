@@ -2,6 +2,11 @@
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 
+int _tobit(num x) {
+  if (x is int) return x % 0x100000000;
+  return (x + 0.5).floor() % 0x100000000;
+}
+
 void loadBit32Lib(Context ctx) {
   var bit32 = HydroTable();
 
@@ -40,6 +45,12 @@ void loadBit32Lib(Context ctx) {
     }
     return [r];
   });
+
+  bit32["lshift"] = (List<dynamic> args) {
+    num x = Context.getArg1<num>(args, 0, "lshift");
+    num y = Context.getArg1<num>(args, 1, "lshift");
+    return [_tobit(x) << _tobit(y)];
+  };
 
   ctx.env["bit32"] = bit32;
 }

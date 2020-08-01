@@ -7,6 +7,7 @@ import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 interface IconDataProps {
     fontFamily: string;
     matchTextDirection?: boolean | undefined;
+    fontPackage?: string | undefined;
 }
 
 declare const flutter: {

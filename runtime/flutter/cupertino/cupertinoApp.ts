@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 
-interface MaterialAppProps {
+interface CupertinoAppProps {
     initialRoute?: string | undefined;
     home: Widget;
     title?: string | undefined;
@@ -15,24 +15,24 @@ interface MaterialAppProps {
 }
 
 declare const flutter: {
-    material: {
-        materialApp: (this: void, props: MaterialAppProps) => MaterialApp;
+    cupertino: {
+        cupertinoApp: (this: void, props: CupertinoAppProps) => CupertinoApp;
     };
 };
 
-export class MaterialApp extends StatelessWidget implements RuntimeBaseClass 
+export class CupertinoApp extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly internalRuntimeType = new Type(MaterialApp);
-    public props: MaterialAppProps;
-    public constructor(props: MaterialAppProps) 
+    public readonly internalRuntimeType = new Type(CupertinoApp);
+    public props: CupertinoAppProps;
+    public constructor(props: CupertinoAppProps) 
     {
         super();
         this.props = props;
         this.props.title = this.props.title != undefined ? this.props.title : "";
     }
 
-    public build(): Widget 
+    public build() 
     {
-        return flutter.material.materialApp(this.props);
+        return flutter.cupertino.cupertinoApp(this.props);
     }
 }

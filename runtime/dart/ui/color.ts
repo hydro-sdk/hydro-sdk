@@ -19,6 +19,14 @@ export class Color extends JITAllocatingRTManagedBox<undefined, Color> implement
         this.hex = hex;
     }
 
+    public static fromARGB(a: number, r: number, g: number, b: number) 
+    {
+        return new Color((((a & 0xff) << 24) |
+            ((r & 0xff) << 16) |
+            ((g & 0xff) << 8) |
+            ((b & 0xff) << 0)) & 0xFFFFFFFF);
+    }
+
     public unwrap(): Color 
     {
         return dart.ui.color(this.hex);
