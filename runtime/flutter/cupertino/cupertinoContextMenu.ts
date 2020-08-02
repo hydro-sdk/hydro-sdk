@@ -15,12 +15,12 @@ interface CupertinoContextMenuProps {
 
 declare const flutter: {
     cupertino: {
-        cupertinoContextMenu: (this: void, props: CupertinoContextMenuProps) => CuperinoContextMenu;
+        cupertinoContextMenu: (this: void, props: CupertinoContextMenuProps) => CupertinoContextMenu;
     }
 }
 
-export class CuperinoContextMenu extends StatelessWidget implements RuntimeBaseClass {
-    public readonly internalRuntimeType = new Type(CuperinoContextMenu);
+export class CupertinoContextMenu extends StatelessWidget implements RuntimeBaseClass {
+    public readonly internalRuntimeType = new Type(CupertinoContextMenu);
     public props: CupertinoContextMenuProps;
     public constructor(props: CupertinoContextMenuProps) {
         super();
