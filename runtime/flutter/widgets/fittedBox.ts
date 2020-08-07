@@ -1,6 +1,5 @@
 import { Type } from "../../dart/core/type";
 import { Key } from "./../foundation/key"
-import { Clip } from "../painting/clip";
 import { BoxFit } from "../painting/boxFit";
 import { Alignment } from "../painting/alignment";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";

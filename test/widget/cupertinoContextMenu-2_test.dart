@@ -6,13 +6,24 @@ import 'package:hydro_sdk/integrationTestHarness.dart';
 
 void main() {
   testWidgets('center widget test', (WidgetTester tester) async {
-    HttpOverrides.global = null;
-    await tester.pumpWidget(
-        integrationTestHarness("assets/test/widget/cupertinoContextMenu-2.ts"));
-    await tester.pumpAndSettle();
+    await tester.runAsync(() async {
+      HttpOverrides.global = null;
+      WidgetsFlutterBinding.ensureInitialized();
 
-    expect(tester.takeException(), isNull);
+      await tester.pumpWidget(integrationTestHarness(
+          "assets/test/widget/cupertinoContextMenu-2.ts"));
+      await tester.pumpAndSettle();
 
-    expect(find.byKey(Key("cupertinoContextMenu")), findsOneWidget);
+      expect(tester.takeException(), isNull);
+
+      expect(find.byKey(Key("cupertinoContextMenu")), findsOneWidget);
+
+      await tester.longPress(find.byKey(Key("cupertinoContextMenu")));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      await Future.delayed(Duration(seconds: 3));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    });
   });
 }
