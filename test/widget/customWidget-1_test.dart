@@ -36,7 +36,7 @@ class MyCustomWidget extends StatelessWidget {
 void main() {
   testWidgets('', (WidgetTester tester) async {
     await tester.pumpWidget(integrationTestHarness(
-      "assets/test/widget/customWidget-1.ts",
+      "../assets/test/widget/customWidget-1.ts",
       customNamespaces: [
         ({HydroState hydroState}) {
           var myPackageTable = HydroTable();
