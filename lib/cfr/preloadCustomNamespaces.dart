@@ -15,7 +15,7 @@ mixin PreloadableCustomNamespaces<T extends StatefulWidget> on State<T> {
     hydroState.context.env["mil"] = HydroTable();
     hydroState.context.env["net"] = HydroTable();
     hydroState.context.env["org"] = HydroTable();
-    
+
     customNamespaceLoaders?.forEach((x) => x(hydroState: hydroState));
   }
 }
