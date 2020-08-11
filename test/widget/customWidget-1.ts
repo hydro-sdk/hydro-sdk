@@ -31,6 +31,10 @@ class MyCustomWidget extends StatelessWidget {
         this.props = props;
     }
 
+    //The StatelessWidget builtin in the CFR will recognize that this class extends StatelessWidget and wrap
+    //its instances into a real Dart StatelessWidget passed to Flutter. When Flutter decides to build, our build method 
+    //will be called with (an optional), a boxed Dart BuildContext. In this case, we simply return the result of calling
+    //our custom hook function in our custom namespace which will produce an instance of a Dart class extending StatelessWidget.
     public build() {
         return org.myPackage.myCustomWidget(this.props);
     }
