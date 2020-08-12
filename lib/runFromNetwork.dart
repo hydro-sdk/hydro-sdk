@@ -10,6 +10,7 @@ import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
+import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 void _rebuildAllChildren(BuildContext context) {
@@ -29,6 +30,7 @@ class RunFromNetwork extends StatefulWidget {
   final Future<String> Function(String) downloadHash;
   final Future<Uint8List> Function(String) downloadByteCodeImage;
   final Future<List<ModuleDebugInfo>> Function(String) downloadDebugInfo;
+  final List<CustomNamespaceLoader> customNamespaces;
 
   RunFromNetwork({
     @required this.baseUrl,
@@ -38,6 +40,7 @@ class RunFromNetwork extends StatefulWidget {
     this.downloadHash,
     this.downloadByteCodeImage,
     this.downloadDebugInfo,
+    this.customNamespaces,
   });
 
   @override
@@ -49,11 +52,12 @@ class RunFromNetwork extends StatefulWidget {
         downloadHash: downloadHash,
         downloadByteCodeImage: downloadByteCodeImage,
         downloadDebugInfo: downloadDebugInfo,
+        customNamespaces: customNamespaces,
       );
 }
 
 class _RunFromNetwork extends State<RunFromNetwork>
-    with HotReloadable<RunFromNetwork> {
+    with HotReloadable, PreloadableCustomNamespaces {
   final String baseUrl;
   final String filePath;
   final List<dynamic> args;
@@ -77,7 +81,9 @@ class _RunFromNetwork extends State<RunFromNetwork>
     this.downloadHash,
     this.downloadByteCodeImage,
     this.downloadDebugInfo,
+    List<CustomNamespaceLoader> customNamespaces,
   }) {
+    customNamespaceLoaders = customNamespaces;
     _debugUrl = kDebugMode && Platform.isAndroid
         ? "http://10.0.2.2:5000"
         : kDebugMode && Platform.isIOS ? "http://localhost:5000" : "";
