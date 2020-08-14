@@ -1,4 +1,4 @@
-name: Release Mode Typescript Integration Tests
+name: Build Example Project
 
 on: [push, pull_request]	
 
@@ -54,17 +54,10 @@ jobs:
       with:
         path: 'hydro'
 
-    # Run the tests for the repository.
-    - name: Get packages for Hydro-SDK Dart
-      run: flutter pub get
-      working-directory: hydro
     - name: Get packages for Hydro-SDK JS
       run: npm install
-      working-directory: hydro
-    - name: Build Typescript release fixtures
-      run: bash scripts/buildAllTs.bash release
-      working-directory: hydro
-    - name: Run Hydro-SDK tests
-      shell: bash
-      run: export HYDRO_TEST_MODE=ts; flutter test
-      working-directory: hydro
+      working-directory: hydro/example-project
+    - name: Build hello-world.ts
+      run: node node_modules/hydro-sdk/dist/compiler -t hello-world.ts -m step -d Resources -p release Build
+      working-directory: hydro/example-project
+

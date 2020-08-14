@@ -6,6 +6,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
+/// Attempt to unbox the given boxed enum into a value contained in values
 T maybeUnBoxEnum<T>(
     {@required List<dynamic> values, @required dynamic boxedEnum}) {
   //For Typescript, TSTL represents enums as their integer indices
@@ -63,6 +64,9 @@ void registerUnBoxer({@required UnBoxer unBoxer}) {
   _unboxers.add(unBoxer);
 }
 
+/// Unbox the given arg for consumption by Dart code.
+/// The type parameter T is required to resolve the desired type that is being unboxed.
+/// If attempting to unbox a List<T>, only specify the type as T.
 dynamic maybeUnBoxAndBuildArgument<T>(
   dynamic arg, {
   BuildContext context,
