@@ -35,6 +35,7 @@ class RunFromNetwork extends StatefulWidget {
   final ErrorBuilder errorBuilder;
   final List<CustomNamespaceLoader> customNamespaces;
 
+  final bool debugMode;
   RunFromNetwork({
     @required this.baseUrl,
     @required this.filePath,
@@ -45,20 +46,22 @@ class RunFromNetwork extends StatefulWidget {
     this.downloadDebugInfo,
     this.errorBuilder,
     this.customNamespaces,
+    this.debugMode = false,
   });
 
   @override
   _RunFromNetwork createState() => _RunFromNetwork(
-      baseUrl: baseUrl,
-      filePath: filePath,
-      args: args,
-      thunks: thunks,
-      downloadHash: downloadHash,
-      downloadByteCodeImage: downloadByteCodeImage,
-      downloadDebugInfo: downloadDebugInfo,
-      errorBuilder: errorBuilder,
-      customNamespaces: customNamespaces,
-  );
+        baseUrl: baseUrl,
+        filePath: filePath,
+        args: args,
+        thunks: thunks,
+        downloadHash: downloadHash,
+        downloadByteCodeImage: downloadByteCodeImage,
+        downloadDebugInfo: downloadDebugInfo,
+        errorBuilder: errorBuilder,
+        customNamespaces: customNamespaces,
+        debugMode: debugMode,
+      );
 }
 
 class _RunFromNetwork extends State<RunFromNetwork>
@@ -69,6 +72,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
   final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
       thunks;
   final ErrorBuilder errorBuilder;
+  final bool debugMode;
   Exception error;
   Timer timer;
   bool requiresRebuild = false;
@@ -89,15 +93,15 @@ class _RunFromNetwork extends State<RunFromNetwork>
     this.downloadDebugInfo,
     this.errorBuilder,
     List<CustomNamespaceLoader> customNamespaces,
+    this.debugMode,
   }) {
     customNamespaceLoaders = customNamespaces;
-    _debugUrl = kDebugMode && Platform.isAndroid
+    _debugUrl = debugMode && Platform.isAndroid
         ? "http://10.0.2.2:5000"
-        : kDebugMode && Platform.isIOS ? "http://localhost:5000" : "";
+        : debugMode && Platform.isIOS ? "http://localhost:5000" : "";
 
     Future<Response> _attemptDownloadWithDegradation(String uri) async {
-      //error = null;
-      /*if (_debugUrl != "") {
+      if (_debugUrl != "") {
         try {
           return await get("$_debugUrl/$uri");
         } catch (err) {
@@ -106,7 +110,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
             error = err;
           });
         }
-      }*/
+      }
       try {
         return await get("$baseUrl/$uri");
       } catch (err) {
@@ -179,11 +183,11 @@ class _RunFromNetwork extends State<RunFromNetwork>
     }
 
     maybeReload();
-    /*timer = Timer.periodic(
+    timer = Timer.periodic(
         kDebugMode ? Duration(milliseconds: 500) : Duration(hours: 10),
         (Timer timer) {
       maybeReload();
-    });*/
+    });
   }
 
   Future<void> maybeReload() async {
@@ -197,7 +201,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
     if (newHash != null && newHash != lastHash) {
       var image = await downloadByteCodeImage("$filePath");
       List<ModuleDebugInfo> symbols;
-      if (kDebugMode) {
+      if (debugMode) {
         symbols = await downloadDebugInfo("$filePath.symbols");
         if (symbols == null) {
           setState(() {
