@@ -46,7 +46,7 @@ class RunFromNetwork extends StatefulWidget {
     this.downloadDebugInfo,
     this.errorBuilder,
     this.customNamespaces,
-    this.debugMode = false,
+    this.debugMode = kDebugMode,
   });
 
   @override
