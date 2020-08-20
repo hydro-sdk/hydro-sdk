@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import * as ts from "typescript";
+import * as ts from "typescript-to-lua/node_modules/typescript";
 import * as tstl from "typescript-to-lua";
 
 import { BuildOptions } from "../buildOptions";
