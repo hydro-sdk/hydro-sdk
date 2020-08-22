@@ -56,7 +56,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
-var ts = require("typescript-to-lua/node_modules/typescript");
+var ts = require("typescript");
 var tstl = require("typescript-to-lua");
 var findModuleDebugInfo_1 = require("../ast/findModuleDebugInfo");
 var addOriginalMappings_1 = require("../ast/addOriginalMappings");
@@ -78,8 +78,6 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                         options: {
                             strict: true,
                             target: ts.ScriptTarget.ES5,
-                            luaTarget: tstl.LuaTarget.Lua52,
-                            luaLibImport: tstl.LuaLibImportKind.Require,
                             sourceMapTraceback: false,
                         }
                     });
@@ -132,7 +130,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     };
                     sourceFilesToTranspile.sort(function (a, b) { return buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b)); });
                     _loop_1 = function (sourceFileToTranspile) {
-                        var transpiledFiles, transpiledFile, debugInfo;
+                        var transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, new Promise(function (resolve) {
@@ -144,14 +142,13 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                 case 1:
                                     _a.sent();
                                     getIncrementalDiagnostics(sourceFileToTranspile);
-                                    transpiledFiles = tstl.transpile({
-                                        program: program,
-                                        sourceFiles: [sourceFileToTranspile]
-                                    }).transpiledFiles;
-                                    if (transpiledFiles != null && transpiledFiles.length > 0) {
-                                        transpiledFile = transpiledFiles[0];
-                                    }
+                                    transpiledFile = tstl.transpileString(sourceFileToTranspile.text, {
+                                        luaTarget: tstl.LuaTarget.Lua52,
+                                        luaLibImport: tstl.LuaLibImportKind.Require,
+                                        sourceMapTraceback: false,
+                                    }).file;
                                     if (!(transpiledFile != null)) return [3 /*break*/, 3];
+                                    transpiledFile.fileName = sourceFileToTranspile.fileName;
                                     debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
                                         originalFileName: transpiledFile.fileName,
                                         filename: transpiledFile.fileName,

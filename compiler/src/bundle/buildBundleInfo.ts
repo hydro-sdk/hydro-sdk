@@ -15,6 +15,7 @@ import { hashText } from "../ast/hashText";
 import { mangleSymbols } from "../ast/mangleSymbols";
 import { exit } from "process";
 import { ModuleDebugInfo } from "../ast/moduleDebugInfo";
+import { TranspiledFile } from "./transpiledFile";
 
 export async function buildBundleInfo(
     buildOptions: BuildOptions,
@@ -32,8 +33,6 @@ export async function buildBundleInfo(
         options: {
             strict: true,
             target: ts.ScriptTarget.ES5,
-            luaTarget: tstl.LuaTarget.Lua52,
-            luaLibImport: tstl.LuaLibImportKind.Require,
             sourceMapTraceback: false,
         }
     });
@@ -120,18 +119,16 @@ export async function buildBundleInfo(
 
         getIncrementalDiagnostics(sourceFileToTranspile);
 
-        const { transpiledFiles } = tstl.transpile({
-            program: program as any,
-            sourceFiles: [(sourceFileToTranspile as any)]
-        });
-
-        let transpiledFile: tstl.TranspiledFile | undefined;
-
-        if (transpiledFiles != null && transpiledFiles.length > 0) {
-            transpiledFile = transpiledFiles[0];
-        }
+        let transpiledFile: TranspiledFile | undefined = tstl.transpileString(
+            sourceFileToTranspile.text,
+            {
+                luaTarget: tstl.LuaTarget.Lua52,
+                luaLibImport: tstl.LuaLibImportKind.Require,
+                sourceMapTraceback: false,
+            }).file;
 
         if (transpiledFile != null) {
+            transpiledFile.fileName = sourceFileToTranspile.fileName;
             const debugInfo = findModuleDebugInfo({
                 originalFileName: transpiledFile.fileName,
                 filename: transpiledFile.fileName,
