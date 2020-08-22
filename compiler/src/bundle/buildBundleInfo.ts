@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import * as ts from "typescript";
+import * as ts from "typescript-to-lua/node_modules/typescript";
 import * as tstl from "typescript-to-lua";
 
 import { BuildOptions } from "../buildOptions";
@@ -31,7 +31,7 @@ export async function buildBundleInfo(
         rootNames: [buildOptions.entry],
         options: {
             strict: true,
-            target:ts.ScriptTarget.ES5,
+            target: ts.ScriptTarget.ES5,
             luaTarget: tstl.LuaTarget.Lua52,
             luaLibImport: tstl.LuaLibImportKind.Require,
             sourceMapTraceback: false,
@@ -125,29 +125,35 @@ export async function buildBundleInfo(
             sourceFiles: [(sourceFileToTranspile as any)]
         });
 
-        const transpiledFile = transpiledFiles[0];
+        let transpiledFile: tstl.TranspiledFile | undefined;
 
-        const debugInfo = findModuleDebugInfo({
-            originalFileName: transpiledFile.fileName,
-            filename: transpiledFile.fileName,
-            fileContent: transpiledFile.lua!
-        });
+        if (transpiledFiles != null && transpiledFiles.length > 0) {
+            transpiledFile = transpiledFiles[0];
+        }
 
-        await addOriginalMappings(debugInfo, transpiledFile);
-        mangleSymbols(
-            debugInfo,
-            (symbol: Readonly<ModuleDebugInfo>) => hashText(symbol.originalFileName)
-        );
+        if (transpiledFile != null) {
+            const debugInfo = findModuleDebugInfo({
+                originalFileName: transpiledFile.fileName,
+                filename: transpiledFile.fileName,
+                fileContent: transpiledFile.lua!
+            });
 
-        sanityCheckDebugSymbols(debugInfo);
+            await addOriginalMappings(debugInfo, transpiledFile);
+            mangleSymbols(
+                debugInfo,
+                (symbol: Readonly<ModuleDebugInfo>) => hashText(symbol.originalFileName)
+            );
 
-        res.entries[transpiledFile.fileName] = {
-            debugSymbols: debugInfo,
-            moduleText: transpiledFile.lua!,
-            moduleName: `${makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0]}`,
-            originalFileName: transpiledFile.fileName,
-            originalFileHash: hashSourceFile(sourceFilesToTranspile.find((x) => x.fileName == transpiledFile.fileName))
-        };
+            sanityCheckDebugSymbols(debugInfo);
+
+            res.entries[transpiledFile.fileName] = {
+                debugSymbols: debugInfo,
+                moduleText: transpiledFile.lua!,
+                moduleName: `${makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0]}`,
+                originalFileName: transpiledFile.fileName,
+                originalFileHash: hashSourceFile(sourceFilesToTranspile.find((x) => x.fileName == transpiledFile?.fileName))
+            };
+        }
         currentStep++;
     }
 

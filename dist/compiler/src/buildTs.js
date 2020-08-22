@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var chalk = require("chalk");
-var ts = require("typescript");
+var ts = require("typescript-to-lua/node_modules/typescript");
 var configHash_1 = require("./configHash");
 var setupArtifactDirectories_1 = require("./setupArtifactDirectories");
 var compileByteCodeAndWriteHash_1 = require("./compileByteCodeAndWriteHash");

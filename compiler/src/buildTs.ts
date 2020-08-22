@@ -1,7 +1,7 @@
 import * as fs from "fs";
 
 import * as chalk from "chalk";
-import * as ts from "typescript";
+import * as ts from "typescript-to-lua/node_modules/typescript";
 
 import { BuildOptions, InputLanguage } from "./buildOptions";
 import { configHash } from "./configHash";
