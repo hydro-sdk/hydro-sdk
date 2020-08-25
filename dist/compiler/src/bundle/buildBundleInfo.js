@@ -139,7 +139,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                         updateBuildProgress(currentStep, sourceFiles.length + 1, buildSourceFileShortPath(sourceFileToTranspile));
                                         setTimeout(function () {
                                             resolve();
-                                        }, 200);
+                                        }, 0);
                                     })];
                                 case 1:
                                     _a.sent();

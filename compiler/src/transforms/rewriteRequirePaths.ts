@@ -16,11 +16,17 @@ export function rewriteRequirePaths(sourceFile: Readonly<ts.SourceFile>, transpi
         let lines = transpiledFile.lua?.split("\n");
         if (lines) {
             moduleMap.forEach((value, x) => {
+                //There's probably a cleaner, more performant way to do this
+                let pattern: string;
+                if (/\.\.\//g.test(x)) {
+                    pattern = `require\\(\\"${x.replace(`/`, `\\/`)}\\"\\)`;
+                } else {
+                    //TSTL doesn't like to emit the leading ./ in the path of relative imports if they don't
+                    //move upwards
+                    pattern = `require\\(\\"${x.replace(`./`, ``)}\\"\\)`;
+                }
+                const regex = new RegExp(pattern, "g");
                 lines?.forEach((line, i) => {
-                    //There's probably a cleaner, more performant way to do this
-                    const pattern = `require\\(\\"${x.replace(`/`, `\\/`)}\\"\\)`;
-                    const regex = new RegExp(pattern, "g");
-
                     if (regex.test(line)) {
                         if (moduleMap) {
                             if (lines) {
