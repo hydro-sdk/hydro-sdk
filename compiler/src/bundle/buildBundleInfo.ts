@@ -117,7 +117,7 @@ export async function buildBundleInfo(
             updateBuildProgress(currentStep, sourceFiles.length + 1, buildSourceFileShortPath(sourceFileToTranspile));
             setTimeout(() => {
                 resolve();
-            }, 200);
+            }, 0);
         });
 
         getIncrementalDiagnostics(sourceFileToTranspile);
