@@ -16,6 +16,8 @@ import { mangleSymbols } from "../ast/mangleSymbols";
 import { exit } from "process";
 import { ModuleDebugInfo } from "../ast/moduleDebugInfo";
 import { TranspiledFile } from "./transpiledFile";
+import { canonicalizeModuleName } from "./canonicalizeModuleName";
+import { rewriteRequirePaths } from "../transforms/rewriteRequirePaths";
 
 export async function buildBundleInfo(
     buildOptions: BuildOptions,
@@ -32,6 +34,7 @@ export async function buildBundleInfo(
         rootNames: [buildOptions.entry],
         options: {
             strict: true,
+            moduleResolution: ts.ModuleResolutionKind.NodeJs,
             target: ts.ScriptTarget.ES5,
             sourceMapTraceback: false,
         }
@@ -129,6 +132,13 @@ export async function buildBundleInfo(
 
         if (transpiledFile != null) {
             transpiledFile.fileName = sourceFileToTranspile.fileName;
+
+            const transformedPaths = rewriteRequirePaths(sourceFileToTranspile, transpiledFile);
+
+            if (transformedPaths) {
+                transpiledFile.lua = transformedPaths;
+            }
+
             const debugInfo = findModuleDebugInfo({
                 originalFileName: transpiledFile.fileName,
                 filename: transpiledFile.fileName,
@@ -146,7 +156,7 @@ export async function buildBundleInfo(
             res.entries[transpiledFile.fileName] = {
                 debugSymbols: debugInfo,
                 moduleText: transpiledFile.lua!,
-                moduleName: `${makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0]}`,
+                moduleName: canonicalizeModuleName(transpiledFile.fileName),
                 originalFileName: transpiledFile.fileName,
                 originalFileHash: hashSourceFile(sourceFilesToTranspile.find((x) => x.fileName == transpiledFile?.fileName))
             };

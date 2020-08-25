@@ -60,12 +60,13 @@ var ts = require("typescript");
 var tstl = require("typescript-to-lua");
 var findModuleDebugInfo_1 = require("../ast/findModuleDebugInfo");
 var addOriginalMappings_1 = require("../ast/addOriginalMappings");
-var makeRelativePath_1 = require("../makeRelativePath");
 var LuaLib_1 = require("typescript-to-lua/dist/LuaLib");
 var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
 var mangleSymbols_1 = require("../ast/mangleSymbols");
 var process_1 = require("process");
+var canonicalizeModuleName_1 = require("./canonicalizeModuleName");
+var rewriteRequirePaths_1 = require("../transforms/rewriteRequirePaths");
 function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
         var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, currentStep, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, sanityCheckDebugSymbols, buildSourceFileShortPath, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle, debugInfo;
@@ -77,6 +78,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                         rootNames: [buildOptions.entry],
                         options: {
                             strict: true,
+                            moduleResolution: ts.ModuleResolutionKind.NodeJs,
                             target: ts.ScriptTarget.ES5,
                             sourceMapTraceback: false,
                         }
@@ -130,7 +132,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     };
                     sourceFilesToTranspile.sort(function (a, b) { return buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b)); });
                     _loop_1 = function (sourceFileToTranspile) {
-                        var transpiledFile, debugInfo;
+                        var transpiledFile, transformedPaths, debugInfo;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, new Promise(function (resolve) {
@@ -149,6 +151,10 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                     }).file;
                                     if (!(transpiledFile != null)) return [3 /*break*/, 3];
                                     transpiledFile.fileName = sourceFileToTranspile.fileName;
+                                    transformedPaths = rewriteRequirePaths_1.rewriteRequirePaths(sourceFileToTranspile, transpiledFile);
+                                    if (transformedPaths) {
+                                        transpiledFile.lua = transformedPaths;
+                                    }
                                     debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
                                         originalFileName: transpiledFile.fileName,
                                         filename: transpiledFile.fileName,
@@ -162,7 +168,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                     res.entries[transpiledFile.fileName] = {
                                         debugSymbols: debugInfo,
                                         moduleText: transpiledFile.lua,
-                                        moduleName: "" + makeRelativePath_1.makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0],
+                                        moduleName: canonicalizeModuleName_1.canonicalizeModuleName(transpiledFile.fileName),
                                         originalFileName: transpiledFile.fileName,
                                         originalFileHash: hashSourceFile_1.hashSourceFile(sourceFilesToTranspile.find(function (x) { return x.fileName == (transpiledFile === null || transpiledFile === void 0 ? void 0 : transpiledFile.fileName); }))
                                     };
