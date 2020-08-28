@@ -56,7 +56,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
-var ts = require("typescript-to-lua/node_modules/typescript");
+var ts = require("typescript");
 var tstl = require("typescript-to-lua");
 var findModuleDebugInfo_1 = require("../ast/findModuleDebugInfo");
 var addOriginalMappings_1 = require("../ast/addOriginalMappings");
@@ -81,6 +81,10 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                             luaTarget: tstl.LuaTarget.Lua52,
                             luaLibImport: tstl.LuaLibImportKind.Require,
                             sourceMapTraceback: false,
+                            outDir: ".hydroc",
+                            include: [
+                                "node_modules/hydro-sdk/runtime"
+                            ]
                         }
                     });
                     sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
@@ -144,6 +148,10 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                 case 1:
                                     _a.sent();
                                     getIncrementalDiagnostics(sourceFileToTranspile);
+                                    sourceFileToTranspile.fileName = sourceFileToTranspile.fileName.replace("node_modules/", "");
+                                    sourceFileToTranspile.originalFileName = sourceFileToTranspile.originalFileName.replace("node_modules/", "");
+                                    sourceFileToTranspile.path = sourceFileToTranspile.path.replace("node_modules/", "");
+                                    sourceFileToTranspile.resolvedPath = sourceFileToTranspile.resolvedPath.replace("node_modules/", "");
                                     transpiledFiles = tstl.transpile({
                                         program: program,
                                         sourceFiles: [sourceFileToTranspile]

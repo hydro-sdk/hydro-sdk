@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import * as ts from "typescript-to-lua/node_modules/typescript";
+import * as ts from "typescript";
 import * as tstl from "typescript-to-lua";
 
 import { BuildOptions } from "../buildOptions";
@@ -35,6 +35,10 @@ export async function buildBundleInfo(
             luaTarget: tstl.LuaTarget.Lua52,
             luaLibImport: tstl.LuaLibImportKind.Require,
             sourceMapTraceback: false,
+            outDir: ".hydroc",
+            include: [
+                "node_modules/hydro-sdk/runtime"
+            ]
         }
     });
 
@@ -119,6 +123,11 @@ export async function buildBundleInfo(
         });
 
         getIncrementalDiagnostics(sourceFileToTranspile);
+
+        (sourceFileToTranspile as any).fileName = (sourceFileToTranspile as any).fileName.replace("node_modules/", "");
+        (sourceFileToTranspile as any).originalFileName = (sourceFileToTranspile as any).originalFileName.replace("node_modules/", "");
+        (sourceFileToTranspile as any).path = (sourceFileToTranspile as any).path.replace("node_modules/", "");
+        (sourceFileToTranspile as any).resolvedPath = (sourceFileToTranspile as any).resolvedPath.replace("node_modules/", "");
 
         const { transpiledFiles } = tstl.transpile({
             program: program as any,
