@@ -1,4 +1,4 @@
-import * as ts from "typescript-to-lua/node_modules/typescript";
+import * as ts from "typescript";
 
 import { BuildOptions } from "../buildOptions";
 import { BundleEntry } from "./bundleEntry";

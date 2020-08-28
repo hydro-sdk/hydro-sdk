@@ -56,7 +56,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
-var ts = require("typescript-to-lua/node_modules/typescript");
+var ts = require("typescript");
 var tstl = require("typescript-to-lua");
 var findModuleDebugInfo_1 = require("../ast/findModuleDebugInfo");
 var addOriginalMappings_1 = require("../ast/addOriginalMappings");
