@@ -4,18 +4,19 @@ import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 
-void loadSizeTransition(
+void loadFittedBox(
     {@required HydroState luaState, @required HydroTable table}) {
-  table["sizeTransition"] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table["fittedBox"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      SizeTransition(
-        sizeFactor: maybeUnBoxAndBuildArgument<Animation<double>>(
-            args[0]["sizeFactor"],
+      FittedBox(
+        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
             parentState: luaState),
-        axis: Axis.values.firstWhere((x) => x.index == args[0]["axis"]),
+        fit: maybeUnBoxEnum(values: BoxFit.values, boxedEnum: args[0]["fit"]),
+        alignment: maybeUnBoxAndBuildArgument<Alignment>(args[0]["alignment"],
+            parentState: luaState),
         child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
-      ),
+      )
     ];
   });
 }
