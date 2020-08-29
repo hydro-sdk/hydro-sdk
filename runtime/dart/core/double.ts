@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/class-name-casing
 export class double 
 {
     public static nan = 0.0 / 0.0;
