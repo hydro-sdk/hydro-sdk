@@ -1,18 +1,30 @@
 import { runApp } from "hydro-sdk/runtime/flutter/runApp";
-import { StatelessWidget, Text } from "hydro-sdk/runtime/flutter/widgets/index";
+//Make sure to import from /index specifically if using barell imports.
+//The compiler won't resolve /index by itself
+import {
+    StatelessWidget,
+    Text,
+    Container,
+    TextEditingController
+} from "hydro-sdk/runtime/flutter/widgets/index";
+import { MaterialApp } from "hydro-sdk/runtime/flutter/material/index";
 import { Widget } from "hydro-sdk/runtime/flutter/widget";
-import {TextEditingController } from "hydro-sdk/runtime/flutter/widgets/textEditingController";
+import { Key } from "hydro-sdk/runtime/flutter/foundation/key";
 
 class MyWidget extends StatelessWidget {
+    private controller = new TextEditingController({ text: "Some convoluted but familiar functions" });
     public constructor() {
         super();
     }
 
     public build(): Widget {
-        const controller = new TextEditingController();
-        const text = controller.getText().toLowerCase();
-        console.log("Some familiar printing!");
-        return new Text("Hello world!");
+        console.log(this.controller.getText().toLowerCase());
+        return new MaterialApp({
+            home: new Container({
+                key: new Key(this.controller.getText().toLowerCase()),
+                child: new Text("Hello world!")
+            })
+        });
     }
 }
 
