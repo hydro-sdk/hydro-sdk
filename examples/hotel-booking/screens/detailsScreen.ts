@@ -154,8 +154,9 @@ export class DetailsScreen extends StatelessWidget
                                                                                 value: .25,
                                                                                 backgroundColor: MyColors.lighterBlue,
                                                                                 valueColor: new AlwaysStoppedAnimation(
+                                                                                    Colors.white,
                                                                                     new Type(Color),
-                                                                                    Colors.white
+                                                                                    
                                                                                 ),
                                                                             }),
                                                                         }),
@@ -203,8 +204,9 @@ export class DetailsScreen extends StatelessWidget
                                                                             child: new CircularProgressIndicator({
                                                                                 value: .25,
                                                                                 backgroundColor: MyColors.lighterBlue,
-                                                                                valueColor: new AlwaysStoppedAnimation(new Type(Color),
-                                                                                    Colors.white
+                                                                                valueColor: new AlwaysStoppedAnimation(
+                                                                                    Colors.white,
+                                                                                    new Type(Color),
                                                                                 ),
                                                                             }),
                                                                         }),

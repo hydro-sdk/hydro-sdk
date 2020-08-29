@@ -1,34 +1,28 @@
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-import {Color} from "../../dart/ui/color";
-
-import {Animation} from "./animation";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Type } from "../../dart/core/type";
+import { Color } from "../../dart/ui/color";
+import { Animation } from "./animation";
+import { double } from "../../dart/core/double";
 
 declare const flutter: {
     animation: {
-        alwaysStoppedAnimation: (this: void, arg: AlwaysStoppedAnimation<any>) => AlwaysStoppedAnimation<any>;
+        alwaysStoppedAnimation: <T extends double | Color> (
+            this: void,
+            alwaysStoppedAnimation: AlwaysStoppedAnimation<T>,
+            value: T,
+            targetRuntimeType: Type
+        ) => AlwaysStoppedAnimation<T>;
     };
 };
 
-export class AlwaysStoppedAnimation<T extends number | Color>
-    extends JITAllocatingRTManagedBox<undefined, AlwaysStoppedAnimation<T>>
-    implements RuntimeBaseClass, Animation<T>
-{
+export class AlwaysStoppedAnimation<T extends double | Color>
+    extends Animation<T> implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(AlwaysStoppedAnimation);
     public readonly runtimeType = new Type(Animation);
-    private readonly targetRuntimeType: Type;
-    protected value: T;
-    public props = undefined;
-    public unwrap(): AlwaysStoppedAnimation<T> 
-    {
-        return flutter.animation.alwaysStoppedAnimation(this);
-    }
+    public readonly value: () => T extends double ? number : T = undefined as any;
 
-    public constructor(runtimType: Type, value: T) 
-    {
+    public constructor(value: T, targetRuntimeType: Type) {
         super();
-        this.value = value;
-        this.targetRuntimeType = runtimType;
+        flutter.animation.alwaysStoppedAnimation(this, value, targetRuntimeType);
     }
 }
