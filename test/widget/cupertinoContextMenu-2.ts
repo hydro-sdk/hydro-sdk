@@ -25,8 +25,8 @@ runApp(() =>
                 child: new Container({
                     width: 100,
                     height: 100,
+                    key: new Key("cupertinoContextMenu"),
                     child: new CupertinoContextMenu({
-                        key: new Key("cupertinoContextMenu"),
                         child: new FittedBox({
                             fit: BoxFit.cover,
                             child: Image.network("https://cdn.pixabay.com/photo/2014/09/11/18/23/london-441853_960_720.jpg", {})
@@ -35,7 +35,7 @@ runApp(() =>
                             new FittedBox({
                                 fit: BoxFit.cover,
                                 child: new ClipRRect({
-                                    borderRadius: BorderRadius.circular(64 * animation.value),
+                                    borderRadius: BorderRadius.circular(64 * animation.value()),
                                     child: Image.network("https://cdn.pixabay.com/photo/2014/09/11/18/23/london-441853_960_720.jpg", {})
                                 })
                             }),

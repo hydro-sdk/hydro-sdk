@@ -1,10 +1,8 @@
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { Type } from "../../dart/core/type";
-import { List } from "../../dart/collection/list";
 import { StatelessWidget } from "../widgets/statelessWidget";
 import { Key } from "../foundation/key";
 import { Widget } from "../widget";
-import { ContextMenuPreviewBuilder } from "./contextMenuPreviewBuilder";
 import { VoidCallback } from "../../dart/ui/voidCallback";
 import { IconData } from "../widgets/iconData";
 
@@ -29,6 +27,14 @@ export class CupertinoContextMenuAction extends StatelessWidget implements Runti
     public constructor(props: CupertinoContextMenuActionProps) {
         super();
         this.props = props;
+
+        if (this.props.isDefaultAction === undefined) {
+            this.props.isDefaultAction = false;
+        }
+
+        if (this.props.isDestructiveAction === undefined) {
+            this.props.isDestructiveAction = false;
+        }
     }
 
     public build() {

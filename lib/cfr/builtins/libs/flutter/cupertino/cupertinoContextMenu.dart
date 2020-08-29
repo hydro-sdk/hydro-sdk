@@ -21,19 +21,22 @@ void loadCupertinoContextMenu(
             ? (context, animation, child) {
                 Closure closure = args[0]["previewBuilder"];
                 return maybeUnBoxAndBuildArgument<Widget>(
-                    closure.dispatch([
-                      maybeBoxObject<BuildContext>(
-                        object: context,
-                        hydroState: luaState,
-                        table: HydroTable(),
-                      ),
-                      maybeBoxObject<Animation<double>>(
-                        object: animation,
-                        hydroState: luaState,
-                        table: HydroTable(),
-                      ),
-                      child,
-                    ], parentState: null)[0],
+                    closure.dispatch(
+                      [
+                        maybeBoxObject<BuildContext>(
+                          object: context,
+                          hydroState: luaState,
+                          table: HydroTable(),
+                        ),
+                        maybeBoxObject<Animation<double>>(
+                          object: animation,
+                          hydroState: luaState,
+                          table: HydroTable(),
+                        ),
+                        child,
+                      ],
+                      parentState: luaState,
+                    )[0],
                     parentState: luaState);
               }
             : null,
