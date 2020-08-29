@@ -3,9 +3,18 @@ import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
 import 'package:flutter/material.dart';
 
+// void main() {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   runApp(MyApp());
+// }
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp(RunFromNetwork(
+      args: [],
+      thunks: null,
+      baseUrl: "",
+      filePath: "cupertinoContextMenu-2.ts.hc"));
 }
 
 /// This Widget is the main application widget.
