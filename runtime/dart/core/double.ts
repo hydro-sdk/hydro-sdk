@@ -1,4 +1,5 @@
-export class double {
+export class double 
+{
     public static nan = 0.0 / 0.0;
     public static infinity = 1.0 / 0.0;
     public static negativeInfinity = -(1.0 / 0.0);

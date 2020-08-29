@@ -1,6 +1,6 @@
-import { Color } from "../../dart/ui/color";
-import { Type } from "../../dart/core/type";
-import { double } from "../../dart/core/double";
+import {Color} from "../../dart/ui/color";
+import {Type} from "../../dart/core/type";
+import {double} from "../../dart/core/double";
 
 export class Animation<T extends double | Color>
 {

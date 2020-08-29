@@ -48,9 +48,8 @@ void loadAlwaysStoppedAnimation(
 
   table["alwaysStoppedAnimation"] = makeLuaDartFunc(func: (List<dynamic> args) {
     HydroTable caller = args[0];
-    var targetRuntimeType = RuntimeTypes.values.firstWhere((x) =>
-        x.toString().split(".")[1] ==
-        args[2]["displayName"]);
+    var targetRuntimeType = RuntimeTypes.values.firstWhere(
+        (x) => x.toString().split(".")[1] == args[2]["displayName"]);
 
     switch (targetRuntimeType) {
       case RuntimeTypes.AnimatedListState:
