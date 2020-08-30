@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 
-interface CenterProps {
+export interface CenterProps {
     key?: Key;
     child: Widget;
 }

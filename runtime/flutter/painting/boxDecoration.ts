@@ -7,7 +7,7 @@ import {Color} from "./../../dart/ui/color";
 import {BoxShape} from "./boxShape";
 import {BorderRadius} from "./borderRadius";
 
-interface BoxDecorationProps {
+export interface BoxDecorationProps {
     color?: Color | undefined;
     shape?: BoxShape | undefined;
     borderRadius?: BorderRadius | undefined;

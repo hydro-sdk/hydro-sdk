@@ -8,7 +8,7 @@ import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
 
 
-interface ClipRRectProps {
+export interface ClipRRectProps {
     key?: Key | undefined;
     borderRadius: BorderRadius | undefined;
     clipBehavior?: Clip | undefined;

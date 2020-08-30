@@ -10,7 +10,7 @@ import {BoxConstraints} from "./../../flutter/rendering/boxConstraints";
 import {InputBorder} from "./inputBorder";
 import {FloatingLabelBehavior} from "./floatingLabelBehavior";
 
-interface InputDecorationProps {
+export interface InputDecorationProps {
     icon?: Widget | undefined;
     labelText?: string | undefined;
     labelStyle?: TextStyle | undefined;

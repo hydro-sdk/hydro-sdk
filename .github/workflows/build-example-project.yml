@@ -1,4 +1,4 @@
-name: Build Example Project
+name: Build and Test Example Project
 
 on: [push, pull_request]	
 
@@ -58,6 +58,9 @@ jobs:
       run: npm install
       working-directory: hydro/example-project
     - name: Build hello-world.ts
-      run: node node_modules/hydro-sdk/dist/compiler -t hello-world.ts -m step -d Resources -p release Build
+      run: node node_modules/hydro-sdk/dist/compiler -t hello-world.ts -m hello-world -d assets -p debug
+      working-directory: hydro/example-project
+    - name: Test hello-world.ts
+      run: flutter test
       working-directory: hydro/example-project
 

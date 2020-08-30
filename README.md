@@ -17,10 +17,24 @@ While your code is interpreted, ensuring it will work on all platforms that Flut
 ## Source Maps
 ![Source maps screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/sourceMapScreenShot.png)
 
+- [Why](#why)  
+- [How](#how)  
+- [Examples](#examples)
+- [Getting Started](#getting-started)
+- [Advanced Uses](#advanced-uses)
+- [Edge Cases and Errors at Compile Time](#edge-cases-and-errors-at-compile-time)
+- [Edge Cases and Errors at Runtime](#edge-cases-and-errors-at-runtime)
+- [Limitations](#limitations)
+- [Supported Languages](#supported-languages)
+- [Prior Art](#prior-art)
+- [Interesting Links and Resources](#interesting-links-and-resources)
+
 # Why
 ## Easier Delivery
 Serve complete experiences over HTTP. Deliver updates to parts of your app, or deliver your entire app as a packaged bytecode image over the air to users. No app stores or long reviews.
 
+# How
+Hydo-SDK provides a Common Flutter Runtime (CFR), composed of a virtual machine implementing a subset of a Lua 5.2 environment, bindings for Flutter, Dart, some Javascript builtins, and a set of Flutter widgets exposing it all to embedders. All written in pure Dart. Hydro-SDK combines the CFR with guest language projections and a compilation toolchain for compiling supported languages into Lua bytecode, and Lua bytecode into Dart.
 
 # Examples
 Each example can be run over the air directly off of Github using it's corresponding `.hc` file under dist/.
@@ -51,14 +65,108 @@ Shows off how to use `CustomScrollView`s with `Sliver`s and override `ScrollPhys
 # Getting Started
 Check out the example project at https://github.com/chgibb/hydro-sdk/tree/master/example-project for documentation about getting started
 
-# How
-Hydo-SDK provides a Common Flutter Runtime (CFR), composed of a virtual machine implementing a subset of a Lua 5.2 environment, bindings for Flutter, Dart, some Javascript builtins, and a set of Flutter widgets exposing it all to embedders. All written in pure Dart. Hydro-SDK combines the CFR with guest language projections and a compilation toolchain for compiling supported languages into Lua bytecode, and Lua bytecode into Dart.
-
 # Advanced Uses
-## Bind Dart to Guest Code
-See documentation here https://github.com/chgibb/hydro-sdk/blob/master/bindings.md  
 ## Transpile Typescript to Dart, Run Code in Mixed Mode With Mixed Native and Virtual (bytecode) Functions
 Hydro includes a CLI utility under `bin` to compile `.hc` bytecode files into Dart code. The resulting Dart code exports a single variable called `thunks` which can be passed to any Dart-level Hydro widget, allowing the CFR's code-loader to swap out virtual functions with their native counterparts at run time. This effectively provides a Typescript -> Dart transpiler. The ouput doesn't look very similiar to the input Typescript, but is semantically equivalent. This can be leveraged for applications which rely on many separate `.hc` files at runtime, or to help keep the edit-debug experience for large `.hc` files fast and responsive.
+
+## Binding Dart Code to Guest Code
+Hydro's binding system is based on namespaced hook functions. Marshalling is based on a system of object boxers and unboxers.
+
+### Namespaces
+Namespaces are objects that are always available at the global scope in any context. They contain other objects and ultimately hook functions. The namespaces `hydro`, `dart`, `flutter`, and `http` are reserved for use by the CFR. The namespaces `com`, `edu`, `gov`, `mil`, `net`, and `org` are reserved as extension points for user code.
+
+### Hook Functions
+Hook functions are functions written in Dart that are exposed to the CFR. Because the CFR is based on a Lua 5.2 environment, hook functions expect Lua calling conventions. They must have the following signature:  
+```dart
+    //Functions in Lua can have multiple return types.
+    //Hook functions should return a list of length 1 if they wish to return a single value.
+    //Arguments are populated in the order that they are received.
+    //The argument at index 0 is usually (but not always, as will be discussed) a reference to
+    //the object calling the given function. If none is given, this 
+    //defaults to a reference to the global object. This can be thought of as the ever-present
+    //implicit 'this' parameter in Javascript. In this case, it's the implicit Lua 'self' 
+    //parameter.
+    List<dynamic> HookFunction(List<dynamic>);
+```
+
+### Boxers
+The marshalling of objects into running CFR code from Dart is referred to as "boxing". The CFR only knows how to deal with instances of `HydroTable` or instances of Dart classes which extend the class `VMManagedBox<T>`. `VMManagedBox<T>` can be exploited to bind custom Dart classes and will be discussed in its own section along with registering boxers for custom types.
+
+### Unboxing
+The marshalling of objects out of the CFR to be passed to Dart code is referred to as "unboxing". Strictly speaking, the term "unboxing" as it's used in other object systems isn't always the operation that takes place. For instance, for interoperating with Flutter, instances of guest code classes are usually further wrapped into instances of `StatelessWidget`, `StatefulWidget`, `State`, etc. Registering custom unboxers for guest runtime types will be discussed in its own section.
+
+### Hello World Hook
+Exposing a Dart function which adds two numbers could look someting like the below:
+```dart
+//embedder.dart
+...
+customNamespaces: [
+        ({HydroState hydroState}) {
+          var myNamespaceTable = HydroTable();
+          //The "org" top level namespace is already initialized for us
+          hydroState.context.env["org"]["myNamespace"] = myNamespaceTable;
+
+          myNamespaceTable["add"] =
+              makeLuaDartFunc(func: (List<dynamic> args) {
+            return [
+                //We're assuming that args[0] is NOT a reference
+                // to the calling object in this case
+              args[0] + args[1]
+            ];
+          });
+        }
+```
+```typescript
+//add.ts
+...
+
+//Because it's impossible to statically type namespaces and their members at the Dart level,
+//we can instead define only the part of the namespace that we want to wrap in
+//a statically typed interface
+declare const org : {
+    myNamespace : {
+        //Declaring "this : void" will instruct the compiler to treat this function
+        //as a free function and omit the implicit this parameter when calling it
+        add : (this : void, a : number, b : number) => number;
+    }
+}
+
+//Finally, we can export a wrapper for other guest code to consume.
+//We leave the implementation details of our hook and this section of our namespace
+//up to the add.ts module and present consumers with an opaque, statically typed wrapper.
+//Even if our namespace was more complicated, we only need to explicitly declare the 
+//parts of it that we will reference in the given module.
+//Because this function can only ever be called by other guest code, we don't need to worry
+//about "this : void", or it's calling convention. We can write it as a regular function.
+export function add(a : number, b : number) => org.myNamespace.add(a,b);
+```
+
+### Binding Custom Dart Widgets
+See https://github.com/chgibb/hydro-sdk/blob/master/test/widget/customWidget-1_test.dart  and
+https://github.com/chgibb/hydro-sdk/blob/master/test/widget/customWidget-1.ts for examples
+
+### Injecting Methods Defined in Dart Into Instances of Classes Defined in Guest Code
+TODO: This is done for `State`, `Future`, `List` etc. Explain how this works.
+
+### Allow Guest Code to Allocate and Manipulate Classes Defined in Dart
+TODO: This is done for `Future` etc. Explain how this works.
+
+### Registering Object Boxers for Custom Types
+TODO: This is done for `BuildContext`, `Response`, `Future` etc. Explain how this works.
+
+# Edge-Cases and Errors at Compile Time
+## `method-name and other-method-name Defined at some-file:line,column (x,y) and some-other-file:other-line,other-column (a,b) both mangled to the following: big-hashed-name`
+In debug mode, the compiler tracks the identity of functions across different compiles by mangling function names. This information is passed on to (and required by) the CFR's virtual machine in debug mode in order to enable hot-reload. The above error is a santiy check performed by the compiler during compilation to ensure it hasn't accidentally assigned the same identity to two functions that it knows are not the same. This is NOT an error with your code. If you encounter this, please file an issue so we can make the compiler smarter.
+
+# Edge-Cases and Errors at Runtime
+## `Dispatched function prototypes are required to have debug symbols but the prototype from x-y in big-hashed-name could not be matched to a debug symbol`
+In debug mode, the CFR's virtual machine needs code being called into from the Flutter framework as part of Flutter's normal widget lifecycle to have debugging information attached to it in order to provide hot reload. This error can usually be observed being raised when trying to execute `build` methods in Typescript classes which extend `StatelessWidget` or `State`. This is NOT an error with your code. This usually means the compiler wasn't quite smart enough to find all of the anonymous functions/tear offs you're using in your `build` methods and report them to the VM for debugging and hot-reload. If you encounter this, please file an issue so we can make the compiler smarter.
+
+## `Failed to dispatch to big-hashed-method-name from x-y in big-hashed-name`
+In debug mode, the CFR's virtual machine will enforce that all code being called into from the Flutter framework as part of Flutter's normal widget lifecycle is looked up just in time before it's executed. If the virtual machine fails to lookup a function that is being called, this error will be thrown. This error can be observed when running code that is in the middle of attempting to call code that has just been deleted as part of a hot-reload.
+
+## `attempt to index a nil value null foo`
+This error can be seen by regular Typescript code that attempts to access a field `foo` on an uninitialized object. If this error is observed originating in `hydro-sdk/runtime` Typescript code, after a hot-reload is performed, it may indicate a limitation of hot-reload. In debug mode, functions have their enclosing scopes refreshed before they are executed. This error can sometimes be caused by adding an `import` statement for a file which has never been imported before anywhere in the life of the currently running program. In this case, the code being executed is having it's enclosing scope refreshed to include the new symbols being `import`ed, but the `import`ed file itself is not being executed in order to initialise the new symbols being used, resulting in trying to index into `nil` values. This issue can be remedied by performing a hot-restart of the Dart code running the CFR virtual machine. This error does NOT necessarily indicate an error with your code.
 
 # Limitations
 - General
@@ -84,31 +192,17 @@ Hydro includes a CLI utility under `bin` to compile `.hc` bytecode files into Da
 
     - The current compiler toolchain is really bad at tree-shaking. For example,
      ```typescript
-     import {SizedBox} from "hydro-sdk/runtime/flutter/widgets/sizedBox"
+     import {SizedBox} from "hydro-sdk/runtime/flutter/widgets/sizedBox/index"
      ``` 
      will be more efficient than
      ```typescript
-    import {SizedBox} from "hydro-sdk/runtime/flutter/widgets"
+    import {SizedBox} from "hydro-sdk/runtime/flutter/widgets/index"
      ```
      and
      ```typescript
-     import {SizedBox} from "hydro-sdk/runtime/flutter"
+     import {SizedBox} from "hydro-sdk/runtime/flutter/index"
      ```
      - The compiler is built on https://github.com/TypeScriptToLua/TypeScriptToLua . We inherit the same limitations https://typescripttolua.github.io/docs/caveats
-
-# Edge-Cases and Errors at Compile Time
-## `method-name and other-method-name Defined at some-file:line,column (x,y) and some-other-file:other-line,other-column (a,b) both mangled to the following: big-hashed-name`
-In debug mode, the compiler tracks the identity of functions across different compiles by mangling function names. This information is passed on to (and required by) the CFR's virtual machine in debug mode in order to enable hot-reload. The above error is a santiy check performed by the compiler during compilation to ensure it hasn't accidentally assigned the same identity to two functions that it knows are not the same. This is NOT an error with your code. If you encounter this, please file an issue so we can make the compiler smarter.
-
-# Edge-Cases and Errors at Runtime
-## `Dispatched function prototypes are required to have debug symbols but the prototype from x-y in big-hashed-name could not be matched to a debug symbol`
-In debug mode, the CFR's virtual machine needs code being called into from the Flutter framework as part of Flutter's normal widget lifecycle to have debugging information attached to it in order to provide hot reload. This error can usually be observed being raised when trying to execute `build` methods in Typescript classes which extend `StatelessWidget` or `State`. This is NOT an error with your code. This usually means the compiler wasn't quite smart enough to find all of the anonymous functions/tear offs you're using in your `build` methods and report them to the VM for debugging and hot-reload. If you encounter this, please file an issue so we can make the compiler smarter.
-
-## `Failed to dispatch to big-hashed-method-name from x-y in big-hashed-name`
-In debug mode, the CFR's virtual machine will enforce that all code being called into from the Flutter framework as part of Flutter's normal widget lifecycle is looked up just in time before it's executed. If the virtual machine fails to lookup a function that is being called, this error will be thrown. This error can be observed when running code that is in the middle of attempting to call code that has just been deleted as part of a hot-reload.
-
-## `attempt to index a nil value null foo`
-This error can be seen by regular Typescript code that attempts to access a field `foo` on an uninitialized object. If this error is observed originating in `hydro-sdk/runtime` Typescript code, after a hot-reload is performed, it may indicate a limitation of hot-reload. In debug mode, functions have their enclosing scopes refreshed before they are executed. This error can sometimes be caused by adding an `import` statement for a file which has never been imported before anywhere in the life of the currently running program. In this case, the code being executed is having it's enclosing scope refreshed to include the new symbols being `import`ed, but the `import`ed file itself is not being executed in order to initialise the new symbols being used, resulting in trying to index into `nil` values. This issue can be remedied by performing a hot-restart of the Dart code running the CFR virtual machine. This error does NOT necessarily indicate an error with your code.
 
 # Supported Languages  
 - [&check;] Typescript  

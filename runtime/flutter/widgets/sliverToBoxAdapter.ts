@@ -5,7 +5,7 @@ import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 
-interface SliverToBoxAdapterProps {
+export interface SliverToBoxAdapterProps {
     key?: Key | undefined;
     child: Widget;
 }

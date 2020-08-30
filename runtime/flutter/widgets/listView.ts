@@ -12,7 +12,7 @@ import {StatelessWidget} from "./statelessWidget";
 import {ScrollViewKeyboardDismissBehavior} from "./scrollViewKeyboardDismissBehavior";
 import {ScrollPhysics} from "./scrollPhysics";
 
-interface ListviewRegularProps {
+export interface ListviewRegularProps {
     key?: Key | undefined;
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
@@ -32,7 +32,7 @@ interface ListviewRegularProps {
     keyboardDismissBehavior?: ScrollViewKeyboardDismissBehavior | undefined;
 }
 
-interface ListViewBuilderProps {
+export interface ListViewBuilderProps {
     key?: Key | undefined;
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;

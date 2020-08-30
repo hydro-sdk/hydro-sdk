@@ -5,7 +5,7 @@ import {Widget} from "../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 import {Key} from "./../../flutter/foundation/key";
 
-interface HeroProps {
+export interface HeroProps {
     key?: Key | undefined;
     tag: string;
     transitionOnUserGestures?: boolean | undefined;

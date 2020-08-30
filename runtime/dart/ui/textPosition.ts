@@ -3,7 +3,7 @@ import {Type} from "./../core/type";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 import {TextAffinity} from "./textAffinity";
 
-interface TextPositionProps {
+export interface TextPositionProps {
     offset: number;
     affinity?: TextAffinity | undefined;
 }

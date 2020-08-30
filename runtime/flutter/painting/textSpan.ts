@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 
 import {InlineSpan} from "./inlineSpan";
 
-interface TextSpanProps {
+export interface TextSpanProps {
     text?: string | undefined;
     children?: Array<InlineSpan> | undefined;
     style?: TextStyle | undefined;

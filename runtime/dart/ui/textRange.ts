@@ -2,7 +2,7 @@ import {RuntimeBaseClass} from "./../../runtimeBaseClass";
 import {Type} from "./../core/type";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
-interface TextRangeProps {
+export interface TextRangeProps {
     start: number;
     end: number;
 }

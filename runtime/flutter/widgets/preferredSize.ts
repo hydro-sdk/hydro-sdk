@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {StatelessWidget} from "./statelessWidget";
 import {Size} from "./../../dart/ui/size";
 
-interface PreferredSizeProps {
+export interface PreferredSizeProps {
     child: Widget;
     preferredSize: Size;
 }

@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 
-interface FloatingActionButtonProps {
+export interface FloatingActionButtonProps {
     key?: Key | undefined;
     child: Widget;
     onPressed: () => void;
