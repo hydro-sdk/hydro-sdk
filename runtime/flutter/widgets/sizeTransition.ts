@@ -6,7 +6,7 @@ import {Type} from "../../dart/core/type";
 import {StatelessWidget} from "./statelessWidget";
 import {Axis} from "./../painting/axis";
 
-interface SizeTransitionProps {
+export interface SizeTransitionProps {
     axis: Axis;
     sizeFactor: Animation<number>;
     child: Widget;

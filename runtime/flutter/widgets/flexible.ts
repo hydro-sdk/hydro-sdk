@@ -6,7 +6,7 @@ import {FlexFit} from "./../rendering/flexFit";
 import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
 
-interface FlexibleProps {
+export interface FlexibleProps {
     key?: Key | undefined;
     flex?: number | undefined;
     fit?: FlexFit | undefined;

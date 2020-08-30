@@ -7,7 +7,7 @@ import {Type} from "../../dart/core/type";
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 
-interface PositionedProps {
+export interface PositionedProps {
     key?: Key | undefined;
     left?: number | undefined;
     top?: number | undefined;

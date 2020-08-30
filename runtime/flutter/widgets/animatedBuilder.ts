@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {TransitionBuilder} from "./transitionBuilder";
 import {StatelessWidget} from "./statelessWidget";
 
-interface AnimatedBuilderProps {
+export interface AnimatedBuilderProps {
     animation: ChangeNotifier;
     builder: TransitionBuilder;
 }

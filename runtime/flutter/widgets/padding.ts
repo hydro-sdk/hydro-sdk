@@ -6,7 +6,7 @@ import {Type} from "../../dart/core/type";
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 
-interface PaddingProps {
+export interface PaddingProps {
     key?: Key | undefined;
     padding: EdgeInsets;
     child?: Widget | undefined;

@@ -3,7 +3,7 @@ import {Widget} from "./../widget";
 import {TextStyle} from "./../painting/textStyle";
 import {Key} from "./../foundation/key";
 
-interface TextProps {
+export interface TextProps {
     key?: Key | undefined;
     style?: TextStyle | undefined;
 }

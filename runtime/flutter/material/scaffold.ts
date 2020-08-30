@@ -6,7 +6,7 @@ import {Type} from "../../dart/core/type";
 import {AppBar} from "./appBar";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 
-interface ScaffoldProps {
+export interface ScaffoldProps {
     appBar?: AppBar | undefined;
     body?: Widget | undefined;
     floatingActionButton?: Widget | undefined;

@@ -12,7 +12,7 @@ import {Color} from "./../../dart/ui/color";
 import {CupertinoColors} from "./cupertinoColors";
 import {kMinInteractiveDimensionCupertino} from "./constants";
 
-interface CupertinoButtonProps {
+export interface CupertinoButtonProps {
     key?: Key | undefined;
     child: Widget;
     padding?: EdgeInsets | undefined;

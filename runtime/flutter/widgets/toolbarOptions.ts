@@ -4,7 +4,7 @@ import {Type} from "../../dart/core/type";
 
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
-interface ToolbarOptionsProps {
+export interface ToolbarOptionsProps {
     copy?: boolean | undefined;
     cut?: boolean | undefined;
     paste?: boolean | undefined;

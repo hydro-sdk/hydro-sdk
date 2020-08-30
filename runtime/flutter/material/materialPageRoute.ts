@@ -4,7 +4,7 @@ import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
 
-interface MaterialPageRouteProps {
+export interface MaterialPageRouteProps {
     builder: (context: BuildContext) => Widget;
     maintainState?: boolean | undefined;
     fullscreenDialog?: boolean | undefined;

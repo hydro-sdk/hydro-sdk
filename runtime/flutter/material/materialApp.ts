@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 
-interface MaterialAppProps {
+export interface MaterialAppProps {
     initialRoute?: string | undefined;
     home: Widget;
     title?: string | undefined;

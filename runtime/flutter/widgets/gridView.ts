@@ -10,7 +10,7 @@ import {DragStartBehavior} from "./../gestures/dragStartBehavior";
 import {StatelessWidget} from "./statelessWidget";
 import {ScrollPhysics} from "./scrollPhysics";
 
-interface GridViewCountProps {
+export interface GridViewCountProps {
     key?: Key | undefined;
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
