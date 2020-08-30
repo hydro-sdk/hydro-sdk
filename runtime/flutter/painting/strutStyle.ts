@@ -6,7 +6,7 @@ import {List} from "../../dart/collection/list";
 
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
-interface StrutStyleProps {
+export interface StrutStyleProps {
     fontFamily?: string | undefined;
     fontFamilyFallback?: List<string> | undefined;
     fontSize?: number | undefined;

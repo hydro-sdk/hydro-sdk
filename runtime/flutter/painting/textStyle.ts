@@ -4,7 +4,7 @@ import {FontWeight} from "../../dart/ui/fontWeight";
 import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
 
-export interface TextStyleProps {
+export export interface TextStyleProps {
     fontSize?: number | undefined;
     color?: Color | undefined;
     fontWeight?: FontWeight | undefined;

@@ -7,7 +7,7 @@ import {Widget} from "../widget";
 
 import {ContextMenuPreviewBuilder} from "./contextMenuPreviewBuilder";
 
-interface CupertinoContextMenuProps {
+export interface CupertinoContextMenuProps {
     key?: Key | undefined;
     actions: List<Widget>;
     child: Widget;

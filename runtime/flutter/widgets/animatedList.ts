@@ -7,7 +7,7 @@ import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 import {GlobalKey} from "./globalKey";
 
-interface AnimatedListProps {
+export interface AnimatedListProps {
     key?: Key | GlobalKey<any> | undefined;
     initialItemCount: number;
     itemBuilder: (context: BuildContext, num: number, anim: any) => Widget;

@@ -7,7 +7,7 @@ import {Radius} from "../../dart/ui/radius";
 
 import {InputBorder} from "./inputBorder";
 
-interface OutlineInputBorderProps {
+export interface OutlineInputBorderProps {
     borderSide?: BorderSide | undefined;
     borderRadius?: BorderRadius | undefined;
     gapPadding?: number | undefined;

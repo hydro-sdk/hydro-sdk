@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {Color} from "./../../dart/ui/color";
 import {BorderStyle} from "./borderStyle";
 
-interface BorderSideProps {
+export interface BorderSideProps {
     color?: Color | undefined;
     width?: number | undefined;
     style?: BorderStyle | undefined;

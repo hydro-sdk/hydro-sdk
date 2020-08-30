@@ -6,7 +6,7 @@ import {Type} from "../../dart/core/type";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 import {Alignment} from "./alignment";
 
-interface LinearGradientProps {
+export interface LinearGradientProps {
     begin?: Alignment | undefined;
     end?: Alignment | undefined;
     colors: Array<Color>;

@@ -6,7 +6,7 @@ import {Type} from "../../dart/core/type";
 
 import {Key} from "./../foundation/key";
 
-interface CircularProgressIndicatorProps {
+export interface CircularProgressIndicatorProps {
     key?: Key | undefined;
     value?: number | undefined;
     backgroundColor?: Color | undefined;

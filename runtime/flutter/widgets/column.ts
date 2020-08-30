@@ -7,7 +7,7 @@ import {MainAxisAlignment} from "./mainAxisAlignment";
 import {MainAxisSize} from "./../rendering/mainAxisSize";
 import {CrossAxisAlignment} from "./../rendering/crossAxisAlignment";
 
-interface ColumnProps {
+export interface ColumnProps {
     mainAxisAlignment?: MainAxisAlignment | undefined;
     mainAxisSize?: MainAxisSize | undefined;
     crossAxisAlignment?: CrossAxisAlignment | undefined;

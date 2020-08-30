@@ -9,7 +9,7 @@ import {Color} from "./../../dart/ui/color";
 import {BoxDecoration} from "./../painting/boxDecoration";
 import {Key} from "./../foundation/key";
 
-interface ContainerProps {
+export interface ContainerProps {
     key?: Key | undefined;
     alignment?: Alignment|undefined;
     color?: Color | undefined;

@@ -4,7 +4,7 @@ import {Type} from "../../dart/core/type";
 
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
-interface IconDataProps {
+export interface IconDataProps {
     fontFamily: string;
     matchTextDirection?: boolean | undefined;
     fontPackage?: string | undefined;
