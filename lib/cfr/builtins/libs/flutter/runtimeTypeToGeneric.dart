@@ -3,7 +3,7 @@ import 'package:hydro_sdk/hydroState.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
-enum RuntimeTypes { AnimatedListState, Color }
+enum RuntimeTypes { AnimatedListState, Color, double }
 
 GlobalKey translateRTTIToGenericGlobalKey(
     {@required RuntimeTypes runtimeType}) {
@@ -12,6 +12,8 @@ GlobalKey translateRTTIToGenericGlobalKey(
       return GlobalKey<AnimatedListState>();
       break;
     case RuntimeTypes.Color:
+      break;
+    case RuntimeTypes.double:
       break;
   }
 
@@ -28,6 +30,8 @@ AlwaysStoppedAnimation translateRTTIToAlwaysStoppedAnimation(
     case RuntimeTypes.Color:
       return AlwaysStoppedAnimation<Color>(
           maybeUnBoxAndBuildArgument<Color>(value, parentState: luaState));
+      break;
+    case RuntimeTypes.double:
       break;
   }
   return null;

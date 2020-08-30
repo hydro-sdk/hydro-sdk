@@ -7,7 +7,7 @@ import {pauseInDebugger} from "../../dart/developer/debugger";
 import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
 
-interface SliverGridCountProps {
+export interface SliverGridCountProps {
     type: "count";
     key?: Key | undefined;
     crossAxisCount: number;
@@ -17,7 +17,7 @@ interface SliverGridCountProps {
     children?: List<Widget> | undefined;
 }
 
-interface SliverGridExtentProps {
+export interface SliverGridExtentProps {
 
     type: "extent";
     key?: Key | undefined;

@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 
-interface SizedBoxProps {
+export interface SizedBoxProps {
     key?: Key | undefined;
     width?: number | undefined;
     height?: number | undefined;

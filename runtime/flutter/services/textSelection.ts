@@ -9,7 +9,7 @@ import {TextStyle} from "./../../flutter/painting/textStyle";
 import {EdgeInsets} from "./../../flutter/painting/edgeInsets";
 import {BoxConstraints} from "./../../flutter/rendering/boxConstraints";
 
-interface TextSelectionProps {
+export interface TextSelectionProps {
     baseOffset: number;
     extentOffset: number;
     affinity?: TextAffinity | undefined;

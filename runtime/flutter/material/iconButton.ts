@@ -3,7 +3,7 @@ import {StatelessWidget} from "../widgets/statelessWidget";
 import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
 
-interface IconButtonProps {
+export interface IconButtonProps {
     icon: Widget;
     tooltip?: string | undefined;
     onPressed: () => void;

@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
 
-interface SpacerProps {
+export interface SpacerProps {
     key?: Key | undefined;
     flex?: number | undefined;
 }

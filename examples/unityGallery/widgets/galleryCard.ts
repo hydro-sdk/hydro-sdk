@@ -14,7 +14,7 @@ import {FontWeight} from "../../../runtime/dart/ui/fontWeight";
 import {IconData} from "../../../runtime/flutter/widgets/iconData";
 import {GestureDetector} from "../../../runtime/flutter/widgets/gestureDetector";
 
-interface GalleryCardProps {
+export interface GalleryCardProps {
     name: string;
     onTap: () => void;
     icon: IconData;

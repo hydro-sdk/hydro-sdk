@@ -6,7 +6,7 @@ import {HitTestBehavior} from "./../rendering/hitTestBehavior";
 import {StatelessWidget} from "./statelessWidget";
 
 
-interface GestureDetectorProps {
+export interface GestureDetectorProps {
     behavior?: HitTestBehavior | undefined;
     child?: Widget | undefined;
     onTap: () => void;

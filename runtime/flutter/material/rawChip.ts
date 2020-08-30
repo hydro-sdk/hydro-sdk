@@ -13,7 +13,7 @@ import {MaterialTapTargetSize} from "./materialTapTargetSize";
 import {kDefaultDeleteIcon} from "./constants";
 
 
-interface RawChipProps {
+export interface RawChipProps {
     key?: Key | undefined;
     avatar?: Widget | undefined;
     label: Widget;

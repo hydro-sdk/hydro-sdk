@@ -10,7 +10,7 @@ import {TextDirection} from "./../../dart/ui/textDirection";
 import {VerticalDirection} from "./../painting/verticalDirection";
 import {Key} from "./../foundation/key";
 
-interface RowProps {
+export interface RowProps {
     key?: Key | undefined;
     mainAxisAlignment?: MainAxisAlignment | undefined;
     mainAxisSize?: MainAxisSize | undefined;

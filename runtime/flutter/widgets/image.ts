@@ -15,7 +15,7 @@ import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
 
 
-interface ImageProps {
+export interface ImageProps {
     image: ImageProvider;
     key?: Key | undefined;
     scale?: number | undefined;

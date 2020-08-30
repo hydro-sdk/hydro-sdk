@@ -4,7 +4,7 @@ import {JITAllocatingRTManagedBox} from "../../syntheticBox";
 import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
 
-interface SliverChildBuilderDelegateProps {
+export interface SliverChildBuilderDelegateProps {
     childCount?: number | undefined;
     addAutomaticKeepAlives?: boolean | undefined;
     addRepaintBoundaries?: boolean | undefined;

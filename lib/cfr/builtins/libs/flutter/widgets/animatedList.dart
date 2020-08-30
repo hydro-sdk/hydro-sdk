@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
@@ -15,11 +16,16 @@ void loadAnimatedList(
         initialItemCount: maybeUnBoxAndBuildArgument<Widget>(
             args[0]["initialItemCount"],
             parentState: luaState),
-        itemBuilder: (BuildContext context, int num, Animation anim) {
+        itemBuilder: (BuildContext context, int num, Animation<double> anim) {
           Closure closure = args[0]["itemBuilder"];
           return maybeUnBoxAndBuildArgument<Widget>(
-              closure.dispatch([null, context, num, anim],
-                  parentState: luaState)[0],
+              closure.dispatch([
+                null,
+                context,
+                num,
+                maybeBoxObject<Animation<double>>(
+                    object: anim, hydroState: luaState, table: HydroTable())
+              ], parentState: luaState)[0],
               parentState: luaState);
         },
       )
