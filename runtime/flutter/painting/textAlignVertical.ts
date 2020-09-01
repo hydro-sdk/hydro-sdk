@@ -4,7 +4,7 @@ import {Type} from "../../dart/core/type";
 
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 
-interface TextAlignVerticalProps {
+export interface TextAlignVerticalProps {
     y: number;
 }
 

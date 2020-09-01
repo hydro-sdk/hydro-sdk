@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 import {RuntimeBaseClass} from "./../../runtimeBaseClass";
 
-interface FlatButtonProps {
+export interface FlatButtonProps {
     child: Widget;
     onPressed: (this: void) => void;
 }

@@ -3,7 +3,7 @@ import {Type} from "../../dart/core/type";
 
 import {ImageProvider} from "./imageProvider";
 
-interface ResizeImageProps {
+export interface ResizeImageProps {
     width?: number | undefined;
     height?: number | undefined;
 }

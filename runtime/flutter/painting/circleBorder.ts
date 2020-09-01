@@ -4,7 +4,7 @@ import {Type} from "../../dart/core/type";
 
 import {BorderSide} from "./borderSide";
 
-interface CircleBorderProps {
+export interface CircleBorderProps {
     side?: BorderSide | undefined;
 }
 

@@ -213,7 +213,7 @@ class ListModel<E>
     }
 }
 
-interface CardItemProps {
+export interface CardItemProps {
     animation: Animation<number>;
     onTap: () => void;
     item: number;

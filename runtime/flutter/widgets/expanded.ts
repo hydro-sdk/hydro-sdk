@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
 
-interface ExpandedProps {
+export interface ExpandedProps {
     key?: Key | undefined;
     flex?: number | undefined;
     child: Widget;

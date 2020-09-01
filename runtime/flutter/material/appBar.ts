@@ -6,7 +6,7 @@ import {Color} from "../../dart/ui/color";
 import {Widget} from "./../widget";
 import {PreferredSize} from "./../widgets/preferredSize";
 
-interface AppBarProps {
+export interface AppBarProps {
     title: Widget;
     actions?: Array<Widget> | undefined;
     leading?: Widget | undefined;

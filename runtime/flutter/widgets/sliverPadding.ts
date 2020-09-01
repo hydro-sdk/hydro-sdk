@@ -6,7 +6,7 @@ import {Key} from "./../foundation/key";
 import {EdgeInsets} from "./../painting/edgeInsets";
 import {StatelessWidget} from "./statelessWidget";
 
-interface SliverPaddingProps {
+export interface SliverPaddingProps {
     key?: Key | undefined;
     sliver: Widget;
     padding: EdgeInsets;

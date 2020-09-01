@@ -8,7 +8,7 @@ import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 import {Widget} from "./../widget";
 
-interface StackProps {
+export interface StackProps {
     key?: Key | undefined;
     textDirection?: TextDirection | undefined;
     fit?: StackFit | undefined;

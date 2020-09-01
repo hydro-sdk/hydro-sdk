@@ -9,7 +9,9 @@ void loadSizeTransition(
   table["sizeTransition"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       SizeTransition(
-        sizeFactor: args[0]["sizeFactor"],
+        sizeFactor: maybeUnBoxAndBuildArgument<Animation<double>>(
+            args[0]["sizeFactor"],
+            parentState: luaState),
         axis: Axis.values.firstWhere((x) => x.index == args[0]["axis"]),
         child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),

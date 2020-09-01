@@ -26,13 +26,13 @@
     "@types/clear": "^0.1.0",
     "@types/cli-progress": "^3.7.0",
     "@types/colors": "^1.2.1",
-    "@types/jest": "^26.0.3",
+    "@types/jest": "^26.0.9",
     "@types/luaparse": "^0.2.6",
     "@types/minimist": "^1.2.0",
     "@types/node": "^13.13.15",
     "@types/rimraf": "^2.0.3",
     "@types/source-map": "^0.5.7",
-    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^1.10.2",
     "browserify": "^16.5.1",
     "chalk": "^3.0.0",
@@ -53,9 +53,9 @@
     "serve-handler": "^6.1.3",
     "source-map": "^0.7.3",
     "ts-jest": "^26.1.1",
-    "typedoc": "^0.17.0-3",
-    "typedoc-neo-theme": "^1.0.8",
-    "typescript": "^3.9.7",
+    "typedoc": "0.17.0-3",
+    "typedoc-neo-theme": "1.0.8",
+    "typescript": "3.9.7",
     "typescript-to-lua": "0.34.0"
   }
 }

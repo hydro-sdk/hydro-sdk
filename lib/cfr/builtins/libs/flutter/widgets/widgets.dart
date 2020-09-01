@@ -11,6 +11,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/column.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/container.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/customScrollView.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/expanded.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/fittedBox.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/flexible.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/gestureDetector.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/globalKey.dart';
@@ -100,4 +101,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadAlwaysScrollableScrollPhysics(hydroState: luaState, table: widgets);
   loadNeverScrollableScrollPhysics(hydroState: luaState, table: widgets);
   loadClampingScrollPhysics(hydroState: luaState, table: widgets);
+  loadFittedBox(luaState: luaState, table: widgets);
 }

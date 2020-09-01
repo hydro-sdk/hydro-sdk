@@ -26,7 +26,7 @@ import {SmartQuotesType} from "./../services/smartQuotesType";
 import {InputDecoration} from "./inputDecoration";
 import {InputCounterWidgetBuilder} from "./inputCounterWidgetBuilder";
 
-interface TextFormFieldProps {
+export interface TextFormFieldProps {
     key?: Key | undefined;
     controller?: TextEditingController | undefined;
     initialValue?: string | undefined;

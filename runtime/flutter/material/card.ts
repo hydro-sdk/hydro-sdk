@@ -5,7 +5,7 @@ import {Type} from "../../dart/core/type";
 import {StatelessWidget} from "./../widgets/statelessWidget";
 import {Color} from "./../../dart/ui/color";
 
-interface CardProps {
+export interface CardProps {
     borderOnForeground?: boolean | undefined;
     color?: Color | undefined;
     child: Widget;
