@@ -11,7 +11,7 @@ import {Type} from "../../dart/core/type";
 
 import {StatelessWidget} from "./statelessWidget";
 
-interface RichTextProps {
+export interface RichTextProps {
     key?: Key | undefined;
     text: InlineSpan;
     textAlign?: TextAlign | undefined;

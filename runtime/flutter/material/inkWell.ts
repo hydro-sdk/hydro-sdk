@@ -8,7 +8,7 @@ import {Type} from "../../dart/core/type";
 import {Key} from "./../foundation/key";
 
 
-interface InkWellProps {
+export interface InkWellProps {
     key?: Key | undefined;
     child: Widget;
     onTap: () => void;

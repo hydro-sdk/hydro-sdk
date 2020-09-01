@@ -10,7 +10,7 @@ import {Clip} from "./../../flutter/painting/clip";
 import {MaterialTapTargetSize} from "./materialTapTargetSize";
 import {RawChip} from "./rawChip";
 
-interface FilterChipProps {
+export interface FilterChipProps {
     key?: Key | undefined;
     avatar?: Widget | undefined;
     label: Widget;

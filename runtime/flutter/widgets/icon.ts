@@ -6,7 +6,7 @@ import {Type} from "../../dart/core/type";
 import {StatelessWidget} from "./statelessWidget";
 import {IconData} from "./iconData";
 
-interface IconProps {
+export interface IconProps {
     size?: number | undefined;
     color?: Color | undefined;
 }

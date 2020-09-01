@@ -2,7 +2,7 @@ import {Radius} from "../../dart/ui/radius";
 import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
 
-interface BorderRadiusProps {
+export interface BorderRadiusProps {
     topLeft: Radius;
     topRight: Radius;
     bottomLeft: Radius;

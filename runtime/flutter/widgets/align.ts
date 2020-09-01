@@ -7,7 +7,7 @@ import {Alignment} from "./../painting/alignment";
 import {Key} from "./../foundation/key";
 
 
-interface AlignProps {
+export interface AlignProps {
     key?: Key | undefined;
     alignment?: Alignment | undefined;
     widthFactor?: number | undefined;

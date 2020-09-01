@@ -10,7 +10,7 @@ import { CupertinoIcons } from "../../runtime/flutter/cupertino/cupertinoIcons";
 import { MaterialApp } from "../../runtime/flutter/material/materialApp";
 import { TextStyle } from "../../runtime/flutter/painting/textStyle";
 
-interface MyCustomWidgetProps {
+export interface MyCustomWidgetProps {
     key: Key;
     color: Color;
     icon: Icon;

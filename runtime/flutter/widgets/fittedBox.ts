@@ -8,7 +8,7 @@ import {StatelessWidget} from "./statelessWidget";
 import {Key} from "./../foundation/key";
 
 
-interface FittedBoxProps {
+export interface FittedBoxProps {
     key?: Key | undefined;
     fit?: BoxFit | undefined;
     alignment?: Alignment | undefined;

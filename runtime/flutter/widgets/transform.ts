@@ -7,7 +7,7 @@ import {Alignment} from "./../painting/alignment";
 import {Key} from "./../foundation/key";
 import {StatelessWidget} from "./statelessWidget";
 
-interface TransformRotateProps {
+export interface TransformRotateProps {
     key?: Key | undefined;
     angle?: number | undefined;
     origin?: Offset | undefined;
@@ -18,7 +18,7 @@ interface TransformRotateProps {
 
 type TransformRotateInner = TransformRotateProps & { transformType: "rotate" };
 
-interface TransformTranslateProps {
+export interface TransformTranslateProps {
     key?: Key | undefined;
     offset: Offset | undefined;
     transformHitTests?: boolean | undefined;
@@ -27,7 +27,7 @@ interface TransformTranslateProps {
 
 type TransformTranslateInner = TransformTranslateProps & { transformType: "translate" };
 
-interface TransformScaleProps {
+export interface TransformScaleProps {
     key?: Key | undefined;
     scale: number;
     origin?: Offset | undefined;

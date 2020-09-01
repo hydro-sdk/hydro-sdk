@@ -3,7 +3,7 @@ import {Type} from "../../dart/core/type";
 import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
 import {ImageProvider} from "./imageProvider";
 
-interface NetworkImageProps {
+export interface NetworkImageProps {
     scale: number;
 }
 

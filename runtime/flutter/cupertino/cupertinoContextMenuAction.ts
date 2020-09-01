@@ -6,7 +6,7 @@ import {Widget} from "../widget";
 import {VoidCallback} from "../../dart/ui/voidCallback";
 import {IconData} from "../widgets/iconData";
 
-interface CupertinoContextMenuActionProps {
+export interface CupertinoContextMenuActionProps {
     key?: Key | undefined;
     child: Widget;
     isDefaultAction?: boolean | undefined;

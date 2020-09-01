@@ -1,6 +1,6 @@
 import {ScrollPhysics} from "./scrollPhysics";
 
-interface BouncingScrollPhysicsProps {
+export interface BouncingScrollPhysicsProps {
     parent?: ScrollPhysics | undefined;
 }
 

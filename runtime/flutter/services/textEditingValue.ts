@@ -5,7 +5,7 @@ import {TextRange} from "../../dart/ui/textRange";
 
 import {TextSelection} from "./textSelection";
 
-interface TextEditingValueProps {
+export interface TextEditingValueProps {
     text?: string | undefined;
     selection?: TextSelection | undefined;
     composing?: TextRange | undefined;
