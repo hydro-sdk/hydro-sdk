@@ -8,9 +8,9 @@ import { ValueChanged } from "../foundation/valueChanged";
 import { StatelessWidget } from "../widgets/statelessWidget";
 import { BottomNavigationBarItem } from "../widgets/bottomNavigationBarItem";
 import { Border } from "../painting/border";
-import { kDefaultTabBarInactiveColor, kDefaultTabBarBorderColor } from "./constants";
 import { BorderSide } from "../painting/borderSide";
 import { BorderStyle } from "../painting/borderStyle";
+import { kDefaultTabBarInactiveColor, kDefaultTabBarBorderColor } from "./constants";
 
 export interface CupertinoTabBarProps {
     key?: Key | undefined;
