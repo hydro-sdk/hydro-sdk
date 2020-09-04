@@ -30,7 +30,7 @@ declare const flutter: {
     }
 }
 
-class CupertinoTabBar extends StatelessWidget implements RuntimeBaseClass {
+export class CupertinoTabBar extends StatelessWidget implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(CupertinoTabBar);
     public props: CupertinoTabBarProps;
     public constructor(props: CupertinoTabBarProps) {
