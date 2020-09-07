@@ -16,7 +16,12 @@ export class CupertinoTabController {
 
     public constructor(props?: CupertinoTabControllerProps | undefined) {
         this.props = props;
-        if (this?.props?.initialIndex === undefined) {
+
+        if (this.props === undefined) {
+            this.props = {};
+        }
+
+        if (this.props.initialIndex === undefined) {
             this.props.initialIndex = 0;
         }
 
