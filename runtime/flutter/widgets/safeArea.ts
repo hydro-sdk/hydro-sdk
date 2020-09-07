@@ -4,6 +4,7 @@ import {Type} from "../../dart/core/type";
 import {EdgeInsets} from "./../painting/edgeInsets";
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./statelessWidget";
+
 export interface SafeAreaProps {
     left?: boolean | undefined;
     top?: boolean | undefined;
