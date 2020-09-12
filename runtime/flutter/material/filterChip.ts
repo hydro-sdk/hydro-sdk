@@ -22,13 +22,13 @@ export interface FilterChipProps {
     disabledColor?: Color | undefined;
     selectedColor?: Color | undefined;
     tooltip?: string | undefined;
-    //shape
+    //@todo FilterChipProps#shape : ShapeBorder
     clipBehavior?: Clip | undefined;
-    //focusNode
+    //@todo FilterChipProps#focusNode : FocusNode
     autofocus?: boolean | undefined;
     backgroundColor?: Color | undefined;
     padding?: EdgeInsets | undefined;
-    //visualDensity
+    //@todo FilterChipProps#visualDensity : VisualDensity
     materialTapTargetSize?: MaterialTapTargetSize | undefined;
     elevation?: number | undefined;
     shadowColor?: Color | undefined;

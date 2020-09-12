@@ -19,7 +19,7 @@ export interface RawChipProps {
     label: Widget;
     labelStyle?: TextStyle | undefined;
     padding?: EdgeInsets | undefined;
-    //visualDensity
+    //@todo RawChipProps#visualDensity : VisualDensity
     labelPadding?: EdgeInsets | undefined;
     deleteIcon?: Widget | undefined;
     onDeleted?: () => void | undefined;
@@ -34,9 +34,9 @@ export interface RawChipProps {
     disabledColor?: Color | undefined;
     selectedColor?: Color | undefined;
     tooltip?: string | undefined;
-    //shape
+    //@todo RawChipProps#shape : ShapeBorder
     clipBehavior?: Clip | undefined;
-    //focusNode
+    //@todo RawChipProps#focusNode : FocusNode
     autofocus?: boolean | undefined;
     backgroundColor?: Color | undefined;
     materialTapTargetSize?: MaterialTapTargetSize | undefined;
