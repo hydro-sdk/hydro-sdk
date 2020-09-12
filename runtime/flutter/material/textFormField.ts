@@ -30,9 +30,9 @@ export interface TextFormFieldProps {
     key?: Key | undefined;
     controller?: TextEditingController | undefined;
     initialValue?: string | undefined;
-    // focusNode
+    //@todo TextFormFieldProps#focusNode : FocusNode
     decoration?: InputDecoration | undefined;
-    // keyboardType
+    //@todo TextFormFieldProps#leyboardType : TextInputType
     textCapitalization?: TextCapitalization | undefined;
     textInputAction?: TextInputAction | undefined;
     style?: TextStyle | undefined;
@@ -61,7 +61,7 @@ export interface TextFormFieldProps {
     onFieldSubmitted?: ValueChanged<string> | undefined;
     onSaved?: FormFieldSetter<string> | undefined;
     validator?: FormFieldValidator<string> | undefined;
-    // inputFormatters
+    //@todo TextFormFieldProps#inputFormatters : List<TextInputFormatter>
     enabled?: boolean | undefined;
     cursorWidth?: number | undefined;
     cursorRadius?: Radius | undefined;
@@ -70,7 +70,7 @@ export interface TextFormFieldProps {
     scrollPadding?: EdgeInsets | undefined;
     enableInteractiveSelection?: boolean | undefined;
     buildCounter?: InputCounterWidgetBuilder | undefined;
-    //  scrollPhysics
+    //@todo TextFormFieldProps#scrollPhysics : ScrollPhysics
 }
 
 declare const flutter: {
