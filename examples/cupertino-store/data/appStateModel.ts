@@ -19,4 +19,8 @@ export class AppStateModel extends ChangeNotifier {
             return this.availableProducts.where((x) => x.category == this.selectedCategory);
         }
     }
+
+    public search(searchTerm: string) {
+        return this.getProducts().where((x) => x.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
 }
