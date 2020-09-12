@@ -17,6 +17,7 @@ import { Expanded } from "../../runtime/flutter/widgets/expanded";
 import { ListView } from "../../runtime/flutter/widgets/listView";
 import { SizedBox } from "../../runtime/flutter/widgets/sizedBox";
 import { BoxDecoration } from "../../runtime/flutter/painting/boxDecoration";
+import { BuildContext } from "../../runtime/flutter/buildContext";
 
 export class SearchTab extends StatefulWidget {
     public createState = () => new SearchTabState();
@@ -32,6 +33,10 @@ class SearchTabState extends State<SearchTab>{
         this.controller = new TextEditingController();
         this.focusNode = new FocusNode();
         this.controller.addListener(() => this.onTextChanged());
+    }
+
+    public initState() {
+
     }
 
     public dispose() {
@@ -52,7 +57,7 @@ class SearchTabState extends State<SearchTab>{
         });
     }
 
-    public build(context) {
+    public build(context: BuildContext) {
         const model = ScopedModel.of<AppStateModel>(context, AppStateModel.staticType);
         let products: List<Product> | undefined;
         if (model) {
