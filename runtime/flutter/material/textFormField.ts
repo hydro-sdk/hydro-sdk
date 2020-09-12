@@ -32,7 +32,7 @@ export interface TextFormFieldProps {
     initialValue?: string | undefined;
     //@todo TextFormFieldProps#focusNode : FocusNode
     decoration?: InputDecoration | undefined;
-    //@todo TextFormFieldProps#leyboardType : TextInputType
+    //@todo TextFormFieldProps#keyboardType : TextInputType
     textCapitalization?: TextCapitalization | undefined;
     textInputAction?: TextInputAction | undefined;
     style?: TextStyle | undefined;
