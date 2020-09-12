@@ -56,7 +56,7 @@ export class TextSelection extends JITAllocatingRTManagedBox<TextSelectionProps,
             affinity: props.affinity
         });
     }
-    //fromPosition
+    //@todo TextSelection#fromPosition : (position : TextPosition) => TextSelection
 
     public unwrap() 
     {
