@@ -117,7 +117,6 @@ export class SliverGrid extends StatelessWidget implements RuntimeBaseClass
 
     public build() 
     {
-        // pauseInDebugger(this);
         switch (this.props.type) 
         {
         case "count":
