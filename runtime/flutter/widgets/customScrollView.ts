@@ -13,7 +13,7 @@ export interface CustomScrollViewProps {
     key?: Key | undefined;
     scrollDirection?: Axis | undefined;
     reverse?: boolean | undefined;
-    //controller
+    //@todo CustomScrollViewProps#controller : ScrollController
     physics?: ScrollPhysics|undefined;
     shrinkWrap?: boolean | undefined;
     center?: Key | undefined;
