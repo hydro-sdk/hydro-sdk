@@ -20,6 +20,7 @@ import { ScopedModel } from "../../runtime/scopedModel/scopedModel";
 import { AppStateModel } from "./data/appStateModel";
 import { Icon } from "../../runtime/flutter/widgets/icon";
 import { CupertinoIcons } from "../../runtime/flutter/cupertino/cupertinoIcons";
+import { Styles } from "./styles";
 
 export class ProductRowItem extends StatelessWidget {
     private product: Product;
@@ -67,11 +68,11 @@ export class ProductRowItem extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                             new Text(this.product.name, {
-                                                //todo
+                                                style: Styles.productRowItemName,
                                             }),
                                             new Padding({ padding: EdgeInsets.only({ top: 8 }) }),
                                             new Text(`\$${this.product.price}`, {
-                                                //todo
+                                                style: Styles.productRowItemPrice,
                                             })
                                         ]
                                     })
@@ -97,7 +98,7 @@ export class ProductRowItem extends StatelessWidget {
                     }),
                     child: new Container({
                         height: 1,
-                        //todo
+                        color: Styles.productRowDivider,
                     })
                 })
             ]

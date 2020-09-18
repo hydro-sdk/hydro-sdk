@@ -15,9 +15,10 @@ import { SafeArea } from "../../runtime/flutter/widgets/safeArea";
 import { Column } from "../../runtime/flutter/widgets/column";
 import { Expanded } from "../../runtime/flutter/widgets/expanded";
 import { ListView } from "../../runtime/flutter/widgets/listView";
-import { SizedBox } from "../../runtime/flutter/widgets/sizedBox";
 import { BoxDecoration } from "../../runtime/flutter/painting/boxDecoration";
 import { BuildContext } from "../../runtime/flutter/buildContext";
+import { ProductRowItem } from "./productRowItem";
+import { SearchBar } from "./searchBar";
 
 export class SearchTab extends StatefulWidget {
     public createState = () => new SearchTabState();
@@ -53,7 +54,10 @@ class SearchTabState extends State<SearchTab>{
     private buildSearchBox() {
         return new Padding({
             padding: EdgeInsets.all(8),
-
+            child: new SearchBar({
+                controller: this.controller,
+                focusNode: this.focusNode,
+            })
         });
     }
 
@@ -74,7 +78,11 @@ class SearchTabState extends State<SearchTab>{
                         this.buildSearchBox(),
                         new Expanded({
                             child: ListView.builder({
-                                itemBuilder: (_, index) => new SizedBox({})
+                                itemBuilder: (_, index) => new ProductRowItem({
+                                    index: index,
+                                    product: products?.elementAt(index)!,
+                                    lastItem: index == products?.length()! - 1
+                                })
                             })
                         })
                     ]

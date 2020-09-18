@@ -10,8 +10,10 @@ import { EdgeInsets } from "../../runtime/flutter/painting/edgeInsets";
 import { Row } from "../../runtime/flutter/widgets/row";
 import { Icon } from "../../runtime/flutter/widgets/icon";
 import { CupertinoIcons } from "../../runtime/flutter/cupertino/cupertinoIcons";
+import { CupertinoTextField } from "../../runtime/flutter/cupertino/cupertinoTextField";
 import { Expanded } from "../../runtime/flutter/widgets/expanded";
 import { SizedBox } from "../../runtime/flutter/widgets/sizedBox";
+import { GestureDetector } from "../../runtime/flutter/widgets/gestureDetector";
 
 
 export class SearchBar extends StatelessWidget {
@@ -44,10 +46,21 @@ export class SearchBar extends StatelessWidget {
                             color: Styles.searchIconColor,
                         }),
                         new Expanded({
-                            child: new SizedBox({})
+                            child: new CupertinoTextField({
+                                controller: this.controller,
+                                focusNode: this.focusNode,
+                                style: Styles.searchText,
+                                cursorColor: Styles.searchCursorColor,
+                            })
+                        }),
+                        new GestureDetector({
+                            onTap: () => this.controller.setText(""),
+                            child: new Icon(CupertinoIcons.clear_thick_circled, {
+                                color: Styles.searchIconColor
+                            })
                         })
                     ]
-                }
+                })
             })
         })
     }
