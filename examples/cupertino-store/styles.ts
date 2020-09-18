@@ -6,14 +6,14 @@ import { TextStyle } from "../../runtime/flutter/painting/textStyle";
 
 export const Styles = {
     productRowItemName: new TextStyle({
-        color: Color.fromRGBO(0, 0, 0, 0.8),
+        color: Color.fromARGB(204, 0, 0, 0),
         fontSize: 18,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.normal,
     }),
 
     productRowTotal: new TextStyle({
-        color: Color.fromRGBO(0, 0, 0, 0.8),
+        color: Color.fromARGB(204, 0, 0, 0),
         fontSize: 18,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.bold,
@@ -26,7 +26,7 @@ export const Styles = {
     }),
 
     searchText: new TextStyle({
-        color: Color.fromRGBO(0, 0, 0, 1),
+        color: Color.fromARGB(255, 0, 0, 0),
         fontSize: 14,
         fontStyle: FontStyle.normal,
         fontWeight: FontWeight.normal,
@@ -47,7 +47,7 @@ export const Styles = {
 
     searchBackground: new Color(0xffe0e0e0),
 
-    searchCursorColor: Color.fromRGBO(0, 122, 255, 1),
+    searchCursorColor: Color.fromARGB(255, 0, 122, 255),
 
-    searchIconColor: Color.fromRGBO(128, 128, 128, 1),
+    searchIconColor: Color.fromARGB(255, 128, 128, 128),
 }

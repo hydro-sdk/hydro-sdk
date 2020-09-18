@@ -24,12 +24,14 @@ export class Color extends JITAllocatingRTManagedBox<undefined, Color> implement
             ((b & 0xff) << 0)) & 0xFFFFFFFF);
     }
 
-    public static fromRGBO(r: number, g: number, b: number, opacity: number) {
-        return new Color((((((opacity * 0xff / 1)) & 0xff) << 24) |
-            ((r & 0xff) << 16) |
-            ((g & 0xff) << 8) |
-            ((b & 0xff) << 0)) & 0xFFFFFFFF);
-    }
+    //@todo Color:fromRGBO(r number,g : number, b : number, opacity : number) : Color
+    //  We need a round division like Dart's ~/ operator
+    // public static fromRGBO(r: number, g: number, b: number, opacity: number) {
+    //     return new Color((((((opacity * 0xff / 1)) & 0xff) << 24) |
+    //         ((r & 0xff) << 16) |
+    //         ((g & 0xff) << 8) |
+    //         ((b & 0xff) << 0)) & 0xFFFFFFFF);
+    // }
 
     public unwrap(): Color {
         return dart.ui.color(this.hex);
