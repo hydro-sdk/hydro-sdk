@@ -1,3 +1,5 @@
+
+import { JITAllocatingRTManagedBox } from "../../syntheticBox";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { Type } from "../../dart/core/type";
 import { Color } from "../../dart/ui/color";
@@ -5,12 +7,12 @@ import { List } from "../../dart/collection/list";
 import { Key } from "../foundation/key";
 import { ValueChanged } from "../foundation/valueChanged";
 
-import { StatelessWidget } from "../widgets/statelessWidget";
 import { BottomNavigationBarItem } from "../widgets/bottomNavigationBarItem";
 import { Border } from "../painting/border";
 import { BorderSide } from "../painting/borderSide";
 import { BorderStyle } from "../painting/borderStyle";
 import { kDefaultTabBarInactiveColor, kDefaultTabBarBorderColor } from "./constants";
+
 
 export interface CupertinoTabBarProps {
     key?: Key | undefined;
@@ -30,7 +32,7 @@ declare const flutter: {
     }
 }
 
-export class CupertinoTabBar extends StatelessWidget implements RuntimeBaseClass {
+export class CupertinoTabBar extends JITAllocatingRTManagedBox<CupertinoTabBarProps, CupertinoTabBar> implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(CupertinoTabBar);
     public props: CupertinoTabBarProps;
     public constructor(props: CupertinoTabBarProps) {
@@ -61,7 +63,7 @@ export class CupertinoTabBar extends StatelessWidget implements RuntimeBaseClass
         }
     }
 
-    public build() {
+    public unwrap() {
         return flutter.cupertino.cupertinoTabBar(this.props);
     }
 }
