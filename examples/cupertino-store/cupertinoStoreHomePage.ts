@@ -10,6 +10,7 @@ import { Icon } from "../../runtime/flutter/widgets/icon";
 import { Text } from "../../runtime/flutter/widgets/text";
 import { SizedBox } from "../../runtime/flutter/widgets/sizedBox";
 import { ProductListTab } from "./productListTab";
+import { SearchTab } from "./searchTab";
 
 export class CupertinoStoreHomePage extends StatelessWidget {
 
@@ -44,7 +45,7 @@ export class CupertinoStoreHomePage extends StatelessWidget {
                     case 1:
                         returnValue = new CupertinoTabView({
                             builder: () => new CupertinoPageScaffold({
-                                child: new SizedBox({})
+                                child: new SearchTab()
                             })
                         });
                         break;
