@@ -47,10 +47,10 @@ export class FocusNode {
 
     public constructor(props?: FocusNodeProps) {
         if (props !== undefined) {
-            this.debugLabel = props.debugLabel;
-            this.skipTraversal = props.skipTraversal;
-            this.canRequestFocus = props.canRequestFocus;
-            this.descendantsAreFocusable = props.descendantsAreFocusable;
+            this.debugLabel = props.debugLabel ?? "";
+            this.skipTraversal = props.skipTraversal ?? false;
+            this.canRequestFocus = props.canRequestFocus ?? true;
+            this.descendantsAreFocusable = props.descendantsAreFocusable ?? true;
         }
 
         flutter.widgets.focusNode(this);
