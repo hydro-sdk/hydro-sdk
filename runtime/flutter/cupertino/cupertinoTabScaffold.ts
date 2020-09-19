@@ -29,6 +29,10 @@ export class CupertinoTabScaffold extends StatelessWidget implements RuntimeBase
     public constructor(props: CupertinoTabScaffoldProps) {
         super();
         this.props = props;
+
+        if (this.props.resizeToAvoidBottomInset === undefined) {
+            this.props.resizeToAvoidBottomInset = true;
+        }
     }
 
     public build() {
