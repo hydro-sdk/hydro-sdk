@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/alignment.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/border.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/borderRadius.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/borderSide.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/boxDecoration.dart';
@@ -31,4 +32,5 @@ void loadPainting({@required HydroState luaState, @required HydroTable table}) {
   loadBorderSide(luaState: luaState, table: painting);
   loadStrutStyle(luaState: luaState, table: painting);
   loadTextAlignVertical(luaState: luaState, table: painting);
+  loadBorder(luaState: luaState, table: painting);
 }
