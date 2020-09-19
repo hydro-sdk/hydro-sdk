@@ -5,6 +5,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoContextMe
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoPageScaffold.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabBar.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabScaffold.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabView.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
@@ -22,4 +23,5 @@ void loadCupertino(
   loadCupertinoPageScaffold(luaState: luaState, table: cupertino);
   loadCupertinoTabScaffold(luaState: luaState, table: cupertino);
   loadCupertinoTabBar(luaState: luaState, table: cupertino);
+  loadCupertinoTabView(luaState: luaState, table: cupertino);
 }
