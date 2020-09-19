@@ -8,12 +8,12 @@ import { WidgetBuilder } from "../widgets/widgetBuilder";
 export interface CupertinoTabViewProps {
     key?: Key | undefined;
     builder?: WidgetBuilder;
-    //navigatorKey
+    //@todo CupertinoTabViewProps#navigatorKey : GlobalKey<NavigatorState>
     defaultTitle?: string | undefined;
     routes?: { [i: string]: WidgetBuilder } | undefined;
-    //onGenerateRoute
-    //onUnkownRoute
-    //navigatorObservers
+    //@todo CupertinoTabViewProps#onGenerateRoute : RouteFactory
+    //@todo CupertinoTabViewProps#onUnkownRoute : RouteFactory
+    //@todo CupertinoTabViewProps#navigatorObservers : List<NavigatorObserver>
 }
 
 declare const flutter: {
