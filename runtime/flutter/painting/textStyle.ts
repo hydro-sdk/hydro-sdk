@@ -43,6 +43,10 @@ export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextSty
     public constructor(props: TextStyleProps) {
         super();
         this.props = props;
+
+        if (this.props.inherit === undefined) {
+            this.props.inherit = true;
+        }
     }
 
     public copyWith(props: { color: Color }): TextStyle {
