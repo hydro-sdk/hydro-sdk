@@ -18,14 +18,18 @@ void loadCupertinoTabScaffold(
         tabBuilder: (context, index) {
           Closure closure = args[0]["tabBuilder"];
           if (closure != null) {
-            var res = closure.dispatch([
-              maybeBoxObject(
-                object: context,
-                hydroState: luaState,
-                table: HydroTable(),
-              ),
-              index
-            ], parentState: luaState);
+            var res = closure.dispatch(
+              [
+                maybeBoxObject(
+                  object: context,
+                  hydroState: luaState,
+                  table: HydroTable(),
+                ),
+                index
+              ],
+              parentState: luaState,
+              resetEnclosingLexicalEnvironment: true,
+            );
 
             return maybeUnBoxAndBuildArgument<Widget>(res[0],
                 parentState: luaState);
