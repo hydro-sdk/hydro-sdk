@@ -3,6 +3,7 @@ import { Type } from "../../../runtime/dart/core/type";
 import { Category } from "./category";
 import { List } from "../../../runtime/dart/collection/list";
 import { Product } from "./product";
+import { ProductsRepository } from "./productRepository";
 
 export class AppStateModel extends ChangeNotifier {
     public static staticType = new Type(AppStateModel);
@@ -22,5 +23,9 @@ export class AppStateModel extends ChangeNotifier {
 
     public search(searchTerm: string) {
         return this.getProducts().where((x) => x.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
+
+    public loadProducts() {
+        this.availableProducts = ProductsRepository.loadProducts(this.selectedCategory);
     }
 }

@@ -21,5 +21,5 @@ export class Product {
         this.price = props.price;
     }
 
-    public assetName = () => `${this.id}-0.jpg`;
+    public assetName = () => `https://raw.githubusercontent.com/material-components/material-components-flutter-codelabs-packages/develop/shrine_images/lib/${this.id}-0.jpg`;
 }

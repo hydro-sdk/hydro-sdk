@@ -271,8 +271,8 @@ const allProducts = [
     }),
 ];
 
-class ProductsRepository {
-    static loadProduct(category: Category): List<Product> {
+export class ProductsRepository {
+    static loadProducts(category: Category): List<Product> {
         if (category == Category.all) {
             return List.fromArray(allProducts);
         }
