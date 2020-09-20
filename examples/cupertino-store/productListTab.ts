@@ -28,7 +28,7 @@ export class ProductListTab extends StatelessWidget {
                                 minimum: EdgeInsets.only({ top: 8 }),
                                 sliver: new SliverList({
                                     delegate: new SliverChildBuilderDelegate((_, index) => {
-                                        return new SizedBox({});
+                                        return undefined;
                                     })
                                 })
                             })
