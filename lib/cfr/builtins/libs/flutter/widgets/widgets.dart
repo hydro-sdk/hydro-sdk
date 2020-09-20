@@ -2,6 +2,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/align.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/alwaysScrollableScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/animatedBuilder.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/animatedList.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/bottomNavigationBarItem.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/bouncingScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/buildContext.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/center.dart';
@@ -108,4 +109,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadSliverSafeArea(luaState: luaState, table: widgets);
   loadSliverList(luaState: luaState, table: widgets);
   loadSliverChildBuilderDelegate(luaState: luaState, table: widgets);
+  loadBottomNavigationBarItem(luaState: luaState, table: widgets);
 }
