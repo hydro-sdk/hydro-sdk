@@ -5,10 +5,13 @@ import { RuntimeBaseClass } from "../../runtimeBaseClass";
 import { Type } from "../../dart/core/type";
 
 export interface SliverChildBuilderDelegateProps {
+    //@todo SliverChildBuilderDelegateProps#findChildInexCallback : (key : Key) => number
     childCount?: number | undefined;
     addAutomaticKeepAlives?: boolean | undefined;
     addRepaintBoundaries?: boolean | undefined;
     addSemanticIndexes?: boolean | undefined;
+    //@todo SliverChildBuilderDelegateProps#semanticIndexCallback : (widget : Widget,i : number) => number
+    //@todo SliverChildBuilderDelegateProps#semanticIndexOffset : number
 }
 
 declare const flutter: {
