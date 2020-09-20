@@ -18,7 +18,7 @@ declare const flutter: {
     widgets: {
         sliverChildBuilderDelegate: (
             this: void,
-            builder: (context: BuildContext, index: number) => Widget | undefined,
+            builder: (this: void, context: BuildContext, index: number) => Widget | undefined,
             props: SliverChildBuilderDelegateProps | undefined
         ) => SliverChildBuilderDelegate;
     };
@@ -28,7 +28,7 @@ export class SliverChildBuilderDelegate extends JITAllocatingRTManagedBox<Sliver
     public readonly internalRuntimeType = new Type(SliverChildBuilderDelegate);
     public builder: (context: BuildContext, index: number) => Widget | undefined;
     public props: SliverChildBuilderDelegateProps | undefined;
-    public constructor(builder: (context: BuildContext, index: number) => Widget | undefined, props?: SliverChildBuilderDelegateProps | undefined) {
+    public constructor(builder: (this: void, context: BuildContext, index: number) => Widget | undefined, props?: SliverChildBuilderDelegateProps | undefined) {
         super();
         this.builder = builder;
         this.props = props;
