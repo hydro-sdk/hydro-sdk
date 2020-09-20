@@ -10,6 +10,7 @@ import { SliverSafeArea } from "../../runtime/flutter/widgets/sliverSafeArea";
 import { SliverList } from "../../runtime/flutter/widgets/sliverList";
 import { EdgeInsets } from "../../runtime/flutter/painting/edgeInsets";
 import { SliverChildBuilderDelegate } from "../../runtime/flutter/widgets/sliverChildBuilderDelegate";
+import { ProductRowItem } from "./productRowItem";
 
 export class ProductListTab extends StatelessWidget {
     public build() {
@@ -28,6 +29,14 @@ export class ProductListTab extends StatelessWidget {
                                 minimum: EdgeInsets.only({ top: 8 }),
                                 sliver: new SliverList({
                                     delegate: new SliverChildBuilderDelegate((_, index) => {
+                                        if (index < model.getProducts().length()) {
+                                            return new ProductRowItem({
+                                                index: index,
+                                                product: model.getProducts().elementAt(index),
+                                                lastItem: index == model.getProducts().length() - 1
+                                            });
+                                        }
+
                                         return undefined;
                                     })
                                 })
