@@ -3,6 +3,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoButton.da
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoContextMenu.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoContextMenuAction.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoPageScaffold.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoSliverNavigationBar.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabBar.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabScaffold.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabView.dart';
@@ -24,4 +25,5 @@ void loadCupertino(
   loadCupertinoTabScaffold(luaState: luaState, table: cupertino);
   loadCupertinoTabBar(luaState: luaState, table: cupertino);
   loadCupertinoTabView(luaState: luaState, table: cupertino);
+  loadCupertinoSliverNavigationBar(luaState: luaState, table: cupertino);
 }
