@@ -34,6 +34,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/safeArea.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sizeTransition.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sizedBox.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverGrid.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverList.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverPadding.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverSafeArea.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverToBoxAdapter.dart';
@@ -104,4 +105,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadClampingScrollPhysics(hydroState: luaState, table: widgets);
   loadFittedBox(luaState: luaState, table: widgets);
   loadSliverSafeArea(luaState: luaState, table: widgets);
+  loadSliverList(luaState: luaState, table: widgets);
 }
