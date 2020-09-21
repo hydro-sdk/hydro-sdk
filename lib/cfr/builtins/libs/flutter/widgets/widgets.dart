@@ -11,6 +11,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/clipRRect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/column.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/container.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/customScrollView.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/decoratedBox.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/expanded.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/fittedBox.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/flexible.dart';
@@ -110,4 +111,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadSliverList(luaState: luaState, table: widgets);
   loadSliverChildBuilderDelegate(luaState: luaState, table: widgets);
   loadBottomNavigationBarItem(luaState: luaState, table: widgets);
+  loadDecoratedBox(luaState: luaState, table: widgets);
 }
