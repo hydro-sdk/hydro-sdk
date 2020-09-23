@@ -62,7 +62,7 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
 
   loadPreferredSize(luaState: luaState, table: table);
   loadStatelessWidget(luaState: luaState, table: table);
-  loadStatefulWidget(luaState: luaState, table: table);
+  loadStatefulWidget(luaState: luaState, table: widgets);
 
   loadText(luaState: luaState, table: widgets);
   loadCenter(luaState: luaState, table: widgets);
