@@ -15,6 +15,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/decoratedBox.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/expanded.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/fittedBox.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/flexible.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/focusNode.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/gestureDetector.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/globalKey.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/gridView.dart';
@@ -112,4 +113,5 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadSliverChildBuilderDelegate(luaState: luaState, table: widgets);
   loadBottomNavigationBarItem(luaState: luaState, table: widgets);
   loadDecoratedBox(luaState: luaState, table: widgets);
+  loadFocusNode(hydroState: luaState, table: widgets);
 }
