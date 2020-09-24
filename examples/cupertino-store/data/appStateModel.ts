@@ -22,7 +22,7 @@ export class AppStateModel extends ChangeNotifier {
     }
 
     public search(searchTerm: string) {
-        return this.getProducts().where((x) => x.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        return this.getProducts().where((x) => x.name.toLowerCase() == searchTerm.toLowerCase());
     }
 
     public loadProducts() {
