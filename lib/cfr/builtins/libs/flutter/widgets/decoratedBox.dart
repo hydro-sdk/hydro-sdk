@@ -14,9 +14,8 @@ void loadDecoratedBox(
         decoration: maybeUnBoxAndBuildArgument<Decoration>(
             args[0]["decoration"],
             parentState: luaState),
-        position: maybeUnBoxAndBuildArgument<DecorationPosition>(
-            args[0]["position"],
-            parentState: luaState),
+        position: maybeUnBoxEnum<DecorationPosition>(
+            values: DecorationPosition.values, boxedEnum: args[0]["position"]),
         child: maybeUnBoxAndBuildArgument<Widget>(args[0]["child"],
             parentState: luaState),
       )
