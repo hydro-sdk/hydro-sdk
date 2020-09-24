@@ -19,6 +19,8 @@ import { BoxDecoration } from "../../runtime/flutter/painting/boxDecoration";
 import { BuildContext } from "../../runtime/flutter/buildContext";
 import { ProductRowItem } from "./productRowItem";
 import { SearchBar } from "./searchBar";
+import { SizedBox } from "../../runtime/flutter/widgets/sizedBox";
+import { pauseInDebugger } from "../../runtime/dart/developer/debugger";
 
 export class SearchTab extends StatefulWidget {
     public createState() {
@@ -66,6 +68,7 @@ class SearchTabState extends State<SearchTab>{
     public build(context: BuildContext) {
         const model = ScopedModel.of<AppStateModel>(context, AppStateModel.staticType);
         let products: List<Product> | undefined;
+        console.log(this.terms);
         if (model) {
             products = model.search(this.terms);
         }
@@ -79,13 +82,17 @@ class SearchTabState extends State<SearchTab>{
                     children: [
                         this.buildSearchBox(),
                         new Expanded({
-                            child: ListView.builder({
-                                itemBuilder: (_, index) => new ProductRowItem({
-                                    index: index,
-                                    product: products?.elementAt(index)!,
-                                    lastItem: index == products?.length()! - 1
-                                })
-                            })
+                            child:
+                                products !== undefined && products.length() >= 1 ?
+                                    ListView.builder({
+                                        itemCount: products.length(),
+                                        itemBuilder: (_, index) =>
+                                            new ProductRowItem({
+                                                index: index,
+                                                product: products?.elementAt(index)!,
+                                                lastItem: index == products?.length()! - 1
+                                            })
+                                    }) : new SizedBox({})
                         })
                     ]
                 })
