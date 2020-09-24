@@ -21,7 +21,9 @@ import { ProductRowItem } from "./productRowItem";
 import { SearchBar } from "./searchBar";
 
 export class SearchTab extends StatefulWidget {
-    public createState = () => new SearchTabState();
+    public createState() {
+        return new SearchTabState();
+    }
 }
 
 class SearchTabState extends State<SearchTab>{
