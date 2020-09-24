@@ -49,12 +49,12 @@ export interface CupertinoTextFieldProps {
     clearButtonMode?: OverlayVisibilityMode | undefined;
     //@todo CupertinoTextFieldProps#keyboardType : TextInputType
     textInputAction?: TextInputAction | undefined;
-    textCapitilzation?: TextCapitalization | undefined;
+    textCapitalization?: TextCapitalization | undefined;
     style?: TextStyle | undefined;
     strutStyle?: StrutStyle | undefined;
     textAlign?: TextAlign | undefined;
     textAlignVertical?: TextAlignVertical | undefined;
-    readonly?: boolean | undefined;
+    readOnly?: boolean | undefined;
     toolbarOptions?: ToolbarOptions | undefined;
     showCursor?: boolean | undefined;
     autofocus?: boolean | undefined;
@@ -130,12 +130,20 @@ export class CupertinoTextField extends StatelessWidget implements RuntimeBaseCl
             this.props.clearButtonMode = OverlayVisibilityMode.never;
         }
 
-        if (this.props.textCapitilzation === undefined) {
-            this.props.textCapitilzation = TextCapitalization.none;
+        if (this.props.textCapitalization === undefined) {
+            this.props.textCapitalization = TextCapitalization.none;
         }
 
         if (this.props.textAlign === undefined) {
             this.props.textAlign = TextAlign.start;
+        }
+
+        if (this.props.readOnly === undefined) {
+            this.props.readOnly = false;
+        }
+
+        if (this.props.autofocus === undefined) {
+            this.props.autofocus = false;
         }
 
         if (this.props.obscuringCharacter === undefined) {

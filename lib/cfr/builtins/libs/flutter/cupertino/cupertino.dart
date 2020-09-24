@@ -7,6 +7,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoSliverNav
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabBar.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabScaffold.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTabView.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertinoTextField.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
@@ -26,4 +27,5 @@ void loadCupertino(
   loadCupertinoTabBar(luaState: luaState, table: cupertino);
   loadCupertinoTabView(luaState: luaState, table: cupertino);
   loadCupertinoSliverNavigationBar(luaState: luaState, table: cupertino);
+  loadCupertinoTextField(luaState: luaState, table: cupertino);
 }
