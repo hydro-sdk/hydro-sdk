@@ -3,7 +3,11 @@ import 'dart:io';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:args/args.dart';
+import 'package:hydro_sdk/swid/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/swidClass.dart';
 import 'package:hydro_sdk/swid/swidEnum.dart';
+import 'package:hydro_sdk/swid/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/swidType.dart';
 import 'package:surveyor/src/analysis.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
@@ -48,6 +52,7 @@ class SwidVisitor extends RecursiveAstVisitor
 
   List<String> reports = <String>[];
   List<SwidEnum> enums = [];
+  List<SwidClass> classes = [];
 
   @override
   void visitEnumDeclaration(EnumDeclaration node) {
@@ -63,16 +68,44 @@ class SwidVisitor extends RecursiveAstVisitor
         .toList()
         .cast<EnumConstantDeclarationImpl>();
     enums.add(SwidEnum(
-      originalPackagePath: (node.parent.root as CompilationUnit)
-          .declaredElement
-          .librarySource
-          .uri
-          .toString(),
-      identifier: identifier.name,
-      children: declarations.map((x) => x.name.name).toList()
-    ));
+        originalPackagePath: (node.parent.root as CompilationUnit)
+            .declaredElement
+            .librarySource
+            .uri
+            .toString(),
+        identifier: identifier.name,
+        children: declarations.map((x) => x.name.name).toList()));
 
     super.visitEnumDeclaration(node);
+  }
+
+  @override
+  void visitClassDeclaration(ClassDeclaration node) {
+    if (node.withClause == null &&
+        node.nativeClause == null &&
+        node.abstractKeyword == null &&
+        node.name.name[0] != "_") {
+      if (node.name.name == "TickerCanceled") {
+        print("TickerCanceled");
+      }
+      ConstructorDeclarationImpl constructorDeclarationImpl = node.childEntities
+          .firstWhere((x) => x is ConstructorDeclarationImpl,
+              orElse: () => null);
+      if (constructorDeclarationImpl != null) {
+        if (constructorDeclarationImpl.declaredElement.isPublic) {
+          classes.add(SwidClass(
+              name: node.name.name,
+              nullabilitySuffix: null,
+              originalPackagePath:
+                  node.declaredElement.librarySource.uri.toString(),
+              constructorType: SwidFunctionType.fromFunctionType(
+                  functionType:
+                      constructorDeclarationImpl.declaredElement.type)));
+        }
+      }
+    }
+
+    super.visitClassDeclaration(node);
   }
 
   @override
