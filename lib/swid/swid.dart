@@ -3,11 +3,12 @@ import 'dart:io';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:args/args.dart';
+import 'package:hydro_sdk/swid/swidEnum.dart';
 import 'package:surveyor/src/analysis.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
-import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/src/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:analyzer/file_system/file_system.dart' hide File;
 import 'package:analyzer/source/line_info.dart';
@@ -29,6 +30,7 @@ Future<void> swid(List<String> args) async {
   }
 
   var driver = Driver.forArgs(args);
+  driver.excludedPaths = ["test"];
   driver.forceSkipInstall = true;
   driver.showErrors = false;
   driver.resolveUnits = true;
@@ -45,19 +47,37 @@ class SwidVisitor extends RecursiveAstVisitor
   LineInfo lineInfo;
 
   List<String> reports = <String>[];
+  List<SwidEnum> enums = [];
 
   @override
   void visitEnumDeclaration(EnumDeclaration node) {
-    print(node);
+    print((node.parent.root as CompilationUnit)
+        .declaredElement
+        .librarySource
+        .uri);
+
+    DeclaredSimpleIdentifier identifier =
+        node.childEntities.firstWhere((x) => x is DeclaredSimpleIdentifier);
+    List<EnumConstantDeclarationImpl> declarations = node.childEntities
+        .where((x) => x is EnumConstantDeclarationImpl)
+        .toList()
+        .cast<EnumConstantDeclarationImpl>();
+    enums.add(SwidEnum(
+      originalPackagePath: (node.parent.root as CompilationUnit)
+          .declaredElement
+          .librarySource
+          .uri
+          .toString(),
+      identifier: identifier.name,
+      children: declarations.map((x) => x.name.name).toList()
+    ));
 
     super.visitEnumDeclaration(node);
   }
 
   @override
   void postAnalysis(SurveyorContext context, DriverCommands cmd) {
-    print("postanalysis");
     cmd.continueAnalyzing = true;
-    // Reporting done in visitSimpleIdentifier.
   }
 
   @override
@@ -74,12 +94,8 @@ class SwidVisitor extends RecursiveAstVisitor
   }
 
   @override
-  void setFilePath(String filePath) {
-    print(filePath);
-  }
+  void setFilePath(String filePath) {}
 
   @override
-  void setLineInfo(LineInfo lineInfo) {
-    print(lineInfo);
-  }
+  void setLineInfo(LineInfo lineInfo) {}
 }
