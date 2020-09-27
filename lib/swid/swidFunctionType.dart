@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/swidType.dart';
 import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/mapAnalyzerNullabilitySuffix.dart';
 
+
 class SwidFunctionType implements SwidType {
   final String name;
   final SwidNullabilitySuffix nullabilitySuffix;

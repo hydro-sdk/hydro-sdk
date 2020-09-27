@@ -16,19 +16,36 @@ String transformFunctionTypeToTs({
         swidFunctionType.normalParameterTypes[i];
   }
 
+  //Pretend that Dart optional params are just like regular positionals except also nullable
+  for (var i = 0; i != swidFunctionType.optionalParameterNames.length; ++i) {
+    normalTypes.addEntries([
+      MapEntry(
+          swidFunctionType.optionalParameterNames[i],
+          SwidType(
+            name: swidFunctionType.optionalParameterTypes[i].name,
+            nullabilitySuffix: SwidNullabilitySuffix.question,
+            originalPackagePath:
+                swidFunctionType.optionalParameterTypes[i].originalPackagePath,
+          ))
+    ]);
+  }
+
   normalTypes.forEach((key, value) {
     if (value is SwidFunctionType) {
-      res += "$key : ";
+      res +=
+          "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ";
       res += transformFunctionTypeToTs(swidFunctionType: value);
     } else if (value is SwidType) {
-      res += "$key : ${value.name}";
+      res +=
+          "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${value.name}";
+
       if (value.nullabilitySuffix == SwidNullabilitySuffix.question) {
         res += " | undefined";
       }
     }
     if (normalTypes.keys.toList().indexOf(key) !=
         normalTypes.keys.toList().length - 1) {
-      res += ",";
+      res += ", ";
     }
   });
   res += ")";
