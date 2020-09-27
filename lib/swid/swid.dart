@@ -85,9 +85,6 @@ class SwidVisitor extends RecursiveAstVisitor
         node.nativeClause == null &&
         node.abstractKeyword == null &&
         node.name.name[0] != "_") {
-      if (node.name.name == "TickerCanceled") {
-        print("TickerCanceled");
-      }
       ConstructorDeclarationImpl constructorDeclarationImpl = node.childEntities
           .firstWhere((x) => x is ConstructorDeclarationImpl,
               orElse: () => null);
