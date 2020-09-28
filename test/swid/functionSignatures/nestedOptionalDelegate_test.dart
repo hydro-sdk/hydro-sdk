@@ -1,11 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/swidClass.dart';
+import 'package:hydro_sdk/swid/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/swidType.dart';
 import 'package:hydro_sdk/swid/transformFunctionTypeToTs.dart';
-import 'package:path/path.dart' as path;
-import 'package:hydro_sdk/swid/transformPackageUri.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -14,6 +12,7 @@ void main() {
         //num? foo(int itemCount, [Widget Function([Duration Function(int? millis)? resolveDuration])? onTap])
         transformFunctionTypeToTs(
             swidFunctionType: SwidFunctionType(
+                swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "foo",
                 originalPackagePath: "",
                 normalParameterNames: ["itemCount"],
@@ -27,6 +26,8 @@ void main() {
                 optionalParameterNames: ["onTap"],
                 optionalParameterTypes: [
                   SwidFunctionType(
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty(),
                       name: "",
                       normalParameterNames: [],
                       normalParameterTypes: [],
@@ -34,6 +35,8 @@ void main() {
                       optionalParameterNames: ["resolveDuration"],
                       optionalParameterTypes: [
                         SwidFunctionType(
+                            swidDeclarationModifiers:
+                                SwidDeclarationModifiers.empty(),
                             name: "",
                             normalParameterNames: ["millis"],
                             namedParameterTypes: {},

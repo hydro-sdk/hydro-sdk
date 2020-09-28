@@ -8,6 +8,8 @@ import 'package:hydro_sdk/swid/swidClass.dart';
 import 'package:hydro_sdk/swid/swidEnum.dart';
 import 'package:hydro_sdk/swid/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swidType.dart';
+import 'package:hydro_sdk/swid/narrowModifierProducer.dart';
+import 'package:hydro_sdk/swid/swidDeclarationModifiers.dart';
 import 'package:surveyor/src/analysis.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
@@ -97,12 +99,46 @@ class SwidVisitor extends RecursiveAstVisitor
                   node.declaredElement.librarySource.uri.toString(),
               constructorType: SwidFunctionType.fromFunctionType(
                   functionType:
-                      constructorDeclarationImpl.declaredElement.type)));
+                      constructorDeclarationImpl.declaredElement.type),
+              methods: node.childEntities
+                  .where((x) => x is MethodDeclarationImpl)
+                  .toList()
+                  .cast<MethodDeclarationImpl>()
+                  .where((x) =>
+                      x.name.name[0] != "_" && !x.declaredElement.hasProtected)
+                  .toList()
+                  .cast<MethodDeclarationImpl>()
+                  .map((x) => SwidFunctionType.fromFunctionType(
+                      functionType: x.declaredElement.type,
+                      swidDeclarationModifiers: narrowModifierProducer(
+                          element: x.declaredElement,
+                          onExecutablElement: (val) =>
+                              SwidDeclarationModifiers.fromExecutableElement(
+                                  executableElement: val),
+                          onPropertyAccessorElement: (val) =>
+                              SwidDeclarationModifiers.fromPropertyAccessorElement(
+                                  propertyAccessorElement: val))))
+                  .toList()
+                  .cast<SwidFunctionType>()));
         }
       }
     }
 
     super.visitClassDeclaration(node);
+  }
+
+  @override
+  void visitMethodDeclaration(MethodDeclaration node) {
+    if (node.externalKeyword == null &&
+        !node.isAbstract &&
+        !node.isOperator &&
+        !node.isStatic) {
+      if (node.name == "scheduleTick") {
+        print(node);
+      }
+    }
+
+    super.visitMethodDeclaration(node);
   }
 
   @override

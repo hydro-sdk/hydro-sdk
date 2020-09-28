@@ -1,11 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/swidClass.dart';
+import 'package:hydro_sdk/swid/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/swidType.dart';
 import 'package:hydro_sdk/swid/transformFunctionTypeToTs.dart';
-import 'package:path/path.dart' as path;
-import 'package:hydro_sdk/swid/transformPackageUri.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -14,6 +12,7 @@ void main() {
         //num (int? foo,String bar)
         transformFunctionTypeToTs(
             swidFunctionType: SwidFunctionType(
+                swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "",
                 originalPackagePath: "",
                 normalParameterNames: ["foo", "bar"],

@@ -8,11 +8,13 @@ class SwidClass implements SwidType {
   final SwidNullabilitySuffix nullabilitySuffix;
   final String originalPackagePath;
   final SwidFunctionType constructorType;
+  final List<SwidFunctionType> methods;
 
   SwidClass({
     @required this.name,
     @required this.nullabilitySuffix,
     @required this.originalPackagePath,
     @required this.constructorType,
+    @required this.methods,
   });
 }

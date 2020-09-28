@@ -4,8 +4,7 @@ import 'package:hydro_sdk/swid/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/swidType.dart';
 import 'package:hydro_sdk/swid/transformFunctionTypeToTs.dart';
-import 'package:path/path.dart' as path;
-import 'package:hydro_sdk/swid/transformPackageUri.dart';
+import 'package:hydro_sdk/swid/swidDeclarationModifiers.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -13,6 +12,7 @@ void main() {
     //A rough AST of the Ticker class from flutter/src/scheduler.dart
     final tickerClass = SwidClass(
       constructorType: SwidFunctionType(
+          swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
           name: "",
           namedParameterTypes: {
             "debugLabel": SwidType(
@@ -23,6 +23,7 @@ void main() {
           normalParameterNames: ["_onTick"],
           normalParameterTypes: [
             SwidFunctionType(
+                swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: null,
                 namedParameterTypes: {},
                 normalParameterNames: ["elapsed"],
@@ -52,6 +53,7 @@ void main() {
             nullabilitySuffix: SwidNullabilitySuffix.star,
             originalPackagePath: "package:flutter/src/scheduler/ticker.dart",
           )),
+      methods: [],
       name: "Ticker",
       nullabilitySuffix: null,
       originalPackagePath: "package:flutter/src/scheduler/ticker.dart",
