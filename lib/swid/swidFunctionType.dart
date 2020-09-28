@@ -1,10 +1,10 @@
+import 'package:hydro_sdk/swid/cloneSwidType.dart';
 import 'package:meta/meta.dart';
 import 'package:analyzer/dart/element/type.dart'
     show FunctionType, InterfaceType;
 import 'package:hydro_sdk/swid/swidType.dart';
 import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/mapAnalyzerNullabilitySuffix.dart';
-
 
 class SwidFunctionType implements SwidType {
   final String name;
@@ -29,6 +29,23 @@ class SwidFunctionType implements SwidType {
     @required this.optionalParameterTypes,
     @required this.returnType,
   });
+
+  factory SwidFunctionType.clone(
+      {@required SwidFunctionType swidFunctionType}) {
+    return SwidFunctionType(
+      name: swidFunctionType.name,
+      nullabilitySuffix: swidFunctionType.nullabilitySuffix,
+      originalPackagePath: swidFunctionType.originalPackagePath,
+      namedParameterTypes: Map.from(swidFunctionType.namedParameterTypes),
+      normalParameterNames: List.from(swidFunctionType.normalParameterNames),
+      normalParameterTypes: List.from(swidFunctionType.normalParameterTypes),
+      optionalParameterNames:
+          List.from(swidFunctionType.optionalParameterNames),
+      optionalParameterTypes:
+          List.from(swidFunctionType.optionalParameterTypes),
+      returnType: cloneSwidType(swidType: swidFunctionType.returnType),
+    );
+  }
 
   factory SwidFunctionType.fromFunctionType(
       {@required FunctionType functionType}) {

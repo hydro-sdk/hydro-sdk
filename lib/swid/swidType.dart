@@ -11,4 +11,9 @@ class SwidType {
     @required this.nullabilitySuffix,
     @required this.originalPackagePath,
   });
+
+  factory SwidType.clone({@required SwidType swidType}) => SwidType(
+      name: swidType.name,
+      nullabilitySuffix: swidType.nullabilitySuffix,
+      originalPackagePath: swidType.originalPackagePath);
 }

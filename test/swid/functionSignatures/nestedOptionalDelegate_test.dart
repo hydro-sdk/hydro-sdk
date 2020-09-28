@@ -70,6 +70,6 @@ void main() {
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                 ))),
-        "(itemCount : int, onTap? : (resolveDuration : (millis? : int | undefined) => Duration | undefined) => Widget | undefined) => num | undefind");
+        "(itemCount : int, onTap? : (resolveDuration? : (millis? : int | undefined) => Duration) => Widget) => num | undefined");
   });
 }

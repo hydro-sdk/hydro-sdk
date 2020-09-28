@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/narrowSwidType.dart';
 import 'package:hydro_sdk/swid/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/swidType.dart';
@@ -19,30 +21,32 @@ String transformFunctionTypeToTs({
   //Pretend that Dart optional params are just like regular positionals except also nullable
   for (var i = 0; i != swidFunctionType.optionalParameterNames.length; ++i) {
     normalTypes.addEntries([
-      MapEntry(
-          swidFunctionType.optionalParameterNames[i],
-          SwidType(
-            name: swidFunctionType.optionalParameterTypes[i].name,
-            nullabilitySuffix: SwidNullabilitySuffix.question,
-            originalPackagePath:
-                swidFunctionType.optionalParameterTypes[i].originalPackagePath,
-          ))
+      MapEntry(swidFunctionType.optionalParameterNames[i],
+          cloneSwidType(swidType: swidFunctionType.optionalParameterTypes[i]))
     ]);
   }
 
   normalTypes.forEach((key, value) {
-    if (value is SwidFunctionType) {
-      res +=
-          "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ";
-      res += transformFunctionTypeToTs(swidFunctionType: value);
-    } else if (value is SwidType) {
-      res +=
-          "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${value.name}";
+    narrowSwidType(
+        swidType: value,
+        onSwidFunctionType: (val) {
+          res +=
+              "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ";
+          res += transformFunctionTypeToTs(swidFunctionType: value);
 
-      if (value.nullabilitySuffix == SwidNullabilitySuffix.question) {
-        res += " | undefined";
-      }
-    }
+          return null;
+        },
+        onSwidType: (val) {
+          res +=
+              "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${value.name}";
+
+          if (value.nullabilitySuffix == SwidNullabilitySuffix.question) {
+            res += " | undefined";
+          }
+
+          return null;
+        });
+
     if (normalTypes.keys.toList().indexOf(key) !=
         normalTypes.keys.toList().length - 1) {
       res += ", ";
