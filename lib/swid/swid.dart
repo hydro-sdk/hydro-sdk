@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:analyzer/dart/ast/ast.dart';
@@ -96,7 +97,7 @@ class SwidVisitor extends RecursiveAstVisitor
               name: node.name.name,
               nullabilitySuffix: null,
               originalPackagePath:
-                  node.declaredElement.librarySource.uri.toString(),
+                  node.declaredElement?.librarySource?.uri?.toString() ?? "",
               constructorType: SwidFunctionType.fromFunctionType(
                   swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                   functionType:
@@ -117,8 +118,7 @@ class SwidVisitor extends RecursiveAstVisitor
                               SwidDeclarationModifiers.fromExecutableElement(
                                   executableElement: val),
                           onPropertyAccessorElement: (val) =>
-                              SwidDeclarationModifiers.fromPropertyAccessorElement(
-                                  propertyAccessorElement: val))))
+                              SwidDeclarationModifiers.fromPropertyAccessorElement(propertyAccessorElement: val))))
                   .toList()
                   .cast<SwidFunctionType>()));
         }

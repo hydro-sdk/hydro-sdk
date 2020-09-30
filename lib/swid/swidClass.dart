@@ -26,4 +26,26 @@ class SwidClass implements SwidType {
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
       _$SwidClassFromJson(json);
+
+  factory SwidClass.clone({
+    @required SwidClass swidClass,
+    String name,
+    SwidNullabilitySuffix nullabilitySuffix,
+    String originalPackagePath,
+    SwidFunctionType constructorType,
+    List<SwidFunctionType> methods,
+  }) =>
+      SwidClass(
+          name: name ?? swidClass.name,
+          nullabilitySuffix: nullabilitySuffix ?? swidClass.nullabilitySuffix,
+          originalPackagePath:
+              originalPackagePath ?? swidClass.originalPackagePath,
+          constructorType: constructorType ??
+              SwidFunctionType.clone(
+                  swidFunctionType: swidClass.constructorType),
+          methods: methods ??
+              List.from(swidClass?.methods
+                      ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                      ?.toList() ??
+                  []));
 }

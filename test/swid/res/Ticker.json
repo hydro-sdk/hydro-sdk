@@ -1,0 +1,540 @@
+{
+    "name": "Ticker",
+    "nullabilitySuffix": null,
+    "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+    "constructorType": {
+        "name": null,
+        "nullabilitySuffix": "none",
+        "originalPackagePath": "",
+        "swidDeclarationModifiers": {
+            "isAbstract": false,
+            "isGetter": false,
+            "isOperator": false,
+            "isSetter": false,
+            "isStatic": false,
+            "isSynthetic": false,
+            "hasAlwaysThrows": false,
+            "hasDeprecated": false,
+            "hasFactory": false,
+            "hasImplicitReturnType": false,
+            "hasIsTest": false,
+            "hasIsTestGroup": false,
+            "hasJS": false,
+            "hasLiteral": false,
+            "hasMustCallSuper": false,
+            "hasNonVirtual": false,
+            "hasOptionalTypeArgs": false,
+            "hasOverride": false,
+            "hasProtected": false,
+            "hasRequired": false,
+            "hasSealed": false,
+            "hasVisibleForTemplate": false,
+            "hasVisibleForTesting": false
+        },
+        "namedParameterTypes": {
+            "debugLabel": {
+                "name": "String",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:core"
+            }
+        },
+        "normalParameterNames": [
+            "_onTick"
+        ],
+        "normalParameterTypes": [
+            {
+                "name": null,
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+                "swidDeclarationModifiers": {
+                    "isAbstract": false,
+                    "isGetter": false,
+                    "isOperator": false,
+                    "isSetter": false,
+                    "isStatic": false,
+                    "isSynthetic": false,
+                    "hasAlwaysThrows": false,
+                    "hasDeprecated": false,
+                    "hasFactory": false,
+                    "hasImplicitReturnType": false,
+                    "hasIsTest": false,
+                    "hasIsTestGroup": false,
+                    "hasJS": false,
+                    "hasLiteral": false,
+                    "hasMustCallSuper": false,
+                    "hasNonVirtual": false,
+                    "hasOptionalTypeArgs": false,
+                    "hasOverride": false,
+                    "hasProtected": false,
+                    "hasRequired": false,
+                    "hasSealed": false,
+                    "hasVisibleForTemplate": false,
+                    "hasVisibleForTesting": false
+                },
+                "namedParameterTypes": {},
+                "normalParameterNames": [
+                    "elapsed"
+                ],
+                "normalParameterTypes": [
+                    {
+                        "name": "Duration",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core"
+                    }
+                ],
+                "optionalParameterNames": [],
+                "optionalParameterTypes": [],
+                "returnType": {
+                    "name": "void",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": ""
+                }
+            }
+        ],
+        "optionalParameterNames": [],
+        "optionalParameterTypes": [],
+        "returnType": {
+            "name": "Ticker",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart"
+        }
+    },
+    "methods": [
+        {
+            "name": "muted",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": true,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {},
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "bool",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:core"
+            }
+        },
+        {
+            "name": "muted=",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": true,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": true,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {},
+            "normalParameterNames": [
+                "value"
+            ],
+            "normalParameterTypes": [
+                {
+                    "name": "bool",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "dart:core"
+                }
+            ],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "void",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": ""
+            }
+        },
+        {
+            "name": "isTicking",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": true,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {},
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "bool",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:core"
+            }
+        },
+        {
+            "name": "isActive",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": true,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {},
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "bool",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:core"
+            }
+        },
+        {
+            "name": "start",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {},
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "TickerFuture",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "package:flutter/src/scheduler/ticker.dart"
+            }
+        },
+        {
+            "name": "describeForError",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {},
+            "normalParameterNames": [
+                "name"
+            ],
+            "normalParameterTypes": [
+                {
+                    "name": "String",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "dart:core"
+                }
+            ],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "DiagnosticsNode",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart"
+            }
+        },
+        {
+            "name": "stop",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {
+                "canceled": {
+                    "name": "bool",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "dart:core"
+                }
+            },
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "void",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": ""
+            }
+        },
+        {
+            "name": "absorbTicker",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {},
+            "normalParameterNames": [
+                "originalTicker"
+            ],
+            "normalParameterTypes": [
+                {
+                    "name": "Ticker",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "package:flutter/src/scheduler/ticker.dart"
+                }
+            ],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "void",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": ""
+            }
+        },
+        {
+            "name": "dispose",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": true,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {},
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "void",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": ""
+            }
+        },
+        {
+            "name": "toString",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": true,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false
+            },
+            "namedParameterTypes": {
+                "debugIncludeStack": {
+                    "name": "bool",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "dart:core"
+                }
+            },
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "name": "String",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:core"
+            }
+        }
+    ]
+}

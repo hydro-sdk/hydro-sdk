@@ -53,7 +53,27 @@ void main() {
             nullabilitySuffix: SwidNullabilitySuffix.star,
             originalPackagePath: "package:flutter/src/scheduler/ticker.dart",
           )),
-      methods: [],
+      methods: [
+        SwidFunctionType(
+          name: "muted",
+          namedParameterTypes: {},
+          normalParameterNames: [],
+          normalParameterTypes: [],
+          nullabilitySuffix: SwidNullabilitySuffix.star,
+          optionalParameterNames: [],
+          optionalParameterTypes: [],
+          swidDeclarationModifiers: SwidDeclarationModifiers.syntheticGetter(),
+          returnType: SwidType(
+            name: "bool",
+            nullabilitySuffix: SwidNullabilitySuffix.star,
+            originalPackagePath: "dart:core",
+          ),
+          originalPackagePath: "",
+        ),
+        SwidFunctionType(
+          name: "muted=",
+        )
+      ],
       name: "Ticker",
       nullabilitySuffix: null,
       originalPackagePath: "package:flutter/src/scheduler/ticker.dart",

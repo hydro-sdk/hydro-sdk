@@ -42,22 +42,41 @@ class SwidFunctionType implements SwidType {
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$SwidFunctionTypeFromJson(json);
 
-  factory SwidFunctionType.clone(
-      {@required SwidFunctionType swidFunctionType}) {
+  factory SwidFunctionType.clone({
+    @required SwidFunctionType swidFunctionType,
+    String name,
+    SwidNullabilitySuffix nullabilitySuffix,
+    String originalPackagePath,
+    SwidDeclarationModifiers swidDeclarationModifiers,
+    Map<String, SwidType> namedParameterTypes,
+    List<String> normalParameterNames,
+    List<SwidType> normalParameterTypes,
+    List<String> optionalParameterNames,
+    List<SwidType> optionalParameterTypes,
+    SwidType returnType,
+  }) {
     return SwidFunctionType(
-      name: swidFunctionType.name,
-      nullabilitySuffix: swidFunctionType.nullabilitySuffix,
-      originalPackagePath: swidFunctionType.originalPackagePath,
-      swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-          swidDeclarationModifiers: swidFunctionType.swidDeclarationModifiers),
-      namedParameterTypes: Map.from(swidFunctionType.namedParameterTypes),
-      normalParameterNames: List.from(swidFunctionType.normalParameterNames),
-      normalParameterTypes: List.from(swidFunctionType.normalParameterTypes),
-      optionalParameterNames:
+      name: name ?? swidFunctionType.name,
+      nullabilitySuffix:
+          nullabilitySuffix ?? swidFunctionType.nullabilitySuffix,
+      originalPackagePath:
+          originalPackagePath ?? swidFunctionType.originalPackagePath,
+      swidDeclarationModifiers: swidDeclarationModifiers ??
+          SwidDeclarationModifiers.clone(
+              swidDeclarationModifiers:
+                  swidFunctionType.swidDeclarationModifiers),
+      namedParameterTypes:
+          namedParameterTypes ?? Map.from(swidFunctionType.namedParameterTypes),
+      normalParameterNames: normalParameterNames ??
+          List.from(swidFunctionType.normalParameterNames),
+      normalParameterTypes: normalParameterNames ??
+          List.from(swidFunctionType.normalParameterTypes),
+      optionalParameterNames: optionalParameterNames ??
           List.from(swidFunctionType.optionalParameterNames),
-      optionalParameterTypes:
+      optionalParameterTypes: optionalParameterTypes ??
           List.from(swidFunctionType.optionalParameterTypes),
-      returnType: cloneSwidType(swidType: swidFunctionType.returnType),
+      returnType:
+          returnType ?? cloneSwidType(swidType: swidFunctionType.returnType),
     );
   }
 
@@ -68,7 +87,8 @@ class SwidFunctionType implements SwidType {
       name: functionType.element?.name,
       nullabilitySuffix: mapNullabilitySuffix(
           nullabilitySuffix: functionType.nullabilitySuffix),
-      originalPackagePath: functionType.element.librarySource.uri.toString(),
+      originalPackagePath:
+          functionType.element?.librarySource?.uri?.toString() ?? "",
       swidDeclarationModifiers: swidDeclarationModifiers,
       namedParameterTypes: Map.fromEntries(functionType
           ?.namedParameterTypes?.keys
@@ -88,11 +108,12 @@ class SwidFunctionType implements SwidType {
                                 nullabilitySuffix: functionType
                                     ?.namedParameterTypes[x].nullabilitySuffix),
                             originalPackagePath: functionType
-                                ?.namedParameterTypes[x]
-                                .element
-                                .librarySource
-                                .uri
-                                .toString(),
+                                    ?.namedParameterTypes[x]
+                                    ?.element
+                                    ?.librarySource
+                                    ?.uri
+                                    ?.toString() ??
+                                "",
                           )
                         : null,
               ))),
