@@ -1,12 +1,16 @@
-import 'package:hydro_sdk/swid/cloneSwidType.dart';
 import 'package:meta/meta.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:analyzer/dart/element/type.dart'
     show FunctionType, InterfaceType;
+import 'package:hydro_sdk/swid/cloneSwidType.dart';
 import 'package:hydro_sdk/swid/swidType.dart';
 import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/swidDeclarationModifiers.dart';
 
+part 'swidFunctionType.g.dart';
+
+@JsonSerializable()
 class SwidFunctionType implements SwidType {
   final String name;
   final SwidNullabilitySuffix nullabilitySuffix;
@@ -32,6 +36,11 @@ class SwidFunctionType implements SwidType {
     @required this.optionalParameterTypes,
     @required this.returnType,
   });
+
+  Map<String, dynamic> toJson() => _$SwidFunctionTypeToJson(this);
+
+  factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
+      _$SwidFunctionTypeFromJson(json);
 
   factory SwidFunctionType.clone(
       {@required SwidFunctionType swidFunctionType}) {

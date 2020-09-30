@@ -1,6 +1,10 @@
 import 'package:analyzer/dart/element/element.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
+part 'swidDeclarationModifiers.g.dart';
+
+@JsonSerializable()
 class SwidDeclarationModifiers {
   final bool isAbstract;
   final bool isGetter;
@@ -51,6 +55,11 @@ class SwidDeclarationModifiers {
     @required this.hasVisibleForTemplate,
     @required this.hasVisibleForTesting,
   });
+
+  Map<String, dynamic> toJson() => _$SwidDeclarationModifiersToJson(this);
+
+  factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
+      _$SwidDeclarationModifiersFromJson(json);
 
   factory SwidDeclarationModifiers.fromExecutableElement(
           {@required ExecutableElement executableElement}) =>
@@ -136,29 +145,66 @@ class SwidDeclarationModifiers {
         hasVisibleForTesting: swidDeclarationModifiers.hasVisibleForTemplate,
       );
 
-  factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers(
-        isAbstract: false,
-        isGetter: false,
-        isOperator: false,
-        isSetter: false,
-        isStatic: false,
-        isSynthetic: false,
-        hasAlwaysThrows: false,
-        hasDeprecated: false,
-        hasFactory: false,
-        hasImplicitReturnType: false,
-        hasIsTest: false,
-        hasIsTestGroup: false,
-        hasJS: false,
-        hasLiteral: false,
-        hasMustCallSuper: false,
-        hasNonVirtual: false,
-        hasOptionalTypeArgs: false,
-        hasOverride: false,
-        hasProtected: false,
-        hasRequired: false,
-        hasSealed: false,
-        hasVisibleForTemplate: false,
-        hasVisibleForTesting: false,
+  factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers.only();
+
+  factory SwidDeclarationModifiers.only({
+    isAbstract: false,
+    isGetter: false,
+    isOperator: false,
+    isSetter: false,
+    isStatic: false,
+    isSynthetic: false,
+    hasAlwaysThrows: false,
+    hasDeprecated: false,
+    hasFactory: false,
+    hasImplicitReturnType: false,
+    hasIsTest: false,
+    hasIsTestGroup: false,
+    hasJS: false,
+    hasLiteral: false,
+    hasMustCallSuper: false,
+    hasNonVirtual: false,
+    hasOptionalTypeArgs: false,
+    hasOverride: false,
+    hasProtected: false,
+    hasRequired: false,
+    hasSealed: false,
+    hasVisibleForTemplate: false,
+    hasVisibleForTesting: false,
+  }) =>
+      SwidDeclarationModifiers(
+        isAbstract: isAbstract,
+        isGetter: isGetter,
+        isOperator: isOperator,
+        isSetter: isSetter,
+        isStatic: isStatic,
+        isSynthetic: isSynthetic,
+        hasAlwaysThrows: hasAlwaysThrows,
+        hasDeprecated: hasDeprecated,
+        hasFactory: hasFactory,
+        hasImplicitReturnType: hasImplicitReturnType,
+        hasIsTest: hasIsTest,
+        hasIsTestGroup: hasIsTestGroup,
+        hasJS: hasJS,
+        hasLiteral: hasLiteral,
+        hasMustCallSuper: hasMustCallSuper,
+        hasNonVirtual: hasNonVirtual,
+        hasOptionalTypeArgs: hasOptionalTypeArgs,
+        hasOverride: hasOverride,
+        hasProtected: hasProtected,
+        hasRequired: hasRequired,
+        hasSealed: hasSealed,
+        hasVisibleForTemplate: hasVisibleForTemplate,
+        hasVisibleForTesting: hasVisibleForTesting,
+      );
+
+  factory SwidDeclarationModifiers.syntheticGetter() =>
+      SwidDeclarationModifiers.only(
+        isGetter: true,
+      );
+
+  factory SwidDeclarationModifiers.syntheticSetter() =>
+      SwidDeclarationModifiers.only(
+        isSetter: true,
       );
 }

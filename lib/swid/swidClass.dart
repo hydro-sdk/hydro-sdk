@@ -1,8 +1,12 @@
 import 'package:meta/meta.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:hydro_sdk/swid/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/swidType.dart';
 
+part 'swidClass.g.dart';
+
+@JsonSerializable()
 class SwidClass implements SwidType {
   final String name;
   final SwidNullabilitySuffix nullabilitySuffix;
@@ -17,4 +21,9 @@ class SwidClass implements SwidType {
     @required this.constructorType,
     @required this.methods,
   });
+
+  Map<String, dynamic> toJson() => _$SwidClassToJson(this);
+
+  factory SwidClass.fromJson(Map<String, dynamic> json) =>
+      _$SwidClassFromJson(json);
 }
