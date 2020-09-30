@@ -98,6 +98,7 @@ class SwidVisitor extends RecursiveAstVisitor
               originalPackagePath:
                   node.declaredElement.librarySource.uri.toString(),
               constructorType: SwidFunctionType.fromFunctionType(
+                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                   functionType:
                       constructorDeclarationImpl.declaredElement.type),
               methods: node.childEntities
