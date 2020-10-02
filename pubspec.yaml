@@ -45,7 +45,6 @@ dev_dependencies:
 
 dependency_overrides:
   analyzer: ^0.40.3
-  meta: ^1.2.3
 
 
 # For information on the generic Dart part of this file, see the
