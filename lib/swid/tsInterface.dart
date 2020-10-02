@@ -1,8 +1,8 @@
 import 'package:hydro_sdk/swid/TsIr.dart';
-import 'package:hydro_sdk/swid/swidClass.dart';
-import 'package:hydro_sdk/swid/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/swidType.dart';
-import 'package:hydro_sdk/swid/transformFunctionTypeToTs.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 import 'package:meta/meta.dart';
 
 class TsInterface implements TsIr {

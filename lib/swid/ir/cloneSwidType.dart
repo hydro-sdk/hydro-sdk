@@ -1,6 +1,6 @@
-import 'package:hydro_sdk/swid/narrowSwidType.dart';
-import 'package:hydro_sdk/swid/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/swidType.dart';
+import 'package:hydro_sdk/swid/ir/narrowSwidType.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:meta/meta.dart';
 
 SwidType cloneSwidType({@required SwidType swidType}) => narrowSwidType(

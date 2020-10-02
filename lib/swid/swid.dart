@@ -1,27 +1,19 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
-import 'package:args/args.dart';
-import 'package:hydro_sdk/swid/mapAnalyzerNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/swidClass.dart';
-import 'package:hydro_sdk/swid/swidEnum.dart';
-import 'package:hydro_sdk/swid/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/swidType.dart';
-import 'package:hydro_sdk/swid/narrowModifierProducer.dart';
-import 'package:hydro_sdk/swid/swidDeclarationModifiers.dart';
-import 'package:surveyor/src/analysis.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/narrowModifierProducer.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
 import 'package:analyzer/src/dart/ast/ast.dart';
-import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:analyzer/file_system/file_system.dart' hide File;
 import 'package:analyzer/source/line_info.dart';
 import 'package:path/path.dart' as path;
-import 'package:surveyor/src/driver.dart';
-import 'package:surveyor/src/visitors.dart';
 
 int dirCount;
 

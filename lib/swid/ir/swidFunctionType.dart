@@ -2,11 +2,11 @@ import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:analyzer/dart/element/type.dart'
     show FunctionType, InterfaceType;
-import 'package:hydro_sdk/swid/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/swidType.dart';
-import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/mapAnalyzerNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
 part 'swidFunctionType.g.dart';
 

@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:meta/meta.dart';
 
 class TsVmDeclaration {

@@ -2,14 +2,8 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/swidClass.dart';
-import 'package:hydro_sdk/swid/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/swidType.dart';
-import 'package:hydro_sdk/swid/transformAccessorName.dart';
-import 'package:hydro_sdk/swid/transformAccessorNames.dart';
-import 'package:hydro_sdk/swid/transformFunctionTypeToTs.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/transforms/transformAccessorNames.dart';
 import 'package:hydro_sdk/swid/tsInterface.dart';
 
 void main() {

@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
-import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 
 SwidNullabilitySuffix mapNullabilitySuffix(
     {@required NullabilitySuffix nullabilitySuffix}) {

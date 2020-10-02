@@ -1,8 +1,8 @@
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:hydro_sdk/swid/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 part 'swidClass.g.dart';
 

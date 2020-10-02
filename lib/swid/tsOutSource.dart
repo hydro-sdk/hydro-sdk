@@ -1,6 +1,6 @@
-import 'package:hydro_sdk/swid/swidEnum.dart';
-import 'package:hydro_sdk/swid/transformEnumToTs.dart';
-import 'package:hydro_sdk/swid/transformPackageUri.dart';
+import 'package:hydro_sdk/swid/ir/swidEnum.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformEnumToTs.dart';
+import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:meta/meta.dart';
 
 class TsOutSource {
