@@ -28,24 +28,26 @@ String transformFunctionTypeToTs({
 
   normalTypes.forEach((key, value) {
     narrowSwidType(
-        swidType: value,
-        onSwidFunctionType: (val) {
-          res +=
-              "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ";
-          res += transformFunctionTypeToTs(swidFunctionType: value);
+      swidType: value,
+      onSwidFunctionType: (val) {
+        res +=
+            "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ";
+        res += transformFunctionTypeToTs(swidFunctionType: value);
 
-          return null;
-        },
-        onSwidType: (val) {
-          res +=
-              "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${value.name}";
+        return null;
+      },
+      onSwidType: (val) {
+        res +=
+            "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${value.name}";
 
-          if (value.nullabilitySuffix == SwidNullabilitySuffix.question) {
-            res += " | undefined";
-          }
+        if (value.nullabilitySuffix == SwidNullabilitySuffix.question) {
+          res += " | undefined";
+        }
 
-          return null;
-        });
+        return null;
+      },
+      onSwidDefaultFormalParameter: (_) => null,
+    );
 
     if (normalTypes.keys.toList().indexOf(key) !=
         normalTypes.keys.toList().length - 1) {

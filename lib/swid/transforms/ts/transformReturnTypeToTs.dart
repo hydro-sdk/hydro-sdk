@@ -7,18 +7,20 @@ String transformReturnTypeToTs({@required SwidFunctionType swidFunctionType}) {
   var res = " => ";
 
   narrowSwidType(
-      swidType: swidFunctionType.returnType,
-      onSwidFunctionType: (val) {
-        res += transformReturnTypeToTs(
-            swidFunctionType: swidFunctionType.returnType);
+    swidType: swidFunctionType.returnType,
+    onSwidFunctionType: (val) {
+      res += transformReturnTypeToTs(
+          swidFunctionType: swidFunctionType.returnType);
 
-        return null;
-      },
-      onSwidType: (val) {
-        res += swidFunctionType.returnType.name;
+      return null;
+    },
+    onSwidType: (val) {
+      res += swidFunctionType.returnType.name;
 
-        return null;
-      });
+      return null;
+    },
+    onSwidDefaultFormalParameter: (_) => null,
+  );
 
   if (swidFunctionType.returnType.nullabilitySuffix ==
       SwidNullabilitySuffix.question) {

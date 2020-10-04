@@ -167,7 +167,7 @@ class SwidFunctionType implements SwidType {
             )
           : SwidType(
               name: functionType.returnType.element?.name ??
-                  functionType.returnType?.getDisplayString(),
+                  functionType.returnType?.getDisplayString(withNullability: false),
               nullabilitySuffix: mapNullabilitySuffix(
                   nullabilitySuffix: functionType.nullabilitySuffix),
               originalPackagePath: functionType
