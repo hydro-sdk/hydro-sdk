@@ -24,10 +24,18 @@ class SwidType {
   factory SwidType.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFromJson(json);
 
-  factory SwidType.clone({@required SwidType swidType}) => SwidType(
-      name: swidType.name,
-      nullabilitySuffix: swidType.nullabilitySuffix,
-      originalPackagePath: swidType.originalPackagePath);
+  factory SwidType.clone({
+    @required SwidType swidType,
+    String name,
+    SwidNullabilitySuffix nullabilitySuffix,
+    String originalPackagePath,
+  }) =>
+      SwidType(
+        name: name ?? swidType.name,
+        nullabilitySuffix: nullabilitySuffix ?? swidType.nullabilitySuffix,
+        originalPackagePath:
+            originalPackagePath ?? swidType.originalPackagePath,
+      );
 
   factory SwidType.fromInterface({@required InterfaceType interfaceType}) =>
       SwidType(

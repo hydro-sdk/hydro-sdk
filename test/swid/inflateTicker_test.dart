@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorNames.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveClassTypeNamesToTs.dart';
 import 'package:hydro_sdk/swid/tsInterface.dart';
 
 void main() {
@@ -19,9 +20,7 @@ void main() {
     expect(debugLabel, isNotNull);
     expect(debugLabel.name, "String");
 
-    var iTicker = TsInterface.fromSwidClass(swidClass: tickerClass);
-
-    expect(iTicker.toTsSource(), """
+    expect(TsInterface.fromSwidClass(swidClass: tickerClass).toTsSource(), """
 export ITicker {
     muted: () => bool;
     muted=: (value : bool) => void;
@@ -37,20 +36,21 @@ export ITicker {
 
     expect(
         TsInterface.fromSwidClass(
-                swidClass: transformAccessorNames(swidClass: tickerClass))
+                swidClass: transformPrimitiveClassTypeNamesToTs(
+                    swidClass: transformAccessorNames(swidClass: tickerClass)))
             .toTsSource(),
         """
 export ITicker {
-    getMuted: () => bool;
-    setMuted: (value : bool) => void;
-    getIsTicking: () => bool;
-    getIsActive: () => bool;
+    getMuted: () => boolean;
+    setMuted: (value : boolean) => void;
+    getIsTicking: () => boolean;
+    getIsActive: () => boolean;
     start: () => TickerFuture;
-    describeForError: (name : String) => DiagnosticsNode;
+    describeForError: (name : string) => DiagnosticsNode;
     stop: () => void;
     absorbTicker: (originalTicker : Ticker) => void;
     dispose: () => void;
-    toString: () => String;
+    toString: () => string;
 }""");
 //need to transform primitive type names still
   });
