@@ -12,12 +12,14 @@ void main() {
         //num? (Widget Function() foo)
         transformFunctionTypeToTs(
             swidFunctionType: SwidFunctionType(
+              namedDefaults: {},
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "",
                 originalPackagePath: "",
                 normalParameterNames: ["foo"],
                 normalParameterTypes: [
                   SwidFunctionType(
+                    namedDefaults: {},
                       swidDeclarationModifiers:
                           SwidDeclarationModifiers.empty(),
                       name: "",

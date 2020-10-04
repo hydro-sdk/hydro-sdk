@@ -12,6 +12,7 @@ void main() {
     //A rough AST of the Ticker class from flutter/src/scheduler.dart
     final tickerClass = SwidClass(
       constructorType: SwidFunctionType(
+        namedDefaults: {},
           swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
           name: "",
           namedParameterTypes: {
@@ -23,6 +24,7 @@ void main() {
           normalParameterNames: ["_onTick"],
           normalParameterTypes: [
             SwidFunctionType(
+              namedDefaults: {},
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: null,
                 namedParameterTypes: {},
@@ -55,6 +57,7 @@ void main() {
           )),
       methods: [
         SwidFunctionType(
+          namedDefaults: {},
           name: "muted",
           namedParameterTypes: {},
           normalParameterNames: [],

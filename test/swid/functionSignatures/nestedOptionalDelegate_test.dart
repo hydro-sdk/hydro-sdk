@@ -12,6 +12,7 @@ void main() {
         //num? foo(int itemCount, [Widget Function([Duration Function(int? millis)? resolveDuration])? onTap])
         transformFunctionTypeToTs(
             swidFunctionType: SwidFunctionType(
+              namedDefaults: {},
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "foo",
                 originalPackagePath: "",
@@ -26,6 +27,7 @@ void main() {
                 optionalParameterNames: ["onTap"],
                 optionalParameterTypes: [
                   SwidFunctionType(
+                    namedDefaults: {},
                       swidDeclarationModifiers:
                           SwidDeclarationModifiers.empty(),
                       name: "",
@@ -35,6 +37,7 @@ void main() {
                       optionalParameterNames: ["resolveDuration"],
                       optionalParameterTypes: [
                         SwidFunctionType(
+                          namedDefaults: {},
                             swidDeclarationModifiers:
                                 SwidDeclarationModifiers.empty(),
                             name: "",
