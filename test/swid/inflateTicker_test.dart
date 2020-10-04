@@ -22,16 +22,16 @@ void main() {
 
     expect(TsInterface.fromSwidClass(swidClass: tickerClass).toTsSource(), """
 export ITicker {
-    muted: () => bool;
-    muted=: (value : bool) => void;
-    isTicking: () => bool;
-    isActive: () => bool;
-    start: () => TickerFuture;
-    describeForError: (name : String) => DiagnosticsNode;
-    stop: () => void;
-    absorbTicker: (originalTicker : Ticker) => void;
-    dispose: () => void;
-    toString: () => String;
+    _dart_muted: () => bool;
+    _dart_muted=: (value : bool) => void;
+    _dart_isTicking: () => bool;
+    _dart_isActive: () => bool;
+    _dart_start: () => TickerFuture;
+    _dart_describeForError: (name : String) => DiagnosticsNode;
+    _dart_stop: () => void;
+    _dart_absorbTicker: (originalTicker : Ticker) => void;
+    _dart_dispose: () => void;
+    _dart_toString: () => String;
 }""");
 
     expect(
@@ -41,16 +41,16 @@ export ITicker {
             .toTsSource(),
         """
 export ITicker {
-    getMuted: () => boolean;
-    setMuted: (value : boolean) => void;
-    getIsTicking: () => boolean;
-    getIsActive: () => boolean;
-    start: () => TickerFuture;
-    describeForError: (name : string) => DiagnosticsNode;
-    stop: () => void;
-    absorbTicker: (originalTicker : Ticker) => void;
-    dispose: () => void;
-    toString: () => string;
+    _dart_getMuted: () => boolean;
+    _dart_setMuted: (value : boolean) => void;
+    _dart_getIsTicking: () => boolean;
+    _dart_getIsActive: () => boolean;
+    _dart_start: () => TickerFuture;
+    _dart_describeForError: (name : string) => DiagnosticsNode;
+    _dart_stop: () => void;
+    _dart_absorbTicker: (originalTicker : Ticker) => void;
+    _dart_dispose: () => void;
+    _dart_toString: () => string;
 }""");
 //need to transform primitive type names still
   });
