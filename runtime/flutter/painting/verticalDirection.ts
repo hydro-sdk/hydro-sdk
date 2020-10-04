@@ -1,4 +1,5 @@
 export enum VerticalDirection {
     up,
-    down
+    down,
 }
+

@@ -3,5 +3,6 @@ export enum CrossAxisAlignment {
     end,
     center,
     stretch,
-    baseline
+    baseline,
 }
+
