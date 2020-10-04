@@ -7,6 +7,8 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/ir/mapClassLibrarySourcePath.dart';
 
 part 'swidFunctionType.g.dart';
 
@@ -18,6 +20,7 @@ class SwidFunctionType implements SwidType {
   final SwidDeclarationModifiers swidDeclarationModifiers;
 
   final Map<String, SwidType> namedParameterTypes;
+  final Map<String, SwidDefaultFormalParameter> namedDefaults;
   final List<String> normalParameterNames;
   final List<SwidType> normalParameterTypes;
   final List<String> optionalParameterNames;
@@ -30,6 +33,7 @@ class SwidFunctionType implements SwidType {
     @required this.originalPackagePath,
     @required this.swidDeclarationModifiers,
     @required this.namedParameterTypes,
+    @required this.namedDefaults,
     @required this.normalParameterNames,
     @required this.normalParameterTypes,
     @required this.optionalParameterNames,
@@ -57,26 +61,24 @@ class SwidFunctionType implements SwidType {
   }) {
     return SwidFunctionType(
       name: name ?? swidFunctionType.name,
-      nullabilitySuffix:
-          nullabilitySuffix ?? swidFunctionType.nullabilitySuffix,
-      originalPackagePath:
-          originalPackagePath ?? swidFunctionType.originalPackagePath,
-      swidDeclarationModifiers: swidDeclarationModifiers ??
-          SwidDeclarationModifiers.clone(
-              swidDeclarationModifiers:
-                  swidFunctionType.swidDeclarationModifiers),
-      namedParameterTypes:
-          namedParameterTypes ?? Map.from(swidFunctionType.namedParameterTypes),
-      normalParameterNames: normalParameterNames ??
-          List.from(swidFunctionType.normalParameterNames),
-      normalParameterTypes: normalParameterNames ??
-          List.from(swidFunctionType.normalParameterTypes),
-      optionalParameterNames: optionalParameterNames ??
-          List.from(swidFunctionType.optionalParameterNames),
-      optionalParameterTypes: optionalParameterTypes ??
-          List.from(swidFunctionType.optionalParameterTypes),
-      returnType:
-          returnType ?? cloneSwidType(swidType: swidFunctionType.returnType),
+      nullabilitySuffix: swidFunctionType.nullabilitySuffix,
+      originalPackagePath: swidFunctionType.originalPackagePath,
+      swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+          swidDeclarationModifiers:
+              swidFunctionType.swidDeclarationModifiers ?? []),
+      namedParameterTypes: Map.from(swidFunctionType.namedParameterTypes ?? {}),
+      namedDefaults: Map.from(swidFunctionType.namedDefaults ?? {}),
+      normalParameterNames:
+          List.from(swidFunctionType.normalParameterNames ?? []),
+      normalParameterTypes:
+          List.from(swidFunctionType.normalParameterTypes ?? []),
+      optionalParameterNames:
+          List.from(swidFunctionType.optionalParameterNames ?? []),
+      optionalParameterTypes:
+          List.from(swidFunctionType.optionalParameterTypes ?? []),
+      returnType: returnType != null
+          ? cloneSwidType(swidType: swidFunctionType.returnType)
+          : null,
     );
   }
 
@@ -117,6 +119,16 @@ class SwidFunctionType implements SwidType {
                           )
                         : null,
               ))),
+      namedDefaults: Map.fromEntries(functionType?.parameters
+          ?.map((x) => MapEntry<String, SwidDefaultFormalParameter>(
+              x.displayName,
+              SwidDefaultFormalParameter(
+                name: x.defaultValueCode,
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: mapClassLibrarySourcePath(element: x),
+                value: SwidType.fromInterface(interfaceType: x.type),
+              )))
+          ?.toList()),
       normalParameterNames: List.from(functionType.normalParameterNames ?? []),
       normalParameterTypes: List.from(functionType.normalParameterTypes
               ?.map(
@@ -167,7 +179,8 @@ class SwidFunctionType implements SwidType {
             )
           : SwidType(
               name: functionType.returnType.element?.name ??
-                  functionType.returnType?.getDisplayString(withNullability: false),
+                  functionType.returnType
+                      ?.getDisplayString(withNullability: false),
               nullabilitySuffix: mapNullabilitySuffix(
                   nullabilitySuffix: functionType.nullabilitySuffix),
               originalPackagePath: functionType

@@ -21,6 +21,13 @@ SwidFunctionType _$SwidFunctionTypeFromJson(Map<String, dynamic> json) {
       (k, e) => MapEntry(
           k, e == null ? null : SwidType.fromJson(e as Map<String, dynamic>)),
     ),
+    namedDefaults: (json['namedDefaults'] as Map<String, dynamic>)?.map(
+      (k, e) => MapEntry(
+          k,
+          e == null
+              ? null
+              : SwidDefaultFormalParameter.fromJson(e as Map<String, dynamic>)),
+    ),
     normalParameterNames: (json['normalParameterNames'] as List)
         ?.map((e) => e as String)
         ?.toList(),
@@ -49,6 +56,7 @@ Map<String, dynamic> _$SwidFunctionTypeToJson(SwidFunctionType instance) =>
       'originalPackagePath': instance.originalPackagePath,
       'swidDeclarationModifiers': instance.swidDeclarationModifiers,
       'namedParameterTypes': instance.namedParameterTypes,
+      'namedDefaults': instance.namedDefaults,
       'normalParameterNames': instance.normalParameterNames,
       'normalParameterTypes': instance.normalParameterTypes,
       'optionalParameterNames': instance.optionalParameterNames,
