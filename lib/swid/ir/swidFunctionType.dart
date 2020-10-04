@@ -53,6 +53,7 @@ class SwidFunctionType implements SwidType {
     String originalPackagePath,
     SwidDeclarationModifiers swidDeclarationModifiers,
     Map<String, SwidType> namedParameterTypes,
+    Map<String, SwidDefaultFormalParameter> namedDefaults,
     List<String> normalParameterNames,
     List<SwidType> normalParameterTypes,
     List<String> optionalParameterNames,
@@ -61,24 +62,28 @@ class SwidFunctionType implements SwidType {
   }) {
     return SwidFunctionType(
       name: name ?? swidFunctionType.name,
-      nullabilitySuffix: swidFunctionType.nullabilitySuffix,
-      originalPackagePath: swidFunctionType.originalPackagePath,
-      swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-          swidDeclarationModifiers:
-              swidFunctionType.swidDeclarationModifiers ?? []),
-      namedParameterTypes: Map.from(swidFunctionType.namedParameterTypes ?? {}),
-      namedDefaults: Map.from(swidFunctionType.namedDefaults ?? {}),
-      normalParameterNames:
+      nullabilitySuffix:
+          nullabilitySuffix ?? swidFunctionType.nullabilitySuffix,
+      originalPackagePath:
+          nullabilitySuffix ?? swidFunctionType.originalPackagePath,
+      swidDeclarationModifiers: swidDeclarationModifiers ??
+          SwidDeclarationModifiers.clone(
+              swidDeclarationModifiers:
+                  swidFunctionType.swidDeclarationModifiers ?? []),
+      namedParameterTypes: namedParameterTypes ??
+          Map.from(swidFunctionType.namedParameterTypes ?? {}),
+      namedDefaults:
+          namedDefaults ?? Map.from(swidFunctionType.namedDefaults ?? {}),
+      normalParameterNames: normalParameterNames ??
           List.from(swidFunctionType.normalParameterNames ?? []),
-      normalParameterTypes:
+      normalParameterTypes: normalParameterTypes ??
           List.from(swidFunctionType.normalParameterTypes ?? []),
-      optionalParameterNames:
+      optionalParameterNames: optionalParameterNames ??
           List.from(swidFunctionType.optionalParameterNames ?? []),
-      optionalParameterTypes:
+      optionalParameterTypes: optionalParameterTypes ??
           List.from(swidFunctionType.optionalParameterTypes ?? []),
-      returnType: returnType != null
-          ? cloneSwidType(swidType: swidFunctionType.returnType)
-          : null,
+      returnType:
+          returnType ?? cloneSwidType(swidType: swidFunctionType.returnType),
     );
   }
 
