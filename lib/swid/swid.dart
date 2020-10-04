@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:analyzer/dart/ast/ast.dart';
@@ -17,7 +18,7 @@ import 'package:path/path.dart' as path;
 
 int dirCount;
 
-Future<void> swid(List<String> args) async {
+Future<SwidVisitor> swid(List<String> args) async {
   if (args.length == 1) {
     var dir = args[0];
     if (!File('$dir/pubspec.yaml').existsSync()) {
@@ -35,6 +36,8 @@ Future<void> swid(List<String> args) async {
   driver.resolveUnits = true;
   driver.visitor = SwidVisitor();
   await driver.analyze();
+
+  return driver.visitor;
 }
 
 class SwidVisitor extends RecursiveAstVisitor
@@ -58,18 +61,20 @@ class SwidVisitor extends RecursiveAstVisitor
 
     DeclaredSimpleIdentifier identifier =
         node.childEntities.firstWhere((x) => x is DeclaredSimpleIdentifier);
-    List<EnumConstantDeclarationImpl> declarations = node.childEntities
-        .where((x) => x is EnumConstantDeclarationImpl)
-        .toList()
-        .cast<EnumConstantDeclarationImpl>();
-    enums.add(SwidEnum(
-        originalPackagePath: (node.parent.root as CompilationUnit)
-            .declaredElement
-            .librarySource
-            .uri
-            .toString(),
-        identifier: identifier.name,
-        children: declarations.map((x) => x.name.name).toList()));
+    if (identifier.name[0] != "_") {
+      List<EnumConstantDeclarationImpl> declarations = node.childEntities
+          .where((x) => x is EnumConstantDeclarationImpl)
+          .toList()
+          .cast<EnumConstantDeclarationImpl>();
+      enums.add(SwidEnum(
+          originalPackagePath: (node.parent.root as CompilationUnit)
+              .declaredElement
+              .librarySource
+              .uri
+              .toString(),
+          identifier: identifier.name,
+          children: declarations.map((x) => x.name.name).toList()));
+    }
 
     super.visitEnumDeclaration(node);
   }
@@ -115,6 +120,18 @@ class SwidVisitor extends RecursiveAstVisitor
                   .cast<SwidFunctionType>()));
         }
       }
+    }
+
+    if (node.name.name == "IconData") {
+      print(node.name.name);
+      File("IconData.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "IconDataProperty") {
+      print(node.name.name);
+      File("IconDataProperty.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     super.visitClassDeclaration(node);

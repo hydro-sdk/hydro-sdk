@@ -12,7 +12,7 @@ void main() {
                 identifier: "FooEnum",
                 children: ["bar", "baz", "qux"])),
 """
-export FooEnum {
+export enum FooEnum {
     bar,
     baz,
     qux,
