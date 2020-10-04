@@ -119,16 +119,29 @@ class SwidFunctionType implements SwidType {
                           )
                         : null,
               ))),
-      namedDefaults: Map.fromEntries(functionType?.parameters
-          ?.map((x) => MapEntry<String, SwidDefaultFormalParameter>(
-              x.displayName,
-              SwidDefaultFormalParameter(
-                name: x.defaultValueCode,
-                nullabilitySuffix: SwidNullabilitySuffix.none,
-                originalPackagePath: mapClassLibrarySourcePath(element: x),
-                value: SwidType.fromInterface(interfaceType: x.type),
-              )))
-          ?.toList()),
+      namedDefaults: functionType?.parameters != null
+          ? Map.fromEntries(functionType.parameters
+              .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
+                  x.displayName,
+                  SwidDefaultFormalParameter(
+                    name: x.defaultValueCode,
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: mapClassLibrarySourcePath(element: x),
+                    value: x.type is FunctionType
+                        ? SwidFunctionType.fromFunctionType(
+                            functionType: x.type,
+                            swidDeclarationModifiers:
+                                SwidDeclarationModifiers.empty(),
+                          )
+                        : x.type is InterfaceType
+                            ? SwidType.fromInterface(
+                                interfaceType: x.type,
+                              )
+                            : null,
+                  )))
+              .toList()
+                ..removeWhere((x) => x.value.name == null))
+          : {},
       normalParameterNames: List.from(functionType.normalParameterNames ?? []),
       normalParameterTypes: List.from(functionType.normalParameterTypes
               ?.map(
