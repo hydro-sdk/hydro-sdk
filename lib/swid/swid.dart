@@ -89,7 +89,11 @@ class SwidVisitor extends RecursiveAstVisitor
           .firstWhere((x) => x is ConstructorDeclarationImpl,
               orElse: () => null);
       if (constructorDeclarationImpl != null) {
-        if (constructorDeclarationImpl.declaredElement.isPublic) {
+        if (constructorDeclarationImpl.declaredElement.isPublic ||
+            node.childEntities.firstWhere(
+                    (x) => x is FieldDeclaration && x.staticKeyword != null,
+                    orElse: () => null) !=
+                null) {
           classes.add(SwidClass(
               name: node.name.name,
               nullabilitySuffix: null,
@@ -132,6 +136,10 @@ class SwidVisitor extends RecursiveAstVisitor
       print(node.name.name);
       File("IconDataProperty.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "Icons") {
+      print(node.name.name);
     }
 
     super.visitClassDeclaration(node);

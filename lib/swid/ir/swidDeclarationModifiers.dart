@@ -29,6 +29,7 @@ class SwidDeclarationModifiers {
   final bool hasSealed;
   final bool hasVisibleForTemplate;
   final bool hasVisibleForTesting;
+  final bool isPublic;
 
   SwidDeclarationModifiers({
     @required this.isAbstract,
@@ -54,6 +55,7 @@ class SwidDeclarationModifiers {
     @required this.hasSealed,
     @required this.hasVisibleForTemplate,
     @required this.hasVisibleForTesting,
+    @required this.isPublic,
   });
 
   Map<String, dynamic> toJson() => _$SwidDeclarationModifiersToJson(this);
@@ -87,6 +89,7 @@ class SwidDeclarationModifiers {
         hasSealed: executableElement.hasSealed,
         hasVisibleForTemplate: executableElement.hasVisibleForTemplate,
         hasVisibleForTesting: executableElement.hasVisibleForTemplate,
+        isPublic: executableElement.isPublic,
       );
 
   factory SwidDeclarationModifiers.fromPropertyAccessorElement(
@@ -115,6 +118,7 @@ class SwidDeclarationModifiers {
         hasSealed: propertyAccessorElement.hasSealed,
         hasVisibleForTemplate: propertyAccessorElement.hasVisibleForTemplate,
         hasVisibleForTesting: propertyAccessorElement.hasVisibleForTemplate,
+        isPublic: propertyAccessorElement.isPublic,
       );
 
   factory SwidDeclarationModifiers.clone(
@@ -143,6 +147,7 @@ class SwidDeclarationModifiers {
         hasSealed: swidDeclarationModifiers.hasSealed,
         hasVisibleForTemplate: swidDeclarationModifiers.hasVisibleForTemplate,
         hasVisibleForTesting: swidDeclarationModifiers.hasVisibleForTemplate,
+        isPublic: swidDeclarationModifiers.isPublic,
       );
 
   factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers.only();
@@ -171,6 +176,7 @@ class SwidDeclarationModifiers {
     hasSealed: false,
     hasVisibleForTemplate: false,
     hasVisibleForTesting: false,
+    isPublic: true,
   }) =>
       SwidDeclarationModifiers(
         isAbstract: isAbstract,
@@ -196,6 +202,7 @@ class SwidDeclarationModifiers {
         hasSealed: hasSealed,
         hasVisibleForTemplate: hasVisibleForTemplate,
         hasVisibleForTesting: hasVisibleForTesting,
+        isPublic: isPublic,
       );
 
   factory SwidDeclarationModifiers.syntheticGetter() =>

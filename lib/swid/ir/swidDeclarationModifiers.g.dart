@@ -32,6 +32,7 @@ SwidDeclarationModifiers _$SwidDeclarationModifiersFromJson(
     hasSealed: json['hasSealed'] as bool,
     hasVisibleForTemplate: json['hasVisibleForTemplate'] as bool,
     hasVisibleForTesting: json['hasVisibleForTesting'] as bool,
+    isPublic: json['isPublic'] as bool,
   );
 }
 
@@ -61,4 +62,5 @@ Map<String, dynamic> _$SwidDeclarationModifiersToJson(
       'hasSealed': instance.hasSealed,
       'hasVisibleForTemplate': instance.hasVisibleForTemplate,
       'hasVisibleForTesting': instance.hasVisibleForTesting,
+      'isPublic': instance.isPublic,
     };
