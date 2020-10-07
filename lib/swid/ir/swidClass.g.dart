@@ -21,6 +21,12 @@ SwidClass _$SwidClassFromJson(Map<String, dynamic> json) {
             ? null
             : SwidFunctionType.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    staticConstFieldDeclarations: (json['staticConstFieldDeclarations'] as List)
+        ?.map((e) => e == null
+            ? null
+            : SwidStaticConstFieldDeclaration.fromJson(
+                e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -31,6 +37,7 @@ Map<String, dynamic> _$SwidClassToJson(SwidClass instance) => <String, dynamic>{
       'originalPackagePath': instance.originalPackagePath,
       'constructorType': instance.constructorType,
       'methods': instance.methods,
+      'staticConstFieldDeclarations': instance.staticConstFieldDeclarations,
     };
 
 T _$enumDecode<T>(
