@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/narrowModifierProducer.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
@@ -94,7 +95,8 @@ class SwidVisitor extends RecursiveAstVisitor
                     (x) => x is FieldDeclaration && x.staticKeyword != null,
                     orElse: () => null) !=
                 null) {
-          classes.add(SwidClass(
+          classes.add(
+            SwidClass(
               name: node.name.name,
               nullabilitySuffix: null,
               originalPackagePath:
@@ -119,9 +121,40 @@ class SwidVisitor extends RecursiveAstVisitor
                               SwidDeclarationModifiers.fromExecutableElement(
                                   executableElement: val),
                           onPropertyAccessorElement: (val) =>
-                              SwidDeclarationModifiers.fromPropertyAccessorElement(propertyAccessorElement: val))))
+                              SwidDeclarationModifiers
+                                  .fromPropertyAccessorElement(
+                                      propertyAccessorElement: val))))
                   .toList()
-                  .cast<SwidFunctionType>()));
+                  .cast<SwidFunctionType>(),
+              staticConstFieldDeclarations: node.childEntities
+                  .where((x) => x is FieldDeclaration)
+                  .toList()
+                  .cast<FieldDeclaration>()
+                  .map((x) {
+                if (x.isStatic) {
+                  var declarationList = (x.childEntities
+                          .firstWhere((k) => k is VariableDeclarationList)
+                      as VariableDeclarationList);
+                  if (declarationList.isConst) {
+                    VariableDeclaration declaration = declarationList
+                        .childEntities
+                        .firstWhere((x) => x is VariableDeclaration);
+                    if (declaration.isConst &&
+                        declaration.declaredElement.isConst &&
+                        declaration.declaredElement.isStatic &&
+                        declaration.declaredElement.isPublic) {
+                      return SwidStaticConstFieldDeclaration
+                          .fromVariableDeclarationList(
+                              variableDeclarationList: x.childEntities
+                                  .firstWhere(
+                                      (k) => k is VariableDeclarationList));
+                    }
+                  }
+                }
+              }).toList()
+                    ..removeWhere((x) => x == null),
+            ),
+          );
         }
       }
     }
@@ -140,6 +173,8 @@ class SwidVisitor extends RecursiveAstVisitor
 
     if (node.name.name == "Icons") {
       print(node.name.name);
+      File("Icons.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     super.visitClassDeclaration(node);

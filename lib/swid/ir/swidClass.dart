@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -13,6 +14,7 @@ class SwidClass implements SwidType {
   final String originalPackagePath;
   final SwidFunctionType constructorType;
   final List<SwidFunctionType> methods;
+  final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations;
 
   SwidClass({
     @required this.name,
@@ -20,6 +22,7 @@ class SwidClass implements SwidType {
     @required this.originalPackagePath,
     @required this.constructorType,
     @required this.methods,
+    @required this.staticConstFieldDeclarations,
   });
 
   Map<String, dynamic> toJson() => _$SwidClassToJson(this);
