@@ -4,14 +4,12 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
 
-SwidLiteral narrowSwidLiteral({
+T narrowSwidLiteral<T>({
   @required SwidLiteral swidLiteral,
+  @required T Function(SwidIntegerLiteral) onSwidIntegerLiteral,
+  @required T Function(SwidStringLiteral) onSwidStringLiteral,
   @required
-      SwidIntegerLiteral Function(SwidIntegerLiteral) onSwidIntegerLiteral,
-  @required SwidStringLiteral Function(SwidStringLiteral) onSwidStringLiteral,
-  @required
-      SwidStaticConstFunctionInvocation Function(
-              SwidStaticConstFunctionInvocation)
+      T Function(SwidStaticConstFunctionInvocation)
           onSwidStaticConstFunctionInvocation,
 }) {
   if (swidLiteral is SwidIntegerLiteral) {
