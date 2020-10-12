@@ -7,7 +7,9 @@ import 'package:analyzer/dart/ast/ast.dart'
         NamedExpression,
         Label,
         SimpleStringLiteral,
+        BooleanLiteral,
         ArgumentList;
+import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
@@ -62,7 +64,7 @@ class SwidStaticConstFunctionInvocation implements SwidLiteral {
                 ?.map((x) {
               if (x is NamedExpression) {
                 var argument = x.childEntities.firstWhere(
-                    (x) => x is SimpleStringLiteral,
+                    (x) => x is SimpleStringLiteral || x is BooleanLiteral,
                     orElse: () => null);
                 return MapEntry(
                     (x.childEntities.firstWhere((x) => x is Label) as Label)
@@ -70,7 +72,10 @@ class SwidStaticConstFunctionInvocation implements SwidLiteral {
                         .name,
                     argument is SimpleStringLiteral
                         ? SwidStringLiteral(value: argument.value)
-                        : null);
+                        : argument is BooleanLiteral
+                            ? SwidBooleanLiteral(
+                                value: argument.value.toString())
+                            : null);
               }
               return MapEntry(null, null);
             })?.toList() ??

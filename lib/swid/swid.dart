@@ -86,6 +86,9 @@ class SwidVisitor extends RecursiveAstVisitor
         node.nativeClause == null &&
         node.abstractKeyword == null &&
         node.name.name[0] != "_") {
+      if (node.name.name == "Icons") {
+        print("Icons");
+      }
       ConstructorDeclarationImpl constructorDeclarationImpl = node.childEntities
           .firstWhere((x) => x is ConstructorDeclarationImpl,
               orElse: () => null);
@@ -173,8 +176,7 @@ class SwidVisitor extends RecursiveAstVisitor
 
     if (node.name.name == "Icons") {
       print(node.name.name);
-      File("Icons.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
+      File("Icons.json").writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     super.visitClassDeclaration(node);

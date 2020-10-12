@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/swid/ir/narrowSwidLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidLiteral.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformBooleanLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
@@ -12,6 +13,8 @@ String transformLiteralToTs({@required SwidLiteral swidLiteral}) =>
             transformIntegerLiteralToTs(swidIntegerLiteral: val),
         onSwidStringLiteral: (val) =>
             transformStringLiteralToTs(swidStringLiteral: val),
+        onSwidBooleanLiteral: (val) =>
+            transformBooleanLiteralToTs(swidBooleanLiteral: val),
         onSwidStaticConstFunctionInvocation: (val) =>
             transformStaticConstFunctionInvocation(
                 swidStaticConstFunctionInvocation: val));

@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
@@ -8,6 +9,7 @@ T narrowSwidLiteral<T>({
   @required SwidLiteral swidLiteral,
   @required T Function(SwidIntegerLiteral) onSwidIntegerLiteral,
   @required T Function(SwidStringLiteral) onSwidStringLiteral,
+  @required T Function(SwidBooleanLiteral) onSwidBooleanLiteral,
   @required
       T Function(SwidStaticConstFunctionInvocation)
           onSwidStaticConstFunctionInvocation,
@@ -19,6 +21,11 @@ T narrowSwidLiteral<T>({
     }
   } else if (swidLiteral is SwidStringLiteral) {
     var res = onSwidStringLiteral(swidLiteral);
+    if (res != null) {
+      return res;
+    }
+  } else if (swidLiteral is SwidBooleanLiteral) {
+    var res = onSwidBooleanLiteral(swidLiteral);
     if (res != null) {
       return res;
     }
