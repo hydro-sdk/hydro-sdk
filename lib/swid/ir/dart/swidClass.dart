@@ -1,9 +1,9 @@
-import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 
 part 'swidClass.g.dart';
 

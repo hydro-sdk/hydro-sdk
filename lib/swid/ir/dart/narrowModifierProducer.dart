@@ -1,5 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidDeclarationModifiers.dart';
 import 'package:meta/meta.dart';
 
 SwidDeclarationModifiers narrowModifierProducer({

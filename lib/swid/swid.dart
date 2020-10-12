@@ -3,12 +3,12 @@ import 'dart:io';
 
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
-import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidEnum.dart';
-import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/narrowModifierProducer.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/dart/narrowModifierProducer.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 

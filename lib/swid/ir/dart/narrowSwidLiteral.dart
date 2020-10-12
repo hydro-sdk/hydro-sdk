@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidBooleanLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
 
 T narrowSwidLiteral<T>({

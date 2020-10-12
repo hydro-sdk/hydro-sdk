@@ -9,12 +9,12 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleStringLiteral,
         BooleanLiteral,
         ArgumentList;
-import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidBooleanLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:hydro_sdk/swid/ir/swidLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
 
 part 'swidStaticConstFunctionInvocation.g.dart';
 

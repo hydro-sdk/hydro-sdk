@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 
 void main() {

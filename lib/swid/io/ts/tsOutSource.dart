@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidEnum.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformEnumToTs.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';

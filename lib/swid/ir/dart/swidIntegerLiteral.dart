@@ -1,5 +1,5 @@
 import 'package:analyzer/dart/ast/ast.dart' show IntegerLiteral;
-import 'package:hydro_sdk/swid/ir/swidLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
 

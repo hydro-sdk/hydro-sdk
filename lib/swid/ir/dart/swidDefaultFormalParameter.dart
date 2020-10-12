@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/ir/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
 
 part 'swidDefaultFormalParameter.g.dart';
 

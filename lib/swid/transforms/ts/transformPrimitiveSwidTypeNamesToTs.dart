@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 import 'package:meta/meta.dart';
 
 SwidType transformPrimitiveSwidTypeNamesToTs({@required SwidType swidType}) {

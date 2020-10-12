@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/ir/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/narrowSwidType.dart';
-import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/narrowSwidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
 import 'package:meta/meta.dart';
 
