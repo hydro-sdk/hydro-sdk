@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/TsIr.dart';
+import 'package:hydro_sdk/swid/ir/ts/TsIr.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
