@@ -11,7 +11,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var tickerClass = SwidClass.fromJson(
-        json.decode(File("test/swid/res/Ticker.json").readAsStringSync()));
+        json.decode(File("../test/swid/res/Ticker.json").readAsStringSync()));
     var tickerCtorInterface = TsInterface.fromSwidFunctiontype(
         swidFunctionType: tickerClass.constructorType, name: "Ticker");
     expect(tickerCtorInterface.name, "TickerProps");
