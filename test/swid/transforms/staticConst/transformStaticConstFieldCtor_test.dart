@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -17,12 +17,8 @@ void main() {
               "fontFamily": SwidStringLiteral(value: "MaterialIcons")
             },
             isConstructorInvocation: true));
-    var iconsClass = SwidClass(
-        name: "Icons",
-        nullabilitySuffix: null,
-        originalPackagePath: null,
-        constructorType: null,
-        methods: null,
-        staticConstFieldDeclarations: []);
+    expect(
+        transformStaticConstFieldDeclaration(staticConstFieldDeclaration: tenk),
+        "public static ten_k = new IconData(0xe52a,{fontFamily:\"MaterialIcons\"});");
   });
 }
