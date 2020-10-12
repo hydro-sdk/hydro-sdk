@@ -34,18 +34,14 @@ dependencies:
   cupertino_icons: ^0.1.2
   surveyor:
     git:
-      url: git://github.com/pq/surveyor
-      ref: e09e5aa50d46dbfa6d4b04e9e47a2956311970bc
+      url: git://github.com/chgibb/surveyor
+      ref: 8d5743560c55bb09f1373aa70c2066b54772f0b5
 
 dev_dependencies:
   
   flutter_test:
     sdk: flutter
   test: any
-
-dependency_overrides:
-  analyzer: ^0.40.3
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

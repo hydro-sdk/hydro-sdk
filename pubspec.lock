@@ -155,15 +155,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
-  corpus:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "1c796c699c70e116a92582235298e8efa7a17a6a"
-      url: "git://github.com/pq/corpus.git"
-    source: git
-    version: "0.0.1"
   coverage:
     dependency: transitive
     description:
@@ -477,9 +468,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: e09e5aa50d46dbfa6d4b04e9e47a2956311970bc
-      resolved-ref: e09e5aa50d46dbfa6d4b04e9e47a2956311970bc
-      url: "git://github.com/pq/surveyor"
+      ref: "8d5743560c55bb09f1373aa70c2066b54772f0b5"
+      resolved-ref: "8d5743560c55bb09f1373aa70c2066b54772f0b5"
+      url: "git://github.com/chgibb/surveyor"
     source: git
     version: "0.0.1"
   term_glyph:
