@@ -10,7 +10,7 @@ void main() {
             packageUri:
                 "package:flutter${path.separator}src${path.separator}animation${path.separator}animation_controller.dart"),
         "flutter${path.separator}animation");
-        expect(
+    expect(
         transformPackageUri(
             packageUri:
                 "package:flutter${path.separator}animation${path.separator}other_path${path.separator}animation_controller.dart"),

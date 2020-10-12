@@ -1,1 +1,1 @@
-export * from './springType';
+export * from "./springType";

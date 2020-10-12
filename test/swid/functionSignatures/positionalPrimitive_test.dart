@@ -12,7 +12,7 @@ void main() {
         //num (int? foo,String bar)
         transformFunctionTypeToTs(
             swidFunctionType: SwidFunctionType(
-              namedDefaults: {},
+                namedDefaults: {},
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "",
                 originalPackagePath: "",

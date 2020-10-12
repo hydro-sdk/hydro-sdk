@@ -30,6 +30,6 @@ String transformStaticConstFunctionInvocation(
   }
 
   res += ")";
-  
+
   return res;
 }

@@ -11,7 +11,7 @@ void main() {
                 originalPackagePath: "package:foo_package/src/fooEnum.dart",
                 identifier: "FooEnum",
                 children: ["bar", "baz", "qux"])),
-"""
+        """
 export enum FooEnum {
     bar,
     baz,
