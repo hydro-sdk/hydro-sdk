@@ -18,5 +18,5 @@ Future<void> writeTsOutSource(
               .join(p.separator) +
           p.separator +
           tsOutSource.fileName)
-      .writeAsString(tsOutSource.content);
+      .writeAsString(tsOutSource.ir.map((x) => x.toTsSource()).toList().join());
 }
