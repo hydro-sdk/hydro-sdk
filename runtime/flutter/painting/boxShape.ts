@@ -1,4 +1,5 @@
 export enum BoxShape {
     rectangle,
-    circle
+    circle,
 }
+

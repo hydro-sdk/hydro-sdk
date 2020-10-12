@@ -1,4 +1,5 @@
 export enum SmartDashesType {
     disabled,
-    enabled
+    enabled,
 }
+
