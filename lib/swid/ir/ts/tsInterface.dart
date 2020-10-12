@@ -25,19 +25,23 @@ class TsInterface implements TsIr {
   factory TsInterface.fromSwidClass({@required SwidClass swidClass}) {
     return TsInterface(
         name: "I${swidClass.name}",
-        members: Map.fromEntries(
-            swidClass.methods?.map((x) => MapEntry("_dart_${x.name}", x))?.toList() ??
-                {}));
+        members: Map.fromEntries(swidClass.methods
+                ?.map((x) => MapEntry("_dart_${x.name}", x))
+                ?.toList() ??
+            {}));
   }
 
   String toTsSource() {
-    var res = ["export $name {"];
-    members.forEach((key, value) {
-      res += [
-        "    ${key}: ${transformFunctionTypeToTs(swidFunctionType: value)};"
-      ];
-    });
-    res.add("}");
-    return res.join("\n");
+    if (members?.isNotEmpty ?? false) {
+      var res = ["export $name {"];
+      members.forEach((key, value) {
+        res += [
+          "    ${key}: ${transformFunctionTypeToTs(swidFunctionType: value)};"
+        ];
+      });
+      res.add("}");
+      return res.join("\n");
+    }
+    return "";
   }
 }

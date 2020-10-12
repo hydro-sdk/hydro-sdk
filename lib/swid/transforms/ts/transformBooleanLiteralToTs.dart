@@ -3,4 +3,4 @@ import 'package:meta/meta.dart';
 
 String transformBooleanLiteralToTs(
         {@required SwidBooleanLiteral swidBooleanLiteral}) =>
-    "\"${swidBooleanLiteral.value}\"";
+    swidBooleanLiteral.value;
