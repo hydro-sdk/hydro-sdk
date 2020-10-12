@@ -37,6 +37,7 @@ class SwidClass implements SwidType {
     String originalPackagePath,
     SwidFunctionType constructorType,
     List<SwidFunctionType> methods,
+    List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
   }) =>
       SwidClass(
           name: name ?? swidClass.name,
@@ -50,5 +51,7 @@ class SwidClass implements SwidType {
               List.from(swidClass?.methods
                       ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
                       ?.toList() ??
-                  []));
+                  []),
+          staticConstFieldDeclarations: staticConstFieldDeclarations ??
+              List.from(swidClass.staticConstFieldDeclarations ?? []));
 }
