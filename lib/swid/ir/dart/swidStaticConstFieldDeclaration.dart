@@ -2,11 +2,13 @@ import 'package:analyzer/dart/ast/ast.dart'
     show
         VariableDeclarationList,
         VariableDeclaration,
-        InstanceCreationExpression;
+        InstanceCreationExpression,
+        SimpleStringLiteral;
 import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
 import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -50,6 +52,12 @@ class SwidStaticConstFieldDeclaration {
             ? SwidStaticConstFunctionInvocation.fromInstanceCreationExpression(
                 instanceCreationExpression: declaration.childEntities
                     .firstWhere((x) => x is InstanceCreationExpression))
-            : null);
+            : declaration.childEntities
+                        .firstWhere((x) => x is SimpleStringLiteral) !=
+                    null
+                ? SwidStringLiteral.fromSimpleStringLiteral(
+                    simpleStringLiteral: declaration.childEntities
+                        .firstWhere((x) => x is SimpleStringLiteral))
+                : null);
   }
 }
