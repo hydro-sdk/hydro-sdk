@@ -1,4 +1,3 @@
-import 'package:hydro_sdk/swid/ir/dart/narrowSwidLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformBooleanLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';
@@ -7,14 +6,13 @@ import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
 import 'package:meta/meta.dart';
 
 String transformLiteralToTs({@required SwidLiteral swidLiteral}) =>
-    narrowSwidLiteral<String>(
-        swidLiteral: swidLiteral,
-        onSwidIntegerLiteral: (val) =>
+    swidLiteral.when(
+        fromSwidIntegerLiteral: (val) =>
             transformIntegerLiteralToTs(swidIntegerLiteral: val),
-        onSwidStringLiteral: (val) =>
+        fromSwidStringLiteral: (val) =>
             transformStringLiteralToTs(swidStringLiteral: val),
-        onSwidBooleanLiteral: (val) =>
+        fromSwidBooleanLiteral: (val) =>
             transformBooleanLiteralToTs(swidBooleanLiteral: val),
-        onSwidStaticConstFunctionInvocation: (val) =>
+        fromSwidStaticConstFunctionInvocation: (val) =>
             transformStaticConstFunctionInvocation(
                 swidStaticConstFunctionInvocation: val));
