@@ -8,10 +8,14 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     List<SwidLiteral> normalParameters = [
-      SwidIntegerLiteral(value: "0xe52a"),
-      SwidStringLiteral(value: "0xe52a"),
-      SwidStringLiteral(value: "1"),
-      SwidIntegerLiteral(value: "1"),
+      SwidLiteral.fromSwidIntegerLiteral(
+          swidIntegerLiteral: SwidIntegerLiteral(value: "0xe52a")),
+      SwidLiteral.fromSwidStringLiteral(
+          swidStringLiteral: SwidStringLiteral(value: "0xe52a")),
+      SwidLiteral.fromSwidStringLiteral(
+          swidStringLiteral: SwidStringLiteral(value: "1")),
+      SwidLiteral.fromSwidIntegerLiteral(
+          swidIntegerLiteral: SwidIntegerLiteral(value: "1")),
     ];
 
     expect(transformNormalParametersToTs(swidLiterals: normalParameters),

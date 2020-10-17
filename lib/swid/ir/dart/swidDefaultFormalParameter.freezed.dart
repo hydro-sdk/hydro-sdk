@@ -22,7 +22,7 @@ class _$SwidDefaultFormalParameterTearOff {
       {@required String name,
       @required SwidNullabilitySuffix nullabilitySuffix,
       @required String originalPackagePath,
-      @required SwidType value}) {
+      @required @nullable SwidType value}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -46,6 +46,7 @@ mixin _$SwidDefaultFormalParameter {
   String get name;
   SwidNullabilitySuffix get nullabilitySuffix;
   String get originalPackagePath;
+  @nullable
   SwidType get value;
 
   Map<String, dynamic> toJson();
@@ -61,7 +62,7 @@ abstract class $SwidDefaultFormalParameterCopyWith<$Res> {
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      SwidType value});
+      @nullable SwidType value});
 
   $SwidTypeCopyWith<$Res> get value;
 }
@@ -115,7 +116,7 @@ abstract class _$$DataCopyWith<$Res>
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      SwidType value});
+      @nullable SwidType value});
 
   @override
   $SwidTypeCopyWith<$Res> get value;
@@ -159,11 +160,10 @@ class _$_$Data implements _$Data {
       {@required this.name,
       @required this.nullabilitySuffix,
       @required this.originalPackagePath,
-      @required this.value})
+      @required @nullable this.value})
       : assert(name != null),
         assert(nullabilitySuffix != null),
-        assert(originalPackagePath != null),
-        assert(value != null);
+        assert(originalPackagePath != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -175,6 +175,7 @@ class _$_$Data implements _$Data {
   @override
   final String originalPackagePath;
   @override
+  @nullable
   final SwidType value;
 
   @override
@@ -221,7 +222,7 @@ abstract class _$Data implements SwidDefaultFormalParameter {
       {@required String name,
       @required SwidNullabilitySuffix nullabilitySuffix,
       @required String originalPackagePath,
-      @required SwidType value}) = _$_$Data;
+      @required @nullable SwidType value}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -232,6 +233,7 @@ abstract class _$Data implements SwidDefaultFormalParameter {
   @override
   String get originalPackagePath;
   @override
+  @nullable
   SwidType get value;
   @override
   _$$DataCopyWith<_$Data> get copyWith;

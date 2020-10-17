@@ -6,13 +6,67 @@ part of 'swidLiteral.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidLiteral _$SwidLiteralFromJson(Map<String, dynamic> json) {
-  return SwidLiteral(
-    value: json['value'] as String,
+_$_$FromSwidBooleanLiteral _$_$_$FromSwidBooleanLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidBooleanLiteral(
+    swidBooleanLiteral: json['swidBooleanLiteral'] == null
+        ? null
+        : SwidBooleanLiteral.fromJson(
+            json['swidBooleanLiteral'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$SwidLiteralToJson(SwidLiteral instance) =>
+Map<String, dynamic> _$_$_$FromSwidBooleanLiteralToJson(
+        _$_$FromSwidBooleanLiteral instance) =>
     <String, dynamic>{
-      'value': instance.value,
+      'swidBooleanLiteral': instance.swidBooleanLiteral,
+    };
+
+_$_$FromSwidStringLiteral _$_$_$FromSwidStringLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidStringLiteral(
+    swidStringLiteral: json['swidStringLiteral'] == null
+        ? null
+        : SwidStringLiteral.fromJson(
+            json['swidStringLiteral'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStringLiteralToJson(
+        _$_$FromSwidStringLiteral instance) =>
+    <String, dynamic>{
+      'swidStringLiteral': instance.swidStringLiteral,
+    };
+
+_$_$FromSwidIntegerLiteral _$_$_$FromSwidIntegerLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidIntegerLiteral(
+    swidIntegerLiteral: json['swidIntegerLiteral'] == null
+        ? null
+        : SwidIntegerLiteral.fromJson(
+            json['swidIntegerLiteral'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidIntegerLiteralToJson(
+        _$_$FromSwidIntegerLiteral instance) =>
+    <String, dynamic>{
+      'swidIntegerLiteral': instance.swidIntegerLiteral,
+    };
+
+_$_$FromSwidStaticConstFunctionInvocation
+    _$_$_$FromSwidStaticConstFunctionInvocationFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstFunctionInvocation(
+    staticConstFunctionInvocation: json['staticConstFunctionInvocation'] == null
+        ? null
+        : SwidStaticConstFunctionInvocation.fromJson(
+            json['staticConstFunctionInvocation'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstFunctionInvocationToJson(
+        _$_$FromSwidStaticConstFunctionInvocation instance) =>
+    <String, dynamic>{
+      'staticConstFunctionInvocation': instance.staticConstFunctionInvocation,
     };

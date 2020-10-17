@@ -1,15 +1,32 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidBooleanLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
-import 'package:json_annotation/json_annotation.dart';
 
+part 'swidLiteral.freezed.dart';
 part 'swidLiteral.g.dart';
 
-@JsonSerializable()
-class SwidLiteral {
-  final String value;
+@freezed
+abstract class SwidLiteral with _$SwidLiteral {
+  factory SwidLiteral.fromSwidBooleanLiteral(
+          {@required SwidBooleanLiteral swidBooleanLiteral}) =
+      _$FromSwidBooleanLiteral;
 
-  SwidLiteral({@required this.value});
+  factory SwidLiteral.fromSwidStringLiteral(
+          {@required SwidStringLiteral swidStringLiteral}) =
+      _$FromSwidStringLiteral;
 
-  Map<String, dynamic> toJson() => _$SwidLiteralToJson(this);
+  factory SwidLiteral.fromSwidIntegerLiteral(
+          {@required SwidIntegerLiteral swidIntegerLiteral}) =
+      _$FromSwidIntegerLiteral;
+
+  factory SwidLiteral.fromSwidStaticConstFunctionInvocation(
+          {@required
+              SwidStaticConstFunctionInvocation
+                  staticConstFunctionInvocation}) =
+      _$FromSwidStaticConstFunctionInvocation;
 
   factory SwidLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidLiteralFromJson(json);

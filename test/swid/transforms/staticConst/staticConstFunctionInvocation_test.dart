@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFunctionInvocation.dart';
@@ -9,7 +10,10 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     var normal = SwidStaticConstFunctionInvocation(
         value: "IconData",
-        normalParameters: [SwidIntegerLiteral(value: "0xe52a")],
+        normalParameters: [
+          SwidLiteral.fromSwidIntegerLiteral(
+              swidIntegerLiteral: SwidIntegerLiteral(value: "0xe52a"))
+        ],
         namedParameters: {},
         isConstructorInvocation: false);
     expect(
@@ -20,10 +24,14 @@ void main() {
     var manyNormal = SwidStaticConstFunctionInvocation(
         value: "IconData",
         normalParameters: [
-          SwidIntegerLiteral(value: "0xe52a"),
-          SwidStringLiteral(value: "foo"),
-          SwidStringLiteral(value: "bar"),
-          SwidIntegerLiteral(value: "123"),
+          SwidLiteral.fromSwidIntegerLiteral(
+              swidIntegerLiteral: SwidIntegerLiteral(value: "0xe52a")),
+          SwidLiteral.fromSwidStringLiteral(
+              swidStringLiteral: SwidStringLiteral(value: "foo")),
+          SwidLiteral.fromSwidStringLiteral(
+              swidStringLiteral: SwidStringLiteral(value: "bar")),
+          SwidLiteral.fromSwidIntegerLiteral(
+              swidIntegerLiteral: SwidIntegerLiteral(value: "123")),
         ],
         namedParameters: {},
         isConstructorInvocation: false);
@@ -36,9 +44,12 @@ void main() {
         value: "IconData",
         normalParameters: [],
         namedParameters: {
-          "foo": SwidStringLiteral(value: "foo"),
-          "bar": SwidStringLiteral(value: "bar"),
-          "offset": SwidIntegerLiteral(value: "123"),
+          "foo": SwidLiteral.fromSwidStringLiteral(
+              swidStringLiteral: SwidStringLiteral(value: "foo")),
+          "bar": SwidLiteral.fromSwidStringLiteral(
+              swidStringLiteral: SwidStringLiteral(value: "bar")),
+          "offset": SwidLiteral.fromSwidIntegerLiteral(
+              swidIntegerLiteral: SwidIntegerLiteral(value: "123")),
         },
         isConstructorInvocation: false);
     expect(
@@ -48,9 +59,13 @@ void main() {
 
     var normalAndNamedCtor = SwidStaticConstFunctionInvocation(
         value: "IconData",
-        normalParameters: [SwidIntegerLiteral(value: "0xe52a")],
+        normalParameters: [
+          SwidLiteral.fromSwidIntegerLiteral(
+              swidIntegerLiteral: SwidIntegerLiteral(value: "0xe52a"))
+        ],
         namedParameters: {
-          "fontFamily": SwidStringLiteral(value: "MaterialIcons")
+          "fontFamily": SwidLiteral.fromSwidStringLiteral(
+              swidStringLiteral: SwidStringLiteral(value: "MaterialIcons"))
         },
         isConstructorInvocation: true);
 
