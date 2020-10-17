@@ -65,7 +65,8 @@ void main() {
                                         swidInterface: SwidInterface(
                                       name: "Duration",
                                       originalPackagePath: "",
-                                      nullabilitySuffix: null,
+                                      nullabilitySuffix:
+                                          SwidNullabilitySuffix.none,
                                     ))))
                           ],
                           originalPackagePath: "",
@@ -74,7 +75,7 @@ void main() {
                               swidInterface: SwidInterface(
                             name: "Widget",
                             originalPackagePath: "",
-                            nullabilitySuffix: null,
+                            nullabilitySuffix: SwidNullabilitySuffix.none,
                           ))))
                 ],
                 namedParameterTypes: {},
