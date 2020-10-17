@@ -6,26 +6,22 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleStringLiteral;
 import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
-import 'package:json_annotation/json_annotation.dart';
 
+part 'swidStaticConstFieldDeclaration.freezed.dart';
 part 'swidStaticConstFieldDeclaration.g.dart';
 
-@JsonSerializable()
-class SwidStaticConstFieldDeclaration {
-  final String name;
-  final SwidLiteral value;
-
-  SwidStaticConstFieldDeclaration({
-    @required this.name,
-    @required this.value,
-  });
-
-  Map<String, dynamic> toJson() =>
-      _$SwidStaticConstFieldDeclarationToJson(this);
+@freezed
+abstract class SwidStaticConstFieldDeclaration
+    with _$SwidStaticConstFieldDeclaration {
+  factory SwidStaticConstFieldDeclaration({
+    @required String name,
+    @required SwidLiteral value,
+  }) = _$Data;
 
   factory SwidStaticConstFieldDeclaration.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFieldDeclarationFromJson(json);

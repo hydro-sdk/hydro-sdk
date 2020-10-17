@@ -6,9 +6,8 @@ part of 'swidStaticConstFunctionInvocation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidStaticConstFunctionInvocation _$SwidStaticConstFunctionInvocationFromJson(
-    Map<String, dynamic> json) {
-  return SwidStaticConstFunctionInvocation(
+_$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
+  return _$_$Data(
     value: json['value'] as String,
     normalParameters: (json['normalParameters'] as List)
         ?.map((e) =>
@@ -22,9 +21,7 @@ SwidStaticConstFunctionInvocation _$SwidStaticConstFunctionInvocationFromJson(
   );
 }
 
-Map<String, dynamic> _$SwidStaticConstFunctionInvocationToJson(
-        SwidStaticConstFunctionInvocation instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'value': instance.value,
       'normalParameters': instance.normalParameters,
       'namedParameters': instance.namedParameters,

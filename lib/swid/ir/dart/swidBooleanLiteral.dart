@@ -1,16 +1,12 @@
-import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:json_annotation/json_annotation.dart';
 
+part 'swidBooleanLiteral.freezed.dart';
 part 'swidBooleanLiteral.g.dart';
 
-@JsonSerializable()
-class SwidBooleanLiteral implements SwidLiteral {
-  final String value;
-
-  SwidBooleanLiteral({@required this.value});
-
-  Map<String, dynamic> toJson() => _$SwidBooleanLiteralToJson(this);
+@freezed
+abstract class SwidBooleanLiteral with _$SwidBooleanLiteral {
+  factory SwidBooleanLiteral({@required String value}) = _$Data;
 
   factory SwidBooleanLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidBooleanLiteralFromJson(json);

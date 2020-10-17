@@ -6,13 +6,12 @@ part of 'swidIntegerLiteral.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidIntegerLiteral _$SwidIntegerLiteralFromJson(Map<String, dynamic> json) {
-  return SwidIntegerLiteral(
+_$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
+  return _$_$Data(
     value: json['value'] as String,
   );
 }
 
-Map<String, dynamic> _$SwidIntegerLiteralToJson(SwidIntegerLiteral instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'value': instance.value,
     };
