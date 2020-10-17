@@ -6,56 +6,62 @@ part of 'swidType.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidType _$SwidTypeFromJson(Map<String, dynamic> json) {
-  return SwidType(
-    name: json['name'] as String,
-    nullabilitySuffix: _$enumDecodeNullable(
-        _$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
-    originalPackagePath: json['originalPackagePath'] as String,
+_$_$FromSwidInterface _$_$_$FromSwidInterfaceFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidInterface(
+    swidInterface: json['swidInterface'] == null
+        ? null
+        : SwidInterface.fromJson(json['swidInterface'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$SwidTypeToJson(SwidType instance) => <String, dynamic>{
-      'name': instance.name,
-      'nullabilitySuffix':
-          _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],
-      'originalPackagePath': instance.originalPackagePath,
+Map<String, dynamic> _$_$_$FromSwidInterfaceToJson(
+        _$_$FromSwidInterface instance) =>
+    <String, dynamic>{
+      'swidInterface': instance.swidInterface,
     };
 
-T _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
+_$_$FromSwidClass _$_$_$FromSwidClassFromJson(Map<String, dynamic> json) {
+  return _$_$FromSwidClass(
+    swidClass: json['swidClass'] == null
+        ? null
+        : SwidClass.fromJson(json['swidClass'] as Map<String, dynamic>),
+  );
 }
 
-T _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+Map<String, dynamic> _$_$_$FromSwidClassToJson(_$_$FromSwidClass instance) =>
+    <String, dynamic>{
+      'swidClass': instance.swidClass,
+    };
+
+_$_$FromSwidDefaultFormalParameter _$_$_$FromSwidDefaultFormalParameterFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidDefaultFormalParameter(
+    swidDefaultFormalParameter: json['swidDefaultFormalParameter'] == null
+        ? null
+        : SwidDefaultFormalParameter.fromJson(
+            json['swidDefaultFormalParameter'] as Map<String, dynamic>),
+  );
 }
 
-const _$SwidNullabilitySuffixEnumMap = {
-  SwidNullabilitySuffix.question: 'question',
-  SwidNullabilitySuffix.star: 'star',
-  SwidNullabilitySuffix.none: 'none',
-};
+Map<String, dynamic> _$_$_$FromSwidDefaultFormalParameterToJson(
+        _$_$FromSwidDefaultFormalParameter instance) =>
+    <String, dynamic>{
+      'swidDefaultFormalParameter': instance.swidDefaultFormalParameter,
+    };
+
+_$_$FromSwidFunctionType _$_$_$FromSwidFunctionTypeFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidFunctionType(
+    swidFunctionType: json['swidFunctionType'] == null
+        ? null
+        : SwidFunctionType.fromJson(
+            json['swidFunctionType'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidFunctionTypeToJson(
+        _$_$FromSwidFunctionType instance) =>
+    <String, dynamic>{
+      'swidFunctionType': instance.swidFunctionType,
+    };

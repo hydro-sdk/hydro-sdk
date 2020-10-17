@@ -6,9 +6,8 @@ part of 'swidDefaultFormalParameter.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidDefaultFormalParameter _$SwidDefaultFormalParameterFromJson(
-    Map<String, dynamic> json) {
-  return SwidDefaultFormalParameter(
+_$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
+  return _$_$Data(
     name: json['name'] as String,
     nullabilitySuffix: _$enumDecodeNullable(
         _$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
@@ -19,9 +18,7 @@ SwidDefaultFormalParameter _$SwidDefaultFormalParameterFromJson(
   );
 }
 
-Map<String, dynamic> _$SwidDefaultFormalParameterToJson(
-        SwidDefaultFormalParameter instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'name': instance.name,
       'nullabilitySuffix':
           _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],

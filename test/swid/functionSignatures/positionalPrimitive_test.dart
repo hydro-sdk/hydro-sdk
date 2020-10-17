@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
@@ -18,25 +19,28 @@ void main() {
                 originalPackagePath: "",
                 normalParameterNames: ["foo", "bar"],
                 normalParameterTypes: [
-                  SwidType(
+                  SwidType.fromSwidInterface(
+                      swidInterface: SwidInterface(
                     name: "int",
                     nullabilitySuffix: SwidNullabilitySuffix.question,
                     originalPackagePath: "dart:core",
-                  ),
-                  SwidType(
-                      name: "String",
-                      nullabilitySuffix: SwidNullabilitySuffix.star,
-                      originalPackagePath: "dart:core"),
+                  )),
+                  SwidType.fromSwidInterface(
+                      swidInterface: SwidInterface(
+                          name: "String",
+                          nullabilitySuffix: SwidNullabilitySuffix.star,
+                          originalPackagePath: "dart:core")),
                 ],
                 optionalParameterNames: [],
                 optionalParameterTypes: [],
                 namedParameterTypes: {},
                 nullabilitySuffix: SwidNullabilitySuffix.star,
-                returnType: SwidType(
+                returnType: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
                   name: "num",
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.star,
-                ))),
+                )))),
         "(foo? : int | undefined, bar : String) => num");
   });
 }

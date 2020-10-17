@@ -35,8 +35,10 @@ class TsInterface implements TsIr {
     if (members?.isNotEmpty ?? false) {
       var res = ["export $name {"];
       members.forEach((key, value) {
+        SwidFunctionType swidFunctionType =
+            value.maybeWhen(fromSwidFunctionType: (res) => res, orElse: null);
         res += [
-          "    ${key}: ${transformFunctionTypeToTs(swidFunctionType: value)};"
+          "    ${key}: ${transformFunctionTypeToTs(swidFunctionType: swidFunctionType)};"
         ];
       });
       res.add("}");

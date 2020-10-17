@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/dart/narrowSwidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
 import 'package:meta/meta.dart';
@@ -6,20 +6,19 @@ import 'package:meta/meta.dart';
 String transformReturnTypeToTs({@required SwidFunctionType swidFunctionType}) {
   var res = " => ";
 
-  narrowSwidType(
-    swidType: swidFunctionType.returnType,
-    onSwidFunctionType: (val) {
-      res += transformReturnTypeToTs(
-          swidFunctionType: swidFunctionType.returnType);
+  swidFunctionType.returnType.when(
+    fromSwidFunctionType: (val) {
+      res += transformReturnTypeToTs(swidFunctionType: val);
 
       return null;
     },
-    onSwidType: (val) {
-      res += swidFunctionType.returnType.name;
+    fromSwidInterface: (val) {
+      res += val.name;
 
       return null;
     },
-    onSwidDefaultFormalParameter: (_) => null,
+    fromSwidDefaultFormalParameter: (_) => null,
+    fromSwidClass: (_) => null,
   );
 
   if (swidFunctionType.returnType.nullabilitySuffix ==

@@ -6,8 +6,8 @@ part of 'swidFunctionType.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidFunctionType _$SwidFunctionTypeFromJson(Map<String, dynamic> json) {
-  return SwidFunctionType(
+_$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
+  return _$_$Data(
     name: json['name'] as String,
     nullabilitySuffix: _$enumDecodeNullable(
         _$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
@@ -48,8 +48,7 @@ SwidFunctionType _$SwidFunctionTypeFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SwidFunctionTypeToJson(SwidFunctionType instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'name': instance.name,
       'nullabilitySuffix':
           _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],

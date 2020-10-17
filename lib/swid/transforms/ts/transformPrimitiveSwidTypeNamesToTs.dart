@@ -1,14 +1,15 @@
-import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidInterface.dart';
 import 'package:meta/meta.dart';
 
-SwidType transformPrimitiveSwidTypeNamesToTs({@required SwidType swidType}) {
-  if (swidType.originalPackagePath == "dart:core") {
-    if (swidType.name == "String") {
-      return SwidType.clone(swidType: swidType, name: "string");
-    } else if (swidType.name == "bool") {
-      return SwidType.clone(swidType: swidType, name: "boolean");
+SwidInterface transformPrimitiveSwidTypeNamesToTs(
+    {@required SwidInterface swidInterface}) {
+  if (swidInterface.originalPackagePath == "dart:core") {
+    if (swidInterface.name == "String") {
+      return swidInterface.copyWith(name: "string");
+    } else if (swidInterface.name == "bool") {
+      return swidInterface.copyWith(name: "boolean");
     }
   }
 
-  return swidType;
+  return swidInterface;
 }

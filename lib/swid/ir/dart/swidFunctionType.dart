@@ -1,3 +1,5 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidInterface.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:analyzer/dart/element/type.dart'
@@ -10,38 +12,24 @@ import 'package:hydro_sdk/swid/ir/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/dart/mapClassLibrarySourcePath.dart';
 
+part 'swidFunctionType.freezed.dart';
 part 'swidFunctionType.g.dart';
 
-@JsonSerializable()
-class SwidFunctionType implements SwidType {
-  final String name;
-  final SwidNullabilitySuffix nullabilitySuffix;
-  final String originalPackagePath;
-  final SwidDeclarationModifiers swidDeclarationModifiers;
-
-  final Map<String, SwidType> namedParameterTypes;
-  final Map<String, SwidDefaultFormalParameter> namedDefaults;
-  final List<String> normalParameterNames;
-  final List<SwidType> normalParameterTypes;
-  final List<String> optionalParameterNames;
-  final List<SwidType> optionalParameterTypes;
-  final SwidType returnType;
-
-  SwidFunctionType({
-    @required this.name,
-    @required this.nullabilitySuffix,
-    @required this.originalPackagePath,
-    @required this.swidDeclarationModifiers,
-    @required this.namedParameterTypes,
-    @required this.namedDefaults,
-    @required this.normalParameterNames,
-    @required this.normalParameterTypes,
-    @required this.optionalParameterNames,
-    @required this.optionalParameterTypes,
-    @required this.returnType,
-  });
-
-  Map<String, dynamic> toJson() => _$SwidFunctionTypeToJson(this);
+@freezed
+abstract class SwidFunctionType with _$SwidFunctionType {
+  factory SwidFunctionType({
+    @required String name,
+    @required SwidNullabilitySuffix nullabilitySuffix,
+    @required String originalPackagePath,
+    @required SwidDeclarationModifiers swidDeclarationModifiers,
+    @required Map<String, SwidType> namedParameterTypes,
+    @required Map<String, SwidDefaultFormalParameter> namedDefaults,
+    @required List<String> normalParameterNames,
+    @required List<SwidType> normalParameterTypes,
+    @required List<String> optionalParameterNames,
+    @required List<SwidType> optionalParameterTypes,
+    @required SwidType returnType,
+  }) = _$Data;
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$SwidFunctionTypeFromJson(json);
@@ -102,13 +90,15 @@ class SwidFunctionType implements SwidType {
           ?.map((x) => MapEntry<String, SwidType>(
                 x,
                 functionType?.namedParameterTypes[x] is FunctionType
-                    ? SwidFunctionType.fromFunctionType(
+                    ? SwidType.fromSwidFunctionType(
+                        swidFunctionType: SwidFunctionType.fromFunctionType(
                         functionType: functionType?.namedParameterTypes[x],
                         swidDeclarationModifiers:
                             SwidDeclarationModifiers.empty(),
-                      )
+                      ))
                     : functionType?.namedParameterTypes[x] is InterfaceType
-                        ? SwidType(
+                        ? SwidType.fromSwidInterface(
+                            swidInterface: SwidInterface(
                             name:
                                 functionType?.namedParameterTypes[x].toString(),
                             nullabilitySuffix: mapNullabilitySuffix(
@@ -121,7 +111,7 @@ class SwidFunctionType implements SwidType {
                                     ?.uri
                                     ?.toString() ??
                                 "",
-                          )
+                          ))
                         : null,
               ))),
       namedDefaults: functionType?.parameters != null
@@ -133,15 +123,17 @@ class SwidFunctionType implements SwidType {
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: mapClassLibrarySourcePath(element: x),
                     value: x.type is FunctionType
-                        ? SwidFunctionType.fromFunctionType(
+                        ? SwidType.fromSwidFunctionType(
+                            swidFunctionType: SwidFunctionType.fromFunctionType(
                             functionType: x.type,
                             swidDeclarationModifiers:
                                 SwidDeclarationModifiers.empty(),
-                          )
+                          ))
                         : x.type is InterfaceType
-                            ? SwidType.fromInterface(
+                            ? SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface.fromInterface(
                                 interfaceType: x.type,
-                              )
+                              ))
                             : null,
                   )))
               .toList()
@@ -151,19 +143,21 @@ class SwidFunctionType implements SwidType {
       normalParameterTypes: List.from(functionType.normalParameterTypes
               ?.map(
                 (x) => x is FunctionType
-                    ? SwidFunctionType.fromFunctionType(
+                    ? SwidType.fromSwidFunctionType(
+                        swidFunctionType: SwidFunctionType.fromFunctionType(
                         functionType: x,
                         swidDeclarationModifiers:
                             SwidDeclarationModifiers.empty(),
-                      )
+                      ))
                     : x is InterfaceType
-                        ? SwidType(
+                        ? SwidType.fromSwidInterface(
+                            swidInterface: SwidInterface(
                             name: x.element?.name,
                             nullabilitySuffix: mapNullabilitySuffix(
                                 nullabilitySuffix: x?.nullabilitySuffix),
                             originalPackagePath:
                                 x?.element?.librarySource?.uri?.toString(),
-                          )
+                          ))
                         : null,
               )
               ?.toList() ??
@@ -173,29 +167,33 @@ class SwidFunctionType implements SwidType {
       optionalParameterTypes: List.from(functionType.optionalParameterTypes
               ?.map(
                 (x) => x is FunctionType
-                    ? SwidFunctionType.fromFunctionType(
+                    ? SwidType.fromSwidFunctionType(
+                        swidFunctionType: SwidFunctionType.fromFunctionType(
                         functionType: x,
                         swidDeclarationModifiers:
                             SwidDeclarationModifiers.empty(),
-                      )
+                      ))
                     : x is InterfaceType
-                        ? SwidType(
+                        ? SwidType.fromSwidInterface(
+                            swidInterface: SwidInterface(
                             name: x.element?.name,
                             nullabilitySuffix: mapNullabilitySuffix(
                                 nullabilitySuffix: x.nullabilitySuffix),
                             originalPackagePath:
                                 x.element.librarySource.uri.toString(),
-                          )
+                          ))
                         : null,
               )
               ?.toList() ??
           []),
       returnType: functionType.returnType is FunctionType
-          ? SwidFunctionType.fromFunctionType(
+          ? SwidType.fromSwidFunctionType(
+              swidFunctionType: SwidFunctionType.fromFunctionType(
               functionType: functionType.returnType,
               swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-            )
-          : SwidType(
+            ))
+          : SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
               name: functionType.returnType.element?.name ??
                   functionType.returnType
                       ?.getDisplayString(withNullability: false),
@@ -205,7 +203,7 @@ class SwidFunctionType implements SwidType {
                       ?.returnType?.element?.librarySource?.uri
                       ?.toString() ??
                   "",
-            ),
+            )),
     );
   }
 }
