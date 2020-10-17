@@ -180,6 +180,11 @@ class SwidVisitor extends RecursiveAstVisitor
       File("Icons.json").writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
+    if (node.name.name == "CupertinoIcons") {
+      print(node.name.name);
+      File("CupertinoIcons.json").writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     if (node.name.name == "Ticker") {
       print(node.name.name);
       File("Ticker.json").writeAsStringSync(json.encode(classes.last.toJson()));

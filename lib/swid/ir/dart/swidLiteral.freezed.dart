@@ -18,6 +18,8 @@ SwidLiteral _$SwidLiteralFromJson(Map<String, dynamic> json) {
       return _$FromSwidIntegerLiteral.fromJson(json);
     case 'fromSwidStaticConstFunctionInvocation':
       return _$FromSwidStaticConstFunctionInvocation.fromJson(json);
+    case 'fromSwidStaticConstFieldReference':
+      return _$FromSwidStaticConstFieldReference.fromJson(json);
 
     default:
       throw FallThroughError();
@@ -62,6 +64,14 @@ class _$SwidLiteralTearOff {
   }
 
 // ignore: unused_element
+  _$FromSwidStaticConstFieldReference fromSwidStaticConstFieldReference(
+      {@required SwidStaticConstFieldReference swidStaticConstFieldReference}) {
+    return _$FromSwidStaticConstFieldReference(
+      swidStaticConstFieldReference: swidStaticConstFieldReference,
+    );
+  }
+
+// ignore: unused_element
   SwidLiteral fromJson(Map<String, Object> json) {
     return SwidLiteral.fromJson(json);
   }
@@ -83,6 +93,9 @@ mixin _$SwidLiteral {
     @required
         Result fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            SwidStaticConstFieldReference swidStaticConstFieldReference),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -91,6 +104,8 @@ mixin _$SwidLiteral {
     Result fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
     Result fromSwidStaticConstFunctionInvocation(
         SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    Result fromSwidStaticConstFieldReference(
+        SwidStaticConstFieldReference swidStaticConstFieldReference),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -101,6 +116,9 @@ mixin _$SwidLiteral {
     @required
         Result fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            _$FromSwidStaticConstFieldReference value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -109,6 +127,8 @@ mixin _$SwidLiteral {
     Result fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
     Result fromSwidStaticConstFunctionInvocation(
         _$FromSwidStaticConstFunctionInvocation value),
+    Result fromSwidStaticConstFieldReference(
+        _$FromSwidStaticConstFieldReference value),
     @required Result orElse(),
   });
   Map<String, dynamic> toJson();
@@ -223,11 +243,15 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
     @required
         Result fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            SwidStaticConstFieldReference swidStaticConstFieldReference),
   }) {
     assert(fromSwidBooleanLiteral != null);
     assert(fromSwidStringLiteral != null);
     assert(fromSwidIntegerLiteral != null);
     assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
     return fromSwidBooleanLiteral(swidBooleanLiteral);
   }
 
@@ -239,6 +263,8 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
     Result fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
     Result fromSwidStaticConstFunctionInvocation(
         SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    Result fromSwidStaticConstFieldReference(
+        SwidStaticConstFieldReference swidStaticConstFieldReference),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -257,11 +283,15 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
     @required
         Result fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            _$FromSwidStaticConstFieldReference value),
   }) {
     assert(fromSwidBooleanLiteral != null);
     assert(fromSwidStringLiteral != null);
     assert(fromSwidIntegerLiteral != null);
     assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
     return fromSwidBooleanLiteral(this);
   }
 
@@ -273,6 +303,8 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
     Result fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
     Result fromSwidStaticConstFunctionInvocation(
         _$FromSwidStaticConstFunctionInvocation value),
+    Result fromSwidStaticConstFieldReference(
+        _$FromSwidStaticConstFieldReference value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -392,11 +424,15 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
     @required
         Result fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            SwidStaticConstFieldReference swidStaticConstFieldReference),
   }) {
     assert(fromSwidBooleanLiteral != null);
     assert(fromSwidStringLiteral != null);
     assert(fromSwidIntegerLiteral != null);
     assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
     return fromSwidStringLiteral(swidStringLiteral);
   }
 
@@ -408,6 +444,8 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
     Result fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
     Result fromSwidStaticConstFunctionInvocation(
         SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    Result fromSwidStaticConstFieldReference(
+        SwidStaticConstFieldReference swidStaticConstFieldReference),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -426,11 +464,15 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
     @required
         Result fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            _$FromSwidStaticConstFieldReference value),
   }) {
     assert(fromSwidBooleanLiteral != null);
     assert(fromSwidStringLiteral != null);
     assert(fromSwidIntegerLiteral != null);
     assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
     return fromSwidStringLiteral(this);
   }
 
@@ -442,6 +484,8 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
     Result fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
     Result fromSwidStaticConstFunctionInvocation(
         _$FromSwidStaticConstFunctionInvocation value),
+    Result fromSwidStaticConstFieldReference(
+        _$FromSwidStaticConstFieldReference value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -563,11 +607,15 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
     @required
         Result fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            SwidStaticConstFieldReference swidStaticConstFieldReference),
   }) {
     assert(fromSwidBooleanLiteral != null);
     assert(fromSwidStringLiteral != null);
     assert(fromSwidIntegerLiteral != null);
     assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
     return fromSwidIntegerLiteral(swidIntegerLiteral);
   }
 
@@ -579,6 +627,8 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
     Result fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
     Result fromSwidStaticConstFunctionInvocation(
         SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    Result fromSwidStaticConstFieldReference(
+        SwidStaticConstFieldReference swidStaticConstFieldReference),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -597,11 +647,15 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
     @required
         Result fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            _$FromSwidStaticConstFieldReference value),
   }) {
     assert(fromSwidBooleanLiteral != null);
     assert(fromSwidStringLiteral != null);
     assert(fromSwidIntegerLiteral != null);
     assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
     return fromSwidIntegerLiteral(this);
   }
 
@@ -613,6 +667,8 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
     Result fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
     Result fromSwidStaticConstFunctionInvocation(
         _$FromSwidStaticConstFunctionInvocation value),
+    Result fromSwidStaticConstFieldReference(
+        _$FromSwidStaticConstFieldReference value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -745,11 +801,15 @@ class _$_$FromSwidStaticConstFunctionInvocation
     @required
         Result fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            SwidStaticConstFieldReference swidStaticConstFieldReference),
   }) {
     assert(fromSwidBooleanLiteral != null);
     assert(fromSwidStringLiteral != null);
     assert(fromSwidIntegerLiteral != null);
     assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
     return fromSwidStaticConstFunctionInvocation(staticConstFunctionInvocation);
   }
 
@@ -761,6 +821,8 @@ class _$_$FromSwidStaticConstFunctionInvocation
     Result fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
     Result fromSwidStaticConstFunctionInvocation(
         SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    Result fromSwidStaticConstFieldReference(
+        SwidStaticConstFieldReference swidStaticConstFieldReference),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -780,11 +842,15 @@ class _$_$FromSwidStaticConstFunctionInvocation
     @required
         Result fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            _$FromSwidStaticConstFieldReference value),
   }) {
     assert(fromSwidBooleanLiteral != null);
     assert(fromSwidStringLiteral != null);
     assert(fromSwidIntegerLiteral != null);
     assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
     return fromSwidStaticConstFunctionInvocation(this);
   }
 
@@ -796,6 +862,8 @@ class _$_$FromSwidStaticConstFunctionInvocation
     Result fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
     Result fromSwidStaticConstFunctionInvocation(
         _$FromSwidStaticConstFunctionInvocation value),
+    Result fromSwidStaticConstFieldReference(
+        _$FromSwidStaticConstFieldReference value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -826,4 +894,200 @@ abstract class _$FromSwidStaticConstFunctionInvocation implements SwidLiteral {
   SwidStaticConstFunctionInvocation get staticConstFunctionInvocation;
   _$$FromSwidStaticConstFunctionInvocationCopyWith<
       _$FromSwidStaticConstFunctionInvocation> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromSwidStaticConstFieldReferenceCopyWith<$Res> {
+  factory _$$FromSwidStaticConstFieldReferenceCopyWith(
+          _$FromSwidStaticConstFieldReference value,
+          $Res Function(_$FromSwidStaticConstFieldReference) then) =
+      __$$FromSwidStaticConstFieldReferenceCopyWithImpl<$Res>;
+  $Res call({SwidStaticConstFieldReference swidStaticConstFieldReference});
+
+  $SwidStaticConstFieldReferenceCopyWith<$Res>
+      get swidStaticConstFieldReference;
+}
+
+/// @nodoc
+class __$$FromSwidStaticConstFieldReferenceCopyWithImpl<$Res>
+    extends _$SwidLiteralCopyWithImpl<$Res>
+    implements _$$FromSwidStaticConstFieldReferenceCopyWith<$Res> {
+  __$$FromSwidStaticConstFieldReferenceCopyWithImpl(
+      _$FromSwidStaticConstFieldReference _value,
+      $Res Function(_$FromSwidStaticConstFieldReference) _then)
+      : super(_value, (v) => _then(v as _$FromSwidStaticConstFieldReference));
+
+  @override
+  _$FromSwidStaticConstFieldReference get _value =>
+      super._value as _$FromSwidStaticConstFieldReference;
+
+  @override
+  $Res call({
+    Object swidStaticConstFieldReference = freezed,
+  }) {
+    return _then(_$FromSwidStaticConstFieldReference(
+      swidStaticConstFieldReference: swidStaticConstFieldReference == freezed
+          ? _value.swidStaticConstFieldReference
+          : swidStaticConstFieldReference as SwidStaticConstFieldReference,
+    ));
+  }
+
+  @override
+  $SwidStaticConstFieldReferenceCopyWith<$Res>
+      get swidStaticConstFieldReference {
+    if (_value.swidStaticConstFieldReference == null) {
+      return null;
+    }
+    return $SwidStaticConstFieldReferenceCopyWith<$Res>(
+        _value.swidStaticConstFieldReference, (value) {
+      return _then(_value.copyWith(swidStaticConstFieldReference: value));
+    });
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_$FromSwidStaticConstFieldReference
+    implements _$FromSwidStaticConstFieldReference {
+  _$_$FromSwidStaticConstFieldReference(
+      {@required this.swidStaticConstFieldReference})
+      : assert(swidStaticConstFieldReference != null);
+
+  factory _$_$FromSwidStaticConstFieldReference.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$_$FromSwidStaticConstFieldReferenceFromJson(json);
+
+  @override
+  final SwidStaticConstFieldReference swidStaticConstFieldReference;
+
+  @override
+  String toString() {
+    return 'SwidLiteral.fromSwidStaticConstFieldReference(swidStaticConstFieldReference: $swidStaticConstFieldReference)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromSwidStaticConstFieldReference &&
+            (identical(other.swidStaticConstFieldReference,
+                    swidStaticConstFieldReference) ||
+                const DeepCollectionEquality().equals(
+                    other.swidStaticConstFieldReference,
+                    swidStaticConstFieldReference)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidStaticConstFieldReference);
+
+  @override
+  _$$FromSwidStaticConstFieldReferenceCopyWith<
+          _$FromSwidStaticConstFieldReference>
+      get copyWith => __$$FromSwidStaticConstFieldReferenceCopyWithImpl<
+          _$FromSwidStaticConstFieldReference>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
+    @required Result fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
+    @required
+        Result fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
+    @required
+        Result fromSwidStaticConstFunctionInvocation(
+            SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            SwidStaticConstFieldReference swidStaticConstFieldReference),
+  }) {
+    assert(fromSwidBooleanLiteral != null);
+    assert(fromSwidStringLiteral != null);
+    assert(fromSwidIntegerLiteral != null);
+    assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
+    return fromSwidStaticConstFieldReference(swidStaticConstFieldReference);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
+    Result fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
+    Result fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
+    Result fromSwidStaticConstFunctionInvocation(
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+    Result fromSwidStaticConstFieldReference(
+        SwidStaticConstFieldReference swidStaticConstFieldReference),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromSwidStaticConstFieldReference != null) {
+      return fromSwidStaticConstFieldReference(swidStaticConstFieldReference);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    @required Result fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    @required Result fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    @required
+        Result fromSwidStaticConstFunctionInvocation(
+            _$FromSwidStaticConstFunctionInvocation value),
+    @required
+        Result fromSwidStaticConstFieldReference(
+            _$FromSwidStaticConstFieldReference value),
+  }) {
+    assert(fromSwidBooleanLiteral != null);
+    assert(fromSwidStringLiteral != null);
+    assert(fromSwidIntegerLiteral != null);
+    assert(fromSwidStaticConstFunctionInvocation != null);
+    assert(fromSwidStaticConstFieldReference != null);
+    return fromSwidStaticConstFieldReference(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    Result fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    Result fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    Result fromSwidStaticConstFunctionInvocation(
+        _$FromSwidStaticConstFunctionInvocation value),
+    Result fromSwidStaticConstFieldReference(
+        _$FromSwidStaticConstFieldReference value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromSwidStaticConstFieldReference != null) {
+      return fromSwidStaticConstFieldReference(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$FromSwidStaticConstFieldReferenceToJson(this)
+      ..['runtimeType'] = 'fromSwidStaticConstFieldReference';
+  }
+}
+
+abstract class _$FromSwidStaticConstFieldReference implements SwidLiteral {
+  factory _$FromSwidStaticConstFieldReference(
+          {@required
+              SwidStaticConstFieldReference swidStaticConstFieldReference}) =
+      _$_$FromSwidStaticConstFieldReference;
+
+  factory _$FromSwidStaticConstFieldReference.fromJson(
+          Map<String, dynamic> json) =
+      _$_$FromSwidStaticConstFieldReference.fromJson;
+
+  SwidStaticConstFieldReference get swidStaticConstFieldReference;
+  _$$FromSwidStaticConstFieldReferenceCopyWith<
+      _$FromSwidStaticConstFieldReference> get copyWith;
 }

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
@@ -27,6 +28,11 @@ abstract class SwidLiteral with _$SwidLiteral {
               SwidStaticConstFunctionInvocation
                   staticConstFunctionInvocation}) =
       _$FromSwidStaticConstFunctionInvocation;
+
+  factory SwidLiteral.fromSwidStaticConstFieldReference(
+          {@required
+              SwidStaticConstFieldReference swidStaticConstFieldReference}) =
+      _$FromSwidStaticConstFieldReference;
 
   factory SwidLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidLiteralFromJson(json);

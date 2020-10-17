@@ -7,11 +7,13 @@ import 'package:analyzer/dart/ast/ast.dart'
         NamedExpression,
         Label,
         SimpleStringLiteral,
+        SimpleIdentifier,
         BooleanLiteral,
         ArgumentList;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
@@ -61,7 +63,10 @@ abstract class SwidStaticConstFunctionInvocation
                 ?.map((x) {
               if (x is NamedExpression) {
                 var argument = x.childEntities.firstWhere(
-                    (x) => x is SimpleStringLiteral || x is BooleanLiteral,
+                    (x) =>
+                        x is SimpleStringLiteral ||
+                        x is BooleanLiteral ||
+                        x is SimpleIdentifier,
                     orElse: () => null);
                 return MapEntry(
                     (x.childEntities.firstWhere((x) => x is Label) as Label)
@@ -75,7 +80,13 @@ abstract class SwidStaticConstFunctionInvocation
                             ? SwidLiteral.fromSwidBooleanLiteral(
                                 swidBooleanLiteral: SwidBooleanLiteral(
                                     value: argument.value.toString()))
-                            : null);
+                            : argument is SimpleIdentifier
+                                ? SwidLiteral.fromSwidStaticConstFieldReference(
+                                    swidStaticConstFieldReference:
+                                        SwidStaticConstFieldReference
+                                            .fromSimpleIdentifier(
+                                                simpleIdentifier: argument))
+                                : null);
               }
               return MapEntry(null, null);
             })?.toList() ??
