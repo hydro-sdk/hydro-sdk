@@ -23,7 +23,7 @@ void main() {
                       swidInterface: SwidInterface(
                     name: "int",
                     originalPackagePath: "",
-                    nullabilitySuffix: null,
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
                   )),
                 ],
                 optionalParameterNames: ["onTap"],
