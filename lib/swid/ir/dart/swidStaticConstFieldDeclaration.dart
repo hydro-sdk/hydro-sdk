@@ -41,19 +41,20 @@ abstract class SwidStaticConstFieldDeclaration
     assert(declaration.declaredElement.isPublic);
     return SwidStaticConstFieldDeclaration(
         name: declaration.declaredElement.name,
-        value: declaration.childEntities.firstWhere(
-                    (x) => x is InstanceCreationExpression,
-                    orElse: () => null) !=
+        value: declaration.childEntities.firstWhere((x) => x is InstanceCreationExpression, orElse: () => null) !=
                 null
-            ? SwidStaticConstFunctionInvocation.fromInstanceCreationExpression(
-                instanceCreationExpression: declaration.childEntities
-                    .firstWhere((x) => x is InstanceCreationExpression))
-            : declaration.childEntities
-                        .firstWhere((x) => x is SimpleStringLiteral) !=
+            ? SwidLiteral.fromSwidStaticConstFunctionInvocation(
+                staticConstFunctionInvocation:
+                    SwidStaticConstFunctionInvocation.fromInstanceCreationExpression(
+                        instanceCreationExpression: declaration.childEntities
+                            .firstWhere((x) => x is InstanceCreationExpression,
+                                orElse: () => null)))
+            : declaration.childEntities.firstWhere((x) => x is SimpleStringLiteral, orElse: () => null) !=
                     null
-                ? SwidStringLiteral.fromSimpleStringLiteral(
-                    simpleStringLiteral: declaration.childEntities
-                        .firstWhere((x) => x is SimpleStringLiteral))
+                ? SwidLiteral.fromSwidStringLiteral(
+                    swidStringLiteral: SwidStringLiteral.fromSimpleStringLiteral(
+                        simpleStringLiteral: declaration.childEntities
+                            .firstWhere((x) => x is SimpleStringLiteral, orElse: () => null)))
                 : null);
   }
 }

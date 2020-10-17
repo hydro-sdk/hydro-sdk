@@ -44,9 +44,12 @@ abstract class SwidStaticConstFunctionInvocation
                 ?.childEntities
                 ?.map((x) {
               if (x is IntegerLiteral) {
-                return SwidIntegerLiteral.fromIntegerLiteral(integerLiteral: x);
+                return SwidLiteral.fromSwidIntegerLiteral(
+                    swidIntegerLiteral: SwidIntegerLiteral.fromIntegerLiteral(
+                        integerLiteral: x));
               } else if (x is StringLiteral) {
-                return SwidStringLiteral(value: x.stringValue);
+                return SwidLiteral.fromSwidStringLiteral(
+                    swidStringLiteral: SwidStringLiteral(value: x.stringValue));
               }
             })?.toList() ??
             []
@@ -65,10 +68,13 @@ abstract class SwidStaticConstFunctionInvocation
                         .label
                         .name,
                     argument is SimpleStringLiteral
-                        ? SwidStringLiteral(value: argument.value)
+                        ? SwidLiteral.fromSwidStringLiteral(
+                            swidStringLiteral:
+                                SwidStringLiteral(value: argument.value))
                         : argument is BooleanLiteral
-                            ? SwidBooleanLiteral(
-                                value: argument.value.toString())
+                            ? SwidLiteral.fromSwidBooleanLiteral(
+                                swidBooleanLiteral: SwidBooleanLiteral(
+                                    value: argument.value.toString()))
                             : null);
               }
               return MapEntry(null, null);

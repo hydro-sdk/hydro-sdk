@@ -119,7 +119,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
               .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
                   x.displayName,
                   SwidDefaultFormalParameter(
-                    name: x.defaultValueCode,
+                    name: x.defaultValueCode ?? "",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                     originalPackagePath: mapClassLibrarySourcePath(element: x),
                     value: x.type is FunctionType
@@ -137,7 +137,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
                             : null,
                   )))
               .toList()
-                ..removeWhere((x) => x.value.name == null))
+                ..removeWhere((x) => x.value.name == ""))
           : {},
       normalParameterNames: List.from(functionType.normalParameterNames ?? []),
       normalParameterTypes: List.from(functionType.normalParameterTypes
