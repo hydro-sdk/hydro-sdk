@@ -6,9 +6,8 @@ part of 'swidStaticConstFieldDeclaration.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidStaticConstFieldDeclaration _$SwidStaticConstFieldDeclarationFromJson(
-    Map<String, dynamic> json) {
-  return SwidStaticConstFieldDeclaration(
+_$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
+  return _$_$Data(
     name: json['name'] as String,
     value: json['value'] == null
         ? null
@@ -16,9 +15,7 @@ SwidStaticConstFieldDeclaration _$SwidStaticConstFieldDeclarationFromJson(
   );
 }
 
-Map<String, dynamic> _$SwidStaticConstFieldDeclarationToJson(
-        SwidStaticConstFieldDeclaration instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'name': instance.name,
       'value': instance.value,
     };

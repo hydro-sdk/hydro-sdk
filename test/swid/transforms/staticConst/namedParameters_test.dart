@@ -8,8 +8,10 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     Map<String, SwidLiteral> namedParameters = {
-      "fontFamily": SwidStringLiteral(value: "Material"),
-      "size": SwidIntegerLiteral(value: "12"),
+      "fontFamily": SwidLiteral.fromSwidStringLiteral(
+          swidStringLiteral: SwidStringLiteral(value: "Material")),
+      "size": SwidLiteral.fromSwidIntegerLiteral(
+          swidIntegerLiteral: SwidIntegerLiteral(value: "12")),
     };
 
     expect(transformNamedParametersToTs(namedParameters: namedParameters),

@@ -9,31 +9,25 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleStringLiteral,
         BooleanLiteral,
         ArgumentList;
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
 
+part 'swidStaticConstFunctionInvocation.freezed.dart';
 part 'swidStaticConstFunctionInvocation.g.dart';
 
-@JsonSerializable()
-class SwidStaticConstFunctionInvocation implements SwidLiteral {
-  final String value;
-  final List<SwidLiteral> normalParameters;
-  final Map<String, SwidLiteral> namedParameters;
-  final bool isConstructorInvocation;
-
-  SwidStaticConstFunctionInvocation({
-    @required this.value,
-    @required this.normalParameters,
-    @required this.namedParameters,
-    @required this.isConstructorInvocation,
-  });
-
-  Map<String, dynamic> toJson() =>
-      _$SwidStaticConstFunctionInvocationToJson(this);
+@freezed
+abstract class SwidStaticConstFunctionInvocation
+    with _$SwidStaticConstFunctionInvocation {
+  factory SwidStaticConstFunctionInvocation({
+    @required String value,
+    @required List<SwidLiteral> normalParameters,
+    @required Map<String, SwidLiteral> namedParameters,
+    @required bool isConstructorInvocation,
+  }) = _$Data;
 
   factory SwidStaticConstFunctionInvocation.fromJson(
           Map<String, dynamic> json) =>
@@ -50,9 +44,12 @@ class SwidStaticConstFunctionInvocation implements SwidLiteral {
                 ?.childEntities
                 ?.map((x) {
               if (x is IntegerLiteral) {
-                return SwidIntegerLiteral.fromIntegerLiteral(integerLiteral: x);
+                return SwidLiteral.fromSwidIntegerLiteral(
+                    swidIntegerLiteral: SwidIntegerLiteral.fromIntegerLiteral(
+                        integerLiteral: x));
               } else if (x is StringLiteral) {
-                return SwidStringLiteral(value: x.stringValue);
+                return SwidLiteral.fromSwidStringLiteral(
+                    swidStringLiteral: SwidStringLiteral(value: x.stringValue));
               }
             })?.toList() ??
             []
@@ -71,10 +68,13 @@ class SwidStaticConstFunctionInvocation implements SwidLiteral {
                         .label
                         .name,
                     argument is SimpleStringLiteral
-                        ? SwidStringLiteral(value: argument.value)
+                        ? SwidLiteral.fromSwidStringLiteral(
+                            swidStringLiteral:
+                                SwidStringLiteral(value: argument.value))
                         : argument is BooleanLiteral
-                            ? SwidBooleanLiteral(
-                                value: argument.value.toString())
+                            ? SwidLiteral.fromSwidBooleanLiteral(
+                                swidBooleanLiteral: SwidBooleanLiteral(
+                                    value: argument.value.toString()))
                             : null);
               }
               return MapEntry(null, null);
