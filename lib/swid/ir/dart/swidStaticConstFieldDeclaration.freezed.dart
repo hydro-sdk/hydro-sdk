@@ -18,7 +18,7 @@ class _$SwidStaticConstFieldDeclarationTearOff {
   const _$SwidStaticConstFieldDeclarationTearOff();
 
 // ignore: unused_element
-  _$Data call({@required String name, @required SwidLiteral value}) {
+  _$Data call({@required String name, @required @nullable SwidLiteral value}) {
     return _$Data(
       name: name,
       value: value,
@@ -39,6 +39,7 @@ const $SwidStaticConstFieldDeclaration =
 /// @nodoc
 mixin _$SwidStaticConstFieldDeclaration {
   String get name;
+  @nullable
   SwidLiteral get value;
 
   Map<String, dynamic> toJson();
@@ -52,7 +53,7 @@ abstract class $SwidStaticConstFieldDeclarationCopyWith<$Res> {
           SwidStaticConstFieldDeclaration value,
           $Res Function(SwidStaticConstFieldDeclaration) then) =
       _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>;
-  $Res call({String name, SwidLiteral value});
+  $Res call({String name, @nullable SwidLiteral value});
 
   $SwidLiteralCopyWith<$Res> get value;
 }
@@ -94,7 +95,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String name, SwidLiteral value});
+  $Res call({String name, @nullable SwidLiteral value});
 
   @override
   $SwidLiteralCopyWith<$Res> get value;
@@ -126,9 +127,8 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.name, @required this.value})
-      : assert(name != null),
-        assert(value != null);
+  _$_$Data({@required this.name, @required @nullable this.value})
+      : assert(name != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -136,6 +136,7 @@ class _$_$Data implements _$Data {
   @override
   final String name;
   @override
+  @nullable
   final SwidLiteral value;
 
   @override
@@ -170,14 +171,16 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidStaticConstFieldDeclaration {
-  factory _$Data({@required String name, @required SwidLiteral value}) =
-      _$_$Data;
+  factory _$Data(
+      {@required String name,
+      @required @nullable SwidLiteral value}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
   String get name;
   @override
+  @nullable
   SwidLiteral get value;
   @override
   _$$DataCopyWith<_$Data> get copyWith;

@@ -20,7 +20,7 @@ abstract class SwidStaticConstFieldDeclaration
     with _$SwidStaticConstFieldDeclaration {
   factory SwidStaticConstFieldDeclaration({
     @required String name,
-    @required SwidLiteral value,
+    @required @nullable SwidLiteral value,
   }) = _$Data;
 
   factory SwidStaticConstFieldDeclaration.fromJson(Map<String, dynamic> json) =>
