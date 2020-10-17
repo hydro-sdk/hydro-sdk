@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
@@ -18,33 +19,36 @@ void main() {
                 originalPackagePath: "",
                 normalParameterNames: ["foo"],
                 normalParameterTypes: [
-                  SwidFunctionType(
-                      namedDefaults: {},
-                      swidDeclarationModifiers:
-                          SwidDeclarationModifiers.empty(),
-                      name: "",
-                      nullabilitySuffix: SwidNullabilitySuffix.star,
-                      originalPackagePath: "",
-                      namedParameterTypes: {},
-                      normalParameterNames: [],
-                      normalParameterTypes: [],
-                      optionalParameterNames: [],
-                      optionalParameterTypes: [],
-                      returnType: SwidType(
-                        name: "Widget",
-                        originalPackagePath: "",
-                        nullabilitySuffix: SwidNullabilitySuffix.star,
-                      ))
+                  SwidType.fromSwidFunctionType(
+                      swidFunctionType: SwidFunctionType(
+                          namedDefaults: {},
+                          swidDeclarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                          name: "",
+                          nullabilitySuffix: SwidNullabilitySuffix.star,
+                          originalPackagePath: "",
+                          namedParameterTypes: {},
+                          normalParameterNames: [],
+                          normalParameterTypes: [],
+                          optionalParameterNames: [],
+                          optionalParameterTypes: [],
+                          returnType: SwidType.fromSwidInterface(
+                              swidInterface: SwidInterface(
+                            name: "Widget",
+                            originalPackagePath: "",
+                            nullabilitySuffix: SwidNullabilitySuffix.star,
+                          ))))
                 ],
                 optionalParameterNames: [],
                 optionalParameterTypes: [],
                 namedParameterTypes: {},
                 nullabilitySuffix: SwidNullabilitySuffix.star,
-                returnType: SwidType(
+                returnType: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
                   name: "num",
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
-                ))),
+                )))),
         "(foo : () => Widget) => num | undefined");
   });
 }

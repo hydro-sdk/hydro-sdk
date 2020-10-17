@@ -28,6 +28,8 @@ dependencies:
   build_runner: ^1.10.1
   analyzer: ^0.40.3
   recase: ^3.0.0
+  freezed_annotation:
+  freezed:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

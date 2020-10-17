@@ -1,5 +1,4 @@
 import 'package:hydro_sdk/swid/ir/dart/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/dart/narrowSwidType.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
@@ -27,26 +26,26 @@ String transformFunctionTypeToTs({
   }
 
   normalTypes.forEach((key, value) {
-    narrowSwidType(
-      swidType: value,
-      onSwidFunctionType: (val) {
+    value.when(
+      fromSwidClass: (_) => null,
+      fromSwidFunctionType: (val) {
         res +=
-            "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ";
-        res += transformFunctionTypeToTs(swidFunctionType: value);
+            "$key${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ";
+        res += transformFunctionTypeToTs(swidFunctionType: val);
 
         return null;
       },
-      onSwidType: (val) {
+      fromSwidInterface: (val) {
         res +=
-            "$key${value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${value.name}";
+            "$key${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${val.name}";
 
-        if (value.nullabilitySuffix == SwidNullabilitySuffix.question) {
+        if (val.nullabilitySuffix == SwidNullabilitySuffix.question) {
           res += " | undefined";
         }
 
         return null;
       },
-      onSwidDefaultFormalParameter: (_) => null,
+      fromSwidDefaultFormalParameter: (_) => null,
     );
 
     if (normalTypes.keys.toList().indexOf(key) !=

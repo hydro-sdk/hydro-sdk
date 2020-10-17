@@ -16,10 +16,6 @@ void main() {
         swidFunctionType: tickerClass.constructorType, name: "Ticker");
     expect(tickerCtorInterface.name, "TickerProps");
 
-    var debugLabel = tickerCtorInterface.members["debugLabel"];
-    expect(debugLabel, isNotNull);
-    expect(debugLabel.name, "String");
-
     expect(TsInterface.fromSwidClass(swidClass: tickerClass).toTsSource(), """
 export ITicker {
     _dart_muted: () => bool;
@@ -29,6 +25,10 @@ export ITicker {
     _dart_start: () => TickerFuture;
     _dart_describeForError: (name : String) => DiagnosticsNode;
     _dart_stop: () => void;
+    _dart_scheduled: () => bool;
+    _dart_shouldScheduleTick: () => bool;
+    _dart_scheduleTick: () => void;
+    _dart_unscheduleTick: () => void;
     _dart_absorbTicker: (originalTicker : Ticker) => void;
     _dart_dispose: () => void;
     _dart_toString: () => String;
@@ -48,10 +48,13 @@ export ITicker {
     _dart_start: () => TickerFuture;
     _dart_describeForError: (name : string) => DiagnosticsNode;
     _dart_stop: () => void;
+    _dart_getScheduled: () => boolean;
+    _dart_getShouldScheduleTick: () => boolean;
+    _dart_scheduleTick: () => void;
+    _dart_unscheduleTick: () => void;
     _dart_absorbTicker: (originalTicker : Ticker) => void;
     _dart_dispose: () => void;
     _dart_toString: () => string;
 }""");
-//need to transform primitive type names still
   });
 }

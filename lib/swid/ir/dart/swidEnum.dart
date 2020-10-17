@@ -1,21 +1,17 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+part 'swidEnum.freezed.dart';
 part 'swidEnum.g.dart';
 
-@JsonSerializable()
-class SwidEnum {
-  final String originalPackagePath;
-  final String identifier;
-  final List<String> children;
-
-  SwidEnum({
-    @required this.originalPackagePath,
-    @required this.identifier,
-    @required this.children,
-  });
-
-  Map<String, dynamic> toJson() => _$SwidEnumToJson(this);
+@freezed
+abstract class SwidEnum with _$SwidEnum {
+  factory SwidEnum({
+    @required String originalPackagePath,
+    @required String identifier,
+    @required List<String> children,
+  }) = _$Data;
 
   factory SwidEnum.fromJson(Map<String, dynamic> json) =>
       _$SwidEnumFromJson(json);

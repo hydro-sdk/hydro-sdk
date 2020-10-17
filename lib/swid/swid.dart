@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/dart/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/dart/narrowModifierProducer.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
@@ -101,7 +102,7 @@ class SwidVisitor extends RecursiveAstVisitor
           classes.add(
             SwidClass(
               name: node.name.name,
-              nullabilitySuffix: null,
+              nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath:
                   node.declaredElement?.librarySource?.uri?.toString() ?? "",
               constructorType: SwidFunctionType.fromFunctionType(
@@ -177,6 +178,11 @@ class SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "Icons") {
       print(node.name.name);
       File("Icons.json").writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "Ticker") {
+      print(node.name.name);
+      File("Ticker.json").writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     super.visitClassDeclaration(node);

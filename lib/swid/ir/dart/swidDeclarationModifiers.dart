@@ -1,64 +1,38 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
+part 'swidDeclarationModifiers.freezed.dart';
 part 'swidDeclarationModifiers.g.dart';
 
-@JsonSerializable()
-class SwidDeclarationModifiers {
-  final bool isAbstract;
-  final bool isGetter;
-  final bool isOperator;
-  final bool isSetter;
-  final bool isStatic;
-  final bool isSynthetic;
-  final bool hasAlwaysThrows;
-  final bool hasDeprecated;
-  final bool hasFactory;
-  final bool hasImplicitReturnType;
-  final bool hasIsTest;
-  final bool hasIsTestGroup;
-  final bool hasJS;
-  final bool hasLiteral;
-  final bool hasMustCallSuper;
-  final bool hasNonVirtual;
-  final bool hasOptionalTypeArgs;
-  final bool hasOverride;
-  final bool hasProtected;
-  final bool hasRequired;
-  final bool hasSealed;
-  final bool hasVisibleForTemplate;
-  final bool hasVisibleForTesting;
-  final bool isPublic;
-
-  SwidDeclarationModifiers({
-    @required this.isAbstract,
-    @required this.isGetter,
-    @required this.isOperator,
-    @required this.isSetter,
-    @required this.isStatic,
-    @required this.isSynthetic,
-    @required this.hasAlwaysThrows,
-    @required this.hasDeprecated,
-    @required this.hasFactory,
-    @required this.hasImplicitReturnType,
-    @required this.hasIsTest,
-    @required this.hasIsTestGroup,
-    @required this.hasJS,
-    @required this.hasLiteral,
-    @required this.hasMustCallSuper,
-    @required this.hasNonVirtual,
-    @required this.hasOptionalTypeArgs,
-    @required this.hasOverride,
-    @required this.hasProtected,
-    @required this.hasRequired,
-    @required this.hasSealed,
-    @required this.hasVisibleForTemplate,
-    @required this.hasVisibleForTesting,
-    @required this.isPublic,
-  });
-
-  Map<String, dynamic> toJson() => _$SwidDeclarationModifiersToJson(this);
+@freezed
+abstract class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
+  factory SwidDeclarationModifiers({
+    @required bool isAbstract,
+    @required bool isGetter,
+    @required bool isOperator,
+    @required bool isSetter,
+    @required bool isStatic,
+    @required bool isSynthetic,
+    @required bool hasAlwaysThrows,
+    @required bool hasDeprecated,
+    @required bool hasFactory,
+    @required bool hasImplicitReturnType,
+    @required bool hasIsTest,
+    @required bool hasIsTestGroup,
+    @required bool hasJS,
+    @required bool hasLiteral,
+    @required bool hasMustCallSuper,
+    @required bool hasNonVirtual,
+    @required bool hasOptionalTypeArgs,
+    @required bool hasOverride,
+    @required bool hasProtected,
+    @required bool hasRequired,
+    @required bool hasSealed,
+    @required bool hasVisibleForTemplate,
+    @required bool hasVisibleForTesting,
+    @required bool isPublic,
+  }) = _$Data;
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
       _$SwidDeclarationModifiersFromJson(json);

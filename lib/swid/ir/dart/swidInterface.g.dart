@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'swidClass.dart';
+part of 'swidInterface.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -12,21 +12,6 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     nullabilitySuffix: _$enumDecodeNullable(
         _$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
     originalPackagePath: json['originalPackagePath'] as String,
-    constructorType: json['constructorType'] == null
-        ? null
-        : SwidFunctionType.fromJson(
-            json['constructorType'] as Map<String, dynamic>),
-    methods: (json['methods'] as List)
-        ?.map((e) => e == null
-            ? null
-            : SwidFunctionType.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    staticConstFieldDeclarations: (json['staticConstFieldDeclarations'] as List)
-        ?.map((e) => e == null
-            ? null
-            : SwidStaticConstFieldDeclaration.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList(),
   );
 }
 
@@ -35,9 +20,6 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'nullabilitySuffix':
           _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],
       'originalPackagePath': instance.originalPackagePath,
-      'constructorType': instance.constructorType,
-      'methods': instance.methods,
-      'staticConstFieldDeclarations': instance.staticConstFieldDeclarations,
     };
 
 T _$enumDecode<T>(

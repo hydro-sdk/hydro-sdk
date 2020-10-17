@@ -1,31 +1,23 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:meta/meta.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 
+part 'swidClass.freezed.dart';
 part 'swidClass.g.dart';
 
-@JsonSerializable()
-class SwidClass implements SwidType {
-  final String name;
-  final SwidNullabilitySuffix nullabilitySuffix;
-  final String originalPackagePath;
-  final SwidFunctionType constructorType;
-  final List<SwidFunctionType> methods;
-  final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations;
-
-  SwidClass({
-    @required this.name,
-    @required this.nullabilitySuffix,
-    @required this.originalPackagePath,
-    @required this.constructorType,
-    @required this.methods,
-    @required this.staticConstFieldDeclarations,
-  });
-
-  Map<String, dynamic> toJson() => _$SwidClassToJson(this);
+@freezed
+abstract class SwidClass with _$SwidClass {
+  factory SwidClass({
+    @required String name,
+    @required SwidNullabilitySuffix nullabilitySuffix,
+    @required String originalPackagePath,
+    @required SwidFunctionType constructorType,
+    @required List<SwidFunctionType> methods,
+    @required
+        List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+  }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
       _$SwidClassFromJson(json);
