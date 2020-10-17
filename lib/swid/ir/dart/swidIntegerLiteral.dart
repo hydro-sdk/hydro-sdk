@@ -1,17 +1,13 @@
 import 'package:analyzer/dart/ast/ast.dart' show IntegerLiteral;
-import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:json_annotation/json_annotation.dart';
 
+part 'swidIntegerLiteral.freezed.dart';
 part 'swidIntegerLiteral.g.dart';
 
-@JsonSerializable()
-class SwidIntegerLiteral implements SwidLiteral {
-  final String value;
-
-  SwidIntegerLiteral({@required this.value});
-
-  Map<String, dynamic> toJson() => _$SwidIntegerLiteralToJson(this);
+@freezed
+abstract class SwidIntegerLiteral with _$SwidIntegerLiteral {
+  factory SwidIntegerLiteral({@required String value}) = _$Data;
 
   factory SwidIntegerLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidIntegerLiteralFromJson(json);
