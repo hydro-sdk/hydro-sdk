@@ -81,11 +81,12 @@ abstract class SwidStaticConstFunctionInvocation
                                 swidBooleanLiteral: SwidBooleanLiteral(
                                     value: argument.value.toString()))
                             : argument is SimpleIdentifier
-                                ? SwidStaticConst.fromSwidStaticConstFieldReference(
-                                    swidStaticConstFieldReference:
-                                        SwidStaticConstFieldReference
-                                            .fromSimpleIdentifier(
-                                                simpleIdentifier: argument))
+                                ? SwidStaticConst
+                                    .fromSwidStaticConstFieldReference(
+                                        swidStaticConstFieldReference:
+                                            SwidStaticConstFieldReference
+                                                .fromSimpleIdentifier(
+                                                    simpleIdentifier: argument))
                                 : null);
               }
               return MapEntry(null, null);
