@@ -1,5 +1,5 @@
-
 export enum BorderStyle {
     none,
-    solid
+    solid,
 }
+

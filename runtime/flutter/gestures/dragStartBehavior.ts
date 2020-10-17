@@ -1,4 +1,5 @@
 export enum DragStartBehavior {
     down,
-    start
+    start,
 }
+
