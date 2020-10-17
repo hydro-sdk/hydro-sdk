@@ -27,7 +27,7 @@ String transformFunctionTypeToTs({
 
   normalTypes.forEach((key, value) {
     value.when(
-      fromSwidClass: (_)=>null,
+      fromSwidClass: (_) => null,
       fromSwidFunctionType: (val) {
         res +=
             "$key${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ";
