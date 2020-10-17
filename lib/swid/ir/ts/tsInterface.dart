@@ -17,7 +17,7 @@ class TsInterface implements TsIr {
   factory TsInterface.fromSwidFunctiontype(
       {@required SwidFunctionType swidFunctionType, String name}) {
     return TsInterface(
-      name: "${swidFunctionType.name ?? name}Props",
+      name: "${name ?? swidFunctionType.name}Props",
       members: Map.from(swidFunctionType.namedParameterTypes),
     );
   }
@@ -36,8 +36,8 @@ class TsInterface implements TsIr {
     if (members?.isNotEmpty ?? false) {
       var res = ["export $name {"];
       members.forEach((key, value) {
-        SwidFunctionType swidFunctionType =
-            value.maybeWhen(fromSwidFunctionType: (res) => res, orElse: null);
+        SwidFunctionType swidFunctionType = value.maybeWhen(
+            fromSwidFunctionType: (res) => res, orElse: () => null);
         res += [
           "    ${key}: ${transformFunctionTypeToTs(swidFunctionType: swidFunctionType)};"
         ];

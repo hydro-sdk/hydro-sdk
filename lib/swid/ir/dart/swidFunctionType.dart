@@ -79,7 +79,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
       {@required FunctionType functionType,
       @required SwidDeclarationModifiers swidDeclarationModifiers}) {
     return SwidFunctionType(
-      name: functionType.element?.name,
+      name: functionType.element?.name ?? "",
       nullabilitySuffix: mapNullabilitySuffix(
           nullabilitySuffix: functionType.nullabilitySuffix),
       originalPackagePath:
