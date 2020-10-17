@@ -26,7 +26,8 @@ class TsInterface implements TsIr {
     return TsInterface(
         name: "I${swidClass.name}",
         members: Map.fromEntries(swidClass.methods
-                ?.map((x) => MapEntry("_dart_${x.name}", x))
+                ?.map((x) => MapEntry("_dart_${x.name}",
+                    SwidType.fromSwidFunctionType(swidFunctionType: x)))
                 ?.toList() ??
             {}));
   }
