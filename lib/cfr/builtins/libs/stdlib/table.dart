@@ -83,14 +83,22 @@ void loadTableLib(Context ctx) {
       if (f != null) {
         var lt = Context.truthy(maybeAt(f([a, b]), 0));
         var gt = Context.truthy(maybeAt(f([b, a]), 0));
-        return lt ? -1 : gt ? 1 : 0;
+        return lt
+            ? -1
+            : gt
+                ? 1
+                : 0;
       } else if (a is num && b is num) {
         return a.compareTo(b);
       } else if ((a is HydroTable && Context.hasMetamethod(a, "__le")) ||
           (b is HydroTable && Context.hasMetamethod(b, "__le"))) {
         var lt = Context.checkLT(a, b);
         var gt = Context.checkLT(b, a);
-        return lt ? -1 : gt ? 1 : 0;
+        return lt
+            ? -1
+            : gt
+                ? 1
+                : 0;
       } else {
         var at = Context.getTypename(a);
         var bt = Context.getTypename(b);

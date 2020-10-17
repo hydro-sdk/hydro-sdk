@@ -98,7 +98,9 @@ class _RunFromNetwork extends State<RunFromNetwork>
     customNamespaceLoaders = customNamespaces;
     _debugUrl = debugMode && Platform.isAndroid
         ? "http://10.0.2.2:5000"
-        : debugMode && Platform.isIOS ? "http://localhost:5000" : "";
+        : debugMode && Platform.isIOS
+            ? "http://localhost:5000"
+            : "";
 
     Future<Response> _attemptDownloadWithDegradation(String uri) async {
       if (_debugUrl != "") {
