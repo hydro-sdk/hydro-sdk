@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'swidLiteral.dart';
+part of 'swidStaticConst.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -69,4 +69,20 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstFunctionInvocationToJson(
         _$_$FromSwidStaticConstFunctionInvocation instance) =>
     <String, dynamic>{
       'staticConstFunctionInvocation': instance.staticConstFunctionInvocation,
+    };
+
+_$_$FromSwidStaticConstFieldReference
+    _$_$_$FromSwidStaticConstFieldReferenceFromJson(Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstFieldReference(
+    swidStaticConstFieldReference: json['swidStaticConstFieldReference'] == null
+        ? null
+        : SwidStaticConstFieldReference.fromJson(
+            json['swidStaticConstFieldReference'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstFieldReferenceToJson(
+        _$_$FromSwidStaticConstFieldReference instance) =>
+    <String, dynamic>{
+      'swidStaticConstFieldReference': instance.swidStaticConstFieldReference,
     };

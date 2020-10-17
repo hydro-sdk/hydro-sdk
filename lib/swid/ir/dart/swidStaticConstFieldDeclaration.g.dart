@@ -11,7 +11,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     value: json['value'] == null
         ? null
-        : SwidLiteral.fromJson(json['value'] as Map<String, dynamic>),
+        : SwidStaticConst.fromJson(json['value'] as Map<String, dynamic>),
   );
 }
 
