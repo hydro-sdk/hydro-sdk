@@ -16,7 +16,7 @@ import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConst.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
 part 'swidStaticConstFunctionInvocation.g.dart';
@@ -26,8 +26,8 @@ abstract class SwidStaticConstFunctionInvocation
     with _$SwidStaticConstFunctionInvocation {
   factory SwidStaticConstFunctionInvocation({
     @required String value,
-    @required List<SwidLiteral> normalParameters,
-    @required Map<String, SwidLiteral> namedParameters,
+    @required List<SwidStaticConst> normalParameters,
+    @required Map<String, SwidStaticConst> namedParameters,
     @required bool isConstructorInvocation,
   }) = _$Data;
 
@@ -46,11 +46,11 @@ abstract class SwidStaticConstFunctionInvocation
                 ?.childEntities
                 ?.map((x) {
               if (x is IntegerLiteral) {
-                return SwidLiteral.fromSwidIntegerLiteral(
+                return SwidStaticConst.fromSwidIntegerLiteral(
                     swidIntegerLiteral: SwidIntegerLiteral.fromIntegerLiteral(
                         integerLiteral: x));
               } else if (x is StringLiteral) {
-                return SwidLiteral.fromSwidStringLiteral(
+                return SwidStaticConst.fromSwidStringLiteral(
                     swidStringLiteral: SwidStringLiteral(value: x.stringValue));
               }
             })?.toList() ??
@@ -73,15 +73,15 @@ abstract class SwidStaticConstFunctionInvocation
                         .label
                         .name,
                     argument is SimpleStringLiteral
-                        ? SwidLiteral.fromSwidStringLiteral(
+                        ? SwidStaticConst.fromSwidStringLiteral(
                             swidStringLiteral:
                                 SwidStringLiteral(value: argument.value))
                         : argument is BooleanLiteral
-                            ? SwidLiteral.fromSwidBooleanLiteral(
+                            ? SwidStaticConst.fromSwidBooleanLiteral(
                                 swidBooleanLiteral: SwidBooleanLiteral(
                                     value: argument.value.toString()))
                             : argument is SimpleIdentifier
-                                ? SwidLiteral.fromSwidStaticConstFieldReference(
+                                ? SwidStaticConst.fromSwidStaticConstFieldReference(
                                     swidStaticConstFieldReference:
                                         SwidStaticConstFieldReference
                                             .fromSimpleIdentifier(

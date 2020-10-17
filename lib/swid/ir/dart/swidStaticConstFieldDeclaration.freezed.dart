@@ -18,7 +18,8 @@ class _$SwidStaticConstFieldDeclarationTearOff {
   const _$SwidStaticConstFieldDeclarationTearOff();
 
 // ignore: unused_element
-  _$Data call({@required String name, @required @nullable SwidLiteral value}) {
+  _$Data call(
+      {@required String name, @required @nullable SwidStaticConst value}) {
     return _$Data(
       name: name,
       value: value,
@@ -40,7 +41,7 @@ const $SwidStaticConstFieldDeclaration =
 mixin _$SwidStaticConstFieldDeclaration {
   String get name;
   @nullable
-  SwidLiteral get value;
+  SwidStaticConst get value;
 
   Map<String, dynamic> toJson();
   $SwidStaticConstFieldDeclarationCopyWith<SwidStaticConstFieldDeclaration>
@@ -53,9 +54,9 @@ abstract class $SwidStaticConstFieldDeclarationCopyWith<$Res> {
           SwidStaticConstFieldDeclaration value,
           $Res Function(SwidStaticConstFieldDeclaration) then) =
       _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>;
-  $Res call({String name, @nullable SwidLiteral value});
+  $Res call({String name, @nullable SwidStaticConst value});
 
-  $SwidLiteralCopyWith<$Res> get value;
+  $SwidStaticConstCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -74,16 +75,16 @@ class _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
-      value: value == freezed ? _value.value : value as SwidLiteral,
+      value: value == freezed ? _value.value : value as SwidStaticConst,
     ));
   }
 
   @override
-  $SwidLiteralCopyWith<$Res> get value {
+  $SwidStaticConstCopyWith<$Res> get value {
     if (_value.value == null) {
       return null;
     }
-    return $SwidLiteralCopyWith<$Res>(_value.value, (value) {
+    return $SwidStaticConstCopyWith<$Res>(_value.value, (value) {
       return _then(_value.copyWith(value: value));
     });
   }
@@ -95,10 +96,10 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String name, @nullable SwidLiteral value});
+  $Res call({String name, @nullable SwidStaticConst value});
 
   @override
-  $SwidLiteralCopyWith<$Res> get value;
+  $SwidStaticConstCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -118,7 +119,7 @@ class __$$DataCopyWithImpl<$Res>
   }) {
     return _then(_$Data(
       name: name == freezed ? _value.name : name as String,
-      value: value == freezed ? _value.value : value as SwidLiteral,
+      value: value == freezed ? _value.value : value as SwidStaticConst,
     ));
   }
 }
@@ -137,7 +138,7 @@ class _$_$Data implements _$Data {
   final String name;
   @override
   @nullable
-  final SwidLiteral value;
+  final SwidStaticConst value;
 
   @override
   String toString() {
@@ -173,7 +174,7 @@ class _$_$Data implements _$Data {
 abstract class _$Data implements SwidStaticConstFieldDeclaration {
   factory _$Data(
       {@required String name,
-      @required @nullable SwidLiteral value}) = _$_$Data;
+      @required @nullable SwidStaticConst value}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -181,7 +182,7 @@ abstract class _$Data implements SwidStaticConstFieldDeclaration {
   String get name;
   @override
   @nullable
-  SwidLiteral get value;
+  SwidStaticConst get value;
   @override
   _$$DataCopyWith<_$Data> get copyWith;
 }

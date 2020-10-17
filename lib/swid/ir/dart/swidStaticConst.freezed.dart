@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'swidLiteral.dart';
+part of 'swidStaticConst.dart';
 
 // **************************************************************************
 // FreezedGenerator
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-SwidLiteral _$SwidLiteralFromJson(Map<String, dynamic> json) {
+SwidStaticConst _$SwidStaticConstFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'fromSwidBooleanLiteral':
       return _$FromSwidBooleanLiteral.fromJson(json);
@@ -27,8 +27,8 @@ SwidLiteral _$SwidLiteralFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$SwidLiteralTearOff {
-  const _$SwidLiteralTearOff();
+class _$SwidStaticConstTearOff {
+  const _$SwidStaticConstTearOff();
 
 // ignore: unused_element
   _$FromSwidBooleanLiteral fromSwidBooleanLiteral(
@@ -72,17 +72,17 @@ class _$SwidLiteralTearOff {
   }
 
 // ignore: unused_element
-  SwidLiteral fromJson(Map<String, Object> json) {
-    return SwidLiteral.fromJson(json);
+  SwidStaticConst fromJson(Map<String, Object> json) {
+    return SwidStaticConst.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $SwidLiteral = _$SwidLiteralTearOff();
+const $SwidStaticConst = _$SwidStaticConstTearOff();
 
 /// @nodoc
-mixin _$SwidLiteral {
+mixin _$SwidStaticConst {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
@@ -135,19 +135,20 @@ mixin _$SwidLiteral {
 }
 
 /// @nodoc
-abstract class $SwidLiteralCopyWith<$Res> {
-  factory $SwidLiteralCopyWith(
-          SwidLiteral value, $Res Function(SwidLiteral) then) =
-      _$SwidLiteralCopyWithImpl<$Res>;
+abstract class $SwidStaticConstCopyWith<$Res> {
+  factory $SwidStaticConstCopyWith(
+          SwidStaticConst value, $Res Function(SwidStaticConst) then) =
+      _$SwidStaticConstCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SwidLiteralCopyWithImpl<$Res> implements $SwidLiteralCopyWith<$Res> {
-  _$SwidLiteralCopyWithImpl(this._value, this._then);
+class _$SwidStaticConstCopyWithImpl<$Res>
+    implements $SwidStaticConstCopyWith<$Res> {
+  _$SwidStaticConstCopyWithImpl(this._value, this._then);
 
-  final SwidLiteral _value;
+  final SwidStaticConst _value;
   // ignore: unused_field
-  final $Res Function(SwidLiteral) _then;
+  final $Res Function(SwidStaticConst) _then;
 }
 
 /// @nodoc
@@ -162,7 +163,7 @@ abstract class _$$FromSwidBooleanLiteralCopyWith<$Res> {
 
 /// @nodoc
 class __$$FromSwidBooleanLiteralCopyWithImpl<$Res>
-    extends _$SwidLiteralCopyWithImpl<$Res>
+    extends _$SwidStaticConstCopyWithImpl<$Res>
     implements _$$FromSwidBooleanLiteralCopyWith<$Res> {
   __$$FromSwidBooleanLiteralCopyWithImpl(_$FromSwidBooleanLiteral _value,
       $Res Function(_$FromSwidBooleanLiteral) _then)
@@ -210,7 +211,7 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
 
   @override
   String toString() {
-    return 'SwidLiteral.fromSwidBooleanLiteral(swidBooleanLiteral: $swidBooleanLiteral)';
+    return 'SwidStaticConst.fromSwidBooleanLiteral(swidBooleanLiteral: $swidBooleanLiteral)';
   }
 
   @override
@@ -321,7 +322,7 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
   }
 }
 
-abstract class _$FromSwidBooleanLiteral implements SwidLiteral {
+abstract class _$FromSwidBooleanLiteral implements SwidStaticConst {
   factory _$FromSwidBooleanLiteral(
           {@required SwidBooleanLiteral swidBooleanLiteral}) =
       _$_$FromSwidBooleanLiteral;
@@ -345,7 +346,7 @@ abstract class _$$FromSwidStringLiteralCopyWith<$Res> {
 
 /// @nodoc
 class __$$FromSwidStringLiteralCopyWithImpl<$Res>
-    extends _$SwidLiteralCopyWithImpl<$Res>
+    extends _$SwidStaticConstCopyWithImpl<$Res>
     implements _$$FromSwidStringLiteralCopyWith<$Res> {
   __$$FromSwidStringLiteralCopyWithImpl(_$FromSwidStringLiteral _value,
       $Res Function(_$FromSwidStringLiteral) _then)
@@ -391,7 +392,7 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
 
   @override
   String toString() {
-    return 'SwidLiteral.fromSwidStringLiteral(swidStringLiteral: $swidStringLiteral)';
+    return 'SwidStaticConst.fromSwidStringLiteral(swidStringLiteral: $swidStringLiteral)';
   }
 
   @override
@@ -502,7 +503,7 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
   }
 }
 
-abstract class _$FromSwidStringLiteral implements SwidLiteral {
+abstract class _$FromSwidStringLiteral implements SwidStaticConst {
   factory _$FromSwidStringLiteral(
           {@required SwidStringLiteral swidStringLiteral}) =
       _$_$FromSwidStringLiteral;
@@ -526,7 +527,7 @@ abstract class _$$FromSwidIntegerLiteralCopyWith<$Res> {
 
 /// @nodoc
 class __$$FromSwidIntegerLiteralCopyWithImpl<$Res>
-    extends _$SwidLiteralCopyWithImpl<$Res>
+    extends _$SwidStaticConstCopyWithImpl<$Res>
     implements _$$FromSwidIntegerLiteralCopyWith<$Res> {
   __$$FromSwidIntegerLiteralCopyWithImpl(_$FromSwidIntegerLiteral _value,
       $Res Function(_$FromSwidIntegerLiteral) _then)
@@ -574,7 +575,7 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
 
   @override
   String toString() {
-    return 'SwidLiteral.fromSwidIntegerLiteral(swidIntegerLiteral: $swidIntegerLiteral)';
+    return 'SwidStaticConst.fromSwidIntegerLiteral(swidIntegerLiteral: $swidIntegerLiteral)';
   }
 
   @override
@@ -685,7 +686,7 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
   }
 }
 
-abstract class _$FromSwidIntegerLiteral implements SwidLiteral {
+abstract class _$FromSwidIntegerLiteral implements SwidStaticConst {
   factory _$FromSwidIntegerLiteral(
           {@required SwidIntegerLiteral swidIntegerLiteral}) =
       _$_$FromSwidIntegerLiteral;
@@ -711,7 +712,7 @@ abstract class _$$FromSwidStaticConstFunctionInvocationCopyWith<$Res> {
 
 /// @nodoc
 class __$$FromSwidStaticConstFunctionInvocationCopyWithImpl<$Res>
-    extends _$SwidLiteralCopyWithImpl<$Res>
+    extends _$SwidStaticConstCopyWithImpl<$Res>
     implements _$$FromSwidStaticConstFunctionInvocationCopyWith<$Res> {
   __$$FromSwidStaticConstFunctionInvocationCopyWithImpl(
       _$FromSwidStaticConstFunctionInvocation _value,
@@ -765,7 +766,7 @@ class _$_$FromSwidStaticConstFunctionInvocation
 
   @override
   String toString() {
-    return 'SwidLiteral.fromSwidStaticConstFunctionInvocation(staticConstFunctionInvocation: $staticConstFunctionInvocation)';
+    return 'SwidStaticConst.fromSwidStaticConstFunctionInvocation(staticConstFunctionInvocation: $staticConstFunctionInvocation)';
   }
 
   @override
@@ -880,7 +881,8 @@ class _$_$FromSwidStaticConstFunctionInvocation
   }
 }
 
-abstract class _$FromSwidStaticConstFunctionInvocation implements SwidLiteral {
+abstract class _$FromSwidStaticConstFunctionInvocation
+    implements SwidStaticConst {
   factory _$FromSwidStaticConstFunctionInvocation(
           {@required
               SwidStaticConstFunctionInvocation
@@ -910,7 +912,7 @@ abstract class _$$FromSwidStaticConstFieldReferenceCopyWith<$Res> {
 
 /// @nodoc
 class __$$FromSwidStaticConstFieldReferenceCopyWithImpl<$Res>
-    extends _$SwidLiteralCopyWithImpl<$Res>
+    extends _$SwidStaticConstCopyWithImpl<$Res>
     implements _$$FromSwidStaticConstFieldReferenceCopyWith<$Res> {
   __$$FromSwidStaticConstFieldReferenceCopyWithImpl(
       _$FromSwidStaticConstFieldReference _value,
@@ -963,7 +965,7 @@ class _$_$FromSwidStaticConstFieldReference
 
   @override
   String toString() {
-    return 'SwidLiteral.fromSwidStaticConstFieldReference(swidStaticConstFieldReference: $swidStaticConstFieldReference)';
+    return 'SwidStaticConst.fromSwidStaticConstFieldReference(swidStaticConstFieldReference: $swidStaticConstFieldReference)';
   }
 
   @override
@@ -1077,7 +1079,7 @@ class _$_$FromSwidStaticConstFieldReference
   }
 }
 
-abstract class _$FromSwidStaticConstFieldReference implements SwidLiteral {
+abstract class _$FromSwidStaticConstFieldReference implements SwidStaticConst {
   factory _$FromSwidStaticConstFieldReference(
           {@required
               SwidStaticConstFieldReference swidStaticConstFieldReference}) =

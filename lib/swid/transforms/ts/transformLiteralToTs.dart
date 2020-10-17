@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformBooleanLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';
@@ -10,7 +10,7 @@ typedef String SwidStaticConstFieldReferenceScopeResolver(
     SwidStaticConstFieldReference staticConstFieldReference);
 
 String transformLiteralToTs(
-        {@required SwidLiteral swidLiteral,
+        {@required SwidStaticConst swidLiteral,
         @required SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
     swidLiteral.when(
         fromSwidIntegerLiteral: (val) =>

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'swidLiteral.dart';
+part of 'swidStaticConst.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

@@ -6,34 +6,34 @@ import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
 
-part 'swidLiteral.freezed.dart';
-part 'swidLiteral.g.dart';
+part 'swidStaticConst.freezed.dart';
+part 'swidStaticConst.g.dart';
 
 @freezed
-abstract class SwidLiteral with _$SwidLiteral {
-  factory SwidLiteral.fromSwidBooleanLiteral(
+abstract class SwidStaticConst with _$SwidStaticConst {
+  factory SwidStaticConst.fromSwidBooleanLiteral(
           {@required SwidBooleanLiteral swidBooleanLiteral}) =
       _$FromSwidBooleanLiteral;
 
-  factory SwidLiteral.fromSwidStringLiteral(
+  factory SwidStaticConst.fromSwidStringLiteral(
           {@required SwidStringLiteral swidStringLiteral}) =
       _$FromSwidStringLiteral;
 
-  factory SwidLiteral.fromSwidIntegerLiteral(
+  factory SwidStaticConst.fromSwidIntegerLiteral(
           {@required SwidIntegerLiteral swidIntegerLiteral}) =
       _$FromSwidIntegerLiteral;
 
-  factory SwidLiteral.fromSwidStaticConstFunctionInvocation(
+  factory SwidStaticConst.fromSwidStaticConstFunctionInvocation(
           {@required
               SwidStaticConstFunctionInvocation
                   staticConstFunctionInvocation}) =
       _$FromSwidStaticConstFunctionInvocation;
 
-  factory SwidLiteral.fromSwidStaticConstFieldReference(
+  factory SwidStaticConst.fromSwidStaticConstFieldReference(
           {@required
               SwidStaticConstFieldReference swidStaticConstFieldReference}) =
       _$FromSwidStaticConstFieldReference;
 
-  factory SwidLiteral.fromJson(Map<String, dynamic> json) =>
-      _$SwidLiteralFromJson(json);
+  factory SwidStaticConst.fromJson(Map<String, dynamic> json) =>
+      _$SwidStaticConstFromJson(json);
 }
