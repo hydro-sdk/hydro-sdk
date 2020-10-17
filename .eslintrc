@@ -64,6 +64,8 @@
     {
       "files": [
         "runtime/flutter/material/icons/*.ts",
+        "runtime/flutter/material/timeOfDayFormat.ts",
+        "runtime/flutter/cupertino/datePickerDateTimeOrder.ts",
         "examples/**/*.ts"
       ],
       "rules": {

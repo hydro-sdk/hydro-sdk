@@ -5,5 +5,6 @@ export enum BoxFit {
     fitWidth,
     fitHeight,
     none,
-    scaleDown
+    scaleDown,
 }
+
