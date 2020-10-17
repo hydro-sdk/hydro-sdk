@@ -18,7 +18,9 @@ void main() {
           swidIntegerLiteral: SwidIntegerLiteral(value: "1")),
     ];
 
-    expect(transformNormalParametersToTs(swidLiterals: normalParameters),
+    expect(
+        transformNormalParametersToTs(
+            swidLiterals: normalParameters, scopeResolver: (_) => null),
         "0xe52a,\"0xe52a\",\"1\",1");
   });
 }

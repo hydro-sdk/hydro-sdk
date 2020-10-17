@@ -14,7 +14,9 @@ void main() {
           swidIntegerLiteral: SwidIntegerLiteral(value: "12")),
     };
 
-    expect(transformNamedParametersToTs(namedParameters: namedParameters),
+    expect(
+        transformNamedParametersToTs(
+            namedParameters: namedParameters, scopeResolver: (_) => null),
         "{fontFamily:\"Material\",size:12}");
   });
 }

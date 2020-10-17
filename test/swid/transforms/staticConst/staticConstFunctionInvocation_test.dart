@@ -18,7 +18,8 @@ void main() {
         isConstructorInvocation: false);
     expect(
         transformStaticConstFunctionInvocation(
-            swidStaticConstFunctionInvocation: normal),
+            swidStaticConstFunctionInvocation: normal,
+            scopeResolver: (_) => null),
         "IconData(0xe52a)");
 
     var manyNormal = SwidStaticConstFunctionInvocation(
@@ -37,7 +38,8 @@ void main() {
         isConstructorInvocation: false);
     expect(
         transformStaticConstFunctionInvocation(
-            swidStaticConstFunctionInvocation: manyNormal),
+            swidStaticConstFunctionInvocation: manyNormal,
+            scopeResolver: (_) => null),
         "IconData(0xe52a,\"foo\",\"bar\",123)");
 
     var manyNamed = SwidStaticConstFunctionInvocation(
@@ -54,7 +56,8 @@ void main() {
         isConstructorInvocation: false);
     expect(
         transformStaticConstFunctionInvocation(
-            swidStaticConstFunctionInvocation: manyNamed),
+            swidStaticConstFunctionInvocation: manyNamed,
+            scopeResolver: (_) => null),
         "IconData({foo:\"foo\",bar:\"bar\",offset:123})");
 
     var normalAndNamedCtor = SwidStaticConstFunctionInvocation(
@@ -71,7 +74,8 @@ void main() {
 
     expect(
         transformStaticConstFunctionInvocation(
-            swidStaticConstFunctionInvocation: normalAndNamedCtor),
+            swidStaticConstFunctionInvocation: normalAndNamedCtor,
+            scopeResolver: (_) => null),
         "new IconData(0xe52a,{fontFamily:\"MaterialIcons\"})");
   });
 }

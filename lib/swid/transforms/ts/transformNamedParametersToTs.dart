@@ -4,13 +4,16 @@ import 'package:meta/meta.dart';
 
 String transformNamedParametersToTs({
   @required Map<String, SwidLiteral> namedParameters,
+  @required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     namedParameters != null && namedParameters.keys.isNotEmpty
         ? "{" +
             namedParameters.keys
                 .map((x) =>
                     "$x:" +
-                    transformLiteralToTs(swidLiteral: namedParameters[x]))
+                    transformLiteralToTs(
+                        swidLiteral: namedParameters[x],
+                        scopeResolver: scopeResolver))
                 .join(",") +
             "}"
         : "";

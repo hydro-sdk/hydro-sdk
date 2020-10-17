@@ -1,13 +1,18 @@
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformNamedParametersToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformNormalParametersToTs.dart';
 import 'package:meta/meta.dart';
 
 String transformStaticConstFunctionInvocation(
     {@required
-        SwidStaticConstFunctionInvocation swidStaticConstFunctionInvocation}) {
+        SwidStaticConstFunctionInvocation swidStaticConstFunctionInvocation,
+    @required
+        SwidStaticConstFieldReferenceScopeResolver scopeResolver}) {
   var normalParameters = transformNormalParametersToTs(
-      swidLiterals: swidStaticConstFunctionInvocation.normalParameters);
+    swidLiterals: swidStaticConstFunctionInvocation.normalParameters,
+    scopeResolver: scopeResolver,
+  );
 
   var res =
       swidStaticConstFunctionInvocation.isConstructorInvocation ? "new " : "";
@@ -18,7 +23,9 @@ String transformStaticConstFunctionInvocation(
   }
 
   var namedParameters = transformNamedParametersToTs(
-      namedParameters: swidStaticConstFunctionInvocation.namedParameters);
+    namedParameters: swidStaticConstFunctionInvocation.namedParameters,
+    scopeResolver: scopeResolver,
+  );
 
   if ((normalParameters?.isNotEmpty ?? false) &&
       (namedParameters?.isNotEmpty ?? false)) {
