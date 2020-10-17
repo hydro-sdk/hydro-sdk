@@ -6,9 +6,8 @@ part of 'swidDeclarationModifiers.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidDeclarationModifiers _$SwidDeclarationModifiersFromJson(
-    Map<String, dynamic> json) {
-  return SwidDeclarationModifiers(
+_$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
+  return _$_$Data(
     isAbstract: json['isAbstract'] as bool,
     isGetter: json['isGetter'] as bool,
     isOperator: json['isOperator'] as bool,
@@ -36,9 +35,7 @@ SwidDeclarationModifiers _$SwidDeclarationModifiersFromJson(
   );
 }
 
-Map<String, dynamic> _$SwidDeclarationModifiersToJson(
-        SwidDeclarationModifiers instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'isAbstract': instance.isAbstract,
       'isGetter': instance.isGetter,
       'isOperator': instance.isOperator,

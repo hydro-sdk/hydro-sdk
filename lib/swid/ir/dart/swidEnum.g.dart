@@ -6,15 +6,15 @@ part of 'swidEnum.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SwidEnum _$SwidEnumFromJson(Map<String, dynamic> json) {
-  return SwidEnum(
+_$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
+  return _$_$Data(
     originalPackagePath: json['originalPackagePath'] as String,
     identifier: json['identifier'] as String,
     children: (json['children'] as List)?.map((e) => e as String)?.toList(),
   );
 }
 
-Map<String, dynamic> _$SwidEnumToJson(SwidEnum instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'originalPackagePath': instance.originalPackagePath,
       'identifier': instance.identifier,
       'children': instance.children,
