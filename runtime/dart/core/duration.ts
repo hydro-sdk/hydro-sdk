@@ -1,10 +1,10 @@
 export interface DurationProps {
-    days: number;
-    hours: number;
-    minutes: number;
-    seconds: number;
-    milliseconds: number;
-    microseconds: number;
+    days?: number;
+    hours?: number;
+    minutes?: number;
+    seconds?: number;
+    milliseconds?: number;
+    microseconds?: number;
 }
 
 const durationDefaultProps = {
@@ -22,7 +22,7 @@ declare const dart: {
     }
 }
 
-class Duration {
+export class Duration {
     private readonly _dart_getInDays: () => number = undefined as any;
     private readonly _dart_getInHours: () => number = undefined as any;
     private readonly _dart_getInMinutes: () => number = undefined as any;
