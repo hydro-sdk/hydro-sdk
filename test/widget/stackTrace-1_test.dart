@@ -34,6 +34,7 @@ void main() {
       await tester.pumpWidget(RunFromNetwork(
         args: [],
         thunks: thunks,
+        filePath: "",
         baseUrl: "http://127.0.0.1:3000/test/widget/stackTrace-1.hc",
         downloadHash: (String uri) async {
           var file = File(hashPath);

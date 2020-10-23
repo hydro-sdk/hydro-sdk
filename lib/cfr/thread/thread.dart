@@ -23,9 +23,14 @@ class Thread {
   CoroutineStatus status = CoroutineStatus.SUSPENDED;
   bool started = false;
 
-  List<dynamic> attemptCall(dynamic x, [List<dynamic> args = const []]) {
+  List<dynamic> attemptCall(
+    dynamic x, {
+    List<dynamic> args = const [],
+    @required HydroState hydroState,
+  }) {
     if (x is HydroTable) {
-      return Context.invokeMetamethod(x, "__call", args);
+      return Context.invokeMetamethod(x, "__call", args,
+          parentState: hydroState);
     } else if (x is LuaDartFunc) {
       return x(args);
     } else if (x is LuaDartDebugFunc) {

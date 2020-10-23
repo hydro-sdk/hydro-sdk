@@ -10,8 +10,9 @@ void main() {
     List<String> outLines1 = [];
 
     state1.context.env["print"] = (List<dynamic> args) {
-      outLines1
-          .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
+      outLines1.add(args
+          .map((a) => Context.luaToString(a, hydroState: state1).toString())
+          .join("\t"));
     };
 
     var state2 = HydroState();
@@ -19,8 +20,9 @@ void main() {
     List<String> outLines2 = [];
 
     state2.context.env["print"] = (List<dynamic> args) {
-      outLines2
-          .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
+      outLines2.add(args
+          .map((a) => Context.luaToString(a, hydroState: state2).toString())
+          .join("\t"));
     };
 
     HydroFunctionImpl res1 = await state1.loadFile("hot/debug.hc");

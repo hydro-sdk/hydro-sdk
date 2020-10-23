@@ -3,15 +3,17 @@ import 'dart:math';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/util.dart';
+import 'package:hydro_sdk/hydroState.dart';
+import 'package:meta/meta.dart';
 
-void loadStringLib(Context ctx) {
+void loadStringLib({@required HydroState hydroState, @required Context ctx}) {
   var string = new HydroTable();
 
   ctx.env["string"] = string;
   ctx.stringMetatable = string;
 
   string["rep"] = (List<dynamic> args) {
-    String str = Context.luaToString(Context.getArg1<String>(args, 0, "rep"));
+    String str = Context.luaToString(Context.getArg1<String>(args, 0, "rep"),hydroState: hydroState );
     num amount = Context.getArg1<num>(args, 1, "rep");
     return [str * amount.floor()];
   };

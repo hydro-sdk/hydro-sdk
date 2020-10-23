@@ -3,8 +3,10 @@ import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
+import 'package:hydro_sdk/hydroState.dart';
+import 'package:meta/meta.dart';
 
-void loadBaseLib(Context ctx) {
+void loadBaseLib({@required HydroState hydroState, @required Context ctx}) {
   ctx.env["assert"] = (List<dynamic> args) {
     if (args.length < 1 || args[0] == null || args[0] == false) {
       throw args.length < 2 ? "assertion failed!" : args[1];
@@ -35,7 +37,8 @@ void loadBaseLib(Context ctx) {
     var t = args[0];
 
     if (Context.hasMetamethod(t, "__ipairs")) {
-      return Context.invokeMetamethod(t, "__ipairs", [t])
+      return Context.invokeMetamethod(t, "__ipairs", [t],
+              parentState: hydroState)
           .take(3)
           .toList(growable: false);
     }
@@ -68,8 +71,8 @@ void loadBaseLib(Context ctx) {
   ctx.env["pcall"] = (Thread thread, List<dynamic> args) {
     var f = Context.getArg1<dynamic>(args, 0, "pcall");
     try {
-      return <dynamic>[true]
-        ..addAll(thread.attemptCall(f, args.skip(1).toList(growable: false)));
+      return <dynamic>[true]..addAll(thread.attemptCall(f,
+          args: args.skip(1).toList(growable: false), hydroState: hydroState));
     } on HydroError catch (e) {
       return [false, e.errMsg];
     } catch (e) {
@@ -81,7 +84,9 @@ void loadBaseLib(Context ctx) {
   };
 
   ctx.env["print"] = (List<dynamic> args) {
-    print(args.map((a) => Context.luaToString(a).toString()).join("\t"));
+    print(args
+        .map((a) => Context.luaToString(a, hydroState: hydroState).toString())
+        .join("\t"));
     return [];
   };
 
@@ -163,7 +168,7 @@ void loadBaseLib(Context ctx) {
   ctx.env["tostring"] = (List<dynamic> args) {
     if (args.length == 0)
       throw "bad argument #1 to 'tostring' (value expected)";
-    return [Context.luaToString(args[0])];
+    return [Context.luaToString(args[0], hydroState: hydroState)];
   };
 
   ctx.env["type"] = (List<dynamic> args) {
