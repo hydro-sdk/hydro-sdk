@@ -174,7 +174,7 @@ class Context {
       var res = maybeAt(
           invokeMetamethod(x, "__tostring", [x], parentState: hydroState), 0);
 
-          return res;
+      return res;
     } else if (x is String) {
       return x;
     } else if (x is bool) {

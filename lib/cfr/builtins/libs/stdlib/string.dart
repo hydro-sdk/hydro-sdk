@@ -13,7 +13,8 @@ void loadStringLib({@required HydroState hydroState, @required Context ctx}) {
   ctx.stringMetatable = string;
 
   string["rep"] = (List<dynamic> args) {
-    String str = Context.luaToString(Context.getArg1<String>(args, 0, "rep"),hydroState: hydroState );
+    String str = Context.luaToString(Context.getArg1<String>(args, 0, "rep"),
+        hydroState: hydroState);
     num amount = Context.getArg1<num>(args, 1, "rep");
     return [str * amount.floor()];
   };
