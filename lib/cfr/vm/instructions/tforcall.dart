@@ -9,8 +9,9 @@ void tforcall(
     @required int A,
     @required int B,
     @required int C}) {
-  var ret =
-      frame.thread.attemptCall(frame.GR(A), [frame.GR(A + 1), frame.GR(A + 2)]);
+  var ret = frame.thread.attemptCall(frame.GR(A),
+      args: [frame.GR(A + 1), frame.GR(A + 2)],
+      hydroState: frame.context.hydroState);
   var i = 0;
   for (int n = A + 3; n < A + C + 3; n++) frame.SR(n, maybeAt(ret, i++));
 

@@ -11,6 +11,6 @@ void mul(
     @required int C}) {
   frame.SR(
       A,
-      Context.attemptArithmetic(
-          frame.RK(B), frame.RK(C), "__mul", Context.mul));
+      Context.attemptArithmetic(frame.RK(B), frame.RK(C), "__mul", Context.mul,
+          hydroState: frame.context.hydroState));
 }

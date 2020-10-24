@@ -11,6 +11,6 @@ void sub(
     @required int C}) {
   frame.SR(
       A,
-      Context.attemptArithmetic(
-          frame.RK(B), frame.RK(C), "__sub", Context.sub));
+      Context.attemptArithmetic(frame.RK(B), frame.RK(C), "__sub", Context.sub,
+          hydroState: frame.context.hydroState));
 }
