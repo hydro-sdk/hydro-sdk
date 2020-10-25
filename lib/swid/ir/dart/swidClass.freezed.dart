@@ -29,7 +29,9 @@ class _$SwidClassTearOff {
       @required
           List<SwidFunctionType> methods,
       @required
-          List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations}) {
+          List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+      @required
+          List<SwidType> instanceFieldDeclarations}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -37,6 +39,7 @@ class _$SwidClassTearOff {
       constructorType: constructorType,
       methods: methods,
       staticConstFieldDeclarations: staticConstFieldDeclarations,
+      instanceFieldDeclarations: instanceFieldDeclarations,
     );
   }
 
@@ -58,6 +61,7 @@ mixin _$SwidClass {
   SwidFunctionType get constructorType;
   List<SwidFunctionType> get methods;
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
+  List<SwidType> get instanceFieldDeclarations;
 
   Map<String, dynamic> toJson();
   $SwidClassCopyWith<SwidClass> get copyWith;
@@ -73,7 +77,8 @@ abstract class $SwidClassCopyWith<$Res> {
       String originalPackagePath,
       SwidFunctionType constructorType,
       List<SwidFunctionType> methods,
-      List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations});
+      List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+      List<SwidType> instanceFieldDeclarations});
 
   $SwidFunctionTypeCopyWith<$Res> get constructorType;
 }
@@ -94,6 +99,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     Object constructorType = freezed,
     Object methods = freezed,
     Object staticConstFieldDeclarations = freezed,
+    Object instanceFieldDeclarations = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
@@ -113,6 +119,9 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
           ? _value.staticConstFieldDeclarations
           : staticConstFieldDeclarations
               as List<SwidStaticConstFieldDeclaration>,
+      instanceFieldDeclarations: instanceFieldDeclarations == freezed
+          ? _value.instanceFieldDeclarations
+          : instanceFieldDeclarations as List<SwidType>,
     ));
   }
 
@@ -138,7 +147,8 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       String originalPackagePath,
       SwidFunctionType constructorType,
       List<SwidFunctionType> methods,
-      List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations});
+      List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+      List<SwidType> instanceFieldDeclarations});
 
   @override
   $SwidFunctionTypeCopyWith<$Res> get constructorType;
@@ -161,6 +171,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
     Object constructorType = freezed,
     Object methods = freezed,
     Object staticConstFieldDeclarations = freezed,
+    Object instanceFieldDeclarations = freezed,
   }) {
     return _then(_$Data(
       name: name == freezed ? _value.name : name as String,
@@ -180,6 +191,9 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
           ? _value.staticConstFieldDeclarations
           : staticConstFieldDeclarations
               as List<SwidStaticConstFieldDeclaration>,
+      instanceFieldDeclarations: instanceFieldDeclarations == freezed
+          ? _value.instanceFieldDeclarations
+          : instanceFieldDeclarations as List<SwidType>,
     ));
   }
 }
@@ -194,13 +208,15 @@ class _$_$Data implements _$Data {
       @required this.originalPackagePath,
       @required this.constructorType,
       @required this.methods,
-      @required this.staticConstFieldDeclarations})
+      @required this.staticConstFieldDeclarations,
+      @required this.instanceFieldDeclarations})
       : assert(name != null),
         assert(nullabilitySuffix != null),
         assert(originalPackagePath != null),
         assert(constructorType != null),
         assert(methods != null),
-        assert(staticConstFieldDeclarations != null);
+        assert(staticConstFieldDeclarations != null),
+        assert(instanceFieldDeclarations != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -217,10 +233,12 @@ class _$_$Data implements _$Data {
   final List<SwidFunctionType> methods;
   @override
   final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations;
+  @override
+  final List<SwidType> instanceFieldDeclarations;
 
   @override
   String toString() {
-    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations)';
+    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations)';
   }
 
   @override
@@ -245,7 +263,12 @@ class _$_$Data implements _$Data {
                     staticConstFieldDeclarations) ||
                 const DeepCollectionEquality().equals(
                     other.staticConstFieldDeclarations,
-                    staticConstFieldDeclarations)));
+                    staticConstFieldDeclarations)) &&
+            (identical(other.instanceFieldDeclarations,
+                    instanceFieldDeclarations) ||
+                const DeepCollectionEquality().equals(
+                    other.instanceFieldDeclarations,
+                    instanceFieldDeclarations)));
   }
 
   @override
@@ -256,7 +279,8 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(originalPackagePath) ^
       const DeepCollectionEquality().hash(constructorType) ^
       const DeepCollectionEquality().hash(methods) ^
-      const DeepCollectionEquality().hash(staticConstFieldDeclarations);
+      const DeepCollectionEquality().hash(staticConstFieldDeclarations) ^
+      const DeepCollectionEquality().hash(instanceFieldDeclarations);
 
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
@@ -281,8 +305,9 @@ abstract class _$Data implements SwidClass {
       @required
           List<SwidFunctionType> methods,
       @required
-          List<SwidStaticConstFieldDeclaration>
-              staticConstFieldDeclarations}) = _$_$Data;
+          List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+      @required
+          List<SwidType> instanceFieldDeclarations}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -298,6 +323,8 @@ abstract class _$Data implements SwidClass {
   List<SwidFunctionType> get methods;
   @override
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
+  @override
+  List<SwidType> get instanceFieldDeclarations;
   @override
   _$$DataCopyWith<_$Data> get copyWith;
 }

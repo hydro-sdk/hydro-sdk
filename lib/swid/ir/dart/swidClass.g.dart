@@ -27,6 +27,10 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
             : SwidStaticConstFieldDeclaration.fromJson(
                 e as Map<String, dynamic>))
         ?.toList(),
+    instanceFieldDeclarations: (json['instanceFieldDeclarations'] as List)
+        ?.map((e) =>
+            e == null ? null : SwidType.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -38,6 +42,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'constructorType': instance.constructorType,
       'methods': instance.methods,
       'staticConstFieldDeclarations': instance.staticConstFieldDeclarations,
+      'instanceFieldDeclarations': instance.instanceFieldDeclarations,
     };
 
 T _$enumDecode<T>(

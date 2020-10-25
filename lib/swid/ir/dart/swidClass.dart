@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
 import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
@@ -17,6 +18,7 @@ abstract class SwidClass with _$SwidClass {
     @required List<SwidFunctionType> methods,
     @required
         List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+    @required List<SwidType> instanceFieldDeclarations,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
@@ -30,6 +32,7 @@ abstract class SwidClass with _$SwidClass {
     SwidFunctionType constructorType,
     List<SwidFunctionType> methods,
     List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+    List<SwidType> instanceFieldDeclarations,
   }) =>
       SwidClass(
           name: name ?? swidClass.name,
@@ -45,5 +48,7 @@ abstract class SwidClass with _$SwidClass {
                       ?.toList() ??
                   []),
           staticConstFieldDeclarations: staticConstFieldDeclarations ??
-              List.from(swidClass.staticConstFieldDeclarations ?? []));
+              List.from(swidClass.staticConstFieldDeclarations ?? []),
+          instanceFieldDeclarations: instanceFieldDeclarations ??
+              List.from(swidClass.instanceFieldDeclarations ?? []));
 }
