@@ -165,30 +165,38 @@ class SwidVisitor extends RecursiveAstVisitor
 
     if (node.name.name == "IconData") {
       print(node.name.name);
-      File("IconData.json")
+      File("test/swid/res/IconData.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     if (node.name.name == "IconDataProperty") {
       print(node.name.name);
-      File("IconDataProperty.json")
+      File("test/swid/res/IconDataProperty.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     if (node.name.name == "Icons") {
       print(node.name.name);
-      File("Icons.json").writeAsStringSync(json.encode(classes.last.toJson()));
+      File("test/swid/res/Icons.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     if (node.name.name == "CupertinoIcons") {
       print(node.name.name);
-      File("CupertinoIcons.json")
+      File("test/swid/res/CupertinoIcons.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     if (node.name.name == "Ticker") {
       print(node.name.name);
-      File("Ticker.json").writeAsStringSync(json.encode(classes.last.toJson()));
+      File("test/swid/res/Ticker.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "IconData") {
+      print(node.name.name);
+      File("test/swid/res/IconData.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     super.visitClassDeclaration(node);
