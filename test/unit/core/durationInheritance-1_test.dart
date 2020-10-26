@@ -5,7 +5,7 @@ import 'package:hydro_sdk/unitTestHarness.dart';
 void main() {
   testWidgets('', (WidgetTester tester) async {
     var res = await unitTestHarness(
-        path: "assets/test/unit/core/durationInheritance-1.ts.hc",
+        path: "../assets/test/unit/core/durationInheritance-1.ts.hc",
         libs: [
           BuiltinLib.dart,
           BuiltinLib.base,
