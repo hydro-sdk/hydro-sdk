@@ -31,7 +31,7 @@ class _$SwidClassTearOff {
       @required
           List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       @required
-          List<SwidType> instanceFieldDeclarations}) {
+          List<Map<String, SwidType>> instanceFieldDeclarations}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -61,7 +61,7 @@ mixin _$SwidClass {
   SwidFunctionType get constructorType;
   List<SwidFunctionType> get methods;
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
-  List<SwidType> get instanceFieldDeclarations;
+  List<Map<String, SwidType>> get instanceFieldDeclarations;
 
   Map<String, dynamic> toJson();
   $SwidClassCopyWith<SwidClass> get copyWith;
@@ -78,7 +78,7 @@ abstract class $SwidClassCopyWith<$Res> {
       SwidFunctionType constructorType,
       List<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-      List<SwidType> instanceFieldDeclarations});
+      List<Map<String, SwidType>> instanceFieldDeclarations});
 
   $SwidFunctionTypeCopyWith<$Res> get constructorType;
 }
@@ -121,7 +121,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
               as List<SwidStaticConstFieldDeclaration>,
       instanceFieldDeclarations: instanceFieldDeclarations == freezed
           ? _value.instanceFieldDeclarations
-          : instanceFieldDeclarations as List<SwidType>,
+          : instanceFieldDeclarations as List<Map<String, SwidType>>,
     ));
   }
 
@@ -148,7 +148,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       SwidFunctionType constructorType,
       List<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-      List<SwidType> instanceFieldDeclarations});
+      List<Map<String, SwidType>> instanceFieldDeclarations});
 
   @override
   $SwidFunctionTypeCopyWith<$Res> get constructorType;
@@ -193,7 +193,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
               as List<SwidStaticConstFieldDeclaration>,
       instanceFieldDeclarations: instanceFieldDeclarations == freezed
           ? _value.instanceFieldDeclarations
-          : instanceFieldDeclarations as List<SwidType>,
+          : instanceFieldDeclarations as List<Map<String, SwidType>>,
     ));
   }
 }
@@ -234,7 +234,7 @@ class _$_$Data implements _$Data {
   @override
   final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations;
   @override
-  final List<SwidType> instanceFieldDeclarations;
+  final List<Map<String, SwidType>> instanceFieldDeclarations;
 
   @override
   String toString() {
@@ -307,7 +307,7 @@ abstract class _$Data implements SwidClass {
       @required
           List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       @required
-          List<SwidType> instanceFieldDeclarations}) = _$_$Data;
+          List<Map<String, SwidType>> instanceFieldDeclarations}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -324,7 +324,7 @@ abstract class _$Data implements SwidClass {
   @override
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
   @override
-  List<SwidType> get instanceFieldDeclarations;
+  List<Map<String, SwidType>> get instanceFieldDeclarations;
   @override
   _$$DataCopyWith<_$Data> get copyWith;
 }
