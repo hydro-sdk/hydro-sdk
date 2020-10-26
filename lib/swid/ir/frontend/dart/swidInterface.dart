@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
-import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/dart/mapAnalyzerNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/dart/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
 
 part 'swidInterface.freezed.dart';
 part 'swidInterface.g.dart';

@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/ts/TsIr.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/TsIr.dart';
 import 'package:meta/meta.dart';
 
 class TsOutSource {

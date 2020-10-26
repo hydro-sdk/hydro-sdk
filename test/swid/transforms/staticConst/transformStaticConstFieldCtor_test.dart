@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidIntegerLiteral.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 
 void main() {

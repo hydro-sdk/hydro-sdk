@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/dart/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:meta/meta.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 
 part 'swidDefaultFormalParameter.freezed.dart';
 part 'swidDefaultFormalParameter.g.dart';

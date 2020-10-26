@@ -1,5 +1,5 @@
-import 'package:hydro_sdk/swid/ir/dart/swidEnum.dart';
-import 'package:hydro_sdk/swid/ir/ts/TsIr.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/TsIr.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformEnumToTs.dart';
 import 'package:meta/meta.dart';
 

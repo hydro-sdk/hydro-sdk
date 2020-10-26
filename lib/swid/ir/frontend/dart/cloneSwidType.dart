@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/ir/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidDefaultFormalParameter.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:meta/meta.dart';
 
 SwidType cloneSwidType({@required SwidType swidType}) => swidType.map(

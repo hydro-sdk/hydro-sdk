@@ -2,8 +2,8 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/ts/tsClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClass.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();

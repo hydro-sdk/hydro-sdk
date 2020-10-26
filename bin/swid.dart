@@ -1,7 +1,7 @@
 import 'package:hydro_sdk/swid/io/ts/tsOutSource.dart';
 import 'package:hydro_sdk/swid/io/ts/writeTsOutSource.dart';
-import 'package:hydro_sdk/swid/ir/ts/tsClass.dart';
-import 'package:hydro_sdk/swid/ir/ts/tsEnum.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClass.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsEnum.dart';
 import 'package:hydro_sdk/swid/swid.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';

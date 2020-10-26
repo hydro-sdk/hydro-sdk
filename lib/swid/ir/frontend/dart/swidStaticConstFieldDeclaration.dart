@@ -7,9 +7,9 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
 
 part 'swidStaticConstFieldDeclaration.freezed.dart';

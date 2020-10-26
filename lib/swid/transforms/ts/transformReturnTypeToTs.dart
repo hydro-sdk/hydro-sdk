@@ -1,6 +1,6 @@
-import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:meta/meta.dart';
 
 String transformReturnTypeToTs({@required SwidFunctionType swidFunctionType}) {

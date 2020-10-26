@@ -2,10 +2,10 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorNames.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveClassTypeNamesToTs.dart';
-import 'package:hydro_sdk/swid/ir/ts/tsInterface.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();

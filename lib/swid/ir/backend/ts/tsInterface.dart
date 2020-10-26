@@ -1,7 +1,7 @@
-import 'package:hydro_sdk/swid/ir/ts/TsIr.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/TsIr.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 import 'package:meta/meta.dart';
 
