@@ -1,10 +1,9 @@
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/TsIr.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 import 'package:meta/meta.dart';
 
-class TsClass implements TsIr {
+class TsClass {
   final SwidClass swidClass;
 
   TsClass({@required this.swidClass});

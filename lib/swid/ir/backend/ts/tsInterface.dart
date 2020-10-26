@@ -1,11 +1,11 @@
-import 'package:hydro_sdk/swid/ir/backend/ts/TsIr.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 import 'package:meta/meta.dart';
 
-class TsInterface implements TsIr {
+class TsInterface {
   final String name;
   final Map<String, SwidType> members;
 
