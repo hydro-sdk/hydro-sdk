@@ -27,6 +27,6 @@ void main() {
     expect(
         transformStaticConstFieldDeclaration(
             staticConstFieldDeclaration: tenk, scopeResolver: (_) => null),
-        "public static ten_k = new IconData(0xe52a,{fontFamily:\"MaterialIcons\"});");
+        "public static ten_k = new IconData(0xe52a,{ fontFamily: \"MaterialIcons\" });");
   });
 }

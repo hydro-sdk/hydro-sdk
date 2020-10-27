@@ -17,6 +17,6 @@ void main() {
     expect(
         transformNamedParametersToTs(
             namedParameters: namedParameters, scopeResolver: (_) => null),
-        "{fontFamily:\"Material\",size:12}");
+        "{ fontFamily: \"Material\", size: 12 }");
   });
 }

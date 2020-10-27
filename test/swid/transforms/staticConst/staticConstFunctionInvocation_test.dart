@@ -40,7 +40,7 @@ void main() {
         transformStaticConstFunctionInvocation(
             swidStaticConstFunctionInvocation: manyNormal,
             scopeResolver: (_) => null),
-        "IconData(0xe52a,\"foo\",\"bar\",123)");
+        "IconData(0xe52a, \"foo\", \"bar\", 123)");
 
     var manyNamed = SwidStaticConstFunctionInvocation(
         value: "IconData",
@@ -58,7 +58,7 @@ void main() {
         transformStaticConstFunctionInvocation(
             swidStaticConstFunctionInvocation: manyNamed,
             scopeResolver: (_) => null),
-        "IconData({foo:\"foo\",bar:\"bar\",offset:123})");
+        "IconData({ foo: \"foo\", bar: \"bar\", offset: 123 })");
 
     var normalAndNamedCtor = SwidStaticConstFunctionInvocation(
         value: "IconData",
@@ -76,6 +76,6 @@ void main() {
         transformStaticConstFunctionInvocation(
             swidStaticConstFunctionInvocation: normalAndNamedCtor,
             scopeResolver: (_) => null),
-        "new IconData(0xe52a,{fontFamily:\"MaterialIcons\"})");
+        "new IconData(0xe52a,{ fontFamily: \"MaterialIcons\" })");
   });
 }

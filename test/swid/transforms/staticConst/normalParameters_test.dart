@@ -21,6 +21,6 @@ void main() {
     expect(
         transformNormalParametersToTs(
             swidLiterals: normalParameters, scopeResolver: (_) => null),
-        "0xe52a,\"0xe52a\",\"1\",1");
+        "0xe52a, \"0xe52a\", \"1\", 1");
   });
 }
