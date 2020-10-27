@@ -1,18 +1,14 @@
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 import 'package:meta/meta.dart';
 
-class TsClass {
+class TsClassStaticConstFieldDeclarations {
   final SwidClass swidClass;
 
-  TsClass({@required this.swidClass});
+  TsClassStaticConstFieldDeclarations({@required this.swidClass});
 
   String toTsSource() {
-    var res = TsInterface.fromSwidClass(swidClass: swidClass).toTsSource();
-
-    res += "\n";
-    res += "export class ${swidClass.name} {\n";
+    var res = "";
     swidClass.staticConstFieldDeclarations?.forEach((x) {
       res += transformStaticConstFieldDeclaration(
           staticConstFieldDeclaration: x,
@@ -24,8 +20,6 @@ class TsClass {
                   .name);
       res += "\n";
     });
-    res += "}\n";
-
     return res;
   }
 }

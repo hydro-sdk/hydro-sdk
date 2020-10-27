@@ -1,5 +1,3 @@
-import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
@@ -22,15 +20,15 @@ class TsInterface {
     );
   }
 
-  factory TsInterface.fromSwidClass({@required SwidClass swidClass}) {
-    return TsInterface(
-        name: "I${swidClass.name}",
-        members: Map.fromEntries(swidClass.methods
-                ?.map((x) => MapEntry("_dart_${x.name}",
-                    SwidType.fromSwidFunctionType(swidFunctionType: x)))
-                ?.toList() ??
-            {}));
-  }
+  // factory TsInterface.fromSwidClass({@required SwidClass swidClass}) {
+  //   return TsInterface(
+  //       name: "I${swidClass.name}",
+  //       members: Map.fromEntries(swidClass.methods
+  //               ?.map((x) => MapEntry("_dart_${x.name}",
+  //                   SwidType.fromSwidFunctionType(swidFunctionType: x)))
+  //               ?.toList() ??
+  //           {}));
+  // }
 
   String toTsSource() {
     if (members?.isNotEmpty ?? false) {
