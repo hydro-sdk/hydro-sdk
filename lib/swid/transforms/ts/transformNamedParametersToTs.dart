@@ -7,13 +7,13 @@ String transformNamedParametersToTs({
   @required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     namedParameters != null && namedParameters.keys.isNotEmpty
-        ? "{" +
+        ? "{ " +
             namedParameters.keys
                 .map((x) =>
-                    "$x:" +
+                    "$x: " +
                     transformLiteralToTs(
                         swidLiteral: namedParameters[x],
                         scopeResolver: scopeResolver))
-                .join(",") +
-            "}"
+                .join(", ") +
+            " }"
         : "";

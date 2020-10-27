@@ -11,5 +11,5 @@ String transformNormalParametersToTs({
               swidLiteral: x,
               scopeResolver: scopeResolver,
             ))
-        ?.join(",") ??
+        ?.join(", ") ??
     "";

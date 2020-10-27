@@ -10,14 +10,16 @@ class TsClassStaticConstFieldDeclarations {
   String toTsSource() {
     var res = "";
     swidClass.staticConstFieldDeclarations?.forEach((x) {
-      res += transformStaticConstFieldDeclaration(
-          staticConstFieldDeclaration: x,
-          scopeResolver: (staticConstFieldReference) =>
-              "${swidClass.name}." +
-              swidClass.staticConstFieldDeclarations
-                  .firstWhere((k) => k.name == staticConstFieldReference.name,
-                      orElse: () => null)
-                  .name);
+      res += "    " +
+          transformStaticConstFieldDeclaration(
+              staticConstFieldDeclaration: x,
+              scopeResolver: (staticConstFieldReference) =>
+                  "${swidClass.name}." +
+                  swidClass.staticConstFieldDeclarations
+                      .firstWhere(
+                          (k) => k.name == staticConstFieldReference.name,
+                          orElse: () => null)
+                      .name);
       res += "\n";
     });
     return res;
