@@ -1,5 +1,5 @@
 import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/TsIr.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:meta/meta.dart';
 
 class TsTranslationUnit implements TranslationUnit {

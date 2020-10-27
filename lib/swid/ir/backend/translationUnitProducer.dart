@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/backend/ts/TsIr.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
