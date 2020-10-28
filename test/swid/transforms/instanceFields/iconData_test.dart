@@ -9,16 +9,16 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
-        json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
+        json.decode(File("../test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
         TsClassInstanceFieldDeclarations(swidClass: iconDataClass).toTsSource(),
         """
-    public readonly codePoint: number;
-    public readonly fontFamily: string;
-    public readonly fontPackage: string;
-    public readonly matchTextDirection: boolean;
+    public readonly codePoint: number = undefined as any;
+    public readonly fontFamily: string = undefined as any;
+    public readonly fontPackage: string = undefined as any;
+    public readonly matchTextDirection: boolean = undefined as any;
 """);
   });
 }
