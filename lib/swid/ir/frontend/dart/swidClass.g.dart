@@ -27,15 +27,11 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
             : SwidStaticConstFieldDeclaration.fromJson(
                 e as Map<String, dynamic>))
         ?.toList(),
-    instanceFieldDeclarations: (json['instanceFieldDeclarations'] as List)
-        ?.map((e) => (e as Map<String, dynamic>)?.map(
-              (k, e) => MapEntry(
-                  k,
-                  e == null
-                      ? null
-                      : SwidType.fromJson(e as Map<String, dynamic>)),
-            ))
-        ?.toList(),
+    instanceFieldDeclarations:
+        (json['instanceFieldDeclarations'] as Map<String, dynamic>)?.map(
+      (k, e) => MapEntry(
+          k, e == null ? null : SwidType.fromJson(e as Map<String, dynamic>)),
+    ),
   );
 }
 

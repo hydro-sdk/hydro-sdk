@@ -18,7 +18,7 @@ abstract class SwidClass with _$SwidClass {
     @required List<SwidFunctionType> methods,
     @required
         List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-    @required List<Map<String, SwidType>> instanceFieldDeclarations,
+    @required Map<String, SwidType> instanceFieldDeclarations,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
@@ -32,7 +32,7 @@ abstract class SwidClass with _$SwidClass {
     SwidFunctionType constructorType,
     List<SwidFunctionType> methods,
     List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-    List<SwidType> instanceFieldDeclarations,
+    Map<String, SwidType> instanceFieldDeclarations,
   }) =>
       SwidClass(
           name: name ?? swidClass.name,

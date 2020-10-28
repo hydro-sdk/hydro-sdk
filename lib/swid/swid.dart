@@ -104,94 +104,95 @@ class SwidVisitor extends RecursiveAstVisitor
                 null) {
           classes.add(
             SwidClass(
-              name: node.name.name,
-              nullabilitySuffix: SwidNullabilitySuffix.none,
-              originalPackagePath:
-                  node.declaredElement?.librarySource?.uri?.toString() ?? "",
-              constructorType: SwidFunctionType.fromFunctionType(
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-                  functionType:
-                      constructorDeclarationImpl.declaredElement.type),
-              methods: node.childEntities
-                  .where((x) => x is MethodDeclarationImpl)
-                  .toList()
-                  .cast<MethodDeclarationImpl>()
-                  .where((x) =>
-                      x.name.name[0] != "_" && !x.declaredElement.hasProtected)
-                  .toList()
-                  .cast<MethodDeclarationImpl>()
-                  .map((x) => SwidFunctionType.fromFunctionType(
-                      functionType: x.declaredElement.type,
-                      swidDeclarationModifiers: narrowModifierProducer(
-                          element: x.declaredElement,
-                          onExecutablElement: (val) =>
-                              SwidDeclarationModifiers.fromExecutableElement(
-                                  executableElement: val),
-                          onPropertyAccessorElement: (val) =>
-                              SwidDeclarationModifiers
-                                  .fromPropertyAccessorElement(
-                                      propertyAccessorElement: val))))
-                  .toList()
-                  .cast<SwidFunctionType>(),
-              staticConstFieldDeclarations: node.childEntities
-                  .where((x) => x is FieldDeclaration)
-                  .toList()
-                  .cast<FieldDeclaration>()
-                  .map((x) {
-                if (x.isStatic) {
-                  var declarationList = (x.childEntities
-                          .firstWhere((k) => k is VariableDeclarationList)
-                      as VariableDeclarationList);
-                  if (declarationList.isConst) {
-                    VariableDeclaration declaration = declarationList
-                        .childEntities
-                        .firstWhere((x) => x is VariableDeclaration);
-                    if (declaration.isConst &&
-                        declaration.declaredElement.isConst &&
-                        declaration.declaredElement.isStatic &&
-                        declaration.declaredElement.isPublic) {
-                      return SwidStaticConstFieldDeclaration
-                          .fromVariableDeclarationList(
-                              variableDeclarationList: x.childEntities
-                                  .firstWhere(
-                                      (k) => k is VariableDeclarationList));
-                    }
-                  }
-                }
-              }).toList()
-                    ..removeWhere((x) => x == null),
-              instanceFieldDeclarations: node.childEntities
-                  .where((x) => x is FieldDeclaration)
-                  .toList()
-                  .cast<FieldDeclaration>()
-                  .map((x) {
-                if (!x.isStatic) {
-                  var declarationList = (x.childEntities
-                          .firstWhere((k) => k is VariableDeclarationList)
-                      as VariableDeclarationList);
-                  if (!declarationList.isConst) {
-                    VariableDeclaration declaration = declarationList
-                        .childEntities
-                        .firstWhere((x) => x is VariableDeclaration);
-                    if (!declaration.isConst &&
-                        !declaration.declaredElement.isConst &&
-                        !declaration.declaredElement.isStatic &&
-                        declaration.declaredElement.isPublic) {
-                      if (declaration.declaredElement.type is InterfaceType) {
-                        return {
-                          declaration.declaredElement.displayName:
-                              SwidType.fromSwidInterface(
-                                  swidInterface: SwidInterface.fromInterface(
-                                      interfaceType:
-                                          declaration.declaredElement.type))
-                        };
+                name: node.name.name,
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath:
+                    node.declaredElement?.librarySource?.uri?.toString() ?? "",
+                constructorType: SwidFunctionType.fromFunctionType(
+                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    functionType:
+                        constructorDeclarationImpl.declaredElement.type),
+                methods: node.childEntities
+                    .where((x) => x is MethodDeclarationImpl)
+                    .toList()
+                    .cast<MethodDeclarationImpl>()
+                    .where((x) =>
+                        x.name.name[0] != "_" &&
+                        !x.declaredElement.hasProtected)
+                    .toList()
+                    .cast<MethodDeclarationImpl>()
+                    .map((x) => SwidFunctionType.fromFunctionType(
+                        functionType: x.declaredElement.type,
+                        swidDeclarationModifiers: narrowModifierProducer(
+                            element: x.declaredElement,
+                            onExecutablElement: (val) =>
+                                SwidDeclarationModifiers.fromExecutableElement(
+                                    executableElement: val),
+                            onPropertyAccessorElement: (val) =>
+                                SwidDeclarationModifiers.fromPropertyAccessorElement(
+                                    propertyAccessorElement: val))))
+                    .toList()
+                    .cast<SwidFunctionType>(),
+                staticConstFieldDeclarations: node.childEntities
+                    .where((x) => x is FieldDeclaration)
+                    .toList()
+                    .cast<FieldDeclaration>()
+                    .map((x) {
+                  if (x.isStatic) {
+                    var declarationList = (x.childEntities
+                            .firstWhere((k) => k is VariableDeclarationList)
+                        as VariableDeclarationList);
+                    if (declarationList.isConst) {
+                      VariableDeclaration declaration = declarationList
+                          .childEntities
+                          .firstWhere((x) => x is VariableDeclaration);
+                      if (declaration.isConst &&
+                          declaration.declaredElement.isConst &&
+                          declaration.declaredElement.isStatic &&
+                          declaration.declaredElement.isPublic) {
+                        return SwidStaticConstFieldDeclaration
+                            .fromVariableDeclarationList(
+                                variableDeclarationList: x.childEntities
+                                    .firstWhere(
+                                        (k) => k is VariableDeclarationList));
                       }
                     }
                   }
-                }
-              }).toList()
-                    ..removeWhere((x) => x == null),
-            ),
+                }).toList()
+                      ..removeWhere((x) => x == null),
+                instanceFieldDeclarations: Map.fromEntries(
+                  node.childEntities
+                      .where((x) => x is FieldDeclaration)
+                      .toList()
+                      .cast<FieldDeclaration>()
+                      .map((x) {
+                    if (!x.isStatic) {
+                      var declarationList = (x.childEntities
+                              .firstWhere((k) => k is VariableDeclarationList)
+                          as VariableDeclarationList);
+                      if (!declarationList.isConst) {
+                        VariableDeclaration declaration = declarationList
+                            .childEntities
+                            .firstWhere((x) => x is VariableDeclaration);
+                        if (!declaration.isConst &&
+                            !declaration.declaredElement.isConst &&
+                            !declaration.declaredElement.isStatic &&
+                            declaration.declaredElement.isPublic) {
+                          if (declaration.declaredElement.type
+                              is InterfaceType) {
+                            return MapEntry(
+                                declaration.declaredElement.displayName,
+                                SwidType.fromSwidInterface(
+                                    swidInterface: SwidInterface.fromInterface(
+                                        interfaceType:
+                                            declaration.declaredElement.type)));
+                          }
+                        }
+                      }
+                    }
+                  }).toList()
+                        ..removeWhere((x) => x == null),
+                )),
           );
         }
       }
