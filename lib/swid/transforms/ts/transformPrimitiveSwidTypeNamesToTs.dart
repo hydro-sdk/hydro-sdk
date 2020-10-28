@@ -8,6 +8,8 @@ SwidInterface transformPrimitiveSwidTypeNamesToTs(
       return swidInterface.copyWith(name: "string");
     } else if (swidInterface.name == "bool") {
       return swidInterface.copyWith(name: "boolean");
+    } else if (swidInterface.name == "int") {
+      return swidInterface.copyWith(name: "number");
     }
   }
 
