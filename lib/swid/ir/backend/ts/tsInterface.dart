@@ -1,6 +1,6 @@
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:meta/meta.dart';
 
 class TsInterface {
@@ -20,29 +20,13 @@ class TsInterface {
     );
   }
 
-  // factory TsInterface.fromSwidClass({@required SwidClass swidClass}) {
-  //   return TsInterface(
-  //       name: "I${swidClass.name}",
-  //       members: Map.fromEntries(swidClass.methods
-  //               ?.map((x) => MapEntry("_dart_${x.name}",
-  //                   SwidType.fromSwidFunctionType(swidFunctionType: x)))
-  //               ?.toList() ??
-  //           {}));
-  // }
-
-  String toTsSource() {
-    if (members?.isNotEmpty ?? false) {
-      var res = ["export $name {"];
-      members.forEach((key, value) {
-        SwidFunctionType swidFunctionType = value.maybeWhen(
-            fromSwidFunctionType: (res) => res, orElse: () => null);
-        res += [
-          "    ${key}: ${transformFunctionTypeToTs(swidFunctionType: swidFunctionType)};"
-        ];
-      });
-      res.add("}");
-      return res.join("\n");
-    }
-    return "";
-  }
+  String toTsSource() => (members?.isNotEmpty ?? false)
+      ? [
+          "export $name {",
+          ...members.entries
+              .map((x) =>
+                  "${x.key}: ${transformTypeDeclarationToTs(swidType: x.value)};")
+              .toList()
+        ].join("\n")
+      : "";
 }
