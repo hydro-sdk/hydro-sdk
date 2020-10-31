@@ -6,7 +6,6 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformVmDeclarationToTs.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
@@ -24,9 +23,18 @@ class TsClassVmDeclaration {
               tsVmDeclaration.name
           ? TsVmDeclaration.clone(tsVmDeclaration: tsVmDeclaration, methods: [
               SwidFunctionType.MakeReceiverVoid(
-                  swidFunctionType: SwidFunctionType.clone(
-                      swidFunctionType: swidClass.constructorType,
-                      name: transformToCamelCase(str: swidClass.name))),
+                  swidFunctionType: SwidFunctionType
+                      .InsertLeadingPositionalParameter(
+                          typeName: transformToCamelCase(str: swidClass.name),
+                          swidType: SwidType.fromSwidInterface(
+                              swidInterface: SwidInterface(
+                                  name: swidClass.name,
+                                  nullabilitySuffix: SwidNullabilitySuffix.star,
+                                  originalPackagePath: "")),
+                          swidFunctionType: SwidFunctionType.clone(
+                              swidFunctionType: swidClass.constructorType,
+                              name:
+                                  transformToCamelCase(str: swidClass.name)))),
               ...tsVmDeclaration.methods
             ])
           : tsVmDeclaration;
@@ -43,26 +51,3 @@ class TsClassVmDeclaration {
                     _addConstructorBindingDeclarations(tsVmDeclaration: element)
                   ])));
 }
-
-// transformPackageUri(
-//                               packageUri: swidClass.originalPackagePath)
-//                           .split(path.separator)
-//                           .last
-//                   ? TsVmDeclaration.clone(tsVmDeclaration: element, methods: [
-//                       SwidFunctionType.clone(
-//                         swidFunctionType: swidClass.constructorType,
-//                         name: transformToCamelCase(str: swidClass.name),
-//                         normalParameterNames: [
-//                           "this",
-//                           ...swidClass.constructorType.normalParameterNames
-//                         ],
-//                         normalParameterTypes: [
-//                           SwidType.fromSwidInterface(
-//                               swidInterface: SwidInterface(
-//                                   name: "void",
-//                                   nullabilitySuffix: SwidNullabilitySuffix.none,
-//                                   originalPackagePath: "")),
-//                           ...swidClass.constructorType.normalParameterTypes
-//                         ],
-//                       )
-// ])
