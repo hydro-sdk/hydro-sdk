@@ -71,6 +71,14 @@ class _$TsIrTearOff {
       tsInterface: tsInterface,
     );
   }
+
+// ignore: unused_element
+  _$FromTsClassVmDeclaration fromTsClassVmDeclaration(
+      {@required TsClassVmDeclaration tsClassVmDeclaration}) {
+    return _$FromTsClassVmDeclaration(
+      tsClassVmDeclaration: tsClassVmDeclaration,
+    );
+  }
 }
 
 /// @nodoc
@@ -95,6 +103,9 @@ mixin _$TsIr {
                 tsClassStaticConstFieldDeclarations),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -109,6 +120,7 @@ mixin _$TsIr {
             tsClassStaticConstFieldDeclarations),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -126,6 +138,7 @@ mixin _$TsIr {
             _$FromTsClassStaticConstFieldDeclarations value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -139,6 +152,7 @@ mixin _$TsIr {
         _$FromTsClassStaticConstFieldDeclarations value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
     @required Result orElse(),
   });
 }
@@ -246,6 +260,9 @@ class _$_$FromTsClassDefaultConstructorProps
                 tsClassStaticConstFieldDeclarations),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -254,6 +271,7 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps);
   }
 
@@ -271,6 +289,7 @@ class _$_$FromTsClassDefaultConstructorProps
             tsClassStaticConstFieldDeclarations),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -296,6 +315,7 @@ class _$_$FromTsClassDefaultConstructorProps
             _$FromTsClassStaticConstFieldDeclarations value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -304,6 +324,7 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassDefaultConstructorProps(this);
   }
 
@@ -320,6 +341,7 @@ class _$_$FromTsClassDefaultConstructorProps
         _$FromTsClassStaticConstFieldDeclarations value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -432,6 +454,9 @@ class _$_$FromClassInstanceFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -440,6 +465,7 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassInstanceFieldDeclarations(
         tsClassInstanceFieldDeclarations);
   }
@@ -458,6 +484,7 @@ class _$_$FromClassInstanceFieldDeclarations
             tsClassStaticConstFieldDeclarations),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -484,6 +511,7 @@ class _$_$FromClassInstanceFieldDeclarations
             _$FromTsClassStaticConstFieldDeclarations value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -492,6 +520,7 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassInstanceFieldDeclarations(this);
   }
 
@@ -508,6 +537,7 @@ class _$_$FromClassInstanceFieldDeclarations
         _$FromTsClassStaticConstFieldDeclarations value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -610,6 +640,9 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
                 tsClassStaticConstFieldDeclarations),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -618,6 +651,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassPostamble(tsClassPostamble);
   }
 
@@ -635,6 +669,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
             tsClassStaticConstFieldDeclarations),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -660,6 +695,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
             _$FromTsClassStaticConstFieldDeclarations value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -668,6 +704,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassPostamble(this);
   }
 
@@ -684,6 +721,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
         _$FromTsClassStaticConstFieldDeclarations value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -781,6 +819,9 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
                 tsClassStaticConstFieldDeclarations),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -789,6 +830,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassPreamble(tsClassPreamble);
   }
 
@@ -806,6 +848,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
             tsClassStaticConstFieldDeclarations),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -831,6 +874,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
             _$FromTsClassStaticConstFieldDeclarations value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -839,6 +883,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassPreamble(this);
   }
 
@@ -855,6 +900,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
         _$FromTsClassStaticConstFieldDeclarations value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -966,6 +1012,9 @@ class _$_$FromTsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -974,6 +1023,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassStaticConstFieldDeclarations(
         tsClassStaticConstFieldDeclarations);
   }
@@ -992,6 +1042,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1018,6 +1069,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
             _$FromTsClassStaticConstFieldDeclarations value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -1026,6 +1078,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsClassStaticConstFieldDeclarations(this);
   }
 
@@ -1042,6 +1095,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         _$FromTsClassStaticConstFieldDeclarations value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1137,6 +1191,9 @@ class _$_$FromTsEnum implements _$FromTsEnum {
                 tsClassStaticConstFieldDeclarations),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -1145,6 +1202,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsEnum(tsEnum);
   }
 
@@ -1162,6 +1220,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
             tsClassStaticConstFieldDeclarations),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1187,6 +1246,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
             _$FromTsClassStaticConstFieldDeclarations value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -1195,6 +1255,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsEnum(this);
   }
 
@@ -1211,6 +1272,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
         _$FromTsClassStaticConstFieldDeclarations value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1305,6 +1367,9 @@ class _$_$FromTsInterface implements _$FromTsInterface {
                 tsClassStaticConstFieldDeclarations),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -1313,6 +1378,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsInterface(tsInterface);
   }
 
@@ -1330,6 +1396,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
             tsClassStaticConstFieldDeclarations),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1355,6 +1422,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
             _$FromTsClassStaticConstFieldDeclarations value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
   }) {
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
@@ -1363,6 +1431,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsClassStaticConstFieldDeclarations != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
     return fromTsInterface(this);
   }
 
@@ -1379,6 +1448,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
         _$FromTsClassStaticConstFieldDeclarations value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1395,4 +1465,187 @@ abstract class _$FromTsInterface implements TsIr {
 
   TsInterface get tsInterface;
   _$$FromTsInterfaceCopyWith<_$FromTsInterface> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsClassVmDeclarationCopyWith<$Res> {
+  factory _$$FromTsClassVmDeclarationCopyWith(_$FromTsClassVmDeclaration value,
+          $Res Function(_$FromTsClassVmDeclaration) then) =
+      __$$FromTsClassVmDeclarationCopyWithImpl<$Res>;
+  $Res call({TsClassVmDeclaration tsClassVmDeclaration});
+}
+
+/// @nodoc
+class __$$FromTsClassVmDeclarationCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsClassVmDeclarationCopyWith<$Res> {
+  __$$FromTsClassVmDeclarationCopyWithImpl(_$FromTsClassVmDeclaration _value,
+      $Res Function(_$FromTsClassVmDeclaration) _then)
+      : super(_value, (v) => _then(v as _$FromTsClassVmDeclaration));
+
+  @override
+  _$FromTsClassVmDeclaration get _value =>
+      super._value as _$FromTsClassVmDeclaration;
+
+  @override
+  $Res call({
+    Object tsClassVmDeclaration = freezed,
+  }) {
+    return _then(_$FromTsClassVmDeclaration(
+      tsClassVmDeclaration: tsClassVmDeclaration == freezed
+          ? _value.tsClassVmDeclaration
+          : tsClassVmDeclaration as TsClassVmDeclaration,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
+  _$_$FromTsClassVmDeclaration({@required this.tsClassVmDeclaration})
+      : assert(tsClassVmDeclaration != null);
+
+  @override
+  final TsClassVmDeclaration tsClassVmDeclaration;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsClassVmDeclaration(tsClassVmDeclaration: $tsClassVmDeclaration)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsClassVmDeclaration &&
+            (identical(other.tsClassVmDeclaration, tsClassVmDeclaration) ||
+                const DeepCollectionEquality()
+                    .equals(other.tsClassVmDeclaration, tsClassVmDeclaration)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsClassVmDeclaration);
+
+  @override
+  _$$FromTsClassVmDeclarationCopyWith<_$FromTsClassVmDeclaration>
+      get copyWith =>
+          __$$FromTsClassVmDeclarationCopyWithImpl<_$FromTsClassVmDeclaration>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+  }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    return fromTsClassVmDeclaration(tsClassVmDeclaration);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassVmDeclaration != null) {
+      return fromTsClassVmDeclaration(tsClassVmDeclaration);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+  }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    return fromTsClassVmDeclaration(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassVmDeclaration != null) {
+      return fromTsClassVmDeclaration(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsClassVmDeclaration implements TsIr {
+  factory _$FromTsClassVmDeclaration(
+          {@required TsClassVmDeclaration tsClassVmDeclaration}) =
+      _$_$FromTsClassVmDeclaration;
+
+  TsClassVmDeclaration get tsClassVmDeclaration;
+  _$$FromTsClassVmDeclarationCopyWith<_$FromTsClassVmDeclaration> get copyWith;
 }

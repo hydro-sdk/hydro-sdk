@@ -1,18 +1,17 @@
+import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorProps.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsEnum.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
 import 'package:path/path.dart' as p;
 import 'package:meta/meta.dart';
-
-import 'translationUnit.dart';
 
 class TranslationUnitProducer {
   final List<String> tsPrefixPaths;
@@ -39,6 +38,9 @@ class TranslationUnitProducer {
             path: tsPrefixPaths.join(p.separator) + p.separator + path,
             fileName: "$baseFileName.ts",
             ir: [
+              TsIr.fromTsClassVmDeclaration(
+                  tsClassVmDeclaration:
+                      TsClassVmDeclaration(swidClass: swidClass)),
               TsIr.fromTsClassDefaultConstructorProps(
                 tsClassDefaultConstructorProps:
                     TsClassDefaultConstructorProps(swidClass: swidClass),
