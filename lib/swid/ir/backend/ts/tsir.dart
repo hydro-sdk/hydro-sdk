@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorProps.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
@@ -10,6 +12,15 @@ part 'tsir.freezed.dart';
 
 @freezed
 abstract class TsIr with _$TsIr {
+  factory TsIr.fromTsClassDefaultConstructorProps(
+          {@required
+              TsClassDefaultConstructorProps tsClassDefaultConstructorProps}) =
+      _$FromTsClassDefaultConstructorProps;
+  factory TsIr.fromTsClassInstanceFieldDeclarations(
+          {@required
+              TsClassInstanceFieldDeclarations
+                  tsClassInstanceFieldDeclarations}) =
+      _$FromClassInstanceFieldDeclarations;
   factory TsIr.fromTsClassPostamble(
       {@required TsClassPostamble tsClassPostamble}) = _$FromTsClassPostamble;
   factory TsIr.fromTsClassPreamble(
@@ -26,6 +37,8 @@ abstract class TsIr with _$TsIr {
 
 extension TsIrMethods on TsIr {
   String toTsSource() => when(
+        fromTsClassDefaultConstructorProps: (val) => val.toTsSource(),
+        fromTsClassInstanceFieldDeclarations: (val) => val.toTsSource(),
         fromTsClassPostamble: (val) => val.toTsSource(),
         fromTsClassPreamble: (val) => val.toTsSource(),
         fromTsClassStaticConstFieldDeclarations: (val) => val.toTsSource(),

@@ -7,7 +7,7 @@ String transformTypeDeclarationToTs({@required SwidType swidType}) =>
     swidType.when(
         fromSwidInterface: (val) => val.name,
         fromSwidClass: (_) => "",
-        fromSwidDefaultFormalParameter: (_) => "",
+        fromSwidDefaultFormalParameter: (val) => val.name,
         fromSwidFunctionType: (val) =>
             transformFunctionTypeToTs(swidFunctionType: val)) +
     (swidType.nullabilitySuffix == SwidNullabilitySuffix.question

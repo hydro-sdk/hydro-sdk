@@ -14,6 +14,24 @@ class _$TsIrTearOff {
   const _$TsIrTearOff();
 
 // ignore: unused_element
+  _$FromTsClassDefaultConstructorProps fromTsClassDefaultConstructorProps(
+      {@required
+          TsClassDefaultConstructorProps tsClassDefaultConstructorProps}) {
+    return _$FromTsClassDefaultConstructorProps(
+      tsClassDefaultConstructorProps: tsClassDefaultConstructorProps,
+    );
+  }
+
+// ignore: unused_element
+  _$FromClassInstanceFieldDeclarations fromTsClassInstanceFieldDeclarations(
+      {@required
+          TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations}) {
+    return _$FromClassInstanceFieldDeclarations(
+      tsClassInstanceFieldDeclarations: tsClassInstanceFieldDeclarations,
+    );
+  }
+
+// ignore: unused_element
   _$FromTsClassPostamble fromTsClassPostamble(
       {@required TsClassPostamble tsClassPostamble}) {
     return _$FromTsClassPostamble(
@@ -63,6 +81,12 @@ const $TsIr = _$TsIrTearOff();
 mixin _$TsIr {
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -74,6 +98,10 @@ mixin _$TsIr {
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -85,6 +113,12 @@ mixin _$TsIr {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -95,6 +129,10 @@ mixin _$TsIr {
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -118,6 +156,378 @@ class _$TsIrCopyWithImpl<$Res> implements $TsIrCopyWith<$Res> {
   final TsIr _value;
   // ignore: unused_field
   final $Res Function(TsIr) _then;
+}
+
+/// @nodoc
+abstract class _$$FromTsClassDefaultConstructorPropsCopyWith<$Res> {
+  factory _$$FromTsClassDefaultConstructorPropsCopyWith(
+          _$FromTsClassDefaultConstructorProps value,
+          $Res Function(_$FromTsClassDefaultConstructorProps) then) =
+      __$$FromTsClassDefaultConstructorPropsCopyWithImpl<$Res>;
+  $Res call({TsClassDefaultConstructorProps tsClassDefaultConstructorProps});
+}
+
+/// @nodoc
+class __$$FromTsClassDefaultConstructorPropsCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsClassDefaultConstructorPropsCopyWith<$Res> {
+  __$$FromTsClassDefaultConstructorPropsCopyWithImpl(
+      _$FromTsClassDefaultConstructorProps _value,
+      $Res Function(_$FromTsClassDefaultConstructorProps) _then)
+      : super(_value, (v) => _then(v as _$FromTsClassDefaultConstructorProps));
+
+  @override
+  _$FromTsClassDefaultConstructorProps get _value =>
+      super._value as _$FromTsClassDefaultConstructorProps;
+
+  @override
+  $Res call({
+    Object tsClassDefaultConstructorProps = freezed,
+  }) {
+    return _then(_$FromTsClassDefaultConstructorProps(
+      tsClassDefaultConstructorProps: tsClassDefaultConstructorProps == freezed
+          ? _value.tsClassDefaultConstructorProps
+          : tsClassDefaultConstructorProps as TsClassDefaultConstructorProps,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromTsClassDefaultConstructorProps
+    implements _$FromTsClassDefaultConstructorProps {
+  _$_$FromTsClassDefaultConstructorProps(
+      {@required this.tsClassDefaultConstructorProps})
+      : assert(tsClassDefaultConstructorProps != null);
+
+  @override
+  final TsClassDefaultConstructorProps tsClassDefaultConstructorProps;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps: $tsClassDefaultConstructorProps)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsClassDefaultConstructorProps &&
+            (identical(other.tsClassDefaultConstructorProps,
+                    tsClassDefaultConstructorProps) ||
+                const DeepCollectionEquality().equals(
+                    other.tsClassDefaultConstructorProps,
+                    tsClassDefaultConstructorProps)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsClassDefaultConstructorProps);
+
+  @override
+  _$$FromTsClassDefaultConstructorPropsCopyWith<
+          _$FromTsClassDefaultConstructorProps>
+      get copyWith => __$$FromTsClassDefaultConstructorPropsCopyWithImpl<
+          _$FromTsClassDefaultConstructorProps>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+  }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    return fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassDefaultConstructorProps != null) {
+      return fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+  }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    return fromTsClassDefaultConstructorProps(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassDefaultConstructorProps != null) {
+      return fromTsClassDefaultConstructorProps(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsClassDefaultConstructorProps implements TsIr {
+  factory _$FromTsClassDefaultConstructorProps(
+          {@required
+              TsClassDefaultConstructorProps tsClassDefaultConstructorProps}) =
+      _$_$FromTsClassDefaultConstructorProps;
+
+  TsClassDefaultConstructorProps get tsClassDefaultConstructorProps;
+  _$$FromTsClassDefaultConstructorPropsCopyWith<
+      _$FromTsClassDefaultConstructorProps> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromClassInstanceFieldDeclarationsCopyWith<$Res> {
+  factory _$$FromClassInstanceFieldDeclarationsCopyWith(
+          _$FromClassInstanceFieldDeclarations value,
+          $Res Function(_$FromClassInstanceFieldDeclarations) then) =
+      __$$FromClassInstanceFieldDeclarationsCopyWithImpl<$Res>;
+  $Res call(
+      {TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations});
+}
+
+/// @nodoc
+class __$$FromClassInstanceFieldDeclarationsCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromClassInstanceFieldDeclarationsCopyWith<$Res> {
+  __$$FromClassInstanceFieldDeclarationsCopyWithImpl(
+      _$FromClassInstanceFieldDeclarations _value,
+      $Res Function(_$FromClassInstanceFieldDeclarations) _then)
+      : super(_value, (v) => _then(v as _$FromClassInstanceFieldDeclarations));
+
+  @override
+  _$FromClassInstanceFieldDeclarations get _value =>
+      super._value as _$FromClassInstanceFieldDeclarations;
+
+  @override
+  $Res call({
+    Object tsClassInstanceFieldDeclarations = freezed,
+  }) {
+    return _then(_$FromClassInstanceFieldDeclarations(
+      tsClassInstanceFieldDeclarations:
+          tsClassInstanceFieldDeclarations == freezed
+              ? _value.tsClassInstanceFieldDeclarations
+              : tsClassInstanceFieldDeclarations
+                  as TsClassInstanceFieldDeclarations,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromClassInstanceFieldDeclarations
+    implements _$FromClassInstanceFieldDeclarations {
+  _$_$FromClassInstanceFieldDeclarations(
+      {@required this.tsClassInstanceFieldDeclarations})
+      : assert(tsClassInstanceFieldDeclarations != null);
+
+  @override
+  final TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsClassInstanceFieldDeclarations(tsClassInstanceFieldDeclarations: $tsClassInstanceFieldDeclarations)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromClassInstanceFieldDeclarations &&
+            (identical(other.tsClassInstanceFieldDeclarations,
+                    tsClassInstanceFieldDeclarations) ||
+                const DeepCollectionEquality().equals(
+                    other.tsClassInstanceFieldDeclarations,
+                    tsClassInstanceFieldDeclarations)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsClassInstanceFieldDeclarations);
+
+  @override
+  _$$FromClassInstanceFieldDeclarationsCopyWith<
+          _$FromClassInstanceFieldDeclarations>
+      get copyWith => __$$FromClassInstanceFieldDeclarationsCopyWithImpl<
+          _$FromClassInstanceFieldDeclarations>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+  }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    return fromTsClassInstanceFieldDeclarations(
+        tsClassInstanceFieldDeclarations);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassInstanceFieldDeclarations != null) {
+      return fromTsClassInstanceFieldDeclarations(
+          tsClassInstanceFieldDeclarations);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+  }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    return fromTsClassInstanceFieldDeclarations(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassInstanceFieldDeclarations != null) {
+      return fromTsClassInstanceFieldDeclarations(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromClassInstanceFieldDeclarations implements TsIr {
+  factory _$FromClassInstanceFieldDeclarations(
+          {@required
+              TsClassInstanceFieldDeclarations
+                  tsClassInstanceFieldDeclarations}) =
+      _$_$FromClassInstanceFieldDeclarations;
+
+  TsClassInstanceFieldDeclarations get tsClassInstanceFieldDeclarations;
+  _$$FromClassInstanceFieldDeclarationsCopyWith<
+      _$FromClassInstanceFieldDeclarations> get copyWith;
 }
 
 /// @nodoc
@@ -186,6 +596,12 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -195,6 +611,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -206,6 +624,10 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -225,6 +647,12 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -233,6 +661,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -244,6 +674,10 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -333,6 +767,12 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -342,6 +782,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -353,6 +795,10 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -372,6 +818,12 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -380,6 +832,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -391,6 +845,10 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -494,6 +952,12 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -503,6 +967,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -515,6 +981,10 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -535,6 +1005,12 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -543,6 +1019,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -554,6 +1032,10 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -641,6 +1123,12 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -650,6 +1138,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -661,6 +1151,10 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -680,6 +1174,12 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -688,6 +1188,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -699,6 +1201,10 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -785,6 +1291,12 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -794,6 +1306,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -805,6 +1319,10 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -824,6 +1342,12 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -832,6 +1356,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
   }) {
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -843,6 +1369,10 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
