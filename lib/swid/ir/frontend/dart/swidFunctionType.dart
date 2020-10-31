@@ -52,6 +52,21 @@ abstract class SwidFunctionType with _$SwidFunctionType {
         ],
       );
 
+  factory SwidFunctionType.InsertLeadingPositionalConstructorParameter(
+          {@required SwidFunctionType swidFunctionType,
+          @required String typeName,
+          @required SwidType swidType}) =>
+      SwidFunctionType.clone(
+          swidFunctionType: swidFunctionType,
+          normalParameterNames: [
+            typeName,
+            ...swidFunctionType.normalParameterNames
+          ],
+          normalParameterTypes: [
+            swidType,
+            ...swidFunctionType.normalParameterTypes
+          ]);
+
   factory SwidFunctionType.clone({
     @required SwidFunctionType swidFunctionType,
     String name,
