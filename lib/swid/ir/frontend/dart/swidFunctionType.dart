@@ -34,6 +34,24 @@ abstract class SwidFunctionType with _$SwidFunctionType {
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$SwidFunctionTypeFromJson(json);
 
+  factory SwidFunctionType.MakeReceiverVoid(
+          {@required SwidFunctionType swidFunctionType}) =>
+      SwidFunctionType.clone(
+        swidFunctionType: swidFunctionType,
+        normalParameterNames: [
+          "this",
+          ...swidFunctionType.normalParameterNames
+        ],
+        normalParameterTypes: [
+          SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                  name: "void",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "")),
+          ...swidFunctionType.normalParameterTypes
+        ],
+      );
+
   factory SwidFunctionType.clone({
     @required SwidFunctionType swidFunctionType,
     String name,
