@@ -11,6 +11,6 @@ SwidType transformPrimitiveNamesToTs({@required SwidType swidType}) =>
       fromSwidInterface: (res) => SwidType.fromSwidInterface(
           swidInterface:
               transformPrimitiveSwidTypeNamesToTs(swidInterface: res)),
-      fromSwidDefaultFormalParameter: (_) => null,
+      fromSwidDefaultFormalParameter: (val) => swidType,
       fromSwidClass: (_) => null,
     );
