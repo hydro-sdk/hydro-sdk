@@ -35,4 +35,11 @@ extension SwidTypeMethods on SwidType {
       fromSwidClass: (val) => val.nullabilitySuffix,
       fromSwidDefaultFormalParameter: (val) => val.nullabilitySuffix,
       fromSwidFunctionType: (val) => val.nullabilitySuffix);
+
+  String get name => when(
+        fromSwidInterface: (val) => val.name,
+        fromSwidClass: (val) => val.name,
+        fromSwidDefaultFormalParameter: (val) => val.name,
+        fromSwidFunctionType: (val) => val.name,
+      );
 }
