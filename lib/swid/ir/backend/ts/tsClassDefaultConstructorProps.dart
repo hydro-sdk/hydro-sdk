@@ -10,7 +10,7 @@ class TsClassDefaultConstructorProps {
   TsClassDefaultConstructorProps({@required this.swidClass});
 
   String toTsSource() =>
-      "const ${transformToCamelCase (str: swidClass.name)}DefaultProps = {\n" +
+      "const ${transformToCamelCase(str: swidClass.name)}DefaultProps = {\n" +
       swidClass.constructorType.namedDefaults.entries
           .map((x) =>
               "    ${x.key}: " +

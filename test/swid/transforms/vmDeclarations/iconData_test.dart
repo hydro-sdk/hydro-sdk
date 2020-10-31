@@ -12,9 +12,7 @@ void main() {
         json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
-    expect(
-        TsClassVmDeclaration(swidClass: iconDataClass).toTsSource(),
-        """
+    expect(TsClassVmDeclaration(swidClass: iconDataClass).toTsSource(), """
     public readonly codePoint: number = undefined as any;
     public readonly fontFamily: string = undefined as any;
     public readonly fontPackage: string = undefined as any;
