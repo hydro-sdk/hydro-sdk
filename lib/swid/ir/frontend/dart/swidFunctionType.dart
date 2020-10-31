@@ -52,7 +52,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
         ],
       );
 
-  factory SwidFunctionType.InsertLeadingPositionalConstructorParameter(
+  factory SwidFunctionType.InsertLeadingPositionalParameter(
           {@required SwidFunctionType swidFunctionType,
           @required String typeName,
           @required SwidType swidType}) =>
