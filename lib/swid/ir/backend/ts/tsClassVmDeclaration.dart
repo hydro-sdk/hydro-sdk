@@ -23,8 +23,8 @@ class TsClassVmDeclaration {
               tsVmDeclaration.name
           ? TsVmDeclaration.clone(tsVmDeclaration: tsVmDeclaration, methods: [
               SwidFunctionType.MakeReceiverVoid(
-                  swidFunctionType: SwidFunctionType
-                      .InsertLeadingPositionalParameter(
+                  swidFunctionType:
+                      SwidFunctionType.InsertLeadingPositionalParameter(
                           typeName: transformToCamelCase(str: swidClass.name),
                           swidType: SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
