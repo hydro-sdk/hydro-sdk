@@ -19,12 +19,15 @@ class _$TsFunctionInvocationTearOff {
 // ignore: unused_element
   _$Data call(
       {@required
+          String functionReference,
+      @required
           TsFunctionInvocationPositionalParameters
               tsFunctionInvocationPositionalParameters,
       @required
           List<TsFunctionInvocationNamedParameters>
               tsFunctionInvocationNamedParameters}) {
     return _$Data(
+      functionReference: functionReference,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters,
       tsFunctionInvocationNamedParameters: tsFunctionInvocationNamedParameters,
@@ -43,6 +46,7 @@ const $TsFunctionInvocation = _$TsFunctionInvocationTearOff();
 
 /// @nodoc
 mixin _$TsFunctionInvocation {
+  String get functionReference;
   TsFunctionInvocationPositionalParameters
       get tsFunctionInvocationPositionalParameters;
   List<TsFunctionInvocationNamedParameters>
@@ -58,7 +62,8 @@ abstract class $TsFunctionInvocationCopyWith<$Res> {
           $Res Function(TsFunctionInvocation) then) =
       _$TsFunctionInvocationCopyWithImpl<$Res>;
   $Res call(
-      {TsFunctionInvocationPositionalParameters
+      {String functionReference,
+      TsFunctionInvocationPositionalParameters
           tsFunctionInvocationPositionalParameters,
       List<TsFunctionInvocationNamedParameters>
           tsFunctionInvocationNamedParameters});
@@ -78,10 +83,14 @@ class _$TsFunctionInvocationCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object functionReference = freezed,
     Object tsFunctionInvocationPositionalParameters = freezed,
     Object tsFunctionInvocationNamedParameters = freezed,
   }) {
     return _then(_value.copyWith(
+      functionReference: functionReference == freezed
+          ? _value.functionReference
+          : functionReference as String,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters == freezed
               ? _value.tsFunctionInvocationPositionalParameters
@@ -116,7 +125,8 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {TsFunctionInvocationPositionalParameters
+      {String functionReference,
+      TsFunctionInvocationPositionalParameters
           tsFunctionInvocationPositionalParameters,
       List<TsFunctionInvocationNamedParameters>
           tsFunctionInvocationNamedParameters});
@@ -138,10 +148,14 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object functionReference = freezed,
     Object tsFunctionInvocationPositionalParameters = freezed,
     Object tsFunctionInvocationNamedParameters = freezed,
   }) {
     return _then(_$Data(
+      functionReference: functionReference == freezed
+          ? _value.functionReference
+          : functionReference as String,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters == freezed
               ? _value.tsFunctionInvocationPositionalParameters
@@ -161,14 +175,18 @@ class __$$DataCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   _$_$Data(
-      {@required this.tsFunctionInvocationPositionalParameters,
+      {@required this.functionReference,
+      @required this.tsFunctionInvocationPositionalParameters,
       @required this.tsFunctionInvocationNamedParameters})
-      : assert(tsFunctionInvocationPositionalParameters != null),
+      : assert(functionReference != null),
+        assert(tsFunctionInvocationPositionalParameters != null),
         assert(tsFunctionInvocationNamedParameters != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
 
+  @override
+  final String functionReference;
   @override
   final TsFunctionInvocationPositionalParameters
       tsFunctionInvocationPositionalParameters;
@@ -178,13 +196,16 @@ class _$_$Data implements _$Data {
 
   @override
   String toString() {
-    return 'TsFunctionInvocation(tsFunctionInvocationPositionalParameters: $tsFunctionInvocationPositionalParameters, tsFunctionInvocationNamedParameters: $tsFunctionInvocationNamedParameters)';
+    return 'TsFunctionInvocation(functionReference: $functionReference, tsFunctionInvocationPositionalParameters: $tsFunctionInvocationPositionalParameters, tsFunctionInvocationNamedParameters: $tsFunctionInvocationNamedParameters)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$Data &&
+            (identical(other.functionReference, functionReference) ||
+                const DeepCollectionEquality()
+                    .equals(other.functionReference, functionReference)) &&
             (identical(other.tsFunctionInvocationPositionalParameters,
                     tsFunctionInvocationPositionalParameters) ||
                 const DeepCollectionEquality().equals(
@@ -200,6 +221,7 @@ class _$_$Data implements _$Data {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(functionReference) ^
       const DeepCollectionEquality()
           .hash(tsFunctionInvocationPositionalParameters) ^
       const DeepCollectionEquality().hash(tsFunctionInvocationNamedParameters);
@@ -217,6 +239,8 @@ class _$_$Data implements _$Data {
 abstract class _$Data implements TsFunctionInvocation {
   factory _$Data(
       {@required
+          String functionReference,
+      @required
           TsFunctionInvocationPositionalParameters
               tsFunctionInvocationPositionalParameters,
       @required
@@ -225,6 +249,8 @@ abstract class _$Data implements TsFunctionInvocation {
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
+  @override
+  String get functionReference;
   @override
   TsFunctionInvocationPositionalParameters
       get tsFunctionInvocationPositionalParameters;

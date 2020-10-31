@@ -8,6 +8,7 @@ part of 'tsFunctionInvocation.dart';
 
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
+    functionReference: json['functionReference'] as String,
     tsFunctionInvocationPositionalParameters:
         json['tsFunctionInvocationPositionalParameters'] == null
             ? null
@@ -25,6 +26,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
+      'functionReference': instance.functionReference,
       'tsFunctionInvocationPositionalParameters':
           instance.tsFunctionInvocationPositionalParameters,
       'tsFunctionInvocationNamedParameters':

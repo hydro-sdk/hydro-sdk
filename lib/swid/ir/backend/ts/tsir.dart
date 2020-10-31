@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorProps.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
@@ -6,6 +7,10 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsEnum.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersKeyValue.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersSpread.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:meta/meta.dart';
 
@@ -13,6 +18,11 @@ part 'tsir.freezed.dart';
 
 @freezed
 abstract class TsIr with _$TsIr {
+  factory TsIr.fromTsClassConstructorImplementation(
+          {@required
+              TsClassConstructorImplementation
+                  tsClassConstructorImplementation}) =
+      _$FromTsClassConstructorImplementation;
   factory TsIr.fromTsClassDefaultConstructorProps(
           {@required
               TsClassDefaultConstructorProps tsClassDefaultConstructorProps}) =
@@ -37,16 +47,42 @@ abstract class TsIr with _$TsIr {
   factory TsIr.fromTsClassVmDeclaration(
           {@required TsClassVmDeclaration tsClassVmDeclaration}) =
       _$FromTsClassVmDeclaration;
+  factory TsIr.fromTsFunctionInvocation(
+          {@required TsFunctionInvocation tsFunctionInvocation}) =
+      _$FromTsFunctionInvocation;
+  factory TsIr.fromTsFunctionInvocationNamedParameters(
+          {@required
+              TsFunctionInvocationNamedParameters
+                  tsFunctionInvocationNamedParameters}) =
+      _$FromTsFunctionInvocationNamedParameters;
+  factory TsIr.fromTsFunctionInvocationNamedParametersKeyValue(
+          {@required
+              TsFunctionInvocationNamedParametersKeyValue
+                  tsFunctionInvocationNamedParametersKeyValue}) =
+      _$FromTsFunctionInvocationNamedParametersKeyValue;
+  factory TsIr.fromTsFunctionInvocationNamedParametersSpread(
+          {@required
+              TsFunctionInvocationNamedParametersSpread
+                  tsFunctionInvocationNamedParametersSpread}) =
+      _$TsFunctionInvocationNamedParametersSpread;
 }
 
 extension TsIrMethods on TsIr {
   String toTsSource() => when(
-      fromTsClassDefaultConstructorProps: (val) => val.toTsSource(),
-      fromTsClassInstanceFieldDeclarations: (val) => val.toTsSource(),
-      fromTsClassPostamble: (val) => val.toTsSource(),
-      fromTsClassPreamble: (val) => val.toTsSource(),
-      fromTsClassStaticConstFieldDeclarations: (val) => val.toTsSource(),
-      fromTsEnum: (val) => val.toTsSource(),
-      fromTsInterface: (val) => val.toTsSource(),
-      fromTsClassVmDeclaration: (val) => val.toTsSource());
+        fromTsClassConstructorImplementation: (val) => val.toTsSource(),
+        fromTsClassDefaultConstructorProps: (val) => val.toTsSource(),
+        fromTsClassInstanceFieldDeclarations: (val) => val.toTsSource(),
+        fromTsClassPostamble: (val) => val.toTsSource(),
+        fromTsClassPreamble: (val) => val.toTsSource(),
+        fromTsClassStaticConstFieldDeclarations: (val) => val.toTsSource(),
+        fromTsEnum: (val) => val.toTsSource(),
+        fromTsInterface: (val) => val.toTsSource(),
+        fromTsClassVmDeclaration: (val) => val.toTsSource(),
+        fromTsFunctionInvocation: (val) => val.toTsSource(),
+        fromTsFunctionInvocationNamedParameters: (val) => val.toTsSource(),
+        fromTsFunctionInvocationNamedParametersKeyValue: (val) =>
+            val.toTsSource(),
+        fromTsFunctionInvocationNamedParametersSpread: (val) =>
+            val.toTsSource(),
+      );
 }

@@ -14,3 +14,8 @@ abstract class TsFunctionInvocationNamedParametersSpread
           Map<String, dynamic> json) =>
       _$TsFunctionInvocationNamedParametersSpreadFromJson(json);
 }
+
+extension TsFunctionInvocationNamedParametersSpreadMethods
+    on TsFunctionInvocationNamedParametersSpread {
+  String toTsSource() => references.map((x) => "...${x}").toList().join(",\n");
+}

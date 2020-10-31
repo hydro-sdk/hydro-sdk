@@ -9,6 +9,7 @@ part 'tsFunctionInvocation.g.dart';
 @freezed
 abstract class TsFunctionInvocation with _$TsFunctionInvocation {
   factory TsFunctionInvocation({
+    @required String functionReference,
     @required
         TsFunctionInvocationPositionalParameters
             tsFunctionInvocationPositionalParameters,
@@ -19,4 +20,11 @@ abstract class TsFunctionInvocation with _$TsFunctionInvocation {
 
   factory TsFunctionInvocation.fromJson(Map<String, dynamic> json) =>
       _$TsFunctionInvocationFromJson(json);
+}
+
+extension TsFunctionInvocationMethods on TsFunctionInvocation {
+  String _namedParametersToTsSource() =>
+      tsFunctionInvocationNamedParameters.map((x) => x.toTsSource()).join();
+  String toTsSource() =>
+      "${functionReference}( ${tsFunctionInvocationPositionalParameters.toTsSource()}${_namedParametersToTsSource().isNotEmpty ? ", " : ""}${_namedParametersToTsSource()});";
 }

@@ -22,3 +22,15 @@ abstract class TsFunctionInvocationNamedParameters
           Map<String, dynamic> json) =>
       _$TsFunctionInvocationNamedParametersFromJson(json);
 }
+
+extension TsFunctionInvocationNamedParametersMethods
+    on TsFunctionInvocationNamedParameters {
+  String toTsSource() => [
+        "{",
+        when(
+          fromSpread: (val) => val.toTsSource(),
+          fromKeyValue: (val) => val.toTsSource(),
+        ),
+        "}"
+      ].join("\n");
+}

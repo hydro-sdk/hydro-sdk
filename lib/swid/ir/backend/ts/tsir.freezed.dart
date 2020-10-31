@@ -14,6 +14,15 @@ class _$TsIrTearOff {
   const _$TsIrTearOff();
 
 // ignore: unused_element
+  _$FromTsClassConstructorImplementation fromTsClassConstructorImplementation(
+      {@required
+          TsClassConstructorImplementation tsClassConstructorImplementation}) {
+    return _$FromTsClassConstructorImplementation(
+      tsClassConstructorImplementation: tsClassConstructorImplementation,
+    );
+  }
+
+// ignore: unused_element
   _$FromTsClassDefaultConstructorProps fromTsClassDefaultConstructorProps(
       {@required
           TsClassDefaultConstructorProps tsClassDefaultConstructorProps}) {
@@ -79,6 +88,49 @@ class _$TsIrTearOff {
       tsClassVmDeclaration: tsClassVmDeclaration,
     );
   }
+
+// ignore: unused_element
+  _$FromTsFunctionInvocation fromTsFunctionInvocation(
+      {@required TsFunctionInvocation tsFunctionInvocation}) {
+    return _$FromTsFunctionInvocation(
+      tsFunctionInvocation: tsFunctionInvocation,
+    );
+  }
+
+// ignore: unused_element
+  _$FromTsFunctionInvocationNamedParameters
+      fromTsFunctionInvocationNamedParameters(
+          {@required
+              TsFunctionInvocationNamedParameters
+                  tsFunctionInvocationNamedParameters}) {
+    return _$FromTsFunctionInvocationNamedParameters(
+      tsFunctionInvocationNamedParameters: tsFunctionInvocationNamedParameters,
+    );
+  }
+
+// ignore: unused_element
+  _$FromTsFunctionInvocationNamedParametersKeyValue
+      fromTsFunctionInvocationNamedParametersKeyValue(
+          {@required
+              TsFunctionInvocationNamedParametersKeyValue
+                  tsFunctionInvocationNamedParametersKeyValue}) {
+    return _$FromTsFunctionInvocationNamedParametersKeyValue(
+      tsFunctionInvocationNamedParametersKeyValue:
+          tsFunctionInvocationNamedParametersKeyValue,
+    );
+  }
+
+// ignore: unused_element
+  _$TsFunctionInvocationNamedParametersSpread
+      fromTsFunctionInvocationNamedParametersSpread(
+          {@required
+              TsFunctionInvocationNamedParametersSpread
+                  tsFunctionInvocationNamedParametersSpread}) {
+    return _$TsFunctionInvocationNamedParametersSpread(
+      tsFunctionInvocationNamedParametersSpread:
+          tsFunctionInvocationNamedParametersSpread,
+    );
+  }
 }
 
 /// @nodoc
@@ -89,6 +141,9 @@ const $TsIr = _$TsIrTearOff();
 mixin _$TsIr {
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
@@ -106,9 +161,26 @@ mixin _$TsIr {
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -121,10 +193,23 @@ mixin _$TsIr {
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
     @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
@@ -139,9 +224,21 @@ mixin _$TsIr {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -153,6 +250,13 @@ mixin _$TsIr {
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   });
 }
@@ -170,6 +274,266 @@ class _$TsIrCopyWithImpl<$Res> implements $TsIrCopyWith<$Res> {
   final TsIr _value;
   // ignore: unused_field
   final $Res Function(TsIr) _then;
+}
+
+/// @nodoc
+abstract class _$$FromTsClassConstructorImplementationCopyWith<$Res> {
+  factory _$$FromTsClassConstructorImplementationCopyWith(
+          _$FromTsClassConstructorImplementation value,
+          $Res Function(_$FromTsClassConstructorImplementation) then) =
+      __$$FromTsClassConstructorImplementationCopyWithImpl<$Res>;
+  $Res call(
+      {TsClassConstructorImplementation tsClassConstructorImplementation});
+}
+
+/// @nodoc
+class __$$FromTsClassConstructorImplementationCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsClassConstructorImplementationCopyWith<$Res> {
+  __$$FromTsClassConstructorImplementationCopyWithImpl(
+      _$FromTsClassConstructorImplementation _value,
+      $Res Function(_$FromTsClassConstructorImplementation) _then)
+      : super(
+            _value, (v) => _then(v as _$FromTsClassConstructorImplementation));
+
+  @override
+  _$FromTsClassConstructorImplementation get _value =>
+      super._value as _$FromTsClassConstructorImplementation;
+
+  @override
+  $Res call({
+    Object tsClassConstructorImplementation = freezed,
+  }) {
+    return _then(_$FromTsClassConstructorImplementation(
+      tsClassConstructorImplementation:
+          tsClassConstructorImplementation == freezed
+              ? _value.tsClassConstructorImplementation
+              : tsClassConstructorImplementation
+                  as TsClassConstructorImplementation,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromTsClassConstructorImplementation
+    implements _$FromTsClassConstructorImplementation {
+  _$_$FromTsClassConstructorImplementation(
+      {@required this.tsClassConstructorImplementation})
+      : assert(tsClassConstructorImplementation != null);
+
+  @override
+  final TsClassConstructorImplementation tsClassConstructorImplementation;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsClassConstructorImplementation(tsClassConstructorImplementation: $tsClassConstructorImplementation)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsClassConstructorImplementation &&
+            (identical(other.tsClassConstructorImplementation,
+                    tsClassConstructorImplementation) ||
+                const DeepCollectionEquality().equals(
+                    other.tsClassConstructorImplementation,
+                    tsClassConstructorImplementation)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsClassConstructorImplementation);
+
+  @override
+  _$$FromTsClassConstructorImplementationCopyWith<
+          _$FromTsClassConstructorImplementation>
+      get copyWith => __$$FromTsClassConstructorImplementationCopyWithImpl<
+          _$FromTsClassConstructorImplementation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsClassConstructorImplementation(
+        tsClassConstructorImplementation);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassConstructorImplementation != null) {
+      return fromTsClassConstructorImplementation(
+          tsClassConstructorImplementation);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsClassConstructorImplementation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassConstructorImplementation != null) {
+      return fromTsClassConstructorImplementation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsClassConstructorImplementation implements TsIr {
+  factory _$FromTsClassConstructorImplementation(
+          {@required
+              TsClassConstructorImplementation
+                  tsClassConstructorImplementation}) =
+      _$_$FromTsClassConstructorImplementation;
+
+  TsClassConstructorImplementation get tsClassConstructorImplementation;
+  _$$FromTsClassConstructorImplementationCopyWith<
+      _$FromTsClassConstructorImplementation> get copyWith;
 }
 
 /// @nodoc
@@ -247,6 +611,9 @@ class _$_$FromTsClassDefaultConstructorProps
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     @required
@@ -263,7 +630,23 @@ class _$_$FromTsClassDefaultConstructorProps
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -272,12 +655,18 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -290,6 +679,16 @@ class _$_$FromTsClassDefaultConstructorProps
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -302,6 +701,9 @@ class _$_$FromTsClassDefaultConstructorProps
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
     @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
@@ -316,7 +718,18 @@ class _$_$FromTsClassDefaultConstructorProps
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -325,12 +738,18 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassDefaultConstructorProps(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -342,6 +761,13 @@ class _$_$FromTsClassDefaultConstructorProps
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -441,6 +867,9 @@ class _$_$FromClassInstanceFieldDeclarations
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     @required
@@ -457,7 +886,23 @@ class _$_$FromClassInstanceFieldDeclarations
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -466,6 +911,10 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassInstanceFieldDeclarations(
         tsClassInstanceFieldDeclarations);
   }
@@ -473,6 +922,8 @@ class _$_$FromClassInstanceFieldDeclarations
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -485,6 +936,16 @@ class _$_$FromClassInstanceFieldDeclarations
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -499,6 +960,9 @@ class _$_$FromClassInstanceFieldDeclarations
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
     @required
@@ -512,7 +976,18 @@ class _$_$FromClassInstanceFieldDeclarations
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -521,12 +996,18 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassInstanceFieldDeclarations(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -538,6 +1019,13 @@ class _$_$FromClassInstanceFieldDeclarations
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -627,6 +1115,9 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     @required
@@ -643,7 +1134,23 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -652,12 +1159,18 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassPostamble(tsClassPostamble);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -670,6 +1183,16 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -682,6 +1205,9 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
     @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
@@ -696,7 +1222,18 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -705,12 +1242,18 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassPostamble(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -722,6 +1265,13 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -806,6 +1356,9 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     @required
@@ -822,7 +1375,23 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -831,12 +1400,18 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassPreamble(tsClassPreamble);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -849,6 +1424,16 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -861,6 +1446,9 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
     @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
@@ -875,7 +1463,18 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -884,12 +1483,18 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassPreamble(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -901,6 +1506,13 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -999,6 +1611,9 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     @required
@@ -1015,7 +1630,23 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -1024,6 +1655,10 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassStaticConstFieldDeclarations(
         tsClassStaticConstFieldDeclarations);
   }
@@ -1031,6 +1666,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -1043,6 +1680,16 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1057,6 +1704,9 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
     @required
@@ -1070,7 +1720,18 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -1079,12 +1740,18 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassStaticConstFieldDeclarations(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -1096,6 +1763,13 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1178,6 +1852,9 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     @required
@@ -1194,7 +1871,23 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -1203,12 +1896,18 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsEnum(tsEnum);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -1221,6 +1920,16 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1233,6 +1942,9 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
     @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
@@ -1247,7 +1959,18 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -1256,12 +1979,18 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsEnum(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -1273,6 +2002,13 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1354,6 +2090,9 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     @required
@@ -1370,7 +2109,23 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -1379,12 +2134,18 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsInterface(tsInterface);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -1397,6 +2158,16 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1409,6 +2180,9 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
     @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
@@ -1423,7 +2197,18 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -1432,12 +2217,18 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsInterface(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -1449,6 +2240,13 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1536,6 +2334,9 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
         Result fromTsClassDefaultConstructorProps(
             TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     @required
@@ -1552,7 +2353,23 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required
         Result fromTsClassVmDeclaration(
             TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -1561,12 +2378,18 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassVmDeclaration(tsClassVmDeclaration);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
     Result fromTsClassDefaultConstructorProps(
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
@@ -1579,6 +2402,16 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1591,6 +2424,9 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
     @required
         Result fromTsClassDefaultConstructorProps(
             _$FromTsClassDefaultConstructorProps value),
@@ -1605,7 +2441,18 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
   }) {
+    assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassPostamble != null);
@@ -1614,12 +2461,18 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
     return fromTsClassVmDeclaration(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
     Result fromTsClassDefaultConstructorProps(
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
@@ -1631,6 +2484,13 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1648,4 +2508,1106 @@ abstract class _$FromTsClassVmDeclaration implements TsIr {
 
   TsClassVmDeclaration get tsClassVmDeclaration;
   _$$FromTsClassVmDeclarationCopyWith<_$FromTsClassVmDeclaration> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsFunctionInvocationCopyWith<$Res> {
+  factory _$$FromTsFunctionInvocationCopyWith(_$FromTsFunctionInvocation value,
+          $Res Function(_$FromTsFunctionInvocation) then) =
+      __$$FromTsFunctionInvocationCopyWithImpl<$Res>;
+  $Res call({TsFunctionInvocation tsFunctionInvocation});
+
+  $TsFunctionInvocationCopyWith<$Res> get tsFunctionInvocation;
+}
+
+/// @nodoc
+class __$$FromTsFunctionInvocationCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsFunctionInvocationCopyWith<$Res> {
+  __$$FromTsFunctionInvocationCopyWithImpl(_$FromTsFunctionInvocation _value,
+      $Res Function(_$FromTsFunctionInvocation) _then)
+      : super(_value, (v) => _then(v as _$FromTsFunctionInvocation));
+
+  @override
+  _$FromTsFunctionInvocation get _value =>
+      super._value as _$FromTsFunctionInvocation;
+
+  @override
+  $Res call({
+    Object tsFunctionInvocation = freezed,
+  }) {
+    return _then(_$FromTsFunctionInvocation(
+      tsFunctionInvocation: tsFunctionInvocation == freezed
+          ? _value.tsFunctionInvocation
+          : tsFunctionInvocation as TsFunctionInvocation,
+    ));
+  }
+
+  @override
+  $TsFunctionInvocationCopyWith<$Res> get tsFunctionInvocation {
+    if (_value.tsFunctionInvocation == null) {
+      return null;
+    }
+    return $TsFunctionInvocationCopyWith<$Res>(_value.tsFunctionInvocation,
+        (value) {
+      return _then(_value.copyWith(tsFunctionInvocation: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
+  _$_$FromTsFunctionInvocation({@required this.tsFunctionInvocation})
+      : assert(tsFunctionInvocation != null);
+
+  @override
+  final TsFunctionInvocation tsFunctionInvocation;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsFunctionInvocation(tsFunctionInvocation: $tsFunctionInvocation)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsFunctionInvocation &&
+            (identical(other.tsFunctionInvocation, tsFunctionInvocation) ||
+                const DeepCollectionEquality()
+                    .equals(other.tsFunctionInvocation, tsFunctionInvocation)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsFunctionInvocation);
+
+  @override
+  _$$FromTsFunctionInvocationCopyWith<_$FromTsFunctionInvocation>
+      get copyWith =>
+          __$$FromTsFunctionInvocationCopyWithImpl<_$FromTsFunctionInvocation>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsFunctionInvocation(tsFunctionInvocation);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsFunctionInvocation != null) {
+      return fromTsFunctionInvocation(tsFunctionInvocation);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsFunctionInvocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsFunctionInvocation != null) {
+      return fromTsFunctionInvocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsFunctionInvocation implements TsIr {
+  factory _$FromTsFunctionInvocation(
+          {@required TsFunctionInvocation tsFunctionInvocation}) =
+      _$_$FromTsFunctionInvocation;
+
+  TsFunctionInvocation get tsFunctionInvocation;
+  _$$FromTsFunctionInvocationCopyWith<_$FromTsFunctionInvocation> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsFunctionInvocationNamedParametersCopyWith<$Res> {
+  factory _$$FromTsFunctionInvocationNamedParametersCopyWith(
+          _$FromTsFunctionInvocationNamedParameters value,
+          $Res Function(_$FromTsFunctionInvocationNamedParameters) then) =
+      __$$FromTsFunctionInvocationNamedParametersCopyWithImpl<$Res>;
+  $Res call(
+      {TsFunctionInvocationNamedParameters
+          tsFunctionInvocationNamedParameters});
+
+  $TsFunctionInvocationNamedParametersCopyWith<$Res>
+      get tsFunctionInvocationNamedParameters;
+}
+
+/// @nodoc
+class __$$FromTsFunctionInvocationNamedParametersCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsFunctionInvocationNamedParametersCopyWith<$Res> {
+  __$$FromTsFunctionInvocationNamedParametersCopyWithImpl(
+      _$FromTsFunctionInvocationNamedParameters _value,
+      $Res Function(_$FromTsFunctionInvocationNamedParameters) _then)
+      : super(_value,
+            (v) => _then(v as _$FromTsFunctionInvocationNamedParameters));
+
+  @override
+  _$FromTsFunctionInvocationNamedParameters get _value =>
+      super._value as _$FromTsFunctionInvocationNamedParameters;
+
+  @override
+  $Res call({
+    Object tsFunctionInvocationNamedParameters = freezed,
+  }) {
+    return _then(_$FromTsFunctionInvocationNamedParameters(
+      tsFunctionInvocationNamedParameters:
+          tsFunctionInvocationNamedParameters == freezed
+              ? _value.tsFunctionInvocationNamedParameters
+              : tsFunctionInvocationNamedParameters
+                  as TsFunctionInvocationNamedParameters,
+    ));
+  }
+
+  @override
+  $TsFunctionInvocationNamedParametersCopyWith<$Res>
+      get tsFunctionInvocationNamedParameters {
+    if (_value.tsFunctionInvocationNamedParameters == null) {
+      return null;
+    }
+    return $TsFunctionInvocationNamedParametersCopyWith<$Res>(
+        _value.tsFunctionInvocationNamedParameters, (value) {
+      return _then(_value.copyWith(tsFunctionInvocationNamedParameters: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_$FromTsFunctionInvocationNamedParameters
+    implements _$FromTsFunctionInvocationNamedParameters {
+  _$_$FromTsFunctionInvocationNamedParameters(
+      {@required this.tsFunctionInvocationNamedParameters})
+      : assert(tsFunctionInvocationNamedParameters != null);
+
+  @override
+  final TsFunctionInvocationNamedParameters tsFunctionInvocationNamedParameters;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsFunctionInvocationNamedParameters(tsFunctionInvocationNamedParameters: $tsFunctionInvocationNamedParameters)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsFunctionInvocationNamedParameters &&
+            (identical(other.tsFunctionInvocationNamedParameters,
+                    tsFunctionInvocationNamedParameters) ||
+                const DeepCollectionEquality().equals(
+                    other.tsFunctionInvocationNamedParameters,
+                    tsFunctionInvocationNamedParameters)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsFunctionInvocationNamedParameters);
+
+  @override
+  _$$FromTsFunctionInvocationNamedParametersCopyWith<
+          _$FromTsFunctionInvocationNamedParameters>
+      get copyWith => __$$FromTsFunctionInvocationNamedParametersCopyWithImpl<
+          _$FromTsFunctionInvocationNamedParameters>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsFunctionInvocationNamedParameters(
+        tsFunctionInvocationNamedParameters);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsFunctionInvocationNamedParameters != null) {
+      return fromTsFunctionInvocationNamedParameters(
+          tsFunctionInvocationNamedParameters);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsFunctionInvocationNamedParameters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsFunctionInvocationNamedParameters != null) {
+      return fromTsFunctionInvocationNamedParameters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsFunctionInvocationNamedParameters implements TsIr {
+  factory _$FromTsFunctionInvocationNamedParameters(
+          {@required
+              TsFunctionInvocationNamedParameters
+                  tsFunctionInvocationNamedParameters}) =
+      _$_$FromTsFunctionInvocationNamedParameters;
+
+  TsFunctionInvocationNamedParameters get tsFunctionInvocationNamedParameters;
+  _$$FromTsFunctionInvocationNamedParametersCopyWith<
+      _$FromTsFunctionInvocationNamedParameters> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsFunctionInvocationNamedParametersKeyValueCopyWith<
+    $Res> {
+  factory _$$FromTsFunctionInvocationNamedParametersKeyValueCopyWith(
+          _$FromTsFunctionInvocationNamedParametersKeyValue value,
+          $Res Function(_$FromTsFunctionInvocationNamedParametersKeyValue)
+              then) =
+      __$$FromTsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>;
+  $Res call(
+      {TsFunctionInvocationNamedParametersKeyValue
+          tsFunctionInvocationNamedParametersKeyValue});
+
+  $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res>
+      get tsFunctionInvocationNamedParametersKeyValue;
+}
+
+/// @nodoc
+class __$$FromTsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements
+        _$$FromTsFunctionInvocationNamedParametersKeyValueCopyWith<$Res> {
+  __$$FromTsFunctionInvocationNamedParametersKeyValueCopyWithImpl(
+      _$FromTsFunctionInvocationNamedParametersKeyValue _value,
+      $Res Function(_$FromTsFunctionInvocationNamedParametersKeyValue) _then)
+      : super(
+            _value,
+            (v) =>
+                _then(v as _$FromTsFunctionInvocationNamedParametersKeyValue));
+
+  @override
+  _$FromTsFunctionInvocationNamedParametersKeyValue get _value =>
+      super._value as _$FromTsFunctionInvocationNamedParametersKeyValue;
+
+  @override
+  $Res call({
+    Object tsFunctionInvocationNamedParametersKeyValue = freezed,
+  }) {
+    return _then(_$FromTsFunctionInvocationNamedParametersKeyValue(
+      tsFunctionInvocationNamedParametersKeyValue:
+          tsFunctionInvocationNamedParametersKeyValue == freezed
+              ? _value.tsFunctionInvocationNamedParametersKeyValue
+              : tsFunctionInvocationNamedParametersKeyValue
+                  as TsFunctionInvocationNamedParametersKeyValue,
+    ));
+  }
+
+  @override
+  $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res>
+      get tsFunctionInvocationNamedParametersKeyValue {
+    if (_value.tsFunctionInvocationNamedParametersKeyValue == null) {
+      return null;
+    }
+    return $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res>(
+        _value.tsFunctionInvocationNamedParametersKeyValue, (value) {
+      return _then(
+          _value.copyWith(tsFunctionInvocationNamedParametersKeyValue: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_$FromTsFunctionInvocationNamedParametersKeyValue
+    implements _$FromTsFunctionInvocationNamedParametersKeyValue {
+  _$_$FromTsFunctionInvocationNamedParametersKeyValue(
+      {@required this.tsFunctionInvocationNamedParametersKeyValue})
+      : assert(tsFunctionInvocationNamedParametersKeyValue != null);
+
+  @override
+  final TsFunctionInvocationNamedParametersKeyValue
+      tsFunctionInvocationNamedParametersKeyValue;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsFunctionInvocationNamedParametersKeyValue(tsFunctionInvocationNamedParametersKeyValue: $tsFunctionInvocationNamedParametersKeyValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsFunctionInvocationNamedParametersKeyValue &&
+            (identical(other.tsFunctionInvocationNamedParametersKeyValue,
+                    tsFunctionInvocationNamedParametersKeyValue) ||
+                const DeepCollectionEquality().equals(
+                    other.tsFunctionInvocationNamedParametersKeyValue,
+                    tsFunctionInvocationNamedParametersKeyValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality()
+          .hash(tsFunctionInvocationNamedParametersKeyValue);
+
+  @override
+  _$$FromTsFunctionInvocationNamedParametersKeyValueCopyWith<
+          _$FromTsFunctionInvocationNamedParametersKeyValue>
+      get copyWith =>
+          __$$FromTsFunctionInvocationNamedParametersKeyValueCopyWithImpl<
+                  _$FromTsFunctionInvocationNamedParametersKeyValue>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsFunctionInvocationNamedParametersKeyValue(
+        tsFunctionInvocationNamedParametersKeyValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsFunctionInvocationNamedParametersKeyValue != null) {
+      return fromTsFunctionInvocationNamedParametersKeyValue(
+          tsFunctionInvocationNamedParametersKeyValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsFunctionInvocationNamedParametersKeyValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsFunctionInvocationNamedParametersKeyValue != null) {
+      return fromTsFunctionInvocationNamedParametersKeyValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsFunctionInvocationNamedParametersKeyValue
+    implements TsIr {
+  factory _$FromTsFunctionInvocationNamedParametersKeyValue(
+          {@required
+              TsFunctionInvocationNamedParametersKeyValue
+                  tsFunctionInvocationNamedParametersKeyValue}) =
+      _$_$FromTsFunctionInvocationNamedParametersKeyValue;
+
+  TsFunctionInvocationNamedParametersKeyValue
+      get tsFunctionInvocationNamedParametersKeyValue;
+  _$$FromTsFunctionInvocationNamedParametersKeyValueCopyWith<
+      _$FromTsFunctionInvocationNamedParametersKeyValue> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$TsFunctionInvocationNamedParametersSpreadCopyWith<$Res> {
+  factory _$$TsFunctionInvocationNamedParametersSpreadCopyWith(
+          _$TsFunctionInvocationNamedParametersSpread value,
+          $Res Function(_$TsFunctionInvocationNamedParametersSpread) then) =
+      __$$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>;
+  $Res call(
+      {TsFunctionInvocationNamedParametersSpread
+          tsFunctionInvocationNamedParametersSpread});
+
+  $TsFunctionInvocationNamedParametersSpreadCopyWith<$Res>
+      get tsFunctionInvocationNamedParametersSpread;
+}
+
+/// @nodoc
+class __$$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$TsFunctionInvocationNamedParametersSpreadCopyWith<$Res> {
+  __$$TsFunctionInvocationNamedParametersSpreadCopyWithImpl(
+      _$TsFunctionInvocationNamedParametersSpread _value,
+      $Res Function(_$TsFunctionInvocationNamedParametersSpread) _then)
+      : super(_value,
+            (v) => _then(v as _$TsFunctionInvocationNamedParametersSpread));
+
+  @override
+  _$TsFunctionInvocationNamedParametersSpread get _value =>
+      super._value as _$TsFunctionInvocationNamedParametersSpread;
+
+  @override
+  $Res call({
+    Object tsFunctionInvocationNamedParametersSpread = freezed,
+  }) {
+    return _then(_$TsFunctionInvocationNamedParametersSpread(
+      tsFunctionInvocationNamedParametersSpread:
+          tsFunctionInvocationNamedParametersSpread == freezed
+              ? _value.tsFunctionInvocationNamedParametersSpread
+              : tsFunctionInvocationNamedParametersSpread
+                  as TsFunctionInvocationNamedParametersSpread,
+    ));
+  }
+
+  @override
+  $TsFunctionInvocationNamedParametersSpreadCopyWith<$Res>
+      get tsFunctionInvocationNamedParametersSpread {
+    if (_value.tsFunctionInvocationNamedParametersSpread == null) {
+      return null;
+    }
+    return $TsFunctionInvocationNamedParametersSpreadCopyWith<$Res>(
+        _value.tsFunctionInvocationNamedParametersSpread, (value) {
+      return _then(
+          _value.copyWith(tsFunctionInvocationNamedParametersSpread: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_$TsFunctionInvocationNamedParametersSpread
+    implements _$TsFunctionInvocationNamedParametersSpread {
+  _$_$TsFunctionInvocationNamedParametersSpread(
+      {@required this.tsFunctionInvocationNamedParametersSpread})
+      : assert(tsFunctionInvocationNamedParametersSpread != null);
+
+  @override
+  final TsFunctionInvocationNamedParametersSpread
+      tsFunctionInvocationNamedParametersSpread;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsFunctionInvocationNamedParametersSpread(tsFunctionInvocationNamedParametersSpread: $tsFunctionInvocationNamedParametersSpread)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$TsFunctionInvocationNamedParametersSpread &&
+            (identical(other.tsFunctionInvocationNamedParametersSpread,
+                    tsFunctionInvocationNamedParametersSpread) ||
+                const DeepCollectionEquality().equals(
+                    other.tsFunctionInvocationNamedParametersSpread,
+                    tsFunctionInvocationNamedParametersSpread)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality()
+          .hash(tsFunctionInvocationNamedParametersSpread);
+
+  @override
+  _$$TsFunctionInvocationNamedParametersSpreadCopyWith<
+          _$TsFunctionInvocationNamedParametersSpread>
+      get copyWith => __$$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<
+          _$TsFunctionInvocationNamedParametersSpread>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsFunctionInvocationNamedParametersSpread(
+        tsFunctionInvocationNamedParametersSpread);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsFunctionInvocationNamedParametersSpread != null) {
+      return fromTsFunctionInvocationNamedParametersSpread(
+          tsFunctionInvocationNamedParametersSpread);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsFunctionInvocationNamedParametersSpread(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsFunctionInvocationNamedParametersSpread != null) {
+      return fromTsFunctionInvocationNamedParametersSpread(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$TsFunctionInvocationNamedParametersSpread implements TsIr {
+  factory _$TsFunctionInvocationNamedParametersSpread(
+          {@required
+              TsFunctionInvocationNamedParametersSpread
+                  tsFunctionInvocationNamedParametersSpread}) =
+      _$_$TsFunctionInvocationNamedParametersSpread;
+
+  TsFunctionInvocationNamedParametersSpread
+      get tsFunctionInvocationNamedParametersSpread;
+  _$$TsFunctionInvocationNamedParametersSpreadCopyWith<
+      _$TsFunctionInvocationNamedParametersSpread> get copyWith;
 }

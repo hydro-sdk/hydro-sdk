@@ -14,3 +14,11 @@ abstract class TsFunctionInvocationNamedParametersKeyValue
           Map<String, dynamic> json) =>
       _$TsFunctionInvocationNamedParametersKeyValueFromJson(json);
 }
+
+extension TsFunctionInvocationNamedParametersKeyValueMethods
+    on TsFunctionInvocationNamedParametersKeyValue {
+  String toTsSource() => namedReferences.entries
+      .map((x) => "${x.key}: ${x.value}")
+      .toList()
+      .join(",\n");
+}

@@ -14,3 +14,10 @@ abstract class TsFunctionInvocationPositionalParameters
           Map<String, dynamic> json) =>
       _$TsFunctionInvocationPositionalParametersFromJson(json);
 }
+
+extension TsFunctionInvocationPositionalParametersMethods
+    on TsFunctionInvocationPositionalParameters {
+  String toTsSource() => positionalReferences.isNotEmpty
+      ? positionalReferences.map((x) => x).join(", ")
+      : "";
+}
