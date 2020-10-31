@@ -3,6 +3,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:meta/meta.dart';
 
 String transformFunctionTypeToTs({
@@ -53,6 +54,17 @@ String transformFunctionTypeToTs({
       res += ", ";
     }
   });
+
+  if (swidFunctionType.namedParameterTypes.isNotEmpty) {
+    res += ", props : { ";
+
+    swidFunctionType.namedParameterTypes.entries.forEach((x) {
+      res +=
+          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${transformTypeDeclarationToTs(swidType: x.value)}, ";
+    });
+    res += "}";
+  }
+
   res += ")";
   if (emitReturnType) {
     res += transformReturnTypeToTs(swidFunctionType: swidFunctionType);

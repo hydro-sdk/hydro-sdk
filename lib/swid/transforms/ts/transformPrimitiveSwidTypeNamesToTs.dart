@@ -4,11 +4,11 @@ import 'package:meta/meta.dart';
 SwidInterface transformPrimitiveSwidTypeNamesToTs(
     {@required SwidInterface swidInterface}) {
   if (swidInterface.originalPackagePath == "dart:core") {
-    if (swidInterface.name == "String") {
+    if (swidInterface.name == "String" || swidInterface.name == "String*") {
       return swidInterface.copyWith(name: "string");
-    } else if (swidInterface.name == "bool") {
+    } else if (swidInterface.name == "bool" || swidInterface.name == "bool*") {
       return swidInterface.copyWith(name: "boolean");
-    } else if (swidInterface.name == "int") {
+    } else if (swidInterface.name == "int" || swidInterface.name == "int*") {
       return swidInterface.copyWith(name: "number");
     }
   }

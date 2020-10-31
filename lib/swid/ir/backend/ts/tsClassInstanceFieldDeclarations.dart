@@ -13,7 +13,7 @@ class TsClassInstanceFieldDeclarations {
           ? [
                 ...swidClass.instanceFieldDeclarations.entries
                     .map((x) =>
-                        "    public readonly ${x.key}: ${transformTypeDeclarationToTs(swidType: transformPrimitiveNamesToTs(swidType: x.value))} = undefined as any;")
+                        "    public readonly ${x.key}: ${transformTypeDeclarationToTs(swidType: x.value)} = undefined as any;")
                     .toList()
               ].join("\n") +
               "\n"
