@@ -9,7 +9,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
-        json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
+        json.decode(File("../test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(TsClassVmDeclaration(swidClass: iconDataClass).toTsSource(), """
