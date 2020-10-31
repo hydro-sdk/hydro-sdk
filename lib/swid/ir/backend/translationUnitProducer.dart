@@ -39,9 +39,6 @@ class TranslationUnitProducer {
             path: tsPrefixPaths.join(p.separator) + p.separator + path,
             fileName: "$baseFileName.ts",
             ir: [
-              TsIr.fromTsInterface(
-                  tsInterface: TsInterface.fromSwidFunctiontype(
-                      swidFunctionType: swidClass.constructorType)),
               TsIr.fromTsClassDefaultConstructorProps(
                 tsClassDefaultConstructorProps:
                     TsClassDefaultConstructorProps(swidClass: swidClass),
