@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorProps.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
@@ -54,6 +55,9 @@ class TranslationUnitProducer {
               TsIr.fromTsClassInstanceFieldDeclarations(
                   tsClassInstanceFieldDeclarations:
                       TsClassInstanceFieldDeclarations(swidClass: swidClass)),
+              TsIr.fromTsClassConstructorImplementation(
+                  tsClassConstructorImplementation:
+                      TsClassConstructorImplementation(swidClass: swidClass)),
               TsIr.fromTsClassPostamble(
                   tsClassPostamble: TsClassPostamble(swidClass: swidClass))
             ])
