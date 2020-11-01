@@ -26,5 +26,5 @@ extension TsFunctionInvocationMethods on TsFunctionInvocation {
   String _namedParametersToTsSource() =>
       tsFunctionInvocationNamedParameters.map((x) => x.toTsSource()).join();
   String toTsSource() =>
-      "${functionReference}( ${tsFunctionInvocationPositionalParameters.toTsSource()}${_namedParametersToTsSource().isNotEmpty ? ", " : ""}${_namedParametersToTsSource()});";
+      "${functionReference}(${tsFunctionInvocationPositionalParameters.toTsSource()}${_namedParametersToTsSource().isNotEmpty ? ", " : ""}${_namedParametersToTsSource()});";
 }

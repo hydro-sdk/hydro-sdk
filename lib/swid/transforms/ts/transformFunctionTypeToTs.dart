@@ -8,7 +8,7 @@ import 'package:meta/meta.dart';
 
 String transformFunctionTypeToTs({
   @required SwidFunctionType swidFunctionType,
-  bool emitReturnType = true,
+  bool emitTrailingReturnType = true,
 }) {
   var res = "(";
 
@@ -66,7 +66,7 @@ String transformFunctionTypeToTs({
   }
 
   res += ")";
-  if (emitReturnType) {
+  if (emitTrailingReturnType) {
     res += transformReturnTypeToTs(swidFunctionType: swidFunctionType);
   }
   return res;
