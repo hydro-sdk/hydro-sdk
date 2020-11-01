@@ -23,7 +23,8 @@ void main() async {
 
   for (var i = 0; i != visitor.classes.length; ++i) {
     if (visitor.classes[i].name == "Icons" ||
-        visitor.classes[i].name == "CupertinoIcons") {
+        visitor.classes[i].name == "CupertinoIcons" ||
+        visitor.classes[i].name == "IconData") {
       TranslationUnitProducer(
         path: transformPackageUri(
           packageUri: visitor.classes[i].originalPackagePath,
