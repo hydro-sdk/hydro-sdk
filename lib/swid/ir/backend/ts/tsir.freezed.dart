@@ -41,6 +41,27 @@ class _$TsIrTearOff {
   }
 
 // ignore: unused_element
+  _$FromTsClassMethodInjectionFieldDeclarations
+      fromTsClassMethodInjectionFieldDeclarations(
+          {@required
+              TsClassMethodInjectionFieldDeclarations
+                  tsClassMethodInjectionFieldDeclarations}) {
+    return _$FromTsClassMethodInjectionFieldDeclarations(
+      tsClassMethodInjectionFieldDeclarations:
+          tsClassMethodInjectionFieldDeclarations,
+    );
+  }
+
+// ignore: unused_element
+  _$FromTsClassMethodInjectionFieldName fromTsClassMethodInjectionFieldName(
+      {@required
+          TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName}) {
+    return _$FromTsClassMethodInjectionFieldName(
+      tsClassMethodInjectionFieldName: tsClassMethodInjectionFieldName,
+    );
+  }
+
+// ignore: unused_element
   _$FromTsClassPostamble fromTsClassPostamble(
       {@required TsClassPostamble tsClassPostamble}) {
     return _$FromTsClassPostamble(
@@ -150,6 +171,13 @@ mixin _$TsIr {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -185,6 +213,11 @@ mixin _$TsIr {
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -216,6 +249,12 @@ mixin _$TsIr {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -243,6 +282,10 @@ mixin _$TsIr {
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -363,6 +406,13 @@ class _$_$FromTsClassConstructorImplementation
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -393,6 +443,8 @@ class _$_$FromTsClassConstructorImplementation
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -416,6 +468,11 @@ class _$_$FromTsClassConstructorImplementation
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -456,6 +513,12 @@ class _$_$FromTsClassConstructorImplementation
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -478,6 +541,8 @@ class _$_$FromTsClassConstructorImplementation
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -500,6 +565,10 @@ class _$_$FromTsClassConstructorImplementation
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -619,6 +688,13 @@ class _$_$FromTsClassDefaultConstructorProps
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -649,6 +725,8 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -671,6 +749,11 @@ class _$_$FromTsClassDefaultConstructorProps
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -710,6 +793,12 @@ class _$_$FromTsClassDefaultConstructorProps
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -732,6 +821,8 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -754,6 +845,10 @@ class _$_$FromTsClassDefaultConstructorProps
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -875,6 +970,13 @@ class _$_$FromClassInstanceFieldDeclarations
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -905,6 +1007,8 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -928,6 +1032,11 @@ class _$_$FromClassInstanceFieldDeclarations
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -968,6 +1077,12 @@ class _$_$FromClassInstanceFieldDeclarations
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -990,6 +1105,8 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1012,6 +1129,10 @@ class _$_$FromClassInstanceFieldDeclarations
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -1046,6 +1167,579 @@ abstract class _$FromClassInstanceFieldDeclarations implements TsIr {
   TsClassInstanceFieldDeclarations get tsClassInstanceFieldDeclarations;
   _$$FromClassInstanceFieldDeclarationsCopyWith<
       _$FromClassInstanceFieldDeclarations> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsClassMethodInjectionFieldDeclarationsCopyWith<$Res> {
+  factory _$$FromTsClassMethodInjectionFieldDeclarationsCopyWith(
+          _$FromTsClassMethodInjectionFieldDeclarations value,
+          $Res Function(_$FromTsClassMethodInjectionFieldDeclarations) then) =
+      __$$FromTsClassMethodInjectionFieldDeclarationsCopyWithImpl<$Res>;
+  $Res call(
+      {TsClassMethodInjectionFieldDeclarations
+          tsClassMethodInjectionFieldDeclarations});
+}
+
+/// @nodoc
+class __$$FromTsClassMethodInjectionFieldDeclarationsCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsClassMethodInjectionFieldDeclarationsCopyWith<$Res> {
+  __$$FromTsClassMethodInjectionFieldDeclarationsCopyWithImpl(
+      _$FromTsClassMethodInjectionFieldDeclarations _value,
+      $Res Function(_$FromTsClassMethodInjectionFieldDeclarations) _then)
+      : super(_value,
+            (v) => _then(v as _$FromTsClassMethodInjectionFieldDeclarations));
+
+  @override
+  _$FromTsClassMethodInjectionFieldDeclarations get _value =>
+      super._value as _$FromTsClassMethodInjectionFieldDeclarations;
+
+  @override
+  $Res call({
+    Object tsClassMethodInjectionFieldDeclarations = freezed,
+  }) {
+    return _then(_$FromTsClassMethodInjectionFieldDeclarations(
+      tsClassMethodInjectionFieldDeclarations:
+          tsClassMethodInjectionFieldDeclarations == freezed
+              ? _value.tsClassMethodInjectionFieldDeclarations
+              : tsClassMethodInjectionFieldDeclarations
+                  as TsClassMethodInjectionFieldDeclarations,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromTsClassMethodInjectionFieldDeclarations
+    implements _$FromTsClassMethodInjectionFieldDeclarations {
+  _$_$FromTsClassMethodInjectionFieldDeclarations(
+      {@required this.tsClassMethodInjectionFieldDeclarations})
+      : assert(tsClassMethodInjectionFieldDeclarations != null);
+
+  @override
+  final TsClassMethodInjectionFieldDeclarations
+      tsClassMethodInjectionFieldDeclarations;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsClassMethodInjectionFieldDeclarations(tsClassMethodInjectionFieldDeclarations: $tsClassMethodInjectionFieldDeclarations)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsClassMethodInjectionFieldDeclarations &&
+            (identical(other.tsClassMethodInjectionFieldDeclarations,
+                    tsClassMethodInjectionFieldDeclarations) ||
+                const DeepCollectionEquality().equals(
+                    other.tsClassMethodInjectionFieldDeclarations,
+                    tsClassMethodInjectionFieldDeclarations)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality()
+          .hash(tsClassMethodInjectionFieldDeclarations);
+
+  @override
+  _$$FromTsClassMethodInjectionFieldDeclarationsCopyWith<
+          _$FromTsClassMethodInjectionFieldDeclarations>
+      get copyWith =>
+          __$$FromTsClassMethodInjectionFieldDeclarationsCopyWithImpl<
+              _$FromTsClassMethodInjectionFieldDeclarations>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsClassMethodInjectionFieldDeclarations(
+        tsClassMethodInjectionFieldDeclarations);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassMethodInjectionFieldDeclarations != null) {
+      return fromTsClassMethodInjectionFieldDeclarations(
+          tsClassMethodInjectionFieldDeclarations);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsClassMethodInjectionFieldDeclarations(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassMethodInjectionFieldDeclarations != null) {
+      return fromTsClassMethodInjectionFieldDeclarations(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsClassMethodInjectionFieldDeclarations implements TsIr {
+  factory _$FromTsClassMethodInjectionFieldDeclarations(
+          {@required
+              TsClassMethodInjectionFieldDeclarations
+                  tsClassMethodInjectionFieldDeclarations}) =
+      _$_$FromTsClassMethodInjectionFieldDeclarations;
+
+  TsClassMethodInjectionFieldDeclarations
+      get tsClassMethodInjectionFieldDeclarations;
+  _$$FromTsClassMethodInjectionFieldDeclarationsCopyWith<
+      _$FromTsClassMethodInjectionFieldDeclarations> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsClassMethodInjectionFieldNameCopyWith<$Res> {
+  factory _$$FromTsClassMethodInjectionFieldNameCopyWith(
+          _$FromTsClassMethodInjectionFieldName value,
+          $Res Function(_$FromTsClassMethodInjectionFieldName) then) =
+      __$$FromTsClassMethodInjectionFieldNameCopyWithImpl<$Res>;
+  $Res call({TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName});
+}
+
+/// @nodoc
+class __$$FromTsClassMethodInjectionFieldNameCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsClassMethodInjectionFieldNameCopyWith<$Res> {
+  __$$FromTsClassMethodInjectionFieldNameCopyWithImpl(
+      _$FromTsClassMethodInjectionFieldName _value,
+      $Res Function(_$FromTsClassMethodInjectionFieldName) _then)
+      : super(_value, (v) => _then(v as _$FromTsClassMethodInjectionFieldName));
+
+  @override
+  _$FromTsClassMethodInjectionFieldName get _value =>
+      super._value as _$FromTsClassMethodInjectionFieldName;
+
+  @override
+  $Res call({
+    Object tsClassMethodInjectionFieldName = freezed,
+  }) {
+    return _then(_$FromTsClassMethodInjectionFieldName(
+      tsClassMethodInjectionFieldName: tsClassMethodInjectionFieldName ==
+              freezed
+          ? _value.tsClassMethodInjectionFieldName
+          : tsClassMethodInjectionFieldName as TsClassMethodInjectionFieldName,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromTsClassMethodInjectionFieldName
+    implements _$FromTsClassMethodInjectionFieldName {
+  _$_$FromTsClassMethodInjectionFieldName(
+      {@required this.tsClassMethodInjectionFieldName})
+      : assert(tsClassMethodInjectionFieldName != null);
+
+  @override
+  final TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsClassMethodInjectionFieldName(tsClassMethodInjectionFieldName: $tsClassMethodInjectionFieldName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsClassMethodInjectionFieldName &&
+            (identical(other.tsClassMethodInjectionFieldName,
+                    tsClassMethodInjectionFieldName) ||
+                const DeepCollectionEquality().equals(
+                    other.tsClassMethodInjectionFieldName,
+                    tsClassMethodInjectionFieldName)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsClassMethodInjectionFieldName);
+
+  @override
+  _$$FromTsClassMethodInjectionFieldNameCopyWith<
+          _$FromTsClassMethodInjectionFieldName>
+      get copyWith => __$$FromTsClassMethodInjectionFieldNameCopyWithImpl<
+          _$FromTsClassMethodInjectionFieldName>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsClassMethodInjectionFieldName(tsClassMethodInjectionFieldName);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassMethodInjectionFieldName != null) {
+      return fromTsClassMethodInjectionFieldName(
+          tsClassMethodInjectionFieldName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    return fromTsClassMethodInjectionFieldName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassMethodInjectionFieldName != null) {
+      return fromTsClassMethodInjectionFieldName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsClassMethodInjectionFieldName implements TsIr {
+  factory _$FromTsClassMethodInjectionFieldName(
+          {@required
+              TsClassMethodInjectionFieldName
+                  tsClassMethodInjectionFieldName}) =
+      _$_$FromTsClassMethodInjectionFieldName;
+
+  TsClassMethodInjectionFieldName get tsClassMethodInjectionFieldName;
+  _$$FromTsClassMethodInjectionFieldNameCopyWith<
+      _$FromTsClassMethodInjectionFieldName> get copyWith;
 }
 
 /// @nodoc
@@ -1123,6 +1817,13 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -1153,6 +1854,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1175,6 +1878,11 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -1214,6 +1922,12 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -1236,6 +1950,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1258,6 +1974,10 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -1364,6 +2084,13 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -1394,6 +2121,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1416,6 +2145,11 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -1455,6 +2189,12 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -1477,6 +2217,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1499,6 +2241,10 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -1619,6 +2365,13 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -1649,6 +2402,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1672,6 +2427,11 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -1712,6 +2472,12 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -1734,6 +2500,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1756,6 +2524,10 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -1860,6 +2632,13 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -1890,6 +2669,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1912,6 +2693,11 @@ class _$_$FromTsEnum implements _$FromTsEnum {
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -1951,6 +2737,12 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -1973,6 +2765,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -1995,6 +2789,10 @@ class _$_$FromTsEnum implements _$FromTsEnum {
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -2098,6 +2896,13 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -2128,6 +2933,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -2150,6 +2957,11 @@ class _$_$FromTsInterface implements _$FromTsInterface {
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -2189,6 +3001,12 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -2211,6 +3029,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -2233,6 +3053,10 @@ class _$_$FromTsInterface implements _$FromTsInterface {
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -2342,6 +3166,13 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -2372,6 +3203,8 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -2394,6 +3227,11 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -2433,6 +3271,12 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -2455,6 +3299,8 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -2477,6 +3323,10 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -2600,6 +3450,13 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -2630,6 +3487,8 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -2652,6 +3511,11 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -2691,6 +3555,12 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -2713,6 +3583,8 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -2735,6 +3607,10 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -2871,6 +3747,13 @@ class _$_$FromTsFunctionInvocationNamedParameters
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -2901,6 +3784,8 @@ class _$_$FromTsFunctionInvocationNamedParameters
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -2924,6 +3809,11 @@ class _$_$FromTsFunctionInvocationNamedParameters
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -2964,6 +3854,12 @@ class _$_$FromTsFunctionInvocationNamedParameters
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -2986,6 +3882,8 @@ class _$_$FromTsFunctionInvocationNamedParameters
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -3008,6 +3906,10 @@ class _$_$FromTsFunctionInvocationNamedParameters
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -3157,6 +4059,13 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -3187,6 +4096,8 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -3210,6 +4121,11 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -3250,6 +4166,12 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -3272,6 +4194,8 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -3294,6 +4218,10 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -3438,6 +4366,13 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     @required
@@ -3468,6 +4403,8 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -3491,6 +4428,11 @@ class _$_$TsFunctionInvocationNamedParametersSpread
         TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
     Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
     Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
     Result fromTsClassStaticConstFieldDeclarations(
@@ -3531,6 +4473,12 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
     @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
     @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
     @required
@@ -3553,6 +4501,8 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
@@ -3575,6 +4525,10 @@ class _$_$TsFunctionInvocationNamedParametersSpread
         _$FromTsClassDefaultConstructorProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
     Result fromTsClassPostamble(_$FromTsClassPostamble value),
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(

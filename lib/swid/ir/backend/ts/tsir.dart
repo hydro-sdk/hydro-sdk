@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorProps.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldDeclarations.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
@@ -32,6 +34,16 @@ abstract class TsIr with _$TsIr {
               TsClassInstanceFieldDeclarations
                   tsClassInstanceFieldDeclarations}) =
       _$FromClassInstanceFieldDeclarations;
+  factory TsIr.fromTsClassMethodInjectionFieldDeclarations(
+          {@required
+              TsClassMethodInjectionFieldDeclarations
+                  tsClassMethodInjectionFieldDeclarations}) =
+      _$FromTsClassMethodInjectionFieldDeclarations;
+  factory TsIr.fromTsClassMethodInjectionFieldName(
+          {@required
+              TsClassMethodInjectionFieldName
+                  tsClassMethodInjectionFieldName}) =
+      _$FromTsClassMethodInjectionFieldName;
   factory TsIr.fromTsClassPostamble(
       {@required TsClassPostamble tsClassPostamble}) = _$FromTsClassPostamble;
   factory TsIr.fromTsClassPreamble(
@@ -72,6 +84,8 @@ extension TsIrMethods on TsIr {
         fromTsClassConstructorImplementation: (val) => val.toTsSource(),
         fromTsClassDefaultConstructorProps: (val) => val.toTsSource(),
         fromTsClassInstanceFieldDeclarations: (val) => val.toTsSource(),
+        fromTsClassMethodInjectionFieldDeclarations: (val) => val.toTsSource(),
+        fromTsClassMethodInjectionFieldName: (val) => val.toTsSource(),
         fromTsClassPostamble: (val) => val.toTsSource(),
         fromTsClassPreamble: (val) => val.toTsSource(),
         fromTsClassStaticConstFieldDeclarations: (val) => val.toTsSource(),
