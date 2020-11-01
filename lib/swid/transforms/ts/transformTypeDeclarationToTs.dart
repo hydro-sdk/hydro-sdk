@@ -7,6 +7,7 @@ import 'package:meta/meta.dart';
 String transformTypeDeclarationToTs({
   @required SwidType swidType,
   bool emitTrailingReturnType = true,
+  bool emitDefaultFormalsAsOptionalNamed = false,
 }) =>
     transformPrimitiveNamesToTs(swidType: swidType).when(
         fromSwidInterface: (val) => val.name,
@@ -15,6 +16,8 @@ String transformTypeDeclarationToTs({
         fromSwidFunctionType: (val) => transformFunctionTypeToTs(
               swidFunctionType: val,
               emitTrailingReturnType: emitTrailingReturnType,
+              emitDefaultFormalsAsOptionalNamed:
+                  emitDefaultFormalsAsOptionalNamed,
             )) +
     (swidType.nullabilitySuffix == SwidNullabilitySuffix.question
         ? " | undefined"

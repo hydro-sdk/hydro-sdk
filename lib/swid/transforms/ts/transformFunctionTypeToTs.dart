@@ -9,6 +9,7 @@ import 'package:meta/meta.dart';
 String transformFunctionTypeToTs({
   @required SwidFunctionType swidFunctionType,
   bool emitTrailingReturnType = true,
+  bool emitDefaultFormalsAsOptionalNamed = false,
 }) {
   var res = "(";
 
@@ -60,7 +61,7 @@ String transformFunctionTypeToTs({
 
     swidFunctionType.namedParameterTypes.entries.forEach((x) {
       res +=
-          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""} : ${transformTypeDeclarationToTs(swidType: x.value)}, ";
+          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question || (emitDefaultFormalsAsOptionalNamed && swidFunctionType.namedDefaults[x.key] != null) ? "?" : ""} : ${transformTypeDeclarationToTs(swidType: x.value)}, ";
     });
     res += "}";
   }

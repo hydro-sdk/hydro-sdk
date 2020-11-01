@@ -20,6 +20,7 @@ class TsClassConstructorImplementation {
       "public constructor" +
       transformTypeDeclarationToTs(
           emitTrailingReturnType: false,
+          emitDefaultFormalsAsOptionalNamed: true,
           swidType: SwidType.fromSwidFunctionType(
               swidFunctionType: swidClass.constructorType)) +
       "{\n" +
