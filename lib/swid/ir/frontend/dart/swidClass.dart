@@ -50,5 +50,5 @@ abstract class SwidClass with _$SwidClass {
           staticConstFieldDeclarations: staticConstFieldDeclarations ??
               List.from(swidClass.staticConstFieldDeclarations ?? []),
           instanceFieldDeclarations: instanceFieldDeclarations ??
-              List.from(swidClass.instanceFieldDeclarations ?? []));
+              Map.from(swidClass.instanceFieldDeclarations ?? {}));
 }
