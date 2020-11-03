@@ -10,6 +10,7 @@ import 'package:code_builder/code_builder.dart'
         refer;
 import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:meta/meta.dart';
 
 class RTManagedClassDeclaration {
@@ -52,6 +53,22 @@ class RTManagedClassDeclaration {
                           fromSwidClass: (val) => val.name,
                           fromSwidDefaultFormalParameter: (val) => val.name,
                           fromSwidFunctionType: (val) => val.name))))
+              ?.toList() ??
+          [])
+      ..optionalParameters.addAll(swidClass
+              .constructorType.namedParameterTypes.entries
+              .map((x) => MapEntry(x.key,
+                  removeNullabilitySuffixFromTypeNames(swidType: x.value)))
+              .toList()
+              .map((x) => Parameter((k) => k
+                ..name = x.key
+                ..type = TypeReference((i) => i
+                  ..symbol = x.value.when(
+                      fromSwidInterface: (val) => val.name,
+                      fromSwidClass: (val) => val.name,
+                      fromSwidDefaultFormalParameter: (val) => val.name,
+                      fromSwidFunctionType: (val) => val.name))
+                ..named = true))
               ?.toList() ??
           [])
       ..optionalParameters.addAll([
