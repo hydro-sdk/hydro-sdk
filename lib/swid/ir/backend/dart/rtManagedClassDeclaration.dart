@@ -7,7 +7,12 @@ import 'package:code_builder/code_builder.dart'
         FieldModifier,
         Parameter,
         TypeReference,
-        refer;
+        refer,
+        literalString,
+        literalList,
+        Method,
+        Block,
+        Code;
 import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
@@ -82,5 +87,42 @@ class RTManagedClassDeclaration {
           ..toThis = true
           ..named = true
           ..name = "hydroState")
+      ])
+      ..initializers.addAll([
+        Code("super(" +
+            swidClass.constructorType.normalParameterNames
+                .map((e) => e)
+                .toList()
+                .join(",") +
+            (swidClass.constructorType.normalParameterNames.length >= 1
+                ? ","
+                : "") +
+            swidClass.constructorType.namedParameterTypes.entries
+                .map((e) => e.key + ": " + e.key)
+                .toList()
+                .join(",") +
+            ")")
+      ])
+      ..body = Block.of([
+        refer("table")
+            .index(literalString("vmObject"))
+            .assign(refer("vmObject"))
+            .statement,
+        refer("table")
+            .index(literalString("unwrap"))
+            .assign(refer("makeLuaDartFunc").call([], {
+              "func": Method((x) => x
+                ..requiredParameters.addAll([
+                  Parameter((i) => i
+                    ..name = "args"
+                    ..type = TypeReference(((j) => j
+                      ..symbol = "List"
+                      ..types.add(refer("dynamic")))))
+                ])
+                ..body = Block.of([
+                  literalList([refer("unwrap").call([])]).returned.statement,
+                ])).closure
+            }))
+            .statement
       ])))).accept(DartEmitter()).toString());
 }
