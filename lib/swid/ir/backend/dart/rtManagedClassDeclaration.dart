@@ -16,6 +16,7 @@ import 'package:code_builder/code_builder.dart'
 import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
+import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
 import 'package:meta/meta.dart';
 
 class RTManagedClassDeclaration {
@@ -123,6 +124,38 @@ class RTManagedClassDeclaration {
                   literalList([refer("unwrap").call([])]).returned.statement,
                 ])).closure
             }))
-            .statement
-      ])))).accept(DartEmitter()).toString());
+            .statement,
+        ...(swidClass.methods
+                .where((x) => x.name != "==")
+                .map((x) => refer("table")
+                    .index(literalString(
+                        methodInjectionFieldName(swidFunctionType: x)))
+                    .assign(refer("makeLuaDartFunc").call([], {
+                      "func": Method((k) => k
+                        ..requiredParameters.addAll([
+                          Parameter((i) => i
+                            ..name = "args"
+                            ..type = TypeReference(((j) => j
+                              ..symbol = "List"
+                              ..types.add(refer("dynamic")))))
+                        ])
+                        ..body = Block.of([
+                          Code("return [super.${x.name}()];"),
+                        ])).closure
+                    })))
+                .toList())
+      ])))
+    ..methods.addAll(swidClass.methods
+            .where((x) => x.name != "==")
+            .map((x) => Method((k) => k
+              ..annotations.add(refer("override"))
+              ..name = x.name
+              ..returns = refer(x.returnType.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
+              ..body = Block.of([
+                Code("Closure closure = table[\"${x.name}\"];"),
+                Code(
+                    "return closure.dispatch([table],parentState: hydroState)[0];"),
+              ])))
+            ?.toList() ??
+        [])).accept(DartEmitter()).toString());
 }

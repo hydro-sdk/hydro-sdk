@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
 import 'package:meta/meta.dart';
 
 class TsClassMethodInjectionFieldName {
@@ -6,5 +7,6 @@ class TsClassMethodInjectionFieldName {
 
   TsClassMethodInjectionFieldName({@required this.swidFunctionType});
 
-  String toTsSource() => "_dart_${swidFunctionType.name}";
+  String toTsSource() =>
+      methodInjectionFieldName(swidFunctionType: swidFunctionType);
 }
