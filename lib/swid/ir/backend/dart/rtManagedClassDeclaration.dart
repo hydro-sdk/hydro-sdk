@@ -126,24 +126,25 @@ class RTManagedClassDeclaration {
             }))
             .statement,
         ...(swidClass.methods
-                .where((x) => x.name != "==")
-                .map((x) => refer("table")
-                    .index(literalString(
-                        methodInjectionFieldName(swidFunctionType: x)))
-                    .assign(refer("makeLuaDartFunc").call([], {
-                      "func": Method((k) => k
-                        ..requiredParameters.addAll([
-                          Parameter((i) => i
-                            ..name = "args"
-                            ..type = TypeReference(((j) => j
-                              ..symbol = "List"
-                              ..types.add(refer("dynamic")))))
-                        ])
-                        ..body = Block.of([
-                          Code("return [super.${x.name}()];"),
-                        ])).closure
-                    })))
-                .toList())
+            .where((x) => x.name != "==")
+            .map((x) => refer("table")
+                .index(literalString(
+                    methodInjectionFieldName(swidFunctionType: x)))
+                .assign(refer("makeLuaDartFunc").call([], {
+                  "func": Method((k) => k
+                    ..requiredParameters.addAll([
+                      Parameter((i) => i
+                        ..name = "args"
+                        ..type = TypeReference(((j) => j
+                          ..symbol = "List"
+                          ..types.add(refer("dynamic")))))
+                    ])
+                    ..body = Block.of([
+                      Code("return [super.${x.name}()];"),
+                    ])).closure
+                }))
+                .statement)
+            .toList())
       ])))
     ..methods.addAll(swidClass.methods
             .where((x) => x.name != "==")
