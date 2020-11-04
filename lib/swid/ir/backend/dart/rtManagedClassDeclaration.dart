@@ -11,6 +11,7 @@ import 'package:code_builder/code_builder.dart'
         literalString,
         literalList,
         Method,
+        MethodType,
         Block,
         Code;
 import 'package:dart_style/dart_style.dart';
@@ -146,6 +147,17 @@ class RTManagedClassDeclaration {
                 .statement)
             .toList())
       ])))
+    ..methods.addAll([
+      Method((k) => k
+        ..name = "unwrap"
+        ..returns = refer(swidClass.name)
+        ..body = refer("this").code),
+      Method((k) => k
+        ..name = "vmObject"
+        ..type = MethodType.getter
+        ..returns = refer(swidClass.name)
+        ..body = refer("this").code)
+    ])
     ..methods.addAll(swidClass.methods
             .where((x) => x.name != "==")
             .map((x) => Method((k) => k
