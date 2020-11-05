@@ -15,6 +15,7 @@ import 'package:code_builder/code_builder.dart'
         Block,
         Code;
 import 'package:dart_style/dart_style.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
@@ -131,19 +132,10 @@ class RTManagedClassDeclaration {
             .map((x) => refer("table")
                 .index(literalString(
                     methodInjectionFieldName(swidFunctionType: x)))
-                .assign(refer("makeLuaDartFunc").call([], {
-                  "func": Method((k) => k
-                    ..requiredParameters.addAll([
-                      Parameter((i) => i
-                        ..name = "args"
-                        ..type = TypeReference(((j) => j
-                          ..symbol = "List"
-                          ..types.add(refer("dynamic")))))
-                    ])
-                    ..body = Block.of([
-                      Code("return [super.${x.name}()];"),
-                    ])).closure
-                }))
+                .assign(luaDartBinding(
+                    code: Block.of([
+                  Code("return [super.${x.name}()];"),
+                ])))
                 .statement)
             .toList())
       ])))
