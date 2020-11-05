@@ -154,6 +154,11 @@ class RTManagedClassDeclaration {
             .where((x) => x.name != "==")
             .map((x) => Method((k) => k
               ..annotations.add(refer("override"))
+              ..type = x.swidDeclarationModifiers.isGetter
+                  ? MethodType.getter
+                  : x.swidDeclarationModifiers.isSetter
+                      ? MethodType.setter
+                      : null
               ..name = x.name
               ..returns = refer(x.returnType.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
               ..body = Block.of([

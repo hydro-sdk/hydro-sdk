@@ -21,9 +21,10 @@ void loadIconData(
     return [
       RTManagedIconData(args[1],
           table: args[0],
-          fontFamily: args[2[\'fontFamily\']],
-          fontPackage: args[2[\'fontPackage\']],
-          matchTextDirection: args[2[\'matchTextDirection\']])
+          hydroState: hydroState,
+          fontFamily: args[2][\'fontFamily\'],
+          fontPackage: args[2][\'fontPackage\'],
+          matchTextDirection: args[2][\'matchTextDirection\'])
     ];
   });
 }

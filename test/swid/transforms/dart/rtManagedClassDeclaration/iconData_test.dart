@@ -44,7 +44,7 @@ class RTManagedIconData extends IconData implements Box<IconData> {
   IconData unwrap() => this;
   IconData get vmObject => this;
   @override
-  int hashCode() {
+  int get hashCode {
     Closure closure = table["hashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

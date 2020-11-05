@@ -57,16 +57,18 @@ class LoadNamespaceSymbolDeclaration {
                   swidClass.constructorType.namedParameterTypes.isNotEmpty
                       ? Map.fromEntries([
                           MapEntry("table", refer("args").index(literalNum(0))),
+                          MapEntry("hydroState", refer("hydroState")),
                           ...(swidClass
                               .constructorType.namedParameterTypes.entries
                               .map((x) => MapEntry(
                                   x.key,
-                                  refer("args").index(literalNum(swidClass
+                                  refer("args")
+                                      .index(literalNum(swidClass
                                               .constructorType
                                               .normalParameterNames
                                               .length +
-                                          1)
-                                      .index(literalString(x.key)))))),
+                                          1))
+                                      .index(literalString(x.key))))),
                         ])
                       : {})
             ]).returned.statement
