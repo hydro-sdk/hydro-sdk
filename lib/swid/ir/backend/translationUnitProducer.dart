@@ -1,3 +1,7 @@
+import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorProps.dart';
@@ -69,6 +73,19 @@ class TranslationUnitProducer {
                       TsClassMethodDeclarations(swidClass: swidClass)),
               TsIr.fromTsClassPostamble(
                   tsClassPostamble: TsClassPostamble(swidClass: swidClass))
-            ])
+            ]),
+        DartTranslationUnit(
+          path: dartPrefixPaths.join(p.separator) + p.separator + path,
+          fileName: "$baseFileName.dart",
+          ir: [
+            DartIr.fromRTManagedClassDeclaration(
+              rtManagedClassDeclaration:
+                  RTManagedClassDeclaration(swidClass: swidClass),
+            ),
+            DartIr.fromLoadNamepsaceSymbolDeclaration(
+                loadNamespaceSymbolDeclaration:
+                    LoadNamespaceSymbolDeclaration(swidClass: swidClass))
+          ],
+        ),
       ];
 }

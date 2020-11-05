@@ -31,7 +31,7 @@ void main() async {
         ),
         baseFileName: "${transformToCamelCase(str: visitor.classes[i].name)}",
         tsPrefixPaths: ["runtime"],
-        dartPrefixPaths: [],
+        dartPrefixPaths: ["lib", "cfr", "builtins", "libs"],
       )
           .produceFromSwidClass(swidClass: visitor.classes[i])
           ?.forEach((x) => writeTranslationUnit(translationUnit: x));
