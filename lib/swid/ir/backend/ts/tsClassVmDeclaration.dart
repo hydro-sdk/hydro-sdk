@@ -39,19 +39,20 @@ class TsClassVmDeclaration {
             ])
           : tsVmDeclaration;
 
-  String toTsSource() => swidClass
-              .constructorType.swidDeclarationModifiers.isPublic &&
-          swidClass.constructorType.name.isNotEmpty
+  String toTsSource() => swidClass.instanceFieldDeclarations.entries.isNotEmpty ||
+          swidClass.methods.isNotEmpty
       ? transformVmDeclarationToTs(
-              tsVmDeclaration: transformPackageUri(
-                      packageUri: swidClass.originalPackagePath)
+              tsVmDeclaration: transformPackageUri(packageUri: swidClass.originalPackagePath)
                   .split(path.separator)
                   .map((x) =>
                       TsVmDeclaration(name: x, methods: [], children: []))
                   .reduce((previousValue, element) => TsVmDeclaration.clone(
-                      tsVmDeclaration: _addConstructorBindingDeclarations(
-                          tsVmDeclaration: previousValue),
-                      children: [_addConstructorBindingDeclarations(tsVmDeclaration: element)]))) +
+                          tsVmDeclaration: _addConstructorBindingDeclarations(
+                              tsVmDeclaration: previousValue),
+                          children: [
+                            _addConstructorBindingDeclarations(
+                                tsVmDeclaration: element)
+                          ]))) +
           ";\n"
       : "";
 }

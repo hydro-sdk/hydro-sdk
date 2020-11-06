@@ -17,6 +17,13 @@ declare const flutter: {
 widgets: {
 iconData: (this : void, iconData : IconData, codePoint : number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IconData
 }
-}""");
+};
+""");
+
+    var cupertinoIconsClass = SwidClass.fromJson(json.decode(
+        File("../test/swid/res/CupertinoIcons.json").readAsStringSync()));
+
+    expect(
+        TsClassVmDeclaration(swidClass: cupertinoIconsClass).toTsSource(), "");
   });
 }
