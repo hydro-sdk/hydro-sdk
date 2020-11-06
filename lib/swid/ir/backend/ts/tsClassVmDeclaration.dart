@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsVmDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -39,20 +40,21 @@ class TsClassVmDeclaration {
             ])
           : tsVmDeclaration;
 
-  String toTsSource() => swidClass.instanceFieldDeclarations.entries.isNotEmpty ||
-          swidClass.methods.isNotEmpty
+  String toTsSource() => requiresDartBinding(swidClass: swidClass)
       ? transformVmDeclarationToTs(
-              tsVmDeclaration: transformPackageUri(packageUri: swidClass.originalPackagePath)
-                  .split(path.separator)
-                  .map((x) =>
-                      TsVmDeclaration(name: x, methods: [], children: []))
-                  .reduce((previousValue, element) => TsVmDeclaration.clone(
-                          tsVmDeclaration: _addConstructorBindingDeclarations(
-                              tsVmDeclaration: previousValue),
-                          children: [
-                            _addConstructorBindingDeclarations(
-                                tsVmDeclaration: element)
-                          ]))) +
+              tsVmDeclaration:
+                  transformPackageUri(packageUri: swidClass.originalPackagePath)
+                      .split(path.separator)
+                      .map((x) =>
+                          TsVmDeclaration(name: x, methods: [], children: []))
+                      .reduce((previousValue, element) => TsVmDeclaration.clone(
+                              tsVmDeclaration:
+                                  _addConstructorBindingDeclarations(
+                                      tsVmDeclaration: previousValue),
+                              children: [
+                                _addConstructorBindingDeclarations(
+                                    tsVmDeclaration: element)
+                              ]))) +
           ";\n"
       : "";
 }
