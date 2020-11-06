@@ -7,7 +7,7 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidLiteral.dart';
+import 'package:hydro_sdk/swid/ir/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/dart/swidStringLiteral.dart';
 import 'package:meta/meta.dart';
@@ -20,7 +20,7 @@ abstract class SwidStaticConstFieldDeclaration
     with _$SwidStaticConstFieldDeclaration {
   factory SwidStaticConstFieldDeclaration({
     @required String name,
-    @required @nullable SwidLiteral value,
+    @required @nullable SwidStaticConst value,
   }) = _$Data;
 
   factory SwidStaticConstFieldDeclaration.fromJson(Map<String, dynamic> json) =>
@@ -43,7 +43,7 @@ abstract class SwidStaticConstFieldDeclaration
         name: declaration.declaredElement.name,
         value: declaration.childEntities.firstWhere((x) => x is InstanceCreationExpression, orElse: () => null) !=
                 null
-            ? SwidLiteral.fromSwidStaticConstFunctionInvocation(
+            ? SwidStaticConst.fromSwidStaticConstFunctionInvocation(
                 staticConstFunctionInvocation:
                     SwidStaticConstFunctionInvocation.fromInstanceCreationExpression(
                         instanceCreationExpression: declaration.childEntities
@@ -51,7 +51,7 @@ abstract class SwidStaticConstFieldDeclaration
                                 orElse: () => null)))
             : declaration.childEntities.firstWhere((x) => x is SimpleStringLiteral, orElse: () => null) !=
                     null
-                ? SwidLiteral.fromSwidStringLiteral(
+                ? SwidStaticConst.fromSwidStringLiteral(
                     swidStringLiteral: SwidStringLiteral.fromSimpleStringLiteral(
                         simpleStringLiteral: declaration.childEntities
                             .firstWhere((x) => x is SimpleStringLiteral, orElse: () => null)))

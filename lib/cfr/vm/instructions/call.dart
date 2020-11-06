@@ -23,7 +23,8 @@ ThreadResult call(
     if (res.resumeTo != null) return res;
     frame.loadReturns(res.values);
   } else {
-    var ret = frame.thread.attemptCall(x, args);
+    var ret = frame.thread
+        .attemptCall(x, args: args, hydroState: frame.context.hydroState);
     frame.loadReturns(ret);
   }
 
