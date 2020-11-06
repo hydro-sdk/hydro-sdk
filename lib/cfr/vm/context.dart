@@ -97,9 +97,10 @@ class Context {
     return null;
   }
 
-  static dynamic getLength(dynamic x) {
+  static dynamic getLength(dynamic x, {@required HydroState hydroState}) {
     if (hasMetamethod(x, "__len")) {
-      return maybeAt(invokeMetamethod(x, "__len", [x]), 0);
+      return maybeAt(
+          invokeMetamethod(x, "__len", [x], parentState: hydroState), 0);
     } else if (x is HydroTable) {
       return x.length;
     } else if (x is String) {
@@ -164,13 +165,16 @@ class Context {
     return x.toString().replaceFirst(new RegExp(r"\.0$"), "");
   }
 
-  static String luaToString(dynamic x) {
+  static String luaToString(dynamic x, {@required HydroState hydroState}) {
     if (x == null) {
       return "nil";
     } else if (x is num) {
       return numToString(x);
     } else if (hasMetamethod(x, "__tostring")) {
-      return maybeAt(invokeMetamethod(x, "__tostring", [x]), 0);
+      var res = maybeAt(
+          invokeMetamethod(x, "__tostring", [x], parentState: hydroState), 0);
+
+      return res;
     } else if (x is String) {
       return x;
     } else if (x is bool) {
@@ -206,13 +210,13 @@ class Context {
     "until",
   ];
 
-  static String luaSerialize(dynamic x) {
+  static String luaSerialize(dynamic x, {@required HydroState hydroState}) {
     if (x is String)
       return "\"${luaEscape(x)}\"";
     else if (x is HydroTable) {
       var o = "{";
       for (var e in x.arr) {
-        o += luaSerialize(e) + ",";
+        o += luaSerialize(e, hydroState: hydroState) + ",";
       }
 
       for (var k in x.map.keys) {
@@ -221,36 +225,47 @@ class Context {
             !keywords.contains(k)) {
           o += "$k = ";
         } else {
-          o += "[${luaSerialize(k)}] = ";
+          o += "[${luaSerialize(k, hydroState: hydroState)}] = ";
         }
-        o += "${luaSerialize(x)},";
+        o += "${luaSerialize(x, hydroState: hydroState)},";
       }
 
       if (o.endsWith(",")) o = o.substring(0, o.length - 1);
       return "$o}";
     } else
-      return luaToString(x);
+      return luaToString(x, hydroState: hydroState);
   }
 
-  static dynamic luaConcat(dynamic x, dynamic y) {
+  static dynamic luaConcat(dynamic x, dynamic y,
+      {@required HydroState hydroState}) {
     if (hasMetamethod(x, "__concat")) {
-      return maybeAt(invokeMetamethod(x, "__concat", [x, y]), 0);
+      return maybeAt(
+          invokeMetamethod(x, "__concat", [x, y], parentState: hydroState), 0);
     } else if (hasMetamethod(y, "__concat")) {
-      return maybeAt(invokeMetamethod(y, "__concat", [x, y]), 0);
+      return maybeAt(
+          invokeMetamethod(y, "__concat", [x, y], parentState: hydroState), 0);
     } else if (x is! num && x is! String) {
       throw "attempt to concatenate a ${getTypename(x)} value";
     } else if (y is! num && x is! String) {
       throw "attempt to concatenate a ${getTypename(y)} value";
     } else {
-      return luaToString(x) + luaToString(y);
+      return luaToString(x, hydroState: hydroState) +
+          luaToString(y, hydroState: hydroState);
     }
   }
 
   static List<dynamic> invokeMetamethod(
-      dynamic x, String name, List<dynamic> params) {
+    dynamic x,
+    String name,
+    List<dynamic> params, {
+    @required HydroState parentState,
+  }) {
     if (x is HydroTable) {
-      if (x.map[name] is! Closure) throw "attempt to call table value";
-      return x.map[name](params);
+      if (x.metatable.map[name] is! Closure)
+        throw "attempt to call table value";
+      var res =
+          x.metatable.map[name].dispatch(params, parentState: parentState);
+      return res;
     } else {
       throw "attempt to invoke metamethod on a ${getTypename(x)} value";
     }
@@ -262,11 +277,14 @@ class Context {
       x.metatable.map.containsKey(method);
 
   static dynamic attemptArithmetic(
-      dynamic x, dynamic y, String method, ArithCB op) {
+      dynamic x, dynamic y, String method, ArithCB op,
+      {@required HydroState hydroState}) {
     if (hasMetamethod(x, method)) {
-      return maybeAt(invokeMetamethod(x, method, [x, y]), 0);
+      return maybeAt(
+          invokeMetamethod(x, method, [x, y], parentState: hydroState), 0);
     } else if (hasMetamethod(y, method)) {
-      return maybeAt(invokeMetamethod(y, method, [x, y]), 0);
+      return maybeAt(
+          invokeMetamethod(y, method, [x, y], parentState: hydroState), 0);
     } else if (x is! num) {
       throw "attempt to perform arithmetic on a ${getTypename(x)} value";
     } else if (y is! num) {
@@ -276,9 +294,11 @@ class Context {
     }
   }
 
-  static num attemptUnary(dynamic x, String method, UArithCB op) {
+  static num attemptUnary(dynamic x, String method, UArithCB op,
+      {@required HydroState hydroState}) {
     if (hasMetamethod(x, method)) {
-      return maybeAt(invokeMetamethod(x, method, [x]), 0);
+      return maybeAt(
+          invokeMetamethod(x, method, [x], parentState: hydroState), 0);
     } else if (x is! num) {
       throw "attempt to perform arithmetic on a ${getTypename(x)} value";
     } else {
@@ -286,21 +306,24 @@ class Context {
     }
   }
 
-  static bool checkEQ(dynamic x, dynamic y) {
+  static bool checkEQ(dynamic x, dynamic y, {@required HydroState hydroState}) {
     if (hasMetamethod(x, "__eq") &&
         hasMetamethod(y, "__eq") &&
         (x as HydroTable).map["__eq"] == (y as HydroTable).map["__eq"]) {
-      return truthy(invokeMetamethod(x, "__eq", [x, y]));
+      return truthy(
+          invokeMetamethod(x, "__eq", [x, y], parentState: hydroState));
     } else {
       return x == y;
     }
   }
 
-  static bool checkLT(dynamic x, dynamic y) {
+  static bool checkLT(dynamic x, dynamic y, {@required HydroState hydroState}) {
     if (hasMetamethod(x, "__lt")) {
-      return maybeAt(invokeMetamethod(x, "__lt", [x, y]), 0);
+      return maybeAt(
+          invokeMetamethod(x, "__lt", [x, y], parentState: hydroState), 0);
     } else if (hasMetamethod(y, "__lt")) {
-      return maybeAt(invokeMetamethod(y, "__lt", [x, y]), 0);
+      return maybeAt(
+          invokeMetamethod(y, "__lt", [x, y], parentState: hydroState), 0);
     } else if (x is! num) {
       throw "attempt to compare ${getTypename(x)} with ${getTypename(y)}";
     } else if (y is! num) {
@@ -310,17 +333,19 @@ class Context {
     }
   }
 
-  static bool checkLE(dynamic x, dynamic y) {
+  static bool checkLE(dynamic x, dynamic y, {@required HydroState hydroState}) {
     if (hasMetamethod(x, "__le")) {
-      return maybeAt(invokeMetamethod(x, "__le", [x, y]), 0);
+      return maybeAt(
+          invokeMetamethod(x, "__le", [x, y], parentState: hydroState), 0);
     } else if (hasMetamethod(y, "__le")) {
-      return maybeAt(invokeMetamethod(y, "__le", [x, y]), 0);
+      return maybeAt(
+          invokeMetamethod(y, "__le", [x, y], parentState: hydroState), 0);
     } else if (x is! num) {
       throw "attempt to compare ${getTypename(x)} with ${getTypename(y)}";
     } else if (y is! num) {
       throw "attempt to compare ${getTypename(y)} with ${getTypename(x)}";
     } else {
-      return !checkLT(y, x);
+      return !checkLT(y, x, hydroState: hydroState);
     }
   }
 

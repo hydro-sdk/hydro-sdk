@@ -11,7 +11,7 @@ void concat(
     @required int C}) {
   var o = frame.GR(B);
   for (int i = B + 1; i <= C; i++) {
-    o = Context.luaConcat(o, frame.GR(i));
+    o = Context.luaConcat(o, frame.GR(i), hydroState: frame.context.hydroState);
   }
   frame.SR(A, o);
 }

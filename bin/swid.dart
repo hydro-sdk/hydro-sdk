@@ -23,7 +23,7 @@ void main() async {
   }
 
   for (var i = 0; i != visitor.classes.length; ++i) {
-    if (visitor.classes[i].name == "Icons") {
+    if (visitor.classes[i].name == "Icons" || visitor.classes[i].name == "CupertinoIcons") {
       await writeTsOutSource(
           prefixPaths: ["runtime"],
           tsOutSource: TsOutSource(

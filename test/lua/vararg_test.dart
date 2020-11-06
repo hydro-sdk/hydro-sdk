@@ -11,8 +11,9 @@ void main() {
     List<String> outLines = [];
 
     state.context.env["print"] = (List<dynamic> args) {
-      outLines
-          .add(args.map((a) => Context.luaToString(a).toString()).join("\t"));
+      outLines.add(args
+          .map((a) => Context.luaToString(a, hydroState: state).toString())
+          .join("\t"));
     };
 
     List<String> expectedOutLines = ["0", "4", "2", "1", "6"];

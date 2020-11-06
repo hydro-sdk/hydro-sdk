@@ -21,7 +21,8 @@ ThreadResult tailcall(
     f.loadArgs(args);
     return f.cont();
   } else {
-    var ret = frame.thread.attemptCall(frame.GR(A), args);
+    var ret = frame.thread.attemptCall(frame.GR(A),
+        args: args, hydroState: frame.context.hydroState);
     return ThreadResult(true, ret);
   }
 }

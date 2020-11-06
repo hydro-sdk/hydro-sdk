@@ -12,5 +12,7 @@ void instPow(
     @required int B,
     @required int C}) {
   frame.SR(
-      A, Context.attemptArithmetic(frame.RK(B), frame.RK(C), "__pow", pow));
+      A,
+      Context.attemptArithmetic(frame.RK(B), frame.RK(C), "__pow", pow,
+          hydroState: frame.context.hydroState));
 }

@@ -9,7 +9,9 @@ void le(
     @required int A,
     @required int B,
     @required int C}) {
-  if (Context.checkLE(frame.RK(B), frame.RK(C)) == (A != 0)) {
+  if (Context.checkLE(frame.RK(B), frame.RK(C),
+          hydroState: frame.context.hydroState) ==
+      (A != 0)) {
     frame.programCounter += frame.getNextJump() + 1;
   } else {
     frame.programCounter++;

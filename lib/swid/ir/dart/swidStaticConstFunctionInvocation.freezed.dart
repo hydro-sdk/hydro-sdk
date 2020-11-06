@@ -20,8 +20,8 @@ class _$SwidStaticConstFunctionInvocationTearOff {
 // ignore: unused_element
   _$Data call(
       {@required String value,
-      @required List<SwidLiteral> normalParameters,
-      @required Map<String, SwidLiteral> namedParameters,
+      @required List<SwidStaticConst> normalParameters,
+      @required Map<String, SwidStaticConst> namedParameters,
       @required bool isConstructorInvocation}) {
     return _$Data(
       value: value,
@@ -45,8 +45,8 @@ const $SwidStaticConstFunctionInvocation =
 /// @nodoc
 mixin _$SwidStaticConstFunctionInvocation {
   String get value;
-  List<SwidLiteral> get normalParameters;
-  Map<String, SwidLiteral> get namedParameters;
+  List<SwidStaticConst> get normalParameters;
+  Map<String, SwidStaticConst> get namedParameters;
   bool get isConstructorInvocation;
 
   Map<String, dynamic> toJson();
@@ -62,8 +62,8 @@ abstract class $SwidStaticConstFunctionInvocationCopyWith<$Res> {
       _$SwidStaticConstFunctionInvocationCopyWithImpl<$Res>;
   $Res call(
       {String value,
-      List<SwidLiteral> normalParameters,
-      Map<String, SwidLiteral> namedParameters,
+      List<SwidStaticConst> normalParameters,
+      Map<String, SwidStaticConst> namedParameters,
       bool isConstructorInvocation});
 }
 
@@ -87,10 +87,10 @@ class _$SwidStaticConstFunctionInvocationCopyWithImpl<$Res>
       value: value == freezed ? _value.value : value as String,
       normalParameters: normalParameters == freezed
           ? _value.normalParameters
-          : normalParameters as List<SwidLiteral>,
+          : normalParameters as List<SwidStaticConst>,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
-          : namedParameters as Map<String, SwidLiteral>,
+          : namedParameters as Map<String, SwidStaticConst>,
       isConstructorInvocation: isConstructorInvocation == freezed
           ? _value.isConstructorInvocation
           : isConstructorInvocation as bool,
@@ -106,8 +106,8 @@ abstract class _$$DataCopyWith<$Res>
   @override
   $Res call(
       {String value,
-      List<SwidLiteral> normalParameters,
-      Map<String, SwidLiteral> namedParameters,
+      List<SwidStaticConst> normalParameters,
+      Map<String, SwidStaticConst> namedParameters,
       bool isConstructorInvocation});
 }
 
@@ -132,10 +132,10 @@ class __$$DataCopyWithImpl<$Res>
       value: value == freezed ? _value.value : value as String,
       normalParameters: normalParameters == freezed
           ? _value.normalParameters
-          : normalParameters as List<SwidLiteral>,
+          : normalParameters as List<SwidStaticConst>,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
-          : namedParameters as Map<String, SwidLiteral>,
+          : namedParameters as Map<String, SwidStaticConst>,
       isConstructorInvocation: isConstructorInvocation == freezed
           ? _value.isConstructorInvocation
           : isConstructorInvocation as bool,
@@ -163,9 +163,9 @@ class _$_$Data implements _$Data {
   @override
   final String value;
   @override
-  final List<SwidLiteral> normalParameters;
+  final List<SwidStaticConst> normalParameters;
   @override
-  final Map<String, SwidLiteral> namedParameters;
+  final Map<String, SwidStaticConst> namedParameters;
   @override
   final bool isConstructorInvocation;
 
@@ -213,8 +213,8 @@ class _$_$Data implements _$Data {
 abstract class _$Data implements SwidStaticConstFunctionInvocation {
   factory _$Data(
       {@required String value,
-      @required List<SwidLiteral> normalParameters,
-      @required Map<String, SwidLiteral> namedParameters,
+      @required List<SwidStaticConst> normalParameters,
+      @required Map<String, SwidStaticConst> namedParameters,
       @required bool isConstructorInvocation}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
@@ -222,9 +222,9 @@ abstract class _$Data implements SwidStaticConstFunctionInvocation {
   @override
   String get value;
   @override
-  List<SwidLiteral> get normalParameters;
+  List<SwidStaticConst> get normalParameters;
   @override
-  Map<String, SwidLiteral> get namedParameters;
+  Map<String, SwidStaticConst> get namedParameters;
   @override
   bool get isConstructorInvocation;
   @override
