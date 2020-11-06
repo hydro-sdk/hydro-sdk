@@ -11,6 +11,6 @@ void div(
     @required int C}) {
   frame.SR(
       A,
-      Context.attemptArithmetic(
-          frame.RK(B), frame.RK(C), "__div", Context.div));
+      Context.attemptArithmetic(frame.RK(B), frame.RK(C), "__div", Context.div,
+          hydroState: frame.context.hydroState));
 }

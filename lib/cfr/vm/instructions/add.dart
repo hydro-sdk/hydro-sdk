@@ -11,6 +11,6 @@ void add(
     @required int C}) {
   frame.SR(
       A,
-      Context.attemptArithmetic(
-          frame.RK(B), frame.RK(C), "__add", Context.add));
+      Context.attemptArithmetic(frame.RK(B), frame.RK(C), "__add", Context.add,
+          hydroState: frame.context.hydroState));
 }

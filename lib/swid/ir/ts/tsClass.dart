@@ -15,8 +15,14 @@ class TsClass implements TsIr {
     res += "\n";
     res += "export class ${swidClass.name} {\n";
     swidClass.staticConstFieldDeclarations?.forEach((x) {
-      res +=
-          transformStaticConstFieldDeclaration(staticConstFieldDeclaration: x);
+      res += transformStaticConstFieldDeclaration(
+          staticConstFieldDeclaration: x,
+          scopeResolver: (staticConstFieldReference) =>
+              "${swidClass.name}." +
+              swidClass.staticConstFieldDeclarations
+                  .firstWhere((k) => k.name == staticConstFieldReference.name,
+                      orElse: () => null)
+                  .name);
       res += "\n";
     });
     res += "}\n";

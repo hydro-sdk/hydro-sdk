@@ -41,19 +41,19 @@ void loadBuiltins(
   builtins.forEach((lib) {
     switch (lib) {
       case BuiltinLib.base:
-        loadBaseLib(hydroState.context);
+        loadBaseLib(hydroState: hydroState, ctx: hydroState.context);
         break;
       case BuiltinLib.math:
         loadMathLib(hydroState.context);
         break;
       case BuiltinLib.string:
-        loadStringLib(hydroState.context);
+        loadStringLib(hydroState: hydroState, ctx: hydroState.context);
         break;
       case BuiltinLib.bit:
         loadBitLib(hydroState.context);
         break;
       case BuiltinLib.table:
-        loadTableLib(hydroState.context);
+        loadTableLib(hydroState: hydroState, ctx: hydroState.context);
         break;
       case BuiltinLib.bit32:
         loadBit32Lib(hydroState.context);
