@@ -13,8 +13,27 @@ Future<void> writeTranslationUnit(
     await dir.create(recursive: true);
   }
 
-  await File([...translationUnit.path.split(p.separator)].join(p.separator) +
+  var filePath =
+      [...translationUnit.path.split(p.separator)].join(p.separator) +
           p.separator +
-          translationUnit.fileName)
-      .writeAsString(translationUnit.toSource());
+          translationUnit.fileName;
+
+  String content = "";
+
+  content = await File(filePath).readAsString();
+
+  await File(filePath).writeAsString(content
+          .split("\n")
+          .where((x) =>
+              x.isNotEmpty &&
+              x.length >= 5 &&
+              x[0] == "i" &&
+              x[1] == "m" &&
+              x[2] == "p" &&
+              x[3] == "o" &&
+              x[4] == "r" &&
+              x[5] == "t")
+          .toList()
+          .join("\n") +
+      translationUnit.toSource());
 }
