@@ -30,7 +30,7 @@ class RTManagedIconData extends IconData implements Box<IconData> {
       return [unwrap()];
     });
     table[\'_dart_hashCode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.hashCode()];
+      return [super.hashCode];
     });
     table[\'_dart_toString\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.toString()];
