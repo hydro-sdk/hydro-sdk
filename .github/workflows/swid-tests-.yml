@@ -63,7 +63,12 @@ jobs:
       working-directory: hydro
     - name: Run binding generator
       shell: bash
-      run: dart bin/swid.dart "${env::GITHUB_WORKSPACE}/flutter/packages/flutter"
+      run: dart bin/swid.dart "${env::GITHUB_WORKSPACE}\flutter\packages\flutter"
+      if: runner.is == "Windows"
+    - name: Run binding generator
+      shell: bash
+      run: dart bin/swid.dart "$GITHUB_WORKSPACE/flutter/packages/flutter"
+      if: runner.is != "Windows"
       working-directory: hydro
     - name: Run Hydro-SDK Swid Tests
       shell: bash
