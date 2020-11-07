@@ -160,6 +160,13 @@ class _$TsIrTearOff {
           tsFunctionInvocationNamedParametersSpread,
     );
   }
+
+// ignore: unused_element
+  _$FromTsLinebreak fromTsLinebreak({@required TsLinebreak tsLinebreak}) {
+    return _$FromTsLinebreak(
+      tsLinebreak: tsLinebreak,
+    );
+  }
 }
 
 /// @nodoc
@@ -215,6 +222,7 @@ mixin _$TsIr {
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -249,6 +257,7 @@ mixin _$TsIr {
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -289,6 +298,7 @@ mixin _$TsIr {
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -317,6 +327,7 @@ mixin _$TsIr {
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   });
 }
@@ -459,6 +470,7 @@ class _$_$FromTsClassConstructorImplementation
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -476,6 +488,7 @@ class _$_$FromTsClassConstructorImplementation
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassConstructorImplementation(
         tsClassConstructorImplementation);
   }
@@ -514,6 +527,7 @@ class _$_$FromTsClassConstructorImplementation
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -563,6 +577,7 @@ class _$_$FromTsClassConstructorImplementation
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -580,6 +595,7 @@ class _$_$FromTsClassConstructorImplementation
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassConstructorImplementation(this);
   }
 
@@ -611,6 +627,7 @@ class _$_$FromTsClassConstructorImplementation
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -752,6 +769,7 @@ class _$_$FromTsClassDefaultConstructorProps
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -769,6 +787,7 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps);
   }
 
@@ -806,6 +825,7 @@ class _$_$FromTsClassDefaultConstructorProps
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -854,6 +874,7 @@ class _$_$FromTsClassDefaultConstructorProps
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -871,6 +892,7 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassDefaultConstructorProps(this);
   }
 
@@ -902,6 +924,7 @@ class _$_$FromTsClassDefaultConstructorProps
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1045,6 +1068,7 @@ class _$_$FromClassInstanceFieldDeclarations
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -1062,6 +1086,7 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassInstanceFieldDeclarations(
         tsClassInstanceFieldDeclarations);
   }
@@ -1100,6 +1125,7 @@ class _$_$FromClassInstanceFieldDeclarations
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1149,6 +1175,7 @@ class _$_$FromClassInstanceFieldDeclarations
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -1166,6 +1193,7 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassInstanceFieldDeclarations(this);
   }
 
@@ -1197,6 +1225,7 @@ class _$_$FromClassInstanceFieldDeclarations
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1336,6 +1365,7 @@ class _$_$FromTsClassMethodDeclarations
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -1353,6 +1383,7 @@ class _$_$FromTsClassMethodDeclarations
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassMethodDeclarations(tsClassMethodDeclarations);
   }
 
@@ -1390,6 +1421,7 @@ class _$_$FromTsClassMethodDeclarations
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1438,6 +1470,7 @@ class _$_$FromTsClassMethodDeclarations
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -1455,6 +1488,7 @@ class _$_$FromTsClassMethodDeclarations
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassMethodDeclarations(this);
   }
 
@@ -1486,6 +1520,7 @@ class _$_$FromTsClassMethodDeclarations
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1633,6 +1668,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -1650,6 +1686,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassMethodInjectionFieldDeclarations(
         tsClassMethodInjectionFieldDeclarations);
   }
@@ -1688,6 +1725,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1737,6 +1775,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -1754,6 +1793,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassMethodInjectionFieldDeclarations(this);
   }
 
@@ -1785,6 +1825,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1928,6 +1969,7 @@ class _$_$FromTsClassMethodInjectionFieldName
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -1945,6 +1987,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassMethodInjectionFieldName(tsClassMethodInjectionFieldName);
   }
 
@@ -1982,6 +2025,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2031,6 +2075,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -2048,6 +2093,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassMethodInjectionFieldName(this);
   }
 
@@ -2079,6 +2125,7 @@ class _$_$FromTsClassMethodInjectionFieldName
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2212,6 +2259,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -2229,6 +2277,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassPostamble(tsClassPostamble);
   }
 
@@ -2266,6 +2315,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2314,6 +2364,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -2331,6 +2382,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassPostamble(this);
   }
 
@@ -2362,6 +2414,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2490,6 +2543,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -2507,6 +2561,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassPreamble(tsClassPreamble);
   }
 
@@ -2544,6 +2599,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2592,6 +2648,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -2609,6 +2666,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassPreamble(this);
   }
 
@@ -2640,6 +2698,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2782,6 +2841,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -2799,6 +2859,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassStaticConstFieldDeclarations(
         tsClassStaticConstFieldDeclarations);
   }
@@ -2837,6 +2898,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2886,6 +2948,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -2903,6 +2966,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassStaticConstFieldDeclarations(this);
   }
 
@@ -2934,6 +2998,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3060,6 +3125,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -3077,6 +3143,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsEnum(tsEnum);
   }
 
@@ -3114,6 +3181,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3162,6 +3230,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -3179,6 +3248,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsEnum(this);
   }
 
@@ -3210,6 +3280,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3335,6 +3406,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -3352,6 +3424,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsInterface(tsInterface);
   }
 
@@ -3389,6 +3462,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3437,6 +3511,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -3454,6 +3529,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsInterface(this);
   }
 
@@ -3485,6 +3561,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3616,6 +3693,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -3633,6 +3711,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassVmDeclaration(tsClassVmDeclaration);
   }
 
@@ -3670,6 +3749,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3718,6 +3798,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -3735,6 +3816,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsClassVmDeclaration(this);
   }
 
@@ -3766,6 +3848,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3911,6 +3994,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -3928,6 +4012,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsFunctionInvocation(tsFunctionInvocation);
   }
 
@@ -3965,6 +4050,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4013,6 +4099,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -4030,6 +4117,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsFunctionInvocation(this);
   }
 
@@ -4061,6 +4149,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4219,6 +4308,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -4236,6 +4326,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsFunctionInvocationNamedParameters(
         tsFunctionInvocationNamedParameters);
   }
@@ -4274,6 +4365,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4323,6 +4415,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -4340,6 +4433,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsFunctionInvocationNamedParameters(this);
   }
 
@@ -4371,6 +4465,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4542,6 +4637,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -4559,6 +4655,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsFunctionInvocationNamedParametersKeyValue(
         tsFunctionInvocationNamedParametersKeyValue);
   }
@@ -4597,6 +4694,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4646,6 +4744,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -4663,6 +4762,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsFunctionInvocationNamedParametersKeyValue(this);
   }
 
@@ -4694,6 +4794,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4860,6 +4961,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
         Result fromTsFunctionInvocationNamedParametersSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -4877,6 +4979,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsFunctionInvocationNamedParametersSpread(
         tsFunctionInvocationNamedParametersSpread);
   }
@@ -4915,6 +5018,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     Result fromTsFunctionInvocationNamedParametersSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4964,6 +5068,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     @required
         Result fromTsFunctionInvocationNamedParametersSpread(
             _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsClassDefaultConstructorProps != null);
@@ -4981,6 +5086,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     assert(fromTsFunctionInvocationNamedParameters != null);
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
     return fromTsFunctionInvocationNamedParametersSpread(this);
   }
 
@@ -5012,6 +5118,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
         _$FromTsFunctionInvocationNamedParametersKeyValue value),
     Result fromTsFunctionInvocationNamedParametersSpread(
         _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -5033,4 +5140,286 @@ abstract class _$TsFunctionInvocationNamedParametersSpread implements TsIr {
       get tsFunctionInvocationNamedParametersSpread;
   _$$TsFunctionInvocationNamedParametersSpreadCopyWith<
       _$TsFunctionInvocationNamedParametersSpread> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsLinebreakCopyWith<$Res> {
+  factory _$$FromTsLinebreakCopyWith(
+          _$FromTsLinebreak value, $Res Function(_$FromTsLinebreak) then) =
+      __$$FromTsLinebreakCopyWithImpl<$Res>;
+  $Res call({TsLinebreak tsLinebreak});
+}
+
+/// @nodoc
+class __$$FromTsLinebreakCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsLinebreakCopyWith<$Res> {
+  __$$FromTsLinebreakCopyWithImpl(
+      _$FromTsLinebreak _value, $Res Function(_$FromTsLinebreak) _then)
+      : super(_value, (v) => _then(v as _$FromTsLinebreak));
+
+  @override
+  _$FromTsLinebreak get _value => super._value as _$FromTsLinebreak;
+
+  @override
+  $Res call({
+    Object tsLinebreak = freezed,
+  }) {
+    return _then(_$FromTsLinebreak(
+      tsLinebreak: tsLinebreak == freezed
+          ? _value.tsLinebreak
+          : tsLinebreak as TsLinebreak,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromTsLinebreak implements _$FromTsLinebreak {
+  _$_$FromTsLinebreak({@required this.tsLinebreak})
+      : assert(tsLinebreak != null);
+
+  @override
+  final TsLinebreak tsLinebreak;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsLinebreak(tsLinebreak: $tsLinebreak)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsLinebreak &&
+            (identical(other.tsLinebreak, tsLinebreak) ||
+                const DeepCollectionEquality()
+                    .equals(other.tsLinebreak, tsLinebreak)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(tsLinebreak);
+
+  @override
+  _$$FromTsLinebreakCopyWith<_$FromTsLinebreak> get copyWith =>
+      __$$FromTsLinebreakCopyWithImpl<_$FromTsLinebreak>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodDeclarations(
+            TsClassMethodDeclarations tsClassMethodDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
+    return fromTsLinebreak(tsLinebreak);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsClassDefaultConstructorProps(
+        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodDeclarations(
+        TsClassMethodDeclarations tsClassMethodDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsLinebreak != null) {
+      return fromTsLinebreak(tsLinebreak);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsClassDefaultConstructorProps(
+            _$FromTsClassDefaultConstructorProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodDeclarations(
+            _$FromTsClassMethodDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
+    return fromTsLinebreak(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsClassDefaultConstructorProps(
+        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsLinebreak != null) {
+      return fromTsLinebreak(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsLinebreak implements TsIr {
+  factory _$FromTsLinebreak({@required TsLinebreak tsLinebreak}) =
+      _$_$FromTsLinebreak;
+
+  TsLinebreak get tsLinebreak;
+  _$$FromTsLinebreakCopyWith<_$FromTsLinebreak> get copyWith;
 }

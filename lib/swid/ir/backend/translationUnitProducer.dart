@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
@@ -10,6 +11,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.da
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
@@ -46,6 +48,7 @@ class TranslationUnitProducer {
             path: tsPrefixPaths.join(p.separator) + p.separator + path,
             fileName: "$baseFileName.ts",
             ir: [
+              TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
               TsIr.fromTsClassVmDeclaration(
                   tsClassVmDeclaration:
                       TsClassVmDeclaration(swidClass: swidClass)),
@@ -80,6 +83,7 @@ class TranslationUnitProducer {
                 path: dartPrefixPaths.join(p.separator) + p.separator + path,
                 fileName: "$baseFileName.dart",
                 ir: [
+                  DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                   DartIr.fromRTManagedClassDeclaration(
                     rtManagedClassDeclaration:
                         RTManagedClassDeclaration(swidClass: swidClass),
