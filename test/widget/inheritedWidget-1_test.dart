@@ -9,5 +9,5 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byKey(Key("inherited message")), findsOneWidget);
-  });
+},tags: "widget");
 }

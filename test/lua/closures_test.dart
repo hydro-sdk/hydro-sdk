@@ -37,5 +37,5 @@ void main() {
     for (var i = 0; i != outLines.length; ++i) {
       expect(outLines[i], expectedOutLines[i]);
     }
-  });
+},tags: "lua");
 }

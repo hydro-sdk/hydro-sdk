@@ -27,5 +27,5 @@ void main() {
     await tester.tap(find.byKey(Key("increment")));
     await tester.pumpAndSettle();
     expect(find.text("2"), findsOneWidget);
-  });
+},tags: "smoke");
 }

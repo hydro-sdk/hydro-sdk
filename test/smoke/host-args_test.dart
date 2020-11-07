@@ -32,5 +32,5 @@ void main() {
       expect(find.byKey(Key("column-widget")), findsOneWidget);
       expect(find.byKey(Key("center-widget")), findsOneWidget);
     });
-  });
+},tags: "smoke");
 }

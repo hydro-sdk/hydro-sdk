@@ -9,5 +9,5 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byKey(Key("non-null child")), findsOneWidget);
-  });
+  },tags: "widget");
 }

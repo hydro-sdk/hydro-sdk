@@ -27,5 +27,5 @@ iconData: (this : void, iconData : IconData, codePoint : number, props : { fontF
 
     expect(
         TsClassVmDeclaration(swidClass: cupertinoIconsClass).toTsSource(), "");
-  });
+}, tags: "swid");
 }

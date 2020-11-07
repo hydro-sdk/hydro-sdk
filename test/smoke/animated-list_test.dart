@@ -62,5 +62,5 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Item 6'), findsOneWidget);
     expect(find.text('Item 8'), findsNothing);
-  });
+  },tags: "smoke");
 }

@@ -15,5 +15,5 @@ void main() {
             packageUri:
                 "package:flutter${path.separator}animation${path.separator}other_path${path.separator}animation_controller.dart"),
         "flutter${path.separator}animation${path.separator}other_path");
-  });
+  }, tags: "swid");
 }

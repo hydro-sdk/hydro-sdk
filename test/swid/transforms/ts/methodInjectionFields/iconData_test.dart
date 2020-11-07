@@ -19,5 +19,5 @@ void main() {
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
 """);
-  });
+}, tags: "swid");
 }

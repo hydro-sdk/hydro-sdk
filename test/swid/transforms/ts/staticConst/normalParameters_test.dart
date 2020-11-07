@@ -22,5 +22,5 @@ void main() {
         transformNormalParametersToTs(
             swidLiterals: normalParameters, scopeResolver: (_) => null),
         "0xe52a, \"0xe52a\", \"1\", 1");
-  });
+}, tags: "swid");
 }

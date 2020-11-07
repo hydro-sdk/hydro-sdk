@@ -31,5 +31,5 @@ void main() {
     public static iconFontPackage = "cupertino_icons";
     public static left_chevron = new IconData(0xf3d2,{ fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage, matchTextDirection: true });
 """);
-  });
+}, tags: "swid");
 }

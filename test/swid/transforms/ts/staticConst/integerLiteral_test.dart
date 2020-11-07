@@ -13,5 +13,5 @@ void main() {
         transformIntegerLiteralToTs(
             swidIntegerLiteral: SwidIntegerLiteral(value: "0")),
         "0");
-  });
+}, tags: "swid");
 }

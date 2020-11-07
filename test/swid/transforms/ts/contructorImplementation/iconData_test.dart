@@ -21,5 +21,5 @@ flutter.widgets.iconData(this, codePoint, {
 ...props
 });}
 """);
-  });
+  }, tags: "swid");
 }

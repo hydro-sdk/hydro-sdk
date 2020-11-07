@@ -20,5 +20,5 @@ public toString() {
     return this._dart_toString();
 }
 """);
-  });
+}, tags: "swid");
 }

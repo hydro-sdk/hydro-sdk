@@ -19,5 +19,5 @@ export enum FooEnum {
 }
 
 """);
-  });
+  }, tags: "swid");
 }

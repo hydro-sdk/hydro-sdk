@@ -18,5 +18,5 @@ void main() {
         transformNamedParametersToTs(
             namedParameters: namedParameters, scopeResolver: (_) => null),
         "{ fontFamily: \"Material\", size: 12 }");
-  });
+}, tags: "swid");
 }

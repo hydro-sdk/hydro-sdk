@@ -135,5 +135,5 @@ void main() {
           findsOneWidget);
       expect(find.text("3"), findsOneWidget);
     });
-  });
+},tags: "hot");
 }

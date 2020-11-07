@@ -42,5 +42,5 @@ void main() {
                   nullabilitySuffix: SwidNullabilitySuffix.star,
                 )))),
         "(foo? : int | undefined, bar : String) => num");
-  });
+  }, tags: "swid");
 }

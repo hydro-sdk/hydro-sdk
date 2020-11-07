@@ -20,5 +20,5 @@ void main() {
     public readonly fontPackage: string = undefined as any;
     public readonly matchTextDirection: boolean = undefined as any;
 """);
-  });
+}, tags: "swid");
 }

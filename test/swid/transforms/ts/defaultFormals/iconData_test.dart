@@ -19,5 +19,5 @@ const iconDataDefaultProps = {
     matchTextDirection: false,
 };
 """);
-  });
+  }, tags: "swid");
 }

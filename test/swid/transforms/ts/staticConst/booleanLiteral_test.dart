@@ -13,5 +13,5 @@ void main() {
         transformBooleanLiteralToTs(
             swidBooleanLiteral: SwidBooleanLiteral(value: "false")),
         "false");
-  });
+}, tags: "swid");
 }

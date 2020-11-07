@@ -50,5 +50,5 @@ void main() {
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                 )))),
         "(foo : () => Widget) => num | undefined");
-  });
+  }, tags: "swid");
 }

@@ -87,5 +87,5 @@ void main() {
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                 )))),
         "(itemCount : int, onTap? : (resolveDuration? : (millis? : int | undefined) => Duration) => Widget) => num | undefined");
-  });
+  }, tags: "swid");
 }
