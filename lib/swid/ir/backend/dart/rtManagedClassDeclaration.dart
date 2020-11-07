@@ -19,6 +19,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
+import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 import 'package:meta/meta.dart';
 
 class RTManagedClassDeclaration {
@@ -164,7 +165,8 @@ class RTManagedClassDeclaration {
               ..name = x.name
               ..returns = refer(x.returnType.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
               ..body = Block.of([
-                Code("Closure closure = table[\"${x.name}\"];"),
+                Code(
+                    "Closure closure = table[\"${transformTstlMethodNames(swidFunctionType: x).name}\"];"),
                 Code(
                     "return closure.dispatch([table],parentState: hydroState)[0];"),
               ])))
