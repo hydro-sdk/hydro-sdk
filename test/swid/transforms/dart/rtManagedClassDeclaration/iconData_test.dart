@@ -51,7 +51,7 @@ class RTManagedIconData extends IconData implements Box<IconData> {
 
   @override
   String toString() {
-    Closure closure = table["toString"];
+    Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
