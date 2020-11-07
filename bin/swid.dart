@@ -5,9 +5,9 @@ import 'package:hydro_sdk/swid/swid.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
-void main() async {
+void main(List<String> args) async {
   var visitor =
-      await swid(["/Users/chgibb/Downloads/flutter/packages/flutter"]);
+      await swid([args[0]]);
 
   for (var i = 0; i != visitor.enums.length; ++i) {
     await Future.forEach(
