@@ -66,5 +66,5 @@ jobs:
       working-directory: hydro
     - name: Run Hydro-SDK tests
       shell: bash
-      run: export HYDRO_TEST_MODE=ts; flutter test
+      run: export HYDRO_TEST_MODE=ts; flutter test --tags "hot || lua || smoke || unit || widget"
       working-directory: hydro

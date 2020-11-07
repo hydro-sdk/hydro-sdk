@@ -22,6 +22,8 @@ import {MainAxisSize} from "../../runtime/flutter/rendering/mainAxisSize";
 import {CrossAxisAlignment} from "../../runtime/flutter/rendering/crossAxisAlignment";
 import {Colors} from "../../runtime/flutter/material/colors";
 import {Icons} from "../../runtime/flutter/material/icons";
+import {Key} from "../../runtime/flutter/foundation/key";
+import {SizedBox} from "../../runtime/flutter/widgets/sizedBox";
 
 export class BasicAppBarSample extends StatefulWidget 
 {
@@ -52,14 +54,14 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample>
         });
     }
 
-    public dispose()
+    public dispose() 
     {
-        
+
     }
 
-    public initState()
+    public initState() 
     {
-        
+
     }
 
     public build(): Widget 
@@ -70,6 +72,7 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample>
                     title: new Text("Basic Appbar"),
                     actions: [
                         new IconButton({
+                            key: new Key(choices[0].icon.toString()+"button"),
                             icon: new Icon(choices[0].icon),
                             onPressed: () => 
                             {
@@ -77,6 +80,7 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample>
                             }
                         }),
                         new IconButton({
+                            key: new Key(choices[1].icon.toString()+"button"),
                             icon: new Icon(choices[1].icon),
                             onPressed: () => 
                             {
@@ -151,6 +155,10 @@ class ChoiceCard extends StatelessWidget
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                        new SizedBox({
+                            key:
+                                new Key(this.choice.icon.toString()),
+                        }),
                         new Icon(this.choice.icon, {size: 128.0, color: textStyle.color}),
                         new Text(this.choice.title, {style: textStyle})
                     ]

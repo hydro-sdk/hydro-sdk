@@ -14,6 +14,8 @@ void loadIconButton(
         icon: maybeUnBoxAndBuildArgument<Widget>(args[0]["icon"],
             parentState: luaState),
         tooltip: args[0]["tooltip"],
+        key: maybeUnBoxAndBuildArgument<Key>(args[0]["key"],
+            parentState: luaState),
         onPressed: () {
           Closure closure = args[0]["onPressed"];
           closure.dispatch([], parentState: luaState);

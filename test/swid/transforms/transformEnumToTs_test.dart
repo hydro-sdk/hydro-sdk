@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformEnumToTs.dart';
 
 void main() {
@@ -19,5 +19,5 @@ export enum FooEnum {
 }
 
 """);
-  });
+  }, tags: "swid");
 }

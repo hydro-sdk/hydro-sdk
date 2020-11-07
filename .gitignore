@@ -47,6 +47,7 @@ assets/test/hot/stateful/*.hc
 assets/test/unit/async/*.hc
 assets/test/unit/collection/*.hc
 assets/test/unit/ts/*.hc
+assets/test/unit/core/*.hc
 *.symbols
 hydro_sdk/android/.project
 *.js

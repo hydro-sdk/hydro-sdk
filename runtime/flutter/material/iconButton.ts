@@ -2,10 +2,12 @@ import {Widget} from "../widget";
 import {StatelessWidget} from "../widgets/statelessWidget";
 import {RuntimeBaseClass} from "../../runtimeBaseClass";
 import {Type} from "../../dart/core/type";
+import {Key} from "../foundation/key";
 
 export interface IconButtonProps {
     icon: Widget;
     tooltip?: string | undefined;
+    key?: Key | undefined;
     onPressed: () => void;
 }
 
