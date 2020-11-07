@@ -68,26 +68,26 @@ void main() {
     }
 
     await tester
-        .pumpWidget(integrationTestHarness("../assets/examples/basicAppBar"));
+        .pumpWidget(integrationTestHarness("assets/examples/basicAppBar"));
     await tester.pumpAndSettle();
 
     // Tap on the two action buttons and all of the overflow menu items.
     // Verify that a Card with the expected icon appears.
 
-    await tester.tap(findAppBarIcon(iconAt(0)));
+    await tester.tap(find.byKey(Key(iconAt(0).toString() + "button")));
     await tester.pumpAndSettle();
-    expect(findChoiceCard(iconAt(0)), findsOneWidget);
+    expect(find.byKey(Key(iconAt(0).toString())), findsOneWidget);
 
-    await tester.tap(findAppBarIcon(iconAt(1)));
+    await tester.tap(find.byKey(Key(iconAt(1).toString() + "button")));
     await tester.pumpAndSettle();
-    expect(findChoiceCard(iconAt(1)), findsOneWidget);
+    expect(find.byKey(Key(iconAt(1).toString())), findsOneWidget);
 
     for (int i = 2; i < choiceCount; i += 1) {
       await tester.tap(findAppBarIcon(Icons.more_vert));
       await tester.pumpAndSettle();
       await tester.tap(find.text(titleAt(i)));
       await tester.pumpAndSettle();
-      expect(findChoiceCard(iconAt(i)), findsOneWidget);
+      expect(find.byKey(Key(iconAt(i).toString())), findsOneWidget);
     }
   });
 }
