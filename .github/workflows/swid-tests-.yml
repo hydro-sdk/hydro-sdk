@@ -62,9 +62,11 @@ jobs:
       run: npm install
       working-directory: hydro
     - name: Pub get Flutter
+      shell: bash
       run: cd "${env::GITHUB_WORKSPACE}\flutter\packages\flutter"; flutter pub get
       if: runner.is == 'Windows'
     - name: Pub get Flutter
+      shell: bash
       run: cd "$GITHUB_WORKSPACE/flutter/packages/flutter"; flutter pub get
       if: runner.is != 'Windows'
     - name: Run binding generator
