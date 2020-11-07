@@ -14,19 +14,19 @@ class _$DartIrTearOff {
   const _$DartIrTearOff();
 
 // ignore: unused_element
-  _$FromRTManagedClassDeclaration fromRTManagedClassDeclaration(
-      {@required RTManagedClassDeclaration rtManagedClassDeclaration}) {
-    return _$FromRTManagedClassDeclaration(
-      rtManagedClassDeclaration: rtManagedClassDeclaration,
-    );
-  }
-
-// ignore: unused_element
   _$FromLoadNamespaceSymbolDeclaration fromLoadNamepsaceSymbolDeclaration(
       {@required
           LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) {
     return _$FromLoadNamespaceSymbolDeclaration(
       loadNamespaceSymbolDeclaration: loadNamespaceSymbolDeclaration,
+    );
+  }
+
+// ignore: unused_element
+  _$FromRTManagedClassDeclaration fromRTManagedClassDeclaration(
+      {@required RTManagedClassDeclaration rtManagedClassDeclaration}) {
+    return _$FromRTManagedClassDeclaration(
+      rtManagedClassDeclaration: rtManagedClassDeclaration,
     );
   }
 }
@@ -40,34 +40,34 @@ mixin _$DartIr {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
-        Result fromRTManagedClassDeclaration(
-            RTManagedClassDeclaration rtManagedClassDeclaration),
-    @required
         Result fromLoadNamepsaceSymbolDeclaration(
             LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result fromRTManagedClassDeclaration(
-        RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromLoadNamepsaceSymbolDeclaration(
         LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
-        Result fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    @required
         Result fromLoadNamepsaceSymbolDeclaration(
             _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
     Result fromLoadNamepsaceSymbolDeclaration(
         _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
     @required Result orElse(),
   });
 }
@@ -85,147 +85,6 @@ class _$DartIrCopyWithImpl<$Res> implements $DartIrCopyWith<$Res> {
   final DartIr _value;
   // ignore: unused_field
   final $Res Function(DartIr) _then;
-}
-
-/// @nodoc
-abstract class _$$FromRTManagedClassDeclarationCopyWith<$Res> {
-  factory _$$FromRTManagedClassDeclarationCopyWith(
-          _$FromRTManagedClassDeclaration value,
-          $Res Function(_$FromRTManagedClassDeclaration) then) =
-      __$$FromRTManagedClassDeclarationCopyWithImpl<$Res>;
-  $Res call({RTManagedClassDeclaration rtManagedClassDeclaration});
-}
-
-/// @nodoc
-class __$$FromRTManagedClassDeclarationCopyWithImpl<$Res>
-    extends _$DartIrCopyWithImpl<$Res>
-    implements _$$FromRTManagedClassDeclarationCopyWith<$Res> {
-  __$$FromRTManagedClassDeclarationCopyWithImpl(
-      _$FromRTManagedClassDeclaration _value,
-      $Res Function(_$FromRTManagedClassDeclaration) _then)
-      : super(_value, (v) => _then(v as _$FromRTManagedClassDeclaration));
-
-  @override
-  _$FromRTManagedClassDeclaration get _value =>
-      super._value as _$FromRTManagedClassDeclaration;
-
-  @override
-  $Res call({
-    Object rtManagedClassDeclaration = freezed,
-  }) {
-    return _then(_$FromRTManagedClassDeclaration(
-      rtManagedClassDeclaration: rtManagedClassDeclaration == freezed
-          ? _value.rtManagedClassDeclaration
-          : rtManagedClassDeclaration as RTManagedClassDeclaration,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_$FromRTManagedClassDeclaration
-    implements _$FromRTManagedClassDeclaration {
-  _$_$FromRTManagedClassDeclaration({@required this.rtManagedClassDeclaration})
-      : assert(rtManagedClassDeclaration != null);
-
-  @override
-  final RTManagedClassDeclaration rtManagedClassDeclaration;
-
-  @override
-  String toString() {
-    return 'DartIr.fromRTManagedClassDeclaration(rtManagedClassDeclaration: $rtManagedClassDeclaration)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _$FromRTManagedClassDeclaration &&
-            (identical(other.rtManagedClassDeclaration,
-                    rtManagedClassDeclaration) ||
-                const DeepCollectionEquality().equals(
-                    other.rtManagedClassDeclaration,
-                    rtManagedClassDeclaration)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(rtManagedClassDeclaration);
-
-  @override
-  _$$FromRTManagedClassDeclarationCopyWith<_$FromRTManagedClassDeclaration>
-      get copyWith => __$$FromRTManagedClassDeclarationCopyWithImpl<
-          _$FromRTManagedClassDeclaration>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required
-        Result fromRTManagedClassDeclaration(
-            RTManagedClassDeclaration rtManagedClassDeclaration),
-    @required
-        Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-  }) {
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    return fromRTManagedClassDeclaration(rtManagedClassDeclaration);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromRTManagedClassDeclaration(
-        RTManagedClassDeclaration rtManagedClassDeclaration),
-    Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (fromRTManagedClassDeclaration != null) {
-      return fromRTManagedClassDeclaration(rtManagedClassDeclaration);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required
-        Result fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    @required
-        Result fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-  }) {
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    return fromRTManagedClassDeclaration(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
-    Result fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (fromRTManagedClassDeclaration != null) {
-      return fromRTManagedClassDeclaration(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _$FromRTManagedClassDeclaration implements DartIr {
-  factory _$FromRTManagedClassDeclaration(
-          {@required RTManagedClassDeclaration rtManagedClassDeclaration}) =
-      _$_$FromRTManagedClassDeclaration;
-
-  RTManagedClassDeclaration get rtManagedClassDeclaration;
-  _$$FromRTManagedClassDeclarationCopyWith<_$FromRTManagedClassDeclaration>
-      get copyWith;
 }
 
 /// @nodoc
@@ -303,24 +162,24 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
-        Result fromRTManagedClassDeclaration(
-            RTManagedClassDeclaration rtManagedClassDeclaration),
-    @required
         Result fromLoadNamepsaceSymbolDeclaration(
             LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
-    assert(fromRTManagedClassDeclaration != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromRTManagedClassDeclaration != null);
     return fromLoadNamepsaceSymbolDeclaration(loadNamespaceSymbolDeclaration);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result fromRTManagedClassDeclaration(
-        RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromLoadNamepsaceSymbolDeclaration(
         LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -334,23 +193,23 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
-        Result fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    @required
         Result fromLoadNamepsaceSymbolDeclaration(
             _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
   }) {
-    assert(fromRTManagedClassDeclaration != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromRTManagedClassDeclaration != null);
     return fromLoadNamepsaceSymbolDeclaration(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
     Result fromLoadNamepsaceSymbolDeclaration(
         _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -370,4 +229,145 @@ abstract class _$FromLoadNamespaceSymbolDeclaration implements DartIr {
   LoadNamespaceSymbolDeclaration get loadNamespaceSymbolDeclaration;
   _$$FromLoadNamespaceSymbolDeclarationCopyWith<
       _$FromLoadNamespaceSymbolDeclaration> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromRTManagedClassDeclarationCopyWith<$Res> {
+  factory _$$FromRTManagedClassDeclarationCopyWith(
+          _$FromRTManagedClassDeclaration value,
+          $Res Function(_$FromRTManagedClassDeclaration) then) =
+      __$$FromRTManagedClassDeclarationCopyWithImpl<$Res>;
+  $Res call({RTManagedClassDeclaration rtManagedClassDeclaration});
+}
+
+/// @nodoc
+class __$$FromRTManagedClassDeclarationCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromRTManagedClassDeclarationCopyWith<$Res> {
+  __$$FromRTManagedClassDeclarationCopyWithImpl(
+      _$FromRTManagedClassDeclaration _value,
+      $Res Function(_$FromRTManagedClassDeclaration) _then)
+      : super(_value, (v) => _then(v as _$FromRTManagedClassDeclaration));
+
+  @override
+  _$FromRTManagedClassDeclaration get _value =>
+      super._value as _$FromRTManagedClassDeclaration;
+
+  @override
+  $Res call({
+    Object rtManagedClassDeclaration = freezed,
+  }) {
+    return _then(_$FromRTManagedClassDeclaration(
+      rtManagedClassDeclaration: rtManagedClassDeclaration == freezed
+          ? _value.rtManagedClassDeclaration
+          : rtManagedClassDeclaration as RTManagedClassDeclaration,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromRTManagedClassDeclaration
+    implements _$FromRTManagedClassDeclaration {
+  _$_$FromRTManagedClassDeclaration({@required this.rtManagedClassDeclaration})
+      : assert(rtManagedClassDeclaration != null);
+
+  @override
+  final RTManagedClassDeclaration rtManagedClassDeclaration;
+
+  @override
+  String toString() {
+    return 'DartIr.fromRTManagedClassDeclaration(rtManagedClassDeclaration: $rtManagedClassDeclaration)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromRTManagedClassDeclaration &&
+            (identical(other.rtManagedClassDeclaration,
+                    rtManagedClassDeclaration) ||
+                const DeepCollectionEquality().equals(
+                    other.rtManagedClassDeclaration,
+                    rtManagedClassDeclaration)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(rtManagedClassDeclaration);
+
+  @override
+  _$$FromRTManagedClassDeclarationCopyWith<_$FromRTManagedClassDeclaration>
+      get copyWith => __$$FromRTManagedClassDeclarationCopyWithImpl<
+          _$FromRTManagedClassDeclaration>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+  }) {
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromRTManagedClassDeclaration(rtManagedClassDeclaration);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromRTManagedClassDeclaration != null) {
+      return fromRTManagedClassDeclaration(rtManagedClassDeclaration);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+  }) {
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromRTManagedClassDeclaration(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromRTManagedClassDeclaration != null) {
+      return fromRTManagedClassDeclaration(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromRTManagedClassDeclaration implements DartIr {
+  factory _$FromRTManagedClassDeclaration(
+          {@required RTManagedClassDeclaration rtManagedClassDeclaration}) =
+      _$_$FromRTManagedClassDeclaration;
+
+  RTManagedClassDeclaration get rtManagedClassDeclaration;
+  _$$FromRTManagedClassDeclarationCopyWith<_$FromRTManagedClassDeclaration>
+      get copyWith;
 }
