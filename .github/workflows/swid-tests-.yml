@@ -61,6 +61,12 @@ jobs:
     - name: Get packages for Hydro-SDK JS
       run: npm install
       working-directory: hydro
+    - name: Pub get Flutter
+      run: cd "${env::GITHUB_WORKSPACE}\flutter\packages\flutter"; flutter pub get
+      if: runner.is == 'Windows'
+    - name: Pub get Flutter
+      run: cd "$GITHUB_WORKSPACE/flutter/packages/flutter"; flutter pub get
+      if: runner.is == 'Windows'
     - name: Run binding generator
       shell: bash
       run: dart bin/swid.dart "${env::GITHUB_WORKSPACE}\flutter\packages\flutter"
