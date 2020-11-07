@@ -90,5 +90,5 @@ class TranslationUnitProducer {
                 ],
               )
             : null
-      ]..removeWhere((x) => null);
+      ]..removeWhere((x) => x == null);
 }
