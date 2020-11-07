@@ -13,5 +13,5 @@ void main() {
     await tester.tap(find.byKey(Key("cupertinoButton")));
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
-},tags: "widget");
+  }, tags: "widget");
 }

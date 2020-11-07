@@ -13,5 +13,5 @@ void main() {
         transformStringLiteralToTs(
             swidStringLiteral: SwidStringLiteral(value: "0")),
         "\"0\"");
-}, tags: "swid");
+  }, tags: "swid");
 }

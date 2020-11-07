@@ -36,5 +36,5 @@ void main() {
     res2.pcall([], parentState: state2);
 
     expect(outLines2[0], "3");
-  },tags: "hot");
+  }, tags: "hot");
 }

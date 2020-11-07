@@ -29,5 +29,5 @@ void loadIconData(
   });
 }
 """);
-}, tags: "swid");
+  }, tags: "swid");
 }

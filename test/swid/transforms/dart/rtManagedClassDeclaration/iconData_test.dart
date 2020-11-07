@@ -56,5 +56,5 @@ class RTManagedIconData extends IconData implements Box<IconData> {
   }
 }
 """);
-}, tags: "swid");
+  }, tags: "swid");
 }

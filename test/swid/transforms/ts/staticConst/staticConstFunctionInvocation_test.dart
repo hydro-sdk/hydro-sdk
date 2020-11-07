@@ -77,5 +77,5 @@ void main() {
             swidStaticConstFunctionInvocation: normalAndNamedCtor,
             scopeResolver: (_) => null),
         "new IconData(0xe52a,{ fontFamily: \"MaterialIcons\" })");
-}, tags: "swid");
+  }, tags: "swid");
 }

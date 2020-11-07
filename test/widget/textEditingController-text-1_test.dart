@@ -10,5 +10,5 @@ void main() {
     expect(tester.takeException(), isNull);
     expect(find.text("Hello world"), findsOneWidget);
     expect(find.byKey(Key("Hello world")), findsOneWidget);
-},tags: "widget");
+  }, tags: "widget");
 }

@@ -11,5 +11,5 @@ void main() {
 
     await tester.enterText(find.byKey(Key("textFormField")), "Hello world");
     expect(find.text("hello world"), findsOneWidget);
-},tags: "widget");
+  }, tags: "widget");
 }

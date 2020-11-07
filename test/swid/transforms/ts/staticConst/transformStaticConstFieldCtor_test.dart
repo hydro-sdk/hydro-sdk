@@ -28,5 +28,5 @@ void main() {
         transformStaticConstFieldDeclaration(
             staticConstFieldDeclaration: tenk, scopeResolver: (_) => null),
         "public static ten_k = new IconData(0xe52a,{ fontFamily: \"MaterialIcons\" });");
-}, tags: "swid");
+  }, tags: "swid");
 }

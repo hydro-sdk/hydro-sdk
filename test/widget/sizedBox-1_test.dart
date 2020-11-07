@@ -15,5 +15,5 @@ void main() {
     expect(find.byKey(Key("empty")), findsOneWidget);
     expect(find.byKey(Key("only width")), findsOneWidget);
     expect(find.byKey(Key("only height")), findsOneWidget);
-},tags: "widget");
+  }, tags: "widget");
 }

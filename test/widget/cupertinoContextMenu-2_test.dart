@@ -28,5 +28,5 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
     });
-},tags: "widget");
+  }, tags: "widget");
 }

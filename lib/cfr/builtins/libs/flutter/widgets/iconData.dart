@@ -4,6 +4,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:flutter/material.dart';
 import 'package:hydro_sdk/hydroState.dart';
+
 class RTManagedIconData extends IconData implements Box<IconData> {
   RTManagedIconData(int codePoint,
       {String fontFamily,
@@ -45,6 +46,7 @@ class RTManagedIconData extends IconData implements Box<IconData> {
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
+
 void loadIconData(
     {@required HydroState hydroState, @required HydroTable table}) {
   table['iconData'] = makeLuaDartFunc(func: (List<dynamic> args) {

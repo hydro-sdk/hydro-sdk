@@ -11,7 +11,7 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
         json.decode(File("../test/swid/res/IconData.json").readAsStringSync()));
-    
+
     expect(requiresDartBinding(swidClass: iconDataClass), true);
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(TsClassVmDeclaration(swidClass: iconDataClass).toTsSource(), """
@@ -27,5 +27,5 @@ iconData: (this : void, iconData : IconData, codePoint : number, props : { fontF
 
     expect(
         TsClassVmDeclaration(swidClass: cupertinoIconsClass).toTsSource(), "");
-}, tags: "swid");
+  }, tags: "swid");
 }

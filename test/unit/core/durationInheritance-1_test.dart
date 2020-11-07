@@ -19,5 +19,5 @@ void main() {
     }
 
     expect(res.success, true);
-},tags: "unit");
+  }, tags: "unit");
 }

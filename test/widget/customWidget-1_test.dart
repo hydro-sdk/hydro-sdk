@@ -67,5 +67,5 @@ void main() {
     var exception = tester.takeException();
     expect(exception, isNull);
     expect(find.byKey(Key("Key for MyCustomwidget")), isNotNull);
-},tags: "widget");
+  }, tags: "widget");
 }

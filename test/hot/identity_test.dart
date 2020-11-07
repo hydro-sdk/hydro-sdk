@@ -181,5 +181,5 @@ void main() {
             sourceHashWithoutSourceInformation:
                 hashPrototype(local1, includeSourceLocations: false)),
         false);
-},tags: "hot");
+  }, tags: "hot");
 }

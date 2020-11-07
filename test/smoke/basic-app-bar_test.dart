@@ -89,5 +89,5 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byKey(Key(iconAt(i).toString())), findsOneWidget);
     }
-},tags: "smoke");
+  }, tags: "smoke");
 }

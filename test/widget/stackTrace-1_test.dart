@@ -70,5 +70,5 @@ void main() {
           "test/widget/stackTrace-1.ts");
       expect(exception.extractedSymbols[0].originalLineStart, 34);
     });
-},tags: "widget");
+  }, tags: "widget");
 }

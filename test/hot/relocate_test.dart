@@ -49,5 +49,5 @@ void main() {
 
     res = reassembleClosures(destination: res2.closure, source: res3.closure);
     expect(res.relocatedProtos, 0);
-},tags: "hot");
+  }, tags: "hot");
 }
