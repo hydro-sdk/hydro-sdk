@@ -56,7 +56,8 @@ String transformFunctionTypeToTs({
     }
   });
 
-  if (swidFunctionType.normalParameterNames.isNotEmpty) {
+  if (swidFunctionType.normalParameterNames.isNotEmpty &&
+      swidFunctionType.namedParameterTypes.isNotEmpty) {
     res += ",";
   }
 
