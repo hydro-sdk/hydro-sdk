@@ -62,12 +62,37 @@ void loadTextStyle(
   table["textStyle"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       TextStyle(
-          fontSize: args[0]["fontSize"]?.toDouble(),
-          color: maybeUnBoxAndBuildArgument<Color>(args[0]["color"],
-              parentState: luaState),
-          fontWeight: maybeUnBoxAndBuildArgument<FontWeight>(
-              args[0]["fontWeight"],
-              parentState: luaState))
+        inherit: args[0]["inherit"],
+        color: maybeUnBoxAndBuildArgument<Color>(args[0]["color"],
+            parentState: luaState),
+        backgroundColor: maybeUnBoxAndBuildArgument<Color>(
+            args[0]["backgroundColor"],
+            parentState: luaState),
+        fontSize: args[0]["fontSize"]?.toDouble(),
+        fontWeight: maybeUnBoxAndBuildArgument<FontWeight>(
+            args[0]["fontWeight"],
+            parentState: luaState),
+        fontStyle: maybeUnBoxEnum(
+          values: FontStyle.values,
+          boxedEnum: args[0]["fontStyle"],
+        ),
+        letterSpacing: args[0]["letterSpacing"],
+        wordSpacing: args[0]["wordSpacing"],
+        textBaseline: maybeUnBoxEnum(
+          values: TextBaseline.values,
+          boxedEnum: args[0]["textBaseline"],
+        ),
+        height: args[0]["height"],
+        decorationColor: maybeUnBoxAndBuildArgument<Color>(
+            args[0]["decorationColor"],
+            parentState: luaState),
+        decorationStyle: maybeUnBoxEnum(
+          values: TextDecorationStyle.values,
+          boxedEnum: args[0]["decorationStyle"],
+        ),
+        decorationThickness: args[0]["decorationThickness"],
+        debugLabel: args[0]["debugLabel"],
+      )
     ];
   });
 }

@@ -14,6 +14,8 @@ void loadBoxDecoration(
           borderRadius: maybeUnBoxAndBuildArgument<BorderRadiusGeometry>(
               args[0]["borderRadius"],
               parentState: luaState),
+          border: maybeUnBoxAndBuildArgument<Border>(args[0]["border"],
+              parentState: luaState),
           shape: maybeUnBoxEnum<BoxShape>(
               values: BoxShape.values, boxedEnum: args[0]["shape"]),
           gradient: maybeUnBoxAndBuildArgument<Gradient>(args[0]["gradient"],

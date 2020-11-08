@@ -5,27 +5,26 @@ import {EdgeInsets} from "./../painting/edgeInsets";
 import {Widget} from "./../widget";
 import {StatelessWidget} from "./statelessWidget";
 
-export interface SafeAreaProps {
+export interface SliverSafeAreaProps {
     left?: boolean | undefined;
     top?: boolean | undefined;
     right?: boolean | undefined;
     bottom?: boolean | undefined;
     minimum?: EdgeInsets | undefined;
-    maintainBottomViewPadding?: boolean | undefined;
-    child: Widget;
+    sliver: Widget;
 }
 
 declare const flutter: {
     widgets: {
-        safeArea: (this: void, props: SafeAreaProps) => SafeArea;
+        sliverSafeArea: (this: void, props: SliverSafeAreaProps) => SliverSafeArea;
     };
 };
 
-export class SafeArea extends StatelessWidget implements RuntimeBaseClass 
+export class SliverSafeArea extends StatelessWidget implements RuntimeBaseClass 
 {
-    public readonly internalRuntimeType = new Type(SafeArea);
-    public props: SafeAreaProps;
-    public constructor(props: SafeAreaProps) 
+    public readonly internalRuntimeType = new Type(SliverSafeArea);
+    public props: SliverSafeAreaProps;
+    public constructor(props: SliverSafeAreaProps) 
     {
         super();
         this.props = props;
@@ -50,14 +49,10 @@ export class SafeArea extends StatelessWidget implements RuntimeBaseClass
         {
             this.props.minimum = EdgeInsets.zero();
         }
-        if (this.props.maintainBottomViewPadding === undefined) 
-        {
-            this.props.maintainBottomViewPadding = false;
-        }
     }
 
     public build(): Widget 
     {
-        return flutter.widgets.safeArea(this.props);
+        return flutter.widgets.sliverSafeArea(this.props);
     }
 }

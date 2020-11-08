@@ -1,19 +1,18 @@
-import {ChangeNotifier} from "../flutter/foundation/changeNotifier";
-import {Type} from "../dart/core/type";
-import {StatelessWidget} from "../flutter/widgets/statelessWidget";
-import {Widget} from "../flutter/widget";
-import {BuildContext} from "../flutter/buildContext";
+import { ChangeNotifier } from "../flutter/foundation/changeNotifier";
+import { Type } from "../dart/core/type";
+import { StatelessWidget } from "../flutter/widgets/statelessWidget";
+import { Widget } from "../flutter/widget";
+import { BuildContext } from "../flutter/buildContext";
 
-import {ScopedModelDescendantBuilder} from "./scopedModelDescendantBuilder";
-import {ScopedModel} from "./scopedModel";
+import { ScopedModelDescendantBuilder } from "./scopedModelDescendantBuilder";
+import { ScopedModel } from "./scopedModel";
 
 export class ScopedModelDescendant<
     T extends ChangeNotifier & {
         runtimeType: Type;
-    }> extends StatelessWidget 
-{
+    }> extends StatelessWidget {
     public builder: ScopedModelDescendantBuilder<T>;
-    public child: Widget | undefined;
+    public child?: Widget | undefined;
     public type: T["runtimeType"];
 
     public constructor({
@@ -22,10 +21,9 @@ export class ScopedModelDescendant<
         type
     }: {
         builder: ScopedModelDescendantBuilder<T>;
-        child: Widget | undefined;
+        child?: Widget | undefined;
         type: T["runtimeType"];
-    }) 
-    {
+    }) {
         super();
 
         this.builder = builder;
@@ -33,8 +31,7 @@ export class ScopedModelDescendant<
         this.type = type;
     }
 
-    public build(context: BuildContext) 
-    {
+    public build(context: BuildContext) {
         return this.builder(
             context,
             this.child,

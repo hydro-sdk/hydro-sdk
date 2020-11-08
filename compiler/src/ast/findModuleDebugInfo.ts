@@ -43,7 +43,8 @@ type ExplorableNode = lparse.CallExpression |
     lparse.LogicalExpression |
     lparse.TableKeyString |
     lparse.TableValue |
-    lparse.MemberExpression;
+    lparse.MemberExpression |
+    lparse.DoStatement;
 
 function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefined {
     if (node.type == "CallExpression") {
@@ -72,6 +73,8 @@ function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefi
         return node as lparse.TableValue;
     } else if (node.type == "MemberExpression") {
         return node as lparse.MemberExpression;
+    } else if (node.type == "DoStatement") {
+        return node as lparse.DoStatement;
     }
     return;
 }
@@ -300,6 +303,19 @@ function findModuleDebugInfoInner(props: {
                 last: props.last.base as ExplorableNode
             });
         }
+    }
+
+    if (props.last.type == "DoStatement") {
+        if (props.log) {
+            console.log(`DoStatement ${props.last.loc?.start?.line}`);
+        }
+
+        props.last.body.forEach((k) => {
+            findModuleDebugInfoInner({
+                ...props,
+                last: k
+            });
+        });
     }
 }
 

@@ -69,10 +69,13 @@ function maybeNarrowNodeType(node) {
     else if (node.type == "MemberExpression") {
         return node;
     }
+    else if (node.type == "DoStatement") {
+        return node;
+    }
     return;
 }
 function findModuleDebugInfoInner(props) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2;
     if (props.last.type == "FunctionDeclaration") {
         if (props.log) {
             console.log("FunctionDeclaration " + ((_b = (_a = props.last.loc) === null || _a === void 0 ? void 0 : _a.start) === null || _b === void 0 ? void 0 : _b.line));
@@ -222,6 +225,14 @@ function findModuleDebugInfoInner(props) {
         if (maybeNarrowNodeType(props.last.base)) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.base }));
         }
+    }
+    if (props.last.type == "DoStatement") {
+        if (props.log) {
+            console.log("DoStatement " + ((_2 = (_1 = props.last.loc) === null || _1 === void 0 ? void 0 : _1.start) === null || _2 === void 0 ? void 0 : _2.line));
+        }
+        props.last.body.forEach(function (k) {
+            findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
+        });
     }
 }
 function extract(props) {

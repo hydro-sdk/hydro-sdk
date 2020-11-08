@@ -14,7 +14,7 @@ void main() {
       args: [],
       thunks: null,
       baseUrl: "",
-      filePath: "cupertinoContextMenu-2.ts.hc"));
+      filePath: "cupertino-store.hc"));
 }
 
 /// This Widget is the main application widget.

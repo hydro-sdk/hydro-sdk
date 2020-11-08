@@ -2,6 +2,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/align.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/alwaysScrollableScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/animatedBuilder.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/animatedList.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/bottomNavigationBarItem.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/bouncingScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/buildContext.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/center.dart';
@@ -10,9 +11,11 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/clipRRect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/column.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/container.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/customScrollView.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/decoratedBox.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/expanded.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/fittedBox.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/flexible.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/focusNode.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/gestureDetector.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/globalKey.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/gridView.dart';
@@ -33,8 +36,11 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/row.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/safeArea.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sizeTransition.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sizedBox.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverChildBuilderDelegate.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverGrid.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverList.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverPadding.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverSafeArea.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/sliverToBoxAdapter.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/spacer.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/stack.dart';
@@ -57,7 +63,7 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
 
   loadPreferredSize(luaState: luaState, table: table);
   loadStatelessWidget(luaState: luaState, table: table);
-  loadStatefulWidget(luaState: luaState, table: table);
+  loadStatefulWidget(luaState: luaState, table: widgets);
 
   loadText(luaState: luaState, table: widgets);
   loadCenter(luaState: luaState, table: widgets);
@@ -102,4 +108,10 @@ void loadWidgets({@required HydroState luaState, @required HydroTable table}) {
   loadNeverScrollableScrollPhysics(hydroState: luaState, table: widgets);
   loadClampingScrollPhysics(hydroState: luaState, table: widgets);
   loadFittedBox(luaState: luaState, table: widgets);
+  loadSliverSafeArea(luaState: luaState, table: widgets);
+  loadSliverList(luaState: luaState, table: widgets);
+  loadSliverChildBuilderDelegate(luaState: luaState, table: widgets);
+  loadBottomNavigationBarItem(luaState: luaState, table: widgets);
+  loadDecoratedBox(luaState: luaState, table: widgets);
+  loadFocusNode(hydroState: luaState, table: widgets);
 }
