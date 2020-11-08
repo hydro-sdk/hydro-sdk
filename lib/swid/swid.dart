@@ -3,13 +3,16 @@ import 'dart:io';
 
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidEnum.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/dart/narrowModifierProducer.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldDeclaration.dart';
+import 'package:analyzer/dart/element/type.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/narrowModifierProducer.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
@@ -101,63 +104,95 @@ class SwidVisitor extends RecursiveAstVisitor
                 null) {
           classes.add(
             SwidClass(
-              name: node.name.name,
-              nullabilitySuffix: SwidNullabilitySuffix.none,
-              originalPackagePath:
-                  node.declaredElement?.librarySource?.uri?.toString() ?? "",
-              constructorType: SwidFunctionType.fromFunctionType(
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-                  functionType:
-                      constructorDeclarationImpl.declaredElement.type),
-              methods: node.childEntities
-                  .where((x) => x is MethodDeclarationImpl)
-                  .toList()
-                  .cast<MethodDeclarationImpl>()
-                  .where((x) =>
-                      x.name.name[0] != "_" && !x.declaredElement.hasProtected)
-                  .toList()
-                  .cast<MethodDeclarationImpl>()
-                  .map((x) => SwidFunctionType.fromFunctionType(
-                      functionType: x.declaredElement.type,
-                      swidDeclarationModifiers: narrowModifierProducer(
-                          element: x.declaredElement,
-                          onExecutablElement: (val) =>
-                              SwidDeclarationModifiers.fromExecutableElement(
-                                  executableElement: val),
-                          onPropertyAccessorElement: (val) =>
-                              SwidDeclarationModifiers
-                                  .fromPropertyAccessorElement(
-                                      propertyAccessorElement: val))))
-                  .toList()
-                  .cast<SwidFunctionType>(),
-              staticConstFieldDeclarations: node.childEntities
-                  .where((x) => x is FieldDeclaration)
-                  .toList()
-                  .cast<FieldDeclaration>()
-                  .map((x) {
-                if (x.isStatic) {
-                  var declarationList = (x.childEntities
-                          .firstWhere((k) => k is VariableDeclarationList)
-                      as VariableDeclarationList);
-                  if (declarationList.isConst) {
-                    VariableDeclaration declaration = declarationList
-                        .childEntities
-                        .firstWhere((x) => x is VariableDeclaration);
-                    if (declaration.isConst &&
-                        declaration.declaredElement.isConst &&
-                        declaration.declaredElement.isStatic &&
-                        declaration.declaredElement.isPublic) {
-                      return SwidStaticConstFieldDeclaration
-                          .fromVariableDeclarationList(
-                              variableDeclarationList: x.childEntities
-                                  .firstWhere(
-                                      (k) => k is VariableDeclarationList));
+                name: node.name.name,
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath:
+                    node.declaredElement?.librarySource?.uri?.toString() ?? "",
+                constructorType: SwidFunctionType.fromFunctionType(
+                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    functionType:
+                        constructorDeclarationImpl.declaredElement.type),
+                methods: node.childEntities
+                    .where((x) => x is MethodDeclarationImpl)
+                    .toList()
+                    .cast<MethodDeclarationImpl>()
+                    .where((x) =>
+                        x.name.name[0] != "_" &&
+                        !x.declaredElement.hasProtected)
+                    .toList()
+                    .cast<MethodDeclarationImpl>()
+                    .map((x) => SwidFunctionType.fromFunctionType(
+                        functionType: x.declaredElement.type,
+                        swidDeclarationModifiers: narrowModifierProducer(
+                            element: x.declaredElement,
+                            onExecutablElement: (val) =>
+                                SwidDeclarationModifiers.fromExecutableElement(
+                                    executableElement: val),
+                            onPropertyAccessorElement: (val) =>
+                                SwidDeclarationModifiers.fromPropertyAccessorElement(
+                                    propertyAccessorElement: val))))
+                    .toList()
+                    .cast<SwidFunctionType>(),
+                staticConstFieldDeclarations: node.childEntities
+                    .where((x) => x is FieldDeclaration)
+                    .toList()
+                    .cast<FieldDeclaration>()
+                    .map((x) {
+                  if (x.isStatic) {
+                    var declarationList = (x.childEntities
+                            .firstWhere((k) => k is VariableDeclarationList)
+                        as VariableDeclarationList);
+                    if (declarationList.isConst) {
+                      VariableDeclaration declaration = declarationList
+                          .childEntities
+                          .firstWhere((x) => x is VariableDeclaration);
+                      if (declaration.isConst &&
+                          declaration.declaredElement.isConst &&
+                          declaration.declaredElement.isStatic &&
+                          declaration.declaredElement.isPublic) {
+                        return SwidStaticConstFieldDeclaration
+                            .fromVariableDeclarationList(
+                                variableDeclarationList: x.childEntities
+                                    .firstWhere(
+                                        (k) => k is VariableDeclarationList));
+                      }
                     }
                   }
-                }
-              }).toList()
-                    ..removeWhere((x) => x == null),
-            ),
+                }).toList()
+                      ..removeWhere((x) => x == null),
+                instanceFieldDeclarations: Map.fromEntries(
+                  node.childEntities
+                      .where((x) => x is FieldDeclaration)
+                      .toList()
+                      .cast<FieldDeclaration>()
+                      .map((x) {
+                    if (!x.isStatic) {
+                      var declarationList = (x.childEntities
+                              .firstWhere((k) => k is VariableDeclarationList)
+                          as VariableDeclarationList);
+                      if (!declarationList.isConst) {
+                        VariableDeclaration declaration = declarationList
+                            .childEntities
+                            .firstWhere((x) => x is VariableDeclaration);
+                        if (!declaration.isConst &&
+                            !declaration.declaredElement.isConst &&
+                            !declaration.declaredElement.isStatic &&
+                            declaration.declaredElement.isPublic) {
+                          if (declaration.declaredElement.type
+                              is InterfaceType) {
+                            return MapEntry(
+                                declaration.declaredElement.displayName,
+                                SwidType.fromSwidInterface(
+                                    swidInterface: SwidInterface.fromInterface(
+                                        interfaceType:
+                                            declaration.declaredElement.type)));
+                          }
+                        }
+                      }
+                    }
+                  }).toList()
+                        ..removeWhere((x) => x == null),
+                )),
           );
         }
       }
@@ -165,30 +200,38 @@ class SwidVisitor extends RecursiveAstVisitor
 
     if (node.name.name == "IconData") {
       print(node.name.name);
-      File("IconData.json")
+      File("test/swid/res/IconData.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     if (node.name.name == "IconDataProperty") {
       print(node.name.name);
-      File("IconDataProperty.json")
+      File("test/swid/res/IconDataProperty.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     if (node.name.name == "Icons") {
       print(node.name.name);
-      File("Icons.json").writeAsStringSync(json.encode(classes.last.toJson()));
+      File("test/swid/res/Icons.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     if (node.name.name == "CupertinoIcons") {
       print(node.name.name);
-      File("CupertinoIcons.json")
+      File("test/swid/res/CupertinoIcons.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     if (node.name.name == "Ticker") {
       print(node.name.name);
-      File("Ticker.json").writeAsStringSync(json.encode(classes.last.toJson()));
+      File("test/swid/res/Ticker.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "IconData") {
+      print(node.name.name);
+      File("test/swid/res/IconData.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
     super.visitClassDeclaration(node);

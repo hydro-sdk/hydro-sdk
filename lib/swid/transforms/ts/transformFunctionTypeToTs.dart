@@ -1,13 +1,15 @@
-import 'package:hydro_sdk/swid/ir/dart/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:meta/meta.dart';
 
 String transformFunctionTypeToTs({
   @required SwidFunctionType swidFunctionType,
-  bool emitReturnType = true,
+  bool emitTrailingReturnType = true,
+  bool emitDefaultFormalsAsOptionalNamed = false,
 }) {
   var res = "(";
 
@@ -53,8 +55,24 @@ String transformFunctionTypeToTs({
       res += ", ";
     }
   });
+
+  if (swidFunctionType.normalParameterNames.isNotEmpty &&
+      swidFunctionType.namedParameterTypes.isNotEmpty) {
+    res += ",";
+  }
+
+  if (swidFunctionType.namedParameterTypes.isNotEmpty) {
+    res += " props : { ";
+
+    swidFunctionType.namedParameterTypes.entries.forEach((x) {
+      res +=
+          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question || (emitDefaultFormalsAsOptionalNamed && swidFunctionType.namedDefaults[x.key] != null) ? "?" : ""} : ${transformTypeDeclarationToTs(swidType: x.value)}, ";
+    });
+    res += "}";
+  }
+
   res += ")";
-  if (emitReturnType) {
+  if (emitTrailingReturnType) {
     res += transformReturnTypeToTs(swidFunctionType: swidFunctionType);
   }
   return res;

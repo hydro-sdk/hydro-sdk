@@ -30,6 +30,8 @@ dependencies:
   recase: ^3.0.0
   freezed_annotation:
   freezed:
+  code_builder:
+  dart_style:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
