@@ -20,7 +20,9 @@ Future<void> writeTranslationUnit(
 
   String content = "";
 
-  content = await File(filePath).readAsString();
+  if (await File(filePath).exists()) {
+    content = await File(filePath).readAsString();
+  }
 
   await File(filePath).writeAsString(content
           .split("\n")
