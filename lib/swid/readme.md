@@ -14,3 +14,5 @@ With time SWID should obsolete writing Dart bindings by hand. Both for Flutter i
 - [x] `IconData`  
 ### Foundation
 - [ ] `TextTreeConfiguration`
+- [ ] `DiagnosticsNode`
+- [ ] `DiagnosticsSerializationDelegate`
