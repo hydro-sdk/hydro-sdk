@@ -56,8 +56,12 @@ String transformFunctionTypeToTs({
     }
   });
 
+  if (swidFunctionType.normalParameterNames.isNotEmpty) {
+    res += ",";
+  }
+
   if (swidFunctionType.namedParameterTypes.isNotEmpty) {
-    res += ", props : { ";
+    res += " props : { ";
 
     swidFunctionType.namedParameterTypes.entries.forEach((x) {
       res +=
