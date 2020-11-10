@@ -6,11 +6,11 @@ import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorProps.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedProps.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
@@ -20,6 +20,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsEnum.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:path/path.dart' as p;
 import 'package:meta/meta.dart';
 
@@ -52,9 +53,11 @@ class TranslationUnitProducer {
               TsIr.fromTsClassVmDeclaration(
                   tsClassVmDeclaration:
                       TsClassVmDeclaration(swidClass: swidClass)),
-              TsIr.fromTsClassDefaultConstructorProps(
-                tsClassDefaultConstructorProps:
-                    TsClassDefaultConstructorProps(swidClass: swidClass),
+              TsIr.fromTsFunctionDefaultNamedProps(
+                tsFunctionDefaultNamedProps: TsFunctionDefaultNamedProps(
+                    swidFunctionType: SwidFunctionType.clone(
+                        swidFunctionType: swidClass.constructorType,
+                        name: swidClass.name)),
               ),
               TsIr.fromTsClassPreamble(
                   tsClassPreamble: TsClassPreamble(swidClass: swidClass)),

@@ -1,9 +1,10 @@
 import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorPropsObjectName.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersSpread.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationPositionalParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
@@ -42,7 +43,10 @@ class TsClassConstructorImplementation {
                 TsFunctionInvocationNamedParameters.fromSpread(
                     tsFunctionInvocationNamedParametersSpread:
                         TsFunctionInvocationNamedParametersSpread(references: [
-                  TsClassDefaultConstructorPropsObjectName(swidClass: swidClass)
+                  TsFunctionDefaultNamedPropsObjectName(
+                          swidFunctionType: SwidFunctionType.clone(
+                              swidFunctionType: swidClass.constructorType,
+                              name: swidClass.name))
                       .toTsSource(),
                   "props"
                 ]))

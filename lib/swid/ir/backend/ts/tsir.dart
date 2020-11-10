@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsClassDefaultConstructorProps.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldDeclarations.dart';
@@ -10,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsEnum.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedProps.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersKeyValue.dart';
@@ -27,10 +27,9 @@ abstract class TsIr with _$TsIr {
               TsClassConstructorImplementation
                   tsClassConstructorImplementation}) =
       _$FromTsClassConstructorImplementation;
-  factory TsIr.fromTsClassDefaultConstructorProps(
-          {@required
-              TsClassDefaultConstructorProps tsClassDefaultConstructorProps}) =
-      _$FromTsClassDefaultConstructorProps;
+  factory TsIr.fromTsFunctionDefaultNamedProps(
+          {@required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
+      _$FromTsFunctionDefaultNamedProps;
   factory TsIr.fromTsClassInstanceFieldDeclarations(
           {@required
               TsClassInstanceFieldDeclarations
@@ -89,7 +88,7 @@ abstract class TsIr with _$TsIr {
 extension TsIrMethods on TsIr {
   String toTsSource() => when(
         fromTsClassConstructorImplementation: (val) => val.toTsSource(),
-        fromTsClassDefaultConstructorProps: (val) => val.toTsSource(),
+        fromTsFunctionDefaultNamedProps: (val) => val.toTsSource(),
         fromTsClassInstanceFieldDeclarations: (val) => val.toTsSource(),
         fromTsClassMethodDeclarations: (val) => val.toTsSource(),
         fromTsClassMethodInjectionFieldDeclarations: (val) => val.toTsSource(),

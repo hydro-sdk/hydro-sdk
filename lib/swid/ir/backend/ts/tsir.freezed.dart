@@ -23,11 +23,10 @@ class _$TsIrTearOff {
   }
 
 // ignore: unused_element
-  _$FromTsClassDefaultConstructorProps fromTsClassDefaultConstructorProps(
-      {@required
-          TsClassDefaultConstructorProps tsClassDefaultConstructorProps}) {
-    return _$FromTsClassDefaultConstructorProps(
-      tsClassDefaultConstructorProps: tsClassDefaultConstructorProps,
+  _$FromTsFunctionDefaultNamedProps fromTsFunctionDefaultNamedProps(
+      {@required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) {
+    return _$FromTsFunctionDefaultNamedProps(
+      tsFunctionDefaultNamedProps: tsFunctionDefaultNamedProps,
     );
   }
 
@@ -181,8 +180,8 @@ mixin _$TsIr {
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -228,8 +227,8 @@ mixin _$TsIr {
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -266,8 +265,8 @@ mixin _$TsIr {
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -304,8 +303,8 @@ mixin _$TsIr {
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -429,8 +428,8 @@ class _$_$FromTsClassConstructorImplementation
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -473,7 +472,7 @@ class _$_$FromTsClassConstructorImplementation
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -498,8 +497,8 @@ class _$_$FromTsClassConstructorImplementation
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -545,8 +544,8 @@ class _$_$FromTsClassConstructorImplementation
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -580,7 +579,7 @@ class _$_$FromTsClassConstructorImplementation
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -604,8 +603,8 @@ class _$_$FromTsClassConstructorImplementation
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -651,75 +650,74 @@ abstract class _$FromTsClassConstructorImplementation implements TsIr {
 }
 
 /// @nodoc
-abstract class _$$FromTsClassDefaultConstructorPropsCopyWith<$Res> {
-  factory _$$FromTsClassDefaultConstructorPropsCopyWith(
-          _$FromTsClassDefaultConstructorProps value,
-          $Res Function(_$FromTsClassDefaultConstructorProps) then) =
-      __$$FromTsClassDefaultConstructorPropsCopyWithImpl<$Res>;
-  $Res call({TsClassDefaultConstructorProps tsClassDefaultConstructorProps});
+abstract class _$$FromTsFunctionDefaultNamedPropsCopyWith<$Res> {
+  factory _$$FromTsFunctionDefaultNamedPropsCopyWith(
+          _$FromTsFunctionDefaultNamedProps value,
+          $Res Function(_$FromTsFunctionDefaultNamedProps) then) =
+      __$$FromTsFunctionDefaultNamedPropsCopyWithImpl<$Res>;
+  $Res call({TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps});
 }
 
 /// @nodoc
-class __$$FromTsClassDefaultConstructorPropsCopyWithImpl<$Res>
+class __$$FromTsFunctionDefaultNamedPropsCopyWithImpl<$Res>
     extends _$TsIrCopyWithImpl<$Res>
-    implements _$$FromTsClassDefaultConstructorPropsCopyWith<$Res> {
-  __$$FromTsClassDefaultConstructorPropsCopyWithImpl(
-      _$FromTsClassDefaultConstructorProps _value,
-      $Res Function(_$FromTsClassDefaultConstructorProps) _then)
-      : super(_value, (v) => _then(v as _$FromTsClassDefaultConstructorProps));
+    implements _$$FromTsFunctionDefaultNamedPropsCopyWith<$Res> {
+  __$$FromTsFunctionDefaultNamedPropsCopyWithImpl(
+      _$FromTsFunctionDefaultNamedProps _value,
+      $Res Function(_$FromTsFunctionDefaultNamedProps) _then)
+      : super(_value, (v) => _then(v as _$FromTsFunctionDefaultNamedProps));
 
   @override
-  _$FromTsClassDefaultConstructorProps get _value =>
-      super._value as _$FromTsClassDefaultConstructorProps;
+  _$FromTsFunctionDefaultNamedProps get _value =>
+      super._value as _$FromTsFunctionDefaultNamedProps;
 
   @override
   $Res call({
-    Object tsClassDefaultConstructorProps = freezed,
+    Object tsFunctionDefaultNamedProps = freezed,
   }) {
-    return _then(_$FromTsClassDefaultConstructorProps(
-      tsClassDefaultConstructorProps: tsClassDefaultConstructorProps == freezed
-          ? _value.tsClassDefaultConstructorProps
-          : tsClassDefaultConstructorProps as TsClassDefaultConstructorProps,
+    return _then(_$FromTsFunctionDefaultNamedProps(
+      tsFunctionDefaultNamedProps: tsFunctionDefaultNamedProps == freezed
+          ? _value.tsFunctionDefaultNamedProps
+          : tsFunctionDefaultNamedProps as TsFunctionDefaultNamedProps,
     ));
   }
 }
 
 /// @nodoc
-class _$_$FromTsClassDefaultConstructorProps
-    implements _$FromTsClassDefaultConstructorProps {
-  _$_$FromTsClassDefaultConstructorProps(
-      {@required this.tsClassDefaultConstructorProps})
-      : assert(tsClassDefaultConstructorProps != null);
+class _$_$FromTsFunctionDefaultNamedProps
+    implements _$FromTsFunctionDefaultNamedProps {
+  _$_$FromTsFunctionDefaultNamedProps(
+      {@required this.tsFunctionDefaultNamedProps})
+      : assert(tsFunctionDefaultNamedProps != null);
 
   @override
-  final TsClassDefaultConstructorProps tsClassDefaultConstructorProps;
+  final TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps;
 
   @override
   String toString() {
-    return 'TsIr.fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps: $tsClassDefaultConstructorProps)';
+    return 'TsIr.fromTsFunctionDefaultNamedProps(tsFunctionDefaultNamedProps: $tsFunctionDefaultNamedProps)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$FromTsClassDefaultConstructorProps &&
-            (identical(other.tsClassDefaultConstructorProps,
-                    tsClassDefaultConstructorProps) ||
+        (other is _$FromTsFunctionDefaultNamedProps &&
+            (identical(other.tsFunctionDefaultNamedProps,
+                    tsFunctionDefaultNamedProps) ||
                 const DeepCollectionEquality().equals(
-                    other.tsClassDefaultConstructorProps,
-                    tsClassDefaultConstructorProps)));
+                    other.tsFunctionDefaultNamedProps,
+                    tsFunctionDefaultNamedProps)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(tsClassDefaultConstructorProps);
+      const DeepCollectionEquality().hash(tsFunctionDefaultNamedProps);
 
   @override
-  _$$FromTsClassDefaultConstructorPropsCopyWith<
-          _$FromTsClassDefaultConstructorProps>
-      get copyWith => __$$FromTsClassDefaultConstructorPropsCopyWithImpl<
-          _$FromTsClassDefaultConstructorProps>(this, _$identity);
+  _$$FromTsFunctionDefaultNamedPropsCopyWith<_$FromTsFunctionDefaultNamedProps>
+      get copyWith => __$$FromTsFunctionDefaultNamedPropsCopyWithImpl<
+          _$FromTsFunctionDefaultNamedProps>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -728,8 +726,8 @@ class _$_$FromTsClassDefaultConstructorProps
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -772,7 +770,7 @@ class _$_$FromTsClassDefaultConstructorProps
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -788,7 +786,7 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
-    return fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps);
+    return fromTsFunctionDefaultNamedProps(tsFunctionDefaultNamedProps);
   }
 
   @override
@@ -796,8 +794,8 @@ class _$_$FromTsClassDefaultConstructorProps
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -829,8 +827,8 @@ class _$_$FromTsClassDefaultConstructorProps
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (fromTsClassDefaultConstructorProps != null) {
-      return fromTsClassDefaultConstructorProps(tsClassDefaultConstructorProps);
+    if (fromTsFunctionDefaultNamedProps != null) {
+      return fromTsFunctionDefaultNamedProps(tsFunctionDefaultNamedProps);
     }
     return orElse();
   }
@@ -842,8 +840,8 @@ class _$_$FromTsClassDefaultConstructorProps
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -877,7 +875,7 @@ class _$_$FromTsClassDefaultConstructorProps
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -893,7 +891,7 @@ class _$_$FromTsClassDefaultConstructorProps
     assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
-    return fromTsClassDefaultConstructorProps(this);
+    return fromTsFunctionDefaultNamedProps(this);
   }
 
   @override
@@ -901,8 +899,8 @@ class _$_$FromTsClassDefaultConstructorProps
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -928,22 +926,21 @@ class _$_$FromTsClassDefaultConstructorProps
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (fromTsClassDefaultConstructorProps != null) {
-      return fromTsClassDefaultConstructorProps(this);
+    if (fromTsFunctionDefaultNamedProps != null) {
+      return fromTsFunctionDefaultNamedProps(this);
     }
     return orElse();
   }
 }
 
-abstract class _$FromTsClassDefaultConstructorProps implements TsIr {
-  factory _$FromTsClassDefaultConstructorProps(
-          {@required
-              TsClassDefaultConstructorProps tsClassDefaultConstructorProps}) =
-      _$_$FromTsClassDefaultConstructorProps;
+abstract class _$FromTsFunctionDefaultNamedProps implements TsIr {
+  factory _$FromTsFunctionDefaultNamedProps(
+          {@required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
+      _$_$FromTsFunctionDefaultNamedProps;
 
-  TsClassDefaultConstructorProps get tsClassDefaultConstructorProps;
-  _$$FromTsClassDefaultConstructorPropsCopyWith<
-      _$FromTsClassDefaultConstructorProps> get copyWith;
+  TsFunctionDefaultNamedProps get tsFunctionDefaultNamedProps;
+  _$$FromTsFunctionDefaultNamedPropsCopyWith<_$FromTsFunctionDefaultNamedProps>
+      get copyWith;
 }
 
 /// @nodoc
@@ -1027,8 +1024,8 @@ class _$_$FromClassInstanceFieldDeclarations
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -1071,7 +1068,7 @@ class _$_$FromClassInstanceFieldDeclarations
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -1096,8 +1093,8 @@ class _$_$FromClassInstanceFieldDeclarations
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -1143,8 +1140,8 @@ class _$_$FromClassInstanceFieldDeclarations
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -1178,7 +1175,7 @@ class _$_$FromClassInstanceFieldDeclarations
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -1202,8 +1199,8 @@ class _$_$FromClassInstanceFieldDeclarations
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -1324,8 +1321,8 @@ class _$_$FromTsClassMethodDeclarations
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -1368,7 +1365,7 @@ class _$_$FromTsClassMethodDeclarations
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -1392,8 +1389,8 @@ class _$_$FromTsClassMethodDeclarations
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -1438,8 +1435,8 @@ class _$_$FromTsClassMethodDeclarations
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -1473,7 +1470,7 @@ class _$_$FromTsClassMethodDeclarations
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -1497,8 +1494,8 @@ class _$_$FromTsClassMethodDeclarations
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -1627,8 +1624,8 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -1671,7 +1668,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -1696,8 +1693,8 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -1743,8 +1740,8 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -1778,7 +1775,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -1802,8 +1799,8 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -1928,8 +1925,8 @@ class _$_$FromTsClassMethodInjectionFieldName
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -1972,7 +1969,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -1996,8 +1993,8 @@ class _$_$FromTsClassMethodInjectionFieldName
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -2043,8 +2040,8 @@ class _$_$FromTsClassMethodInjectionFieldName
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -2078,7 +2075,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -2102,8 +2099,8 @@ class _$_$FromTsClassMethodInjectionFieldName
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -2218,8 +2215,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -2262,7 +2259,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -2286,8 +2283,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -2332,8 +2329,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -2367,7 +2364,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -2391,8 +2388,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -2502,8 +2499,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -2546,7 +2543,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -2570,8 +2567,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -2616,8 +2613,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -2651,7 +2648,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -2675,8 +2672,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -2800,8 +2797,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -2844,7 +2841,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -2869,8 +2866,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -2916,8 +2913,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -2951,7 +2948,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -2975,8 +2972,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -3084,8 +3081,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -3128,7 +3125,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -3152,8 +3149,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -3198,8 +3195,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -3233,7 +3230,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -3257,8 +3254,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -3365,8 +3362,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -3409,7 +3406,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -3433,8 +3430,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -3479,8 +3476,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -3514,7 +3511,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -3538,8 +3535,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -3652,8 +3649,8 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -3696,7 +3693,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -3720,8 +3717,8 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -3766,8 +3763,8 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -3801,7 +3798,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -3825,8 +3822,8 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -3953,8 +3950,8 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -3997,7 +3994,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -4021,8 +4018,8 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -4067,8 +4064,8 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -4102,7 +4099,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -4126,8 +4123,8 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -4267,8 +4264,8 @@ class _$_$FromTsFunctionInvocationNamedParameters
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -4311,7 +4308,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -4336,8 +4333,8 @@ class _$_$FromTsFunctionInvocationNamedParameters
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -4383,8 +4380,8 @@ class _$_$FromTsFunctionInvocationNamedParameters
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -4418,7 +4415,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -4442,8 +4439,8 @@ class _$_$FromTsFunctionInvocationNamedParameters
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -4596,8 +4593,8 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -4640,7 +4637,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -4665,8 +4662,8 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -4712,8 +4709,8 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -4747,7 +4744,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -4771,8 +4768,8 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -4920,8 +4917,8 @@ class _$_$TsFunctionInvocationNamedParametersSpread
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -4964,7 +4961,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -4989,8 +4986,8 @@ class _$_$TsFunctionInvocationNamedParametersSpread
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -5036,8 +5033,8 @@ class _$_$TsFunctionInvocationNamedParametersSpread
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -5071,7 +5068,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -5095,8 +5092,8 @@ class _$_$TsFunctionInvocationNamedParametersSpread
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
@@ -5209,8 +5206,8 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
         Result fromTsClassConstructorImplementation(
             TsClassConstructorImplementation tsClassConstructorImplementation),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
@@ -5253,7 +5250,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -5277,8 +5274,8 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
   Result maybeWhen<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         TsClassConstructorImplementation tsClassConstructorImplementation),
-    Result fromTsClassDefaultConstructorProps(
-        TsClassDefaultConstructorProps tsClassDefaultConstructorProps),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
     Result fromTsClassInstanceFieldDeclarations(
         TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
     Result fromTsClassMethodDeclarations(
@@ -5323,8 +5320,8 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
         Result fromTsClassConstructorImplementation(
             _$FromTsClassConstructorImplementation value),
     @required
-        Result fromTsClassDefaultConstructorProps(
-            _$FromTsClassDefaultConstructorProps value),
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
     @required
         Result fromTsClassInstanceFieldDeclarations(
             _$FromClassInstanceFieldDeclarations value),
@@ -5358,7 +5355,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     @required Result fromTsLinebreak(_$FromTsLinebreak value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsClassDefaultConstructorProps != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
     assert(fromTsClassInstanceFieldDeclarations != null);
     assert(fromTsClassMethodDeclarations != null);
     assert(fromTsClassMethodInjectionFieldDeclarations != null);
@@ -5382,8 +5379,8 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
   Result maybeMap<Result extends Object>({
     Result fromTsClassConstructorImplementation(
         _$FromTsClassConstructorImplementation value),
-    Result fromTsClassDefaultConstructorProps(
-        _$FromTsClassDefaultConstructorProps value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
     Result fromTsClassInstanceFieldDeclarations(
         _$FromClassInstanceFieldDeclarations value),
     Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
