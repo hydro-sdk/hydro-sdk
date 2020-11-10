@@ -14,9 +14,9 @@ class TsFunctionDefaultNamedProps {
           swidFunctionType.namedDefaults.entries
               .map((x) =>
                   "    ${x.key}: " +
-                  "${transformTypeDeclarationToTs(swidType: SwidType.fromSwidDefaultFormalParameter(swidDefaultFormalParameter: x.value))},\n")
+                  "${transformTypeDeclarationToTs(swidType: SwidType.fromSwidDefaultFormalParameter(swidDefaultFormalParameter: x.value))}")
               ?.toList()
-              ?.join("\n") +
-          "};\n"
+              ?.join(",\n") +
+          "\n};\n"
       : "";
 }
