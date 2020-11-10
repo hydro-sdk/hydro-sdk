@@ -88,7 +88,6 @@ class SwidVisitor extends RecursiveAstVisitor
   void visitClassDeclaration(ClassDeclaration node) {
     if (node.withClause == null &&
         node.nativeClause == null &&
-        node.abstractKeyword == null &&
         node.name.name[0] != "_") {
       if (node.name.name == "Icons") {
         print("Icons");
