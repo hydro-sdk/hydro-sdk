@@ -98,8 +98,6 @@ class SwidVisitor extends RecursiveAstVisitor
           .toList()
           .cast<ConstructorDeclarationImpl>()
           .where((x) =>
-              x.name != null &&
-              x.name.name[0] != "_" &&
               !x.declaredElement.hasProtected)
           .toList();
       final constructorDeclarationImpl = constructors
@@ -141,10 +139,14 @@ class SwidVisitor extends RecursiveAstVisitor
                     functionType:
                         constructorDeclarationImpl.declaredElement.type),
                 factoryConstructors: constructors
-                    .where((x) => x.factoryKeyword != null)
+                    .where((x) =>
+                        x.factoryKeyword != null &&
+                        x.name != null &&
+                        x.name.name[0] != "_")
                     .toList()
                     .map((x) => SwidFunctionType.fromFunctionType(
                         functionType: x.declaredElement.type,
+                        name: x.name.name,
                         swidDeclarationModifiers:
                             SwidDeclarationModifiers.empty()))
                     .toList(),

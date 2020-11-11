@@ -110,9 +110,10 @@ abstract class SwidFunctionType with _$SwidFunctionType {
 
   factory SwidFunctionType.fromFunctionType(
       {@required FunctionType functionType,
-      @required SwidDeclarationModifiers swidDeclarationModifiers}) {
+      @required SwidDeclarationModifiers swidDeclarationModifiers,
+      String name}) {
     return SwidFunctionType(
-      name: functionType.element?.name ?? "",
+      name: name ?? functionType.element?.name ?? "",
       nullabilitySuffix: mapNullabilitySuffix(
           nullabilitySuffix: functionType.nullabilitySuffix),
       originalPackagePath:
