@@ -59,6 +59,13 @@ class TranslationUnitProducer {
                         swidFunctionType: swidClass.constructorType,
                         name: swidClass.name)),
               ),
+              ...([
+                ...swidClass.methods,
+                ...swidClass.staticMethods,
+                ...swidClass.factoryConstructors,
+              ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
+                  tsFunctionDefaultNamedProps:
+                      TsFunctionDefaultNamedProps(swidFunctionType: x)))),
               TsIr.fromTsClassPreamble(
                   tsClassPreamble: TsClassPreamble(swidClass: swidClass)),
               TsIr.fromTsClassStaticConstFieldDeclarations(
