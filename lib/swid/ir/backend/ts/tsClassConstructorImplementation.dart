@@ -1,6 +1,9 @@
 import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
@@ -27,7 +30,19 @@ class TsClassConstructorImplementation {
                   .split(path.separator),
               transformToCamelCase(str: swidClass.name)
             ].join("."),
-            swidFunctionType: swidClass.constructorType,
+            swidFunctionType: SwidFunctionType.clone(
+              swidFunctionType:
+                  SwidFunctionType.InsertLeadingPositionalParameter(
+                      swidFunctionType: swidClass.constructorType,
+                      typeName: "this",
+                      swidType: SwidType.fromSwidInterface(
+                          swidInterface: SwidInterface(
+                        name: "this",
+                        nullabilitySuffix: SwidNullabilitySuffix.star,
+                        originalPackagePath: "",
+                      ))),
+              name: swidClass.name,
+            ),
           ).toTsSource() +
           "}\n"
       : "";
