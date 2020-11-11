@@ -96,7 +96,12 @@ class SwidVisitor extends RecursiveAstVisitor
       final List<ConstructorDeclarationImpl> constructors = node.childEntities
           .where((x) => x is ConstructorDeclarationImpl)
           .toList()
-          .cast<ConstructorDeclarationImpl>();
+          .cast<ConstructorDeclarationImpl>()
+          .where((x) =>
+              x.name != null &&
+              x.name.name[0] != "_" &&
+              !x.declaredElement.hasProtected)
+          .toList();
       final constructorDeclarationImpl = constructors
           .firstWhere((x) => x.factoryKeyword == null, orElse: () => null);
       if (constructorDeclarationImpl != null) {
@@ -235,12 +240,6 @@ class SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "CupertinoIcons") {
       print(node.name.name);
       File("test/swid/res/CupertinoIcons.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Ticker") {
-      print(node.name.name);
-      File("test/swid/res/Ticker.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
