@@ -15,6 +15,8 @@ abstract class SwidClass with _$SwidClass {
     @required SwidNullabilitySuffix nullabilitySuffix,
     @required String originalPackagePath,
     @required SwidFunctionType constructorType,
+    @required List<SwidFunctionType> factoryConstructors,
+    @required List<SwidFunctionType> staticMethods,
     @required List<SwidFunctionType> methods,
     @required
         List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
@@ -30,6 +32,8 @@ abstract class SwidClass with _$SwidClass {
     SwidNullabilitySuffix nullabilitySuffix,
     String originalPackagePath,
     SwidFunctionType constructorType,
+    List<SwidFunctionType> factoryConstructors,
+    List<SwidFunctionType> staticMethods,
     List<SwidFunctionType> methods,
     List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
     Map<String, SwidType> instanceFieldDeclarations,
@@ -42,6 +46,16 @@ abstract class SwidClass with _$SwidClass {
           constructorType: constructorType ??
               SwidFunctionType.clone(
                   swidFunctionType: swidClass.constructorType),
+          factoryConstructors: factoryConstructors ??
+              List.from(swidClass.factoryConstructors
+                      ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                      ?.toList() ??
+                  []),
+          staticMethods: staticMethods ??
+              List.from(swidClass.staticMethods
+                      ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                      ?.toList() ??
+                  []),
           methods: methods ??
               List.from(swidClass?.methods
                       ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
