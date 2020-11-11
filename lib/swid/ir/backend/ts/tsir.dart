@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersKeyValue.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersSpread.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsLinebreak.dart';
 import 'package:meta/meta.dart';
@@ -83,6 +84,11 @@ abstract class TsIr with _$TsIr {
       _$TsFunctionInvocationNamedParametersSpread;
   factory TsIr.fromTsLinebreak({@required TsLinebreak tsLinebreak}) =
       _$FromTsLinebreak;
+  factory TsIr.fromTsFunctionSelfBindingInvocation(
+          {@required
+              TsFunctionSelfBindingInvocation
+                  tsFunctionSelfBindingInvocation}) =
+      _$FromTsFunctionSelfBindingInvocation;
 }
 
 extension TsIrMethods on TsIr {
@@ -106,5 +112,6 @@ extension TsIrMethods on TsIr {
         fromTsFunctionInvocationNamedParametersSpread: (val) =>
             val.toTsSource(),
         fromTsLinebreak: (val) => val.toTsSource(),
+        fromTsFunctionSelfBindingInvocation: (val) => val.toTsSource(),
       );
 }

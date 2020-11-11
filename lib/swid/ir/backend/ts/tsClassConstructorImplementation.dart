@@ -1,12 +1,7 @@
 import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersSpread.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationPositionalParameters.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
@@ -26,31 +21,14 @@ class TsClassConstructorImplementation {
               swidType: SwidType.fromSwidFunctionType(
                   swidFunctionType: swidClass.constructorType)) +
           "{\n" +
-          TsFunctionInvocation(
-              functionReference: [
-                ...transformPackageUri(
-                        packageUri: swidClass.originalPackagePath)
-                    .split(path.separator),
-                transformToCamelCase(str: swidClass.name)
-              ].join("."),
-              tsFunctionInvocationPositionalParameters:
-                  TsFunctionInvocationPositionalParameters(
-                      positionalReferences: [
-                    "this",
-                    ...swidClass.constructorType.normalParameterNames
-                  ]),
-              tsFunctionInvocationNamedParameters: [
-                TsFunctionInvocationNamedParameters.fromSpread(
-                    tsFunctionInvocationNamedParametersSpread:
-                        TsFunctionInvocationNamedParametersSpread(references: [
-                  TsFunctionDefaultNamedPropsObjectName(
-                          swidFunctionType: SwidFunctionType.clone(
-                              swidFunctionType: swidClass.constructorType,
-                              name: swidClass.name))
-                      .toTsSource(),
-                  "props"
-                ]))
-              ]).toTsSource() +
+          TsFunctionSelfBindingInvocation(
+            functionReference: [
+              ...transformPackageUri(packageUri: swidClass.originalPackagePath)
+                  .split(path.separator),
+              transformToCamelCase(str: swidClass.name)
+            ].join("."),
+            swidFunctionType: swidClass.constructorType,
+          ).toTsSource() +
           "}\n"
       : "";
 }
