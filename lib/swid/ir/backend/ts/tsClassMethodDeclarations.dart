@@ -1,6 +1,9 @@
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldName.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersSpread.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationPositionalParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
@@ -31,8 +34,18 @@ class TsClassMethodDeclarations {
                                 .toTsSource(),
                         tsFunctionInvocationPositionalParameters:
                             TsFunctionInvocationPositionalParameters(
-                                positionalReferences: []),
-                        tsFunctionInvocationNamedParameters: []).toTsSource() +
+                                positionalReferences: x.normalParameterNames),
+                        tsFunctionInvocationNamedParameters: [
+                          TsFunctionInvocationNamedParameters.fromSpread(
+                              tsFunctionInvocationNamedParametersSpread:
+                                  TsFunctionInvocationNamedParametersSpread(
+                                      references: [
+                                TsFunctionDefaultNamedPropsObjectName(
+                                        swidFunctionType: x)
+                                    .toTsSource(),
+                                "props"
+                              ]))
+                        ]).toTsSource() +
                     "\n}")
           ].join("\n") +
           "\n"
