@@ -135,9 +135,11 @@ class RTManagedClassDeclaration {
                     methodInjectionFieldName(swidFunctionType: x)))
                 .assign(luaDartBinding(
                     code: Block.of([
-                  !x.swidDeclarationModifiers.isGetter
-                      ? Code("return [super.${x.name}()];")
-                      : Code("return [super.${x.name}];")
+                  Code("return [" +
+                      (!x.swidDeclarationModifiers.isAbstract ? "super." : "") +
+                      x.name +
+                      (!x.swidDeclarationModifiers.isGetter ? "()" : "") +
+                      "];")
                 ])))
                 .statement)
             .toList())
