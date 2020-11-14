@@ -21,6 +21,7 @@ void main() {
                 normalParameterTypes: [
                   SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                    typeArguments: [],
                     name: "int",
                     originalPackagePath: "",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -52,6 +53,7 @@ void main() {
                                     normalParameterTypes: [
                                       SwidType.fromSwidInterface(
                                           swidInterface: SwidInterface(
+                                        typeArguments: [],
                                         name: "int",
                                         nullabilitySuffix:
                                             SwidNullabilitySuffix.question,
@@ -63,6 +65,7 @@ void main() {
                                     originalPackagePath: "",
                                     returnType: SwidType.fromSwidInterface(
                                         swidInterface: SwidInterface(
+                                      typeArguments: [],
                                       name: "Duration",
                                       originalPackagePath: "",
                                       nullabilitySuffix:
@@ -73,6 +76,7 @@ void main() {
                           nullabilitySuffix: SwidNullabilitySuffix.question,
                           returnType: SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                            typeArguments: [],
                             name: "Widget",
                             originalPackagePath: "",
                             nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -82,6 +86,7 @@ void main() {
                 nullabilitySuffix: SwidNullabilitySuffix.star,
                 returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  typeArguments: [],
                   name: "num",
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.question,

@@ -34,6 +34,7 @@ void main() {
                           optionalParameterTypes: [],
                           returnType: SwidType.fromSwidInterface(
                               swidInterface: SwidInterface(
+                            typeArguments: [],
                             name: "Widget",
                             originalPackagePath: "",
                             nullabilitySuffix: SwidNullabilitySuffix.star,
@@ -45,6 +46,7 @@ void main() {
                 nullabilitySuffix: SwidNullabilitySuffix.star,
                 returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                      typeArguments: [],
                   name: "num",
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.question,

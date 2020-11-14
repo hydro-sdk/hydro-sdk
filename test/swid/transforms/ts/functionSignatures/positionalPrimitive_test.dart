@@ -21,12 +21,14 @@ void main() {
                 normalParameterTypes: [
                   SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                    typeArguments: [],
                     name: "int",
                     nullabilitySuffix: SwidNullabilitySuffix.question,
                     originalPackagePath: "dart:core",
                   )),
                   SwidType.fromSwidInterface(
                       swidInterface: SwidInterface(
+                          typeArguments: [],
                           name: "String",
                           nullabilitySuffix: SwidNullabilitySuffix.star,
                           originalPackagePath: "dart:core")),
@@ -37,6 +39,7 @@ void main() {
                 nullabilitySuffix: SwidNullabilitySuffix.star,
                 returnType: SwidType.fromSwidInterface(
                     swidInterface: SwidInterface(
+                  typeArguments: [],
                   name: "num",
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.star,
