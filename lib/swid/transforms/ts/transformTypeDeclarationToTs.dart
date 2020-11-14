@@ -1,6 +1,7 @@
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 import 'package:meta/meta.dart';
@@ -13,7 +14,22 @@ String transformTypeDeclarationToTs({
     removeNullabilitySuffixFromTypeNames(
             swidType: transformPrimitiveNamesToTs(swidType: swidType))
         .when(
-            fromSwidInterface: (val) => val.name,
+            fromSwidInterface: (val) =>
+                removeTypeArguments(str: val.name) +
+                (val.typeArguments.isNotEmpty
+                    ? "<" +
+                        val.typeArguments
+                            .map((x) => transformTypeDeclarationToTs(
+                                  swidType: x,
+                                  emitTrailingReturnType:
+                                      emitTrailingReturnType,
+                                  emitDefaultFormalsAsOptionalNamed:
+                                      emitDefaultFormalsAsOptionalNamed,
+                                ))
+                            .toList()
+                            .join(", ") +
+                        ">"
+                    : ""),
             fromSwidClass: (_) => "",
             fromSwidDefaultFormalParameter: (val) => val.name,
             fromSwidFunctionType: (val) => transformFunctionTypeToTs(

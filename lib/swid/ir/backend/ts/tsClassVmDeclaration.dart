@@ -24,18 +24,19 @@ class TsClassVmDeclaration {
               tsVmDeclaration.name
           ? TsVmDeclaration.clone(tsVmDeclaration: tsVmDeclaration, methods: [
               SwidFunctionType.MakeReceiverVoid(
-                  swidFunctionType:
-                      SwidFunctionType.InsertLeadingPositionalParameter(
-                          typeName: transformToCamelCase(str: swidClass.name),
-                          swidType: SwidType.fromSwidInterface(
-                              swidInterface: SwidInterface(
-                                  name: swidClass.name,
-                                  nullabilitySuffix: SwidNullabilitySuffix.star,
-                                  originalPackagePath: "")),
-                          swidFunctionType: SwidFunctionType.clone(
-                              swidFunctionType: swidClass.constructorType,
-                              name:
-                                  transformToCamelCase(str: swidClass.name)))),
+                  swidFunctionType: SwidFunctionType.InsertLeadingPositionalParameter(
+                      typeName: transformToCamelCase(str: swidClass.name),
+                      swidType: SwidType.fromSwidInterface(
+                          swidInterface: SwidInterface(
+                              //todo classes should eventually support type arguments
+                              //todo should eventually be able to produce an interface from a class
+                              typeArguments: [],
+                              name: swidClass.name,
+                              nullabilitySuffix: SwidNullabilitySuffix.star,
+                              originalPackagePath: "")),
+                      swidFunctionType: SwidFunctionType.clone(
+                          swidFunctionType: swidClass.constructorType,
+                          name: transformToCamelCase(str: swidClass.name)))),
               ...tsVmDeclaration.methods
             ])
           : tsVmDeclaration;

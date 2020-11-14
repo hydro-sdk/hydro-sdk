@@ -12,6 +12,10 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     nullabilitySuffix: _$enumDecodeNullable(
         _$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
     originalPackagePath: json['originalPackagePath'] as String,
+    typeArguments: (json['typeArguments'] as List)
+        ?.map((e) =>
+            e == null ? null : SwidType.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -20,6 +24,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'nullabilitySuffix':
           _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],
       'originalPackagePath': instance.originalPackagePath,
+      'typeArguments': instance.typeArguments,
     };
 
 T _$enumDecode<T>(

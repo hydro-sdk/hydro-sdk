@@ -37,6 +37,9 @@ class TsClassConstructorImplementation {
                       typeName: "this",
                       swidType: SwidType.fromSwidInterface(
                           swidInterface: SwidInterface(
+                        //todo classes should eventually support type arguments
+                        //todo should eventually be able to produce an interface from a class
+                        typeArguments: [],
                         name: "this",
                         nullabilitySuffix: SwidNullabilitySuffix.star,
                         originalPackagePath: "",

@@ -45,6 +45,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
         normalParameterTypes: [
           SwidType.fromSwidInterface(
               swidInterface: SwidInterface(
+                  typeArguments: [],
                   name: "void",
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "")),
@@ -132,20 +133,9 @@ abstract class SwidFunctionType with _$SwidFunctionType {
                       ))
                     : functionType?.namedParameterTypes[x] is InterfaceType
                         ? SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface(
-                            name:
-                                functionType?.namedParameterTypes[x].toString(),
-                            nullabilitySuffix: mapNullabilitySuffix(
-                                nullabilitySuffix: functionType
-                                    ?.namedParameterTypes[x].nullabilitySuffix),
-                            originalPackagePath: functionType
-                                    ?.namedParameterTypes[x]
-                                    ?.element
-                                    ?.librarySource
-                                    ?.uri
-                                    ?.toString() ??
-                                "",
-                          ))
+                            swidInterface: SwidInterface.fromInterface(
+                                interfaceType:
+                                    functionType?.namedParameterTypes[x]))
                         : null,
               ))),
       namedDefaults: functionType?.parameters != null
@@ -185,13 +175,8 @@ abstract class SwidFunctionType with _$SwidFunctionType {
                       ))
                     : x is InterfaceType
                         ? SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface(
-                            name: x.element?.name,
-                            nullabilitySuffix: mapNullabilitySuffix(
-                                nullabilitySuffix: x?.nullabilitySuffix),
-                            originalPackagePath:
-                                x?.element?.librarySource?.uri?.toString(),
-                          ))
+                            swidInterface:
+                                SwidInterface.fromInterface(interfaceType: x))
                         : null,
               )
               ?.toList() ??
@@ -209,13 +194,8 @@ abstract class SwidFunctionType with _$SwidFunctionType {
                       ))
                     : x is InterfaceType
                         ? SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface(
-                            name: x.element?.name,
-                            nullabilitySuffix: mapNullabilitySuffix(
-                                nullabilitySuffix: x.nullabilitySuffix),
-                            originalPackagePath:
-                                x.element.librarySource.uri.toString(),
-                          ))
+                            swidInterface:
+                                SwidInterface.fromInterface(interfaceType: x))
                         : null,
               )
               ?.toList() ??
@@ -226,18 +206,23 @@ abstract class SwidFunctionType with _$SwidFunctionType {
               functionType: functionType.returnType,
               swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
             ))
-          : SwidType.fromSwidInterface(
-              swidInterface: SwidInterface(
-              name: functionType.returnType.element?.name ??
-                  functionType.returnType
-                      ?.getDisplayString(withNullability: false),
-              nullabilitySuffix: mapNullabilitySuffix(
-                  nullabilitySuffix: functionType.nullabilitySuffix),
-              originalPackagePath: functionType
-                      ?.returnType?.element?.librarySource?.uri
-                      ?.toString() ??
-                  "",
-            )),
+          : functionType.returnType is InterfaceType
+              ? SwidType.fromSwidInterface(
+                  swidInterface: SwidInterface.fromInterface(
+                      interfaceType: functionType.returnType))
+              : SwidType.fromSwidInterface(
+                  swidInterface: SwidInterface(
+                  name: functionType.returnType.element?.name ??
+                      functionType.returnType
+                          ?.getDisplayString(withNullability: false),
+                  typeArguments: [],
+                  nullabilitySuffix: mapNullabilitySuffix(
+                      nullabilitySuffix: functionType.nullabilitySuffix),
+                  originalPackagePath: functionType
+                          ?.returnType?.element?.librarySource?.uri
+                          ?.toString() ??
+                      "",
+                )),
     );
   }
 }

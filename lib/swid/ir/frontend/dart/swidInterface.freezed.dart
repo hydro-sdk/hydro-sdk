@@ -20,11 +20,13 @@ class _$SwidInterfaceTearOff {
   _$Data call(
       {@required String name,
       @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath}) {
+      @required String originalPackagePath,
+      @required List<SwidType> typeArguments}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
       originalPackagePath: originalPackagePath,
+      typeArguments: typeArguments,
     );
   }
 
@@ -43,6 +45,7 @@ mixin _$SwidInterface {
   String get name;
   SwidNullabilitySuffix get nullabilitySuffix;
   String get originalPackagePath;
+  List<SwidType> get typeArguments;
 
   Map<String, dynamic> toJson();
   $SwidInterfaceCopyWith<SwidInterface> get copyWith;
@@ -56,7 +59,8 @@ abstract class $SwidInterfaceCopyWith<$Res> {
   $Res call(
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
-      String originalPackagePath});
+      String originalPackagePath,
+      List<SwidType> typeArguments});
 }
 
 /// @nodoc
@@ -73,6 +77,7 @@ class _$SwidInterfaceCopyWithImpl<$Res>
     Object name = freezed,
     Object nullabilitySuffix = freezed,
     Object originalPackagePath = freezed,
+    Object typeArguments = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
@@ -82,6 +87,9 @@ class _$SwidInterfaceCopyWithImpl<$Res>
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
           : originalPackagePath as String,
+      typeArguments: typeArguments == freezed
+          ? _value.typeArguments
+          : typeArguments as List<SwidType>,
     ));
   }
 }
@@ -94,7 +102,8 @@ abstract class _$$DataCopyWith<$Res> implements $SwidInterfaceCopyWith<$Res> {
   $Res call(
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
-      String originalPackagePath});
+      String originalPackagePath,
+      List<SwidType> typeArguments});
 }
 
 /// @nodoc
@@ -111,6 +120,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
     Object name = freezed,
     Object nullabilitySuffix = freezed,
     Object originalPackagePath = freezed,
+    Object typeArguments = freezed,
   }) {
     return _then(_$Data(
       name: name == freezed ? _value.name : name as String,
@@ -120,6 +130,9 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
           : originalPackagePath as String,
+      typeArguments: typeArguments == freezed
+          ? _value.typeArguments
+          : typeArguments as List<SwidType>,
     ));
   }
 }
@@ -131,10 +144,12 @@ class _$_$Data implements _$Data {
   _$_$Data(
       {@required this.name,
       @required this.nullabilitySuffix,
-      @required this.originalPackagePath})
+      @required this.originalPackagePath,
+      @required this.typeArguments})
       : assert(name != null),
         assert(nullabilitySuffix != null),
-        assert(originalPackagePath != null);
+        assert(originalPackagePath != null),
+        assert(typeArguments != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -145,10 +160,12 @@ class _$_$Data implements _$Data {
   final SwidNullabilitySuffix nullabilitySuffix;
   @override
   final String originalPackagePath;
+  @override
+  final List<SwidType> typeArguments;
 
   @override
   String toString() {
-    return 'SwidInterface(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath)';
+    return 'SwidInterface(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, typeArguments: $typeArguments)';
   }
 
   @override
@@ -162,7 +179,10 @@ class _$_$Data implements _$Data {
                     .equals(other.nullabilitySuffix, nullabilitySuffix)) &&
             (identical(other.originalPackagePath, originalPackagePath) ||
                 const DeepCollectionEquality()
-                    .equals(other.originalPackagePath, originalPackagePath)));
+                    .equals(other.originalPackagePath, originalPackagePath)) &&
+            (identical(other.typeArguments, typeArguments) ||
+                const DeepCollectionEquality()
+                    .equals(other.typeArguments, typeArguments)));
   }
 
   @override
@@ -170,7 +190,8 @@ class _$_$Data implements _$Data {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(nullabilitySuffix) ^
-      const DeepCollectionEquality().hash(originalPackagePath);
+      const DeepCollectionEquality().hash(originalPackagePath) ^
+      const DeepCollectionEquality().hash(typeArguments);
 
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
@@ -186,7 +207,8 @@ abstract class _$Data implements SwidInterface {
   factory _$Data(
       {@required String name,
       @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath}) = _$_$Data;
+      @required String originalPackagePath,
+      @required List<SwidType> typeArguments}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -196,6 +218,8 @@ abstract class _$Data implements SwidInterface {
   SwidNullabilitySuffix get nullabilitySuffix;
   @override
   String get originalPackagePath;
+  @override
+  List<SwidType> get typeArguments;
   @override
   _$$DataCopyWith<_$Data> get copyWith;
 }
