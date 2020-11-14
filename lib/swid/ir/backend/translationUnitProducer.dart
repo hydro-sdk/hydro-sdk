@@ -3,6 +3,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/methodIsEmitCandidate.dart';
 import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
@@ -44,65 +45,74 @@ class TranslationUnitProducer {
       ];
 
   List<TranslationUnit> produceFromSwidClass({@required SwidClass swidClass}) =>
-      [
-        TsTranslationUnit(
-            path: tsPrefixPaths.join(p.separator) + p.separator + path,
-            fileName: "$baseFileName.ts",
-            ir: [
-              TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
-              TsIr.fromTsClassVmDeclaration(
-                  tsClassVmDeclaration:
-                      TsClassVmDeclaration(swidClass: swidClass)),
-              TsIr.fromTsFunctionDefaultNamedProps(
-                tsFunctionDefaultNamedProps: TsFunctionDefaultNamedProps(
-                    swidFunctionType: SwidFunctionType.clone(
-                        swidFunctionType: swidClass.constructorType,
-                        name: swidClass.name)),
-              ),
-              ...([
-                ...swidClass.methods,
-                ...swidClass.staticMethods,
-                ...swidClass.factoryConstructors,
-              ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
-                  tsFunctionDefaultNamedProps:
-                      TsFunctionDefaultNamedProps(swidFunctionType: x)))),
-              TsIr.fromTsClassPreamble(
-                  tsClassPreamble: TsClassPreamble(swidClass: swidClass)),
-              TsIr.fromTsClassStaticConstFieldDeclarations(
-                  tsClassStaticConstFieldDeclarations:
-                      TsClassStaticConstFieldDeclarations(
-                          swidClass: swidClass)),
-              TsIr.fromTsClassInstanceFieldDeclarations(
-                  tsClassInstanceFieldDeclarations:
-                      TsClassInstanceFieldDeclarations(swidClass: swidClass)),
-              TsIr.fromTsClassConstructorImplementation(
-                  tsClassConstructorImplementation:
-                      TsClassConstructorImplementation(swidClass: swidClass)),
-              TsIr.fromTsClassMethodInjectionFieldDeclarations(
-                  tsClassMethodInjectionFieldDeclarations:
-                      TsClassMethodInjectionFieldDeclarations(
-                          swidClass: swidClass)),
-              TsIr.fromTsClassMethodDeclarations(
-                  tsClassMethodDeclarations:
-                      TsClassMethodDeclarations(swidClass: swidClass)),
-              TsIr.fromTsClassPostamble(
-                  tsClassPostamble: TsClassPostamble(swidClass: swidClass))
-            ]),
-        requiresDartBinding(swidClass: swidClass)
-            ? DartTranslationUnit(
-                path: dartPrefixPaths.join(p.separator) + p.separator + path,
-                fileName: "$baseFileName.dart",
+      ((SwidClass swidClass) => [
+            TsTranslationUnit(
+                path: tsPrefixPaths.join(p.separator) + p.separator + path,
+                fileName: "$baseFileName.ts",
                 ir: [
-                  DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  DartIr.fromRTManagedClassDeclaration(
-                    rtManagedClassDeclaration:
-                        RTManagedClassDeclaration(swidClass: swidClass),
+                  TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
+                  TsIr.fromTsClassVmDeclaration(
+                      tsClassVmDeclaration:
+                          TsClassVmDeclaration(swidClass: swidClass)),
+                  TsIr.fromTsFunctionDefaultNamedProps(
+                    tsFunctionDefaultNamedProps: TsFunctionDefaultNamedProps(
+                        swidFunctionType: SwidFunctionType.clone(
+                            swidFunctionType: swidClass.constructorType,
+                            name: swidClass.name)),
                   ),
-                  DartIr.fromLoadNamepsaceSymbolDeclaration(
-                      loadNamespaceSymbolDeclaration:
-                          LoadNamespaceSymbolDeclaration(swidClass: swidClass))
-                ],
-              )
-            : null
-      ]..removeWhere((x) => x == null);
+                  ...([
+                    ...swidClass.methods,
+                    ...swidClass.staticMethods,
+                    ...swidClass.factoryConstructors,
+                  ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
+                      tsFunctionDefaultNamedProps:
+                          TsFunctionDefaultNamedProps(swidFunctionType: x)))),
+                  TsIr.fromTsClassPreamble(
+                      tsClassPreamble: TsClassPreamble(swidClass: swidClass)),
+                  TsIr.fromTsClassStaticConstFieldDeclarations(
+                      tsClassStaticConstFieldDeclarations:
+                          TsClassStaticConstFieldDeclarations(
+                              swidClass: swidClass)),
+                  TsIr.fromTsClassInstanceFieldDeclarations(
+                      tsClassInstanceFieldDeclarations:
+                          TsClassInstanceFieldDeclarations(
+                              swidClass: swidClass)),
+                  TsIr.fromTsClassConstructorImplementation(
+                      tsClassConstructorImplementation:
+                          TsClassConstructorImplementation(
+                              swidClass: swidClass)),
+                  TsIr.fromTsClassMethodInjectionFieldDeclarations(
+                      tsClassMethodInjectionFieldDeclarations:
+                          TsClassMethodInjectionFieldDeclarations(
+                              swidClass: swidClass)),
+                  TsIr.fromTsClassMethodDeclarations(
+                      tsClassMethodDeclarations:
+                          TsClassMethodDeclarations(swidClass: swidClass)),
+                  TsIr.fromTsClassPostamble(
+                      tsClassPostamble: TsClassPostamble(swidClass: swidClass))
+                ]),
+            requiresDartBinding(swidClass: swidClass)
+                ? DartTranslationUnit(
+                    path:
+                        dartPrefixPaths.join(p.separator) + p.separator + path,
+                    fileName: "$baseFileName.dart",
+                    ir: [
+                      DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
+                      DartIr.fromRTManagedClassDeclaration(
+                        rtManagedClassDeclaration:
+                            RTManagedClassDeclaration(swidClass: swidClass),
+                      ),
+                      DartIr.fromLoadNamepsaceSymbolDeclaration(
+                          loadNamespaceSymbolDeclaration:
+                              LoadNamespaceSymbolDeclaration(
+                                  swidClass: swidClass))
+                    ],
+                  )
+                : null
+          ]
+            ..removeWhere((x) => x == null))(SwidClass.clone(
+          swidClass: swidClass,
+          methods: swidClass.methods
+              .where((x) => methodIsEmitCandidate(swidFunctionType: x))
+              .toList()));
 }
