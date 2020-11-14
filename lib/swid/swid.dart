@@ -97,8 +97,7 @@ class SwidVisitor extends RecursiveAstVisitor
           .where((x) => x is ConstructorDeclarationImpl)
           .toList()
           .cast<ConstructorDeclarationImpl>()
-          .where((x) =>
-              !x.declaredElement.hasProtected)
+          .where((x) => !x.declaredElement.hasProtected)
           .toList();
       final constructorDeclarationImpl = constructors
           .firstWhere((x) => x.factoryKeyword == null, orElse: () => null);
