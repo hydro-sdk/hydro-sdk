@@ -15,10 +15,9 @@ import 'package:code_builder/code_builder.dart'
         Block,
         Code;
 import 'package:dart_style/dart_style.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
-import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 import 'package:meta/meta.dart';
 
@@ -130,18 +129,8 @@ class RTManagedClassDeclaration {
             .statement,
         ...(swidClass.methods
             .where((x) => x.name != "==")
-            .map((x) => refer("table")
-                .index(literalString(
-                    methodInjectionFieldName(swidFunctionType: x)))
-                .assign(luaDartBinding(
-                    code: Block.of([
-                  Code("return [" +
-                      (!x.swidDeclarationModifiers.isAbstract ? "super." : "") +
-                      x.name +
-                      (!x.swidDeclarationModifiers.isGetter ? "()" : "") +
-                      "];")
-                ])))
-                .statement)
+            .map((x) => Code(MethodInjectionImplementation(swidFunctionType: x)
+                .toDartSource()))
             .toList())
       ])))
     ..methods.addAll([
