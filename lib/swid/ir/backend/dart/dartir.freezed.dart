@@ -14,10 +14,29 @@ class _$DartIrTearOff {
   const _$DartIrTearOff();
 
 // ignore: unused_element
+  _$FromDartFunctionSelfBindingInvocation fromDartFunctionSelfBindingInvocation(
+      {@required
+          DartFunctionSelfBindingInvocation
+              dartFunctionSelfBindingInvocation}) {
+    return _$FromDartFunctionSelfBindingInvocation(
+      dartFunctionSelfBindingInvocation: dartFunctionSelfBindingInvocation,
+    );
+  }
+
+// ignore: unused_element
   _$FromDartLinebreak fromDartLinebreak(
       {@required DartLinebreak dartLinebreak}) {
     return _$FromDartLinebreak(
       dartLinebreak: dartLinebreak,
+    );
+  }
+
+// ignore: unused_element
+  _$FromDartUnboxingParameterExpression fromDartUnboxingParameterExpression(
+      {@required
+          DartUnboxingParameterExpression dartUnboxingParameterExpression}) {
+    return _$FromDartUnboxingParameterExpression(
+      dartUnboxingParameterExpression: dartUnboxingParameterExpression,
     );
   }
 
@@ -27,6 +46,14 @@ class _$DartIrTearOff {
           LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) {
     return _$FromLoadNamespaceSymbolDeclaration(
       loadNamespaceSymbolDeclaration: loadNamespaceSymbolDeclaration,
+    );
+  }
+
+// ignore: unused_element
+  _$FromMethodInjectionImplementation fromMethodInjectionImplementation(
+      {@required MethodInjectionImplementation methodInjectionImplementation}) {
+    return _$FromMethodInjectionImplementation(
+      methodInjectionImplementation: methodInjectionImplementation,
     );
   }
 
@@ -47,38 +74,69 @@ const $DartIr = _$DartIrTearOff();
 mixin _$DartIr {
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
             LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
     Result fromLoadNamepsaceSymbolDeclaration(
         LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
             _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
     @required
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
     Result fromLoadNamepsaceSymbolDeclaration(
         _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
     Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
     @required Result orElse(),
   });
@@ -97,6 +155,200 @@ class _$DartIrCopyWithImpl<$Res> implements $DartIrCopyWith<$Res> {
   final DartIr _value;
   // ignore: unused_field
   final $Res Function(DartIr) _then;
+}
+
+/// @nodoc
+abstract class _$$FromDartFunctionSelfBindingInvocationCopyWith<$Res> {
+  factory _$$FromDartFunctionSelfBindingInvocationCopyWith(
+          _$FromDartFunctionSelfBindingInvocation value,
+          $Res Function(_$FromDartFunctionSelfBindingInvocation) then) =
+      __$$FromDartFunctionSelfBindingInvocationCopyWithImpl<$Res>;
+  $Res call(
+      {DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation});
+}
+
+/// @nodoc
+class __$$FromDartFunctionSelfBindingInvocationCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartFunctionSelfBindingInvocationCopyWith<$Res> {
+  __$$FromDartFunctionSelfBindingInvocationCopyWithImpl(
+      _$FromDartFunctionSelfBindingInvocation _value,
+      $Res Function(_$FromDartFunctionSelfBindingInvocation) _then)
+      : super(
+            _value, (v) => _then(v as _$FromDartFunctionSelfBindingInvocation));
+
+  @override
+  _$FromDartFunctionSelfBindingInvocation get _value =>
+      super._value as _$FromDartFunctionSelfBindingInvocation;
+
+  @override
+  $Res call({
+    Object dartFunctionSelfBindingInvocation = freezed,
+  }) {
+    return _then(_$FromDartFunctionSelfBindingInvocation(
+      dartFunctionSelfBindingInvocation:
+          dartFunctionSelfBindingInvocation == freezed
+              ? _value.dartFunctionSelfBindingInvocation
+              : dartFunctionSelfBindingInvocation
+                  as DartFunctionSelfBindingInvocation,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartFunctionSelfBindingInvocation
+    implements _$FromDartFunctionSelfBindingInvocation {
+  _$_$FromDartFunctionSelfBindingInvocation(
+      {@required this.dartFunctionSelfBindingInvocation})
+      : assert(dartFunctionSelfBindingInvocation != null);
+
+  @override
+  final DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartFunctionSelfBindingInvocation(dartFunctionSelfBindingInvocation: $dartFunctionSelfBindingInvocation)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartFunctionSelfBindingInvocation &&
+            (identical(other.dartFunctionSelfBindingInvocation,
+                    dartFunctionSelfBindingInvocation) ||
+                const DeepCollectionEquality().equals(
+                    other.dartFunctionSelfBindingInvocation,
+                    dartFunctionSelfBindingInvocation)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dartFunctionSelfBindingInvocation);
+
+  @override
+  _$$FromDartFunctionSelfBindingInvocationCopyWith<
+          _$FromDartFunctionSelfBindingInvocation>
+      get copyWith => __$$FromDartFunctionSelfBindingInvocationCopyWithImpl<
+          _$FromDartFunctionSelfBindingInvocation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+  }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartFunctionSelfBindingInvocation(
+        dartFunctionSelfBindingInvocation);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartFunctionSelfBindingInvocation != null) {
+      return fromDartFunctionSelfBindingInvocation(
+          dartFunctionSelfBindingInvocation);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+  }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartFunctionSelfBindingInvocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartFunctionSelfBindingInvocation != null) {
+      return fromDartFunctionSelfBindingInvocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartFunctionSelfBindingInvocation implements DartIr {
+  factory _$FromDartFunctionSelfBindingInvocation(
+          {@required
+              DartFunctionSelfBindingInvocation
+                  dartFunctionSelfBindingInvocation}) =
+      _$_$FromDartFunctionSelfBindingInvocation;
+
+  DartFunctionSelfBindingInvocation get dartFunctionSelfBindingInvocation;
+  _$$FromDartFunctionSelfBindingInvocationCopyWith<
+      _$FromDartFunctionSelfBindingInvocation> get copyWith;
 }
 
 /// @nodoc
@@ -162,16 +414,29 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
             LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
     assert(fromRTManagedClassDeclaration != null);
     return fromDartLinebreak(dartLinebreak);
   }
@@ -179,9 +444,15 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
     Result fromLoadNamepsaceSymbolDeclaration(
         LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     @required Result orElse(),
@@ -196,16 +467,28 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
             _$FromLoadNamespaceSymbolDeclaration value),
     @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
     assert(fromRTManagedClassDeclaration != null);
     return fromDartLinebreak(this);
   }
@@ -213,9 +496,15 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
     Result fromLoadNamepsaceSymbolDeclaration(
         _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
     Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
     @required Result orElse(),
   }) {
@@ -233,6 +522,196 @@ abstract class _$FromDartLinebreak implements DartIr {
 
   DartLinebreak get dartLinebreak;
   _$$FromDartLinebreakCopyWith<_$FromDartLinebreak> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromDartUnboxingParameterExpressionCopyWith<$Res> {
+  factory _$$FromDartUnboxingParameterExpressionCopyWith(
+          _$FromDartUnboxingParameterExpression value,
+          $Res Function(_$FromDartUnboxingParameterExpression) then) =
+      __$$FromDartUnboxingParameterExpressionCopyWithImpl<$Res>;
+  $Res call({DartUnboxingParameterExpression dartUnboxingParameterExpression});
+}
+
+/// @nodoc
+class __$$FromDartUnboxingParameterExpressionCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartUnboxingParameterExpressionCopyWith<$Res> {
+  __$$FromDartUnboxingParameterExpressionCopyWithImpl(
+      _$FromDartUnboxingParameterExpression _value,
+      $Res Function(_$FromDartUnboxingParameterExpression) _then)
+      : super(_value, (v) => _then(v as _$FromDartUnboxingParameterExpression));
+
+  @override
+  _$FromDartUnboxingParameterExpression get _value =>
+      super._value as _$FromDartUnboxingParameterExpression;
+
+  @override
+  $Res call({
+    Object dartUnboxingParameterExpression = freezed,
+  }) {
+    return _then(_$FromDartUnboxingParameterExpression(
+      dartUnboxingParameterExpression: dartUnboxingParameterExpression ==
+              freezed
+          ? _value.dartUnboxingParameterExpression
+          : dartUnboxingParameterExpression as DartUnboxingParameterExpression,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartUnboxingParameterExpression
+    implements _$FromDartUnboxingParameterExpression {
+  _$_$FromDartUnboxingParameterExpression(
+      {@required this.dartUnboxingParameterExpression})
+      : assert(dartUnboxingParameterExpression != null);
+
+  @override
+  final DartUnboxingParameterExpression dartUnboxingParameterExpression;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartUnboxingParameterExpression(dartUnboxingParameterExpression: $dartUnboxingParameterExpression)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartUnboxingParameterExpression &&
+            (identical(other.dartUnboxingParameterExpression,
+                    dartUnboxingParameterExpression) ||
+                const DeepCollectionEquality().equals(
+                    other.dartUnboxingParameterExpression,
+                    dartUnboxingParameterExpression)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dartUnboxingParameterExpression);
+
+  @override
+  _$$FromDartUnboxingParameterExpressionCopyWith<
+          _$FromDartUnboxingParameterExpression>
+      get copyWith => __$$FromDartUnboxingParameterExpressionCopyWithImpl<
+          _$FromDartUnboxingParameterExpression>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+  }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartUnboxingParameterExpression(dartUnboxingParameterExpression);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartUnboxingParameterExpression != null) {
+      return fromDartUnboxingParameterExpression(
+          dartUnboxingParameterExpression);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+  }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartUnboxingParameterExpression(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartUnboxingParameterExpression != null) {
+      return fromDartUnboxingParameterExpression(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartUnboxingParameterExpression implements DartIr {
+  factory _$FromDartUnboxingParameterExpression(
+          {@required
+              DartUnboxingParameterExpression
+                  dartUnboxingParameterExpression}) =
+      _$_$FromDartUnboxingParameterExpression;
+
+  DartUnboxingParameterExpression get dartUnboxingParameterExpression;
+  _$$FromDartUnboxingParameterExpressionCopyWith<
+      _$FromDartUnboxingParameterExpression> get copyWith;
 }
 
 /// @nodoc
@@ -309,16 +788,29 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
             LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
     assert(fromRTManagedClassDeclaration != null);
     return fromLoadNamepsaceSymbolDeclaration(loadNamespaceSymbolDeclaration);
   }
@@ -326,9 +818,15 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
     Result fromLoadNamepsaceSymbolDeclaration(
         LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     @required Result orElse(),
@@ -343,16 +841,28 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
             _$FromLoadNamespaceSymbolDeclaration value),
     @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
     assert(fromRTManagedClassDeclaration != null);
     return fromLoadNamepsaceSymbolDeclaration(this);
   }
@@ -360,9 +870,15 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
     Result fromLoadNamepsaceSymbolDeclaration(
         _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
     Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
     @required Result orElse(),
   }) {
@@ -383,6 +899,193 @@ abstract class _$FromLoadNamespaceSymbolDeclaration implements DartIr {
   LoadNamespaceSymbolDeclaration get loadNamespaceSymbolDeclaration;
   _$$FromLoadNamespaceSymbolDeclarationCopyWith<
       _$FromLoadNamespaceSymbolDeclaration> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromMethodInjectionImplementationCopyWith<$Res> {
+  factory _$$FromMethodInjectionImplementationCopyWith(
+          _$FromMethodInjectionImplementation value,
+          $Res Function(_$FromMethodInjectionImplementation) then) =
+      __$$FromMethodInjectionImplementationCopyWithImpl<$Res>;
+  $Res call({MethodInjectionImplementation methodInjectionImplementation});
+}
+
+/// @nodoc
+class __$$FromMethodInjectionImplementationCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromMethodInjectionImplementationCopyWith<$Res> {
+  __$$FromMethodInjectionImplementationCopyWithImpl(
+      _$FromMethodInjectionImplementation _value,
+      $Res Function(_$FromMethodInjectionImplementation) _then)
+      : super(_value, (v) => _then(v as _$FromMethodInjectionImplementation));
+
+  @override
+  _$FromMethodInjectionImplementation get _value =>
+      super._value as _$FromMethodInjectionImplementation;
+
+  @override
+  $Res call({
+    Object methodInjectionImplementation = freezed,
+  }) {
+    return _then(_$FromMethodInjectionImplementation(
+      methodInjectionImplementation: methodInjectionImplementation == freezed
+          ? _value.methodInjectionImplementation
+          : methodInjectionImplementation as MethodInjectionImplementation,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromMethodInjectionImplementation
+    implements _$FromMethodInjectionImplementation {
+  _$_$FromMethodInjectionImplementation(
+      {@required this.methodInjectionImplementation})
+      : assert(methodInjectionImplementation != null);
+
+  @override
+  final MethodInjectionImplementation methodInjectionImplementation;
+
+  @override
+  String toString() {
+    return 'DartIr.fromMethodInjectionImplementation(methodInjectionImplementation: $methodInjectionImplementation)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromMethodInjectionImplementation &&
+            (identical(other.methodInjectionImplementation,
+                    methodInjectionImplementation) ||
+                const DeepCollectionEquality().equals(
+                    other.methodInjectionImplementation,
+                    methodInjectionImplementation)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(methodInjectionImplementation);
+
+  @override
+  _$$FromMethodInjectionImplementationCopyWith<
+          _$FromMethodInjectionImplementation>
+      get copyWith => __$$FromMethodInjectionImplementationCopyWithImpl<
+          _$FromMethodInjectionImplementation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+  }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromMethodInjectionImplementation(methodInjectionImplementation);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromMethodInjectionImplementation != null) {
+      return fromMethodInjectionImplementation(methodInjectionImplementation);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+  }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromMethodInjectionImplementation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromMethodInjectionImplementation != null) {
+      return fromMethodInjectionImplementation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromMethodInjectionImplementation implements DartIr {
+  factory _$FromMethodInjectionImplementation(
+          {@required
+              MethodInjectionImplementation methodInjectionImplementation}) =
+      _$_$FromMethodInjectionImplementation;
+
+  MethodInjectionImplementation get methodInjectionImplementation;
+  _$$FromMethodInjectionImplementationCopyWith<
+      _$FromMethodInjectionImplementation> get copyWith;
 }
 
 /// @nodoc
@@ -457,16 +1160,29 @@ class _$_$FromRTManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
             LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
     assert(fromRTManagedClassDeclaration != null);
     return fromRTManagedClassDeclaration(rtManagedClassDeclaration);
   }
@@ -474,9 +1190,15 @@ class _$_$FromRTManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
     Result fromLoadNamepsaceSymbolDeclaration(
         LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     @required Result orElse(),
@@ -491,16 +1213,28 @@ class _$_$FromRTManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
             _$FromLoadNamespaceSymbolDeclaration value),
     @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
     assert(fromRTManagedClassDeclaration != null);
     return fromRTManagedClassDeclaration(this);
   }
@@ -508,9 +1242,15 @@ class _$_$FromRTManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
     Result fromLoadNamepsaceSymbolDeclaration(
         _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
     Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
     @required Result orElse(),
   }) {

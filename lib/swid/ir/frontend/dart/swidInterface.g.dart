@@ -73,4 +73,7 @@ const _$SwidNullabilitySuffixEnumMap = {
 const _$SwidReferenceDeclarationKindEnumMap = {
   SwidReferenceDeclarationKind.classElement: 'classElement',
   SwidReferenceDeclarationKind.enumElement: 'enumElement',
+  SwidReferenceDeclarationKind.voidType: 'voidType',
+  SwidReferenceDeclarationKind.typeParameterType: 'typeParameterType',
+  SwidReferenceDeclarationKind.dynamicType: 'dynamicType',
 };
