@@ -56,11 +56,18 @@ class DartFunctionSelfBindingInvocation {
                   ...(swidFunctionType.namedParameterTypes.entries.map((x) =>
                       MapEntry(
                           x.key,
-                          refer("args")
-                              .index(literalNum(
-                                  swidFunctionType.normalParameterNames.length +
-                                      1))
-                              .index(literalString(x.key))))),
+                          CodeExpression(Code(
+                              dartBoxingProcedure == DartBoxingProcedure.unbox
+                                  ? DartUnboxingParameterExpression(
+                                          swidType: x.value,
+                                          expression: refer("args")
+                                              .index(literalNum(swidFunctionType
+                                                      .normalParameterNames
+                                                      .length +
+                                                  1))
+                                              .index(literalString(x.key)))
+                                      .toDartSource()
+                                  : ""))))),
                 ]..removeWhere((x) => x == null))
               : {})
       .accept(DartEmitter())
