@@ -62,10 +62,10 @@ abstract class SwidInterface with _$SwidInterface {
             nullabilitySuffix: interfaceType.nullabilitySuffix),
         originalPackagePath:
             mapClassLibrarySourcePath(element: interfaceType.element),
-        referenceDeclarationKind: interfaceType.element is ClassElement
-            ? SwidReferenceDeclarationKind.classElement
-            : interfaceType.element is EnumElementImpl
-                ? SwidReferenceDeclarationKind.enumElement
+        referenceDeclarationKind: interfaceType.element is EnumElementImpl
+            ? SwidReferenceDeclarationKind.enumElement
+            : interfaceType.element is ClassElement
+                ? SwidReferenceDeclarationKind.classElement
                 : null,
       );
 
