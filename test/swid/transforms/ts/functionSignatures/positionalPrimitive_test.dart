@@ -3,6 +3,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 
@@ -23,6 +24,8 @@ void main() {
                       swidInterface: SwidInterface(
                     typeArguments: [],
                     name: "int",
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.classElement,
                     nullabilitySuffix: SwidNullabilitySuffix.question,
                     originalPackagePath: "dart:core",
                   )),
@@ -30,6 +33,8 @@ void main() {
                       swidInterface: SwidInterface(
                           typeArguments: [],
                           name: "String",
+                          referenceDeclarationKind:
+                              SwidReferenceDeclarationKind.classElement,
                           nullabilitySuffix: SwidNullabilitySuffix.star,
                           originalPackagePath: "dart:core")),
                 ],
@@ -41,6 +46,8 @@ void main() {
                     swidInterface: SwidInterface(
                   typeArguments: [],
                   name: "num",
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.star,
                 )))),

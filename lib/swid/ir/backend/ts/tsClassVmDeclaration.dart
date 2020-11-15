@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
@@ -32,6 +33,7 @@ class TsClassVmDeclaration {
                               //todo should eventually be able to produce an interface from a class
                               typeArguments: [],
                               name: swidClass.name,
+                              referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
                               nullabilitySuffix: SwidNullabilitySuffix.star,
                               originalPackagePath: "")),
                       swidFunctionType: SwidFunctionType.clone(

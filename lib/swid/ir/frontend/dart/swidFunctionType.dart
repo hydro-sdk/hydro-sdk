@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowDartTypeToSwidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:analyzer/dart/element/type.dart'
@@ -48,6 +49,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
               swidInterface: SwidInterface(
                   typeArguments: [],
                   name: "void",
+                  referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
                   nullabilitySuffix: SwidNullabilitySuffix.none,
                   originalPackagePath: "")),
           ...swidFunctionType.normalParameterTypes
