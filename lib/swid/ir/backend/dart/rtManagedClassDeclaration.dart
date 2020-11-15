@@ -16,6 +16,7 @@ import 'package:code_builder/code_builder.dart'
         Code;
 import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
@@ -153,6 +154,16 @@ class RTManagedClassDeclaration {
                   : x.swidDeclarationModifiers.isSetter
                       ? MethodType.setter
                       : null
+              ..requiredParameters.addAll([
+                ...x.normalParameterNames
+                    .map((e) => Parameter((p) => p
+                      ..name = e
+                      ..type = swidTypeToDartTypeReference(
+                          swidType: x.normalParameterTypes.elementAt(x
+                              .normalParameterNames
+                              .indexWhere((element) => element == e)))))
+                    .toList(),
+              ])
               ..name = x.name
               ..returns = refer(x.returnType.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
               ..body = Block.of([
