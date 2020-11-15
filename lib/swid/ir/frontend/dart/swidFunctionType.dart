@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/narrowDartTypeToSwidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -114,115 +115,96 @@ abstract class SwidFunctionType with _$SwidFunctionType {
       @required SwidDeclarationModifiers swidDeclarationModifiers,
       String name}) {
     return SwidFunctionType(
-      name: name ?? functionType.element?.name ?? "",
-      nullabilitySuffix: mapNullabilitySuffix(
-          nullabilitySuffix: functionType.nullabilitySuffix),
-      originalPackagePath:
-          functionType.element?.librarySource?.uri?.toString() ?? "",
-      swidDeclarationModifiers: swidDeclarationModifiers,
-      namedParameterTypes: Map.fromEntries(functionType
-          ?.namedParameterTypes?.keys
-          ?.map((x) => MapEntry<String, SwidType>(
-                x,
-                functionType?.namedParameterTypes[x] is FunctionType
-                    ? SwidType.fromSwidFunctionType(
-                        swidFunctionType: SwidFunctionType.fromFunctionType(
-                        functionType: functionType?.namedParameterTypes[x],
-                        swidDeclarationModifiers:
-                            SwidDeclarationModifiers.empty(),
-                      ))
-                    : functionType?.namedParameterTypes[x] is InterfaceType
-                        ? SwidType.fromSwidInterface(
-                            swidInterface: SwidInterface.fromInterface(
-                                interfaceType:
-                                    functionType?.namedParameterTypes[x]))
-                        : null,
-              ))),
-      namedDefaults: functionType?.parameters != null
-          ? Map.fromEntries(functionType.parameters
-              .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
-                  x.displayName,
-                  SwidDefaultFormalParameter(
-                    name: x.defaultValueCode ?? "",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: mapClassLibrarySourcePath(element: x),
-                    value: x.type is FunctionType
-                        ? SwidType.fromSwidFunctionType(
-                            swidFunctionType: SwidFunctionType.fromFunctionType(
-                            functionType: x.type,
-                            swidDeclarationModifiers:
-                                SwidDeclarationModifiers.empty(),
-                          ))
-                        : x.type is InterfaceType
-                            ? SwidType.fromSwidInterface(
-                                swidInterface: SwidInterface.fromInterface(
-                                interfaceType: x.type,
-                              ))
-                            : null,
-                  )))
-              .toList()
-                ..removeWhere((x) => x.value.name == ""))
-          : {},
-      normalParameterNames: List.from(functionType.normalParameterNames ?? []),
-      normalParameterTypes: List.from(functionType.normalParameterTypes
-              ?.map(
-                (x) => x is FunctionType
-                    ? SwidType.fromSwidFunctionType(
-                        swidFunctionType: SwidFunctionType.fromFunctionType(
-                        functionType: x,
-                        swidDeclarationModifiers:
-                            SwidDeclarationModifiers.empty(),
-                      ))
-                    : x is InterfaceType
-                        ? SwidType.fromSwidInterface(
-                            swidInterface:
-                                SwidInterface.fromInterface(interfaceType: x))
-                        : null,
-              )
-              ?.toList() ??
-          []),
-      optionalParameterNames:
-          List.from(functionType.optionalParameterNames ?? []),
-      optionalParameterTypes: List.from(functionType.optionalParameterTypes
-              ?.map(
-                (x) => x is FunctionType
-                    ? SwidType.fromSwidFunctionType(
-                        swidFunctionType: SwidFunctionType.fromFunctionType(
-                        functionType: x,
-                        swidDeclarationModifiers:
-                            SwidDeclarationModifiers.empty(),
-                      ))
-                    : x is InterfaceType
-                        ? SwidType.fromSwidInterface(
-                            swidInterface:
-                                SwidInterface.fromInterface(interfaceType: x))
-                        : null,
-              )
-              ?.toList() ??
-          []),
-      returnType: functionType.returnType is FunctionType
-          ? SwidType.fromSwidFunctionType(
-              swidFunctionType: SwidFunctionType.fromFunctionType(
-              functionType: functionType.returnType,
-              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-            ))
-          : functionType.returnType is InterfaceType
-              ? SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface.fromInterface(
-                      interfaceType: functionType.returnType))
-              : SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface(
-                  name: functionType.returnType.element?.name ??
-                      functionType.returnType
-                          ?.getDisplayString(withNullability: false),
-                  typeArguments: [],
-                  nullabilitySuffix: mapNullabilitySuffix(
-                      nullabilitySuffix: functionType.nullabilitySuffix),
-                  originalPackagePath: functionType
-                          ?.returnType?.element?.librarySource?.uri
-                          ?.toString() ??
-                      "",
-                )),
-    );
+        name: name ?? functionType.element?.name ?? "",
+        nullabilitySuffix: mapNullabilitySuffix(
+            nullabilitySuffix: functionType.nullabilitySuffix),
+        originalPackagePath:
+            functionType.element?.librarySource?.uri?.toString() ?? "",
+        swidDeclarationModifiers: swidDeclarationModifiers,
+        namedParameterTypes: Map.fromEntries(functionType
+            ?.namedParameterTypes?.keys
+            ?.map((x) => MapEntry<String, SwidType>(
+                  x,
+                  functionType?.namedParameterTypes[x] is FunctionType
+                      ? SwidType.fromSwidFunctionType(
+                          swidFunctionType: SwidFunctionType.fromFunctionType(
+                          functionType: functionType?.namedParameterTypes[x],
+                          swidDeclarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                        ))
+                      : functionType?.namedParameterTypes[x] is InterfaceType
+                          ? SwidType.fromSwidInterface(
+                              swidInterface: SwidInterface.fromInterface(
+                                  interfaceType:
+                                      functionType?.namedParameterTypes[x]))
+                          : null,
+                ))),
+        namedDefaults: functionType?.parameters != null
+            ? Map.fromEntries(functionType.parameters
+                .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
+                    x.displayName,
+                    SwidDefaultFormalParameter(
+                      name: x.defaultValueCode ?? "",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath:
+                          mapClassLibrarySourcePath(element: x),
+                      value: x.type is FunctionType
+                          ? SwidType.fromSwidFunctionType(
+                              swidFunctionType:
+                                  SwidFunctionType.fromFunctionType(
+                              functionType: x.type,
+                              swidDeclarationModifiers:
+                                  SwidDeclarationModifiers.empty(),
+                            ))
+                          : x.type is InterfaceType
+                              ? SwidType.fromSwidInterface(
+                                  swidInterface: SwidInterface.fromInterface(
+                                  interfaceType: x.type,
+                                ))
+                              : null,
+                    )))
+                .toList()
+                  ..removeWhere((x) => x.value.name == ""))
+            : {},
+        normalParameterNames:
+            List.from(functionType.normalParameterNames ?? []),
+        normalParameterTypes: List.from(functionType.normalParameterTypes
+                ?.map(
+                  (x) => x is FunctionType
+                      ? SwidType.fromSwidFunctionType(
+                          swidFunctionType: SwidFunctionType.fromFunctionType(
+                          functionType: x,
+                          swidDeclarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                        ))
+                      : x is InterfaceType
+                          ? SwidType.fromSwidInterface(
+                              swidInterface:
+                                  SwidInterface.fromInterface(interfaceType: x))
+                          : null,
+                )
+                ?.toList() ??
+            []),
+        optionalParameterNames:
+            List.from(functionType.optionalParameterNames ?? []),
+        optionalParameterTypes: List.from(functionType.optionalParameterTypes
+                ?.map(
+                  (x) => x is FunctionType
+                      ? SwidType.fromSwidFunctionType(
+                          swidFunctionType: SwidFunctionType.fromFunctionType(
+                          functionType: x,
+                          swidDeclarationModifiers:
+                              SwidDeclarationModifiers.empty(),
+                        ))
+                      : x is InterfaceType
+                          ? SwidType.fromSwidInterface(
+                              swidInterface:
+                                  SwidInterface.fromInterface(interfaceType: x))
+                          : null,
+                )
+                ?.toList() ??
+            []),
+        returnType:
+            narrowDartTypeToSwidType(dartType: functionType.returnType));
   }
 }

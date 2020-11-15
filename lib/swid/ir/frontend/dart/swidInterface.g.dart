@@ -16,6 +16,9 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : SwidType.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    referenceDeclarationKind: _$enumDecodeNullable(
+        _$SwidReferenceDeclarationKindEnumMap,
+        json['referenceDeclarationKind']),
   );
 }
 
@@ -25,6 +28,8 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
           _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],
       'originalPackagePath': instance.originalPackagePath,
       'typeArguments': instance.typeArguments,
+      'referenceDeclarationKind': _$SwidReferenceDeclarationKindEnumMap[
+          instance.referenceDeclarationKind],
     };
 
 T _$enumDecode<T>(
@@ -63,4 +68,9 @@ const _$SwidNullabilitySuffixEnumMap = {
   SwidNullabilitySuffix.question: 'question',
   SwidNullabilitySuffix.star: 'star',
   SwidNullabilitySuffix.none: 'none',
+};
+
+const _$SwidReferenceDeclarationKindEnumMap = {
+  SwidReferenceDeclarationKind.classElement: 'classElement',
+  SwidReferenceDeclarationKind.enumElement: 'enumElement',
 };
