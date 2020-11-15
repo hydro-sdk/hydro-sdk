@@ -24,7 +24,8 @@ void main() {
                       swidInterface: SwidInterface(
                     typeArguments: [],
                     name: "int",
-                    referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+                    referenceDeclarationKind:
+                        SwidReferenceDeclarationKind.classElement,
                     originalPackagePath: "",
                     nullabilitySuffix: SwidNullabilitySuffix.none,
                   )),
@@ -57,7 +58,9 @@ void main() {
                                           swidInterface: SwidInterface(
                                         typeArguments: [],
                                         name: "int",
-                                        referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+                                        referenceDeclarationKind:
+                                            SwidReferenceDeclarationKind
+                                                .classElement,
                                         nullabilitySuffix:
                                             SwidNullabilitySuffix.question,
                                         originalPackagePath: "",
@@ -70,7 +73,9 @@ void main() {
                                         swidInterface: SwidInterface(
                                       typeArguments: [],
                                       name: "Duration",
-                                      referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+                                      referenceDeclarationKind:
+                                          SwidReferenceDeclarationKind
+                                              .classElement,
                                       originalPackagePath: "",
                                       nullabilitySuffix:
                                           SwidNullabilitySuffix.none,
@@ -82,7 +87,8 @@ void main() {
                               swidInterface: SwidInterface(
                             typeArguments: [],
                             name: "Widget",
-                            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+                            referenceDeclarationKind:
+                                SwidReferenceDeclarationKind.classElement,
                             originalPackagePath: "",
                             nullabilitySuffix: SwidNullabilitySuffix.none,
                           ))))
@@ -93,7 +99,8 @@ void main() {
                     swidInterface: SwidInterface(
                   typeArguments: [],
                   name: "num",
-                  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                 )))),

@@ -33,7 +33,8 @@ class TsClassVmDeclaration {
                               //todo should eventually be able to produce an interface from a class
                               typeArguments: [],
                               name: swidClass.name,
-                              referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+                              referenceDeclarationKind:
+                                  SwidReferenceDeclarationKind.classElement,
                               nullabilitySuffix: SwidNullabilitySuffix.star,
                               originalPackagePath: "")),
                       swidFunctionType: SwidFunctionType.clone(
