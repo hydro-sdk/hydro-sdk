@@ -1,4 +1,4 @@
-import { List } from "../../../runtime/dart/collection/list";
+import { List } from "../../../../runtime/dart/collection/list";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 let arr: Array<number> = [0, 1, 2];

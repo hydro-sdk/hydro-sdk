@@ -2,14 +2,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/cfr/builtins/loadBuiltins.dart';
 import 'package:hydro_sdk/unitTestHarness.dart';
 
-void main() async {
-  LiveTestWidgetsFlutterBinding();
+void main() {
   testWidgets('', (WidgetTester tester) async {
     var res = await unitTestHarness(
-        path: "../assets/test/unit/async/futureValueChain-4.ts.hc",
+        path: "../assets/test/unit/dart/core/durationInheritance-1.ts.hc",
         libs: [
           BuiltinLib.dart,
-          BuiltinLib.flutter,
           BuiltinLib.base,
           BuiltinLib.string,
           BuiltinLib.table,

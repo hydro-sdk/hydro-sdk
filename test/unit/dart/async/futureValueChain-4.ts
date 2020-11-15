@@ -1,5 +1,5 @@
-import { Future } from "../../../runtime/dart/async/future";
-import { List } from "../../../runtime/dart/collection/list";
+import { Future } from "../../../../runtime/dart/async/future";
+import { List } from "../../../../runtime/dart/collection/list";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 

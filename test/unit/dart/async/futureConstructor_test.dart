@@ -6,9 +6,10 @@ void main() async {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var res = await unitTestHarness(
-        path: "../assets/test/unit/async/futureValueChain-1.ts.hc",
+        path: "../assets/test/unit/dart/async/futureConstructor.ts.hc",
         libs: [
           BuiltinLib.dart,
+          BuiltinLib.flutter,
           BuiltinLib.base,
           BuiltinLib.string,
           BuiltinLib.table,

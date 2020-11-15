@@ -1,4 +1,4 @@
-import { Duration } from "../../../runtime/dart/core/duration";
+import { Duration } from "../../../../runtime/dart/core/duration";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 class OverrideMinute extends Duration {

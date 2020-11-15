@@ -44,10 +44,10 @@ assets/examples/*.hc
 assets/test/widget/*.hc
 assets/test/hot/*.hc
 assets/test/hot/stateful/*.hc
-assets/test/unit/async/*.hc
-assets/test/unit/collection/*.hc
+assets/test/unit/dart/async/*.hc
+assets/test/unit/dart/collection/*.hc
 assets/test/unit/ts/*.hc
-assets/test/unit/core/*.hc
+assets/test/unit/dart/core/*.hc
 *.symbols
 hydro_sdk/android/.project
 *.js
