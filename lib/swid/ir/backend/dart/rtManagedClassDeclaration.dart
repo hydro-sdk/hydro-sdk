@@ -164,6 +164,17 @@ class RTManagedClassDeclaration {
                               .indexWhere((element) => element == e)))))
                     .toList(),
               ])
+              ..optionalParameters.addAll([
+                ...x.namedParameterTypes.entries
+                    .map((e) => Parameter((p) => p
+                      ..name = e.key
+                      ..defaultTo = (x.namedDefaults[e.key] != null
+                          ? Code(x.namedDefaults[e.key].name)
+                          : null)
+                      ..named = true
+                      ..type = swidTypeToDartTypeReference(swidType: e.value)))
+                    .toList()
+              ])
               ..name = x.name
               ..returns = refer(x.returnType.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
               ..body = Block.of([
