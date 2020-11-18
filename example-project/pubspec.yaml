@@ -44,6 +44,7 @@ flutter:
 
   assets:
     - assets/hello-world.hc
+    - assets/hello-world.hc.symbols
 
   # To add assets to your application, add an assets section, like this:
   # assets:
