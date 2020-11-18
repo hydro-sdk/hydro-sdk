@@ -32,16 +32,16 @@ jobs:
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Unix
-      run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_ENV
+      run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
       if: runner.os != 'Windows'
     - name: Add Flutter to the PATH for Windows
-      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_ENV}
+      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_PATH}
       if: runner.os == 'Windows'
     - name: Add Dart to the PATH for Unix
-      run: echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_ENV
+      run: echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
       if: runner.os != 'Windows'
     - name: Add Dart to the PATH for Windows
-      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin" >> ${env:GITHUB_ENV}
+      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin" >> ${env:GITHUB_PATH}
       if: runner.os == 'Windows'
     - name: Run Flutter doctor
       run: flutter doctor -v
