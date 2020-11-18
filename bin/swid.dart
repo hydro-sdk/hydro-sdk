@@ -28,7 +28,6 @@ void main(List<String> args) async {
         // visitor.classes[i].name == "IconData" ||
         // visitor.`classes[i].name == "TextTreeConfiguration" ||
         visitor.classes[i].name == "DiagnosticsNode") {
-          print(visitor.classes[i]);
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(
