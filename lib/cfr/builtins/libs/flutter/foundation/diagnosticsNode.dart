@@ -6,7 +6,6 @@ import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
-
 class RTManagedDiagnosticsNode extends DiagnosticsNode
     implements Box<DiagnosticsNode> {
   RTManagedDiagnosticsNode(
@@ -27,6 +26,11 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
+    table['name'] = name;
+    table['showSeparator'] = showSeparator;
+    table['showName'] = showName;
+    table['linePrefix'] = linePrefix;
+    table['style'] = style;
     table['_dart_toDescription'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         toDescription(
@@ -77,6 +81,10 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
                     args[1]['parentConfiguration'],
                     parentState: hydroState))
       ];
+    });
+    table['_dart_textTreeConfiguration'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [super.textTreeConfiguration];
     });
     table['_dart_toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
@@ -168,6 +176,12 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
   }
 
   @override
+  TextTreeConfiguration get textTreeConfiguration {
+    Closure closure = table["textTreeConfiguration"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
   String toStringDeep(
       {DiagnosticLevel minLevel = DiagnosticLevel.debug,
       TextTreeConfiguration parentConfiguration,
@@ -177,7 +191,6 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
-
 void loadDiagnosticsNode(
     {@required HydroState hydroState, @required HydroTable table}) {
   table['diagnosticsNode'] = makeLuaDartFunc(func: (List<dynamic> args) {

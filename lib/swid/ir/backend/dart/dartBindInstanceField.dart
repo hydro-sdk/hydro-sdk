@@ -23,8 +23,9 @@ class DartBindInstanceField {
                       SwidReferenceDeclarationKind.classElement &&
                   !isPrimitive(swidType: instanceField)
               ? DartBoxObjectReference(
-                  type: instanceField,
-                  objectReference: CodeExpression(Code(instanceFieldName)))
+                      type: instanceField,
+                      objectReference: CodeExpression(Code(instanceFieldName)))
+                  .toDartSource()
               : val.referenceDeclarationKind ==
                       SwidReferenceDeclarationKind.enumElement
                   ? DartBindInstanceFieldDirect(

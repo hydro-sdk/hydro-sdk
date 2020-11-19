@@ -1,11 +1,11 @@
-import {List} from "./../../dart/collection/list";
-import {DiagnosticLevel} from "./diagnosticLevel";
-import {DiagnosticsTreeStyle} from "./diagnosticsTreeStyle";
-import {TextTreeConfiguration} from "./textTreeConfiguration";
+import { List } from "./../../dart/collection/list";
+import { DiagnosticLevel } from "./diagnosticLevel";
+import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
+import { TextTreeConfiguration } from "./textTreeConfiguration";
 declare const flutter: {
-foundation: {
-diagnosticsNode: (this: void, diagnosticsNode: DiagnosticsNode, props: { linePrefix? : string | undefined; showName: boolean; showSeparator: boolean; style? : DiagnosticsTreeStyle | undefined; name? : string | undefined }) => DiagnosticsNode;
-};
+    foundation: {
+        diagnosticsNode: (this: void, diagnosticsNode: DiagnosticsNode, props: { linePrefix?: string | undefined, showName: boolean, showSeparator: boolean, style?: DiagnosticsTreeStyle | undefined, name?: string | undefined, }) => DiagnosticsNode
+    }
 };
 const diagnosticsNodeDefaultProps = {
     showName: true,
@@ -16,88 +16,78 @@ const toStringDefaultProps = {
 };
 const toStringDeepDefaultProps = {
     minLevel: DiagnosticLevel.debug,
-    prefixLineOne: ""
+    prefixLineOne: ''
 };
 const messageDefaultProps = {
     allowWrap: true,
     level: DiagnosticLevel.info,
     style: DiagnosticsTreeStyle.singleLine
 };
-export class DiagnosticsNode 
-{
+export class DiagnosticsNode {
     public readonly name: string | undefined = undefined as any;
     public readonly showSeparator: boolean = undefined as any;
     public readonly showName: boolean = undefined as any;
     public readonly linePrefix: string | undefined = undefined as any;
     public readonly style: DiagnosticsTreeStyle | undefined = undefined as any;
-    public constructor( props: { linePrefix? : string | undefined; showName? : boolean; showSeparator? : boolean; style? : DiagnosticsTreeStyle | undefined; name? : string | undefined })
-    {
+    public constructor(props: { linePrefix?: string | undefined, showName?: boolean, showSeparator?: boolean, style?: DiagnosticsTreeStyle | undefined, name?: string | undefined, }) {
         flutter.foundation.diagnosticsNode(this, {
             ...diagnosticsNodeDefaultProps,
             ...props
         });
     }
-    private readonly _dart_toDescription: ( props: { parentConfiguration? : TextTreeConfiguration | undefined }) => string | undefined = undefined as any;
+    private readonly _dart_toDescription: (props: { parentConfiguration?: TextTreeConfiguration | undefined, }) => string | undefined = undefined as any;
     private readonly _dart_isFiltered: (minLevel: DiagnosticLevel) => boolean = undefined as any;
     private readonly _dart_getLevel: () => DiagnosticLevel = undefined as any;
     private readonly _dart_getEmptyBodyDescription: () => string | undefined = undefined as any;
-    private readonly _dart_getValue: () => Record<string, any> | undefined = undefined as any;
+    private readonly _dart_getValue: () => Object | undefined = undefined as any;
     private readonly _dart_getAllowWrap: () => boolean = undefined as any;
     private readonly _dart_getAllowNameWrap: () => boolean = undefined as any;
     private readonly _dart_getAllowTruncate: () => boolean = undefined as any;
     private readonly _dart_getProperties: () => List<DiagnosticsNode> = undefined as any;
     private readonly _dart_getChildren: () => List<DiagnosticsNode> = undefined as any;
-    private readonly _dart_toString: ( props: { minLevel: DiagnosticLevel; parentConfiguration? : TextTreeConfiguration | undefined }) => string = undefined as any;
-    private readonly _dart_toStringDeep: ( props: { minLevel: DiagnosticLevel; parentConfiguration? : TextTreeConfiguration | undefined; prefixLineOne: string; prefixOtherLines? : string | undefined }) => string = undefined as any;
-    public toDescription( props: { parentConfiguration? : TextTreeConfiguration | undefined }) 
-    {
+    private readonly _dart_toString: (props: { minLevel: DiagnosticLevel, parentConfiguration?: TextTreeConfiguration | undefined, }) => string = undefined as any;
+    private readonly _dart_getTextTreeConfiguration: () => TextTreeConfiguration | undefined = undefined as any;
+    private readonly _dart_toStringDeep: (props: { minLevel: DiagnosticLevel, parentConfiguration?: TextTreeConfiguration | undefined, prefixLineOne: string, prefixOtherLines?: string | undefined, }) => string = undefined as any;
+    public toDescription(props: { parentConfiguration?: TextTreeConfiguration | undefined, }) {
         return this._dart_toDescription(props);
     }
-    public isFiltered(minLevel: DiagnosticLevel) 
-    {
+    public isFiltered(minLevel: DiagnosticLevel) {
         return this._dart_isFiltered(minLevel);
     }
-    public getLevel() 
-    {
+    public getLevel() {
         return this._dart_getLevel();
     }
-    public getEmptyBodyDescription() 
-    {
+    public getEmptyBodyDescription() {
         return this._dart_getEmptyBodyDescription();
     }
-    public getValue() 
-    {
+    public getValue() {
         return this._dart_getValue();
     }
-    public getAllowWrap() 
-    {
+    public getAllowWrap() {
         return this._dart_getAllowWrap();
     }
-    public getAllowNameWrap() 
-    {
+    public getAllowNameWrap() {
         return this._dart_getAllowNameWrap();
     }
-    public getAllowTruncate() 
-    {
+    public getAllowTruncate() {
         return this._dart_getAllowTruncate();
     }
-    public getProperties() 
-    {
+    public getProperties() {
         return this._dart_getProperties();
     }
-    public getChildren() 
-    {
+    public getChildren() {
         return this._dart_getChildren();
     }
-    public toString( props: { minLevel? : DiagnosticLevel; parentConfiguration? : TextTreeConfiguration | undefined }) 
-    {
+    public toString(props: { minLevel?: DiagnosticLevel, parentConfiguration?: TextTreeConfiguration | undefined, }) {
         return this._dart_toString({
             ...toStringDefaultProps,
             ...props
         });
     }
-    public toStringDeep( props: { minLevel? : DiagnosticLevel; parentConfiguration? : TextTreeConfiguration | undefined; prefixLineOne? : string; prefixOtherLines? : string | undefined }) 
-    {
+    public getTextTreeConfiguration() {
+        return this._dart_getTextTreeConfiguration();
+    }
+    public toStringDeep(props: { minLevel?: DiagnosticLevel, parentConfiguration?: TextTreeConfiguration | undefined, prefixLineOne?: string, prefixOtherLines?: string | undefined, }) {
         return this._dart_toStringDeep({
             ...toStringDeepDefaultProps,
             ...props
