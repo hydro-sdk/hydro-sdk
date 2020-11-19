@@ -15,6 +15,7 @@ import 'package:code_builder/code_builder.dart'
         Block,
         Code;
 import 'package:dart_style/dart_style.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -128,6 +129,11 @@ class RTManagedClassDeclaration {
                 ])).closure
             }))
             .statement,
+        ...(swidClass.instanceFieldDeclarations.entries
+            .map((x) => Code(DartBindInstanceField(
+                    instanceFieldName: x.key, instanceField: x.value)
+                .toDartSource()))
+            .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
             .map((x) => Code(MethodInjectionImplementation(swidFunctionType: x)

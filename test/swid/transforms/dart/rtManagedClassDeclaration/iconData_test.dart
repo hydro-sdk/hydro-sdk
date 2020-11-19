@@ -29,6 +29,10 @@ class RTManagedIconData extends IconData implements Box<IconData> {
     table[\'unwrap\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
+    table[\'codePoint\'] = codePoint;
+    table[\'fontFamily\'] = fontFamily;
+    table[\'fontPackage\'] = fontPackage;
+    table[\'matchTextDirection\'] = matchTextDirection;
     table[\'_dart_hashCode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.hashCode];
     });
