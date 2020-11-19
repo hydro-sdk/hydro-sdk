@@ -4,7 +4,7 @@
 Author native [Flutter](https://flutter.dev/docs) experiences in Typescript and deliver updates directly to users over the air and out of band.
 
 # What
-Hydro provides a projection of Dart and Flutter into Typescript. Not everything Flutter provides has been projected yet. See https://chgibb.github.io/hydro-sdk/  
+Hydro provides a projection of Dart and Flutter into Typescript. Not everything Flutter provides has been projected yet. See https://hydro-sdk.github.io/hydro-sdk/  
 Hydro compiles your code into a single `.hc` bytecode file which can be easily packed into an existing Flutter app or loaded over the network.
 
 ## What About Performance?
