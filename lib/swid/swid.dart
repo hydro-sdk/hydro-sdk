@@ -111,8 +111,7 @@ class SwidVisitor extends RecursiveAstVisitor
               .where((x) => x is MethodDeclarationImpl)
               .toList()
               .cast<MethodDeclarationImpl>()
-              .where((x) =>
-                  x.name.name[0] != "_" && !x.declaredElement.hasProtected)
+              .where((x) => x.name.name[0] != "_")
               .toList()
               .cast<MethodDeclarationImpl>()
               .map((x) => SwidFunctionType.fromFunctionType(
