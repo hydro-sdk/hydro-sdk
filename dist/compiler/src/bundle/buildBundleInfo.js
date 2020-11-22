@@ -84,7 +84,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                             outDir: ".hydroc",
                             include: [
                                 "node_modules/hydro-sdk/runtime"
-                            ]
+                            ],
                         }
                     });
                     sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
@@ -136,7 +136,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     };
                     sourceFilesToTranspile.sort(function (a, b) { return buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b)); });
                     _loop_1 = function (sourceFileToTranspile) {
-                        var transpiledFiles, transpiledFile, debugInfo;
+                        var targetFileIsInNodeModules, transpiledFiles, transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, new Promise(function (resolve) {
@@ -148,10 +148,13 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                 case 1:
                                     _a.sent();
                                     getIncrementalDiagnostics(sourceFileToTranspile);
-                                    sourceFileToTranspile.fileName = sourceFileToTranspile.fileName.replace("node_modules/", "");
-                                    sourceFileToTranspile.originalFileName = sourceFileToTranspile.originalFileName.replace("node_modules/", "");
-                                    sourceFileToTranspile.path = sourceFileToTranspile.path.replace("node_modules/", "");
-                                    sourceFileToTranspile.resolvedPath = sourceFileToTranspile.resolvedPath.replace("node_modules/", "");
+                                    targetFileIsInNodeModules = /node_modules/g.test(sourceFileToTranspile.fileName);
+                                    if (targetFileIsInNodeModules) {
+                                        sourceFileToTranspile.fileName = sourceFileToTranspile.fileName.replace("node_modules/", path.dirname(buildOptions.entry));
+                                        sourceFileToTranspile.originalFileName = sourceFileToTranspile.originalFileName.replace("node_modules/", path.dirname(buildOptions.entry));
+                                        sourceFileToTranspile.path = sourceFileToTranspile.path.replace("node_modules/", path.dirname(buildOptions.entry));
+                                        sourceFileToTranspile.resolvedPath = sourceFileToTranspile.resolvedPath.replace("node_modules/", path.dirname(buildOptions.entry));
+                                    }
                                     transpiledFiles = tstl.transpile({
                                         program: program,
                                         sourceFiles: [sourceFileToTranspile]
