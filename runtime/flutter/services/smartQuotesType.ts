@@ -1,4 +1,5 @@
 export enum SmartQuotesType {
-    enabled,
     disabled,
+    enabled,
 }
+

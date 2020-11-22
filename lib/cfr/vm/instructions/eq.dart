@@ -9,7 +9,9 @@ void eq(
     @required int A,
     @required int B,
     @required int C}) {
-  if (Context.checkEQ(frame.RK(B), frame.RK(C)) == (A != 0)) {
+  if (Context.checkEQ(frame.RK(B), frame.RK(C),
+          hydroState: frame.context.hydroState) ==
+      (A != 0)) {
     frame.programCounter += frame.getNextJump() + 1;
   } else {
     frame.programCounter++;

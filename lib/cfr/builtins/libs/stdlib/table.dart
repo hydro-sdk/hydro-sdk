@@ -1,15 +1,23 @@
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/cfr/util.dart';
+import 'package:hydro_sdk/hydroState.dart';
+import 'package:meta/meta.dart';
 
-void loadTableLib(Context ctx) {
+void loadTableLib({@required HydroState hydroState, @required Context ctx}) {
   var table = new HydroTable();
 
   ctx.env["table"] = table;
 
   table["concat"] = (List<dynamic> args) {
     HydroTable t = Context.getArg1<HydroTable>(args, 0, "concat");
-    var delim = Context.luaToString(maybeAt(args, 1) ?? "");
+    var delim = Context.luaToString(
+        maybeAt(
+              args,
+              1,
+            ) ??
+            "",
+        hydroState: hydroState);
     num s =
         maybeAt(args, 2) == null ? 1 : Context.getArg1<num>(args, 2, "concat");
     num e = maybeAt(args, 3) == null
@@ -22,7 +30,7 @@ void loadTableLib(Context ctx) {
       var e = t.rawget(i);
       if (e == null)
         throw "invalid value (nil) at index $i in table for 'concat'";
-      o.write(Context.luaToString(e));
+      o.write(Context.luaToString(e, hydroState: hydroState));
     }
 
     return [o];
@@ -83,14 +91,22 @@ void loadTableLib(Context ctx) {
       if (f != null) {
         var lt = Context.truthy(maybeAt(f([a, b]), 0));
         var gt = Context.truthy(maybeAt(f([b, a]), 0));
-        return lt ? -1 : gt ? 1 : 0;
+        return lt
+            ? -1
+            : gt
+                ? 1
+                : 0;
       } else if (a is num && b is num) {
         return a.compareTo(b);
       } else if ((a is HydroTable && Context.hasMetamethod(a, "__le")) ||
           (b is HydroTable && Context.hasMetamethod(b, "__le"))) {
-        var lt = Context.checkLT(a, b);
-        var gt = Context.checkLT(b, a);
-        return lt ? -1 : gt ? 1 : 0;
+        var lt = Context.checkLT(a, b, hydroState: hydroState);
+        var gt = Context.checkLT(b, a, hydroState: hydroState);
+        return lt
+            ? -1
+            : gt
+                ? 1
+                : 0;
       } else {
         var at = Context.getTypename(a);
         var bt = Context.getTypename(b);

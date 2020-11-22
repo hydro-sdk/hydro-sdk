@@ -1,16 +1,16 @@
 export enum TextInputAction {
-    continueAction,
-    done,
-    emergencyCall,
-    go,
-    join,
-    newline,
-    next,
     none,
-    previous,
-    route,
+    unspecified,
+    done,
+    go,
     search,
     send,
-    unspecified,
-    values
+    next,
+    previous,
+    continueAction,
+    join,
+    route,
+    emergencyCall,
+    newline,
 }
+

@@ -28,20 +28,20 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'flutter/flutter'
-        ref: '1.17.4'
+        ref: '1.22.0'
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Unix
-      run: echo "::add-path::/$GITHUB_WORKSPACE/flutter/bin"
+      run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
       if: runner.os != 'Windows'
     - name: Add Flutter to the PATH for Windows
-      run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
+      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_PATH}
       if: runner.os == 'Windows'
     - name: Add Dart to the PATH for Unix
-      run: echo "::add-path::/$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin"
+      run: echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
       if: runner.os != 'Windows'
     - name: Add Dart to the PATH for Windows
-      run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin"
+      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin" >> ${env:GITHUB_PATH}
       if: runner.os == 'Windows'
     - name: Run Flutter doctor
       run: flutter doctor -v
@@ -70,5 +70,5 @@ jobs:
       working-directory: hydro
     - name: Run Hydro-SDK tests
       shell: bash
-      run: export HYDRO_TEST_MODE=ts; flutter test
+      run: export HYDRO_TEST_MODE=ts; flutter test --tags "hot || lua || smoke || unit || widget"
       working-directory: hydro

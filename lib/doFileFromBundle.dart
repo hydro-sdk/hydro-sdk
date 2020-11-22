@@ -11,14 +11,14 @@ Future<CoroutineResult> doFileFromBundle(
     @required Map<String, NativeThunk> thunks,
     List<dynamic> args = const []}) async {
   var linkStatus = LinkStatus();
-  var res = (await loadFileFromBundle(
+
+  HydroFunctionImpl val = await loadFileFromBundle(
     hydroState: hydroState,
     path: path,
     linkStatus: linkStatus,
     thunks: thunks,
-  ))
-      .pcall(args);
+  );
   print(
       "I/Hydro ${linkStatus.nativePrototypes} native, ${linkStatus.virtualPrototypes} virtual prototypes");
-  return res;
+  return val.pcall(args, parentState: hydroState);
 }

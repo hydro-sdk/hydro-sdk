@@ -20,5 +20,5 @@ void main() async {
     }
 
     expect(res.success, true);
-  });
+  }, tags: "unit");
 }

@@ -12,5 +12,5 @@ void main() {
     print(res.toString());
 
     expect(res.success, true);
-  });
+  }, tags: "lua");
 }

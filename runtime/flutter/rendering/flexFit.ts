@@ -1,4 +1,5 @@
 export enum FlexFit {
     tight,
-    loose
+    loose,
 }
+

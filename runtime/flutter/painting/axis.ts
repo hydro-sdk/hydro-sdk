@@ -1,5 +1,5 @@
-
 export enum Axis {
     horizontal,
-    vertical
+    vertical,
 }
+

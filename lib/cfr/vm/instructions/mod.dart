@@ -11,6 +11,6 @@ void mod(
     @required int C}) {
   frame.SR(
       A,
-      Context.attemptArithmetic(
-          frame.RK(B), frame.RK(C), "__mod", Context.mod));
+      Context.attemptArithmetic(frame.RK(B), frame.RK(C), "__mod", Context.mod,
+          hydroState: frame.context.hydroState));
 }

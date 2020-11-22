@@ -1,4 +1,5 @@
 export enum TextWidthBasis {
     parent,
-    longestLine
+    longestLine,
 }
+

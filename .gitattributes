@@ -1,0 +1,2 @@
+lib/**/*.g.dart -linguist-generated
+lib/**/*.freezed.dart -linguist-generated
