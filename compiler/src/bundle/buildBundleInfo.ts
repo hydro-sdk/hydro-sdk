@@ -128,10 +128,10 @@ export async function buildBundleInfo(
         const targetFileIsInNodeModules = /node_modules/g.test(sourceFileToTranspile.fileName);
 
         if (targetFileIsInNodeModules) {
-            (sourceFileToTranspile as any).fileName = (sourceFileToTranspile as any).fileName.replace("node_modules/", path.dirname(buildOptions.entry));
-            (sourceFileToTranspile as any).originalFileName = (sourceFileToTranspile as any).originalFileName.replace("node_modules/", path.dirname(buildOptions.entry));
-            (sourceFileToTranspile as any).path = (sourceFileToTranspile as any).path.replace("node_modules/", path.dirname(buildOptions.entry));
-            (sourceFileToTranspile as any).resolvedPath = (sourceFileToTranspile as any).resolvedPath.replace("node_modules/", path.dirname(buildOptions.entry));
+            (sourceFileToTranspile as any).fileName = (sourceFileToTranspile as any).fileName.replace("node_modules", path.dirname(buildOptions.entry));
+            (sourceFileToTranspile as any).originalFileName = (sourceFileToTranspile as any).originalFileName.replace("node_modules", path.dirname(buildOptions.entry));
+            (sourceFileToTranspile as any).path = (sourceFileToTranspile as any).path.replace("node_modules", path.dirname(buildOptions.entry));
+            (sourceFileToTranspile as any).resolvedPath = (sourceFileToTranspile as any).resolvedPath.replace("node_modules", path.dirname(buildOptions.entry));
         }
 
         const { transpiledFiles } = tstl.transpile({

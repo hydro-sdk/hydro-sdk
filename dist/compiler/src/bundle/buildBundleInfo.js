@@ -150,10 +150,10 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                     getIncrementalDiagnostics(sourceFileToTranspile);
                                     targetFileIsInNodeModules = /node_modules/g.test(sourceFileToTranspile.fileName);
                                     if (targetFileIsInNodeModules) {
-                                        sourceFileToTranspile.fileName = sourceFileToTranspile.fileName.replace("node_modules/", path.dirname(buildOptions.entry));
-                                        sourceFileToTranspile.originalFileName = sourceFileToTranspile.originalFileName.replace("node_modules/", path.dirname(buildOptions.entry));
-                                        sourceFileToTranspile.path = sourceFileToTranspile.path.replace("node_modules/", path.dirname(buildOptions.entry));
-                                        sourceFileToTranspile.resolvedPath = sourceFileToTranspile.resolvedPath.replace("node_modules/", path.dirname(buildOptions.entry));
+                                        sourceFileToTranspile.fileName = sourceFileToTranspile.fileName.replace("node_modules", path.dirname(buildOptions.entry));
+                                        sourceFileToTranspile.originalFileName = sourceFileToTranspile.originalFileName.replace("node_modules", path.dirname(buildOptions.entry));
+                                        sourceFileToTranspile.path = sourceFileToTranspile.path.replace("node_modules", path.dirname(buildOptions.entry));
+                                        sourceFileToTranspile.resolvedPath = sourceFileToTranspile.resolvedPath.replace("node_modules", path.dirname(buildOptions.entry));
                                     }
                                     transpiledFiles = tstl.transpile({
                                         program: program,
