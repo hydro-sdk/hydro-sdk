@@ -34,6 +34,7 @@
     "@types/source-map": "^0.5.7",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^1.10.2",
+    "@hydro-sdk/waveform": "nightly",
     "browserify": "^16.5.1",
     "chalk": "^3.0.0",
     "chokidar": "^3.3.1",
