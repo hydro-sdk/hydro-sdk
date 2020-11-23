@@ -30,7 +30,7 @@
     "@types/luaparse": "^0.2.6",
     "@types/minimist": "^1.2.0",
     "@types/node": "^13.13.15",
-    "@types/rimraf": "^2.0.3",
+    "@types/rimraf": "^3.0.0",
     "@types/source-map": "^0.5.7",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^1.10.2",
