@@ -63,7 +63,7 @@ An example demonstrating how to pass non-trivial arguments, including `Widget` t
 Shows off how to use `CustomScrollView`s with `Sliver`s and override `ScrollPhysic`s to create a selection screen with all the other examples embedded.
 
 # Getting Started
-Check out the example project at https://github.com/chgibb/hydro-sdk/tree/master/example-project for documentation about getting started
+Check out the example project at https://github.com/hydro-sdk/hydro_demo for documentation about getting started
 
 # Advanced Uses
 ## Transpile Typescript to Dart, Run Code in Mixed Mode With Mixed Native and Virtual (bytecode) Functions
