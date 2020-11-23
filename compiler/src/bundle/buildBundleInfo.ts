@@ -46,6 +46,17 @@ export async function buildBundleInfo(
     const sourceFiles = program.getSourceFiles().filter((x) => !x.isDeclarationFile);
     updateBuildProgress(0, sourceFiles.length + 1, "");
 
+    sourceFiles.forEach((x) => {
+        const targetFileIsInNodeModules = /node_modules/g.test(x.fileName);
+
+        if (targetFileIsInNodeModules) {
+            (x as any).fileName = (x as any).fileName.replace("node_modules", path.dirname(buildOptions.entry));
+            (x as any).originalFileName = (x as any).originalFileName.replace("node_modules", path.dirname(buildOptions.entry));
+            (x as any).path = (x as any).path.replace("node_modules", path.dirname(buildOptions.entry));
+            (x as any).resolvedPath = (x as any).resolvedPath.replace("node_modules", path.dirname(buildOptions.entry));
+        }
+    });
+
     const oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
 
     const sourceFilesToTranspile = oldEntries ? sourceFiles.filter((x) => hashSourceFile(x) != (oldEntries[x.fileName]?.originalFileHash ?? "")) : sourceFiles;
@@ -124,15 +135,6 @@ export async function buildBundleInfo(
         });
 
         getIncrementalDiagnostics(sourceFileToTranspile);
-
-        const targetFileIsInNodeModules = /node_modules/g.test(sourceFileToTranspile.fileName);
-
-        if (targetFileIsInNodeModules) {
-            (sourceFileToTranspile as any).fileName = (sourceFileToTranspile as any).fileName.replace("node_modules", path.dirname(buildOptions.entry));
-            (sourceFileToTranspile as any).originalFileName = (sourceFileToTranspile as any).originalFileName.replace("node_modules", path.dirname(buildOptions.entry));
-            (sourceFileToTranspile as any).path = (sourceFileToTranspile as any).path.replace("node_modules", path.dirname(buildOptions.entry));
-            (sourceFileToTranspile as any).resolvedPath = (sourceFileToTranspile as any).resolvedPath.replace("node_modules", path.dirname(buildOptions.entry));
-        }
 
         const { transpiledFiles } = tstl.transpile({
             program: program as any,

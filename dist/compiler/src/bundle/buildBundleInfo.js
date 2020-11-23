@@ -89,6 +89,15 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     });
                     sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
                     updateBuildProgress(0, sourceFiles.length + 1, "");
+                    sourceFiles.forEach(function (x) {
+                        var targetFileIsInNodeModules = /node_modules/g.test(x.fileName);
+                        if (targetFileIsInNodeModules) {
+                            x.fileName = x.fileName.replace("node_modules", path.dirname(buildOptions.entry));
+                            x.originalFileName = x.originalFileName.replace("node_modules", path.dirname(buildOptions.entry));
+                            x.path = x.path.replace("node_modules", path.dirname(buildOptions.entry));
+                            x.resolvedPath = x.resolvedPath.replace("node_modules", path.dirname(buildOptions.entry));
+                        }
+                    });
                     oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
                     sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourceFile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
                     currentStep = Math.abs(sourceFiles.length + 1 - sourceFilesToTranspile.length);
@@ -136,7 +145,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     };
                     sourceFilesToTranspile.sort(function (a, b) { return buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b)); });
                     _loop_1 = function (sourceFileToTranspile) {
-                        var targetFileIsInNodeModules, transpiledFiles, transpiledFile, debugInfo;
+                        var transpiledFiles, transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, new Promise(function (resolve) {
@@ -148,13 +157,6 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                 case 1:
                                     _a.sent();
                                     getIncrementalDiagnostics(sourceFileToTranspile);
-                                    targetFileIsInNodeModules = /node_modules/g.test(sourceFileToTranspile.fileName);
-                                    if (targetFileIsInNodeModules) {
-                                        sourceFileToTranspile.fileName = sourceFileToTranspile.fileName.replace("node_modules", path.dirname(buildOptions.entry));
-                                        sourceFileToTranspile.originalFileName = sourceFileToTranspile.originalFileName.replace("node_modules", path.dirname(buildOptions.entry));
-                                        sourceFileToTranspile.path = sourceFileToTranspile.path.replace("node_modules", path.dirname(buildOptions.entry));
-                                        sourceFileToTranspile.resolvedPath = sourceFileToTranspile.resolvedPath.replace("node_modules", path.dirname(buildOptions.entry));
-                                    }
                                     transpiledFiles = tstl.transpile({
                                         program: program,
                                         sourceFiles: [sourceFileToTranspile]
