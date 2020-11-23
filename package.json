@@ -46,7 +46,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsdoc": "^10.0.3",
     "jest": "^26.1.0",
-    "luacodegen": "^1.0.1",
+    "luacodegen": "^1.0.2",
     "luamin": "^1.0.4",
     "luaparse": "^0.3.0",
     "minimist": "^1.2.3",
