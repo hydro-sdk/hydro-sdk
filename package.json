@@ -43,7 +43,7 @@
     "colors": "^1.4.0",
     "escape-regex-string": "^1.0.6",
     "eslint": "^5.16.0",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsdoc": "^10.0.3",
     "jest": "^26.1.0",
     "luacodegen": "^1.0.2",
