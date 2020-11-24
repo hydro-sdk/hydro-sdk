@@ -1,5 +1,5 @@
-import 'package:hydro_sdk/swid/ir/dart/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 import 'package:meta/meta.dart';
 

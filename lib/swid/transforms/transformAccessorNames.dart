@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:meta/meta.dart';
 

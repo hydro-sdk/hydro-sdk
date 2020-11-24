@@ -1,5 +1,5 @@
-import 'package:hydro_sdk/swid/ir/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/dart/swidStaticConstFieldReference.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformBooleanLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFunctionInvocation.dart';
