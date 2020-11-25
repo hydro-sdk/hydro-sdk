@@ -228,3 +228,5 @@ This error can be seen by regular Typescript code that attempts to access a fiel
 - Itanium C++ Application Binary Interface Specification https://itanium-cxx-abi.github.io/cxx-abi/abi.html
 - Yan Dong Zonz, Wen Hui-chao, Exploration and practice of Flutter packet size management https://tech.meituan.com/2020/09/18/flutter-in-meituan.html
 - Shangxian, Meituan takeaway Flutter dynamic practice https://tech.meituan.com/2020/06/23/meituan-flutter-flap.html
+- Vyacheslav Egorov, 10 Years of Dart (Slides)
+    https://mrale.ph/talks/vmil2020/
