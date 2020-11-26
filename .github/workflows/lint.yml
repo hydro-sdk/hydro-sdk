@@ -7,14 +7,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-10.14, windows-2019, ubuntu-18.04]
+        os: [macOS-10.14, ubuntu-18.04]
         include: 
         - os: macOS-10.14
           TARGET: macos  
         - os: ubuntu-18.04
           TARGET: linux     
-        - os: windows-2019
-          TARGET: windows
       fail-fast: false
 
     steps:
@@ -34,9 +32,6 @@ jobs:
     - name: Add Flutter to the PATH for Unix
       run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
       if: runner.os != 'Windows'
-    - name: Add Flutter to the PATH for Windows
-      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_PATH}
-      if: runner.os == 'Windows'
     - name: Run Flutter doctor
       run: flutter doctor -v
 
