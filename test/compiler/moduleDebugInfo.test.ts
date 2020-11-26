@@ -36,7 +36,7 @@ test("", async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: "./runtime/dart/core/type.ts",
-        originalLineStart: 4,
+        originalLineStart: 3,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
@@ -74,7 +74,7 @@ test("", async () => {
         moduleName: "",
         originalFileName: inFilename,
         originalLineStart: 7,
-        originalColumnStart: 7,
+        originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
             "_L1728e10e318df2f7feecdf58b1620146ca09c236de634fe98568ab8eebfce43c::anonymous_closure::0",
@@ -110,7 +110,7 @@ test("", async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 23,
+        originalLineStart: 20,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
@@ -127,7 +127,7 @@ test("", async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 28,
+        originalLineStart: 24,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
@@ -144,7 +144,7 @@ test("", async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 41,
+        originalLineStart: 35,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
@@ -161,7 +161,7 @@ test("", async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 46,
+        originalLineStart: 39,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
         symbolMangleName: "MyHomePage.prototype.createState::self",
@@ -178,7 +178,7 @@ test("", async () => {
         columnStart: 0,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 56,
+        originalLineStart: 47,
         originalColumnStart: 4,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
@@ -196,7 +196,7 @@ test("", async () => {
         columnStart: 28,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 62,
+        originalLineStart: 52,
         originalColumnStart: 31,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
@@ -213,7 +213,7 @@ test("", async () => {
         columnStart: 28,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 62,
+        originalLineStart: 52,
         originalColumnStart: 31,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
@@ -230,7 +230,7 @@ test("", async () => {
         columnStart: 12,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 64,
+        originalLineStart: 53,
         originalColumnStart: 22,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
@@ -247,7 +247,7 @@ test("", async () => {
         columnStart: 12,
         moduleName: "",
         originalFileName: inFilename,
-        originalLineStart: 64,
+        originalLineStart: 53,
         originalColumnStart: 22,
         symbolDisambiguationIndex: 0,
         symbolFullyQualifiedMangleName:
