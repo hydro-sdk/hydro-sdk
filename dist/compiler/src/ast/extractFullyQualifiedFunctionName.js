@@ -19,7 +19,8 @@ function extract(exp, cont) {
             }
             break;
         case "MemberExpression":
-            if (exp.base && exp.base.type == "MemberExpression" || exp.base.type == "Identifier") {
+            if ((exp.base && exp.base.type == "MemberExpression") ||
+                exp.base.type == "Identifier") {
                 extract(exp.base, cont);
             }
             cont.push(exp.indexer);

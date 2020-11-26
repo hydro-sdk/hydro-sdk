@@ -76,10 +76,10 @@ export async function buildBundleInfo(
 
     const sourceFilesToTranspile = oldEntries
         ? sourceFiles.filter(
-              (x) =>
-                  hashSourceFile(x) !=
-                  (oldEntries[x.fileName]?.originalFileHash ?? "")
-          )
+            (x) =>
+                hashSourceFile(x) !=
+                (oldEntries[x.fileName]?.originalFileHash ?? "")
+        )
         : sourceFiles;
 
     let currentStep = Math.abs(
@@ -93,17 +93,17 @@ export async function buildBundleInfo(
     ) =>
         newDiagnostics && newDiagnostics.length
             ? (res.diagnostics = [
-                  ...res.diagnostics,
-                  ...newDiagnostics.map((x) => x),
-              ])
+                ...res.diagnostics,
+                ...newDiagnostics.map((x) => x),
+            ])
             : undefined;
 
     const getFullDiagnostics = () => {
         let diagnostics:
             | Readonly<Array<ts.Diagnostic>>
             | Readonly<
-                  Array<ts.DiagnosticWithLocation>
-              > = program.getSemanticDiagnostics();
+                Array<ts.DiagnosticWithLocation>
+            > = program.getSemanticDiagnostics();
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getDeclarationDiagnostics();
@@ -114,8 +114,8 @@ export async function buildBundleInfo(
         let diagnostics:
             | Readonly<Array<ts.Diagnostic>>
             | Readonly<
-                  Array<ts.DiagnosticWithLocation>
-              > = program.getSyntacticDiagnostics(sourceFile);
+                Array<ts.DiagnosticWithLocation>
+            > = program.getSyntacticDiagnostics(sourceFile);
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getSemanticDiagnostics(sourceFile);
@@ -136,16 +136,16 @@ export async function buildBundleInfo(
             debugInfo.forEach((k) => {
                 if (
                     x.symbolFullyQualifiedMangleName ==
-                        k.symbolFullyQualifiedMangleName &&
+                    k.symbolFullyQualifiedMangleName &&
                     x.originalLineStart != k.originalLineStart &&
                     x.originalColumnStart != k.originalColumnStart
                 ) {
                     console.log(`${x.symbolName} and ${k.symbolName}`);
                     console.log(
-                        `Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart},${x.columnStart})`
+                        `Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart}-${x.lineEnd},${x.columnStart}-${x.columnEnd})`
                     );
                     console.log(
-                        `and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart},${k.columnStart})`
+                        `and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart}-${k.lineEnd},${k.columnStart}-${k.columnEnd})`
                     );
                     console.log(
                         `both mangled to the following: ${x.symbolFullyQualifiedMangleName}`
@@ -217,12 +217,11 @@ export async function buildBundleInfo(
             res.entries[transpiledFile.fileName] = {
                 debugSymbols: debugInfo,
                 moduleText: transpiledFile.lua!,
-                moduleName: `${
-                    makeRelativePath(transpiledFile.fileName)
+                moduleName: `${makeRelativePath(transpiledFile.fileName)
                         .split(path.sep)
                         .join(".")
                         .split(".ts")[0]
-                }`,
+                    }`,
                 originalFileName: transpiledFile.fileName,
                 originalFileHash: hashSourceFile(
                     sourceFilesToTranspile.find(
