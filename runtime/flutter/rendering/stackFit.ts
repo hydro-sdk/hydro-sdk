@@ -3,4 +3,3 @@ export enum StackFit {
     expand,
     passthrough,
 }
-

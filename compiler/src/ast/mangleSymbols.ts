@@ -1,5 +1,5 @@
-import { ModuleDebugInfo } from "./moduleDebugInfo";
 import { hashText } from "./hashText";
+import { ModuleDebugInfo } from "./moduleDebugInfo";
 
 type SymbolWithParents = {
     symbol: ModuleDebugInfo;
@@ -8,8 +8,8 @@ type SymbolWithParents = {
 
 export function mangleSymbols(
     symbols: Array<ModuleDebugInfo>,
-    hashSymbol: (symbol: Readonly<ModuleDebugInfo>) => string =
-        (symbol) => hashText(symbol.originalFileName)
+    hashSymbol: (symbol: Readonly<ModuleDebugInfo>) => string = (symbol) =>
+        hashText(symbol.originalFileName)
 ): void {
     /*
         Inspired by Rust's name mangling https://github.com/rust-lang/rfcs/blob/master/text/2603-rust-symbol-name-mangling-v0.md
@@ -27,8 +27,11 @@ export function mangleSymbols(
 
     */
     symbols.forEach((x) => {
-        let paramSuffix = x.parameterNames.length > 0 ? x.parameterNames.join("_") : "";
-        x.symbolMangleName = `${x.symbolName.replace(/\s/g, "_")}${paramSuffix ? `::${paramSuffix}` : ""}`;
+        let paramSuffix =
+            x.parameterNames.length > 0 ? x.parameterNames.join("_") : "";
+        x.symbolMangleName = `${x.symbolName.replace(/\s/g, "_")}${
+            paramSuffix ? `::${paramSuffix}` : ""
+        }`;
     });
 
     symbols.sort((a, b) => a.lineStart - b.lineStart);
@@ -39,18 +42,26 @@ export function mangleSymbols(
     */
 
     let parentLevels: {
-        [i: number]: Array<SymbolWithParents>
+        [i: number]: Array<SymbolWithParents>;
     } = {};
     symbols.forEach((x) => {
         let parents = new Array<ModuleDebugInfo>();
         symbols.forEach((k) => {
-            if (x.lineStart == k.lineStart &&
+            if (
+                x.lineStart == k.lineStart &&
                 x.lineEnd == k.lineEnd &&
                 x.columnStart == k.columnStart &&
-                x.columnEnd == k.columnEnd) {
+                x.columnEnd == k.columnEnd
+            ) {
                 return;
             }
-            if (k.lineStart <= x.lineStart && k.lineEnd >= x.lineEnd) {
+            if (
+                (k.lineStart <= x.lineStart && k.lineEnd >= x.lineEnd) ||
+                (k.lineStart == x.lineStart &&
+                    k.lineEnd == x.lineEnd &&
+                    k.columnStart < x.columnStart &&
+                    k.columnEnd > x.columnEnd)
+            ) {
                 parents.push(k);
             }
         });
@@ -62,23 +73,35 @@ export function mangleSymbols(
             {
                 symbol: x,
                 parents: parents,
-            }
+            },
         ];
     });
 
     let symbolsWithParents = new Array<SymbolWithParents>();
 
     const buildParentQualifiers = (sym: Readonly<SymbolWithParents>) =>
-        sym.parents.map((e) => `${e.symbolMangleName}::${e.symbolDisambiguationIndex}`).join("::");
+        sym.parents
+            .map((e) => `${e.symbolMangleName}::${e.symbolDisambiguationIndex}`)
+            .join("::");
 
     const buildFullyQualifiedName = (sym: Readonly<SymbolWithParents>) =>
-        `_L${hashSymbol(sym.symbol)}${buildParentQualifiers(sym) ? `::${buildParentQualifiers(sym)}` : ""}::${sym.symbol.symbolMangleName}::${sym.symbol.symbolDisambiguationIndex}`;
+        `_L${hashSymbol(sym.symbol)}${
+            buildParentQualifiers(sym) ? `::${buildParentQualifiers(sym)}` : ""
+        }::${sym.symbol.symbolMangleName}::${
+            sym.symbol.symbolDisambiguationIndex
+        }`;
 
     Object.keys(parentLevels).forEach((x) => {
         parentLevels[parseInt(x)].forEach((k) => {
             parentLevels[parseInt(x)].forEach((j) => {
-                if (k.symbol.lineStart != j.symbol.lineStart) {
-                    if (buildFullyQualifiedName(k) == buildFullyQualifiedName(j)) {
+                if (
+                    k.symbol.lineStart != j.symbol.lineStart ||
+                    (k.symbol.lineStart == j.symbol.lineStart &&
+                        k.symbol.columnStart > j.symbol.columnStart)
+                ) {
+                    if (
+                        buildFullyQualifiedName(k) == buildFullyQualifiedName(j)
+                    ) {
                         j.symbol.symbolDisambiguationIndex += 1;
                     }
                 }

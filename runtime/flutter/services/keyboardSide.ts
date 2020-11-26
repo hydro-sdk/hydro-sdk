@@ -4,4 +4,3 @@ export enum KeyboardSide {
     right,
     all,
 }
-

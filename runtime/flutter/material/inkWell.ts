@@ -1,12 +1,10 @@
-import {Widget} from "../widget";
-import {Color} from "../../dart/ui/color";
-import {StatelessWidget} from "../widgets/statelessWidget";
-import {BorderRadius} from "../painting/borderRadius";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-
-import {Key} from "./../foundation/key";
-
+import { Type } from "../../dart/core/type";
+import { Color } from "../../dart/ui/color";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Key } from "./../foundation/key";
+import { BorderRadius } from "../painting/borderRadius";
+import { Widget } from "../widget";
+import { StatelessWidget } from "../widgets/statelessWidget";
 
 export interface InkWellProps {
     key?: Key | undefined;
@@ -30,38 +28,31 @@ declare const flutter: {
     };
 };
 
-export class InkWell extends StatelessWidget implements RuntimeBaseClass 
-{
+export class InkWell extends StatelessWidget implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(InkWell);
     public props: InkWellProps;
-    public constructor(props: InkWellProps) 
-    {
+    public constructor(props: InkWellProps) {
         super();
         this.props = props;
 
-        if (this.props.enableFeedback === undefined) 
-        {
+        if (this.props.enableFeedback === undefined) {
             this.props.enableFeedback = true;
         }
 
-        if (this.props.excludeFromSemantics === undefined) 
-        {
+        if (this.props.excludeFromSemantics === undefined) {
             this.props.excludeFromSemantics = false;
         }
 
-        if (this.props.canRequestFocus === undefined) 
-        {
+        if (this.props.canRequestFocus === undefined) {
             this.props.canRequestFocus = true;
         }
 
-        if (this.props.autoFocus === undefined) 
-        {
+        if (this.props.autoFocus === undefined) {
             this.props.autoFocus = false;
         }
     }
 
-    public build() 
-    {
+    public build() {
         return flutter.material.inkWell(this.props);
     }
 }

@@ -1,18 +1,17 @@
-import {Color} from "./../../dart/ui/color";
-import {CupertinoDynamicColor} from "./cupertinoDynamicColor";
+import { Color } from "./../../dart/ui/color";
+import { CupertinoDynamicColor } from "./cupertinoDynamicColor";
 
-export class CupertinoColors 
-{
-    static white = new Color(0xFFFFFFFF);
-    static black = new Color(0xFF000000);
-    static lightBackgroundGray = new Color(0xFFE5E5EA);
-    static extraLightBackgroundGray = new Color(0xFFEFEFF4);
-    static darkBackgroundGray = new Color(0xFF171717);
+export class CupertinoColors {
+    static white = new Color(0xffffffff);
+    static black = new Color(0xff000000);
+    static lightBackgroundGray = new Color(0xffe5e5ea);
+    static extraLightBackgroundGray = new Color(0xffefeff4);
+    static darkBackgroundGray = new Color(0xff171717);
 
     static inactiveGray = CupertinoDynamicColor.withBrightness({
         debugLabel: "inactiveGray",
-        color: new Color(0xFF999999),
-        darkColor: new Color(0xFF757575),
+        color: new Color(0xff999999),
+        darkColor: new Color(0xff757575),
     });
 
     static systemBlue = CupertinoDynamicColor.withBrightnessAndContrast({

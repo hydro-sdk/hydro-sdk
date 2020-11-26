@@ -1,7 +1,6 @@
-import {Type} from "../../dart/core/type";
-
-import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
-import {ImageProvider} from "./imageProvider";
+import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import { Type } from "../../dart/core/type";
+import { ImageProvider } from "./imageProvider";
 
 export interface NetworkImageProps {
     scale: number;
@@ -9,24 +8,27 @@ export interface NetworkImageProps {
 
 declare const flutter: {
     painting: {
-        networkImage: (this: void, url: string, props: NetworkImageProps) => NetworkImage;
+        networkImage: (
+            this: void,
+            url: string,
+            props: NetworkImageProps
+        ) => NetworkImage;
     };
 };
 
-export class NetworkImage extends JITAllocatingRTManagedBox<NetworkImageProps, NetworkImage> implements ImageProvider 
-{
+export class NetworkImage
+    extends JITAllocatingRTManagedBox<NetworkImageProps, NetworkImage>
+    implements ImageProvider {
     public readonly internalRuntimeType = new Type(NetworkImage);
     public url: string;
-    public props: NetworkImageProps
-    public constructor(url: string, props: NetworkImageProps) 
-    {
+    public props: NetworkImageProps;
+    public constructor(url: string, props: NetworkImageProps) {
         super();
         this.url = url;
         this.props = props;
     }
 
-    public unwrap(): NetworkImage 
-    {
+    public unwrap(): NetworkImage {
         return flutter.painting.networkImage(this.url, this.props);
     }
 }

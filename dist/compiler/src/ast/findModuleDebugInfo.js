@@ -21,7 +21,7 @@ function findModuleDebugInfo(props) {
         scope: true,
         locations: true,
         ranges: true,
-        luaVersion: "5.2"
+        luaVersion: "5.2",
     });
     last.body.forEach(function (x) {
         findModuleDebugInfoInner(__assign(__assign({}, props), { last: x, cont: res, log: props.log }));
@@ -231,7 +231,8 @@ function extract(props) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.exp.init[0] }));
         }
     }
-    if (props.exp.type == "FunctionDeclaration" || props.exp.type == "MemberExpression") {
+    if (props.exp.type == "FunctionDeclaration" ||
+        props.exp.type == "MemberExpression") {
         props.cont.push({
             lineStart: (_c = (_b = (_a = props.exp.loc) === null || _a === void 0 ? void 0 : _a.start) === null || _b === void 0 ? void 0 : _b.line) !== null && _c !== void 0 ? _c : 0,
             lineEnd: (_f = (_e = (_d = props.exp.loc) === null || _d === void 0 ? void 0 : _d.end) === null || _e === void 0 ? void 0 : _e.line) !== null && _f !== void 0 ? _f : 0,
@@ -243,8 +244,9 @@ function extract(props) {
             originalFileName: props.originalFileName,
             originalLineStart: 0,
             originalColumnStart: 0,
-            parameterNames: props.exp.type == "FunctionDeclaration" ?
-                extractFunctionDeclarationArguments_1.extractFunctionDeclarationArguments(props.exp) : [],
+            parameterNames: props.exp.type == "FunctionDeclaration"
+                ? extractFunctionDeclarationArguments_1.extractFunctionDeclarationArguments(props.exp)
+                : [],
             symbolDisambiguationIndex: 0,
         });
     }

@@ -56,16 +56,16 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
+var process_1 = require("process");
 var ts = require("typescript");
 var tstl = require("typescript-to-lua");
-var findModuleDebugInfo_1 = require("../ast/findModuleDebugInfo");
-var addOriginalMappings_1 = require("../ast/addOriginalMappings");
-var makeRelativePath_1 = require("../makeRelativePath");
 var LuaLib_1 = require("typescript-to-lua/dist/LuaLib");
+var addOriginalMappings_1 = require("../ast/addOriginalMappings");
+var findModuleDebugInfo_1 = require("../ast/findModuleDebugInfo");
 var hashSourceFile_1 = require("../ast/hashSourceFile");
 var hashText_1 = require("../ast/hashText");
 var mangleSymbols_1 = require("../ast/mangleSymbols");
-var process_1 = require("process");
+var makeRelativePath_1 = require("../makeRelativePath");
 function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
     return __awaiter(this, void 0, void 0, function () {
         var res, program, sourceFiles, oldEntries, sourceFilesToTranspile, currentStep, concatDiagnostics, getFullDiagnostics, getIncrementalDiagnostics, sanityCheckDebugSymbols, buildSourceFileShortPath, _loop_1, _i, sourceFilesToTranspile_1, sourceFileToTranspile, lualiBundle, debugInfo;
@@ -82,12 +82,12 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                             luaLibImport: tstl.LuaLibImportKind.Require,
                             sourceMapTraceback: false,
                             outDir: ".hydroc",
-                            include: [
-                                "node_modules/hydro-sdk/runtime"
-                            ],
-                        }
+                            include: ["node_modules/hydro-sdk/runtime"],
+                        },
                     });
-                    sourceFiles = program.getSourceFiles().filter(function (x) { return !x.isDeclarationFile; });
+                    sourceFiles = program
+                        .getSourceFiles()
+                        .filter(function (x) { return !x.isDeclarationFile; });
                     updateBuildProgress(0, sourceFiles.length + 1, "");
                     sourceFiles.forEach(function (x) {
                         var targetFileIsInNodeModules = /node_modules/g.test(x.fileName);
@@ -99,11 +99,19 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                         }
                     });
                     oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
-                    sourceFilesToTranspile = oldEntries ? sourceFiles.filter(function (x) { var _a, _b; return hashSourceFile_1.hashSourceFile(x) != ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : ""); }) : sourceFiles;
+                    sourceFilesToTranspile = oldEntries
+                        ? sourceFiles.filter(function (x) {
+                            var _a, _b;
+                            return hashSourceFile_1.hashSourceFile(x) !=
+                                ((_b = (_a = oldEntries[x.fileName]) === null || _a === void 0 ? void 0 : _a.originalFileHash) !== null && _b !== void 0 ? _b : "");
+                        })
+                        : sourceFiles;
                     currentStep = Math.abs(sourceFiles.length + 1 - sourceFilesToTranspile.length);
                     updateBuildProgress(currentStep, sourceFiles.length + 1, "");
                     concatDiagnostics = function (newDiagnostics) {
-                        return newDiagnostics && newDiagnostics.length ? res.diagnostics = __spreadArrays(res.diagnostics, newDiagnostics.map(function (x) { return x; })) : undefined;
+                        return newDiagnostics && newDiagnostics.length
+                            ? (res.diagnostics = __spreadArrays(res.diagnostics, newDiagnostics.map(function (x) { return x; })))
+                            : undefined;
                     };
                     getFullDiagnostics = function () {
                         var diagnostics = program.getSemanticDiagnostics();
@@ -124,12 +132,13 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     sanityCheckDebugSymbols = function (debugInfo) {
                         debugInfo.forEach(function (x) {
                             debugInfo.forEach(function (k) {
-                                if (x.symbolFullyQualifiedMangleName == k.symbolFullyQualifiedMangleName &&
+                                if (x.symbolFullyQualifiedMangleName ==
+                                    k.symbolFullyQualifiedMangleName &&
                                     x.originalLineStart != k.originalLineStart &&
                                     x.originalColumnStart != k.originalColumnStart) {
                                     console.log(x.symbolName + " and " + k.symbolName);
-                                    console.log("Defined at " + x.originalFileName + ":" + x.originalLineStart + "," + x.originalColumnStart + " (" + x.lineStart + "," + x.columnStart + ")");
-                                    console.log("and " + k.originalFileName + ":" + k.originalLineStart + "," + k.originalColumnStart + " (" + k.lineStart + "," + k.columnStart + ")");
+                                    console.log("Defined at " + x.originalFileName + ":" + x.originalLineStart + "," + x.originalColumnStart + " (" + x.lineStart + "-" + x.lineEnd + "," + x.columnStart + "-" + x.columnEnd + ")");
+                                    console.log("and " + k.originalFileName + ":" + k.originalLineStart + "," + k.originalColumnStart + " (" + k.lineStart + "-" + k.lineEnd + "," + k.columnStart + "-" + k.columnEnd + ")");
                                     console.log("both mangled to the following: " + x.symbolFullyQualifiedMangleName);
                                     process_1.exit(1);
                                 }
@@ -139,11 +148,15 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                     buildSourceFileShortPath = function (sourceFile) {
                         var dirname = path.dirname(sourceFile.fileName);
                         var dirnames = dirname.split(path.sep);
-                        var parentDir = dirnames.length >= 1 ? "" + path.sep + dirnames[dirnames.length - 1] : "";
+                        var parentDir = dirnames.length >= 1
+                            ? "" + path.sep + dirnames[dirnames.length - 1]
+                            : "";
                         var grandParentDir = dirname.length >= 2 ? "" + dirnames[dirnames.length - 2] : "";
                         return "" + grandParentDir + parentDir + path.sep + path.basename(sourceFile.fileName);
                     };
-                    sourceFilesToTranspile.sort(function (a, b) { return buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b)); });
+                    sourceFilesToTranspile.sort(function (a, b) {
+                        return buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b));
+                    });
                     _loop_1 = function (sourceFileToTranspile) {
                         var transpiledFiles, transpiledFile, debugInfo;
                         return __generator(this, function (_a) {
@@ -159,7 +172,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                     getIncrementalDiagnostics(sourceFileToTranspile);
                                     transpiledFiles = tstl.transpile({
                                         program: program,
-                                        sourceFiles: [sourceFileToTranspile]
+                                        sourceFiles: [sourceFileToTranspile],
                                     }).transpiledFiles;
                                     if (transpiledFiles != null && transpiledFiles.length > 0) {
                                         transpiledFile = transpiledFiles[0];
@@ -168,19 +181,24 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                                     debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
                                         originalFileName: transpiledFile.fileName,
                                         filename: transpiledFile.fileName,
-                                        fileContent: transpiledFile.lua
+                                        fileContent: transpiledFile.lua,
                                     });
                                     return [4 /*yield*/, addOriginalMappings_1.addOriginalMappings(debugInfo, transpiledFile)];
                                 case 2:
                                     _a.sent();
-                                    mangleSymbols_1.mangleSymbols(debugInfo, function (symbol) { return hashText_1.hashText(symbol.originalFileName); });
+                                    mangleSymbols_1.mangleSymbols(debugInfo, function (symbol) {
+                                        return hashText_1.hashText(symbol.originalFileName);
+                                    });
                                     sanityCheckDebugSymbols(debugInfo);
                                     res.entries[transpiledFile.fileName] = {
                                         debugSymbols: debugInfo,
                                         moduleText: transpiledFile.lua,
-                                        moduleName: "" + makeRelativePath_1.makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0],
+                                        moduleName: "" + makeRelativePath_1.makeRelativePath(transpiledFile.fileName)
+                                            .split(path.sep)
+                                            .join(".")
+                                            .split(".ts")[0],
                                         originalFileName: transpiledFile.fileName,
-                                        originalFileHash: hashSourceFile_1.hashSourceFile(sourceFilesToTranspile.find(function (x) { return x.fileName == (transpiledFile === null || transpiledFile === void 0 ? void 0 : transpiledFile.fileName); }))
+                                        originalFileHash: hashSourceFile_1.hashSourceFile(sourceFilesToTranspile.find(function (x) { return x.fileName == (transpiledFile === null || transpiledFile === void 0 ? void 0 : transpiledFile.fileName); })),
                                     };
                                     _a.label = 3;
                                 case 3:
@@ -206,21 +224,25 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                         updateBuildProgress(currentStep, sourceFiles.length + 1, "lualib_bundle");
                         lualiBundle = LuaLib_1.getLuaLibBundle({
                             getCurrentDirectory: function () { return ""; },
-                            readFile: function (filePath) { return fs.readFileSync(filePath).toString(); }
+                            readFile: function (filePath) {
+                                return fs.readFileSync(filePath).toString();
+                            },
                         });
                         debugInfo = findModuleDebugInfo_1.findModuleDebugInfo({
                             originalFileName: "lualib_bundle",
                             filename: "lualib_bundle",
                             fileContent: lualiBundle,
                         });
-                        mangleSymbols_1.mangleSymbols(debugInfo, function (symbol) { return "lualib_bundle" + hashText_1.hashText(symbol.originalFileName); });
+                        mangleSymbols_1.mangleSymbols(debugInfo, function (symbol) {
+                            return "lualib_bundle" + hashText_1.hashText(symbol.originalFileName);
+                        });
                         sanityCheckDebugSymbols(debugInfo);
                         res.entries["lualib_bundle"] = {
                             debugSymbols: debugInfo,
                             moduleText: lualiBundle,
                             moduleName: "lualib_bundle",
                             originalFileName: "lualib_bundle",
-                            originalFileHash: hashText_1.hashText(lualiBundle)
+                            originalFileHash: hashText_1.hashText(lualiBundle),
                         };
                     }
                     updateBuildProgress(currentStep, sourceFiles.length + 1, buildOptions.entry);

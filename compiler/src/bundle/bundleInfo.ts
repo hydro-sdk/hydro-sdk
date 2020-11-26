@@ -5,7 +5,7 @@ import { BundleEntry } from "./bundleEntry";
 
 export type BundleInfo = BuildOptions & {
     entries: {
-        [originalFileName: string]: BundleEntry
+        [originalFileName: string]: BundleEntry;
     };
     diagnostics: Array<ts.DiagnosticRelatedInformation>;
-}
+};

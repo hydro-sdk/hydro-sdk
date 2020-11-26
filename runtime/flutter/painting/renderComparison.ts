@@ -4,4 +4,3 @@ export enum RenderComparison {
     paint,
     layout,
 }
-

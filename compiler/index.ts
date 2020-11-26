@@ -1,16 +1,17 @@
 import * as fs from "fs";
+import * as http from "http";
 import * as path from "path";
 
+import * as chokidar from "chokidar";
 import * as minimist from "minimist";
 import * as rimraf from "rimraf";
-import * as chokidar from "chokidar";
+
+import { InputLanguage } from "./src/buildOptions";
+import { buildTs } from "./src/buildTs";
 
 const clear = require("clear");
-const handler = require('serve-handler');
-import * as http from "http";
+const handler = require("serve-handler");
 
-import { buildTs } from "./src/buildTs";
-import { InputLanguage } from "./src/buildOptions";
 const argv = minimist(process.argv.slice(2));
 
 const entry = argv.t;
@@ -25,13 +26,12 @@ if (clean) {
     process.exit(0);
 }
 
-const watch:string = argv.w;
+const watch: string = argv.w;
 
 if (!entry) {
     console.log("Entry file must be specified with -t switch");
     process.exit(1);
-}
-else {
+} else {
     if (!fs.statSync(entry)) {
         console.log("Entry file does not exist");
         process.exit(1);
@@ -44,7 +44,9 @@ if (!profile) {
 }
 
 if (profile !== "debug" && profile !== "release") {
-    console.log(`${profile} is not a valid profile argument. Must be debug or release`);
+    console.log(
+        `${profile} is not a valid profile argument. Must be debug or release`
+    );
     process.exit(1);
 }
 
@@ -75,7 +77,12 @@ if (argv["class-path"] !== undefined) {
 if (inputLanguage == InputLanguage.haxe) {
     if (argv["main-class"] !== undefined) {
         mainClass = argv["main-class"];
-    } else if (argv["main-class"] === undefined || argv["main-class"] === "" || mainClass === undefined || mainClass === "") {
+    } else if (
+        argv["main-class"] === undefined ||
+        argv["main-class"] === "" ||
+        mainClass === undefined ||
+        mainClass === ""
+    ) {
         console.log("A main class must be provided. Use --main-class");
     }
 }
@@ -94,18 +101,16 @@ if (!fs.existsSync(".hydroc")) {
     fs.mkdirSync(".hydroc");
 }
 
-
 if (watch !== undefined) {
     const server = http.createServer((request, response) => {
-        
-        return handler(request, response,{public: outDir});
-      });
-       
-      server.listen(5000, () => {});
-      const printServerInfo = ()=>{
+        return handler(request, response, { public: outDir });
+    });
+
+    server.listen(5000, () => {});
+    const printServerInfo = () => {
         console.log(`Watching for changes in ${watch}`);
         console.log(`Serving ${outDir} on port 5000`);
-      };
+    };
     (async () => {
         if (inputLanguage == InputLanguage.typescript) {
             clear();
@@ -115,7 +120,7 @@ if (watch !== undefined) {
                 entry: entry,
                 modName: modName,
                 outDir: outDir,
-                profile: profile
+                profile: profile,
             });
         }
     })();
@@ -128,12 +133,11 @@ if (watch !== undefined) {
                 entry: entry,
                 modName: modName,
                 outDir: outDir,
-                profile: profile
+                profile: profile,
             });
         }
     });
-}
-else {
+} else {
     (async () => {
         if (inputLanguage == InputLanguage.typescript) {
             await buildTs({
@@ -141,7 +145,7 @@ else {
                 entry: entry,
                 modName: modName,
                 outDir: outDir,
-                profile: profile
+                profile: profile,
             });
         }
     })();

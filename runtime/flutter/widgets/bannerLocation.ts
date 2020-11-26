@@ -4,4 +4,3 @@ export enum BannerLocation {
     bottomStart,
     bottomEnd,
 }
-

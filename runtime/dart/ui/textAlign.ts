@@ -4,5 +4,5 @@ export enum TextAlign {
     center,
     justify,
     start,
-    end
+    end,
 }

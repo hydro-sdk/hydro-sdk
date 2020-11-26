@@ -6,4 +6,3 @@ export enum MainAxisAlignment {
     spaceAround,
     spaceEvenly,
 }
-

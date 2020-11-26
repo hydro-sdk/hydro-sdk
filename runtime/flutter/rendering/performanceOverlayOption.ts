@@ -4,4 +4,3 @@ export enum PerformanceOverlayOption {
     displayEngineStatistics,
     visualizeEngineStatistics,
 }
-

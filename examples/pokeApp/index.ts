@@ -1,10 +1,12 @@
+import { MaterialApp } from "../../runtime/flutter/material/materialApp";
 //Based on https://github.com/iampawan/PokemonApp
-import {runApp} from "../../runtime/flutter/runApp";
-import {MaterialApp} from "../../runtime/flutter/material/materialApp";
+import { runApp } from "../../runtime/flutter/runApp";
+import { PokeHubService } from "./data/pokeHubService";
+import { PokeApp } from "./pokeApp";
 
-import {PokeApp} from "./pokeApp";
-import {PokeHubService} from "./data/pokeHubService";
-
-runApp(() => new MaterialApp({
-    home: new PokeApp(new PokeHubService())
-}));
+runApp(
+    () =>
+        new MaterialApp({
+            home: new PokeApp(new PokeHubService()),
+        })
+);

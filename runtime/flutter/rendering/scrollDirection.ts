@@ -3,4 +3,3 @@ export enum ScrollDirection {
     forward,
     reverse,
 }
-

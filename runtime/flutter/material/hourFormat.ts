@@ -3,4 +3,3 @@ export enum HourFormat {
     H,
     h,
 }
-
