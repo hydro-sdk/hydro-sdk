@@ -4,4 +4,3 @@ export enum OverlayVisibilityMode {
     notEditing,
     always,
 }
-

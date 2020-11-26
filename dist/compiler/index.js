@@ -37,15 +37,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
+var http = require("http");
 var path = require("path");
+var chokidar = require("chokidar");
 var minimist = require("minimist");
 var rimraf = require("rimraf");
-var chokidar = require("chokidar");
-var clear = require("clear");
-var handler = require('serve-handler');
-var http = require("http");
-var buildTs_1 = require("./src/buildTs");
 var buildOptions_1 = require("./src/buildOptions");
+var buildTs_1 = require("./src/buildTs");
+var clear = require("clear");
+var handler = require("serve-handler");
 var argv = minimist(process.argv.slice(2));
 var entry = argv.t;
 var modName = argv.m;
@@ -99,7 +99,10 @@ if (inputLanguage == buildOptions_1.InputLanguage.haxe) {
     if (argv["main-class"] !== undefined) {
         mainClass = argv["main-class"];
     }
-    else if (argv["main-class"] === undefined || argv["main-class"] === "" || mainClass === undefined || mainClass === "") {
+    else if (argv["main-class"] === undefined ||
+        argv["main-class"] === "" ||
+        mainClass === undefined ||
+        mainClass === "") {
         console.log("A main class must be provided. Use --main-class");
     }
 }
@@ -135,7 +138,7 @@ if (watch !== undefined) {
                             entry: entry,
                             modName: modName,
                             outDir: outDir,
-                            profile: profile
+                            profile: profile,
                         })];
                 case 1:
                     _a.sent();
@@ -156,7 +159,7 @@ if (watch !== undefined) {
                             entry: entry,
                             modName: modName,
                             outDir: outDir,
-                            profile: profile
+                            profile: profile,
                         })];
                 case 1:
                     _a.sent();
@@ -177,7 +180,7 @@ else {
                             entry: entry,
                             modName: modName,
                             outDir: outDir,
-                            profile: profile
+                            profile: profile,
                         })];
                 case 1:
                     _a.sent();

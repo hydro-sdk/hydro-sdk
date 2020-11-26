@@ -7,7 +7,7 @@ var ProgressBar = /** @class */ (function () {
         this.leadingMessage = leadingMessage;
         this.bar = new clip.Bar({
             format: this.leadingMessage + "  " + colors.green("[{bar}]") + " {value}/{total} {suffixMessage}",
-            barCompleteChar: '\u2588',
+            barCompleteChar: "\u2588",
         });
         this.bar.start(0, 0, { suffixMessage: "" });
     }
@@ -17,7 +17,7 @@ var ProgressBar = /** @class */ (function () {
     ProgressBar.prototype.update = function (currentStep, totalSteps, suffixMessage) {
         this.bar.setTotal(totalSteps);
         this.bar.update(currentStep, {
-            suffixMessage: suffixMessage
+            suffixMessage: suffixMessage,
         });
     };
     return ProgressBar;

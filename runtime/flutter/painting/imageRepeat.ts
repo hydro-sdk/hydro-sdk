@@ -4,4 +4,3 @@ export enum ImageRepeat {
     repeatY,
     noRepeat,
 }
-

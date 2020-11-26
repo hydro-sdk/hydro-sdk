@@ -1,13 +1,14 @@
 import * as lparse from "luaparse";
-import { ModuleDebugInfo } from "./moduleDebugInfo";
+
 import { extractFullyQualifiedFunctionName } from "./extractFullyQualifiedFunctionName";
 import { extractFunctionDeclarationArguments } from "./extractFunctionDeclarationArguments";
+import { ModuleDebugInfo } from "./moduleDebugInfo";
 
 export function findModuleDebugInfo(props: {
-    originalFileName: string,
-    filename: string,
-    fileContent: string,
-    log?: boolean,
+    originalFileName: string;
+    filename: string;
+    fileContent: string;
+    log?: boolean;
 }): Array<ModuleDebugInfo> {
     let res = new Array<ModuleDebugInfo>();
 
@@ -16,7 +17,7 @@ export function findModuleDebugInfo(props: {
         scope: true,
         locations: true,
         ranges: true,
-        luaVersion: "5.2"
+        luaVersion: "5.2",
     });
 
     last.body.forEach((x) => {
@@ -31,21 +32,24 @@ export function findModuleDebugInfo(props: {
     return res;
 }
 
-type ExplorableNode = lparse.CallExpression |
-    lparse.FunctionDeclaration |
-    lparse.TableConstructorExpression |
-    lparse.IfClause |
-    lparse.IfStatement |
-    lparse.LocalStatement |
-    lparse.ForGenericStatement |
-    lparse.AssignmentStatement |
-    lparse.UnaryExpression |
-    lparse.LogicalExpression |
-    lparse.TableKeyString |
-    lparse.TableValue |
-    lparse.MemberExpression;
+type ExplorableNode =
+    | lparse.CallExpression
+    | lparse.FunctionDeclaration
+    | lparse.TableConstructorExpression
+    | lparse.IfClause
+    | lparse.IfStatement
+    | lparse.LocalStatement
+    | lparse.ForGenericStatement
+    | lparse.AssignmentStatement
+    | lparse.UnaryExpression
+    | lparse.LogicalExpression
+    | lparse.TableKeyString
+    | lparse.TableValue
+    | lparse.MemberExpression;
 
-function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefined {
+function maybeNarrowNodeType(
+    node: lparse.Base<string>
+): ExplorableNode | undefined {
     if (node.type == "CallExpression") {
         return node as lparse.CallExpression;
     } else if (node.type == "FunctionDeclaration") {
@@ -77,12 +81,12 @@ function maybeNarrowNodeType(node: lparse.Base<string>): ExplorableNode | undefi
 }
 
 function findModuleDebugInfoInner(props: {
-    originalFileName: string,
-    filename: string,
-    fileContent: string,
-    last: lparse.Statement | ExplorableNode,
-    cont: Array<ModuleDebugInfo>,
-    log?: boolean
+    originalFileName: string;
+    filename: string;
+    fileContent: string;
+    last: lparse.Statement | ExplorableNode;
+    cont: Array<ModuleDebugInfo>;
+    log?: boolean;
 }) {
     if (props.last.type == "FunctionDeclaration") {
         if (props.log) {
@@ -95,7 +99,7 @@ function findModuleDebugInfoInner(props: {
         props.last.body.forEach((k) => {
             findModuleDebugInfoInner({
                 ...props,
-                last: k
+                last: k,
             });
         });
     }
@@ -107,7 +111,7 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k as ExplorableNode
+                    last: k as ExplorableNode,
                 });
             }
         });
@@ -119,7 +123,7 @@ function findModuleDebugInfoInner(props: {
         if (maybeNarrowNodeType(props.last.expression)) {
             findModuleDebugInfoInner({
                 ...props,
-                last: props.last.expression as ExplorableNode
+                last: props.last.expression as ExplorableNode,
             });
         }
     }
@@ -135,7 +139,7 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k as ExplorableNode
+                    last: k as ExplorableNode,
                 });
             }
         });
@@ -148,7 +152,7 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k as ExplorableNode
+                    last: k as ExplorableNode,
                 });
             }
         });
@@ -156,19 +160,21 @@ function findModuleDebugInfoInner(props: {
         if (maybeNarrowNodeType(props.last.base)) {
             findModuleDebugInfoInner({
                 ...props,
-                last: props.last.base as ExplorableNode
+                last: props.last.base as ExplorableNode,
             });
         }
     }
     if (props.last.type == "TableConstructorExpression") {
         if (props.log) {
-            console.log(`TableConstructorExpression ${props.last.loc?.start?.line}`);
+            console.log(
+                `TableConstructorExpression ${props.last.loc?.start?.line}`
+            );
         }
         props.last.fields.forEach((k) => {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k as ExplorableNode
+                    last: k as ExplorableNode,
                 });
             }
         });
@@ -178,7 +184,7 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k as ExplorableNode
+                    last: k as ExplorableNode,
                 });
             }
         });
@@ -187,7 +193,7 @@ function findModuleDebugInfoInner(props: {
         props.last.body.forEach((k) => {
             findModuleDebugInfoInner({
                 ...props,
-                last: k
+                last: k,
             });
         });
     }
@@ -196,7 +202,7 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k as ExplorableNode
+                    last: k as ExplorableNode,
                 });
             }
         });
@@ -209,7 +215,7 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k as ExplorableNode
+                    last: k as ExplorableNode,
                 });
             }
         });
@@ -217,10 +223,10 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(k)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: k as ExplorableNode
+                    last: k as ExplorableNode,
                 });
             }
-        })
+        });
     }
     if (props.last.type == "UnaryExpression") {
         if (props.log) {
@@ -230,7 +236,7 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(props.last.argument)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: props.last.argument as ExplorableNode
+                    last: props.last.argument as ExplorableNode,
                 });
             }
         }
@@ -243,13 +249,13 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(props.last.left)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: props.last.left as ExplorableNode
+                    last: props.last.left as ExplorableNode,
                 });
             }
             if (maybeNarrowNodeType(props.last.right)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: props.last.right as ExplorableNode
+                    last: props.last.right as ExplorableNode,
                 });
             }
         }
@@ -257,13 +263,13 @@ function findModuleDebugInfoInner(props: {
             if (maybeNarrowNodeType(props.last.left)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: props.last.left as ExplorableNode
+                    last: props.last.left as ExplorableNode,
                 });
             }
             if (maybeNarrowNodeType(props.last.right)) {
                 findModuleDebugInfoInner({
                     ...props,
-                    last: props.last.right as ExplorableNode
+                    last: props.last.right as ExplorableNode,
                 });
             }
         }
@@ -275,7 +281,7 @@ function findModuleDebugInfoInner(props: {
         if (maybeNarrowNodeType(props.last.value)) {
             findModuleDebugInfoInner({
                 ...props,
-                last: props.last.value as ExplorableNode
+                last: props.last.value as ExplorableNode,
             });
         }
     }
@@ -286,7 +292,7 @@ function findModuleDebugInfoInner(props: {
         if (maybeNarrowNodeType(props.last.value)) {
             findModuleDebugInfoInner({
                 ...props,
-                last: props.last.value as ExplorableNode
+                last: props.last.value as ExplorableNode,
             });
         }
     }
@@ -297,29 +303,34 @@ function findModuleDebugInfoInner(props: {
         if (maybeNarrowNodeType(props.last.base)) {
             findModuleDebugInfoInner({
                 ...props,
-                last: props.last.base as ExplorableNode
+                last: props.last.base as ExplorableNode,
             });
         }
     }
 }
 
 function extract(props: {
-    exp: lparse.FunctionDeclaration | lparse.MemberExpression | lparse.AssignmentStatement,
-    originalFileName: string,
-    filename: string,
-    fileContent: string,
-    cont: Array<ModuleDebugInfo>
+    exp:
+        | lparse.FunctionDeclaration
+        | lparse.MemberExpression
+        | lparse.AssignmentStatement;
+    originalFileName: string;
+    filename: string;
+    fileContent: string;
+    cont: Array<ModuleDebugInfo>;
 }): void {
     if (props.exp.type == "AssignmentStatement") {
         if (props.exp.init[0].type == "FunctionDeclaration") {
             findModuleDebugInfoInner({
                 ...props,
                 last: props.exp.init[0],
-
             });
         }
     }
-    if (props.exp.type == "FunctionDeclaration" || props.exp.type == "MemberExpression") {
+    if (
+        props.exp.type == "FunctionDeclaration" ||
+        props.exp.type == "MemberExpression"
+    ) {
         props.cont.push({
             lineStart: props.exp.loc?.start?.line ?? 0,
             lineEnd: props.exp.loc?.end?.line ?? 0,
@@ -332,10 +343,10 @@ function extract(props: {
             originalLineStart: 0,
             originalColumnStart: 0,
             parameterNames:
-                props.exp.type == "FunctionDeclaration" ?
-                    extractFunctionDeclarationArguments(props.exp) : [],
+                props.exp.type == "FunctionDeclaration"
+                    ? extractFunctionDeclarationArguments(props.exp)
+                    : [],
             symbolDisambiguationIndex: 0,
-
         });
     }
 }

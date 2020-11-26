@@ -1,7 +1,6 @@
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
 
-export class ImageProvider implements RuntimeBaseClass
-{
+export class ImageProvider implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(ImageProvider);
 }

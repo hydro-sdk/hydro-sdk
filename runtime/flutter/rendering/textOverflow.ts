@@ -4,4 +4,3 @@ export enum TextOverflow {
     ellipsis,
     visible,
 }
-

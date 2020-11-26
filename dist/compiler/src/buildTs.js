@@ -39,12 +39,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var chalk = require("chalk");
 var ts = require("typescript");
-var configHash_1 = require("./configHash");
-var setupArtifactDirectories_1 = require("./setupArtifactDirectories");
-var compileByteCodeAndWriteHash_1 = require("./compileByteCodeAndWriteHash");
 var buildBundleInfo_1 = require("./bundle/buildBundleInfo");
 var bundle_1 = require("./bundle/bundle");
+var compileByteCodeAndWriteHash_1 = require("./compileByteCodeAndWriteHash");
+var configHash_1 = require("./configHash");
 var progressBar_1 = require("./progressBar");
+var setupArtifactDirectories_1 = require("./setupArtifactDirectories");
 function buildTs(config) {
     return __awaiter(this, void 0, void 0, function () {
         var startTime, buildHash, _a, outFileHash, outFile, outFileSymbols, tempFile, tempDir, oldBundleInfo, oldBuild, compileProgressBar, bundleInfo, bundleResult, symbolsString, endTime;

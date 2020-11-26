@@ -6,4 +6,3 @@ export enum TargetPlatform {
     macOS,
     windows,
 }
-

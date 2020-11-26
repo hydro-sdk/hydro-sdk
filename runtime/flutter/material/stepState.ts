@@ -5,4 +5,3 @@ export enum StepState {
     disabled,
     error,
 }
-

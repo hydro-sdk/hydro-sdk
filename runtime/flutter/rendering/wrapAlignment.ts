@@ -6,4 +6,3 @@ export enum WrapAlignment {
     spaceAround,
     spaceEvenly,
 }
-

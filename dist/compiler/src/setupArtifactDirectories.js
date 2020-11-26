@@ -11,7 +11,12 @@ function setupArtifactDirectories(buildHash, config) {
     fs.mkdirSync(config.outDir, { recursive: true });
     fs.mkdirSync(tempDir, { recursive: true });
     return {
-        tempDir: tempDir, tempFile: tempFile, outFile: outFile, outFileHash: outFileHash, outFileSymbols: outFileSymbols, oldBundleInfo: oldBundleInfo
+        tempDir: tempDir,
+        tempFile: tempFile,
+        outFile: outFile,
+        outFileHash: outFileHash,
+        outFileSymbols: outFileSymbols,
+        oldBundleInfo: oldBundleInfo,
     };
 }
 exports.setupArtifactDirectories = setupArtifactDirectories;

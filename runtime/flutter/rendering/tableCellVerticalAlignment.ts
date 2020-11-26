@@ -5,4 +5,3 @@ export enum TableCellVerticalAlignment {
     baseline,
     fill,
 }
-

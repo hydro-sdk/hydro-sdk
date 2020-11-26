@@ -1,7 +1,6 @@
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
 
-export class InlineSpan implements RuntimeBaseClass
-{
+export class InlineSpan implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(InlineSpan);
 }

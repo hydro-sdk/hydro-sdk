@@ -1,10 +1,10 @@
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-import {StatelessWidget} from "../widgets/statelessWidget";
-import {Key} from "../foundation/key";
-import {Widget} from "../widget";
-import {VoidCallback} from "../../dart/ui/voidCallback";
-import {IconData} from "../widgets/iconData";
+import { Type } from "../../dart/core/type";
+import { VoidCallback } from "../../dart/ui/voidCallback";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Key } from "../foundation/key";
+import { Widget } from "../widget";
+import { IconData } from "../widgets/iconData";
+import { StatelessWidget } from "../widgets/statelessWidget";
 
 export interface CupertinoContextMenuActionProps {
     key?: Key | undefined;
@@ -17,32 +17,32 @@ export interface CupertinoContextMenuActionProps {
 
 declare const flutter: {
     cupertino: {
-        cupertinoContextMenuAction: (this: void, props: CupertinoContextMenuActionProps) => CupertinoContextMenuAction;
+        cupertinoContextMenuAction: (
+            this: void,
+            props: CupertinoContextMenuActionProps
+        ) => CupertinoContextMenuAction;
     };
 };
 
-export class CupertinoContextMenuAction extends StatelessWidget implements RuntimeBaseClass 
-{
+export class CupertinoContextMenuAction
+    extends StatelessWidget
+    implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(CupertinoContextMenuAction);
     public props: CupertinoContextMenuActionProps;
-    public constructor(props: CupertinoContextMenuActionProps) 
-    {
+    public constructor(props: CupertinoContextMenuActionProps) {
         super();
         this.props = props;
 
-        if (this.props.isDefaultAction === undefined) 
-        {
+        if (this.props.isDefaultAction === undefined) {
             this.props.isDefaultAction = false;
         }
 
-        if (this.props.isDestructiveAction === undefined) 
-        {
+        if (this.props.isDestructiveAction === undefined) {
             this.props.isDestructiveAction = false;
         }
     }
 
-    public build() 
-    {
+    public build() {
         return flutter.cupertino.cupertinoContextMenuAction(this.props);
     }
 }

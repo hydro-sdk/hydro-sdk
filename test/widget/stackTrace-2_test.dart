@@ -39,19 +39,19 @@ void main() {
           exception.extractedSymbols[0].symbolName, "HelperClass.helperClass2");
       expect(exception.extractedSymbols[0].originalFileName,
           "test/widget/stackTrace-2.ts");
-      expect(exception.extractedSymbols[0].originalLineStart, 36);
+      expect(exception.extractedSymbols[0].originalLineStart, 29);
 
       expect(
           exception.extractedSymbols[1].symbolName, "HelperClass.helperClass1");
       expect(exception.extractedSymbols[1].originalFileName,
           "test/widget/stackTrace-2.ts");
-      expect(exception.extractedSymbols[1].originalLineStart, 32);
+      expect(exception.extractedSymbols[1].originalLineStart, 26);
 
       expect(exception.extractedSymbols[2].symbolName,
           "HelperClass.prototype.____constructor");
       expect(exception.extractedSymbols[2].originalFileName,
           "test/widget/stackTrace-2.ts");
-      expect(exception.extractedSymbols[2].originalLineStart, 27);
+      expect(exception.extractedSymbols[2].originalLineStart, 22);
 
       expect(exception.extractedSymbols[3].symbolName, "__TS__New");
       expect(exception.extractedSymbols[3].originalFileName, "lualib_bundle");
@@ -59,13 +59,13 @@ void main() {
       expect(exception.extractedSymbols[4].symbolName, "helperFunction");
       expect(exception.extractedSymbols[4].originalFileName,
           "test/widget/stackTrace-2.ts");
-      expect(exception.extractedSymbols[4].originalLineStart, 42);
+      expect(exception.extractedSymbols[4].originalLineStart, 34);
 
       expect(
           exception.extractedSymbols[5].symbolName, "MyWidget.prototype.build");
       expect(exception.extractedSymbols[5].originalFileName,
           "test/widget/stackTrace-2.ts");
-      expect(exception.extractedSymbols[5].originalLineStart, 56);
+      expect(exception.extractedSymbols[5].originalLineStart, 45);
     });
   }, tags: "widget");
 }

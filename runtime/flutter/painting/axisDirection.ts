@@ -4,4 +4,3 @@ export enum AxisDirection {
     down,
     left,
 }
-

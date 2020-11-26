@@ -1,9 +1,12 @@
-import {Widget} from "../widget";
-import {BuildContext} from "../buildContext";
+import { BuildContext } from "../buildContext";
+import { Widget } from "../widget";
 
 export type InputCounterWidgetBuilder = (
     this: void,
     context: BuildContext,
     props: {
-        currentLength: number; maxLength: number; isFocused: boolean;
-    }) => Widget;
+        currentLength: number;
+        maxLength: number;
+        isFocused: boolean;
+    }
+) => Widget;

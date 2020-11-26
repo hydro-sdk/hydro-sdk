@@ -1,9 +1,8 @@
-import {Widget} from "../widget";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-
-import {StatelessWidget} from "./../widgets/statelessWidget";
-import {Color} from "./../../dart/ui/color";
+import { Color } from "./../../dart/ui/color";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { StatelessWidget } from "./../widgets/statelessWidget";
+import { Widget } from "../widget";
 
 export interface CardProps {
     borderOnForeground?: boolean | undefined;
@@ -17,23 +16,19 @@ declare const flutter: {
     };
 };
 
-export class Card extends StatelessWidget implements RuntimeBaseClass 
-{
+export class Card extends StatelessWidget implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(Card);
     public props: CardProps;
-    public constructor(props: CardProps) 
-    {
+    public constructor(props: CardProps) {
         super();
         this.props = props;
 
-        if (this.props.borderOnForeground === undefined) 
-        {
+        if (this.props.borderOnForeground === undefined) {
             this.props.borderOnForeground = true;
         }
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.material.card(this.props);
     }
 }

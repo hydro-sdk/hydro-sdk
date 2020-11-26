@@ -27,5 +27,5 @@ export enum BlendMode {
     hue,
     saturation,
     color,
-    luminosity
+    luminosity,
 }

@@ -4,7 +4,6 @@ declare const dart: {
     };
 };
 
-export function pauseInDebugger(args: any | undefined): void 
-{
+export function pauseInDebugger(args: any | undefined): void {
     dart.developer.debugger(args);
 }

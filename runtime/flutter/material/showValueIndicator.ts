@@ -4,4 +4,3 @@ export enum ShowValueIndicator {
     always,
     never,
 }
-

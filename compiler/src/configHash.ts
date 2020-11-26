@@ -2,7 +2,10 @@ import * as crypto from "crypto";
 
 import { BuildOptions } from "./buildOptions";
 
-export function configHash(config: BuildOptions, extra?: Array<string> | undefined): string {
+export function configHash(
+    config: BuildOptions,
+    extra?: Array<string> | undefined
+): string {
     const hash = crypto.createHash("sha256");
 
     hash.update(config.entry);

@@ -7,4 +7,3 @@ export enum MaterialState {
     disabled,
     error,
 }
-
