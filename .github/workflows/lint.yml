@@ -58,6 +58,6 @@ jobs:
     - name: Flutter Format
       run: flutter format lib test --set-exit-if-changed
       working-directory: hydro
-    - name: ESLint
-      run: ./node_modules/.bin/eslint "examples/**/*.ts" "runtime/**/*.ts" --ext .ts --fix.
+    - name: Prettier
+      run: ./node_modules/.bin/prettier --write compiler examples runtime test
       working-directory: hydro
