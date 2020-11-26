@@ -5,4 +5,3 @@ export enum MaterialType {
     button,
     transparency,
 }
-

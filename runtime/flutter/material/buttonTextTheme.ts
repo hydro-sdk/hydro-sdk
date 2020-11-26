@@ -3,4 +3,3 @@ export enum ButtonTextTheme {
     accent,
     primary,
 }
-

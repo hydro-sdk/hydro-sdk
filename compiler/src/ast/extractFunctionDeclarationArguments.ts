@@ -1,6 +1,8 @@
 import * as lparse from "luaparse";
 
-export function extractFunctionDeclarationArguments(func: lparse.FunctionDeclaration): Array<string> {
+export function extractFunctionDeclarationArguments(
+    func: lparse.FunctionDeclaration
+): Array<string> {
     let res = new Array<string>();
 
     func.parameters.forEach((x) => {

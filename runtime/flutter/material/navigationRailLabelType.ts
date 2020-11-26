@@ -3,4 +3,3 @@ export enum NavigationRailLabelType {
     selected,
     all,
 }
-

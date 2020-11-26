@@ -1,6 +1,5 @@
-import {BuildContext} from "../buildContext";
-
-import {ThemeData} from "./themeData";
+import { BuildContext } from "../buildContext";
+import { ThemeData } from "./themeData";
 
 declare const flutter: {
     material: {
@@ -8,10 +7,8 @@ declare const flutter: {
     };
 };
 
-export class Theme 
-{
-    public static of(context: BuildContext): ThemeData 
-    {
+export class Theme {
+    public static of(context: BuildContext): ThemeData {
         return flutter.material.themeOf(context);
     }
 }

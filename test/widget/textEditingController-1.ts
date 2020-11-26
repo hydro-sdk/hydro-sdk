@@ -1,20 +1,19 @@
-import { Key } from "../../runtime/flutter/foundation/key";
-
-import { runApp } from "./../../runtime/flutter/runApp";
 import { MaterialApp } from "./../../runtime/flutter/material/materialApp";
-import { StatelessWidget } from "../../runtime/flutter/widgets/statelessWidget";
-import { StatefulWidget } from "../../runtime/flutter/widgets/statefulWidget";
-import { State } from "../../runtime/flutter/widgets/state";
-import { Container } from "../../runtime/flutter/widgets/container";
-import { Scaffold } from "../../runtime/flutter/material/scaffold";
-import { Alignment } from "../../runtime/flutter/painting/alignment";
-import { EdgeInsets } from "../../runtime/flutter/painting/edgeInsets";
-import { TextFormField } from "../../runtime/flutter/material/textFormField";
+import { runApp } from "./../../runtime/flutter/runApp";
+import { TextRange } from "../../runtime/dart/ui/textRange";
+import { Key } from "../../runtime/flutter/foundation/key";
 import { InputDecoration } from "../../runtime/flutter/material/inputDecoration";
 import { OutlineInputBorder } from "../../runtime/flutter/material/outlineInputBorder";
-import { TextEditingController } from "../../runtime/flutter/widgets/textEditingController";
+import { Scaffold } from "../../runtime/flutter/material/scaffold";
+import { TextFormField } from "../../runtime/flutter/material/textFormField";
+import { Alignment } from "../../runtime/flutter/painting/alignment";
+import { EdgeInsets } from "../../runtime/flutter/painting/edgeInsets";
 import { TextSelection } from "../../runtime/flutter/services/textSelection";
-import { TextRange } from "../../runtime/dart/ui/textRange";
+import { Container } from "../../runtime/flutter/widgets/container";
+import { State } from "../../runtime/flutter/widgets/state";
+import { StatefulWidget } from "../../runtime/flutter/widgets/statefulWidget";
+import { StatelessWidget } from "../../runtime/flutter/widgets/statelessWidget";
+import { TextEditingController } from "../../runtime/flutter/widgets/textEditingController";
 
 class MyApp extends StatelessWidget {
     public constructor() {
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
 
     public build() {
         return new MaterialApp({
-            home: new MyStatefulWidget()
+            home: new MyStatefulWidget(),
         });
     }
 }
@@ -34,11 +33,11 @@ class MyStatefulWidget extends StatefulWidget {
     }
 
     public createState() {
-        return new MyStatefulWidgetState
+        return new MyStatefulWidgetState();
     }
 }
 
-class MyStatefulWidgetState extends State<MyStatefulWidget>{
+class MyStatefulWidgetState extends State<MyStatefulWidget> {
     private controller = new TextEditingController();
     public constructor() {
         super();
@@ -47,14 +46,16 @@ class MyStatefulWidgetState extends State<MyStatefulWidget>{
     public initState() {
         this.controller.addListener(() => {
             const text = this.controller.getText().toLowerCase();
-            this.controller.setValue(this.controller.getValue().copyWith({
-                text: text,
-                selection: new TextSelection({
-                    baseOffset: text.length,
-                    extentOffset: text.length,
-                }),
-                composing: TextRange.empty,
-            }));
+            this.controller.setValue(
+                this.controller.getValue().copyWith({
+                    text: text,
+                    selection: new TextSelection({
+                        baseOffset: text.length,
+                        extentOffset: text.length,
+                    }),
+                    composing: TextRange.empty,
+                })
+            );
         });
     }
 
@@ -71,10 +72,10 @@ class MyStatefulWidgetState extends State<MyStatefulWidget>{
                     key: new Key("textFormField"),
                     controller: this.controller,
                     decoration: new InputDecoration({
-                        border: new OutlineInputBorder({})
-                    })
-                })
-            })
+                        border: new OutlineInputBorder({}),
+                    }),
+                }),
+            }),
         });
     }
 }

@@ -1,8 +1,7 @@
-import {RuntimeBaseClass} from "./../../runtimeBaseClass";
-import {Type} from "./../core/type";
-import {double} from "./../../dart/core/double";
-import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
-
+import { double } from "./../../dart/core/double";
+import { RuntimeBaseClass } from "./../../runtimeBaseClass";
+import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import { Type } from "./../core/type";
 
 declare const dart: {
     ui: {
@@ -10,27 +9,25 @@ declare const dart: {
     };
 };
 
-export class Size extends JITAllocatingRTManagedBox<undefined, Size> implements RuntimeBaseClass
-{
+export class Size
+    extends JITAllocatingRTManagedBox<undefined, Size>
+    implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(Size);
     public readonly width: number;
     public readonly height: number;
     public props = undefined;
-    public constructor(width: number, height: number) 
-    {
+    public constructor(width: number, height: number) {
         super();
 
         this.width = width;
         this.height = height;
     }
 
-    public static fromHeight(height: number): Size 
-    {
+    public static fromHeight(height: number): Size {
         return new Size(double.infinity, height);
     }
 
-    public unwrap(): Size 
-    {
+    public unwrap(): Size {
         return dart.ui.size(this.width, this.height);
     }
 }

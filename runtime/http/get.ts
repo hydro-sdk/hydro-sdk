@@ -1,14 +1,16 @@
-import {Future} from "../dart/async/future";
-
-import {Response} from "./response";
+import { Future } from "../dart/async/future";
+import { Response } from "./response";
 
 declare const http: {
-    get: (this: void, url: string,
+    get: (
+        this: void,
+        url: string,
         props?: {
             headers?: {
                 [i: string]: string;
             };
-        }) => Future<Response>; 
+        }
+    ) => Future<Response>;
 };
 
 export function get(
@@ -17,7 +19,7 @@ export function get(
         headers?: {
             [i: string]: string;
         };
-    }): Future<Response> 
-{
+    }
+): Future<Response> {
     return http.get(url, props);
 }

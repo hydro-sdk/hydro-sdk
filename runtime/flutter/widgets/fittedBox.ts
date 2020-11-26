@@ -1,12 +1,10 @@
-import {Type} from "../../dart/core/type";
-import {BoxFit} from "../painting/boxFit";
-import {Alignment} from "../painting/alignment";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Widget} from "../widget";
-
-import {StatelessWidget} from "./statelessWidget";
-import {Key} from "./../foundation/key";
-
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Key } from "./../foundation/key";
+import { Alignment } from "../painting/alignment";
+import { BoxFit } from "../painting/boxFit";
+import { Widget } from "../widget";
+import { StatelessWidget } from "./statelessWidget";
 
 export interface FittedBoxProps {
     key?: Key | undefined;
@@ -21,28 +19,23 @@ declare const flutter: {
     };
 };
 
-export class FittedBox extends StatelessWidget implements RuntimeBaseClass 
-{
+export class FittedBox extends StatelessWidget implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(FittedBox);
     public props: FittedBoxProps;
-    public constructor(props: FittedBoxProps) 
-    {
+    public constructor(props: FittedBoxProps) {
         super();
         this.props = props;
 
-        if (this.props.fit === undefined) 
-        {
+        if (this.props.fit === undefined) {
             this.props.fit = BoxFit.contain;
         }
 
-        if (this.props.alignment === undefined) 
-        {
+        if (this.props.alignment === undefined) {
             this.props.alignment = Alignment.center;
         }
     }
 
-    public build() 
-    {
+    public build() {
         return flutter.widgets.fittedBox(this.props);
     }
 }

@@ -1,6 +1,6 @@
-export enum Clip{
+export enum Clip {
     none,
     hardEdge,
     antiAlias,
-    antiAliasWithSaveLayer
+    antiAliasWithSaveLayer,
 }

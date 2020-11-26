@@ -1,29 +1,25 @@
-import {StatelessWidget} from "../../runtime/flutter/widgets/statelessWidget";
-import {ScopedModel} from "../../runtime/scopedModel/scopedModel";
+import { StatelessWidget } from "../../runtime/flutter/widgets/statelessWidget";
+import { ScopedModel } from "../../runtime/scopedModel/scopedModel";
+import { PokeHubService } from "./data/pokeHubService";
+import { TextSearchService } from "./data/textSearchService";
+import { PokeGridScreen } from "./screens/gridScreen";
 
-import {PokeGridScreen} from "./screens/gridScreen";
-import {PokeHubService} from "./data/pokeHubService";
-import {TextSearchService} from "./data/textSearchService";
-
-export class PokeApp extends StatelessWidget 
-{
+export class PokeApp extends StatelessWidget {
     private pokeHubService: PokeHubService;
 
-    public constructor(pokeHubService: PokeHubService) 
-    {
+    public constructor(pokeHubService: PokeHubService) {
         super();
 
         this.pokeHubService = pokeHubService;
     }
 
-    public build() 
-    {
+    public build() {
         return new ScopedModel({
             model: this.pokeHubService,
             child: new ScopedModel({
                 model: new TextSearchService(),
-                child: new PokeGridScreen()
-            })
+                child: new PokeGridScreen(),
+            }),
         });
     }
 }

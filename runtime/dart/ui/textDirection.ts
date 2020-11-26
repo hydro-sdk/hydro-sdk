@@ -1,4 +1,4 @@
 export enum TextDirection {
     rtl,
-    ltr
+    ltr,
 }

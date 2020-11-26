@@ -3,4 +3,3 @@ export enum CollapseMode {
     pin,
     none,
 }
-

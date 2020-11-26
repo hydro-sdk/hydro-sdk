@@ -1,9 +1,8 @@
-import {Widget} from "../widget";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-
-import {Key} from "./../foundation/key";
-import {StatelessWidget} from "./statelessWidget";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Key } from "./../foundation/key";
+import { Widget } from "../widget";
+import { StatelessWidget } from "./statelessWidget";
 
 export interface CenterProps {
     key?: Key;
@@ -16,18 +15,15 @@ declare const flutter: {
     };
 };
 
-export class Center extends StatelessWidget implements RuntimeBaseClass 
-{
+export class Center extends StatelessWidget implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(Center);
     public props: CenterProps;
-    public constructor(props: CenterProps) 
-    {
+    public constructor(props: CenterProps) {
         super();
         this.props = props;
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.widgets.center(this.props);
     }
 }

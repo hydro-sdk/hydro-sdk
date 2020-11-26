@@ -1,6 +1,6 @@
 export enum InputLanguage {
     typescript,
-    haxe
+    haxe,
 }
 
 export interface BuildOptions {

@@ -1,7 +1,36 @@
-
 declare const flutter: {
     foundation: {
-        textTreeConfiguration: (this: void, textTreeConfiguration: TextTreeConfiguration, props: { addBlankLineIfNoChildren: boolean; afterDescription: string; afterDescriptionIfBody: string; afterName: string; afterProperties: string; beforeName: string; beforeProperties: string; bodyIndent: string; footer: string; isBlankLineBetweenPropertiesAndChildren: boolean; isNameOnOwnLine: boolean; lineBreak: string; lineBreakProperties: boolean; mandatoryAfterProperties: string; mandatoryFooter: string; propertySeparator: string; showChildren: boolean; suffixLineOne: string; linkCharacter: string; prefixLastChildLineOne: string; prefixLineOne: string; prefixOtherLines: string; prefixOtherLinesRootNode: string; propertyPrefixIfChildren: string; propertyPrefixNoChildren: string }) => TextTreeConfiguration;
+        textTreeConfiguration: (
+            this: void,
+            textTreeConfiguration: TextTreeConfiguration,
+            props: {
+                addBlankLineIfNoChildren: boolean;
+                afterDescription: string;
+                afterDescriptionIfBody: string;
+                afterName: string;
+                afterProperties: string;
+                beforeName: string;
+                beforeProperties: string;
+                bodyIndent: string;
+                footer: string;
+                isBlankLineBetweenPropertiesAndChildren: boolean;
+                isNameOnOwnLine: boolean;
+                lineBreak: string;
+                lineBreakProperties: boolean;
+                mandatoryAfterProperties: string;
+                mandatoryFooter: string;
+                propertySeparator: string;
+                showChildren: boolean;
+                suffixLineOne: string;
+                linkCharacter: string;
+                prefixLastChildLineOne: string;
+                prefixLineOne: string;
+                prefixOtherLines: string;
+                prefixOtherLinesRootNode: string;
+                propertyPrefixIfChildren: string;
+                propertyPrefixNoChildren: string;
+            }
+        ) => TextTreeConfiguration;
     };
 };
 const textTreeConfigurationDefaultProps = {
@@ -41,8 +70,7 @@ const textTreeConfigurationDefaultProps = {
 
     suffixLineOne: "",
 };
-export class TextTreeConfiguration 
-{
+export class TextTreeConfiguration {
     public readonly prefixLineOne: string = undefined as any;
     public readonly suffixLineOne: string = undefined as any;
     public readonly prefixOtherLines: string = undefined as any;
@@ -69,11 +97,36 @@ export class TextTreeConfiguration
     public readonly footer: string = undefined as any;
     public readonly mandatoryFooter: string = undefined as any;
     public readonly isBlankLineBetweenPropertiesAndChildren: boolean = undefined as any;
-    public constructor(props: { addBlankLineIfNoChildren?: boolean; afterDescription?: string; afterDescriptionIfBody?: string; afterName?: string; afterProperties?: string; beforeName?: string; beforeProperties?: string; bodyIndent?: string; footer?: string; isBlankLineBetweenPropertiesAndChildren?: boolean; isNameOnOwnLine?: boolean; lineBreak?: string; lineBreakProperties?: boolean; mandatoryAfterProperties?: string; mandatoryFooter?: string; propertySeparator?: string; showChildren?: boolean; suffixLineOne?: string; linkCharacter: string; prefixLastChildLineOne: string; prefixLineOne: string; prefixOtherLines: string; prefixOtherLinesRootNode: string; propertyPrefixIfChildren: string; propertyPrefixNoChildren: string }) 
-    {
+    public constructor(props: {
+        addBlankLineIfNoChildren?: boolean;
+        afterDescription?: string;
+        afterDescriptionIfBody?: string;
+        afterName?: string;
+        afterProperties?: string;
+        beforeName?: string;
+        beforeProperties?: string;
+        bodyIndent?: string;
+        footer?: string;
+        isBlankLineBetweenPropertiesAndChildren?: boolean;
+        isNameOnOwnLine?: boolean;
+        lineBreak?: string;
+        lineBreakProperties?: boolean;
+        mandatoryAfterProperties?: string;
+        mandatoryFooter?: string;
+        propertySeparator?: string;
+        showChildren?: boolean;
+        suffixLineOne?: string;
+        linkCharacter: string;
+        prefixLastChildLineOne: string;
+        prefixLineOne: string;
+        prefixOtherLines: string;
+        prefixOtherLinesRootNode: string;
+        propertyPrefixIfChildren: string;
+        propertyPrefixNoChildren: string;
+    }) {
         flutter.foundation.textTreeConfiguration(this, {
             ...textTreeConfigurationDefaultProps,
-            ...props
+            ...props,
         });
     }
 }

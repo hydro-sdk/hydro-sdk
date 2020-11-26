@@ -1,5 +1,5 @@
-import {RuntimeBaseClass} from "./../../runtimeBaseClass";
-import {Type} from "./../core/type";
+import { RuntimeBaseClass } from "./../../runtimeBaseClass";
+import { Type } from "./../core/type";
 
 declare const dart: {
     ui: {
@@ -7,17 +7,14 @@ declare const dart: {
     };
 };
 
-export class Radius implements RuntimeBaseClass
-{
+export class Radius implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(Radius);
 
-    public static elliptical(x: number, y: number) 
-    {
+    public static elliptical(x: number, y: number) {
         return dart.ui.radiusElliptical(x, y);
     }
 
-    public static circular(radius: number): Radius 
-    {
+    public static circular(radius: number): Radius {
         return Radius.elliptical(radius, radius);
     }
 

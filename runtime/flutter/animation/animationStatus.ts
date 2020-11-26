@@ -4,4 +4,3 @@ export enum AnimationStatus {
     reverse,
     completed,
 }
-

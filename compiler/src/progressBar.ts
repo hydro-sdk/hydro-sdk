@@ -8,8 +8,10 @@ export class ProgressBar {
     public constructor(leadingMessage: string) {
         this.leadingMessage = leadingMessage;
         this.bar = new clip.Bar({
-            format: `${this.leadingMessage}  ${colors.green(`[{bar}]`)} {value}/{total} {suffixMessage}`,
-            barCompleteChar: '\u2588',
+            format: `${this.leadingMessage}  ${colors.green(
+                `[{bar}]`
+            )} {value}/{total} {suffixMessage}`,
+            barCompleteChar: "\u2588",
         });
         this.bar.start(0, 0, { suffixMessage: "" });
     }
@@ -18,10 +20,14 @@ export class ProgressBar {
         this.bar.stop();
     }
 
-    public update(currentStep: number, totalSteps: number, suffixMessage: string) {
+    public update(
+        currentStep: number,
+        totalSteps: number,
+        suffixMessage: string
+    ) {
         this.bar.setTotal(totalSteps);
         this.bar.update(currentStep, {
-            suffixMessage
+            suffixMessage,
         });
     }
 }
