@@ -55,7 +55,13 @@ export function mangleSymbols(
             ) {
                 return;
             }
-            if (k.lineStart <= x.lineStart && k.lineEnd >= x.lineEnd) {
+            if (
+                (k.lineStart <= x.lineStart && k.lineEnd >= x.lineEnd) ||
+                (k.lineStart == x.lineStart &&
+                    k.lineEnd == x.lineEnd &&
+                    k.columnStart < x.columnStart &&
+                    k.columnEnd > x.columnEnd)
+            ) {
                 parents.push(k);
             }
         });
@@ -88,7 +94,11 @@ export function mangleSymbols(
     Object.keys(parentLevels).forEach((x) => {
         parentLevels[parseInt(x)].forEach((k) => {
             parentLevels[parseInt(x)].forEach((j) => {
-                if (k.symbol.lineStart != j.symbol.lineStart) {
+                if (
+                    k.symbol.lineStart != j.symbol.lineStart ||
+                    (k.symbol.lineStart == j.symbol.lineStart &&
+                        k.symbol.columnStart > j.symbol.columnStart)
+                ) {
                     if (
                         buildFullyQualifiedName(k) == buildFullyQualifiedName(j)
                     ) {
