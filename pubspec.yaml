@@ -40,6 +40,9 @@ dependencies:
     git:
       url: git://github.com/chgibb/surveyor
       ref: 8d5743560c55bb09f1373aa70c2066b54772f0b5
+  waveform:
+    path:
+      node_modules/@hydro-sdk/waveform
 
 dev_dependencies:
   
