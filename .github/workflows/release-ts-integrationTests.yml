@@ -1,9 +1,9 @@
 name: Release Mode Typescript Integration Tests
 
-on: [push, pull_request]	
+on: [push, pull_request]
 
-jobs:	
-  build:	
+jobs:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
 
     steps:
-    - name: Install Linux dependencies	
+    - name: Install Linux dependencies
       if: startsWith(matrix.os, 'ubuntu')
       run: |
         sudo apt-get update
@@ -54,12 +54,12 @@ jobs:
       with:
         path: 'hydro'
 
-    # Run the tests for the repository.
-    - name: Get packages for Hydro-SDK Dart
-      run: flutter pub get
-      working-directory: hydro
     - name: Get packages for Hydro-SDK JS
       run: npm install
+      working-directory: hydro
+
+    - name: Get packages for Hydro-SDK Dart
+      run: flutter pub get
       working-directory: hydro
     - name: Build Typescript release fixtures
       run: bash scripts/buildAllTs.bash release
