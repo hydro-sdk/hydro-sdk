@@ -51,7 +51,7 @@ const textTreeConfigurationDefaultProps = {
     mandatoryFooter: "",
     propertySeparator: "",
     showChildren: true,
-    suffixLineOne: ""
+    suffixLineOne: "",
 };
 export class TextTreeConfiguration {
     public readonly prefixLineOne: string = undefined as any;

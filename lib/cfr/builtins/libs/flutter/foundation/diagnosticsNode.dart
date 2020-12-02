@@ -6,6 +6,7 @@ import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
+
 class RTManagedDiagnosticsNode extends DiagnosticsNode
     implements Box<DiagnosticsNode> {
   RTManagedDiagnosticsNode(
@@ -191,6 +192,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
+
 void loadDiagnosticsNode(
     {@required HydroState hydroState, @required HydroTable table}) {
   table['diagnosticsNode'] = makeLuaDartFunc(func: (List<dynamic> args) {
