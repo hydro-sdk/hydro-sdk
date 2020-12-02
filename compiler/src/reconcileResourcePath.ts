@@ -8,7 +8,9 @@ export function reconcileResourcePath(resPath: string): string | undefined {
         return devPath;
     }
 
-    const prodPath = path.resolve(`./node_modules/hydro-sdk/dist/compiler/${resPath}`);
+    const prodPath = path.resolve(
+        `./node_modules/hydro-sdk/dist/compiler/${resPath}`
+    );
 
     if (fs.existsSync(prodPath)) {
         return prodPath;

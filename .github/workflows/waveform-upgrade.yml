@@ -1,0 +1,19 @@
+name: Waveform Upgrade
+on:
+  workflow_dispatch:
+    inputs:
+      depName:
+        description: "Dependency to update"
+        required: true
+
+      depVersion:
+        description: "Version to update to"
+        required: true
+
+jobs:
+  performUpgrade:
+    runs-on: ubuntu-18.04
+    steps:
+    - run: |
+        echo "${{ github.event.inputs.depName  }}"
+        echo "${{ github.event.inputs.depVersion  }}"

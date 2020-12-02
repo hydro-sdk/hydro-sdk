@@ -6,4 +6,3 @@ export enum TimeOfDayFormat {
     h_colon_mm_space_a,
     a_space_h_colon_mm,
 }
-

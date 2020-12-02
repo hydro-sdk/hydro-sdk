@@ -221,6 +221,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.0"
+  git:
+    dependency: transitive
+    description:
+      name: git
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   glob:
     dependency: transitive
     description:
@@ -543,6 +550,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0-nullsafety.3"
+  version:
+    dependency: transitive
+    description:
+      path: "."
+      ref: master
+      resolved-ref: ab213d7380c17d452768fab657fb3503d7c5b813
+      url: "git://github.com/hydro-sdk/version"
+    source: git
+    version: "1.2.0"
   vm_service:
     dependency: transitive
     description:
@@ -557,6 +573,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.7+15"
+  waveform:
+    dependency: "direct main"
+    description:
+      path: "node_modules/@hydro-sdk/waveform"
+      relative: true
+    source: path
+    version: "0.0.1"
   web_socket_channel:
     dependency: transitive
     description:
@@ -580,3 +603,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.10.0-110 <2.11.0"
+  flutter: ">=1.17.0 <2.0.0"

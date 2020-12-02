@@ -4,7 +4,6 @@ declare const dart: {
     };
 };
 
-export function jsonDecode(source: string): any 
-{
+export function jsonDecode(source: string): any {
     return dart.convert.jsonDecode(source);
 }

@@ -1,10 +1,9 @@
-import {Color} from "../../dart/ui/color";
-import {TileMode} from "../../dart/ui/tileMode";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-
-import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
-import {Alignment} from "./alignment";
+import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import { Type } from "../../dart/core/type";
+import { Color } from "../../dart/ui/color";
+import { TileMode } from "../../dart/ui/tileMode";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Alignment } from "./alignment";
 
 export interface LinearGradientProps {
     begin?: Alignment | undefined;
@@ -16,37 +15,36 @@ export interface LinearGradientProps {
 
 declare const flutter: {
     painting: {
-        linearGradient: (this: void, props: LinearGradientProps) => LinearGradient;
+        linearGradient: (
+            this: void,
+            props: LinearGradientProps
+        ) => LinearGradient;
     };
 };
 
-export class LinearGradient extends JITAllocatingRTManagedBox<LinearGradientProps, LinearGradient> implements RuntimeBaseClass 
-{
+export class LinearGradient
+    extends JITAllocatingRTManagedBox<LinearGradientProps, LinearGradient>
+    implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(LinearGradient);
     public props: LinearGradientProps;
-    public constructor(props: LinearGradientProps) 
-    {
+    public constructor(props: LinearGradientProps) {
         super();
         this.props = props;
 
-        if (this.props.begin === undefined) 
-        {
+        if (this.props.begin === undefined) {
             this.props.begin = Alignment.centerLeft;
         }
 
-        if (this.props.end === undefined) 
-        {
+        if (this.props.end === undefined) {
             this.props.end = Alignment.centerRight;
         }
 
-        if (this.props.tileMode === undefined) 
-        {
+        if (this.props.tileMode === undefined) {
             this.props.tileMode = TileMode.clamp;
         }
     }
 
-    public unwrap() 
-    {
+    public unwrap() {
         return flutter.painting.linearGradient(this.props);
     }
 }

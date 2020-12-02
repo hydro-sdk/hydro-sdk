@@ -1,14 +1,13 @@
-import {Type} from "../../dart/core/type";
-import {Color} from "../../dart/ui/color";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Widget} from "../widget";
-import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-
-import {TextStyle} from "./../../flutter/painting/textStyle";
-import {EdgeInsets} from "./../../flutter/painting/edgeInsets";
-import {BoxConstraints} from "./../../flutter/rendering/boxConstraints";
-import {InputBorder} from "./inputBorder";
-import {FloatingLabelBehavior} from "./floatingLabelBehavior";
+import { EdgeInsets } from "./../../flutter/painting/edgeInsets";
+import { TextStyle } from "./../../flutter/painting/textStyle";
+import { BoxConstraints } from "./../../flutter/rendering/boxConstraints";
+import { Type } from "../../dart/core/type";
+import { Color } from "../../dart/ui/color";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { JITAllocatingRTManagedBox } from "../../syntheticBox";
+import { Widget } from "../widget";
+import { FloatingLabelBehavior } from "./floatingLabelBehavior";
+import { InputBorder } from "./inputBorder";
 
 export interface InputDecorationProps {
     icon?: Widget | undefined;
@@ -56,34 +55,34 @@ export interface InputDecorationProps {
 
 declare const flutter: {
     material: {
-        inputDecoration: (this: void, props: InputDecorationProps) => InputDecoration;
+        inputDecoration: (
+            this: void,
+            props: InputDecorationProps
+        ) => InputDecoration;
     };
 };
 
-export class InputDecoration extends JITAllocatingRTManagedBox<InputDecorationProps, InputDecoration> implements RuntimeBaseClass 
-{
+export class InputDecoration
+    extends JITAllocatingRTManagedBox<InputDecorationProps, InputDecoration>
+    implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(InputDecoration);
     public props: InputDecorationProps;
 
-    public constructor(props: InputDecorationProps) 
-    {
+    public constructor(props: InputDecorationProps) {
         super();
 
         this.props = props;
 
-        if (this.props.floatingLabelBehavior === undefined) 
-        {
+        if (this.props.floatingLabelBehavior === undefined) {
             this.props.floatingLabelBehavior = FloatingLabelBehavior.auto;
         }
 
-        if (this.props.enabled === undefined) 
-        {
+        if (this.props.enabled === undefined) {
             this.props.enabled = true;
         }
     }
 
-    public unwrap() 
-    {
+    public unwrap() {
         return flutter.material.inputDecoration(this.props);
     }
 }

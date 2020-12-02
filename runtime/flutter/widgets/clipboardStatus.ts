@@ -3,4 +3,3 @@ export enum ClipboardStatus {
     unknown,
     notPasteable,
 }
-

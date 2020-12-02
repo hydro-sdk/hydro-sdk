@@ -1,6 +1,6 @@
-import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
-import {RuntimeBaseClass} from "./../../runtimeBaseClass";
-import {Type} from "./../core/type";
+import { RuntimeBaseClass } from "./../../runtimeBaseClass";
+import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import { Type } from "./../core/type";
 
 declare const dart: {
     ui: {
@@ -8,14 +8,14 @@ declare const dart: {
     };
 };
 
-export class FontWeight extends JITAllocatingRTManagedBox<undefined, FontWeight> implements RuntimeBaseClass 
-{
+export class FontWeight
+    extends JITAllocatingRTManagedBox<undefined, FontWeight>
+    implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(FontWeight);
     public props = undefined;
     protected readonly index: number;
 
-    private constructor(index: number) 
-    {
+    private constructor(index: number) {
         super();
 
         this.index = index;
@@ -44,10 +44,9 @@ export class FontWeight extends JITAllocatingRTManagedBox<undefined, FontWeight>
         FontWeight.w700,
         FontWeight.w800,
         FontWeight.w900,
-    ]
+    ];
 
-    public unwrap(): FontWeight 
-    {
+    public unwrap(): FontWeight {
         return dart.ui.fontWeight(this.index);
     }
 }

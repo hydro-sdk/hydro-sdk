@@ -6,4 +6,3 @@ export enum SelectionChangedCause {
     keyboard,
     drag,
 }
-

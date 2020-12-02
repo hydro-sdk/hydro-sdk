@@ -68,7 +68,7 @@ void main() {
           exception.extractedSymbols[0].symbolName, "MyWidget.prototype.build");
       expect(exception.extractedSymbols[0].originalFileName,
           "test/widget/stackTrace-1.ts");
-      expect(exception.extractedSymbols[0].originalLineStart, 34);
+      expect(exception.extractedSymbols[0].originalLineStart, 28);
     });
   }, tags: "widget");
 }

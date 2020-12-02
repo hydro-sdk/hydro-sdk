@@ -3,4 +3,3 @@ export enum AutovalidateMode {
     always,
     onUserInteraction,
 }
-

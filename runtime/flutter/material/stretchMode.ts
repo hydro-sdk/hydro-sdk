@@ -3,4 +3,3 @@ export enum StretchMode {
     blurBackground,
     fadeTitle,
 }
-

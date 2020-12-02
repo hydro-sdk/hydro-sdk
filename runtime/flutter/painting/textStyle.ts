@@ -1,8 +1,8 @@
-import {JITAllocatingRTManagedBox} from "../../syntheticBox";
-import {Color} from "../../dart/ui/color";
-import {FontWeight} from "../../dart/ui/fontWeight";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
+import { Type } from "../../dart/core/type";
+import { Color } from "../../dart/ui/color";
+import { FontWeight } from "../../dart/ui/fontWeight";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { JITAllocatingRTManagedBox } from "../../syntheticBox";
 
 export interface TextStyleProps {
     fontSize?: number | undefined;
@@ -16,32 +16,29 @@ declare const flutter: {
     };
 };
 
-export class TextStyle extends JITAllocatingRTManagedBox<TextStyleProps, TextStyle> implements RuntimeBaseClass 
-{
+export class TextStyle
+    extends JITAllocatingRTManagedBox<TextStyleProps, TextStyle>
+    implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(TextStyle);
     public props: TextStyleProps;
     public color?: Color;
-    public constructor(props: TextStyleProps) 
-    {
+    public constructor(props: TextStyleProps) {
         super();
         this.props = props;
     }
 
-    public copyWith(props: { color: Color }): TextStyle 
-    {
+    public copyWith(props: { color: Color }): TextStyle {
         return {} as any;
     }
 
     public apply(props: {
         color?: Color;
         fontWeightDelta?: number;
-    }): TextStyle 
-    {
+    }): TextStyle {
         return {} as any;
     }
 
-    public unwrap(): TextStyle 
-    {
+    public unwrap(): TextStyle {
         return flutter.painting.textStyle(this.props);
     }
 }

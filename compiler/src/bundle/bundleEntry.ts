@@ -4,4 +4,4 @@ export type BundleEntry = {
     debugSymbols: Array<ModuleDebugInfo>;
     moduleText: string;
     originalFileHash: string;
-} & Pick<ModuleDebugInfo, "moduleName" | "originalFileName">
+} & Pick<ModuleDebugInfo, "moduleName" | "originalFileName">;

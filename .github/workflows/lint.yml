@@ -1,24 +1,22 @@
 name: Lint
 
-on: [push, pull_request]	
+on: [push, pull_request]
 
-jobs:	
-  build:	
+jobs:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-10.14, windows-2019, ubuntu-18.04]
+        os: [macOS-10.14, ubuntu-18.04]
         include: 
         - os: macOS-10.14
           TARGET: macos  
         - os: ubuntu-18.04
           TARGET: linux     
-        - os: windows-2019
-          TARGET: windows
       fail-fast: false
 
     steps:
-    - name: Install Linux dependencies	
+    - name: Install Linux dependencies
       if: startsWith(matrix.os, 'ubuntu')
       run: |
         sudo apt-get update
@@ -34,9 +32,6 @@ jobs:
     - name: Add Flutter to the PATH for Unix
       run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
       if: runner.os != 'Windows'
-    - name: Add Flutter to the PATH for Windows
-      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_PATH}
-      if: runner.os == 'Windows'
     - name: Run Flutter doctor
       run: flutter doctor -v
 
@@ -48,16 +43,16 @@ jobs:
       with:
         path: 'hydro'
 
-    # Run the tests for the repository.
-    - name: Get packages for Hydro-SDK Dart
-      run: flutter pub get
-      working-directory: hydro
     - name: Get packages for Hydro-SDK JS
       run: npm install
+      working-directory: hydro
+
+    - name: Get packages for Hydro-SDK Dart
+      run: flutter pub get
       working-directory: hydro
     - name: Flutter Format
       run: flutter format lib test --set-exit-if-changed
       working-directory: hydro
-    - name: ESLint
-      run: ./node_modules/.bin/eslint "examples/**/*.ts" "runtime/**/*.ts" --ext .ts --fix.
+    - name: Prettier
+      run: ./node_modules/.bin/prettier --check compiler examples runtime test
       working-directory: hydro

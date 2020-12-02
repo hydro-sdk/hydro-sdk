@@ -1,8 +1,6 @@
-
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-
-import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
+import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
 
 declare const flutter: {
     foundation: {
@@ -10,19 +8,18 @@ declare const flutter: {
     };
 };
 
-export class Key extends JITAllocatingRTManagedBox<{}, {}> implements RuntimeBaseClass 
-{
+export class Key
+    extends JITAllocatingRTManagedBox<{}, {}>
+    implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(Key);
     public value: string;
     public props: never;
-    public constructor(value: string) 
-    {
+    public constructor(value: string) {
         super();
         this.value = value;
     }
 
-    public unwrap(): Key 
-    {
+    public unwrap(): Key {
         return flutter.foundation.key(this.value);
     }
 }

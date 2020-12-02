@@ -1,17 +1,15 @@
-import {Color} from "../../dart/ui/color";
+import { Color } from "../../dart/ui/color";
+import { MaterialAccentColor } from "./materialAccentColor";
+import { MaterialColor } from "./materialColor";
 
-import {MaterialAccentColor} from "./materialAccentColor";
-import {MaterialColor} from "./materialColor";
-
-export class Colors 
-{
+export class Colors {
     public static transparent = new Color(0x00000000);
 
-    public static black = new Color(0xFF000000);
+    public static black = new Color(0xff000000);
 
-    public static black87 = new Color(0xDD000000);
+    public static black87 = new Color(0xdd000000);
 
-    public static black54 = new Color(0x8A000000);
+    public static black54 = new Color(0x8a000000);
 
     public static black45 = new Color(0x73000000);
 
@@ -19,561 +17,475 @@ export class Colors
 
     public static black26 = new Color(0x42000000);
 
-    public static black12 = new Color(0x1F000000);
+    public static black12 = new Color(0x1f000000);
 
-    public static white = new Color(0xFFFFFFFF);
+    public static white = new Color(0xffffffff);
 
-    public static white70 = new Color(0xB3FFFFFF);
+    public static white70 = new Color(0xb3ffffff);
 
-    public static white60 = new Color(0x99FFFFFF);
+    public static white60 = new Color(0x99ffffff);
 
-    public static white54 = new Color(0x8AFFFFFF);
+    public static white54 = new Color(0x8affffff);
 
-    public static white38 = new Color(0x62FFFFFF);
+    public static white38 = new Color(0x62ffffff);
 
-    public static white30 = new Color(0x4DFFFFFF);
+    public static white30 = new Color(0x4dffffff);
 
-    public static white24 = new Color(0x3DFFFFFF);
+    public static white24 = new Color(0x3dffffff);
 
-    public static white12 = new Color(0x1FFFFFFF);
+    public static white12 = new Color(0x1fffffff);
 
-    public static white10 = new Color(0x1AFFFFFF);
-    private static redPrimaryValue = 0xFFF44336;
-    private static redAccentValue = 0xFFFF5252;
-    private static pinkPrimaryValue = 0xFFE91E63;
-    private static pinkAccentPrimaryValue = 0xFFFF4081;
-    private static purplePrimaryValue = 0xFF9C27B0;
-    private static purpleAccentPrimaryValue = 0xFFE040FB;
-    private static deepPurplePrimaryValue = 0xFF673AB7;
-    private static deepPurpleAccentPrimaryValue = 0xFF7C4DFF;
-    private static indigoPrimaryValue = 0xFF3F51B5;
-    private static indigoAccentPrimaryValue = 0xFF536DFE;
-    private static bluePrimaryValue = 0xFF2196F3;
-    private static blueAccentPrimaryValue = 0xFF448AFF;
-    private static lightBluePrimaryValue = 0xFF03A9F4;
-    private static lightBlueAccentPrimaryValue = 0xFF40C4FF;
-    private static cyanPrimaryValue = 0xFF00BCD4;
-    private static cyanAccentPrimaryValue = 0xFF18FFFF;
-    private static tealPrimaryValue = 0xFF009688;
-    private static tealAccentPrimaryValue = 0xFF64FFDA;
-    private static greenPrimaryValue = 0xFF4CAF50;
-    private static greenAccentPrimaryValue = 0xFF69F0AE;
-    private static lightGreenPrimaryValue = 0xFF8BC34A;
-    private static lightGreenAccentPrimaryValue = 0xFFB2FF59;
-    private static limePrimaryValue = 0xFFCDDC39;
-    private static limeAccentPrimaryValue = 0xFFEEFF41;
-    private static yellowPrimaryValue = 0xFFFFEB3B;
-    private static yellowAccentPrimaryValue = 0xFFFFFF00;
-    private static amberPrimaryValue = 0xFFFFC107;
-    private static amberAccentPrimaryValue = 0xFFFFD740;
-    private static orangePrimaryValue = 0xFFFF9800;
-    private static orangeAccentPrimaryValue = 0xFFFFAB40;
-    private static deepOrangePrimaryValue = 0xFFFF5722;
-    private static deepOrangeAccentPrimaryValue = 0xFFFF6E40;
-    private static brownPrimaryValue = 0xFF795548;
-    private static greyPrimaryValue = 0xFF9E9E9E;
-    private static blueGreyPrimaryValue = 0xFF607D8B;
+    public static white10 = new Color(0x1affffff);
+    private static redPrimaryValue = 0xfff44336;
+    private static redAccentValue = 0xffff5252;
+    private static pinkPrimaryValue = 0xffe91e63;
+    private static pinkAccentPrimaryValue = 0xffff4081;
+    private static purplePrimaryValue = 0xff9c27b0;
+    private static purpleAccentPrimaryValue = 0xffe040fb;
+    private static deepPurplePrimaryValue = 0xff673ab7;
+    private static deepPurpleAccentPrimaryValue = 0xff7c4dff;
+    private static indigoPrimaryValue = 0xff3f51b5;
+    private static indigoAccentPrimaryValue = 0xff536dfe;
+    private static bluePrimaryValue = 0xff2196f3;
+    private static blueAccentPrimaryValue = 0xff448aff;
+    private static lightBluePrimaryValue = 0xff03a9f4;
+    private static lightBlueAccentPrimaryValue = 0xff40c4ff;
+    private static cyanPrimaryValue = 0xff00bcd4;
+    private static cyanAccentPrimaryValue = 0xff18ffff;
+    private static tealPrimaryValue = 0xff009688;
+    private static tealAccentPrimaryValue = 0xff64ffda;
+    private static greenPrimaryValue = 0xff4caf50;
+    private static greenAccentPrimaryValue = 0xff69f0ae;
+    private static lightGreenPrimaryValue = 0xff8bc34a;
+    private static lightGreenAccentPrimaryValue = 0xffb2ff59;
+    private static limePrimaryValue = 0xffcddc39;
+    private static limeAccentPrimaryValue = 0xffeeff41;
+    private static yellowPrimaryValue = 0xffffeb3b;
+    private static yellowAccentPrimaryValue = 0xffffff00;
+    private static amberPrimaryValue = 0xffffc107;
+    private static amberAccentPrimaryValue = 0xffffd740;
+    private static orangePrimaryValue = 0xffff9800;
+    private static orangeAccentPrimaryValue = 0xffffab40;
+    private static deepOrangePrimaryValue = 0xffff5722;
+    private static deepOrangeAccentPrimaryValue = 0xffff6e40;
+    private static brownPrimaryValue = 0xff795548;
+    private static greyPrimaryValue = 0xff9e9e9e;
+    private static blueGreyPrimaryValue = 0xff607d8b;
 
-    public static red = new MaterialColor(
-        Colors.redPrimaryValue,
-        {
-            50: new Color(0xFFFFEBEE),
-            100: new Color(0xFFFFCDD2),
-            200: new Color(0xFFEF9A9A),
-            300: new Color(0xFFE57373),
-            400: new Color(0xFFEF5350),
-            500: new Color(Colors.redPrimaryValue),
-            600: new Color(0xFFE53935),
-            700: new Color(0xFFD32F2F),
-            800: new Color(0xFFC62828),
-            900: new Color(0xFFB71C1C),
-        },
-    );
+    public static red = new MaterialColor(Colors.redPrimaryValue, {
+        50: new Color(0xffffebee),
+        100: new Color(0xffffcdd2),
+        200: new Color(0xffef9a9a),
+        300: new Color(0xffe57373),
+        400: new Color(0xffef5350),
+        500: new Color(Colors.redPrimaryValue),
+        600: new Color(0xffe53935),
+        700: new Color(0xffd32f2f),
+        800: new Color(0xffc62828),
+        900: new Color(0xffb71c1c),
+    });
 
+    public static redAccent = new MaterialAccentColor(Colors.redAccentValue, {
+        100: new Color(0xffff8a80),
+        200: new Color(Colors.redAccentValue),
+        400: new Color(0xffff1744),
+        700: new Color(0xffd50000),
+    });
 
-    public static redAccent = new MaterialAccentColor(
-        Colors.redAccentValue,
-        {
-            100: new Color(0xFFFF8A80),
-            200: new Color(Colors.redAccentValue),
-            400: new Color(0xFFFF1744),
-            700: new Color(0xFFD50000),
-        },
-    );
-
-
-    public static pink = new MaterialColor(
-        Colors.pinkPrimaryValue,
-        {
-            50: new Color(0xFFFCE4EC),
-            100: new Color(0xFFF8BBD0),
-            200: new Color(0xFFF48FB1),
-            300: new Color(0xFFF06292),
-            400: new Color(0xFFEC407A),
-            500: new Color(Colors.pinkPrimaryValue),
-            600: new Color(0xFFD81B60),
-            700: new Color(0xFFC2185B),
-            800: new Color(0xFFAD1457),
-            900: new Color(0xFF880E4F),
-        },
-    );
-
+    public static pink = new MaterialColor(Colors.pinkPrimaryValue, {
+        50: new Color(0xfffce4ec),
+        100: new Color(0xfff8bbd0),
+        200: new Color(0xfff48fb1),
+        300: new Color(0xfff06292),
+        400: new Color(0xffec407a),
+        500: new Color(Colors.pinkPrimaryValue),
+        600: new Color(0xffd81b60),
+        700: new Color(0xffc2185b),
+        800: new Color(0xffad1457),
+        900: new Color(0xff880e4f),
+    });
 
     public static pinkAccent = new MaterialAccentColor(
         Colors.pinkAccentPrimaryValue,
         {
-            100: new Color(0xFFFF80AB),
+            100: new Color(0xffff80ab),
             200: new Color(Colors.pinkAccentPrimaryValue),
-            400: new Color(0xFFF50057),
-            700: new Color(0xFFC51162),
-        },
+            400: new Color(0xfff50057),
+            700: new Color(0xffc51162),
+        }
     );
 
-
-    public static purple = new MaterialColor(
-        Colors.purplePrimaryValue,
-        {
-            50: new Color(0xFFF3E5F5),
-            100: new Color(0xFFE1BEE7),
-            200: new Color(0xFFCE93D8),
-            300: new Color(0xFFBA68C8),
-            400: new Color(0xFFAB47BC),
-            500: new Color(Colors.purplePrimaryValue),
-            600: new Color(0xFF8E24AA),
-            700: new Color(0xFF7B1FA2),
-            800: new Color(0xFF6A1B9A),
-            900: new Color(0xFF4A148C),
-        },
-    );
-
+    public static purple = new MaterialColor(Colors.purplePrimaryValue, {
+        50: new Color(0xfff3e5f5),
+        100: new Color(0xffe1bee7),
+        200: new Color(0xffce93d8),
+        300: new Color(0xffba68c8),
+        400: new Color(0xffab47bc),
+        500: new Color(Colors.purplePrimaryValue),
+        600: new Color(0xff8e24aa),
+        700: new Color(0xff7b1fa2),
+        800: new Color(0xff6a1b9a),
+        900: new Color(0xff4a148c),
+    });
 
     public static purpleAccent = new MaterialAccentColor(
         Colors.purpleAccentPrimaryValue,
         {
-            100: new Color(0xFFEA80FC),
+            100: new Color(0xffea80fc),
             200: new Color(Colors.purpleAccentPrimaryValue),
-            400: new Color(0xFFD500F9),
-            700: new Color(0xFFAA00FF),
-        },
+            400: new Color(0xffd500f9),
+            700: new Color(0xffaa00ff),
+        }
     );
-
 
     public static deepPurple = new MaterialColor(
         Colors.deepPurplePrimaryValue,
         {
-            50: new Color(0xFFEDE7F6),
-            100: new Color(0xFFD1C4E9),
-            200: new Color(0xFFB39DDB),
-            300: new Color(0xFF9575CD),
-            400: new Color(0xFF7E57C2),
+            50: new Color(0xffede7f6),
+            100: new Color(0xffd1c4e9),
+            200: new Color(0xffb39ddb),
+            300: new Color(0xff9575cd),
+            400: new Color(0xff7e57c2),
             500: new Color(Colors.deepPurplePrimaryValue),
-            600: new Color(0xFF5E35B1),
-            700: new Color(0xFF512DA8),
-            800: new Color(0xFF4527A0),
-            900: new Color(0xFF311B92),
-        },
+            600: new Color(0xff5e35b1),
+            700: new Color(0xff512da8),
+            800: new Color(0xff4527a0),
+            900: new Color(0xff311b92),
+        }
     );
-
 
     public static deepPurpleAccent = new MaterialAccentColor(
         Colors.deepPurpleAccentPrimaryValue,
         {
-            100: new Color(0xFFB388FF),
+            100: new Color(0xffb388ff),
             200: new Color(Colors.deepPurpleAccentPrimaryValue),
-            400: new Color(0xFF651FFF),
-            700: new Color(0xFF6200EA),
-        },
+            400: new Color(0xff651fff),
+            700: new Color(0xff6200ea),
+        }
     );
 
-
-    public static indigo = new MaterialColor(
-        Colors.indigoPrimaryValue,
-        {
-            50: new Color(0xFFE8EAF6),
-            100: new Color(0xFFC5CAE9),
-            200: new Color(0xFF9FA8DA),
-            300: new Color(0xFF7986CB),
-            400: new Color(0xFF5C6BC0),
-            500: new Color(Colors.indigoPrimaryValue),
-            600: new Color(0xFF3949AB),
-            700: new Color(0xFF303F9F),
-            800: new Color(0xFF283593),
-            900: new Color(0xFF1A237E),
-        },
-    );
-
+    public static indigo = new MaterialColor(Colors.indigoPrimaryValue, {
+        50: new Color(0xffe8eaf6),
+        100: new Color(0xffc5cae9),
+        200: new Color(0xff9fa8da),
+        300: new Color(0xff7986cb),
+        400: new Color(0xff5c6bc0),
+        500: new Color(Colors.indigoPrimaryValue),
+        600: new Color(0xff3949ab),
+        700: new Color(0xff303f9f),
+        800: new Color(0xff283593),
+        900: new Color(0xff1a237e),
+    });
 
     public static indigoAccent = new MaterialAccentColor(
         Colors.indigoAccentPrimaryValue,
         {
-            100: new Color(0xFF8C9EFF),
+            100: new Color(0xff8c9eff),
             200: new Color(Colors.indigoAccentPrimaryValue),
-            400: new Color(0xFF3D5AFE),
-            700: new Color(0xFF304FFE),
-        },
+            400: new Color(0xff3d5afe),
+            700: new Color(0xff304ffe),
+        }
     );
 
-
-    public static blue = new MaterialColor(
-        Colors.bluePrimaryValue,
-        {
-            50: new Color(0xFFE3F2FD),
-            100: new Color(0xFFBBDEFB),
-            200: new Color(0xFF90CAF9),
-            300: new Color(0xFF64B5F6),
-            400: new Color(0xFF42A5F5),
-            500: new Color(Colors.bluePrimaryValue),
-            600: new Color(0xFF1E88E5),
-            700: new Color(0xFF1976D2),
-            800: new Color(0xFF1565C0),
-            900: new Color(0xFF0D47A1),
-        },
-    );
-
+    public static blue = new MaterialColor(Colors.bluePrimaryValue, {
+        50: new Color(0xffe3f2fd),
+        100: new Color(0xffbbdefb),
+        200: new Color(0xff90caf9),
+        300: new Color(0xff64b5f6),
+        400: new Color(0xff42a5f5),
+        500: new Color(Colors.bluePrimaryValue),
+        600: new Color(0xff1e88e5),
+        700: new Color(0xff1976d2),
+        800: new Color(0xff1565c0),
+        900: new Color(0xff0d47a1),
+    });
 
     public static blueAccent = new MaterialAccentColor(
         Colors.blueAccentPrimaryValue,
         {
-            100: new Color(0xFF82B1FF),
+            100: new Color(0xff82b1ff),
             200: new Color(Colors.blueAccentPrimaryValue),
-            400: new Color(0xFF2979FF),
-            700: new Color(0xFF2962FF),
-        },
+            400: new Color(0xff2979ff),
+            700: new Color(0xff2962ff),
+        }
     );
 
-
-    public static lightBlue = new MaterialColor(
-        Colors.lightBluePrimaryValue,
-        {
-            50: new Color(0xFFE1F5FE),
-            100: new Color(0xFFB3E5FC),
-            200: new Color(0xFF81D4FA),
-            300: new Color(0xFF4FC3F7),
-            400: new Color(0xFF29B6F6),
-            500: new Color(Colors.lightBluePrimaryValue),
-            600: new Color(0xFF039BE5),
-            700: new Color(0xFF0288D1),
-            800: new Color(0xFF0277BD),
-            900: new Color(0xFF01579B),
-        },
-    );
-
+    public static lightBlue = new MaterialColor(Colors.lightBluePrimaryValue, {
+        50: new Color(0xffe1f5fe),
+        100: new Color(0xffb3e5fc),
+        200: new Color(0xff81d4fa),
+        300: new Color(0xff4fc3f7),
+        400: new Color(0xff29b6f6),
+        500: new Color(Colors.lightBluePrimaryValue),
+        600: new Color(0xff039be5),
+        700: new Color(0xff0288d1),
+        800: new Color(0xff0277bd),
+        900: new Color(0xff01579b),
+    });
 
     public static lightBlueAccent = new MaterialAccentColor(
         Colors.lightBlueAccentPrimaryValue,
         {
-            100: new Color(0xFF80D8FF),
+            100: new Color(0xff80d8ff),
             200: new Color(Colors.lightBlueAccentPrimaryValue),
-            400: new Color(0xFF00B0FF),
-            700: new Color(0xFF0091EA),
-        },
+            400: new Color(0xff00b0ff),
+            700: new Color(0xff0091ea),
+        }
     );
 
-
-    public static cyan = new MaterialColor(
-        Colors.cyanPrimaryValue,
-        {
-            50: new Color(0xFFE0F7FA),
-            100: new Color(0xFFB2EBF2),
-            200: new Color(0xFF80DEEA),
-            300: new Color(0xFF4DD0E1),
-            400: new Color(0xFF26C6DA),
-            500: new Color(Colors.cyanPrimaryValue),
-            600: new Color(0xFF00ACC1),
-            700: new Color(0xFF0097A7),
-            800: new Color(0xFF00838F),
-            900: new Color(0xFF006064),
-        },
-    );
-
+    public static cyan = new MaterialColor(Colors.cyanPrimaryValue, {
+        50: new Color(0xffe0f7fa),
+        100: new Color(0xffb2ebf2),
+        200: new Color(0xff80deea),
+        300: new Color(0xff4dd0e1),
+        400: new Color(0xff26c6da),
+        500: new Color(Colors.cyanPrimaryValue),
+        600: new Color(0xff00acc1),
+        700: new Color(0xff0097a7),
+        800: new Color(0xff00838f),
+        900: new Color(0xff006064),
+    });
 
     public static cyanAccent = new MaterialAccentColor(
         Colors.cyanAccentPrimaryValue,
         {
-            100: new Color(0xFF84FFFF),
+            100: new Color(0xff84ffff),
             200: new Color(Colors.cyanAccentPrimaryValue),
-            400: new Color(0xFF00E5FF),
-            700: new Color(0xFF00B8D4),
-        },
+            400: new Color(0xff00e5ff),
+            700: new Color(0xff00b8d4),
+        }
     );
 
-
-    public static teal = new MaterialColor(
-        Colors.tealPrimaryValue,
-        {
-            50: new Color(0xFFE0F2F1),
-            100: new Color(0xFFB2DFDB),
-            200: new Color(0xFF80CBC4),
-            300: new Color(0xFF4DB6AC),
-            400: new Color(0xFF26A69A),
-            500: new Color(Colors.tealPrimaryValue),
-            600: new Color(0xFF00897B),
-            700: new Color(0xFF00796B),
-            800: new Color(0xFF00695C),
-            900: new Color(0xFF004D40),
-        },
-    );
-
+    public static teal = new MaterialColor(Colors.tealPrimaryValue, {
+        50: new Color(0xffe0f2f1),
+        100: new Color(0xffb2dfdb),
+        200: new Color(0xff80cbc4),
+        300: new Color(0xff4db6ac),
+        400: new Color(0xff26a69a),
+        500: new Color(Colors.tealPrimaryValue),
+        600: new Color(0xff00897b),
+        700: new Color(0xff00796b),
+        800: new Color(0xff00695c),
+        900: new Color(0xff004d40),
+    });
 
     public static tealAccent = new MaterialAccentColor(
         Colors.tealAccentPrimaryValue,
         {
-            100: new Color(0xFFA7FFEB),
+            100: new Color(0xffa7ffeb),
             200: new Color(Colors.tealAccentPrimaryValue),
-            400: new Color(0xFF1DE9B6),
-            700: new Color(0xFF00BFA5),
-        },
+            400: new Color(0xff1de9b6),
+            700: new Color(0xff00bfa5),
+        }
     );
 
-
-    public static green = new MaterialColor(
-        Colors.greenPrimaryValue,
-        {
-            50: new Color(0xFFE8F5E9),
-            100: new Color(0xFFC8E6C9),
-            200: new Color(0xFFA5D6A7),
-            300: new Color(0xFF81C784),
-            400: new Color(0xFF66BB6A),
-            500: new Color(Colors.greenPrimaryValue),
-            600: new Color(0xFF43A047),
-            700: new Color(0xFF388E3C),
-            800: new Color(0xFF2E7D32),
-            900: new Color(0xFF1B5E20),
-        },
-    );
-
+    public static green = new MaterialColor(Colors.greenPrimaryValue, {
+        50: new Color(0xffe8f5e9),
+        100: new Color(0xffc8e6c9),
+        200: new Color(0xffa5d6a7),
+        300: new Color(0xff81c784),
+        400: new Color(0xff66bb6a),
+        500: new Color(Colors.greenPrimaryValue),
+        600: new Color(0xff43a047),
+        700: new Color(0xff388e3c),
+        800: new Color(0xff2e7d32),
+        900: new Color(0xff1b5e20),
+    });
 
     public static greenAccent = new MaterialAccentColor(
         Colors.greenAccentPrimaryValue,
         {
-            100: new Color(0xFFB9F6CA),
+            100: new Color(0xffb9f6ca),
             200: new Color(Colors.greenAccentPrimaryValue),
-            400: new Color(0xFF00E676),
-            700: new Color(0xFF00C853),
-        },
+            400: new Color(0xff00e676),
+            700: new Color(0xff00c853),
+        }
     );
-
 
     public static lightGreen = new MaterialColor(
         Colors.lightGreenPrimaryValue,
         {
-            50: new Color(0xFFF1F8E9),
-            100: new Color(0xFFDCEDC8),
-            200: new Color(0xFFC5E1A5),
-            300: new Color(0xFFAED581),
-            400: new Color(0xFF9CCC65),
+            50: new Color(0xfff1f8e9),
+            100: new Color(0xffdcedc8),
+            200: new Color(0xffc5e1a5),
+            300: new Color(0xffaed581),
+            400: new Color(0xff9ccc65),
             500: new Color(Colors.lightGreenPrimaryValue),
-            600: new Color(0xFF7CB342),
-            700: new Color(0xFF689F38),
-            800: new Color(0xFF558B2F),
-            900: new Color(0xFF33691E),
-        },
+            600: new Color(0xff7cb342),
+            700: new Color(0xff689f38),
+            800: new Color(0xff558b2f),
+            900: new Color(0xff33691e),
+        }
     );
-
 
     public static lightGreenAccent = new MaterialAccentColor(
         Colors.lightGreenAccentPrimaryValue,
         {
-            100: new Color(0xFFCCFF90),
+            100: new Color(0xffccff90),
             200: new Color(Colors.lightGreenAccentPrimaryValue),
-            400: new Color(0xFF76FF03),
-            700: new Color(0xFF64DD17),
-        },
+            400: new Color(0xff76ff03),
+            700: new Color(0xff64dd17),
+        }
     );
 
-
-    public static lime = new MaterialColor(
-        Colors.limePrimaryValue,
-        {
-            50: new Color(0xFFF9FBE7),
-            100: new Color(0xFFF0F4C3),
-            200: new Color(0xFFE6EE9C),
-            300: new Color(0xFFDCE775),
-            400: new Color(0xFFD4E157),
-            500: new Color(Colors.limePrimaryValue),
-            600: new Color(0xFFC0CA33),
-            700: new Color(0xFFAFB42B),
-            800: new Color(0xFF9E9D24),
-            900: new Color(0xFF827717),
-        },
-    );
-
+    public static lime = new MaterialColor(Colors.limePrimaryValue, {
+        50: new Color(0xfff9fbe7),
+        100: new Color(0xfff0f4c3),
+        200: new Color(0xffe6ee9c),
+        300: new Color(0xffdce775),
+        400: new Color(0xffd4e157),
+        500: new Color(Colors.limePrimaryValue),
+        600: new Color(0xffc0ca33),
+        700: new Color(0xffafb42b),
+        800: new Color(0xff9e9d24),
+        900: new Color(0xff827717),
+    });
 
     public static limeAccent = new MaterialAccentColor(
         Colors.limeAccentPrimaryValue,
         {
-            100: new Color(0xFFF4FF81),
+            100: new Color(0xfff4ff81),
             200: new Color(Colors.limeAccentPrimaryValue),
-            400: new Color(0xFFC6FF00),
-            700: new Color(0xFFAEEA00),
-        },
+            400: new Color(0xffc6ff00),
+            700: new Color(0xffaeea00),
+        }
     );
 
-
-    public static yellow = new MaterialColor(
-        Colors.yellowPrimaryValue,
-        {
-            50: new Color(0xFFFFFDE7),
-            100: new Color(0xFFFFF9C4),
-            200: new Color(0xFFFFF59D),
-            300: new Color(0xFFFFF176),
-            400: new Color(0xFFFFEE58),
-            500: new Color(Colors.yellowPrimaryValue),
-            600: new Color(0xFFFDD835),
-            700: new Color(0xFFFBC02D),
-            800: new Color(0xFFF9A825),
-            900: new Color(0xFFF57F17),
-        },
-    );
-
+    public static yellow = new MaterialColor(Colors.yellowPrimaryValue, {
+        50: new Color(0xfffffde7),
+        100: new Color(0xfffff9c4),
+        200: new Color(0xfffff59d),
+        300: new Color(0xfffff176),
+        400: new Color(0xffffee58),
+        500: new Color(Colors.yellowPrimaryValue),
+        600: new Color(0xfffdd835),
+        700: new Color(0xfffbc02d),
+        800: new Color(0xfff9a825),
+        900: new Color(0xfff57f17),
+    });
 
     public static yellowAccent = new MaterialAccentColor(
         Colors.yellowAccentPrimaryValue,
         {
-            100: new Color(0xFFFFFF8D),
+            100: new Color(0xffffff8d),
             200: new Color(Colors.yellowAccentPrimaryValue),
-            400: new Color(0xFFFFEA00),
-            700: new Color(0xFFFFD600),
-        },
+            400: new Color(0xffffea00),
+            700: new Color(0xffffd600),
+        }
     );
 
-
-    public static amber = new MaterialColor(
-        Colors.amberPrimaryValue,
-        {
-            50: new Color(0xFFFFF8E1),
-            100: new Color(0xFFFFECB3),
-            200: new Color(0xFFFFE082),
-            300: new Color(0xFFFFD54F),
-            400: new Color(0xFFFFCA28),
-            500: new Color(Colors.amberPrimaryValue),
-            600: new Color(0xFFFFB300),
-            700: new Color(0xFFFFA000),
-            800: new Color(0xFFFF8F00),
-            900: new Color(0xFFFF6F00),
-        },
-    );
-
+    public static amber = new MaterialColor(Colors.amberPrimaryValue, {
+        50: new Color(0xfffff8e1),
+        100: new Color(0xffffecb3),
+        200: new Color(0xffffe082),
+        300: new Color(0xffffd54f),
+        400: new Color(0xffffca28),
+        500: new Color(Colors.amberPrimaryValue),
+        600: new Color(0xffffb300),
+        700: new Color(0xffffa000),
+        800: new Color(0xffff8f00),
+        900: new Color(0xffff6f00),
+    });
 
     public static amberAccent = new MaterialAccentColor(
         Colors.amberAccentPrimaryValue,
         {
-            100: new Color(0xFFFFE57F),
+            100: new Color(0xffffe57f),
             200: new Color(Colors.amberAccentPrimaryValue),
-            400: new Color(0xFFFFC400),
-            700: new Color(0xFFFFAB00),
-        },
+            400: new Color(0xffffc400),
+            700: new Color(0xffffab00),
+        }
     );
 
-
-    public static orange = new MaterialColor(
-        Colors.orangePrimaryValue,
-        {
-            50: new Color(0xFFFFF3E0),
-            100: new Color(0xFFFFE0B2),
-            200: new Color(0xFFFFCC80),
-            300: new Color(0xFFFFB74D),
-            400: new Color(0xFFFFA726),
-            500: new Color(Colors.orangePrimaryValue),
-            600: new Color(0xFFFB8C00),
-            700: new Color(0xFFF57C00),
-            800: new Color(0xFFEF6C00),
-            900: new Color(0xFFE65100),
-        },
-    );
-
+    public static orange = new MaterialColor(Colors.orangePrimaryValue, {
+        50: new Color(0xfffff3e0),
+        100: new Color(0xffffe0b2),
+        200: new Color(0xffffcc80),
+        300: new Color(0xffffb74d),
+        400: new Color(0xffffa726),
+        500: new Color(Colors.orangePrimaryValue),
+        600: new Color(0xfffb8c00),
+        700: new Color(0xfff57c00),
+        800: new Color(0xffef6c00),
+        900: new Color(0xffe65100),
+    });
 
     public static orangeAccent = new MaterialAccentColor(
         Colors.orangeAccentPrimaryValue,
         {
-            100: new Color(0xFFFFD180),
+            100: new Color(0xffffd180),
             200: new Color(Colors.orangeAccentPrimaryValue),
-            400: new Color(0xFFFF9100),
-            700: new Color(0xFFFF6D00),
-        },
+            400: new Color(0xffff9100),
+            700: new Color(0xffff6d00),
+        }
     );
-
 
     public static deepOrange = new MaterialColor(
         Colors.deepOrangePrimaryValue,
         {
-            50: new Color(0xFFFBE9E7),
-            100: new Color(0xFFFFCCBC),
-            200: new Color(0xFFFFAB91),
-            300: new Color(0xFFFF8A65),
-            400: new Color(0xFFFF7043),
+            50: new Color(0xfffbe9e7),
+            100: new Color(0xffffccbc),
+            200: new Color(0xffffab91),
+            300: new Color(0xffff8a65),
+            400: new Color(0xffff7043),
             500: new Color(Colors.deepOrangePrimaryValue),
-            600: new Color(0xFFF4511E),
-            700: new Color(0xFFE64A19),
-            800: new Color(0xFFD84315),
-            900: new Color(0xFFBF360C),
-        },
+            600: new Color(0xfff4511e),
+            700: new Color(0xffe64a19),
+            800: new Color(0xffd84315),
+            900: new Color(0xffbf360c),
+        }
     );
-
 
     public static deepOrangeAccent = new MaterialAccentColor(
         Colors.deepOrangeAccentPrimaryValue,
         {
-            100: new Color(0xFFFF9E80),
+            100: new Color(0xffff9e80),
             200: new Color(Colors.deepOrangeAccentPrimaryValue),
-            400: new Color(0xFFFF3D00),
-            700: new Color(0xFFDD2C00),
-        },
+            400: new Color(0xffff3d00),
+            700: new Color(0xffdd2c00),
+        }
     );
 
+    public static brown = new MaterialColor(Colors.brownPrimaryValue, {
+        50: new Color(0xffefebe9),
+        100: new Color(0xffd7ccc8),
+        200: new Color(0xffbcaaa4),
+        300: new Color(0xffa1887f),
+        400: new Color(0xff8d6e63),
+        500: new Color(Colors.brownPrimaryValue),
+        600: new Color(0xff6d4c41),
+        700: new Color(0xff5d4037),
+        800: new Color(0xff4e342e),
+        900: new Color(0xff3e2723),
+    });
 
-    public static brown = new MaterialColor(
-        Colors.brownPrimaryValue,
-        {
-            50: new Color(0xFFEFEBE9),
-            100: new Color(0xFFD7CCC8),
-            200: new Color(0xFFBCAAA4),
-            300: new Color(0xFFA1887F),
-            400: new Color(0xFF8D6E63),
-            500: new Color(Colors.brownPrimaryValue),
-            600: new Color(0xFF6D4C41),
-            700: new Color(0xFF5D4037),
-            800: new Color(0xFF4E342E),
-            900: new Color(0xFF3E2723),
-        },
-    );
+    public static grey = new MaterialColor(Colors.greyPrimaryValue, {
+        50: new Color(0xfffafafa),
+        100: new Color(0xfff5f5f5),
+        200: new Color(0xffeeeeee),
+        300: new Color(0xffe0e0e0),
+        350: new Color(0xffd6d6d6), // only for raised button while pressed in light theme
+        400: new Color(0xffbdbdbd),
+        500: new Color(Colors.greyPrimaryValue),
+        600: new Color(0xff757575),
+        700: new Color(0xff616161),
+        800: new Color(0xff424242),
+        850: new Color(0xff303030), // only for background color in dark theme
+        900: new Color(0xff212121),
+    });
 
-
-    public static grey = new MaterialColor(
-        Colors.greyPrimaryValue,
-        {
-            50: new Color(0xFFFAFAFA),
-            100: new Color(0xFFF5F5F5),
-            200: new Color(0xFFEEEEEE),
-            300: new Color(0xFFE0E0E0),
-            350: new Color(0xFFD6D6D6), // only for raised button while pressed in light theme
-            400: new Color(0xFFBDBDBD),
-            500: new Color(Colors.greyPrimaryValue),
-            600: new Color(0xFF757575),
-            700: new Color(0xFF616161),
-            800: new Color(0xFF424242),
-            850: new Color(0xFF303030), // only for background color in dark theme
-            900: new Color(0xFF212121),
-        },
-    );
-
-
-    public static blueGrey = new MaterialColor(
-        Colors.blueGreyPrimaryValue,
-        {
-            50: new Color(0xFFECEFF1),
-            100: new Color(0xFFCFD8DC),
-            200: new Color(0xFFB0BEC5),
-            300: new Color(0xFF90A4AE),
-            400: new Color(0xFF78909C),
-            500: new Color(Colors.blueGreyPrimaryValue),
-            600: new Color(0xFF546E7A),
-            700: new Color(0xFF455A64),
-            800: new Color(0xFF37474F),
-            900: new Color(0xFF263238),
-        },
-    );
-
+    public static blueGrey = new MaterialColor(Colors.blueGreyPrimaryValue, {
+        50: new Color(0xffeceff1),
+        100: new Color(0xffcfd8dc),
+        200: new Color(0xffb0bec5),
+        300: new Color(0xff90a4ae),
+        400: new Color(0xff78909c),
+        500: new Color(Colors.blueGreyPrimaryValue),
+        600: new Color(0xff546e7a),
+        700: new Color(0xff455a64),
+        800: new Color(0xff37474f),
+        900: new Color(0xff263238),
+    });
 
     public static primaries = [
         Colors.red,

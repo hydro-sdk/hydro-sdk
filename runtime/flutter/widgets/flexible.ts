@@ -1,10 +1,9 @@
-import {Widget} from "../widget";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-
-import {FlexFit} from "./../rendering/flexFit";
-import {StatelessWidget} from "./statelessWidget";
-import {Key} from "./../foundation/key";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Key } from "./../foundation/key";
+import { FlexFit } from "./../rendering/flexFit";
+import { Widget } from "../widget";
+import { StatelessWidget } from "./statelessWidget";
 
 export interface FlexibleProps {
     key?: Key | undefined;
@@ -19,28 +18,23 @@ declare const flutter: {
     };
 };
 
-export class Flexible extends StatelessWidget implements RuntimeBaseClass 
-{
+export class Flexible extends StatelessWidget implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(Flexible);
     public props: FlexibleProps;
-    public constructor(props: FlexibleProps) 
-    {
+    public constructor(props: FlexibleProps) {
         super();
         this.props = props;
 
-        if (this.props.flex === undefined) 
-        {
+        if (this.props.flex === undefined) {
             this.props.flex = 1;
         }
 
-        if (this.props.fit === undefined) 
-        {
+        if (this.props.fit === undefined) {
             this.props.fit = FlexFit.loose;
         }
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.widgets.flexible(this.props);
     }
 }

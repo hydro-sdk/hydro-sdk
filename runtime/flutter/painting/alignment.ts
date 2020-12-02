@@ -1,7 +1,6 @@
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-
-import {JITAllocatingRTManagedBox} from "./../../syntheticBox";
+import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
 
 declare const flutter: {
     painting: {
@@ -9,21 +8,20 @@ declare const flutter: {
     };
 };
 
-export class Alignment extends JITAllocatingRTManagedBox<undefined, Alignment> implements RuntimeBaseClass
-{
+export class Alignment
+    extends JITAllocatingRTManagedBox<undefined, Alignment>
+    implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(Alignment);
     public props = undefined;
     public readonly x: number;
     public readonly y: number;
-    public constructor(x: number, y: number) 
-    {
+    public constructor(x: number, y: number) {
         super();
         this.x = x;
         this.y = y;
     }
 
-    public unwrap(): Alignment 
-    {
+    public unwrap(): Alignment {
         return flutter.painting.alignment(this.x, this.y);
     }
 

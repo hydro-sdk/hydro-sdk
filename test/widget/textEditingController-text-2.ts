@@ -1,15 +1,15 @@
+import { MaterialApp } from "./../../runtime/flutter/material/materialApp";
 import { runApp } from "./../../runtime/flutter/runApp";
 import { SizedBox } from "./../../runtime/flutter/widgets/sizedBox";
-import { MaterialApp } from "./../../runtime/flutter/material/materialApp";
-import { StatelessWidget } from "../../runtime/flutter/widgets/statelessWidget";
+import { Key } from "../../runtime/flutter/foundation/key";
 import { Column } from "../../runtime/flutter/widgets/column";
+import { StatelessWidget } from "../../runtime/flutter/widgets/statelessWidget";
 import { Text } from "../../runtime/flutter/widgets/text";
 import { TextEditingController } from "../../runtime/flutter/widgets/textEditingController";
-import { Key } from "../../runtime/flutter/foundation/key";
 
 class MyApp extends StatelessWidget {
     public controller = new TextEditingController({
-        text: "Hello world"
+        text: "Hello world",
     });
 
     public constructor() {
@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
             home: new Column({
                 children: [
                     new SizedBox({
-                        key: new Key(this.controller.getText())
+                        key: new Key(this.controller.getText()),
                     }),
-                    new Text(this.controller.getText())
-                ]
-            })
+                    new Text(this.controller.getText()),
+                ],
+            }),
         });
     }
 }

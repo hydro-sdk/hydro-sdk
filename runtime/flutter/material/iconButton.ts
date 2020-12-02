@@ -1,8 +1,8 @@
-import {Widget} from "../widget";
-import {StatelessWidget} from "../widgets/statelessWidget";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
-import {Key} from "../foundation/key";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Key } from "../foundation/key";
+import { Widget } from "../widget";
+import { StatelessWidget } from "../widgets/statelessWidget";
 
 export interface IconButtonProps {
     icon: Widget;
@@ -17,18 +17,15 @@ declare const flutter: {
     };
 };
 
-export class IconButton extends StatelessWidget implements RuntimeBaseClass 
-{
+export class IconButton extends StatelessWidget implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(IconButton);
     public props: IconButtonProps;
-    public constructor(props: IconButtonProps) 
-    {
+    public constructor(props: IconButtonProps) {
         super();
         this.props = props;
     }
 
-    public build(): Widget 
-    {
+    public build(): Widget {
         return flutter.material.iconButton(this.props);
     }
 }

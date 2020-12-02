@@ -18,75 +18,69 @@ const durationDefaultProps = {
 
 declare const dart: {
     core: {
-        duration: (this: void, duration: Duration, props: DurationProps) => Duration;
+        duration: (
+            this: void,
+            duration: Duration,
+            props: DurationProps
+        ) => Duration;
     };
 };
 
-export class Duration 
-{
+export class Duration {
     private readonly _dart_getInDays: () => number = undefined as any;
     private readonly _dart_getInHours: () => number = undefined as any;
     private readonly _dart_getInMinutes: () => number = undefined as any;
     private readonly _dart_getInSeconds: () => number = undefined as any;
     private readonly _dart_getInMilliseconds: () => number = undefined as any;
     private readonly _dart_getInMicroseconds: () => number = undefined as any;
-    private readonly _dart_compareTo: (other: Duration) => number = undefined as any;
+    private readonly _dart_compareTo: (
+        other: Duration
+    ) => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getIsNegative: () => boolean = undefined as any;
     private readonly _dart_abs: () => Duration = undefined as any;
 
-    public getInDays() 
-    {
+    public getInDays() {
         return this._dart_getInDays();
     }
 
-    public getInHours() 
-    {
+    public getInHours() {
         return this._dart_getInHours();
     }
 
-    public getInMinutes() 
-    {
+    public getInMinutes() {
         return this._dart_getInMinutes();
     }
 
-    public getInSeconds() 
-    {
+    public getInSeconds() {
         return this._dart_getInSeconds();
     }
 
-    public getInMilliseconds() 
-    {
+    public getInMilliseconds() {
         return this._dart_getInMilliseconds();
     }
 
-    public getInMicroseconds() 
-    {
+    public getInMicroseconds() {
         return this._dart_getInMicroseconds();
     }
 
-    public compareTo(other: Duration) 
-    {
+    public compareTo(other: Duration) {
         return this._dart_compareTo(other);
     }
 
-    public toString() 
-    {
+    public toString() {
         return this._dart_toString();
     }
 
-    public getIsNegative() 
-    {
+    public getIsNegative() {
         return this._dart_getIsNegative();
     }
 
-    public abs() 
-    {
+    public abs() {
         return this._dart_abs();
     }
 
-    public constructor(props: DurationProps) 
-    {
+    public constructor(props: DurationProps) {
         dart.core.duration(this, {
             ...durationDefaultProps,
             ...props,

@@ -1,16 +1,13 @@
-import {BuildContext} from "../buildContext";
-import {RuntimeBaseClass} from "../../runtimeBaseClass";
-import {Type} from "../../dart/core/type";
+import { Type } from "../../dart/core/type";
+import { RuntimeBaseClass } from "../../runtimeBaseClass";
+import { Widget } from "./../widget";
+import { BuildContext } from "../buildContext";
 
-import {Widget} from "./../widget";
-
-export abstract class StatelessWidget implements Widget, RuntimeBaseClass 
-{
+export abstract class StatelessWidget implements Widget, RuntimeBaseClass {
     tag: string;
     public readonly internalRuntimeType = new Type(StatelessWidget);
     public abstract build(context: BuildContext): Widget;
-    public constructor() 
-    {
+    public constructor() {
         this.tag = "";
     }
 }

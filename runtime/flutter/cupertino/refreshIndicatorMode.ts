@@ -5,4 +5,3 @@ export enum RefreshIndicatorMode {
     refresh,
     done,
 }
-

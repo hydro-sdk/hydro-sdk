@@ -1,24 +1,28 @@
 import * as fs from "fs";
 import * as path from "path";
+import { exit } from "process";
 
 import * as ts from "typescript";
 import * as tstl from "typescript-to-lua";
-
-import { BuildOptions } from "../buildOptions";
-import { findModuleDebugInfo } from "../ast/findModuleDebugInfo";
-import { addOriginalMappings } from "../ast/addOriginalMappings";
-import { makeRelativePath } from "../makeRelativePath";
 import { getLuaLibBundle } from "typescript-to-lua/dist/LuaLib";
-import { BundleInfo } from "./bundleInfo";
+
+import { addOriginalMappings } from "../ast/addOriginalMappings";
+import { findModuleDebugInfo } from "../ast/findModuleDebugInfo";
 import { hashSourceFile } from "../ast/hashSourceFile";
 import { hashText } from "../ast/hashText";
 import { mangleSymbols } from "../ast/mangleSymbols";
-import { exit } from "process";
 import { ModuleDebugInfo } from "../ast/moduleDebugInfo";
+import { BuildOptions } from "../buildOptions";
+import { makeRelativePath } from "../makeRelativePath";
+import { BundleInfo } from "./bundleInfo";
 
 export async function buildBundleInfo(
     buildOptions: BuildOptions,
-    updateBuildProgress: (currentStep: number, totalSteps: number, suffixMessage: string) => void,
+    updateBuildProgress: (
+        currentStep: number,
+        totalSteps: number,
+        suffixMessage: string
+    ) => void,
     oldBundleInfo?: BundleInfo | undefined
 ): Promise<BundleInfo> {
     let res: BundleInfo = {
@@ -36,43 +40,82 @@ export async function buildBundleInfo(
             luaLibImport: tstl.LuaLibImportKind.Require,
             sourceMapTraceback: false,
             outDir: ".hydroc",
-            include: [
-                "node_modules/hydro-sdk/runtime"
-            ]
+            include: ["node_modules/hydro-sdk/runtime"],
+        },
+    });
+
+    const sourceFiles = program
+        .getSourceFiles()
+        .filter((x) => !x.isDeclarationFile);
+    updateBuildProgress(0, sourceFiles.length + 1, "");
+
+    sourceFiles.forEach((x) => {
+        const targetFileIsInNodeModules = /node_modules/g.test(x.fileName);
+
+        if (targetFileIsInNodeModules) {
+            (x as any).fileName = (x as any).fileName.replace(
+                "node_modules",
+                path.dirname(buildOptions.entry)
+            );
+            (x as any).originalFileName = (x as any).originalFileName.replace(
+                "node_modules",
+                path.dirname(buildOptions.entry)
+            );
+            (x as any).path = (x as any).path.replace(
+                "node_modules",
+                path.dirname(buildOptions.entry)
+            );
+            (x as any).resolvedPath = (x as any).resolvedPath.replace(
+                "node_modules",
+                path.dirname(buildOptions.entry)
+            );
         }
     });
 
-    const sourceFiles = program.getSourceFiles().filter((x) => !x.isDeclarationFile);
-    updateBuildProgress(0, sourceFiles.length + 1, "");
-
     const oldEntries = oldBundleInfo ? oldBundleInfo.entries : undefined;
 
-    const sourceFilesToTranspile = oldEntries ? sourceFiles.filter((x) => hashSourceFile(x) != (oldEntries[x.fileName]?.originalFileHash ?? "")) : sourceFiles;
+    const sourceFilesToTranspile = oldEntries
+        ? sourceFiles.filter(
+              (x) =>
+                  hashSourceFile(x) !=
+                  (oldEntries[x.fileName]?.originalFileHash ?? "")
+          )
+        : sourceFiles;
 
-    let currentStep = Math.abs(sourceFiles.length + 1 - sourceFilesToTranspile.length);
+    let currentStep = Math.abs(
+        sourceFiles.length + 1 - sourceFilesToTranspile.length
+    );
 
     updateBuildProgress(currentStep, sourceFiles.length + 1, "");
 
-    const concatDiagnostics = (newDiagnostics: Readonly<Array<ts.DiagnosticRelatedInformation>>) =>
-        newDiagnostics && newDiagnostics.length ? res.diagnostics = [
-            ...res.diagnostics,
-            ...newDiagnostics.map((x) => x)
-        ] : undefined;
+    const concatDiagnostics = (
+        newDiagnostics: Readonly<Array<ts.DiagnosticRelatedInformation>>
+    ) =>
+        newDiagnostics && newDiagnostics.length
+            ? (res.diagnostics = [
+                  ...res.diagnostics,
+                  ...newDiagnostics.map((x) => x),
+              ])
+            : undefined;
 
     const getFullDiagnostics = () => {
         let diagnostics:
-            Readonly<Array<ts.Diagnostic>> |
-            Readonly<Array<ts.DiagnosticWithLocation>> = program.getSemanticDiagnostics();
+            | Readonly<Array<ts.Diagnostic>>
+            | Readonly<
+                  Array<ts.DiagnosticWithLocation>
+              > = program.getSemanticDiagnostics();
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getDeclarationDiagnostics();
         concatDiagnostics(diagnostics);
-    }
+    };
 
     const getIncrementalDiagnostics = (sourceFile: Readonly<ts.SourceFile>) => {
         let diagnostics:
-            Readonly<Array<ts.Diagnostic>> |
-            Readonly<Array<ts.DiagnosticWithLocation>> = program.getSyntacticDiagnostics(sourceFile);
+            | Readonly<Array<ts.Diagnostic>>
+            | Readonly<
+                  Array<ts.DiagnosticWithLocation>
+              > = program.getSyntacticDiagnostics(sourceFile);
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getSemanticDiagnostics(sourceFile);
@@ -80,43 +123,66 @@ export async function buildBundleInfo(
 
         diagnostics = program.getDeclarationDiagnostics(sourceFile);
         concatDiagnostics(diagnostics);
-    }
+    };
 
     getFullDiagnostics();
 
     res.entries = oldEntries ?? {};
 
-    const sanityCheckDebugSymbols = (debugInfo: Readonly<Array<ModuleDebugInfo>>): void => {
+    const sanityCheckDebugSymbols = (
+        debugInfo: Readonly<Array<ModuleDebugInfo>>
+    ): void => {
         debugInfo.forEach((x) => {
             debugInfo.forEach((k) => {
-                if (x.symbolFullyQualifiedMangleName == k.symbolFullyQualifiedMangleName &&
+                if (
+                    x.symbolFullyQualifiedMangleName ==
+                        k.symbolFullyQualifiedMangleName &&
                     x.originalLineStart != k.originalLineStart &&
                     x.originalColumnStart != k.originalColumnStart
                 ) {
                     console.log(`${x.symbolName} and ${k.symbolName}`);
-                    console.log(`Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart},${x.columnStart})`);
-                    console.log(`and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart},${k.columnStart})`);
-                    console.log(`both mangled to the following: ${x.symbolFullyQualifiedMangleName}`);
+                    console.log(
+                        `Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart}-${x.lineEnd},${x.columnStart}-${x.columnEnd})`
+                    );
+                    console.log(
+                        `and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart}-${k.lineEnd},${k.columnStart}-${k.columnEnd})`
+                    );
+                    console.log(
+                        `both mangled to the following: ${x.symbolFullyQualifiedMangleName}`
+                    );
                     exit(1);
                 }
             });
         });
     };
 
-    const buildSourceFileShortPath = (sourceFile: Readonly<ts.SourceFile>): string => {
+    const buildSourceFileShortPath = (
+        sourceFile: Readonly<ts.SourceFile>
+    ): string => {
         let dirname = path.dirname(sourceFile.fileName);
         let dirnames = dirname.split(path.sep);
-        let parentDir = dirnames.length >= 1 ? `${path.sep}${dirnames[dirnames.length - 1]}` : "";
-        let grandParentDir = dirname.length >= 2 ? `${dirnames[dirnames.length - 2]}` : "";
-        return `${grandParentDir}${parentDir}${path.sep}${path.basename(sourceFile.fileName)}`;
-    }
+        let parentDir =
+            dirnames.length >= 1
+                ? `${path.sep}${dirnames[dirnames.length - 1]}`
+                : "";
+        let grandParentDir =
+            dirname.length >= 2 ? `${dirnames[dirnames.length - 2]}` : "";
+        return `${grandParentDir}${parentDir}${path.sep}${path.basename(
+            sourceFile.fileName
+        )}`;
+    };
 
-    sourceFilesToTranspile.sort((a, b) => buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b)));
+    sourceFilesToTranspile.sort((a, b) =>
+        buildSourceFileShortPath(a).localeCompare(buildSourceFileShortPath(b))
+    );
 
     for (const sourceFileToTranspile of sourceFilesToTranspile) {
         await new Promise((resolve) => {
-
-            updateBuildProgress(currentStep, sourceFiles.length + 1, buildSourceFileShortPath(sourceFileToTranspile));
+            updateBuildProgress(
+                currentStep,
+                sourceFiles.length + 1,
+                buildSourceFileShortPath(sourceFileToTranspile)
+            );
             setTimeout(() => {
                 resolve();
             }, 200);
@@ -124,14 +190,9 @@ export async function buildBundleInfo(
 
         getIncrementalDiagnostics(sourceFileToTranspile);
 
-        (sourceFileToTranspile as any).fileName = (sourceFileToTranspile as any).fileName.replace("node_modules/", "");
-        (sourceFileToTranspile as any).originalFileName = (sourceFileToTranspile as any).originalFileName.replace("node_modules/", "");
-        (sourceFileToTranspile as any).path = (sourceFileToTranspile as any).path.replace("node_modules/", "");
-        (sourceFileToTranspile as any).resolvedPath = (sourceFileToTranspile as any).resolvedPath.replace("node_modules/", "");
-
         const { transpiledFiles } = tstl.transpile({
             program: program as any,
-            sourceFiles: [(sourceFileToTranspile as any)]
+            sourceFiles: [sourceFileToTranspile as any],
         });
 
         let transpiledFile: tstl.TranspiledFile | undefined;
@@ -144,33 +205,47 @@ export async function buildBundleInfo(
             const debugInfo = findModuleDebugInfo({
                 originalFileName: transpiledFile.fileName,
                 filename: transpiledFile.fileName,
-                fileContent: transpiledFile.lua!
+                fileContent: transpiledFile.lua!,
             });
 
             await addOriginalMappings(debugInfo, transpiledFile);
-            mangleSymbols(
-                debugInfo,
-                (symbol: Readonly<ModuleDebugInfo>) => hashText(symbol.originalFileName)
+            mangleSymbols(debugInfo, (symbol: Readonly<ModuleDebugInfo>) =>
+                hashText(symbol.originalFileName)
             );
 
             sanityCheckDebugSymbols(debugInfo);
-
             res.entries[transpiledFile.fileName] = {
                 debugSymbols: debugInfo,
                 moduleText: transpiledFile.lua!,
-                moduleName: `${makeRelativePath(transpiledFile.fileName).split(path.sep).join(".").split(".ts")[0]}`,
+                moduleName: `${
+                    makeRelativePath(transpiledFile.fileName)
+                        .split(path.sep)
+                        .join(".")
+                        .split(".ts")[0]
+                }`,
                 originalFileName: transpiledFile.fileName,
-                originalFileHash: hashSourceFile(sourceFilesToTranspile.find((x) => x.fileName == transpiledFile?.fileName))
+                originalFileHash: hashSourceFile(
+                    sourceFilesToTranspile.find(
+                        (x) => x.fileName == transpiledFile?.fileName
+                    )
+                ),
             };
         }
         currentStep++;
     }
 
-    if (!Object.values(res.entries).some((x) => x.moduleName == "lualib_bundle")) {
-        updateBuildProgress(currentStep, sourceFiles.length + 1, "lualib_bundle");
+    if (
+        !Object.values(res.entries).some((x) => x.moduleName == "lualib_bundle")
+    ) {
+        updateBuildProgress(
+            currentStep,
+            sourceFiles.length + 1,
+            "lualib_bundle"
+        );
         const lualiBundle = getLuaLibBundle({
             getCurrentDirectory: () => "",
-            readFile: (filePath: string) => fs.readFileSync(filePath).toString()
+            readFile: (filePath: string) =>
+                fs.readFileSync(filePath).toString(),
         });
         const debugInfo = findModuleDebugInfo({
             originalFileName: "lualib_bundle",
@@ -180,7 +255,8 @@ export async function buildBundleInfo(
 
         mangleSymbols(
             debugInfo,
-            (symbol: Readonly<ModuleDebugInfo>) => `lualib_bundle${hashText(symbol.originalFileName)}`
+            (symbol: Readonly<ModuleDebugInfo>) =>
+                `lualib_bundle${hashText(symbol.originalFileName)}`
         );
 
         sanityCheckDebugSymbols(debugInfo);
@@ -190,10 +266,14 @@ export async function buildBundleInfo(
             moduleText: lualiBundle,
             moduleName: "lualib_bundle",
             originalFileName: "lualib_bundle",
-            originalFileHash: hashText(lualiBundle)
+            originalFileHash: hashText(lualiBundle),
         };
     }
-    updateBuildProgress(currentStep, sourceFiles.length + 1, buildOptions.entry);
+    updateBuildProgress(
+        currentStep,
+        sourceFiles.length + 1,
+        buildOptions.entry
+    );
 
     return res;
 }

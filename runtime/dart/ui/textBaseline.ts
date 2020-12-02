@@ -1,4 +1,4 @@
 export enum TextBaseline {
     alphabetic,
-    ideographic
+    ideographic,
 }

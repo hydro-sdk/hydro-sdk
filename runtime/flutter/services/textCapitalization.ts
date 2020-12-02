@@ -4,4 +4,3 @@ export enum TextCapitalization {
     characters,
     none,
 }
-
