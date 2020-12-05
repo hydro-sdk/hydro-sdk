@@ -78,6 +78,7 @@ jobs:
           git checkout -b bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}
           git push --set-upstream origin bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}
           git commit -a -m "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}"
+        working-directory: hydro
 
       - name: Open PR
         env:
@@ -86,3 +87,4 @@ jobs:
           echo "CHGIBB_HYDRO_PAT" > token.txt
           gh auth login --with-token < token.txt
           gp pr create --title "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}"
+        working-directory: hydro
