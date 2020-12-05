@@ -75,8 +75,9 @@ jobs:
 
       - name: Commit Changes
         run: |
-          git checkout -b bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}
-          git push --set-upstream origin bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}
+          UUID=$(cat /proc/sys/kernel/random/uuid)
+          git checkout -b bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}-$UUID
+          git push --set-upstream origin bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}-$UUID
           git commit -a -m "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}"
         working-directory: hydro
 
