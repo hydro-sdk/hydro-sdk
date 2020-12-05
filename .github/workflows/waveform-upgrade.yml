@@ -88,5 +88,5 @@ jobs:
         run: |
           echo "$CHGIBB_HYDRO_PAT" > token.txt
           gh auth login --with-token < token.txt
-          gh pr create --title "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}"
+          gh pr create --title "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}" --body ""
         working-directory: hydro
