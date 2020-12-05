@@ -79,6 +79,7 @@ jobs:
           git checkout -b bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}-$UUID
           git push --set-upstream origin bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}-$UUID
           git commit -a -m "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}"
+          git push
         working-directory: hydro
 
       - name: Open PR
