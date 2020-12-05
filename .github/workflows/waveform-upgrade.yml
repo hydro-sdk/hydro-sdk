@@ -64,6 +64,6 @@ jobs:
         env:
           CHGIBB_HYDRO_PAT: ${{secrets.CHGIBB_HYDRO_PAT}}
         run: |
-          echo ${{CHGIBB_HYDRO_PAT}} > token.txt
+          echo "CHGIBB_HYDRO_PAT" > token.txt
           gh auth login --with-token < token.txt
           gp pr create --title "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}"
