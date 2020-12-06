@@ -84,9 +84,9 @@ jobs:
 
       - name: Open PR
         env:
-          CHGIBB_HYDRO_PAT: ${{secrets.CHGIBB_HYDRO_PAT}}
+          WAVEFORM_BOT_PAT: ${{secrets.WAVEFORM_BOT_PAT}}
         run: |
-          echo "$CHGIBB_HYDRO_PAT" > token.txt
+          echo "$WAVEFORM_BOT_PAT" > token.txt
           gh auth login --with-token < token.txt
           gh pr create --title "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}" --body ""
         working-directory: hydro
