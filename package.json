@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "description": "A new Flutter project.",
   "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
   "scripts": {
     "tstl": "tstl",
     "luac": "./../luac.lua -o assets/examples/hw.hc assets/examples/hw.lua",
@@ -19,6 +15,10 @@
     "test:compiler": "npm run build:compiler && bash scripts/jest.bash",
     "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
   },
+  "files": [
+    "dist",
+    "runtime"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {},
