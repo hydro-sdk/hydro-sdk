@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "description": "A new Flutter project.",
   "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
   "scripts": {
     "tstl": "tstl",
     "luac": "./../luac.lua -o assets/examples/hw.hc assets/examples/hw.lua",
@@ -19,11 +15,15 @@
     "test:compiler": "npm run build:compiler && bash scripts/jest.bash",
     "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
   },
+  "files": [
+    "dist",
+    "runtime"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
-    "@hydro-sdk/waveform": "^0.0.1-nightly.6",
+    "@hydro-sdk/waveform": "0.0.1-nightly.18",
     "@types/clear": "^0.1.0",
     "@types/cli-progress": "^3.7.0",
     "@types/colors": "^1.2.1",

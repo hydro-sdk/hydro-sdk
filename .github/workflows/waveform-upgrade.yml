@@ -11,9 +11,82 @@ on:
         required: true
 
 jobs:
-  performUpgrade:
-    runs-on: ubuntu-18.04
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+        include:
+          - os: ubuntu-18.04
+            TARGET: linux
     steps:
-    - run: |
-        echo "${{ github.event.inputs.depName  }}"
-        echo "${{ github.event.inputs.depVersion  }}"
+      - name: Install Linux Dependencies
+        run: |
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+          sudo apt-add-repository https://cli.github.com/packages
+          sudo apt update
+          sudo apt install gh
+
+      - name: Clone Flutter repository with stable channel
+        uses: actions/checkout@v2
+        with:
+          repository: "flutter/flutter"
+          ref: "1.22.0"
+          path: "flutter"
+          fetch-depth: 0
+
+      - name: Add Flutter to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+
+      - name: Add Dart to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+
+      - name: Run Flutter doctor
+        run: flutter doctor -v
+
+      - name: Clone Hydro-SDK
+        uses: actions/checkout@v2
+        with:
+          path: "hydro"
+
+      - name: Get packages for Hydro-SDK JS
+        run: npm install
+        working-directory: hydro
+
+      - name: Get packages for Hydro-SDK Dart
+        run: flutter pub get
+        working-directory: hydro
+
+      - name: Configure Git Identity
+        env:
+          PUBLISH_EMAIL: ${{secrets.PUBLISH_EMAIL}}
+          PUBLISH_USERNAME: ${{secrets.PUBLISH_USERNAME}}
+        run: |
+          git config --global user.email "$PUBLISH_EMAIL"
+          git config --global user.name "$PUBLISH_USERNAME"
+        working-directory: hydro
+
+      - name: Waveform Install
+        run: |
+          flutter pub run waveform:install --name=${{github.event.inputs.depName}} --version=${{github.event.inputs.depVersion}}
+        working-directory: hydro
+
+      - name: Commit Changes
+        run: |
+          UUID=$(cat /proc/sys/kernel/random/uuid)
+          git checkout -b bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}-$UUID
+          git push --set-upstream origin bump-${{github.event.inputs.depName}}-${{github.event.inputs.depVersion}}-$UUID
+          git commit -a -m "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}"
+          git push
+        working-directory: hydro
+
+      - name: Open PR
+        env:
+          WAVEFORM_BOT_PAT: ${{secrets.WAVEFORM_BOT_PAT}}
+        run: |
+          echo "$WAVEFORM_BOT_PAT" > token.txt
+          gh auth login --with-token < token.txt
+          gh pr create --title "Bump ${{github.event.inputs.depName}} to ${{github.event.inputs.depVersion}}" --body ""
+        working-directory: hydro
