@@ -7,7 +7,7 @@ function reconcileResourcePath(resPath) {
     if (fs.existsSync(devPath)) {
         return devPath;
     }
-    var prodPath = path.resolve("./node_modules/hydro-sdk/dist/compiler/" + resPath);
+    var prodPath = path.resolve("./node_modules/@hydro-sdk/hydro-sdk/dist/compiler/" + resPath);
     if (fs.existsSync(prodPath)) {
         return prodPath;
     }

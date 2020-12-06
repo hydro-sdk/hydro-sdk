@@ -82,3 +82,8 @@ jobs:
     - name: Push Tags
       run: git push --tags
       working-directory: hydro
+
+    - name: Trigger Dependents
+      run: |
+        flutter pub run waveform:triggerDependent --repo="hydro_demo" --ref="master" --token="${{secrets.DISPATCH_TOKEN}}" 
+      working-directory: hydro
