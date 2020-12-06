@@ -55,7 +55,8 @@
     "typedoc": "0.17.0-3",
     "typedoc-neo-theme": "1.0.8",
     "typescript": "3.8.3",
-    "typescript-to-lua": "0.34.0"
+    "typescript-to-lua": "0.34.0",
+    "@hydro-sdk/@hydro-sdk/waveform": "0.0.1-nightly.16"
   },
   "importSort": {
     ".js, .jsx, .ts, .tsx": {

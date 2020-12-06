@@ -12,6 +12,10 @@ dependencies:
   json_serializable: "3.5.0"
   recase: "^3.0.0"
   tuple: "^1.0.2"
+  @hydro-sdk: 
+    git: 
+      ref: "0.0.1-nightly.16"
+      url: "git://github.com/hydro-sdk/hydro-sdk/waveform.git"
   flutter: 
     sdk: "flutter"
   surveyor: 
