@@ -60,6 +60,7 @@ class Decoder {
       //https://github.com/hydro-sdk/hydro-sdk/issues/80
       var uint8list = read(readInt(code.ptrSize, code.bigEndian) - 1);
       o = Utf8Decoder().convert(uint8list);
+      return o;
     } catch (err) {
       //String isn't a valid escape
     }
