@@ -55,9 +55,15 @@ class Decoder {
   }
 
   String readString() {
-    //https://github.com/hydro-sdk/hydro-sdk/issues/80
-    var uint8list = read(readInt(code.ptrSize, code.bigEndian) - 1);
-    String o = Utf8Decoder().convert(uint8list);
+    String o;
+    try {
+      //https://github.com/hydro-sdk/hydro-sdk/issues/80
+      var uint8list = read(readInt(code.ptrSize, code.bigEndian) - 1);
+      o = Utf8Decoder().convert(uint8list);
+    } catch (err) {
+      //String isn't a valid escape
+    }
+    o = String.fromCharCodes(read(readInt(code.ptrSize, code.bigEndian) - 1));
     if (read(1)[0] != 0) throw "Corrupt string";
     return o;
   }
