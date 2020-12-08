@@ -20,7 +20,7 @@ dependencies:
       url: "git://github.com/chgibb/surveyor"
   waveform: 
     git: 
-      ref: "0.0.1-nightly.18"
+      ref: "0.0.1-nightly.19"
       url: "git://github.com/hydro-sdk/waveform.git"
   code_builder: null
   dart_style: null
