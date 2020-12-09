@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:hydro_sdk/cfr/decode/maybeAssignDebugSymbol.dart';
@@ -54,10 +55,15 @@ class Decoder {
   }
 
   String readString() {
-    String o = new String.fromCharCodes(
-        read(readInt(code.ptrSize, code.bigEndian) - 1));
+    var uint8list = read(readInt(code.ptrSize, code.bigEndian) - 1);
     if (read(1)[0] != 0) throw "Corrupt string";
-    return o;
+    try {
+      String o = Utf8Decoder().convert(uint8list);
+
+      return o;
+    } catch (err) {
+      return String.fromCharCodes(uint8list);
+    }
   }
 
   Inst readInst() {
