@@ -18,7 +18,6 @@ function second() {
     assert(node != undefined);
     assert(node.showName == true);
     assert(node.showSeparator == true);
-    console.log(node.style);
     assert(node.style == DiagnosticsTreeStyle.whitespace);
 }
 
