@@ -2,7 +2,29 @@ import { DiagnosticsNode } from "../../../../runtime/flutter/foundation/diagnost
 import { DiagnosticsTreeStyle } from "../../../../runtime/flutter/foundation/diagnosticsTreeStyle";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
-const first = new DiagnosticsNode({});
+function first() {
+    const node = new DiagnosticsNode({});
 
-assert(first != undefined);
-assert(first.style == DiagnosticsTreeStyle.singleLine);
+    assert(node != undefined);
+    assert(node.showName == true);
+    assert(node.showSeparator == true);
+}
+
+function second() {
+    const node = new DiagnosticsNode({
+        style: DiagnosticsTreeStyle.whitespace,
+    });
+
+    assert(node != undefined);
+    assert(node.showName == true);
+    assert(node.showSeparator == true);
+    console.log(node.style);
+    assert(node.style == DiagnosticsTreeStyle.whitespace);
+}
+
+function main() {
+    first();
+    second();
+}
+
+main();
