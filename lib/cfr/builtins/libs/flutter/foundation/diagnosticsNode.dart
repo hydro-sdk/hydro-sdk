@@ -31,8 +31,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
     table['showSeparator'] = showSeparator;
     table['showName'] = showName;
     table['linePrefix'] = linePrefix;
-    table['style'] = style;
-    DiagnosticsTreeStyle.values.indexWhere((x) {
+    table['style'] = DiagnosticsTreeStyle.values.indexWhere((x) {
       return x == style;
     });
     table['_dart_toDescription'] = makeLuaDartFunc(func: (List<dynamic> args) {
