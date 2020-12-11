@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dar
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
+import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformVmDeclarationToTs.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
@@ -52,13 +53,26 @@ class TsClassVmDeclaration {
                       .map((x) =>
                           TsVmDeclaration(name: x, methods: [], children: []))
                       .reduce((previousValue, element) => TsVmDeclaration.clone(
-                              tsVmDeclaration:
-                                  _addConstructorBindingDeclarations(
-                                      tsVmDeclaration: previousValue),
-                              children: [
-                                _addConstructorBindingDeclarations(
-                                    tsVmDeclaration: element)
-                              ]))) +
+                            tsVmDeclaration: _addConstructorBindingDeclarations(
+                                tsVmDeclaration: previousValue),
+                            children: [
+                              _addConstructorBindingDeclarations(
+                                  tsVmDeclaration: TsVmDeclaration.clone(
+                                      tsVmDeclaration: element,
+                                      methods: swidClass.factoryConstructors
+                                          .map((x) =>
+                                              SwidFunctionType.MakeReceiverVoid(
+                                                  swidFunctionType:
+                                                      SwidFunctionType.clone(
+                                                swidFunctionType: x,
+                                                name: transformToCamelCase(
+                                                        str: swidClass.name) +
+                                                    transformToPascalCase(
+                                                        str: x.name),
+                                              )))
+                                          .toList())),
+                            ],
+                          ))) +
           ";\n"
       : "";
 }

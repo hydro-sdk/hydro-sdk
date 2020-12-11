@@ -17,7 +17,8 @@ void main() {
         TsClassVmDeclaration(swidClass: diagnosticsNodeClass).toTsSource(), """
 declare const flutter: {
 foundation: {
-diagnosticsNode: (this : void, diagnosticsNode : DiagnosticsNode, props : { linePrefix? : string | undefined, showName : boolean, showSeparator : boolean, style? : DiagnosticsTreeStyle | undefined, name? : string | undefined, }) => DiagnosticsNode
+diagnosticsNode: (this : void, diagnosticsNode : DiagnosticsNode, props : { linePrefix? : string | undefined, showName : boolean, showSeparator : boolean, style? : DiagnosticsTreeStyle | undefined, name? : string | undefined, }) => DiagnosticsNode;
+diagnosticsNodeMessage: (this : void, message : string, props : { allowWrap : boolean, level : DiagnosticLevel, style : DiagnosticsTreeStyle, }) => DiagnosticsNode
 }
 };
 """);
