@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldName.dar
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticMethodImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsEnum.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedProps.dart';
@@ -58,6 +59,11 @@ abstract class TsIr with _$TsIr {
               TsClassStaticConstFieldDeclarations
                   tsClassStaticConstFieldDeclarations}) =
       _$FromTsClassStaticConstFieldDeclarations;
+  factory TsIr.fromTsClassStaticMethodImplementation(
+          {@required
+              TsClassStaticMethodImplementation
+                  tsClassStaticMethodImplementation}) =
+      _$FromTsClassStaticMethodImplementation;
   factory TsIr.fromTsEnum({@required TsEnum tsEnum}) = _$FromTsEnum;
   factory TsIr.fromTsInterface({@required TsInterface tsInterface}) =
       _$FromTsInterface;

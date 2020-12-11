@@ -96,6 +96,16 @@ class _$TsIrTearOff {
   }
 
 // ignore: unused_element
+  _$FromTsClassStaticMethodImplementation fromTsClassStaticMethodImplementation(
+      {@required
+          TsClassStaticMethodImplementation
+              tsClassStaticMethodImplementation}) {
+    return _$FromTsClassStaticMethodImplementation(
+      tsClassStaticMethodImplementation: tsClassStaticMethodImplementation,
+    );
+  }
+
+// ignore: unused_element
   _$FromTsEnum fromTsEnum({@required TsEnum tsEnum}) {
     return _$FromTsEnum(
       tsEnum: tsEnum,
@@ -210,6 +220,10 @@ mixin _$TsIr {
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -255,6 +269,8 @@ mixin _$TsIr {
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -298,6 +314,9 @@ mixin _$TsIr {
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -333,6 +352,8 @@ mixin _$TsIr {
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -468,6 +489,10 @@ class _$_$FromTsClassConstructorImplementation
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -502,6 +527,7 @@ class _$_$FromTsClassConstructorImplementation
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -536,6 +562,8 @@ class _$_$FromTsClassConstructorImplementation
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -588,6 +616,9 @@ class _$_$FromTsClassConstructorImplementation
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -615,6 +646,7 @@ class _$_$FromTsClassConstructorImplementation
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -645,6 +677,8 @@ class _$_$FromTsClassConstructorImplementation
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -778,6 +812,10 @@ class _$_$FromTsFunctionDefaultNamedProps
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -812,6 +850,7 @@ class _$_$FromTsFunctionDefaultNamedProps
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -845,6 +884,8 @@ class _$_$FromTsFunctionDefaultNamedProps
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -896,6 +937,9 @@ class _$_$FromTsFunctionDefaultNamedProps
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -923,6 +967,7 @@ class _$_$FromTsFunctionDefaultNamedProps
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -953,6 +998,8 @@ class _$_$FromTsFunctionDefaultNamedProps
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -1088,6 +1135,10 @@ class _$_$FromClassInstanceFieldDeclarations
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -1122,6 +1173,7 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -1156,6 +1208,8 @@ class _$_$FromClassInstanceFieldDeclarations
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -1208,6 +1262,9 @@ class _$_$FromClassInstanceFieldDeclarations
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -1235,6 +1292,7 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -1265,6 +1323,8 @@ class _$_$FromClassInstanceFieldDeclarations
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -1397,6 +1457,10 @@ class _$_$FromTsClassMethodDeclarations
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -1431,6 +1495,7 @@ class _$_$FromTsClassMethodDeclarations
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -1464,6 +1529,8 @@ class _$_$FromTsClassMethodDeclarations
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -1515,6 +1582,9 @@ class _$_$FromTsClassMethodDeclarations
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -1542,6 +1612,7 @@ class _$_$FromTsClassMethodDeclarations
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -1572,6 +1643,8 @@ class _$_$FromTsClassMethodDeclarations
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -1712,6 +1785,10 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -1746,6 +1823,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -1780,6 +1858,8 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -1832,6 +1912,9 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -1859,6 +1942,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -1889,6 +1973,8 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -2025,6 +2111,10 @@ class _$_$FromTsClassMethodInjectionFieldName
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -2059,6 +2149,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -2092,6 +2183,8 @@ class _$_$FromTsClassMethodInjectionFieldName
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -2144,6 +2237,9 @@ class _$_$FromTsClassMethodInjectionFieldName
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -2171,6 +2267,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -2201,6 +2298,8 @@ class _$_$FromTsClassMethodInjectionFieldName
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -2327,6 +2426,10 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -2361,6 +2464,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -2394,6 +2498,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -2445,6 +2551,9 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -2472,6 +2581,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -2502,6 +2612,8 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -2623,6 +2735,10 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -2657,6 +2773,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -2690,6 +2807,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -2741,6 +2860,9 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -2768,6 +2890,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -2798,6 +2921,8 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -2933,6 +3058,10 @@ class _$_$FromTsClassStaticConstFieldDeclarations
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -2967,6 +3096,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -3001,6 +3131,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -3053,6 +3185,9 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -3080,6 +3215,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -3110,6 +3246,8 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -3143,6 +3281,334 @@ abstract class _$FromTsClassStaticConstFieldDeclarations implements TsIr {
   TsClassStaticConstFieldDeclarations get tsClassStaticConstFieldDeclarations;
   _$$FromTsClassStaticConstFieldDeclarationsCopyWith<
       _$FromTsClassStaticConstFieldDeclarations> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsClassStaticMethodImplementationCopyWith<$Res> {
+  factory _$$FromTsClassStaticMethodImplementationCopyWith(
+          _$FromTsClassStaticMethodImplementation value,
+          $Res Function(_$FromTsClassStaticMethodImplementation) then) =
+      __$$FromTsClassStaticMethodImplementationCopyWithImpl<$Res>;
+  $Res call(
+      {TsClassStaticMethodImplementation tsClassStaticMethodImplementation});
+}
+
+/// @nodoc
+class __$$FromTsClassStaticMethodImplementationCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsClassStaticMethodImplementationCopyWith<$Res> {
+  __$$FromTsClassStaticMethodImplementationCopyWithImpl(
+      _$FromTsClassStaticMethodImplementation _value,
+      $Res Function(_$FromTsClassStaticMethodImplementation) _then)
+      : super(
+            _value, (v) => _then(v as _$FromTsClassStaticMethodImplementation));
+
+  @override
+  _$FromTsClassStaticMethodImplementation get _value =>
+      super._value as _$FromTsClassStaticMethodImplementation;
+
+  @override
+  $Res call({
+    Object tsClassStaticMethodImplementation = freezed,
+  }) {
+    return _then(_$FromTsClassStaticMethodImplementation(
+      tsClassStaticMethodImplementation:
+          tsClassStaticMethodImplementation == freezed
+              ? _value.tsClassStaticMethodImplementation
+              : tsClassStaticMethodImplementation
+                  as TsClassStaticMethodImplementation,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromTsClassStaticMethodImplementation
+    implements _$FromTsClassStaticMethodImplementation {
+  _$_$FromTsClassStaticMethodImplementation(
+      {@required this.tsClassStaticMethodImplementation})
+      : assert(tsClassStaticMethodImplementation != null);
+
+  @override
+  final TsClassStaticMethodImplementation tsClassStaticMethodImplementation;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsClassStaticMethodImplementation(tsClassStaticMethodImplementation: $tsClassStaticMethodImplementation)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsClassStaticMethodImplementation &&
+            (identical(other.tsClassStaticMethodImplementation,
+                    tsClassStaticMethodImplementation) ||
+                const DeepCollectionEquality().equals(
+                    other.tsClassStaticMethodImplementation,
+                    tsClassStaticMethodImplementation)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsClassStaticMethodImplementation);
+
+  @override
+  _$$FromTsClassStaticMethodImplementationCopyWith<
+          _$FromTsClassStaticMethodImplementation>
+      get copyWith => __$$FromTsClassStaticMethodImplementationCopyWithImpl<
+          _$FromTsClassStaticMethodImplementation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodDeclarations(
+            TsClassMethodDeclarations tsClassMethodDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
+    @required
+        Result fromTsFunctionSelfBindingInvocation(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
+    assert(fromTsFunctionSelfBindingInvocation != null);
+    return fromTsClassStaticMethodImplementation(
+        tsClassStaticMethodImplementation);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodDeclarations(
+        TsClassMethodDeclarations tsClassMethodDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
+    Result fromTsFunctionSelfBindingInvocation(
+        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassStaticMethodImplementation != null) {
+      return fromTsClassStaticMethodImplementation(
+          tsClassStaticMethodImplementation);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodDeclarations(
+            _$FromTsClassMethodDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
+    @required
+        Result fromTsFunctionSelfBindingInvocation(
+            _$FromTsFunctionSelfBindingInvocation value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
+    assert(fromTsFunctionSelfBindingInvocation != null);
+    return fromTsClassStaticMethodImplementation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
+    Result fromTsFunctionSelfBindingInvocation(
+        _$FromTsFunctionSelfBindingInvocation value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsClassStaticMethodImplementation != null) {
+      return fromTsClassStaticMethodImplementation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsClassStaticMethodImplementation implements TsIr {
+  factory _$FromTsClassStaticMethodImplementation(
+          {@required
+              TsClassStaticMethodImplementation
+                  tsClassStaticMethodImplementation}) =
+      _$_$FromTsClassStaticMethodImplementation;
+
+  TsClassStaticMethodImplementation get tsClassStaticMethodImplementation;
+  _$$FromTsClassStaticMethodImplementationCopyWith<
+      _$FromTsClassStaticMethodImplementation> get copyWith;
 }
 
 /// @nodoc
@@ -3229,6 +3695,10 @@ class _$_$FromTsEnum implements _$FromTsEnum {
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -3263,6 +3733,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -3296,6 +3767,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -3347,6 +3820,9 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -3374,6 +3850,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -3404,6 +3881,8 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -3522,6 +4001,10 @@ class _$_$FromTsInterface implements _$FromTsInterface {
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -3556,6 +4039,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -3589,6 +4073,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -3640,6 +4126,9 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -3667,6 +4156,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -3697,6 +4187,8 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -3821,6 +4313,10 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -3855,6 +4351,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -3888,6 +4385,8 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -3939,6 +4438,9 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -3966,6 +4468,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -3996,6 +4499,8 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -4134,6 +4639,10 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -4168,6 +4677,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -4201,6 +4711,8 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -4252,6 +4764,9 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -4279,6 +4794,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -4309,6 +4825,8 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -4460,6 +4978,10 @@ class _$_$FromTsFunctionInvocationNamedParameters
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -4494,6 +5016,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -4528,6 +5051,8 @@ class _$_$FromTsFunctionInvocationNamedParameters
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -4580,6 +5105,9 @@ class _$_$FromTsFunctionInvocationNamedParameters
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -4607,6 +5135,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -4637,6 +5166,8 @@ class _$_$FromTsFunctionInvocationNamedParameters
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -4801,6 +5332,10 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -4835,6 +5370,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -4869,6 +5405,8 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -4921,6 +5459,9 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -4948,6 +5489,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -4978,6 +5520,8 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -5137,6 +5681,10 @@ class _$_$TsFunctionInvocationNamedParametersSpread
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -5171,6 +5719,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -5205,6 +5754,8 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -5257,6 +5808,9 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -5284,6 +5838,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -5314,6 +5869,8 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -5438,6 +5995,10 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -5472,6 +6033,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -5505,6 +6067,8 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -5556,6 +6120,9 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -5583,6 +6150,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -5613,6 +6181,8 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -5744,6 +6314,10 @@ class _$_$FromTsFunctionSelfBindingInvocation
         Result fromTsClassStaticConstFieldDeclarations(
             TsClassStaticConstFieldDeclarations
                 tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
     @required Result fromTsEnum(TsEnum tsEnum),
     @required Result fromTsInterface(TsInterface tsInterface),
     @required
@@ -5778,6 +6352,7 @@ class _$_$FromTsFunctionSelfBindingInvocation
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -5811,6 +6386,8 @@ class _$_$FromTsFunctionSelfBindingInvocation
     Result fromTsClassStaticConstFieldDeclarations(
         TsClassStaticConstFieldDeclarations
             tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
     Result fromTsEnum(TsEnum tsEnum),
     Result fromTsInterface(TsInterface tsInterface),
     Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
@@ -5863,6 +6440,9 @@ class _$_$FromTsFunctionSelfBindingInvocation
     @required
         Result fromTsClassStaticConstFieldDeclarations(
             _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
     @required Result fromTsEnum(_$FromTsEnum value),
     @required Result fromTsInterface(_$FromTsInterface value),
     @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
@@ -5890,6 +6470,7 @@ class _$_$FromTsFunctionSelfBindingInvocation
     assert(fromTsClassPostamble != null);
     assert(fromTsClassPreamble != null);
     assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
     assert(fromTsEnum != null);
     assert(fromTsInterface != null);
     assert(fromTsClassVmDeclaration != null);
@@ -5920,6 +6501,8 @@ class _$_$FromTsFunctionSelfBindingInvocation
     Result fromTsClassPreamble(_$FromTsClassPreamble value),
     Result fromTsClassStaticConstFieldDeclarations(
         _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
     Result fromTsEnum(_$FromTsEnum value),
     Result fromTsInterface(_$FromTsInterface value),
     Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
