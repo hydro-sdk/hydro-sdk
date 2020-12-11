@@ -14,6 +14,38 @@ class _$DartIrTearOff {
   const _$DartIrTearOff();
 
 // ignore: unused_element
+  _$FromDartBindInstanceField fromDartBindInstanceField(
+      {@required DartBindInstanceField dartBindInstanceField}) {
+    return _$FromDartBindInstanceField(
+      dartBindInstanceField: dartBindInstanceField,
+    );
+  }
+
+// ignore: unused_element
+  _$FromDartBindInstanceFieldDirect fromDartBindInstanceFieldDirect(
+      {@required DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) {
+    return _$FromDartBindInstanceFieldDirect(
+      dartBindInstanceFieldDirect: dartBindInstanceFieldDirect,
+    );
+  }
+
+// ignore: unused_element
+  _$FromDartBoxEnumReference fromDartBoxEnumReference(
+      {@required DartBoxEnumReference dartBoxEnumReference}) {
+    return _$FromDartBoxEnumReference(
+      dartBoxEnumReference: dartBoxEnumReference,
+    );
+  }
+
+// ignore: unused_element
+  _$FromDartBoxObjectReference fromDartBoxObjectReference(
+      {@required DartBoxObjectReference dartBoxObjectReference}) {
+    return _$FromDartBoxObjectReference(
+      dartBoxObjectReference: dartBoxObjectReference,
+    );
+  }
+
+// ignore: unused_element
   _$FromDartFunctionSelfBindingInvocation fromDartFunctionSelfBindingInvocation(
       {@required
           DartFunctionSelfBindingInvocation
@@ -75,6 +107,18 @@ mixin _$DartIr {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -94,6 +138,13 @@ mixin _$DartIr {
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -109,6 +160,14 @@ mixin _$DartIr {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -128,6 +187,11 @@ mixin _$DartIr {
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -155,6 +219,891 @@ class _$DartIrCopyWithImpl<$Res> implements $DartIrCopyWith<$Res> {
   final DartIr _value;
   // ignore: unused_field
   final $Res Function(DartIr) _then;
+}
+
+/// @nodoc
+abstract class _$$FromDartBindInstanceFieldCopyWith<$Res> {
+  factory _$$FromDartBindInstanceFieldCopyWith(
+          _$FromDartBindInstanceField value,
+          $Res Function(_$FromDartBindInstanceField) then) =
+      __$$FromDartBindInstanceFieldCopyWithImpl<$Res>;
+  $Res call({DartBindInstanceField dartBindInstanceField});
+}
+
+/// @nodoc
+class __$$FromDartBindInstanceFieldCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartBindInstanceFieldCopyWith<$Res> {
+  __$$FromDartBindInstanceFieldCopyWithImpl(_$FromDartBindInstanceField _value,
+      $Res Function(_$FromDartBindInstanceField) _then)
+      : super(_value, (v) => _then(v as _$FromDartBindInstanceField));
+
+  @override
+  _$FromDartBindInstanceField get _value =>
+      super._value as _$FromDartBindInstanceField;
+
+  @override
+  $Res call({
+    Object dartBindInstanceField = freezed,
+  }) {
+    return _then(_$FromDartBindInstanceField(
+      dartBindInstanceField: dartBindInstanceField == freezed
+          ? _value.dartBindInstanceField
+          : dartBindInstanceField as DartBindInstanceField,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
+  _$_$FromDartBindInstanceField({@required this.dartBindInstanceField})
+      : assert(dartBindInstanceField != null);
+
+  @override
+  final DartBindInstanceField dartBindInstanceField;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartBindInstanceField(dartBindInstanceField: $dartBindInstanceField)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartBindInstanceField &&
+            (identical(other.dartBindInstanceField, dartBindInstanceField) ||
+                const DeepCollectionEquality().equals(
+                    other.dartBindInstanceField, dartBindInstanceField)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dartBindInstanceField);
+
+  @override
+  _$$FromDartBindInstanceFieldCopyWith<_$FromDartBindInstanceField>
+      get copyWith => __$$FromDartBindInstanceFieldCopyWithImpl<
+          _$FromDartBindInstanceField>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartBindInstanceField(dartBindInstanceField);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBindInstanceField != null) {
+      return fromDartBindInstanceField(dartBindInstanceField);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartBindInstanceField(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBindInstanceField != null) {
+      return fromDartBindInstanceField(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartBindInstanceField implements DartIr {
+  factory _$FromDartBindInstanceField(
+          {@required DartBindInstanceField dartBindInstanceField}) =
+      _$_$FromDartBindInstanceField;
+
+  DartBindInstanceField get dartBindInstanceField;
+  _$$FromDartBindInstanceFieldCopyWith<_$FromDartBindInstanceField>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromDartBindInstanceFieldDirectCopyWith<$Res> {
+  factory _$$FromDartBindInstanceFieldDirectCopyWith(
+          _$FromDartBindInstanceFieldDirect value,
+          $Res Function(_$FromDartBindInstanceFieldDirect) then) =
+      __$$FromDartBindInstanceFieldDirectCopyWithImpl<$Res>;
+  $Res call({DartBindInstanceFieldDirect dartBindInstanceFieldDirect});
+}
+
+/// @nodoc
+class __$$FromDartBindInstanceFieldDirectCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartBindInstanceFieldDirectCopyWith<$Res> {
+  __$$FromDartBindInstanceFieldDirectCopyWithImpl(
+      _$FromDartBindInstanceFieldDirect _value,
+      $Res Function(_$FromDartBindInstanceFieldDirect) _then)
+      : super(_value, (v) => _then(v as _$FromDartBindInstanceFieldDirect));
+
+  @override
+  _$FromDartBindInstanceFieldDirect get _value =>
+      super._value as _$FromDartBindInstanceFieldDirect;
+
+  @override
+  $Res call({
+    Object dartBindInstanceFieldDirect = freezed,
+  }) {
+    return _then(_$FromDartBindInstanceFieldDirect(
+      dartBindInstanceFieldDirect: dartBindInstanceFieldDirect == freezed
+          ? _value.dartBindInstanceFieldDirect
+          : dartBindInstanceFieldDirect as DartBindInstanceFieldDirect,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartBindInstanceFieldDirect
+    implements _$FromDartBindInstanceFieldDirect {
+  _$_$FromDartBindInstanceFieldDirect(
+      {@required this.dartBindInstanceFieldDirect})
+      : assert(dartBindInstanceFieldDirect != null);
+
+  @override
+  final DartBindInstanceFieldDirect dartBindInstanceFieldDirect;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartBindInstanceFieldDirect(dartBindInstanceFieldDirect: $dartBindInstanceFieldDirect)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartBindInstanceFieldDirect &&
+            (identical(other.dartBindInstanceFieldDirect,
+                    dartBindInstanceFieldDirect) ||
+                const DeepCollectionEquality().equals(
+                    other.dartBindInstanceFieldDirect,
+                    dartBindInstanceFieldDirect)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dartBindInstanceFieldDirect);
+
+  @override
+  _$$FromDartBindInstanceFieldDirectCopyWith<_$FromDartBindInstanceFieldDirect>
+      get copyWith => __$$FromDartBindInstanceFieldDirectCopyWithImpl<
+          _$FromDartBindInstanceFieldDirect>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartBindInstanceFieldDirect(dartBindInstanceFieldDirect);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBindInstanceFieldDirect != null) {
+      return fromDartBindInstanceFieldDirect(dartBindInstanceFieldDirect);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartBindInstanceFieldDirect(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBindInstanceFieldDirect != null) {
+      return fromDartBindInstanceFieldDirect(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartBindInstanceFieldDirect implements DartIr {
+  factory _$FromDartBindInstanceFieldDirect(
+          {@required DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) =
+      _$_$FromDartBindInstanceFieldDirect;
+
+  DartBindInstanceFieldDirect get dartBindInstanceFieldDirect;
+  _$$FromDartBindInstanceFieldDirectCopyWith<_$FromDartBindInstanceFieldDirect>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromDartBoxEnumReferenceCopyWith<$Res> {
+  factory _$$FromDartBoxEnumReferenceCopyWith(_$FromDartBoxEnumReference value,
+          $Res Function(_$FromDartBoxEnumReference) then) =
+      __$$FromDartBoxEnumReferenceCopyWithImpl<$Res>;
+  $Res call({DartBoxEnumReference dartBoxEnumReference});
+}
+
+/// @nodoc
+class __$$FromDartBoxEnumReferenceCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartBoxEnumReferenceCopyWith<$Res> {
+  __$$FromDartBoxEnumReferenceCopyWithImpl(_$FromDartBoxEnumReference _value,
+      $Res Function(_$FromDartBoxEnumReference) _then)
+      : super(_value, (v) => _then(v as _$FromDartBoxEnumReference));
+
+  @override
+  _$FromDartBoxEnumReference get _value =>
+      super._value as _$FromDartBoxEnumReference;
+
+  @override
+  $Res call({
+    Object dartBoxEnumReference = freezed,
+  }) {
+    return _then(_$FromDartBoxEnumReference(
+      dartBoxEnumReference: dartBoxEnumReference == freezed
+          ? _value.dartBoxEnumReference
+          : dartBoxEnumReference as DartBoxEnumReference,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
+  _$_$FromDartBoxEnumReference({@required this.dartBoxEnumReference})
+      : assert(dartBoxEnumReference != null);
+
+  @override
+  final DartBoxEnumReference dartBoxEnumReference;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartBoxEnumReference(dartBoxEnumReference: $dartBoxEnumReference)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartBoxEnumReference &&
+            (identical(other.dartBoxEnumReference, dartBoxEnumReference) ||
+                const DeepCollectionEquality()
+                    .equals(other.dartBoxEnumReference, dartBoxEnumReference)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dartBoxEnumReference);
+
+  @override
+  _$$FromDartBoxEnumReferenceCopyWith<_$FromDartBoxEnumReference>
+      get copyWith =>
+          __$$FromDartBoxEnumReferenceCopyWithImpl<_$FromDartBoxEnumReference>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartBoxEnumReference(dartBoxEnumReference);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBoxEnumReference != null) {
+      return fromDartBoxEnumReference(dartBoxEnumReference);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartBoxEnumReference(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBoxEnumReference != null) {
+      return fromDartBoxEnumReference(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartBoxEnumReference implements DartIr {
+  factory _$FromDartBoxEnumReference(
+          {@required DartBoxEnumReference dartBoxEnumReference}) =
+      _$_$FromDartBoxEnumReference;
+
+  DartBoxEnumReference get dartBoxEnumReference;
+  _$$FromDartBoxEnumReferenceCopyWith<_$FromDartBoxEnumReference> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromDartBoxObjectReferenceCopyWith<$Res> {
+  factory _$$FromDartBoxObjectReferenceCopyWith(
+          _$FromDartBoxObjectReference value,
+          $Res Function(_$FromDartBoxObjectReference) then) =
+      __$$FromDartBoxObjectReferenceCopyWithImpl<$Res>;
+  $Res call({DartBoxObjectReference dartBoxObjectReference});
+}
+
+/// @nodoc
+class __$$FromDartBoxObjectReferenceCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartBoxObjectReferenceCopyWith<$Res> {
+  __$$FromDartBoxObjectReferenceCopyWithImpl(
+      _$FromDartBoxObjectReference _value,
+      $Res Function(_$FromDartBoxObjectReference) _then)
+      : super(_value, (v) => _then(v as _$FromDartBoxObjectReference));
+
+  @override
+  _$FromDartBoxObjectReference get _value =>
+      super._value as _$FromDartBoxObjectReference;
+
+  @override
+  $Res call({
+    Object dartBoxObjectReference = freezed,
+  }) {
+    return _then(_$FromDartBoxObjectReference(
+      dartBoxObjectReference: dartBoxObjectReference == freezed
+          ? _value.dartBoxObjectReference
+          : dartBoxObjectReference as DartBoxObjectReference,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
+  _$_$FromDartBoxObjectReference({@required this.dartBoxObjectReference})
+      : assert(dartBoxObjectReference != null);
+
+  @override
+  final DartBoxObjectReference dartBoxObjectReference;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartBoxObjectReference(dartBoxObjectReference: $dartBoxObjectReference)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartBoxObjectReference &&
+            (identical(other.dartBoxObjectReference, dartBoxObjectReference) ||
+                const DeepCollectionEquality().equals(
+                    other.dartBoxObjectReference, dartBoxObjectReference)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dartBoxObjectReference);
+
+  @override
+  _$$FromDartBoxObjectReferenceCopyWith<_$FromDartBoxObjectReference>
+      get copyWith => __$$FromDartBoxObjectReferenceCopyWithImpl<
+          _$FromDartBoxObjectReference>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartBoxObjectReference(dartBoxObjectReference);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBoxObjectReference != null) {
+      return fromDartBoxObjectReference(dartBoxObjectReference);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    return fromDartBoxObjectReference(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBoxObjectReference != null) {
+      return fromDartBoxObjectReference(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartBoxObjectReference implements DartIr {
+  factory _$FromDartBoxObjectReference(
+          {@required DartBoxObjectReference dartBoxObjectReference}) =
+      _$_$FromDartBoxObjectReference;
+
+  DartBoxObjectReference get dartBoxObjectReference;
+  _$$FromDartBoxObjectReferenceCopyWith<_$FromDartBoxObjectReference>
+      get copyWith;
 }
 
 /// @nodoc
@@ -236,6 +1185,18 @@ class _$_$FromDartFunctionSelfBindingInvocation
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -253,6 +1214,10 @@ class _$_$FromDartFunctionSelfBindingInvocation
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -266,6 +1231,13 @@ class _$_$FromDartFunctionSelfBindingInvocation
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -291,6 +1263,14 @@ class _$_$FromDartFunctionSelfBindingInvocation
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -307,6 +1287,10 @@ class _$_$FromDartFunctionSelfBindingInvocation
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -319,6 +1303,11 @@ class _$_$FromDartFunctionSelfBindingInvocation
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -415,6 +1404,18 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -432,6 +1433,10 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -444,6 +1449,13 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -468,6 +1480,14 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -484,6 +1504,10 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -496,6 +1520,11 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -600,6 +1629,18 @@ class _$_$FromDartUnboxingParameterExpression
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -617,6 +1658,10 @@ class _$_$FromDartUnboxingParameterExpression
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -629,6 +1674,13 @@ class _$_$FromDartUnboxingParameterExpression
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -654,6 +1706,14 @@ class _$_$FromDartUnboxingParameterExpression
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -670,6 +1730,10 @@ class _$_$FromDartUnboxingParameterExpression
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -682,6 +1746,11 @@ class _$_$FromDartUnboxingParameterExpression
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -789,6 +1858,18 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -806,6 +1887,10 @@ class _$_$FromLoadNamespaceSymbolDeclaration
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -818,6 +1903,13 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -842,6 +1934,14 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -858,6 +1958,10 @@ class _$_$FromLoadNamespaceSymbolDeclaration
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -870,6 +1974,11 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -976,6 +2085,18 @@ class _$_$FromMethodInjectionImplementation
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -993,6 +2114,10 @@ class _$_$FromMethodInjectionImplementation
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -1005,6 +2130,13 @@ class _$_$FromMethodInjectionImplementation
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -1029,6 +2161,14 @@ class _$_$FromMethodInjectionImplementation
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -1045,6 +2185,10 @@ class _$_$FromMethodInjectionImplementation
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -1057,6 +2201,11 @@ class _$_$FromMethodInjectionImplementation
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -1161,6 +2310,18 @@ class _$_$FromRTManagedClassDeclaration
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -1178,6 +2339,10 @@ class _$_$FromRTManagedClassDeclaration
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -1190,6 +2355,13 @@ class _$_$FromRTManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -1214,6 +2386,14 @@ class _$_$FromRTManagedClassDeclaration
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -1230,6 +2410,10 @@ class _$_$FromRTManagedClassDeclaration
         Result fromRTManagedClassDeclaration(
             _$FromRTManagedClassDeclaration value),
   }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingParameterExpression != null);
@@ -1242,6 +2426,11 @@ class _$_$FromRTManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),

@@ -1,4 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceFieldDirect.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingParameterExpression.dart';
@@ -11,6 +15,18 @@ part 'dartir.freezed.dart';
 
 @freezed
 abstract class DartIr with _$DartIr {
+  factory DartIr.fromDartBindInstanceField(
+          {@required DartBindInstanceField dartBindInstanceField}) =
+      _$FromDartBindInstanceField;
+  factory DartIr.fromDartBindInstanceFieldDirect(
+          {@required DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) =
+      _$FromDartBindInstanceFieldDirect;
+  factory DartIr.fromDartBoxEnumReference(
+          {@required DartBoxEnumReference dartBoxEnumReference}) =
+      _$FromDartBoxEnumReference;
+  factory DartIr.fromDartBoxObjectReference(
+          {@required DartBoxObjectReference dartBoxObjectReference}) =
+      _$FromDartBoxObjectReference;
   factory DartIr.fromDartFunctionSelfBindingInvocation(
           {@required
               DartFunctionSelfBindingInvocation
@@ -38,6 +54,10 @@ abstract class DartIr with _$DartIr {
 
 extension DartIrMethods on DartIr {
   String toDartSource() => when(
+        fromDartBindInstanceField: (val) => val.toDartSource(),
+        fromDartBindInstanceFieldDirect: (val) => val.toDartSource(),
+        fromDartBoxEnumReference: (val) => val.toDartSource(),
+        fromDartBoxObjectReference: (val) => val.toDartSource(),
         fromDartFunctionSelfBindingInvocation: (val) => val.toDartSource(),
         fromDartLinebreak: (val) => val.toDartSource(),
         fromDartUnboxingParameterExpression: (val) => val.toDartSource(),
