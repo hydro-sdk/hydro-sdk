@@ -1,5 +1,8 @@
-import 'package:code_builder/code_builder.dart' show Code, CodeExpression;
+import 'package:code_builder/code_builder.dart'
+    show Code, CodeExpression, DartEmitter, refer, literalString;
+import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceFieldDirect.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
@@ -28,9 +31,16 @@ class DartBindInstanceField {
                   .toDartSource()
               : val.referenceDeclarationKind ==
                       SwidReferenceDeclarationKind.enumElement
-                  ? DartBindInstanceFieldDirect(
-                          instanceFieldName: instanceFieldName)
-                      .toDartSource()
+                  ? DartFormatter().formatStatement(refer("table")
+                          .index(literalString(instanceFieldName))
+                          .assign(refer(instanceFieldName))
+                          .statement
+                          .accept(DartEmitter())
+                          .toString()) +
+                      DartBoxEnumReference(
+                              type: instanceField,
+                              referenceName: instanceFieldName)
+                          .toDartSource()
                   : "",
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",
