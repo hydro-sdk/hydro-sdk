@@ -10,7 +10,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var diagnosticsNodeClass = SwidClass.fromJson(json
-        .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
+        .decode(File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(requiresDartBinding(swidClass: diagnosticsNodeClass), true);
     expect(
