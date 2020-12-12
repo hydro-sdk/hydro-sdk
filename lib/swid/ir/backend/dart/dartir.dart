@@ -6,9 +6,11 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingParameterExpression.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/staticMethodNamespaceSymbolDeclaration.dart';
 import 'package:meta/meta.dart';
 
 part 'dartir.freezed.dart';
@@ -39,6 +41,11 @@ abstract class DartIr with _$DartIr {
               DartUnboxingParameterExpression
                   dartUnboxingParameterExpression}) =
       _$FromDartUnboxingParameterExpression;
+  factory DartIr.fromDartVMManagedClassBoxerRegistrant(
+          {@required
+              DartVMManagedClassBoxerRegistrant
+                  dartVMManagedClassBoxerRegistrant}) =
+      $FromDartVMManagedClassBoxerRegistrant;
   factory DartIr.fromLoadNamepsaceSymbolDeclaration(
           {@required
               LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) =
@@ -50,6 +57,11 @@ abstract class DartIr with _$DartIr {
   factory DartIr.fromRTManagedClassDeclaration(
           {@required RTManagedClassDeclaration rtManagedClassDeclaration}) =
       _$FromRTManagedClassDeclaration;
+  factory DartIr.fromStaticMethodNamespaceSymbolDeclaration(
+          {@required
+              StaticMethodNamespaceSymbolDeclaration
+                  staticMethodNamespaceSymbolDeclaration}) =
+      _$FromStaticMethodNamespaceSymbolDeclaration;
 }
 
 extension DartIrMethods on DartIr {
@@ -61,8 +73,10 @@ extension DartIrMethods on DartIr {
         fromDartFunctionSelfBindingInvocation: (val) => val.toDartSource(),
         fromDartLinebreak: (val) => val.toDartSource(),
         fromDartUnboxingParameterExpression: (val) => val.toDartSource(),
+        fromDartVMManagedClassBoxerRegistrant: (val) => val.toDartSource(),
         fromLoadNamepsaceSymbolDeclaration: (val) => val.toDartSource(),
         fromMethodInjectionImplementation: (val) => val.toDartSource(),
         fromRTManagedClassDeclaration: (val) => val.toDartSource(),
+        fromStaticMethodNamespaceSymbolDeclaration: (val) => val.toDartSource(),
       );
 }
