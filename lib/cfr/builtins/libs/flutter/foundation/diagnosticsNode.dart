@@ -8,6 +8,32 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
+class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
+  VMManagedDiagnosticsNode(
+      {@required this.table,
+      @required this.vmObject,
+      @required this.hydroState})
+      : super(
+          table: table,
+          vmObject: vmObject,
+          hydroState: hydroState,
+        ) {
+    table['name'] = vmObject.name;
+    table['showSeparator'] = vmObject.showSeparator;
+    table['showName'] = vmObject.showName;
+    table['linePrefix'] = vmObject.linePrefix;
+    table['style'] = DiagnosticsTreeStyle.values.indexWhere((x) {
+      return x == vmObject.style;
+    });
+  }
+
+  final HydroTable table;
+
+  final HydroState hydroState;
+
+  final DiagnosticsNode vmObject;
+}
+
 class RTManagedDiagnosticsNode extends DiagnosticsNode
     implements Box<DiagnosticsNode> {
   RTManagedDiagnosticsNode(
@@ -224,5 +250,12 @@ void loadDiagnosticsNode(
           hydroState: hydroState,
           table: HydroTable())
     ];
+  });
+  registerBoxer<DiagnosticsNode>(boxer: (
+      {@required DiagnosticsNode vmObject,
+      @required HydroState hydroState,
+      @required HydroTable table}) {
+    return VMManagedDiagnosticsNode(
+        vmObject: vmObject, hydroState: hydroState, table: table);
   });
 }
