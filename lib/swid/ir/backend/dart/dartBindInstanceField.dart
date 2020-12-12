@@ -3,9 +3,8 @@ import 'package:code_builder/code_builder.dart'
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceFieldDirect.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/isPrimitive.dart';
 import 'package:meta/meta.dart';
 
 class DartBindInstanceField {
@@ -19,31 +18,24 @@ class DartBindInstanceField {
       @required this.instanceField});
 
   String toDartSource() => instanceField.when(
-      fromSwidInterface: (val) => val.referenceDeclarationKind ==
-                  SwidReferenceDeclarationKind.classElement &&
-              isPrimitive(swidType: instanceField)
-          ? DartBindInstanceFieldDirect(
+      fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
+            swidInterface: val,
+            onPrimitive: (val) => DartBindInstanceFieldDirect(
               instanceFieldName: instanceFieldName,
               tableKey: tableKey,
-            ).toDartSource()
-          : val.referenceDeclarationKind ==
-                      SwidReferenceDeclarationKind.classElement &&
-                  !isPrimitive(swidType: instanceField)
-              ? DartBoxObjectReference(
-                      type: instanceField,
-                      objectReference: CodeExpression(Code(instanceFieldName)))
-                  .toDartSource()
-              : val.referenceDeclarationKind ==
-                      SwidReferenceDeclarationKind.enumElement
-                  ? refer("table")
-                      .index(literalString(tableKey))
-                      .assign(CodeExpression(Code(DartBoxEnumReference(
-                              type: instanceField,
-                              referenceName: instanceFieldName)
-                          .toDartSource())))
-                      .accept(DartEmitter())
-                      .toString()
-                  : "",
+            ).toDartSource(),
+            onClass: (val) => DartBoxObjectReference(
+                    type: instanceField,
+                    objectReference: CodeExpression(Code(instanceFieldName)))
+                .toDartSource(),
+            onEnum: (val) => refer("table")
+                .index(literalString(tableKey))
+                .assign(CodeExpression(Code(DartBoxEnumReference(
+                        type: instanceField, referenceName: instanceFieldName)
+                    .toDartSource())))
+                .accept(DartEmitter())
+                .toString(),
+          ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",
       fromSwidFunctionType: (_) => "");
