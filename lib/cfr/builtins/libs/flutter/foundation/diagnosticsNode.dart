@@ -25,6 +25,66 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
     table['style'] = DiagnosticsTreeStyle.values.indexWhere((x) {
       return x == vmObject.style;
     });
+    table['vmObject.toDescription'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        vmObject.toDescription(
+            parentConfiguration:
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                    args[1]['parentConfiguration'],
+                    parentState: hydroState))
+      ];
+    });
+    table['vmObject.isFiltered'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        vmObject.isFiltered(
+            maybeUnBoxEnum(values: DiagnosticLevel.values, boxedEnum: args[1]))
+      ];
+    });
+
+    table['vmObject.emptyBodyDescription'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.emptyBodyDescription];
+    });
+
+    table['vmObject.allowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.allowWrap];
+    });
+    table['vmObject.allowNameWrap'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.allowNameWrap];
+    });
+    table['vmObject.allowTruncate'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.allowTruncate];
+    });
+
+    table['vmObject.toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        vmObject.toString(
+            minLevel: maybeUnBoxEnum(
+                values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
+            parentConfiguration:
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                    args[1]['parentConfiguration'],
+                    parentState: hydroState))
+      ];
+    });
+
+    table['vmObject.toStringDeep'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        vmObject.toStringDeep(
+            minLevel: maybeUnBoxEnum(
+                values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
+            parentConfiguration:
+                maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
+                    args[1]['parentConfiguration'],
+                    parentState: hydroState),
+            prefixLineOne: args[1]['prefixLineOne'],
+            prefixOtherLines: args[1]['prefixOtherLines'])
+      ];
+    });
   }
 
   final HydroTable table;
