@@ -60,16 +60,13 @@ class TsClassVmDeclaration {
                                   tsVmDeclaration: TsVmDeclaration.clone(
                                       tsVmDeclaration: element,
                                       methods: swidClass.factoryConstructors
-                                          .map((x) =>
-                                              SwidFunctionType.MakeReceiverVoid(
-                                                  swidFunctionType:
-                                                      SwidFunctionType.clone(
+                                          .map((x) => SwidFunctionType.clone(
                                                 swidFunctionType: x,
                                                 name: transformToCamelCase(
                                                         str: swidClass.name) +
                                                     transformToPascalCase(
                                                         str: x.name),
-                                              )))
+                                              ))
                                           .toList())),
                             ],
                           ))) +
