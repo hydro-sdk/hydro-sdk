@@ -44,6 +44,13 @@ void loadDiagnosticsNode(
           table: HydroTable())
     ];
   });
+  registerBoxer<DiagnosticsNode>(boxer: (
+      {@required DiagnosticsNode vmObject,
+      @required HydroState hydroState,
+      @required HydroTable table}) {
+    return VMManagedDiagnosticsNode(
+        vmObject: vmObject, hydroState: hydroState, table: table);
+  });
 }
 """);
   }, tags: "swid");
