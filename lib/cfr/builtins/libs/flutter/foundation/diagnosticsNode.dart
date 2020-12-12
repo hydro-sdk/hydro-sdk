@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -208,6 +209,20 @@ void loadDiagnosticsNode(
           style: maybeUnBoxEnum(
               values: DiagnosticsTreeStyle.values, boxedEnum: args[1]['style']),
           name: args[1]['name'])
+    ];
+  });
+  table['diagnosticsNodeMessage'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<DiagnosticsNode>(
+          object: DiagnosticsNode.message(args[1],
+              allowWrap: args[2]['allowWrap'],
+              level: maybeUnBoxEnum(
+                  values: DiagnosticLevel.values, boxedEnum: args[2]['level']),
+              style: maybeUnBoxEnum(
+                  values: DiagnosticsTreeStyle.values,
+                  boxedEnum: args[2]['style'])),
+          hydroState: hydroState,
+          table: HydroTable())
     ];
   });
 }

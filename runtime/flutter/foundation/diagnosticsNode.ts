@@ -15,6 +15,14 @@ declare const flutter: {
                 name?: string | undefined;
             }
         ) => DiagnosticsNode;
+        diagnosticsNodeMessage: (
+            message: string,
+            props: {
+                allowWrap: boolean;
+                level: DiagnosticLevel;
+                style: DiagnosticsTreeStyle;
+            }
+        ) => DiagnosticsNode;
     };
 };
 const diagnosticsNodeDefaultProps = {
@@ -48,6 +56,19 @@ export class DiagnosticsNode {
     }) {
         flutter.foundation.diagnosticsNode(this, {
             ...diagnosticsNodeDefaultProps,
+            ...props,
+        });
+    }
+    public static message(
+        message: string,
+        props: {
+            allowWrap?: boolean;
+            level?: DiagnosticLevel;
+            style?: DiagnosticsTreeStyle;
+        }
+    ): DiagnosticsNode {
+        return flutter.foundation.diagnosticsNodeMessage(message, {
+            ...messageDefaultProps,
             ...props,
         });
     }
