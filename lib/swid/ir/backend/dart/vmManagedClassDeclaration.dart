@@ -12,7 +12,10 @@ import 'package:code_builder/code_builder.dart'
         Code;
 import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:meta/meta.dart';
 
 class VMManagedClassDeclaration {
@@ -80,5 +83,24 @@ class VMManagedClassDeclaration {
                   instanceField: x.value,
                 ).toDartSource()))
             .toList()),
+        ...(swidClass.methods
+            .map((x) => Code(x.returnType.when(
+                  fromSwidInterface: (val) =>
+                      narrowSwidInterfaceByReferenceDeclaration(
+                    swidInterface: val,
+                    onPrimitive: (val) =>
+                        VMManagedClassMethodInjectionImplementation(
+                            swidFunctionType: SwidFunctionType.clone(
+                      swidFunctionType: x,
+                      name: "vmObject.${x.name}",
+                    )).toDartSource(),
+                    onClass: (_) => "",
+                    onEnum: (_) => "",
+                  ),
+                  fromSwidClass: (_) => "",
+                  fromSwidDefaultFormalParameter: (_) => "",
+                  fromSwidFunctionType: (_) => "",
+                )))
+            .toList())
       ])))).accept(DartEmitter()).toString());
 }
