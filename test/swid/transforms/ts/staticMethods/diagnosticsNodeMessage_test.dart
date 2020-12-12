@@ -9,7 +9,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var diagnosticsNodeClass = SwidClass.fromJson(json.decode(
-        File("test/swid/res/diagnosticsNode.json").readAsStringSync()));
+        File("../test/swid/res/diagnosticsNode.json").readAsStringSync()));
 
     expect(
         TsClassStaticMethodImplementation(
