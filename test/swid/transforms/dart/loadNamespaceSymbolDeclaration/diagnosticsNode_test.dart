@@ -9,7 +9,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var diagnosticsNode = SwidClass.fromJson(json
-        .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
+        .decode(File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
         LoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
