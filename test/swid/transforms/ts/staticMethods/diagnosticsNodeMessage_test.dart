@@ -8,8 +8,8 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var diagnosticsNodeClass = SwidClass.fromJson(json
-        .decode(File("../test/swid/res/diagnosticsNode.json").readAsStringSync()));
+    var diagnosticsNodeClass = SwidClass.fromJson(json.decode(
+        File("../test/swid/res/diagnosticsNode.json").readAsStringSync()));
 
     expect(
         TsClassStaticMethodImplementation(
