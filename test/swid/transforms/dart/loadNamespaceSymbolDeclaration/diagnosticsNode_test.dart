@@ -1,0 +1,36 @@
+import 'dart:io';
+import 'dart:convert';
+
+import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+
+void main() {
+  LiveTestWidgetsFlutterBinding();
+  testWidgets('', (WidgetTester tester) async {
+    var diagnosticsNode = SwidClass.fromJson(json
+        .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
+
+    expect(
+        LoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
+            .toDartSource(),
+        """
+void loadDiagnosticsNode(
+    {@required HydroState hydroState, @required HydroTable table}) {
+  table[\'diagnosticsNode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      RTManagedDiagnosticsNode(
+          table: args[0],
+          hydroState: hydroState,
+          linePrefix: args[1][\'linePrefix\'],
+          showName: args[1][\'showName\'],
+          showSeparator: args[1][\'showSeparator\'],
+          style: maybeUnBoxEnum(
+              values: DiagnosticsTreeStyle.values, boxedEnum: args[1][\'style\']),
+          name: args[1][\'name\'])
+    ];
+  });
+}
+""");
+  }, tags: "swid");
+}
