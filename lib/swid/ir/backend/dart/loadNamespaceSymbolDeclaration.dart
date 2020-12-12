@@ -11,6 +11,7 @@ import 'package:code_builder/code_builder.dart'
 import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/staticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -58,6 +59,8 @@ class LoadNamespaceSymbolDeclaration {
           .map((x) => StaticMethodNamespaceSymbolDeclaration(
                   swidClass: swidClass, swidFunctionType: x)
               .toCode())
-          .toList()
+          .toList(),
+      Code(DartVMManagedClassBoxerRegistrant(swidClass: swidClass)
+          .toDartSource()),
     ])).accept(DartEmitter()).toString());
 }
