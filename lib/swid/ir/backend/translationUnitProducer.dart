@@ -3,6 +3,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/methodIsEmitCandidate.dart';
 import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
@@ -106,6 +107,10 @@ class TranslationUnitProducer {
                         dartPrefixPaths.join(p.separator) + p.separator + path,
                     fileName: "$baseFileName.dart",
                     ir: [
+                      DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
+                      DartIr.fromVMManagedClassDeclaration(
+                          vmManagedClassDeclaration:
+                              VMManagedClassDeclaration(swidClass: swidClass)),
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                       DartIr.fromRTManagedClassDeclaration(
                         rtManagedClassDeclaration:
