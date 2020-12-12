@@ -5,13 +5,15 @@ import 'package:meta/meta.dart';
 
 class DartBindInstanceFieldDirect {
   final String instanceFieldName;
+  final String tableKey;
 
   DartBindInstanceFieldDirect({
     @required this.instanceFieldName,
+    @required this.tableKey,
   });
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")
-      .index(literalString(instanceFieldName))
+      .index(literalString(tableKey))
       .assign(refer(instanceFieldName))
       .statement
       .accept(DartEmitter())

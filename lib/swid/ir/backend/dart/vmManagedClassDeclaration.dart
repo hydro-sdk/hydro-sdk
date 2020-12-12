@@ -8,19 +8,11 @@ import 'package:code_builder/code_builder.dart'
         Parameter,
         TypeReference,
         refer,
-        literalString,
-        literalList,
-        Method,
-        MethodType,
         Block,
         Code;
 import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
-import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 import 'package:meta/meta.dart';
 
 class VMManagedClassDeclaration {
@@ -83,8 +75,10 @@ class VMManagedClassDeclaration {
       ..body = Block.of([
         ...(swidClass.instanceFieldDeclarations.entries
             .map((x) => Code(DartBindInstanceField(
-                    instanceFieldName: x.key, instanceField: x.value)
-                .toDartSource()))
+                  tableKey: x.key,
+                  instanceFieldName: "vmObject.${x.key}",
+                  instanceField: x.value,
+                ).toDartSource()))
             .toList()),
       ])))).accept(DartEmitter()).toString());
 }

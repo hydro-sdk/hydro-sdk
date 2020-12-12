@@ -10,17 +10,22 @@ import 'package:meta/meta.dart';
 
 class DartBindInstanceField {
   final String instanceFieldName;
+  final String tableKey;
   final SwidType instanceField;
 
   DartBindInstanceField(
-      {@required this.instanceFieldName, @required this.instanceField});
+      {@required this.instanceFieldName,
+      @required this.tableKey,
+      @required this.instanceField});
 
   String toDartSource() => instanceField.when(
       fromSwidInterface: (val) => val.referenceDeclarationKind ==
                   SwidReferenceDeclarationKind.classElement &&
               isPrimitive(swidType: instanceField)
-          ? DartBindInstanceFieldDirect(instanceFieldName: instanceFieldName)
-              .toDartSource()
+          ? DartBindInstanceFieldDirect(
+              instanceFieldName: instanceFieldName,
+              tableKey: tableKey,
+            ).toDartSource()
           : val.referenceDeclarationKind ==
                       SwidReferenceDeclarationKind.classElement &&
                   !isPrimitive(swidType: instanceField)
@@ -31,7 +36,7 @@ class DartBindInstanceField {
               : val.referenceDeclarationKind ==
                       SwidReferenceDeclarationKind.enumElement
                   ? refer("table")
-                      .index(literalString(instanceFieldName))
+                      .index(literalString(tableKey))
                       .assign(CodeExpression(Code(DartBoxEnumReference(
                               type: instanceField,
                               referenceName: instanceFieldName)

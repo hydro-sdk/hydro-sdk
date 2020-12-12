@@ -131,8 +131,10 @@ class RTManagedClassDeclaration {
             .statement,
         ...(swidClass.instanceFieldDeclarations.entries
             .map((x) => Code(DartBindInstanceField(
-                    instanceFieldName: x.key, instanceField: x.value)
-                .toDartSource()))
+                  tableKey: x.key,
+                  instanceFieldName: x.key,
+                  instanceField: x.value,
+                ).toDartSource()))
             .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
