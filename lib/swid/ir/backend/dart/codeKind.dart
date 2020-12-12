@@ -1,0 +1,4 @@
+enum CodeKind {
+  statement,
+  expression,
+}
