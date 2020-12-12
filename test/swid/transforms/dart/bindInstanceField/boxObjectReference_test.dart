@@ -21,8 +21,7 @@ void main() {
                         SwidReferenceDeclarationKind.classElement,
                     typeArguments: []))).toDartSource(),
         """
-maybeBoxObject<TextStyle>(
-    object: vmObject, hydroState: hydroState, table: HydroTable());""");
+maybeBoxObject<TextStyle>(object: vmObject, hydroState: hydroState, table: HydroTable());""");
 
     expect(
         DartBoxObjectReference(
@@ -36,7 +35,6 @@ maybeBoxObject<TextStyle>(
                         SwidReferenceDeclarationKind.classElement,
                     typeArguments: []))).toDartSource(),
         """
-maybeBoxObject<TextStyle>(
-    object: vmObject.headline4, hydroState: hydroState, table: HydroTable());""");
+maybeBoxObject<TextStyle>(object: vmObject.headline4, hydroState: hydroState, table: HydroTable());""");
   }, tags: "swid");
 }
