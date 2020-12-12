@@ -8,8 +8,8 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var diagnosticsNode = SwidClass.fromJson(json
-        .decode(File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
+    var diagnosticsNode = SwidClass.fromJson(json.decode(
+        File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
         LoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
