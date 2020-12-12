@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
+import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
@@ -22,9 +23,11 @@ class TsClassStaticMethodImplementation {
       transformTypeDeclarationToTs(
           emitTrailingReturnType: true,
           emitDefaultFormalsAsOptionalNamed: true,
+          topLevelTrailingReturnTypeKind: TrailingReturnTypeKind.colon,
           swidType: SwidType.fromSwidFunctionType(
               swidFunctionType: swidFunctionType)) +
       "{\n" +
+      "return " +
       TsFunctionSelfBindingInvocation(
         functionReference: [
           ...transformPackageUri(packageUri: swidClass.originalPackagePath)

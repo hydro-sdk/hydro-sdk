@@ -99,6 +99,7 @@ abstract class TsIr with _$TsIr {
 
 extension TsIrMethods on TsIr {
   String toTsSource() => when(
+        fromTsClassStaticMethodImplementation: (val) => val.toTsSource(),
         fromTsClassConstructorImplementation: (val) => val.toTsSource(),
         fromTsFunctionDefaultNamedProps: (val) => val.toTsSource(),
         fromTsClassInstanceFieldDeclarations: (val) => val.toTsSource(),
