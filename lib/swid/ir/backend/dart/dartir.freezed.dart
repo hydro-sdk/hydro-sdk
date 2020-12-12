@@ -126,6 +126,18 @@ class _$DartIrTearOff {
       vmManagedClassDeclaration: vmManagedClassDeclaration,
     );
   }
+
+// ignore: unused_element
+  _$FromVMManagedClassMethodInjectionImplementation
+      fromVMManagedClassMethodInjectionImplementation(
+          {@required
+              VMManagedClassMethodInjectionImplementation
+                  vmManagedClassMethodInjectionImplementation}) {
+    return _$FromVMManagedClassMethodInjectionImplementation(
+      vmManagedClassMethodInjectionImplementation:
+          vmManagedClassMethodInjectionImplementation,
+    );
+  }
 }
 
 /// @nodoc
@@ -176,6 +188,10 @@ mixin _$DartIr {
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -204,6 +220,9 @@ mixin _$DartIr {
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -241,6 +260,9 @@ mixin _$DartIr {
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -264,6 +286,8 @@ mixin _$DartIr {
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   });
 }
@@ -391,6 +415,10 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -405,6 +433,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBindInstanceField(dartBindInstanceField);
   }
 
@@ -436,6 +465,9 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -481,6 +513,9 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -495,6 +530,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBindInstanceField(this);
   }
 
@@ -521,6 +557,8 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -654,6 +692,10 @@ class _$_$FromDartBindInstanceFieldDirect
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -668,6 +710,7 @@ class _$_$FromDartBindInstanceFieldDirect
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBindInstanceFieldDirect(dartBindInstanceFieldDirect);
   }
 
@@ -699,6 +742,9 @@ class _$_$FromDartBindInstanceFieldDirect
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -744,6 +790,9 @@ class _$_$FromDartBindInstanceFieldDirect
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -758,6 +807,7 @@ class _$_$FromDartBindInstanceFieldDirect
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBindInstanceFieldDirect(this);
   }
 
@@ -784,6 +834,8 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -912,6 +964,10 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -926,6 +982,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxEnumReference(dartBoxEnumReference);
   }
 
@@ -957,6 +1014,9 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1002,6 +1062,9 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -1016,6 +1079,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxEnumReference(this);
   }
 
@@ -1042,6 +1106,8 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1170,6 +1236,10 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -1184,6 +1254,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxObjectReference(dartBoxObjectReference);
   }
 
@@ -1215,6 +1286,9 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1260,6 +1334,9 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -1274,6 +1351,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxObjectReference(this);
   }
 
@@ -1300,6 +1378,8 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1438,6 +1518,10 @@ class _$_$FromDartFunctionSelfBindingInvocation
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -1452,6 +1536,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartFunctionSelfBindingInvocation(
         dartFunctionSelfBindingInvocation);
   }
@@ -1484,6 +1569,9 @@ class _$_$FromDartFunctionSelfBindingInvocation
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1530,6 +1618,9 @@ class _$_$FromDartFunctionSelfBindingInvocation
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -1544,6 +1635,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartFunctionSelfBindingInvocation(this);
   }
 
@@ -1570,6 +1662,8 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1695,6 +1789,10 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -1709,6 +1807,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartLinebreak(dartLinebreak);
   }
 
@@ -1740,6 +1839,9 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1785,6 +1887,9 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -1799,6 +1904,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartLinebreak(this);
   }
 
@@ -1825,6 +1931,8 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1958,6 +2066,10 @@ class _$_$FromDartUnboxingParameterExpression
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -1972,6 +2084,7 @@ class _$_$FromDartUnboxingParameterExpression
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartUnboxingParameterExpression(dartUnboxingParameterExpression);
   }
 
@@ -2003,6 +2116,9 @@ class _$_$FromDartUnboxingParameterExpression
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2049,6 +2165,9 @@ class _$_$FromDartUnboxingParameterExpression
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -2063,6 +2182,7 @@ class _$_$FromDartUnboxingParameterExpression
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartUnboxingParameterExpression(this);
   }
 
@@ -2089,6 +2209,8 @@ class _$_$FromDartUnboxingParameterExpression
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2229,6 +2351,10 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -2243,6 +2369,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartVMManagedClassBoxerRegistrant(
         dartVMManagedClassBoxerRegistrant);
   }
@@ -2275,6 +2402,9 @@ class _$$FromDartVMManagedClassBoxerRegistrant
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2321,6 +2451,9 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -2335,6 +2468,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartVMManagedClassBoxerRegistrant(this);
   }
 
@@ -2361,6 +2495,8 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2497,6 +2633,10 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -2511,6 +2651,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromLoadNamepsaceSymbolDeclaration(loadNamespaceSymbolDeclaration);
   }
 
@@ -2542,6 +2683,9 @@ class _$_$FromLoadNamespaceSymbolDeclaration
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2587,6 +2731,9 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -2601,6 +2748,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromLoadNamepsaceSymbolDeclaration(this);
   }
 
@@ -2627,6 +2775,8 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2762,6 +2912,10 @@ class _$_$FromMethodInjectionImplementation
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -2776,6 +2930,7 @@ class _$_$FromMethodInjectionImplementation
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromMethodInjectionImplementation(methodInjectionImplementation);
   }
 
@@ -2807,6 +2962,9 @@ class _$_$FromMethodInjectionImplementation
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2852,6 +3010,9 @@ class _$_$FromMethodInjectionImplementation
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -2866,6 +3027,7 @@ class _$_$FromMethodInjectionImplementation
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromMethodInjectionImplementation(this);
   }
 
@@ -2892,6 +3054,8 @@ class _$_$FromMethodInjectionImplementation
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3025,6 +3189,10 @@ class _$_$FromRTManagedClassDeclaration
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -3039,6 +3207,7 @@ class _$_$FromRTManagedClassDeclaration
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromRTManagedClassDeclaration(rtManagedClassDeclaration);
   }
 
@@ -3070,6 +3239,9 @@ class _$_$FromRTManagedClassDeclaration
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3115,6 +3287,9 @@ class _$_$FromRTManagedClassDeclaration
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -3129,6 +3304,7 @@ class _$_$FromRTManagedClassDeclaration
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromRTManagedClassDeclaration(this);
   }
 
@@ -3155,6 +3331,8 @@ class _$_$FromRTManagedClassDeclaration
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3297,6 +3475,10 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -3311,6 +3493,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromStaticMethodNamespaceSymbolDeclaration(
         staticMethodNamespaceSymbolDeclaration);
   }
@@ -3343,6 +3526,9 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3389,6 +3575,9 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -3403,6 +3592,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromStaticMethodNamespaceSymbolDeclaration(this);
   }
 
@@ -3429,6 +3619,8 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3564,6 +3756,10 @@ class _$_$FromVMManagedClassDeclaration
     @required
         Result fromVMManagedClassDeclaration(
             VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -3578,6 +3774,7 @@ class _$_$FromVMManagedClassDeclaration
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromVMManagedClassDeclaration(vmManagedClassDeclaration);
   }
 
@@ -3609,6 +3806,9 @@ class _$_$FromVMManagedClassDeclaration
             staticMethodNamespaceSymbolDeclaration),
     Result fromVMManagedClassDeclaration(
         VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3654,6 +3854,9 @@ class _$_$FromVMManagedClassDeclaration
     @required
         Result fromVMManagedClassDeclaration(
             _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
@@ -3668,6 +3871,7 @@ class _$_$FromVMManagedClassDeclaration
     assert(fromRTManagedClassDeclaration != null);
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromVMManagedClassDeclaration(this);
   }
 
@@ -3694,6 +3898,8 @@ class _$_$FromVMManagedClassDeclaration
     Result fromStaticMethodNamespaceSymbolDeclaration(
         _$FromStaticMethodNamespaceSymbolDeclaration value),
     Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3712,4 +3918,302 @@ abstract class _$FromVMManagedClassDeclaration implements DartIr {
   VMManagedClassDeclaration get vmManagedClassDeclaration;
   _$$FromVMManagedClassDeclarationCopyWith<_$FromVMManagedClassDeclaration>
       get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromVMManagedClassMethodInjectionImplementationCopyWith<
+    $Res> {
+  factory _$$FromVMManagedClassMethodInjectionImplementationCopyWith(
+          _$FromVMManagedClassMethodInjectionImplementation value,
+          $Res Function(_$FromVMManagedClassMethodInjectionImplementation)
+              then) =
+      __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>;
+  $Res call(
+      {VMManagedClassMethodInjectionImplementation
+          vmManagedClassMethodInjectionImplementation});
+}
+
+/// @nodoc
+class __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements
+        _$$FromVMManagedClassMethodInjectionImplementationCopyWith<$Res> {
+  __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl(
+      _$FromVMManagedClassMethodInjectionImplementation _value,
+      $Res Function(_$FromVMManagedClassMethodInjectionImplementation) _then)
+      : super(
+            _value,
+            (v) =>
+                _then(v as _$FromVMManagedClassMethodInjectionImplementation));
+
+  @override
+  _$FromVMManagedClassMethodInjectionImplementation get _value =>
+      super._value as _$FromVMManagedClassMethodInjectionImplementation;
+
+  @override
+  $Res call({
+    Object vmManagedClassMethodInjectionImplementation = freezed,
+  }) {
+    return _then(_$FromVMManagedClassMethodInjectionImplementation(
+      vmManagedClassMethodInjectionImplementation:
+          vmManagedClassMethodInjectionImplementation == freezed
+              ? _value.vmManagedClassMethodInjectionImplementation
+              : vmManagedClassMethodInjectionImplementation
+                  as VMManagedClassMethodInjectionImplementation,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromVMManagedClassMethodInjectionImplementation
+    implements _$FromVMManagedClassMethodInjectionImplementation {
+  _$_$FromVMManagedClassMethodInjectionImplementation(
+      {@required this.vmManagedClassMethodInjectionImplementation})
+      : assert(vmManagedClassMethodInjectionImplementation != null);
+
+  @override
+  final VMManagedClassMethodInjectionImplementation
+      vmManagedClassMethodInjectionImplementation;
+
+  @override
+  String toString() {
+    return 'DartIr.fromVMManagedClassMethodInjectionImplementation(vmManagedClassMethodInjectionImplementation: $vmManagedClassMethodInjectionImplementation)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromVMManagedClassMethodInjectionImplementation &&
+            (identical(other.vmManagedClassMethodInjectionImplementation,
+                    vmManagedClassMethodInjectionImplementation) ||
+                const DeepCollectionEquality().equals(
+                    other.vmManagedClassMethodInjectionImplementation,
+                    vmManagedClassMethodInjectionImplementation)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality()
+          .hash(vmManagedClassMethodInjectionImplementation);
+
+  @override
+  _$$FromVMManagedClassMethodInjectionImplementationCopyWith<
+          _$FromVMManagedClassMethodInjectionImplementation>
+      get copyWith =>
+          __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl<
+                  _$FromVMManagedClassMethodInjectionImplementation>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            StaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration),
+    @required
+        Result fromVMManagedClassDeclaration(
+            VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromVMManagedClassMethodInjectionImplementation(
+        vmManagedClassMethodInjectionImplementation);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        StaticMethodNamespaceSymbolDeclaration
+            staticMethodNamespaceSymbolDeclaration),
+    Result fromVMManagedClassDeclaration(
+        VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromVMManagedClassMethodInjectionImplementation != null) {
+      return fromVMManagedClassMethodInjectionImplementation(
+          vmManagedClassMethodInjectionImplementation);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            $FromDartVMManagedClassBoxerRegistrant value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            _$FromStaticMethodNamespaceSymbolDeclaration value),
+    @required
+        Result fromVMManagedClassDeclaration(
+            _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromVMManagedClassMethodInjectionImplementation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        $FromDartVMManagedClassBoxerRegistrant value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        _$FromStaticMethodNamespaceSymbolDeclaration value),
+    Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromVMManagedClassMethodInjectionImplementation != null) {
+      return fromVMManagedClassMethodInjectionImplementation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromVMManagedClassMethodInjectionImplementation
+    implements DartIr {
+  factory _$FromVMManagedClassMethodInjectionImplementation(
+          {@required
+              VMManagedClassMethodInjectionImplementation
+                  vmManagedClassMethodInjectionImplementation}) =
+      _$_$FromVMManagedClassMethodInjectionImplementation;
+
+  VMManagedClassMethodInjectionImplementation
+      get vmManagedClassMethodInjectionImplementation;
+  _$$FromVMManagedClassMethodInjectionImplementationCopyWith<
+      _$FromVMManagedClassMethodInjectionImplementation> get copyWith;
 }
