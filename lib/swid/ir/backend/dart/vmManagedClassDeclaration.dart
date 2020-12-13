@@ -85,6 +85,7 @@ class VMManagedClassDeclaration {
                 ).toDartSource()))
             .toList()),
         ...(swidClass.methods
+            .where((x) => x.name != "==")
             .map((x) => Code(x.returnType.when(
                   fromSwidInterface: (val) =>
                       narrowSwidInterfaceByReferenceDeclaration(
