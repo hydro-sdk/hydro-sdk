@@ -1,4 +1,3 @@
-import { DiagnosticLevel } from "../../../../runtime/flutter/foundation/diagnosticLevel";
 import { DiagnosticsNode } from "../../../../runtime/flutter/foundation/diagnosticsNode";
 import { DiagnosticsTreeStyle } from "../../../../runtime/flutter/foundation/diagnosticsTreeStyle";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
@@ -26,8 +25,6 @@ function third() {
     const node = DiagnosticsNode.message("message", {});
 
     assert(node != undefined);
-    assert(node.style == DiagnosticsTreeStyle.singleLine);
-    assert(node.getLevel() == DiagnosticLevel.info);
     assert(node.getAllowWrap() == true);
 }
 
