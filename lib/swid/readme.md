@@ -9,6 +9,7 @@ Limitations:
     - The way that overriden methods are expected to interact with their `super` counterparts is not immediately obvious in all cases. This is explicitly not supported except in the few cases where it is fundamental for Flutter. i.e. `StatefulWidget.dispose` etc.
 - Non-nullable parameters that are only allowed to be non-nullable in the presence of others (non-nullability by assertion)
     - If a parameter is declared non-nullable, it will be emitted as such. There are many cases of this pattern in Flutter which will be patched individually so as not to be surprising for Flutter developers.
+- Class methods that are annotated with `@proctected`
 
 
 Current and WIP results:
@@ -22,7 +23,7 @@ Current and WIP results:
 - [x] `IconData`  
 ### Foundation
 - [x] `TextTreeConfiguration`
-- [ ] `DiagnosticsNode`
+- [x] `DiagnosticsNode`
 - [ ] `DiagnosticsSerializationDelegate`
 - [ ] `DiagnosticPropertiesBuilder`
 - [ ] `Diagnosticable`
