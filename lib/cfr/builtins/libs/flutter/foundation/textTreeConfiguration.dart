@@ -1,8 +1,56 @@
 import 'package:flutter/foundation.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
+
+class VMManagedTextTreeConfiguration
+    extends VMManagedBox<TextTreeConfiguration> {
+  VMManagedTextTreeConfiguration(
+      {@required this.table,
+      @required this.vmObject,
+      @required this.hydroState})
+      : super(
+          table: table,
+          vmObject: vmObject,
+          hydroState: hydroState,
+        ) {
+    table['prefixLineOne'] = vmObject.prefixLineOne;
+    table['suffixLineOne'] = vmObject.suffixLineOne;
+    table['prefixOtherLines'] = vmObject.prefixOtherLines;
+    table['prefixLastChildLineOne'] = vmObject.prefixLastChildLineOne;
+    table['prefixOtherLinesRootNode'] = vmObject.prefixOtherLinesRootNode;
+    table['propertyPrefixIfChildren'] = vmObject.propertyPrefixIfChildren;
+    table['propertyPrefixNoChildren'] = vmObject.propertyPrefixNoChildren;
+    table['linkCharacter'] = vmObject.linkCharacter;
+    table['childLinkSpace'] = vmObject.childLinkSpace;
+    table['lineBreak'] = vmObject.lineBreak;
+    table['lineBreakProperties'] = vmObject.lineBreakProperties;
+    table['beforeName'] = vmObject.beforeName;
+    table['afterName'] = vmObject.afterName;
+    table['afterDescriptionIfBody'] = vmObject.afterDescriptionIfBody;
+    table['afterDescription'] = vmObject.afterDescription;
+    table['beforeProperties'] = vmObject.beforeProperties;
+    table['afterProperties'] = vmObject.afterProperties;
+    table['mandatoryAfterProperties'] = vmObject.mandatoryAfterProperties;
+    table['propertySeparator'] = vmObject.propertySeparator;
+    table['bodyIndent'] = vmObject.bodyIndent;
+    table['showChildren'] = vmObject.showChildren;
+    table['addBlankLineIfNoChildren'] = vmObject.addBlankLineIfNoChildren;
+    table['isNameOnOwnLine'] = vmObject.isNameOnOwnLine;
+    table['footer'] = vmObject.footer;
+    table['mandatoryFooter'] = vmObject.mandatoryFooter;
+    table['isBlankLineBetweenPropertiesAndChildren'] =
+        vmObject.isBlankLineBetweenPropertiesAndChildren;
+  }
+
+  final HydroTable table;
+
+  final HydroState hydroState;
+
+  final TextTreeConfiguration vmObject;
+}
 
 class RTManagedTextTreeConfiguration extends TextTreeConfiguration
     implements Box<TextTreeConfiguration> {
@@ -65,6 +113,33 @@ class RTManagedTextTreeConfiguration extends TextTreeConfiguration
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
+    table['prefixLineOne'] = prefixLineOne;
+    table['suffixLineOne'] = suffixLineOne;
+    table['prefixOtherLines'] = prefixOtherLines;
+    table['prefixLastChildLineOne'] = prefixLastChildLineOne;
+    table['prefixOtherLinesRootNode'] = prefixOtherLinesRootNode;
+    table['propertyPrefixIfChildren'] = propertyPrefixIfChildren;
+    table['propertyPrefixNoChildren'] = propertyPrefixNoChildren;
+    table['linkCharacter'] = linkCharacter;
+    table['childLinkSpace'] = childLinkSpace;
+    table['lineBreak'] = lineBreak;
+    table['lineBreakProperties'] = lineBreakProperties;
+    table['beforeName'] = beforeName;
+    table['afterName'] = afterName;
+    table['afterDescriptionIfBody'] = afterDescriptionIfBody;
+    table['afterDescription'] = afterDescription;
+    table['beforeProperties'] = beforeProperties;
+    table['afterProperties'] = afterProperties;
+    table['mandatoryAfterProperties'] = mandatoryAfterProperties;
+    table['propertySeparator'] = propertySeparator;
+    table['bodyIndent'] = bodyIndent;
+    table['showChildren'] = showChildren;
+    table['addBlankLineIfNoChildren'] = addBlankLineIfNoChildren;
+    table['isNameOnOwnLine'] = isNameOnOwnLine;
+    table['footer'] = footer;
+    table['mandatoryFooter'] = mandatoryFooter;
+    table['isBlankLineBetweenPropertiesAndChildren'] =
+        isBlankLineBetweenPropertiesAndChildren;
   }
 
   final HydroTable table;
@@ -109,5 +184,12 @@ void loadTextTreeConfiguration(
           propertyPrefixIfChildren: args[1]['propertyPrefixIfChildren'],
           propertyPrefixNoChildren: args[1]['propertyPrefixNoChildren'])
     ];
+  });
+  registerBoxer<TextTreeConfiguration>(boxer: (
+      {@required TextTreeConfiguration vmObject,
+      @required HydroState hydroState,
+      @required HydroTable table}) {
+    return VMManagedTextTreeConfiguration(
+        vmObject: vmObject, hydroState: hydroState, table: table);
   });
 }
