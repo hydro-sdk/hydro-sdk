@@ -19,9 +19,6 @@ void main() {
                     referenceDeclarationKind:
                         SwidReferenceDeclarationKind.classElement,
                     typeArguments: []))).toDartSource(),
-        """
-TextStyle.values.indexWhere((x) {
-  return x == style;
-});""");
+        "TextStyle.values.indexWhere((x) { return x == style; } );");
   }, tags: "swid");
 }

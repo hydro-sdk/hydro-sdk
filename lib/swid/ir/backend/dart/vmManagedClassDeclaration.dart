@@ -13,7 +13,6 @@ import 'package:code_builder/code_builder.dart'
 import 'package:dart_style/dart_style.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -86,25 +85,15 @@ class VMManagedClassDeclaration {
             .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
-            .map((x) => Code(x.returnType.when(
-                  fromSwidInterface: (val) =>
-                      narrowSwidInterfaceByReferenceDeclaration(
-                    swidInterface: val,
-                    onPrimitive: (val) =>
-                        VMManagedClassMethodInjectionImplementation(
-                            tableKey:
-                                transformAccessorName(swidFunctionType: x).name,
-                            swidFunctionType: SwidFunctionType.clone(
-                              swidFunctionType: x,
-                              name: "vmObject.${x.name}",
-                            )).toDartSource(),
-                    onClass: (_) => "",
-                    onEnum: (_) => "",
-                  ),
-                  fromSwidClass: (_) => "",
-                  fromSwidDefaultFormalParameter: (_) => "",
-                  fromSwidFunctionType: (_) => "",
-                )))
+            .where((x) => !x.swidDeclarationModifiers.hasProtected)
+            .map((x) => Code(
+                  VMManagedClassMethodInjectionImplementation(
+                      tableKey: transformAccessorName(swidFunctionType: x).name,
+                      swidFunctionType: SwidFunctionType.clone(
+                        swidFunctionType: x,
+                        name: "vmObject.${x.name}",
+                      )).toDartSource(),
+                ))
             .toList())
       ])))).accept(DartEmitter()).toString());
 }

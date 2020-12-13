@@ -9,4 +9,5 @@ List<SwidFunctionType> tsClassMethodInjectionCandidates(
         .map((x) => transformPrimitiveFunctionTypeNamesToTs(
             swidFunctionType: transformAccessorName(swidFunctionType: x)))
         .where((x) => x.name != "==")
+        .where((x) => !x.swidDeclarationModifiers.hasProtected)
         .toList();

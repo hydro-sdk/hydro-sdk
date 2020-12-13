@@ -40,12 +40,23 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
             maybeUnBoxEnum(values: DiagnosticLevel.values, boxedEnum: args[1]))
       ];
     });
-
+    table['getLevel'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        DiagnosticLevel.values.indexWhere((x) {
+          return x == vmObject.level;
+        })
+      ];
+    });
     table['getEmptyBodyDescription'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.emptyBodyDescription];
     });
-
+    table['getValue'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Object>(
+            object: vmObject.value, hydroState: hydroState, table: HydroTable())
+      ];
+    });
     table['getAllowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.allowWrap];
     });
@@ -55,7 +66,22 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
     table['getAllowTruncate'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.allowTruncate];
     });
-
+    table['getProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<List<DiagnosticsNode>>(
+            object: vmObject.getProperties(),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['getChildren'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<List<DiagnosticsNode>>(
+            object: vmObject.getChildren(),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
     table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.toString(
@@ -67,7 +93,6 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
                     parentState: hydroState))
       ];
     });
-
     table['toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.toStringDeep(
@@ -152,10 +177,18 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
       return [super.allowTruncate];
     });
     table['_dart_getProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [getProperties()];
+      return [
+        maybeBoxObject<List<DiagnosticsNode>>(
+            object: getProperties(),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
     });
     table['_dart_getChildren'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [getChildren()];
+      return [
+        maybeBoxObject<List<DiagnosticsNode>>(
+            object: getChildren(), hydroState: hydroState, table: HydroTable())
+      ];
     });
     table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
@@ -258,12 +291,6 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
       {DiagnosticLevel minLevel = DiagnosticLevel.info,
       TextTreeConfiguration parentConfiguration}) {
     Closure closure = table["__tostring"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  TextTreeConfiguration get textTreeConfiguration {
-    Closure closure = table["textTreeConfiguration"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

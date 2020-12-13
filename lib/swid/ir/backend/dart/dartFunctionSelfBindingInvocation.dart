@@ -7,25 +7,58 @@ import 'package:code_builder/code_builder.dart'
         Expression,
         Code,
         CodeExpression;
+import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingParameterExpression.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:meta/meta.dart';
 
 class DartFunctionSelfBindingInvocation {
   final SwidFunctionType swidFunctionType;
-  final DartBoxingProcedure dartBoxingProcedure;
+  final DartBoxingProcedure argumentBoxingProcedure;
+  final DartBoxingProcedure returnValueBoxingProcedure;
   final bool emitTableBindingPrefix;
 
   DartFunctionSelfBindingInvocation({
     @required this.swidFunctionType,
-    @required this.dartBoxingProcedure,
+    @required this.argumentBoxingProcedure,
+    @required this.returnValueBoxingProcedure,
     @required this.emitTableBindingPrefix,
   });
 
-  String toDartSource() => ((Expression expression) =>
-      expression.accept(DartEmitter()).toString())(!swidFunctionType
-          .swidDeclarationModifiers.isGetter
+  String toDartSource() => ((Expression expression) => returnValueBoxingProcedure ==
+          DartBoxingProcedure.unbox
+      ? DartUnboxingParameterExpression(
+          swidType: swidFunctionType.returnType, expression: expression)
+      : returnValueBoxingProcedure == DartBoxingProcedure.box
+          ? swidFunctionType.returnType.when(
+              fromSwidInterface: (val) =>
+                  narrowSwidInterfaceByReferenceDeclaration(
+                swidInterface: val,
+                onPrimitive: (_) => expression.accept(DartEmitter()).toString(),
+                onClass: (val) => DartBoxObjectReference(
+                  type: SwidType.fromSwidInterface(swidInterface: val),
+                  objectReference: expression,
+                  codeKind: CodeKind.expression,
+                ).toDartSource(),
+                onEnum: (val) => DartBoxEnumReference(
+                        type: SwidType.fromSwidInterface(swidInterface: val),
+                        codeKind: CodeKind.expression,
+                        referenceName:
+                            expression.accept(DartEmitter()).toString())
+                    .toDartSource(),
+              ),
+              fromSwidClass: (_) => "",
+              fromSwidDefaultFormalParameter: (_) => "",
+              fromSwidFunctionType: (_) => "",
+            )
+          : expression
+              .accept(DartEmitter())
+              .toString())(!swidFunctionType.swidDeclarationModifiers.isGetter
       ? refer(swidFunctionType.name)
           /*
               args[0] - caller
@@ -35,10 +68,11 @@ class DartFunctionSelfBindingInvocation {
           .call(
               swidFunctionType.normalParameterNames.isNotEmpty
                   ? swidFunctionType.normalParameterNames
-                      .map((x) => ((Expression expression) => dartBoxingProcedure ==
-                              DartBoxingProcedure.unbox
-                          ? CodeExpression(Code(
-                              DartUnboxingParameterExpression(swidType: swidFunctionType.normalParameterTypes.elementAt(swidFunctionType.normalParameterNames.indexWhere((e) => e == x)), expression: expression).toDartSource()))
+                      .map((x) => ((Expression expression) => argumentBoxingProcedure == DartBoxingProcedure.unbox
+                          ? CodeExpression(Code(DartUnboxingParameterExpression(
+                                  swidType: swidFunctionType.normalParameterTypes.elementAt(swidFunctionType.normalParameterNames.indexWhere((e) => e == x)),
+                                  expression: expression)
+                              .toDartSource()))
                           : CodeExpression(Code("")))(refer("args").index(literalNum(swidFunctionType.normalParameterNames.indexWhere((e) => e == x) + 1))))
                       .toList()
                       .cast<Expression>()
@@ -55,7 +89,7 @@ class DartFunctionSelfBindingInvocation {
                       ...(swidFunctionType.namedParameterTypes.entries.map(
                           (x) => MapEntry(
                               x.key,
-                              CodeExpression(Code(dartBoxingProcedure ==
+                              CodeExpression(Code(argumentBoxingProcedure ==
                                       DartBoxingProcedure.unbox
                                   ? DartUnboxingParameterExpression(
                                           swidType: x.value,
