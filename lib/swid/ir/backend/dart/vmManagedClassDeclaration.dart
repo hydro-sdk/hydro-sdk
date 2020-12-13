@@ -85,6 +85,7 @@ class VMManagedClassDeclaration {
             .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
+            .where((x) => !x.swidDeclarationModifiers.hasProtected)
             .map((x) => Code(
                   VMManagedClassMethodInjectionImplementation(
                       tableKey: transformAccessorName(swidFunctionType: x).name,

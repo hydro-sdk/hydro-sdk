@@ -94,9 +94,6 @@ export class DiagnosticsNode {
         minLevel: DiagnosticLevel;
         parentConfiguration?: TextTreeConfiguration | undefined;
     }) => string = undefined as any;
-    private readonly _dart_getTextTreeConfiguration: () =>
-        | TextTreeConfiguration
-        | undefined = undefined as any;
     private readonly _dart_toStringDeep: (props: {
         minLevel: DiagnosticLevel;
         parentConfiguration?: TextTreeConfiguration | undefined;
@@ -143,9 +140,6 @@ export class DiagnosticsNode {
             ...toStringDefaultProps,
             ...props,
         });
-    }
-    public getTextTreeConfiguration() {
-        return this._dart_getTextTreeConfiguration();
     }
     public toStringDeep(props: {
         minLevel?: DiagnosticLevel;

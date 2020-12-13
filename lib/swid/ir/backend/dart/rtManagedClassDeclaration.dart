@@ -155,6 +155,7 @@ class RTManagedClassDeclaration {
     ])
     ..methods.addAll(swidClass.methods
             .where((x) => x.name != "==")
+            .where((x) => !x.swidDeclarationModifiers.hasProtected)
             .map((x) => Method((k) => k
               ..annotations.add(refer("override"))
               ..type = x.swidDeclarationModifiers.isGetter

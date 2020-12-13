@@ -93,15 +93,6 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
                     parentState: hydroState))
       ];
     });
-    table['getTextTreeConfiguration'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<TextTreeConfiguration>(
-            object: vmObject.textTreeConfiguration,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
     table['toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.toStringDeep(
@@ -300,12 +291,6 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
       {DiagnosticLevel minLevel = DiagnosticLevel.info,
       TextTreeConfiguration parentConfiguration}) {
     Closure closure = table["__tostring"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
-  TextTreeConfiguration get textTreeConfiguration {
-    Closure closure = table["textTreeConfiguration"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
