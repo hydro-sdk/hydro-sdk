@@ -47,6 +47,7 @@ class LoadNamespaceSymbolDeclaration {
             literalList([
               Code(DartFunctionSelfBindingInvocation(
                       argumentBoxingProcedure: DartBoxingProcedure.unbox,
+                      returnValueBoxingProcedure: DartBoxingProcedure.none,
                       emitTableBindingPrefix: true,
                       swidFunctionType: SwidFunctionType.clone(
                           swidFunctionType: swidClass.constructorType,

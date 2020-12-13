@@ -40,6 +40,8 @@ class StaticMethodNamespaceSymbolDeclaration {
                       DartFunctionSelfBindingInvocation(
                               argumentBoxingProcedure:
                                   DartBoxingProcedure.unbox,
+                              returnValueBoxingProcedure:
+                                  DartBoxingProcedure.none,
                               emitTableBindingPrefix: false,
                               swidFunctionType: SwidFunctionType.clone(
                                   swidFunctionType: swidFunctionType,

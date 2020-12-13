@@ -23,6 +23,7 @@ class VMManagedClassMethodInjectionImplementation {
         Code("return [" +
             DartFunctionSelfBindingInvocation(
                     argumentBoxingProcedure: DartBoxingProcedure.unbox,
+                    returnValueBoxingProcedure: DartBoxingProcedure.box,
                     swidFunctionType: swidFunctionType,
                     emitTableBindingPrefix: false)
                 .toDartSource() +
