@@ -25,8 +25,7 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
     table['style'] = DiagnosticsTreeStyle.values.indexWhere((x) {
       return x == vmObject.style;
     });
-    table['vmObject.toDescription'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toDescription'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.toDescription(
             parentConfiguration:
@@ -35,31 +34,29 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
                     parentState: hydroState))
       ];
     });
-    table['vmObject.isFiltered'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['isFiltered'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.isFiltered(
             maybeUnBoxEnum(values: DiagnosticLevel.values, boxedEnum: args[1]))
       ];
     });
 
-    table['vmObject.emptyBodyDescription'] =
+    table['getEmptyBodyDescription'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.emptyBodyDescription];
     });
 
-    table['vmObject.allowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getAllowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.allowWrap];
     });
-    table['vmObject.allowNameWrap'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getAllowNameWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.allowNameWrap];
     });
-    table['vmObject.allowTruncate'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getAllowTruncate'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.allowTruncate];
     });
 
-    table['vmObject.toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.toString(
             minLevel: maybeUnBoxEnum(
@@ -71,8 +68,7 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
       ];
     });
 
-    table['vmObject.toStringDeep'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.toStringDeep(
             minLevel: maybeUnBoxEnum(
