@@ -9,12 +9,15 @@ import 'package:meta/meta.dart';
 
 class VMManagedClassMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
+  final String tableKey;
 
-  VMManagedClassMethodInjectionImplementation(
-      {@required this.swidFunctionType});
+  VMManagedClassMethodInjectionImplementation({
+    @required this.swidFunctionType,
+    @required this.tableKey,
+  });
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")
-      .index(literalString(swidFunctionType.name))
+      .index(literalString(tableKey))
       .assign(luaDartBinding(
           code: Block.of([
         Code("return [" +

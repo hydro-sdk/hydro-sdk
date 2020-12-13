@@ -16,6 +16,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImpl
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:meta/meta.dart';
 
 class VMManagedClassDeclaration {
@@ -90,10 +91,12 @@ class VMManagedClassDeclaration {
                     swidInterface: val,
                     onPrimitive: (val) =>
                         VMManagedClassMethodInjectionImplementation(
+                            tableKey:
+                                transformAccessorName(swidFunctionType: x).name,
                             swidFunctionType: SwidFunctionType.clone(
-                      swidFunctionType: x,
-                      name: "vmObject.${x.name}",
-                    )).toDartSource(),
+                              swidFunctionType: x,
+                              name: "vmObject.${x.name}",
+                            )).toDartSource(),
                     onClass: (_) => "",
                     onEnum: (_) => "",
                   ),
