@@ -28,7 +28,7 @@ class MethodInjectionImplementation {
                         ? "()"
                         : "")
                 : DartFunctionSelfBindingInvocation(
-                        dartBoxingProcedure: DartBoxingProcedure.unbox,
+                        argumentBoxingProcedure: DartBoxingProcedure.unbox,
                         swidFunctionType: SwidFunctionType.clone(
                           swidFunctionType: swidFunctionType,
                           name: !swidFunctionType

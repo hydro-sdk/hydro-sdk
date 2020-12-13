@@ -14,12 +14,12 @@ import 'package:meta/meta.dart';
 
 class DartFunctionSelfBindingInvocation {
   final SwidFunctionType swidFunctionType;
-  final DartBoxingProcedure dartBoxingProcedure;
+  final DartBoxingProcedure argumentBoxingProcedure;
   final bool emitTableBindingPrefix;
 
   DartFunctionSelfBindingInvocation({
     @required this.swidFunctionType,
-    @required this.dartBoxingProcedure,
+    @required this.argumentBoxingProcedure,
     @required this.emitTableBindingPrefix,
   });
 
@@ -35,11 +35,11 @@ class DartFunctionSelfBindingInvocation {
           .call(
               swidFunctionType.normalParameterNames.isNotEmpty
                   ? swidFunctionType.normalParameterNames
-                      .map((x) => ((Expression expression) => dartBoxingProcedure ==
-                              DartBoxingProcedure.unbox
-                          ? CodeExpression(Code(
-                              DartUnboxingParameterExpression(swidType: swidFunctionType.normalParameterTypes.elementAt(swidFunctionType.normalParameterNames.indexWhere((e) => e == x)), expression: expression).toDartSource()))
-                          : CodeExpression(Code("")))(refer("args").index(literalNum(swidFunctionType.normalParameterNames.indexWhere((e) => e == x) + 1))))
+                      .map((x) => ((Expression expression) =>
+                          argumentBoxingProcedure == DartBoxingProcedure.unbox
+                              ? CodeExpression(Code(
+                                  DartUnboxingParameterExpression(swidType: swidFunctionType.normalParameterTypes.elementAt(swidFunctionType.normalParameterNames.indexWhere((e) => e == x)), expression: expression).toDartSource()))
+                              : CodeExpression(Code("")))(refer("args").index(literalNum(swidFunctionType.normalParameterNames.indexWhere((e) => e == x) + 1))))
                       .toList()
                       .cast<Expression>()
                   : [],
@@ -55,7 +55,7 @@ class DartFunctionSelfBindingInvocation {
                       ...(swidFunctionType.namedParameterTypes.entries.map(
                           (x) => MapEntry(
                               x.key,
-                              CodeExpression(Code(dartBoxingProcedure ==
+                              CodeExpression(Code(argumentBoxingProcedure ==
                                       DartBoxingProcedure.unbox
                                   ? DartUnboxingParameterExpression(
                                           swidType: x.value,
