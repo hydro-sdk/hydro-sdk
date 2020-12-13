@@ -12,7 +12,7 @@ String _transformVmDeclarationToTs(
             transformTypeDeclarationToTs(
                 swidType: SwidType.fromSwidFunctionType(swidFunctionType: x)))
         ?.toList()
-        ?.join("\n") +
+        ?.join(";\n") +
     tsVmDeclaration.children
         .map((x) => _transformVmDeclarationToTs(tsVmDeclaration: x))
         ?.toList()

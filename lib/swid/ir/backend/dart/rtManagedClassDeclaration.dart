@@ -15,10 +15,11 @@ import 'package:code_builder/code_builder.dart'
         Block,
         Code;
 import 'package:dart_style/dart_style.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
-import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 import 'package:meta/meta.dart';
 
@@ -128,18 +129,17 @@ class RTManagedClassDeclaration {
                 ])).closure
             }))
             .statement,
+        ...(swidClass.instanceFieldDeclarations.entries
+            .map((x) => Code(DartBindInstanceField(
+                  tableKey: x.key,
+                  instanceFieldName: x.key,
+                  instanceField: x.value,
+                ).toDartSource()))
+            .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
-            .map((x) => refer("table")
-                .index(literalString(
-                    methodInjectionFieldName(swidFunctionType: x)))
-                .assign(luaDartBinding(
-                    code: Block.of([
-                  !x.swidDeclarationModifiers.isGetter
-                      ? Code("return [super.${x.name}()];")
-                      : Code("return [super.${x.name}];")
-                ])))
-                .statement)
+            .map((x) => Code(MethodInjectionImplementation(swidFunctionType: x)
+                .toDartSource()))
             .toList())
       ])))
     ..methods.addAll([
@@ -162,6 +162,27 @@ class RTManagedClassDeclaration {
                   : x.swidDeclarationModifiers.isSetter
                       ? MethodType.setter
                       : null
+              ..requiredParameters.addAll([
+                ...x.normalParameterNames
+                    .map((e) => Parameter((p) => p
+                      ..name = e
+                      ..type = swidTypeToDartTypeReference(
+                          swidType: x.normalParameterTypes.elementAt(x
+                              .normalParameterNames
+                              .indexWhere((element) => element == e)))))
+                    .toList(),
+              ])
+              ..optionalParameters.addAll([
+                ...x.namedParameterTypes.entries
+                    .map((e) => Parameter((p) => p
+                      ..name = e.key
+                      ..defaultTo = (x.namedDefaults[e.key] != null
+                          ? Code(x.namedDefaults[e.key].name)
+                          : null)
+                      ..named = true
+                      ..type = swidTypeToDartTypeReference(swidType: e.value)))
+                    .toList()
+              ])
               ..name = x.name
               ..returns = refer(x.returnType.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
               ..body = Block.of([

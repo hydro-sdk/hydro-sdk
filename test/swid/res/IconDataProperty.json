@@ -35,33 +35,41 @@
         "namedParameterTypes": {
             "ifNull": {
                 "swidInterface": {
-                    "name": "String*",
+                    "name": "String",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             },
             "level": {
                 "swidInterface": {
-                    "name": "DiagnosticLevel*",
+                    "name": "DiagnosticLevel",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart"
+                    "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "enumElement"
                 },
                 "runtimeType": "fromSwidInterface"
             },
             "showName": {
                 "swidInterface": {
-                    "name": "bool*",
+                    "name": "bool",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             },
             "style": {
                 "swidInterface": {
-                    "name": "DiagnosticsTreeStyle*",
+                    "name": "DiagnosticsTreeStyle",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart"
+                    "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "enumElement"
                 },
                 "runtimeType": "fromSwidInterface"
             }
@@ -75,7 +83,9 @@
                     "swidInterface": {
                         "name": "DiagnosticLevel",
                         "nullabilitySuffix": "star",
-                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart"
+                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "enumElement"
                     },
                     "runtimeType": "fromSwidInterface"
                 }
@@ -88,7 +98,9 @@
                     "swidInterface": {
                         "name": "bool",
                         "nullabilitySuffix": "star",
-                        "originalPackagePath": "dart:core"
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
                     },
                     "runtimeType": "fromSwidInterface"
                 }
@@ -101,7 +113,9 @@
                     "swidInterface": {
                         "name": "DiagnosticsTreeStyle",
                         "nullabilitySuffix": "star",
-                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart"
+                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "enumElement"
                     },
                     "runtimeType": "fromSwidInterface"
                 }
@@ -113,7 +127,9 @@
                 "swidInterface": {
                     "name": "String",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             },
@@ -121,7 +137,9 @@
                 "swidInterface": {
                     "name": "IconData",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "package:flutter/src/widgets/icon_data.dart"
+                    "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             }
@@ -132,11 +150,15 @@
             "swidInterface": {
                 "name": "IconDataProperty",
                 "nullabilitySuffix": "star",
-                "originalPackagePath": "package:flutter/src/widgets/icon_data.dart"
+                "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
+                "typeArguments": [],
+                "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
         }
     },
+    "factoryConstructors": [],
+    "staticMethods": [],
     "methods": [
         {
             "name": "toJsonMap",
@@ -176,7 +198,9 @@
                     "swidInterface": {
                         "name": "DiagnosticsSerializationDelegate",
                         "nullabilitySuffix": "star",
-                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart"
+                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
                     },
                     "runtimeType": "fromSwidInterface"
                 }
@@ -185,9 +209,32 @@
             "optionalParameterTypes": [],
             "returnType": {
                 "swidInterface": {
-                    "name": "Map",
+                    "name": "Map<String, Object>",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [
+                        {
+                            "swidInterface": {
+                                "name": "String",
+                                "nullabilitySuffix": "star",
+                                "originalPackagePath": "dart:core",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "runtimeType": "fromSwidInterface"
+                        },
+                        {
+                            "swidInterface": {
+                                "name": "Object",
+                                "nullabilitySuffix": "star",
+                                "originalPackagePath": "dart:core",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "runtimeType": "fromSwidInterface"
+                        }
+                    ],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             }

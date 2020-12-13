@@ -88,20 +88,44 @@ class SwidVisitor extends RecursiveAstVisitor
   void visitClassDeclaration(ClassDeclaration node) {
     if (node.withClause == null &&
         node.nativeClause == null &&
-        node.abstractKeyword == null &&
         node.name.name[0] != "_") {
       if (node.name.name == "Icons") {
         print("Icons");
       }
-      ConstructorDeclarationImpl constructorDeclarationImpl = node.childEntities
-          .firstWhere((x) => x is ConstructorDeclarationImpl,
-              orElse: () => null);
+
+      final List<ConstructorDeclarationImpl> constructors = node.childEntities
+          .where((x) => x is ConstructorDeclarationImpl)
+          .toList()
+          .cast<ConstructorDeclarationImpl>()
+          .where((x) => !x.declaredElement.hasProtected)
+          .toList();
+      final constructorDeclarationImpl = constructors
+          .firstWhere((x) => x.factoryKeyword == null, orElse: () => null);
       if (constructorDeclarationImpl != null) {
         if (constructorDeclarationImpl.declaredElement.isPublic ||
             node.childEntities.firstWhere(
                     (x) => x is FieldDeclaration && x.staticKeyword != null,
                     orElse: () => null) !=
                 null) {
+          var methods = node.childEntities
+              .where((x) => x is MethodDeclarationImpl)
+              .toList()
+              .cast<MethodDeclarationImpl>()
+              .where((x) => x.name.name[0] != "_")
+              .toList()
+              .cast<MethodDeclarationImpl>()
+              .map((x) => SwidFunctionType.fromFunctionType(
+                  functionType: x.declaredElement.type,
+                  swidDeclarationModifiers: narrowModifierProducer(
+                      element: x.declaredElement,
+                      onExecutablElement: (val) =>
+                          SwidDeclarationModifiers.fromExecutableElement(
+                              executableElement: val),
+                      onPropertyAccessorElement: (val) =>
+                          SwidDeclarationModifiers.fromPropertyAccessorElement(
+                              propertyAccessorElement: val))))
+              .toList()
+              .cast<SwidFunctionType>();
           classes.add(
             SwidClass(
                 name: node.name.name,
@@ -112,27 +136,24 @@ class SwidVisitor extends RecursiveAstVisitor
                     swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                     functionType:
                         constructorDeclarationImpl.declaredElement.type),
-                methods: node.childEntities
-                    .where((x) => x is MethodDeclarationImpl)
-                    .toList()
-                    .cast<MethodDeclarationImpl>()
+                factoryConstructors: constructors
                     .where((x) =>
-                        x.name.name[0] != "_" &&
-                        !x.declaredElement.hasProtected)
+                        x.factoryKeyword != null &&
+                        x.name != null &&
+                        x.name.name[0] != "_")
                     .toList()
-                    .cast<MethodDeclarationImpl>()
                     .map((x) => SwidFunctionType.fromFunctionType(
                         functionType: x.declaredElement.type,
-                        swidDeclarationModifiers: narrowModifierProducer(
-                            element: x.declaredElement,
-                            onExecutablElement: (val) =>
-                                SwidDeclarationModifiers.fromExecutableElement(
-                                    executableElement: val),
-                            onPropertyAccessorElement: (val) =>
-                                SwidDeclarationModifiers.fromPropertyAccessorElement(
-                                    propertyAccessorElement: val))))
-                    .toList()
-                    .cast<SwidFunctionType>(),
+                        name: x.name.name,
+                        swidDeclarationModifiers:
+                            SwidDeclarationModifiers.empty()))
+                    .toList(),
+                methods: methods
+                    .where((x) => !x.swidDeclarationModifiers.isStatic)
+                    .toList(),
+                staticMethods: methods
+                    .where((x) => x.swidDeclarationModifiers.isStatic)
+                    .toList(),
                 staticConstFieldDeclarations: node.childEntities
                     .where((x) => x is FieldDeclaration)
                     .toList()
@@ -222,15 +243,15 @@ class SwidVisitor extends RecursiveAstVisitor
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
-    if (node.name.name == "Ticker") {
-      print(node.name.name);
-      File("test/swid/res/Ticker.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
     if (node.name.name == "IconData") {
       print(node.name.name);
       File("test/swid/res/IconData.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "DiagnosticsNode") {
+      print(node.name.name);
+      File("test/swid/res/DiagnosticsNode.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 

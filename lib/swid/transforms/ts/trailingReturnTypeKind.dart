@@ -1,0 +1,4 @@
+enum TrailingReturnTypeKind {
+  fatArrow,
+  colon,
+}

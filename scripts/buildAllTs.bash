@@ -13,22 +13,27 @@ do
     node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/hot/stateful" -p $1
 done
 
-for f in test/unit/async/*.ts;
+for f in test/unit/dart/async/*.ts;
 do
-    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/async" -p $1
+    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/dart/async" -p $1
 done
 
-for f in test/unit/collection/*.ts;
+for f in test/unit/dart/collection/*.ts;
 do
-    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/collection" -p $1
+    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/dart/collection" -p $1
+done
+
+for f in test/unit/dart/core/*.ts;
+do
+    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/dart/core" -p $1
+done
+
+for f in test/unit/flutter/foundation/*.ts;
+do
+    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/flutter/foundation" -p $1
 done
 
 for f in test/unit/ts/*.ts;
 do
     node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/ts" -p $1
-done
-
-for f in test/unit/core/*.ts;
-do
-    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/core" -p $1
 done

@@ -23,10 +23,11 @@ void main(List<String> args) async {
   }
 
   for (var i = 0; i != visitor.classes.length; ++i) {
-    if (visitor.classes[i].name == "Icons" ||
-        visitor.classes[i].name == "CupertinoIcons" ||
-        visitor.classes[i].name == "IconData" ||
-        visitor.classes[i].name == "TextTreeConfiguration") {
+    if ( //visitor.classes[i].name == "Icons" ||
+        // visitor.classes[i].name == "CupertinoIcons" ||
+        // visitor.classes[i].name == "IconData" ||
+        // visitor.`classes[i].name == "TextTreeConfiguration" ||
+        visitor.classes[i].name == "DiagnosticsNode") {
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(

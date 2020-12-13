@@ -35,25 +35,31 @@
         "namedParameterTypes": {
             "fontFamily": {
                 "swidInterface": {
-                    "name": "String*",
+                    "name": "String",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             },
             "fontPackage": {
                 "swidInterface": {
-                    "name": "String*",
+                    "name": "String",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             },
             "matchTextDirection": {
                 "swidInterface": {
-                    "name": "bool*",
+                    "name": "bool",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             }
@@ -67,7 +73,9 @@
                     "swidInterface": {
                         "name": "bool",
                         "nullabilitySuffix": "star",
-                        "originalPackagePath": "dart:core"
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
                     },
                     "runtimeType": "fromSwidInterface"
                 }
@@ -79,7 +87,9 @@
                 "swidInterface": {
                     "name": "int",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             }
@@ -90,11 +100,15 @@
             "swidInterface": {
                 "name": "IconData",
                 "nullabilitySuffix": "star",
-                "originalPackagePath": "package:flutter/src/widgets/icon_data.dart"
+                "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
+                "typeArguments": [],
+                "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
         }
     },
+    "factoryConstructors": [],
+    "staticMethods": [],
     "methods": [
         {
             "name": "==",
@@ -134,7 +148,9 @@
                     "swidInterface": {
                         "name": "Object",
                         "nullabilitySuffix": "star",
-                        "originalPackagePath": "dart:core"
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
                     },
                     "runtimeType": "fromSwidInterface"
                 }
@@ -145,7 +161,9 @@
                 "swidInterface": {
                     "name": "bool",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             }
@@ -190,7 +208,9 @@
                 "swidInterface": {
                     "name": "int",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             }
@@ -235,7 +255,9 @@
                 "swidInterface": {
                     "name": "String",
                     "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
             }
@@ -247,7 +269,9 @@
             "swidInterface": {
                 "name": "int",
                 "nullabilitySuffix": "star",
-                "originalPackagePath": "dart:core"
+                "originalPackagePath": "dart:core",
+                "typeArguments": [],
+                "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
         },
@@ -255,7 +279,9 @@
             "swidInterface": {
                 "name": "String",
                 "nullabilitySuffix": "star",
-                "originalPackagePath": "dart:core"
+                "originalPackagePath": "dart:core",
+                "typeArguments": [],
+                "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
         },
@@ -263,7 +289,9 @@
             "swidInterface": {
                 "name": "String",
                 "nullabilitySuffix": "star",
-                "originalPackagePath": "dart:core"
+                "originalPackagePath": "dart:core",
+                "typeArguments": [],
+                "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
         },
@@ -271,7 +299,9 @@
             "swidInterface": {
                 "name": "bool",
                 "nullabilitySuffix": "star",
-                "originalPackagePath": "dart:core"
+                "originalPackagePath": "dart:core",
+                "typeArguments": [],
+                "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
         }

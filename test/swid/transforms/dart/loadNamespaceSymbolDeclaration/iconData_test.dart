@@ -27,6 +27,13 @@ void loadIconData(
           matchTextDirection: args[2][\'matchTextDirection\'])
     ];
   });
+  registerBoxer<IconData>(boxer: (
+      {@required IconData vmObject,
+      @required HydroState hydroState,
+      @required HydroTable table}) {
+    return VMManagedIconData(
+        vmObject: vmObject, hydroState: hydroState, table: table);
+  });
 }
 """);
   }, tags: "swid");

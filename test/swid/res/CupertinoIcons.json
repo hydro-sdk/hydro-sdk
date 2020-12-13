@@ -42,11 +42,15 @@
             "swidInterface": {
                 "name": "CupertinoIcons",
                 "nullabilitySuffix": "star",
-                "originalPackagePath": "package:flutter/src/cupertino/icons.dart"
+                "originalPackagePath": "package:flutter/src/cupertino/icons.dart",
+                "typeArguments": [],
+                "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
         }
     },
+    "factoryConstructors": [],
+    "staticMethods": [],
     "methods": [],
     "staticConstFieldDeclarations": [
         {

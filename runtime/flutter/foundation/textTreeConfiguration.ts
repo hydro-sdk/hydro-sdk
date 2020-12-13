@@ -35,39 +35,22 @@ declare const flutter: {
 };
 const textTreeConfigurationDefaultProps = {
     addBlankLineIfNoChildren: true,
-
     afterDescription: "",
-
     afterDescriptionIfBody: "",
-
     afterName: ":",
-
     afterProperties: "",
-
     beforeName: "",
-
     beforeProperties: "",
-
     bodyIndent: "",
-
     footer: "",
-
     isBlankLineBetweenPropertiesAndChildren: true,
-
     isNameOnOwnLine: false,
-
     lineBreak: "\n",
-
     lineBreakProperties: true,
-
     mandatoryAfterProperties: "",
-
     mandatoryFooter: "",
-
     propertySeparator: "",
-
     showChildren: true,
-
     suffixLineOne: "",
 };
 export class TextTreeConfiguration {

@@ -4,7 +4,7 @@
     "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
     "constructorType": {
         "name": "",
-        "nullabilitySuffix": "star",
+        "nullabilitySuffix": "none",
         "originalPackagePath": "",
         "swidDeclarationModifiers": {
             "isAbstract": false,
@@ -35,8 +35,8 @@
         "namedParameterTypes": {
             "debugLabel": {
                 "swidInterface": {
-                    "name": "String*",
-                    "nullabilitySuffix": "star",
+                    "name": "String?",
+                    "nullabilitySuffix": "question",
                     "originalPackagePath": "dart:core"
                 },
                 "runtimeType": "fromSwidInterface"
@@ -48,7 +48,7 @@
             {
                 "swidFunctionType": {
                     "name": "",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
@@ -83,7 +83,7 @@
                         {
                             "swidInterface": {
                                 "name": "Duration",
-                                "nullabilitySuffix": "star",
+                                "nullabilitySuffix": "none",
                                 "originalPackagePath": "dart:core"
                             },
                             "runtimeType": "fromSwidInterface"
@@ -94,7 +94,7 @@
                     "returnType": {
                         "swidInterface": {
                             "name": "void",
-                            "nullabilitySuffix": "star",
+                            "nullabilitySuffix": "none",
                             "originalPackagePath": ""
                         },
                         "runtimeType": "fromSwidInterface"
@@ -108,16 +108,18 @@
         "returnType": {
             "swidInterface": {
                 "name": "Ticker",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "none",
                 "originalPackagePath": "package:flutter/src/scheduler/ticker.dart"
             },
             "runtimeType": "fromSwidInterface"
         }
     },
+    "factoryConstructors": [],
+    "staticMethods": [],
     "methods": [
         {
             "name": "muted",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -154,7 +156,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "bool",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core"
                 },
                 "runtimeType": "fromSwidInterface"
@@ -162,7 +164,7 @@
         },
         {
             "name": "muted=",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -197,7 +199,7 @@
                 {
                     "swidInterface": {
                         "name": "bool",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "dart:core"
                     },
                     "runtimeType": "fromSwidInterface"
@@ -208,7 +210,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "void",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": ""
                 },
                 "runtimeType": "fromSwidInterface"
@@ -216,7 +218,7 @@
         },
         {
             "name": "isTicking",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -253,7 +255,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "bool",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core"
                 },
                 "runtimeType": "fromSwidInterface"
@@ -261,7 +263,7 @@
         },
         {
             "name": "isActive",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -298,7 +300,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "bool",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core"
                 },
                 "runtimeType": "fromSwidInterface"
@@ -306,7 +308,7 @@
         },
         {
             "name": "start",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -343,7 +345,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "TickerFuture",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/scheduler/ticker.dart"
                 },
                 "runtimeType": "fromSwidInterface"
@@ -351,7 +353,7 @@
         },
         {
             "name": "describeForError",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -386,7 +388,7 @@
                 {
                     "swidInterface": {
                         "name": "String",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "dart:core"
                     },
                     "runtimeType": "fromSwidInterface"
@@ -397,7 +399,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "DiagnosticsNode",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart"
                 },
                 "runtimeType": "fromSwidInterface"
@@ -405,7 +407,7 @@
         },
         {
             "name": "stop",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -436,8 +438,8 @@
             "namedParameterTypes": {
                 "canceled": {
                     "swidInterface": {
-                        "name": "bool*",
-                        "nullabilitySuffix": "star",
+                        "name": "bool",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "dart:core"
                     },
                     "runtimeType": "fromSwidInterface"
@@ -451,7 +453,7 @@
                     "value": {
                         "swidInterface": {
                             "name": "bool",
-                            "nullabilitySuffix": "star",
+                            "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:core"
                         },
                         "runtimeType": "fromSwidInterface"
@@ -465,210 +467,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "void",
-                    "nullabilitySuffix": "star",
-                    "originalPackagePath": ""
-                },
-                "runtimeType": "fromSwidInterface"
-            }
-        },
-        {
-            "name": "scheduled",
-            "nullabilitySuffix": "star",
-            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
-            "swidDeclarationModifiers": {
-                "isAbstract": false,
-                "isGetter": true,
-                "isOperator": false,
-                "isSetter": false,
-                "isStatic": false,
-                "isSynthetic": false,
-                "hasAlwaysThrows": false,
-                "hasDeprecated": false,
-                "hasFactory": false,
-                "hasImplicitReturnType": false,
-                "hasIsTest": false,
-                "hasIsTestGroup": false,
-                "hasJS": false,
-                "hasLiteral": false,
-                "hasMustCallSuper": false,
-                "hasNonVirtual": false,
-                "hasOptionalTypeArgs": false,
-                "hasOverride": false,
-                "hasProtected": false,
-                "hasRequired": false,
-                "hasSealed": false,
-                "hasVisibleForTemplate": false,
-                "hasVisibleForTesting": false,
-                "isPublic": true
-            },
-            "namedParameterTypes": {},
-            "namedDefaults": {},
-            "normalParameterNames": [],
-            "normalParameterTypes": [],
-            "optionalParameterNames": [],
-            "optionalParameterTypes": [],
-            "returnType": {
-                "swidInterface": {
-                    "name": "bool",
-                    "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
-                },
-                "runtimeType": "fromSwidInterface"
-            }
-        },
-        {
-            "name": "shouldScheduleTick",
-            "nullabilitySuffix": "star",
-            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
-            "swidDeclarationModifiers": {
-                "isAbstract": false,
-                "isGetter": true,
-                "isOperator": false,
-                "isSetter": false,
-                "isStatic": false,
-                "isSynthetic": false,
-                "hasAlwaysThrows": false,
-                "hasDeprecated": false,
-                "hasFactory": false,
-                "hasImplicitReturnType": false,
-                "hasIsTest": false,
-                "hasIsTestGroup": false,
-                "hasJS": false,
-                "hasLiteral": false,
-                "hasMustCallSuper": false,
-                "hasNonVirtual": false,
-                "hasOptionalTypeArgs": false,
-                "hasOverride": false,
-                "hasProtected": false,
-                "hasRequired": false,
-                "hasSealed": false,
-                "hasVisibleForTemplate": false,
-                "hasVisibleForTesting": false,
-                "isPublic": true
-            },
-            "namedParameterTypes": {},
-            "namedDefaults": {},
-            "normalParameterNames": [],
-            "normalParameterTypes": [],
-            "optionalParameterNames": [],
-            "optionalParameterTypes": [],
-            "returnType": {
-                "swidInterface": {
-                    "name": "bool",
-                    "nullabilitySuffix": "star",
-                    "originalPackagePath": "dart:core"
-                },
-                "runtimeType": "fromSwidInterface"
-            }
-        },
-        {
-            "name": "scheduleTick",
-            "nullabilitySuffix": "star",
-            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
-            "swidDeclarationModifiers": {
-                "isAbstract": false,
-                "isGetter": false,
-                "isOperator": false,
-                "isSetter": false,
-                "isStatic": false,
-                "isSynthetic": false,
-                "hasAlwaysThrows": false,
-                "hasDeprecated": false,
-                "hasFactory": false,
-                "hasImplicitReturnType": false,
-                "hasIsTest": false,
-                "hasIsTestGroup": false,
-                "hasJS": false,
-                "hasLiteral": false,
-                "hasMustCallSuper": false,
-                "hasNonVirtual": false,
-                "hasOptionalTypeArgs": false,
-                "hasOverride": false,
-                "hasProtected": false,
-                "hasRequired": false,
-                "hasSealed": false,
-                "hasVisibleForTemplate": false,
-                "hasVisibleForTesting": false,
-                "isPublic": true
-            },
-            "namedParameterTypes": {
-                "rescheduling": {
-                    "swidInterface": {
-                        "name": "bool*",
-                        "nullabilitySuffix": "star",
-                        "originalPackagePath": "dart:core"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                }
-            },
-            "namedDefaults": {
-                "rescheduling": {
-                    "name": "false",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
-                    "value": {
-                        "swidInterface": {
-                            "name": "bool",
-                            "nullabilitySuffix": "star",
-                            "originalPackagePath": "dart:core"
-                        },
-                        "runtimeType": "fromSwidInterface"
-                    }
-                }
-            },
-            "normalParameterNames": [],
-            "normalParameterTypes": [],
-            "optionalParameterNames": [],
-            "optionalParameterTypes": [],
-            "returnType": {
-                "swidInterface": {
-                    "name": "void",
-                    "nullabilitySuffix": "star",
-                    "originalPackagePath": ""
-                },
-                "runtimeType": "fromSwidInterface"
-            }
-        },
-        {
-            "name": "unscheduleTick",
-            "nullabilitySuffix": "star",
-            "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
-            "swidDeclarationModifiers": {
-                "isAbstract": false,
-                "isGetter": false,
-                "isOperator": false,
-                "isSetter": false,
-                "isStatic": false,
-                "isSynthetic": false,
-                "hasAlwaysThrows": false,
-                "hasDeprecated": false,
-                "hasFactory": false,
-                "hasImplicitReturnType": false,
-                "hasIsTest": false,
-                "hasIsTestGroup": false,
-                "hasJS": false,
-                "hasLiteral": false,
-                "hasMustCallSuper": false,
-                "hasNonVirtual": false,
-                "hasOptionalTypeArgs": false,
-                "hasOverride": false,
-                "hasProtected": false,
-                "hasRequired": false,
-                "hasSealed": false,
-                "hasVisibleForTemplate": false,
-                "hasVisibleForTesting": false,
-                "isPublic": true
-            },
-            "namedParameterTypes": {},
-            "namedDefaults": {},
-            "normalParameterNames": [],
-            "normalParameterTypes": [],
-            "optionalParameterNames": [],
-            "optionalParameterTypes": [],
-            "returnType": {
-                "swidInterface": {
-                    "name": "void",
-                    "nullabilitySuffix": "star",
                     "originalPackagePath": ""
                 },
                 "runtimeType": "fromSwidInterface"
@@ -676,7 +475,7 @@
         },
         {
             "name": "absorbTicker",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -711,7 +510,7 @@
                 {
                     "swidInterface": {
                         "name": "Ticker",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "package:flutter/src/scheduler/ticker.dart"
                     },
                     "runtimeType": "fromSwidInterface"
@@ -722,7 +521,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "void",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": ""
                 },
                 "runtimeType": "fromSwidInterface"
@@ -730,7 +529,7 @@
         },
         {
             "name": "dispose",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -747,7 +546,7 @@
                 "hasIsTestGroup": false,
                 "hasJS": false,
                 "hasLiteral": false,
-                "hasMustCallSuper": false,
+                "hasMustCallSuper": true,
                 "hasNonVirtual": false,
                 "hasOptionalTypeArgs": false,
                 "hasOverride": false,
@@ -767,7 +566,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "void",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": ""
                 },
                 "runtimeType": "fromSwidInterface"
@@ -775,7 +574,7 @@
         },
         {
             "name": "toString",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/scheduler/ticker.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -806,8 +605,8 @@
             "namedParameterTypes": {
                 "debugIncludeStack": {
                     "swidInterface": {
-                        "name": "bool*",
-                        "nullabilitySuffix": "star",
+                        "name": "bool",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "dart:core"
                     },
                     "runtimeType": "fromSwidInterface"
@@ -821,7 +620,7 @@
                     "value": {
                         "swidInterface": {
                             "name": "bool",
-                            "nullabilitySuffix": "star",
+                            "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:core"
                         },
                         "runtimeType": "fromSwidInterface"
@@ -835,7 +634,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "String",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core"
                 },
                 "runtimeType": "fromSwidInterface"
@@ -847,7 +646,7 @@
         "debugLabel": {
             "swidInterface": {
                 "name": "String",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "question",
                 "originalPackagePath": "dart:core"
             },
             "runtimeType": "fromSwidInterface"

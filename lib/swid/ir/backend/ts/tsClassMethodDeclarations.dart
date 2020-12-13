@@ -1,7 +1,6 @@
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldName.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationPositionalParameters.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
@@ -25,14 +24,12 @@ class TsClassMethodDeclarations {
                             swidFunctionType: x)) +
                     " {\n" +
                     "    return " +
-                    TsFunctionInvocation(
-                        functionReference: "this." +
-                            TsClassMethodInjectionFieldName(swidFunctionType: x)
-                                .toTsSource(),
-                        tsFunctionInvocationPositionalParameters:
-                            TsFunctionInvocationPositionalParameters(
-                                positionalReferences: []),
-                        tsFunctionInvocationNamedParameters: []).toTsSource() +
+                    TsFunctionSelfBindingInvocation(
+                      functionReference: "this." +
+                          TsClassMethodInjectionFieldName(swidFunctionType: x)
+                              .toTsSource(),
+                      swidFunctionType: x,
+                    ).toTsSource() +
                     "\n}")
           ].join("\n") +
           "\n"

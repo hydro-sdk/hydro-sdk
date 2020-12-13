@@ -27,6 +27,10 @@ class _$SwidClassTearOff {
       @required
           SwidFunctionType constructorType,
       @required
+          List<SwidFunctionType> factoryConstructors,
+      @required
+          List<SwidFunctionType> staticMethods,
+      @required
           List<SwidFunctionType> methods,
       @required
           List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
@@ -37,6 +41,8 @@ class _$SwidClassTearOff {
       nullabilitySuffix: nullabilitySuffix,
       originalPackagePath: originalPackagePath,
       constructorType: constructorType,
+      factoryConstructors: factoryConstructors,
+      staticMethods: staticMethods,
       methods: methods,
       staticConstFieldDeclarations: staticConstFieldDeclarations,
       instanceFieldDeclarations: instanceFieldDeclarations,
@@ -59,6 +65,8 @@ mixin _$SwidClass {
   SwidNullabilitySuffix get nullabilitySuffix;
   String get originalPackagePath;
   SwidFunctionType get constructorType;
+  List<SwidFunctionType> get factoryConstructors;
+  List<SwidFunctionType> get staticMethods;
   List<SwidFunctionType> get methods;
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
   Map<String, SwidType> get instanceFieldDeclarations;
@@ -76,6 +84,8 @@ abstract class $SwidClassCopyWith<$Res> {
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
       SwidFunctionType constructorType,
+      List<SwidFunctionType> factoryConstructors,
+      List<SwidFunctionType> staticMethods,
       List<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       Map<String, SwidType> instanceFieldDeclarations});
@@ -97,6 +107,8 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     Object nullabilitySuffix = freezed,
     Object originalPackagePath = freezed,
     Object constructorType = freezed,
+    Object factoryConstructors = freezed,
+    Object staticMethods = freezed,
     Object methods = freezed,
     Object staticConstFieldDeclarations = freezed,
     Object instanceFieldDeclarations = freezed,
@@ -112,6 +124,12 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
       constructorType: constructorType == freezed
           ? _value.constructorType
           : constructorType as SwidFunctionType,
+      factoryConstructors: factoryConstructors == freezed
+          ? _value.factoryConstructors
+          : factoryConstructors as List<SwidFunctionType>,
+      staticMethods: staticMethods == freezed
+          ? _value.staticMethods
+          : staticMethods as List<SwidFunctionType>,
       methods: methods == freezed
           ? _value.methods
           : methods as List<SwidFunctionType>,
@@ -146,6 +164,8 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
       SwidFunctionType constructorType,
+      List<SwidFunctionType> factoryConstructors,
+      List<SwidFunctionType> staticMethods,
       List<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       Map<String, SwidType> instanceFieldDeclarations});
@@ -169,6 +189,8 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
     Object nullabilitySuffix = freezed,
     Object originalPackagePath = freezed,
     Object constructorType = freezed,
+    Object factoryConstructors = freezed,
+    Object staticMethods = freezed,
     Object methods = freezed,
     Object staticConstFieldDeclarations = freezed,
     Object instanceFieldDeclarations = freezed,
@@ -184,6 +206,12 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
       constructorType: constructorType == freezed
           ? _value.constructorType
           : constructorType as SwidFunctionType,
+      factoryConstructors: factoryConstructors == freezed
+          ? _value.factoryConstructors
+          : factoryConstructors as List<SwidFunctionType>,
+      staticMethods: staticMethods == freezed
+          ? _value.staticMethods
+          : staticMethods as List<SwidFunctionType>,
       methods: methods == freezed
           ? _value.methods
           : methods as List<SwidFunctionType>,
@@ -207,6 +235,8 @@ class _$_$Data implements _$Data {
       @required this.nullabilitySuffix,
       @required this.originalPackagePath,
       @required this.constructorType,
+      @required this.factoryConstructors,
+      @required this.staticMethods,
       @required this.methods,
       @required this.staticConstFieldDeclarations,
       @required this.instanceFieldDeclarations})
@@ -214,6 +244,8 @@ class _$_$Data implements _$Data {
         assert(nullabilitySuffix != null),
         assert(originalPackagePath != null),
         assert(constructorType != null),
+        assert(factoryConstructors != null),
+        assert(staticMethods != null),
         assert(methods != null),
         assert(staticConstFieldDeclarations != null),
         assert(instanceFieldDeclarations != null);
@@ -230,6 +262,10 @@ class _$_$Data implements _$Data {
   @override
   final SwidFunctionType constructorType;
   @override
+  final List<SwidFunctionType> factoryConstructors;
+  @override
+  final List<SwidFunctionType> staticMethods;
+  @override
   final List<SwidFunctionType> methods;
   @override
   final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations;
@@ -238,7 +274,7 @@ class _$_$Data implements _$Data {
 
   @override
   String toString() {
-    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations)';
+    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations)';
   }
 
   @override
@@ -256,6 +292,12 @@ class _$_$Data implements _$Data {
             (identical(other.constructorType, constructorType) ||
                 const DeepCollectionEquality()
                     .equals(other.constructorType, constructorType)) &&
+            (identical(other.factoryConstructors, factoryConstructors) ||
+                const DeepCollectionEquality()
+                    .equals(other.factoryConstructors, factoryConstructors)) &&
+            (identical(other.staticMethods, staticMethods) ||
+                const DeepCollectionEquality()
+                    .equals(other.staticMethods, staticMethods)) &&
             (identical(other.methods, methods) ||
                 const DeepCollectionEquality()
                     .equals(other.methods, methods)) &&
@@ -278,6 +320,8 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(nullabilitySuffix) ^
       const DeepCollectionEquality().hash(originalPackagePath) ^
       const DeepCollectionEquality().hash(constructorType) ^
+      const DeepCollectionEquality().hash(factoryConstructors) ^
+      const DeepCollectionEquality().hash(staticMethods) ^
       const DeepCollectionEquality().hash(methods) ^
       const DeepCollectionEquality().hash(staticConstFieldDeclarations) ^
       const DeepCollectionEquality().hash(instanceFieldDeclarations);
@@ -303,6 +347,10 @@ abstract class _$Data implements SwidClass {
       @required
           SwidFunctionType constructorType,
       @required
+          List<SwidFunctionType> factoryConstructors,
+      @required
+          List<SwidFunctionType> staticMethods,
+      @required
           List<SwidFunctionType> methods,
       @required
           List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
@@ -319,6 +367,10 @@ abstract class _$Data implements SwidClass {
   String get originalPackagePath;
   @override
   SwidFunctionType get constructorType;
+  @override
+  List<SwidFunctionType> get factoryConstructors;
+  @override
+  List<SwidFunctionType> get staticMethods;
   @override
   List<SwidFunctionType> get methods;
   @override
