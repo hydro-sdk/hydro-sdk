@@ -56,7 +56,10 @@ class LoadNamespaceSymbolDeclaration {
             ]).returned.statement
           ])))
           .statement,
-      ...swidClass.factoryConstructors
+      ...[
+        ...swidClass.factoryConstructors,
+        ...swidClass.staticMethods,
+      ]
           .map((x) => StaticMethodNamespaceSymbolDeclaration(
                   swidClass: swidClass, swidFunctionType: x)
               .toCode())
