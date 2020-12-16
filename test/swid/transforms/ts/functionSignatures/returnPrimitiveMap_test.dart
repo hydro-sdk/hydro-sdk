@@ -31,5 +31,5 @@ void main() {
             swidType:
                 SwidType.fromSwidFunctionType(swidFunctionType: functionType)),
         "foo : () => {[index : string]: string}");
-  });
+  }, tags: "swid");
 }

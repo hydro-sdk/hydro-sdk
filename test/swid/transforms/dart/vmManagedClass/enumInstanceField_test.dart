@@ -75,5 +75,5 @@ class VMManagedfooClass extends VMManagedBox<fooClass> {
   final fooClass vmObject;
 }
 """);
-  });
+  }, tags: "swid");
 }
