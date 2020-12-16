@@ -5,8 +5,6 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 void main() {
@@ -14,22 +12,48 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     var functionType = SwidFunctionType(
       name: "foo",
-      nullabilitySuffix: null,
-      originalPackagePath: null,
-      swidDeclarationModifiers: null,
-      namedParameterTypes: null,
-      namedDefaults: null,
-      normalParameterNames: null,
-      normalParameterTypes: null,
-      optionalParameterNames: null,
-      optionalParameterTypes: null,
-      returnType: null,
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "",
+      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      namedParameterTypes: {},
+      namedDefaults: {},
+      normalParameterNames: [],
+      normalParameterTypes: [],
+      optionalParameterNames: [],
+      optionalParameterTypes: [],
+      returnType: SwidType.fromSwidInterface(
+          swidInterface: SwidInterface(
+              name: "Map<String, Object>",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+              originalPackagePath: "dart:core",
+              typeArguments: [
+            SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
+              name: "String",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+            )),
+            SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
+              name: "Object",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+            )),
+          ])),
     );
 
     expect(
         transformTypeDeclarationToTs(
             swidType:
                 SwidType.fromSwidFunctionType(swidFunctionType: functionType)),
-        "foo : () => {[index : string]: string}");
+        "() => {[index: string]: Object}");
   }, tags: "swid");
 }
