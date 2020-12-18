@@ -40,22 +40,24 @@ class LoadNamespaceSymbolDeclaration {
         ..type = refer("HydroTable")),
     ])
     ..body = Block.of([
-      refer("table")
-          .index(literalString(transformToCamelCase(str: swidClass.name)))
-          .assign(luaDartBinding(
-              code: Block.of([
-            literalList([
-              Code(DartFunctionSelfBindingInvocation(
-                      argumentBoxingProcedure: DartBoxingProcedure.unbox,
-                      returnValueBoxingProcedure: DartBoxingProcedure.none,
-                      emitTableBindingPrefix: true,
-                      swidFunctionType: SwidFunctionType.clone(
-                          swidFunctionType: swidClass.constructorType,
-                          name: "RTManaged${swidClass.name}"))
-                  .toDartSource())
-            ]).returned.statement
-          ])))
-          .statement,
+      !swidClass.isPureAbstract()
+          ? refer("table")
+              .index(literalString(transformToCamelCase(str: swidClass.name)))
+              .assign(luaDartBinding(
+                  code: Block.of([
+                literalList([
+                  Code(DartFunctionSelfBindingInvocation(
+                          argumentBoxingProcedure: DartBoxingProcedure.unbox,
+                          returnValueBoxingProcedure: DartBoxingProcedure.none,
+                          emitTableBindingPrefix: true,
+                          swidFunctionType: SwidFunctionType.clone(
+                              swidFunctionType: swidClass.constructorType,
+                              name: "RTManaged${swidClass.name}"))
+                      .toDartSource())
+                ]).returned.statement
+              ])))
+              .statement
+          : null,
       ...[
         ...swidClass.factoryConstructors,
         ...swidClass.staticMethods,
@@ -66,5 +68,5 @@ class LoadNamespaceSymbolDeclaration {
           .toList(),
       Code(DartVMManagedClassBoxerRegistrant(swidClass: swidClass)
           .toDartSource()),
-    ])).accept(DartEmitter()).toString());
+    ]..removeWhere((x) => x == null))).accept(DartEmitter()).toString());
 }

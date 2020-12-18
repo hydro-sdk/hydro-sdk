@@ -115,15 +115,18 @@ class TranslationUnitProducer {
                           vmManagedClassDeclaration:
                               VMManagedClassDeclaration(swidClass: swidClass)),
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                      DartIr.fromRTManagedClassDeclaration(
-                        rtManagedClassDeclaration:
-                            RTManagedClassDeclaration(swidClass: swidClass),
-                      ),
+                      !swidClass.isPureAbstract()
+                          ? DartIr.fromRTManagedClassDeclaration(
+                              rtManagedClassDeclaration:
+                                  RTManagedClassDeclaration(
+                                      swidClass: swidClass),
+                            )
+                          : null,
                       DartIr.fromLoadNamepsaceSymbolDeclaration(
                           loadNamespaceSymbolDeclaration:
                               LoadNamespaceSymbolDeclaration(
                                   swidClass: swidClass))
-                    ],
+                    ]..removeWhere((x) => x == null),
                   )
                 : null
           ]
