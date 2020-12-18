@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/changeNotifier.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticsNode.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticsSerializationDelegate.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/key.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/textTreeConfiguration.dart';
 import 'package:hydro_sdk/hydroState.dart';
@@ -16,4 +17,5 @@ void loadFoundation(
   loadChangeNotifier();
   loadTextTreeConfiguration(hydroState: luaState, table: foundation);
   loadDiagnosticsNode(hydroState: luaState, table: foundation);
+  loadDiagnosticsSerializationDelegate(hydroState: luaState, table: foundation);
 }
