@@ -29,20 +29,29 @@ String transformFunctionTypeToTs({
     ]);
   }
 
-  var shouldEmitPositionalAsOptional = () =>
+  var shouldEmitPositionalAsOptional = ({@required String argName}) =>
       normalTypes.entries
-          .takeWhile((x) =>
-              x.value.nullabilitySuffix == SwidNullabilitySuffix.question)
-          .toList()
-          .length ==
-      normalTypes.entries.length;
+              .takeWhile((x) =>
+                  x.value.nullabilitySuffix == SwidNullabilitySuffix.question)
+              .toList()
+              .length ==
+          normalTypes.entries.length ||
+      (normalTypes.entries
+              .toList()
+              .reversed
+              .toList()
+              .takeWhile((x) =>
+                  x.value.nullabilitySuffix == SwidNullabilitySuffix.question)
+              .toList()
+              .firstWhere((x) => x.key == argName, orElse: () => null) !=
+          null);
 
   normalTypes.forEach((key, value) {
     value.when(
       fromSwidClass: (_) => null,
       fromSwidFunctionType: (val) {
         res += "$key";
-        if (shouldEmitPositionalAsOptional()) {
+        if (shouldEmitPositionalAsOptional(argName: key)) {
           res +=
               "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
         }
@@ -56,7 +65,7 @@ String transformFunctionTypeToTs({
       },
       fromSwidInterface: (val) {
         res += key;
-        if (shouldEmitPositionalAsOptional()) {
+        if (shouldEmitPositionalAsOptional(argName: key)) {
           res +=
               "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
         }

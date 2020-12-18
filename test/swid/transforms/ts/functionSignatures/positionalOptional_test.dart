@@ -195,5 +195,96 @@ void main() {
                   ])),
             )),
         "(nodes?: List<DiagnosticsNode> | undefined, parent?: DiagnosticsNode | undefined, delegate?: DiagnosticsSerializationDelegate | undefined) => List<{[index: string]: Object | undefined}>");
+
+    //List<Map<String, Object?>> toJsonList (List<DiagnosticsNode> nodes, DiagnosticsNode parent, DiagnosticsSerializationDelegate? delegate)
+    expect(
+        transformFunctionTypeToTs(
+            trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
+            swidFunctionType: SwidFunctionType(
+              name: "",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "",
+              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              namedParameterTypes: {},
+              namedDefaults: {},
+              normalParameterNames: ["nodes", "parent", "delegate"],
+              normalParameterTypes: [
+                SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                        name: "List<DiagnosticsNode>",
+                        nullabilitySuffix: SwidNullabilitySuffix.none,
+                        originalPackagePath: "",
+                        referenceDeclarationKind:
+                            SwidReferenceDeclarationKind.classElement,
+                        typeArguments: [
+                      SwidType.fromSwidInterface(
+                          swidInterface: SwidInterface(
+                        name: "DiagnosticsNode",
+                        nullabilitySuffix: SwidNullabilitySuffix.none,
+                        originalPackagePath: "",
+                        typeArguments: [],
+                        referenceDeclarationKind:
+                            SwidReferenceDeclarationKind.classElement,
+                      ))
+                    ])),
+                SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                  name: "DiagnosticsNode",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
+                )),
+                SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                  name: "DiagnosticsSerializationDelegate",
+                  nullabilitySuffix: SwidNullabilitySuffix.question,
+                  originalPackagePath: "",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
+                )),
+              ],
+              optionalParameterNames: [],
+              optionalParameterTypes: [],
+              returnType: SwidType.fromSwidInterface(
+                  swidInterface: SwidInterface(
+                      name: "List<Map<String, Object>>",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:core",
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.classElement,
+                      typeArguments: [
+                    SwidType.fromSwidInterface(
+                        swidInterface: SwidInterface(
+                            name: "Map<String,Object>",
+                            nullabilitySuffix: SwidNullabilitySuffix.none,
+                            originalPackagePath: "dart:core",
+                            referenceDeclarationKind:
+                                SwidReferenceDeclarationKind.classElement,
+                            typeArguments: [
+                          SwidType.fromSwidInterface(
+                              swidInterface: SwidInterface(
+                            name: "String",
+                            nullabilitySuffix: SwidNullabilitySuffix.none,
+                            originalPackagePath: "dart:core",
+                            referenceDeclarationKind:
+                                SwidReferenceDeclarationKind.classElement,
+                            typeArguments: [],
+                          )),
+                          SwidType.fromSwidInterface(
+                              swidInterface: SwidInterface(
+                            name: "Object",
+                            nullabilitySuffix: SwidNullabilitySuffix.question,
+                            originalPackagePath: "dart:core",
+                            referenceDeclarationKind:
+                                SwidReferenceDeclarationKind.classElement,
+                            typeArguments: [],
+                          ))
+                        ]))
+                  ])),
+            )),
+        "(nodes: List<DiagnosticsNode>, parent: DiagnosticsNode, delegate?: DiagnosticsSerializationDelegate | undefined) => List<{[index: string]: Object | undefined}>");
   }, tags: "swid");
 }
