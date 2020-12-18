@@ -39744,5 +39744,31 @@
             }
         }
     ],
-    "instanceFieldDeclarations": {}
+    "instanceFieldDeclarations": {},
+    "swidDeclarationModifiers": {
+        "isAbstract": false,
+        "isGetter": false,
+        "isOperator": false,
+        "isSetter": false,
+        "isStatic": false,
+        "isSynthetic": false,
+        "hasAlwaysThrows": false,
+        "hasDeprecated": false,
+        "hasFactory": false,
+        "hasImplicitReturnType": false,
+        "hasIsTest": false,
+        "hasIsTestGroup": false,
+        "hasJS": false,
+        "hasLiteral": false,
+        "hasMustCallSuper": false,
+        "hasNonVirtual": false,
+        "hasOptionalTypeArgs": false,
+        "hasOverride": false,
+        "hasProtected": false,
+        "hasRequired": false,
+        "hasSealed": false,
+        "hasVisibleForTemplate": false,
+        "hasVisibleForTesting": false,
+        "isPublic": true
+    }
 }
