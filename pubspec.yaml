@@ -13,7 +13,7 @@ dependencies:
   recase: "^3.0.0"
   tuple: "^1.0.2"
   flutter: 
-    sdk: "flutter"
+    sdk: flutter
   surveyor: 
     git: 
       ref: "8d5743560c55bb09f1373aa70c2066b54772f0b5"
@@ -29,7 +29,7 @@ dependencies:
 dev_dependencies: 
   test: "any"
   flutter_test: 
-    sdk: "flutter"
+    sdk: flutter
 environment: 
   sdk: ">=2.9.0 <3.0.0"
 flutter: 

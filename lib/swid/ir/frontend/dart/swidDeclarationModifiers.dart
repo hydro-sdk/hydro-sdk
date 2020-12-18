@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
@@ -95,33 +96,73 @@ abstract class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
         isPublic: propertyAccessorElement.isPublic,
       );
 
-  factory SwidDeclarationModifiers.clone(
-          {@required SwidDeclarationModifiers swidDeclarationModifiers}) =>
+  factory SwidDeclarationModifiers.fromClassDeclaration(
+          {@required ClassDeclaration classDeclaration}) =>
+      SwidDeclarationModifiers.clone(
+        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        isAbstract: classDeclaration.isAbstract,
+        isSynthetic: classDeclaration.isSynthetic,
+      );
+
+  factory SwidDeclarationModifiers.clone({
+    @required SwidDeclarationModifiers swidDeclarationModifiers,
+    bool isAbstract,
+    bool isGetter,
+    bool isOperator,
+    bool isSetter,
+    bool isStatic,
+    bool isSynthetic,
+    bool hasAlwaysThrows,
+    bool hasDeprecated,
+    bool hasFactory,
+    bool hasImplicitReturnType,
+    bool hasIsTest,
+    bool hasIsTestGroup,
+    bool hasJS,
+    bool hasLiteral,
+    bool hasMustCallSuper,
+    bool hasNonVirtual,
+    bool hasOptionalTypeArgs,
+    bool hasOverride,
+    bool hasProtected,
+    bool hasRequired,
+    bool hasSealed,
+    bool hasVisibleForTemplate,
+    bool hasVisibleForTesting,
+    bool isPublic,
+  }) =>
       SwidDeclarationModifiers(
-        isAbstract: swidDeclarationModifiers.isAbstract,
-        isGetter: swidDeclarationModifiers.isGetter,
-        isOperator: swidDeclarationModifiers.isOperator,
-        isSetter: swidDeclarationModifiers.isSetter,
-        isStatic: swidDeclarationModifiers.isStatic,
-        isSynthetic: swidDeclarationModifiers.isSynthetic,
-        hasAlwaysThrows: swidDeclarationModifiers.hasAlwaysThrows,
-        hasDeprecated: swidDeclarationModifiers.hasDeprecated,
-        hasFactory: swidDeclarationModifiers.hasFactory,
-        hasImplicitReturnType: swidDeclarationModifiers.hasImplicitReturnType,
-        hasIsTest: swidDeclarationModifiers.hasIsTest,
-        hasIsTestGroup: swidDeclarationModifiers.hasIsTestGroup,
-        hasJS: swidDeclarationModifiers.hasJS,
-        hasLiteral: swidDeclarationModifiers.hasLiteral,
-        hasMustCallSuper: swidDeclarationModifiers.hasMustCallSuper,
-        hasNonVirtual: swidDeclarationModifiers.hasNonVirtual,
-        hasOptionalTypeArgs: swidDeclarationModifiers.hasOptionalTypeArgs,
-        hasOverride: swidDeclarationModifiers.hasOverride,
-        hasProtected: swidDeclarationModifiers.hasProtected,
-        hasRequired: swidDeclarationModifiers.hasRequired,
-        hasSealed: swidDeclarationModifiers.hasSealed,
-        hasVisibleForTemplate: swidDeclarationModifiers.hasVisibleForTemplate,
-        hasVisibleForTesting: swidDeclarationModifiers.hasVisibleForTemplate,
-        isPublic: swidDeclarationModifiers.isPublic,
+        isAbstract: isAbstract ?? swidDeclarationModifiers.isAbstract,
+        isGetter: isGetter ?? swidDeclarationModifiers.isGetter,
+        isOperator: isOperator ?? swidDeclarationModifiers.isOperator,
+        isSetter: isSetter ?? swidDeclarationModifiers.isSetter,
+        isStatic: isStatic ?? swidDeclarationModifiers.isStatic,
+        isSynthetic: isSynthetic ?? swidDeclarationModifiers.isSynthetic,
+        hasAlwaysThrows:
+            hasAlwaysThrows ?? swidDeclarationModifiers.hasAlwaysThrows,
+        hasDeprecated: hasDeprecated ?? swidDeclarationModifiers.hasDeprecated,
+        hasFactory: hasFactory ?? swidDeclarationModifiers.hasFactory,
+        hasImplicitReturnType: hasImplicitReturnType ??
+            swidDeclarationModifiers.hasImplicitReturnType,
+        hasIsTest: hasIsTest ?? swidDeclarationModifiers.hasIsTest,
+        hasIsTestGroup:
+            hasIsTestGroup ?? swidDeclarationModifiers.hasIsTestGroup,
+        hasJS: hasJS ?? swidDeclarationModifiers.hasJS,
+        hasLiteral: hasLiteral ?? swidDeclarationModifiers.hasLiteral,
+        hasMustCallSuper:
+            hasMustCallSuper ?? swidDeclarationModifiers.hasMustCallSuper,
+        hasNonVirtual: hasNonVirtual ?? swidDeclarationModifiers.hasNonVirtual,
+        hasOptionalTypeArgs:
+            hasOptionalTypeArgs ?? swidDeclarationModifiers.hasOptionalTypeArgs,
+        hasOverride: hasOverride ?? swidDeclarationModifiers.hasOverride,
+        hasProtected: hasProtected ?? swidDeclarationModifiers.hasProtected,
+        hasRequired: hasRequired ?? swidDeclarationModifiers.hasRequired,
+        hasSealed: hasSealed ?? swidDeclarationModifiers.hasSealed,
+        hasVisibleForTemplate: hasVisibleForTemplate ??
+            swidDeclarationModifiers.hasVisibleForTemplate,
+        hasVisibleForTesting: hasVisibleForTesting ??
+            swidDeclarationModifiers.hasVisibleForTemplate,
+        isPublic: isPublic ?? swidDeclarationModifiers.isPublic,
       );
 
   factory SwidDeclarationModifiers.empty() => SwidDeclarationModifiers.only();

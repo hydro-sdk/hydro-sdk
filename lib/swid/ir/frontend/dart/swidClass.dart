@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:meta/meta.dart';
@@ -21,6 +22,7 @@ abstract class SwidClass with _$SwidClass {
     @required
         List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
     @required Map<String, SwidType> instanceFieldDeclarations,
+    @required SwidDeclarationModifiers swidDeclarationModifiers,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
@@ -37,32 +39,41 @@ abstract class SwidClass with _$SwidClass {
     List<SwidFunctionType> methods,
     List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
     Map<String, SwidType> instanceFieldDeclarations,
+    SwidDeclarationModifiers swidDeclarationModifiers,
   }) =>
       SwidClass(
-          name: name ?? swidClass.name,
-          nullabilitySuffix: nullabilitySuffix ?? swidClass.nullabilitySuffix,
-          originalPackagePath:
-              originalPackagePath ?? swidClass.originalPackagePath,
-          constructorType: constructorType ??
-              SwidFunctionType.clone(
-                  swidFunctionType: swidClass.constructorType),
-          factoryConstructors: factoryConstructors ??
-              List.from(swidClass.factoryConstructors
-                      ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                      ?.toList() ??
-                  []),
-          staticMethods: staticMethods ??
-              List.from(swidClass.staticMethods
-                      ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                      ?.toList() ??
-                  []),
-          methods: methods ??
-              List.from(swidClass?.methods
-                      ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                      ?.toList() ??
-                  []),
-          staticConstFieldDeclarations: staticConstFieldDeclarations ??
-              List.from(swidClass.staticConstFieldDeclarations ?? []),
-          instanceFieldDeclarations: instanceFieldDeclarations ??
-              Map.from(swidClass.instanceFieldDeclarations ?? {}));
+        name: name ?? swidClass.name,
+        nullabilitySuffix: nullabilitySuffix ?? swidClass.nullabilitySuffix,
+        originalPackagePath:
+            originalPackagePath ?? swidClass.originalPackagePath,
+        constructorType: constructorType ??
+            SwidFunctionType.clone(swidFunctionType: swidClass.constructorType),
+        factoryConstructors: factoryConstructors ??
+            List.from(swidClass.factoryConstructors
+                    ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                    ?.toList() ??
+                []),
+        staticMethods: staticMethods ??
+            List.from(swidClass.staticMethods
+                    ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                    ?.toList() ??
+                []),
+        methods: methods ??
+            List.from(swidClass?.methods
+                    ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                    ?.toList() ??
+                []),
+        staticConstFieldDeclarations: staticConstFieldDeclarations ??
+            List.from(swidClass.staticConstFieldDeclarations ?? []),
+        instanceFieldDeclarations: instanceFieldDeclarations ??
+            Map.from(swidClass.instanceFieldDeclarations ?? {}),
+        swidDeclarationModifiers:
+            swidDeclarationModifiers ?? swidClass.swidDeclarationModifiers,
+      );
+}
+
+extension SwidClassMethods on SwidClass {
+  bool isPureAbstract() =>
+      swidDeclarationModifiers.isAbstract &&
+      methods.every((x) => x.swidDeclarationModifiers.isAbstract);
 }

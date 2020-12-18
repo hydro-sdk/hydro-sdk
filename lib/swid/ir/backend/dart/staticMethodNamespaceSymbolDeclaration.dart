@@ -35,7 +35,7 @@ class StaticMethodNamespaceSymbolDeclaration {
         literalList([
           Code(DartBoxObjectReference(
                   codeKind: CodeKind.expression,
-                  type: SwidType.fromSwidClass(swidClass: swidClass),
+                  type: swidFunctionType.returnType,
                   objectReference: CodeExpression(Code(
                       DartFunctionSelfBindingInvocation(
                               argumentBoxingProcedure:

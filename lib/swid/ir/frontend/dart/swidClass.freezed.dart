@@ -35,7 +35,9 @@ class _$SwidClassTearOff {
       @required
           List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       @required
-          Map<String, SwidType> instanceFieldDeclarations}) {
+          Map<String, SwidType> instanceFieldDeclarations,
+      @required
+          SwidDeclarationModifiers swidDeclarationModifiers}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -46,6 +48,7 @@ class _$SwidClassTearOff {
       methods: methods,
       staticConstFieldDeclarations: staticConstFieldDeclarations,
       instanceFieldDeclarations: instanceFieldDeclarations,
+      swidDeclarationModifiers: swidDeclarationModifiers,
     );
   }
 
@@ -70,6 +73,7 @@ mixin _$SwidClass {
   List<SwidFunctionType> get methods;
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
   Map<String, SwidType> get instanceFieldDeclarations;
+  SwidDeclarationModifiers get swidDeclarationModifiers;
 
   Map<String, dynamic> toJson();
   $SwidClassCopyWith<SwidClass> get copyWith;
@@ -88,9 +92,11 @@ abstract class $SwidClassCopyWith<$Res> {
       List<SwidFunctionType> staticMethods,
       List<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-      Map<String, SwidType> instanceFieldDeclarations});
+      Map<String, SwidType> instanceFieldDeclarations,
+      SwidDeclarationModifiers swidDeclarationModifiers});
 
   $SwidFunctionTypeCopyWith<$Res> get constructorType;
+  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
 }
 
 /// @nodoc
@@ -112,6 +118,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     Object methods = freezed,
     Object staticConstFieldDeclarations = freezed,
     Object instanceFieldDeclarations = freezed,
+    Object swidDeclarationModifiers = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
@@ -140,6 +147,9 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
       instanceFieldDeclarations: instanceFieldDeclarations == freezed
           ? _value.instanceFieldDeclarations
           : instanceFieldDeclarations as Map<String, SwidType>,
+      swidDeclarationModifiers: swidDeclarationModifiers == freezed
+          ? _value.swidDeclarationModifiers
+          : swidDeclarationModifiers as SwidDeclarationModifiers,
     ));
   }
 
@@ -150,6 +160,17 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     }
     return $SwidFunctionTypeCopyWith<$Res>(_value.constructorType, (value) {
       return _then(_value.copyWith(constructorType: value));
+    });
+  }
+
+  @override
+  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers {
+    if (_value.swidDeclarationModifiers == null) {
+      return null;
+    }
+    return $SwidDeclarationModifiersCopyWith<$Res>(
+        _value.swidDeclarationModifiers, (value) {
+      return _then(_value.copyWith(swidDeclarationModifiers: value));
     });
   }
 }
@@ -168,10 +189,13 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       List<SwidFunctionType> staticMethods,
       List<SwidFunctionType> methods,
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-      Map<String, SwidType> instanceFieldDeclarations});
+      Map<String, SwidType> instanceFieldDeclarations,
+      SwidDeclarationModifiers swidDeclarationModifiers});
 
   @override
   $SwidFunctionTypeCopyWith<$Res> get constructorType;
+  @override
+  $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
 }
 
 /// @nodoc
@@ -194,6 +218,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
     Object methods = freezed,
     Object staticConstFieldDeclarations = freezed,
     Object instanceFieldDeclarations = freezed,
+    Object swidDeclarationModifiers = freezed,
   }) {
     return _then(_$Data(
       name: name == freezed ? _value.name : name as String,
@@ -222,6 +247,9 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
       instanceFieldDeclarations: instanceFieldDeclarations == freezed
           ? _value.instanceFieldDeclarations
           : instanceFieldDeclarations as Map<String, SwidType>,
+      swidDeclarationModifiers: swidDeclarationModifiers == freezed
+          ? _value.swidDeclarationModifiers
+          : swidDeclarationModifiers as SwidDeclarationModifiers,
     ));
   }
 }
@@ -239,7 +267,8 @@ class _$_$Data implements _$Data {
       @required this.staticMethods,
       @required this.methods,
       @required this.staticConstFieldDeclarations,
-      @required this.instanceFieldDeclarations})
+      @required this.instanceFieldDeclarations,
+      @required this.swidDeclarationModifiers})
       : assert(name != null),
         assert(nullabilitySuffix != null),
         assert(originalPackagePath != null),
@@ -248,7 +277,8 @@ class _$_$Data implements _$Data {
         assert(staticMethods != null),
         assert(methods != null),
         assert(staticConstFieldDeclarations != null),
-        assert(instanceFieldDeclarations != null);
+        assert(instanceFieldDeclarations != null),
+        assert(swidDeclarationModifiers != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -271,10 +301,12 @@ class _$_$Data implements _$Data {
   final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations;
   @override
   final Map<String, SwidType> instanceFieldDeclarations;
+  @override
+  final SwidDeclarationModifiers swidDeclarationModifiers;
 
   @override
   String toString() {
-    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations)';
+    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, swidDeclarationModifiers: $swidDeclarationModifiers)';
   }
 
   @override
@@ -310,7 +342,11 @@ class _$_$Data implements _$Data {
                     instanceFieldDeclarations) ||
                 const DeepCollectionEquality().equals(
                     other.instanceFieldDeclarations,
-                    instanceFieldDeclarations)));
+                    instanceFieldDeclarations)) &&
+            (identical(
+                    other.swidDeclarationModifiers, swidDeclarationModifiers) ||
+                const DeepCollectionEquality().equals(
+                    other.swidDeclarationModifiers, swidDeclarationModifiers)));
   }
 
   @override
@@ -324,7 +360,8 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(staticMethods) ^
       const DeepCollectionEquality().hash(methods) ^
       const DeepCollectionEquality().hash(staticConstFieldDeclarations) ^
-      const DeepCollectionEquality().hash(instanceFieldDeclarations);
+      const DeepCollectionEquality().hash(instanceFieldDeclarations) ^
+      const DeepCollectionEquality().hash(swidDeclarationModifiers);
 
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
@@ -355,7 +392,9 @@ abstract class _$Data implements SwidClass {
       @required
           List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       @required
-          Map<String, SwidType> instanceFieldDeclarations}) = _$_$Data;
+          Map<String, SwidType> instanceFieldDeclarations,
+      @required
+          SwidDeclarationModifiers swidDeclarationModifiers}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -377,6 +416,8 @@ abstract class _$Data implements SwidClass {
   List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
   @override
   Map<String, SwidType> get instanceFieldDeclarations;
+  @override
+  SwidDeclarationModifiers get swidDeclarationModifiers;
   @override
   _$$DataCopyWith<_$Data> get copyWith;
 }

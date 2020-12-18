@@ -18,6 +18,7 @@ void main() {
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],
       factoryConstructors: [],
+      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
       instanceFieldDeclarations: {
         "barField": SwidType.fromSwidInterface(
             swidInterface: SwidInterface(
@@ -75,5 +76,5 @@ class VMManagedfooClass extends VMManagedBox<fooClass> {
   final fooClass vmObject;
 }
 """);
-  });
+  }, tags: "swid");
 }

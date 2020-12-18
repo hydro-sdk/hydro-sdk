@@ -59,7 +59,10 @@ class TsClassVmDeclaration {
                               _addConstructorBindingDeclarations(
                                   tsVmDeclaration: TsVmDeclaration.clone(
                                       tsVmDeclaration: element,
-                                      methods: swidClass.factoryConstructors
+                                      methods: [
+                                        ...swidClass.factoryConstructors,
+                                        ...swidClass.staticMethods,
+                                      ]
                                           .map((x) => SwidFunctionType.clone(
                                                 swidFunctionType: x,
                                                 name: transformToCamelCase(

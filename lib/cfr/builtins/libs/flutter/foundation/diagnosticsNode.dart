@@ -334,6 +334,22 @@ void loadDiagnosticsNode(
           table: HydroTable())
     ];
   });
+  table['diagnosticsNodeToJsonList'] =
+      makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<List<Map<String, Object>>>(
+          object: DiagnosticsNode.toJsonList(
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+                  parentState: hydroState),
+              maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+                  parentState: hydroState),
+              maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate>(
+                  args[3],
+                  parentState: hydroState)),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
   registerBoxer<DiagnosticsNode>(boxer: (
       {@required DiagnosticsNode vmObject,
       @required HydroState hydroState,

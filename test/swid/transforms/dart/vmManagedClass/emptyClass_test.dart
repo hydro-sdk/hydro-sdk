@@ -19,6 +19,7 @@ void main() {
       staticMethods: [],
       factoryConstructors: [],
       instanceFieldDeclarations: {},
+      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
       constructorType: SwidFunctionType(
         name: "",
         namedDefaults: {},
@@ -62,5 +63,5 @@ class VMManagedfooClass extends VMManagedBox<fooClass> {
   final fooClass vmObject;
 }
 """);
-  });
+  }, tags: "swid");
 }
