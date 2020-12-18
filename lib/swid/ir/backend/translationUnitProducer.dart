@@ -64,7 +64,6 @@ class TranslationUnitProducer {
                   ),
                   ...([
                     ...swidClass.methods,
-                    ...swidClass.staticMethods,
                     ...swidClass.factoryConstructors,
                     ...swidClass.staticMethods,
                   ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
