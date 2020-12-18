@@ -1,8 +1,8 @@
 import { List } from "./../../dart/collection/list";
 import { DiagnosticLevel } from "./diagnosticLevel";
+import { DiagnosticsSerializationDelegate } from "./diagnosticsSerializationDelegate";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
 import { TextTreeConfiguration } from "./textTreeConfiguration";
-import { DiagnosticsSerializationDelegate } from "./diagnosticsSerializationDelegate";
 declare const flutter: {
     foundation: {
         diagnosticsNode: (
