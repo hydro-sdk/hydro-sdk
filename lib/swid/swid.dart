@@ -99,8 +99,13 @@ class SwidVisitor extends RecursiveAstVisitor
           .cast<ConstructorDeclarationImpl>()
           .where((x) => !x.declaredElement.hasProtected)
           .toList();
-      final constructorDeclarationImpl = constructors
+      var constructorDeclarationImpl = constructors
           .firstWhere((x) => x.factoryKeyword == null, orElse: () => null);
+
+      if (constructorDeclarationImpl == null) {
+        constructorDeclarationImpl =
+            constructors.firstWhere((x) => x.name == null, orElse: () => null);
+      }
       if (constructorDeclarationImpl != null) {
         if (constructorDeclarationImpl.declaredElement.isPublic ||
             node.childEntities.firstWhere(
@@ -130,6 +135,9 @@ class SwidVisitor extends RecursiveAstVisitor
             SwidClass(
                 name: node.name.name,
                 nullabilitySuffix: SwidNullabilitySuffix.none,
+                swidDeclarationModifiers:
+                    SwidDeclarationModifiers.fromClassDeclaration(
+                        classDeclaration: node),
                 originalPackagePath:
                     node.declaredElement?.librarySource?.uri?.toString() ?? "",
                 constructorType: SwidFunctionType.fromFunctionType(
@@ -252,6 +260,12 @@ class SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "DiagnosticsNode") {
       print(node.name.name);
       File("test/swid/res/DiagnosticsNode.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "DiagnosticsSerializationDelegate") {
+      print(node.name.name);
+      File("test/swid/res/DiagnosticsSerializationDelegate.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
