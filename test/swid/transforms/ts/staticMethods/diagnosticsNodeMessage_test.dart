@@ -17,7 +17,7 @@ void main() {
             swidFunctionType: diagnosticsNodeClass.factoryConstructors
                 .firstWhere((x) => x.name == "message")).toTsSource(),
         """
-public static message(message : string, props : { allowWrap? : boolean, level? : DiagnosticLevel, style? : DiagnosticsTreeStyle, }) : DiagnosticsNode{
+public static message(message: string, props : { allowWrap? : boolean, level? : DiagnosticLevel, style? : DiagnosticsTreeStyle, }) : DiagnosticsNode{
 return flutter.foundation.diagnosticsNodeMessage(message, {
 ...messageDefaultProps,
 ...props

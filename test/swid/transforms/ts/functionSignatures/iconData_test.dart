@@ -17,6 +17,6 @@ void main() {
         transformTypeDeclarationToTs(
             swidType: SwidType.fromSwidFunctionType(
                 swidFunctionType: iconDataClass.constructorType)),
-        "(codePoint : number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IconData");
+        "(codePoint: number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IconData");
   }, tags: "swid");
 }

@@ -15,7 +15,7 @@ void main() {
     expect(
         TsClassConstructorImplementation(swidClass: iconDataClass).toTsSource(),
         """
-public constructor(codePoint : number, props : { fontFamily : string, fontPackage : string, matchTextDirection? : boolean, }){
+public constructor(codePoint: number, props : { fontFamily : string, fontPackage : string, matchTextDirection? : boolean, }){
 flutter.widgets.iconData(this, codePoint, {
 ...iconDataDefaultProps,
 ...props
