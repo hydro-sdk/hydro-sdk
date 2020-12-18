@@ -19,6 +19,7 @@ void main() {
       staticMethods: [],
       factoryConstructors: [],
       instanceFieldDeclarations: {},
+      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
       constructorType: SwidFunctionType(
         name: "",
         namedDefaults: {},
