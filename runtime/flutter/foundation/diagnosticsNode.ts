@@ -25,8 +25,8 @@ declare const flutter: {
             }
         ) => DiagnosticsNode;
         diagnosticsNodeToJsonList: (
-            nodes?: List<DiagnosticsNode> | undefined,
-            parent?: DiagnosticsNode | undefined,
+            nodes: List<DiagnosticsNode> | undefined,
+            parent: DiagnosticsNode | undefined,
             delegate: DiagnosticsSerializationDelegate
         ) => List<{ [index: string]: Object | undefined }>;
     };
@@ -79,8 +79,8 @@ export class DiagnosticsNode {
         });
     }
     public static toJsonList(
-        nodes?: List<DiagnosticsNode> | undefined,
-        parent?: DiagnosticsNode | undefined,
+        nodes: List<DiagnosticsNode> | undefined,
+        parent: DiagnosticsNode | undefined,
         delegate: DiagnosticsSerializationDelegate
     ): List<{ [index: string]: Object | undefined }> {
         return flutter.foundation.diagnosticsNodeToJsonList(
