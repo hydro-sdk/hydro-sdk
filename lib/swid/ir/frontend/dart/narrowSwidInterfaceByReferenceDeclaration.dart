@@ -9,20 +9,24 @@ T narrowSwidInterfaceByReferenceDeclaration<T>({
   @required T Function(SwidInterface) onPrimitive,
   @required T Function(SwidInterface) onClass,
   @required T Function(SwidInterface) onEnum,
+  @required T Function(SwidInterface) onVoid,
 }) =>
     swidInterface.referenceDeclarationKind ==
-                SwidReferenceDeclarationKind.classElement &&
-            isPrimitive(
-                swidType:
-                    SwidType.fromSwidInterface(swidInterface: swidInterface))
-        ? onPrimitive(swidInterface)
+            SwidReferenceDeclarationKind.voidType
+        ? onVoid(swidInterface)
         : swidInterface.referenceDeclarationKind ==
                     SwidReferenceDeclarationKind.classElement &&
-                !isPrimitive(
+                isPrimitive(
                     swidType: SwidType.fromSwidInterface(
                         swidInterface: swidInterface))
-            ? onClass(swidInterface)
+            ? onPrimitive(swidInterface)
             : swidInterface.referenceDeclarationKind ==
-                    SwidReferenceDeclarationKind.enumElement
-                ? onEnum(swidInterface)
-                : null;
+                        SwidReferenceDeclarationKind.classElement &&
+                    !isPrimitive(
+                        swidType: SwidType.fromSwidInterface(
+                            swidInterface: swidInterface))
+                ? onClass(swidInterface)
+                : swidInterface.referenceDeclarationKind ==
+                        SwidReferenceDeclarationKind.enumElement
+                    ? onEnum(swidInterface)
+                    : null;

@@ -51,6 +51,7 @@ class DartFunctionSelfBindingInvocation {
                         referenceName:
                             expression.accept(DartEmitter()).toString())
                     .toDartSource(),
+                onVoid: (_) => expression.accept(DartEmitter()).toString(),
               ),
               fromSwidClass: (_) => "",
               fromSwidDefaultFormalParameter: (_) => "",
