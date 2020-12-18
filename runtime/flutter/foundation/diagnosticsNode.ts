@@ -2,6 +2,7 @@ import { List } from "./../../dart/collection/list";
 import { DiagnosticLevel } from "./diagnosticLevel";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
 import { TextTreeConfiguration } from "./textTreeConfiguration";
+import { DiagnosticsSerializationDelegate } from "./diagnosticsSerializationDelegate";
 declare const flutter: {
     foundation: {
         diagnosticsNode: (
@@ -23,6 +24,11 @@ declare const flutter: {
                 style: DiagnosticsTreeStyle;
             }
         ) => DiagnosticsNode;
+        diagnosticsNodeToJsonList: (
+            nodes?: List<DiagnosticsNode> | undefined,
+            parent?: DiagnosticsNode | undefined,
+            delegate: DiagnosticsSerializationDelegate
+        ) => List<{ [index: string]: Object | undefined }>;
     };
 };
 const diagnosticsNodeDefaultProps = {
@@ -71,6 +77,17 @@ export class DiagnosticsNode {
             ...messageDefaultProps,
             ...props,
         });
+    }
+    public static toJsonList(
+        nodes?: List<DiagnosticsNode> | undefined,
+        parent?: DiagnosticsNode | undefined,
+        delegate: DiagnosticsSerializationDelegate
+    ): List<{ [index: string]: Object | undefined }> {
+        return flutter.foundation.diagnosticsNodeToJsonList(
+            nodes,
+            parent,
+            delegate
+        );
     }
     private readonly _dart_toDescription: (props: {
         parentConfiguration?: TextTreeConfiguration | undefined;
