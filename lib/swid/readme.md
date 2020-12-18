@@ -24,7 +24,7 @@ Current and WIP results:
 ### Foundation
 - [x] `TextTreeConfiguration`
 - [x] `DiagnosticsNode`
-- [ ] `DiagnosticsSerializationDelegate`
+- [x] `DiagnosticsSerializationDelegate`
 - [ ] `DiagnosticPropertiesBuilder`
 - [ ] `Diagnosticable`
 - [ ] `DiagnosticableTree`
