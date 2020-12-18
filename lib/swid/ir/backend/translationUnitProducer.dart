@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldDeclarat
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticMethodImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedProps.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
@@ -51,59 +52,74 @@ class TranslationUnitProducer {
             TsTranslationUnit(
                 path: tsPrefixPaths.join(p.separator) + p.separator + path,
                 fileName: "$baseFileName.ts",
-                ir: [
-                  TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
-                  TsIr.fromTsClassVmDeclaration(
-                      tsClassVmDeclaration:
-                          TsClassVmDeclaration(swidClass: swidClass)),
-                  TsIr.fromTsFunctionDefaultNamedProps(
-                    tsFunctionDefaultNamedProps: TsFunctionDefaultNamedProps(
-                        swidFunctionType: SwidFunctionType.clone(
-                            swidFunctionType: swidClass.constructorType,
-                            name: swidClass.name)),
-                  ),
-                  ...([
-                    ...swidClass.methods,
-                    ...swidClass.factoryConstructors,
-                    ...swidClass.staticMethods,
-                  ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
-                      tsFunctionDefaultNamedProps:
-                          TsFunctionDefaultNamedProps(swidFunctionType: x)))),
-                  TsIr.fromTsClassPreamble(
-                      tsClassPreamble: TsClassPreamble(swidClass: swidClass)),
-                  TsIr.fromTsClassStaticConstFieldDeclarations(
-                      tsClassStaticConstFieldDeclarations:
-                          TsClassStaticConstFieldDeclarations(
-                              swidClass: swidClass)),
-                  TsIr.fromTsClassInstanceFieldDeclarations(
-                      tsClassInstanceFieldDeclarations:
-                          TsClassInstanceFieldDeclarations(
-                              swidClass: swidClass)),
-                  TsIr.fromTsClassConstructorImplementation(
-                      tsClassConstructorImplementation:
-                          TsClassConstructorImplementation(
-                              swidClass: swidClass)),
-                  ...([
-                    ...[
-                      ...swidClass.factoryConstructors,
-                      ...swidClass.staticMethods,
-                    ]
-                        .map((x) => TsIr.fromTsClassStaticMethodImplementation(
-                            tsClassStaticMethodImplementation:
-                                TsClassStaticMethodImplementation(
-                                    swidClass: swidClass, swidFunctionType: x)))
-                        .toList()
-                  ]),
-                  TsIr.fromTsClassMethodInjectionFieldDeclarations(
-                      tsClassMethodInjectionFieldDeclarations:
-                          TsClassMethodInjectionFieldDeclarations(
-                              swidClass: swidClass)),
-                  TsIr.fromTsClassMethodDeclarations(
-                      tsClassMethodDeclarations:
-                          TsClassMethodDeclarations(swidClass: swidClass)),
-                  TsIr.fromTsClassPostamble(
-                      tsClassPostamble: TsClassPostamble(swidClass: swidClass))
-                ]),
+                ir: !swidClass.isPureAbstract()
+                    ? [
+                        TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
+                        TsIr.fromTsClassVmDeclaration(
+                            tsClassVmDeclaration:
+                                TsClassVmDeclaration(swidClass: swidClass)),
+                        TsIr.fromTsFunctionDefaultNamedProps(
+                          tsFunctionDefaultNamedProps:
+                              TsFunctionDefaultNamedProps(
+                                  swidFunctionType: SwidFunctionType.clone(
+                                      swidFunctionType:
+                                          swidClass.constructorType,
+                                      name: swidClass.name)),
+                        ),
+                        ...([
+                          ...swidClass.methods,
+                          ...swidClass.factoryConstructors,
+                          ...swidClass.staticMethods,
+                        ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
+                            tsFunctionDefaultNamedProps:
+                                TsFunctionDefaultNamedProps(
+                                    swidFunctionType: x)))),
+                        TsIr.fromTsClassPreamble(
+                            tsClassPreamble:
+                                TsClassPreamble(swidClass: swidClass)),
+                        TsIr.fromTsClassStaticConstFieldDeclarations(
+                            tsClassStaticConstFieldDeclarations:
+                                TsClassStaticConstFieldDeclarations(
+                                    swidClass: swidClass)),
+                        TsIr.fromTsClassInstanceFieldDeclarations(
+                            tsClassInstanceFieldDeclarations:
+                                TsClassInstanceFieldDeclarations(
+                                    swidClass: swidClass)),
+                        TsIr.fromTsClassConstructorImplementation(
+                            tsClassConstructorImplementation:
+                                TsClassConstructorImplementation(
+                                    swidClass: swidClass)),
+                        ...([
+                          ...[
+                            ...swidClass.factoryConstructors,
+                            ...swidClass.staticMethods,
+                          ]
+                              .map((x) =>
+                                  TsIr.fromTsClassStaticMethodImplementation(
+                                      tsClassStaticMethodImplementation:
+                                          TsClassStaticMethodImplementation(
+                                              swidClass: swidClass,
+                                              swidFunctionType: x)))
+                              .toList()
+                        ]),
+                        TsIr.fromTsClassMethodInjectionFieldDeclarations(
+                            tsClassMethodInjectionFieldDeclarations:
+                                TsClassMethodInjectionFieldDeclarations(
+                                    swidClass: swidClass)),
+                        TsIr.fromTsClassMethodDeclarations(
+                            tsClassMethodDeclarations:
+                                TsClassMethodDeclarations(
+                                    swidClass: swidClass)),
+                        TsIr.fromTsClassPostamble(
+                            tsClassPostamble:
+                                TsClassPostamble(swidClass: swidClass))
+                      ]
+                    : [
+                        TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
+                        TsIr.fromTsInterface(
+                            tsInterface:
+                                TsInterface.fromSwidClass(swidClass: swidClass))
+                      ]),
             requiresDartBinding(swidClass: swidClass)
                 ? DartTranslationUnit(
                     path:
