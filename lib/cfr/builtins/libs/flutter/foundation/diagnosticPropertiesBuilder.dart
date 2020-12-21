@@ -29,10 +29,9 @@ class VMManagedDiagnosticPropertiesBuilder
     });
     table['emptyBodyDescription'] = vmObject.emptyBodyDescription;
     table['add'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
-            parentState: hydroState))
-      ];
+      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+          parentState: hydroState));
+      return [];
     });
   }
 
@@ -60,10 +59,9 @@ class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
     });
     table['emptyBodyDescription'] = emptyBodyDescription;
     table['_dart_add'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        super.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
-            parentState: hydroState))
-      ];
+      super.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+          parentState: hydroState));
+      return [];
     });
   }
 
