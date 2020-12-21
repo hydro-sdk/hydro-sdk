@@ -15,7 +15,7 @@ void main() {
     expect(
         VMManagedClassDeclaration(swidClass: diagnosticPropertiesBuilderClass)
             .toDartSource(),
-"""
+        """
 class VMManagedDiagnosticPropertiesBuilder
     extends VMManagedBox<DiagnosticPropertiesBuilder> {
   VMManagedDiagnosticPropertiesBuilder(
