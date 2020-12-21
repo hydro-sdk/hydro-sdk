@@ -82,7 +82,10 @@ void loadDiagnosticPropertiesBuilder(
     {@required HydroState hydroState, @required HydroTable table}) {
   table['diagnosticPropertiesBuilder'] =
       makeLuaDartFunc(func: (List<dynamic> args) {
-    return [RTManagedDiagnosticPropertiesBuilder()];
+    return [
+      RTManagedDiagnosticPropertiesBuilder(
+          table: args[0], hydroState: hydroState)
+    ];
   });
   registerBoxer<DiagnosticPropertiesBuilder>(boxer: (
       {@required DiagnosticPropertiesBuilder vmObject,
