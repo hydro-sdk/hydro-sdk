@@ -50,9 +50,9 @@ class MethodInjectionImplementation {
           onVoid: (_) =>
               Block.of([Code(_methodInvocation() + ";" + "\n" + "return [];")]),
         ),
-        fromSwidClass: null,
-        fromSwidDefaultFormalParameter: null,
-        fromSwidFunctionType: null,
+        fromSwidClass: (_) => null,
+        fromSwidDefaultFormalParameter: (_) => null,
+        fromSwidFunctionType: (_) => null,
       )))
       .statement
       .accept(DartEmitter())
