@@ -1,7 +1,6 @@
 import { List } from "./../../dart/collection/list";
 import { DiagnosticsNode } from "./diagnosticsNode";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
-
 declare const flutter: {
     foundation: {
         diagnosticPropertiesBuilder: (
