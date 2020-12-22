@@ -20,10 +20,7 @@ class VMManagedDiagnosticPropertiesBuilder
           hydroState: hydroState,
         ) {
     table['properties'] = maybeBoxObject<List<dynamic>>(
-        object: vmObject.properties
-            .map((x) => maybeBoxObject<DiagnosticsNode>(
-                object: x, hydroState: hydroState, table: HydroTable()))
-            .toList(),
+        object: vmObject.properties,
         hydroState: hydroState,
         table: HydroTable());
     table['defaultDiagnosticsTreeStyle'] =
@@ -55,12 +52,7 @@ class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
       return [unwrap()];
     });
     table['properties'] = maybeBoxObject<List<dynamic>>(
-        object: properties
-            .map((x) => maybeBoxObject<DiagnosticsNode>(
-                object: x, hydroState: hydroState, table: HydroTable()))
-            .toList(),
-        hydroState: hydroState,
-        table: HydroTable());
+        object: properties, hydroState: hydroState, table: HydroTable());
     table['defaultDiagnosticsTreeStyle'] =
         DiagnosticsTreeStyle.values.indexWhere((x) {
       return x == defaultDiagnosticsTreeStyle;
