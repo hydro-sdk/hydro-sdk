@@ -1,0 +1,13 @@
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
+import 'package:meta/meta.dart';
+
+bool isList({@required SwidType swidType}) => swidType.when(
+      fromSwidInterface: (val) =>
+          val.originalPackagePath == "dart:core" &&
+          removeTypeArguments(str: val.name) == "List" &&
+          val.typeArguments.length == 1,
+      fromSwidClass: (_) => false,
+      fromSwidDefaultFormalParameter: (_) => false,
+      fromSwidFunctionType: (_) => false,
+    );

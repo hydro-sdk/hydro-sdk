@@ -41,7 +41,7 @@ class DartFunctionSelfBindingInvocation {
                 swidInterface: val,
                 onPrimitive: (_) => expression.accept(DartEmitter()).toString(),
                 onClass: (val) => DartBoxObjectReference(
-                  type: SwidType.fromSwidInterface(swidInterface: val),
+                  type: val,
                   objectReference: expression,
                   codeKind: CodeKind.expression,
                 ).toDartSource(),

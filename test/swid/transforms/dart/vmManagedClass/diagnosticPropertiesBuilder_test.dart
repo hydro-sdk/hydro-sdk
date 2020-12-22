@@ -9,7 +9,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var diagnosticPropertiesBuilderClass = SwidClass.fromJson(json.decode(
-        File("test/swid/res/DiagnosticPropertiesBuilder.json")
+        File("../test/swid/res/DiagnosticPropertiesBuilder.json")
             .readAsStringSync()));
 
     expect(
@@ -28,7 +28,7 @@ class VMManagedDiagnosticPropertiesBuilder
           hydroState: hydroState,
         ) {
     table[\'properties\'] = maybeBoxObject<List<dynamic>>(
-        object: properties
+        object: vmObject.properties
             .map((x) => maybeBoxObject<DiagnosticsNode>(
                 object: x, hydroState: hydroState, table: HydroTable()))
             .toList(),

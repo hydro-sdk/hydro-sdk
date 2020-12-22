@@ -12,28 +12,26 @@ void main() {
     expect(
         DartBoxObjectReference(
             objectReference: refer("vmObject"),
-            type: SwidType.fromSwidInterface(
-                swidInterface: SwidInterface(
-                    name: "TextStyle",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "",
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    typeArguments: []))).toDartSource(),
+            type: SwidInterface(
+                name: "TextStyle",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "",
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                typeArguments: [])).toDartSource(),
         """
 maybeBoxObject<TextStyle>(object: vmObject, hydroState: hydroState, table: HydroTable());""");
 
     expect(
         DartBoxObjectReference(
             objectReference: refer("vmObject").property("headline4").expression,
-            type: SwidType.fromSwidInterface(
-                swidInterface: SwidInterface(
-                    name: "TextStyle",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "",
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    typeArguments: []))).toDartSource(),
+            type: SwidInterface(
+                name: "TextStyle",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "",
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                typeArguments: [])).toDartSource(),
         """
 maybeBoxObject<TextStyle>(object: vmObject.headline4, hydroState: hydroState, table: HydroTable());""");
   }, tags: "swid");

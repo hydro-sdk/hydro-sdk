@@ -27,7 +27,7 @@ class DartBindInstanceField {
             onClass: (val) => refer("table")
                 .index(literalString(tableKey))
                 .assign(CodeExpression(Code(DartBoxObjectReference(
-                        type: instanceField,
+                        type: val,
                         objectReference:
                             CodeExpression(Code(instanceFieldName)))
                     .toDartSource())))

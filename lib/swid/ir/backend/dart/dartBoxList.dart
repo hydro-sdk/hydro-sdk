@@ -43,7 +43,7 @@ class DartBoxList {
                     ),
                     onPrimitive: (_) => null,
                     onClass: (val) => DartBoxObjectReference(
-                      type: SwidType.fromSwidInterface(swidInterface: val),
+                      type: val,
                       objectReference: refer("x"),
                       codeKind: CodeKind.expression,
                     ).toDartSource(),
