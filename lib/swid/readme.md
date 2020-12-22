@@ -25,7 +25,7 @@ Current and WIP results:
 - [x] `TextTreeConfiguration`
 - [x] `DiagnosticsNode`
 - [x] `DiagnosticsSerializationDelegate`
-- [ ] `DiagnosticPropertiesBuilder`
+- [x] `DiagnosticPropertiesBuilder`
 - [ ] `Diagnosticable`
 - [ ] `DiagnosticableTree`
 - [ ] `Key`

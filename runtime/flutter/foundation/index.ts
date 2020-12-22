@@ -1,3 +1,4 @@
+export * from "./diagnosticPropertiesBuilder";
 export * from "./diagnosticsNode";
 export * from "./changeNotifier";
 export * from "./key";
