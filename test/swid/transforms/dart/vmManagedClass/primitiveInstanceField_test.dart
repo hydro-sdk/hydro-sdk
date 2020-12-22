@@ -51,6 +51,7 @@ void main() {
       ),
       staticConstFieldDeclarations: [],
       methods: [],
+      mixedInClasses: [],
     ));
 
     expect(ir.toDartSource(), """
