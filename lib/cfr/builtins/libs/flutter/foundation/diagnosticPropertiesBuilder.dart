@@ -19,8 +19,11 @@ class VMManagedDiagnosticPropertiesBuilder
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    maybeBoxObject<List<DiagnosticsNode>>(
-        object: vmObject.properties,
+    table['properties'] = maybeBoxObject<List<dynamic>>(
+        object: vmObject.properties
+            .map((x) => maybeBoxObject<DiagnosticsNode>(
+                object: x, hydroState: hydroState, table: HydroTable()))
+            .toList(),
         hydroState: hydroState,
         table: HydroTable());
     table['defaultDiagnosticsTreeStyle'] =
@@ -51,8 +54,13 @@ class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
-    maybeBoxObject<List<DiagnosticsNode>>(
-        object: properties, hydroState: hydroState, table: HydroTable());
+    table['properties'] = maybeBoxObject<List<dynamic>>(
+        object: properties
+            .map((x) => maybeBoxObject<DiagnosticsNode>(
+                object: x, hydroState: hydroState, table: HydroTable()))
+            .toList(),
+        hydroState: hydroState,
+        table: HydroTable());
     table['defaultDiagnosticsTreeStyle'] =
         DiagnosticsTreeStyle.values.indexWhere((x) {
       return x == defaultDiagnosticsTreeStyle;
