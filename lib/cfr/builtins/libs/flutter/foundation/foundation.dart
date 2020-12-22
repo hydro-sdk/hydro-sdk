@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/changeNotifier.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticPropertiesBuilder.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticable.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticsNode.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/diagnosticsSerializationDelegate.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/key.dart';
@@ -20,4 +21,5 @@ void loadFoundation(
   loadDiagnosticsNode(hydroState: luaState, table: foundation);
   loadDiagnosticsSerializationDelegate(hydroState: luaState, table: foundation);
   loadDiagnosticPropertiesBuilder(hydroState: luaState, table: foundation);
+  loadDiagnosticable(hydroState: luaState, table: foundation);
 }

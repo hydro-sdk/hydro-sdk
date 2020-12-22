@@ -1,6 +1,7 @@
 export * from "./diagnosticPropertiesBuilder";
 export * from "./diagnosticsNode";
 export * from "./changeNotifier";
+export * from "./diagnosticable";
 export * from "./key";
 export * from "./textTreeConfiguration";
 export * from "./diagnosticsTreeStyle";
