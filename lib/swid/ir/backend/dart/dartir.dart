@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceFieldDirect.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
@@ -28,6 +29,8 @@ abstract class DartIr with _$DartIr {
   factory DartIr.fromDartBoxEnumReference(
           {@required DartBoxEnumReference dartBoxEnumReference}) =
       _$FromDartBoxEnumReference;
+  factory DartIr.fromDartBoxList({@required DartBoxList dartBoxList}) =
+      _$FromDartBoxList;
   factory DartIr.fromDartBoxObjectReference(
           {@required DartBoxObjectReference dartBoxObjectReference}) =
       _$FromDartBoxObjectReference;
@@ -79,6 +82,7 @@ extension DartIrMethods on DartIr {
         fromDartBindInstanceField: (val) => val.toDartSource(),
         fromDartBindInstanceFieldDirect: (val) => val.toDartSource(),
         fromDartBoxEnumReference: (val) => val.toDartSource(),
+        fromDartBoxList: (val) => val.toDartSource(),
         fromDartBoxObjectReference: (val) => val.toDartSource(),
         fromDartFunctionSelfBindingInvocation: (val) => val.toDartSource(),
         fromDartLinebreak: (val) => val.toDartSource(),

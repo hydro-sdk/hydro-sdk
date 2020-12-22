@@ -38,6 +38,13 @@ class _$DartIrTearOff {
   }
 
 // ignore: unused_element
+  _$FromDartBoxList fromDartBoxList({@required DartBoxList dartBoxList}) {
+    return _$FromDartBoxList(
+      dartBoxList: dartBoxList,
+    );
+  }
+
+// ignore: unused_element
   _$FromDartBoxObjectReference fromDartBoxObjectReference(
       {@required DartBoxObjectReference dartBoxObjectReference}) {
     return _$FromDartBoxObjectReference(
@@ -157,6 +164,7 @@ mixin _$DartIr {
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -200,6 +208,7 @@ mixin _$DartIr {
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -233,6 +242,7 @@ mixin _$DartIr {
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -270,6 +280,7 @@ mixin _$DartIr {
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -384,6 +395,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -423,6 +435,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -445,6 +458,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -486,6 +500,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -520,6 +535,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -541,6 +557,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -661,6 +678,7 @@ class _$_$FromDartBindInstanceFieldDirect
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -700,6 +718,7 @@ class _$_$FromDartBindInstanceFieldDirect
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -722,6 +741,7 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -763,6 +783,7 @@ class _$_$FromDartBindInstanceFieldDirect
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -797,6 +818,7 @@ class _$_$FromDartBindInstanceFieldDirect
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -818,6 +840,7 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -933,6 +956,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -972,6 +996,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -994,6 +1019,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -1035,6 +1061,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -1069,6 +1096,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -1090,6 +1118,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -1125,6 +1154,277 @@ abstract class _$FromDartBoxEnumReference implements DartIr {
 
   DartBoxEnumReference get dartBoxEnumReference;
   _$$FromDartBoxEnumReferenceCopyWith<_$FromDartBoxEnumReference> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromDartBoxListCopyWith<$Res> {
+  factory _$$FromDartBoxListCopyWith(
+          _$FromDartBoxList value, $Res Function(_$FromDartBoxList) then) =
+      __$$FromDartBoxListCopyWithImpl<$Res>;
+  $Res call({DartBoxList dartBoxList});
+}
+
+/// @nodoc
+class __$$FromDartBoxListCopyWithImpl<$Res> extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartBoxListCopyWith<$Res> {
+  __$$FromDartBoxListCopyWithImpl(
+      _$FromDartBoxList _value, $Res Function(_$FromDartBoxList) _then)
+      : super(_value, (v) => _then(v as _$FromDartBoxList));
+
+  @override
+  _$FromDartBoxList get _value => super._value as _$FromDartBoxList;
+
+  @override
+  $Res call({
+    Object dartBoxList = freezed,
+  }) {
+    return _then(_$FromDartBoxList(
+      dartBoxList: dartBoxList == freezed
+          ? _value.dartBoxList
+          : dartBoxList as DartBoxList,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartBoxList implements _$FromDartBoxList {
+  _$_$FromDartBoxList({@required this.dartBoxList})
+      : assert(dartBoxList != null);
+
+  @override
+  final DartBoxList dartBoxList;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartBoxList(dartBoxList: $dartBoxList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartBoxList &&
+            (identical(other.dartBoxList, dartBoxList) ||
+                const DeepCollectionEquality()
+                    .equals(other.dartBoxList, dartBoxList)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(dartBoxList);
+
+  @override
+  _$$FromDartBoxListCopyWith<_$FromDartBoxList> get copyWith =>
+      __$$FromDartBoxListCopyWithImpl<_$FromDartBoxList>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            StaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration),
+    @required
+        Result fromVMManagedClassDeclaration(
+            VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromDartBoxList(dartBoxList);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingParameterExpression(
+        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        StaticMethodNamespaceSymbolDeclaration
+            staticMethodNamespaceSymbolDeclaration),
+    Result fromVMManagedClassDeclaration(
+        VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBoxList != null) {
+      return fromDartBoxList(dartBoxList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingParameterExpression(
+            _$FromDartUnboxingParameterExpression value),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            $FromDartVMManagedClassBoxerRegistrant value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            _$FromStaticMethodNamespaceSymbolDeclaration value),
+    @required
+        Result fromVMManagedClassDeclaration(
+            _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromDartBoxList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingParameterExpression(
+        _$FromDartUnboxingParameterExpression value),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        $FromDartVMManagedClassBoxerRegistrant value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        _$FromStaticMethodNamespaceSymbolDeclaration value),
+    Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBoxList != null) {
+      return fromDartBoxList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartBoxList implements DartIr {
+  factory _$FromDartBoxList({@required DartBoxList dartBoxList}) =
+      _$_$FromDartBoxList;
+
+  DartBoxList get dartBoxList;
+  _$$FromDartBoxListCopyWith<_$FromDartBoxList> get copyWith;
 }
 
 /// @nodoc
@@ -1205,6 +1505,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -1244,6 +1545,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -1266,6 +1568,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -1307,6 +1610,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -1341,6 +1645,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -1362,6 +1667,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -1487,6 +1793,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -1526,6 +1833,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -1549,6 +1857,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -1591,6 +1900,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -1625,6 +1935,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -1646,6 +1957,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -1758,6 +2070,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -1797,6 +2110,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -1819,6 +2133,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -1860,6 +2175,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -1894,6 +2210,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -1915,6 +2232,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -2035,6 +2353,7 @@ class _$_$FromDartUnboxingParameterExpression
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -2074,6 +2393,7 @@ class _$_$FromDartUnboxingParameterExpression
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -2096,6 +2416,7 @@ class _$_$FromDartUnboxingParameterExpression
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -2138,6 +2459,7 @@ class _$_$FromDartUnboxingParameterExpression
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -2172,6 +2494,7 @@ class _$_$FromDartUnboxingParameterExpression
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -2193,6 +2516,7 @@ class _$_$FromDartUnboxingParameterExpression
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -2320,6 +2644,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -2359,6 +2684,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -2382,6 +2708,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -2424,6 +2751,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -2458,6 +2786,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -2479,6 +2808,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -2602,6 +2932,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -2641,6 +2972,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -2663,6 +2995,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -2704,6 +3037,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -2738,6 +3072,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -2759,6 +3094,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -2881,6 +3217,7 @@ class _$_$FromMethodInjectionImplementation
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -2920,6 +3257,7 @@ class _$_$FromMethodInjectionImplementation
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -2942,6 +3280,7 @@ class _$_$FromMethodInjectionImplementation
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -2983,6 +3322,7 @@ class _$_$FromMethodInjectionImplementation
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -3017,6 +3357,7 @@ class _$_$FromMethodInjectionImplementation
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -3038,6 +3379,7 @@ class _$_$FromMethodInjectionImplementation
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -3158,6 +3500,7 @@ class _$_$FromRTManagedClassDeclaration
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -3197,6 +3540,7 @@ class _$_$FromRTManagedClassDeclaration
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -3219,6 +3563,7 @@ class _$_$FromRTManagedClassDeclaration
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -3260,6 +3605,7 @@ class _$_$FromRTManagedClassDeclaration
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -3294,6 +3640,7 @@ class _$_$FromRTManagedClassDeclaration
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -3315,6 +3662,7 @@ class _$_$FromRTManagedClassDeclaration
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -3444,6 +3792,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -3483,6 +3832,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -3506,6 +3856,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -3548,6 +3899,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -3582,6 +3934,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -3603,6 +3956,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -3725,6 +4079,7 @@ class _$_$FromVMManagedClassDeclaration
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -3764,6 +4119,7 @@ class _$_$FromVMManagedClassDeclaration
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -3786,6 +4142,7 @@ class _$_$FromVMManagedClassDeclaration
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -3827,6 +4184,7 @@ class _$_$FromVMManagedClassDeclaration
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -3861,6 +4219,7 @@ class _$_$FromVMManagedClassDeclaration
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -3882,6 +4241,7 @@ class _$_$FromVMManagedClassDeclaration
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
@@ -4017,6 +4377,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     @required
         Result fromDartBoxEnumReference(
             DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
     @required
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
@@ -4056,6 +4417,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -4079,6 +4441,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromDartBindInstanceFieldDirect(
         DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
     Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
     Result fromDartFunctionSelfBindingInvocation(
@@ -4121,6 +4484,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
         Result fromDartBindInstanceFieldDirect(
             _$FromDartBindInstanceFieldDirect value),
     @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     @required
@@ -4155,6 +4519,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
@@ -4176,6 +4541,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
