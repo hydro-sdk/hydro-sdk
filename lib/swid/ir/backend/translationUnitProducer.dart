@@ -52,7 +52,7 @@ class TranslationUnitProducer {
             TsTranslationUnit(
                 path: tsPrefixPaths.join(p.separator) + p.separator + path,
                 fileName: "$baseFileName.ts",
-                ir: !swidClass.isPureAbstract()
+                ir: !swidClass.isPureAbstract() && swidClass.isConstructible()
                     ? [
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsClassVmDeclaration(
@@ -131,7 +131,7 @@ class TranslationUnitProducer {
                           vmManagedClassDeclaration:
                               VMManagedClassDeclaration(swidClass: swidClass)),
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                      !swidClass.isPureAbstract()
+                      !swidClass.isPureAbstract() && swidClass.isConstructible()
                           ? DartIr.fromRTManagedClassDeclaration(
                               rtManagedClassDeclaration:
                                   RTManagedClassDeclaration(

@@ -57,10 +57,12 @@ abstract class SwidClass with _$SwidClass {
         nullabilitySuffix: nullabilitySuffix ?? swidClass.nullabilitySuffix,
         originalPackagePath:
             originalPackagePath ?? swidClass.originalPackagePath,
-        constructorType: constructorType ?? swidClass.constructorType != null
-            ? SwidFunctionType.clone(
-                swidFunctionType: swidClass.constructorType)
-            : null,
+        constructorType: constructorType != null
+            ? constructorType
+            : swidClass.constructorType != null
+                ? SwidFunctionType.clone(
+                    swidFunctionType: swidClass.constructorType)
+                : null,
         factoryConstructors: factoryConstructors ??
             List.from(swidClass.factoryConstructors
                     ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
@@ -211,4 +213,6 @@ extension SwidClassMethods on SwidClass {
   bool isPureAbstract() =>
       swidDeclarationModifiers.isAbstract &&
       methods.every((x) => x.swidDeclarationModifiers.isAbstract);
+
+  bool isConstructible() => constructorType != null;
 }

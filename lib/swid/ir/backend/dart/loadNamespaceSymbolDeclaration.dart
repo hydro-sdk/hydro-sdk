@@ -40,7 +40,7 @@ class LoadNamespaceSymbolDeclaration {
         ..type = refer("HydroTable")),
     ])
     ..body = Block.of([
-      !swidClass.isPureAbstract()
+      !swidClass.isPureAbstract() && swidClass.isConstructible()
           ? refer("table")
               .index(literalString(transformToCamelCase(str: swidClass.name)))
               .assign(luaDartBinding(
