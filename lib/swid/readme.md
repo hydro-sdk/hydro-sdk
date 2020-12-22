@@ -26,6 +26,6 @@ Current and WIP results:
 - [x] `DiagnosticsNode`
 - [x] `DiagnosticsSerializationDelegate`
 - [x] `DiagnosticPropertiesBuilder`
-- [ ] `Diagnosticable`
+- [x] `Diagnosticable`
 - [ ] `DiagnosticableTree`
 - [ ] `Key`
