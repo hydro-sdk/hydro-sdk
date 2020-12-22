@@ -11,30 +11,32 @@ import 'package:meta/meta.dart';
 class DartBoxObjectReference {
   final SwidInterface type;
   final Expression objectReference;
+  final bool boxLists;
   final CodeKind codeKind;
 
   DartBoxObjectReference({
     @required this.type,
     @required this.objectReference,
+    @required this.boxLists,
     this.codeKind = CodeKind.statement,
   });
 
   Expression _boxObject() => refer("maybeBoxObject").call([], {
-        "object":
-            isList(swidType: SwidType.fromSwidInterface(swidInterface: type)) &&
-                    !isPrimitiveMap(swidType: type.typeArguments.first)
-                ? CodeExpression(Code(DartBoxList(
-                    type: type,
-                    referenceName:
-                        objectReference.accept(DartEmitter()).toString(),
-                    codeKind: CodeKind.expression,
-                  ).toDartSource()))
-                : objectReference,
+        "object": boxLists &&
+                isList(
+                    swidType:
+                        SwidType.fromSwidInterface(swidInterface: type)) &&
+                !isPrimitiveMap(swidType: type.typeArguments.first)
+            ? CodeExpression(Code(DartBoxList(
+                type: type,
+                referenceName: objectReference.accept(DartEmitter()).toString(),
+                codeKind: CodeKind.expression,
+              ).toDartSource()))
+            : objectReference,
         "hydroState": refer("hydroState"),
         "table": refer("HydroTable").call([]),
       }, [
-        isList(swidType: SwidType.fromSwidInterface(swidInterface: type)) &&
-                !isPrimitiveMap(swidType: type.typeArguments.first)
+        isList(swidType: SwidType.fromSwidInterface(swidInterface: type))
             ? Reference("List<dynamic>")
             : Reference(type.name)
       ]);

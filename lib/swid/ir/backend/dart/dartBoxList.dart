@@ -44,6 +44,7 @@ class DartBoxList {
                     onPrimitive: (_) => null,
                     onClass: (val) => DartBoxObjectReference(
                       type: val,
+                      boxLists: true,
                       objectReference: refer("x"),
                       codeKind: CodeKind.expression,
                     ).toDartSource(),

@@ -43,6 +43,7 @@ class DartFunctionSelfBindingInvocation {
                 onClass: (val) => DartBoxObjectReference(
                   type: val,
                   objectReference: expression,
+                  boxLists: true,
                   codeKind: CodeKind.expression,
                 ).toDartSource(),
                 onEnum: (val) => DartBoxEnumReference(

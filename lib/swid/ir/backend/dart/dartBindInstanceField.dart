@@ -28,6 +28,7 @@ class DartBindInstanceField {
                 .index(literalString(tableKey))
                 .assign(CodeExpression(Code(DartBoxObjectReference(
                         type: val,
+                        boxLists: false,
                         objectReference:
                             CodeExpression(Code(instanceFieldName)))
                     .toDartSource())))
