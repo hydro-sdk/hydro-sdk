@@ -1,9 +1,6 @@
-import { pauseInDebugger } from "../../../../runtime/dart/developer/debugger";
-import { DiagnosticLevel } from "../../../../runtime/flutter/foundation/diagnosticLevel";
 import { DiagnosticPropertiesBuilder } from "../../../../runtime/flutter/foundation/diagnosticPropertiesBuilder";
 import { DiagnosticsNode } from "../../../../runtime/flutter/foundation/diagnosticsNode";
 import { DiagnosticsTreeStyle } from "../../../../runtime/flutter/foundation/diagnosticsTreeStyle";
-``;
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 function first() {
