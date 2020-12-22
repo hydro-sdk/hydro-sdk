@@ -25,9 +25,11 @@ function second() {
     assert(builder.properties.first().showName == true);
     assert(builder.properties.first().showSeparator == true);
 
-    builder.add(new DiagnosticsNode({
-        style: DiagnosticsTreeStyle.whitespace
-    }));
+    builder.add(
+        new DiagnosticsNode({
+            style: DiagnosticsTreeStyle.whitespace,
+        })
+    );
     assert(builder.properties.length() == 2);
     assert(builder.properties.first() != undefined);
     assert(builder.properties.first().showName == true);
