@@ -47,7 +47,7 @@ void loadDiagnosticsNode(
   table[\'diagnosticsNodeToJsonList\'] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<List<Map<String, Object>>>(
+      maybeBoxObject<List<dynamic>>(
           object: DiagnosticsNode.toJsonList(
               maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
                   parentState: hydroState),

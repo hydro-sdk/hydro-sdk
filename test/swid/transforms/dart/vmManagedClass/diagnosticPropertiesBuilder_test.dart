@@ -28,10 +28,7 @@ class VMManagedDiagnosticPropertiesBuilder
           hydroState: hydroState,
         ) {
     table[\'properties\'] = maybeBoxObject<List<dynamic>>(
-        object: vmObject.properties
-            .map((x) => maybeBoxObject<DiagnosticsNode>(
-                object: x, hydroState: hydroState, table: HydroTable()))
-            .toList(),
+        object: vmObject.properties,
         hydroState: hydroState,
         table: HydroTable());
     table[\'defaultDiagnosticsTreeStyle\'] =
