@@ -180,5 +180,6 @@
         "hasVisibleForTemplate": false,
         "hasVisibleForTesting": false,
         "isPublic": true
-    }
+    },
+    "mixedInClasses": []
 }

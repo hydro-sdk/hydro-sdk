@@ -46,6 +46,10 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         ? null
         : SwidDeclarationModifiers.fromJson(
             json['swidDeclarationModifiers'] as Map<String, dynamic>),
+    mixedInClasses: (json['mixedInClasses'] as List)
+        ?.map((e) =>
+            e == null ? null : SwidClass.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -61,6 +65,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'staticConstFieldDeclarations': instance.staticConstFieldDeclarations,
       'instanceFieldDeclarations': instance.instanceFieldDeclarations,
       'swidDeclarationModifiers': instance.swidDeclarationModifiers,
+      'mixedInClasses': instance.mixedInClasses,
     };
 
 T _$enumDecode<T>(

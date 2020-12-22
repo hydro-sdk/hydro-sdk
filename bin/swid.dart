@@ -21,7 +21,7 @@ void main(List<String> args) async {
         ).produceFromSwidEnum(swidEnum: visitor.enums[i]),
         (x) => writeTranslationUnit(translationUnit: x));
   }
-
+  print(visitor.classes.length);
   for (var i = 0; i != visitor.classes.length; ++i) {
     if (visitor.classes[i].name == "Icons" ||
         visitor.classes[i].name == "CupertinoIcons" ||
@@ -29,7 +29,9 @@ void main(List<String> args) async {
         visitor.classes[i].name == "TextTreeConfiguration" ||
         visitor.classes[i].name == "DiagnosticsNode" ||
         visitor.classes[i].name == "DiagnosticsSerializationDelegate" ||
-        visitor.classes[i].name == "DiagnosticPropertiesBuilder") {
+        visitor.classes[i].name == "DiagnosticPropertiesBuilder" ||
+        visitor.classes[i].name == "Diagnosticable" ||
+        visitor.classes[i].name == "DiagnosticableTree") {
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(

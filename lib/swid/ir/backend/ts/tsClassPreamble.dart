@@ -6,5 +6,14 @@ class TsClassPreamble {
 
   TsClassPreamble({@required this.swidClass});
 
-  String toTsSource() => "export class ${swidClass.name} {\n";
+  String toTsSource() => [
+        "export class ${swidClass.name}",
+        ...(swidClass.mixedInClasses.isNotEmpty
+            ? [
+                "implements",
+                swidClass.mixedInClasses.map((x) => x.name).toList().join(", ")
+              ]
+            : []),
+        "{"
+      ].join("\n");
 }

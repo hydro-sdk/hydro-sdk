@@ -1,0 +1,286 @@
+{
+    "name": "Diagnosticable",
+    "nullabilitySuffix": "none",
+    "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+    "constructorType": null,
+    "factoryConstructors": [],
+    "staticMethods": [],
+    "methods": [
+        {
+            "name": "toStringShort",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false,
+                "isPublic": true
+            },
+            "namedParameterTypes": {},
+            "namedDefaults": {},
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "swidInterface": {
+                    "name": "String",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
+                },
+                "runtimeType": "fromSwidInterface"
+            }
+        },
+        {
+            "name": "toString",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": true,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false,
+                "isPublic": true
+            },
+            "namedParameterTypes": {
+                "minLevel": {
+                    "swidInterface": {
+                        "name": "DiagnosticLevel",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "enumElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                }
+            },
+            "namedDefaults": {
+                "minLevel": {
+                    "name": "DiagnosticLevel.info",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                    "value": {
+                        "swidInterface": {
+                            "name": "DiagnosticLevel",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "enumElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    }
+                }
+            },
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "swidInterface": {
+                    "name": "String",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
+                },
+                "runtimeType": "fromSwidInterface"
+            }
+        },
+        {
+            "name": "toDiagnosticsNode",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false,
+                "isPublic": true
+            },
+            "namedParameterTypes": {
+                "name": {
+                    "swidInterface": {
+                        "name": "String",
+                        "nullabilitySuffix": "question",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "style": {
+                    "swidInterface": {
+                        "name": "DiagnosticsTreeStyle",
+                        "nullabilitySuffix": "question",
+                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "enumElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                }
+            },
+            "namedDefaults": {},
+            "normalParameterNames": [],
+            "normalParameterTypes": [],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "swidInterface": {
+                    "name": "DiagnosticsNode",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
+                },
+                "runtimeType": "fromSwidInterface"
+            }
+        },
+        {
+            "name": "debugFillProperties",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": true,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": true,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false,
+                "isPublic": true
+            },
+            "namedParameterTypes": {},
+            "namedDefaults": {},
+            "normalParameterNames": ["properties"],
+            "normalParameterTypes": [
+                {
+                    "swidInterface": {
+                        "name": "DiagnosticPropertiesBuilder",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                }
+            ],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "swidInterface": {
+                    "name": "void",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "voidType"
+                },
+                "runtimeType": "fromSwidInterface"
+            }
+        }
+    ],
+    "staticConstFieldDeclarations": [],
+    "instanceFieldDeclarations": {},
+    "swidDeclarationModifiers": {
+        "isAbstract": false,
+        "isGetter": false,
+        "isOperator": false,
+        "isSetter": false,
+        "isStatic": false,
+        "isSynthetic": false,
+        "hasAlwaysThrows": false,
+        "hasDeprecated": false,
+        "hasFactory": false,
+        "hasImplicitReturnType": false,
+        "hasIsTest": false,
+        "hasIsTestGroup": false,
+        "hasJS": false,
+        "hasLiteral": false,
+        "hasMustCallSuper": false,
+        "hasNonVirtual": false,
+        "hasOptionalTypeArgs": false,
+        "hasOverride": false,
+        "hasProtected": false,
+        "hasRequired": false,
+        "hasSealed": false,
+        "hasVisibleForTemplate": false,
+        "hasVisibleForTesting": false,
+        "isPublic": true
+    },
+    "mixedInClasses": []
+}
