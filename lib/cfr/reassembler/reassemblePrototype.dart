@@ -1,7 +1,9 @@
 import 'dart:typed_data';
-import 'package:hydro_sdk/cfr/vm/prototype.dart';
-import 'package:hydro_sdk/cfr/reassembler/copyConstant.dart';
+
 import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/cfr/reassembler/copyConstant.dart';
+import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 void reassemblePrototype(
     {@required Prototype destination, @required Prototype source}) {

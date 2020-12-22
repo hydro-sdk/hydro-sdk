@@ -30,6 +30,7 @@ dev_dependencies:
   test: "any"
   flutter_test: 
     sdk: flutter
+  import_sorter: 4.4.1
 environment: 
   sdk: ">=2.9.0 <3.0.0"
 flutter: 

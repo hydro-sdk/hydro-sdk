@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/cfr/reassembler/hashUpvalue.dart';
-import 'package:hydro_sdk/cfr/vm/upvaldef.dart';
-
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
+
+import 'package:hydro_sdk/cfr/reassembler/hashUpvalue.dart';
+import 'package:hydro_sdk/cfr/vm/upvaldef.dart';
 
 List<int> hashUpvalues(List<UpvalDef> upvalues) {
   var output = AccumulatorSink<Digest>();

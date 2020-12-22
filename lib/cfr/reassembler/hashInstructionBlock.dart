@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/cfr/reassembler/hashInstruction.dart';
-import 'package:hydro_sdk/cfr/vm/inst.dart';
-
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
+
+import 'package:hydro_sdk/cfr/reassembler/hashInstruction.dart';
+import 'package:hydro_sdk/cfr/vm/inst.dart';
 
 List<int> hashInstructionBlock(InstBlock instBlock) {
   var output = AccumulatorSink<Digest>();

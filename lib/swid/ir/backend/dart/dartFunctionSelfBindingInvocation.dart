@@ -7,6 +7,9 @@ import 'package:code_builder/code_builder.dart'
         Expression,
         Code,
         CodeExpression;
+
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
@@ -15,7 +18,6 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingParameterExpression.d
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:meta/meta.dart';
 
 class DartFunctionSelfBindingInvocation {
   final SwidFunctionType swidFunctionType;

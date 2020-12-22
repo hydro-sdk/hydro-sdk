@@ -1,12 +1,14 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, Reference, Expression, CodeExpression, Code;
+
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/isList.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:meta/meta.dart';
 
 class DartBoxObjectReference {
   final SwidInterface type;

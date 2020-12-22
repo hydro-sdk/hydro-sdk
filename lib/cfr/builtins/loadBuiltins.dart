@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/builtins/libs/dart/dart.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/flutter.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/http/http.dart';
@@ -9,7 +11,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/stdlib/math.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/stdlib/string.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/stdlib/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:meta/meta.dart';
 
 enum BuiltinLib {
   base,

@@ -7,7 +7,10 @@ import 'package:code_builder/code_builder.dart'
         CodeExpression,
         Block,
         DartEmitter;
+
 import 'package:dart_style/dart_style.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
@@ -17,7 +20,6 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
-import 'package:meta/meta.dart';
 
 class StaticMethodNamespaceSymbolDeclaration {
   final SwidClass swidClass;

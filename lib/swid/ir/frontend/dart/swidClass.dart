@@ -5,20 +5,23 @@ import 'package:analyzer/dart/ast/ast.dart'
         FieldDeclaration,
         VariableDeclaration,
         VariableDeclarationList;
+
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
-import 'package:analyzer/src/dart/ast/ast.dart'
-    show ConstructorDeclarationImpl, MethodDeclarationImpl;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowModifierProducer.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:meta/meta.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+
+import 'package:analyzer/src/dart/ast/ast.dart'
+    show ConstructorDeclarationImpl, MethodDeclarationImpl;
 
 part 'swidClass.freezed.dart';
 part 'swidClass.g.dart';

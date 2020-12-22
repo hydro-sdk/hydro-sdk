@@ -1,12 +1,12 @@
+import 'package:convert/convert.dart';
+import 'package:crypto/crypto.dart';
+
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashConstants.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashInstructionBlock.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashLocals.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashUpvalues.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
-
-import 'package:convert/convert.dart';
-import 'package:crypto/crypto.dart';
 
 String hashPrototype(Prototype prototype,
     {bool includeSourceLocations = true}) {

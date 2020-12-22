@@ -1,7 +1,7 @@
-import 'package:hydro_sdk/cfr/vm/const.dart';
-
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
+
+import 'package:hydro_sdk/cfr/vm/const.dart';
 
 List<int> hashConstant(Const constant) {
   var output = AccumulatorSink<Digest>();

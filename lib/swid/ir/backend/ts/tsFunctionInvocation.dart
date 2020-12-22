@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationPositionalParameters.dart';
-import 'package:meta/meta.dart';
 
 part 'tsFunctionInvocation.freezed.dart';
 part 'tsFunctionInvocation.g.dart';

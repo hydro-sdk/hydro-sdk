@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/alwaysStoppedAnimation.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:meta/meta.dart';
+import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedAnimation<T> extends VMManagedBox<Animation<T>> {
   final HydroTable table;

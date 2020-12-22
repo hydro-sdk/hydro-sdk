@@ -1,9 +1,10 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/util.dart';
-import 'package:hydro_sdk/cfr/vm/symbolWithDistance.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
-import 'package:meta/meta.dart';
+import 'package:hydro_sdk/cfr/vm/symbolWithDistance.dart';
 
 class HydroError {
   HydroError(

@@ -1,5 +1,9 @@
 import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
+
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/builtins/loadBuiltins.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
@@ -8,8 +12,6 @@ import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 mixin HotReloadable<T extends StatefulWidget> on State<T>
     implements PreloadableCustomNamespaces<T> {

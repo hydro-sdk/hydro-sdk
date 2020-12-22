@@ -1,7 +1,9 @@
 import 'package:flutter/services.dart';
+
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
 import 'package:hydro_sdk/cfr/linkStatus.dart';
-import 'package:meta/meta.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 Future<HydroFunctionImpl> loadFileFromBundle({

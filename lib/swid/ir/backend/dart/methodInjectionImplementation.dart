@@ -1,13 +1,15 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, Block, Code;
+
 import 'package:dart_style/dart_style.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
-import 'package:meta/meta.dart';
 
 class MethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;

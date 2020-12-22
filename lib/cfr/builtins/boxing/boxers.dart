@@ -1,7 +1,8 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:meta/meta.dart';
 
 typedef Box<T> Boxer<T>(
     {@required T vmObject,

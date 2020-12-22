@@ -1,8 +1,10 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, Expression, refer, Method, Parameter, Block, Code;
+
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:meta/meta.dart';
 
 class DartBoxEnumReference {
   final SwidType type;

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 
 part 'tsVmDeclaration.freezed.dart';
 part 'tsVmDeclaration.g.dart';

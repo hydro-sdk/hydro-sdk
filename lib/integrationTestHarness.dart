@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
 import 'package:hydro_sdk/hc.g.dart';
-import 'package:flutter/material.dart';
 import 'package:hydro_sdk/runFromNetwork.dart';
 
 Widget integrationTestHarness(

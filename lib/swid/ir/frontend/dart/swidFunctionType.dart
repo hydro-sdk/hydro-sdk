@@ -1,18 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/narrowDartTypeToSwidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:analyzer/dart/element/type.dart'
-    show FunctionType, InterfaceType;
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/dart/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/narrowDartTypeToSwidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDefaultFormalParameter.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+
+import 'package:analyzer/dart/element/type.dart'
+    show FunctionType, InterfaceType;
 
 part 'swidFunctionType.freezed.dart';
 part 'swidFunctionType.g.dart';

@@ -1,7 +1,8 @@
 import 'dart:collection';
 
-import 'package:hydro_sdk/cfr/util.dart';
 import 'package:tuple/tuple.dart';
+
+import 'package:hydro_sdk/cfr/util.dart';
 
 enum InstLayout {
   LAYOUT_ABC,

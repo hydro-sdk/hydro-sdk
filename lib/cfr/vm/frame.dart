@@ -2,13 +2,14 @@ import 'dart:collection';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
-import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/add.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/call.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/closure.dart';
@@ -48,8 +49,8 @@ import 'package:hydro_sdk/cfr/vm/instructions/tforcall.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/tforloop.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/unm.dart';
 import 'package:hydro_sdk/cfr/vm/instructions/vararg.dart';
+import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/upVal.dart';
-import 'package:meta/meta.dart';
 
 class Frame {
   Frame(

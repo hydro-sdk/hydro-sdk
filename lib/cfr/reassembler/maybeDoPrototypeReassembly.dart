@@ -1,10 +1,11 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashedPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/isReassemblyCandidate.dart';
 import 'package:hydro_sdk/cfr/reassembler/reassemblePrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/reassembleStatus.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
-import 'package:meta/meta.dart';
 
 void maybeDoPrototypeReassembly(
     {@required ReassembleStatus reassembleStatus,

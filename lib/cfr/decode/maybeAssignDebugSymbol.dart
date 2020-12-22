@@ -1,7 +1,8 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:meta/meta.dart';
 
 void maybeAssignDebugSymbol({
   @required HydroState hydroState,

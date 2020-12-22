@@ -1,6 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 
 SwidDeclarationModifiers narrowModifierProducer({
   @required dynamic element,

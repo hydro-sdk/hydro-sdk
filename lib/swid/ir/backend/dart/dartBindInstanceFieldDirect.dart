@@ -1,5 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString;
+
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 

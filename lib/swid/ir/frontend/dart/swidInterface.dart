@@ -1,14 +1,16 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:meta/meta.dart';
-import 'package:analyzer/dart/element/type.dart'
-    show InterfaceType, TypeParameterType, VoidType, DynamicType;
 import 'package:analyzer/src/dart/element/element.dart' show EnumElementImpl;
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+
+import 'package:analyzer/dart/element/type.dart'
+    show InterfaceType, TypeParameterType, VoidType, DynamicType;
 
 part 'swidInterface.freezed.dart';
 part 'swidInterface.g.dart';

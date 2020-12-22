@@ -1,8 +1,9 @@
 import 'dart:io';
 
-import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
+
+import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 
 Future<void> writeTranslationUnit(
     {@required TranslationUnit translationUnit}) async {

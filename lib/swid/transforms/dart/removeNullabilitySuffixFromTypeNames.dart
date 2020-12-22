@@ -1,9 +1,10 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
-import 'package:meta/meta.dart';
 
 SwidType removeNullabilitySuffixFromTypeNames({@required SwidType swidType}) =>
     swidType.when(

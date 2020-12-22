@@ -1,10 +1,11 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParametersSpread.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationPositionalParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:meta/meta.dart';
 
 class TsFunctionSelfBindingInvocation {
   final SwidFunctionType swidFunctionType;

@@ -1,5 +1,6 @@
-import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 class HashedPrototype {
   final String hash;

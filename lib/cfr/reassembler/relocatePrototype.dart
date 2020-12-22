@@ -1,7 +1,9 @@
+import 'dart:core';
+
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/reassembler/reassembleStatus.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
-import 'package:meta/meta.dart';
-import 'dart:core';
 
 void relocatePrototype(
     {@required ReassembleStatus reassembleStatus,

@@ -1,6 +1,7 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveFunctionTypeNamesToTs.dart';
-import 'package:meta/meta.dart';
 
 SwidClass transformPrimitiveClassTypeNamesToTs(
         {@required SwidClass swidClass}) =>

@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:hydro_sdk/cfr/decode/maybeAssignDebugSymbol.dart';
-import 'package:hydro_sdk/hydroState.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/decode/decoderException.dart';
 import 'package:hydro_sdk/cfr/decode/flavor.dart';
+import 'package:hydro_sdk/cfr/decode/maybeAssignDebugSymbol.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
 import 'package:hydro_sdk/cfr/linkStatus.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
@@ -17,6 +16,7 @@ import 'package:hydro_sdk/cfr/vm/inst.dart';
 import 'package:hydro_sdk/cfr/vm/local.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/cfr/vm/upvaldef.dart';
+import 'package:hydro_sdk/hydroState.dart';
 
 class Decoder {
   Decoder(this.buffer);

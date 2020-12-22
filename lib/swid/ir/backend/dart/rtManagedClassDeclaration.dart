@@ -14,14 +14,16 @@ import 'package:code_builder/code_builder.dart'
         MethodType,
         Block,
         Code;
+
 import 'package:dart_style/dart_style.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
-import 'package:meta/meta.dart';
 
 class RTManagedClassDeclaration {
   final SwidClass swidClass;

@@ -1,5 +1,6 @@
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
+
 import 'package:hydro_sdk/cfr/vm/local.dart';
 
 List<int> hashLocal(Local local) {

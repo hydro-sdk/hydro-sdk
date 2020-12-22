@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
@@ -9,7 +11,6 @@ import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:hydro_sdk/cfr/vm/inst.dart';
 import 'package:hydro_sdk/cfr/vm/local.dart';
 import 'package:hydro_sdk/cfr/vm/upvaldef.dart';
-import 'package:meta/meta.dart';
 
 class Prototype {
   Prototype(this.root);

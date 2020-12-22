@@ -6,11 +6,13 @@ import 'package:analyzer/dart/element/type.dart'
         TypeParameterType,
         DynamicType,
         DartType;
+
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:meta/meta.dart';
 
 SwidType narrowDartTypeToSwidType({@required DartType dartType}) => dartType
         is FunctionType

@@ -1,6 +1,7 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
-import 'package:meta/meta.dart';
 
 bool isList({@required SwidType swidType}) => swidType.when(
       fromSwidInterface: (val) =>

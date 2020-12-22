@@ -1,9 +1,10 @@
-import 'package:hydro_sdk/hydroState.dart';
+import 'package:flutter_test/flutter_test.dart';
+
 import 'package:hydro_sdk/cfr/reassembler/hashInstructionBlock.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/isRelocationCandidate.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/hydroState.dart';
 
 void main() {
   test('', () async {

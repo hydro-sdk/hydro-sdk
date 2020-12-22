@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+import 'package:path/path.dart' as path;
+
 import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsVmDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -10,8 +13,6 @@ import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformVmDeclarationToTs.dart';
-import 'package:meta/meta.dart';
-import 'package:path/path.dart' as path;
 
 class TsClassVmDeclaration {
   final SwidClass swidClass;

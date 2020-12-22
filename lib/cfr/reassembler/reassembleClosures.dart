@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashedPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/maybeDoPrototypeReassembly.dart';
@@ -5,7 +7,6 @@ import 'package:hydro_sdk/cfr/reassembler/maybeDoPrototypeRelocation.dart';
 import 'package:hydro_sdk/cfr/reassembler/reassembleStatus.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
-import 'package:meta/meta.dart';
 
 ReassembleStatus reassembleClosures(
     {@required Closure destination, @required Closure source}) {

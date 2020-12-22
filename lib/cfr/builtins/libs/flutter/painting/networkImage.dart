@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:flutter/material.dart';
 
 void loadNetworkImage(HydroTable table) {
   table["networkImage"] = makeLuaDartFunc(func: (List<dynamic> args) {

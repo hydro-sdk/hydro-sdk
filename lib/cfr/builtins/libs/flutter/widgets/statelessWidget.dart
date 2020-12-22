@@ -1,9 +1,10 @@
+import 'package:flutter/widgets.dart';
+
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/managedBuild.dart';
-import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
-import 'package:flutter/widgets.dart';
+import 'package:hydro_sdk/hydroState.dart';
 
 class StatelessWidgetBox extends StatelessWidget {
   final HydroTable table;

@@ -1,5 +1,6 @@
-import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/cfr/vm/const.dart';
 
 Const copyConstant({@required Const source}) {
   switch (source.type) {

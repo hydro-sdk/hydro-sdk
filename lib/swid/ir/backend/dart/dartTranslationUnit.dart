@@ -1,6 +1,7 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
-import 'package:meta/meta.dart';
 
 class DartTranslationUnit implements TranslationUnit {
   final String path;

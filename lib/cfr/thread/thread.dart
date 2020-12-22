@@ -1,3 +1,5 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutinestatus.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -5,7 +7,6 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
-import 'package:meta/meta.dart';
 
 class Thread {
   Thread({@required Closure closure, @required this.hydroState}) {
