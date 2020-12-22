@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DiagnosticPropertiesBuilder | Hydro-SDK</title>
+	<title>DiagnosticableTree | Hydro-SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_flutter_foundation_index_.html">&quot;flutter/foundation/index&quot;</a>
 				</li>
 				<li>
-					<a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html">DiagnosticPropertiesBuilder</a>
+					<a href="_flutter_foundation_index_.diagnosticabletree.html">DiagnosticableTree</a>
 				</li>
 			</ul>
-			<h1>Class DiagnosticPropertiesBuilder</h1>
+			<h1>Class DiagnosticableTree</h1>
 		</div>
 	</div>
 </header>
@@ -73,8 +73,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">DiagnosticPropertiesBuilder</span>
+						<span class="target">DiagnosticableTree</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/_flutter_foundation_index_.diagnosticable.html" class="tsd-signature-type">Diagnosticable</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -84,21 +90,16 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#defaultdiagnosticstreestyle" class="tsd-kind-icon">default<wbr>Diagnostics<wbr>Tree<wbr>Style</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#emptybodydescription" class="tsd-kind-icon">empty<wbr>Body<wbr>Description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#properties" class="tsd-kind-icon">properties</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticabletree.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticabletree.html#todiagnosticsnode" class="tsd-kind-icon">to<wbr>Diagnostics<wbr>Node</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticabletree.html#tostringdeep" class="tsd-kind-icon">to<wbr>String<wbr>Deep</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticabletree.html#tostringshallow" class="tsd-kind-icon">to<wbr>String<wbr>Shallow</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_flutter_foundation_index_.diagnosticabletree.html#tostringshort" class="tsd-kind-icon">to<wbr>String<wbr>Short</a></li>
 							</ul>
 						</section>
 					</div>
@@ -110,75 +111,132 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Diagnostic<wbr>Properties<wbr>Builder<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html" class="tsd-signature-type">DiagnosticPropertiesBuilder</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Diagnosticable<wbr>Tree<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_flutter_foundation_index_.diagnosticabletree.html" class="tsd-signature-type">DiagnosticableTree</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticPropertiesBuilder.ts#L15">flutter/foundation/diagnosticPropertiesBuilder.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticableTree.ts#L21">flutter/foundation/diagnosticableTree.ts:21</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html" class="tsd-signature-type">DiagnosticPropertiesBuilder</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_flutter_foundation_index_.diagnosticabletree.html" class="tsd-signature-type">DiagnosticableTree</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="defaultdiagnosticstreestyle" class="tsd-anchor"></a>
-					<h3>default<wbr>Diagnostics<wbr>Tree<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">default<wbr>Diagnostics<wbr>Tree<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-signature-type">DiagnosticsTreeStyle</a><span class="tsd-signature-symbol"> = undefined as any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticPropertiesBuilder.ts#L14">flutter/foundation/diagnosticPropertiesBuilder.ts:14</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="emptybodydescription" class="tsd-anchor"></a>
-					<h3>empty<wbr>Body<wbr>Description</h3>
-					<div class="tsd-signature tsd-kind-icon">empty<wbr>Body<wbr>Description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> = undefined as any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticPropertiesBuilder.ts#L15">flutter/foundation/diagnosticPropertiesBuilder.ts:15</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="properties" class="tsd-anchor"></a>
-					<h3>properties</h3>
-					<div class="tsd-signature tsd-kind-icon">properties<span class="tsd-signature-symbol">:</span> <a href="_dart_collection_index_.list.html" class="tsd-signature-type">List</a><span class="tsd-signature-symbol">&lt;</span><a href="_flutter_foundation_index_.diagnosticsnode.html" class="tsd-signature-type">DiagnosticsNode</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = undefined as any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticPropertiesBuilder.ts#L13">flutter/foundation/diagnosticPropertiesBuilder.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="add" class="tsd-anchor"></a>
-					<h3>add</h3>
+					<a name="todiagnosticsnode" class="tsd-anchor"></a>
+					<h3>to<wbr>Diagnostics<wbr>Node</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>property<span class="tsd-signature-symbol">: </span><a href="_flutter_foundation_index_.diagnosticsnode.html" class="tsd-signature-type">DiagnosticsNode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Diagnostics<wbr>Node<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span>style<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-signature-type">DiagnosticsTreeStyle</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_flutter_foundation_index_.diagnosticsnode.html" class="tsd-signature-type">DiagnosticsNode</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticPropertiesBuilder.ts#L22">flutter/foundation/diagnosticPropertiesBuilder.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticableTree.ts#L61">flutter/foundation/diagnosticableTree.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>property: <a href="_flutter_foundation_index_.diagnosticsnode.html" class="tsd-signature-type">DiagnosticsNode</a></h5>
+									<h5>props: <span class="tsd-signature-symbol">{ </span>name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span>style<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-signature-type">DiagnosticsTreeStyle</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> style<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-signature-type">DiagnosticsTreeStyle</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_flutter_foundation_index_.diagnosticsnode.html" class="tsd-signature-type">DiagnosticsNode</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="tostringdeep" class="tsd-anchor"></a>
+					<h3>to<wbr>String<wbr>Deep</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<wbr>Deep<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>minLevel<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a><span class="tsd-signature-symbol">; </span>prefixLineOne<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>prefixOtherLines<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticableTree.ts#L48">flutter/foundation/diagnosticableTree.ts:48</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>props: <span class="tsd-signature-symbol">{ </span>minLevel<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a><span class="tsd-signature-symbol">; </span>prefixLineOne<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>prefixOtherLines<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> min<wbr>Level<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix<wbr>Line<wbr>One<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix<wbr>Other<wbr>Lines<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="tostringshallow" class="tsd-anchor"></a>
+					<h3>to<wbr>String<wbr>Shallow</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<wbr>Shallow<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>joiner<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>minLevel<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticableTree.ts#L39">flutter/foundation/diagnosticableTree.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>props: <span class="tsd-signature-symbol">{ </span>joiner<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>minLevel<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> joiner<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> min<wbr>Level<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="tostringshort" class="tsd-anchor"></a>
+					<h3>to<wbr>String<wbr>Short</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<wbr>Short<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticableTree.ts#L58">flutter/foundation/diagnosticableTree.ts:58</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -263,33 +321,33 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="_flutter_foundation_index_.changenotifier.html" class="tsd-kind-icon">Change<wbr>Notifier</a>
 					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html" class="tsd-kind-icon">Diagnostic<wbr>Properties<wbr>Builder</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html" class="tsd-kind-icon">Diagnostic<wbr>Properties<wbr>Builder</a>
+						<a href="_flutter_foundation_index_.diagnosticabletree.html" class="tsd-kind-icon">Diagnosticable<wbr>Tree</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#defaultdiagnosticstreestyle" class="tsd-kind-icon">default<wbr>Diagnostics<wbr>Tree<wbr>Style</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#emptybodydescription" class="tsd-kind-icon">empty<wbr>Body<wbr>Description</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#properties" class="tsd-kind-icon">properties</a>
+								<a href="_flutter_foundation_index_.diagnosticabletree.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_flutter_foundation_index_.diagnosticpropertiesbuilder.html#add" class="tsd-kind-icon">add</a>
+								<a href="_flutter_foundation_index_.diagnosticabletree.html#todiagnosticsnode" class="tsd-kind-icon">to<wbr>Diagnostics<wbr>Node</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_flutter_foundation_index_.diagnosticabletree.html#tostringdeep" class="tsd-kind-icon">to<wbr>String<wbr>Deep</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_flutter_foundation_index_.diagnosticabletree.html#tostringshallow" class="tsd-kind-icon">to<wbr>String<wbr>Shallow</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_flutter_foundation_index_.diagnosticabletree.html#tostringshort" class="tsd-kind-icon">to<wbr>String<wbr>Short</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="_flutter_foundation_index_.diagnosticabletree.html" class="tsd-kind-icon">Diagnosticable<wbr>Tree</a>
-					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="_flutter_foundation_index_.diagnosticsnode.html" class="tsd-kind-icon">Diagnostics<wbr>Node</a>
 					</li>

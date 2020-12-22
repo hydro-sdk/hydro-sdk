@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CupertinoContextMenuActionProps | Hydro-SDK</title>
+	<title>Diagnosticable | Hydro-SDK</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_flutter_cupertino_index_.html">&quot;flutter/cupertino/index&quot;</a>
+					<a href="../modules/_flutter_foundation_index_.html">&quot;flutter/foundation/index&quot;</a>
 				</li>
 				<li>
-					<a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html">CupertinoContextMenuActionProps</a>
+					<a href="_flutter_foundation_index_.diagnosticable.html">Diagnosticable</a>
 				</li>
 			</ul>
-			<h1>Interface CupertinoContextMenuActionProps</h1>
+			<h1>Interface Diagnosticable</h1>
 		</div>
 	</div>
 </header>
@@ -73,8 +73,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CupertinoContextMenuActionProps</span>
+						<span class="target">Diagnosticable</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_flutter_foundation_index_.diagnosticabletree.html" class="tsd-signature-type">DiagnosticableTree</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -84,12 +90,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#child" class="tsd-kind-icon">child</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#isdefaultaction" class="tsd-kind-icon">is<wbr>Default<wbr>Action</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#isdestructiveaction" class="tsd-kind-icon">is<wbr>Destructive<wbr>Action</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#key" class="tsd-kind-icon">key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#onpressed" class="tsd-kind-icon">on<wbr>Pressed</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#trailingicon" class="tsd-kind-icon">trailing<wbr>Icon</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_foundation_index_.diagnosticable.html#todiagnosticsnode" class="tsd-kind-icon">to<wbr>Diagnostics<wbr>Node</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_foundation_index_.diagnosticable.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_flutter_foundation_index_.diagnosticable.html#tostringshort" class="tsd-kind-icon">to<wbr>String<wbr>Short</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,64 +101,104 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="child" class="tsd-anchor"></a>
-					<h3>child</h3>
-					<div class="tsd-signature tsd-kind-icon">child<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Widget</span></div>
+					<a name="todiagnosticsnode" class="tsd-anchor"></a>
+					<h3>to<wbr>Diagnostics<wbr>Node</h3>
+					<div class="tsd-signature tsd-kind-icon">to<wbr>Diagnostics<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span>style<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-signature-type">DiagnosticsTreeStyle</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../classes/_flutter_foundation_index_.diagnosticsnode.html" class="tsd-signature-type">DiagnosticsNode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/cupertino/cupertinoContextMenuAction.ts#L11">flutter/cupertino/cupertinoContextMenuAction.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticable.ts#L7">flutter/foundation/diagnosticable.ts:7</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span>style<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-signature-type">DiagnosticsTreeStyle</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_flutter_foundation_index_.diagnosticsnode.html" class="tsd-signature-type">DiagnosticsNode</a></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <span class="tsd-signature-symbol">{ </span>name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span>style<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-signature-type">DiagnosticsTreeStyle</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> }</span></h5>
+												<ul class="tsd-parameters">
+													<li class="tsd-parameter">
+														<h5><span class="tsd-flag ts-flagOptional">Optional</span> name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+													</li>
+													<li class="tsd-parameter">
+														<h5><span class="tsd-flag ts-flagOptional">Optional</span> style<span class="tsd-signature-symbol">?: </span><a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-signature-type">DiagnosticsTreeStyle</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <a href="../classes/_flutter_foundation_index_.diagnosticsnode.html" class="tsd-signature-type">DiagnosticsNode</a></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isdefaultaction" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Default<wbr>Action</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Default<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<a name="tostring" class="tsd-anchor"></a>
+					<h3>to<wbr>String</h3>
+					<div class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>minLevel<span class="tsd-signature-symbol">: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/cupertino/cupertinoContextMenuAction.ts#L12">flutter/cupertino/cupertinoContextMenuAction.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticable.ts#L6">flutter/foundation/diagnosticable.ts:6</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>minLevel<span class="tsd-signature-symbol">: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <span class="tsd-signature-symbol">{ </span>minLevel<span class="tsd-signature-symbol">: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a><span class="tsd-signature-symbol"> }</span></h5>
+												<ul class="tsd-parameters">
+													<li class="tsd-parameter">
+														<h5>min<wbr>Level<span class="tsd-signature-symbol">: </span><a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-signature-type">DiagnosticLevel</a></h5>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isdestructiveaction" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Destructive<wbr>Action</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Destructive<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<a name="tostringshort" class="tsd-anchor"></a>
+					<h3>to<wbr>String<wbr>Short</h3>
+					<div class="tsd-signature tsd-kind-icon">to<wbr>String<wbr>Short<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/cupertino/cupertinoContextMenuAction.ts#L13">flutter/cupertino/cupertinoContextMenuAction.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/foundation/diagnosticable.ts#L5">flutter/foundation/diagnosticable.ts:5</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="key" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> key</h3>
-					<div class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">:</span> <a href="../classes/_flutter_foundation_index_.key.html" class="tsd-signature-type">Key</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/cupertino/cupertinoContextMenuAction.ts#L10">flutter/cupertino/cupertinoContextMenuAction.ts:10</a></li>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+									</li>
+								</ul>
+							</li>
 						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="onpressed" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Pressed</h3>
-					<div class="tsd-signature tsd-kind-icon">on<wbr>Pressed<span class="tsd-signature-symbol">:</span> <a href="../modules/_dart_ui_index_.html#voidcallback" class="tsd-signature-type">VoidCallback</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/cupertino/cupertinoContextMenuAction.ts#L14">flutter/cupertino/cupertinoContextMenuAction.ts:14</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="trailingicon" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> trailing<wbr>Icon</h3>
-					<div class="tsd-signature tsd-kind-icon">trailing<wbr>Icon<span class="tsd-signature-symbol">:</span> <a href="../classes/_flutter_widgets_index_.icondata.html" class="tsd-signature-type">IconData</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/chgibb/hydro-sdk/blob/f72effaf/runtime/flutter/cupertino/cupertinoContextMenuAction.ts#L15">flutter/cupertino/cupertinoContextMenuAction.ts:15</a></li>
-						</ul>
-					</aside>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -183,10 +226,10 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_flutter_animation_index_.html">&quot;flutter/animation/index&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_flutter_cupertino_index_.html">&quot;flutter/cupertino/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_flutter_foundation_index_.html">&quot;flutter/foundation/index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -227,91 +270,55 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_flutter_cupertino_index_.cupertinoactivityindicatoriosversionstyle.html" class="tsd-kind-icon">Cupertino<wbr>Activity<wbr>IndicatorIOSVersion<wbr>Style</a>
+						<a href="../enums/_flutter_foundation_index_.diagnosticlevel.html" class="tsd-kind-icon">Diagnostic<wbr>Level</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_flutter_cupertino_index_.cupertinodatepickermode.html" class="tsd-kind-icon">Cupertino<wbr>Date<wbr>Picker<wbr>Mode</a>
+						<a href="../enums/_flutter_foundation_index_.diagnosticstreestyle.html" class="tsd-kind-icon">Diagnostics<wbr>Tree<wbr>Style</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_flutter_cupertino_index_.cupertinotimerpickermode.html" class="tsd-kind-icon">Cupertino<wbr>Timer<wbr>Picker<wbr>Mode</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_flutter_cupertino_index_.cupertinouserinterfaceleveldata.html" class="tsd-kind-icon">Cupertino<wbr>User<wbr>Interface<wbr>Level<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_flutter_cupertino_index_.datepickerdateorder.html" class="tsd-kind-icon">Date<wbr>Picker<wbr>Date<wbr>Order</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_flutter_cupertino_index_.datepickerdatetimeorder.html" class="tsd-kind-icon">Date<wbr>Picker<wbr>Date<wbr>Time<wbr>Order</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_flutter_cupertino_index_.overlayvisibilitymode.html" class="tsd-kind-icon">Overlay<wbr>Visibility<wbr>Mode</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_flutter_cupertino_index_.refreshindicatormode.html" class="tsd-kind-icon">Refresh<wbr>Indicator<wbr>Mode</a>
+						<a href="../enums/_flutter_foundation_index_.targetplatform.html" class="tsd-kind-icon">Target<wbr>Platform</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_flutter_cupertino_index_.cupertinoapp.html" class="tsd-kind-icon">Cupertino<wbr>App</a>
+						<a href="../classes/_flutter_foundation_index_.changenotifier.html" class="tsd-kind-icon">Change<wbr>Notifier</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_flutter_cupertino_index_.cupertinobutton.html" class="tsd-kind-icon">Cupertino<wbr>Button</a>
+						<a href="../classes/_flutter_foundation_index_.diagnosticpropertiesbuilder.html" class="tsd-kind-icon">Diagnostic<wbr>Properties<wbr>Builder</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_flutter_cupertino_index_.cupertinocolors.html" class="tsd-kind-icon">Cupertino<wbr>Colors</a>
+						<a href="../classes/_flutter_foundation_index_.diagnosticabletree.html" class="tsd-kind-icon">Diagnosticable<wbr>Tree</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_flutter_cupertino_index_.cupertinocontextmenu.html" class="tsd-kind-icon">Cupertino<wbr>Context<wbr>Menu</a>
+						<a href="../classes/_flutter_foundation_index_.diagnosticsnode.html" class="tsd-kind-icon">Diagnostics<wbr>Node</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_flutter_cupertino_index_.cupertinocontextmenuaction.html" class="tsd-kind-icon">Cupertino<wbr>Context<wbr>Menu<wbr>Action</a>
+						<a href="../classes/_flutter_foundation_index_.key.html" class="tsd-kind-icon">Key</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_flutter_cupertino_index_.cupertinodynamiccolor.html" class="tsd-kind-icon">Cupertino<wbr>Dynamic<wbr>Color</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_flutter_cupertino_index_.cupertinoicons.html" class="tsd-kind-icon">Cupertino<wbr>Icons</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_flutter_cupertino_index_.cupertinoappprops.html" class="tsd-kind-icon">Cupertino<wbr>App<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_flutter_cupertino_index_.cupertinobuttonprops.html" class="tsd-kind-icon">Cupertino<wbr>Button<wbr>Props</a>
+						<a href="../classes/_flutter_foundation_index_.texttreeconfiguration.html" class="tsd-kind-icon">Text<wbr>Tree<wbr>Configuration</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html" class="tsd-kind-icon">Cupertino<wbr>Context<wbr>Menu<wbr>Action<wbr>Props</a>
+						<a href="_flutter_foundation_index_.diagnosticable.html" class="tsd-kind-icon">Diagnosticable</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#child" class="tsd-kind-icon">child</a>
+								<a href="_flutter_foundation_index_.diagnosticable.html#todiagnosticsnode" class="tsd-kind-icon">to<wbr>Diagnostics<wbr>Node</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#isdefaultaction" class="tsd-kind-icon">is<wbr>Default<wbr>Action</a>
+								<a href="_flutter_foundation_index_.diagnosticable.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#isdestructiveaction" class="tsd-kind-icon">is<wbr>Destructive<wbr>Action</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#key" class="tsd-kind-icon">key</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#onpressed" class="tsd-kind-icon">on<wbr>Pressed</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_flutter_cupertino_index_.cupertinocontextmenuactionprops.html#trailingicon" class="tsd-kind-icon">trailing<wbr>Icon</a>
+								<a href="_flutter_foundation_index_.diagnosticable.html#tostringshort" class="tsd-kind-icon">to<wbr>String<wbr>Short</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_flutter_cupertino_index_.cupertinocontextmenuprops.html" class="tsd-kind-icon">Cupertino<wbr>Context<wbr>Menu<wbr>Props</a>
+						<a href="_flutter_foundation_index_.diagnosticsserializationdelegate.html" class="tsd-kind-icon">Diagnostics<wbr>Serialization<wbr>Delegate</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/_flutter_cupertino_index_.html#contextmenupreviewbuilder" class="tsd-kind-icon">Context<wbr>Menu<wbr>Preview<wbr>Builder</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/_flutter_cupertino_index_.html#kmininteractivedimensioncupertino" class="tsd-kind-icon">k<wbr>Min<wbr>Interactive<wbr>Dimension<wbr>Cupertino</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/_flutter_foundation_index_.html#valuechanged" class="tsd-kind-icon">Value<wbr>Changed</a>
 					</li>
 				</ul>
 			</nav>
