@@ -15,7 +15,6 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation
 import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 import 'package:meta/meta.dart';
@@ -35,7 +34,13 @@ class StaticMethodNamespaceSymbolDeclaration {
         literalList([
           Code(DartBoxObjectReference(
                   codeKind: CodeKind.expression,
-                  type: swidFunctionType.returnType,
+                  boxLists: true,
+                  type: swidFunctionType.returnType.when(
+                    fromSwidInterface: (val) => val,
+                    fromSwidClass: (_) => null,
+                    fromSwidDefaultFormalParameter: (_) => null,
+                    fromSwidFunctionType: (_) => null,
+                  ),
                   objectReference: CodeExpression(Code(
                       DartFunctionSelfBindingInvocation(
                               argumentBoxingProcedure:

@@ -24,10 +24,16 @@ class DartBindInstanceField {
               instanceFieldName: instanceFieldName,
               tableKey: tableKey,
             ).toDartSource(),
-            onClass: (val) => DartBoxObjectReference(
-                    type: instanceField,
-                    objectReference: CodeExpression(Code(instanceFieldName)))
-                .toDartSource(),
+            onClass: (val) => refer("table")
+                .index(literalString(tableKey))
+                .assign(CodeExpression(Code(DartBoxObjectReference(
+                        type: val,
+                        boxLists: false,
+                        objectReference:
+                            CodeExpression(Code(instanceFieldName)))
+                    .toDartSource())))
+                .accept(DartEmitter())
+                .toString(),
             onEnum: (val) => refer("table")
                 .index(literalString(tableKey))
                 .assign(CodeExpression(Code(DartBoxEnumReference(
@@ -35,6 +41,7 @@ class DartBindInstanceField {
                     .toDartSource())))
                 .accept(DartEmitter())
                 .toString(),
+            onVoid: (_) => "void",
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",

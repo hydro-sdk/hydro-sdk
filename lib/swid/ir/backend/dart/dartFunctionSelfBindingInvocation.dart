@@ -41,8 +41,9 @@ class DartFunctionSelfBindingInvocation {
                 swidInterface: val,
                 onPrimitive: (_) => expression.accept(DartEmitter()).toString(),
                 onClass: (val) => DartBoxObjectReference(
-                  type: SwidType.fromSwidInterface(swidInterface: val),
+                  type: val,
                   objectReference: expression,
+                  boxLists: true,
                   codeKind: CodeKind.expression,
                 ).toDartSource(),
                 onEnum: (val) => DartBoxEnumReference(
@@ -51,6 +52,7 @@ class DartFunctionSelfBindingInvocation {
                         referenceName:
                             expression.accept(DartEmitter()).toString())
                     .toDartSource(),
+                onVoid: (_) => expression.accept(DartEmitter()).toString(),
               ),
               fromSwidClass: (_) => "",
               fromSwidDefaultFormalParameter: (_) => "",
@@ -77,31 +79,28 @@ class DartFunctionSelfBindingInvocation {
                       .toList()
                       .cast<Expression>()
                   : [],
-              swidFunctionType.namedParameterTypes.isNotEmpty
-                  ? Map.fromEntries([
-                      ...(emitTableBindingPrefix
-                          ? [
-                              MapEntry(
-                                  "table", refer("args").index(literalNum(0))),
-                              MapEntry("hydroState", refer("hydroState"))
-                            ]
-                          : []),
-                      ...(swidFunctionType.namedParameterTypes.entries.map(
-                          (x) => MapEntry(
-                              x.key,
-                              CodeExpression(Code(argumentBoxingProcedure ==
-                                      DartBoxingProcedure.unbox
-                                  ? DartUnboxingParameterExpression(
-                                          swidType: x.value,
-                                          expression: refer("args")
-                                              .index(literalNum(swidFunctionType
-                                                      .normalParameterNames
-                                                      .length +
-                                                  1))
-                                              .index(literalString(x.key)))
-                                      .toDartSource()
-                                  : ""))))),
-                    ]..removeWhere((x) => x == null))
-                  : {})
+              Map.fromEntries([
+                ...(emitTableBindingPrefix
+                    ? [
+                        MapEntry("table", refer("args").index(literalNum(0))),
+                        MapEntry("hydroState", refer("hydroState"))
+                      ]
+                    : []),
+                ...(swidFunctionType.namedParameterTypes.entries.map((x) =>
+                    MapEntry(
+                        x.key,
+                        CodeExpression(Code(
+                            argumentBoxingProcedure == DartBoxingProcedure.unbox
+                                ? DartUnboxingParameterExpression(
+                                        swidType: x.value,
+                                        expression: refer("args")
+                                            .index(literalNum(swidFunctionType
+                                                    .normalParameterNames
+                                                    .length +
+                                                1))
+                                            .index(literalString(x.key)))
+                                    .toDartSource()
+                                : ""))))),
+              ]..removeWhere((x) => x == null)))
       : refer(swidFunctionType.name));
 }

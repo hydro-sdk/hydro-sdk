@@ -68,16 +68,24 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
     });
     table['getProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<List<DiagnosticsNode>>(
-            object: vmObject.getProperties(),
+        maybeBoxObject<List<dynamic>>(
+            object: vmObject
+                .getProperties()
+                .map((x) => maybeBoxObject<DiagnosticsNode>(
+                    object: x, hydroState: hydroState, table: HydroTable()))
+                .toList(),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['getChildren'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<List<DiagnosticsNode>>(
-            object: vmObject.getChildren(),
+        maybeBoxObject<List<dynamic>>(
+            object: vmObject
+                .getChildren()
+                .map((x) => maybeBoxObject<DiagnosticsNode>(
+                    object: x, hydroState: hydroState, table: HydroTable()))
+                .toList(),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -178,16 +186,24 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
     });
     table['_dart_getProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<List<DiagnosticsNode>>(
-            object: getProperties(),
+        maybeBoxObject<List<dynamic>>(
+            object: getProperties()
+                .map((x) => maybeBoxObject<DiagnosticsNode>(
+                    object: x, hydroState: hydroState, table: HydroTable()))
+                .toList(),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['_dart_getChildren'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<List<DiagnosticsNode>>(
-            object: getChildren(), hydroState: hydroState, table: HydroTable())
+        maybeBoxObject<List<dynamic>>(
+            object: getChildren()
+                .map((x) => maybeBoxObject<DiagnosticsNode>(
+                    object: x, hydroState: hydroState, table: HydroTable()))
+                .toList(),
+            hydroState: hydroState,
+            table: HydroTable())
       ];
     });
     table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -337,7 +353,7 @@ void loadDiagnosticsNode(
   table['diagnosticsNodeToJsonList'] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<List<Map<String, Object>>>(
+      maybeBoxObject<List<dynamic>>(
           object: DiagnosticsNode.toJsonList(
               maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
                   parentState: hydroState),

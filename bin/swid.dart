@@ -28,7 +28,8 @@ void main(List<String> args) async {
         visitor.classes[i].name == "IconData" ||
         visitor.classes[i].name == "TextTreeConfiguration" ||
         visitor.classes[i].name == "DiagnosticsNode" ||
-        visitor.classes[i].name == "DiagnosticsSerializationDelegate") {
+        visitor.classes[i].name == "DiagnosticsSerializationDelegate" ||
+        visitor.classes[i].name == "DiagnosticPropertiesBuilder") {
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(

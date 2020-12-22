@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 
 void main() {
@@ -11,29 +10,29 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     expect(
         DartBoxObjectReference(
+            boxLists: true,
             objectReference: refer("vmObject"),
-            type: SwidType.fromSwidInterface(
-                swidInterface: SwidInterface(
-                    name: "TextStyle",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "",
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    typeArguments: []))).toDartSource(),
+            type: SwidInterface(
+                name: "TextStyle",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "",
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                typeArguments: [])).toDartSource(),
         """
 maybeBoxObject<TextStyle>(object: vmObject, hydroState: hydroState, table: HydroTable());""");
 
     expect(
         DartBoxObjectReference(
+            boxLists: true,
             objectReference: refer("vmObject").property("headline4").expression,
-            type: SwidType.fromSwidInterface(
-                swidInterface: SwidInterface(
-                    name: "TextStyle",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: "",
-                    referenceDeclarationKind:
-                        SwidReferenceDeclarationKind.classElement,
-                    typeArguments: []))).toDartSource(),
+            type: SwidInterface(
+                name: "TextStyle",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "",
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+                typeArguments: [])).toDartSource(),
         """
 maybeBoxObject<TextStyle>(object: vmObject.headline4, hydroState: hydroState, table: HydroTable());""");
   }, tags: "swid");
