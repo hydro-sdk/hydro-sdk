@@ -25,6 +25,7 @@ class _$SwidClassTearOff {
       @required
           String originalPackagePath,
       @required
+      @nullable
           SwidFunctionType constructorType,
       @required
           List<SwidFunctionType> factoryConstructors,
@@ -67,6 +68,7 @@ mixin _$SwidClass {
   String get name;
   SwidNullabilitySuffix get nullabilitySuffix;
   String get originalPackagePath;
+  @nullable
   SwidFunctionType get constructorType;
   List<SwidFunctionType> get factoryConstructors;
   List<SwidFunctionType> get staticMethods;
@@ -87,7 +89,7 @@ abstract class $SwidClassCopyWith<$Res> {
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      SwidFunctionType constructorType,
+      @nullable SwidFunctionType constructorType,
       List<SwidFunctionType> factoryConstructors,
       List<SwidFunctionType> staticMethods,
       List<SwidFunctionType> methods,
@@ -184,7 +186,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      SwidFunctionType constructorType,
+      @nullable SwidFunctionType constructorType,
       List<SwidFunctionType> factoryConstructors,
       List<SwidFunctionType> staticMethods,
       List<SwidFunctionType> methods,
@@ -262,7 +264,7 @@ class _$_$Data implements _$Data {
       {@required this.name,
       @required this.nullabilitySuffix,
       @required this.originalPackagePath,
-      @required this.constructorType,
+      @required @nullable this.constructorType,
       @required this.factoryConstructors,
       @required this.staticMethods,
       @required this.methods,
@@ -272,7 +274,6 @@ class _$_$Data implements _$Data {
       : assert(name != null),
         assert(nullabilitySuffix != null),
         assert(originalPackagePath != null),
-        assert(constructorType != null),
         assert(factoryConstructors != null),
         assert(staticMethods != null),
         assert(methods != null),
@@ -290,6 +291,7 @@ class _$_$Data implements _$Data {
   @override
   final String originalPackagePath;
   @override
+  @nullable
   final SwidFunctionType constructorType;
   @override
   final List<SwidFunctionType> factoryConstructors;
@@ -382,6 +384,7 @@ abstract class _$Data implements SwidClass {
       @required
           String originalPackagePath,
       @required
+      @nullable
           SwidFunctionType constructorType,
       @required
           List<SwidFunctionType> factoryConstructors,
@@ -405,6 +408,7 @@ abstract class _$Data implements SwidClass {
   @override
   String get originalPackagePath;
   @override
+  @nullable
   SwidFunctionType get constructorType;
   @override
   List<SwidFunctionType> get factoryConstructors;
