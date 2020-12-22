@@ -75,7 +75,6 @@ class SwidVisitor extends RecursiveAstVisitor
   @override
   void visitClassDeclaration(ClassDeclaration node) {
     if (node.nativeClause == null && node.name.name[0] != "_") {
-
       var res =
           SwidClass.fromClassOrMixinDeclaration(classOrMixinDeclaration: node);
 
