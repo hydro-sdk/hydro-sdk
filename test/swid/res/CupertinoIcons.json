@@ -4,7 +4,7 @@
     "originalPackagePath": "package:flutter/src/cupertino/icons.dart",
     "constructorType": {
         "name": "",
-        "nullabilitySuffix": "star",
+        "nullabilitySuffix": "none",
         "originalPackagePath": "",
         "swidDeclarationModifiers": {
             "isAbstract": false,
@@ -41,7 +41,7 @@
         "returnType": {
             "swidInterface": {
                 "name": "CupertinoIcons",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "none",
                 "originalPackagePath": "package:flutter/src/cupertino/icons.dart",
                 "typeArguments": [],
                 "referenceDeclarationKind": "classElement"

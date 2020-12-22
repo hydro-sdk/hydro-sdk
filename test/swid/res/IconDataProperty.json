@@ -4,7 +4,7 @@
     "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
     "constructorType": {
         "name": "",
-        "nullabilitySuffix": "star",
+        "nullabilitySuffix": "none",
         "originalPackagePath": "",
         "swidDeclarationModifiers": {
             "isAbstract": false,
@@ -36,7 +36,7 @@
             "ifNull": {
                 "swidInterface": {
                     "name": "String",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -46,7 +46,7 @@
             "level": {
                 "swidInterface": {
                     "name": "DiagnosticLevel",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
                     "typeArguments": [],
                     "referenceDeclarationKind": "enumElement"
@@ -56,7 +56,7 @@
             "showName": {
                 "swidInterface": {
                     "name": "bool",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -66,7 +66,7 @@
             "style": {
                 "swidInterface": {
                     "name": "DiagnosticsTreeStyle",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
                     "typeArguments": [],
                     "referenceDeclarationKind": "enumElement"
@@ -82,7 +82,7 @@
                 "value": {
                     "swidInterface": {
                         "name": "DiagnosticLevel",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
                         "typeArguments": [],
                         "referenceDeclarationKind": "enumElement"
@@ -97,7 +97,7 @@
                 "value": {
                     "swidInterface": {
                         "name": "bool",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "dart:core",
                         "typeArguments": [],
                         "referenceDeclarationKind": "classElement"
@@ -112,7 +112,7 @@
                 "value": {
                     "swidInterface": {
                         "name": "DiagnosticsTreeStyle",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
                         "typeArguments": [],
                         "referenceDeclarationKind": "enumElement"
@@ -126,7 +126,7 @@
             {
                 "swidInterface": {
                     "name": "String",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -136,7 +136,7 @@
             {
                 "swidInterface": {
                     "name": "IconData",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -149,7 +149,7 @@
         "returnType": {
             "swidInterface": {
                 "name": "IconDataProperty",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "none",
                 "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
                 "typeArguments": [],
                 "referenceDeclarationKind": "classElement"
@@ -162,7 +162,7 @@
     "methods": [
         {
             "name": "toJsonMap",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -197,7 +197,7 @@
                 {
                     "swidInterface": {
                         "name": "DiagnosticsSerializationDelegate",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
                         "typeArguments": [],
                         "referenceDeclarationKind": "classElement"
@@ -210,13 +210,13 @@
             "returnType": {
                 "swidInterface": {
                     "name": "Map<String, Object>",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [
                         {
                             "swidInterface": {
                                 "name": "String",
-                                "nullabilitySuffix": "star",
+                                "nullabilitySuffix": "none",
                                 "originalPackagePath": "dart:core",
                                 "typeArguments": [],
                                 "referenceDeclarationKind": "classElement"
@@ -226,7 +226,7 @@
                         {
                             "swidInterface": {
                                 "name": "Object",
-                                "nullabilitySuffix": "star",
+                                "nullabilitySuffix": "none",
                                 "originalPackagePath": "dart:core",
                                 "typeArguments": [],
                                 "referenceDeclarationKind": "classElement"
