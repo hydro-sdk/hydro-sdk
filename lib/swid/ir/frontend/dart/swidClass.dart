@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/ast/ast.dart'
     show
+        ClassDeclaration,
         ClassOrMixinDeclaration,
         FieldDeclaration,
         VariableDeclaration,
@@ -8,6 +9,8 @@ import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowModifierProducer.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
@@ -34,6 +37,7 @@ abstract class SwidClass with _$SwidClass {
         List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
     @required Map<String, SwidType> instanceFieldDeclarations,
     @required SwidDeclarationModifiers swidDeclarationModifiers,
+    @required List<SwidClass> mixedInClasses,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
@@ -51,6 +55,7 @@ abstract class SwidClass with _$SwidClass {
     List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
     Map<String, SwidType> instanceFieldDeclarations,
     SwidDeclarationModifiers swidDeclarationModifiers,
+    List<SwidClass> mixedInClasses,
   }) =>
       SwidClass(
         name: name ?? swidClass.name,
@@ -84,6 +89,11 @@ abstract class SwidClass with _$SwidClass {
             Map.from(swidClass.instanceFieldDeclarations ?? {}),
         swidDeclarationModifiers:
             swidDeclarationModifiers ?? swidClass.swidDeclarationModifiers,
+        mixedInClasses: mixedInClasses ??
+            List.from(swidClass.mixedInClasses
+                    ?.map((x) => SwidClass.clone(swidClass: x))
+                    ?.toList() ??
+                []),
       );
 
   factory SwidClass.fromClassOrMixinDeclaration(
@@ -150,6 +160,14 @@ abstract class SwidClass with _$SwidClass {
             methods.where((x) => !x.swidDeclarationModifiers.isStatic).toList(),
         staticMethods:
             methods.where((x) => x.swidDeclarationModifiers.isStatic).toList(),
+        mixedInClasses: classOrMixinDeclaration is ClassDeclaration
+            ? classOrMixinDeclaration.withClause != null
+                ? classOrMixinDeclaration.withClause.mixinTypes
+                    .map((x) =>
+                        SwidClass.fromInterfaceType(interfaceType: x.type))
+                    .toList()
+                : []
+            : [],
         staticConstFieldDeclarations: classOrMixinDeclaration.childEntities
             .where((x) => x is FieldDeclaration)
             .toList()
@@ -207,6 +225,28 @@ abstract class SwidClass with _$SwidClass {
                 ..removeWhere((x) => x == null),
         ));
   }
+
+  factory SwidClass.fromInterfaceType(
+          {@required InterfaceType interfaceType}) =>
+      SwidClass(
+        name: interfaceType.getDisplayString(withNullability: false),
+        nullabilitySuffix: mapNullabilitySuffix(
+            nullabilitySuffix: interfaceType.nullabilitySuffix),
+        originalPackagePath:
+            mapClassLibrarySourcePath(element: interfaceType.element),
+        constructorType: null,
+        factoryConstructors: [],
+        staticMethods: [],
+        methods: interfaceType.methods
+            .map((x) => SwidFunctionType.fromFunctionType(
+                functionType: x.type,
+                swidDeclarationModifiers: SwidDeclarationModifiers.empty()))
+            .toList(),
+        staticConstFieldDeclarations: [],
+        instanceFieldDeclarations: {},
+        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        mixedInClasses: [],
+      );
 }
 
 extension SwidClassMethods on SwidClass {

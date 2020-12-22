@@ -52,11 +52,6 @@ class SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitEnumDeclaration(EnumDeclaration node) {
-    print((node.parent.root as CompilationUnit)
-        .declaredElement
-        .librarySource
-        .uri);
-
     DeclaredSimpleIdentifier identifier =
         node.childEntities.firstWhere((x) => x is DeclaredSimpleIdentifier);
     if (identifier.name[0] != "_") {
@@ -79,12 +74,8 @@ class SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitClassDeclaration(ClassDeclaration node) {
-    if (node.withClause == null &&
-        node.nativeClause == null &&
-        node.name.name[0] != "_") {
-      if (node.name.name == "Icons") {
-        print("Icons");
-      }
+    if (node.nativeClause == null && node.name.name[0] != "_") {
+
       var res =
           SwidClass.fromClassOrMixinDeclaration(classOrMixinDeclaration: node);
 
@@ -146,6 +137,12 @@ class SwidVisitor extends RecursiveAstVisitor
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
+    if (node.name.name == "DiagnosticableTree") {
+      print(node.name.name);
+      File("test/swid/res/DiagnosticableTree.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     super.visitClassDeclaration(node);
   }
 
@@ -166,20 +163,6 @@ class SwidVisitor extends RecursiveAstVisitor
     }
 
     super.visitMixinDeclaration(node);
-  }
-
-  @override
-  void visitMethodDeclaration(MethodDeclaration node) {
-    if (node.externalKeyword == null &&
-        !node.isAbstract &&
-        !node.isOperator &&
-        !node.isStatic) {
-      if (node.name == "scheduleTick") {
-        print(node);
-      }
-    }
-
-    super.visitMethodDeclaration(node);
   }
 
   @override
