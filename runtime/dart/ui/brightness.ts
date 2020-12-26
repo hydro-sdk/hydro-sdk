@@ -1,4 +1,4 @@
 export enum Brightness {
-    dart,
+    dark,
     light,
 }
