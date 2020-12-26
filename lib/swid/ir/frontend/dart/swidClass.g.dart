@@ -50,6 +50,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : SwidClass.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    isMixin: json['isMixin'] as bool,
   );
 }
 
@@ -66,6 +67,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'instanceFieldDeclarations': instance.instanceFieldDeclarations,
       'swidDeclarationModifiers': instance.swidDeclarationModifiers,
       'mixedInClasses': instance.mixedInClasses,
+      'isMixin': instance.isMixin,
     };
 
 T _$enumDecode<T>(

@@ -155,7 +155,8 @@
                 "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
-        }
+        },
+        "isFactory": false
     },
     "factoryConstructors": [],
     "staticMethods": [],
@@ -237,7 +238,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         }
     ],
     "staticConstFieldDeclarations": [],
@@ -268,5 +270,6 @@
         "hasVisibleForTesting": false,
         "isPublic": true
     },
-    "mixedInClasses": []
+    "mixedInClasses": [],
+    "isMixin": false
 }

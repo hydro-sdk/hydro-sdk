@@ -68,7 +68,8 @@
                 "referenceDeclarationKind": "classElement"
             },
             "runtimeType": "fromSwidInterface"
-        }
+        },
+        "isFactory": false
     },
     "factoryConstructors": [],
     "staticMethods": [],
@@ -150,7 +151,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "filterChildren",
@@ -240,7 +242,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "filterProperties",
@@ -330,7 +333,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "truncateNodesList",
@@ -420,7 +424,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "delegateForNode",
@@ -478,7 +483,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "subtreeDepth",
@@ -525,7 +531,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "includeProperties",
@@ -572,7 +579,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "expandPropertyValues",
@@ -619,7 +627,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "copyWith",
@@ -687,7 +696,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         }
     ],
     "staticConstFieldDeclarations": [],
@@ -718,5 +728,6 @@
         "hasVisibleForTesting": false,
         "isPublic": true
     },
-    "mixedInClasses": []
+    "mixedInClasses": [],
+    "isMixin": false
 }

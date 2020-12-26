@@ -18,7 +18,8 @@ class TsClassConstructorImplementation {
 
   TsClassConstructorImplementation({@required this.swidClass});
 
-  String toTsSource() => requiresDartBinding(swidClass: swidClass)
+  String toTsSource() => requiresDartBinding(swidClass: swidClass) &&
+          swidClass.constructorType != null
       ? "public constructor" +
           transformTypeDeclarationToTs(
               emitTrailingReturnType: false,

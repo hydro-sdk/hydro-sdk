@@ -21,10 +21,11 @@ class TsClassVmDeclaration {
 
   TsVmDeclaration _addConstructorBindingDeclarations(
           {@required TsVmDeclaration tsVmDeclaration}) =>
-      transformPackageUri(packageUri: swidClass.originalPackagePath)
-                  .split(path.separator)
-                  .last ==
-              tsVmDeclaration.name
+      swidClass.constructorType != null &&
+              transformPackageUri(packageUri: swidClass.originalPackagePath)
+                      .split(path.separator)
+                      .last ==
+                  tsVmDeclaration.name
           ? TsVmDeclaration.clone(tsVmDeclaration: tsVmDeclaration, methods: [
               SwidFunctionType.MakeReceiverVoid(
                   swidFunctionType: SwidFunctionType.InsertLeadingPositionalParameter(

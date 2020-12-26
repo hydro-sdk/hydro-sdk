@@ -20,6 +20,7 @@ void main() {
         transformFunctionTypeToTs(
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
+              isFactory: false,
               name: "",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",
@@ -111,6 +112,7 @@ void main() {
         transformFunctionTypeToTs(
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
+              isFactory: false,
               name: "",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",
@@ -202,6 +204,7 @@ void main() {
         transformFunctionTypeToTs(
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
+              isFactory: false,
               name: "",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",

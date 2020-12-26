@@ -17,6 +17,7 @@ void main() {
         transformFunctionTypeToTs(
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
+                isFactory: false,
                 namedDefaults: {},
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "",
@@ -25,6 +26,7 @@ void main() {
                 normalParameterTypes: [
                   SwidType.fromSwidFunctionType(
                       swidFunctionType: SwidFunctionType(
+                          isFactory: false,
                           namedDefaults: {},
                           swidDeclarationModifiers:
                               SwidDeclarationModifiers.empty(),

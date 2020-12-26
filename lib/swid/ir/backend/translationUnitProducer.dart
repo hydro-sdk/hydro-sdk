@@ -53,20 +53,27 @@ class TranslationUnitProducer {
             TsTranslationUnit(
                 path: tsPrefixPaths.join(p.separator) + p.separator + path,
                 fileName: "$baseFileName.ts",
-                ir: !swidClass.isPureAbstract() && swidClass.isConstructible()
-                    ? [
+                ir: !swidClass.isPureAbstract() &&
+                        !swidClass.isMixin &&
+                        (requiresDartBinding(swidClass: swidClass) ||
+                            swidClass.isConstructible() ||
+                            swidClass.staticConstFieldDeclarations.isNotEmpty)
+                    ? ([
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsClassVmDeclaration(
                             tsClassVmDeclaration:
                                 TsClassVmDeclaration(swidClass: swidClass)),
-                        TsIr.fromTsFunctionDefaultNamedProps(
-                          tsFunctionDefaultNamedProps:
-                              TsFunctionDefaultNamedProps(
-                                  swidFunctionType: SwidFunctionType.clone(
-                                      swidFunctionType:
-                                          swidClass.constructorType,
-                                      name: swidClass.name)),
-                        ),
+                        swidClass.constructorType != null
+                            ? TsIr.fromTsFunctionDefaultNamedProps(
+                                tsFunctionDefaultNamedProps:
+                                    TsFunctionDefaultNamedProps(
+                                        swidFunctionType:
+                                            SwidFunctionType.clone(
+                                                swidFunctionType:
+                                                    swidClass.constructorType,
+                                                name: swidClass.name)),
+                              )
+                            : null,
                         ...([
                           ...swidClass.methods,
                           ...swidClass.factoryConstructors,
@@ -114,14 +121,15 @@ class TranslationUnitProducer {
                         TsIr.fromTsClassPostamble(
                             tsClassPostamble:
                                 TsClassPostamble(swidClass: swidClass))
-                      ]
+                      ]..removeWhere((x) => x == null))
                     : [
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsInterface(
                             tsInterface:
                                 TsInterface.fromSwidClass(swidClass: swidClass))
                       ]),
-            requiresDartBinding(swidClass: swidClass)
+            requiresDartBinding(swidClass: swidClass) ||
+                    swidClass.isConstructible()
                 ? DartTranslationUnit(
                     path:
                         dartPrefixPaths.join(p.separator) + p.separator + path,

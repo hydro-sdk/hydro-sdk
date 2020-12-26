@@ -33,6 +33,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
     @required List<String> optionalParameterNames,
     @required List<SwidType> optionalParameterTypes,
     @required SwidType returnType,
+    @required bool isFactory,
   }) = _$Data;
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
@@ -87,6 +88,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
     List<String> optionalParameterNames,
     List<SwidType> optionalParameterTypes,
     SwidType returnType,
+    bool isFactory,
   }) {
     return SwidFunctionType(
       name: name ?? swidFunctionType.name,
@@ -112,6 +114,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
           List.from(swidFunctionType.optionalParameterTypes ?? []),
       returnType:
           returnType ?? cloneSwidType(swidType: swidFunctionType.returnType),
+      isFactory: isFactory ?? swidFunctionType.isFactory,
     );
   }
 
@@ -120,55 +123,56 @@ abstract class SwidFunctionType with _$SwidFunctionType {
       @required SwidDeclarationModifiers swidDeclarationModifiers,
       String name}) {
     return SwidFunctionType(
-        name: name ?? functionType.element?.name ?? "",
-        nullabilitySuffix: mapNullabilitySuffix(
-            nullabilitySuffix: functionType.nullabilitySuffix),
-        originalPackagePath:
-            functionType.element?.librarySource?.uri?.toString() ?? "",
-        swidDeclarationModifiers: swidDeclarationModifiers,
-        namedParameterTypes: Map.fromEntries(functionType
-            ?.namedParameterTypes?.keys
-            ?.map((x) => MapEntry<String, SwidType>(
-                x,
-                narrowDartTypeToSwidType(
-                    dartType: functionType?.namedParameterTypes[x])))),
-        namedDefaults: functionType?.parameters != null
-            ? Map.fromEntries(functionType.parameters
-                .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
-                    x.displayName,
-                    SwidDefaultFormalParameter(
-                      name: x.defaultValueCode ?? "",
-                      nullabilitySuffix: SwidNullabilitySuffix.none,
-                      originalPackagePath:
-                          mapClassLibrarySourcePath(element: x),
-                      value: x.type is FunctionType
-                          ? SwidType.fromSwidFunctionType(
-                              swidFunctionType:
-                                  SwidFunctionType.fromFunctionType(
-                              functionType: x.type,
-                              swidDeclarationModifiers:
-                                  SwidDeclarationModifiers.empty(),
-                            ))
-                          : x.type is InterfaceType
-                              ? SwidType.fromSwidInterface(
-                                  swidInterface: SwidInterface.fromInterface(
-                                  interfaceType: x.type,
-                                ))
-                              : null,
-                    )))
-                .toList()
-                  ..removeWhere((x) => x.value.name == ""))
-            : {},
-        normalParameterNames:
-            List.from(functionType.normalParameterNames ?? []),
-        normalParameterTypes: List.from(functionType.normalParameterTypes
-                ?.map((x) => narrowDartTypeToSwidType(dartType: x))
-                ?.toList() ??
-            []),
-        optionalParameterNames:
-            List.from(functionType.optionalParameterNames ?? []),
-        optionalParameterTypes: List.from(
-            functionType.optionalParameterTypes?.map((x) => narrowDartTypeToSwidType(dartType: x))?.toList() ?? []),
-        returnType: narrowDartTypeToSwidType(dartType: functionType.returnType));
+      name: name ?? functionType.element?.name ?? "",
+      nullabilitySuffix: mapNullabilitySuffix(
+          nullabilitySuffix: functionType.nullabilitySuffix),
+      originalPackagePath:
+          functionType.element?.librarySource?.uri?.toString() ?? "",
+      swidDeclarationModifiers: swidDeclarationModifiers,
+      namedParameterTypes: Map.fromEntries(functionType
+          ?.namedParameterTypes?.keys
+          ?.map((x) => MapEntry<String, SwidType>(
+              x,
+              narrowDartTypeToSwidType(
+                  dartType: functionType?.namedParameterTypes[x])))),
+      namedDefaults: functionType?.parameters != null
+          ? Map.fromEntries(functionType.parameters
+              .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
+                  x.displayName,
+                  SwidDefaultFormalParameter(
+                    name: x.defaultValueCode ?? "",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: mapClassLibrarySourcePath(element: x),
+                    value: x.type is FunctionType
+                        ? SwidType.fromSwidFunctionType(
+                            swidFunctionType: SwidFunctionType.fromFunctionType(
+                            functionType: x.type,
+                            swidDeclarationModifiers:
+                                SwidDeclarationModifiers.empty(),
+                          ))
+                        : x.type is InterfaceType
+                            ? SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface.fromInterface(
+                                interfaceType: x.type,
+                              ))
+                            : null,
+                  )))
+              .toList()
+                ..removeWhere((x) => x.value.name == ""))
+          : {},
+      normalParameterNames: List.from(functionType.normalParameterNames ?? []),
+      normalParameterTypes: List.from(functionType.normalParameterTypes
+              ?.map((x) => narrowDartTypeToSwidType(dartType: x))
+              ?.toList() ??
+          []),
+      optionalParameterNames:
+          List.from(functionType.optionalParameterNames ?? []),
+      optionalParameterTypes: List.from(functionType.optionalParameterTypes
+              ?.map((x) => narrowDartTypeToSwidType(dartType: x))
+              ?.toList() ??
+          []),
+      returnType: narrowDartTypeToSwidType(dartType: functionType.returnType),
+      isFactory: false,
+    );
   }
 }

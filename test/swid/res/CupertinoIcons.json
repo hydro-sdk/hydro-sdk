@@ -2,53 +2,7 @@
     "name": "CupertinoIcons",
     "nullabilitySuffix": "none",
     "originalPackagePath": "package:flutter/src/cupertino/icons.dart",
-    "constructorType": {
-        "name": "",
-        "nullabilitySuffix": "star",
-        "originalPackagePath": "",
-        "swidDeclarationModifiers": {
-            "isAbstract": false,
-            "isGetter": false,
-            "isOperator": false,
-            "isSetter": false,
-            "isStatic": false,
-            "isSynthetic": false,
-            "hasAlwaysThrows": false,
-            "hasDeprecated": false,
-            "hasFactory": false,
-            "hasImplicitReturnType": false,
-            "hasIsTest": false,
-            "hasIsTestGroup": false,
-            "hasJS": false,
-            "hasLiteral": false,
-            "hasMustCallSuper": false,
-            "hasNonVirtual": false,
-            "hasOptionalTypeArgs": false,
-            "hasOverride": false,
-            "hasProtected": false,
-            "hasRequired": false,
-            "hasSealed": false,
-            "hasVisibleForTemplate": false,
-            "hasVisibleForTesting": false,
-            "isPublic": true
-        },
-        "namedParameterTypes": {},
-        "namedDefaults": {},
-        "normalParameterNames": [],
-        "normalParameterTypes": [],
-        "optionalParameterNames": [],
-        "optionalParameterTypes": [],
-        "returnType": {
-            "swidInterface": {
-                "name": "CupertinoIcons",
-                "nullabilitySuffix": "star",
-                "originalPackagePath": "package:flutter/src/cupertino/icons.dart",
-                "typeArguments": [],
-                "referenceDeclarationKind": "classElement"
-            },
-            "runtimeType": "fromSwidInterface"
-        }
-    },
+    "constructorType": null,
     "factoryConstructors": [],
     "staticMethods": [],
     "methods": [],
@@ -39771,5 +39725,6 @@
         "hasVisibleForTesting": false,
         "isPublic": true
     },
-    "mixedInClasses": []
+    "mixedInClasses": [],
+    "isMixin": false
 }

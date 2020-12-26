@@ -13,6 +13,7 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     var functionType = SwidFunctionType(
       name: "foo",
+      isFactory: false,
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
       swidDeclarationModifiers: SwidDeclarationModifiers.empty(),

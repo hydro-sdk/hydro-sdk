@@ -75,8 +75,10 @@ class SwidVisitor extends RecursiveAstVisitor
   @override
   void visitClassDeclaration(ClassDeclaration node) {
     if (node.nativeClause == null && node.name.name[0] != "_") {
-      var res =
-          SwidClass.fromClassOrMixinDeclaration(classOrMixinDeclaration: node);
+      var res = SwidClass.fromClassOrMixinDeclaration(
+        classOrMixinDeclaration: node,
+        isMixin: false,
+      );
 
       if (res != null) {
         res = SwidClass.clone(
@@ -142,6 +144,12 @@ class SwidVisitor extends RecursiveAstVisitor
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
+    if (node.name.name == "Key") {
+      print(node.name.name);
+      File("test/swid/res/Key.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     super.visitClassDeclaration(node);
   }
 
@@ -150,8 +158,8 @@ class SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "Diagnosticable") {
       print(node.name.name);
 
-      var res =
-          SwidClass.fromClassOrMixinDeclaration(classOrMixinDeclaration: node);
+      var res = SwidClass.fromClassOrMixinDeclaration(
+          classOrMixinDeclaration: node, isMixin: true);
 
       if (res != null) {
         classes.add(res);
