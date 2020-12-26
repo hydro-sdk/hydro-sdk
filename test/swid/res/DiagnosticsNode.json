@@ -267,7 +267,7 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": true
         }
     ],
     "staticMethods": [

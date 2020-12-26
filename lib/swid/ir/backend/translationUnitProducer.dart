@@ -140,7 +140,9 @@ class TranslationUnitProducer {
                           vmManagedClassDeclaration:
                               VMManagedClassDeclaration(swidClass: swidClass)),
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                      !swidClass.isPureAbstract() && swidClass.isConstructible()
+                      !swidClass.isPureAbstract() &&
+                              swidClass.isConstructible() &&
+                              !swidClass.constructorType.isFactory
                           ? DartIr.fromRTManagedClassDeclaration(
                               rtManagedClassDeclaration:
                                   RTManagedClassDeclaration(

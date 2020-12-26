@@ -153,9 +153,13 @@ abstract class SwidClass with _$SwidClass {
                 ?.toString() ??
             "",
         constructorType: constructorDeclarationImpl != null
-            ? SwidFunctionType.fromFunctionType(
-                swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-                functionType: constructorDeclarationImpl.declaredElement.type)
+            ? SwidFunctionType.clone(
+                swidFunctionType: SwidFunctionType.fromFunctionType(
+                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    functionType:
+                        constructorDeclarationImpl.declaredElement.type),
+                isFactory: constructorDeclarationImpl.factoryKeyword != null,
+              )
             : null,
         factoryConstructors: constructors
             .where((x) =>
@@ -163,10 +167,14 @@ abstract class SwidClass with _$SwidClass {
                 x.name != null &&
                 x.name.name[0] != "_")
             .toList()
-            .map((x) => SwidFunctionType.fromFunctionType(
-                functionType: x.declaredElement.type,
-                name: x.name.name,
-                swidDeclarationModifiers: SwidDeclarationModifiers.empty()))
+            .map((x) => SwidFunctionType.clone(
+                  swidFunctionType: SwidFunctionType.fromFunctionType(
+                      functionType: x.declaredElement.type,
+                      name: x.name.name,
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty()),
+                  isFactory: true,
+                ))
             .toList(),
         methods:
             methods.where((x) => !x.swidDeclarationModifiers.isStatic).toList(),

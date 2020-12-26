@@ -1,7 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
-import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -18,8 +17,7 @@ class TsClassConstructorImplementation {
 
   TsClassConstructorImplementation({@required this.swidClass});
 
-  String toTsSource() => requiresDartBinding(swidClass: swidClass) &&
-          swidClass.constructorType != null
+  String toTsSource() => swidClass.constructorType != null
       ? "public constructor" +
           transformTypeDeclarationToTs(
               emitTrailingReturnType: false,

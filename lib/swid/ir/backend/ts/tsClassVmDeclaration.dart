@@ -47,7 +47,8 @@ class TsClassVmDeclaration {
             ])
           : tsVmDeclaration;
 
-  String toTsSource() => requiresDartBinding(swidClass: swidClass)
+  String toTsSource() => requiresDartBinding(swidClass: swidClass) ||
+          swidClass.isConstructible()
       ? transformVmDeclarationToTs(
               tsVmDeclaration:
                   transformPackageUri(packageUri: swidClass.originalPackagePath)
