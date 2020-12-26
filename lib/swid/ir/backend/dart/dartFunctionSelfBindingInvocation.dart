@@ -24,12 +24,14 @@ class DartFunctionSelfBindingInvocation {
   final DartBoxingProcedure argumentBoxingProcedure;
   final DartBoxingProcedure returnValueBoxingProcedure;
   final bool emitTableBindingPrefix;
+  final Expression returnValueBoxingTableExpression;
 
   DartFunctionSelfBindingInvocation({
     @required this.swidFunctionType,
     @required this.argumentBoxingProcedure,
     @required this.returnValueBoxingProcedure,
     @required this.emitTableBindingPrefix,
+    this.returnValueBoxingTableExpression,
   });
 
   String toDartSource() => ((Expression expression) => returnValueBoxingProcedure ==
@@ -47,6 +49,7 @@ class DartFunctionSelfBindingInvocation {
                   objectReference: expression,
                   boxLists: true,
                   codeKind: CodeKind.expression,
+                  tableExpression: returnValueBoxingTableExpression,
                 ).toDartSource(),
                 onEnum: (val) => DartBoxEnumReference(
                         type: SwidType.fromSwidInterface(swidInterface: val),

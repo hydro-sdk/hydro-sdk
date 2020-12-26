@@ -7,7 +7,8 @@ import 'package:code_builder/code_builder.dart'
         literalList,
         Method,
         Code,
-        Block;
+        Block,
+        literalNum;
 
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
@@ -60,7 +61,11 @@ class LoadNamespaceSymbolDeclaration {
                               swidFunctionType: swidClass.constructorType,
                               name: !swidClass.constructorType.isFactory
                                   ? "RTManaged${swidClass.name}"
-                                  : swidClass.name))
+                                  : swidClass.name),
+                          returnValueBoxingTableExpression:
+                              swidClass.constructorType.isFactory
+                                  ? refer("args").index(literalNum(0))
+                                  : null)
                       .toDartSource())
                 ]).returned.statement
               ])))
