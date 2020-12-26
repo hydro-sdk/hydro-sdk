@@ -28,6 +28,8 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/transforms/transformAccessorNames.dart';
+import 'package:hydro_sdk/swid/transforms/transformOperatorNames.dart';
 
 class TranslationUnitProducer {
   final List<String> tsPrefixPaths;
@@ -156,10 +158,18 @@ class TranslationUnitProducer {
                     ]..removeWhere((x) => x == null),
                   )
                 : null
-          ]
-            ..removeWhere((x) => x == null))(SwidClass.clone(
-          swidClass: swidClass,
-          methods: swidClass.methods
-              .where((x) => methodIsEmitCandidate(swidFunctionType: x))
-              .toList()));
+          ]..removeWhere((x) => x == null))(
+        SwidClass.clone(
+          swidClass: transformOperatorNames(
+            swidClass: transformAccessorNames(
+              swidClass: SwidClass.clone(
+                swidClass: swidClass,
+                methods: swidClass.methods
+                    .where((x) => methodIsEmitCandidate(swidFunctionType: x))
+                    .toList(),
+              ),
+            ),
+          ),
+        ),
+      );
 }
