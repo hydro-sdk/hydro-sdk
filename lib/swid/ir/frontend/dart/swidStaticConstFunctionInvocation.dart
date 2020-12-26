@@ -9,7 +9,9 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleStringLiteral,
         SimpleIdentifier,
         BooleanLiteral,
-        ArgumentList;
+        ArgumentList,
+        PrefixedIdentifier,
+        DoubleLiteral;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
@@ -54,6 +56,14 @@ abstract class SwidStaticConstFunctionInvocation
               } else if (x is StringLiteral) {
                 return SwidStaticConst.fromSwidStringLiteral(
                     swidStringLiteral: SwidStringLiteral(value: x.stringValue));
+              } else if (x is DoubleLiteral) {
+                return SwidStaticConst.fromSwidIntegerLiteral(
+                    swidIntegerLiteral:
+                        SwidIntegerLiteral(value: "${x.value}"));
+              } else if (x is PrefixedIdentifier) {
+                return SwidStaticConst.fromSwidStaticConstFieldReference(
+                    swidStaticConstFieldReference:
+                        SwidStaticConstFieldReference(name: x.name));
               }
             })?.toList() ??
             []

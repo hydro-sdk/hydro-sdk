@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 
 class TsClassStaticConstFieldDeclarations {
@@ -15,12 +16,15 @@ class TsClassStaticConstFieldDeclarations {
           transformStaticConstFieldDeclaration(
               staticConstFieldDeclaration: x,
               scopeResolver: (staticConstFieldReference) =>
-                  "${swidClass.name}." +
-                  swidClass.staticConstFieldDeclarations
+                  ((SwidStaticConstFieldDeclaration
+                          swidStaticConstFieldDeclaration) =>
+                      swidStaticConstFieldDeclaration != null
+                          ? "${swidClass.name}.${swidStaticConstFieldDeclaration.name}"
+                          : staticConstFieldReference.name)(swidClass
+                      .staticConstFieldDeclarations
                       .firstWhere(
                           (k) => k.name == staticConstFieldReference.name,
-                          orElse: () => null)
-                      .name);
+                          orElse: () => null)));
       res += "\n";
     });
     return res;
