@@ -28,7 +28,7 @@ void loadKey({@required HydroState hydroState, @required HydroTable table}) {
   table['key'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Key>(
-          object: Key(args[1]), hydroState: hydroState, table: HydroTable())
+          object: Key(args[1]), hydroState: hydroState, table: args[0])
     ];
   });
   registerBoxer<Key>(boxer: (
