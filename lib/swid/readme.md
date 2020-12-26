@@ -28,4 +28,4 @@ Current and WIP results:
 - [x] `DiagnosticPropertiesBuilder`
 - [x] `Diagnosticable`
 - [x] `DiagnosticableTree`
-- [ ] `Key`
+- [x] `Key`
