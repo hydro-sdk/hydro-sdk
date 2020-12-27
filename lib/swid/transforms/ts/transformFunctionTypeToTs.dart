@@ -13,6 +13,7 @@ String transformFunctionTypeToTs({
   @required TrailingReturnTypeKind trailingReturnTypeKind,
   bool emitTrailingReturnType = true,
   bool emitDefaultFormalsAsOptionalNamed = false,
+  bool emitInitializersForOptionalPositionals = false,
 }) {
   var res = "(";
 
@@ -75,6 +76,14 @@ String transformFunctionTypeToTs({
 
         if (val.nullabilitySuffix == SwidNullabilitySuffix.question) {
           res += " | undefined";
+        }
+
+        if (emitInitializersForOptionalPositionals) {
+          var initializer = swidFunctionType.positionalDefaultParameters.entries
+              .firstWhere((x) => x.key == key, orElse: () => null);
+          if (initializer != null) {
+            res += " = ${initializer.value.name}";
+          }
         }
 
         return null;
