@@ -9,15 +9,7 @@ class TsClassPreamble {
 
   String toTsSource() => ([
         "export class ${swidClass.name}",
-        "implements",
-        ([
-          "I${swidClass.name}",
-          swidClass.extendedClass != null
-              ? "I${swidClass.extendedClass.name}"
-              : null,
-          ...swidClass.mixedInClasses.map((x) => "I${x.name}").toList()
-        ]..removeWhere((x) => x == null))
-            .join(", "),
+        "implements I${swidClass.name}",
         "{"
       ]..removeWhere((x) => x == null))
           .join("\n");
