@@ -28,7 +28,7 @@ Future<SwidVisitor> swid(List<String> args) async {
   }
 
   var driver = Driver.forArgs(args);
-  driver.excludedPaths = ["test"];
+  driver.excludedPaths = ["test", "sdk_ext"];
   driver.forceSkipInstall = true;
   driver.showErrors = false;
   driver.resolveUnits = true;
@@ -147,6 +147,12 @@ class SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "Key") {
       print(node.name.name);
       File("test/swid/res/Key.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "Size") {
+      print(node.name.name);
+      File("test/swid/res/Size.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
