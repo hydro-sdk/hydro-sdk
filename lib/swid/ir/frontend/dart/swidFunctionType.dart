@@ -176,3 +176,15 @@ abstract class SwidFunctionType with _$SwidFunctionType {
     );
   }
 }
+
+extension SwidFunctionTypeMethods on SwidFunctionType {
+  Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>
+      Map.fromEntries(([
+        ...namedDefaults.entries
+            .where((x) =>
+                namedParameterTypes.entries
+                    .firstWhere((k) => k.key == x.key, orElse: () => null) !=
+                null)
+            .toList()
+      ]..removeWhere((x) => x == null)));
+}
