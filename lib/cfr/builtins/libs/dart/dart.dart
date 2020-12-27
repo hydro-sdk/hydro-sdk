@@ -16,7 +16,7 @@ void loadDartLib({@required HydroState hydroState, @required Context ctx}) {
   ctx.env["dart"] = dart;
 
   loadCore(table: dart, luaState: hydroState);
-  loadUi(dart);
+  loadUi(table: dart, luaState: hydroState);
   loadDeveloper(dart);
   loadAsync(table: dart, hydroState: hydroState);
   loadConvert(table: dart, hydroState: hydroState);
