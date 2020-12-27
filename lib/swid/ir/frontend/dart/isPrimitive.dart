@@ -10,7 +10,9 @@ bool isPrimitive({@required SwidType swidType}) => swidType.when(
               val.name == "bool" ||
               val.name == "bool*" ||
               val.name == "int" ||
-              val.name == "int*"),
+              val.name == "int*" ||
+              val.name == "double" ||
+              val.name == "double*"),
       fromSwidClass: (_) => false,
       fromSwidDefaultFormalParameter: (_) => false,
       fromSwidFunctionType: (_) => false,

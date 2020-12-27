@@ -4,53 +4,53 @@ import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
 import { Type } from "./../core/type";
 declare const dart: {
     ui: {
-        size: (this: void, size: Size, width: double, height: double) => Size;
+        size: (this: void, size: Size, width: number, height: number) => Size;
         sizeCopy: (source: Size) => Size;
-        sizeSquare: (dimension: double) => Size;
-        sizeFromWidth: (width: double) => Size;
-        sizeFromHeight: (height: double) => Size;
-        sizeFromRadius: (radius: double) => Size;
+        sizeSquare: (dimension: number) => Size;
+        sizeFromWidth: (width: number) => Size;
+        sizeFromHeight: (height: number) => Size;
+        sizeFromRadius: (radius: number) => Size;
         sizeLerp: (
             a: Size | undefined,
             b: Size | undefined,
-            t: double
+            t: number
         ) => Size | undefined;
     };
 };
 export class Size {
     public static zero = new Size(0.0, 0.0);
     public static infinite = new Size(double.infinity, double.infinity);
-    public constructor(width: double, height: double) {
+    public constructor(width: number, height: number) {
         dart.ui.size(this, width, height);
     }
     public static copy(source: Size): Size {
         return dart.ui.sizeCopy(source);
     }
-    public static square(dimension: double): Size {
+    public static square(dimension: number): Size {
         return dart.ui.sizeSquare(dimension);
     }
-    public static fromWidth(width: double): Size {
+    public static fromWidth(width: number): Size {
         return dart.ui.sizeFromWidth(width);
     }
-    public static fromHeight(height: double): Size {
+    public static fromHeight(height: number): Size {
         return dart.ui.sizeFromHeight(height);
     }
-    public static fromRadius(radius: double): Size {
+    public static fromRadius(radius: number): Size {
         return dart.ui.sizeFromRadius(radius);
     }
     public static lerp(
         a: Size | undefined,
         b: Size | undefined,
-        t: double
+        t: number
     ): Size | undefined {
         return dart.ui.sizeLerp(a, b, t);
     }
-    private readonly _dart_getWidth: () => double = undefined as any;
-    private readonly _dart_getHeight: () => double = undefined as any;
-    private readonly _dart_getAspectRatio: () => double = undefined as any;
+    private readonly _dart_getWidth: () => number = undefined as any;
+    private readonly _dart_getHeight: () => number = undefined as any;
+    private readonly _dart_getAspectRatio: () => number = undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
-    private readonly _dart_getShortestSide: () => double = undefined as any;
-    private readonly _dart_getLongestSide: () => double = undefined as any;
+    private readonly _dart_getShortestSide: () => number = undefined as any;
+    private readonly _dart_getLongestSide: () => number = undefined as any;
     private readonly _dart_topLeft: (
         origin: Offset
     ) => Offset = undefined as any;

@@ -15,7 +15,10 @@ SwidInterface transformPrimitiveSwidTypeNamesToTs(
       return swidInterface.copyWith(name: "boolean");
     } else if (swidInterface.name == "int" ||
         swidInterface.name == "int*" ||
-        swidInterface.name == "int?") {
+        swidInterface.name == "int?" ||
+        swidInterface.name == "double" ||
+        swidInterface.name == "double*" ||
+        swidInterface.name == "double?") {
       return swidInterface.copyWith(name: "number");
     }
   }
