@@ -19,45 +19,22 @@ class VMManagedSize extends VMManagedBox<Size> {
           hydroState: hydroState,
         ) {
     table['getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<double>(
-            object: vmObject.width, hydroState: hydroState, table: HydroTable())
-      ];
+      return [vmObject.width];
     });
     table['getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<double>(
-            object: vmObject.height,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      return [vmObject.height];
     });
     table['getAspectRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<double>(
-            object: vmObject.aspectRatio,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      return [vmObject.aspectRatio];
     });
     table['getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.isEmpty];
     });
     table['getShortestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<double>(
-            object: vmObject.shortestSide,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      return [vmObject.shortestSide];
     });
     table['getLongestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<double>(
-            object: vmObject.longestSide,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      return [vmObject.longestSide];
     });
     table['topLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
@@ -166,6 +143,12 @@ class VMManagedSize extends VMManagedBox<Size> {
     });
     table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.toString()];
+    });
+    table['getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.isInfinite];
+    });
+    table['getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.isFinite];
     });
   }
 
@@ -304,6 +287,12 @@ class RTManagedSize extends Size implements Box<Size> {
     table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.toString()];
     });
+    table['_dart_isInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [super.isInfinite];
+    });
+    table['_dart_isFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [super.isFinite];
+    });
   }
 
   final HydroTable table;
@@ -425,16 +414,24 @@ class RTManagedSize extends Size implements Box<Size> {
     Closure closure = table["__tostring"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
+
+  @override
+  bool get isInfinite {
+    Closure closure = table["isInfinite"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool get isFinite {
+    Closure closure = table["isFinite"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
 }
 
 void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['size'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      RTManagedSize(
-          maybeUnBoxAndBuildArgument<double>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<double>(args[2], parentState: hydroState),
-          table: args[0],
-          hydroState: hydroState)
+      RTManagedSize(args[1], args[2], table: args[0], hydroState: hydroState)
     ];
   });
   table['sizeCopy'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -449,8 +446,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['sizeSquare'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Size>(
-          object: Size.square(maybeUnBoxAndBuildArgument<double>(args[1],
-              parentState: hydroState)),
+          object: Size.square(args[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -458,8 +454,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['sizeFromWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Size>(
-          object: Size.fromWidth(maybeUnBoxAndBuildArgument<double>(args[1],
-              parentState: hydroState)),
+          object: Size.fromWidth(args[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -467,8 +462,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['sizeFromHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Size>(
-          object: Size.fromHeight(maybeUnBoxAndBuildArgument<double>(args[1],
-              parentState: hydroState)),
+          object: Size.fromHeight(args[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -476,8 +470,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['sizeFromRadius'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Size>(
-          object: Size.fromRadius(maybeUnBoxAndBuildArgument<double>(args[1],
-              parentState: hydroState)),
+          object: Size.fromRadius(args[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -490,8 +483,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
                   parentState: hydroState),
               maybeUnBoxAndBuildArgument<Size>(args[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<double>(args[3],
-                  parentState: hydroState)),
+              args[3]),
           hydroState: hydroState,
           table: HydroTable())
     ];

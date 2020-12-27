@@ -2,6 +2,8 @@ import { double } from "./../../dart/core/double";
 import { RuntimeBaseClass } from "./../../runtimeBaseClass";
 import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
 import { Type } from "./../core/type";
+import { Offset } from "./offset";
+import { IOffsetBase, OffsetBase } from "./offsetBase";
 declare const dart: {
     ui: {
         size: (this: void, size: Size, width: number, height: number) => Size;
@@ -17,7 +19,28 @@ declare const dart: {
         ) => Size | undefined;
     };
 };
-export class Size {
+export interface ISize {
+    getWidth: () => number;
+    getHeight: () => number;
+    getAspectRatio: () => number;
+    getIsEmpty: () => boolean;
+    getShortestSide: () => number;
+    getLongestSide: () => number;
+    topLeft: (origin: Offset) => Offset;
+    topCenter: (origin: Offset) => Offset;
+    topRight: (origin: Offset) => Offset;
+    centerLeft: (origin: Offset) => Offset;
+    center: (origin: Offset) => Offset;
+    centerRight: (origin: Offset) => Offset;
+    bottomLeft: (origin: Offset) => Offset;
+    bottomCenter: (origin: Offset) => Offset;
+    bottomRight: (origin: Offset) => Offset;
+    contains: (offset: Offset) => boolean;
+    getFlipped: () => Size;
+    getHashCode: () => number;
+    toString: () => string;
+}
+export class Size implements ISize, IOffsetBase {
     public static zero = new Size(0.0, 0.0);
     public static infinite = new Size(double.infinity, double.infinity);
     public constructor(width: number, height: number) {
@@ -84,6 +107,8 @@ export class Size {
     private readonly _dart_getFlipped: () => Size = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
+    private readonly _dart_getIsInfinite: () => boolean = undefined as any;
+    private readonly _dart_getIsFinite: () => boolean = undefined as any;
     public getWidth() {
         return this._dart_getWidth();
     }
@@ -140,5 +165,11 @@ export class Size {
     }
     public toString() {
         return this._dart_toString();
+    }
+    public getIsInfinite() {
+        return this._dart_getIsInfinite();
+    }
+    public getIsFinite() {
+        return this._dart_getIsFinite();
     }
 }

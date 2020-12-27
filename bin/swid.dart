@@ -33,7 +33,8 @@ void main(List<String> args) async {
         visitor.classes[i].name == "Diagnosticable" ||
         visitor.classes[i].name == "DiagnosticableTree" ||
         visitor.classes[i].name == "Key" ||
-        visitor.classes[i].name == "Size") {
+        visitor.classes[i].name == "Size" ||
+        visitor.classes[i].name == "OffsetBase") {
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(
