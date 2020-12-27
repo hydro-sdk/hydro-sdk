@@ -4,9 +4,11 @@ import 'package:analyzer/dart/ast/ast.dart'
         ClassOrMixinDeclaration,
         FieldDeclaration,
         VariableDeclaration,
-        VariableDeclarationList;
+        VariableDeclarationList,
+        TypeName;
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -41,6 +43,7 @@ abstract class SwidClass with _$SwidClass {
     @required Map<String, SwidType> instanceFieldDeclarations,
     @required SwidDeclarationModifiers swidDeclarationModifiers,
     @required List<SwidClass> mixedInClasses,
+    @required @nullable SwidClass extendedClass,
     @required bool isMixin,
   }) = _$Data;
 
@@ -61,6 +64,7 @@ abstract class SwidClass with _$SwidClass {
     SwidDeclarationModifiers swidDeclarationModifiers,
     List<SwidClass> mixedInClasses,
     bool isMixin,
+    SwidClass extendedClass,
   }) =>
       SwidClass(
         name: name ?? swidClass.name,
@@ -100,6 +104,7 @@ abstract class SwidClass with _$SwidClass {
                     ?.toList() ??
                 []),
         isMixin: isMixin ?? swidClass.isMixin,
+        extendedClass: extendedClass ?? swidClass.extendedClass,
       );
 
   factory SwidClass.fromClassOrMixinDeclaration({
@@ -185,6 +190,29 @@ abstract class SwidClass with _$SwidClass {
                     .toList()
                 : []
             : [],
+        extendedClass: classOrMixinDeclaration is ClassDeclaration
+            ? classOrMixinDeclaration.extendsClause != null
+                ? ((ClassDeclaration classDeclaration) => classDeclaration !=
+                        null
+                    ? SwidClass.fromClassOrMixinDeclaration(
+                        classOrMixinDeclaration: classDeclaration,
+                        isMixin: false,
+                      )
+                    : null)(((TypeName typeName) => typeName != null
+                        ? typeName.root.childEntities.firstWhere(
+                            (x) =>
+                                x is ClassDeclaration &&
+                                x.name.name == typeName.name.name,
+                            orElse: () => null,
+                          )
+                        : null)(
+                    classOrMixinDeclaration.extendsClause.childEntities
+                        .firstWhere(
+                    (x) => x is TypeName,
+                    orElse: () => null,
+                  )))
+                : null
+            : null,
         staticConstFieldDeclarations: classOrMixinDeclaration.childEntities
             .where((x) => x is FieldDeclaration)
             .toList()
@@ -264,6 +292,7 @@ abstract class SwidClass with _$SwidClass {
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         isMixin: false,
+        extendedClass: null,
       );
 }
 
