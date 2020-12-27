@@ -13,6 +13,7 @@ import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodDeclarations.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
@@ -82,6 +83,14 @@ class TranslationUnitProducer {
                             tsFunctionDefaultNamedProps:
                                 TsFunctionDefaultNamedProps(
                                     swidFunctionType: x)))),
+                        TsIr.fromTsInterface(
+                            tsInterface: TsInterface.fromSwidClass(
+                                swidClass: SwidClass.clone(
+                                    swidClass: swidClass,
+                                    name: "I${swidClass.name}",
+                                    methods: tsClassMethodInjectionCandidates(
+                                        swidFunctionTypes:
+                                            swidClass.methods)))),
                         TsIr.fromTsClassPreamble(
                             tsClassPreamble:
                                 TsClassPreamble(swidClass: swidClass)),
