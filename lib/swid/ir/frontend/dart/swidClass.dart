@@ -106,6 +106,39 @@ abstract class SwidClass with _$SwidClass {
         extendedClass: extendedClass ?? swidClass.extendedClass,
       );
 
+  factory SwidClass.mergeDeclarations(
+          {@required SwidClass swidClass, @required SwidClass superClass}) =>
+      superClass != null
+          ? SwidClass.clone(
+              swidClass: swidClass,
+              instanceFieldDeclarations: Map.fromEntries([
+                ...swidClass.instanceFieldDeclarations.entries
+                    .map((x) => MapEntry(x.key, x.value))
+                    .toList(),
+                ...superClass.instanceFieldDeclarations.entries
+                    .where((x) =>
+                        swidClass.instanceFieldDeclarations.entries.firstWhere(
+                            (k) => k.key == x.key,
+                            orElse: () => null) ==
+                        null)
+                    .map((x) => MapEntry(x.key, x.value))
+                    .toList()
+              ]),
+              methods: List.from([
+                ...swidClass.methods,
+                ...superClass.methods
+                    .where((x) =>
+                        swidClass.methods.firstWhere((k) => k.name == x.name,
+                            orElse: () => null) ==
+                        null)
+                    .toList()
+              ]))
+          : SwidClass.clone(swidClass: swidClass);
+
+  factory SwidClass.mergeSuperClasses({@required SwidClass swidClass}) =>
+      SwidClass.mergeDeclarations(
+          swidClass: swidClass, superClass: swidClass.extendedClass);
+
   factory SwidClass.fromClassOrMixinDeclaration({
     @required ClassOrMixinDeclaration classOrMixinDeclaration,
     @required bool isMixin,

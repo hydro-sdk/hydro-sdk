@@ -76,7 +76,8 @@ class TranslationUnitProducer {
                               )
                             : null,
                         ...([
-                          ...swidClass.methods,
+                          ...SwidClass.mergeSuperClasses(swidClass: swidClass)
+                              .methods,
                           ...swidClass.factoryConstructors,
                           ...swidClass.staticMethods,
                         ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
@@ -101,7 +102,8 @@ class TranslationUnitProducer {
                         TsIr.fromTsClassInstanceFieldDeclarations(
                             tsClassInstanceFieldDeclarations:
                                 TsClassInstanceFieldDeclarations(
-                                    swidClass: swidClass)),
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass))),
                         TsIr.fromTsClassConstructorImplementation(
                             tsClassConstructorImplementation:
                                 TsClassConstructorImplementation(
@@ -122,11 +124,13 @@ class TranslationUnitProducer {
                         TsIr.fromTsClassMethodInjectionFieldDeclarations(
                             tsClassMethodInjectionFieldDeclarations:
                                 TsClassMethodInjectionFieldDeclarations(
-                                    swidClass: swidClass)),
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass))),
                         TsIr.fromTsClassMethodDeclarations(
                             tsClassMethodDeclarations:
                                 TsClassMethodDeclarations(
-                                    swidClass: swidClass)),
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass))),
                         TsIr.fromTsClassPostamble(
                             tsClassPostamble:
                                 TsClassPostamble(swidClass: swidClass))
@@ -146,8 +150,9 @@ class TranslationUnitProducer {
                     ir: [
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                       DartIr.fromVMManagedClassDeclaration(
-                          vmManagedClassDeclaration:
-                              VMManagedClassDeclaration(swidClass: swidClass)),
+                          vmManagedClassDeclaration: VMManagedClassDeclaration(
+                              swidClass: SwidClass.mergeSuperClasses(
+                                  swidClass: swidClass))),
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                       !swidClass.isPureAbstract() &&
                               swidClass.isConstructible() &&
@@ -155,7 +160,8 @@ class TranslationUnitProducer {
                           ? DartIr.fromRTManagedClassDeclaration(
                               rtManagedClassDeclaration:
                                   RTManagedClassDeclaration(
-                                      swidClass: swidClass),
+                                      swidClass: SwidClass.mergeSuperClasses(
+                                          swidClass: swidClass)),
                             )
                           : null,
                       DartIr.fromLoadNamepsaceSymbolDeclaration(
@@ -168,6 +174,13 @@ class TranslationUnitProducer {
           ]
             ..removeWhere((x) => x == null))(SwidClass.clone(
           swidClass: swidClass,
+          extendedClass: swidClass.extendedClass != null
+              ? SwidClass.clone(
+                  swidClass: swidClass.extendedClass,
+                  methods: swidClass.extendedClass.methods
+                      .where((x) => methodIsEmitCandidate(swidFunctionType: x))
+                      .toList())
+              : null,
           methods: swidClass.methods
               .where((x) => methodIsEmitCandidate(swidFunctionType: x))
               .toList()));
