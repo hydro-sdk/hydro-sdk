@@ -8,7 +8,6 @@ import 'package:analyzer/dart/ast/ast.dart'
         TypeName;
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
