@@ -31,7 +31,8 @@ void main(List<String> args) async {
         visitor.classes[i].name == "DiagnosticsSerializationDelegate" ||
         visitor.classes[i].name == "DiagnosticPropertiesBuilder" ||
         visitor.classes[i].name == "Diagnosticable" ||
-        visitor.classes[i].name == "DiagnosticableTree") {
+        visitor.classes[i].name == "DiagnosticableTree" ||
+        visitor.classes[i].name == "Key") {
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(

@@ -40,7 +40,9 @@ class _$SwidClassTearOff {
       @required
           SwidDeclarationModifiers swidDeclarationModifiers,
       @required
-          List<SwidClass> mixedInClasses}) {
+          List<SwidClass> mixedInClasses,
+      @required
+          bool isMixin}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -53,6 +55,7 @@ class _$SwidClassTearOff {
       instanceFieldDeclarations: instanceFieldDeclarations,
       swidDeclarationModifiers: swidDeclarationModifiers,
       mixedInClasses: mixedInClasses,
+      isMixin: isMixin,
     );
   }
 
@@ -80,6 +83,7 @@ mixin _$SwidClass {
   Map<String, SwidType> get instanceFieldDeclarations;
   SwidDeclarationModifiers get swidDeclarationModifiers;
   List<SwidClass> get mixedInClasses;
+  bool get isMixin;
 
   Map<String, dynamic> toJson();
   $SwidClassCopyWith<SwidClass> get copyWith;
@@ -100,7 +104,8 @@ abstract class $SwidClassCopyWith<$Res> {
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       Map<String, SwidType> instanceFieldDeclarations,
       SwidDeclarationModifiers swidDeclarationModifiers,
-      List<SwidClass> mixedInClasses});
+      List<SwidClass> mixedInClasses,
+      bool isMixin});
 
   $SwidFunctionTypeCopyWith<$Res> get constructorType;
   $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
@@ -127,6 +132,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     Object instanceFieldDeclarations = freezed,
     Object swidDeclarationModifiers = freezed,
     Object mixedInClasses = freezed,
+    Object isMixin = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
@@ -161,6 +167,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
       mixedInClasses: mixedInClasses == freezed
           ? _value.mixedInClasses
           : mixedInClasses as List<SwidClass>,
+      isMixin: isMixin == freezed ? _value.isMixin : isMixin as bool,
     ));
   }
 
@@ -202,7 +209,8 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
       Map<String, SwidType> instanceFieldDeclarations,
       SwidDeclarationModifiers swidDeclarationModifiers,
-      List<SwidClass> mixedInClasses});
+      List<SwidClass> mixedInClasses,
+      bool isMixin});
 
   @override
   $SwidFunctionTypeCopyWith<$Res> get constructorType;
@@ -232,6 +240,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
     Object instanceFieldDeclarations = freezed,
     Object swidDeclarationModifiers = freezed,
     Object mixedInClasses = freezed,
+    Object isMixin = freezed,
   }) {
     return _then(_$Data(
       name: name == freezed ? _value.name : name as String,
@@ -266,6 +275,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
       mixedInClasses: mixedInClasses == freezed
           ? _value.mixedInClasses
           : mixedInClasses as List<SwidClass>,
+      isMixin: isMixin == freezed ? _value.isMixin : isMixin as bool,
     ));
   }
 }
@@ -285,7 +295,8 @@ class _$_$Data implements _$Data {
       @required this.staticConstFieldDeclarations,
       @required this.instanceFieldDeclarations,
       @required this.swidDeclarationModifiers,
-      @required this.mixedInClasses})
+      @required this.mixedInClasses,
+      @required this.isMixin})
       : assert(name != null),
         assert(nullabilitySuffix != null),
         assert(originalPackagePath != null),
@@ -295,7 +306,8 @@ class _$_$Data implements _$Data {
         assert(staticConstFieldDeclarations != null),
         assert(instanceFieldDeclarations != null),
         assert(swidDeclarationModifiers != null),
-        assert(mixedInClasses != null);
+        assert(mixedInClasses != null),
+        assert(isMixin != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -323,10 +335,12 @@ class _$_$Data implements _$Data {
   final SwidDeclarationModifiers swidDeclarationModifiers;
   @override
   final List<SwidClass> mixedInClasses;
+  @override
+  final bool isMixin;
 
   @override
   String toString() {
-    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, swidDeclarationModifiers: $swidDeclarationModifiers, mixedInClasses: $mixedInClasses)';
+    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, swidDeclarationModifiers: $swidDeclarationModifiers, mixedInClasses: $mixedInClasses, isMixin: $isMixin)';
   }
 
   @override
@@ -370,7 +384,9 @@ class _$_$Data implements _$Data {
                     swidDeclarationModifiers)) &&
             (identical(other.mixedInClasses, mixedInClasses) ||
                 const DeepCollectionEquality()
-                    .equals(other.mixedInClasses, mixedInClasses)));
+                    .equals(other.mixedInClasses, mixedInClasses)) &&
+            (identical(other.isMixin, isMixin) ||
+                const DeepCollectionEquality().equals(other.isMixin, isMixin)));
   }
 
   @override
@@ -386,7 +402,8 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(staticConstFieldDeclarations) ^
       const DeepCollectionEquality().hash(instanceFieldDeclarations) ^
       const DeepCollectionEquality().hash(swidDeclarationModifiers) ^
-      const DeepCollectionEquality().hash(mixedInClasses);
+      const DeepCollectionEquality().hash(mixedInClasses) ^
+      const DeepCollectionEquality().hash(isMixin);
 
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
@@ -422,7 +439,9 @@ abstract class _$Data implements SwidClass {
       @required
           SwidDeclarationModifiers swidDeclarationModifiers,
       @required
-          List<SwidClass> mixedInClasses}) = _$_$Data;
+          List<SwidClass> mixedInClasses,
+      @required
+          bool isMixin}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -449,6 +468,8 @@ abstract class _$Data implements SwidClass {
   SwidDeclarationModifiers get swidDeclarationModifiers;
   @override
   List<SwidClass> get mixedInClasses;
+  @override
+  bool get isMixin;
   @override
   _$$DataCopyWith<_$Data> get copyWith;
 }

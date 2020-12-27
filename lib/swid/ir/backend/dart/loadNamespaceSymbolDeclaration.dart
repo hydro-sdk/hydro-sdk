@@ -7,7 +7,8 @@ import 'package:code_builder/code_builder.dart'
         literalList,
         Method,
         Code,
-        Block;
+        Block,
+        literalNum;
 
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
@@ -50,11 +51,21 @@ class LoadNamespaceSymbolDeclaration {
                 literalList([
                   Code(DartFunctionSelfBindingInvocation(
                           argumentBoxingProcedure: DartBoxingProcedure.unbox,
-                          returnValueBoxingProcedure: DartBoxingProcedure.none,
-                          emitTableBindingPrefix: true,
+                          returnValueBoxingProcedure:
+                              !swidClass.constructorType.isFactory
+                                  ? DartBoxingProcedure.none
+                                  : DartBoxingProcedure.box,
+                          emitTableBindingPrefix:
+                              !swidClass.constructorType.isFactory,
                           swidFunctionType: SwidFunctionType.clone(
                               swidFunctionType: swidClass.constructorType,
-                              name: "RTManaged${swidClass.name}"))
+                              name: !swidClass.constructorType.isFactory
+                                  ? "RTManaged${swidClass.name}"
+                                  : swidClass.name),
+                          returnValueBoxingTableExpression:
+                              swidClass.constructorType.isFactory
+                                  ? refer("args").index(literalNum(0))
+                                  : null)
                       .toDartSource())
                 ]).returned.statement
               ])))

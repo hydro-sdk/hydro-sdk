@@ -15,6 +15,7 @@ void main() {
     var ir = DartVMManagedClassBoxerRegistrant(
         swidClass: SwidClass(
       name: "fooClass",
+      isMixin: false,
       originalPackagePath: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],
@@ -23,6 +24,7 @@ void main() {
       swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
       constructorType: SwidFunctionType(
         name: "",
+        isFactory: false,
         namedDefaults: {},
         namedParameterTypes: {},
         optionalParameterNames: [],

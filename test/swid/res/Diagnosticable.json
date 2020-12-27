@@ -51,7 +51,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "toString",
@@ -125,7 +126,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "toDiagnosticsNode",
@@ -193,7 +195,8 @@
                     "referenceDeclarationKind": "classElement"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         },
         {
             "name": "debugFillProperties",
@@ -251,7 +254,8 @@
                     "referenceDeclarationKind": "voidType"
                 },
                 "runtimeType": "fromSwidInterface"
-            }
+            },
+            "isFactory": false
         }
     ],
     "staticConstFieldDeclarations": [],
@@ -282,5 +286,6 @@
         "hasVisibleForTesting": false,
         "isPublic": true
     },
-    "mixedInClasses": []
+    "mixedInClasses": [],
+    "isMixin": true
 }

@@ -41,6 +41,7 @@ abstract class SwidClass with _$SwidClass {
     @required Map<String, SwidType> instanceFieldDeclarations,
     @required SwidDeclarationModifiers swidDeclarationModifiers,
     @required List<SwidClass> mixedInClasses,
+    @required bool isMixin,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
@@ -59,6 +60,7 @@ abstract class SwidClass with _$SwidClass {
     Map<String, SwidType> instanceFieldDeclarations,
     SwidDeclarationModifiers swidDeclarationModifiers,
     List<SwidClass> mixedInClasses,
+    bool isMixin,
   }) =>
       SwidClass(
         name: name ?? swidClass.name,
@@ -97,16 +99,22 @@ abstract class SwidClass with _$SwidClass {
                     ?.map((x) => SwidClass.clone(swidClass: x))
                     ?.toList() ??
                 []),
+        isMixin: isMixin ?? swidClass.isMixin,
       );
 
-  factory SwidClass.fromClassOrMixinDeclaration(
-      {@required ClassOrMixinDeclaration classOrMixinDeclaration}) {
+  factory SwidClass.fromClassOrMixinDeclaration({
+    @required ClassOrMixinDeclaration classOrMixinDeclaration,
+    @required bool isMixin,
+  }) {
     final List<ConstructorDeclarationImpl> constructors =
         classOrMixinDeclaration.childEntities
             .where((x) => x is ConstructorDeclarationImpl)
             .toList()
             .cast<ConstructorDeclarationImpl>()
             .where((x) => !x.declaredElement.hasProtected)
+            .where((x) => x.declaredElement.name.isNotEmpty
+                ? x.declaredElement.name[0] != "_"
+                : true)
             .toList();
     var constructorDeclarationImpl = constructors
         .firstWhere((x) => x.factoryKeyword == null, orElse: () => null);
@@ -137,6 +145,7 @@ abstract class SwidClass with _$SwidClass {
         .cast<SwidFunctionType>();
     return SwidClass(
         name: classOrMixinDeclaration.name.name,
+        isMixin: isMixin,
         nullabilitySuffix: SwidNullabilitySuffix.none,
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
         originalPackagePath: classOrMixinDeclaration
@@ -144,9 +153,13 @@ abstract class SwidClass with _$SwidClass {
                 ?.toString() ??
             "",
         constructorType: constructorDeclarationImpl != null
-            ? SwidFunctionType.fromFunctionType(
-                swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-                functionType: constructorDeclarationImpl.declaredElement.type)
+            ? SwidFunctionType.clone(
+                swidFunctionType: SwidFunctionType.fromFunctionType(
+                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    functionType:
+                        constructorDeclarationImpl.declaredElement.type),
+                isFactory: constructorDeclarationImpl.factoryKeyword != null,
+              )
             : null,
         factoryConstructors: constructors
             .where((x) =>
@@ -154,10 +167,14 @@ abstract class SwidClass with _$SwidClass {
                 x.name != null &&
                 x.name.name[0] != "_")
             .toList()
-            .map((x) => SwidFunctionType.fromFunctionType(
-                functionType: x.declaredElement.type,
-                name: x.name.name,
-                swidDeclarationModifiers: SwidDeclarationModifiers.empty()))
+            .map((x) => SwidFunctionType.clone(
+                  swidFunctionType: SwidFunctionType.fromFunctionType(
+                      functionType: x.declaredElement.type,
+                      name: x.name.name,
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty()),
+                  isFactory: true,
+                ))
             .toList(),
         methods:
             methods.where((x) => !x.swidDeclarationModifiers.isStatic).toList(),
@@ -249,13 +266,16 @@ abstract class SwidClass with _$SwidClass {
         instanceFieldDeclarations: {},
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
+        isMixin: false,
       );
 }
 
 extension SwidClassMethods on SwidClass {
   bool isPureAbstract() =>
       swidDeclarationModifiers.isAbstract &&
-      methods.every((x) => x.swidDeclarationModifiers.isAbstract);
+      (methods.isNotEmpty
+          ? methods.every((x) => x.swidDeclarationModifiers.isAbstract)
+          : false);
 
   bool isConstructible() => constructorType != null;
 }

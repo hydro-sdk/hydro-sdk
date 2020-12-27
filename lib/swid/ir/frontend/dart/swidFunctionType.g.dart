@@ -45,6 +45,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     returnType: json['returnType'] == null
         ? null
         : SwidType.fromJson(json['returnType'] as Map<String, dynamic>),
+    isFactory: json['isFactory'] as bool,
   );
 }
 
@@ -61,6 +62,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'optionalParameterNames': instance.optionalParameterNames,
       'optionalParameterTypes': instance.optionalParameterTypes,
       'returnType': instance.returnType,
+      'isFactory': instance.isFactory,
     };
 
 T _$enumDecode<T>(

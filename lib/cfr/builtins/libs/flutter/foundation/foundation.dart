@@ -17,7 +17,7 @@ void loadFoundation(
 
   table["foundation"] = foundation;
 
-  loadKey(foundation);
+  loadKey(hydroState: luaState, table: foundation);
   loadChangeNotifier();
   loadTextTreeConfiguration(hydroState: luaState, table: foundation);
   loadDiagnosticsNode(hydroState: luaState, table: foundation);

@@ -12,6 +12,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var functionType = SwidFunctionType(
+      isFactory: false,
       name: "foo",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",

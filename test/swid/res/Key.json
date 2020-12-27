@@ -1,0 +1,97 @@
+{
+    "name": "Key",
+    "nullabilitySuffix": "none",
+    "originalPackagePath": "package:flutter/src/foundation/key.dart",
+    "constructorType": {
+        "name": "",
+        "nullabilitySuffix": "none",
+        "originalPackagePath": "",
+        "swidDeclarationModifiers": {
+            "isAbstract": false,
+            "isGetter": false,
+            "isOperator": false,
+            "isSetter": false,
+            "isStatic": false,
+            "isSynthetic": false,
+            "hasAlwaysThrows": false,
+            "hasDeprecated": false,
+            "hasFactory": false,
+            "hasImplicitReturnType": false,
+            "hasIsTest": false,
+            "hasIsTestGroup": false,
+            "hasJS": false,
+            "hasLiteral": false,
+            "hasMustCallSuper": false,
+            "hasNonVirtual": false,
+            "hasOptionalTypeArgs": false,
+            "hasOverride": false,
+            "hasProtected": false,
+            "hasRequired": false,
+            "hasSealed": false,
+            "hasVisibleForTemplate": false,
+            "hasVisibleForTesting": false,
+            "isPublic": true
+        },
+        "namedParameterTypes": {},
+        "namedDefaults": {},
+        "normalParameterNames": ["value"],
+        "normalParameterTypes": [
+            {
+                "swidInterface": {
+                    "name": "String",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
+                },
+                "runtimeType": "fromSwidInterface"
+            }
+        ],
+        "optionalParameterNames": [],
+        "optionalParameterTypes": [],
+        "returnType": {
+            "swidInterface": {
+                "name": "Key",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "package:flutter/src/foundation/key.dart",
+                "typeArguments": [],
+                "referenceDeclarationKind": "classElement"
+            },
+            "runtimeType": "fromSwidInterface"
+        },
+        "isFactory": true
+    },
+    "factoryConstructors": [],
+    "staticMethods": [],
+    "methods": [],
+    "staticConstFieldDeclarations": [],
+    "instanceFieldDeclarations": {},
+    "swidDeclarationModifiers": {
+        "isAbstract": true,
+        "isGetter": false,
+        "isOperator": false,
+        "isSetter": false,
+        "isStatic": false,
+        "isSynthetic": false,
+        "hasAlwaysThrows": false,
+        "hasDeprecated": false,
+        "hasFactory": false,
+        "hasImplicitReturnType": false,
+        "hasIsTest": false,
+        "hasIsTestGroup": false,
+        "hasJS": false,
+        "hasLiteral": false,
+        "hasMustCallSuper": false,
+        "hasNonVirtual": false,
+        "hasOptionalTypeArgs": false,
+        "hasOverride": false,
+        "hasProtected": false,
+        "hasRequired": false,
+        "hasSealed": false,
+        "hasVisibleForTemplate": false,
+        "hasVisibleForTesting": false,
+        "isPublic": true
+    },
+    "mixedInClasses": [],
+    "isMixin": false
+}

@@ -15,13 +15,19 @@ class DartBoxObjectReference {
   final Expression objectReference;
   final bool boxLists;
   final CodeKind codeKind;
+  Expression tableExpression;
 
   DartBoxObjectReference({
     @required this.type,
     @required this.objectReference,
     @required this.boxLists,
     this.codeKind = CodeKind.statement,
-  });
+    this.tableExpression,
+  }) {
+    if (tableExpression == null) {
+      tableExpression = refer("HydroTable").call([]);
+    }
+  }
 
   Expression _boxObject() => refer("maybeBoxObject").call([], {
         "object": boxLists &&
@@ -36,7 +42,7 @@ class DartBoxObjectReference {
               ).toDartSource()))
             : objectReference,
         "hydroState": refer("hydroState"),
-        "table": refer("HydroTable").call([]),
+        "table": tableExpression,
       }, [
         isList(swidType: SwidType.fromSwidInterface(swidInterface: type))
             ? Reference("List<dynamic>")

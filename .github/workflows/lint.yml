@@ -50,10 +50,10 @@ jobs:
     - name: Get packages for Hydro-SDK Dart
       run: flutter pub get
       working-directory: hydro
-    - name: Sort Dart Imports
+    - name: Flutter Format
       run: flutter format lib test --set-exit-if-changed
       working-directory: hydro
-    - name: Flutter Format
+    - name: Sort Dart Imports
       run: flutter pub run import_sorter:main --no-comments --exit-if-changed
       working-directory: hydro
     - name: Prettier
