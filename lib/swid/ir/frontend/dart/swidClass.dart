@@ -162,10 +162,7 @@ abstract class SwidClass with _$SwidClass {
               )
             : null,
         factoryConstructors: constructors
-            .where((x) =>
-                x.factoryKeyword != null &&
-                x.name != null &&
-                x.name.name[0] != "_")
+            .where((x) => x.name != null && x.name.name[0] != "_")
             .toList()
             .map((x) => SwidFunctionType.clone(
                   swidFunctionType: SwidFunctionType.fromFunctionType(
