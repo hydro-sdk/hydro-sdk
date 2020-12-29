@@ -9,19 +9,28 @@ Limitations:
     - The way that overriden methods are expected to interact with their `super` counterparts is not immediately obvious in all cases. This is explicitly not supported except in the few cases where it is fundamental for Flutter. i.e. `StatefulWidget.dispose` etc.
 - Non-nullable parameters that are only allowed to be non-nullable in the presence of others (non-nullability by assertion)
     - If a parameter is declared non-nullable, it will be emitted as such. There are many cases of this pattern in Flutter which will be patched individually so as not to be surprising for Flutter developers.
-- Class methods that are annotated with `@proctected`
+- Class methods that are annotated with `@protected`
+- Operators
+    - Operators should eventually be emitted as ordinary instance methods on the classes that originally defined them. There is no technical reason for this limitation. Just currently out of scope.
 
 
 Current and WIP results:
-- [x] Every enum in `package:flutter`
 
-### Material
+### `dart:ui`
+- [x] All enums
+- [x] `Offset`
+- [x] `OffsetBase`
+- [x] `Size`
+
+### `package:flutter`
+- [x] All enums
+#### Material
 - [x] `Icons`
-### Cupertino
+#### Cupertino
 - [x] `CupertinoIcons`
-### Widgets
+#### Widgets
 - [x] `IconData`  
-### Foundation
+#### Foundation
 - [x] `TextTreeConfiguration`
 - [x] `DiagnosticsNode`
 - [x] `DiagnosticsSerializationDelegate`
