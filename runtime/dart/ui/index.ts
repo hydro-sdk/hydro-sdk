@@ -13,6 +13,7 @@ export * from "./imageByteFormat";
 export * from "./rect";
 export * from "./size";
 export * from "./paintingStyle";
+export * from "./offsetBase";
 export * from "./textAffinity";
 export * from "./boxWidthStyle";
 export * from "./vertexMode";
