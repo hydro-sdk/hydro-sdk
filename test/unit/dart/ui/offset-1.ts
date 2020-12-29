@@ -29,3 +29,5 @@ function main() {
     first();
     second();
 }
+
+main();
