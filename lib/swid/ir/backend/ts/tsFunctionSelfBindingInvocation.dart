@@ -22,6 +22,9 @@ class TsFunctionSelfBindingInvocation {
               TsFunctionInvocationPositionalParameters(
                   positionalReferences: [
             ...swidFunctionType.normalParameterNames,
+            ...swidFunctionType.positionalDefaultParameters.entries
+                .map((x) => x.key)
+                .toList(),
             (swidFunctionType.namedDefaultParameters.entries.isEmpty &&
                     swidFunctionType.namedParameterTypes.entries.isNotEmpty
                 ? "props"
