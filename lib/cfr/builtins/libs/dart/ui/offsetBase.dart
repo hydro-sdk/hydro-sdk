@@ -100,7 +100,7 @@ void loadOffsetBase(
     {@required HydroState hydroState, @required HydroTable table}) {
   table['offsetBase'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      RTManagedOffsetBase(args[1], args[2],
+      RTManagedOffsetBase(args[1]?.toDouble(), args[2]?.toDouble(),
           table: args[0], hydroState: hydroState)
     ];
   });

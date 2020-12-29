@@ -431,7 +431,8 @@ class RTManagedSize extends Size implements Box<Size> {
 void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['size'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      RTManagedSize(args[1], args[2], table: args[0], hydroState: hydroState)
+      RTManagedSize(args[1]?.toDouble(), args[2]?.toDouble(),
+          table: args[0], hydroState: hydroState)
     ];
   });
   table['sizeCopy'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -446,7 +447,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['sizeSquare'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Size>(
-          object: Size.square(args[1]),
+          object: Size.square(args[1]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -454,7 +455,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['sizeFromWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Size>(
-          object: Size.fromWidth(args[1]),
+          object: Size.fromWidth(args[1]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -462,7 +463,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['sizeFromHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Size>(
-          object: Size.fromHeight(args[1]),
+          object: Size.fromHeight(args[1]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -470,7 +471,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   table['sizeFromRadius'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Size>(
-          object: Size.fromRadius(args[1]),
+          object: Size.fromRadius(args[1]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -483,7 +484,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
                   parentState: hydroState),
               maybeUnBoxAndBuildArgument<Size>(args[2],
                   parentState: hydroState),
-              args[3]),
+              args[3]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];

@@ -36,7 +36,7 @@ class VMManagedOffset extends VMManagedBox<Offset> {
     table['scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.scale(args[1], args[2]),
+            object: vmObject.scale(args[1]?.toDouble(), args[2]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -44,7 +44,8 @@ class VMManagedOffset extends VMManagedBox<Offset> {
     table['translate'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.translate(args[1], args[2]),
+            object:
+                vmObject.translate(args[1]?.toDouble(), args[2]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -100,7 +101,7 @@ class RTManagedOffset extends Offset implements Box<Offset> {
     table['_dart_scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: super.scale(args[1], args[2]),
+            object: super.scale(args[1]?.toDouble(), args[2]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -108,7 +109,7 @@ class RTManagedOffset extends Offset implements Box<Offset> {
     table['_dart_translate'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: super.translate(args[1], args[2]),
+            object: super.translate(args[1]?.toDouble(), args[2]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -203,13 +204,14 @@ class RTManagedOffset extends Offset implements Box<Offset> {
 void loadOffset({@required HydroState hydroState, @required HydroTable table}) {
   table['offset'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      RTManagedOffset(args[1], args[2], table: args[0], hydroState: hydroState)
+      RTManagedOffset(args[1]?.toDouble(), args[2]?.toDouble(),
+          table: args[0], hydroState: hydroState)
     ];
   });
   table['offsetFromDirection'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Offset>(
-          object: Offset.fromDirection(args[1]),
+          object: Offset.fromDirection(args[1]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -222,7 +224,7 @@ void loadOffset({@required HydroState hydroState, @required HydroTable table}) {
                   parentState: hydroState),
               maybeUnBoxAndBuildArgument<Offset>(args[2],
                   parentState: hydroState),
-              args[3]),
+              args[3]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
