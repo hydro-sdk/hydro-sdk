@@ -10,6 +10,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
+import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
 class MethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
@@ -39,8 +40,9 @@ class MethodInjectionImplementation {
       Block.of([Code("return [" + _methodInvocation() + "];")]);
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")
-      .index(literalString(
-          methodInjectionFieldName(swidFunctionType: swidFunctionType)))
+      .index(literalString(methodInjectionFieldName(
+          swidFunctionType:
+              transformAccessorName(swidFunctionType: swidFunctionType))))
       .assign(luaDartBinding(
           code: swidFunctionType.returnType.when<Block>(
         fromSwidInterface: (val) =>
