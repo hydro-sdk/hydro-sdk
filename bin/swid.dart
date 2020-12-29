@@ -34,6 +34,7 @@ void main(List<String> args) async {
         visitor.classes[i].name == "DiagnosticableTree" ||
         visitor.classes[i].name == "Key" ||
         visitor.classes[i].name == "Size" ||
+        visitor.classes[i].name == "Offset" ||
         visitor.classes[i].name == "OffsetBase") {
       await Future.forEach(
           TranslationUnitProducer(
