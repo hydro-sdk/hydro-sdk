@@ -1,4 +1,3 @@
-import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rect.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/color.dart';
@@ -6,6 +5,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/fontWeight.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offset.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offsetBase.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/radius.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/size.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/textPosition.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/textRange.dart';
