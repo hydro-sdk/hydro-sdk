@@ -137,43 +137,47 @@ class RTManagedOffset extends Offset implements Box<Offset> {
   @override
   double get dx {
     Closure closure = table["getDx"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   double get dy {
     Closure closure = table["getDy"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   double get distance {
     Closure closure = table["getDistance"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   double get distanceSquared {
     Closure closure = table["getDistanceSquared"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   double get direction {
     Closure closure = table["getDirection"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   Offset scale(double scaleX, double scaleY) {
     Closure closure = table["scale"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset translate(double translateX, double translateY) {
     Closure closure = table["translate"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override

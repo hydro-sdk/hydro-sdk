@@ -305,19 +305,19 @@ class RTManagedSize extends Size implements Box<Size> {
   @override
   double get width {
     Closure closure = table["getWidth"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   double get height {
     Closure closure = table["getHeight"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   double get aspectRatio {
     Closure closure = table["getAspectRatio"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
@@ -329,67 +329,85 @@ class RTManagedSize extends Size implements Box<Size> {
   @override
   double get shortestSide {
     Closure closure = table["getShortestSide"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   double get longestSide {
     Closure closure = table["getLongestSide"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
   }
 
   @override
   Offset topLeft(Offset origin) {
     Closure closure = table["topLeft"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset topCenter(Offset origin) {
     Closure closure = table["topCenter"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset topRight(Offset origin) {
     Closure closure = table["topRight"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset centerLeft(Offset origin) {
     Closure closure = table["centerLeft"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset center(Offset origin) {
     Closure closure = table["center"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset centerRight(Offset origin) {
     Closure closure = table["centerRight"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset bottomLeft(Offset origin) {
     Closure closure = table["bottomLeft"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset bottomCenter(Offset origin) {
     Closure closure = table["bottomCenter"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   Offset bottomRight(Offset origin) {
     Closure closure = table["bottomRight"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Offset>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
@@ -401,7 +419,9 @@ class RTManagedSize extends Size implements Box<Size> {
   @override
   Size get flipped {
     Closure closure = table["getFlipped"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<Size>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
