@@ -153,8 +153,9 @@ abstract class SwidClass with _$SwidClass {
                 ? x.declaredElement.name[0] != "_"
                 : true)
             .toList();
-    var constructorDeclarationImpl = constructors
-        .firstWhere((x) => x.factoryKeyword == null, orElse: () => null);
+    var constructorDeclarationImpl = constructors.firstWhere(
+        (x) => x.factoryKeyword == null && x.name == null,
+        orElse: () => null);
 
     if (constructorDeclarationImpl == null) {
       constructorDeclarationImpl =
@@ -259,8 +260,7 @@ abstract class SwidClass with _$SwidClass {
                   .firstWhere((x) => x is VariableDeclaration);
               if (declaration.isConst &&
                   declaration.declaredElement.isConst &&
-                  declaration.declaredElement.isStatic &&
-                  declaration.declaredElement.isPublic) {
+                  declaration.declaredElement.isStatic) {
                 return SwidStaticConstFieldDeclaration
                     .fromVariableDeclarationList(
                         variableDeclarationList: x.childEntities
