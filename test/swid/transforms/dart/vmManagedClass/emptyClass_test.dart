@@ -16,6 +16,7 @@ void main() {
         swidClass: SwidClass(
       name: "fooClass",
       isMixin: false,
+      extendedClass: null,
       originalPackagePath: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],
