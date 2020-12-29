@@ -7,4 +7,4 @@ String transformStaticConstFieldDeclaration({
   @required SwidStaticConstFieldDeclaration staticConstFieldDeclaration,
   @required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
-    "public static ${staticConstFieldDeclaration.name} = ${transformLiteralToTs(swidLiteral: staticConstFieldDeclaration.value, scopeResolver: scopeResolver)};";
+    "${staticConstFieldDeclaration.name[0] != "_" ? "public" : "private"} static ${staticConstFieldDeclaration.name} = ${transformLiteralToTs(swidLiteral: staticConstFieldDeclaration.value, scopeResolver: scopeResolver)};";
