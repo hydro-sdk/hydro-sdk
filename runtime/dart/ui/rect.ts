@@ -62,10 +62,10 @@ export class Rect
         height: number;
     }): Rect {
         return Rect.fromLTRB(
-            props.center.dx - props.width / 2,
-            props.center.dy - props.height / 2,
-            props.center.dx + props.width / 2,
-            props.center.dy + props.height / 2
+            props.center.getDx() - props.width / 2,
+            props.center.getDy() - props.height / 2,
+            props.center.getDx() + props.width / 2,
+            props.center.getDy() + props.height / 2
         );
     }
 
