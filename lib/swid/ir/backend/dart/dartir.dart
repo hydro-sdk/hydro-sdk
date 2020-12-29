@@ -43,9 +43,7 @@ abstract class DartIr with _$DartIr {
   factory DartIr.fromDartLinebreak({@required DartLinebreak dartLinebreak}) =
       _$FromDartLinebreak;
   factory DartIr.fromDartUnboxingExpression(
-          {@required
-              DartUnboxingExpression
-                  dartUnboxingExpression}) =
+          {@required DartUnboxingExpression dartUnboxingExpression}) =
       _$FromDartUnboxingExpression;
   factory DartIr.fromDartVMManagedClassBoxerRegistrant(
           {@required
