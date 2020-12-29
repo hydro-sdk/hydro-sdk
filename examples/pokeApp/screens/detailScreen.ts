@@ -42,10 +42,10 @@ export class DetailScreen extends StatelessWidget {
             body: new Stack({
                 children: [
                     new Positioned({
-                        height: MediaQuery.of(context).size.height / 1.5,
-                        width: MediaQuery.of(context).size.width - 20,
+                        height: MediaQuery.of(context).size.getHeight() / 1.5,
+                        width: MediaQuery.of(context).size.getWidth() - 20,
                         left: 10,
-                        top: MediaQuery.of(context).size.height * 0.1,
+                        top: MediaQuery.of(context).size.getHeight() * 0.1,
                         child: new Card({
                             child: new Column({
                                 mainAxisAlignment:

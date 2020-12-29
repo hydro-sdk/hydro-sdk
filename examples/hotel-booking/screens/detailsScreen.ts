@@ -321,7 +321,7 @@ export class DetailsScreen extends StatelessWidget {
                             }),
                         }),
                         new Container({
-                            width: MediaQuery.of(context).size.width / 5,
+                            width: MediaQuery.of(context).size.getWidth() / 5,
                             color: MyColors.lighterBlue,
                             child: new Column({
                                 children: [
