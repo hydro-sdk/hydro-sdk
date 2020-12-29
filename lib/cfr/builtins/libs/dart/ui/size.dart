@@ -170,22 +170,23 @@ class RTManagedSize extends Size implements Box<Size> {
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
-    table['_dart_width'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.width];
     });
-    table['_dart_height'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.height];
     });
-    table['_dart_aspectRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getAspectRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.aspectRatio];
     });
-    table['_dart_isEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isEmpty];
     });
-    table['_dart_shortestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getShortestSide'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.shortestSide];
     });
-    table['_dart_longestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getLongestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.longestSide];
     });
     table['_dart_topLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -278,19 +279,19 @@ class RTManagedSize extends Size implements Box<Size> {
             parentState: hydroState))
       ];
     });
-    table['_dart_flipped'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getFlipped'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.flipped];
     });
-    table['_dart_hashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.hashCode];
     });
     table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.toString()];
     });
-    table['_dart_isInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isInfinite];
     });
-    table['_dart_isFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isFinite];
     });
   }
@@ -303,37 +304,37 @@ class RTManagedSize extends Size implements Box<Size> {
   Size get vmObject => this;
   @override
   double get width {
-    Closure closure = table["width"];
+    Closure closure = table["getWidth"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   double get height {
-    Closure closure = table["height"];
+    Closure closure = table["getHeight"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   double get aspectRatio {
-    Closure closure = table["aspectRatio"];
+    Closure closure = table["getAspectRatio"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool get isEmpty {
-    Closure closure = table["isEmpty"];
+    Closure closure = table["getIsEmpty"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   double get shortestSide {
-    Closure closure = table["shortestSide"];
+    Closure closure = table["getShortestSide"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   double get longestSide {
-    Closure closure = table["longestSide"];
+    Closure closure = table["getLongestSide"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -399,13 +400,13 @@ class RTManagedSize extends Size implements Box<Size> {
 
   @override
   Size get flipped {
-    Closure closure = table["flipped"];
+    Closure closure = table["getFlipped"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   int get hashCode {
-    Closure closure = table["hashCode"];
+    Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -417,13 +418,13 @@ class RTManagedSize extends Size implements Box<Size> {
 
   @override
   bool get isInfinite {
-    Closure closure = table["isInfinite"];
+    Closure closure = table["getIsInfinite"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool get isFinite {
-    Closure closure = table["isFinite"];
+    Closure closure = table["getIsFinite"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }

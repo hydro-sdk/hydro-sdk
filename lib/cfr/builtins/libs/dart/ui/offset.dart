@@ -82,20 +82,20 @@ class RTManagedOffset extends Offset implements Box<Offset> {
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
-    table['_dart_dx'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getDx'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.dx];
     });
-    table['_dart_dy'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getDy'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.dy];
     });
-    table['_dart_distance'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getDistance'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.distance];
     });
-    table['_dart_distanceSquared'] =
+    table['_dart_getDistanceSquared'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.distanceSquared];
     });
-    table['_dart_direction'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getDirection'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.direction];
     });
     table['_dart_scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -114,16 +114,16 @@ class RTManagedOffset extends Offset implements Box<Offset> {
             table: HydroTable())
       ];
     });
-    table['_dart_hashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.hashCode];
     });
     table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.toString()];
     });
-    table['_dart_isInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isInfinite];
     });
-    table['_dart_isFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isFinite];
     });
   }
@@ -136,31 +136,31 @@ class RTManagedOffset extends Offset implements Box<Offset> {
   Offset get vmObject => this;
   @override
   double get dx {
-    Closure closure = table["dx"];
+    Closure closure = table["getDx"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   double get dy {
-    Closure closure = table["dy"];
+    Closure closure = table["getDy"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   double get distance {
-    Closure closure = table["distance"];
+    Closure closure = table["getDistance"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   double get distanceSquared {
-    Closure closure = table["distanceSquared"];
+    Closure closure = table["getDistanceSquared"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   double get direction {
-    Closure closure = table["direction"];
+    Closure closure = table["getDirection"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -178,7 +178,7 @@ class RTManagedOffset extends Offset implements Box<Offset> {
 
   @override
   int get hashCode {
-    Closure closure = table["hashCode"];
+    Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
@@ -190,13 +190,13 @@ class RTManagedOffset extends Offset implements Box<Offset> {
 
   @override
   bool get isInfinite {
-    Closure closure = table["isInfinite"];
+    Closure closure = table["getIsInfinite"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool get isFinite {
-    Closure closure = table["isFinite"];
+    Closure closure = table["getIsFinite"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 }

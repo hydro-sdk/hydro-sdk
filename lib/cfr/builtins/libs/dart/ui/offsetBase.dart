@@ -51,13 +51,13 @@ class RTManagedOffsetBase extends OffsetBase implements Box<OffsetBase> {
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
-    table['_dart_isInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isInfinite];
     });
-    table['_dart_isFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isFinite];
     });
-    table['_dart_hashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.hashCode];
     });
     table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -73,19 +73,19 @@ class RTManagedOffsetBase extends OffsetBase implements Box<OffsetBase> {
   OffsetBase get vmObject => this;
   @override
   bool get isInfinite {
-    Closure closure = table["isInfinite"];
+    Closure closure = table["getIsInfinite"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool get isFinite {
-    Closure closure = table["isFinite"];
+    Closure closure = table["getIsFinite"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   int get hashCode {
-    Closure closure = table["hashCode"];
+    Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
