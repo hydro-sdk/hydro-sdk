@@ -1,9 +1,6 @@
-import { double } from "./../../dart/core/double";
-import { RuntimeBaseClass } from "./../../runtimeBaseClass";
-import { JITAllocatingRTManagedBox } from "./../../syntheticBox";
-import { Type } from "./../core/type";
+import { double } from "./../core/double";
 import { Offset } from "./offset";
-import { IOffsetBase, OffsetBase } from "./offsetBase";
+import { IOffsetBase } from "./offsetBase";
 declare const dart: {
     ui: {
         size: (this: void, size: Size, width: number, height: number) => Size;
@@ -19,7 +16,7 @@ declare const dart: {
         ) => Size | undefined;
     };
 };
-export interface ISize {
+export interface ISize extends IOffsetBase {
     getWidth: () => number;
     getHeight: () => number;
     getAspectRatio: () => number;
@@ -40,7 +37,7 @@ export interface ISize {
     getHashCode: () => number;
     toString: () => string;
 }
-export class Size implements ISize, IOffsetBase {
+export class Size implements ISize {
     public static zero = new Size(0.0, 0.0);
     public static infinite = new Size(double.infinity, double.infinity);
     public constructor(width: number, height: number) {
@@ -109,67 +106,67 @@ export class Size implements ISize, IOffsetBase {
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getIsInfinite: () => boolean = undefined as any;
     private readonly _dart_getIsFinite: () => boolean = undefined as any;
-    public getWidth() {
+    public getWidth(): number {
         return this._dart_getWidth();
     }
-    public getHeight() {
+    public getHeight(): number {
         return this._dart_getHeight();
     }
-    public getAspectRatio() {
+    public getAspectRatio(): number {
         return this._dart_getAspectRatio();
     }
-    public getIsEmpty() {
+    public getIsEmpty(): boolean {
         return this._dart_getIsEmpty();
     }
-    public getShortestSide() {
+    public getShortestSide(): number {
         return this._dart_getShortestSide();
     }
-    public getLongestSide() {
+    public getLongestSide(): number {
         return this._dart_getLongestSide();
     }
-    public topLeft(origin: Offset) {
+    public topLeft(origin: Offset): Offset {
         return this._dart_topLeft(origin);
     }
-    public topCenter(origin: Offset) {
+    public topCenter(origin: Offset): Offset {
         return this._dart_topCenter(origin);
     }
-    public topRight(origin: Offset) {
+    public topRight(origin: Offset): Offset {
         return this._dart_topRight(origin);
     }
-    public centerLeft(origin: Offset) {
+    public centerLeft(origin: Offset): Offset {
         return this._dart_centerLeft(origin);
     }
-    public center(origin: Offset) {
+    public center(origin: Offset): Offset {
         return this._dart_center(origin);
     }
-    public centerRight(origin: Offset) {
+    public centerRight(origin: Offset): Offset {
         return this._dart_centerRight(origin);
     }
-    public bottomLeft(origin: Offset) {
+    public bottomLeft(origin: Offset): Offset {
         return this._dart_bottomLeft(origin);
     }
-    public bottomCenter(origin: Offset) {
+    public bottomCenter(origin: Offset): Offset {
         return this._dart_bottomCenter(origin);
     }
-    public bottomRight(origin: Offset) {
+    public bottomRight(origin: Offset): Offset {
         return this._dart_bottomRight(origin);
     }
-    public contains(offset: Offset) {
+    public contains(offset: Offset): boolean {
         return this._dart_contains(offset);
     }
-    public getFlipped() {
+    public getFlipped(): Size {
         return this._dart_getFlipped();
     }
-    public getHashCode() {
+    public getHashCode(): number {
         return this._dart_getHashCode();
     }
-    public toString() {
+    public toString(): string {
         return this._dart_toString();
     }
-    public getIsInfinite() {
+    public getIsInfinite(): boolean {
         return this._dart_getIsInfinite();
     }
-    public getIsFinite() {
+    public getIsFinite(): boolean {
         return this._dart_getIsFinite();
     }
 }

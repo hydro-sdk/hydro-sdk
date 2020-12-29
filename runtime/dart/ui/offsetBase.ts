@@ -22,16 +22,16 @@ export class OffsetBase implements IOffsetBase {
     private readonly _dart_getIsFinite: () => boolean = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    public getIsInfinite() {
+    public getIsInfinite(): boolean {
         return this._dart_getIsInfinite();
     }
-    public getIsFinite() {
+    public getIsFinite(): boolean {
         return this._dart_getIsFinite();
     }
-    public getHashCode() {
+    public getHashCode(): number {
         return this._dart_getHashCode();
     }
-    public toString() {
+    public toString(): string {
         return this._dart_toString();
     }
 }

@@ -2,6 +2,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/color.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/fontWeight.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offset.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offsetBase.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/radius.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/size.dart';
@@ -22,4 +23,5 @@ void loadUi({@required HydroState luaState, @required HydroTable table}) {
   loadTextPosition(ui);
   loadTextRange(ui);
   loadOffsetBase(hydroState: luaState, table: ui);
+  loadOffset(hydroState: luaState, table: ui);
 }
