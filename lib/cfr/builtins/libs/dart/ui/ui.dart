@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rect.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/color.dart';
@@ -24,4 +25,5 @@ void loadUi({@required HydroState luaState, @required HydroTable table}) {
   loadTextRange(ui);
   loadOffsetBase(hydroState: luaState, table: ui);
   loadOffset(hydroState: luaState, table: ui);
+  loadRect(hydroState: luaState, table: ui);
 }
