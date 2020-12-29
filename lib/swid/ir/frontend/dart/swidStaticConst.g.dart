@@ -54,6 +54,22 @@ Map<String, dynamic> _$_$_$FromSwidIntegerLiteralToJson(
       'swidIntegerLiteral': instance.swidIntegerLiteral,
     };
 
+_$_$FromSwidDoubleLiteral _$_$_$FromSwidDoubleLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidDoubleLiteral(
+    swidDoubleLiteral: json['swidDoubleLiteral'] == null
+        ? null
+        : SwidDoubleLiteral.fromJson(
+            json['swidDoubleLiteral'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidDoubleLiteralToJson(
+        _$_$FromSwidDoubleLiteral instance) =>
+    <String, dynamic>{
+      'swidDoubleLiteral': instance.swidDoubleLiteral,
+    };
+
 _$_$FromSwidStaticConstFunctionInvocation
     _$_$_$FromSwidStaticConstFunctionInvocationFromJson(
         Map<String, dynamic> json) {

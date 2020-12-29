@@ -44,7 +44,8 @@ abstract class SwidStaticConstFunctionInvocation
     ConstructorName constructor = instanceCreationExpression.childEntities
         .firstWhere((x) => x is ConstructorName);
     return SwidStaticConstFunctionInvocation(
-        value: constructor.type.name.name,
+        value: constructor.type.name.name +
+            (constructor.name != null ? ".${constructor.name.name}" : ""),
         normalParameters: (instanceCreationExpression.childEntities
                     ?.firstWhere((x) => x is ArgumentList) as ArgumentList)
                 ?.childEntities
@@ -105,6 +106,6 @@ abstract class SwidStaticConstFunctionInvocation
             })?.toList() ??
             {})
           ..remove(null),
-        isConstructorInvocation: true);
+        isConstructorInvocation: constructor.name == null);
   }
 }

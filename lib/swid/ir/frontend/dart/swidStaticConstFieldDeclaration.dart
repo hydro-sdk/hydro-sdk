@@ -3,13 +3,15 @@ import 'package:analyzer/dart/ast/ast.dart'
         VariableDeclarationList,
         VariableDeclaration,
         InstanceCreationExpression,
-        SimpleStringLiteral;
+        SimpleStringLiteral,
+        DoubleLiteral;
 import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
@@ -39,24 +41,46 @@ abstract class SwidStaticConstFieldDeclaration
     assert(declaration.declaredElement.isConst);
     assert(declaration.declaredElement.isStatic);
     assert(!declaration.declaredElement.isLate);
-    assert(!declaration.declaredElement.isPrivate);
-    assert(declaration.declaredElement.isPublic);
     return SwidStaticConstFieldDeclaration(
         name: declaration.declaredElement.name,
-        value: declaration.childEntities.firstWhere((x) => x is InstanceCreationExpression, orElse: () => null) !=
+        value: declaration.childEntities.firstWhere(
+                  (x) => x is InstanceCreationExpression,
+                  orElse: () => null,
+                ) !=
                 null
             ? SwidStaticConst.fromSwidStaticConstFunctionInvocation(
-                staticConstFunctionInvocation:
-                    SwidStaticConstFunctionInvocation.fromInstanceCreationExpression(
-                        instanceCreationExpression: declaration.childEntities
-                            .firstWhere((x) => x is InstanceCreationExpression,
-                                orElse: () => null)))
-            : declaration.childEntities.firstWhere((x) => x is SimpleStringLiteral, orElse: () => null) !=
+                staticConstFunctionInvocation: SwidStaticConstFunctionInvocation
+                    .fromInstanceCreationExpression(
+                        instanceCreationExpression:
+                            declaration.childEntities.firstWhere(
+                (x) => x is InstanceCreationExpression,
+                orElse: () => null,
+              )))
+            : declaration.childEntities.firstWhere(
+                      (x) => x is SimpleStringLiteral,
+                      orElse: () => null,
+                    ) !=
                     null
                 ? SwidStaticConst.fromSwidStringLiteral(
-                    swidStringLiteral: SwidStringLiteral.fromSimpleStringLiteral(
-                        simpleStringLiteral: declaration.childEntities
-                            .firstWhere((x) => x is SimpleStringLiteral, orElse: () => null)))
-                : null);
+                    swidStringLiteral:
+                        SwidStringLiteral.fromSimpleStringLiteral(
+                            simpleStringLiteral:
+                                declaration.childEntities.firstWhere(
+                    (x) => x is SimpleStringLiteral,
+                    orElse: () => null,
+                  )))
+                : declaration.childEntities.firstWhere(
+                          (x) => x is DoubleLiteral,
+                          orElse: () => null,
+                        ) !=
+                        null
+                    ? SwidStaticConst.fromDoubleLiteral(
+                        swidDoubleLiteral: SwidDoubleLiteral.fromDoubleLiteral(
+                          doubleLiteral: declaration.childEntities.firstWhere(
+                              (x) => x is DoubleLiteral,
+                              orElse: () => null),
+                        ),
+                      )
+                    : null);
   }
 }
