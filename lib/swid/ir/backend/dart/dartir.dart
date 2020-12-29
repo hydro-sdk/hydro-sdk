@@ -8,7 +8,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingParameterExpression.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
@@ -42,11 +42,11 @@ abstract class DartIr with _$DartIr {
       _$FromDartFunctionSelfBindingInvocation;
   factory DartIr.fromDartLinebreak({@required DartLinebreak dartLinebreak}) =
       _$FromDartLinebreak;
-  factory DartIr.fromDartUnboxingParameterExpression(
+  factory DartIr.fromDartUnboxingExpression(
           {@required
-              DartUnboxingParameterExpression
-                  dartUnboxingParameterExpression}) =
-      _$FromDartUnboxingParameterExpression;
+              DartUnboxingExpression
+                  dartUnboxingExpression}) =
+      _$FromDartUnboxingExpression;
   factory DartIr.fromDartVMManagedClassBoxerRegistrant(
           {@required
               DartVMManagedClassBoxerRegistrant
@@ -87,7 +87,7 @@ extension DartIrMethods on DartIr {
         fromDartBoxObjectReference: (val) => val.toDartSource(),
         fromDartFunctionSelfBindingInvocation: (val) => val.toDartSource(),
         fromDartLinebreak: (val) => val.toDartSource(),
-        fromDartUnboxingParameterExpression: (val) => val.toDartSource(),
+        fromDartUnboxingExpression: (val) => val.toDartSource(),
         fromDartVMManagedClassBoxerRegistrant: (val) => val.toDartSource(),
         fromLoadNamepsaceSymbolDeclaration: (val) => val.toDartSource(),
         fromMethodInjectionImplementation: (val) => val.toDartSource(),

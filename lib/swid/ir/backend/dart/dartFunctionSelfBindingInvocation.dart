@@ -14,7 +14,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingParameterExpression.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
@@ -36,7 +36,7 @@ class DartFunctionSelfBindingInvocation {
 
   String toDartSource() => ((Expression expression) => returnValueBoxingProcedure ==
           DartBoxingProcedure.unbox
-      ? DartUnboxingParameterExpression(
+      ? DartUnboxingExpression(
           swidType: swidFunctionType.returnType, expression: expression)
       : returnValueBoxingProcedure == DartBoxingProcedure.box
           ? swidFunctionType.returnType.when(
@@ -76,7 +76,7 @@ class DartFunctionSelfBindingInvocation {
               swidFunctionType.normalParameterNames.isNotEmpty
                   ? swidFunctionType.normalParameterNames
                       .map((x) => ((Expression expression) => argumentBoxingProcedure == DartBoxingProcedure.unbox
-                          ? CodeExpression(Code(DartUnboxingParameterExpression(
+                          ? CodeExpression(Code(DartUnboxingExpression(
                                   swidType: swidFunctionType.normalParameterTypes.elementAt(swidFunctionType.normalParameterNames.indexWhere((e) => e == x)),
                                   expression: expression)
                               .toDartSource()))
@@ -96,7 +96,7 @@ class DartFunctionSelfBindingInvocation {
                         x.key,
                         CodeExpression(Code(
                             argumentBoxingProcedure == DartBoxingProcedure.unbox
-                                ? DartUnboxingParameterExpression(
+                                ? DartUnboxingExpression(
                                         swidType: x.value,
                                         expression: refer("args")
                                             .index(literalNum(swidFunctionType

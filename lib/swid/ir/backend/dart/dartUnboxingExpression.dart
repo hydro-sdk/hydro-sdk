@@ -6,11 +6,11 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 
-class DartUnboxingParameterExpression {
+class DartUnboxingExpression {
   final SwidType swidType;
   final Expression expression;
 
-  DartUnboxingParameterExpression({
+  DartUnboxingExpression({
     @required this.swidType,
     @required this.expression,
   });
