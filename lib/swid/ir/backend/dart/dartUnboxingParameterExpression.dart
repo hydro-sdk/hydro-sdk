@@ -18,7 +18,13 @@ class DartUnboxingParameterExpression {
   String toDartSource() => swidType.when(
         fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
           swidInterface: val,
-          onPrimitive: (_) => expression.accept(DartEmitter()).toString(),
+          onPrimitive: (val) => val.name == "double" || val.name == "double*"
+              ? expression
+                  .nullSafeProperty("toDouble")
+                  .call([])
+                  .accept(DartEmitter())
+                  .toString()
+              : expression.accept(DartEmitter()).toString(),
           onClass: (val) => refer("maybeUnBoxAndBuildArgument")
               .call([
                 expression
