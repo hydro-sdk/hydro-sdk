@@ -18,7 +18,23 @@ const toStringDeepDefaultProps = {
     minLevel: DiagnosticLevel.debug,
     prefixLineOne: "",
 };
-export class DiagnosticableTree implements Diagnosticable {
+export interface IDiagnosticableTree {
+    toStringShallow: (props: {
+        joiner: string;
+        minLevel: DiagnosticLevel;
+    }) => string;
+    toStringDeep: (props: {
+        minLevel: DiagnosticLevel;
+        prefixLineOne: string;
+        prefixOtherLines?: string | undefined;
+    }) => string;
+    toStringShort: () => string;
+    toDiagnosticsNode: (props: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }) => DiagnosticsNode;
+}
+export class DiagnosticableTree implements IDiagnosticableTree {
     public constructor() {
         flutter.foundation.diagnosticableTree(this);
     }
@@ -39,7 +55,7 @@ export class DiagnosticableTree implements Diagnosticable {
     public toStringShallow(props: {
         joiner?: string;
         minLevel?: DiagnosticLevel;
-    }) {
+    }): string {
         return this._dart_toStringShallow({
             ...toStringShallowDefaultProps,
             ...props,
@@ -49,19 +65,19 @@ export class DiagnosticableTree implements Diagnosticable {
         minLevel?: DiagnosticLevel;
         prefixLineOne?: string;
         prefixOtherLines?: string | undefined;
-    }) {
+    }): string {
         return this._dart_toStringDeep({
             ...toStringDeepDefaultProps,
             ...props,
         });
     }
-    public toStringShort() {
+    public toStringShort(): string {
         return this._dart_toStringShort();
     }
     public toDiagnosticsNode(props: {
         name?: string | undefined;
         style?: DiagnosticsTreeStyle | undefined;
-    }) {
+    }): DiagnosticsNode {
         return this._dart_toDiagnosticsNode(props);
     }
 }

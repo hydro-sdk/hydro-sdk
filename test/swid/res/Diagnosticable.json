@@ -287,5 +287,6 @@
         "isPublic": true
     },
     "mixedInClasses": [],
+    "extendedClass": null,
     "isMixin": true
 }

@@ -47,7 +47,36 @@ const messageDefaultProps = {
     level: DiagnosticLevel.info,
     style: DiagnosticsTreeStyle.singleLine,
 };
-export class DiagnosticsNode {
+export interface IDiagnosticsNode {
+    name: string | undefined;
+    showSeparator: boolean;
+    showName: boolean;
+    linePrefix: string | undefined;
+    style: DiagnosticsTreeStyle | undefined;
+    toDescription: (props: {
+        parentConfiguration?: TextTreeConfiguration | undefined;
+    }) => string | undefined;
+    isFiltered: (minLevel: DiagnosticLevel) => boolean;
+    getLevel: () => DiagnosticLevel;
+    getEmptyBodyDescription: () => string | undefined;
+    getValue: () => Object | undefined;
+    getAllowWrap: () => boolean;
+    getAllowNameWrap: () => boolean;
+    getAllowTruncate: () => boolean;
+    getProperties: () => List<DiagnosticsNode>;
+    getChildren: () => List<DiagnosticsNode>;
+    toString: (props: {
+        minLevel: DiagnosticLevel;
+        parentConfiguration?: TextTreeConfiguration | undefined;
+    }) => string;
+    toStringDeep: (props: {
+        minLevel: DiagnosticLevel;
+        parentConfiguration?: TextTreeConfiguration | undefined;
+        prefixLineOne: string;
+        prefixOtherLines?: string | undefined;
+    }) => string;
+}
+export class DiagnosticsNode implements IDiagnosticsNode {
     public readonly name: string | undefined = undefined as any;
     public readonly showSeparator: boolean = undefined as any;
     public readonly showName: boolean = undefined as any;
@@ -119,40 +148,40 @@ export class DiagnosticsNode {
     }) => string = undefined as any;
     public toDescription(props: {
         parentConfiguration?: TextTreeConfiguration | undefined;
-    }) {
+    }): string | undefined {
         return this._dart_toDescription(props);
     }
-    public isFiltered(minLevel: DiagnosticLevel) {
+    public isFiltered(minLevel: DiagnosticLevel): boolean {
         return this._dart_isFiltered(minLevel);
     }
-    public getLevel() {
+    public getLevel(): DiagnosticLevel {
         return this._dart_getLevel();
     }
-    public getEmptyBodyDescription() {
+    public getEmptyBodyDescription(): string | undefined {
         return this._dart_getEmptyBodyDescription();
     }
-    public getValue() {
+    public getValue(): Object | undefined {
         return this._dart_getValue();
     }
-    public getAllowWrap() {
+    public getAllowWrap(): boolean {
         return this._dart_getAllowWrap();
     }
-    public getAllowNameWrap() {
+    public getAllowNameWrap(): boolean {
         return this._dart_getAllowNameWrap();
     }
-    public getAllowTruncate() {
+    public getAllowTruncate(): boolean {
         return this._dart_getAllowTruncate();
     }
-    public getProperties() {
+    public getProperties(): List<DiagnosticsNode> {
         return this._dart_getProperties();
     }
-    public getChildren() {
+    public getChildren(): List<DiagnosticsNode> {
         return this._dart_getChildren();
     }
     public toString(props: {
         minLevel?: DiagnosticLevel;
         parentConfiguration?: TextTreeConfiguration | undefined;
-    }) {
+    }): string {
         return this._dart_toString({
             ...toStringDefaultProps,
             ...props,
@@ -163,7 +192,7 @@ export class DiagnosticsNode {
         parentConfiguration?: TextTreeConfiguration | undefined;
         prefixLineOne?: string;
         prefixOtherLines?: string | undefined;
-    }) {
+    }): string {
         return this._dart_toStringDeep({
             ...toStringDeepDefaultProps,
             ...props,

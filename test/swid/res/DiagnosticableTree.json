@@ -758,8 +758,10 @@
                 "isPublic": true
             },
             "mixedInClasses": [],
+            "extendedClass": null,
             "isMixin": false
         }
     ],
+    "extendedClass": null,
     "isMixin": false
 }

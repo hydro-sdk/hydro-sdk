@@ -1333,5 +1333,6 @@
         "isPublic": true
     },
     "mixedInClasses": [],
+    "extendedClass": null,
     "isMixin": false
 }

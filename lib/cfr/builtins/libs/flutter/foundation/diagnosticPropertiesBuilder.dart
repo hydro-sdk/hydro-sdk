@@ -88,6 +88,17 @@ void loadDiagnosticPropertiesBuilder(
           table: args[0], hydroState: hydroState)
     ];
   });
+  table['diagnosticPropertiesBuilderFromProperties'] =
+      makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<DiagnosticPropertiesBuilder>(
+          object: DiagnosticPropertiesBuilder.fromProperties(
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+                  parentState: hydroState)),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
   registerBoxer<DiagnosticPropertiesBuilder>(boxer: (
       {@required DiagnosticPropertiesBuilder vmObject,
       @required HydroState hydroState,

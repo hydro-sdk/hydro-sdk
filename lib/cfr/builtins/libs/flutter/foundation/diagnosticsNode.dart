@@ -218,10 +218,6 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
                     parentState: hydroState))
       ];
     });
-    table['_dart_textTreeConfiguration'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.textTreeConfiguration];
-    });
     table['_dart_toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         super.toStringDeep(
