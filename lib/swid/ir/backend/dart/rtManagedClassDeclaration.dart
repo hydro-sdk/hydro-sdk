@@ -13,12 +13,14 @@ import 'package:code_builder/code_builder.dart'
         Method,
         MethodType,
         Block,
-        Code;
+        Code,
+        CodeExpression;
 
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingParameterExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -192,8 +194,13 @@ class RTManagedClassDeclaration {
               ..body = Block.of([
                 Code(
                     "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
-                Code(
-                    "return closure.dispatch([table],parentState: hydroState)[0];"),
+                Code("return " +
+                    DartUnboxingParameterExpression(
+                            swidType: x.returnType,
+                            expression: CodeExpression(Code(
+                                "closure.dispatch([table],parentState: hydroState)[0]")))
+                        .toDartSource() +
+                    ";"),
               ])))
             ?.toList() ??
         [])).accept(DartEmitter()).toString());
