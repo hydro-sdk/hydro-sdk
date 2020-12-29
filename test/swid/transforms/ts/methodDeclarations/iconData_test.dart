@@ -14,10 +14,10 @@ void main() {
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(TsClassMethodDeclarations(swidClass: iconDataClass).toTsSource(), """
-public getHashCode() {
+public getHashCode() : number {
     return this._dart_getHashCode();
 }
-public toString() {
+public toString() : string {
     return this._dart_toString();
 }
 """);
