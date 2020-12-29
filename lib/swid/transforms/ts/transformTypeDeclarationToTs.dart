@@ -13,6 +13,7 @@ String transformTypeDeclarationToTs({
   @required SwidType swidType,
   bool emitTrailingReturnType = true,
   bool emitDefaultFormalsAsOptionalNamed = false,
+  bool emitTopLevelInitializersForOptionalPositionals = false,
   TrailingReturnTypeKind topLevelTrailingReturnTypeKind =
       TrailingReturnTypeKind.fatArrow,
   TrailingReturnTypeKind nestedTrailingReturnTypeKind =
@@ -50,6 +51,8 @@ String transformTypeDeclarationToTs({
                 fromSwidDefaultFormalParameter: (val) => val.name,
                 fromSwidFunctionType: (val) => transformFunctionTypeToTs(
                     swidFunctionType: val,
+                    emitInitializersForOptionalPositionals:
+                        emitTopLevelInitializersForOptionalPositionals,
                     emitTrailingReturnType: emitTrailingReturnType,
                     emitDefaultFormalsAsOptionalNamed:
                         emitDefaultFormalsAsOptionalNamed,

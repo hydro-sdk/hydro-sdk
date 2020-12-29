@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldName.dar
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 class TsClassMethodDeclarations {
@@ -14,13 +15,15 @@ class TsClassMethodDeclarations {
 
   String toTsSource() => (swidClass.methods.isNotEmpty ?? false)
       ? [
-            ...tsClassMethodInjectionCandidates(
-                    swidFunctionTypes: swidClass.methods)
+            ...tsClassMethodInjectionCandidates(swidFunctionTypes: swidClass.methods)
                 .map((x) =>
                     "public ${x.name}" +
                     transformTypeDeclarationToTs(
-                        emitTrailingReturnType: false,
+                        emitTrailingReturnType: true,
                         emitDefaultFormalsAsOptionalNamed: true,
+                        emitTopLevelInitializersForOptionalPositionals: true,
+                        topLevelTrailingReturnTypeKind:
+                            TrailingReturnTypeKind.colon,
                         swidType: SwidType.fromSwidFunctionType(
                             swidFunctionType: x)) +
                     " {\n" +

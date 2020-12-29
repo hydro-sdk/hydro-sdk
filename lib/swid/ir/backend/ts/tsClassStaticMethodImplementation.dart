@@ -24,6 +24,7 @@ class TsClassStaticMethodImplementation {
       transformTypeDeclarationToTs(
           emitTrailingReturnType: true,
           emitDefaultFormalsAsOptionalNamed: true,
+          emitTopLevelInitializersForOptionalPositionals: true,
           topLevelTrailingReturnTypeKind: TrailingReturnTypeKind.colon,
           swidType: SwidType.fromSwidFunctionType(
               swidFunctionType: swidFunctionType)) +
