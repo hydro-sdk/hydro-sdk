@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstPrefixedExpression.dart';
@@ -42,4 +43,11 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity
                   .fromInstanceCreationExpression(
                       instanceCreationExpression: val),
             ),
-        onBinaryExpression: null);
+        onBinaryExpression: (val) => SwidStaticConst.fromSwidStaticConstBinaryExpression(
+                swidStaticConstBinaryExpression: SwidStaticConstBinaryExpression(
+              leftOperand: extractStaticConstFromSyntacticEntity(
+                  syntacticEntity: val.leftOperand),
+              operator: val.operator.value(),
+              rightOperand: extractStaticConstFromSyntacticEntity(
+                  syntacticEntity: val.rightOperand),
+            )));
