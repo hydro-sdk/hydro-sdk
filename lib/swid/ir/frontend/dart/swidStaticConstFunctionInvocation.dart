@@ -13,10 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
 part 'swidStaticConstFunctionInvocation.g.dart';
@@ -66,22 +63,8 @@ abstract class SwidStaticConstFunctionInvocation
                     (x.childEntities.firstWhere((x) => x is Label) as Label)
                         .label
                         .name,
-                    argument is SimpleStringLiteral
-                        ? SwidStaticConst.fromSwidStringLiteral(
-                            swidStringLiteral:
-                                SwidStringLiteral(value: argument.value))
-                        : argument is BooleanLiteral
-                            ? SwidStaticConst.fromSwidBooleanLiteral(
-                                swidBooleanLiteral: SwidBooleanLiteral(
-                                    value: argument.value.toString()))
-                            : argument is SimpleIdentifier
-                                ? SwidStaticConst
-                                    .fromSwidStaticConstFieldReference(
-                                        swidStaticConstFieldReference:
-                                            SwidStaticConstFieldReference
-                                                .fromSimpleIdentifier(
-                                                    simpleIdentifier: argument))
-                                : null);
+                    extractStaticConstFromSyntacticEntity(
+                        syntacticEntity: argument));
               }
               return MapEntry(null, null);
             })?.toList() ??

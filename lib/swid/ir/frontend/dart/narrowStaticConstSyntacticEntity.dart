@@ -8,6 +8,7 @@ T narrowStaticConstSyntacticEntity<T>({
   @required T Function(StringLiteral) onStringLiteral,
   @required T Function(SimpleStringLiteral) onSimpleStringLiteral,
   @required T Function(DoubleLiteral) onDoubleLiteral,
+  @required T Function(BooleanLiteral) onBooleanLiteral,
   @required T Function(PrefixedIdentifier) onPrefixedIdentifier,
   @required T Function(SimpleIdentifier) onSimpleIdentifier,
   @required T Function(PrefixExpression) onPrefixExpression,
@@ -22,14 +23,17 @@ T narrowStaticConstSyntacticEntity<T>({
                 ? onStringLiteral(syntacticEntity)
                 : syntacticEntity is DoubleLiteral
                     ? onDoubleLiteral(syntacticEntity)
-                    : syntacticEntity is PrefixedIdentifier
-                        ? onPrefixedIdentifier(syntacticEntity)
-                        : syntacticEntity is SimpleIdentifier
-                            ? onSimpleIdentifier(syntacticEntity)
-                            : syntacticEntity is PrefixExpression
-                                ? onPrefixExpression(syntacticEntity)
-                                : syntacticEntity is IntegerLiteral
-                                    ? onIntegerLiteral(syntacticEntity)
-                                    : syntacticEntity is BinaryExpression
-                                        ? onBinaryExpression(syntacticEntity)
-                                        : null;
+                    : syntacticEntity is BooleanLiteral
+                        ? onBooleanLiteral(syntacticEntity)
+                        : syntacticEntity is PrefixedIdentifier
+                            ? onPrefixedIdentifier(syntacticEntity)
+                            : syntacticEntity is SimpleIdentifier
+                                ? onSimpleIdentifier(syntacticEntity)
+                                : syntacticEntity is PrefixExpression
+                                    ? onPrefixExpression(syntacticEntity)
+                                    : syntacticEntity is IntegerLiteral
+                                        ? onIntegerLiteral(syntacticEntity)
+                                        : syntacticEntity is BinaryExpression
+                                            ? onBinaryExpression(
+                                                syntacticEntity)
+                                            : null;
