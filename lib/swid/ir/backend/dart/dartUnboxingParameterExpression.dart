@@ -42,7 +42,7 @@ class DartUnboxingParameterExpression {
               })
               .accept(DartEmitter())
               .toString(),
-          onVoid: (_) => "void",
+          onVoid: (_) => expression.accept(DartEmitter()).toString(),
         ),
         fromSwidClass: (_) => "",
         fromSwidDefaultFormalParameter: (_) => "",
