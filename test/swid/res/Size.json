@@ -1894,12 +1894,12 @@
                     "value": "Size",
                     "normalParameters": [
                         {
-                            "swidIntegerLiteral": { "value": "0.0" },
-                            "runtimeType": "fromSwidIntegerLiteral"
+                            "swidDoubleLiteral": { "value": "0.0" },
+                            "runtimeType": "fromDoubleLiteral"
                         },
                         {
-                            "swidIntegerLiteral": { "value": "0.0" },
-                            "runtimeType": "fromSwidIntegerLiteral"
+                            "swidDoubleLiteral": { "value": "0.0" },
+                            "runtimeType": "fromDoubleLiteral"
                         }
                     ],
                     "namedParameters": {},

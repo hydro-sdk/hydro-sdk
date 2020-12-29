@@ -2,26 +2,20 @@ import 'package:analyzer/dart/ast/ast.dart'
     show
         ConstructorName,
         InstanceCreationExpression,
-        IntegerLiteral,
-        StringLiteral,
         NamedExpression,
         Label,
         SimpleStringLiteral,
         SimpleIdentifier,
         BooleanLiteral,
-        ArgumentList,
-        PrefixedIdentifier,
-        DoubleLiteral,
-        PrefixExpression;
+        ArgumentList;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidBooleanLiteral.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
@@ -51,42 +45,9 @@ abstract class SwidStaticConstFunctionInvocation
         normalParameters: (instanceCreationExpression.childEntities
                     ?.firstWhere((x) => x is ArgumentList) as ArgumentList)
                 ?.childEntities
-                ?.map((x) {
-              if (x is IntegerLiteral) {
-                return SwidStaticConst.fromSwidIntegerLiteral(
-                    swidIntegerLiteral: SwidIntegerLiteral.fromIntegerLiteral(
-                        integerLiteral: x));
-              } else if (x is StringLiteral) {
-                return SwidStaticConst.fromSwidStringLiteral(
-                    swidStringLiteral: SwidStringLiteral(value: x.stringValue));
-              } else if (x is DoubleLiteral) {
-                return SwidStaticConst.fromSwidIntegerLiteral(
-                    swidIntegerLiteral:
-                        SwidIntegerLiteral(value: "${x.value}"));
-              } else if (x is PrefixedIdentifier) {
-                return SwidStaticConst.fromSwidStaticConstFieldReference(
-                    swidStaticConstFieldReference:
-                        SwidStaticConstFieldReference(name: x.name));
-              } else if (x is SimpleIdentifier) {
-                return SwidStaticConst.fromSwidStaticConstFieldReference(
-                    swidStaticConstFieldReference:
-                        SwidStaticConstFieldReference(name: x.name));
-              } else if (x is PrefixExpression) {
-                if (x.operand is SimpleIdentifier) {
-                  return SwidStaticConst.fromSwidStaticConstPrefixedExpression(
-                      swidStaticConstPrefixedExpression:
-                          SwidStaticConstPrefixedExpression(
-                              prefix: x.operator.lexeme,
-                              expression: SwidStaticConst
-                                  .fromSwidStaticConstFieldReference(
-                                      swidStaticConstFieldReference:
-                                          SwidStaticConstFieldReference(
-                                              name: (x.operand
-                                                      as SimpleIdentifier)
-                                                  .name))));
-                }
-              }
-            })?.toList() ??
+                ?.map((x) =>
+                    extractStaticConstFromSyntacticEntity(syntacticEntity: x))
+                ?.toList() ??
             []
           ..removeWhere((x) => x == null),
         namedParameters: Map.fromEntries((instanceCreationExpression

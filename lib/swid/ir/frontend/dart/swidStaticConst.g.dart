@@ -122,3 +122,22 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstPrefixedExpressionToJson(
       'swidStaticConstPrefixedExpression':
           instance.swidStaticConstPrefixedExpression,
     };
+
+_$_$FromSwidStaticConstBinaryExpression
+    _$_$_$FromSwidStaticConstBinaryExpressionFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstBinaryExpression(
+    swidStaticConstBinaryExpression: json['swidStaticConstBinaryExpression'] ==
+            null
+        ? null
+        : SwidStaticConstBinaryExpression.fromJson(
+            json['swidStaticConstBinaryExpression'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstBinaryExpressionToJson(
+        _$_$FromSwidStaticConstBinaryExpression instance) =>
+    <String, dynamic>{
+      'swidStaticConstBinaryExpression':
+          instance.swidStaticConstBinaryExpression,
+    };
