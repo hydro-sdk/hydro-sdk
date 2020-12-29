@@ -9,7 +9,10 @@ class TsClassPreamble {
 
   String toTsSource() => ([
         "export class ${swidClass.name}",
-        "implements I${swidClass.name}",
+        swidClass.methods.isNotEmpty ||
+                swidClass.instanceFieldDeclarations.isNotEmpty
+            ? "implements I${swidClass.name}"
+            : "",
         "{"
       ]..removeWhere((x) => x == null))
           .join("\n");
