@@ -11,7 +11,8 @@ import 'package:analyzer/dart/ast/ast.dart'
         BooleanLiteral,
         ArgumentList,
         PrefixedIdentifier,
-        DoubleLiteral;
+        DoubleLiteral,
+        PrefixExpression;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
@@ -20,6 +21,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
@@ -65,6 +67,24 @@ abstract class SwidStaticConstFunctionInvocation
                 return SwidStaticConst.fromSwidStaticConstFieldReference(
                     swidStaticConstFieldReference:
                         SwidStaticConstFieldReference(name: x.name));
+              } else if (x is SimpleIdentifier) {
+                return SwidStaticConst.fromSwidStaticConstFieldReference(
+                    swidStaticConstFieldReference:
+                        SwidStaticConstFieldReference(name: x.name));
+              } else if (x is PrefixExpression) {
+                if (x.operand is SimpleIdentifier) {
+                  return SwidStaticConst.fromSwidStaticConstPrefixedExpression(
+                      swidStaticConstPrefixedExpression:
+                          SwidStaticConstPrefixedExpression(
+                              prefix: x.operator.lexeme,
+                              expression: SwidStaticConst
+                                  .fromSwidStaticConstFieldReference(
+                                      swidStaticConstFieldReference:
+                                          SwidStaticConstFieldReference(
+                                              name: (x.operand
+                                                      as SimpleIdentifier)
+                                                  .name))));
+                }
               }
             })?.toList() ??
             []

@@ -102,3 +102,23 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstFieldReferenceToJson(
     <String, dynamic>{
       'swidStaticConstFieldReference': instance.swidStaticConstFieldReference,
     };
+
+_$_$FromSwidStaticConstPrefixedExpression
+    _$_$_$FromSwidStaticConstPrefixedExpressionFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstPrefixedExpression(
+    swidStaticConstPrefixedExpression:
+        json['swidStaticConstPrefixedExpression'] == null
+            ? null
+            : SwidStaticConstPrefixedExpression.fromJson(
+                json['swidStaticConstPrefixedExpression']
+                    as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstPrefixedExpressionToJson(
+        _$_$FromSwidStaticConstPrefixedExpression instance) =>
+    <String, dynamic>{
+      'swidStaticConstPrefixedExpression':
+          instance.swidStaticConstPrefixedExpression,
+    };

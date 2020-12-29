@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformBooleanLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformDoubleLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedExpressionToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
 
 typedef String SwidStaticConstFieldReferenceScopeResolver(
@@ -23,6 +24,10 @@ String transformLiteralToTs(
             transformDoubleLiteralToTs(swidDoubleLiteral: val),
         fromSwidBooleanLiteral: (val) =>
             transformBooleanLiteralToTs(swidBooleanLiteral: val),
+        fromSwidStaticConstPrefixedExpression: (val) =>
+            transformStaticConstPrefixedExpressionToTs(
+                swidStaticConstPrefixedExpression: val,
+                scopeResolver: scopeResolver),
         fromSwidStaticConstFunctionInvocation: (val) =>
             transformStaticConstFunctionInvocation(
               swidStaticConstFunctionInvocation: val,

@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
 
 part 'swidStaticConst.freezed.dart';
@@ -39,6 +40,12 @@ abstract class SwidStaticConst with _$SwidStaticConst {
           {@required
               SwidStaticConstFieldReference swidStaticConstFieldReference}) =
       _$FromSwidStaticConstFieldReference;
+
+  factory SwidStaticConst.fromSwidStaticConstPrefixedExpression(
+          {@required
+              SwidStaticConstPrefixedExpression
+                  swidStaticConstPrefixedExpression}) =
+      _$FromSwidStaticConstPrefixedExpression;
 
   factory SwidStaticConst.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFromJson(json);

@@ -1,0 +1,20 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
+
+part 'swidStaticConstPrefixedExpression.freezed.dart';
+part 'swidStaticConstPrefixedExpression.g.dart';
+
+@freezed
+abstract class SwidStaticConstPrefixedExpression
+    with _$SwidStaticConstPrefixedExpression {
+  factory SwidStaticConstPrefixedExpression({
+    @required String prefix,
+    @required SwidStaticConst expression,
+  }) = _$Data;
+
+  factory SwidStaticConstPrefixedExpression.fromJson(
+          Map<String, dynamic> json) =>
+      _$SwidStaticConstPrefixedExpressionFromJson(json);
+}
