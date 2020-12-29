@@ -166,23 +166,25 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
             maybeUnBoxEnum(values: DiagnosticLevel.values, boxedEnum: args[1]))
       ];
     });
-    table['_dart_level'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getLevel'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.level];
     });
-    table['_dart_emptyBodyDescription'] =
+    table['_dart_getEmptyBodyDescription'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.emptyBodyDescription];
     });
-    table['_dart_value'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getValue'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [value];
     });
-    table['_dart_allowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getAllowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.allowWrap];
     });
-    table['_dart_allowNameWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getAllowNameWrap'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.allowNameWrap];
     });
-    table['_dart_allowTruncate'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getAllowTruncate'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.allowTruncate];
     });
     table['_dart_getProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -253,50 +255,58 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
 
   @override
   DiagnosticLevel get level {
-    Closure closure = table["level"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    Closure closure = table["getLevel"];
+    return maybeUnBoxEnum(
+        values: DiagnosticLevel.values,
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
   }
 
   @override
   String get emptyBodyDescription {
-    Closure closure = table["emptyBodyDescription"];
+    Closure closure = table["getEmptyBodyDescription"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   Object get value {
-    Closure closure = table["value"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    Closure closure = table["getValue"];
+    return maybeUnBoxAndBuildArgument<Object>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   bool get allowWrap {
-    Closure closure = table["allowWrap"];
+    Closure closure = table["getAllowWrap"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool get allowNameWrap {
-    Closure closure = table["allowNameWrap"];
+    Closure closure = table["getAllowNameWrap"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool get allowTruncate {
-    Closure closure = table["allowTruncate"];
+    Closure closure = table["getAllowTruncate"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   List<DiagnosticsNode> getProperties() {
     Closure closure = table["getProperties"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
   List<DiagnosticsNode> getChildren() {
     Closure closure = table["getChildren"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 
   @override
