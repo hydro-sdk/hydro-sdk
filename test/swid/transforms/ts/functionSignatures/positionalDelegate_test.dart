@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 
@@ -64,5 +65,89 @@ void main() {
                   nullabilitySuffix: SwidNullabilitySuffix.question,
                 )))),
         "(foo : () => Widget) => num | undefined");
+
+    expect(
+        //Iterable<T> map<T>(T f(E e))
+        transformFunctionTypeToTs(
+          emitTrailingReturnType: true,
+          trailingReturnTypeKind: TrailingReturnTypeKind.colon,
+          swidFunctionType: SwidFunctionType(
+            name: "map",
+            nullabilitySuffix: SwidNullabilitySuffix.none,
+            originalPackagePath: "dart:core",
+            swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+            namedParameterTypes: {},
+            namedDefaults: {},
+            normalParameterNames: ["f"],
+            normalParameterTypes: [
+              SwidType.fromSwidFunctionType(
+                swidFunctionType: SwidFunctionType(
+                    name: "",
+                    nullabilitySuffix: SwidNullabilitySuffix.none,
+                    originalPackagePath: "",
+                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    namedParameterTypes: {},
+                    namedDefaults: {},
+                    normalParameterNames: ["e"],
+                    normalParameterTypes: [
+                      SwidType.fromSwidInterface(
+                          swidInterface: SwidInterface(
+                              name: "E",
+                              nullabilitySuffix: SwidNullabilitySuffix.none,
+                              originalPackagePath: "dart:core",
+                              typeArguments: [],
+                              referenceDeclarationKind:
+                                  SwidReferenceDeclarationKind
+                                      .typeParameterType)),
+                    ],
+                    optionalParameterNames: [],
+                    optionalParameterTypes: [],
+                    returnType: SwidType.fromSwidInterface(
+                        swidInterface: SwidInterface(
+                      name: "T",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:core",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.typeParameterType,
+                    )),
+                    isFactory: false,
+                    typeFormals: []),
+              ),
+            ],
+            optionalParameterNames: [],
+            optionalParameterTypes: [],
+            returnType: SwidType.fromSwidInterface(
+              swidInterface: SwidInterface(
+                name: "Iterable<T>",
+                nullabilitySuffix: SwidNullabilitySuffix.none,
+                originalPackagePath: "dart:core",
+                typeArguments: [
+                  SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "T",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "dart:core",
+                      typeArguments: [],
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.typeParameterType,
+                    ),
+                  )
+                ],
+                referenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+              ),
+            ),
+            isFactory: false,
+            typeFormals: [
+              SwidTypeFormal(
+                name: "T",
+                swidReferenceDeclarationKind:
+                    SwidReferenceDeclarationKind.typeParameterType,
+              ),
+            ],
+          ),
+        ),
+        "<T>(f : (e: E) => T) : Iterable<T>");
   }, tags: "swid");
 }

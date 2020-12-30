@@ -12,6 +12,8 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 String transformFunctionTypeToTs({
   @required SwidFunctionType swidFunctionType,
   @required TrailingReturnTypeKind trailingReturnTypeKind,
+  TrailingReturnTypeKind nestedTrailingReturnTypeKind =
+      TrailingReturnTypeKind.fatArrow,
   bool emitTrailingReturnType = true,
   bool emitDefaultFormalsAsOptionalNamed = false,
   bool emitInitializersForOptionalPositionals = false,
@@ -63,8 +65,10 @@ String transformFunctionTypeToTs({
 
         res += " : ";
         res += transformFunctionTypeToTs(
-            swidFunctionType: val,
-            trailingReturnTypeKind: trailingReturnTypeKind);
+          swidFunctionType: val,
+          trailingReturnTypeKind: nestedTrailingReturnTypeKind,
+          nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+        );
 
         return null;
       },
