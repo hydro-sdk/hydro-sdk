@@ -17,6 +17,22 @@ Limitations:
 
 Current and WIP results:
 
+### `dart:core`
+- [ ] `Iterable`
+- [ ] `List`
+
+### `dart:typed_data`
+- [ ] `Float64List`
+- [ ] `TypedData`
+- [ ] `ByteBuffer`
+- [ ] `ByteData`
+- [ ] `Float32List`
+- [ ] `Float32x4List`
+- [ ] `Float32x4`
+- [ ] `Int32x4`
+- [ ] `Float64x2`
+- [ ] `Float64x2List`
+
 ### `dart:ui`
 - [x] All enums
 - [x] `Offset`
@@ -26,7 +42,7 @@ Current and WIP results:
 - [x] `AccessibilityFeatures`
 - [x] `CallbackHandle`
 - [x] `RRect`
-- [x] `Path`
+- [ ] `Path`
 - [x] `PathMetric`
 - [x] `Tangent`
 
