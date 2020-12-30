@@ -1,5 +1,4 @@
 import { Offset } from "./offset";
-
 declare const dart: {
     ui: {
         tangent: (

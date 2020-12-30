@@ -1,6 +1,5 @@
 import { Path } from "./path";
 import { Tangent } from "./tangent";
-
 declare const dart: {
     ui: {};
 };
