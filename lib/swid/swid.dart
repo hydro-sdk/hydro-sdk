@@ -29,7 +29,7 @@ Future<SwidVisitor> swid(List<String> args) async {
 
   var driver = Driver.forArgs(args);
   driver.excludedPaths = ["test", "sdk_ext"];
-  driver.forceSkipInstall = true;
+  driver.forceSkipInstall = false;
   driver.showErrors = false;
   driver.resolveUnits = true;
   driver.visitor = SwidVisitor();
