@@ -54,6 +54,11 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         ? null
         : SwidClass.fromJson(json['extendedClass'] as Map<String, dynamic>),
     isMixin: json['isMixin'] as bool,
+    typeFormals: (json['typeFormals'] as List)
+        ?.map((e) => e == null
+            ? null
+            : SwidTypeFormal.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -72,6 +77,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'mixedInClasses': instance.mixedInClasses,
       'extendedClass': instance.extendedClass,
       'isMixin': instance.isMixin,
+      'typeFormals': instance.typeFormals,
     };
 
 T _$enumDecode<T>(

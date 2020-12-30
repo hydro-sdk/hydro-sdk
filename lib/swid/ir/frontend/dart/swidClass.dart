@@ -5,6 +5,7 @@ import 'package:analyzer/dart/ast/ast.dart'
         FieldDeclaration,
         VariableDeclaration,
         VariableDeclarationList,
+        TypeParameterList,
         TypeName;
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
@@ -20,6 +21,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 
 import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
@@ -44,6 +46,7 @@ abstract class SwidClass with _$SwidClass {
     @required List<SwidClass> mixedInClasses,
     @required @nullable SwidClass extendedClass,
     @required bool isMixin,
+    @required List<SwidTypeFormal> typeFormals,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
@@ -64,6 +67,7 @@ abstract class SwidClass with _$SwidClass {
     List<SwidClass> mixedInClasses,
     bool isMixin,
     SwidClass extendedClass,
+    List<SwidTypeFormal> typeFormals,
   }) =>
       SwidClass(
         name: name ?? swidClass.name,
@@ -104,6 +108,7 @@ abstract class SwidClass with _$SwidClass {
                 []),
         isMixin: isMixin ?? swidClass.isMixin,
         extendedClass: extendedClass ?? swidClass.extendedClass,
+        typeFormals: typeFormals ?? List.from(swidClass.typeFormals ?? []),
       );
 
   factory SwidClass.mergeDeclarations(
@@ -300,7 +305,16 @@ abstract class SwidClass with _$SwidClass {
             }
           }).toList()
                 ..removeWhere((x) => x == null),
-        ));
+        ),
+        typeFormals: ((TypeParameterList typeParameterList) => typeParameterList !=
+                null
+            ? typeParameterList.typeParameters
+                .map((x) => SwidTypeFormal.fromTypeParameter(typeParameter: x))
+                .toList()
+            : <SwidTypeFormal>[])(classOrMixinDeclaration.childEntities.firstWhere(
+          (x) => x is TypeParameterList,
+          orElse: () => null,
+        )));
   }
 
   factory SwidClass.fromInterfaceType(
@@ -325,6 +339,7 @@ abstract class SwidClass with _$SwidClass {
         mixedInClasses: [],
         isMixin: false,
         extendedClass: null,
+        typeFormals: [],
       );
 }
 

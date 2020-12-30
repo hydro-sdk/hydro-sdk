@@ -21,6 +21,7 @@ void main() {
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
               isFactory: false,
+              typeFormals: [],
               name: "",
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",
@@ -114,6 +115,7 @@ void main() {
             swidFunctionType: SwidFunctionType(
               isFactory: false,
               name: "",
+              typeFormals: [],
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",
               swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
@@ -206,6 +208,7 @@ void main() {
             swidFunctionType: SwidFunctionType(
               isFactory: false,
               name: "",
+              typeFormals: [],
               nullabilitySuffix: SwidNullabilitySuffix.none,
               originalPackagePath: "",
               swidDeclarationModifiers: SwidDeclarationModifiers.empty(),

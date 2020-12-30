@@ -46,6 +46,11 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
         ? null
         : SwidType.fromJson(json['returnType'] as Map<String, dynamic>),
     isFactory: json['isFactory'] as bool,
+    typeFormals: (json['typeFormals'] as List)
+        ?.map((e) => e == null
+            ? null
+            : SwidTypeFormal.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -63,6 +68,7 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'optionalParameterTypes': instance.optionalParameterTypes,
       'returnType': instance.returnType,
       'isFactory': instance.isFactory,
+      'typeFormals': instance.typeFormals,
     };
 
 T _$enumDecode<T>(

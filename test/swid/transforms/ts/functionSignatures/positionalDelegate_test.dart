@@ -19,6 +19,7 @@ void main() {
             swidFunctionType: SwidFunctionType(
                 isFactory: false,
                 namedDefaults: {},
+                typeFormals: [],
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "",
                 originalPackagePath: "",
@@ -27,6 +28,7 @@ void main() {
                   SwidType.fromSwidFunctionType(
                       swidFunctionType: SwidFunctionType(
                           isFactory: false,
+                          typeFormals: [],
                           namedDefaults: {},
                           swidDeclarationModifiers:
                               SwidDeclarationModifiers.empty(),

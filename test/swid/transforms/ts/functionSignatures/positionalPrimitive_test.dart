@@ -18,6 +18,7 @@ void main() {
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
                 isFactory: false,
+                typeFormals: [],
                 namedDefaults: {},
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "",

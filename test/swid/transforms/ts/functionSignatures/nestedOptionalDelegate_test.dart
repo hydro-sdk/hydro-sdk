@@ -20,6 +20,7 @@ void main() {
                 namedDefaults: {},
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "foo",
+                typeFormals: [],
                 isFactory: false,
                 originalPackagePath: "",
                 normalParameterNames: ["itemCount"],
@@ -39,6 +40,7 @@ void main() {
                   SwidType.fromSwidFunctionType(
                       swidFunctionType: SwidFunctionType(
                           isFactory: false,
+                          typeFormals: [],
                           namedDefaults: {},
                           swidDeclarationModifiers:
                               SwidDeclarationModifiers.empty(),
@@ -51,6 +53,7 @@ void main() {
                             SwidType.fromSwidFunctionType(
                                 swidFunctionType: SwidFunctionType(
                                     isFactory: false,
+                                    typeFormals: [],
                                     namedDefaults: {},
                                     swidDeclarationModifiers:
                                         SwidDeclarationModifiers.empty(),

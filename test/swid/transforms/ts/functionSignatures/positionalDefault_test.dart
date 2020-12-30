@@ -15,6 +15,7 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     var fromDirection = SwidFunctionType(
       name: "fromDirection",
+      typeFormals: [],
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
       swidDeclarationModifiers: SwidDeclarationModifiers.empty(),

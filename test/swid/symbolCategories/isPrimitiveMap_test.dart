@@ -14,6 +14,7 @@ void main() {
     var functionType = SwidFunctionType(
       name: "foo",
       isFactory: false,
+      typeFormals: [],
       nullabilitySuffix: SwidNullabilitySuffix.none,
       originalPackagePath: "",
       swidDeclarationModifiers: SwidDeclarationModifiers.empty(),

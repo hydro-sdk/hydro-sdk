@@ -15,10 +15,12 @@ void main() {
     var ast = SwidClass(
         name: "Path",
         nullabilitySuffix: SwidNullabilitySuffix.none,
+        typeFormals: [],
         originalPackagePath: "dart:ui",
         constructorType: SwidFunctionType(
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
+          typeFormals: [],
           originalPackagePath: "",
           swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {},
@@ -44,6 +46,7 @@ void main() {
         methods: [
           SwidFunctionType(
             name: "fillType=",
+            typeFormals: [],
             nullabilitySuffix: SwidNullabilitySuffix.none,
             originalPackagePath: "dart:ui",
             swidDeclarationModifiers: SwidDeclarationModifiers.clone(
