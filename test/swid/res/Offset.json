@@ -69,7 +69,8 @@
             },
             "runtimeType": "fromSwidInterface"
         },
-        "isFactory": false
+        "isFactory": false,
+        "typeFormals": []
     },
     "factoryConstructors": [
         {
@@ -156,7 +157,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": true
+            "isFactory": true,
+            "typeFormals": []
         }
     ],
     "staticMethods": [
@@ -237,7 +239,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         }
     ],
     "methods": [
@@ -287,7 +290,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "dy",
@@ -335,7 +339,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "distance",
@@ -383,7 +388,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "distanceSquared",
@@ -431,7 +437,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "direction",
@@ -479,7 +486,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "scale",
@@ -548,7 +556,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "translate",
@@ -617,7 +626,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "unary-",
@@ -665,7 +675,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "-",
@@ -724,7 +735,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "+",
@@ -783,7 +795,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "*",
@@ -842,7 +855,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "/",
@@ -901,7 +915,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "~/",
@@ -960,7 +975,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "%",
@@ -1019,7 +1035,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "&",
@@ -1078,7 +1095,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "==",
@@ -1137,7 +1155,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "hashCode",
@@ -1185,7 +1204,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "toString",
@@ -1233,7 +1253,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         }
     ],
     "staticConstFieldDeclarations": [
@@ -1383,7 +1404,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         "factoryConstructors": [],
         "staticMethods": [],
@@ -1434,7 +1456,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             },
             {
                 "name": "isFinite",
@@ -1482,7 +1505,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             },
             {
                 "name": "<",
@@ -1541,7 +1565,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             },
             {
                 "name": "<=",
@@ -1600,7 +1625,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             },
             {
                 "name": ">",
@@ -1659,7 +1685,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             },
             {
                 "name": ">=",
@@ -1718,7 +1745,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             },
             {
                 "name": "==",
@@ -1777,7 +1805,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             },
             {
                 "name": "hashCode",
@@ -1825,7 +1854,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             },
             {
                 "name": "toString",
@@ -1873,7 +1903,8 @@
                     },
                     "runtimeType": "fromSwidInterface"
                 },
-                "isFactory": false
+                "isFactory": false,
+                "typeFormals": []
             }
         ],
         "staticConstFieldDeclarations": [],
@@ -1906,7 +1937,9 @@
         },
         "mixedInClasses": [],
         "extendedClass": null,
-        "isMixin": false
+        "isMixin": false,
+        "typeFormals": []
     },
-    "isMixin": false
+    "isMixin": false,
+    "typeFormals": []
 }
