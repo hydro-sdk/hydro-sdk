@@ -6,6 +6,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/color.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/fontWeight.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offset.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offsetBase.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rRect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/radius.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/size.dart';
@@ -30,4 +31,5 @@ void loadUi({@required HydroState luaState, @required HydroTable table}) {
   loadRect(hydroState: luaState, table: ui);
   loadAccessibilityFeatures(hydroState: luaState, table: ui);
   loadCallbackHandle(hydroState: luaState, table: ui);
+  loadRRect(hydroState: luaState, table: ui);
 }
