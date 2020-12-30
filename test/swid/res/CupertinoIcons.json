@@ -39727,5 +39727,6 @@
     },
     "mixedInClasses": [],
     "extendedClass": null,
-    "isMixin": false
+    "isMixin": false,
+    "typeFormals": []
 }

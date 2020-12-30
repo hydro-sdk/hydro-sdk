@@ -156,7 +156,8 @@
             },
             "runtimeType": "fromSwidInterface"
         },
-        "isFactory": false
+        "isFactory": false,
+        "typeFormals": []
     },
     "factoryConstructors": [],
     "staticMethods": [],
@@ -239,7 +240,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         }
     ],
     "staticConstFieldDeclarations": [],
@@ -272,5 +274,6 @@
     },
     "mixedInClasses": [],
     "extendedClass": null,
-    "isMixin": false
+    "isMixin": false,
+    "typeFormals": []
 }

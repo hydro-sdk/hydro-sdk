@@ -69,7 +69,8 @@
             },
             "runtimeType": "fromSwidInterface"
         },
-        "isFactory": true
+        "isFactory": true,
+        "typeFormals": []
     },
     "factoryConstructors": [],
     "staticMethods": [],
@@ -152,7 +153,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "filterChildren",
@@ -243,7 +245,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "filterProperties",
@@ -334,7 +337,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "truncateNodesList",
@@ -425,7 +429,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "delegateForNode",
@@ -484,7 +489,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "subtreeDepth",
@@ -532,7 +538,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "includeProperties",
@@ -580,7 +587,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "expandPropertyValues",
@@ -628,7 +636,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "copyWith",
@@ -697,7 +706,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         }
     ],
     "staticConstFieldDeclarations": [],
@@ -730,5 +740,6 @@
     },
     "mixedInClasses": [],
     "extendedClass": null,
-    "isMixin": false
+    "isMixin": false,
+    "typeFormals": []
 }
