@@ -27,6 +27,8 @@ Current and WIP results:
 - [x] `CallbackHandle`
 - [x] `RRect`
 - [x] `Path`
+- [x] `PathMetric`
+- [x] `Tangent`
 
 ### `package:flutter`
 - [x] All enums

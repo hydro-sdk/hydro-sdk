@@ -6,10 +6,13 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/color.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/fontWeight.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offset.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offsetBase.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/path.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/pathMetric.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rRect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/radius.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/size.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/tangent.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/textPosition.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/textRange.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -32,4 +35,7 @@ void loadUi({@required HydroState luaState, @required HydroTable table}) {
   loadAccessibilityFeatures(hydroState: luaState, table: ui);
   loadCallbackHandle(hydroState: luaState, table: ui);
   loadRRect(hydroState: luaState, table: ui);
+  loadPath(hydroState: luaState, table: ui);
+  loadPathMetric(hydroState: luaState, table: ui);
+  loadTangent(hydroState: luaState, table: ui);
 }
