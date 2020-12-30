@@ -13,6 +13,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/unsatisfiedTypeParameters.dart';
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
+    //Iterable<T> map<T>(T f(E e))
     var map = SwidFunctionType(
       name: "map",
       nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -128,6 +129,7 @@ void main() {
               SwidReferenceDeclarationKind.typeParameterType),
     ]);
 
+    //factory Iterable<E> Iterable.empty()
     var empty = SwidFunctionType(
         name: "empty",
         nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -177,6 +179,7 @@ void main() {
               SwidReferenceDeclarationKind.typeParameterType)
     ]);
 
+    //Iterable<E>  Iterable()
     var constructor = SwidFunctionType(
       name: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -221,7 +224,11 @@ void main() {
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType)
     ]);
-
+    /*
+    class Iterable<E> {
+     Iterable<E> Iterable();
+    }
+  */
     var iterable = SwidClass(
         name: "Iterable",
         nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -265,7 +272,13 @@ void main() {
                 SwidReferenceDeclarationKind.typeParameterType,
           )
         ]);
+    /*
+    class Iterable<E> {
+     Iterable<E> Iterable();
 
+     Iterable<T> map<T>(T f(E e))
+    }
+  */
     var iterableWithMapMethod = SwidClass.clone(
       swidClass: iterable,
       methods: [
@@ -301,6 +314,15 @@ void main() {
           )
         ]);
 
+    /*
+    class Iterable<E> {
+     Iterable<E> Iterable();
+
+     Iterable<T> map<T>(T f(E e))
+
+     factory Iterable<E> Iterable.empty()
+    }
+  */
     var iterableWithMapAndEmpty =
         SwidClass.clone(swidClass: iterable, methods: [
       ...iterable.methods,
