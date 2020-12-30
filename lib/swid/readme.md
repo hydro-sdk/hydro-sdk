@@ -20,6 +20,7 @@ Current and WIP results:
 ### `dart:core`
 - [ ] `Iterable`
 - [ ] `List`
+- [ ] `Set`
 
 ### `dart:typed_data`
 - [ ] `Float64List`
