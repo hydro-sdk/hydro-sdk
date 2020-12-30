@@ -37,10 +37,12 @@ void main(List<String> args) async {
         visitor.classes[i].name == "Offset" ||
         visitor.classes[i].name == "OffsetBase" ||
         visitor.classes[i].name == "Rect" ||
-        visitor.classes[i].name == "AccessibilityFeatures"||
+        visitor.classes[i].name == "AccessibilityFeatures" ||
         visitor.classes[i].name == "CallbackHandle" ||
-        visitor.classes[i].name == "RRect" 
-        ) {
+        visitor.classes[i].name == "RRect" ||
+        visitor.classes[i].name == "Path" ||
+        visitor.classes[i].name == "PathMetric" ||
+        visitor.classes[i].name == "Tangent") {
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(
