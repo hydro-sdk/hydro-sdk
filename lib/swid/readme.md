@@ -22,6 +22,11 @@ Current and WIP results:
 - [x] `Offset`
 - [x] `OffsetBase`
 - [x] `Size`
+- [x] `Rect`
+- [x] `AccessibilityFeatures`
+- [x] `CallbackHandle`
+- [x] `RRect`
+- [x] `Path`
 
 ### `package:flutter`
 - [x] All enums
