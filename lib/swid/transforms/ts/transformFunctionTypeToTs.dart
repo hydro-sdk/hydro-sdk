@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 String transformFunctionTypeToTs({
   @required SwidFunctionType swidFunctionType,
@@ -15,7 +16,9 @@ String transformFunctionTypeToTs({
   bool emitDefaultFormalsAsOptionalNamed = false,
   bool emitInitializersForOptionalPositionals = false,
 }) {
-  var res = "(";
+  var res =
+      transformTypeFormalsToTs(swidTypeFormals: swidFunctionType.typeFormals) +
+          "(";
 
   Map<String, SwidType> normalTypes = {};
   for (var i = 0; i != swidFunctionType.normalParameterNames.length; ++i) {
