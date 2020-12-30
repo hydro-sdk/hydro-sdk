@@ -3,17 +3,43 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
-SwidFunctionType transformAccessorName(
-    {@required SwidFunctionType swidFunctionType}) {
+SwidFunctionType transformAccessorName({
+  @required SwidFunctionType swidFunctionType,
+  bool addPrefixes = true,
+  bool removeSuffixes = true,
+}) {
   if (swidFunctionType.swidDeclarationModifiers?.isSetter ?? false) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
-        name:
-            "set${transformToPascalCase(str: swidFunctionType.name.replaceAll("=", ""))}");
+        name: ([
+          addPrefixes
+              ? ([
+                  "set",
+                  transformToPascalCase(
+                    str: removeSuffixes
+                        ? swidFunctionType.name.replaceAll("=", "")
+                        : swidFunctionType.name,
+                  )
+                ]).join()
+              : removeSuffixes
+                  ? swidFunctionType.name.replaceAll("=", "")
+                  : swidFunctionType.name,
+        ]..removeWhere((x) => x == null))
+            .join());
   } else if (swidFunctionType.swidDeclarationModifiers?.isGetter ?? false) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
-        name: "get${transformToPascalCase(str: swidFunctionType.name)}");
+        name: ([
+          addPrefixes
+              ? ([
+                  "get",
+                  transformToPascalCase(
+                    str: swidFunctionType.name,
+                  )
+                ]).join()
+              : swidFunctionType.name
+        ]..removeWhere((x) => x == null))
+            .join());
   }
 
   return swidFunctionType;

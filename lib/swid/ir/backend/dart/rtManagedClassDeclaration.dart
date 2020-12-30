@@ -161,6 +161,11 @@ class RTManagedClassDeclaration {
     ..methods.addAll(swidClass.methods
             .where((x) => x.name != "==")
             .where((x) => !x.swidDeclarationModifiers.hasProtected)
+            .map((x) => transformAccessorName(
+                  swidFunctionType: x,
+                  removeSuffixes: true,
+                  addPrefixes: false,
+                ))
             .map((x) => Method((k) => k
               ..annotations.add(refer("override"))
               ..type = x.swidDeclarationModifiers.isGetter
@@ -190,7 +195,12 @@ class RTManagedClassDeclaration {
                     .toList()
               ])
               ..name = x.name
-              ..returns = refer(x.returnType.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
+              ..returns = refer(x.returnType.when(
+                fromSwidInterface: (val) => val.name,
+                fromSwidClass: (val) => val.name,
+                fromSwidDefaultFormalParameter: (val) => val.name,
+                fromSwidFunctionType: (val) => val.name,
+              ))
               ..body = Block.of([
                 Code(
                     "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
