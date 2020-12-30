@@ -12,6 +12,7 @@ Limitations:
 - Class methods that are annotated with `@protected`
 - Operators
     - Operators should eventually be emitted as ordinary instance methods on the classes that originally defined them. There is no technical reason for this limitation. Just currently out of scope.
+- Static const fields that refer to private static const constructors or functions
 
 
 Current and WIP results:
