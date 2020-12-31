@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/dart/hasUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/propagateUnsatisfiedTypeParameters.dart';
-
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -363,7 +363,7 @@ void main() {
         ).length,
         0);
 
-      /*
+    /*
       We should be able to copy the unsatisfied type parameters down from the enclosing class to
       the factory constructors that require them.
       class Iterable<E> {
