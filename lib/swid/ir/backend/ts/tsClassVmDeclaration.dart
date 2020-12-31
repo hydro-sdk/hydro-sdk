@@ -28,21 +28,42 @@ class TsClassVmDeclaration {
                   tsVmDeclaration.name
           ? TsVmDeclaration.clone(tsVmDeclaration: tsVmDeclaration, methods: [
               SwidFunctionType.MakeReceiverVoid(
-                  swidFunctionType: SwidFunctionType.InsertLeadingPositionalParameter(
-                      typeName: transformToCamelCase(str: swidClass.name),
-                      swidType: SwidType.fromSwidInterface(
-                          swidInterface: SwidInterface(
-                              //todo classes should eventually support type arguments
-                              //todo should eventually be able to produce an interface from a class
-                              typeArguments: [],
-                              name: swidClass.name,
-                              referenceDeclarationKind:
-                                  SwidReferenceDeclarationKind.classElement,
-                              nullabilitySuffix: SwidNullabilitySuffix.star,
-                              originalPackagePath: "")),
-                      swidFunctionType: SwidFunctionType.clone(
-                          swidFunctionType: swidClass.constructorType,
-                          name: transformToCamelCase(str: swidClass.name)))),
+                  swidFunctionType:
+                      SwidFunctionType.InsertLeadingPositionalParameter(
+                          typeName: transformToCamelCase(str: swidClass.name),
+                          swidType: SwidType.fromSwidInterface(
+                              swidInterface: SwidInterface(
+                                  typeArguments: swidClass.typeFormals
+                                      .map((x) => SwidType.fromSwidInterface(
+                                              swidInterface: SwidInterface(
+                                            name: x.name,
+                                            nullabilitySuffix:
+                                                SwidNullabilitySuffix.none,
+                                            originalPackagePath: "",
+                                            referenceDeclarationKind:
+                                                SwidReferenceDeclarationKind
+                                                    .typeParameterType,
+                                            typeArguments: [],
+                                          )))
+                                      .toList(),
+                                  name: swidClass.name +
+                                      (swidClass.typeFormals.isNotEmpty
+                                          ? "<" +
+                                              swidClass.typeFormals
+                                                  .map((x) => x.name)
+                                                  .toList()
+                                                  .join(",") +
+                                              ">"
+                                          : ""),
+                                  referenceDeclarationKind:
+                                      SwidReferenceDeclarationKind.classElement,
+                                  nullabilitySuffix: SwidNullabilitySuffix.star,
+                                  originalPackagePath: "")),
+                          swidFunctionType: SwidFunctionType.clone(
+                              swidFunctionType: swidClass.constructorType,
+                              typeFormals: swidClass.typeFormals,
+                              name:
+                                  transformToCamelCase(str: swidClass.name)))),
               ...tsVmDeclaration.methods
             ])
           : tsVmDeclaration;
