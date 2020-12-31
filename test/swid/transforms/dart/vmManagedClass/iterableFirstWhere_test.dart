@@ -189,12 +189,10 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
       Closure test = args[1];
       Closure orElse = args[2][\'orElse\'];
       return [
-        maybeBoxObject<Iterable>(
-            object: vmObject.firstWhere((element) => test.dispatch([args[0], element])[0]\n
-              orElse: orElse.dispatch([args[0]])
-            ),
-            hydroState: hydroState,
-            table: HydroTable())
+        vmObject.firstWhere((element) => test.dispatch([args[0], element])[0],
+            orElse: () => orElse.dispatch([
+                  args[0],
+                ])[0])
       ];
     });
   }

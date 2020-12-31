@@ -61,6 +61,35 @@ class VMManagedClassMethodInjectionImplementation {
               ),
             )
             .toList(),
+        ...swidFunctionType.namedParameterTypes.entries
+            .map(
+              (x) => (({
+                String parameterName,
+                SwidType parameterType,
+              }) =>
+                  parameterType.when(
+                    fromSwidInterface: (_) => "",
+                    fromSwidClass: (_) => "",
+                    fromSwidDefaultFormalParameter: (_) => "",
+                    fromSwidFunctionType: (val) => ([
+                      "Closure ",
+                      parameterName,
+                      "=",
+                      refer("args")
+                          .index(literalNum(
+                              swidFunctionType.normalParameterNames.length + 1))
+                          .index(literalString(parameterName))
+                          .statement
+                          .accept(DartEmitter())
+                          .toString(),
+                    ]..removeWhere((x) => x == null))
+                        .join(""),
+                  ))(
+                parameterName: x.key,
+                parameterType: x.value,
+              ),
+            )
+            .toList()
       ]..removeWhere((x) => x == null))
           .join("\n");
 

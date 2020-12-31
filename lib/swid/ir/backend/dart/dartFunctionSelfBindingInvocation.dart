@@ -110,6 +110,7 @@ class DartFunctionSelfBindingInvocation {
                             argumentBoxingProcedure == DartBoxingProcedure.unbox
                                 ? DartUnboxingExpression(
                                         swidType: x.value,
+                                        identifierName: x.key,
                                         expression: refer("args")
                                             .index(literalNum(swidFunctionType
                                                     .normalParameterNames
