@@ -58,6 +58,7 @@ class DartBoxList {
                                 refer("x").accept(DartEmitter()).toString())
                         .toDartSource(),
                     onVoid: (_) => null,
+                    onTypeParameter: (_) => null,
                   ),
                 )
               ])).closure.expression
