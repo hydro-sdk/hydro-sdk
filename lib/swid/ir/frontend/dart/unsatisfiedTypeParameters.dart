@@ -4,15 +4,15 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dar
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 
-enum SwidClassTypeFormalPropogationKind {
-  kPropagateTypeFormalsToStaticMembers,
-  kNoPropagateTypeFormalsToStaticMembers,
+enum SwidClassTypeFormalClosureKind {
+  kCloseOverTypeFormalsInStaticMembers,
+  kNoCloseOverTypeFormalsInStaticMembers,
 }
 
 List<SwidTypeFormal> unsatisfiedTypeParameters({
   @required SwidType swidType,
-  SwidClassTypeFormalPropogationKind classTypeFormalPropogationKind =
-      SwidClassTypeFormalPropogationKind.kNoPropagateTypeFormalsToStaticMembers,
+  SwidClassTypeFormalClosureKind classTypeFormalClosureKind =
+      SwidClassTypeFormalClosureKind.kNoCloseOverTypeFormalsInStaticMembers,
   List<SwidTypeFormal> ancestorTypeFormals = const [],
 }) =>
     ([
@@ -91,9 +91,9 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                           SwidType.fromSwidFunctionType(swidFunctionType: x),
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
-                        ...(classTypeFormalPropogationKind ==
-                                SwidClassTypeFormalPropogationKind
-                                    .kPropagateTypeFormalsToStaticMembers
+                        ...(classTypeFormalClosureKind ==
+                                SwidClassTypeFormalClosureKind
+                                    .kCloseOverTypeFormalsInStaticMembers
                             ? val.typeFormals
                             : []),
                       ]))
@@ -108,9 +108,9 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                           SwidType.fromSwidFunctionType(swidFunctionType: x),
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
-                        ...(classTypeFormalPropogationKind ==
-                                SwidClassTypeFormalPropogationKind
-                                    .kPropagateTypeFormalsToStaticMembers
+                        ...(classTypeFormalClosureKind ==
+                                SwidClassTypeFormalClosureKind
+                                    .kCloseOverTypeFormalsInStaticMembers
                             ? val.typeFormals
                             : []),
                       ]))

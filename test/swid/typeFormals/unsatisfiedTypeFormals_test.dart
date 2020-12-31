@@ -356,8 +356,8 @@ void main() {
     expect(
         unsatisfiedTypeParameters(
           swidType: SwidType.fromSwidClass(swidClass: iterableWithMapAndEmpty),
-          classTypeFormalPropogationKind: SwidClassTypeFormalPropogationKind
-              .kPropagateTypeFormalsToStaticMembers,
+          classTypeFormalClosureKind: SwidClassTypeFormalClosureKind
+              .kCloseOverTypeFormalsInStaticMembers,
         ).length,
         0);
   }, tags: "swid");
