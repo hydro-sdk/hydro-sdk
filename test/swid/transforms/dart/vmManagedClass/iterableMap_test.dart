@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -150,8 +151,18 @@ void main() {
                 SwidReferenceDeclarationKind.typeParameterType,
           )
         ]);
-    expect(VMManagedClassDeclaration(swidClass: iterable).toDartSource(), 
-"""
+    expect(
+        VMManagedClassDeclaration(
+          swidClass: castTypeParametersToDynamic(
+                  swidType: SwidType.fromSwidClass(swidClass: iterable))
+              .when(
+            fromSwidInterface: (_) => null,
+            fromSwidClass: (val) => val,
+            fromSwidDefaultFormalParameter: (_) => null,
+            fromSwidFunctionType: (_) => null,
+          ),
+        ).toDartSource(),
+        """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
       {@required this.table,
@@ -165,7 +176,7 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
     table[\'map\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure f = args[1];
       return [
-        maybeBoxObject<Iterable<dynamic>>(
+        maybeBoxObject<Iterable>(
             object: vmObject.map((e) => f.dispatch([args[0], e])[0]),
             hydroState: hydroState,
             table: HydroTable())

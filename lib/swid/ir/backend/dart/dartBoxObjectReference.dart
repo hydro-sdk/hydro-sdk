@@ -1,5 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, Reference, Expression, CodeExpression, Code;
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 
 import 'package:meta/meta.dart';
 
@@ -46,7 +47,7 @@ class DartBoxObjectReference {
       }, [
         isList(swidType: SwidType.fromSwidInterface(swidInterface: type))
             ? Reference("List<dynamic>")
-            : Reference(type.name)
+            : Reference(removeTypeArguments(str: type.name))
       ]);
 
   String toDartSource() =>

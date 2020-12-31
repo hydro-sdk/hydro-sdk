@@ -34,7 +34,7 @@ class VMManagedClassDeclaration {
           ..symbol = swidClass.name +
               (swidClass.typeFormals.isNotEmpty
                   ? "<" +
-                      swidClass.typeFormals.map((x) => "dynamic").join(",") +
+                      swidClass.typeFormals.map((x) => x.name).join(",") +
                       ">"
                   : "")),
       ]))
