@@ -1,5 +1,5 @@
 import 'package:code_builder/code_builder.dart'
-    show DartEmitter, refer, literalString, Block, Code;
+    show DartEmitter, refer, literalString, Block, Code, literalNum;
 
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation
 import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 
 class VMManagedClassMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
@@ -26,8 +27,45 @@ class VMManagedClassMethodInjectionImplementation {
           emitTableBindingPrefix: false)
       .toDartSource();
 
-  Block _nonVoidBody() =>
-      Block.of([Code("return [" + _methodInvocation() + "];")]);
+  String _unpackClosures() => ([
+        ...swidFunctionType.normalParameterNames
+            .map(
+              (x) => (({
+                String parameterName,
+                SwidType parameterType,
+              }) =>
+                  parameterType.when(
+                    fromSwidInterface: (_) => "",
+                    fromSwidClass: (_) => "",
+                    fromSwidDefaultFormalParameter: (_) => "",
+                    fromSwidFunctionType: (val) => ([
+                      "Closure ",
+                      parameterName,
+                      "=",
+                      refer("args")
+                          .index(literalNum(swidFunctionType
+                                  .normalParameterNames
+                                  .indexWhere((e) => e == x) +
+                              1))
+                          .statement
+                          .accept(DartEmitter())
+                          .toString(),
+                    ]..removeWhere((x) => x == null))
+                        .join(""),
+                  ))(
+                parameterName: x,
+                parameterType: swidFunctionType.normalParameterTypes.elementAt(
+                  swidFunctionType.normalParameterNames
+                      .indexWhere((e) => e == x),
+                ),
+              ),
+            )
+            .toList(),
+      ]..removeWhere((x) => x == null))
+          .join("\n");
+
+  Block _nonVoidBody() => Block.of(
+      [Code("${_unpackClosures()}  return [" + _methodInvocation() + "];")]);
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")
       .index(literalString(tableKey))
@@ -39,12 +77,18 @@ class VMManagedClassMethodInjectionImplementation {
           onPrimitive: (_) => _nonVoidBody(),
           onClass: (_) => _nonVoidBody(),
           onEnum: (_) => _nonVoidBody(),
-          onVoid: (_) =>
-              Block.of([Code(_methodInvocation() + ";" + "\n" + "return [];")]),
+          onTypeParameter: (_) => _nonVoidBody(),
+          onVoid: (_) => Block.of([
+            Code(_unpackClosures() +
+                _methodInvocation() +
+                ";" +
+                "\n" +
+                "return [];")
+          ]),
         ),
         fromSwidClass: (_) => null,
         fromSwidDefaultFormalParameter: (_) => null,
-        fromSwidFunctionType: (_) => null,
+        fromSwidFunctionType: (_) => Block.of([Code("bar")]),
       )))
       .statement
       .accept(DartEmitter())
