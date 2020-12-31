@@ -1,4 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/hasUnsatisfiedTypeParameters.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/propagateUnsatisfiedTypeParameters.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
@@ -360,5 +362,39 @@ void main() {
               .kCloseOverTypeFormalsInStaticMembers,
         ).length,
         0);
+
+      /*
+      We should be able to copy the unsatisfied type parameters down from the enclosing class to
+      the factory constructors that require them.
+      class Iterable<E> {
+        Iterable<E> Iterable();
+
+        Iterable<T> map<T>(T f(E e))
+
+        factory Iterable<E> Iterable<E>.empty()
+      }
+    */
+    var propagatedIterableWithMapAndEmpty =
+        propagateUnsatisfiedTypeParameters(swidClass: iterableWithMapAndEmpty);
+
+    expect(
+        hasUnsatisfiedTypeParameters(
+            swidType: SwidType.fromSwidClass(
+                swidClass: propagatedIterableWithMapAndEmpty)),
+        false);
+    expect(
+        unsatisfiedTypeParameters(
+                swidType: SwidType.fromSwidClass(
+                    swidClass: propagatedIterableWithMapAndEmpty))
+            .length,
+        0);
+    expect(
+        propagatedIterableWithMapAndEmpty
+            .factoryConstructors.first.typeFormals.length,
+        1);
+    expect(
+        propagatedIterableWithMapAndEmpty
+            .factoryConstructors.first.typeFormals.first.name,
+        "E");
   }, tags: "swid");
 }
