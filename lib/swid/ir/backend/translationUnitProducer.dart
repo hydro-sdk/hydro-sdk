@@ -63,8 +63,9 @@ class TranslationUnitProducer {
                     ? ([
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsClassVmDeclaration(
-                            tsClassVmDeclaration:
-                                TsClassVmDeclaration(swidClass: swidClass)),
+                            tsClassVmDeclaration: TsClassVmDeclaration(
+                                swidClass: propagateUnsatisfiedTypeParameters(
+                                    swidClass: swidClass))),
                         swidClass.constructorType != null
                             ? TsIr.fromTsFunctionDefaultNamedProps(
                                 tsFunctionDefaultNamedProps:
