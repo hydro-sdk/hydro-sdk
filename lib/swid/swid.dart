@@ -162,6 +162,12 @@ class SwidVisitor extends RecursiveAstVisitor
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
+    if (node.name.name == "Iterable") {
+      print(node.name.name);
+      File("test/swid/res/Iterable.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     super.visitClassDeclaration(node);
   }
 
