@@ -30,7 +30,13 @@ class VMManagedClassDeclaration {
     ..extend = TypeReference((t) => t
       ..symbol = "VMManagedBox"
       ..types.addAll([
-        TypeReference((t) => t..symbol = swidClass.name),
+        TypeReference((t) => t
+          ..symbol = swidClass.name +
+              (swidClass.typeFormals.isNotEmpty
+                  ? "<" +
+                      swidClass.typeFormals.map((x) => "dynamic").join(",") +
+                      ">"
+                  : "")),
       ]))
     ..fields.addAll([
       Field(
