@@ -74,13 +74,15 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
           )
         ]..removeWhere((x) => x == null)),
         fromSwidClass: (val) => ([
-          ...unsatisfiedTypeParameters(
-              swidType: SwidType.fromSwidFunctionType(
-                  swidFunctionType: val.constructorType),
-              ancestorTypeFormals: [
-                ...ancestorTypeFormals,
-                ...val.typeFormals,
-              ]),
+          ...(val.constructorType != null
+              ? unsatisfiedTypeParameters(
+                  swidType: SwidType.fromSwidFunctionType(
+                      swidFunctionType: val.constructorType),
+                  ancestorTypeFormals: [
+                      ...ancestorTypeFormals,
+                      ...val.typeFormals,
+                    ])
+              : []),
           ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
