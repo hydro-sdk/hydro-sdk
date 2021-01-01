@@ -7,6 +7,7 @@ import 'package:code_builder/code_builder.dart'
         FieldModifier,
         Parameter,
         TypeReference,
+        TypeReferenceBuilder,
         refer,
         Block,
         Code;
@@ -16,6 +17,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/castAllTypeParametersInClassToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -25,83 +27,106 @@ class VMManagedClassDeclaration {
 
   VMManagedClassDeclaration({@required this.swidClass});
 
-  String toDartSource() => DartFormatter().format(Class((c) => c
-    ..name = "VMManaged${swidClass.name}"
-    ..extend = TypeReference((t) => t
-      ..symbol = "VMManagedBox"
-      ..types.addAll([
-        TypeReference((t) => t
-          ..symbol = swidClass.name +
-              (swidClass.typeFormals.isNotEmpty
-                  ? "<" +
-                      swidClass.typeFormals.map((x) => x.name).join(",") +
-                      ">"
-                  : "")),
-      ]))
-    ..fields.addAll([
-      Field(
-        (k) => k
-          ..modifier = FieldModifier.final$
-          ..type = TypeReference((i) => i..symbol = "HydroTable")
-          ..name = "table",
-      ),
-      Field(
-        (k) => k
-          ..modifier = FieldModifier.final$
-          ..type = TypeReference((i) => i..symbol = "HydroState")
-          ..name = "hydroState",
-      ),
-      Field(
-        (k) => k
-          ..modifier = FieldModifier.final$
-          ..type = TypeReference((i) => i..symbol = swidClass.name)
-          ..name = "vmObject",
-      ),
-    ])
-    ..constructors.add(Constructor((c) => c
-      ..optionalParameters.addAll([
-        Parameter((p) => p
-          ..annotations.add(refer("required"))
-          ..toThis = true
-          ..named = true
-          ..name = "table"),
-        Parameter((p) => p
-          ..annotations.add(refer("required"))
-          ..toThis = true
-          ..named = true
-          ..name = "vmObject"),
-        Parameter((p) => p
-          ..annotations.add(refer("required"))
-          ..toThis = true
-          ..named = true
-          ..name = "hydroState"),
-      ])
-      ..initializers.addAll([
-        Code("""super(
+  String toDartSource() => DartFormatter().format(Class(
+        (c) => c
+          ..name = "VMManaged${swidClass.name}"
+          ..extend = TypeReference((t) => t
+            ..symbol = "VMManagedBox"
+            ..types.addAll([
+              TypeReference(
+                (t) => (({
+                  TypeReferenceBuilder typeReferenceBuilder,
+                  SwidClass castedClass,
+                }) =>
+                    typeReferenceBuilder
+                      ..symbol = swidClass.name +
+                          (swidClass.typeFormals.isNotEmpty
+                              ? "<" +
+                                  swidClass.typeFormals
+                                      .map((x) => x.name)
+                                      .join(",") +
+                                  ">"
+                              : ""))(
+                  typeReferenceBuilder: t,
+                  castedClass: castAllTypeParametersInClassToDynamic(
+                    swidClass: swidClass,
+                  ),
+                ),
+              ),
+            ]))
+          ..fields.addAll([
+            Field(
+              (k) => k
+                ..modifier = FieldModifier.final$
+                ..type = TypeReference((i) => i..symbol = "HydroTable")
+                ..name = "table",
+            ),
+            Field(
+              (k) => k
+                ..modifier = FieldModifier.final$
+                ..type = TypeReference((i) => i..symbol = "HydroState")
+                ..name = "hydroState",
+            ),
+            Field(
+              (k) => k
+                ..modifier = FieldModifier.final$
+                ..type = TypeReference((i) => i..symbol = swidClass.name)
+                ..name = "vmObject",
+            ),
+          ])
+          ..constructors.add(
+            Constructor(
+              (c) => c
+                ..optionalParameters.addAll([
+                  Parameter((p) => p
+                    ..annotations.add(refer("required"))
+                    ..toThis = true
+                    ..named = true
+                    ..name = "table"),
+                  Parameter((p) => p
+                    ..annotations.add(refer("required"))
+                    ..toThis = true
+                    ..named = true
+                    ..name = "vmObject"),
+                  Parameter((p) => p
+                    ..annotations.add(refer("required"))
+                    ..toThis = true
+                    ..named = true
+                    ..name = "hydroState"),
+                ])
+                ..initializers.addAll([
+                  Code("""super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         )""")
-      ])
-      ..body = Block.of([
-        ...(swidClass.instanceFieldDeclarations.entries
-            .map((x) => Code(DartBindInstanceField(
-                  tableKey: x.key,
-                  instanceFieldName: "vmObject.${x.key}",
-                  instanceField: x.value,
-                ).toDartSource()))
-            .toList()),
-        ...(swidClass.methods
-            .where((x) => x.name != "==")
-            .where((x) => !x.swidDeclarationModifiers.hasProtected)
-            .map((x) => Code(
-                  VMManagedClassMethodInjectionImplementation(
-                      tableKey: transformAccessorName(swidFunctionType: x).name,
-                      swidFunctionType: SwidFunctionType.clone(
-                        swidFunctionType: x,
-                        name: "vmObject.${x.name}",
-                      )).toDartSource(),
-                ))
-            .toList())
-      ])))).accept(DartEmitter()).toString());
+                ])
+                ..body = Block.of(
+                  [
+                    ...(swidClass.instanceFieldDeclarations.entries
+                        .map((x) => Code(DartBindInstanceField(
+                              tableKey: x.key,
+                              instanceFieldName: "vmObject.${x.key}",
+                              instanceField: x.value,
+                            ).toDartSource()))
+                        .toList()),
+                    ...(swidClass.methods
+                        .where((x) => x.name != "==")
+                        .where((x) => !x.swidDeclarationModifiers.hasProtected)
+                        .map((x) => Code(
+                              VMManagedClassMethodInjectionImplementation(
+                                  tableKey:
+                                      transformAccessorName(swidFunctionType: x)
+                                          .name,
+                                  swidFunctionType: SwidFunctionType.clone(
+                                    swidFunctionType: x,
+                                    name: "vmObject.${x.name}",
+                                  )).toDartSource(),
+                            ))
+                        .toList())
+                  ],
+                ),
+            ),
+          ),
+      ).accept(DartEmitter()).toString());
 }

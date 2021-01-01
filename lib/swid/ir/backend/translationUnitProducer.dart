@@ -157,9 +157,8 @@ class TranslationUnitProducer {
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                       DartIr.fromVMManagedClassDeclaration(
                         vmManagedClassDeclaration: VMManagedClassDeclaration(
-                          swidClass: SwidClass.mergeSuperClasses(
-                              swidClass: castAllTypeParametersInClassToDynamic(
-                                  swidClass: swidClass)),
+                          swidClass:
+                              SwidClass.mergeSuperClasses(swidClass: swidClass),
                         ),
                       ),
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
