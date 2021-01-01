@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -36,8 +37,12 @@ class MethodInjectionImplementation {
                   emitTableBindingPrefix: false)
               .toDartSource());
 
-  Block _nonVoidBody() =>
-      Block.of([Code("return [" + _methodInvocation() + "];")]);
+  Block _nonVoidBody() => Block.of([
+        Code(
+            "${DartUnpackClosures(swidFunctionType: swidFunctionType).toDartSource()} return [" +
+                _methodInvocation() +
+                "];")
+      ]);
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")
       .index(literalString(methodInjectionFieldName(
@@ -52,8 +57,14 @@ class MethodInjectionImplementation {
           onClass: (_) => _nonVoidBody(),
           onEnum: (_) => _nonVoidBody(),
           onTypeParameter: (_) => _nonVoidBody(),
-          onVoid: (_) =>
-              Block.of([Code(_methodInvocation() + ";" + "\n" + "return [];")]),
+          onVoid: (_) => Block.of([
+            Code(DartUnpackClosures(swidFunctionType: swidFunctionType)
+                    .toDartSource() +
+                _methodInvocation() +
+                ";" +
+                "\n" +
+                "return [];")
+          ]),
         ),
         fromSwidClass: (_) => null,
         fromSwidDefaultFormalParameter: (_) => null,

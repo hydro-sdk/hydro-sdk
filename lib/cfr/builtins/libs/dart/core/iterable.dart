@@ -270,6 +270,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_map'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
             object: super.map((e) => f.dispatch([args[0], e])[0]),
@@ -278,6 +279,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_where'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
             object:
@@ -295,6 +297,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_expand'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
             object: super.expand((element) =>
@@ -312,16 +315,19 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_forEach'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure f = args[1];
       super.forEach((element) => f.dispatch([args[0], element])[0]);
       return [];
     });
     table['_dart_reduce'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure combine = args[1];
       return [
         super.reduce(
             (value, element) => combine.dispatch([args[0], value, element])[0])
       ];
     });
     table['_dart_fold'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure combine = args[2];
       return [
         super.fold(
             args[1],
@@ -330,6 +336,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_every'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
       return [
         super.every((element) => test.dispatch([args[0], element])[0])
       ];
@@ -338,6 +345,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       return [super.join()];
     });
     table['_dart_any'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
       return [
         super.any((element) => test.dispatch([args[0], element])[0])
       ];
@@ -377,6 +385,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_takeWhile'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
             object:
@@ -394,6 +403,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_skipWhile'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
             object:
@@ -412,6 +422,8 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       return [super.single];
     });
     table['_dart_firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      Closure orElse = args[2]['orElse'];
       return [
         super.firstWhere((element) => test.dispatch([args[0], element])[0],
             orElse: () => orElse.dispatch([
@@ -420,6 +432,8 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      Closure orElse = args[2]['orElse'];
       return [
         super.lastWhere((element) => test.dispatch([args[0], element])[0],
             orElse: () => orElse.dispatch([
@@ -428,6 +442,8 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      Closure orElse = args[2]['orElse'];
       return [
         super.singleWhere((element) => test.dispatch([args[0], element])[0],
             orElse: () => orElse.dispatch([
