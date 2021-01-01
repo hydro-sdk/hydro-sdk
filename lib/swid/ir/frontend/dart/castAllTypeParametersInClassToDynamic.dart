@@ -1,6 +1,6 @@
-import 'package:hydro_sdk/swid/ir/frontend/dart/castTypeParametersToDynamic.dart';
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 
