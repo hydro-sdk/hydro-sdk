@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
@@ -45,6 +46,9 @@ abstract class DartIr with _$DartIr {
   factory DartIr.fromDartUnboxingExpression(
           {@required DartUnboxingExpression dartUnboxingExpression}) =
       _$FromDartUnboxingExpression;
+  factory DartIr.fromDartUnpackClosures(
+          {@required DartUnpackClosures dartUnpackClosures}) =
+      _$FromDartUnpackClosures;
   factory DartIr.fromDartVMManagedClassBoxerRegistrant(
           {@required
               DartVMManagedClassBoxerRegistrant
