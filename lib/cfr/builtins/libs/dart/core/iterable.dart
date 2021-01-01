@@ -8,7 +8,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedIterable extends VMManagedBox<Iterable<E>> {
+class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
       {@required this.table,
       @required this.vmObject,
@@ -37,7 +37,7 @@ class VMManagedIterable extends VMManagedBox<Iterable<E>> {
     table['followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.followedBy(maybeUnBoxAndBuildArgument<Iterable<E>>(
+            object: vmObject.followedBy(maybeUnBoxAndBuildArgument<Iterable>(
                 args[1],
                 parentState: hydroState)),
             hydroState: hydroState,
@@ -76,7 +76,7 @@ class VMManagedIterable extends VMManagedBox<Iterable<E>> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.expand((element) =>
-                maybeUnBoxAndBuildArgument<Iterable<T>>(
+                maybeUnBoxAndBuildArgument<Iterable>(
                     f.dispatch([args[0], element])[0],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -262,7 +262,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
     table['_dart_followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
-            object: super.followedBy(maybeUnBoxAndBuildArgument<Iterable<E>>(
+            object: super.followedBy(maybeUnBoxAndBuildArgument<Iterable>(
                 args[1],
                 parentState: hydroState)),
             hydroState: hydroState,
@@ -298,7 +298,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       return [
         maybeBoxObject<Iterable>(
             object: super.expand((element) =>
-                maybeUnBoxAndBuildArgument<Iterable<T>>(
+                maybeUnBoxAndBuildArgument<Iterable>(
                     f.dispatch([args[0], element])[0],
                     parentState: hydroState)),
             hydroState: hydroState,
@@ -450,57 +450,57 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   Iterable unwrap() => this;
   Iterable get vmObject => this;
   @override
-  Iterator<E> get iterator {
+  Iterator get iterator {
     Closure closure = table["getIterator"];
-    return maybeUnBoxAndBuildArgument<Iterator<E>>(
+    return maybeUnBoxAndBuildArgument<Iterator>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<R> cast() {
+  Iterable cast() {
     Closure closure = table["cast"];
-    return maybeUnBoxAndBuildArgument<Iterable<R>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<E> followedBy(Iterable<E> other) {
+  Iterable followedBy(Iterable other) {
     Closure closure = table["followedBy"];
-    return maybeUnBoxAndBuildArgument<Iterable<E>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<T> map(f) {
+  Iterable map(f) {
     Closure closure = table["map"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<E> where(test) {
+  Iterable where(test) {
     Closure closure = table["where"];
-    return maybeUnBoxAndBuildArgument<Iterable<E>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<T> whereType() {
+  Iterable whereType() {
     Closure closure = table["whereType"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<T> expand(f) {
+  Iterable expand(f) {
     Closure closure = table["expand"];
-    return maybeUnBoxAndBuildArgument<Iterable<T>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -548,17 +548,17 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   }
 
   @override
-  List<E> toList({bool growable = true}) {
+  List toList({bool growable = true}) {
     Closure closure = table["toList"];
-    return maybeUnBoxAndBuildArgument<List<E>>(
+    return maybeUnBoxAndBuildArgument<List>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Set<E> toSet() {
+  Set toSet() {
     Closure closure = table["toSet"];
-    return maybeUnBoxAndBuildArgument<Set<E>>(
+    return maybeUnBoxAndBuildArgument<Set>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -582,33 +582,33 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   }
 
   @override
-  Iterable<E> take(int count) {
+  Iterable take(int count) {
     Closure closure = table["take"];
-    return maybeUnBoxAndBuildArgument<Iterable<E>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<E> takeWhile(test) {
+  Iterable takeWhile(test) {
     Closure closure = table["takeWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<E>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<E> skip(int count) {
+  Iterable skip(int count) {
     Closure closure = table["skip"];
-    return maybeUnBoxAndBuildArgument<Iterable<E>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<E> skipWhile(test) {
+  Iterable skipWhile(test) {
     Closure closure = table["skipWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<E>>(
+    return maybeUnBoxAndBuildArgument<Iterable>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
