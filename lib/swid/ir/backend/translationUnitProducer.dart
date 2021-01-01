@@ -26,10 +26,12 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 
 class TranslationUnitProducer {
   final List<String> tsPrefixPaths;
@@ -155,9 +157,20 @@ class TranslationUnitProducer {
                     ir: [
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                       DartIr.fromVMManagedClassDeclaration(
-                          vmManagedClassDeclaration: VMManagedClassDeclaration(
-                              swidClass: SwidClass.mergeSuperClasses(
-                                  swidClass: swidClass))),
+                        vmManagedClassDeclaration: VMManagedClassDeclaration(
+                          swidClass: SwidClass.mergeSuperClasses(
+                            swidClass: castTypeParametersToDynamic(
+                              swidType:
+                                  SwidType.fromSwidClass(swidClass: swidClass),
+                            ).when(
+                              fromSwidInterface: (_) => null,
+                              fromSwidClass: (val) => val,
+                              fromSwidDefaultFormalParameter: (_) => null,
+                              fromSwidFunctionType: (_) => null,
+                            ),
+                          ),
+                        ),
+                      ),
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                       !swidClass.isPureAbstract() &&
                               swidClass.isConstructible() &&
@@ -166,7 +179,16 @@ class TranslationUnitProducer {
                               rtManagedClassDeclaration:
                                   RTManagedClassDeclaration(
                                       swidClass: SwidClass.mergeSuperClasses(
-                                          swidClass: swidClass)),
+                                swidClass: castTypeParametersToDynamic(
+                                  swidType: SwidType.fromSwidClass(
+                                      swidClass: swidClass),
+                                ).when(
+                                  fromSwidInterface: (_) => null,
+                                  fromSwidClass: (val) => val,
+                                  fromSwidDefaultFormalParameter: (_) => null,
+                                  fromSwidFunctionType: (_) => null,
+                                ),
+                              )),
                             )
                           : null,
                       DartIr.fromLoadNamepsaceSymbolDeclaration(

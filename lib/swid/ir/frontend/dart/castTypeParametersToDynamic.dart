@@ -7,12 +7,14 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 
 SwidType castTypeParametersToDynamic({@required SwidType swidType}) =>
     swidType.when(
         fromSwidInterface: (val) => SwidType.fromSwidInterface(
               swidInterface: SwidInterface.clone(
                   swidType: val,
+                  name: removeTypeArguments(str: val.name),
                   typeArguments: val.typeArguments
                       .map((x) => SwidType.fromSwidInterface(
                           swidInterface: SwidInterface(
@@ -30,15 +32,17 @@ SwidType castTypeParametersToDynamic({@required SwidType swidType}) =>
         fromSwidClass: (val) => SwidType.fromSwidClass(
               swidClass: SwidClass.clone(
                 swidClass: val,
-                constructorType: castTypeParametersToDynamic(
-                        swidType: SwidType.fromSwidFunctionType(
-                            swidFunctionType: val.constructorType))
-                    .when(
-                  fromSwidInterface: (_) => null,
-                  fromSwidClass: (_) => null,
-                  fromSwidDefaultFormalParameter: (_) => null,
-                  fromSwidFunctionType: (val) => val,
-                ),
+                constructorType: val.constructorType != null
+                    ? castTypeParametersToDynamic(
+                            swidType: SwidType.fromSwidFunctionType(
+                                swidFunctionType: val.constructorType))
+                        .when(
+                        fromSwidInterface: (_) => null,
+                        fromSwidClass: (_) => null,
+                        fromSwidDefaultFormalParameter: (_) => null,
+                        fromSwidFunctionType: (val) => val,
+                      )
+                    : null,
                 factoryConstructors: val.factoryConstructors
                     .map(
                       (x) => castTypeParametersToDynamic(

@@ -137,8 +137,7 @@ class VMManagedPath extends VMManagedBox<Path> {
     });
     table['addPolygon'] = makeLuaDartFunc(func: (List<dynamic> args) {
       vmObject.addPolygon(
-          maybeUnBoxAndBuildArgument<List<Offset>>(args[1],
-              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<List>(args[1], parentState: hydroState),
           args[2]);
       return [];
     });
@@ -344,8 +343,7 @@ class RTManagedPath extends Path implements Box<Path> {
     });
     table['_dart_addPolygon'] = makeLuaDartFunc(func: (List<dynamic> args) {
       super.addPolygon(
-          maybeUnBoxAndBuildArgument<List<Offset>>(args[1],
-              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<List>(args[1], parentState: hydroState),
           args[2]);
       return [];
     });
@@ -549,7 +547,7 @@ class RTManagedPath extends Path implements Box<Path> {
   }
 
   @override
-  void addPolygon(List<Offset> points, bool close) {
+  void addPolygon(List points, bool close) {
     Closure closure = table["addPolygon"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
