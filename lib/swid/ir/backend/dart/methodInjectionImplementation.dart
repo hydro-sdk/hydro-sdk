@@ -51,6 +51,7 @@ class MethodInjectionImplementation {
           onPrimitive: (_) => _nonVoidBody(),
           onClass: (_) => _nonVoidBody(),
           onEnum: (_) => _nonVoidBody(),
+          onTypeParameter: (_) => _nonVoidBody(),
           onVoid: (_) =>
               Block.of([Code(_methodInvocation() + ";" + "\n" + "return [];")]),
         ),
