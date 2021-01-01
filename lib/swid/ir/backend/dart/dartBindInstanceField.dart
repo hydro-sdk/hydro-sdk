@@ -44,6 +44,7 @@ class DartBindInstanceField {
                 .accept(DartEmitter())
                 .toString(),
             onVoid: (_) => "void",
+            onTypeParameter: (_) => null,
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",

@@ -90,6 +90,7 @@ extension DartIrMethods on DartIr {
         fromDartFunctionSelfBindingInvocation: (val) => val.toDartSource(),
         fromDartLinebreak: (val) => val.toDartSource(),
         fromDartUnboxingExpression: (val) => val.toDartSource(),
+        fromDartUnpackClosures: (val) => val.toDartSource(),
         fromDartVMManagedClassBoxerRegistrant: (val) => val.toDartSource(),
         fromLoadNamepsaceSymbolDeclaration: (val) => val.toDartSource(),
         fromMethodInjectionImplementation: (val) => val.toDartSource(),
