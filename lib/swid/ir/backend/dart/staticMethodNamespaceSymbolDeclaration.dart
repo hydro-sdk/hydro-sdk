@@ -54,7 +54,9 @@ class StaticMethodNamespaceSymbolDeclaration {
                               swidFunctionType: SwidFunctionType.clone(
                                   swidFunctionType:
                                       castAllTypeParametersInFunctionToDynamic(
-                                          swidFunctionType: swidFunctionType),
+                                    swidFunctionType: swidFunctionType,
+                                    preserveTypeParametersInLists: true,
+                                  ),
                                   name: [swidClass.name, swidFunctionType.name]
                                       .join(".")))
                           .toDartSource())))
