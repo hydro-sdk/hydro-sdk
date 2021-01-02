@@ -14,7 +14,8 @@ import 'package:code_builder/code_builder.dart'
         MethodType,
         Block,
         Code,
-        CodeExpression;
+        CodeExpression,
+        Reference;
 
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
@@ -24,7 +25,9 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/castAllTypeParametersInFunctionToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
@@ -177,6 +180,9 @@ class RTManagedClassDeclaration {
                   : x.swidDeclarationModifiers.isSetter
                       ? MethodType.setter
                       : null
+              ..types.addAll(
+                x.typeFormals.map((e) => Reference(e.name)).toList(),
+              )
               ..requiredParameters.addAll([
                 ...x.normalParameterNames
                     .map((e) => Parameter((p) => p
@@ -199,18 +205,23 @@ class RTManagedClassDeclaration {
                     .toList()
               ])
               ..name = x.name
-              ..returns = refer(x.returnType.when(
-                fromSwidInterface: (val) => val.name,
-                fromSwidClass: (val) => val.name,
-                fromSwidDefaultFormalParameter: (val) => val.name,
-                fromSwidFunctionType: (val) => val.name,
-              ))
+              ..returns = refer(
+                x.typeFormals.isEmpty
+                    ? castTypeParametersToDynamic(
+                        swidType: x.returnType,
+                        preserveTypeParametersInLists: false,
+                      ).name
+                    : x.returnType.name,
+              )
               ..body = Block.of([
                 Code(
                     "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
                 Code("return " +
                     DartUnboxingExpression(
-                            swidType: x.returnType,
+                            swidType: castTypeParametersToDynamic(
+                              swidType: x.returnType,
+                              preserveTypeParametersInLists: false,
+                            ),
                             expression: CodeExpression(Code(
                                 "closure.dispatch([table],parentState: hydroState)[0]")))
                         .toDartSource() +
