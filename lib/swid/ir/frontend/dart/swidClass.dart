@@ -8,6 +8,9 @@ import 'package:analyzer/dart/ast/ast.dart'
         TypeParameterList,
         TypeName;
 
+import 'package:analyzer/dart/element/element.dart'
+    show PropertyAccessorElement;
+
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
@@ -191,10 +194,9 @@ abstract class SwidClass with _$SwidClass {
         isMixin: isMixin,
         nullabilitySuffix: SwidNullabilitySuffix.none,
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-        originalPackagePath: classOrMixinDeclaration
-                .declaredElement?.librarySource?.uri
-                ?.toString() ??
-            "",
+        originalPackagePath:
+            classOrMixinDeclaration.declaredElement?.librarySource?.uri?.toString() ??
+                "",
         constructorType: constructorDeclarationImpl != null
             ? SwidFunctionType.clone(
                 swidFunctionType: SwidFunctionType.fromFunctionType(
@@ -230,20 +232,10 @@ abstract class SwidClass with _$SwidClass {
             : [],
         extendedClass: classOrMixinDeclaration is ClassDeclaration
             ? classOrMixinDeclaration.extendsClause != null
-                ? ((ClassDeclaration classDeclaration) => classDeclaration !=
-                        null
-                    ? SwidClass.fromClassOrMixinDeclaration(
-                        classOrMixinDeclaration: classDeclaration,
-                        isMixin: false,
-                      )
-                    : null)(((TypeName typeName) => typeName != null
-                        ? typeName.root.childEntities.firstWhere(
-                            (x) =>
-                                x is ClassDeclaration &&
-                                x.name.name == typeName.name.name,
-                            orElse: () => null,
-                          )
-                        : null)(
+                ? ((InterfaceType interfaceType) => interfaceType != null
+                    ? SwidClass.fromInterfaceType(interfaceType: interfaceType)
+                    : null)(((TypeName typeName) =>
+                        typeName != null && typeName.type is InterfaceType ? typeName.type : null)(
                     classOrMixinDeclaration.extendsClause.childEntities
                         .firstWhere(
                     (x) => x is TypeName,
@@ -306,10 +298,11 @@ abstract class SwidClass with _$SwidClass {
           }).toList()
                 ..removeWhere((x) => x == null),
         ),
-        typeFormals: ((TypeParameterList typeParameterList) => typeParameterList !=
-                null
+        typeFormals: ((TypeParameterList typeParameterList) => typeParameterList != null
             ? typeParameterList.typeParameters
-                .map((x) => SwidTypeFormal.fromTypeParameter(typeParameter: x))
+                .map((x) => SwidTypeFormal.fromTypeParameter(
+                      typeParameter: x,
+                    ))
                 .toList()
             : <SwidTypeFormal>[])(classOrMixinDeclaration.childEntities.firstWhere(
           (x) => x is TypeParameterList,
@@ -328,11 +321,27 @@ abstract class SwidClass with _$SwidClass {
         constructorType: null,
         factoryConstructors: [],
         staticMethods: [],
-        methods: interfaceType.methods
-            .map((x) => SwidFunctionType.fromFunctionType(
-                functionType: x.type,
-                swidDeclarationModifiers: SwidDeclarationModifiers.empty()))
-            .toList(),
+        methods: [
+          ...interfaceType.methods
+              .map((x) => SwidFunctionType.fromFunctionType(
+                  functionType: x.type,
+                  swidDeclarationModifiers: SwidDeclarationModifiers.empty()))
+              .toList(),
+          ...interfaceType.accessors
+              .whereType<PropertyAccessorElement>()
+              .where((x) => x.name[0] != "_")
+              .map(
+                (x) => SwidFunctionType.fromFunctionType(
+                  functionType: x.type,
+                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    isGetter: x.isGetter,
+                    isSetter: x.isSetter,
+                  ),
+                ),
+              )
+              .toList()
+        ],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
