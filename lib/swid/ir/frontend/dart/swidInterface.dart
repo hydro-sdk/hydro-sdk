@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/narrowDartTypeToSwidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
@@ -50,15 +51,7 @@ abstract class SwidInterface with _$SwidInterface {
       SwidInterface(
         name: interfaceType.getDisplayString(withNullability: false),
         typeArguments: interfaceType.typeArguments
-            .map((x) => x is InterfaceType
-                ? SwidType.fromSwidInterface(
-                    swidInterface:
-                        SwidInterface.fromInterface(interfaceType: x))
-                : x is TypeParameterType
-                    ? SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface.fromTypeParameterType(
-                            typeParameterType: x))
-                    : null)
+            .map((x) => narrowDartTypeToSwidType(dartType: x))
             .toList(),
         nullabilitySuffix: mapNullabilitySuffix(
             nullabilitySuffix: interfaceType.nullabilitySuffix),
