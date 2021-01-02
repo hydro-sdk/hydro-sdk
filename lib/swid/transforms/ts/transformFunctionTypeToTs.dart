@@ -79,11 +79,9 @@ String transformFunctionTypeToTs({
               "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
         }
 
-        res += ": ${val.name}";
-
-        if (val.nullabilitySuffix == SwidNullabilitySuffix.question) {
-          res += " | undefined";
-        }
+        res += ": " +
+            transformTypeDeclarationToTs(
+                swidType: SwidType.fromSwidInterface(swidInterface: val));
 
         if (emitInitializersForOptionalPositionals) {
           var initializer = swidFunctionType.positionalDefaultParameters.entries
