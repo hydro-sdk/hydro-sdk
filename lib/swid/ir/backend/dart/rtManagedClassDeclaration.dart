@@ -27,6 +27,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart'
 import 'package:hydro_sdk/swid/ir/frontend/dart/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -211,6 +212,18 @@ class RTManagedClassDeclaration {
                           : null)
                       ..named = true
                       ..type = swidTypeToDartTypeReference(swidType: e.value)))
+                    .toList(),
+                ...x.positionalDefaultParameters.entries
+                    .map(
+                      (e) => Parameter((p) => p
+                        ..name = e.key
+                        ..type = swidTypeToDartTypeReference(
+                          swidType: e.value.value,
+                        )
+                        ..named = false
+                        ..required = false
+                        ..defaultTo = Code(e.value.name)),
+                    )
                     .toList()
               ])
               ..name = x.name
