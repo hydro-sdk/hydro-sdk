@@ -175,7 +175,7 @@ void main() {
             fromSwidFunctionType: (_) => null,
           ),
         ).toDartSource(),
-        """
+"""
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
       {@required this.table,
@@ -190,10 +190,17 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
       Closure test = args[1];
       Closure orElse = args[2][\'orElse\'];
       return [
-        vmObject.firstWhere((element) => test.dispatch([args[0], element])[0],
-            orElse: () => orElse.dispatch([
-                  args[0],
-                ])[0])
+        vmObject.firstWhere(
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
+            orElse: () => orElse.dispatch(
+                  [
+                    args[0],
+                  ],
+                  parentState: hydroState,
+                )[0])
       ];
     });
   }

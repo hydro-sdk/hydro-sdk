@@ -147,7 +147,7 @@ void main() {
           )
         ]);
     expect(VMManagedClassDeclaration(swidClass: iterable).toDartSource(), """
-class VMManagedIterable extends VMManagedBox<Iterable> {
+class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
       {@required this.table,
       @required this.vmObject,
@@ -160,8 +160,10 @@ class VMManagedIterable extends VMManagedBox<Iterable> {
     table[\'reduce\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure combine = args[1];
       return [
-        vmObject.reduce(
-            (value, element) => combine.dispatch([args[0], value, element])[0])
+        vmObject.reduce((value, element) => combine.dispatch(
+              [args[0], value, element],
+              parentState: hydroState,
+            )[0])
       ];
     });
   }

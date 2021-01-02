@@ -163,7 +163,7 @@ void main() {
             fromSwidFunctionType: (_) => null,
           ),
         ).toDartSource(),
-        """
+"""
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
       {@required this.table,
@@ -178,7 +178,10 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
       Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.map((e) => f.dispatch([args[0], e])[0]),
+            object: vmObject.map((e) => f.dispatch(
+                  [args[0], e],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
