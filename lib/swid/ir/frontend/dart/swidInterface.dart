@@ -3,12 +3,12 @@ import 'package:analyzer/src/dart/element/element.dart' show EnumElementImpl;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/narrowDartTypeToSwidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowDartTypeToSwidType.dart';
 
 import 'package:analyzer/dart/element/type.dart'
     show InterfaceType, TypeParameterType, VoidType, DynamicType;

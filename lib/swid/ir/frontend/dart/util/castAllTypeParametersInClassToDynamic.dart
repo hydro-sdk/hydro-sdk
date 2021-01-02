@@ -1,22 +1,21 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/castTypeParametersToDynamic.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/castTypeParametersToDynamic.dart';
 
-SwidFunctionType castAllTypeParametersInFunctionToDynamic({
-  @required SwidFunctionType swidFunctionType,
+SwidClass castAllTypeParametersInClassToDynamic({
+  @required SwidClass swidClass,
   bool preserveTypeParametersInLists = false,
   bool preserveFunctionTypeFormals = false,
 }) =>
     castTypeParametersToDynamic(
-      swidType:
-          SwidType.fromSwidFunctionType(swidFunctionType: swidFunctionType),
+      swidType: SwidType.fromSwidClass(swidClass: swidClass),
       preserveTypeParametersInLists: preserveTypeParametersInLists,
       preserveFunctionTypeFormals: preserveFunctionTypeFormals,
     ).when(
       fromSwidInterface: (_) => null,
-      fromSwidClass: (_) => null,
+      fromSwidClass: (val) => val,
       fromSwidDefaultFormalParameter: (_) => null,
-      fromSwidFunctionType: (val) => val,
+      fromSwidFunctionType: (_) => null,
     );

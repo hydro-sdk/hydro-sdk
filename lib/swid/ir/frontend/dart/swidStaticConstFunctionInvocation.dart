@@ -12,8 +12,8 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/extractStaticConstFromSyntacticEntity.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
 part 'swidStaticConstFunctionInvocation.g.dart';

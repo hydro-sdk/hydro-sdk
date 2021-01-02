@@ -1,6 +1,6 @@
 import 'package:hydro_sdk/swid/ir/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/ir/backend/writeTranslationUnit.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/fixupNullability.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/swid.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';

@@ -1,11 +1,11 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/hasUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/unsatisfiedTypeParameters.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/hasUnsatisfiedTypeParameters.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/unsatisfiedTypeParameters.dart';
 
 SwidClass propagateUnsatisfiedTypeParameters(
         {@required SwidClass swidClass,

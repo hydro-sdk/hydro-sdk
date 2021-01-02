@@ -26,10 +26,10 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/propagateUnsatisfiedTypeParameters.dart';
 
 class TranslationUnitProducer {
   final List<String> tsPrefixPaths;

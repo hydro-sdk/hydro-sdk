@@ -5,10 +5,10 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/isList.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isList.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 
 class DartBoxObjectReference {
