@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/isList.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
@@ -17,24 +18,46 @@ SwidType castTypeParametersToDynamic({
     preserveTypeParametersInLists && isList(swidType: swidType)
         ? swidType
         : swidType.when(
-            fromSwidInterface: (val) => SwidType.fromSwidInterface(
-                  swidInterface: SwidInterface.clone(
-                      swidType: val,
-                      name: removeTypeArguments(str: val.name),
-                      typeArguments: val.typeArguments
-                          .map(
-                            (x) => SwidType.fromSwidInterface(
-                              swidInterface: SwidInterface(
-                                name: "dynamic",
-                                nullabilitySuffix: SwidNullabilitySuffix.none,
-                                originalPackagePath: "",
-                                referenceDeclarationKind:
-                                    SwidReferenceDeclarationKind.dynamicType,
-                                typeArguments: [],
+            fromSwidInterface: (val) =>
+                narrowSwidInterfaceByReferenceDeclaration(
+                  swidInterface: val,
+                  onPrimitive: (val) =>
+                      SwidType.fromSwidInterface(swidInterface: val),
+                  onClass: (val) => SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface.clone(
+                        swidType: val,
+                        name: removeTypeArguments(str: val.name),
+                        typeArguments: val.typeArguments
+                            .map(
+                              (x) => SwidType.fromSwidInterface(
+                                swidInterface: SwidInterface(
+                                  name: "dynamic",
+                                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                                  originalPackagePath: "",
+                                  referenceDeclarationKind:
+                                      SwidReferenceDeclarationKind.dynamicType,
+                                  typeArguments: [],
+                                ),
                               ),
-                            ),
-                          )
-                          .toList()),
+                            )
+                            .toList()),
+                  ),
+                  onEnum: (val) =>
+                      SwidType.fromSwidInterface(swidInterface: val),
+                  onVoid: (val) =>
+                      SwidType.fromSwidInterface(swidInterface: val),
+                  onTypeParameter: (val) => SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                      name: "dynamic",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath: "",
+                      referenceDeclarationKind:
+                          SwidReferenceDeclarationKind.dynamicType,
+                      typeArguments: [],
+                    ),
+                  ),
+                  onDynamic: (val) =>
+                      SwidType.fromSwidInterface(swidInterface: val),
                 ),
             fromSwidClass: (val) => SwidType.fromSwidClass(
                   swidClass: SwidClass.clone(

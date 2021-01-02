@@ -54,6 +54,7 @@ class DartUnboxingExpression {
                 .toString(),
             onVoid: (_) => expression.accept(DartEmitter()).toString(),
             onTypeParameter: (_) => expression.accept(DartEmitter()).toString(),
+            onDynamic: (_) => expression.accept(DartEmitter()).toString(),
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",

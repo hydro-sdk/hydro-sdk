@@ -26,6 +26,10 @@ class DartBindInstanceField {
               instanceFieldName: instanceFieldName,
               tableKey: tableKey,
             ).toDartSource(),
+            onDynamic: (val) => DartBindInstanceFieldDirect(
+              instanceFieldName: instanceFieldName,
+              tableKey: tableKey,
+            ).toDartSource(),
             onClass: (val) => refer("table")
                 .index(literalString(tableKey))
                 .assign(CodeExpression(Code(DartBoxObjectReference(

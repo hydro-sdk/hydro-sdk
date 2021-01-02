@@ -59,6 +59,7 @@ class DartBoxList {
                         .toDartSource(),
                     onVoid: (_) => null,
                     onTypeParameter: (_) => null,
+                    onDynamic: (_) => null,
                   ),
                 )
               ])).closure.expression

@@ -57,6 +57,7 @@ class MethodInjectionImplementation {
           onClass: (_) => _nonVoidBody(),
           onEnum: (_) => _nonVoidBody(),
           onTypeParameter: (_) => _nonVoidBody(),
+          onDynamic: (_) => _nonVoidBody(),
           onVoid: (_) => Block.of([
             Code(DartUnpackClosures(swidFunctionType: swidFunctionType)
                     .toDartSource() +
