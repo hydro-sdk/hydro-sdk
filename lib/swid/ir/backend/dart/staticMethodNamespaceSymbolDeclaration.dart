@@ -8,13 +8,13 @@ import 'package:code_builder/code_builder.dart'
         Block,
         DartEmitter;
 
-import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -34,6 +34,8 @@ class StaticMethodNamespaceSymbolDeclaration {
           transformToPascalCase(str: swidFunctionType.name)))
       .assign(luaDartBinding(
           code: Block.of([
+        Code(DartUnpackClosures(swidFunctionType: swidFunctionType)
+            .toDartSource()),
         literalList([
           Code(DartBoxObjectReference(
                   codeKind: CodeKind.expression,
@@ -56,6 +58,7 @@ class StaticMethodNamespaceSymbolDeclaration {
                                       castAllTypeParametersInFunctionToDynamic(
                                     swidFunctionType: swidFunctionType,
                                     preserveTypeParametersInLists: true,
+                                    preserveFunctionTypeFormals: true,
                                   ),
                                   name: [swidClass.name, swidFunctionType.name]
                                       .join(".")))
@@ -65,6 +68,5 @@ class StaticMethodNamespaceSymbolDeclaration {
       ])))
       .statement;
 
-  String toDartSource() =>
-      DartFormatter().format(toCode().accept(DartEmitter()).toString());
+  String toDartSource() => toCode().accept(DartEmitter()).toString();
 }
