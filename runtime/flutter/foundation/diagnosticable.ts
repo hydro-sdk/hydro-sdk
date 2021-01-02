@@ -9,3 +9,11 @@ export interface Diagnosticable {
         style?: DiagnosticsTreeStyle | undefined;
     }) => DiagnosticsNode;
 }
+export interface IDiagnosticable {
+    toStringShort: () => string;
+    toString: (props: { minLevel: DiagnosticLevel }) => string;
+    toDiagnosticsNode: (props: {
+        name?: string | undefined;
+        style?: DiagnosticsTreeStyle | undefined;
+    }) => DiagnosticsNode;
+}
