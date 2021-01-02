@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 SwidType castTypeParametersToDynamic({
   @required SwidType swidType,
   @required bool preserveTypeParametersInLists,
+  @required bool preserveFunctionTypeFormals,
 }) =>
     swidType.when(
         fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
@@ -84,6 +85,8 @@ SwidType castTypeParametersToDynamic({
                             swidFunctionType: val.constructorType),
                         preserveTypeParametersInLists:
                             preserveTypeParametersInLists,
+                        preserveFunctionTypeFormals:
+                            preserveFunctionTypeFormals,
                       ).when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
@@ -98,6 +101,8 @@ SwidType castTypeParametersToDynamic({
                             SwidType.fromSwidFunctionType(swidFunctionType: x),
                         preserveTypeParametersInLists:
                             preserveTypeParametersInLists,
+                        preserveFunctionTypeFormals:
+                            preserveFunctionTypeFormals,
                       ).when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
@@ -113,6 +118,8 @@ SwidType castTypeParametersToDynamic({
                             SwidType.fromSwidFunctionType(swidFunctionType: x),
                         preserveTypeParametersInLists:
                             preserveTypeParametersInLists,
+                        preserveFunctionTypeFormals:
+                            preserveFunctionTypeFormals,
                       ).when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
@@ -128,6 +135,8 @@ SwidType castTypeParametersToDynamic({
                             SwidType.fromSwidFunctionType(swidFunctionType: x),
                         preserveTypeParametersInLists:
                             preserveTypeParametersInLists,
+                        preserveFunctionTypeFormals:
+                            preserveFunctionTypeFormals,
                       ).when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
@@ -145,6 +154,8 @@ SwidType castTypeParametersToDynamic({
                               swidType: x.value,
                               preserveTypeParametersInLists:
                                   preserveTypeParametersInLists,
+                              preserveFunctionTypeFormals:
+                                  preserveFunctionTypeFormals,
                             ),
                           ),
                         )
@@ -162,13 +173,15 @@ SwidType castTypeParametersToDynamic({
         fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
               swidFunctionType: SwidFunctionType.clone(
                 swidFunctionType: val,
-                typeFormals: val.typeFormals
-                    .map((_) => SwidTypeFormal(
-                          name: "dynamic",
-                          swidReferenceDeclarationKind:
-                              SwidReferenceDeclarationKind.dynamicType,
-                        ))
-                    .toList(),
+                typeFormals: !preserveFunctionTypeFormals
+                    ? val.typeFormals
+                        .map((_) => SwidTypeFormal(
+                              name: "dynamic",
+                              swidReferenceDeclarationKind:
+                                  SwidReferenceDeclarationKind.dynamicType,
+                            ))
+                        .toList()
+                    : val.typeFormals,
                 namedParameterTypes: Map.fromEntries(
                   val.namedParameterTypes.entries
                       .map(
@@ -178,6 +191,8 @@ SwidType castTypeParametersToDynamic({
                             swidType: x.value,
                             preserveTypeParametersInLists:
                                 preserveTypeParametersInLists,
+                            preserveFunctionTypeFormals:
+                                preserveFunctionTypeFormals,
                           ),
                         ),
                       )
@@ -188,6 +203,8 @@ SwidType castTypeParametersToDynamic({
                           swidType: x,
                           preserveTypeParametersInLists:
                               preserveTypeParametersInLists,
+                          preserveFunctionTypeFormals:
+                              preserveFunctionTypeFormals,
                         ))
                     .toList(),
                 optionalParameterTypes: val.optionalParameterTypes
@@ -195,11 +212,14 @@ SwidType castTypeParametersToDynamic({
                           swidType: x,
                           preserveTypeParametersInLists:
                               preserveTypeParametersInLists,
+                          preserveFunctionTypeFormals:
+                              preserveFunctionTypeFormals,
                         ))
                     .toList(),
                 returnType: castTypeParametersToDynamic(
                   swidType: val.returnType,
                   preserveTypeParametersInLists: preserveTypeParametersInLists,
+                  preserveFunctionTypeFormals: preserveFunctionTypeFormals,
                 ),
               ),
             ));

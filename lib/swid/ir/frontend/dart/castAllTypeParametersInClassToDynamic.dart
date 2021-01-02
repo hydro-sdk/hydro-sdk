@@ -7,10 +7,12 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 SwidClass castAllTypeParametersInClassToDynamic({
   @required SwidClass swidClass,
   bool preserveTypeParametersInLists = false,
+  bool preserveFunctionTypeFormals = false,
 }) =>
     castTypeParametersToDynamic(
       swidType: SwidType.fromSwidClass(swidClass: swidClass),
       preserveTypeParametersInLists: preserveTypeParametersInLists,
+      preserveFunctionTypeFormals: preserveFunctionTypeFormals,
     ).when(
       fromSwidInterface: (_) => null,
       fromSwidClass: (val) => val,

@@ -168,6 +168,7 @@ void main() {
           swidClass: castTypeParametersToDynamic(
             swidType: SwidType.fromSwidClass(swidClass: iterable),
             preserveTypeParametersInLists: false,
+            preserveFunctionTypeFormals: false,
           ).when(
             fromSwidInterface: (_) => null,
             fromSwidClass: (val) => val,

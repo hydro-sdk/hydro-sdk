@@ -197,6 +197,7 @@ class RTManagedClassDeclaration {
                                     .indexWhere((element) => element == e),
                               ),
                               preserveTypeParametersInLists: true,
+                              preserveFunctionTypeFormals: false,
                             ),
                           ),
                       ),
@@ -232,6 +233,7 @@ class RTManagedClassDeclaration {
                     ? castTypeParametersToDynamic(
                         swidType: x.returnType,
                         preserveTypeParametersInLists: true,
+                        preserveFunctionTypeFormals: false,
                       ).name
                     : x.returnType.name,
               )
@@ -243,6 +245,7 @@ class RTManagedClassDeclaration {
                             swidType: castTypeParametersToDynamic(
                               swidType: x.returnType,
                               preserveTypeParametersInLists: false,
+                              preserveFunctionTypeFormals: false,
                             ),
                             expression: CodeExpression(Code(
                                 "closure.dispatch([table],parentState: hydroState)[0]")))
