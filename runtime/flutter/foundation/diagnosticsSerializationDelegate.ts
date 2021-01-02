@@ -19,9 +19,9 @@ export interface DiagnosticsSerializationDelegate {
     delegateForNode: (
         node: DiagnosticsNode
     ) => DiagnosticsSerializationDelegate;
-    subtreeDepth: () => number;
-    includeProperties: () => boolean;
-    expandPropertyValues: () => boolean;
+    getSubtreeDepth: () => number;
+    getIncludeProperties: () => boolean;
+    getExpandPropertyValues: () => boolean;
     copyWith: (props: {
         includeProperties: boolean;
         subtreeDepth: number;

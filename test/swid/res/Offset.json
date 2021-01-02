@@ -1337,79 +1337,359 @@
         "name": "OffsetBase",
         "nullabilitySuffix": "none",
         "originalPackagePath": "dart:ui",
-        "constructorType": {
-            "name": "",
-            "nullabilitySuffix": "none",
-            "originalPackagePath": "",
-            "swidDeclarationModifiers": {
-                "isAbstract": false,
-                "isGetter": false,
-                "isOperator": false,
-                "isSetter": false,
-                "isStatic": false,
-                "isSynthetic": false,
-                "hasAlwaysThrows": false,
-                "hasDeprecated": false,
-                "hasFactory": false,
-                "hasImplicitReturnType": false,
-                "hasIsTest": false,
-                "hasIsTestGroup": false,
-                "hasJS": false,
-                "hasLiteral": false,
-                "hasMustCallSuper": false,
-                "hasNonVirtual": false,
-                "hasOptionalTypeArgs": false,
-                "hasOverride": false,
-                "hasProtected": false,
-                "hasRequired": false,
-                "hasSealed": false,
-                "hasVisibleForTemplate": false,
-                "hasVisibleForTesting": false,
-                "isPublic": true
-            },
-            "namedParameterTypes": {},
-            "namedDefaults": {},
-            "normalParameterNames": ["_dx", "_dy"],
-            "normalParameterTypes": [
-                {
-                    "swidInterface": {
-                        "name": "double",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "classElement"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                },
-                {
-                    "swidInterface": {
-                        "name": "double",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "classElement"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                }
-            ],
-            "optionalParameterNames": [],
-            "optionalParameterTypes": [],
-            "returnType": {
-                "swidInterface": {
-                    "name": "OffsetBase",
-                    "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:ui",
-                    "typeArguments": [],
-                    "referenceDeclarationKind": "classElement"
-                },
-                "runtimeType": "fromSwidInterface"
-            },
-            "isFactory": false,
-            "typeFormals": []
-        },
+        "constructorType": null,
         "factoryConstructors": [],
         "staticMethods": [],
         "methods": [
+            {
+                "name": "<",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:ui",
+                "swidDeclarationModifiers": {
+                    "isAbstract": false,
+                    "isGetter": false,
+                    "isOperator": false,
+                    "isSetter": false,
+                    "isStatic": false,
+                    "isSynthetic": false,
+                    "hasAlwaysThrows": false,
+                    "hasDeprecated": false,
+                    "hasFactory": false,
+                    "hasImplicitReturnType": false,
+                    "hasIsTest": false,
+                    "hasIsTestGroup": false,
+                    "hasJS": false,
+                    "hasLiteral": false,
+                    "hasMustCallSuper": false,
+                    "hasNonVirtual": false,
+                    "hasOptionalTypeArgs": false,
+                    "hasOverride": false,
+                    "hasProtected": false,
+                    "hasRequired": false,
+                    "hasSealed": false,
+                    "hasVisibleForTemplate": false,
+                    "hasVisibleForTesting": false,
+                    "isPublic": true
+                },
+                "namedParameterTypes": {},
+                "namedDefaults": {},
+                "normalParameterNames": ["other"],
+                "normalParameterTypes": [
+                    {
+                        "swidInterface": {
+                            "name": "OffsetBase",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    }
+                ],
+                "optionalParameterNames": [],
+                "optionalParameterTypes": [],
+                "returnType": {
+                    "swidInterface": {
+                        "name": "bool",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "isFactory": false,
+                "typeFormals": []
+            },
+            {
+                "name": "<=",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:ui",
+                "swidDeclarationModifiers": {
+                    "isAbstract": false,
+                    "isGetter": false,
+                    "isOperator": false,
+                    "isSetter": false,
+                    "isStatic": false,
+                    "isSynthetic": false,
+                    "hasAlwaysThrows": false,
+                    "hasDeprecated": false,
+                    "hasFactory": false,
+                    "hasImplicitReturnType": false,
+                    "hasIsTest": false,
+                    "hasIsTestGroup": false,
+                    "hasJS": false,
+                    "hasLiteral": false,
+                    "hasMustCallSuper": false,
+                    "hasNonVirtual": false,
+                    "hasOptionalTypeArgs": false,
+                    "hasOverride": false,
+                    "hasProtected": false,
+                    "hasRequired": false,
+                    "hasSealed": false,
+                    "hasVisibleForTemplate": false,
+                    "hasVisibleForTesting": false,
+                    "isPublic": true
+                },
+                "namedParameterTypes": {},
+                "namedDefaults": {},
+                "normalParameterNames": ["other"],
+                "normalParameterTypes": [
+                    {
+                        "swidInterface": {
+                            "name": "OffsetBase",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    }
+                ],
+                "optionalParameterNames": [],
+                "optionalParameterTypes": [],
+                "returnType": {
+                    "swidInterface": {
+                        "name": "bool",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "isFactory": false,
+                "typeFormals": []
+            },
+            {
+                "name": ">",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:ui",
+                "swidDeclarationModifiers": {
+                    "isAbstract": false,
+                    "isGetter": false,
+                    "isOperator": false,
+                    "isSetter": false,
+                    "isStatic": false,
+                    "isSynthetic": false,
+                    "hasAlwaysThrows": false,
+                    "hasDeprecated": false,
+                    "hasFactory": false,
+                    "hasImplicitReturnType": false,
+                    "hasIsTest": false,
+                    "hasIsTestGroup": false,
+                    "hasJS": false,
+                    "hasLiteral": false,
+                    "hasMustCallSuper": false,
+                    "hasNonVirtual": false,
+                    "hasOptionalTypeArgs": false,
+                    "hasOverride": false,
+                    "hasProtected": false,
+                    "hasRequired": false,
+                    "hasSealed": false,
+                    "hasVisibleForTemplate": false,
+                    "hasVisibleForTesting": false,
+                    "isPublic": true
+                },
+                "namedParameterTypes": {},
+                "namedDefaults": {},
+                "normalParameterNames": ["other"],
+                "normalParameterTypes": [
+                    {
+                        "swidInterface": {
+                            "name": "OffsetBase",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    }
+                ],
+                "optionalParameterNames": [],
+                "optionalParameterTypes": [],
+                "returnType": {
+                    "swidInterface": {
+                        "name": "bool",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "isFactory": false,
+                "typeFormals": []
+            },
+            {
+                "name": ">=",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:ui",
+                "swidDeclarationModifiers": {
+                    "isAbstract": false,
+                    "isGetter": false,
+                    "isOperator": false,
+                    "isSetter": false,
+                    "isStatic": false,
+                    "isSynthetic": false,
+                    "hasAlwaysThrows": false,
+                    "hasDeprecated": false,
+                    "hasFactory": false,
+                    "hasImplicitReturnType": false,
+                    "hasIsTest": false,
+                    "hasIsTestGroup": false,
+                    "hasJS": false,
+                    "hasLiteral": false,
+                    "hasMustCallSuper": false,
+                    "hasNonVirtual": false,
+                    "hasOptionalTypeArgs": false,
+                    "hasOverride": false,
+                    "hasProtected": false,
+                    "hasRequired": false,
+                    "hasSealed": false,
+                    "hasVisibleForTemplate": false,
+                    "hasVisibleForTesting": false,
+                    "isPublic": true
+                },
+                "namedParameterTypes": {},
+                "namedDefaults": {},
+                "normalParameterNames": ["other"],
+                "normalParameterTypes": [
+                    {
+                        "swidInterface": {
+                            "name": "OffsetBase",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    }
+                ],
+                "optionalParameterNames": [],
+                "optionalParameterTypes": [],
+                "returnType": {
+                    "swidInterface": {
+                        "name": "bool",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "isFactory": false,
+                "typeFormals": []
+            },
+            {
+                "name": "==",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:ui",
+                "swidDeclarationModifiers": {
+                    "isAbstract": false,
+                    "isGetter": false,
+                    "isOperator": false,
+                    "isSetter": false,
+                    "isStatic": false,
+                    "isSynthetic": false,
+                    "hasAlwaysThrows": false,
+                    "hasDeprecated": false,
+                    "hasFactory": false,
+                    "hasImplicitReturnType": false,
+                    "hasIsTest": false,
+                    "hasIsTestGroup": false,
+                    "hasJS": false,
+                    "hasLiteral": false,
+                    "hasMustCallSuper": false,
+                    "hasNonVirtual": false,
+                    "hasOptionalTypeArgs": false,
+                    "hasOverride": false,
+                    "hasProtected": false,
+                    "hasRequired": false,
+                    "hasSealed": false,
+                    "hasVisibleForTemplate": false,
+                    "hasVisibleForTesting": false,
+                    "isPublic": true
+                },
+                "namedParameterTypes": {},
+                "namedDefaults": {},
+                "normalParameterNames": ["other"],
+                "normalParameterTypes": [
+                    {
+                        "swidInterface": {
+                            "name": "Object",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:core",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    }
+                ],
+                "optionalParameterNames": [],
+                "optionalParameterTypes": [],
+                "returnType": {
+                    "swidInterface": {
+                        "name": "bool",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "isFactory": false,
+                "typeFormals": []
+            },
+            {
+                "name": "toString",
+                "nullabilitySuffix": "none",
+                "originalPackagePath": "dart:ui",
+                "swidDeclarationModifiers": {
+                    "isAbstract": false,
+                    "isGetter": false,
+                    "isOperator": false,
+                    "isSetter": false,
+                    "isStatic": false,
+                    "isSynthetic": false,
+                    "hasAlwaysThrows": false,
+                    "hasDeprecated": false,
+                    "hasFactory": false,
+                    "hasImplicitReturnType": false,
+                    "hasIsTest": false,
+                    "hasIsTestGroup": false,
+                    "hasJS": false,
+                    "hasLiteral": false,
+                    "hasMustCallSuper": false,
+                    "hasNonVirtual": false,
+                    "hasOptionalTypeArgs": false,
+                    "hasOverride": false,
+                    "hasProtected": false,
+                    "hasRequired": false,
+                    "hasSealed": false,
+                    "hasVisibleForTemplate": false,
+                    "hasVisibleForTesting": false,
+                    "isPublic": true
+                },
+                "namedParameterTypes": {},
+                "namedDefaults": {},
+                "normalParameterNames": [],
+                "normalParameterTypes": [],
+                "optionalParameterNames": [],
+                "optionalParameterTypes": [],
+                "returnType": {
+                    "swidInterface": {
+                        "name": "String",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "isFactory": false,
+                "typeFormals": []
+            },
             {
                 "name": "isInfinite",
                 "nullabilitySuffix": "none",
@@ -1509,306 +1789,6 @@
                 "typeFormals": []
             },
             {
-                "name": "<",
-                "nullabilitySuffix": "none",
-                "originalPackagePath": "dart:ui",
-                "swidDeclarationModifiers": {
-                    "isAbstract": false,
-                    "isGetter": false,
-                    "isOperator": true,
-                    "isSetter": false,
-                    "isStatic": false,
-                    "isSynthetic": false,
-                    "hasAlwaysThrows": false,
-                    "hasDeprecated": false,
-                    "hasFactory": false,
-                    "hasImplicitReturnType": false,
-                    "hasIsTest": false,
-                    "hasIsTestGroup": false,
-                    "hasJS": false,
-                    "hasLiteral": false,
-                    "hasMustCallSuper": false,
-                    "hasNonVirtual": false,
-                    "hasOptionalTypeArgs": false,
-                    "hasOverride": false,
-                    "hasProtected": false,
-                    "hasRequired": false,
-                    "hasSealed": false,
-                    "hasVisibleForTemplate": false,
-                    "hasVisibleForTesting": false,
-                    "isPublic": true
-                },
-                "namedParameterTypes": {},
-                "namedDefaults": {},
-                "normalParameterNames": ["other"],
-                "normalParameterTypes": [
-                    {
-                        "swidInterface": {
-                            "name": "OffsetBase",
-                            "nullabilitySuffix": "none",
-                            "originalPackagePath": "dart:ui",
-                            "typeArguments": [],
-                            "referenceDeclarationKind": "classElement"
-                        },
-                        "runtimeType": "fromSwidInterface"
-                    }
-                ],
-                "optionalParameterNames": [],
-                "optionalParameterTypes": [],
-                "returnType": {
-                    "swidInterface": {
-                        "name": "bool",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "classElement"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                },
-                "isFactory": false,
-                "typeFormals": []
-            },
-            {
-                "name": "<=",
-                "nullabilitySuffix": "none",
-                "originalPackagePath": "dart:ui",
-                "swidDeclarationModifiers": {
-                    "isAbstract": false,
-                    "isGetter": false,
-                    "isOperator": true,
-                    "isSetter": false,
-                    "isStatic": false,
-                    "isSynthetic": false,
-                    "hasAlwaysThrows": false,
-                    "hasDeprecated": false,
-                    "hasFactory": false,
-                    "hasImplicitReturnType": false,
-                    "hasIsTest": false,
-                    "hasIsTestGroup": false,
-                    "hasJS": false,
-                    "hasLiteral": false,
-                    "hasMustCallSuper": false,
-                    "hasNonVirtual": false,
-                    "hasOptionalTypeArgs": false,
-                    "hasOverride": false,
-                    "hasProtected": false,
-                    "hasRequired": false,
-                    "hasSealed": false,
-                    "hasVisibleForTemplate": false,
-                    "hasVisibleForTesting": false,
-                    "isPublic": true
-                },
-                "namedParameterTypes": {},
-                "namedDefaults": {},
-                "normalParameterNames": ["other"],
-                "normalParameterTypes": [
-                    {
-                        "swidInterface": {
-                            "name": "OffsetBase",
-                            "nullabilitySuffix": "none",
-                            "originalPackagePath": "dart:ui",
-                            "typeArguments": [],
-                            "referenceDeclarationKind": "classElement"
-                        },
-                        "runtimeType": "fromSwidInterface"
-                    }
-                ],
-                "optionalParameterNames": [],
-                "optionalParameterTypes": [],
-                "returnType": {
-                    "swidInterface": {
-                        "name": "bool",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "classElement"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                },
-                "isFactory": false,
-                "typeFormals": []
-            },
-            {
-                "name": ">",
-                "nullabilitySuffix": "none",
-                "originalPackagePath": "dart:ui",
-                "swidDeclarationModifiers": {
-                    "isAbstract": false,
-                    "isGetter": false,
-                    "isOperator": true,
-                    "isSetter": false,
-                    "isStatic": false,
-                    "isSynthetic": false,
-                    "hasAlwaysThrows": false,
-                    "hasDeprecated": false,
-                    "hasFactory": false,
-                    "hasImplicitReturnType": false,
-                    "hasIsTest": false,
-                    "hasIsTestGroup": false,
-                    "hasJS": false,
-                    "hasLiteral": false,
-                    "hasMustCallSuper": false,
-                    "hasNonVirtual": false,
-                    "hasOptionalTypeArgs": false,
-                    "hasOverride": false,
-                    "hasProtected": false,
-                    "hasRequired": false,
-                    "hasSealed": false,
-                    "hasVisibleForTemplate": false,
-                    "hasVisibleForTesting": false,
-                    "isPublic": true
-                },
-                "namedParameterTypes": {},
-                "namedDefaults": {},
-                "normalParameterNames": ["other"],
-                "normalParameterTypes": [
-                    {
-                        "swidInterface": {
-                            "name": "OffsetBase",
-                            "nullabilitySuffix": "none",
-                            "originalPackagePath": "dart:ui",
-                            "typeArguments": [],
-                            "referenceDeclarationKind": "classElement"
-                        },
-                        "runtimeType": "fromSwidInterface"
-                    }
-                ],
-                "optionalParameterNames": [],
-                "optionalParameterTypes": [],
-                "returnType": {
-                    "swidInterface": {
-                        "name": "bool",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "classElement"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                },
-                "isFactory": false,
-                "typeFormals": []
-            },
-            {
-                "name": ">=",
-                "nullabilitySuffix": "none",
-                "originalPackagePath": "dart:ui",
-                "swidDeclarationModifiers": {
-                    "isAbstract": false,
-                    "isGetter": false,
-                    "isOperator": true,
-                    "isSetter": false,
-                    "isStatic": false,
-                    "isSynthetic": false,
-                    "hasAlwaysThrows": false,
-                    "hasDeprecated": false,
-                    "hasFactory": false,
-                    "hasImplicitReturnType": false,
-                    "hasIsTest": false,
-                    "hasIsTestGroup": false,
-                    "hasJS": false,
-                    "hasLiteral": false,
-                    "hasMustCallSuper": false,
-                    "hasNonVirtual": false,
-                    "hasOptionalTypeArgs": false,
-                    "hasOverride": false,
-                    "hasProtected": false,
-                    "hasRequired": false,
-                    "hasSealed": false,
-                    "hasVisibleForTemplate": false,
-                    "hasVisibleForTesting": false,
-                    "isPublic": true
-                },
-                "namedParameterTypes": {},
-                "namedDefaults": {},
-                "normalParameterNames": ["other"],
-                "normalParameterTypes": [
-                    {
-                        "swidInterface": {
-                            "name": "OffsetBase",
-                            "nullabilitySuffix": "none",
-                            "originalPackagePath": "dart:ui",
-                            "typeArguments": [],
-                            "referenceDeclarationKind": "classElement"
-                        },
-                        "runtimeType": "fromSwidInterface"
-                    }
-                ],
-                "optionalParameterNames": [],
-                "optionalParameterTypes": [],
-                "returnType": {
-                    "swidInterface": {
-                        "name": "bool",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "classElement"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                },
-                "isFactory": false,
-                "typeFormals": []
-            },
-            {
-                "name": "==",
-                "nullabilitySuffix": "none",
-                "originalPackagePath": "dart:ui",
-                "swidDeclarationModifiers": {
-                    "isAbstract": false,
-                    "isGetter": false,
-                    "isOperator": true,
-                    "isSetter": false,
-                    "isStatic": false,
-                    "isSynthetic": false,
-                    "hasAlwaysThrows": false,
-                    "hasDeprecated": false,
-                    "hasFactory": false,
-                    "hasImplicitReturnType": false,
-                    "hasIsTest": false,
-                    "hasIsTestGroup": false,
-                    "hasJS": false,
-                    "hasLiteral": false,
-                    "hasMustCallSuper": false,
-                    "hasNonVirtual": false,
-                    "hasOptionalTypeArgs": false,
-                    "hasOverride": true,
-                    "hasProtected": false,
-                    "hasRequired": false,
-                    "hasSealed": false,
-                    "hasVisibleForTemplate": false,
-                    "hasVisibleForTesting": false,
-                    "isPublic": true
-                },
-                "namedParameterTypes": {},
-                "namedDefaults": {},
-                "normalParameterNames": ["other"],
-                "normalParameterTypes": [
-                    {
-                        "swidInterface": {
-                            "name": "Object",
-                            "nullabilitySuffix": "none",
-                            "originalPackagePath": "dart:core",
-                            "typeArguments": [],
-                            "referenceDeclarationKind": "classElement"
-                        },
-                        "runtimeType": "fromSwidInterface"
-                    }
-                ],
-                "optionalParameterNames": [],
-                "optionalParameterTypes": [],
-                "returnType": {
-                    "swidInterface": {
-                        "name": "bool",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "classElement"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                },
-                "isFactory": false,
-                "typeFormals": []
-            },
-            {
                 "name": "hashCode",
                 "nullabilitySuffix": "none",
                 "originalPackagePath": "dart:ui",
@@ -1830,7 +1810,7 @@
                     "hasMustCallSuper": false,
                     "hasNonVirtual": false,
                     "hasOptionalTypeArgs": false,
-                    "hasOverride": true,
+                    "hasOverride": false,
                     "hasProtected": false,
                     "hasRequired": false,
                     "hasSealed": false,
@@ -1847,55 +1827,6 @@
                 "returnType": {
                     "swidInterface": {
                         "name": "int",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "classElement"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                },
-                "isFactory": false,
-                "typeFormals": []
-            },
-            {
-                "name": "toString",
-                "nullabilitySuffix": "none",
-                "originalPackagePath": "dart:ui",
-                "swidDeclarationModifiers": {
-                    "isAbstract": false,
-                    "isGetter": false,
-                    "isOperator": false,
-                    "isSetter": false,
-                    "isStatic": false,
-                    "isSynthetic": false,
-                    "hasAlwaysThrows": false,
-                    "hasDeprecated": false,
-                    "hasFactory": false,
-                    "hasImplicitReturnType": false,
-                    "hasIsTest": false,
-                    "hasIsTestGroup": false,
-                    "hasJS": false,
-                    "hasLiteral": false,
-                    "hasMustCallSuper": false,
-                    "hasNonVirtual": false,
-                    "hasOptionalTypeArgs": false,
-                    "hasOverride": true,
-                    "hasProtected": false,
-                    "hasRequired": false,
-                    "hasSealed": false,
-                    "hasVisibleForTemplate": false,
-                    "hasVisibleForTesting": false,
-                    "isPublic": true
-                },
-                "namedParameterTypes": {},
-                "namedDefaults": {},
-                "normalParameterNames": [],
-                "normalParameterTypes": [],
-                "optionalParameterNames": [],
-                "optionalParameterTypes": [],
-                "returnType": {
-                    "swidInterface": {
-                        "name": "String",
                         "nullabilitySuffix": "none",
                         "originalPackagePath": "dart:core",
                         "typeArguments": [],
