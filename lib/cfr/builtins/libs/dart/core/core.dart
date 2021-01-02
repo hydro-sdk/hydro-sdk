@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/cfr/builtins/libs/dart/core/iterable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/builtins/libs/dart/core/duration.dart';
@@ -12,4 +13,5 @@ void loadCore({@required HydroState luaState, @required HydroTable table}) {
 
   loadPrint(core);
   loadDuration(hydroState: luaState, table: core);
+  loadIterable(hydroState: luaState, table: core);
 }
