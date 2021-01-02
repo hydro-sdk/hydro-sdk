@@ -357,7 +357,10 @@ extension SwidClassMethods on SwidClass {
       swidDeclarationModifiers.isAbstract &&
       (methods.isNotEmpty
           ? methods.every((x) => x.swidDeclarationModifiers.isAbstract)
-          : false);
+          : false) &&
+      staticMethods.isEmpty &&
+      factoryConstructors.isEmpty &&
+      staticConstFieldDeclarations.isEmpty;
 
   bool isConstructible() => constructorType != null;
 }

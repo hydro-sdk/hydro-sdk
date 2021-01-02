@@ -60,7 +60,9 @@ class TranslationUnitProducer {
                         swidClass.originalPackagePath != "dart:_internal" &&
                         (requiresDartBinding(swidClass: swidClass) ||
                             swidClass.isConstructible() ||
-                            swidClass.staticConstFieldDeclarations.isNotEmpty)
+                            swidClass.staticConstFieldDeclarations.isNotEmpty ||
+                            swidClass.staticMethods.isNotEmpty ||
+                            swidClass.factoryConstructors.isNotEmpty)
                     ? ([
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsClassVmDeclaration(
@@ -144,11 +146,27 @@ class TranslationUnitProducer {
                     : [
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsInterface(
-                            tsInterface: TsInterface.fromSwidClass(
-                                swidClass: SwidClass.clone(
-                                    swidClass: swidClass,
-                                    methods: tsClassMethodInjectionCandidates(
-                                        swidFunctionTypes: swidClass.methods))))
+                          tsInterface: TsInterface.fromSwidClass(
+                            swidClass: SwidClass.clone(
+                              swidClass: swidClass,
+                              methods: tsClassMethodInjectionCandidates(
+                                swidFunctionTypes: swidClass.methods,
+                              ),
+                            ),
+                          ),
+                        ),
+                        TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
+                        TsIr.fromTsInterface(
+                          tsInterface: TsInterface.fromSwidClass(
+                            swidClass: SwidClass.clone(
+                              swidClass: swidClass,
+                              name: "I${swidClass.name}",
+                              methods: tsClassMethodInjectionCandidates(
+                                swidFunctionTypes: swidClass.methods,
+                              ),
+                            ),
+                          ),
+                        ),
                       ]),
             swidClass.originalPackagePath != "dart:_internal" &&
                     (requiresDartBinding(swidClass: swidClass) ||
