@@ -175,7 +175,7 @@ void main() {
             fromSwidFunctionType: (_) => null,
           ),
         ).toDartSource(),
-"""
+        """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
       {@required this.table,
