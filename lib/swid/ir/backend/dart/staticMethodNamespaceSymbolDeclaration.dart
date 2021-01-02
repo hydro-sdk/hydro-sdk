@@ -16,6 +16,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
@@ -51,7 +52,9 @@ class StaticMethodNamespaceSymbolDeclaration {
                                   DartBoxingProcedure.none,
                               emitTableBindingPrefix: false,
                               swidFunctionType: SwidFunctionType.clone(
-                                  swidFunctionType: swidFunctionType,
+                                  swidFunctionType:
+                                      castAllTypeParametersInFunctionToDynamic(
+                                          swidFunctionType: swidFunctionType),
                                   name: [swidClass.name, swidFunctionType.name]
                                       .join(".")))
                           .toDartSource())))
