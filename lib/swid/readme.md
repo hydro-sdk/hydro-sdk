@@ -35,6 +35,9 @@ Current and WIP results:
 - [ ] `Float64x2`
 - [ ] `Float64x2List`
 
+### `dart:_internal`
+- [x] `EfficientLengthIterable`
+
 ### `dart:ui`
 - [x] All enums
 - [x] `Offset`
