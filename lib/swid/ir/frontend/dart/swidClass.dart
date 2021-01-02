@@ -144,8 +144,13 @@ abstract class SwidClass with _$SwidClass {
           : SwidClass.clone(swidClass: swidClass);
 
   factory SwidClass.mergeSuperClasses({@required SwidClass swidClass}) =>
-      SwidClass.mergeDeclarations(
-          swidClass: swidClass, superClass: swidClass.extendedClass);
+      swidClass.extendedClass != null
+          ? SwidClass.mergeDeclarations(
+              swidClass: swidClass,
+              superClass: SwidClass.mergeSuperClasses(
+                  swidClass: swidClass.extendedClass),
+            )
+          : SwidClass.clone(swidClass: swidClass);
 
   factory SwidClass.fromClassOrMixinDeclaration({
     @required ClassOrMixinDeclaration classOrMixinDeclaration,
@@ -347,7 +352,10 @@ abstract class SwidClass with _$SwidClass {
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         isMixin: false,
-        extendedClass: null,
+        extendedClass: interfaceType.superclass != null
+            ? SwidClass.fromInterfaceType(
+                interfaceType: interfaceType.superclass)
+            : null,
         typeFormals: [],
       );
 }
