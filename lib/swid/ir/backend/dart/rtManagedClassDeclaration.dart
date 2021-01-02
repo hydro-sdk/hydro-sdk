@@ -185,12 +185,21 @@ class RTManagedClassDeclaration {
               )
               ..requiredParameters.addAll([
                 ...x.normalParameterNames
-                    .map((e) => Parameter((p) => p
-                      ..name = e
-                      ..type = swidTypeToDartTypeReference(
-                          swidType: x.normalParameterTypes.elementAt(x
-                              .normalParameterNames
-                              .indexWhere((element) => element == e)))))
+                    .map(
+                      (e) => Parameter(
+                        (p) => p
+                          ..name = e
+                          ..type = swidTypeToDartTypeReference(
+                            swidType: castTypeParametersToDynamic(
+                              swidType: x.normalParameterTypes.elementAt(
+                                x.normalParameterNames
+                                    .indexWhere((element) => element == e),
+                              ),
+                              preserveTypeParametersInLists: true,
+                            ),
+                          ),
+                      ),
+                    )
                     .toList(),
               ])
               ..optionalParameters.addAll([
