@@ -18,6 +18,7 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/castAllTypeParametersInClassToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -39,10 +40,10 @@ class VMManagedClassDeclaration {
                   SwidClass castedClass,
                 }) =>
                     typeReferenceBuilder
-                      ..symbol = swidClass.name +
-                          (swidClass.typeFormals.isNotEmpty
+                      ..symbol = castedClass.name +
+                          (castedClass.typeFormals.isNotEmpty
                               ? "<" +
-                                  swidClass.typeFormals
+                                  castedClass.typeFormals
                                       .map((x) => x.name)
                                       .join(",") +
                                   ">"
@@ -119,7 +120,11 @@ class VMManagedClassDeclaration {
                                       transformAccessorName(swidFunctionType: x)
                                           .name,
                                   swidFunctionType: SwidFunctionType.clone(
-                                    swidFunctionType: x,
+                                    swidFunctionType:
+                                        castAllTypeParametersInFunctionToDynamic(
+                                      swidFunctionType: x,
+                                      preserveTypeParametersInLists: true,
+                                    ),
                                     name: "vmObject.${x.name}",
                                   )).toDartSource(),
                             ))

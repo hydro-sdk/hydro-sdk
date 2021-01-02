@@ -23,6 +23,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -143,8 +144,11 @@ class RTManagedClassDeclaration {
             .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
-            .map((x) => Code(MethodInjectionImplementation(swidFunctionType: x)
-                .toDartSource()))
+            .map((x) => Code(MethodInjectionImplementation(
+                    swidFunctionType: castAllTypeParametersInFunctionToDynamic(
+                  swidFunctionType: x,
+                  preserveTypeParametersInLists: true,
+                )).toDartSource()))
             .toList())
       ])))
     ..methods.addAll([

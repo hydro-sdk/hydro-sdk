@@ -166,8 +166,9 @@ void main() {
     expect(
         VMManagedClassDeclaration(
           swidClass: castTypeParametersToDynamic(
-                  swidType: SwidType.fromSwidClass(swidClass: iterable))
-              .when(
+            swidType: SwidType.fromSwidClass(swidClass: iterable),
+            preserveTypeParametersInLists: false,
+          ).when(
             fromSwidInterface: (_) => null,
             fromSwidClass: (val) => val,
             fromSwidDefaultFormalParameter: (_) => null,
