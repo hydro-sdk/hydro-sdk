@@ -57,6 +57,7 @@ class TranslationUnitProducer {
                 fileName: "$baseFileName.ts",
                 ir: !swidClass.isPureAbstract() &&
                         !swidClass.isMixin &&
+                        swidClass.originalPackagePath != "dart:_internal" &&
                         (requiresDartBinding(swidClass: swidClass) ||
                             swidClass.isConstructible() ||
                             swidClass.staticConstFieldDeclarations.isNotEmpty)
@@ -143,11 +144,15 @@ class TranslationUnitProducer {
                     : [
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsInterface(
-                            tsInterface:
-                                TsInterface.fromSwidClass(swidClass: swidClass))
+                            tsInterface: TsInterface.fromSwidClass(
+                                swidClass: SwidClass.clone(
+                                    swidClass: swidClass,
+                                    methods: tsClassMethodInjectionCandidates(
+                                        swidFunctionTypes: swidClass.methods))))
                       ]),
-            requiresDartBinding(swidClass: swidClass) ||
-                    swidClass.isConstructible()
+            swidClass.originalPackagePath != "dart:_internal" &&
+                    (requiresDartBinding(swidClass: swidClass) ||
+                        swidClass.isConstructible())
                 ? DartTranslationUnit(
                     path:
                         dartPrefixPaths.join(p.separator) + p.separator + path,
