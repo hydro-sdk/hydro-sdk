@@ -209,7 +209,7 @@ class RTManagedClassDeclaration {
                 x.typeFormals.isEmpty
                     ? castTypeParametersToDynamic(
                         swidType: x.returnType,
-                        preserveTypeParametersInLists: false,
+                        preserveTypeParametersInLists: true,
                       ).name
                     : x.returnType.name,
               )

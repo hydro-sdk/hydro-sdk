@@ -296,7 +296,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
   @override
   List<DiagnosticsNode> getProperties() {
     Closure closure = table["getProperties"];
-    return maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(
+    return maybeUnBoxAndBuildArgument<List>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -304,7 +304,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
   @override
   List<DiagnosticsNode> getChildren() {
     Closure closure = table["getChildren"];
-    return maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(
+    return maybeUnBoxAndBuildArgument<List>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
