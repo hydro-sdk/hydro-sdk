@@ -18,7 +18,8 @@ Limitations:
 Current and WIP results:
 
 ### `dart:core`
-- [ ] `Iterable`
+- [x] `Iterable`
+- [x] `Iterator`
 - [ ] `List`
 - [ ] `Set`
 

@@ -43,7 +43,9 @@ void main(List<String> args) async {
         visitor.classes[i].name == "Path" ||
         visitor.classes[i].name == "PathMetric" ||
         visitor.classes[i].name == "Tangent" ||
-        visitor.classes[i].name == "Iterable") {
+        visitor.classes[i].name == "Iterable"||
+        visitor.classes[i].name == "Iterator"
+        ) {
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(
