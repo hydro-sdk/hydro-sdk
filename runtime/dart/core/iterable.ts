@@ -1,5 +1,6 @@
 import { List } from "./../collection/list";
 import { Iterator } from "./iterator";
+import { Set } from "./set";
 declare const dart: {
     core: {
         iterable: <E>(this: void, iterable: Iterable<E>) => Iterable<E>;
