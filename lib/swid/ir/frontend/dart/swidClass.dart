@@ -328,6 +328,7 @@ abstract class SwidClass with _$SwidClass {
         staticMethods: [],
         methods: [
           ...interfaceType.methods
+              .where((x) => !x.isStatic)
               .map((x) => SwidFunctionType.fromFunctionType(
                   functionType: x.type,
                   swidDeclarationModifiers: SwidDeclarationModifiers.empty()))
