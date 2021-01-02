@@ -201,17 +201,16 @@ class TranslationUnitProducer {
                     ]..removeWhere((x) => x == null),
                   )
                 : null
-          ]
-            ..removeWhere((x) => x == null))(SwidClass.clone(
-          swidClass: swidClass,
-          extendedClass: swidClass.extendedClass != null
-              ? SwidClass.clone(
-                  swidClass: swidClass.extendedClass,
-                  methods: swidClass.extendedClass.methods
-                      .where((x) => methodIsEmitCandidate(swidFunctionType: x))
-                      .toList())
-              : null,
-          methods: swidClass.methods
-              .where((x) => methodIsEmitCandidate(swidFunctionType: x))
-              .toList()));
+          ]..removeWhere((x) =>
+              x == null))(_removeNonEmitCandidates(swidClass: swidClass));
 }
+
+SwidClass _removeNonEmitCandidates({@required SwidClass swidClass}) =>
+    SwidClass.clone(
+        swidClass: swidClass,
+        methods: swidClass.methods
+            .where((x) => methodIsEmitCandidate(swidFunctionType: x))
+            .toList(),
+        extendedClass: swidClass.extendedClass != null
+            ? _removeNonEmitCandidates(swidClass: swidClass.extendedClass)
+            : null);
