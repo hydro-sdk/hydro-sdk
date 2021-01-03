@@ -62,7 +62,7 @@ jobs:
       run: flutter pub get
       working-directory: hydro
     - name: Build Typescript debug fixtures
-      run: bash scripts/buildAllCo19Ts.bash debug
+      run: bash scripts/buildCo19Ts.bash debug
       working-directory: hydro
     - name: Run Hydro-SDK tests
       shell: bash
