@@ -1,4 +1,4 @@
-import { IOffset,Offset } from "./offset";
+import { IOffset, Offset } from "./offset";
 declare const dart: {
     ui: {
         tangent: (

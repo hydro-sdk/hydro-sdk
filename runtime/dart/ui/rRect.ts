@@ -1,5 +1,5 @@
 import { IOffset } from "./offset";
-import { IRadius,Radius } from "./radius";
+import { IRadius, Radius } from "./radius";
 import { IRect } from "./rect";
 declare const dart: {
     ui: {
