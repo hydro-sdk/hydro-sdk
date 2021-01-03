@@ -23,6 +23,7 @@ void main() {
         name: "Iterable",
         nullabilitySuffix: SwidNullabilitySuffix.none,
         originalPackagePath: "dart:core",
+        implementedClasses: [],
         constructorType: SwidFunctionType(
           name: "",
           nullabilitySuffix: SwidNullabilitySuffix.none,
