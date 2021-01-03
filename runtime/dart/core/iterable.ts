@@ -68,7 +68,7 @@ export class Iterable<E> {
         count: number,
         generator?: (index: number) => E
     ): IIterable<E> {
-        return dart.core.iterableGenerate(count);
+        return dart.core.iterableGenerate(count, generator);
     }
     public static empty<E>(): IIterable<E> {
         return dart.core.iterableEmpty();
