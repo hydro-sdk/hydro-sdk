@@ -1,5 +1,5 @@
-import { List } from "./../../dart/collection/list";
-import { DiagnosticsNode } from "./diagnosticsNode";
+import { IList, List } from "./../../dart/collection/list";
+import { DiagnosticsNode, IDiagnosticsNode } from "./diagnosticsNode";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
 declare const flutter: {
     foundation: {
@@ -8,18 +8,17 @@ declare const flutter: {
             diagnosticPropertiesBuilder: DiagnosticPropertiesBuilder
         ) => DiagnosticPropertiesBuilder;
         diagnosticPropertiesBuilderFromProperties: (
-            properties: List<DiagnosticsNode>
-        ) => DiagnosticPropertiesBuilder;
+            properties: IList<IDiagnosticsNode>
+        ) => IDiagnosticPropertiesBuilder;
     };
 };
 export interface IDiagnosticPropertiesBuilder {
-    properties: List<DiagnosticsNode>;
+    properties: IList<IDiagnosticsNode>;
     defaultDiagnosticsTreeStyle: DiagnosticsTreeStyle;
     emptyBodyDescription: string | undefined;
-    add: (property: DiagnosticsNode) => void;
+    add: (property: IDiagnosticsNode) => void;
 }
-export class DiagnosticPropertiesBuilder
-    implements IDiagnosticPropertiesBuilder {
+export class DiagnosticPropertiesBuilder {
     public readonly properties: List<DiagnosticsNode> = undefined as any;
     public readonly defaultDiagnosticsTreeStyle: DiagnosticsTreeStyle = undefined as any;
     public readonly emptyBodyDescription: string | undefined = undefined as any;
@@ -27,16 +26,16 @@ export class DiagnosticPropertiesBuilder
         flutter.foundation.diagnosticPropertiesBuilder(this);
     }
     public static fromProperties(
-        properties: List<DiagnosticsNode>
-    ): DiagnosticPropertiesBuilder {
+        properties: IList<IDiagnosticsNode>
+    ): IDiagnosticPropertiesBuilder {
         return flutter.foundation.diagnosticPropertiesBuilderFromProperties(
             properties
         );
     }
     private readonly _dart_add: (
-        property: DiagnosticsNode
+        property: IDiagnosticsNode
     ) => void = undefined as any;
-    public add(property: DiagnosticsNode): void {
+    public add(property: IDiagnosticsNode): void {
         return this._dart_add(property);
     }
 }

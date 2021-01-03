@@ -81,7 +81,7 @@ export interface ITextTreeConfiguration {
     mandatoryFooter: string;
     isBlankLineBetweenPropertiesAndChildren: boolean;
 }
-export class TextTreeConfiguration implements ITextTreeConfiguration {
+export class TextTreeConfiguration {
     public readonly prefixLineOne: string = undefined as any;
     public readonly suffixLineOne: string = undefined as any;
     public readonly prefixOtherLines: string = undefined as any;

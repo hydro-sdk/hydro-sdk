@@ -102,7 +102,7 @@ export interface IPath {
     addRect: (rect: IRect) => void;
     addOval: (oval: IRect) => void;
     addArc: (oval: IRect, startAngle: number, sweepAngle: number) => void;
-    addPolygon: (points: IList<Offset>, close: boolean) => void;
+    addPolygon: (points: IList<IOffset>, close: boolean) => void;
     addRRect: (rrect: IRRect) => void;
     addPath: (
         path: IPath,
@@ -230,7 +230,7 @@ export class Path {
         sweepAngle: number
     ) => void = undefined as any;
     private readonly _dart_addPolygon: (
-        points: IList<Offset>,
+        points: IList<IOffset>,
         close: boolean
     ) => void = undefined as any;
     private readonly _dart_addRRect: (rrect: IRRect) => void = undefined as any;
@@ -374,7 +374,7 @@ export class Path {
     public addArc(oval: IRect, startAngle: number, sweepAngle: number): void {
         return this._dart_addArc(oval, startAngle, sweepAngle);
     }
-    public addPolygon(points: IList<Offset>, close: boolean): void {
+    public addPolygon(points: IList<IOffset>, close: boolean): void {
         return this._dart_addPolygon(points, close);
     }
     public addRRect(rrect: IRRect): void {

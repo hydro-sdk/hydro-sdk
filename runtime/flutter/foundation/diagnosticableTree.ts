@@ -1,6 +1,6 @@
-import { Diagnosticable } from "./diagnosticable";
+import { IDiagnosticable } from "./diagnosticable";
 import { DiagnosticLevel } from "./diagnosticLevel";
-import { DiagnosticsNode } from "./diagnosticsNode";
+import { IDiagnosticsNode } from "./diagnosticsNode";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
 declare const flutter: {
     foundation: {
@@ -32,9 +32,9 @@ export interface IDiagnosticableTree {
     toDiagnosticsNode: (props: {
         name?: string | undefined;
         style?: DiagnosticsTreeStyle | undefined;
-    }) => DiagnosticsNode;
+    }) => IDiagnosticsNode;
 }
-export class DiagnosticableTree implements IDiagnosticableTree {
+export class DiagnosticableTree implements IDiagnosticable {
     public constructor() {
         flutter.foundation.diagnosticableTree(this);
     }
@@ -51,7 +51,7 @@ export class DiagnosticableTree implements IDiagnosticableTree {
     private readonly _dart_toDiagnosticsNode: (props: {
         name?: string | undefined;
         style?: DiagnosticsTreeStyle | undefined;
-    }) => DiagnosticsNode = undefined as any;
+    }) => IDiagnosticsNode = undefined as any;
     public toStringShallow(props: {
         joiner?: string;
         minLevel?: DiagnosticLevel;
@@ -77,7 +77,7 @@ export class DiagnosticableTree implements IDiagnosticableTree {
     public toDiagnosticsNode(props: {
         name?: string | undefined;
         style?: DiagnosticsTreeStyle | undefined;
-    }): DiagnosticsNode {
+    }): IDiagnosticsNode {
         return this._dart_toDiagnosticsNode(props);
     }
 }

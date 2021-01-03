@@ -23,7 +23,7 @@ export interface IIconData {
     getHashCode: () => number;
     toString: () => string;
 }
-export class IconData implements IIconData {
+export class IconData {
     public readonly codePoint: number = undefined as any;
     public readonly fontFamily: string = undefined as any;
     public readonly fontPackage: string = undefined as any;
