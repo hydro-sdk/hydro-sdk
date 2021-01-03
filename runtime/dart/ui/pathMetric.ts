@@ -1,5 +1,5 @@
-import { Path } from "./path";
-import { Tangent } from "./tangent";
+import { IPath } from "./path";
+import { ITangent } from "./tangent";
 declare const dart: {
     ui: {};
 };
@@ -10,35 +10,35 @@ export interface IPathMetric {
     length: number;
     isClosed: boolean;
     contourIndex: number;
-    getTangentForOffset: (distance: number) => Tangent | undefined;
+    getTangentForOffset: (distance: number) => ITangent | undefined;
     extractPath: (
         start: number,
         end: number,
         props: { startWithMoveTo: boolean }
-    ) => Path | undefined;
+    ) => IPath | undefined;
     toString: () => string;
 }
-export class PathMetric implements IPathMetric {
+export class PathMetric {
     public readonly length: number = undefined as any;
     public readonly isClosed: boolean = undefined as any;
     public readonly contourIndex: number = undefined as any;
     private readonly _dart_getTangentForOffset: (
         distance: number
-    ) => Tangent | undefined = undefined as any;
+    ) => ITangent | undefined = undefined as any;
     private readonly _dart_extractPath: (
         start: number,
         end: number,
         props: { startWithMoveTo: boolean }
-    ) => Path | undefined = undefined as any;
+    ) => IPath | undefined = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    public getTangentForOffset(distance: number): Tangent | undefined {
+    public getTangentForOffset(distance: number): ITangent | undefined {
         return this._dart_getTangentForOffset(distance);
     }
     public extractPath(
         start: number,
         end: number,
         props: { startWithMoveTo?: boolean }
-    ): Path | undefined {
+    ): IPath | undefined {
         return this._dart_extractPath(start, end, {
             ...extractPathDefaultProps,
             ...props,

@@ -1,4 +1,4 @@
-import { Offset } from "./offset";
+import { IOffset } from "./offset";
 declare const dart: {
     ui: {
         tangent: (
@@ -11,11 +11,11 @@ declare const dart: {
     };
 };
 export interface ITangent {
-    position: Offset;
-    vector: Offset;
+    position: IOffset;
+    vector: IOffset;
     getAngle: () => number;
 }
-export class Tangent implements ITangent {
+export class Tangent {
     public readonly position: Offset = undefined as any;
     public readonly vector: Offset = undefined as any;
     public constructor(position: Offset, vector: Offset) {

@@ -1,6 +1,6 @@
-import { List } from "./../collection/list";
-import { Iterator } from "./iterator";
-import { Set } from "./set";
+import { IList } from "./../collection/list";
+import { IIterator } from "./iterator";
+import { ISet } from "./set";
 declare const dart: {
     core: {
         iterable: <E>(this: void, iterable: Iterable<E>) => Iterable<E>;
@@ -16,13 +16,13 @@ const toListDefaultProps = {
     growable: true,
 };
 export interface IIterable<E> {
-    getIterator: () => Iterator<E>;
-    cast: <R>() => Iterable<R>;
-    followedBy: (other: Iterable<E>) => Iterable<E>;
-    map: <T>(f: (e: E) => T) => Iterable<T>;
-    where: (test: (element: E) => boolean) => Iterable<E>;
-    whereType: <T>() => Iterable<T>;
-    expand: <T>(f: (element: E) => Iterable<T>) => Iterable<T>;
+    getIterator: () => IIterator<E>;
+    cast: <R>() => IIterable<R>;
+    followedBy: (other: IIterable<E>) => IIterable<E>;
+    map: <T>(f: (e: E) => T) => IIterable<T>;
+    where: (test: (element: E) => boolean) => IIterable<E>;
+    whereType: <T>() => IIterable<T>;
+    expand: <T>(f: (element: E) => IIterable<T>) => IIterable<T>;
     contains: (element?: Object | undefined) => boolean;
     forEach: (f: (element: E) => void) => void;
     reduce: (combine: (value: E, element: E) => E) => E;
@@ -33,15 +33,15 @@ export interface IIterable<E> {
     every: (test: (element: E) => boolean) => boolean;
     join: (separator: string) => string;
     any: (test: (element: E) => boolean) => boolean;
-    toList: (props: { growable: boolean }) => List<E>;
-    toSet: () => Set<E>;
+    toList: (props: { growable: boolean }) => IList<E>;
+    toSet: () => ISet<E>;
     getLength: () => number;
     getIsEmpty: () => boolean;
     getIsNotEmpty: () => boolean;
-    take: (count: number) => Iterable<E>;
-    takeWhile: (test: (value: E) => boolean) => Iterable<E>;
-    skip: (count: number) => Iterable<E>;
-    skipWhile: (test: (value: E) => boolean) => Iterable<E>;
+    take: (count: number) => IIterable<E>;
+    takeWhile: (test: (value: E) => boolean) => IIterable<E>;
+    skip: (count: number) => IIterable<E>;
+    skipWhile: (test: (value: E) => boolean) => IIterable<E>;
     getFirst: () => E;
     getLast: () => E;
     getSingle: () => E;
@@ -60,7 +60,7 @@ export interface IIterable<E> {
     elementAt: (index: number) => E;
     toString: () => string;
 }
-export class Iterable<E> implements IIterable<E> {
+export class Iterable<E> {
     public constructor() {
         dart.core.iterable(this);
     }
@@ -76,21 +76,21 @@ export class Iterable<E> implements IIterable<E> {
     public static castFrom<S, T>(source: Iterable<S>): Iterable<T> {
         return dart.core.iterableCastFrom(source);
     }
-    private readonly _dart_getIterator: () => Iterator<E> = undefined as any;
-    private readonly _dart_cast: <R>() => Iterable<R> = undefined as any;
+    private readonly _dart_getIterator: () => IIterator<E> = undefined as any;
+    private readonly _dart_cast: <R>() => IIterable<R> = undefined as any;
     private readonly _dart_followedBy: (
-        other: Iterable<E>
-    ) => Iterable<E> = undefined as any;
+        other: IIterable<E>
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_map: <T>(
         f: (e: E) => T
-    ) => Iterable<T> = undefined as any;
+    ) => IIterable<T> = undefined as any;
     private readonly _dart_where: (
         test: (element: E) => boolean
-    ) => Iterable<E> = undefined as any;
-    private readonly _dart_whereType: <T>() => Iterable<T> = undefined as any;
+    ) => IIterable<E> = undefined as any;
+    private readonly _dart_whereType: <T>() => IIterable<T> = undefined as any;
     private readonly _dart_expand: <T>(
-        f: (element: E) => Iterable<T>
-    ) => Iterable<T> = undefined as any;
+        f: (element: E) => IIterable<T>
+    ) => IIterable<T> = undefined as any;
     private readonly _dart_contains: (
         element?: Object | undefined
     ) => boolean = undefined as any;
@@ -115,23 +115,23 @@ export class Iterable<E> implements IIterable<E> {
     ) => boolean = undefined as any;
     private readonly _dart_toList: (props: {
         growable: boolean;
-    }) => List<E> = undefined as any;
-    private readonly _dart_toSet: () => Set<E> = undefined as any;
+    }) => IList<E> = undefined as any;
+    private readonly _dart_toSet: () => ISet<E> = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
     private readonly _dart_getIsNotEmpty: () => boolean = undefined as any;
     private readonly _dart_take: (
         count: number
-    ) => Iterable<E> = undefined as any;
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: E) => boolean
-    ) => Iterable<E> = undefined as any;
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_skip: (
         count: number
-    ) => Iterable<E> = undefined as any;
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: E) => boolean
-    ) => Iterable<E> = undefined as any;
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_getFirst: () => E = undefined as any;
     private readonly _dart_getLast: () => E = undefined as any;
     private readonly _dart_getSingle: () => E = undefined as any;
@@ -149,25 +149,25 @@ export class Iterable<E> implements IIterable<E> {
     ) => E = undefined as any;
     private readonly _dart_elementAt: (index: number) => E = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    public getIterator(): Iterator<E> {
+    public getIterator(): IIterator<E> {
         return this._dart_getIterator();
     }
-    public cast<R>(): Iterable<R> {
+    public cast<R>(): IIterable<R> {
         return this._dart_cast();
     }
-    public followedBy(other: Iterable<E>): Iterable<E> {
+    public followedBy(other: IIterable<E>): IIterable<E> {
         return this._dart_followedBy(other);
     }
-    public map<T>(f: (e: E) => T): Iterable<T> {
+    public map<T>(f: (e: E) => T): IIterable<T> {
         return this._dart_map(f);
     }
-    public where(test: (element: E) => boolean): Iterable<E> {
+    public where(test: (element: E) => boolean): IIterable<E> {
         return this._dart_where(test);
     }
-    public whereType<T>(): Iterable<T> {
+    public whereType<T>(): IIterable<T> {
         return this._dart_whereType();
     }
-    public expand<T>(f: (element: E) => Iterable<T>): Iterable<T> {
+    public expand<T>(f: (element: E) => IIterable<T>): IIterable<T> {
         return this._dart_expand(f);
     }
     public contains(element?: Object | undefined): boolean {
@@ -194,13 +194,13 @@ export class Iterable<E> implements IIterable<E> {
     public any(test: (element: E) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable?: boolean }): List<E> {
+    public toList(props: { growable?: boolean }): IList<E> {
         return this._dart_toList({
             ...toListDefaultProps,
             ...props,
         });
     }
-    public toSet(): Set<E> {
+    public toSet(): ISet<E> {
         return this._dart_toSet();
     }
     public getLength(): number {
@@ -212,16 +212,16 @@ export class Iterable<E> implements IIterable<E> {
     public getIsNotEmpty(): boolean {
         return this._dart_getIsNotEmpty();
     }
-    public take(count: number): Iterable<E> {
+    public take(count: number): IIterable<E> {
         return this._dart_take(count);
     }
-    public takeWhile(test: (value: E) => boolean): Iterable<E> {
+    public takeWhile(test: (value: E) => boolean): IIterable<E> {
         return this._dart_takeWhile(test);
     }
-    public skip(count: number): Iterable<E> {
+    public skip(count: number): IIterable<E> {
         return this._dart_skip(count);
     }
-    public skipWhile(test: (value: E) => boolean): Iterable<E> {
+    public skipWhile(test: (value: E) => boolean): IIterable<E> {
         return this._dart_skipWhile(test);
     }
     public getFirst(): E {

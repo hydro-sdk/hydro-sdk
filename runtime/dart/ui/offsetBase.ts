@@ -14,7 +14,7 @@ export interface IOffsetBase {
     getHashCode: () => number;
     toString: () => string;
 }
-export class OffsetBase implements IOffsetBase {
+export class OffsetBase {
     public constructor(_dx: number, _dy: number) {
         dart.ui.offsetBase(this, _dx, _dy);
     }

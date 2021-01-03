@@ -1,5 +1,5 @@
 import { double } from "./../core/double";
-import { Offset } from "./offset";
+import { IOffset } from "./offset";
 import { IOffsetBase } from "./offsetBase";
 declare const dart: {
     ui: {
@@ -16,28 +16,30 @@ declare const dart: {
         ) => Size | undefined;
     };
 };
-export interface ISize extends IOffsetBase {
+export interface ISize {
     getWidth: () => number;
     getHeight: () => number;
     getAspectRatio: () => number;
     getIsEmpty: () => boolean;
     getShortestSide: () => number;
     getLongestSide: () => number;
-    topLeft: (origin: Offset) => Offset;
-    topCenter: (origin: Offset) => Offset;
-    topRight: (origin: Offset) => Offset;
-    centerLeft: (origin: Offset) => Offset;
-    center: (origin: Offset) => Offset;
-    centerRight: (origin: Offset) => Offset;
-    bottomLeft: (origin: Offset) => Offset;
-    bottomCenter: (origin: Offset) => Offset;
-    bottomRight: (origin: Offset) => Offset;
-    contains: (offset: Offset) => boolean;
-    getFlipped: () => Size;
+    topLeft: (origin: IOffset) => IOffset;
+    topCenter: (origin: IOffset) => IOffset;
+    topRight: (origin: IOffset) => IOffset;
+    centerLeft: (origin: IOffset) => IOffset;
+    center: (origin: IOffset) => IOffset;
+    centerRight: (origin: IOffset) => IOffset;
+    bottomLeft: (origin: IOffset) => IOffset;
+    bottomCenter: (origin: IOffset) => IOffset;
+    bottomRight: (origin: IOffset) => IOffset;
+    contains: (offset: IOffset) => boolean;
+    getFlipped: () => ISize;
     getHashCode: () => number;
     toString: () => string;
+    getIsInfinite: () => boolean;
+    getIsFinite: () => boolean;
 }
-export class Size implements ISize {
+export class Size implements IOffsetBase {
     public static zero = new Size(0.0, 0.0);
     public static infinite = new Size(double.infinity, double.infinity);
     public constructor(width: number, height: number) {
@@ -72,36 +74,36 @@ export class Size implements ISize {
     private readonly _dart_getShortestSide: () => number = undefined as any;
     private readonly _dart_getLongestSide: () => number = undefined as any;
     private readonly _dart_topLeft: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_topCenter: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_topRight: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_centerLeft: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_center: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_centerRight: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_bottomLeft: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_bottomCenter: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_bottomRight: (
-        origin: Offset
-    ) => Offset = undefined as any;
+        origin: IOffset
+    ) => IOffset = undefined as any;
     private readonly _dart_contains: (
-        offset: Offset
+        offset: IOffset
     ) => boolean = undefined as any;
-    private readonly _dart_getFlipped: () => Size = undefined as any;
+    private readonly _dart_getFlipped: () => ISize = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getIsInfinite: () => boolean = undefined as any;
@@ -124,37 +126,37 @@ export class Size implements ISize {
     public getLongestSide(): number {
         return this._dart_getLongestSide();
     }
-    public topLeft(origin: Offset): Offset {
+    public topLeft(origin: IOffset): IOffset {
         return this._dart_topLeft(origin);
     }
-    public topCenter(origin: Offset): Offset {
+    public topCenter(origin: IOffset): IOffset {
         return this._dart_topCenter(origin);
     }
-    public topRight(origin: Offset): Offset {
+    public topRight(origin: IOffset): IOffset {
         return this._dart_topRight(origin);
     }
-    public centerLeft(origin: Offset): Offset {
+    public centerLeft(origin: IOffset): IOffset {
         return this._dart_centerLeft(origin);
     }
-    public center(origin: Offset): Offset {
+    public center(origin: IOffset): IOffset {
         return this._dart_center(origin);
     }
-    public centerRight(origin: Offset): Offset {
+    public centerRight(origin: IOffset): IOffset {
         return this._dart_centerRight(origin);
     }
-    public bottomLeft(origin: Offset): Offset {
+    public bottomLeft(origin: IOffset): IOffset {
         return this._dart_bottomLeft(origin);
     }
-    public bottomCenter(origin: Offset): Offset {
+    public bottomCenter(origin: IOffset): IOffset {
         return this._dart_bottomCenter(origin);
     }
-    public bottomRight(origin: Offset): Offset {
+    public bottomRight(origin: IOffset): IOffset {
         return this._dart_bottomRight(origin);
     }
-    public contains(offset: Offset): boolean {
+    public contains(offset: IOffset): boolean {
         return this._dart_contains(offset);
     }
-    public getFlipped(): Size {
+    public getFlipped(): ISize {
         return this._dart_getFlipped();
     }
     public getHashCode(): number {

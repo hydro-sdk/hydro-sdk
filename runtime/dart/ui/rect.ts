@@ -1,5 +1,5 @@
-import { Offset } from "./offset";
-import { Size } from "./size";
+import { IOffset } from "./offset";
+import { ISize } from "./size";
 declare const dart: {
     ui: {
         rectFromLTRB: (
@@ -35,34 +35,34 @@ export interface IRect {
     bottom: number;
     getWidth: () => number;
     getHeight: () => number;
-    getSize: () => Size;
+    getSize: () => ISize;
     getHasNaN: () => boolean;
     getIsInfinite: () => boolean;
     getIsFinite: () => boolean;
     getIsEmpty: () => boolean;
-    shift: (offset: Offset) => Rect;
-    translate: (translateX: number, translateY: number) => Rect;
-    inflate: (delta: number) => Rect;
-    deflate: (delta: number) => Rect;
-    intersect: (other: Rect) => Rect;
-    expandToInclude: (other: Rect) => Rect;
-    overlaps: (other: Rect) => boolean;
+    shift: (offset: IOffset) => IRect;
+    translate: (translateX: number, translateY: number) => IRect;
+    inflate: (delta: number) => IRect;
+    deflate: (delta: number) => IRect;
+    intersect: (other: IRect) => IRect;
+    expandToInclude: (other: IRect) => IRect;
+    overlaps: (other: IRect) => boolean;
     getShortestSide: () => number;
     getLongestSide: () => number;
-    getTopLeft: () => Offset;
-    getTopCenter: () => Offset;
-    getTopRight: () => Offset;
-    getCenterLeft: () => Offset;
-    getCenter: () => Offset;
-    getCenterRight: () => Offset;
-    getBottomLeft: () => Offset;
-    getBottomCenter: () => Offset;
-    getBottomRight: () => Offset;
-    contains: (offset: Offset) => boolean;
+    getTopLeft: () => IOffset;
+    getTopCenter: () => IOffset;
+    getTopRight: () => IOffset;
+    getCenterLeft: () => IOffset;
+    getCenter: () => IOffset;
+    getCenterRight: () => IOffset;
+    getBottomLeft: () => IOffset;
+    getBottomCenter: () => IOffset;
+    getBottomRight: () => IOffset;
+    contains: (offset: IOffset) => boolean;
     getHashCode: () => number;
     toString: () => string;
 }
-export class Rect implements IRect {
+export class Rect {
     public static zero = Rect.fromLTRB(0.0, 0.0, 0.0, 0.0);
     private static _giantScalar = 1.0e9;
     public static largest = Rect.fromLTRB(
@@ -113,38 +113,40 @@ export class Rect implements IRect {
     }
     private readonly _dart_getWidth: () => number = undefined as any;
     private readonly _dart_getHeight: () => number = undefined as any;
-    private readonly _dart_getSize: () => Size = undefined as any;
+    private readonly _dart_getSize: () => ISize = undefined as any;
     private readonly _dart_getHasNaN: () => boolean = undefined as any;
     private readonly _dart_getIsInfinite: () => boolean = undefined as any;
     private readonly _dart_getIsFinite: () => boolean = undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
-    private readonly _dart_shift: (offset: Offset) => Rect = undefined as any;
+    private readonly _dart_shift: (offset: IOffset) => IRect = undefined as any;
     private readonly _dart_translate: (
         translateX: number,
         translateY: number
-    ) => Rect = undefined as any;
-    private readonly _dart_inflate: (delta: number) => Rect = undefined as any;
-    private readonly _dart_deflate: (delta: number) => Rect = undefined as any;
-    private readonly _dart_intersect: (other: Rect) => Rect = undefined as any;
+    ) => IRect = undefined as any;
+    private readonly _dart_inflate: (delta: number) => IRect = undefined as any;
+    private readonly _dart_deflate: (delta: number) => IRect = undefined as any;
+    private readonly _dart_intersect: (
+        other: IRect
+    ) => IRect = undefined as any;
     private readonly _dart_expandToInclude: (
-        other: Rect
-    ) => Rect = undefined as any;
+        other: IRect
+    ) => IRect = undefined as any;
     private readonly _dart_overlaps: (
-        other: Rect
+        other: IRect
     ) => boolean = undefined as any;
     private readonly _dart_getShortestSide: () => number = undefined as any;
     private readonly _dart_getLongestSide: () => number = undefined as any;
-    private readonly _dart_getTopLeft: () => Offset = undefined as any;
-    private readonly _dart_getTopCenter: () => Offset = undefined as any;
-    private readonly _dart_getTopRight: () => Offset = undefined as any;
-    private readonly _dart_getCenterLeft: () => Offset = undefined as any;
-    private readonly _dart_getCenter: () => Offset = undefined as any;
-    private readonly _dart_getCenterRight: () => Offset = undefined as any;
-    private readonly _dart_getBottomLeft: () => Offset = undefined as any;
-    private readonly _dart_getBottomCenter: () => Offset = undefined as any;
-    private readonly _dart_getBottomRight: () => Offset = undefined as any;
+    private readonly _dart_getTopLeft: () => IOffset = undefined as any;
+    private readonly _dart_getTopCenter: () => IOffset = undefined as any;
+    private readonly _dart_getTopRight: () => IOffset = undefined as any;
+    private readonly _dart_getCenterLeft: () => IOffset = undefined as any;
+    private readonly _dart_getCenter: () => IOffset = undefined as any;
+    private readonly _dart_getCenterRight: () => IOffset = undefined as any;
+    private readonly _dart_getBottomLeft: () => IOffset = undefined as any;
+    private readonly _dart_getBottomCenter: () => IOffset = undefined as any;
+    private readonly _dart_getBottomRight: () => IOffset = undefined as any;
     private readonly _dart_contains: (
-        offset: Offset
+        offset: IOffset
     ) => boolean = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
@@ -154,7 +156,7 @@ export class Rect implements IRect {
     public getHeight(): number {
         return this._dart_getHeight();
     }
-    public getSize(): Size {
+    public getSize(): ISize {
         return this._dart_getSize();
     }
     public getHasNaN(): boolean {
@@ -169,25 +171,25 @@ export class Rect implements IRect {
     public getIsEmpty(): boolean {
         return this._dart_getIsEmpty();
     }
-    public shift(offset: Offset): Rect {
+    public shift(offset: IOffset): IRect {
         return this._dart_shift(offset);
     }
-    public translate(translateX: number, translateY: number): Rect {
+    public translate(translateX: number, translateY: number): IRect {
         return this._dart_translate(translateX, translateY);
     }
-    public inflate(delta: number): Rect {
+    public inflate(delta: number): IRect {
         return this._dart_inflate(delta);
     }
-    public deflate(delta: number): Rect {
+    public deflate(delta: number): IRect {
         return this._dart_deflate(delta);
     }
-    public intersect(other: Rect): Rect {
+    public intersect(other: IRect): IRect {
         return this._dart_intersect(other);
     }
-    public expandToInclude(other: Rect): Rect {
+    public expandToInclude(other: IRect): IRect {
         return this._dart_expandToInclude(other);
     }
-    public overlaps(other: Rect): boolean {
+    public overlaps(other: IRect): boolean {
         return this._dart_overlaps(other);
     }
     public getShortestSide(): number {
@@ -196,34 +198,34 @@ export class Rect implements IRect {
     public getLongestSide(): number {
         return this._dart_getLongestSide();
     }
-    public getTopLeft(): Offset {
+    public getTopLeft(): IOffset {
         return this._dart_getTopLeft();
     }
-    public getTopCenter(): Offset {
+    public getTopCenter(): IOffset {
         return this._dart_getTopCenter();
     }
-    public getTopRight(): Offset {
+    public getTopRight(): IOffset {
         return this._dart_getTopRight();
     }
-    public getCenterLeft(): Offset {
+    public getCenterLeft(): IOffset {
         return this._dart_getCenterLeft();
     }
-    public getCenter(): Offset {
+    public getCenter(): IOffset {
         return this._dart_getCenter();
     }
-    public getCenterRight(): Offset {
+    public getCenterRight(): IOffset {
         return this._dart_getCenterRight();
     }
-    public getBottomLeft(): Offset {
+    public getBottomLeft(): IOffset {
         return this._dart_getBottomLeft();
     }
-    public getBottomCenter(): Offset {
+    public getBottomCenter(): IOffset {
         return this._dart_getBottomCenter();
     }
-    public getBottomRight(): Offset {
+    public getBottomRight(): IOffset {
         return this._dart_getBottomRight();
     }
-    public contains(offset: Offset): boolean {
+    public contains(offset: IOffset): boolean {
         return this._dart_contains(offset);
     }
     public getHashCode(): number {

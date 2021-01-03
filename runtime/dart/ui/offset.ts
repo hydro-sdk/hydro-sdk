@@ -11,18 +11,20 @@ declare const dart: {
         ) => Offset | undefined;
     };
 };
-export interface IOffset extends IOffsetBase {
+export interface IOffset {
     getDx: () => number;
     getDy: () => number;
     getDistance: () => number;
     getDistanceSquared: () => number;
     getDirection: () => number;
-    scale: (scaleX: number, scaleY: number) => Offset;
-    translate: (translateX: number, translateY: number) => Offset;
+    scale: (scaleX: number, scaleY: number) => IOffset;
+    translate: (translateX: number, translateY: number) => IOffset;
     getHashCode: () => number;
     toString: () => string;
+    getIsInfinite: () => boolean;
+    getIsFinite: () => boolean;
 }
-export class Offset implements IOffset {
+export class Offset implements IOffsetBase {
     public static zero = new Offset(0.0, 0.0);
     public static infinite = new Offset(double.infinity, double.infinity);
     public constructor(dx: number, dy: number) {
@@ -49,11 +51,11 @@ export class Offset implements IOffset {
     private readonly _dart_scale: (
         scaleX: number,
         scaleY: number
-    ) => Offset = undefined as any;
+    ) => IOffset = undefined as any;
     private readonly _dart_translate: (
         translateX: number,
         translateY: number
-    ) => Offset = undefined as any;
+    ) => IOffset = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getIsInfinite: () => boolean = undefined as any;
@@ -73,10 +75,10 @@ export class Offset implements IOffset {
     public getDirection(): number {
         return this._dart_getDirection();
     }
-    public scale(scaleX: number, scaleY: number): Offset {
+    public scale(scaleX: number, scaleY: number): IOffset {
         return this._dart_scale(scaleX, scaleY);
     }
-    public translate(translateX: number, translateY: number): Offset {
+    public translate(translateX: number, translateY: number): IOffset {
         return this._dart_translate(translateX, translateY);
     }
     public getHashCode(): number {

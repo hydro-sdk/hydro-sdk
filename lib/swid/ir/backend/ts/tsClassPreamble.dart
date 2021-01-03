@@ -5,17 +5,23 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 class TsClassPreamble {
   final SwidClass swidClass;
+  final List<String> superInterfaces;
 
-  TsClassPreamble({@required this.swidClass});
+  TsClassPreamble({
+    @required this.swidClass,
+  }) : superInterfaces = ([
+          swidClass.extendedClass != null
+              ? "I${swidClass.extendedClass.name}"
+              : null,
+          ...swidClass.mixedInClasses.map((x) => "I${x.name}").toList()
+        ]..removeWhere((x) => x == null));
 
   String toTsSource() => ([
         "export class ${swidClass.name}",
         transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals),
-        swidClass.methods.isNotEmpty ||
-                swidClass.instanceFieldDeclarations.isNotEmpty
-            ? "implements I${swidClass.name}" +
-                transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals)
-            : "",
+        ...(superInterfaces.isNotEmpty
+            ? ["implements", superInterfaces.map((x) => x).toList().join(", ")]
+            : []),
         "{"
       ]..removeWhere((x) => x == null))
           .join("\n");

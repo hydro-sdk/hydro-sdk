@@ -11,7 +11,7 @@ export interface IAccessibilityFeatures {
     toString: () => string;
     getHashCode: () => number;
 }
-export class AccessibilityFeatures implements IAccessibilityFeatures {
+export class AccessibilityFeatures {
     private static _kAccessibleNavigation = 1 << 0;
     private static _kInvertColorsIndex = 1 << 1;
     private static _kDisableAnimationsIndex = 1 << 2;

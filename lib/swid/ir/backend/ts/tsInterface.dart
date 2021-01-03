@@ -11,17 +11,22 @@ class TsInterface {
   final Map<String, SwidType> members;
   final List<String> superInterfaces;
   final List<SwidTypeFormal> typeFormals;
+  final bool emitSuperInterfaceExtensions;
 
   TsInterface({
     @required this.name,
     @required this.members,
+    @required this.emitSuperInterfaceExtensions,
     this.superInterfaces = const [],
     this.typeFormals = const [],
   });
 
-  factory TsInterface.fromSwidClass({@required SwidClass swidClass}) =>
+  factory TsInterface.fromSwidClass(
+          {@required SwidClass swidClass,
+          @required bool emitSuperInterfaceExtensions}) =>
       TsInterface(
         name: swidClass.name,
+        emitSuperInterfaceExtensions: emitSuperInterfaceExtensions,
         members: {
           ...Map.fromEntries(swidClass.instanceFieldDeclarations.entries
               .map((x) => MapEntry(x.key, x.value))
@@ -45,8 +50,13 @@ class TsInterface {
       ? ([
           "export interface $name",
           transformTypeFormalsToTs(swidTypeFormals: typeFormals),
-          ...(superInterfaces.isNotEmpty
-              ? ["extends", superInterfaces.map((x) => x).toList().join(", ")]
+          ...(emitSuperInterfaceExtensions
+              ? superInterfaces.isNotEmpty
+                  ? [
+                      "extends",
+                      superInterfaces.map((x) => x).toList().join(", ")
+                    ]
+                  : []
               : []),
           "{",
           ...members.entries

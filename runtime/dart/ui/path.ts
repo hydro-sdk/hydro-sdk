@@ -1,10 +1,10 @@
-import { List } from "./../collection/list";
-import { Offset } from "./offset";
+import { IList } from "./../collection/list";
+import { IOffset } from "./offset";
 import { PathFillType } from "./pathFillType";
 import { PathOperation } from "./pathOperation";
-import { Radius } from "./radius";
-import { Rect } from "./rect";
-import { RRect } from "./rRect";
+import { IRadius,Radius } from "./radius";
+import { IRect } from "./rect";
+import { IRRect } from "./rRect";
 declare const dart: {
     ui: {
         path: (this: void, path: Path) => Path;
@@ -76,53 +76,53 @@ export interface IPath {
         w: number
     ) => void;
     arcTo: (
-        rect: Rect,
+        rect: IRect,
         startAngle: number,
         sweepAngle: number,
         forceMoveTo: boolean
     ) => void;
     arcToPoint: (
-        arcEnd: Offset,
+        arcEnd: IOffset,
         props: {
             clockwise: boolean;
             largeArc: boolean;
-            radius: Radius;
+            radius: IRadius;
             rotation: number;
         }
     ) => void;
     relativeArcToPoint: (
-        arcEndDelta: Offset,
+        arcEndDelta: IOffset,
         props: {
             clockwise: boolean;
             largeArc: boolean;
-            radius: Radius;
+            radius: IRadius;
             rotation: number;
         }
     ) => void;
-    addRect: (rect: Rect) => void;
-    addOval: (oval: Rect) => void;
-    addArc: (oval: Rect, startAngle: number, sweepAngle: number) => void;
-    addPolygon: (points: List<Offset>, close: boolean) => void;
-    addRRect: (rrect: RRect) => void;
+    addRect: (rect: IRect) => void;
+    addOval: (oval: IRect) => void;
+    addArc: (oval: IRect, startAngle: number, sweepAngle: number) => void;
+    addPolygon: (points: IList<Offset>, close: boolean) => void;
+    addRRect: (rrect: IRRect) => void;
     addPath: (
-        path: Path,
-        offset: Offset,
-        props: { matrix4?: Float64List | undefined }
+        path: IPath,
+        offset: IOffset,
+        props: { matrix4?: IFloat64List | undefined }
     ) => void;
     extendWithPath: (
-        path: Path,
-        offset: Offset,
-        props: { matrix4?: Float64List | undefined }
+        path: IPath,
+        offset: IOffset,
+        props: { matrix4?: IFloat64List | undefined }
     ) => void;
     close: () => void;
     reset: () => void;
-    contains: (point: Offset) => boolean;
-    shift: (offset: Offset) => Path;
-    transform: (matrix4: Float64List) => Path;
-    getBounds: () => Rect;
-    computeMetrics: (props: { forceClosed: boolean }) => PathMetrics;
+    contains: (point: IOffset) => boolean;
+    shift: (offset: IOffset) => IPath;
+    transform: (matrix4: IFloat64List) => IPath;
+    getBounds: () => IRect;
+    computeMetrics: (props: { forceClosed: boolean }) => IPathMetrics;
 }
-export class Path implements IPath {
+export class Path {
     public constructor() {
         dart.ui.path(this);
     }
@@ -199,64 +199,64 @@ export class Path implements IPath {
         w: number
     ) => void = undefined as any;
     private readonly _dart_arcTo: (
-        rect: Rect,
+        rect: IRect,
         startAngle: number,
         sweepAngle: number,
         forceMoveTo: boolean
     ) => void = undefined as any;
     private readonly _dart_arcToPoint: (
-        arcEnd: Offset,
+        arcEnd: IOffset,
         props: {
             clockwise: boolean;
             largeArc: boolean;
-            radius: Radius;
+            radius: IRadius;
             rotation: number;
         }
     ) => void = undefined as any;
     private readonly _dart_relativeArcToPoint: (
-        arcEndDelta: Offset,
+        arcEndDelta: IOffset,
         props: {
             clockwise: boolean;
             largeArc: boolean;
-            radius: Radius;
+            radius: IRadius;
             rotation: number;
         }
     ) => void = undefined as any;
-    private readonly _dart_addRect: (rect: Rect) => void = undefined as any;
-    private readonly _dart_addOval: (oval: Rect) => void = undefined as any;
+    private readonly _dart_addRect: (rect: IRect) => void = undefined as any;
+    private readonly _dart_addOval: (oval: IRect) => void = undefined as any;
     private readonly _dart_addArc: (
-        oval: Rect,
+        oval: IRect,
         startAngle: number,
         sweepAngle: number
     ) => void = undefined as any;
     private readonly _dart_addPolygon: (
-        points: List<Offset>,
+        points: IList<Offset>,
         close: boolean
     ) => void = undefined as any;
-    private readonly _dart_addRRect: (rrect: RRect) => void = undefined as any;
+    private readonly _dart_addRRect: (rrect: IRRect) => void = undefined as any;
     private readonly _dart_addPath: (
-        path: Path,
-        offset: Offset,
-        props: { matrix4?: Float64List | undefined }
+        path: IPath,
+        offset: IOffset,
+        props: { matrix4?: IFloat64List | undefined }
     ) => void = undefined as any;
     private readonly _dart_extendWithPath: (
-        path: Path,
-        offset: Offset,
-        props: { matrix4?: Float64List | undefined }
+        path: IPath,
+        offset: IOffset,
+        props: { matrix4?: IFloat64List | undefined }
     ) => void = undefined as any;
     private readonly _dart_close: () => void = undefined as any;
     private readonly _dart_reset: () => void = undefined as any;
     private readonly _dart_contains: (
-        point: Offset
+        point: IOffset
     ) => boolean = undefined as any;
-    private readonly _dart_shift: (offset: Offset) => Path = undefined as any;
+    private readonly _dart_shift: (offset: IOffset) => IPath = undefined as any;
     private readonly _dart_transform: (
-        matrix4: Float64List
-    ) => Path = undefined as any;
-    private readonly _dart_getBounds: () => Rect = undefined as any;
+        matrix4: IFloat64List
+    ) => IPath = undefined as any;
+    private readonly _dart_getBounds: () => IRect = undefined as any;
     private readonly _dart_computeMetrics: (props: {
         forceClosed: boolean;
-    }) => PathMetrics = undefined as any;
+    }) => IPathMetrics = undefined as any;
     public getFillType(): PathFillType {
         return this._dart_getFillType();
     }
@@ -330,7 +330,7 @@ export class Path implements IPath {
         return this._dart_relativeConicTo(x1, y1, x2, y2, w);
     }
     public arcTo(
-        rect: Rect,
+        rect: IRect,
         startAngle: number,
         sweepAngle: number,
         forceMoveTo: boolean
@@ -338,11 +338,11 @@ export class Path implements IPath {
         return this._dart_arcTo(rect, startAngle, sweepAngle, forceMoveTo);
     }
     public arcToPoint(
-        arcEnd: Offset,
+        arcEnd: IOffset,
         props: {
             clockwise?: boolean;
             largeArc?: boolean;
-            radius?: Radius;
+            radius?: IRadius;
             rotation?: number;
         }
     ): void {
@@ -352,11 +352,11 @@ export class Path implements IPath {
         });
     }
     public relativeArcToPoint(
-        arcEndDelta: Offset,
+        arcEndDelta: IOffset,
         props: {
             clockwise?: boolean;
             largeArc?: boolean;
-            radius?: Radius;
+            radius?: IRadius;
             rotation?: number;
         }
     ): void {
@@ -365,32 +365,32 @@ export class Path implements IPath {
             ...props,
         });
     }
-    public addRect(rect: Rect): void {
+    public addRect(rect: IRect): void {
         return this._dart_addRect(rect);
     }
-    public addOval(oval: Rect): void {
+    public addOval(oval: IRect): void {
         return this._dart_addOval(oval);
     }
-    public addArc(oval: Rect, startAngle: number, sweepAngle: number): void {
+    public addArc(oval: IRect, startAngle: number, sweepAngle: number): void {
         return this._dart_addArc(oval, startAngle, sweepAngle);
     }
-    public addPolygon(points: List<Offset>, close: boolean): void {
+    public addPolygon(points: IList<Offset>, close: boolean): void {
         return this._dart_addPolygon(points, close);
     }
-    public addRRect(rrect: RRect): void {
+    public addRRect(rrect: IRRect): void {
         return this._dart_addRRect(rrect);
     }
     public addPath(
-        path: Path,
-        offset: Offset,
-        props: { matrix4?: Float64List | undefined }
+        path: IPath,
+        offset: IOffset,
+        props: { matrix4?: IFloat64List | undefined }
     ): void {
         return this._dart_addPath(path, offset, props);
     }
     public extendWithPath(
-        path: Path,
-        offset: Offset,
-        props: { matrix4?: Float64List | undefined }
+        path: IPath,
+        offset: IOffset,
+        props: { matrix4?: IFloat64List | undefined }
     ): void {
         return this._dart_extendWithPath(path, offset, props);
     }
@@ -400,19 +400,19 @@ export class Path implements IPath {
     public reset(): void {
         return this._dart_reset();
     }
-    public contains(point: Offset): boolean {
+    public contains(point: IOffset): boolean {
         return this._dart_contains(point);
     }
-    public shift(offset: Offset): Path {
+    public shift(offset: IOffset): IPath {
         return this._dart_shift(offset);
     }
-    public transform(matrix4: Float64List): Path {
+    public transform(matrix4: IFloat64List): IPath {
         return this._dart_transform(matrix4);
     }
-    public getBounds(): Rect {
+    public getBounds(): IRect {
         return this._dart_getBounds();
     }
-    public computeMetrics(props: { forceClosed?: boolean }): PathMetrics {
+    public computeMetrics(props: { forceClosed?: boolean }): IPathMetrics {
         return this._dart_computeMetrics({
             ...computeMetricsDefaultProps,
             ...props,

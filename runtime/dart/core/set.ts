@@ -1,7 +1,7 @@
 import { IEfficientLengthIterable } from "./../_internal/efficientLengthIterable";
-import { List } from "./../collection/list";
-import { Iterable } from "./iterable";
-import { Iterator } from "./iterator";
+import { IList } from "./../collection/list";
+import { IIterable, Iterable } from "./iterable";
+import { IIterator } from "./iterator";
 declare const dart: {
     core: {
         set: <E>(this: void, set: Set<E>) => Set<E>;
@@ -14,26 +14,66 @@ declare const dart: {
         ) => Set<T>;
     };
 };
-export interface ISet<E> extends IEfficientLengthIterable<E> {
-    cast: <R>() => Set<R>;
-    getIterator: () => Iterator<E>;
+export interface ISet<E> {
+    cast: <R>() => ISet<R>;
+    getIterator: () => IIterator<E>;
     contains: (value?: Object | undefined) => boolean;
     add: (value: E) => boolean;
-    addAll: (elements: Iterable<E>) => void;
+    addAll: (elements: IIterable<E>) => void;
     remove: (value?: Object | undefined) => boolean;
     lookup: (object?: Object | undefined) => E | undefined;
-    removeAll: (elements: Iterable<Object | undefined>) => void;
-    retainAll: (elements: Iterable<Object | undefined>) => void;
+    removeAll: (elements: IIterable<Object | undefined>) => void;
+    retainAll: (elements: IIterable<Object | undefined>) => void;
     removeWhere: (test: (element: E) => boolean) => void;
     retainWhere: (test: (element: E) => boolean) => void;
-    containsAll: (other: Iterable<Object | undefined>) => boolean;
-    intersection: (other: Set<Object | undefined>) => Set<E>;
-    union: (other: Set<E>) => Set<E>;
-    difference: (other: Set<Object | undefined>) => Set<E>;
+    containsAll: (other: IIterable<Object | undefined>) => boolean;
+    intersection: (other: ISet<Object | undefined>) => ISet<E>;
+    union: (other: ISet<E>) => ISet<E>;
+    difference: (other: ISet<Object | undefined>) => ISet<E>;
     clear: () => void;
-    toSet: () => Set<E>;
+    toSet: () => ISet<E>;
+    getLength: () => number;
+    followedBy: (other: IIterable<E>) => IIterable<E>;
+    map: <T>(f: (e: E) => T) => IIterable<T>;
+    where: (test: (element: E) => boolean) => IIterable<E>;
+    whereType: <T>() => IIterable<T>;
+    expand: <T>(f: (element: E) => IIterable<T>) => IIterable<T>;
+    forEach: (f: (element: E) => void) => void;
+    reduce: (combine: (value: E, element: E) => E) => E;
+    fold: <T>(
+        initialValue: T,
+        combine: (previousValue: T, element: E) => T
+    ) => T;
+    every: (test: (element: E) => boolean) => boolean;
+    join: (separator: string) => string;
+    any: (test: (element: E) => boolean) => boolean;
+    toList: (props: { growable: boolean }) => IList<E>;
+    take: (count: number) => IIterable<E>;
+    takeWhile: (test: (value: E) => boolean) => IIterable<E>;
+    skip: (count: number) => IIterable<E>;
+    skipWhile: (test: (value: E) => boolean) => IIterable<E>;
+    firstWhere: (
+        test: (element: E) => boolean,
+        props: { orElse?: () => E | undefined }
+    ) => E;
+    lastWhere: (
+        test: (element: E) => boolean,
+        props: { orElse?: () => E | undefined }
+    ) => E;
+    singleWhere: (
+        test: (element: E) => boolean,
+        props: { orElse?: () => E | undefined }
+    ) => E;
+    elementAt: (index: number) => E;
+    toString: () => string;
+    getIsEmpty: () => boolean;
+    getIsNotEmpty: () => boolean;
+    getFirst: () => E;
+    getLast: () => E;
+    getSingle: () => E;
+    getHashCode: () => number;
 }
-export class Set<E> implements ISet<E> {
+export class Set<E> implements IEfficientLengthIterable<E> {
     public constructor() {
         dart.core.set(this);
     }
@@ -52,14 +92,14 @@ export class Set<E> implements ISet<E> {
     ): Set<T> {
         return dart.core.setCastFrom(source, props);
     }
-    private readonly _dart_cast: <R>() => Set<R> = undefined as any;
-    private readonly _dart_getIterator: () => Iterator<E> = undefined as any;
+    private readonly _dart_cast: <R>() => ISet<R> = undefined as any;
+    private readonly _dart_getIterator: () => IIterator<E> = undefined as any;
     private readonly _dart_contains: (
         value?: Object | undefined
     ) => boolean = undefined as any;
     private readonly _dart_add: (value: E) => boolean = undefined as any;
     private readonly _dart_addAll: (
-        elements: Iterable<E>
+        elements: IIterable<E>
     ) => void = undefined as any;
     private readonly _dart_remove: (
         value?: Object | undefined
@@ -68,10 +108,10 @@ export class Set<E> implements ISet<E> {
         object?: Object | undefined
     ) => E | undefined = undefined as any;
     private readonly _dart_removeAll: (
-        elements: Iterable<Object | undefined>
+        elements: IIterable<Object | undefined>
     ) => void = undefined as any;
     private readonly _dart_retainAll: (
-        elements: Iterable<Object | undefined>
+        elements: IIterable<Object | undefined>
     ) => void = undefined as any;
     private readonly _dart_removeWhere: (
         test: (element: E) => boolean
@@ -80,31 +120,33 @@ export class Set<E> implements ISet<E> {
         test: (element: E) => boolean
     ) => void = undefined as any;
     private readonly _dart_containsAll: (
-        other: Iterable<Object | undefined>
+        other: IIterable<Object | undefined>
     ) => boolean = undefined as any;
     private readonly _dart_intersection: (
-        other: Set<Object | undefined>
-    ) => Set<E> = undefined as any;
-    private readonly _dart_union: (other: Set<E>) => Set<E> = undefined as any;
+        other: ISet<Object | undefined>
+    ) => ISet<E> = undefined as any;
+    private readonly _dart_union: (
+        other: ISet<E>
+    ) => ISet<E> = undefined as any;
     private readonly _dart_difference: (
-        other: Set<Object | undefined>
-    ) => Set<E> = undefined as any;
+        other: ISet<Object | undefined>
+    ) => ISet<E> = undefined as any;
     private readonly _dart_clear: () => void = undefined as any;
-    private readonly _dart_toSet: () => Set<E> = undefined as any;
+    private readonly _dart_toSet: () => ISet<E> = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
     private readonly _dart_followedBy: (
-        other: Iterable<E>
-    ) => Iterable<E> = undefined as any;
+        other: IIterable<E>
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_map: <T>(
         f: (e: E) => T
-    ) => Iterable<T> = undefined as any;
+    ) => IIterable<T> = undefined as any;
     private readonly _dart_where: (
         test: (element: E) => boolean
-    ) => Iterable<E> = undefined as any;
-    private readonly _dart_whereType: <T>() => Iterable<T> = undefined as any;
+    ) => IIterable<E> = undefined as any;
+    private readonly _dart_whereType: <T>() => IIterable<T> = undefined as any;
     private readonly _dart_expand: <T>(
-        f: (element: E) => Iterable<T>
-    ) => Iterable<T> = undefined as any;
+        f: (element: E) => IIterable<T>
+    ) => IIterable<T> = undefined as any;
     private readonly _dart_forEach: (
         f: (element: E) => void
     ) => void = undefined as any;
@@ -126,19 +168,19 @@ export class Set<E> implements ISet<E> {
     ) => boolean = undefined as any;
     private readonly _dart_toList: (props: {
         growable: boolean;
-    }) => List<E> = undefined as any;
+    }) => IList<E> = undefined as any;
     private readonly _dart_take: (
         count: number
-    ) => Iterable<E> = undefined as any;
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: E) => boolean
-    ) => Iterable<E> = undefined as any;
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_skip: (
         count: number
-    ) => Iterable<E> = undefined as any;
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: E) => boolean
-    ) => Iterable<E> = undefined as any;
+    ) => IIterable<E> = undefined as any;
     private readonly _dart_firstWhere: (
         test: (element: E) => boolean,
         props: { orElse?: () => E | undefined }
@@ -159,10 +201,10 @@ export class Set<E> implements ISet<E> {
     private readonly _dart_getLast: () => E = undefined as any;
     private readonly _dart_getSingle: () => E = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    public cast<R>(): Set<R> {
+    public cast<R>(): ISet<R> {
         return this._dart_cast();
     }
-    public getIterator(): Iterator<E> {
+    public getIterator(): IIterator<E> {
         return this._dart_getIterator();
     }
     public contains(value?: Object | undefined): boolean {
@@ -171,7 +213,7 @@ export class Set<E> implements ISet<E> {
     public add(value: E): boolean {
         return this._dart_add(value);
     }
-    public addAll(elements: Iterable<E>): void {
+    public addAll(elements: IIterable<E>): void {
         return this._dart_addAll(elements);
     }
     public remove(value?: Object | undefined): boolean {
@@ -180,10 +222,10 @@ export class Set<E> implements ISet<E> {
     public lookup(object?: Object | undefined): E | undefined {
         return this._dart_lookup(object);
     }
-    public removeAll(elements: Iterable<Object | undefined>): void {
+    public removeAll(elements: IIterable<Object | undefined>): void {
         return this._dart_removeAll(elements);
     }
-    public retainAll(elements: Iterable<Object | undefined>): void {
+    public retainAll(elements: IIterable<Object | undefined>): void {
         return this._dart_retainAll(elements);
     }
     public removeWhere(test: (element: E) => boolean): void {
@@ -192,40 +234,40 @@ export class Set<E> implements ISet<E> {
     public retainWhere(test: (element: E) => boolean): void {
         return this._dart_retainWhere(test);
     }
-    public containsAll(other: Iterable<Object | undefined>): boolean {
+    public containsAll(other: IIterable<Object | undefined>): boolean {
         return this._dart_containsAll(other);
     }
-    public intersection(other: Set<Object | undefined>): Set<E> {
+    public intersection(other: ISet<Object | undefined>): ISet<E> {
         return this._dart_intersection(other);
     }
-    public union(other: Set<E>): Set<E> {
+    public union(other: ISet<E>): ISet<E> {
         return this._dart_union(other);
     }
-    public difference(other: Set<Object | undefined>): Set<E> {
+    public difference(other: ISet<Object | undefined>): ISet<E> {
         return this._dart_difference(other);
     }
     public clear(): void {
         return this._dart_clear();
     }
-    public toSet(): Set<E> {
+    public toSet(): ISet<E> {
         return this._dart_toSet();
     }
     public getLength(): number {
         return this._dart_getLength();
     }
-    public followedBy(other: Iterable<E>): Iterable<E> {
+    public followedBy(other: IIterable<E>): IIterable<E> {
         return this._dart_followedBy(other);
     }
-    public map<T>(f: (e: E) => T): Iterable<T> {
+    public map<T>(f: (e: E) => T): IIterable<T> {
         return this._dart_map(f);
     }
-    public where(test: (element: E) => boolean): Iterable<E> {
+    public where(test: (element: E) => boolean): IIterable<E> {
         return this._dart_where(test);
     }
-    public whereType<T>(): Iterable<T> {
+    public whereType<T>(): IIterable<T> {
         return this._dart_whereType();
     }
-    public expand<T>(f: (element: E) => Iterable<T>): Iterable<T> {
+    public expand<T>(f: (element: E) => IIterable<T>): IIterable<T> {
         return this._dart_expand(f);
     }
     public forEach(f: (element: E) => void): void {
@@ -249,19 +291,19 @@ export class Set<E> implements ISet<E> {
     public any(test: (element: E) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): List<E> {
+    public toList(props: { growable: boolean }): IList<E> {
         return this._dart_toList(props);
     }
-    public take(count: number): Iterable<E> {
+    public take(count: number): IIterable<E> {
         return this._dart_take(count);
     }
-    public takeWhile(test: (value: E) => boolean): Iterable<E> {
+    public takeWhile(test: (value: E) => boolean): IIterable<E> {
         return this._dart_takeWhile(test);
     }
-    public skip(count: number): Iterable<E> {
+    public skip(count: number): IIterable<E> {
         return this._dart_skip(count);
     }
-    public skipWhile(test: (value: E) => boolean): Iterable<E> {
+    public skipWhile(test: (value: E) => boolean): IIterable<E> {
         return this._dart_skipWhile(test);
     }
     public firstWhere(

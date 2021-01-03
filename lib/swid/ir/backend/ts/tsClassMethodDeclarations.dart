@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldName.dar
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
@@ -25,7 +26,9 @@ class TsClassMethodDeclarations {
                         topLevelTrailingReturnTypeKind:
                             TrailingReturnTypeKind.colon,
                         swidType: SwidType.fromSwidFunctionType(
-                            swidFunctionType: x)) +
+                            swidFunctionType:
+                                rewriteClassReferencesToInterfaceReferencesInFunction(
+                                    swidFunctionType: x))) +
                     " {\n" +
                     "    return " +
                     TsFunctionSelfBindingInvocation(

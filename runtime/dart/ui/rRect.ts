@@ -77,20 +77,20 @@ export interface IRRect {
     brRadiusY: number;
     blRadiusX: number;
     blRadiusY: number;
-    getTlRadius: () => Radius;
-    getTrRadius: () => Radius;
-    getBrRadius: () => Radius;
-    getBlRadius: () => Radius;
-    shift: (offset: Offset) => RRect;
-    inflate: (delta: number) => RRect;
-    deflate: (delta: number) => RRect;
+    getTlRadius: () => IRadius;
+    getTrRadius: () => IRadius;
+    getBrRadius: () => IRadius;
+    getBlRadius: () => IRadius;
+    shift: (offset: IOffset) => IRRect;
+    inflate: (delta: number) => IRRect;
+    deflate: (delta: number) => IRRect;
     getWidth: () => number;
     getHeight: () => number;
-    getOuterRect: () => Rect;
-    getSafeInnerRect: () => Rect;
-    getMiddleRect: () => Rect;
-    getWideMiddleRect: () => Rect;
-    getTallMiddleRect: () => Rect;
+    getOuterRect: () => IRect;
+    getSafeInnerRect: () => IRect;
+    getMiddleRect: () => IRect;
+    getWideMiddleRect: () => IRect;
+    getTallMiddleRect: () => IRect;
     getIsEmpty: () => boolean;
     getIsFinite: () => boolean;
     getIsRect: () => boolean;
@@ -100,13 +100,13 @@ export interface IRRect {
     getShortestSide: () => number;
     getLongestSide: () => number;
     getHasNaN: () => boolean;
-    getCenter: () => Offset;
-    scaleRadii: () => RRect;
-    contains: (point: Offset) => boolean;
+    getCenter: () => IOffset;
+    scaleRadii: () => IRRect;
+    contains: (point: IOffset) => boolean;
     getHashCode: () => number;
     toString: () => string;
 }
-export class RRect implements IRRect {
+export class RRect {
     public readonly left: number = undefined as any;
     public readonly top: number = undefined as any;
     public readonly right: number = undefined as any;
@@ -193,20 +193,26 @@ export class RRect implements IRRect {
     ): RRect | undefined {
         return dart.ui.rRectLerp(a, b, t);
     }
-    private readonly _dart_getTlRadius: () => Radius = undefined as any;
-    private readonly _dart_getTrRadius: () => Radius = undefined as any;
-    private readonly _dart_getBrRadius: () => Radius = undefined as any;
-    private readonly _dart_getBlRadius: () => Radius = undefined as any;
-    private readonly _dart_shift: (offset: Offset) => RRect = undefined as any;
-    private readonly _dart_inflate: (delta: number) => RRect = undefined as any;
-    private readonly _dart_deflate: (delta: number) => RRect = undefined as any;
+    private readonly _dart_getTlRadius: () => IRadius = undefined as any;
+    private readonly _dart_getTrRadius: () => IRadius = undefined as any;
+    private readonly _dart_getBrRadius: () => IRadius = undefined as any;
+    private readonly _dart_getBlRadius: () => IRadius = undefined as any;
+    private readonly _dart_shift: (
+        offset: IOffset
+    ) => IRRect = undefined as any;
+    private readonly _dart_inflate: (
+        delta: number
+    ) => IRRect = undefined as any;
+    private readonly _dart_deflate: (
+        delta: number
+    ) => IRRect = undefined as any;
     private readonly _dart_getWidth: () => number = undefined as any;
     private readonly _dart_getHeight: () => number = undefined as any;
-    private readonly _dart_getOuterRect: () => Rect = undefined as any;
-    private readonly _dart_getSafeInnerRect: () => Rect = undefined as any;
-    private readonly _dart_getMiddleRect: () => Rect = undefined as any;
-    private readonly _dart_getWideMiddleRect: () => Rect = undefined as any;
-    private readonly _dart_getTallMiddleRect: () => Rect = undefined as any;
+    private readonly _dart_getOuterRect: () => IRect = undefined as any;
+    private readonly _dart_getSafeInnerRect: () => IRect = undefined as any;
+    private readonly _dart_getMiddleRect: () => IRect = undefined as any;
+    private readonly _dart_getWideMiddleRect: () => IRect = undefined as any;
+    private readonly _dart_getTallMiddleRect: () => IRect = undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
     private readonly _dart_getIsFinite: () => boolean = undefined as any;
     private readonly _dart_getIsRect: () => boolean = undefined as any;
@@ -216,32 +222,32 @@ export class RRect implements IRRect {
     private readonly _dart_getShortestSide: () => number = undefined as any;
     private readonly _dart_getLongestSide: () => number = undefined as any;
     private readonly _dart_getHasNaN: () => boolean = undefined as any;
-    private readonly _dart_getCenter: () => Offset = undefined as any;
-    private readonly _dart_scaleRadii: () => RRect = undefined as any;
+    private readonly _dart_getCenter: () => IOffset = undefined as any;
+    private readonly _dart_scaleRadii: () => IRRect = undefined as any;
     private readonly _dart_contains: (
-        point: Offset
+        point: IOffset
     ) => boolean = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    public getTlRadius(): Radius {
+    public getTlRadius(): IRadius {
         return this._dart_getTlRadius();
     }
-    public getTrRadius(): Radius {
+    public getTrRadius(): IRadius {
         return this._dart_getTrRadius();
     }
-    public getBrRadius(): Radius {
+    public getBrRadius(): IRadius {
         return this._dart_getBrRadius();
     }
-    public getBlRadius(): Radius {
+    public getBlRadius(): IRadius {
         return this._dart_getBlRadius();
     }
-    public shift(offset: Offset): RRect {
+    public shift(offset: IOffset): IRRect {
         return this._dart_shift(offset);
     }
-    public inflate(delta: number): RRect {
+    public inflate(delta: number): IRRect {
         return this._dart_inflate(delta);
     }
-    public deflate(delta: number): RRect {
+    public deflate(delta: number): IRRect {
         return this._dart_deflate(delta);
     }
     public getWidth(): number {
@@ -250,19 +256,19 @@ export class RRect implements IRRect {
     public getHeight(): number {
         return this._dart_getHeight();
     }
-    public getOuterRect(): Rect {
+    public getOuterRect(): IRect {
         return this._dart_getOuterRect();
     }
-    public getSafeInnerRect(): Rect {
+    public getSafeInnerRect(): IRect {
         return this._dart_getSafeInnerRect();
     }
-    public getMiddleRect(): Rect {
+    public getMiddleRect(): IRect {
         return this._dart_getMiddleRect();
     }
-    public getWideMiddleRect(): Rect {
+    public getWideMiddleRect(): IRect {
         return this._dart_getWideMiddleRect();
     }
-    public getTallMiddleRect(): Rect {
+    public getTallMiddleRect(): IRect {
         return this._dart_getTallMiddleRect();
     }
     public getIsEmpty(): boolean {
@@ -292,13 +298,13 @@ export class RRect implements IRRect {
     public getHasNaN(): boolean {
         return this._dart_getHasNaN();
     }
-    public getCenter(): Offset {
+    public getCenter(): IOffset {
         return this._dart_getCenter();
     }
-    public scaleRadii(): RRect {
+    public scaleRadii(): IRRect {
         return this._dart_scaleRadii();
     }
-    public contains(point: Offset): boolean {
+    public contains(point: IOffset): boolean {
         return this._dart_contains(point);
     }
     public getHashCode(): number {

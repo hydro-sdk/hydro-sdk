@@ -4,6 +4,18 @@ declare const dart: {
     };
 };
 
+export interface IList<T> {
+    unwrap: () => Array<T>;
+    first: () => T | never;
+    isEmpty: () => boolean;
+    isNotEmpty: () => boolean;
+    last: () => T | never;
+    length: () => number;
+    elementAt: (index: number) => T;
+    map: <R>(f: (e: T) => R) => IList<R>;
+    where: (f: (e: T) => boolean) => IList<T>;
+}
+
 export class List<T> {
     private constructor() {
         this.unwrap = undefined as any;

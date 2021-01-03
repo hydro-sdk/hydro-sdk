@@ -7,7 +7,7 @@ export interface ICallbackHandle {
     toRawHandle: () => number;
     getHashCode: () => number;
 }
-export class CallbackHandle implements ICallbackHandle {
+export class CallbackHandle {
     public static fromRawHandle(_handle: number): CallbackHandle {
         return dart.ui.callbackHandleFromRawHandle(_handle);
     }
