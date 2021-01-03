@@ -7,9 +7,9 @@ declare const dart: {
         iterableGenerate: <E>(
             count: number,
             generator?: (index: number) => E
-        ) => Iterable<E>;
-        iterableEmpty: <E>() => Iterable<E>;
-        iterableCastFrom: <S, T>(source: Iterable<S>) => Iterable<T>;
+        ) => IIterable<E>;
+        iterableEmpty: <E>() => IIterable<E>;
+        iterableCastFrom: <S, T>(source: IIterable<S>) => IIterable<T>;
     };
 };
 const toListDefaultProps = {
@@ -67,13 +67,13 @@ export class Iterable<E> {
     public static generate<E>(
         count: number,
         generator?: (index: number) => E
-    ): Iterable<E> {
+    ): IIterable<E> {
         return dart.core.iterableGenerate(count);
     }
-    public static empty<E>(): Iterable<E> {
+    public static empty<E>(): IIterable<E> {
         return dart.core.iterableEmpty();
     }
-    public static castFrom<S, T>(source: Iterable<S>): Iterable<T> {
+    public static castFrom<S, T>(source: IIterable<S>): IIterable<T> {
         return dart.core.iterableCastFrom(source);
     }
     private readonly _dart_getIterator: () => IIterator<E> = undefined as any;

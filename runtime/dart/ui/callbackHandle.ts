@@ -1,6 +1,6 @@
 declare const dart: {
     ui: {
-        callbackHandleFromRawHandle: (_handle: number) => CallbackHandle;
+        callbackHandleFromRawHandle: (_handle: number) => ICallbackHandle;
     };
 };
 export interface ICallbackHandle {
@@ -8,7 +8,7 @@ export interface ICallbackHandle {
     getHashCode: () => number;
 }
 export class CallbackHandle {
-    public static fromRawHandle(_handle: number): CallbackHandle {
+    public static fromRawHandle(_handle: number): ICallbackHandle {
         return dart.ui.callbackHandleFromRawHandle(_handle);
     }
     private readonly _dart_toRawHandle: () => number = undefined as any;

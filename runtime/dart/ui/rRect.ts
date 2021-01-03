@@ -1,6 +1,6 @@
-import { Offset } from "./offset";
-import { Radius } from "./radius";
-import { Rect } from "./rect";
+import { IOffset } from "./offset";
+import { IRadius,Radius } from "./radius";
+import { IRect } from "./rect";
 declare const dart: {
     ui: {
         rRectFromLTRBXY: (
@@ -10,46 +10,46 @@ declare const dart: {
             bottom: number,
             radiusX: number,
             radiusY: number
-        ) => RRect;
+        ) => IRRect;
         rRectFromLTRBR: (
             left: number,
             top: number,
             right: number,
             bottom: number,
-            radius: Radius
-        ) => RRect;
+            radius: IRadius
+        ) => IRRect;
         rRectFromRectXY: (
-            rect: Rect,
+            rect: IRect,
             radiusX: number,
             radiusY: number
-        ) => RRect;
-        rRectFromRectAndRadius: (rect: Rect, radius: Radius) => RRect;
+        ) => IRRect;
+        rRectFromRectAndRadius: (rect: IRect, radius: IRadius) => IRRect;
         rRectFromLTRBAndCorners: (
             left: number,
             top: number,
             right: number,
             bottom: number,
             props: {
-                bottomLeft: Radius;
-                bottomRight: Radius;
-                topLeft: Radius;
-                topRight: Radius;
+                bottomLeft: IRadius;
+                bottomRight: IRadius;
+                topLeft: IRadius;
+                topRight: IRadius;
             }
-        ) => RRect;
+        ) => IRRect;
         rRectFromRectAndCorners: (
-            rect: Rect,
+            rect: IRect,
             props: {
-                bottomLeft: Radius;
-                bottomRight: Radius;
-                topLeft: Radius;
-                topRight: Radius;
+                bottomLeft: IRadius;
+                bottomRight: IRadius;
+                topLeft: IRadius;
+                topRight: IRadius;
             }
-        ) => RRect;
+        ) => IRRect;
         rRectLerp: (
-            a: RRect | undefined,
-            b: RRect | undefined,
+            a: IRRect | undefined,
+            b: IRRect | undefined,
             t: number
-        ) => RRect | undefined;
+        ) => IRRect | undefined;
     };
 };
 const fromLTRBAndCornersDefaultProps = {
@@ -126,7 +126,7 @@ export class RRect {
         bottom: number,
         radiusX: number,
         radiusY: number
-    ): RRect {
+    ): IRRect {
         return dart.ui.rRectFromLTRBXY(
             left,
             top,
@@ -141,18 +141,18 @@ export class RRect {
         top: number,
         right: number,
         bottom: number,
-        radius: Radius
-    ): RRect {
+        radius: IRadius
+    ): IRRect {
         return dart.ui.rRectFromLTRBR(left, top, right, bottom, radius);
     }
     public static fromRectXY(
-        rect: Rect,
+        rect: IRect,
         radiusX: number,
         radiusY: number
-    ): RRect {
+    ): IRRect {
         return dart.ui.rRectFromRectXY(rect, radiusX, radiusY);
     }
-    public static fromRectAndRadius(rect: Rect, radius: Radius): RRect {
+    public static fromRectAndRadius(rect: IRect, radius: IRadius): IRRect {
         return dart.ui.rRectFromRectAndRadius(rect, radius);
     }
     public static fromLTRBAndCorners(
@@ -161,36 +161,36 @@ export class RRect {
         right: number,
         bottom: number,
         props: {
-            bottomLeft?: Radius;
-            bottomRight?: Radius;
-            topLeft?: Radius;
-            topRight?: Radius;
+            bottomLeft?: IRadius;
+            bottomRight?: IRadius;
+            topLeft?: IRadius;
+            topRight?: IRadius;
         }
-    ): RRect {
+    ): IRRect {
         return dart.ui.rRectFromLTRBAndCorners(left, top, right, bottom, {
             ...fromLTRBAndCornersDefaultProps,
             ...props,
         });
     }
     public static fromRectAndCorners(
-        rect: Rect,
+        rect: IRect,
         props: {
-            bottomLeft?: Radius;
-            bottomRight?: Radius;
-            topLeft?: Radius;
-            topRight?: Radius;
+            bottomLeft?: IRadius;
+            bottomRight?: IRadius;
+            topLeft?: IRadius;
+            topRight?: IRadius;
         }
-    ): RRect {
+    ): IRRect {
         return dart.ui.rRectFromRectAndCorners(rect, {
             ...fromRectAndCornersDefaultProps,
             ...props,
         });
     }
     public static lerp(
-        a: RRect | undefined,
-        b: RRect | undefined,
+        a: IRRect | undefined,
+        b: IRRect | undefined,
         t: number
-    ): RRect | undefined {
+    ): IRRect | undefined {
         return dart.ui.rRectLerp(a, b, t);
     }
     private readonly _dart_getTlRadius: () => IRadius = undefined as any;

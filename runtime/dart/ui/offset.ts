@@ -3,12 +3,12 @@ import { IOffsetBase } from "./offsetBase";
 declare const dart: {
     ui: {
         offset: (this: void, offset: Offset, dx: number, dy: number) => Offset;
-        offsetFromDirection: (direction: number, distance: number) => Offset;
+        offsetFromDirection: (direction: number, distance: number) => IOffset;
         offsetLerp: (
-            a: Offset | undefined,
-            b: Offset | undefined,
+            a: IOffset | undefined,
+            b: IOffset | undefined,
             t: number
-        ) => Offset | undefined;
+        ) => IOffset | undefined;
     };
 };
 export interface IOffset {
@@ -33,14 +33,14 @@ export class Offset implements IOffsetBase {
     public static fromDirection(
         direction: number,
         distance: number = 1.0
-    ): Offset {
+    ): IOffset {
         return dart.ui.offsetFromDirection(direction, distance);
     }
     public static lerp(
-        a: Offset | undefined,
-        b: Offset | undefined,
+        a: IOffset | undefined,
+        b: IOffset | undefined,
         t: number
-    ): Offset | undefined {
+    ): IOffset | undefined {
         return dart.ui.offsetLerp(a, b, t);
     }
     private readonly _dart_getDx: () => number = undefined as any;

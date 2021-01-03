@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
@@ -70,33 +71,34 @@ class TsClassVmDeclaration {
 
   String toTsSource() => requiresDartBinding(swidClass: swidClass) ||
           swidClass.isConstructible()
-      ? transformVmDeclarationToTs(
-              tsVmDeclaration:
-                  transformPackageUri(packageUri: swidClass.originalPackagePath)
-                      .split(path.separator)
-                      .map((x) =>
-                          TsVmDeclaration(name: x, methods: [], children: []))
-                      .reduce((previousValue, element) => TsVmDeclaration.clone(
-                            tsVmDeclaration: _addConstructorBindingDeclarations(
-                                tsVmDeclaration: previousValue),
-                            children: [
-                              _addConstructorBindingDeclarations(
-                                  tsVmDeclaration: TsVmDeclaration.clone(
-                                      tsVmDeclaration: element,
-                                      methods: [
-                                        ...swidClass.factoryConstructors,
-                                        ...swidClass.staticMethods,
-                                      ]
-                                          .map((x) => SwidFunctionType.clone(
-                                                swidFunctionType: x,
-                                                name: transformToCamelCase(
-                                                        str: swidClass.name) +
-                                                    transformToPascalCase(
-                                                        str: x.name),
-                                              ))
-                                          .toList())),
-                            ],
-                          ))) +
+      ? ((SwidClass swidClass) => transformVmDeclarationToTs(
+              tsVmDeclaration: transformPackageUri(
+                      packageUri: swidClass.originalPackagePath)
+                  .split(path.separator)
+                  .map((x) =>
+                      TsVmDeclaration(name: x, methods: [], children: []))
+                  .reduce((previousValue, element) => TsVmDeclaration.clone(
+                        tsVmDeclaration: _addConstructorBindingDeclarations(
+                            tsVmDeclaration: previousValue),
+                        children: [
+                          _addConstructorBindingDeclarations(
+                              tsVmDeclaration: TsVmDeclaration.clone(
+                                  tsVmDeclaration: element,
+                                  methods: [
+                                    ...swidClass.factoryConstructors,
+                                    ...swidClass.staticMethods,
+                                  ]
+                                      .map((x) => SwidFunctionType.clone(
+                                            swidFunctionType: x,
+                                            name: transformToCamelCase(
+                                                    str: swidClass.name) +
+                                                transformToPascalCase(
+                                                    str: x.name),
+                                          ))
+                                      .toList())),
+                        ],
+                      ))))(rewriteClassReferencesToInterfaceReferencesInClass(
+              swidClass: swidClass)) +
           ";\n"
       : "";
 }

@@ -7,9 +7,7 @@ declare const dart: {
     };
 };
 
-export interface IRadius {
-    
-}
+export interface IRadius {}
 
 export class Radius implements RuntimeBaseClass {
     public readonly internalRuntimeType = new Type(Radius);

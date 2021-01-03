@@ -4,16 +4,16 @@ import { IOffsetBase } from "./offsetBase";
 declare const dart: {
     ui: {
         size: (this: void, size: Size, width: number, height: number) => Size;
-        sizeCopy: (source: Size) => Size;
-        sizeSquare: (dimension: number) => Size;
-        sizeFromWidth: (width: number) => Size;
-        sizeFromHeight: (height: number) => Size;
-        sizeFromRadius: (radius: number) => Size;
+        sizeCopy: (source: ISize) => ISize;
+        sizeSquare: (dimension: number) => ISize;
+        sizeFromWidth: (width: number) => ISize;
+        sizeFromHeight: (height: number) => ISize;
+        sizeFromRadius: (radius: number) => ISize;
         sizeLerp: (
-            a: Size | undefined,
-            b: Size | undefined,
+            a: ISize | undefined,
+            b: ISize | undefined,
             t: number
-        ) => Size | undefined;
+        ) => ISize | undefined;
     };
 };
 export interface ISize {
@@ -45,26 +45,26 @@ export class Size implements IOffsetBase {
     public constructor(width: number, height: number) {
         dart.ui.size(this, width, height);
     }
-    public static copy(source: Size): Size {
+    public static copy(source: ISize): ISize {
         return dart.ui.sizeCopy(source);
     }
-    public static square(dimension: number): Size {
+    public static square(dimension: number): ISize {
         return dart.ui.sizeSquare(dimension);
     }
-    public static fromWidth(width: number): Size {
+    public static fromWidth(width: number): ISize {
         return dart.ui.sizeFromWidth(width);
     }
-    public static fromHeight(height: number): Size {
+    public static fromHeight(height: number): ISize {
         return dart.ui.sizeFromHeight(height);
     }
-    public static fromRadius(radius: number): Size {
+    public static fromRadius(radius: number): ISize {
         return dart.ui.sizeFromRadius(radius);
     }
     public static lerp(
-        a: Size | undefined,
-        b: Size | undefined,
+        a: ISize | undefined,
+        b: ISize | undefined,
         t: number
-    ): Size | undefined {
+    ): ISize | undefined {
         return dart.ui.sizeLerp(a, b, t);
     }
     private readonly _dart_getWidth: () => number = undefined as any;

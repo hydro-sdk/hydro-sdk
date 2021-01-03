@@ -7,25 +7,25 @@ declare const dart: {
             top: number,
             right: number,
             bottom: number
-        ) => Rect;
+        ) => IRect;
         rectFromLTWH: (
             left: number,
             top: number,
             width: number,
             height: number
-        ) => Rect;
-        rectFromCircle: (props: { center: Offset; radius: number }) => Rect;
+        ) => IRect;
+        rectFromCircle: (props: { center: IOffset; radius: number }) => IRect;
         rectFromCenter: (props: {
-            center: Offset;
+            center: IOffset;
             height: number;
             width: number;
-        }) => Rect;
-        rectFromPoints: (a: Offset, b: Offset) => Rect;
+        }) => IRect;
+        rectFromPoints: (a: IOffset, b: IOffset) => IRect;
         rectLerp: (
-            a: Rect | undefined,
-            b: Rect | undefined,
+            a: IRect | undefined,
+            b: IRect | undefined,
             t: number
-        ) => Rect | undefined;
+        ) => IRect | undefined;
     };
 };
 export interface IRect {
@@ -80,7 +80,7 @@ export class Rect {
         top: number,
         right: number,
         bottom: number
-    ): Rect {
+    ): IRect {
         return dart.ui.rectFromLTRB(left, top, right, bottom);
     }
     public static fromLTWH(
@@ -88,27 +88,30 @@ export class Rect {
         top: number,
         width: number,
         height: number
-    ): Rect {
+    ): IRect {
         return dart.ui.rectFromLTWH(left, top, width, height);
     }
-    public static fromCircle(props: { center: Offset; radius: number }): Rect {
+    public static fromCircle(props: {
+        center: IOffset;
+        radius: number;
+    }): IRect {
         return dart.ui.rectFromCircle(props);
     }
     public static fromCenter(props: {
-        center: Offset;
+        center: IOffset;
         height: number;
         width: number;
-    }): Rect {
+    }): IRect {
         return dart.ui.rectFromCenter(props);
     }
-    public static fromPoints(a: Offset, b: Offset): Rect {
+    public static fromPoints(a: IOffset, b: IOffset): IRect {
         return dart.ui.rectFromPoints(a, b);
     }
     public static lerp(
-        a: Rect | undefined,
-        b: Rect | undefined,
+        a: IRect | undefined,
+        b: IRect | undefined,
         t: number
-    ): Rect | undefined {
+    ): IRect | undefined {
         return dart.ui.rectLerp(a, b, t);
     }
     private readonly _dart_getWidth: () => number = undefined as any;

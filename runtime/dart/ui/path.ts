@@ -2,18 +2,18 @@ import { IList } from "./../collection/list";
 import { IOffset } from "./offset";
 import { PathFillType } from "./pathFillType";
 import { PathOperation } from "./pathOperation";
-import { IRadius,Radius } from "./radius";
+import { IRadius, Radius } from "./radius";
 import { IRect } from "./rect";
 import { IRRect } from "./rRect";
 declare const dart: {
     ui: {
         path: (this: void, path: Path) => Path;
-        pathFrom: (source: Path) => Path;
+        pathFrom: (source: IPath) => IPath;
         pathCombine: (
             operation: PathOperation,
-            path1: Path,
-            path2: Path
-        ) => Path;
+            path1: IPath,
+            path2: IPath
+        ) => IPath;
     };
 };
 const arcToPointDefaultProps = {
@@ -126,14 +126,14 @@ export class Path {
     public constructor() {
         dart.ui.path(this);
     }
-    public static from(source: Path): Path {
+    public static from(source: IPath): IPath {
         return dart.ui.pathFrom(source);
     }
     public static combine(
         operation: PathOperation,
-        path1: Path,
-        path2: Path
-    ): Path {
+        path1: IPath,
+        path2: IPath
+    ): IPath {
         return dart.ui.pathCombine(operation, path1, path2);
     }
     private readonly _dart_getFillType: () => PathFillType = undefined as any;

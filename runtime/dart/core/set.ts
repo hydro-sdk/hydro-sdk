@@ -5,13 +5,13 @@ import { IIterator } from "./iterator";
 declare const dart: {
     core: {
         set: <E>(this: void, set: Set<E>) => Set<E>;
-        setIdentity: <E>() => Set<E>;
-        setFrom: <E>(elements: Iterable<any>) => Set<E>;
-        setOf: <E>(elements: Iterable<E>) => Set<E>;
+        setIdentity: <E>() => ISet<E>;
+        setFrom: <E>(elements: IIterable<any>) => ISet<E>;
+        setOf: <E>(elements: IIterable<E>) => ISet<E>;
         setCastFrom: <S, T>(
-            source: Set<S>,
-            props: { newSet?: <R>() => Set<R> | undefined }
-        ) => Set<T>;
+            source: ISet<S>,
+            props: { newSet?: <R>() => ISet<R> | undefined }
+        ) => ISet<T>;
     };
 };
 export interface ISet<E> {
@@ -77,19 +77,19 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     public constructor() {
         dart.core.set(this);
     }
-    public static identity<E>(): Set<E> {
+    public static identity<E>(): ISet<E> {
         return dart.core.setIdentity();
     }
-    public static from<E>(elements: Iterable<any>): Set<E> {
+    public static from<E>(elements: IIterable<any>): ISet<E> {
         return dart.core.setFrom(elements);
     }
-    public static of<E>(elements: Iterable<E>): Set<E> {
+    public static of<E>(elements: IIterable<E>): ISet<E> {
         return dart.core.setOf(elements);
     }
     public static castFrom<S, T>(
-        source: Set<S>,
-        props: { newSet?: <R>() => Set<R> | undefined }
-    ): Set<T> {
+        source: ISet<S>,
+        props: { newSet?: <R>() => ISet<R> | undefined }
+    ): ISet<T> {
         return dart.core.setCastFrom(source, props);
     }
     private readonly _dart_cast: <R>() => ISet<R> = undefined as any;

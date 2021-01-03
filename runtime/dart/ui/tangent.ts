@@ -1,4 +1,4 @@
-import { IOffset } from "./offset";
+import { IOffset,Offset } from "./offset";
 declare const dart: {
     ui: {
         tangent: (
@@ -7,7 +7,7 @@ declare const dart: {
             position: Offset,
             vector: Offset
         ) => Tangent;
-        tangentFromAngle: (position: Offset, angle: number) => Tangent;
+        tangentFromAngle: (position: IOffset, angle: number) => ITangent;
     };
 };
 export interface ITangent {
@@ -21,7 +21,7 @@ export class Tangent {
     public constructor(position: Offset, vector: Offset) {
         dart.ui.tangent(this, position, vector);
     }
-    public static fromAngle(position: Offset, angle: number): Tangent {
+    public static fromAngle(position: IOffset, angle: number): ITangent {
         return dart.ui.tangentFromAngle(position, angle);
     }
     private readonly _dart_getAngle: () => number = undefined as any;
