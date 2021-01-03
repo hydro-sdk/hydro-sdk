@@ -1,7 +1,7 @@
 import { IEfficientLengthIterable } from "./../_internal/efficientLengthIterable";
-import { IList } from "./../collection/list";
-import { IIterable, Iterable } from "./iterable";
+import { IIterable } from "./iterable";
 import { IIterator } from "./iterator";
+import { IList } from "./list";
 declare const dart: {
     core: {
         set: <E>(this: void, set: Set<E>) => Set<E>;

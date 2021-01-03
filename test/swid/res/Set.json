@@ -1711,6 +1711,7 @@
         "isPublic": true
     },
     "mixedInClasses": [],
+    "implementedClasses": [],
     "extendedClass": {
         "name": "EfficientLengthIterable<E>",
         "nullabilitySuffix": "none",
@@ -1798,6 +1799,7 @@
             "isPublic": true
         },
         "mixedInClasses": [],
+        "implementedClasses": [],
         "extendedClass": {
             "name": "Iterable<E>",
             "nullabilitySuffix": "none",
@@ -4662,6 +4664,7 @@
                 "isPublic": true
             },
             "mixedInClasses": [],
+            "implementedClasses": [],
             "extendedClass": {
                 "name": "Object",
                 "nullabilitySuffix": "none",
@@ -4967,6 +4970,7 @@
                     "isPublic": true
                 },
                 "mixedInClasses": [],
+                "implementedClasses": [],
                 "extendedClass": null,
                 "isMixin": false,
                 "typeFormals": []

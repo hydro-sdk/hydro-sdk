@@ -1,5 +1,5 @@
-import { IList } from "./../collection/list";
 import { IIterator } from "./iterator";
+import { IList } from "./list";
 import { ISet } from "./set";
 declare const dart: {
     core: {

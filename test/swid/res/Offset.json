@@ -1333,6 +1333,7 @@
         "isPublic": true
     },
     "mixedInClasses": [],
+    "implementedClasses": [],
     "extendedClass": {
         "name": "OffsetBase",
         "nullabilitySuffix": "none",
@@ -1867,6 +1868,7 @@
             "isPublic": true
         },
         "mixedInClasses": [],
+        "implementedClasses": [],
         "extendedClass": {
             "name": "Object",
             "nullabilitySuffix": "none",
@@ -2172,6 +2174,7 @@
                 "isPublic": true
             },
             "mixedInClasses": [],
+            "implementedClasses": [],
             "extendedClass": null,
             "isMixin": false,
             "typeFormals": []
