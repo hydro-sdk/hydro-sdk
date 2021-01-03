@@ -46,7 +46,9 @@ void main(List<String> args) async {
         visitor.classes[i].name == "Iterable" ||
         visitor.classes[i].name == "Iterator" ||
         visitor.classes[i].name == "EfficientLengthIterable"||
-        visitor.classes[i].name == "Set"
+        visitor.classes[i].name == "Set"||
+        visitor.classes[i].name == "List"||
+        visitor.classes[i].name == "Random"
         ) {
       await Future.forEach(
           TranslationUnitProducer(

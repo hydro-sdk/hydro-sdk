@@ -15,4 +15,6 @@ bool isOperator({@required SwidFunctionType swidFunctionType}) =>
     swidFunctionType.name == "<=" ||
     swidFunctionType.name == ">=" ||
     swidFunctionType.name == "%" ||
+    swidFunctionType.name == "[]" ||
+    swidFunctionType.name == "[]=" ||
     swidFunctionType.name == "&";

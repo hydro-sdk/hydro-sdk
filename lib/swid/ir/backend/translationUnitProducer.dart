@@ -240,4 +240,7 @@ SwidClass _removeNonEmitCandidates({@required SwidClass swidClass}) =>
             .toList(),
         extendedClass: swidClass.extendedClass != null
             ? _removeNonEmitCandidates(swidClass: swidClass.extendedClass)
-            : null);
+            : null,
+        implementedClasses: swidClass.implementedClasses
+            .map((x) => _removeNonEmitCandidates(swidClass: x))
+            .toList());

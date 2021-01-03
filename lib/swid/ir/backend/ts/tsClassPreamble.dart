@@ -13,7 +13,8 @@ class TsClassPreamble {
           swidClass.extendedClass != null
               ? "I${swidClass.extendedClass.name}"
               : null,
-          ...swidClass.mixedInClasses.map((x) => "I${x.name}").toList()
+          ...swidClass.mixedInClasses.map((x) => "I${x.name}").toList(),
+          ...swidClass.implementedClasses.map((x) => "I${x.name}").toList()
         ]..removeWhere((x) => x == null));
 
   String toTsSource() => ([

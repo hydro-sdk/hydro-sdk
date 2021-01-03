@@ -20,8 +20,11 @@ Current and WIP results:
 ### `dart:core`
 - [x] `Iterable`
 - [x] `Iterator`
-- [ ] `List`
-- [ ] `Set`
+- [x] `List`
+- [x] `Set`
+
+### `dart:math`
+- [x] `Random`
 
 ### `dart:typed_data`
 - [ ] `Float64List`

@@ -70,7 +70,11 @@ SwidType rewriteClassReferencesToInterfaceReferences(
             extendedClass: val.extendedClass != null
                 ? rewriteClassReferencesToInterfaceReferencesInClass(
                     swidClass: val.extendedClass)
-                : null),
+                : null,
+            implementedClasses: val.implementedClasses
+                .map((x) => rewriteClassReferencesToInterfaceReferencesInClass(
+                    swidClass: x))
+                .toList()),
       ),
       fromSwidDefaultFormalParameter: (_) => null,
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(

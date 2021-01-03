@@ -42,6 +42,8 @@ class _$SwidClassTearOff {
       @required
           List<SwidClass> mixedInClasses,
       @required
+          List<SwidClass> implementedClasses,
+      @required
       @nullable
           SwidClass extendedClass,
       @required
@@ -60,6 +62,7 @@ class _$SwidClassTearOff {
       instanceFieldDeclarations: instanceFieldDeclarations,
       swidDeclarationModifiers: swidDeclarationModifiers,
       mixedInClasses: mixedInClasses,
+      implementedClasses: implementedClasses,
       extendedClass: extendedClass,
       isMixin: isMixin,
       typeFormals: typeFormals,
@@ -90,6 +93,7 @@ mixin _$SwidClass {
   Map<String, SwidType> get instanceFieldDeclarations;
   SwidDeclarationModifiers get swidDeclarationModifiers;
   List<SwidClass> get mixedInClasses;
+  List<SwidClass> get implementedClasses;
   @nullable
   SwidClass get extendedClass;
   bool get isMixin;
@@ -115,6 +119,7 @@ abstract class $SwidClassCopyWith<$Res> {
       Map<String, SwidType> instanceFieldDeclarations,
       SwidDeclarationModifiers swidDeclarationModifiers,
       List<SwidClass> mixedInClasses,
+      List<SwidClass> implementedClasses,
       @nullable SwidClass extendedClass,
       bool isMixin,
       List<SwidTypeFormal> typeFormals});
@@ -145,6 +150,7 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     Object instanceFieldDeclarations = freezed,
     Object swidDeclarationModifiers = freezed,
     Object mixedInClasses = freezed,
+    Object implementedClasses = freezed,
     Object extendedClass = freezed,
     Object isMixin = freezed,
     Object typeFormals = freezed,
@@ -182,6 +188,9 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
       mixedInClasses: mixedInClasses == freezed
           ? _value.mixedInClasses
           : mixedInClasses as List<SwidClass>,
+      implementedClasses: implementedClasses == freezed
+          ? _value.implementedClasses
+          : implementedClasses as List<SwidClass>,
       extendedClass: extendedClass == freezed
           ? _value.extendedClass
           : extendedClass as SwidClass,
@@ -241,6 +250,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       Map<String, SwidType> instanceFieldDeclarations,
       SwidDeclarationModifiers swidDeclarationModifiers,
       List<SwidClass> mixedInClasses,
+      List<SwidClass> implementedClasses,
       @nullable SwidClass extendedClass,
       bool isMixin,
       List<SwidTypeFormal> typeFormals});
@@ -275,6 +285,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
     Object instanceFieldDeclarations = freezed,
     Object swidDeclarationModifiers = freezed,
     Object mixedInClasses = freezed,
+    Object implementedClasses = freezed,
     Object extendedClass = freezed,
     Object isMixin = freezed,
     Object typeFormals = freezed,
@@ -312,6 +323,9 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
       mixedInClasses: mixedInClasses == freezed
           ? _value.mixedInClasses
           : mixedInClasses as List<SwidClass>,
+      implementedClasses: implementedClasses == freezed
+          ? _value.implementedClasses
+          : implementedClasses as List<SwidClass>,
       extendedClass: extendedClass == freezed
           ? _value.extendedClass
           : extendedClass as SwidClass,
@@ -339,6 +353,7 @@ class _$_$Data implements _$Data {
       @required this.instanceFieldDeclarations,
       @required this.swidDeclarationModifiers,
       @required this.mixedInClasses,
+      @required this.implementedClasses,
       @required @nullable this.extendedClass,
       @required this.isMixin,
       @required this.typeFormals})
@@ -352,6 +367,7 @@ class _$_$Data implements _$Data {
         assert(instanceFieldDeclarations != null),
         assert(swidDeclarationModifiers != null),
         assert(mixedInClasses != null),
+        assert(implementedClasses != null),
         assert(isMixin != null),
         assert(typeFormals != null);
 
@@ -382,6 +398,8 @@ class _$_$Data implements _$Data {
   @override
   final List<SwidClass> mixedInClasses;
   @override
+  final List<SwidClass> implementedClasses;
+  @override
   @nullable
   final SwidClass extendedClass;
   @override
@@ -391,7 +409,7 @@ class _$_$Data implements _$Data {
 
   @override
   String toString() {
-    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, swidDeclarationModifiers: $swidDeclarationModifiers, mixedInClasses: $mixedInClasses, extendedClass: $extendedClass, isMixin: $isMixin, typeFormals: $typeFormals)';
+    return 'SwidClass(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, constructorType: $constructorType, factoryConstructors: $factoryConstructors, staticMethods: $staticMethods, methods: $methods, staticConstFieldDeclarations: $staticConstFieldDeclarations, instanceFieldDeclarations: $instanceFieldDeclarations, swidDeclarationModifiers: $swidDeclarationModifiers, mixedInClasses: $mixedInClasses, implementedClasses: $implementedClasses, extendedClass: $extendedClass, isMixin: $isMixin, typeFormals: $typeFormals)';
   }
 
   @override
@@ -418,8 +436,7 @@ class _$_$Data implements _$Data {
             (identical(other.methods, methods) ||
                 const DeepCollectionEquality()
                     .equals(other.methods, methods)) &&
-            (identical(other.staticConstFieldDeclarations,
-                    staticConstFieldDeclarations) ||
+            (identical(other.staticConstFieldDeclarations, staticConstFieldDeclarations) ||
                 const DeepCollectionEquality().equals(
                     other.staticConstFieldDeclarations,
                     staticConstFieldDeclarations)) &&
@@ -434,6 +451,9 @@ class _$_$Data implements _$Data {
             (identical(other.mixedInClasses, mixedInClasses) ||
                 const DeepCollectionEquality()
                     .equals(other.mixedInClasses, mixedInClasses)) &&
+            (identical(other.implementedClasses, implementedClasses) ||
+                const DeepCollectionEquality()
+                    .equals(other.implementedClasses, implementedClasses)) &&
             (identical(other.extendedClass, extendedClass) ||
                 const DeepCollectionEquality()
                     .equals(other.extendedClass, extendedClass)) &&
@@ -459,6 +479,7 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(instanceFieldDeclarations) ^
       const DeepCollectionEquality().hash(swidDeclarationModifiers) ^
       const DeepCollectionEquality().hash(mixedInClasses) ^
+      const DeepCollectionEquality().hash(implementedClasses) ^
       const DeepCollectionEquality().hash(extendedClass) ^
       const DeepCollectionEquality().hash(isMixin) ^
       const DeepCollectionEquality().hash(typeFormals);
@@ -499,6 +520,8 @@ abstract class _$Data implements SwidClass {
       @required
           List<SwidClass> mixedInClasses,
       @required
+          List<SwidClass> implementedClasses,
+      @required
       @nullable
           SwidClass extendedClass,
       @required
@@ -531,6 +554,8 @@ abstract class _$Data implements SwidClass {
   SwidDeclarationModifiers get swidDeclarationModifiers;
   @override
   List<SwidClass> get mixedInClasses;
+  @override
+  List<SwidClass> get implementedClasses;
   @override
   @nullable
   SwidClass get extendedClass;
