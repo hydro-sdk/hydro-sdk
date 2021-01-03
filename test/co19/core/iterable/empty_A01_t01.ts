@@ -1,4 +1,4 @@
-/** 
+/**
  * Adapted from https://github.com/dart-lang/co19/blob/master/LibTest/core/Iterable/Iterable.empty_A01_t01.dart
  * @assertion const Iterable.empty()
  * Creates an empty iterable.
