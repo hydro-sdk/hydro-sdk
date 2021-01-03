@@ -215,7 +215,8 @@ void loadOffset({@required HydroState hydroState, @required HydroTable table}) {
   table['offsetFromDirection'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Offset>(
-          object: Offset.fromDirection(args[1]?.toDouble()),
+          object:
+              Offset.fromDirection(args[1]?.toDouble(), args[2]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];

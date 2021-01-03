@@ -230,7 +230,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       ];
     });
     table['join'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.join()];
+      return [vmObject.join(args[1])];
     });
     table['any'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];

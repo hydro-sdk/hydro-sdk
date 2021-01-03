@@ -135,7 +135,7 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
       ];
     });
     table['join'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.join()];
+      return [vmObject.join(args[1])];
     });
     table['any'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
@@ -406,7 +406,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
       ];
     });
     table['_dart_join'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.join()];
+      return [super.join(args[1])];
     });
     table['_dart_any'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
@@ -776,9 +776,15 @@ void loadIterable(
     return [RTManagedIterable(table: args[0], hydroState: hydroState)];
   });
   table['iterableGenerate'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    Closure generator = args[2];
     return [
       maybeBoxObject<Iterable>(
-          object: Iterable.generate(args[1]),
+          object: Iterable.generate(
+              args[1],
+              (index) => generator.dispatch(
+                    [args[0], index],
+                    parentState: hydroState,
+                  )[0]),
           hydroState: hydroState,
           table: HydroTable())
     ];
