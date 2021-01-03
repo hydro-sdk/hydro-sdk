@@ -17,6 +17,7 @@ void main() {
       name: "fooClass",
       typeFormals: [],
       isMixin: false,
+      implementedClasses: [],
       extendedClass: null,
       originalPackagePath: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,

@@ -18,6 +18,7 @@ void main() {
       typeFormals: [],
       isMixin: false,
       extendedClass: null,
+      implementedClasses: [],
       originalPackagePath: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],

@@ -16,6 +16,7 @@ void main() {
         swidClass: SwidClass(
       name: "fooClass",
       typeFormals: [],
+      implementedClasses: [],
       isMixin: false,
       extendedClass: null,
       originalPackagePath: "",

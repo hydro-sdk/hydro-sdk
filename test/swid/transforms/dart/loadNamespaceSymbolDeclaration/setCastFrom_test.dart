@@ -19,6 +19,7 @@ void main() {
       originalPackagePath: "dart:core",
       constructorType: null,
       factoryConstructors: [],
+      implementedClasses: [],
       instanceFieldDeclarations: {},
       methods: [],
       mixedInClasses: [],

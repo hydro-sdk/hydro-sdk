@@ -239,6 +239,7 @@ void main() {
         factoryConstructors: [],
         staticMethods: [],
         methods: [],
+        implementedClasses: [],
         staticConstFieldDeclarations: [],
         instanceFieldDeclarations: {},
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),

@@ -16,6 +16,7 @@ void main() {
         name: "Path",
         nullabilitySuffix: SwidNullabilitySuffix.none,
         typeFormals: [],
+        implementedClasses: [],
         originalPackagePath: "dart:ui",
         constructorType: SwidFunctionType(
           name: "",
