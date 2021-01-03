@@ -768,11 +768,13 @@
                 "isPublic": true
             },
             "mixedInClasses": [],
+            "implementedClasses": [],
             "extendedClass": null,
             "isMixin": false,
             "typeFormals": []
         }
     ],
+    "implementedClasses": [],
     "extendedClass": null,
     "isMixin": false,
     "typeFormals": []

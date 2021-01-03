@@ -291,6 +291,7 @@
         "isPublic": true
     },
     "mixedInClasses": [],
+    "implementedClasses": [],
     "extendedClass": null,
     "isMixin": true,
     "typeFormals": []

@@ -273,6 +273,7 @@
         "isPublic": true
     },
     "mixedInClasses": [],
+    "implementedClasses": [],
     "extendedClass": {
         "name": "DiagnosticsProperty<IconData>",
         "nullabilitySuffix": "star",
@@ -1329,6 +1330,7 @@
             "isPublic": true
         },
         "mixedInClasses": [],
+        "implementedClasses": [],
         "extendedClass": {
             "name": "DiagnosticsNode",
             "nullabilitySuffix": "none",
@@ -2483,6 +2485,7 @@
                 "isPublic": true
             },
             "mixedInClasses": [],
+            "implementedClasses": [],
             "extendedClass": {
                 "name": "Object",
                 "nullabilitySuffix": "none",
@@ -2788,6 +2791,7 @@
                     "isPublic": true
                 },
                 "mixedInClasses": [],
+                "implementedClasses": [],
                 "extendedClass": null,
                 "isMixin": false,
                 "typeFormals": []
