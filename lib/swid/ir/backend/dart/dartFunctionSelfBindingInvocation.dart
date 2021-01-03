@@ -78,26 +78,50 @@ class DartFunctionSelfBindingInvocation {
               args[n + 1] - named arguments
       */
           .call(
-              swidFunctionType.normalParameterNames.isNotEmpty
-                  ? swidFunctionType.normalParameterNames
-                      .map((x) => ((Expression expression) =>
-                          argumentBoxingProcedure == DartBoxingProcedure.unbox
-                              ? CodeExpression(Code(DartUnboxingExpression(
-                                  swidType: swidFunctionType
-                                      .normalParameterTypes
-                                      .elementAt(swidFunctionType
-                                          .normalParameterNames
-                                          .indexWhere((e) => e == x)),
-                                  expression: expression,
-                                  identifierName: x,
-                                ).toDartSource()))
-                              : CodeExpression(Code("")))(refer("args").index(
-                          literalNum(swidFunctionType.normalParameterNames
-                                  .indexWhere((e) => e == x) +
-                              1))))
-                      .toList()
-                      .cast<Expression>()
-                  : [],
+              ([
+                ...(swidFunctionType.normalParameterNames.isNotEmpty
+                    ? swidFunctionType.normalParameterNames
+                        .map((x) => ((Expression expression) =>
+                            argumentBoxingProcedure == DartBoxingProcedure.unbox
+                                ? CodeExpression(Code(DartUnboxingExpression(
+                                    swidType: swidFunctionType
+                                        .normalParameterTypes
+                                        .elementAt(swidFunctionType
+                                            .normalParameterNames
+                                            .indexWhere((e) => e == x)),
+                                    expression: expression,
+                                    identifierName: x,
+                                  ).toDartSource()))
+                                : CodeExpression(Code("")))(refer("args").index(
+                            literalNum(swidFunctionType.normalParameterNames
+                                    .indexWhere((e) => e == x) +
+                                1))))
+                        .toList()
+                        .cast<Expression>()
+                    : []),
+                ...(swidFunctionType.optionalParameterNames.isNotEmpty
+                    ? swidFunctionType.optionalParameterNames
+                        .map((x) => ((Expression expression) =>
+                            argumentBoxingProcedure == DartBoxingProcedure.unbox
+                                ? CodeExpression(Code(DartUnboxingExpression(
+                                    swidType: swidFunctionType
+                                        .optionalParameterTypes
+                                        .elementAt(swidFunctionType
+                                            .optionalParameterNames
+                                            .indexWhere((e) => e == x)),
+                                    expression: expression,
+                                    identifierName: x,
+                                  ).toDartSource()))
+                                : CodeExpression(Code("")))(refer("args")
+                            .index(literalNum([
+                                  ...swidFunctionType.normalParameterNames,
+                                  ...swidFunctionType.optionalParameterNames,
+                                ].indexWhere((e) => e == x) +
+                                1))))
+                        .toList()
+                        .cast<Expression>()
+                    : [])
+              ]..removeWhere((x) => x == null)),
               Map.fromEntries([
                 ...(emitTableBindingPrefix
                     ? [
