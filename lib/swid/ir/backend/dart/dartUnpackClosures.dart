@@ -2,6 +2,7 @@ import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, literalNum;
 
 import 'package:meta/meta.dart';
+import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
@@ -14,11 +15,43 @@ class DartUnpackClosures {
   });
 
   String toDartSource() => ([
-        ...swidFunctionType.normalParameterNames
+        ...([
+          ...swidFunctionType.normalParameterNames
+              .map(
+                (x) => Tuple3<String, SwidType, int>(
+                    x,
+                    swidFunctionType.normalParameterTypes.elementAt(
+                      swidFunctionType.normalParameterNames
+                          .indexWhere((e) => e == x),
+                    ),
+                    swidFunctionType.normalParameterNames
+                            .indexWhere((e) => e == x) +
+                        1),
+              )
+              .toList(),
+          ...swidFunctionType.optionalParameterTypes
+              .map(
+                (x) => Tuple3<String, SwidType, int>(
+                    swidFunctionType.optionalParameterNames.elementAt(
+                        swidFunctionType.optionalParameterTypes.indexOf(x)),
+                    x,
+                    [
+                          ...swidFunctionType.normalParameterNames,
+                          ...swidFunctionType.optionalParameterNames,
+                        ].indexWhere((e) =>
+                            e ==
+                            swidFunctionType.optionalParameterNames.elementAt(
+                                swidFunctionType.optionalParameterTypes
+                                    .indexOf(x))) +
+                        1),
+              )
+              .toList(),
+        ]
             .map(
               (x) => (({
                 String parameterName,
                 SwidType parameterType,
+                int argIndex,
               }) =>
                   parameterType.when(
                     fromSwidInterface: (_) => "",
@@ -29,25 +62,22 @@ class DartUnpackClosures {
                       parameterName,
                       "=",
                       refer("args")
-                          .index(literalNum(swidFunctionType
-                                  .normalParameterNames
-                                  .indexWhere((e) => e == x) +
-                              1))
+                          .index(literalNum(argIndex))
                           .statement
                           .accept(DartEmitter())
                           .toString(),
                     ]..removeWhere((x) => x == null))
                         .join(""),
                   ))(
-                parameterName: x,
-                parameterType: swidFunctionType.normalParameterTypes.elementAt(
-                  swidFunctionType.normalParameterNames
-                      .indexWhere((e) => e == x),
-                ),
+                parameterName: x.item1,
+                parameterType: x.item2,
+                argIndex: x.item3,
               ),
             )
-            .toList(),
-        ...swidFunctionType.namedParameterTypes.entries
+            .toList()),
+        ...[
+          ...swidFunctionType.namedParameterTypes.entries,
+        ]
             .map(
               (x) => (({
                 String parameterName,
