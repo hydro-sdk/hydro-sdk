@@ -561,32 +561,20 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   table['listCopyRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [
-      maybeBoxObject<void>(
-          object: List.copyRange(
-              maybeUnBoxAndBuildArgument<List>(args[1],
-                  parentState: hydroState),
-              args[2],
-              maybeUnBoxAndBuildArgument<List>(args[3],
-                  parentState: hydroState),
-              args[4],
-              args[5]),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    List.copyRange(
+        maybeUnBoxAndBuildArgument<List>(args[1], parentState: hydroState),
+        args[2],
+        maybeUnBoxAndBuildArgument<List>(args[3], parentState: hydroState),
+        args[4],
+        args[5]);
+    return [];
   });
   table['listWriteIterable'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [
-      maybeBoxObject<void>(
-          object: List.writeIterable(
-              maybeUnBoxAndBuildArgument<List>(args[1],
-                  parentState: hydroState),
-              args[2],
-              maybeUnBoxAndBuildArgument<Iterable>(args[3],
-                  parentState: hydroState)),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    List.writeIterable(
+        maybeUnBoxAndBuildArgument<List>(args[1], parentState: hydroState),
+        args[2],
+        maybeUnBoxAndBuildArgument<Iterable>(args[3], parentState: hydroState));
+    return [];
   });
   registerBoxer<List>(boxer: (
       {@required List vmObject,
