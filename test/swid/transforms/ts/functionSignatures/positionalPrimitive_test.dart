@@ -56,6 +56,6 @@ void main() {
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.star,
                 )))),
-        "(foo: int | undefined, bar: String) => num");
+        "(foo: number | undefined, bar: string) => num");
   }, tags: "swid");
 }

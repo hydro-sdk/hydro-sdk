@@ -73,7 +73,7 @@ void main() {
           swidFunctionType: fromDirection,
           trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
         ),
-        "(direction: double, distance: double) => Offset");
+        "(direction: number, distance: number) => Offset");
 
     //with initializers
     expect(
@@ -82,6 +82,6 @@ void main() {
           trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
           emitInitializersForOptionalPositionals: true,
         ),
-        "(direction: double, distance: double = 1.0) => Offset");
+        "(direction: number, distance: number = 1.0) => Offset");
   }, tags: "swid");
 }
