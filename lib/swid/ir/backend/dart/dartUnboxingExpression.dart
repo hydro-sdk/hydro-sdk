@@ -59,38 +59,43 @@ class DartUnboxingExpression {
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",
       fromSwidFunctionType: (val) => [
-            val.typeFormals.isNotEmpty
-                ? ("<" +
-                    val.typeFormals.map((x) => x.name).toList().join() +
-                    ">")
-                : "",
-            Method(
-              (m) => m
-                ..lambda = true
-                ..requiredParameters.addAll(
-                  [
-                    ...val.normalParameterNames
-                        .map((x) => Parameter((p) => p..name = x))
-                        .toList(),
-                  ],
-                )
-                ..body = Code(DartUnboxingExpression(
-                  swidType: val.returnType,
-                  expression: CodeExpression(
-                    Code(
-                      ([
-                        identifierName,
-                        ".dispatch([args[0],",
-                        val.normalParameterNames
-                            .map((x) => x)
-                            .toList()
-                            .join(","),
-                        "],parentState:hydroState,)[0]"
-                      ]..removeWhere((x) => x == null))
-                          .join(""),
+            identifierName,
+            " != null ? ",
+            ...[
+              val.typeFormals.isNotEmpty
+                  ? ("<" +
+                      val.typeFormals.map((x) => x.name).toList().join() +
+                      ">")
+                  : "",
+              Method(
+                (m) => m
+                  ..lambda = true
+                  ..requiredParameters.addAll(
+                    [
+                      ...val.normalParameterNames
+                          .map((x) => Parameter((p) => p..name = x))
+                          .toList(),
+                    ],
+                  )
+                  ..body = Code(DartUnboxingExpression(
+                    swidType: val.returnType,
+                    expression: CodeExpression(
+                      Code(
+                        ([
+                          identifierName,
+                          ".dispatch([args[0],",
+                          val.normalParameterNames
+                              .map((x) => x)
+                              .toList()
+                              .join(","),
+                          "],parentState:hydroState,)[0]"
+                        ]..removeWhere((x) => x == null))
+                            .join(""),
+                      ),
                     ),
-                  ),
-                ).toDartSource()),
-            ).closure.accept(DartEmitter()).toString(),
+                  ).toDartSource()),
+              ).closure.accept(DartEmitter()).toString(),
+            ],
+            " : null "
           ].join());
 }
