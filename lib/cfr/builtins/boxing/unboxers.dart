@@ -138,8 +138,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
       return target
           .map(
               (x) => maybeUnBoxAndBuildArgument<T>(x, parentState: parentState))
-          .toList()
-          .cast<T>();
+          .toList();
     } else if (arg.arr != null && arg.arr.isEmpty) {
       return [].cast<T>();
     }
