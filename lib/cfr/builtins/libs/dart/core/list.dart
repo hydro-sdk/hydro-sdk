@@ -23,7 +23,7 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
     table['cast'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: vmObject.cast().map((x) => null).toList(),
+            object: vmObject.cast(),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -164,8 +164,7 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
     table['sublist'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object:
-                vmObject.sublist(args[1], args[2]).map((x) => null).toList(),
+            object: vmObject.sublist(args[1], args[2]),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -341,10 +340,7 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: vmObject
-                .toList(growable: args[1]['growable'])
-                .map((x) => null)
-                .toList(),
+            object: vmObject.toList(growable: args[1]['growable']),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -509,17 +505,13 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
   table['list'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<List<dynamic>>(
-          object: List(args[1]).map((x) => null).toList(),
-          hydroState: hydroState,
-          table: args[0])
+          object: List(args[1]), hydroState: hydroState, table: args[0])
     ];
   });
   table['listFilled'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<List<dynamic>>(
-          object: List.filled(args[1], args[2], growable: args[3]['growable'])
-              .map((x) => null)
-              .toList(),
+          object: List.filled(args[1], args[2], growable: args[3]['growable']),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -527,9 +519,7 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
   table['listEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<List<dynamic>>(
-          object: List.empty(growable: args[1]['growable'])
-              .map((x) => null)
-              .toList(),
+          object: List.empty(growable: args[1]['growable']),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -538,11 +528,9 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
     return [
       maybeBoxObject<List<dynamic>>(
           object: List.from(
-                  maybeUnBoxAndBuildArgument<Iterable>(args[1],
-                      parentState: hydroState),
-                  growable: args[2]['growable'])
-              .map((x) => null)
-              .toList(),
+              maybeUnBoxAndBuildArgument<Iterable>(args[1],
+                  parentState: hydroState),
+              growable: args[2]['growable']),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -551,11 +539,9 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
     return [
       maybeBoxObject<List<dynamic>>(
           object: List.of(
-                  maybeUnBoxAndBuildArgument<Iterable>(args[1],
-                      parentState: hydroState),
-                  growable: args[2]['growable'])
-              .map((x) => null)
-              .toList(),
+              maybeUnBoxAndBuildArgument<Iterable>(args[1],
+                  parentState: hydroState),
+              growable: args[2]['growable']),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -566,16 +552,14 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
     return [
       maybeBoxObject<List<dynamic>>(
           object: List.generate(
-                  args[1],
-                  generator != null
-                      ? (index) => generator.dispatch(
-                            [args[0], index],
-                            parentState: hydroState,
-                          )[0]
-                      : null,
-                  growable: args[3]['growable'])
-              .map((x) => null)
-              .toList(),
+              args[1],
+              generator != null
+                  ? (index) => generator.dispatch(
+                        [args[0], index],
+                        parentState: hydroState,
+                      )[0]
+                  : null,
+              growable: args[3]['growable']),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -584,10 +568,8 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
     return [
       maybeBoxObject<List<dynamic>>(
           object: List.unmodifiable(maybeUnBoxAndBuildArgument<Iterable>(
-                  args[1],
-                  parentState: hydroState))
-              .map((x) => null)
-              .toList(),
+              args[1],
+              parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
@@ -596,9 +578,7 @@ void loadList({@required HydroState hydroState, @required HydroTable table}) {
     return [
       maybeBoxObject<List<dynamic>>(
           object: List.castFrom(maybeUnBoxAndBuildArgument<List>(args[1],
-                  parentState: hydroState))
-              .map((x) => null)
-              .toList(),
+              parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];

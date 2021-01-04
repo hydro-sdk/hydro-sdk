@@ -164,10 +164,7 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: vmObject
-                .toList(growable: args[1]['growable'])
-                .map((x) => null)
-                .toList(),
+            object: vmObject.toList(growable: args[1]['growable']),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -466,10 +463,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
     table['_dart_toList'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: super
-                .toList(growable: args[1]['growable'])
-                .map((x) => null)
-                .toList(),
+            object: super.toList(growable: args[1]['growable']),
             hydroState: hydroState,
             table: HydroTable())
       ];

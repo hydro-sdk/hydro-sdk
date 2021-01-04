@@ -263,10 +263,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: vmObject
-                .toList(growable: args[1]['growable'])
-                .map((x) => null)
-                .toList(),
+            object: vmObject.toList(growable: args[1]['growable']),
             hydroState: hydroState,
             table: HydroTable())
       ];

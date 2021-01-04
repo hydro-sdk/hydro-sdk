@@ -21,7 +21,7 @@ class DartBoxList {
     this.codeKind = CodeKind.statement,
   });
 
-  String toDartSource() =>
+  String _boxList() =>
       ((Expression expression) => codeKind == CodeKind.statement
           ? expression.statement
           : codeKind == CodeKind.expression
@@ -66,4 +66,19 @@ class DartBoxList {
           ], {})
           .property("toList")
           .call([])).accept(DartEmitter()).toString();
+
+  String toDartSource() => narrowSwidInterfaceByReferenceDeclaration(
+        swidInterface: type.typeArguments.first.when(
+          fromSwidInterface: (val) => val,
+          fromSwidClass: (_) => null,
+          fromSwidDefaultFormalParameter: (_) => null,
+          fromSwidFunctionType: (_) => null,
+        ),
+        onPrimitive: (_) => referenceName,
+        onClass: (_) => _boxList(),
+        onEnum: (_) => _boxList(),
+        onVoid: (_) => referenceName,
+        onDynamic: (_) => referenceName,
+        onTypeParameter: (_) => referenceName,
+      );
 }
