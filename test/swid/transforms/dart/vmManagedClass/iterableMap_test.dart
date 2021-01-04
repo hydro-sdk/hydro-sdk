@@ -180,10 +180,12 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
       Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.map((e) => f.dispatch(
-                  [args[0], e],
-                  parentState: hydroState,
-                )[0]),
+            object: vmObject.map(f != null
+                ? (e) => f.dispatch(
+                      [args[0], e],
+                      parentState: hydroState,
+                    )[0]
+                : null),
             hydroState: hydroState,
             table: HydroTable())
       ];

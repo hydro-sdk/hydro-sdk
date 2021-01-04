@@ -157,6 +157,6 @@ Closure newSet=args  [
 ];
 return  [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set>(args  [
 1
-], parentState: hydroState), newSet: <R>() => maybeUnBoxAndBuildArgument<Set>(newSet.dispatch([args[0],],parentState:hydroState,)[0], parentState: hydroState)), hydroState: hydroState, table: HydroTable())]; } );""");
+], parentState: hydroState), newSet: newSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set>(newSet.dispatch([args[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable())]; } );""");
   }, tags: "swid");
 }
