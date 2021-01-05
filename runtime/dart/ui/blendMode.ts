@@ -9,7 +9,7 @@ export enum BlendMode {
     srcOut,
     dstOut,
     srcATop,
-    dstAtop,
+    dstATop,
     xor,
     plus,
     modulate,

@@ -54,7 +54,7 @@ export class HomeScreen extends StatelessWidget {
                             left: 0,
                             right: 0,
                             top: 0,
-                            height: MediaQuery.of(context).size.height / 3,
+                            height: MediaQuery.of(context).size.getHeight() / 3,
                             child: new Row({
                                 children: [
                                     new Flexible({
@@ -298,8 +298,9 @@ export class HomeScreen extends StatelessWidget {
                                         }),
                                         new Container({
                                             height:
-                                                MediaQuery.of(context).size
-                                                    .height / 4,
+                                                MediaQuery.of(
+                                                    context
+                                                ).size.getHeight() / 4,
                                             child: ListView.builder({
                                                 scrollDirection:
                                                     Axis.horizontal,

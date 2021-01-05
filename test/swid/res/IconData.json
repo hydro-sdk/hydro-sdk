@@ -106,7 +106,8 @@
             },
             "runtimeType": "fromSwidInterface"
         },
-        "isFactory": false
+        "isFactory": false,
+        "typeFormals": []
     },
     "factoryConstructors": [],
     "staticMethods": [],
@@ -168,7 +169,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "hashCode",
@@ -216,7 +218,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "toString",
@@ -264,7 +267,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         }
     ],
     "staticConstFieldDeclarations": [],
@@ -337,5 +341,8 @@
         "isPublic": true
     },
     "mixedInClasses": [],
-    "isMixin": false
+    "implementedClasses": [],
+    "extendedClass": null,
+    "isMixin": false,
+    "typeFormals": []
 }

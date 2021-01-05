@@ -1,4 +1,4 @@
 export enum BoxWidthStyle {
-    max,
     tight,
+    max,
 }

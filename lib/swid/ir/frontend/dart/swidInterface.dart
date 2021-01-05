@@ -3,11 +3,12 @@ import 'package:analyzer/src/dart/element/element.dart' show EnumElementImpl;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowDartTypeToSwidType.dart';
 
 import 'package:analyzer/dart/element/type.dart'
     show InterfaceType, TypeParameterType, VoidType, DynamicType;
@@ -50,15 +51,7 @@ abstract class SwidInterface with _$SwidInterface {
       SwidInterface(
         name: interfaceType.getDisplayString(withNullability: false),
         typeArguments: interfaceType.typeArguments
-            .map((x) => x is InterfaceType
-                ? SwidType.fromSwidInterface(
-                    swidInterface:
-                        SwidInterface.fromInterface(interfaceType: x))
-                : x is TypeParameterType
-                    ? SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface.fromTypeParameterType(
-                            typeParameterType: x))
-                    : null)
+            .map((x) => narrowDartTypeToSwidType(dartType: x))
             .toList(),
         nullabilitySuffix: mapNullabilitySuffix(
             nullabilitySuffix: interfaceType.nullabilitySuffix),

@@ -18,6 +18,7 @@ void main() {
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
                 isFactory: false,
+                typeFormals: [],
                 namedDefaults: {},
                 swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                 name: "",
@@ -55,6 +56,6 @@ void main() {
                   originalPackagePath: "dart:core",
                   nullabilitySuffix: SwidNullabilitySuffix.star,
                 )))),
-        "(foo: int | undefined, bar: String) => num");
+        "(foo: number | undefined, bar: string) => num");
   }, tags: "swid");
 }

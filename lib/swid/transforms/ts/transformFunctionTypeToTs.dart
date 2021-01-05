@@ -1,20 +1,26 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/cloneSwidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/cloneSwidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 String transformFunctionTypeToTs({
   @required SwidFunctionType swidFunctionType,
   @required TrailingReturnTypeKind trailingReturnTypeKind,
+  TrailingReturnTypeKind nestedTrailingReturnTypeKind =
+      TrailingReturnTypeKind.fatArrow,
   bool emitTrailingReturnType = true,
   bool emitDefaultFormalsAsOptionalNamed = false,
+  bool emitInitializersForOptionalPositionals = false,
 }) {
-  var res = "(";
+  var res =
+      transformTypeFormalsToTs(swidTypeFormals: swidFunctionType.typeFormals) +
+          "(";
 
   Map<String, SwidType> normalTypes = {};
   for (var i = 0; i != swidFunctionType.normalParameterNames.length; ++i) {
@@ -59,8 +65,10 @@ String transformFunctionTypeToTs({
 
         res += " : ";
         res += transformFunctionTypeToTs(
-            swidFunctionType: val,
-            trailingReturnTypeKind: trailingReturnTypeKind);
+          swidFunctionType: val,
+          trailingReturnTypeKind: nestedTrailingReturnTypeKind,
+          nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+        );
 
         return null;
       },
@@ -71,10 +79,16 @@ String transformFunctionTypeToTs({
               "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
         }
 
-        res += ": ${val.name}";
+        res += ": " +
+            transformTypeDeclarationToTs(
+                swidType: SwidType.fromSwidInterface(swidInterface: val));
 
-        if (val.nullabilitySuffix == SwidNullabilitySuffix.question) {
-          res += " | undefined";
+        if (emitInitializersForOptionalPositionals) {
+          var initializer = swidFunctionType.positionalDefaultParameters.entries
+              .firstWhere((x) => x.key == key, orElse: () => null);
+          if (initializer != null) {
+            res += " = ${initializer.value.name}";
+          }
         }
 
         return null;

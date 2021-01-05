@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dar
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
@@ -24,9 +25,12 @@ class TsClassStaticMethodImplementation {
       transformTypeDeclarationToTs(
           emitTrailingReturnType: true,
           emitDefaultFormalsAsOptionalNamed: true,
+          emitTopLevelInitializersForOptionalPositionals: true,
           topLevelTrailingReturnTypeKind: TrailingReturnTypeKind.colon,
           swidType: SwidType.fromSwidFunctionType(
-              swidFunctionType: swidFunctionType)) +
+              swidFunctionType:
+                  rewriteClassReferencesToInterfaceReferencesInFunction(
+                      swidFunctionType: swidFunctionType))) +
       "{\n" +
       "return " +
       TsFunctionSelfBindingInvocation(

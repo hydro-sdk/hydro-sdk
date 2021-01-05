@@ -28,6 +28,11 @@ do
     node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/dart/core" -p $1
 done
 
+for f in test/unit/dart/ui/*.ts;
+do
+    node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/dart/ui" -p $1
+done
+
 for f in test/unit/flutter/foundation/*.ts;
 do
     node dist/compiler -t "$f" -m "$(basename $f)" -d "assets/test/unit/flutter/foundation" -p $1

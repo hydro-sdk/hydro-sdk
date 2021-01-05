@@ -10,5 +10,5 @@ void loadCollection(
 
   table["collection"] = collection;
 
-  loadList(table: collection, hydroState: hydroState);
+  loadCoreList(hydroState: hydroState, table: collection);
 }

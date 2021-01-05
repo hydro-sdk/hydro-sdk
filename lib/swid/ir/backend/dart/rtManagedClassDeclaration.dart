@@ -13,16 +13,24 @@ import 'package:code_builder/code_builder.dart'
         Method,
         MethodType,
         Block,
-        Code;
+        Code,
+        CodeExpression,
+        Reference;
 
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
+import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 
 class RTManagedClassDeclaration {
@@ -140,8 +148,11 @@ class RTManagedClassDeclaration {
             .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
-            .map((x) => Code(MethodInjectionImplementation(swidFunctionType: x)
-                .toDartSource()))
+            .map((x) => Code(MethodInjectionImplementation(
+                    swidFunctionType: castAllTypeParametersInFunctionToDynamic(
+                  swidFunctionType: x,
+                  preserveTypeParametersInLists: true,
+                )).toDartSource()))
             .toList())
       ])))
     ..methods.addAll([
@@ -158,6 +169,11 @@ class RTManagedClassDeclaration {
     ..methods.addAll(swidClass.methods
             .where((x) => x.name != "==")
             .where((x) => !x.swidDeclarationModifiers.hasProtected)
+            .map((x) => transformAccessorName(
+                  swidFunctionType: x,
+                  removeSuffixes: true,
+                  addPrefixes: false,
+                ))
             .map((x) => Method((k) => k
               ..annotations.add(refer("override"))
               ..type = x.swidDeclarationModifiers.isGetter
@@ -165,14 +181,27 @@ class RTManagedClassDeclaration {
                   : x.swidDeclarationModifiers.isSetter
                       ? MethodType.setter
                       : null
+              ..types.addAll(
+                x.typeFormals.map((e) => Reference(e.name)).toList(),
+              )
               ..requiredParameters.addAll([
                 ...x.normalParameterNames
-                    .map((e) => Parameter((p) => p
-                      ..name = e
-                      ..type = swidTypeToDartTypeReference(
-                          swidType: x.normalParameterTypes.elementAt(x
-                              .normalParameterNames
-                              .indexWhere((element) => element == e)))))
+                    .map(
+                      (e) => Parameter(
+                        (p) => p
+                          ..name = e
+                          ..type = swidTypeToDartTypeReference(
+                            swidType: castTypeParametersToDynamic(
+                              swidType: x.normalParameterTypes.elementAt(
+                                x.normalParameterNames
+                                    .indexWhere((element) => element == e),
+                              ),
+                              preserveTypeParametersInLists: true,
+                              preserveFunctionTypeFormals: false,
+                            ),
+                          ),
+                      ),
+                    )
                     .toList(),
               ])
               ..optionalParameters.addAll([
@@ -184,15 +213,44 @@ class RTManagedClassDeclaration {
                           : null)
                       ..named = true
                       ..type = swidTypeToDartTypeReference(swidType: e.value)))
+                    .toList(),
+                ...x.positionalDefaultParameters.entries
+                    .map(
+                      (e) => Parameter((p) => p
+                        ..name = e.key
+                        ..type = swidTypeToDartTypeReference(
+                          swidType: e.value.value,
+                        )
+                        ..named = false
+                        ..required = false
+                        ..defaultTo = Code(e.value.name)),
+                    )
                     .toList()
               ])
               ..name = x.name
-              ..returns = refer(x.returnType.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
+              ..returns = refer(
+                x.typeFormals.isEmpty
+                    ? castTypeParametersToDynamic(
+                        swidType: x.returnType,
+                        preserveTypeParametersInLists: true,
+                        preserveFunctionTypeFormals: false,
+                      ).name
+                    : x.returnType.name,
+              )
               ..body = Block.of([
                 Code(
-                    "Closure closure = table[\"${transformTstlMethodNames(swidFunctionType: x).name}\"];"),
-                Code(
-                    "return closure.dispatch([table],parentState: hydroState)[0];"),
+                    "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
+                Code("return " +
+                    DartUnboxingExpression(
+                            swidType: castTypeParametersToDynamic(
+                              swidType: x.returnType,
+                              preserveTypeParametersInLists: false,
+                              preserveFunctionTypeFormals: false,
+                            ),
+                            expression: CodeExpression(Code(
+                                "closure.dispatch([table],parentState: hydroState)[0]")))
+                        .toDartSource() +
+                    ";"),
               ])))
             ?.toList() ??
         [])).accept(DartEmitter()).toString());

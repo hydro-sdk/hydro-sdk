@@ -503,9 +503,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "8d5743560c55bb09f1373aa70c2066b54772f0b5"
-      resolved-ref: "8d5743560c55bb09f1373aa70c2066b54772f0b5"
-      url: "git://github.com/chgibb/surveyor"
+      ref: e050fb0dee8f228e0da660f1b49b28daf42291b9
+      resolved-ref: e050fb0dee8f228e0da660f1b49b28daf42291b9
+      url: "git://github.com/hydro-sdk/surveyor"
     source: git
     version: "0.0.1"
   term_glyph:

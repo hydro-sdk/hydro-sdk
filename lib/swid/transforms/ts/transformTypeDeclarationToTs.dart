@@ -1,8 +1,9 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
@@ -13,6 +14,7 @@ String transformTypeDeclarationToTs({
   @required SwidType swidType,
   bool emitTrailingReturnType = true,
   bool emitDefaultFormalsAsOptionalNamed = false,
+  bool emitTopLevelInitializersForOptionalPositionals = false,
   TrailingReturnTypeKind topLevelTrailingReturnTypeKind =
       TrailingReturnTypeKind.fatArrow,
   TrailingReturnTypeKind nestedTrailingReturnTypeKind =
@@ -27,29 +29,59 @@ String transformTypeDeclarationToTs({
                 swidType: transformPrimitiveNamesToTs(swidType: swidType))
             .when(
                 fromSwidInterface: (val) =>
-                    removeTypeArguments(str: val.name) +
-                    (val.typeArguments.isNotEmpty
-                        ? "<" +
-                            val.typeArguments
-                                .map((x) => transformTypeDeclarationToTs(
-                                      swidType: x,
-                                      emitTrailingReturnType:
-                                          emitTrailingReturnType,
-                                      emitDefaultFormalsAsOptionalNamed:
-                                          emitDefaultFormalsAsOptionalNamed,
-                                      topLevelTrailingReturnTypeKind:
-                                          nestedTrailingReturnTypeKind,
-                                      nestedTrailingReturnTypeKind:
-                                          nestedTrailingReturnTypeKind,
-                                    ))
-                                .toList()
-                                .join(", ") +
-                            ">"
-                        : ""),
+                    narrowSwidInterfaceByReferenceDeclaration(
+                      swidInterface: val,
+                      onPrimitive: (val) => val.name,
+                      onClass: (val) =>
+                          removeTypeArguments(str: val.name) +
+                          (val.typeArguments.isNotEmpty
+                              ? "<" +
+                                  val.typeArguments
+                                      .map((x) => transformTypeDeclarationToTs(
+                                            swidType: x,
+                                            emitTrailingReturnType:
+                                                emitTrailingReturnType,
+                                            emitDefaultFormalsAsOptionalNamed:
+                                                emitDefaultFormalsAsOptionalNamed,
+                                            topLevelTrailingReturnTypeKind:
+                                                nestedTrailingReturnTypeKind,
+                                            nestedTrailingReturnTypeKind:
+                                                nestedTrailingReturnTypeKind,
+                                          ))
+                                      .toList()
+                                      .join(", ") +
+                                  ">"
+                              : ""),
+                      onEnum: (val) => val.name,
+                      onVoid: (val) => val.name,
+                      onTypeParameter: (val) =>
+                          removeTypeArguments(str: val.name) +
+                          (val.typeArguments.isNotEmpty
+                              ? "<" +
+                                  val.typeArguments
+                                      .map((x) => transformTypeDeclarationToTs(
+                                            swidType: x,
+                                            emitTrailingReturnType:
+                                                emitTrailingReturnType,
+                                            emitDefaultFormalsAsOptionalNamed:
+                                                emitDefaultFormalsAsOptionalNamed,
+                                            topLevelTrailingReturnTypeKind:
+                                                nestedTrailingReturnTypeKind,
+                                            nestedTrailingReturnTypeKind:
+                                                nestedTrailingReturnTypeKind,
+                                          ))
+                                      .toList()
+                                      .join(", ") +
+                                  ">"
+                              : ""),
+                      onDynamic: (val) => "any",
+                    ),
                 fromSwidClass: (_) => "",
                 fromSwidDefaultFormalParameter: (val) => val.name,
                 fromSwidFunctionType: (val) => transformFunctionTypeToTs(
                     swidFunctionType: val,
+                    emitInitializersForOptionalPositionals:
+                        emitTopLevelInitializersForOptionalPositionals,
                     emitTrailingReturnType: emitTrailingReturnType,
                     emitDefaultFormalsAsOptionalNamed:
                         emitDefaultFormalsAsOptionalNamed,

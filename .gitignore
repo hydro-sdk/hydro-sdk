@@ -47,8 +47,10 @@ assets/test/hot/stateful/*.hc
 assets/test/unit/dart/async/*.hc
 assets/test/unit/dart/collection/*.hc
 assets/test/unit/dart/core/*.hc
+assets/test/unit/dart/ui/*.hc
 assets/test/unit/flutter/foundation/*.hc
 assets/test/unit/ts/*.hc
+assets/test/co19/core/*.hc
 *.symbols
 hydro_sdk/android/.project
 *.js

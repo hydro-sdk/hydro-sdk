@@ -130,7 +130,8 @@
             },
             "runtimeType": "fromSwidInterface"
         },
-        "isFactory": false
+        "isFactory": false,
+        "typeFormals": []
     },
     "factoryConstructors": [
         {
@@ -267,7 +268,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": true
+            "isFactory": true,
+            "typeFormals": []
         }
     ],
     "staticMethods": [
@@ -391,7 +393,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         }
     ],
     "methods": [
@@ -452,7 +455,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "isFiltered",
@@ -511,7 +515,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "level",
@@ -559,7 +564,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "emptyBodyDescription",
@@ -607,7 +613,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "value",
@@ -655,7 +662,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "allowWrap",
@@ -703,7 +711,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "allowNameWrap",
@@ -751,7 +760,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "allowTruncate",
@@ -799,7 +809,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "getProperties",
@@ -858,7 +869,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "getChildren",
@@ -917,7 +929,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "toJsonMap",
@@ -997,7 +1010,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "toString",
@@ -1082,7 +1096,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "textTreeConfiguration",
@@ -1130,7 +1145,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "toStringDeep",
@@ -1250,7 +1266,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         }
     ],
     "staticConstFieldDeclarations": [],
@@ -1333,5 +1350,8 @@
         "isPublic": true
     },
     "mixedInClasses": [],
-    "isMixin": false
+    "implementedClasses": [],
+    "extendedClass": null,
+    "isMixin": false,
+    "typeFormals": []
 }

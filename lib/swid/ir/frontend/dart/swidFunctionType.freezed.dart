@@ -29,7 +29,8 @@ class _$SwidFunctionTypeTearOff {
       @required List<String> optionalParameterNames,
       @required List<SwidType> optionalParameterTypes,
       @required SwidType returnType,
-      @required bool isFactory}) {
+      @required bool isFactory,
+      @required List<SwidTypeFormal> typeFormals}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -43,6 +44,7 @@ class _$SwidFunctionTypeTearOff {
       optionalParameterTypes: optionalParameterTypes,
       returnType: returnType,
       isFactory: isFactory,
+      typeFormals: typeFormals,
     );
   }
 
@@ -70,6 +72,7 @@ mixin _$SwidFunctionType {
   List<SwidType> get optionalParameterTypes;
   SwidType get returnType;
   bool get isFactory;
+  List<SwidTypeFormal> get typeFormals;
 
   Map<String, dynamic> toJson();
   $SwidFunctionTypeCopyWith<SwidFunctionType> get copyWith;
@@ -92,7 +95,8 @@ abstract class $SwidFunctionTypeCopyWith<$Res> {
       List<String> optionalParameterNames,
       List<SwidType> optionalParameterTypes,
       SwidType returnType,
-      bool isFactory});
+      bool isFactory,
+      List<SwidTypeFormal> typeFormals});
 
   $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
   $SwidTypeCopyWith<$Res> get returnType;
@@ -121,6 +125,7 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
     Object optionalParameterTypes = freezed,
     Object returnType = freezed,
     Object isFactory = freezed,
+    Object typeFormals = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
@@ -154,6 +159,9 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
       returnType:
           returnType == freezed ? _value.returnType : returnType as SwidType,
       isFactory: isFactory == freezed ? _value.isFactory : isFactory as bool,
+      typeFormals: typeFormals == freezed
+          ? _value.typeFormals
+          : typeFormals as List<SwidTypeFormal>,
     ));
   }
 
@@ -197,7 +205,8 @@ abstract class _$$DataCopyWith<$Res>
       List<String> optionalParameterNames,
       List<SwidType> optionalParameterTypes,
       SwidType returnType,
-      bool isFactory});
+      bool isFactory,
+      List<SwidTypeFormal> typeFormals});
 
   @override
   $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
@@ -228,6 +237,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
     Object optionalParameterTypes = freezed,
     Object returnType = freezed,
     Object isFactory = freezed,
+    Object typeFormals = freezed,
   }) {
     return _then(_$Data(
       name: name == freezed ? _value.name : name as String,
@@ -261,6 +271,9 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
       returnType:
           returnType == freezed ? _value.returnType : returnType as SwidType,
       isFactory: isFactory == freezed ? _value.isFactory : isFactory as bool,
+      typeFormals: typeFormals == freezed
+          ? _value.typeFormals
+          : typeFormals as List<SwidTypeFormal>,
     ));
   }
 }
@@ -281,7 +294,8 @@ class _$_$Data implements _$Data {
       @required this.optionalParameterNames,
       @required this.optionalParameterTypes,
       @required this.returnType,
-      @required this.isFactory})
+      @required this.isFactory,
+      @required this.typeFormals})
       : assert(name != null),
         assert(nullabilitySuffix != null),
         assert(originalPackagePath != null),
@@ -293,7 +307,8 @@ class _$_$Data implements _$Data {
         assert(optionalParameterNames != null),
         assert(optionalParameterTypes != null),
         assert(returnType != null),
-        assert(isFactory != null);
+        assert(isFactory != null),
+        assert(typeFormals != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -322,10 +337,12 @@ class _$_$Data implements _$Data {
   final SwidType returnType;
   @override
   final bool isFactory;
+  @override
+  final List<SwidTypeFormal> typeFormals;
 
   @override
   String toString() {
-    return 'SwidFunctionType(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, swidDeclarationModifiers: $swidDeclarationModifiers, namedParameterTypes: $namedParameterTypes, namedDefaults: $namedDefaults, normalParameterNames: $normalParameterNames, normalParameterTypes: $normalParameterTypes, optionalParameterNames: $optionalParameterNames, optionalParameterTypes: $optionalParameterTypes, returnType: $returnType, isFactory: $isFactory)';
+    return 'SwidFunctionType(name: $name, nullabilitySuffix: $nullabilitySuffix, originalPackagePath: $originalPackagePath, swidDeclarationModifiers: $swidDeclarationModifiers, namedParameterTypes: $namedParameterTypes, namedDefaults: $namedDefaults, normalParameterNames: $normalParameterNames, normalParameterTypes: $normalParameterTypes, optionalParameterNames: $optionalParameterNames, optionalParameterTypes: $optionalParameterTypes, returnType: $returnType, isFactory: $isFactory, typeFormals: $typeFormals)';
   }
 
   @override
@@ -368,7 +385,10 @@ class _$_$Data implements _$Data {
                     .equals(other.returnType, returnType)) &&
             (identical(other.isFactory, isFactory) ||
                 const DeepCollectionEquality()
-                    .equals(other.isFactory, isFactory)));
+                    .equals(other.isFactory, isFactory)) &&
+            (identical(other.typeFormals, typeFormals) ||
+                const DeepCollectionEquality()
+                    .equals(other.typeFormals, typeFormals)));
   }
 
   @override
@@ -385,7 +405,8 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(optionalParameterNames) ^
       const DeepCollectionEquality().hash(optionalParameterTypes) ^
       const DeepCollectionEquality().hash(returnType) ^
-      const DeepCollectionEquality().hash(isFactory);
+      const DeepCollectionEquality().hash(isFactory) ^
+      const DeepCollectionEquality().hash(typeFormals);
 
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
@@ -410,7 +431,8 @@ abstract class _$Data implements SwidFunctionType {
       @required List<String> optionalParameterNames,
       @required List<SwidType> optionalParameterTypes,
       @required SwidType returnType,
-      @required bool isFactory}) = _$_$Data;
+      @required bool isFactory,
+      @required List<SwidTypeFormal> typeFormals}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -438,6 +460,8 @@ abstract class _$Data implements SwidFunctionType {
   SwidType get returnType;
   @override
   bool get isFactory;
+  @override
+  List<SwidTypeFormal> get typeFormals;
   @override
   _$$DataCopyWith<_$Data> get copyWith;
 }

@@ -5,10 +5,12 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/isList.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isList.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 
 class DartBoxObjectReference {
   final SwidInterface type;
@@ -46,15 +48,21 @@ class DartBoxObjectReference {
       }, [
         isList(swidType: SwidType.fromSwidInterface(swidInterface: type))
             ? Reference("List<dynamic>")
-            : Reference(type.name)
+            : Reference(removeTypeArguments(str: type.name))
       ]);
 
   String toDartSource() =>
       ((Expression expression) => codeKind == CodeKind.statement
-              ? expression.statement
-              : codeKind == CodeKind.expression
-                  ? expression.expression
-                  : null)(_boxObject())
-          .accept(DartEmitter())
-          .toString();
+          ? expression.statement
+          : codeKind == CodeKind.expression
+              ? expression.expression
+              : null)(narrowSwidInterfaceByReferenceDeclaration(
+        swidInterface: type,
+        onPrimitive: (_) => _boxObject(),
+        onClass: (_) => _boxObject(),
+        onEnum: (_) => _boxObject(),
+        onVoid: (_) => objectReference,
+        onTypeParameter: (_) => _boxObject(),
+        onDynamic: (_) => _boxObject(),
+      )).accept(DartEmitter()).toString();
 }

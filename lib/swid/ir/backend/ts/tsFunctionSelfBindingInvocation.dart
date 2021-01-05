@@ -22,13 +22,22 @@ class TsFunctionSelfBindingInvocation {
               TsFunctionInvocationPositionalParameters(
                   positionalReferences: [
             ...swidFunctionType.normalParameterNames,
-            (swidFunctionType.namedDefaults.entries.isEmpty &&
+            ...swidFunctionType.positionalDefaultParameters.entries
+                .map((x) => x.key)
+                .toList(),
+            ...swidFunctionType.optionalParameterNames
+                .where((x) =>
+                    swidFunctionType.positionalDefaultParameters.entries
+                        .firstWhere((e) => e.key == x, orElse: () => null) ==
+                    null)
+                .toList(),
+            (swidFunctionType.namedDefaultParameters.entries.isEmpty &&
                     swidFunctionType.namedParameterTypes.entries.isNotEmpty
                 ? "props"
                 : null)
           ]..removeWhere((k) => k == null)),
           tsFunctionInvocationNamedParameters:
-              swidFunctionType.namedDefaults.entries.isNotEmpty
+              swidFunctionType.namedDefaultParameters.entries.isNotEmpty
                   ? [
                       TsFunctionInvocationNamedParameters.fromSpread(
                           tsFunctionInvocationNamedParametersSpread:

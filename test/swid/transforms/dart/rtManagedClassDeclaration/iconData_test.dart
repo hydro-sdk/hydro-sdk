@@ -34,7 +34,7 @@ class RTManagedIconData extends IconData implements Box<IconData> {
     table[\'fontFamily\'] = fontFamily;
     table[\'fontPackage\'] = fontPackage;
     table[\'matchTextDirection\'] = matchTextDirection;
-    table[\'_dart_hashCode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table[\'_dart_getHashCode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.hashCode];
     });
     table[\'_dart_toString\'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -50,7 +50,7 @@ class RTManagedIconData extends IconData implements Box<IconData> {
   IconData get vmObject => this;
   @override
   int get hashCode {
-    Closure closure = table["hashCode"];
+    Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 

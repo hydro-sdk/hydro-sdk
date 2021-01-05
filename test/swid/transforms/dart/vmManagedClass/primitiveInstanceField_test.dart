@@ -15,7 +15,10 @@ void main() {
     var ir = VMManagedClassDeclaration(
         swidClass: SwidClass(
       name: "fooClass",
+      typeFormals: [],
+      implementedClasses: [],
       isMixin: false,
+      extendedClass: null,
       originalPackagePath: "",
       nullabilitySuffix: SwidNullabilitySuffix.none,
       staticMethods: [],
@@ -33,6 +36,7 @@ void main() {
       },
       constructorType: SwidFunctionType(
         name: "",
+        typeFormals: [],
         isFactory: false,
         namedDefaults: {},
         namedParameterTypes: {},

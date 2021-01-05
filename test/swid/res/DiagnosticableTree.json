@@ -48,7 +48,8 @@
             },
             "runtimeType": "fromSwidInterface"
         },
-        "isFactory": false
+        "isFactory": false,
+        "typeFormals": []
     },
     "factoryConstructors": [],
     "staticMethods": [],
@@ -151,7 +152,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "toStringDeep",
@@ -261,7 +263,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "toStringShort",
@@ -309,7 +312,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "toDiagnosticsNode",
@@ -378,7 +382,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         },
         {
             "name": "debugDescribeChildren",
@@ -437,7 +442,8 @@
                 },
                 "runtimeType": "fromSwidInterface"
             },
-            "isFactory": false
+            "isFactory": false,
+            "typeFormals": []
         }
     ],
     "staticConstFieldDeclarations": [],
@@ -523,7 +529,8 @@
                         },
                         "runtimeType": "fromSwidInterface"
                     },
-                    "isFactory": false
+                    "isFactory": false,
+                    "typeFormals": []
                 },
                 {
                     "name": "toString",
@@ -598,7 +605,8 @@
                         },
                         "runtimeType": "fromSwidInterface"
                     },
-                    "isFactory": false
+                    "isFactory": false,
+                    "typeFormals": []
                 },
                 {
                     "name": "toDiagnosticsNode",
@@ -667,7 +675,8 @@
                         },
                         "runtimeType": "fromSwidInterface"
                     },
-                    "isFactory": false
+                    "isFactory": false,
+                    "typeFormals": []
                 },
                 {
                     "name": "debugFillProperties",
@@ -726,7 +735,8 @@
                         },
                         "runtimeType": "fromSwidInterface"
                     },
-                    "isFactory": false
+                    "isFactory": false,
+                    "typeFormals": []
                 }
             ],
             "staticConstFieldDeclarations": [],
@@ -758,8 +768,14 @@
                 "isPublic": true
             },
             "mixedInClasses": [],
-            "isMixin": false
+            "implementedClasses": [],
+            "extendedClass": null,
+            "isMixin": false,
+            "typeFormals": []
         }
     ],
-    "isMixin": false
+    "implementedClasses": [],
+    "extendedClass": null,
+    "isMixin": false,
+    "typeFormals": []
 }

@@ -6,9 +6,9 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartBoxList {
   final SwidInterface type;
@@ -21,7 +21,7 @@ class DartBoxList {
     this.codeKind = CodeKind.statement,
   });
 
-  String toDartSource() =>
+  String _boxList() =>
       ((Expression expression) => codeKind == CodeKind.statement
           ? expression.statement
           : codeKind == CodeKind.expression
@@ -58,10 +58,27 @@ class DartBoxList {
                                 refer("x").accept(DartEmitter()).toString())
                         .toDartSource(),
                     onVoid: (_) => null,
+                    onTypeParameter: (_) => null,
+                    onDynamic: (_) => null,
                   ),
                 )
               ])).closure.expression
           ], {})
           .property("toList")
           .call([])).accept(DartEmitter()).toString();
+
+  String toDartSource() => narrowSwidInterfaceByReferenceDeclaration(
+        swidInterface: type.typeArguments.first.when(
+          fromSwidInterface: (val) => val,
+          fromSwidClass: (_) => null,
+          fromSwidDefaultFormalParameter: (_) => null,
+          fromSwidFunctionType: (_) => null,
+        ),
+        onPrimitive: (_) => referenceName,
+        onClass: (_) => _boxList(),
+        onEnum: (_) => _boxList(),
+        onVoid: (_) => referenceName,
+        onDynamic: (_) => referenceName,
+        onTypeParameter: (_) => referenceName,
+      );
 }

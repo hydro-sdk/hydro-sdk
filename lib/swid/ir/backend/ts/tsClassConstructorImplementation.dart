@@ -22,6 +22,7 @@ class TsClassConstructorImplementation {
           transformTypeDeclarationToTs(
               emitTrailingReturnType: false,
               emitDefaultFormalsAsOptionalNamed: true,
+              emitTopLevelInitializersForOptionalPositionals: true,
               swidType: SwidType.fromSwidFunctionType(
                   swidFunctionType: swidClass.constructorType)) +
           "{\n" +

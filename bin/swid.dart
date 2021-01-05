@@ -1,6 +1,6 @@
 import 'package:hydro_sdk/swid/ir/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/ir/backend/writeTranslationUnit.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/fixupNullability.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/swid.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
@@ -32,7 +32,24 @@ void main(List<String> args) async {
         visitor.classes[i].name == "DiagnosticPropertiesBuilder" ||
         visitor.classes[i].name == "Diagnosticable" ||
         visitor.classes[i].name == "DiagnosticableTree" ||
-        visitor.classes[i].name == "Key") {
+        visitor.classes[i].name == "Key" ||
+        visitor.classes[i].name == "Size" ||
+        visitor.classes[i].name == "Offset" ||
+        visitor.classes[i].name == "OffsetBase" ||
+        visitor.classes[i].name == "Rect" ||
+        visitor.classes[i].name == "AccessibilityFeatures" ||
+        visitor.classes[i].name == "CallbackHandle" ||
+        visitor.classes[i].name == "RRect" ||
+        visitor.classes[i].name == "Path" ||
+        visitor.classes[i].name == "PathMetric" ||
+        visitor.classes[i].name == "Tangent" ||
+        visitor.classes[i].name == "Iterable" ||
+        visitor.classes[i].name == "Iterator" ||
+        visitor.classes[i].name == "EfficientLengthIterable"||
+        visitor.classes[i].name == "Set"||
+        visitor.classes[i].name == "List"||
+        visitor.classes[i].name == "Random"
+        ) {
       await Future.forEach(
           TranslationUnitProducer(
             path: transformPackageUri(

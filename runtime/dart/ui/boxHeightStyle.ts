@@ -1,8 +1,8 @@
 export enum BoxHeightStyle {
-    includeLineSpacingBottom,
+    tight,
+    max,
     includeLineSpacingMiddle,
     includeLineSpacingTop,
-    max,
+    includeLineSpacingBottom,
     strut,
-    tight,
 }

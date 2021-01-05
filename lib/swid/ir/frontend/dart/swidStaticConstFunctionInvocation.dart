@@ -2,8 +2,6 @@ import 'package:analyzer/dart/ast/ast.dart'
     show
         ConstructorName,
         InstanceCreationExpression,
-        IntegerLiteral,
-        StringLiteral,
         NamedExpression,
         Label,
         SimpleStringLiteral,
@@ -14,11 +12,8 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidBooleanLiteral.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/extractStaticConstFromSyntacticEntity.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
 part 'swidStaticConstFunctionInvocation.g.dart';
@@ -42,20 +37,14 @@ abstract class SwidStaticConstFunctionInvocation
     ConstructorName constructor = instanceCreationExpression.childEntities
         .firstWhere((x) => x is ConstructorName);
     return SwidStaticConstFunctionInvocation(
-        value: constructor.type.name.name,
+        value: constructor.type.name.name +
+            (constructor.name != null ? ".${constructor.name.name}" : ""),
         normalParameters: (instanceCreationExpression.childEntities
                     ?.firstWhere((x) => x is ArgumentList) as ArgumentList)
                 ?.childEntities
-                ?.map((x) {
-              if (x is IntegerLiteral) {
-                return SwidStaticConst.fromSwidIntegerLiteral(
-                    swidIntegerLiteral: SwidIntegerLiteral.fromIntegerLiteral(
-                        integerLiteral: x));
-              } else if (x is StringLiteral) {
-                return SwidStaticConst.fromSwidStringLiteral(
-                    swidStringLiteral: SwidStringLiteral(value: x.stringValue));
-              }
-            })?.toList() ??
+                ?.map((x) =>
+                    extractStaticConstFromSyntacticEntity(syntacticEntity: x))
+                ?.toList() ??
             []
           ..removeWhere((x) => x == null),
         namedParameters: Map.fromEntries((instanceCreationExpression
@@ -74,27 +63,13 @@ abstract class SwidStaticConstFunctionInvocation
                     (x.childEntities.firstWhere((x) => x is Label) as Label)
                         .label
                         .name,
-                    argument is SimpleStringLiteral
-                        ? SwidStaticConst.fromSwidStringLiteral(
-                            swidStringLiteral:
-                                SwidStringLiteral(value: argument.value))
-                        : argument is BooleanLiteral
-                            ? SwidStaticConst.fromSwidBooleanLiteral(
-                                swidBooleanLiteral: SwidBooleanLiteral(
-                                    value: argument.value.toString()))
-                            : argument is SimpleIdentifier
-                                ? SwidStaticConst
-                                    .fromSwidStaticConstFieldReference(
-                                        swidStaticConstFieldReference:
-                                            SwidStaticConstFieldReference
-                                                .fromSimpleIdentifier(
-                                                    simpleIdentifier: argument))
-                                : null);
+                    extractStaticConstFromSyntacticEntity(
+                        syntacticEntity: argument));
               }
               return MapEntry(null, null);
             })?.toList() ??
             {})
           ..remove(null),
-        isConstructorInvocation: true);
+        isConstructorInvocation: constructor.name == null);
   }
 }

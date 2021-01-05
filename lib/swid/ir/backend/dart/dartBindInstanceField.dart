@@ -6,8 +6,8 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceFieldDirect.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartBindInstanceField {
   final String instanceFieldName;
@@ -23,6 +23,10 @@ class DartBindInstanceField {
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
             swidInterface: val,
             onPrimitive: (val) => DartBindInstanceFieldDirect(
+              instanceFieldName: instanceFieldName,
+              tableKey: tableKey,
+            ).toDartSource(),
+            onDynamic: (val) => DartBindInstanceFieldDirect(
               instanceFieldName: instanceFieldName,
               tableKey: tableKey,
             ).toDartSource(),
@@ -44,6 +48,7 @@ class DartBindInstanceField {
                 .accept(DartEmitter())
                 .toString(),
             onVoid: (_) => "void",
+            onTypeParameter: (_) => null,
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",

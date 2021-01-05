@@ -71,11 +71,18 @@ class _$DartIrTearOff {
   }
 
 // ignore: unused_element
-  _$FromDartUnboxingParameterExpression fromDartUnboxingParameterExpression(
-      {@required
-          DartUnboxingParameterExpression dartUnboxingParameterExpression}) {
-    return _$FromDartUnboxingParameterExpression(
-      dartUnboxingParameterExpression: dartUnboxingParameterExpression,
+  _$FromDartUnboxingExpression fromDartUnboxingExpression(
+      {@required DartUnboxingExpression dartUnboxingExpression}) {
+    return _$FromDartUnboxingExpression(
+      dartUnboxingExpression: dartUnboxingExpression,
+    );
+  }
+
+// ignore: unused_element
+  _$FromDartUnpackClosures fromDartUnpackClosures(
+      {@required DartUnpackClosures dartUnpackClosures}) {
+    return _$FromDartUnpackClosures(
+      dartUnpackClosures: dartUnpackClosures,
     );
   }
 
@@ -174,8 +181,10 @@ mixin _$DartIr {
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -214,8 +223,9 @@ mixin _$DartIr {
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -250,8 +260,8 @@ mixin _$DartIr {
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -285,8 +295,8 @@ mixin _$DartIr {
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -405,8 +415,10 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -439,7 +451,8 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -464,8 +477,9 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -508,8 +522,8 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -539,7 +553,8 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -562,8 +577,8 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -688,8 +703,10 @@ class _$_$FromDartBindInstanceFieldDirect
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -722,7 +739,8 @@ class _$_$FromDartBindInstanceFieldDirect
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -747,8 +765,9 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -791,8 +810,8 @@ class _$_$FromDartBindInstanceFieldDirect
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -822,7 +841,8 @@ class _$_$FromDartBindInstanceFieldDirect
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -845,8 +865,8 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -966,8 +986,10 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -1000,7 +1022,8 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -1025,8 +1048,9 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -1069,8 +1093,8 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -1100,7 +1124,8 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -1123,8 +1148,8 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -1238,8 +1263,10 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -1272,7 +1299,8 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -1297,8 +1325,9 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -1341,8 +1370,8 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -1372,7 +1401,8 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -1395,8 +1425,8 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -1515,8 +1545,10 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -1549,7 +1581,8 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -1574,8 +1607,9 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -1618,8 +1652,8 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -1649,7 +1683,8 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -1672,8 +1707,8 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -1803,8 +1838,10 @@ class _$_$FromDartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -1837,7 +1874,8 @@ class _$_$FromDartFunctionSelfBindingInvocation
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -1863,8 +1901,9 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -1908,8 +1947,8 @@ class _$_$FromDartFunctionSelfBindingInvocation
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -1939,7 +1978,8 @@ class _$_$FromDartFunctionSelfBindingInvocation
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -1962,8 +2002,8 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -2080,8 +2120,10 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -2114,7 +2156,8 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -2139,8 +2182,9 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -2183,8 +2227,8 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -2214,7 +2258,8 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -2237,8 +2282,8 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -2270,76 +2315,70 @@ abstract class _$FromDartLinebreak implements DartIr {
 }
 
 /// @nodoc
-abstract class _$$FromDartUnboxingParameterExpressionCopyWith<$Res> {
-  factory _$$FromDartUnboxingParameterExpressionCopyWith(
-          _$FromDartUnboxingParameterExpression value,
-          $Res Function(_$FromDartUnboxingParameterExpression) then) =
-      __$$FromDartUnboxingParameterExpressionCopyWithImpl<$Res>;
-  $Res call({DartUnboxingParameterExpression dartUnboxingParameterExpression});
+abstract class _$$FromDartUnboxingExpressionCopyWith<$Res> {
+  factory _$$FromDartUnboxingExpressionCopyWith(
+          _$FromDartUnboxingExpression value,
+          $Res Function(_$FromDartUnboxingExpression) then) =
+      __$$FromDartUnboxingExpressionCopyWithImpl<$Res>;
+  $Res call({DartUnboxingExpression dartUnboxingExpression});
 }
 
 /// @nodoc
-class __$$FromDartUnboxingParameterExpressionCopyWithImpl<$Res>
+class __$$FromDartUnboxingExpressionCopyWithImpl<$Res>
     extends _$DartIrCopyWithImpl<$Res>
-    implements _$$FromDartUnboxingParameterExpressionCopyWith<$Res> {
-  __$$FromDartUnboxingParameterExpressionCopyWithImpl(
-      _$FromDartUnboxingParameterExpression _value,
-      $Res Function(_$FromDartUnboxingParameterExpression) _then)
-      : super(_value, (v) => _then(v as _$FromDartUnboxingParameterExpression));
+    implements _$$FromDartUnboxingExpressionCopyWith<$Res> {
+  __$$FromDartUnboxingExpressionCopyWithImpl(
+      _$FromDartUnboxingExpression _value,
+      $Res Function(_$FromDartUnboxingExpression) _then)
+      : super(_value, (v) => _then(v as _$FromDartUnboxingExpression));
 
   @override
-  _$FromDartUnboxingParameterExpression get _value =>
-      super._value as _$FromDartUnboxingParameterExpression;
+  _$FromDartUnboxingExpression get _value =>
+      super._value as _$FromDartUnboxingExpression;
 
   @override
   $Res call({
-    Object dartUnboxingParameterExpression = freezed,
+    Object dartUnboxingExpression = freezed,
   }) {
-    return _then(_$FromDartUnboxingParameterExpression(
-      dartUnboxingParameterExpression: dartUnboxingParameterExpression ==
-              freezed
-          ? _value.dartUnboxingParameterExpression
-          : dartUnboxingParameterExpression as DartUnboxingParameterExpression,
+    return _then(_$FromDartUnboxingExpression(
+      dartUnboxingExpression: dartUnboxingExpression == freezed
+          ? _value.dartUnboxingExpression
+          : dartUnboxingExpression as DartUnboxingExpression,
     ));
   }
 }
 
 /// @nodoc
-class _$_$FromDartUnboxingParameterExpression
-    implements _$FromDartUnboxingParameterExpression {
-  _$_$FromDartUnboxingParameterExpression(
-      {@required this.dartUnboxingParameterExpression})
-      : assert(dartUnboxingParameterExpression != null);
+class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
+  _$_$FromDartUnboxingExpression({@required this.dartUnboxingExpression})
+      : assert(dartUnboxingExpression != null);
 
   @override
-  final DartUnboxingParameterExpression dartUnboxingParameterExpression;
+  final DartUnboxingExpression dartUnboxingExpression;
 
   @override
   String toString() {
-    return 'DartIr.fromDartUnboxingParameterExpression(dartUnboxingParameterExpression: $dartUnboxingParameterExpression)';
+    return 'DartIr.fromDartUnboxingExpression(dartUnboxingExpression: $dartUnboxingExpression)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$FromDartUnboxingParameterExpression &&
-            (identical(other.dartUnboxingParameterExpression,
-                    dartUnboxingParameterExpression) ||
+        (other is _$FromDartUnboxingExpression &&
+            (identical(other.dartUnboxingExpression, dartUnboxingExpression) ||
                 const DeepCollectionEquality().equals(
-                    other.dartUnboxingParameterExpression,
-                    dartUnboxingParameterExpression)));
+                    other.dartUnboxingExpression, dartUnboxingExpression)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(dartUnboxingParameterExpression);
+      const DeepCollectionEquality().hash(dartUnboxingExpression);
 
   @override
-  _$$FromDartUnboxingParameterExpressionCopyWith<
-          _$FromDartUnboxingParameterExpression>
-      get copyWith => __$$FromDartUnboxingParameterExpressionCopyWithImpl<
-          _$FromDartUnboxingParameterExpression>(this, _$identity);
+  _$$FromDartUnboxingExpressionCopyWith<_$FromDartUnboxingExpression>
+      get copyWith => __$$FromDartUnboxingExpressionCopyWithImpl<
+          _$FromDartUnboxingExpression>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2363,8 +2402,10 @@ class _$_$FromDartUnboxingParameterExpression
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -2397,7 +2438,8 @@ class _$_$FromDartUnboxingParameterExpression
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -2405,7 +2447,7 @@ class _$_$FromDartUnboxingParameterExpression
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
     assert(fromVMManagedClassMethodInjectionImplementation != null);
-    return fromDartUnboxingParameterExpression(dartUnboxingParameterExpression);
+    return fromDartUnboxingExpression(dartUnboxingExpression);
   }
 
   @override
@@ -2422,8 +2464,9 @@ class _$_$FromDartUnboxingParameterExpression
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -2443,9 +2486,8 @@ class _$_$FromDartUnboxingParameterExpression
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (fromDartUnboxingParameterExpression != null) {
-      return fromDartUnboxingParameterExpression(
-          dartUnboxingParameterExpression);
+    if (fromDartUnboxingExpression != null) {
+      return fromDartUnboxingExpression(dartUnboxingExpression);
     }
     return orElse();
   }
@@ -2467,8 +2509,8 @@ class _$_$FromDartUnboxingParameterExpression
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -2498,7 +2540,8 @@ class _$_$FromDartUnboxingParameterExpression
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -2506,7 +2549,7 @@ class _$_$FromDartUnboxingParameterExpression
     assert(fromStaticMethodNamespaceSymbolDeclaration != null);
     assert(fromVMManagedClassDeclaration != null);
     assert(fromVMManagedClassMethodInjectionImplementation != null);
-    return fromDartUnboxingParameterExpression(this);
+    return fromDartUnboxingExpression(this);
   }
 
   @override
@@ -2521,8 +2564,8 @@ class _$_$FromDartUnboxingParameterExpression
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -2538,23 +2581,302 @@ class _$_$FromDartUnboxingParameterExpression
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (fromDartUnboxingParameterExpression != null) {
-      return fromDartUnboxingParameterExpression(this);
+    if (fromDartUnboxingExpression != null) {
+      return fromDartUnboxingExpression(this);
     }
     return orElse();
   }
 }
 
-abstract class _$FromDartUnboxingParameterExpression implements DartIr {
-  factory _$FromDartUnboxingParameterExpression(
-          {@required
-              DartUnboxingParameterExpression
-                  dartUnboxingParameterExpression}) =
-      _$_$FromDartUnboxingParameterExpression;
+abstract class _$FromDartUnboxingExpression implements DartIr {
+  factory _$FromDartUnboxingExpression(
+          {@required DartUnboxingExpression dartUnboxingExpression}) =
+      _$_$FromDartUnboxingExpression;
 
-  DartUnboxingParameterExpression get dartUnboxingParameterExpression;
-  _$$FromDartUnboxingParameterExpressionCopyWith<
-      _$FromDartUnboxingParameterExpression> get copyWith;
+  DartUnboxingExpression get dartUnboxingExpression;
+  _$$FromDartUnboxingExpressionCopyWith<_$FromDartUnboxingExpression>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromDartUnpackClosuresCopyWith<$Res> {
+  factory _$$FromDartUnpackClosuresCopyWith(_$FromDartUnpackClosures value,
+          $Res Function(_$FromDartUnpackClosures) then) =
+      __$$FromDartUnpackClosuresCopyWithImpl<$Res>;
+  $Res call({DartUnpackClosures dartUnpackClosures});
+}
+
+/// @nodoc
+class __$$FromDartUnpackClosuresCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartUnpackClosuresCopyWith<$Res> {
+  __$$FromDartUnpackClosuresCopyWithImpl(_$FromDartUnpackClosures _value,
+      $Res Function(_$FromDartUnpackClosures) _then)
+      : super(_value, (v) => _then(v as _$FromDartUnpackClosures));
+
+  @override
+  _$FromDartUnpackClosures get _value =>
+      super._value as _$FromDartUnpackClosures;
+
+  @override
+  $Res call({
+    Object dartUnpackClosures = freezed,
+  }) {
+    return _then(_$FromDartUnpackClosures(
+      dartUnpackClosures: dartUnpackClosures == freezed
+          ? _value.dartUnpackClosures
+          : dartUnpackClosures as DartUnpackClosures,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
+  _$_$FromDartUnpackClosures({@required this.dartUnpackClosures})
+      : assert(dartUnpackClosures != null);
+
+  @override
+  final DartUnpackClosures dartUnpackClosures;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartUnpackClosures(dartUnpackClosures: $dartUnpackClosures)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartUnpackClosures &&
+            (identical(other.dartUnpackClosures, dartUnpackClosures) ||
+                const DeepCollectionEquality()
+                    .equals(other.dartUnpackClosures, dartUnpackClosures)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dartUnpackClosures);
+
+  @override
+  _$$FromDartUnpackClosuresCopyWith<_$FromDartUnpackClosures> get copyWith =>
+      __$$FromDartUnpackClosuresCopyWithImpl<_$FromDartUnpackClosures>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            StaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration),
+    @required
+        Result fromVMManagedClassDeclaration(
+            VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromDartUnpackClosures(dartUnpackClosures);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        StaticMethodNamespaceSymbolDeclaration
+            staticMethodNamespaceSymbolDeclaration),
+    Result fromVMManagedClassDeclaration(
+        VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartUnpackClosures != null) {
+      return fromDartUnpackClosures(dartUnpackClosures);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            $FromDartVMManagedClassBoxerRegistrant value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            _$FromStaticMethodNamespaceSymbolDeclaration value),
+    @required
+        Result fromVMManagedClassDeclaration(
+            _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromDartUnpackClosures(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        $FromDartVMManagedClassBoxerRegistrant value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        _$FromStaticMethodNamespaceSymbolDeclaration value),
+    Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartUnpackClosures != null) {
+      return fromDartUnpackClosures(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartUnpackClosures implements DartIr {
+  factory _$FromDartUnpackClosures(
+          {@required DartUnpackClosures dartUnpackClosures}) =
+      _$_$FromDartUnpackClosures;
+
+  DartUnpackClosures get dartUnpackClosures;
+  _$$FromDartUnpackClosuresCopyWith<_$FromDartUnpackClosures> get copyWith;
 }
 
 /// @nodoc
@@ -2654,8 +2976,10 @@ class _$$FromDartVMManagedClassBoxerRegistrant
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -2688,7 +3012,8 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -2714,8 +3039,9 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -2759,8 +3085,8 @@ class _$$FromDartVMManagedClassBoxerRegistrant
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -2790,7 +3116,8 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -2813,8 +3140,8 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -2942,8 +3269,10 @@ class _$_$FromLoadNamespaceSymbolDeclaration
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -2976,7 +3305,8 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -3001,8 +3331,9 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -3045,8 +3376,8 @@ class _$_$FromLoadNamespaceSymbolDeclaration
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -3076,7 +3407,8 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -3099,8 +3431,8 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -3227,8 +3559,10 @@ class _$_$FromMethodInjectionImplementation
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -3261,7 +3595,8 @@ class _$_$FromMethodInjectionImplementation
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -3286,8 +3621,9 @@ class _$_$FromMethodInjectionImplementation
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -3330,8 +3666,8 @@ class _$_$FromMethodInjectionImplementation
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -3361,7 +3697,8 @@ class _$_$FromMethodInjectionImplementation
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -3384,8 +3721,8 @@ class _$_$FromMethodInjectionImplementation
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -3510,8 +3847,10 @@ class _$_$FromRTManagedClassDeclaration
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -3544,7 +3883,8 @@ class _$_$FromRTManagedClassDeclaration
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -3569,8 +3909,9 @@ class _$_$FromRTManagedClassDeclaration
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -3613,8 +3954,8 @@ class _$_$FromRTManagedClassDeclaration
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -3644,7 +3985,8 @@ class _$_$FromRTManagedClassDeclaration
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -3667,8 +4009,8 @@ class _$_$FromRTManagedClassDeclaration
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -3802,8 +4144,10 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -3836,7 +4180,8 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -3862,8 +4207,9 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -3907,8 +4253,8 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -3938,7 +4284,8 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -3961,8 +4308,8 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -4089,8 +4436,10 @@ class _$_$FromVMManagedClassDeclaration
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -4123,7 +4472,8 @@ class _$_$FromVMManagedClassDeclaration
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -4148,8 +4498,9 @@ class _$_$FromVMManagedClassDeclaration
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -4192,8 +4543,8 @@ class _$_$FromVMManagedClassDeclaration
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -4223,7 +4574,8 @@ class _$_$FromVMManagedClassDeclaration
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -4246,8 +4598,8 @@ class _$_$FromVMManagedClassDeclaration
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -4387,8 +4739,10 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
                 dartFunctionSelfBindingInvocation),
     @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
     @required
-        Result fromDartUnboxingParameterExpression(
-            DartUnboxingParameterExpression dartUnboxingParameterExpression),
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             DartVMManagedClassBoxerRegistrant
@@ -4421,7 +4775,8 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -4447,8 +4802,9 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
-    Result fromDartUnboxingParameterExpression(
-        DartUnboxingParameterExpression dartUnboxingParameterExpression),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
@@ -4492,8 +4848,8 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
             _$FromDartFunctionSelfBindingInvocation value),
     @required Result fromDartLinebreak(_$FromDartLinebreak value),
     @required
-        Result fromDartUnboxingParameterExpression(
-            _$FromDartUnboxingParameterExpression value),
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     @required
         Result fromDartVMManagedClassBoxerRegistrant(
             $FromDartVMManagedClassBoxerRegistrant value),
@@ -4523,7 +4879,8 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     assert(fromDartBoxObjectReference != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingParameterExpression != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
     assert(fromDartVMManagedClassBoxerRegistrant != null);
     assert(fromLoadNamepsaceSymbolDeclaration != null);
     assert(fromMethodInjectionImplementation != null);
@@ -4546,8 +4903,8 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
-    Result fromDartUnboxingParameterExpression(
-        _$FromDartUnboxingParameterExpression value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
     Result fromDartVMManagedClassBoxerRegistrant(
         $FromDartVMManagedClassBoxerRegistrant value),
     Result fromLoadNamepsaceSymbolDeclaration(

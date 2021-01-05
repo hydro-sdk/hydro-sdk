@@ -78,6 +78,8 @@ dynamic maybeUnBoxAndBuildArgument<T>(
   //Unboxed target object
   if (arg is T) {
     return arg;
+  } else if (T == Iterable && (arg.arr?.isNotEmpty ?? false)) {
+    return arg.arr;
   }
 
   for (var i = 0; i != _unboxers.length; ++i) {

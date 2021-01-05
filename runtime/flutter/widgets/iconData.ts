@@ -15,6 +15,14 @@ declare const flutter: {
 const iconDataDefaultProps = {
     matchTextDirection: false,
 };
+export interface IIconData {
+    codePoint: number;
+    fontFamily: string;
+    fontPackage: string;
+    matchTextDirection: boolean;
+    getHashCode: () => number;
+    toString: () => string;
+}
 export class IconData {
     public readonly codePoint: number = undefined as any;
     public readonly fontFamily: string = undefined as any;
@@ -35,10 +43,10 @@ export class IconData {
     }
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    public getHashCode() {
+    public getHashCode(): number {
         return this._dart_getHashCode();
     }
-    public toString() {
+    public toString(): string {
         return this._dart_toString();
     }
 }

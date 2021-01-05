@@ -13,6 +13,7 @@ import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassConstructorImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassInstanceFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodDeclarations.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassMethodInjectionFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPostamble.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassPreamble.dart';
@@ -28,6 +29,9 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/propagateUnsatisfiedTypeParameters.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferences.dart';
 
 class TranslationUnitProducer {
   final List<String> tsPrefixPaths;
@@ -49,20 +53,29 @@ class TranslationUnitProducer {
       ];
 
   List<TranslationUnit> produceFromSwidClass({@required SwidClass swidClass}) =>
-      ((SwidClass swidClass) => [
+      (({
+        SwidClass swidClass,
+        SwidClass swidClassWithInterfaceReferences,
+        SwidClass unMergedSwidClassWithInterfaceReferences,
+      }) =>
+          [
             TsTranslationUnit(
                 path: tsPrefixPaths.join(p.separator) + p.separator + path,
                 fileName: "$baseFileName.ts",
                 ir: !swidClass.isPureAbstract() &&
                         !swidClass.isMixin &&
+                        swidClass.originalPackagePath != "dart:_internal" &&
                         (requiresDartBinding(swidClass: swidClass) ||
                             swidClass.isConstructible() ||
-                            swidClass.staticConstFieldDeclarations.isNotEmpty)
+                            swidClass.staticConstFieldDeclarations.isNotEmpty ||
+                            swidClass.staticMethods.isNotEmpty ||
+                            swidClass.factoryConstructors.isNotEmpty)
                     ? ([
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsClassVmDeclaration(
-                            tsClassVmDeclaration:
-                                TsClassVmDeclaration(swidClass: swidClass)),
+                            tsClassVmDeclaration: TsClassVmDeclaration(
+                                swidClass: propagateUnsatisfiedTypeParameters(
+                                    swidClass: swidClass))),
                         swidClass.constructorType != null
                             ? TsIr.fromTsFunctionDefaultNamedProps(
                                 tsFunctionDefaultNamedProps:
@@ -75,13 +88,25 @@ class TranslationUnitProducer {
                               )
                             : null,
                         ...([
-                          ...swidClass.methods,
+                          ...SwidClass.mergeSuperClasses(swidClass: swidClass)
+                              .methods,
                           ...swidClass.factoryConstructors,
                           ...swidClass.staticMethods,
                         ].map((x) => TsIr.fromTsFunctionDefaultNamedProps(
                             tsFunctionDefaultNamedProps:
                                 TsFunctionDefaultNamedProps(
                                     swidFunctionType: x)))),
+                        TsIr.fromTsInterface(
+                            tsInterface: TsInterface.fromSwidClass(
+                                emitSuperInterfaceExtensions: false,
+                                swidClass: SwidClass.clone(
+                                    swidClass: swidClassWithInterfaceReferences,
+                                    name:
+                                        "I${swidClassWithInterfaceReferences.name}",
+                                    methods: tsClassMethodInjectionCandidates(
+                                        swidFunctionTypes:
+                                            swidClassWithInterfaceReferences
+                                                .methods)))),
                         TsIr.fromTsClassPreamble(
                             tsClassPreamble:
                                 TsClassPreamble(swidClass: swidClass)),
@@ -92,32 +117,38 @@ class TranslationUnitProducer {
                         TsIr.fromTsClassInstanceFieldDeclarations(
                             tsClassInstanceFieldDeclarations:
                                 TsClassInstanceFieldDeclarations(
-                                    swidClass: swidClass)),
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass))),
                         TsIr.fromTsClassConstructorImplementation(
                             tsClassConstructorImplementation:
                                 TsClassConstructorImplementation(
                                     swidClass: swidClass)),
-                        ...([
-                          ...[
-                            ...swidClass.factoryConstructors,
-                            ...swidClass.staticMethods,
-                          ]
-                              .map((x) =>
-                                  TsIr.fromTsClassStaticMethodImplementation(
-                                      tsClassStaticMethodImplementation:
-                                          TsClassStaticMethodImplementation(
-                                              swidClass: swidClass,
-                                              swidFunctionType: x)))
-                              .toList()
-                        ]),
+                        ...((SwidClass propagatedClass) => ([
+                                  ...[
+                                    ...propagatedClass.factoryConstructors,
+                                    ...propagatedClass.staticMethods,
+                                  ]
+                                      .map((x) => TsIr
+                                          .fromTsClassStaticMethodImplementation(
+                                              tsClassStaticMethodImplementation:
+                                                  TsClassStaticMethodImplementation(
+                                                      swidClass:
+                                                          propagatedClass,
+                                                      swidFunctionType: x)))
+                                      .toList()
+                                ]))(
+                            propagateUnsatisfiedTypeParameters(
+                                swidClass: swidClass)),
                         TsIr.fromTsClassMethodInjectionFieldDeclarations(
                             tsClassMethodInjectionFieldDeclarations:
                                 TsClassMethodInjectionFieldDeclarations(
-                                    swidClass: swidClass)),
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass))),
                         TsIr.fromTsClassMethodDeclarations(
                             tsClassMethodDeclarations:
                                 TsClassMethodDeclarations(
-                                    swidClass: swidClass)),
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass))),
                         TsIr.fromTsClassPostamble(
                             tsClassPostamble:
                                 TsClassPostamble(swidClass: swidClass))
@@ -125,11 +156,25 @@ class TranslationUnitProducer {
                     : [
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         TsIr.fromTsInterface(
-                            tsInterface:
-                                TsInterface.fromSwidClass(swidClass: swidClass))
+                          tsInterface: TsInterface.fromSwidClass(
+                            emitSuperInterfaceExtensions: true,
+                            swidClass: SwidClass.clone(
+                              swidClass:
+                                  unMergedSwidClassWithInterfaceReferences,
+                              name:
+                                  "I${unMergedSwidClassWithInterfaceReferences.name}",
+                              methods: tsClassMethodInjectionCandidates(
+                                swidFunctionTypes:
+                                    unMergedSwidClassWithInterfaceReferences
+                                        .methods,
+                              ),
+                            ),
+                          ),
+                        ),
                       ]),
-            requiresDartBinding(swidClass: swidClass) ||
-                    swidClass.isConstructible()
+            swidClass.originalPackagePath != "dart:_internal" &&
+                    (requiresDartBinding(swidClass: swidClass) ||
+                        swidClass.isConstructible())
                 ? DartTranslationUnit(
                     path:
                         dartPrefixPaths.join(p.separator) + p.separator + path,
@@ -137,8 +182,11 @@ class TranslationUnitProducer {
                     ir: [
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                       DartIr.fromVMManagedClassDeclaration(
-                          vmManagedClassDeclaration:
-                              VMManagedClassDeclaration(swidClass: swidClass)),
+                        vmManagedClassDeclaration: VMManagedClassDeclaration(
+                          swidClass:
+                              SwidClass.mergeSuperClasses(swidClass: swidClass),
+                        ),
+                      ),
                       DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                       !swidClass.isPureAbstract() &&
                               swidClass.isConstructible() &&
@@ -146,7 +194,8 @@ class TranslationUnitProducer {
                           ? DartIr.fromRTManagedClassDeclaration(
                               rtManagedClassDeclaration:
                                   RTManagedClassDeclaration(
-                                      swidClass: swidClass),
+                                      swidClass: SwidClass.mergeSuperClasses(
+                                          swidClass: swidClass)),
                             )
                           : null,
                       DartIr.fromLoadNamepsaceSymbolDeclaration(
@@ -156,10 +205,42 @@ class TranslationUnitProducer {
                     ]..removeWhere((x) => x == null),
                   )
                 : null
-          ]
-            ..removeWhere((x) => x == null))(SwidClass.clone(
-          swidClass: swidClass,
-          methods: swidClass.methods
-              .where((x) => methodIsEmitCandidate(swidFunctionType: x))
-              .toList()));
+          ]..removeWhere((x) => x == null))(
+        swidClass: _removeNonEmitCandidates(swidClass: swidClass),
+        unMergedSwidClassWithInterfaceReferences: _removeNonEmitCandidates(
+          swidClass: rewriteClassReferencesToInterfaceReferences(
+                  swidType: SwidType.fromSwidClass(swidClass: swidClass))
+              .when(
+            fromSwidInterface: (_) => null,
+            fromSwidClass: (val) => val,
+            fromSwidDefaultFormalParameter: (_) => null,
+            fromSwidFunctionType: (_) => null,
+          ),
+        ),
+        swidClassWithInterfaceReferences: SwidClass.mergeSuperClasses(
+          swidClass: _removeNonEmitCandidates(
+            swidClass: rewriteClassReferencesToInterfaceReferences(
+                    swidType: SwidType.fromSwidClass(swidClass: swidClass))
+                .when(
+              fromSwidInterface: (_) => null,
+              fromSwidClass: (val) => val,
+              fromSwidDefaultFormalParameter: (_) => null,
+              fromSwidFunctionType: (_) => null,
+            ),
+          ),
+        ),
+      );
 }
+
+SwidClass _removeNonEmitCandidates({@required SwidClass swidClass}) =>
+    SwidClass.clone(
+        swidClass: swidClass,
+        methods: swidClass.methods
+            .where((x) => methodIsEmitCandidate(swidFunctionType: x))
+            .toList(),
+        extendedClass: swidClass.extendedClass != null
+            ? _removeNonEmitCandidates(swidClass: swidClass.extendedClass)
+            : null,
+        implementedClasses: swidClass.implementedClasses
+            .map((x) => _removeNonEmitCandidates(swidClass: x))
+            .toList());

@@ -1,20 +1,29 @@
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 class TsClassPreamble {
   final SwidClass swidClass;
+  final List<String> superInterfaces;
 
-  TsClassPreamble({@required this.swidClass});
+  TsClassPreamble({
+    @required this.swidClass,
+  }) : superInterfaces = ([
+          swidClass.extendedClass != null
+              ? "I${swidClass.extendedClass.name}"
+              : null,
+          ...swidClass.mixedInClasses.map((x) => "I${x.name}").toList(),
+          ...swidClass.implementedClasses.map((x) => "I${x.name}").toList()
+        ]..removeWhere((x) => x == null));
 
-  String toTsSource() => [
+  String toTsSource() => ([
         "export class ${swidClass.name}",
-        ...(swidClass.mixedInClasses.isNotEmpty
-            ? [
-                "implements",
-                swidClass.mixedInClasses.map((x) => x.name).toList().join(", ")
-              ]
+        transformTypeFormalsToTs(swidTypeFormals: swidClass.typeFormals),
+        ...(superInterfaces.isNotEmpty
+            ? ["implements", superInterfaces.map((x) => x).toList().join(", ")]
             : []),
         "{"
-      ].join("\n");
+      ]..removeWhere((x) => x == null))
+          .join("\n");
 }

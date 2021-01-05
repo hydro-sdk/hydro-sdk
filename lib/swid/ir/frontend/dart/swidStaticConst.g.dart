@@ -54,6 +54,22 @@ Map<String, dynamic> _$_$_$FromSwidIntegerLiteralToJson(
       'swidIntegerLiteral': instance.swidIntegerLiteral,
     };
 
+_$_$FromSwidDoubleLiteral _$_$_$FromSwidDoubleLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidDoubleLiteral(
+    swidDoubleLiteral: json['swidDoubleLiteral'] == null
+        ? null
+        : SwidDoubleLiteral.fromJson(
+            json['swidDoubleLiteral'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidDoubleLiteralToJson(
+        _$_$FromSwidDoubleLiteral instance) =>
+    <String, dynamic>{
+      'swidDoubleLiteral': instance.swidDoubleLiteral,
+    };
+
 _$_$FromSwidStaticConstFunctionInvocation
     _$_$_$FromSwidStaticConstFunctionInvocationFromJson(
         Map<String, dynamic> json) {
@@ -85,4 +101,43 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstFieldReferenceToJson(
         _$_$FromSwidStaticConstFieldReference instance) =>
     <String, dynamic>{
       'swidStaticConstFieldReference': instance.swidStaticConstFieldReference,
+    };
+
+_$_$FromSwidStaticConstPrefixedExpression
+    _$_$_$FromSwidStaticConstPrefixedExpressionFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstPrefixedExpression(
+    swidStaticConstPrefixedExpression:
+        json['swidStaticConstPrefixedExpression'] == null
+            ? null
+            : SwidStaticConstPrefixedExpression.fromJson(
+                json['swidStaticConstPrefixedExpression']
+                    as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstPrefixedExpressionToJson(
+        _$_$FromSwidStaticConstPrefixedExpression instance) =>
+    <String, dynamic>{
+      'swidStaticConstPrefixedExpression':
+          instance.swidStaticConstPrefixedExpression,
+    };
+
+_$_$FromSwidStaticConstBinaryExpression
+    _$_$_$FromSwidStaticConstBinaryExpressionFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstBinaryExpression(
+    swidStaticConstBinaryExpression: json['swidStaticConstBinaryExpression'] ==
+            null
+        ? null
+        : SwidStaticConstBinaryExpression.fromJson(
+            json['swidStaticConstBinaryExpression'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstBinaryExpressionToJson(
+        _$_$FromSwidStaticConstBinaryExpression instance) =>
+    <String, dynamic>{
+      'swidStaticConstBinaryExpression':
+          instance.swidStaticConstBinaryExpression,
     };

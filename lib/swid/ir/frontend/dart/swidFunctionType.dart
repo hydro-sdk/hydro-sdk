@@ -2,16 +2,17 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/cloneSwidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/mapClassLibrarySourcePath.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/narrowDartTypeToSwidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowDartTypeToSwidType.dart';
 
 import 'package:analyzer/dart/element/type.dart'
     show FunctionType, InterfaceType;
@@ -34,6 +35,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
     @required List<SwidType> optionalParameterTypes,
     @required SwidType returnType,
     @required bool isFactory,
+    @required List<SwidTypeFormal> typeFormals,
   }) = _$Data;
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
@@ -89,6 +91,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
     List<SwidType> optionalParameterTypes,
     SwidType returnType,
     bool isFactory,
+    List<SwidTypeFormal> typeFormals,
   }) {
     return SwidFunctionType(
       name: name ?? swidFunctionType.name,
@@ -115,6 +118,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
       returnType:
           returnType ?? cloneSwidType(swidType: swidFunctionType.returnType),
       isFactory: isFactory ?? swidFunctionType.isFactory,
+      typeFormals: typeFormals ?? List.from(swidFunctionType.typeFormals ?? []),
     );
   }
 
@@ -123,56 +127,86 @@ abstract class SwidFunctionType with _$SwidFunctionType {
       @required SwidDeclarationModifiers swidDeclarationModifiers,
       String name}) {
     return SwidFunctionType(
-      name: name ?? functionType.element?.name ?? "",
-      nullabilitySuffix: mapNullabilitySuffix(
-          nullabilitySuffix: functionType.nullabilitySuffix),
-      originalPackagePath:
-          functionType.element?.librarySource?.uri?.toString() ?? "",
-      swidDeclarationModifiers: swidDeclarationModifiers,
-      namedParameterTypes: Map.fromEntries(functionType
-          ?.namedParameterTypes?.keys
-          ?.map((x) => MapEntry<String, SwidType>(
-              x,
-              narrowDartTypeToSwidType(
-                  dartType: functionType?.namedParameterTypes[x])))),
-      namedDefaults: functionType?.parameters != null
-          ? Map.fromEntries(functionType.parameters
-              .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
-                  x.displayName,
-                  SwidDefaultFormalParameter(
-                    name: x.defaultValueCode ?? "",
-                    nullabilitySuffix: SwidNullabilitySuffix.none,
-                    originalPackagePath: mapClassLibrarySourcePath(element: x),
-                    value: x.type is FunctionType
-                        ? SwidType.fromSwidFunctionType(
-                            swidFunctionType: SwidFunctionType.fromFunctionType(
-                            functionType: x.type,
-                            swidDeclarationModifiers:
-                                SwidDeclarationModifiers.empty(),
-                          ))
-                        : x.type is InterfaceType
-                            ? SwidType.fromSwidInterface(
-                                swidInterface: SwidInterface.fromInterface(
-                                interfaceType: x.type,
-                              ))
-                            : null,
-                  )))
-              .toList()
-                ..removeWhere((x) => x.value.name == ""))
-          : {},
-      normalParameterNames: List.from(functionType.normalParameterNames ?? []),
-      normalParameterTypes: List.from(functionType.normalParameterTypes
-              ?.map((x) => narrowDartTypeToSwidType(dartType: x))
-              ?.toList() ??
-          []),
-      optionalParameterNames:
-          List.from(functionType.optionalParameterNames ?? []),
-      optionalParameterTypes: List.from(functionType.optionalParameterTypes
-              ?.map((x) => narrowDartTypeToSwidType(dartType: x))
-              ?.toList() ??
-          []),
-      returnType: narrowDartTypeToSwidType(dartType: functionType.returnType),
-      isFactory: false,
-    );
+        name: name ?? functionType.element?.name ?? "",
+        nullabilitySuffix: mapNullabilitySuffix(
+            nullabilitySuffix: functionType.nullabilitySuffix),
+        originalPackagePath:
+            functionType.element?.librarySource?.uri?.toString() ?? "",
+        swidDeclarationModifiers: swidDeclarationModifiers,
+        namedParameterTypes: Map.fromEntries(functionType
+            ?.namedParameterTypes?.keys
+            ?.map((x) => MapEntry<String, SwidType>(
+                x,
+                narrowDartTypeToSwidType(
+                    dartType: functionType?.namedParameterTypes[x])))),
+        namedDefaults: functionType?.parameters != null
+            ? Map.fromEntries(functionType.parameters
+                .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
+                    x.displayName,
+                    SwidDefaultFormalParameter(
+                      name: x.defaultValueCode ?? "",
+                      nullabilitySuffix: SwidNullabilitySuffix.none,
+                      originalPackagePath:
+                          mapClassLibrarySourcePath(element: x),
+                      value: x.type is FunctionType
+                          ? SwidType.fromSwidFunctionType(
+                              swidFunctionType:
+                                  SwidFunctionType.fromFunctionType(
+                              functionType: x.type,
+                              swidDeclarationModifiers:
+                                  SwidDeclarationModifiers.empty(),
+                            ))
+                          : x.type is InterfaceType
+                              ? SwidType.fromSwidInterface(
+                                  swidInterface: SwidInterface.fromInterface(
+                                  interfaceType: x.type,
+                                ))
+                              : null,
+                    )))
+                .toList()
+                  ..removeWhere((x) => x.value.name == ""))
+            : {},
+        normalParameterNames:
+            List.from(functionType.normalParameterNames ?? []),
+        normalParameterTypes: List.from(functionType.normalParameterTypes
+                ?.map((x) => narrowDartTypeToSwidType(dartType: x))
+                ?.toList() ??
+            []),
+        optionalParameterNames:
+            List.from(functionType.optionalParameterNames ?? []),
+        optionalParameterTypes: List.from(
+            functionType.optionalParameterTypes?.map((x) => narrowDartTypeToSwidType(dartType: x))?.toList() ?? []),
+        returnType: narrowDartTypeToSwidType(dartType: functionType.returnType),
+        isFactory: false,
+        typeFormals: functionType.typeFormals != null
+            ? functionType.typeFormals
+                .map(
+                  (x) => SwidTypeFormal.fromTypeParameterElement(
+                      typeParameterElement: x),
+                )
+                .toList()
+            : []);
   }
+}
+
+extension SwidFunctionTypeMethods on SwidFunctionType {
+  Map<String, SwidDefaultFormalParameter> get namedDefaultParameters =>
+      Map.fromEntries(([
+        ...namedDefaults.entries
+            .where((x) =>
+                namedParameterTypes.entries
+                    .firstWhere((k) => k.key == x.key, orElse: () => null) !=
+                null)
+            .toList()
+      ]..removeWhere((x) => x == null)));
+
+  Map<String, SwidDefaultFormalParameter> get positionalDefaultParameters =>
+      Map.fromEntries(([
+        ...namedDefaults.entries
+            .where((x) =>
+                optionalParameterNames.firstWhere((k) => k == x.key,
+                    orElse: () => null) !=
+                null)
+            .toList()
+      ]..removeWhere((x) => x == null)));
 }

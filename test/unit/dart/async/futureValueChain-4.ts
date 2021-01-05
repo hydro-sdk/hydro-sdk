@@ -46,12 +46,5 @@ Future.value()
             assert(l3.elementAt(0) == 3);
             assert(l3.elementAt(1) == 4);
             assert(l3.elementAt(2) == 5);
-
-            return l3.unwrap();
-        }).then((a2: Array<number>) => {
-            assert(a2 != undefined);
-            assert(a2[0] == 3);
-            assert(a2[1] == 4);
-            assert(a2[2] == 5);
         });
     });

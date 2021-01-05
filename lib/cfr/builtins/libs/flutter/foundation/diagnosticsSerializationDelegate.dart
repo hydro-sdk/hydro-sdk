@@ -22,7 +22,7 @@ class VMManagedDiagnosticsSerializationDelegate
     table['additionalNodeProperties'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<Map<String, Object>>(
+        maybeBoxObject<Map>(
             object: vmObject.additionalNodeProperties(
                 maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
                     parentState: hydroState)),

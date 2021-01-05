@@ -53,6 +53,34 @@ const textTreeConfigurationDefaultProps = {
     showChildren: true,
     suffixLineOne: "",
 };
+export interface ITextTreeConfiguration {
+    prefixLineOne: string;
+    suffixLineOne: string;
+    prefixOtherLines: string;
+    prefixLastChildLineOne: string;
+    prefixOtherLinesRootNode: string;
+    propertyPrefixIfChildren: string;
+    propertyPrefixNoChildren: string;
+    linkCharacter: string;
+    childLinkSpace: string;
+    lineBreak: string;
+    lineBreakProperties: boolean;
+    beforeName: string;
+    afterName: string;
+    afterDescriptionIfBody: string;
+    afterDescription: string;
+    beforeProperties: string;
+    afterProperties: string;
+    mandatoryAfterProperties: string;
+    propertySeparator: string;
+    bodyIndent: string;
+    showChildren: boolean;
+    addBlankLineIfNoChildren: boolean;
+    isNameOnOwnLine: boolean;
+    footer: string;
+    mandatoryFooter: string;
+    isBlankLineBetweenPropertiesAndChildren: boolean;
+}
 export class TextTreeConfiguration {
     public readonly prefixLineOne: string = undefined as any;
     public readonly suffixLineOne: string = undefined as any;

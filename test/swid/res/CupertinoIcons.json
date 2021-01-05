@@ -39726,5 +39726,8 @@
         "isPublic": true
     },
     "mixedInClasses": [],
-    "isMixin": false
+    "implementedClasses": [],
+    "extendedClass": null,
+    "isMixin": false,
+    "typeFormals": []
 }

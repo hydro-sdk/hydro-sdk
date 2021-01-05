@@ -1,4 +1,4 @@
 export enum TextAffinity {
-    downstream,
     upstream,
+    downstream,
 }

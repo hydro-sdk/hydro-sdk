@@ -102,19 +102,6 @@ class RTManagedDiagnosticableTree extends DiagnosticableTree
             table: HydroTable())
       ];
     });
-    table['_dart_debugDescribeChildren'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        maybeBoxObject<List<dynamic>>(
-            object: super
-                .debugDescribeChildren()
-                .map((x) => maybeBoxObject<DiagnosticsNode>(
-                    object: x, hydroState: hydroState, table: HydroTable()))
-                .toList(),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
-    });
   }
 
   final HydroTable table;
@@ -149,7 +136,9 @@ class RTManagedDiagnosticableTree extends DiagnosticableTree
   @override
   DiagnosticsNode toDiagnosticsNode({String name, DiagnosticsTreeStyle style}) {
     Closure closure = table["toDiagnosticsNode"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    return maybeUnBoxAndBuildArgument<DiagnosticsNode>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
   }
 }
 
