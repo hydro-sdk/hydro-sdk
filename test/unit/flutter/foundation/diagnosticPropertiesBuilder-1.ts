@@ -34,7 +34,9 @@ function second() {
     assert(builder.properties.getLast() != undefined);
     assert(builder.properties.getLast().showName == true);
     assert(builder.properties.getLast().showSeparator == true);
-    assert(builder.properties.getLast().style == DiagnosticsTreeStyle.whitespace);
+    assert(
+        builder.properties.getLast().style == DiagnosticsTreeStyle.whitespace
+    );
 }
 
 function third() {
