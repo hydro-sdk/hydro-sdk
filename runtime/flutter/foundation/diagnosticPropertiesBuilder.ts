@@ -1,4 +1,4 @@
-import { IList, List } from "./../../dart/collection/list";
+import { IList, List } from "./../../dart/core/list";
 import { DiagnosticsNode, IDiagnosticsNode } from "./diagnosticsNode";
 import { DiagnosticsTreeStyle } from "./diagnosticsTreeStyle";
 declare const flutter: {

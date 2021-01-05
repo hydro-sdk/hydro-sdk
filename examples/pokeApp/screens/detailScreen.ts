@@ -130,7 +130,7 @@ export class DetailScreen extends StatelessWidget {
                                                 undefined ||
                                             List.fromArray(
                                                 this.pokemon.next_evolution
-                                            ).isEmpty()
+                                            ).getIsEmpty()
                                                 ? [
                                                       new Text(
                                                           "This is the final form"

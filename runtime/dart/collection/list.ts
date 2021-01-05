@@ -19,11 +19,11 @@ export interface IList<T> {
 export class List<T> {
     private constructor() {
         this.unwrap = undefined as any;
-        this.first = undefined as any;
-        this.isEmpty = undefined as any;
-        this.isNotEmpty = undefined as any;
-        this.last = undefined as any;
-        this.length = undefined as any;
+        this.getFirst = undefined as any;
+        this.getIsEmpty = undefined as any;
+        this.getIsNotEmpty = undefined as any;
+        this.getLast = undefined as any;
+        this.getLength = undefined as any;
         this.elementAt = undefined as any;
         this.map = undefined as any;
         this.where = undefined as any;
@@ -34,11 +34,11 @@ export class List<T> {
     }
 
     public unwrap: () => Array<T>;
-    public first: () => T | never;
-    public isEmpty: () => boolean;
-    public isNotEmpty: () => boolean;
-    public last: () => T | never;
-    public length: () => number;
+    public getFirst: () => T | never;
+    public getIsEmpty: () => boolean;
+    public getIsNotEmpty: () => boolean;
+    public getLast: () => T | never;
+    public getLength: () => number;
     public elementAt: (index: number) => T;
     public map: <R>(f: (e: T) => R) => List<R>;
     public where: (f: (e: T) => boolean) => List<T>;
