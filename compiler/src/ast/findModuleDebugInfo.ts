@@ -45,7 +45,11 @@ type ExplorableNode =
     | lparse.LogicalExpression
     | lparse.TableKeyString
     | lparse.TableValue
-    | lparse.MemberExpression;
+    | lparse.MemberExpression
+    | lparse.IfStatement
+    | lparse.IfClause
+    | lparse.ElseifClause
+    | lparse.ElseClause;
 
 function maybeNarrowNodeType(
     node: lparse.Base<string>
@@ -76,6 +80,14 @@ function maybeNarrowNodeType(
         return node as lparse.TableValue;
     } else if (node.type == "MemberExpression") {
         return node as lparse.MemberExpression;
+    } else if (node.type == "IfStatement") {
+        return node as lparse.IfStatement;
+    } else if (node.type == "IfClause") {
+        return node as lparse.IfClause;
+    } else if (node.type == "ElseifClause") {
+        return node as lparse.ElseifClause;
+    } else if (node.type == "ElseClause") {
+        return node as lparse.ElseClause;
     }
     return;
 }
@@ -306,6 +318,80 @@ function findModuleDebugInfoInner(props: {
                 last: props.last.base as ExplorableNode,
             });
         }
+    }
+
+    if (props.last.type == "IfStatement") {
+        if (props.log) {
+            console.log(`IfStatement ${props.last.loc?.start?.line}`);
+        }
+
+        props.last.clauses.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode,
+                });
+            }
+        });
+    }
+
+    if (props.last.type == "IfClause") {
+        if (props.log) {
+            console.log(`IfClause ${props.last.loc?.start?.line}`);
+        }
+
+        if (maybeNarrowNodeType(props.last.condition)) {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.condition as ExplorableNode,
+            });
+        }
+
+        props.last.body.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode,
+                });
+            }
+        });
+    }
+
+    if (props.last.type == "ElseifClause") {
+        if (props.log) {
+            console.log(`ElseifClause ${props.last.loc?.start?.line}`);
+        }
+
+        if (maybeNarrowNodeType(props.last.condition)) {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.condition as ExplorableNode,
+            });
+        }
+
+        props.last.body.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode,
+                });
+            }
+        });
+    }
+
+    if (props.last.type == "ElseClause") {
+        if (props.log) {
+            console.log(`ElseClause ${props.last.loc?.start?.line}`);
+        }
+
+        props.last.body.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode,
+                });
+            }
+        });
     }
 }
 
