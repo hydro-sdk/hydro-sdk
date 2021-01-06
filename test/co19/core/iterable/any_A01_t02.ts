@@ -18,7 +18,9 @@ export function any_A01_t02(
         props: { isSet: boolean }
     ) => IIterable<any>
 ) {
-    const s = create(List.from<number>([1, -3, 10, 17] as any, {}), { isSet: false });
+    const s = create(List.from<number>([1, -3, 10, 17] as any, {}), {
+        isSet: false,
+    });
 
     const outer = new Set();
     s.any((x) => {
