@@ -1,33 +1,30 @@
 /**
- * Adapted from https://github.com/dart-lang/co19/blob/master/LibTest/core/Iterable/any_A01_t02.test.dart
+ * Adapted from https://github.com/dart-lang/co19/blob/master/LibTest/core/Iterable/any_A01_t03.test.dart
  * @assertion bool any(bool f(E element))
  * Checks whether any element of this iterable satisfies test.
  * Checks every element in iteration order, and returns true if any of them make
  * test return true, otherwise returns false.
- * @description Checks that if test always returns false, then it is called for
- * each element of this iteratable
+ * @description Checks that invoking any() doesn't change the set by itself
  */
-
 import { IIterable } from "../../../../runtime/dart/core/iterable";
 import { List } from "../../../../runtime/dart/core/list";
-import { Set } from "../../../../runtime/dart/core/set";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
-export function any_A01_t02(
+export function any_A01_t03(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
     ) => IIterable<any>
 ) {
-    const s = create(List.from<number>([1, -3, 10, 17] as any, {}), {
+    const foo = (x: any) => x > 0;
+
+    const s = create(List.from<number>([-1, -3, -11] as any, {}), {
         isSet: false,
     });
+    const content = List.from(s, {});
+    assert(s.any(foo) == false);
 
-    const outer = new Set();
-    s.any((x) => {
-        outer.add(x);
-        return false;
-    });
-
-    assert(outer.containsAll(s) == true);
+    assert(content.getLength() == s.getLength());
+    let k = 0;
+    s.forEach((x) => assert(content.elementAt(k++) == x));
 }
