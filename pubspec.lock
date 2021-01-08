@@ -235,6 +235,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  github:
+    dependency: transitive
+    description:
+      name: github
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.0.4"
   glob:
     dependency: transitive
     description:
@@ -591,8 +598,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "0.0.1-nightly.20"
-      resolved-ref: "5d1f2d5b1b5b0aab3cfb659d56fd60f0704161af"
+      ref: "0.0.1-nightly.22"
+      resolved-ref: "0876fc044ef1eb9fd4b1ab29836f9a176ed9b5b8"
       url: "git://github.com/hydro-sdk/waveform.git"
     source: git
     version: "0.0.1"
