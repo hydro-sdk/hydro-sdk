@@ -81,10 +81,13 @@ function maybeNarrowNodeType(node) {
     else if (node.type == "ElseClause") {
         return node;
     }
+    else if (node.type == "BinaryExpression") {
+        return node;
+    }
     return;
 }
 function findModuleDebugInfoInner(props) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10;
     if (props.last.type == "FunctionDeclaration") {
         if (props.log) {
             console.log("FunctionDeclaration " + ((_b = (_a = props.last.loc) === null || _a === void 0 ? void 0 : _a.start) === null || _b === void 0 ? void 0 : _b.line));
@@ -280,6 +283,17 @@ function findModuleDebugInfoInner(props) {
                 findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
             }
         });
+    }
+    if (props.last.type == "BinaryExpression") {
+        if (props.log) {
+            console.log("BinaryExpression " + ((_10 = (_9 = props.last.loc) === null || _9 === void 0 ? void 0 : _9.start) === null || _10 === void 0 ? void 0 : _10.line));
+        }
+        if (maybeNarrowNodeType(props.last.left)) {
+            findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.left }));
+        }
+        if (maybeNarrowNodeType(props.last.right)) {
+            findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.right }));
+        }
     }
 }
 function extract(props) {
