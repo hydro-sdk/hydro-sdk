@@ -210,7 +210,7 @@ This error can be seen by regular Typescript code that attempts to access a fiel
 - [ ] C#  
         https://github.com/yanghuan/CSharp.lua 
 
-# Prior Art
+# Prior Art for Common Flutter Runtime
 - Dartlua, Andre Lipke https://github.com/PixelToast/dartlua
 - React Native, Facebook https://reactnative.dev/
 - LuaViewSdk, Alibaba https://github.com/alibaba/LuaViewSDK
@@ -219,6 +219,13 @@ This error can be seen by regular Typescript code that attempts to access a fiel
 - Lisp in Dart, Suzuki Hisao https://github.com/nukata/lisp-in-dart
 - widget_extensions https://github.com/canewsin/widget_extensions
 - xamarin.flutter https://github.com/adamped/xamarin.flutter
+
+# Prior Art for Structured Wrapper and Interface generator for Dart
+- Dartle, https://docs.google.com/document/d/1Ei0ZIqdqNjxTHoGB3Ay6SWQg3DMSsKKWl70XoBUCFTA/edit
+- Pigeon, https://github.com/flutter/packages/tree/master/packages/pigeon
+- Djinni, https://github.com/dropbox/djinni
+- Uniffi-rs, https://github.com/mozilla/uniffi-rs
+
 
 # Interesting Links and Resources
 - John C. Reynolds, Definitional Interpreters for Higher-Order Programming Languages https://surface.syr.edu/cgi/viewcontent.cgi?article=1012&context=lcsmith_other
