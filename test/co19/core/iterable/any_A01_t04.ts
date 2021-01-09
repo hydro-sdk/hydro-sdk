@@ -1,5 +1,4 @@
 /**
- * Adapted from https://github.com/dart-lang/co19/blob/master/LibTest/core/Iterable/any_A01_t04.test.dart
  * @assertion bool any(bool f(E element))
  * Checks whether any element of this iterable satisfies test.
  * Checks every element in iteration order, and returns true if any of them make

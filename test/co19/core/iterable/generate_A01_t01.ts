@@ -1,5 +1,4 @@
 /**
- * Adapted from https://github.com/dart-lang/co19/blob/master/LibTest/core/Iterable/Iterable.generate_A01_t01.dart
  * @assertion Iterable.generate(int count, [E generator(int index)])
  * Creates an Iterable that generates its elements dynamically.
  * An Iterator created by iterator will count from zero to count - 1, and call

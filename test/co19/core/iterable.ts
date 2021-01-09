@@ -1,3 +1,4 @@
+//Adapted from https://github.com/dart-lang/co19/tree/master/LibTest/core/Iterable
 import { all_t01 } from "./iterable/all_t01";
 import { empty_A01_t01 } from "./iterable/empty_A01_t01";
 import { generate_A01_t01 } from "./iterable/generate_A01_t01";
