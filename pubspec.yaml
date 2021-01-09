@@ -20,17 +20,17 @@ dependencies:
       url: "git://github.com/hydro-sdk/surveyor"
   waveform: 
     git: 
-      ref: "0.0.1-nightly.20"
+      ref: "0.0.1-nightly.22"
       url: "git://github.com/hydro-sdk/waveform.git"
   code_builder: null
   dart_style: null
   freezed: null
   freezed_annotation: null
 dev_dependencies: 
+  import_sorter: "4.4.1"
   test: "any"
   flutter_test: 
     sdk: flutter
-  import_sorter: 4.4.1
 environment: 
   sdk: ">=2.9.0 <3.0.0"
 flutter: 
