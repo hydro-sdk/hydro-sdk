@@ -15,7 +15,8 @@ export function any_A01_t01(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>,props: { isSet: boolean }
+    ) => IIterable<any>,
+    props: { isSet: boolean }
 ) {
     const foo = (x: any) => x > 0;
 

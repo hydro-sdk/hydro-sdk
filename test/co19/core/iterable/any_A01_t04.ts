@@ -13,7 +13,8 @@ export function any_A01_t04(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>,props: { isSet: boolean }
+    ) => IIterable<any>,
+    props: { isSet: boolean }
 ) {
     assert(
         create(List.from<number>([0, 1, 2, 3] as any, {}), {

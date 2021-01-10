@@ -24,7 +24,8 @@ export function any_A01_t05(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>,props: { isSet: boolean }
+    ) => IIterable<any>,
+    props: { isSet: boolean }
 ) {
     const s = create(List.from<number>([1, 2, 3, 4, 5] as any, {}), {
         isSet: props.isSet,

@@ -13,7 +13,8 @@ export function any_A02_t01(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>,props: { isSet: boolean }
+    ) => IIterable<any>,
+    props: { isSet: boolean }
 ) {
     let count = 0;
 

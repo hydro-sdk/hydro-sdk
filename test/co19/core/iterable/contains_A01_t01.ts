@@ -21,7 +21,8 @@ export function contains_A01_t01(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>,props: { isSet: boolean }
+    ) => IIterable<any>,
+    props: { isSet: boolean }
 ) {
     let a = create(List.from<number>([] as any, {}), {
         isSet: props.isSet,
