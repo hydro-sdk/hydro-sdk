@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
+import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -69,20 +69,26 @@ void loadBaseLib({@required HydroState hydroState, @required Context ctx}) {
     ];
   };
 
-  ctx.env["pcall"] = (Thread thread, List<dynamic> args) {
-    var f = Context.getArg1<dynamic>(args, 0, "pcall");
+  ctx.env["pcall"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    Closure f = args[0];
+
     try {
-      return <dynamic>[true]..addAll(thread.attemptCall(f,
-          args: args.skip(1).toList(growable: false), hydroState: hydroState));
+      return [
+        true,
+        ...f.dispatch(args.skip(1).toList(), parentState: hydroState),
+      ];
     } on HydroError catch (e) {
-      return [false, e.errMsg];
+      return [
+        false,
+        e.errMsg,
+      ];
     } catch (e) {
       return [
         false,
-        e,
+        e.toString(),
       ];
     }
-  };
+  });
 
   ctx.env["print"] = (List<dynamic> args) {
     print(args

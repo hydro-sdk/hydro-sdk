@@ -14,24 +14,20 @@
  * Checks that Iterators created by the Iterable contain results of invocations
  * of [generator].
  */
-import { Iterable } from "./../../../../runtime/dart/core/iterable";
-declare const assert: (this: void, arg: boolean, message?: string) => void;
 
-function check(count: number) {
-    const generator = (index: number) => index * 3;
+import { IIterable, Iterable } from "../../../../runtime/dart/core/iterable";
+import { allIterableTests } from "./allTests";
 
-    const itbl = Iterable.generate(count, generator);
-
-    for (let i = 0; i < count; ++i) {
-        assert(i * 3 == itbl.elementAt(i));
+function create(content: IIterable<any> | undefined): IIterable<any> {
+    if (content === undefined) {
+        return Iterable.empty();
+    } else {
+        const count = content.getLength();
+        const generator = (count: number) => content.elementAt(count);
+        return Iterable.generate(count, generator);
     }
-
-    assert(count == itbl.getLength());
 }
 
-export function generate_A01_t01() {
-    check(0);
-    check(1);
-    check(10);
-    check(1000);
+export function all_t01() {
+    allIterableTests(create);
 }
