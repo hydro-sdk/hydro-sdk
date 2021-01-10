@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
+import 'package:hydro_sdk/cfr/reassembler/hashClosure.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -313,6 +314,8 @@ class Context {
         (x as HydroTable).map["__eq"] == (y as HydroTable).map["__eq"]) {
       return truthy(
           invokeMetamethod(x, "__eq", [x, y], parentState: hydroState));
+    } else if (x is Closure && y is Closure) {
+      return hashClosure(x) == hashClosure(y);
     } else {
       return x == y;
     }
