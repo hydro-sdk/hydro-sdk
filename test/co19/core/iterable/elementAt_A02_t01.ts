@@ -10,9 +10,8 @@
  * index elements.
  */
 
-import { pauseInDebugger } from "../../../../runtime/dart/developer/debugger";
-import { List } from "../../../../runtime/dart/core/list";
 import { IIterable } from "./../../../../runtime/dart/core/iterable";
+import { List } from "../../../../runtime/dart/core/list";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 let v: any;
@@ -21,16 +20,19 @@ function check(a: IIterable<any>, index: number) {
 
     try {
         v = a.elementAt(index);
-    }
-    catch (err) {
+    } catch (err) {
         didThrow = true;
-        assert((err as string).substr(0, 38) == "RangeError (index): Index out of range");
+        assert(
+            (err as string).substr(0, 38) ==
+                "RangeError (index): Index out of range"
+        );
     }
     assert(didThrow == true);
 }
 
-export function elementAt_A02_t01(create: (
-    content: IIterable<any> | undefined) => IIterable<any>) {
+export function elementAt_A02_t01(
+    create: (content: IIterable<any> | undefined) => IIterable<any>
+) {
     const a = List.from([5, 4, 3, 2, 1, 0] as any, {});
 
     check(create(a), -1);
