@@ -20,6 +20,19 @@ export function elementAt_A01_t01(
     ) => IIterable<any>, props: { isSet: boolean }
 ) {
     const b: IList<number> = List.from([5, 4, 3, 2, 1, 0, 6] as any, {});
-
     const a = create(b, { isSet: props.isSet });
+
+    if (props.isSet) {
+        for (let i = 0; i < a.getLength(); i++) {
+            for (let j = 0; j < a.getLength(); j++) {
+                if (i != j) {
+                    assert(a.elementAt(i) != a.elementAt(j));
+                }
+            }
+        }
+    } else {
+        for (let i = 0; i < a.getLength(); i++) {
+            assert(b.elementAt(i) == a.elementAt(i));
+        }
+    }
 }
