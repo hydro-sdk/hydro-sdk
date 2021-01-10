@@ -50,7 +50,8 @@ type ExplorableNode =
     | lparse.IfClause
     | lparse.ElseifClause
     | lparse.ElseClause
-    | lparse.BinaryExpression;
+    | lparse.BinaryExpression
+    | lparse.DoStatement;
 
 function maybeNarrowNodeType(
     node: lparse.Base<string>
@@ -91,6 +92,8 @@ function maybeNarrowNodeType(
         return node as lparse.ElseClause;
     } else if (node.type == "BinaryExpression") {
         return node as lparse.BinaryExpression;
+    } else if (node.type == "DoStatement") {
+        return node as lparse.DoStatement;
     }
     return;
 }
@@ -415,6 +418,21 @@ function findModuleDebugInfoInner(props: {
                 last: props.last.right as ExplorableNode,
             });
         }
+    }
+
+    if (props.last.type == "DoStatement") {
+        if (props.log) {
+            console.log(`DoStatement ${props.last.loc?.start?.line}`);
+        }
+
+        props.last.body.forEach((k) => {
+            if (maybeNarrowNodeType(k)) {
+                findModuleDebugInfoInner({
+                    ...props,
+                    last: k as ExplorableNode,
+                });
+            }
+        });
     }
 }
 
