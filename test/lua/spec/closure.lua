@@ -4,7 +4,6 @@ local A,B = 0,{g=10}
 function f(x)
   local a = {}
   for i=1,1000 do
-    print(i)
     local y = 0
     do
       a[i] = function () B.g = B.g+1; y = y+x; return y+A end

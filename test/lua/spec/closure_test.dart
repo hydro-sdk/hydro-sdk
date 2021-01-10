@@ -9,7 +9,7 @@ void main() {
     loadBuiltins(
         hydroState: state, builtins: [BuiltinLib.table, BuiltinLib.base]);
 
-    var res = await state.doFile("test/lua/spec/closures.hc");
+    var res = await state.doFile("../test/lua/spec/closure.hc");
     print(res.toString());
 
     expect(res.success, true);
