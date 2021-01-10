@@ -13,12 +13,12 @@ export function any_A01_t03(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>
+    ) => IIterable<any>,props: { isSet: boolean }
 ) {
     const foo = (x: any) => x > 0;
 
     const s = create(List.from<number>([-1, -3, -11] as any, {}), {
-        isSet: false,
+        isSet: props.isSet,
     });
     const content = List.from(s, {});
     assert(s.any(foo) == false);

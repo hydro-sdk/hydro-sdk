@@ -21,21 +21,21 @@ export function contains_A01_t01(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>
+    ) => IIterable<any>,props: { isSet: boolean }
 ) {
     let a = create(List.from<number>([] as any, {}), {
-        isSet: false,
+        isSet: props.isSet,
     });
     assert(a.contains(1) == false);
 
     a = create(List.from<number>([2] as any, {}), {
-        isSet: false,
+        isSet: props.isSet,
     });
     assert(a.contains(1) == false);
     assert(a.contains(2) == true);
 
     a = create(List.from<number>([1, 2] as any, {}), {
-        isSet: false,
+        isSet: props.isSet,
     });
     assert(a.contains(1) == true);
     assert(a.contains(2) == true);

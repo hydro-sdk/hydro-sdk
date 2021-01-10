@@ -13,29 +13,29 @@ export function any_A01_t04(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>
+    ) => IIterable<any>,props: { isSet: boolean }
 ) {
     assert(
         create(List.from<number>([0, 1, 2, 3] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any((e) => e > 1 && e < 3) == true
     );
 
     assert(
         create(List.from<number>([1, 2, 3] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any((e) => e < 0) == false
     );
 
     assert(
         create(List.from<number>([undefined] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any((e) => true) == true
     );
 
     assert(
         create(List.from<number>([undefined] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any((e) => false) == false
     );
 
@@ -43,7 +43,7 @@ export function any_A01_t04(
 
     assert(
         create(List.from<number>([1, 2, 3, 4] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any(f1) == true
     );
 }
