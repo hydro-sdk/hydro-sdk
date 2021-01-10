@@ -27,21 +27,26 @@ export function every_A04_t01(
                 actualCount++;
                 return predicate(e);
             });
-        }
-        catch (err) {
+        } catch (err) {
             threw = true;
             assert(err == exc.toString());
         }
         assert(threw == true);
-    }
+    };
 
-    const allTrue = (e: any) => { throw 1; };
+    const allTrue = (e: any) => {
+        throw 1;
+    };
     check(List.from<number>([1, 2, 3, 4, 5] as any, {}), allTrue, 1);
 
-    const allFalse = (e: any) => { throw false; };  
-    check(List.from<number>([1, 2, 3, 4, 5] as any, {}), allFalse, false); 
+    const allFalse = (e: any) => {
+        throw false;
+    };
+    check(List.from<number>([1, 2, 3, 4, 5] as any, {}), allFalse, false);
 
-    const lessThan3 = (e: any) => { throw 3; };  
+    const lessThan3 = (e: any) => {
+        throw 3;
+    };
     check(List.from<number>([1, 2, 3, 4, 5] as any, {}), lessThan3, 3);
 
     const l: IList<number> = List.empty({ growable: true });
