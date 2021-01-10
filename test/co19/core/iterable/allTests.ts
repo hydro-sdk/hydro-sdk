@@ -8,6 +8,7 @@ import { any_A02_t01 } from "./any_A02_t01";
 import { contains_A01_t01 } from "./contains_A01_t01";
 import { elementAt_A01_t01 } from "./elementAt_A01_t01";
 import { elementAt_A02_t01 } from "./elementAt_A02_t01";
+import { every_A01_t01 } from "./every_A01_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -22,4 +23,5 @@ export function allIterableTests(
     contains_A01_t01(create, { isSet: props.isSet });
     elementAt_A01_t01(create, { isSet: props.isSet });
     elementAt_A02_t01(create);
+    every_A01_t01(create);
 }
