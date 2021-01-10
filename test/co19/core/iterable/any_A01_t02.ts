@@ -16,10 +16,11 @@ export function any_A01_t02(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>
+    ) => IIterable<any>,
+    props: { isSet: boolean }
 ) {
     const s = create(List.from<number>([1, -3, 10, 17] as any, {}), {
-        isSet: false,
+        isSet: props.isSet,
     });
 
     const outer = new Set();

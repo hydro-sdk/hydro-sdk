@@ -15,24 +15,25 @@ export function any_A01_t01(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>
+    ) => IIterable<any>,
+    props: { isSet: boolean }
 ) {
     const foo = (x: any) => x > 0;
 
     assert(create(undefined, { isSet: false }).any(foo) == false);
     assert(
         create(List.from<number>([-1, -3, -11] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any(foo) == false
     );
     assert(
         create(List.from<number>([-1, -3, -11, 5] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any(foo) == true
     );
     assert(
         create(List.from<number>([-1, -3, -11, 5, 3] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any(foo) == true
     );
 }

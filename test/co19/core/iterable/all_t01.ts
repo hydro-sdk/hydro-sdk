@@ -29,5 +29,5 @@ function create(content: IIterable<any> | undefined): IIterable<any> {
 }
 
 export function all_t01() {
-    allIterableTests(create);
+    allIterableTests(create, { isSet: false });
 }

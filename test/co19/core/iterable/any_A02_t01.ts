@@ -13,13 +13,14 @@ export function any_A02_t01(
     create: (
         content: IIterable<any> | undefined,
         props: { isSet: boolean }
-    ) => IIterable<any>
+    ) => IIterable<any>,
+    props: { isSet: boolean }
 ) {
     let count = 0;
 
     try {
         create(List.from<number>([1, 2] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any(() => {
             throw ++count;
         });
@@ -31,7 +32,7 @@ export function any_A02_t01(
 
     try {
         create(List.from<number>([1, 2, 3, 4, 5] as any, {}), {
-            isSet: false,
+            isSet: props.isSet,
         }).any(() => {
             throw ++count;
         });
