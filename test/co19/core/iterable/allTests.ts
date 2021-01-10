@@ -10,6 +10,7 @@ import { elementAt_A01_t01 } from "./elementAt_A01_t01";
 import { elementAt_A02_t01 } from "./elementAt_A02_t01";
 import { every_A01_t01 } from "./every_A01_t01";
 import { every_A01_t02 } from "./every_A01_t02";
+import { every_A02_t01 } from "./every_A02_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -26,4 +27,5 @@ export function allIterableTests(
     elementAt_A02_t01(create);
     every_A01_t01(create);
     every_A01_t02(create);
+    every_A02_t01(create);
 }
