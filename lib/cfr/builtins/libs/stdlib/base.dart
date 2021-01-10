@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
+import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
@@ -75,6 +76,11 @@ void loadBaseLib({@required HydroState hydroState, @required Context ctx}) {
       return [
         true,
         ...f.dispatch(args.skip(1).toList(), parentState: hydroState),
+      ];
+    } on HydroError catch (e) {
+      return [
+        false,
+        e.errMsg,
       ];
     } catch (e) {
       return [
