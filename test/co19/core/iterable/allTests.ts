@@ -19,6 +19,7 @@ import { expand_A01_t02 } from "./expand_A01_t02";
 import { expand_A02_t01 } from "./expand_A02_t01";
 import { expand_A02_t02 } from "./expand_A02_t02";
 import { first_A01_t01 } from "./first_A01_t01";
+import { first_A01_t02 } from "./first_A01_t02";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -44,4 +45,5 @@ export function allIterableTests(
     expand_A02_t01(create);
     expand_A02_t02(create);
     first_A01_t01(create);
+    first_A01_t02(create, { isSet: props.isSet });
 }
