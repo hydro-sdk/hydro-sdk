@@ -13,7 +13,10 @@ declare const assert: (this: void, arg: boolean, message?: string) => void;
 export function first_A01_t01(
     create: (content: IIterable<any> | undefined) => IIterable<any>
 ) {
-    const check = (create: (content: IIterable<any> | undefined) => IIterable<any>, source: IIterable<any>) => {
+    const check = (
+        create: (content: IIterable<any> | undefined) => IIterable<any>,
+        source: IIterable<any>
+    ) => {
         assert(source.getFirst() == create(source).getFirst());
     };
 
