@@ -27,7 +27,9 @@ export function firstWhere_A04_t01(
     const c2 = new C(42);
 
     const a: IIterable<C> = create(List.from([c1, c2] as any, {}));
-    let found = a.firstWhere((value) => value.val == 42, { orElse: () => undefined });
+    let found = a.firstWhere((value) => value.val == 42, {
+        orElse: () => undefined,
+    });
 
     if (props.isSet) {
         assert(found != undefined);
