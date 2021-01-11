@@ -15,7 +15,7 @@ export function first_A02_t01(
     let threw = false;
     try {
         create(undefined).getFirst();
-    }catch(err){
+    } catch (err) {
         assert((err as string) == "Bad state: No element");
         threw = true;
     }
