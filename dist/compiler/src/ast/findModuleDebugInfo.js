@@ -33,6 +33,9 @@ function maybeNarrowNodeType(node) {
     if (node.type == "CallExpression") {
         return node;
     }
+    else if (node.type == "CallStatement") {
+        return node;
+    }
     else if (node.type == "FunctionDeclaration") {
         return node;
     }
@@ -90,7 +93,7 @@ function maybeNarrowNodeType(node) {
     return;
 }
 function findModuleDebugInfoInner(props) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10;
     if (props.last.type == "FunctionDeclaration") {
         if (props.log) {
             console.log("FunctionDeclaration " + ((_b = (_a = props.last.loc) === null || _a === void 0 ? void 0 : _a.start) === null || _b === void 0 ? void 0 : _b.line));
@@ -163,6 +166,9 @@ function findModuleDebugInfoInner(props) {
         props.last.body.forEach(function (k) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
         });
+        if (maybeNarrowNodeType(props.last.condition)) {
+            findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.condition }));
+        }
     }
     if (props.last.type == "LocalStatement") {
         props.last.init.forEach(function (k) {
@@ -241,19 +247,9 @@ function findModuleDebugInfoInner(props) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.base }));
         }
     }
-    if (props.last.type == "IfStatement") {
-        if (props.log) {
-            console.log("IfStatement " + ((_2 = (_1 = props.last.loc) === null || _1 === void 0 ? void 0 : _1.start) === null || _2 === void 0 ? void 0 : _2.line));
-        }
-        props.last.clauses.forEach(function (k) {
-            if (maybeNarrowNodeType(k)) {
-                findModuleDebugInfoInner(__assign(__assign({}, props), { last: k }));
-            }
-        });
-    }
     if (props.last.type == "IfClause") {
         if (props.log) {
-            console.log("IfClause " + ((_4 = (_3 = props.last.loc) === null || _3 === void 0 ? void 0 : _3.start) === null || _4 === void 0 ? void 0 : _4.line));
+            console.log("IfClause " + ((_2 = (_1 = props.last.loc) === null || _1 === void 0 ? void 0 : _1.start) === null || _2 === void 0 ? void 0 : _2.line));
         }
         if (maybeNarrowNodeType(props.last.condition)) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.condition }));
@@ -266,7 +262,7 @@ function findModuleDebugInfoInner(props) {
     }
     if (props.last.type == "ElseifClause") {
         if (props.log) {
-            console.log("ElseifClause " + ((_6 = (_5 = props.last.loc) === null || _5 === void 0 ? void 0 : _5.start) === null || _6 === void 0 ? void 0 : _6.line));
+            console.log("ElseifClause " + ((_4 = (_3 = props.last.loc) === null || _3 === void 0 ? void 0 : _3.start) === null || _4 === void 0 ? void 0 : _4.line));
         }
         if (maybeNarrowNodeType(props.last.condition)) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.condition }));
@@ -279,7 +275,7 @@ function findModuleDebugInfoInner(props) {
     }
     if (props.last.type == "ElseClause") {
         if (props.log) {
-            console.log("ElseClause " + ((_8 = (_7 = props.last.loc) === null || _7 === void 0 ? void 0 : _7.start) === null || _8 === void 0 ? void 0 : _8.line));
+            console.log("ElseClause " + ((_6 = (_5 = props.last.loc) === null || _5 === void 0 ? void 0 : _5.start) === null || _6 === void 0 ? void 0 : _6.line));
         }
         props.last.body.forEach(function (k) {
             if (maybeNarrowNodeType(k)) {
@@ -289,7 +285,7 @@ function findModuleDebugInfoInner(props) {
     }
     if (props.last.type == "BinaryExpression") {
         if (props.log) {
-            console.log("BinaryExpression " + ((_10 = (_9 = props.last.loc) === null || _9 === void 0 ? void 0 : _9.start) === null || _10 === void 0 ? void 0 : _10.line));
+            console.log("BinaryExpression " + ((_8 = (_7 = props.last.loc) === null || _7 === void 0 ? void 0 : _7.start) === null || _8 === void 0 ? void 0 : _8.line));
         }
         if (maybeNarrowNodeType(props.last.left)) {
             findModuleDebugInfoInner(__assign(__assign({}, props), { last: props.last.left }));
@@ -300,7 +296,7 @@ function findModuleDebugInfoInner(props) {
     }
     if (props.last.type == "DoStatement") {
         if (props.log) {
-            console.log("DoStatement " + ((_12 = (_11 = props.last.loc) === null || _11 === void 0 ? void 0 : _11.start) === null || _12 === void 0 ? void 0 : _12.line));
+            console.log("DoStatement " + ((_10 = (_9 = props.last.loc) === null || _9 === void 0 ? void 0 : _9.start) === null || _10 === void 0 ? void 0 : _10.line));
         }
         props.last.body.forEach(function (k) {
             if (maybeNarrowNodeType(k)) {
