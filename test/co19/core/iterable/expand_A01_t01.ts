@@ -18,7 +18,6 @@ declare const assert: (this: void, arg: boolean, message?: string) => void;
 export function expand_A01_t01(
     create: (content: IIterable<any> | undefined) => IIterable<any>
 ) {
-
     const checkCount = (a: IIterable<any>) => {
         let count = 0;
         const expanded = a.expand((element: any) => {
