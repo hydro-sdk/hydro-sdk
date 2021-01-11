@@ -16,6 +16,7 @@ import { every_A03_t01 } from "./every_A03_t01";
 import { every_A04_t01 } from "./every_A04_t01";
 import { expand_A01_t01 } from "./expand_A01_t01";
 import { expand_A01_t02 } from "./expand_A01_t02";
+import { expand_A02_t01 } from "./expand_A02_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -38,4 +39,5 @@ export function allIterableTests(
     every_A04_t01(create);
     expand_A01_t01(create);
     expand_A01_t02(create);
+    expand_A02_t01(create);
 }
