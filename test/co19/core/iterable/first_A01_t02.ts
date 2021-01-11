@@ -7,7 +7,7 @@
  */
 
 import { IIterable } from "./../../../../runtime/dart/core/iterable";
-import { IList, List } from "./../../../../runtime/dart/core/list";
+import { List } from "./../../../../runtime/dart/core/list";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function first_A01_t02(
@@ -33,19 +33,27 @@ export function first_A01_t02(
         a = create(b, { isSet: props.isSet });
         assert(head == a.getFirst());
 
-        a = create(List.from([-2, 0, "0", false, -1] as any, {}), { isSet: props.isSet });
+        a = create(List.from([-2, 0, "0", false, -1] as any, {}), {
+            isSet: props.isSet,
+        });
         assert(-2 == a.getFirst());
 
-        a = create(List.from([0, undefined, "0", false] as any, {}), { isSet: props.isSet });
+        a = create(List.from([0, undefined, "0", false] as any, {}), {
+            isSet: props.isSet,
+        });
         assert(0 == a.getFirst());
     } else {
         a = create(List.from([head, 1] as any, {}), { isSet: props.isSet });
         assert(undefined != a.getFirst());
 
-        a = create(List.from([-2, 0, 0, false, -1] as any, {}), { isSet: props.isSet });
+        a = create(List.from([-2, 0, 0, false, -1] as any, {}), {
+            isSet: props.isSet,
+        });
         assert(undefined != a.getFirst());
 
-        a = create(List.from([0, 0.5, 0, false] as any, {}), { isSet: props.isSet });
+        a = create(List.from([0, 0.5, 0, false] as any, {}), {
+            isSet: props.isSet,
+        });
         assert(undefined != a.getFirst());
     }
 }
