@@ -109,7 +109,7 @@ void loadMathLib(Context ctx) {
   math["max"] = (List<dynamic> args) {
     num x = Context.getArg1<num>(args, 0, "max");
     for (int i = 1; i < args.length; i++) {
-      x = max(x, Context.getArg1<num>(args, 0, "max"));
+      x = max(x, Context.getArg1<num>(args, i, "max"));
     }
     return [x];
   };

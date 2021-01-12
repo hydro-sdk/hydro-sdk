@@ -26,6 +26,8 @@ import { firstWhere_A01_t01 } from "./firstWhere_A01_t01";
 import { firstWhere_A02_t01 } from "./firstWhere_A02_t01";
 import { firstWhere_A03_t01 } from "./firstWhere_A03_t01";
 import { firstWhere_A04_t01 } from "./firstWhere_A04_t01";
+import { fold_A01_t01 } from "./fold_A01_t01";
+import { fold_A01_t02 } from "./fold_A01_t02";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -58,4 +60,6 @@ export function allIterableTests(
     firstWhere_A02_t01(create);
     firstWhere_A03_t01(create);
     firstWhere_A04_t01(create, { isSet: props.isSet });
+    fold_A01_t01(create);
+    fold_A01_t02(create);
 }
