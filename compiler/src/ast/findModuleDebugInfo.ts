@@ -34,6 +34,7 @@ export function findModuleDebugInfo(props: {
 
 type ExplorableNode =
     | lparse.CallExpression
+    | lparse.CallStatement
     | lparse.FunctionDeclaration
     | lparse.TableConstructorExpression
     | lparse.IfClause
@@ -58,6 +59,8 @@ function maybeNarrowNodeType(
 ): ExplorableNode | undefined {
     if (node.type == "CallExpression") {
         return node as lparse.CallExpression;
+    } else if (node.type == "CallStatement") {
+        return node as lparse.CallStatement;
     } else if (node.type == "FunctionDeclaration") {
         return node as lparse.FunctionDeclaration;
     } else if (node.type == "TableConstructorExpression") {
@@ -214,6 +217,13 @@ function findModuleDebugInfoInner(props: {
                 last: k,
             });
         });
+
+        if (maybeNarrowNodeType(props.last.condition)) {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.condition as ExplorableNode,
+            });
+        }
     }
     if (props.last.type == "LocalStatement") {
         props.last.init.forEach((k) => {
@@ -324,21 +334,6 @@ function findModuleDebugInfoInner(props: {
                 last: props.last.base as ExplorableNode,
             });
         }
-    }
-
-    if (props.last.type == "IfStatement") {
-        if (props.log) {
-            console.log(`IfStatement ${props.last.loc?.start?.line}`);
-        }
-
-        props.last.clauses.forEach((k) => {
-            if (maybeNarrowNodeType(k)) {
-                findModuleDebugInfoInner({
-                    ...props,
-                    last: k as ExplorableNode,
-                });
-            }
-        });
     }
 
     if (props.last.type == "IfClause") {
