@@ -1,6 +1,6 @@
 /**
  * @assertion abstract void forEach(void f(E element))
- * Throws an exception or error if the argument 
+ * Throws an exception or error if the argument
  * is null or is not a function and doesn't have a call() method with an
  * appropriate signature.
  * @needsreview undocumented
@@ -16,7 +16,6 @@ declare const assert: (this: void, arg: boolean, message?: string) => void;
 export function forEach_A02_t01(
     create: (content: IIterable<any> | undefined) => IIterable<any>
 ) {
-
     const check = (list: any, arg: any) => {
         let threw = false;
         try {

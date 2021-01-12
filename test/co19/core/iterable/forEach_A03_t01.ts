@@ -19,13 +19,12 @@ export function forEach_A03_t01(
                 actualCount++;
                 return predicate(e);
             });
-        }
-        catch (err) {
+        } catch (err) {
             threw = true;
             assert(exc.toString() == err);
         }
         assert(threw == true);
-    }
+    };
 
     const allTrue = (e: any) => {
         throw true;
