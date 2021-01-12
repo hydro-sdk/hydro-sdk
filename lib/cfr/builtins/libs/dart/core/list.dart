@@ -284,7 +284,7 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
           ? (element) => f.dispatch(
                 [args[0], element],
                 parentState: hydroState,
-              )[0]
+              )
           : null);
       return [];
     });

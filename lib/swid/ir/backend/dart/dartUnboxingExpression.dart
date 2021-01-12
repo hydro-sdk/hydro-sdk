@@ -88,7 +88,22 @@ class DartUnboxingExpression {
                               .map((x) => x)
                               .toList()
                               .join(","),
-                          "],parentState:hydroState,)[0]"
+                          "],parentState:hydroState,)",
+                          val.returnType.when(
+                            fromSwidInterface: (val) =>
+                                narrowSwidInterfaceByReferenceDeclaration(
+                              swidInterface: val,
+                              onPrimitive: (_) => "[0]",
+                              onClass: (_) => "[0]",
+                              onEnum: (_) => "[0]",
+                              onVoid: (_) => "",
+                              onTypeParameter: (_) => "[0]",
+                              onDynamic: (_) => "[0]",
+                            ),
+                            fromSwidClass: (_) => "[0]",
+                            fromSwidDefaultFormalParameter: (_) => "[0]",
+                            fromSwidFunctionType: (_) => "[0]",
+                          )
                         ]..removeWhere((x) => x == null))
                             .join(""),
                       ),
