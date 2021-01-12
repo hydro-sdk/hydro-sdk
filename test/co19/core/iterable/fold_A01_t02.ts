@@ -30,8 +30,8 @@ export function fold_A01_t02(
         assert(a.getLength() == actual);
     };
 
-    check(create(List.from([] as any,{})));
-    check(create(List.from([1] as any,{})));
-    check(create(List.from([0,0,0] as any,{})));
-    check(create(List.from([1, 2, 3, 4, 5, 6, 7, 8] as any,{})));
+    check(create(List.from([] as any, {})));
+    check(create(List.from([1] as any, {})));
+    check(create(List.from([0, 0, 0] as any, {})));
+    check(create(List.from([1, 2, 3, 4, 5, 6, 7, 8] as any, {})));
 }
