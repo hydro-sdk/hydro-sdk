@@ -207,7 +207,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
           ? (element) => f.dispatch(
                 [args[0], element],
                 parentState: hydroState,
-              )[0]
+              )
           : null);
       return [];
     });
