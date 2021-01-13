@@ -15,6 +15,8 @@ export function isNotEmpty_A01_t01(
 ) {
     assert(create(List.from([] as any, {})).getIsNotEmpty() == false);
     assert(create(List.from([null] as any, {})).getIsNotEmpty() == true);
-    assert(create(List.from([0, 1, 2, 3, 4] as any, {})).getIsNotEmpty() == true);
+    assert(
+        create(List.from([0, 1, 2, 3, 4] as any, {})).getIsNotEmpty() == true
+    );
     assert(create(List.from([0] as any, {})).getIsNotEmpty() == true);
 }
