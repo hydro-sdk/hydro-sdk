@@ -14,7 +14,7 @@ declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function last_A01_t01(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
-    props: { isSet: boolean },
+    props: { isSet: boolean }
 ) {
     const check = (source: IIterable<any>) => {
         if (props.isSet) {
