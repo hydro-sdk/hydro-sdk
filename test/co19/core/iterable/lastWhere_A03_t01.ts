@@ -9,7 +9,7 @@ import { IIterable } from "./../../../../runtime/dart/core/iterable";
 import { List } from "../../../../runtime/dart/core/list";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
-export function last_A03_t01(
+export function lastWhere_A03_t01(
     create: (content: IIterable<any> | undefined) => IIterable<any>
 ) {
     const check = (a: IIterable<any>, element: any) => {
