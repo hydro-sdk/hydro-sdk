@@ -34,6 +34,8 @@ import { forEach_A02_t01 } from "./forEach_A02_t01";
 import { forEach_A03_t01 } from "./forEach_A03_t01";
 import { isEmpty_A01_t01 } from "./isEmpty_A01_t01";
 import { isNotEmpty_A01_t01 } from "./isNotEmpty_A01_t01";
+import { join_A01_t01 } from "./join_A01_t01";
+import { join_A01_t02 } from "./join_A01_t02";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -74,4 +76,6 @@ export function allIterableTests(
     forEach_A03_t01(create);
     isEmpty_A01_t01(create);
     isNotEmpty_A01_t01(create);
+    join_A01_t01(create);
+    join_A01_t02(create);
 }
