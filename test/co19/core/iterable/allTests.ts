@@ -84,4 +84,5 @@ export function allIterableTests(
     last_A01_t01(create, { isSet: props.isSet });
     last_A02_t01(create);
     lastWhere_A01_t01(create);
+    last_A02_t01(create);
 }
