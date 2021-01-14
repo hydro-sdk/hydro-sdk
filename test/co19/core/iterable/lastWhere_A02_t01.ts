@@ -15,9 +15,12 @@ export function lastWhere_A02_t01(
     create: (content: IIterable<any> | undefined) => IIterable<any>
 ) {
     const check = (a: IIterable<any>, element: any) => {
-        assert(noneMatches == a.lastWhere((value: any) => value == element, {
-            orElse: () => noneMatches
-        }));
+        assert(
+            noneMatches ==
+                a.lastWhere((value: any) => value == element, {
+                    orElse: () => noneMatches,
+                })
+        );
     };
 
     const a = create(List.from([42, 0, -1, 42, -1, 6031769, 0] as any, {}));
