@@ -24,8 +24,7 @@ export function lastWhere_A04_t01(
     const c2 = new C(42);
 
     const a: IIterable<C> = create(List.from([c1, c2] as any, {}));
-    const found = a.lastWhere((value) =>
-        value.val == 42, {
+    const found = a.lastWhere((value) => value.val == 42, {
         orElse: () => undefined,
     });
 
@@ -37,5 +36,4 @@ export function lastWhere_A04_t01(
     } else {
         assert(found != undefined);
     }
-
 }

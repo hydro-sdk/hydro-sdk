@@ -39,8 +39,8 @@ import { join_A01_t02 } from "./join_A01_t02";
 import { last_A01_t01 } from "./last_A01_t01";
 import { last_A02_t01 } from "./last_A02_t01";
 import { lastWhere_A01_t01 } from "./lastWhere_A01_t01";
-import { lastWhere_A03_t01 } from "./lastWhere_A03_t01";
 import { lastWhere_A02_t01 } from "./lastWhere_A02_t01";
+import { lastWhere_A03_t01 } from "./lastWhere_A03_t01";
 import { lastWhere_A04_t01 } from "./lastWhere_A04_t01";
 
 export function allIterableTests(
