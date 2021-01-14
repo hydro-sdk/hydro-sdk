@@ -39,6 +39,7 @@ import { join_A01_t02 } from "./join_A01_t02";
 import { last_A01_t01 } from "./last_A01_t01";
 import { last_A02_t01 } from "./last_A02_t01";
 import { lastWhere_A01_t01 } from "./lastWhere_A01_t01";
+import { last_A03_t01 } from "./lastWhere_A03_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -85,4 +86,5 @@ export function allIterableTests(
     last_A02_t01(create);
     lastWhere_A01_t01(create);
     last_A02_t01(create);
+    last_A03_t01(create);
 }
