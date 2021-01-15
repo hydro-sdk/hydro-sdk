@@ -6,7 +6,7 @@
  */
 
 import { IIterable } from "./../../../../runtime/dart/core/iterable";
-import { IList, List } from "../../../../runtime/dart/core/list";
+import { List } from "../../../../runtime/dart/core/list";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 class C {

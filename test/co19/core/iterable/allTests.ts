@@ -42,6 +42,7 @@ import { lastWhere_A01_t01 } from "./lastWhere_A01_t01";
 import { lastWhere_A02_t01 } from "./lastWhere_A02_t01";
 import { lastWhere_A03_t01 } from "./lastWhere_A03_t01";
 import { lastWhere_A04_t01 } from "./lastWhere_A04_t01";
+import { length_A01_t01 } from "./length_A01_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -90,4 +91,5 @@ export function allIterableTests(
     lastWhere_A02_t01(create);
     lastWhere_A03_t01(create);
     lastWhere_A04_t01(create, { isSet: props.isSet });
+    length_A01_t01(create, { isSet: props.isSet });
 }
