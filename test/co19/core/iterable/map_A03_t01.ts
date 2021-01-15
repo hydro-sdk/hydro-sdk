@@ -22,7 +22,10 @@ export function map_A03_t01(
 
         index = Math.floor(element);
 
-        visited.setAll(index, List.from([visited.elementAt(index) + 1] as any, {}));
+        visited.setAll(
+            index,
+            List.from([visited.elementAt(index) + 1] as any, {})
+        );
         return element;
     };
 
