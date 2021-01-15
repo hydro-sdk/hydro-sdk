@@ -45,6 +45,7 @@ import { lastWhere_A04_t01 } from "./lastWhere_A04_t01";
 import { length_A01_t01 } from "./length_A01_t01";
 import { map_A01_t01 } from "./map_A01_t01";
 import { map_A01_t02 } from "./map_A01_t02";
+import { map_A02_t01 } from "./map_A02_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -96,4 +97,5 @@ export function allIterableTests(
     length_A01_t01(create, { isSet: props.isSet });
     map_A01_t01(create);
     map_A01_t02(create);
+    map_A02_t01(create);
 }
