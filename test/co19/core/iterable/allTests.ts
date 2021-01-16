@@ -52,6 +52,7 @@ import { single_A01_t01 } from "./single_A01_t01";
 import { singleWhere_A01_t01 } from "./singleWhere_A01_t01";
 import { singleWhere_A02_t01 } from "./singleWhere_A02_t01";
 import { singleWhere_A02_t02 } from "./singleWhere_A02_t02";
+import { skip_A01_t01 } from "./skip_A01_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -110,4 +111,5 @@ export function allIterableTests(
     singleWhere_A01_t01(create);
     singleWhere_A02_t01(create);
     singleWhere_A02_t02(create);
+    skip_A01_t01(create);
 }
