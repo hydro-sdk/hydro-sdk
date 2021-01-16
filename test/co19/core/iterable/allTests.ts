@@ -58,6 +58,7 @@ import { skip_A03_t01 } from "./skip_A03_t01";
 import { skipwhile_A01_t01 } from "./skipWhile_A01_t01";
 import { skipwhile_A02_t01 } from "./skipWhile_A02_t01";
 import { skipwhile_A03_t01 } from "./skipWhile_A03_t01";
+import { skipwhile_A04_t01 } from "./skipWhile_A04_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -122,4 +123,5 @@ export function allIterableTests(
     skipwhile_A01_t01(create);
     skipwhile_A02_t01(create);
     skipwhile_A03_t01(create);
+    skipwhile_A04_t01(create);
 }
