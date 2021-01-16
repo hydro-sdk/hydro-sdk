@@ -21,7 +21,7 @@ export function skipwhile_A03_t01(
                 all.add(element);
             }
             return res;
-        }
+        };
 
         const itbl = a0.skipWhile(tst);
         for (let k = 0; k < 5; k++) {
