@@ -20,20 +20,13 @@ export function skip_A01_t01(
             assert(a.elementAt(n + k++) == el);
         });
 
-        check(
-            create(List.from([1, 2, -3, 4] as any, {})), 4);
-        check(
-            create(List.from([1, 2, -3, 4] as any, {})), 0);
-        check(
-            create(List.from([11, 2, -3, 4] as any, {})), 2);
-        check(
-            create(List.from([1, 22, -3, 4] as any, {})), 4);
-        check(
-            create(List.from([1, 2, -5, -6, 100] as any, {})), 0);
-        check(
-            create(List.from([1, -1, 2, -5, -6] as any, {})), 1);
-        check(
-            create(List.from([0, 0, 1, 2, -5, -6] as any, {})), 2);
+        check(create(List.from([1, 2, -3, 4] as any, {})), 4);
+        check(create(List.from([1, 2, -3, 4] as any, {})), 0);
+        check(create(List.from([11, 2, -3, 4] as any, {})), 2);
+        check(create(List.from([1, 22, -3, 4] as any, {})), 4);
+        check(create(List.from([1, 2, -5, -6, 100] as any, {})), 0);
+        check(create(List.from([1, -1, 2, -5, -6] as any, {})), 1);
+        check(create(List.from([0, 0, 1, 2, -5, -6] as any, {})), 2);
         check(create(List.from([0, 0, 1, 2, -5, -6] as any, {})), 6);
     };
 }
