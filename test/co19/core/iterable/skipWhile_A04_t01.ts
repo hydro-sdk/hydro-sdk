@@ -19,7 +19,7 @@ export function skipwhile_A04_t01(
         let testPassed: boolean | undefined = undefined;
         const tst = (element: any): boolean => {
             assert(testPassed == undefined || testPassed);
-            return testPassed = !test0(element);
+            return (testPassed = !test0(element));
         };
 
         a0.skipWhile(tst).forEach(() => {
