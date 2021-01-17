@@ -55,6 +55,11 @@ import { singleWhere_A02_t02 } from "./singleWhere_A02_t02";
 import { skip_A01_t01 } from "./skip_A01_t01";
 import { skip_A02_t01 } from "./skip_A02_t01";
 import { skip_A03_t01 } from "./skip_A03_t01";
+import { skipwhile_A01_t01 } from "./skipWhile_A01_t01";
+import { skipwhile_A02_t01 } from "./skipWhile_A02_t01";
+import { skipwhile_A03_t01 } from "./skipWhile_A03_t01";
+import { skipwhile_A04_t01 } from "./skipWhile_A04_t01";
+import { skipwhile_A05_t01 } from "./skipWhile_A05_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -116,4 +121,9 @@ export function allIterableTests(
     skip_A01_t01(create);
     skip_A02_t01(create);
     skip_A03_t01(create);
+    skipwhile_A01_t01(create);
+    skipwhile_A02_t01(create);
+    skipwhile_A03_t01(create);
+    skipwhile_A04_t01(create);
+    skipwhile_A05_t01(create);
 }
