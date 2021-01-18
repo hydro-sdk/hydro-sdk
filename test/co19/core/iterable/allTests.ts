@@ -63,6 +63,7 @@ import { skipwhile_A05_t01 } from "./skipWhile_A05_t01";
 import { take_A01_t01 } from "./take_A01_t01";
 import { take_A02_t01 } from "./take_A02_t01";
 import { take_A03_t01 } from "./take_A03_t01";
+import { takeWhile_A01_t01 } from "./takeWhile_A01_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -132,4 +133,5 @@ export function allIterableTests(
     take_A01_t01(create);
     take_A02_t01(create);
     take_A03_t01(create);
+    takeWhile_A01_t01(create);
 }
