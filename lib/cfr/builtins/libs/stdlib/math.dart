@@ -117,7 +117,7 @@ void loadMathLib(Context ctx) {
   math["min"] = (List<dynamic> args) {
     num x = Context.getArg1<num>(args, 0, "min");
     for (int i = 1; i < args.length; i++) {
-      x = min(x, Context.getArg1<num>(args, 0, "min"));
+      x = min(x, Context.getArg1<num>(args, i, "min"));
     }
     return [x];
   };
