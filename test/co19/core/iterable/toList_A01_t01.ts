@@ -19,7 +19,7 @@ export function toList_A01_t01(
         let i = 0;
         while (it.moveNext()) {
             const o = it.getCurrent();
-            assert(actual.elementAt(i) == 0);
+            assert(actual.elementAt(i) == o);
             i++;
         }
     };
