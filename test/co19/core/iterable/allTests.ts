@@ -140,4 +140,5 @@ export function allIterableTests(
     takeWhile_A02_t01(create);
     takeWhile_A03_t01(create);
     takeWhile_A04_t01(create);
+    takeWhile_A04_t01(create);
 }
