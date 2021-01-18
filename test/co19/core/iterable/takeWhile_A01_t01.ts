@@ -19,7 +19,7 @@ export function takeWhile_A01_t01(
 
         let hasNext0 = it0.moveNext();
         let len = 0;
-        for (; ;) {
+        for (;;) {
             let hasNext = it.moveNext();
             if (!hasNext) {
                 break;
