@@ -15,8 +15,7 @@ export function take_A02_t01(
         let threw = false;
         try {
             a.take(n);
-        }
-        catch (err) {
+        } catch (err) {
             threw = true;
         }
         assert(threw == true);
