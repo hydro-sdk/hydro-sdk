@@ -67,6 +67,9 @@ import { takeWhile_A01_t01 } from "./takeWhile_A01_t01";
 import { takeWhile_A02_t01 } from "./takeWhile_A02_t01";
 import { takeWhile_A03_t01 } from "./takeWhile_A03_t01";
 import { takeWhile_A04_t01 } from "./takeWhile_A04_t01";
+import { toList_A01_t01 } from "./toList_A01_t01";
+import { toList_A01_t02 } from "./toList_A01_t02";
+import { toSet_A01_t01 } from "./toSet_A01_t01";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -140,4 +143,8 @@ export function allIterableTests(
     takeWhile_A02_t01(create);
     takeWhile_A03_t01(create);
     takeWhile_A04_t01(create);
+    takeWhile_A04_t01(create);
+    toList_A01_t01(create);
+    toList_A01_t02(create);
+    toSet_A01_t01(create);
 }
