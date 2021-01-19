@@ -72,6 +72,7 @@ import { toList_A01_t02 } from "./toList_A01_t02";
 import { toSet_A01_t01 } from "./toSet_A01_t01";
 import { where_A01_t01 } from "./where_A01_t01";
 import { where_A01_t02 } from "./where_A01_t02";
+import { where_A01_t03 } from "./where_A01_t03";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -151,4 +152,5 @@ export function allIterableTests(
     toSet_A01_t01(create);
     where_A01_t01(create);
     where_A01_t02(create);
+    where_A01_t03(create);
 }
