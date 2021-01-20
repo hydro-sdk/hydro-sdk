@@ -14,7 +14,11 @@ declare const assert: (this: void, arg: boolean, message?: string) => void;
 export function where_A02_t01(
     create: (content: IIterable<any> | undefined) => IIterable<any>
 ) {
-    const check = (source: IIterable<any>, f: (element: any) => boolean, expected: IIterable<any>) => {
+    const check = (
+        source: IIterable<any>,
+        f: (element: any) => boolean,
+        expected: IIterable<any>
+    ) => {
         const ret = create(source).where(f);
         const it = ret.getIterator();
         while (it.moveNext()) {
@@ -28,7 +32,19 @@ export function where_A02_t01(
     };
 
     const f = (e: any) => e >= 0;
-    check(List.from([-1, 0, 1, 2, 3, 4] as any, {}), f, List.from([0, 1, 2, 3, 4] as any, {}));
-    check(List.from([-1, 0, 1, -2, 3, 4] as any, {}), f, List.from([0, 1, 3, 4] as any, {}));
-    check(List.from([1, 0, -1, 2, -3, 4] as any, {}), f, List.from([1, 0, 2, 4] as any, {}));
+    check(
+        List.from([-1, 0, 1, 2, 3, 4] as any, {}),
+        f,
+        List.from([0, 1, 2, 3, 4] as any, {})
+    );
+    check(
+        List.from([-1, 0, 1, -2, 3, 4] as any, {}),
+        f,
+        List.from([0, 1, 3, 4] as any, {})
+    );
+    check(
+        List.from([1, 0, -1, 2, -3, 4] as any, {}),
+        f,
+        List.from([1, 0, 2, 4] as any, {})
+    );
 }
