@@ -5,7 +5,8 @@ import 'package:analyzer/dart/ast/ast.dart'
         InstanceCreationExpression,
         SimpleStringLiteral,
         DoubleLiteral,
-        BinaryExpression;
+        BinaryExpression,
+        IntegerLiteral;
 import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
 
@@ -13,6 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDoubleLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
@@ -95,7 +97,18 @@ abstract class SwidStaticConstFieldDeclaration
                           (x) => x is BinaryExpression,
                           orElse: () => null,
                         )))
-                      : null,
+                      : declaration.childEntities.firstWhere(
+                                  (x) => x is IntegerLiteral,
+                                  orElse: () => null) !=
+                              null
+                          ? SwidStaticConst.fromSwidIntegerLiteral(
+                              swidIntegerLiteral:
+                                  SwidIntegerLiteral.fromIntegerLiteral(
+                                      integerLiteral: declaration.childEntities
+                                          .firstWhere(
+                                              (x) => x is IntegerLiteral,
+                                              orElse: () => null)))
+                          : null,
     );
   }
 }
