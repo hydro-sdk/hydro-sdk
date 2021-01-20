@@ -74,6 +74,10 @@ SwidType rewriteClassReferencesToInterfaceReferences(
             implementedClasses: val.implementedClasses
                 .map((x) => rewriteClassReferencesToInterfaceReferencesInClass(
                     swidClass: x))
+                .toList(),
+            mixedInClasses: val.mixedInClasses
+                .map((x) =>
+                    rewriteClassReferencesToInterfaceReferencesInClass(swidClass: x))
                 .toList()),
       ),
       fromSwidDefaultFormalParameter: (_) => null,
@@ -84,6 +88,10 @@ SwidType rewriteClassReferencesToInterfaceReferences(
               swidType: val.returnType,
             ),
             normalParameterTypes: val.normalParameterTypes
+                .map((x) =>
+                    rewriteClassReferencesToInterfaceReferences(swidType: x))
+                .toList(),
+            optionalParameterTypes: val.optionalParameterTypes
                 .map((x) =>
                     rewriteClassReferencesToInterfaceReferences(swidType: x))
                 .toList(),
