@@ -185,6 +185,14 @@ class _$TsIrTearOff {
       tsFunctionSelfBindingInvocation: tsFunctionSelfBindingInvocation,
     );
   }
+
+// ignore: unused_element
+  _$FromTsResolvedImport fromTsResolvedImport(
+      {@required TsResolvedImport tsResolvedImport}) {
+    return _$FromTsResolvedImport(
+      tsResolvedImport: tsResolvedImport,
+    );
+  }
 }
 
 /// @nodoc
@@ -248,6 +256,7 @@ mixin _$TsIr {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -287,6 +296,7 @@ mixin _$TsIr {
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -334,6 +344,7 @@ mixin _$TsIr {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -367,6 +378,7 @@ mixin _$TsIr {
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   });
 }
@@ -517,6 +529,7 @@ class _$_$FromTsClassConstructorImplementation
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -537,6 +550,7 @@ class _$_$FromTsClassConstructorImplementation
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassConstructorImplementation(
         tsClassConstructorImplementation);
   }
@@ -580,6 +594,7 @@ class _$_$FromTsClassConstructorImplementation
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -636,6 +651,7 @@ class _$_$FromTsClassConstructorImplementation
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -656,6 +672,7 @@ class _$_$FromTsClassConstructorImplementation
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassConstructorImplementation(this);
   }
 
@@ -692,6 +709,7 @@ class _$_$FromTsClassConstructorImplementation
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -840,6 +858,7 @@ class _$_$FromTsFunctionDefaultNamedProps
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -860,6 +879,7 @@ class _$_$FromTsFunctionDefaultNamedProps
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionDefaultNamedProps(tsFunctionDefaultNamedProps);
   }
 
@@ -902,6 +922,7 @@ class _$_$FromTsFunctionDefaultNamedProps
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -957,6 +978,7 @@ class _$_$FromTsFunctionDefaultNamedProps
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -977,6 +999,7 @@ class _$_$FromTsFunctionDefaultNamedProps
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionDefaultNamedProps(this);
   }
 
@@ -1013,6 +1036,7 @@ class _$_$FromTsFunctionDefaultNamedProps
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1163,6 +1187,7 @@ class _$_$FromClassInstanceFieldDeclarations
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -1183,6 +1208,7 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassInstanceFieldDeclarations(
         tsClassInstanceFieldDeclarations);
   }
@@ -1226,6 +1252,7 @@ class _$_$FromClassInstanceFieldDeclarations
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1282,6 +1309,7 @@ class _$_$FromClassInstanceFieldDeclarations
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -1302,6 +1330,7 @@ class _$_$FromClassInstanceFieldDeclarations
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassInstanceFieldDeclarations(this);
   }
 
@@ -1338,6 +1367,7 @@ class _$_$FromClassInstanceFieldDeclarations
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1485,6 +1515,7 @@ class _$_$FromTsClassMethodDeclarations
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -1505,6 +1536,7 @@ class _$_$FromTsClassMethodDeclarations
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassMethodDeclarations(tsClassMethodDeclarations);
   }
 
@@ -1547,6 +1579,7 @@ class _$_$FromTsClassMethodDeclarations
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1602,6 +1635,7 @@ class _$_$FromTsClassMethodDeclarations
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -1622,6 +1656,7 @@ class _$_$FromTsClassMethodDeclarations
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassMethodDeclarations(this);
   }
 
@@ -1658,6 +1693,7 @@ class _$_$FromTsClassMethodDeclarations
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1813,6 +1849,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -1833,6 +1870,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassMethodInjectionFieldDeclarations(
         tsClassMethodInjectionFieldDeclarations);
   }
@@ -1876,6 +1914,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1932,6 +1971,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -1952,6 +1992,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassMethodInjectionFieldDeclarations(this);
   }
 
@@ -1988,6 +2029,7 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2139,6 +2181,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -2159,6 +2202,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassMethodInjectionFieldName(tsClassMethodInjectionFieldName);
   }
 
@@ -2201,6 +2245,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2257,6 +2302,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -2277,6 +2323,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassMethodInjectionFieldName(this);
   }
 
@@ -2313,6 +2360,7 @@ class _$_$FromTsClassMethodInjectionFieldName
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2454,6 +2502,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -2474,6 +2523,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassPostamble(tsClassPostamble);
   }
 
@@ -2516,6 +2566,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2571,6 +2622,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -2591,6 +2643,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassPostamble(this);
   }
 
@@ -2627,6 +2680,7 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2763,6 +2817,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -2783,6 +2838,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassPreamble(tsClassPreamble);
   }
 
@@ -2825,6 +2881,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2880,6 +2937,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -2900,6 +2958,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassPreamble(this);
   }
 
@@ -2936,6 +2995,7 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3086,6 +3146,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -3106,6 +3167,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassStaticConstFieldDeclarations(
         tsClassStaticConstFieldDeclarations);
   }
@@ -3149,6 +3211,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3205,6 +3268,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -3225,6 +3289,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassStaticConstFieldDeclarations(this);
   }
 
@@ -3261,6 +3326,7 @@ class _$_$FromTsClassStaticConstFieldDeclarations
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3414,6 +3480,7 @@ class _$_$FromTsClassStaticMethodImplementation
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -3434,6 +3501,7 @@ class _$_$FromTsClassStaticMethodImplementation
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassStaticMethodImplementation(
         tsClassStaticMethodImplementation);
   }
@@ -3477,6 +3545,7 @@ class _$_$FromTsClassStaticMethodImplementation
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3533,6 +3602,7 @@ class _$_$FromTsClassStaticMethodImplementation
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -3553,6 +3623,7 @@ class _$_$FromTsClassStaticMethodImplementation
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassStaticMethodImplementation(this);
   }
 
@@ -3589,6 +3660,7 @@ class _$_$FromTsClassStaticMethodImplementation
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3723,6 +3795,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -3743,6 +3816,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsEnum(tsEnum);
   }
 
@@ -3785,6 +3859,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -3840,6 +3915,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -3860,6 +3936,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsEnum(this);
   }
 
@@ -3896,6 +3973,7 @@ class _$_$FromTsEnum implements _$FromTsEnum {
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4029,6 +4107,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -4049,6 +4128,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsInterface(tsInterface);
   }
 
@@ -4091,6 +4171,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4146,6 +4227,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -4166,6 +4248,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsInterface(this);
   }
 
@@ -4202,6 +4285,7 @@ class _$_$FromTsInterface implements _$FromTsInterface {
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4341,6 +4425,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -4361,6 +4446,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassVmDeclaration(tsClassVmDeclaration);
   }
 
@@ -4403,6 +4489,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4458,6 +4545,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -4478,6 +4566,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsClassVmDeclaration(this);
   }
 
@@ -4514,6 +4603,7 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4667,6 +4757,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -4687,6 +4778,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocation(tsFunctionInvocation);
   }
 
@@ -4729,6 +4821,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -4784,6 +4877,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -4804,6 +4898,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocation(this);
   }
 
@@ -4840,6 +4935,7 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -5006,6 +5102,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -5026,6 +5123,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParameters(
         tsFunctionInvocationNamedParameters);
   }
@@ -5069,6 +5167,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -5125,6 +5224,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -5145,6 +5245,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParameters(this);
   }
 
@@ -5181,6 +5282,7 @@ class _$_$FromTsFunctionInvocationNamedParameters
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -5360,6 +5462,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -5380,6 +5483,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParametersKeyValue(
         tsFunctionInvocationNamedParametersKeyValue);
   }
@@ -5423,6 +5527,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -5479,6 +5584,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -5499,6 +5605,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParametersKeyValue(this);
   }
 
@@ -5535,6 +5642,7 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -5709,6 +5817,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -5729,6 +5838,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParametersSpread(
         tsFunctionInvocationNamedParametersSpread);
   }
@@ -5772,6 +5882,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -5828,6 +5939,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -5848,6 +5960,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParametersSpread(this);
   }
 
@@ -5884,6 +5997,7 @@ class _$_$TsFunctionInvocationNamedParametersSpread
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -6023,6 +6137,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -6043,6 +6158,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsLinebreak(tsLinebreak);
   }
 
@@ -6085,6 +6201,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -6140,6 +6257,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -6160,6 +6278,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsLinebreak(this);
   }
 
@@ -6196,6 +6315,7 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -6342,6 +6462,7 @@ class _$_$FromTsFunctionSelfBindingInvocation
     @required
         Result fromTsFunctionSelfBindingInvocation(
             TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -6362,6 +6483,7 @@ class _$_$FromTsFunctionSelfBindingInvocation
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionSelfBindingInvocation(tsFunctionSelfBindingInvocation);
   }
 
@@ -6404,6 +6526,7 @@ class _$_$FromTsFunctionSelfBindingInvocation
     Result fromTsLinebreak(TsLinebreak tsLinebreak),
     Result fromTsFunctionSelfBindingInvocation(
         TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -6460,6 +6583,7 @@ class _$_$FromTsFunctionSelfBindingInvocation
     @required
         Result fromTsFunctionSelfBindingInvocation(
             _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
   }) {
     assert(fromTsClassConstructorImplementation != null);
     assert(fromTsFunctionDefaultNamedProps != null);
@@ -6480,6 +6604,7 @@ class _$_$FromTsFunctionSelfBindingInvocation
     assert(fromTsFunctionInvocationNamedParametersSpread != null);
     assert(fromTsLinebreak != null);
     assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
     return fromTsFunctionSelfBindingInvocation(this);
   }
 
@@ -6516,6 +6641,7 @@ class _$_$FromTsFunctionSelfBindingInvocation
     Result fromTsLinebreak(_$FromTsLinebreak value),
     Result fromTsFunctionSelfBindingInvocation(
         _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -6536,4 +6662,320 @@ abstract class _$FromTsFunctionSelfBindingInvocation implements TsIr {
   TsFunctionSelfBindingInvocation get tsFunctionSelfBindingInvocation;
   _$$FromTsFunctionSelfBindingInvocationCopyWith<
       _$FromTsFunctionSelfBindingInvocation> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromTsResolvedImportCopyWith<$Res> {
+  factory _$$FromTsResolvedImportCopyWith(_$FromTsResolvedImport value,
+          $Res Function(_$FromTsResolvedImport) then) =
+      __$$FromTsResolvedImportCopyWithImpl<$Res>;
+  $Res call({TsResolvedImport tsResolvedImport});
+}
+
+/// @nodoc
+class __$$FromTsResolvedImportCopyWithImpl<$Res>
+    extends _$TsIrCopyWithImpl<$Res>
+    implements _$$FromTsResolvedImportCopyWith<$Res> {
+  __$$FromTsResolvedImportCopyWithImpl(_$FromTsResolvedImport _value,
+      $Res Function(_$FromTsResolvedImport) _then)
+      : super(_value, (v) => _then(v as _$FromTsResolvedImport));
+
+  @override
+  _$FromTsResolvedImport get _value => super._value as _$FromTsResolvedImport;
+
+  @override
+  $Res call({
+    Object tsResolvedImport = freezed,
+  }) {
+    return _then(_$FromTsResolvedImport(
+      tsResolvedImport: tsResolvedImport == freezed
+          ? _value.tsResolvedImport
+          : tsResolvedImport as TsResolvedImport,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromTsResolvedImport implements _$FromTsResolvedImport {
+  _$_$FromTsResolvedImport({@required this.tsResolvedImport})
+      : assert(tsResolvedImport != null);
+
+  @override
+  final TsResolvedImport tsResolvedImport;
+
+  @override
+  String toString() {
+    return 'TsIr.fromTsResolvedImport(tsResolvedImport: $tsResolvedImport)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromTsResolvedImport &&
+            (identical(other.tsResolvedImport, tsResolvedImport) ||
+                const DeepCollectionEquality()
+                    .equals(other.tsResolvedImport, tsResolvedImport)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(tsResolvedImport);
+
+  @override
+  _$$FromTsResolvedImportCopyWith<_$FromTsResolvedImport> get copyWith =>
+      __$$FromTsResolvedImportCopyWithImpl<_$FromTsResolvedImport>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            TsClassConstructorImplementation tsClassConstructorImplementation),
+    @required
+        Result fromTsFunctionDefaultNamedProps(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    @required
+        Result fromTsClassMethodDeclarations(
+            TsClassMethodDeclarations tsClassMethodDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    @required Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    @required Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation),
+    @required Result fromTsEnum(TsEnum tsEnum),
+    @required Result fromTsInterface(TsInterface tsInterface),
+    @required
+        Result fromTsClassVmDeclaration(
+            TsClassVmDeclaration tsClassVmDeclaration),
+    @required
+        Result fromTsFunctionInvocation(
+            TsFunctionInvocation tsFunctionInvocation),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread),
+    @required Result fromTsLinebreak(TsLinebreak tsLinebreak),
+    @required
+        Result fromTsFunctionSelfBindingInvocation(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    @required Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
+    assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
+    return fromTsResolvedImport(tsResolvedImport);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        TsClassConstructorImplementation tsClassConstructorImplementation),
+    Result fromTsFunctionDefaultNamedProps(
+        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
+    Result fromTsClassInstanceFieldDeclarations(
+        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
+    Result fromTsClassMethodDeclarations(
+        TsClassMethodDeclarations tsClassMethodDeclarations),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        TsClassMethodInjectionFieldDeclarations
+            tsClassMethodInjectionFieldDeclarations),
+    Result fromTsClassMethodInjectionFieldName(
+        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
+    Result fromTsClassPostamble(TsClassPostamble tsClassPostamble),
+    Result fromTsClassPreamble(TsClassPreamble tsClassPreamble),
+    Result fromTsClassStaticConstFieldDeclarations(
+        TsClassStaticConstFieldDeclarations
+            tsClassStaticConstFieldDeclarations),
+    Result fromTsClassStaticMethodImplementation(
+        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
+    Result fromTsEnum(TsEnum tsEnum),
+    Result fromTsInterface(TsInterface tsInterface),
+    Result fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
+    Result fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
+    Result fromTsFunctionInvocationNamedParameters(
+        TsFunctionInvocationNamedParameters
+            tsFunctionInvocationNamedParameters),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        TsFunctionInvocationNamedParametersKeyValue
+            tsFunctionInvocationNamedParametersKeyValue),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        TsFunctionInvocationNamedParametersSpread
+            tsFunctionInvocationNamedParametersSpread),
+    Result fromTsLinebreak(TsLinebreak tsLinebreak),
+    Result fromTsFunctionSelfBindingInvocation(
+        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
+    Result fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsResolvedImport != null) {
+      return fromTsResolvedImport(tsResolvedImport);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromTsClassConstructorImplementation(
+            _$FromTsClassConstructorImplementation value),
+    @required
+        Result fromTsFunctionDefaultNamedProps(
+            _$FromTsFunctionDefaultNamedProps value),
+    @required
+        Result fromTsClassInstanceFieldDeclarations(
+            _$FromClassInstanceFieldDeclarations value),
+    @required
+        Result fromTsClassMethodDeclarations(
+            _$FromTsClassMethodDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldDeclarations(
+            _$FromTsClassMethodInjectionFieldDeclarations value),
+    @required
+        Result fromTsClassMethodInjectionFieldName(
+            _$FromTsClassMethodInjectionFieldName value),
+    @required Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    @required Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    @required
+        Result fromTsClassStaticConstFieldDeclarations(
+            _$FromTsClassStaticConstFieldDeclarations value),
+    @required
+        Result fromTsClassStaticMethodImplementation(
+            _$FromTsClassStaticMethodImplementation value),
+    @required Result fromTsEnum(_$FromTsEnum value),
+    @required Result fromTsInterface(_$FromTsInterface value),
+    @required Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    @required Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    @required
+        Result fromTsFunctionInvocationNamedParameters(
+            _$FromTsFunctionInvocationNamedParameters value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersKeyValue(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    @required
+        Result fromTsFunctionInvocationNamedParametersSpread(
+            _$TsFunctionInvocationNamedParametersSpread value),
+    @required Result fromTsLinebreak(_$FromTsLinebreak value),
+    @required
+        Result fromTsFunctionSelfBindingInvocation(
+            _$FromTsFunctionSelfBindingInvocation value),
+    @required Result fromTsResolvedImport(_$FromTsResolvedImport value),
+  }) {
+    assert(fromTsClassConstructorImplementation != null);
+    assert(fromTsFunctionDefaultNamedProps != null);
+    assert(fromTsClassInstanceFieldDeclarations != null);
+    assert(fromTsClassMethodDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldDeclarations != null);
+    assert(fromTsClassMethodInjectionFieldName != null);
+    assert(fromTsClassPostamble != null);
+    assert(fromTsClassPreamble != null);
+    assert(fromTsClassStaticConstFieldDeclarations != null);
+    assert(fromTsClassStaticMethodImplementation != null);
+    assert(fromTsEnum != null);
+    assert(fromTsInterface != null);
+    assert(fromTsClassVmDeclaration != null);
+    assert(fromTsFunctionInvocation != null);
+    assert(fromTsFunctionInvocationNamedParameters != null);
+    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
+    assert(fromTsFunctionInvocationNamedParametersSpread != null);
+    assert(fromTsLinebreak != null);
+    assert(fromTsFunctionSelfBindingInvocation != null);
+    assert(fromTsResolvedImport != null);
+    return fromTsResolvedImport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromTsClassConstructorImplementation(
+        _$FromTsClassConstructorImplementation value),
+    Result fromTsFunctionDefaultNamedProps(
+        _$FromTsFunctionDefaultNamedProps value),
+    Result fromTsClassInstanceFieldDeclarations(
+        _$FromClassInstanceFieldDeclarations value),
+    Result fromTsClassMethodDeclarations(_$FromTsClassMethodDeclarations value),
+    Result fromTsClassMethodInjectionFieldDeclarations(
+        _$FromTsClassMethodInjectionFieldDeclarations value),
+    Result fromTsClassMethodInjectionFieldName(
+        _$FromTsClassMethodInjectionFieldName value),
+    Result fromTsClassPostamble(_$FromTsClassPostamble value),
+    Result fromTsClassPreamble(_$FromTsClassPreamble value),
+    Result fromTsClassStaticConstFieldDeclarations(
+        _$FromTsClassStaticConstFieldDeclarations value),
+    Result fromTsClassStaticMethodImplementation(
+        _$FromTsClassStaticMethodImplementation value),
+    Result fromTsEnum(_$FromTsEnum value),
+    Result fromTsInterface(_$FromTsInterface value),
+    Result fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
+    Result fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
+    Result fromTsFunctionInvocationNamedParameters(
+        _$FromTsFunctionInvocationNamedParameters value),
+    Result fromTsFunctionInvocationNamedParametersKeyValue(
+        _$FromTsFunctionInvocationNamedParametersKeyValue value),
+    Result fromTsFunctionInvocationNamedParametersSpread(
+        _$TsFunctionInvocationNamedParametersSpread value),
+    Result fromTsLinebreak(_$FromTsLinebreak value),
+    Result fromTsFunctionSelfBindingInvocation(
+        _$FromTsFunctionSelfBindingInvocation value),
+    Result fromTsResolvedImport(_$FromTsResolvedImport value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromTsResolvedImport != null) {
+      return fromTsResolvedImport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromTsResolvedImport implements TsIr {
+  factory _$FromTsResolvedImport(
+      {@required TsResolvedImport tsResolvedImport}) = _$_$FromTsResolvedImport;
+
+  TsResolvedImport get tsResolvedImport;
+  _$$FromTsResolvedImportCopyWith<_$FromTsResolvedImport> get copyWith;
 }

@@ -43,4 +43,11 @@ extension SwidTypeMethods on SwidType {
         fromSwidDefaultFormalParameter: (val) => val.name,
         fromSwidFunctionType: (val) => val.name,
       );
+
+  String get originalPackagePath => when(
+        fromSwidInterface: (val) => val.originalPackagePath,
+        fromSwidClass: (val) => val.originalPackagePath,
+        fromSwidDefaultFormalParameter: (val) => val.originalPackagePath,
+        fromSwidFunctionType: (val) => val.originalPackagePath,
+      );
 }

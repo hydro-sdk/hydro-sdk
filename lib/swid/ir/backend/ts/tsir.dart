@@ -20,6 +20,7 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionInvocationNamedParameters
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsInterface.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsLinebreak.dart';
+import 'package:hydro_sdk/swid/ir/backend/ts/tsResolvedImport.dart';
 
 part 'tsir.freezed.dart';
 
@@ -96,6 +97,8 @@ abstract class TsIr with _$TsIr {
               TsFunctionSelfBindingInvocation
                   tsFunctionSelfBindingInvocation}) =
       _$FromTsFunctionSelfBindingInvocation;
+  factory TsIr.fromTsResolvedImport(
+      {@required TsResolvedImport tsResolvedImport}) = _$FromTsResolvedImport;
 }
 
 extension TsIrMethods on TsIr {
@@ -121,5 +124,6 @@ extension TsIrMethods on TsIr {
             val.toTsSource(),
         fromTsLinebreak: (val) => val.toTsSource(),
         fromTsFunctionSelfBindingInvocation: (val) => val.toTsSource(),
+        fromTsResolvedImport: (val) => val.toTsSource(),
       );
 }
