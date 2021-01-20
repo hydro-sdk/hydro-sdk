@@ -75,6 +75,8 @@ import { where_A01_t02 } from "./where_A01_t02";
 import { where_A01_t03 } from "./where_A01_t03";
 import { where_A01_t05 } from "./where_A01_t05";
 import { where_A01_t06 } from "./where_A01_t06";
+import { where_A01_t07 } from "./where_A01_t07";
+import { where_A01_t08 } from "./where_A01_t08";
 
 export function allIterableTests(
     create: (content: IIterable<any> | undefined) => IIterable<any>,
@@ -157,4 +159,6 @@ export function allIterableTests(
     where_A01_t03(create);
     where_A01_t05(create);
     where_A01_t06(create);
+    where_A01_t07(create, { isSet: props.isSet });
+    where_A01_t08(create);
 }
