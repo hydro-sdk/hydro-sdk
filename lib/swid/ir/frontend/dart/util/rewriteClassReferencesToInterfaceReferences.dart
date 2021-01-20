@@ -91,6 +91,10 @@ SwidType rewriteClassReferencesToInterfaceReferences(
                 .map((x) =>
                     rewriteClassReferencesToInterfaceReferences(swidType: x))
                 .toList(),
+            optionalParameterTypes: val.optionalParameterTypes
+                .map((x) =>
+                    rewriteClassReferencesToInterfaceReferences(swidType: x))
+                .toList(),
             namedParameterTypes: Map.fromEntries(val.namedParameterTypes.entries
                 .map((x) => MapEntry(
                     x.key,
