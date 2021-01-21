@@ -56,22 +56,33 @@ void visitAllClassReferences({
                 onClassReference: onClassReference,
                 onEnumReference: onEnumReference,
               ));
-      val.extendedClass != null
-          ? visitAllClassReferences(
-              swidType: SwidType.fromSwidClass(swidClass: val.extendedClass),
-              onClassReference: onClassReference,
-              onEnumReference: onEnumReference)
-          : null;
-      val.implementedClasses.forEach((x) => visitAllClassReferences(
-            swidType: SwidType.fromSwidClass(swidClass: x),
+      if (val.extendedClass != null) {
+        onClassReference(
+            swidInterface:
+                SwidInterface.fromSwidClass(swidClass: val.extendedClass));
+        visitAllClassReferences(
+            swidType: SwidType.fromSwidClass(swidClass: val.extendedClass),
             onClassReference: onClassReference,
-            onEnumReference: onEnumReference,
-          ));
-      val.mixedInClasses.forEach((x) => visitAllClassReferences(
-            swidType: SwidType.fromSwidClass(swidClass: x),
-            onClassReference: onClassReference,
-            onEnumReference: onEnumReference,
-          ));
+            onEnumReference: onEnumReference);
+      }
+      val.implementedClasses.forEach((x) {
+        onClassReference(
+            swidInterface: SwidInterface.fromSwidClass(swidClass: x));
+        visitAllClassReferences(
+          swidType: SwidType.fromSwidClass(swidClass: x),
+          onClassReference: onClassReference,
+          onEnumReference: onEnumReference,
+        );
+      });
+      val.mixedInClasses.forEach((x) {
+        onClassReference(
+            swidInterface: SwidInterface.fromSwidClass(swidClass: x));
+        visitAllClassReferences(
+          swidType: SwidType.fromSwidClass(swidClass: x),
+          onClassReference: onClassReference,
+          onEnumReference: onEnumReference,
+        );
+      });
     },
     fromSwidDefaultFormalParameter: (_) => null,
     fromSwidFunctionType: (val) {
