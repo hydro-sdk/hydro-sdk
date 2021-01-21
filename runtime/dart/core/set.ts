@@ -1,4 +1,4 @@
-import { IEfficientLengthIterable } from "./../_internal/efficientLengthIterable";
+import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IIterable } from "./iterable";
 import { IIterator } from "./iterator";
 import { IList } from "./list";

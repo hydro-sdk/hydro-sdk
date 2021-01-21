@@ -1,8 +1,10 @@
-import { IList } from "./../collection/list";
+import { IList } from "../core/list";
+import { IFloat64List } from "../typed_data/float64List";
 import { IOffset } from "./offset";
-import { PathFillType } from "./pathFillType";
-import { PathOperation } from "./pathOperation";
-import { IRadius, Radius } from "./radius";
+import { IPathFillType } from "./pathFillType";
+import { IPathMetrics } from "./pathMetrics";
+import { IPathOperation } from "./pathOperation";
+import { IRadius } from "./radius";
 import { IRect } from "./rect";
 import { IRRect } from "./rRect";
 declare const dart: {
