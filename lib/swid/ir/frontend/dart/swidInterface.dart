@@ -3,6 +3,7 @@ import 'package:analyzer/src/dart/element/element.dart' show EnumElementImpl;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
@@ -45,6 +46,14 @@ abstract class SwidInterface with _$SwidInterface {
         referenceDeclarationKind:
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
       );
+
+  factory SwidInterface.fromSwidClass({@required SwidClass swidClass}) =>
+      SwidInterface(
+          name: swidClass.name,
+          nullabilitySuffix: swidClass.nullabilitySuffix,
+          originalPackagePath: swidClass.originalPackagePath,
+          typeArguments: [],
+          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement);
 
   factory SwidInterface.fromInterface(
           {@required InterfaceType interfaceType}) =>
