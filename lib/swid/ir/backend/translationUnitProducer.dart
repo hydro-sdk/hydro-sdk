@@ -35,10 +35,11 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferences.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/visitAllClassReferences.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
@@ -86,19 +87,24 @@ class TranslationUnitProducer {
                     ? ([
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
                         ...(() {
-                          List<SwidInterface> dependencies = [];
-                          visitAllClassReferences(
-                            swidType: SwidType.fromSwidClass(
-                                swidClass: SwidClass.mergeSuperClasses(
-                                    swidClass: swidClass)),
-                            onClassReference: ({swidInterface}) =>
-                                dependencies.add(swidInterface),
-                            onEnumReference: ({swidInterface}) =>
-                                dependencies.add(swidInterface),
-                          );
+                          List<SwidInterface> dependencies =
+                              collectAllReferences(
+                                  swidType: SwidType.fromSwidClass(
+                                      swidClass: swidClass));
 
                           List<Tuple2<List<String>, String>> symbolModulePairs =
                               dependencies
+                                  .where((x) =>
+                                      x.name == "double" ||
+                                      narrowSwidInterfaceByReferenceDeclaration(
+                                        swidInterface: x,
+                                        onPrimitive: (_) => false,
+                                        onClass: (_) => true,
+                                        onEnum: (_) => true,
+                                        onVoid: (_) => false,
+                                        onTypeParameter: (_) => false,
+                                        onDynamic: (_) => false,
+                                      ))
                                   .map((x) => SwidInterface.clone(
                                       swidType: x,
                                       name: removeTypeArguments(str: x.name)))
