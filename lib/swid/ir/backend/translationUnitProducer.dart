@@ -56,7 +56,8 @@ List<TsIr> _tsImportBlock({
                     onVoid: (_) => false,
                     onTypeParameter: (_) => false,
                     onDynamic: (_) => false,
-                  )),
+                  ))
+              .toList(),
           importer: SwidType.fromSwidClass(swidClass: swidClass),
           prefixPaths: prefixPaths);
 
@@ -73,7 +74,8 @@ List<TsIr> _tsImportBlock({
                     onVoid: (_) => false,
                     onTypeParameter: (_) => false,
                     onDynamic: (_) => false,
-                  )),
+                  ))
+              .toList(),
           importer: SwidType.fromSwidClass(swidClass: swidClass),
           prefixPaths: prefixPaths);
 
