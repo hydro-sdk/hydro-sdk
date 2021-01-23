@@ -3,7 +3,7 @@ import { IList } from "./list";
 import { ISet } from "./set";
 declare const dart: {
     core: {
-        iterable: <E>(this: void, iterable: Iterable<E>) => Iterable<E>;
+        iterable: <E>(this: void, iterable: IIterable<E>) => IIterable<E>;
         iterableGenerate: <E>(
             count: number,
             generator?: (index: number) => E

@@ -7,9 +7,9 @@ declare const dart: {
     core: {
         list: <E>(
             this: void,
-            list: List<E>,
+            list: IList<E>,
             length?: number | undefined
-        ) => List<E>;
+        ) => IList<E>;
         listFilled: <E>(
             length: number,
             fill: E,
