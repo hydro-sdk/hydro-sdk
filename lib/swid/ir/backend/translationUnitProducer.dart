@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
@@ -51,10 +49,6 @@ List<TsIr> _tsImportBlock({
 }) {
   List<SwidInterface> dependencies = collectAllReferences(
       swidType: SwidType.fromSwidClass(swidClass: swidClass));
-
-  if (swidClass.name == "EfficientLengthIterable") {
-    // debugger();
-  }
 
   List<Tuple2<List<String>, String>> symbolModulePairs = dependencies
       .where((x) => narrowSwidInterfaceByReferenceDeclaration(
