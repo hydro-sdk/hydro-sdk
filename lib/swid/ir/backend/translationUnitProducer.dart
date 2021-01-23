@@ -44,6 +44,74 @@ import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
 
+List<TsIr> _tsImportBlock({
+  @required SwidClass swidClass,
+  @required List<String> prefixPaths,
+}) {
+  List<SwidInterface> dependencies = collectAllReferences(
+      swidType: SwidType.fromSwidClass(swidClass: swidClass));
+
+  if (swidClass.name == "EfficientLengthIterable") {
+    // debugger();
+  }
+
+  List<Tuple2<List<String>, String>> symbolModulePairs = dependencies
+      .where((x) => narrowSwidInterfaceByReferenceDeclaration(
+            swidInterface: x,
+            onPrimitive: (_) => false,
+            onClass: (_) => true,
+            onEnum: (_) => true,
+            onVoid: (_) => false,
+            onTypeParameter: (_) => false,
+            onDynamic: (_) => false,
+          ))
+      .map((x) => SwidInterface.clone(
+          swidType: x, name: removeTypeArguments(str: x.name)))
+      .fold(
+          [],
+          (prev, element) => prev.firstWhere((x) => x.name == element.name,
+                      orElse: () => null) ==
+                  null
+              ? [...prev, element]
+              : prev)
+      .toList()
+      .cast<SwidInterface>()
+      .where((x) => !isPrimitiveMap(
+          swidType: SwidType.fromSwidInterface(swidInterface: x)))
+      .where((x) => x.name != "Object")
+      .where((x) =>
+          removeTypeArguments(str: x.name) !=
+          removeTypeArguments(str: swidClass.name))
+      .map(
+        (x) => Tuple2(
+          [rewriteReferenceName(name: removeTypeArguments(str: x.name))],
+          resolveTsImportsPaths(
+                importee: SwidType.fromSwidInterface(swidInterface: x),
+                importer: SwidType.fromSwidClass(swidClass: swidClass),
+                prefixPaths: prefixPaths,
+              ) +
+              p.separator +
+              transformToCamelCase(str: removeTypeArguments(str: x.name)),
+        ),
+      )
+      .toList()
+      .cast<Tuple2<List<String>, String>>();
+
+  var res = symbolModulePairs
+      .map((x) => [
+            TsIr.fromTsResolvedImport(
+                tsResolvedImport: TsResolvedImport(
+              path: x.item2,
+              symbols: x.item1,
+            )),
+            TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak())
+          ])
+      .toList();
+  return res.isNotEmpty
+      ? res.reduce((value, element) => [...value, ...element])
+      : [];
+}
+
 class TranslationUnitProducer {
   final List<String> tsPrefixPaths;
   final List<String> dartPrefixPaths;
@@ -86,85 +154,10 @@ class TranslationUnitProducer {
                             swidClass.factoryConstructors.isNotEmpty)
                     ? ([
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
-                        ...(() {
-                          List<SwidInterface> dependencies =
-                              collectAllReferences(
-                                  swidType: SwidType.fromSwidClass(
-                                      swidClass: swidClass));
-
-                          List<Tuple2<List<String>, String>> symbolModulePairs =
-                              dependencies
-                                  .where((x) =>
-                                      x.name == "double" ||
-                                      narrowSwidInterfaceByReferenceDeclaration(
-                                        swidInterface: x,
-                                        onPrimitive: (_) => false,
-                                        onClass: (_) => true,
-                                        onEnum: (_) => true,
-                                        onVoid: (_) => false,
-                                        onTypeParameter: (_) => false,
-                                        onDynamic: (_) => false,
-                                      ))
-                                  .map((x) => SwidInterface.clone(
-                                      swidType: x,
-                                      name: removeTypeArguments(str: x.name)))
-                                  .fold(
-                                      [],
-                                      (prev, element) => prev.firstWhere(
-                                                  (x) => x.name == element.name,
-                                                  orElse: () => null) ==
-                                              null
-                                          ? [...prev, element]
-                                          : prev)
-                                  .toList()
-                                  .cast<SwidInterface>()
-                                  .where((x) => !isPrimitiveMap(
-                                      swidType: SwidType.fromSwidInterface(
-                                          swidInterface: x)))
-                                  .where((x) => x.name != "Object")
-                                  .where((x) =>
-                                      removeTypeArguments(str: x.name) !=
-                                      removeTypeArguments(str: swidClass.name))
-                                  .map(
-                                    (x) => Tuple2(
-                                      [
-                                        rewriteReferenceName(
-                                            name: removeTypeArguments(
-                                                str: x.name))
-                                      ],
-                                      resolveTsImportsPaths(
-                                            importee:
-                                                SwidType.fromSwidInterface(
-                                                    swidInterface: x),
-                                            importer: SwidType.fromSwidClass(
-                                                swidClass: swidClass),
-                                            prefixPaths: prefixPaths,
-                                          ) +
-                                          p.separator +
-                                          transformToCamelCase(
-                                              str: removeTypeArguments(
-                                                  str: x.name)),
-                                    ),
-                                  )
-                                  .toList()
-                                  .cast<Tuple2<List<String>, String>>();
-
-                          var res = symbolModulePairs
-                              .map((x) => [
-                                    TsIr.fromTsResolvedImport(
-                                        tsResolvedImport: TsResolvedImport(
-                                      path: x.item2,
-                                      symbols: x.item1,
-                                    )),
-                                    TsIr.fromTsLinebreak(
-                                        tsLinebreak: TsLinebreak())
-                                  ])
-                              .toList();
-                          return res.isNotEmpty
-                              ? res.reduce(
-                                  (value, element) => [...value, ...element])
-                              : res;
-                        })(),
+                        ..._tsImportBlock(
+                            swidClass: SwidClass.mergeSuperClasses(
+                                swidClass: swidClass),
+                            prefixPaths: tsPrefixPaths),
                         TsIr.fromTsClassVmDeclaration(
                             tsClassVmDeclaration: TsClassVmDeclaration(
                                 swidClass: propagateUnsatisfiedTypeParameters(
@@ -248,6 +241,8 @@ class TranslationUnitProducer {
                       ]..removeWhere((x) => x == null))
                     : [
                         TsIr.fromTsLinebreak(tsLinebreak: TsLinebreak()),
+                        ..._tsImportBlock(
+                            swidClass: swidClass, prefixPaths: tsPrefixPaths),
                         TsIr.fromTsInterface(
                           tsInterface: TsInterface.fromSwidClass(
                             emitSuperInterfaceExtensions: true,
