@@ -26,41 +26,16 @@ List<SwidInterface> collectAllReferences({
                     : <SwidInterface>[]),
                 ...(val.extendedClass != null
                     ? [
-                        ...collectAllReferences(
-                            swidType: SwidType.fromSwidClass(
-                                swidClass: val.extendedClass)),
                         SwidInterface.fromSwidClass(
                             swidClass: val.extendedClass),
                       ]
                     : <SwidInterface>[]),
-                ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
-                        ? [
-                            ...elements.reduce(
-                                (value, element) => [...value, ...element]),
-                            ...val.implementedClasses
-                                .map((x) =>
-                                    SwidInterface.fromSwidClass(swidClass: x))
-                                .toList(),
-                          ]
-                        : <SwidInterface>[])(
-                    val.implementedClasses
-                        .map((x) => collectAllReferences(
-                            swidType: SwidType.fromSwidClass(swidClass: x)))
-                        .toList()),
-                ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
-                        ? [
-                            ...elements.reduce(
-                                (value, element) => [...value, ...element]),
-                            ...val.mixedInClasses
-                                .map((x) =>
-                                    SwidInterface.fromSwidClass(swidClass: x))
-                                .toList(),
-                          ]
-                        : <SwidInterface>[])(
-                    val.mixedInClasses
-                        .map((x) => collectAllReferences(
-                            swidType: SwidType.fromSwidClass(swidClass: x)))
-                        .toList()),
+                ...val.implementedClasses
+                    .map((x) => SwidInterface.fromSwidClass(swidClass: x))
+                    .toList(),
+                ...val.implementedClasses
+                    .map((x) => SwidInterface.fromSwidClass(swidClass: x))
+                    .toList(),
                 ...((List<List<SwidInterface>> elements) =>
                     elements.isNotEmpty
                         ? elements
