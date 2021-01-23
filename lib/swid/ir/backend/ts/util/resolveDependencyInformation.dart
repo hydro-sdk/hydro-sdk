@@ -3,6 +3,7 @@ import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
@@ -29,8 +30,8 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
             ))
         .map((x) => SwidInterface.clone(
             swidType: x, name: removeTypeArguments(str: x.name)))
-        .fold(
-            [],
+        .fold<List<SwidInterface>>(
+            <SwidInterface>[],
             (prev, element) => prev.firstWhere((x) => x.name == element.name,
                         orElse: () => null) ==
                     null
@@ -47,7 +48,9 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
         .map(
           (x) => Tuple2(
             [
-              rewriteReferences
+              rewriteReferences &&
+                      x.referenceDeclarationKind ==
+                          SwidReferenceDeclarationKind.classElement
                   ? rewriteReferenceName(name: removeTypeArguments(str: x.name))
                   : removeTypeArguments(str: x.name),
             ],
