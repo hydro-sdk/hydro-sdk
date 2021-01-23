@@ -73,6 +73,16 @@ abstract class SwidInterface with _$SwidInterface {
                 : null,
       );
 
+  factory SwidInterface.fromClassElement(
+          {@required ClassElement classElement}) =>
+      SwidInterface(
+        name: classElement.name,
+        nullabilitySuffix: SwidNullabilitySuffix.none,
+        originalPackagePath: mapClassLibrarySourcePath(element: classElement),
+        typeArguments: [],
+        referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+      );
+
   factory SwidInterface.fromVoidType({@required VoidType voidType}) =>
       SwidInterface(
           name: "void",

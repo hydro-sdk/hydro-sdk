@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstBinaryExpression.
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstPrefixedExpression.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowStaticConstSyntacticEntity.dart';
 
@@ -29,8 +30,8 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity
         onDoubleLiteral: (val) => SwidStaticConst.fromDoubleLiteral(
             swidDoubleLiteral:
                 SwidDoubleLiteral.fromDoubleLiteral(doubleLiteral: val)),
-        onPrefixedIdentifier: (val) => SwidStaticConst.fromSwidStaticConstFieldReference(
-            swidStaticConstFieldReference: SwidStaticConstFieldReference(name: val.name)),
+        onPrefixedIdentifier: (val) => SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
+            staticConstPrefixedIdentifier: SwidStaticConstPrefixedIdentifier.fromPrefixedIdentifier(prefixedIdentifier: val)),
         onSimpleIdentifier: (val) => SwidStaticConst.fromSwidStaticConstFieldReference(swidStaticConstFieldReference: SwidStaticConstFieldReference(name: val.name)),
         onPrefixExpression: (val) => SwidStaticConst.fromSwidStaticConstPrefixedExpression(
                 swidStaticConstPrefixedExpression: SwidStaticConstPrefixedExpression(

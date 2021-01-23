@@ -141,3 +141,20 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstBinaryExpressionToJson(
       'swidStaticConstBinaryExpression':
           instance.swidStaticConstBinaryExpression,
     };
+
+_$_$FromSwidStaticConstPrefixedIdentifier
+    _$_$_$FromSwidStaticConstPrefixedIdentifierFromJson(
+        Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstPrefixedIdentifier(
+    staticConstPrefixedIdentifier: json['staticConstPrefixedIdentifier'] == null
+        ? null
+        : SwidStaticConstPrefixedIdentifier.fromJson(
+            json['staticConstPrefixedIdentifier'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstPrefixedIdentifierToJson(
+        _$_$FromSwidStaticConstPrefixedIdentifier instance) =>
+    <String, dynamic>{
+      'staticConstPrefixedIdentifier': instance.staticConstPrefixedIdentifier,
+    };
