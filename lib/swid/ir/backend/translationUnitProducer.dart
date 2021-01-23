@@ -1,4 +1,3 @@
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
@@ -36,6 +35,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllStaticConstReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
@@ -80,12 +80,16 @@ List<TsIr> _tsImportBlock({
           prefixPaths: prefixPaths);
 
   staticConstSymbolModulePairs.forEach((x) => symbolModulePairs
+              .firstWhere((k) => k.item2 == x.item2, orElse: () => null) !=
+          null
+      ? symbolModulePairs
           .setAll(symbolModulePairs.indexWhere((k) => k.item2 == x.item2), [
-        Tuple2<List<String>, String>(
-            symbolModulePairs.firstWhere((k) => k.item2 == x.item2).item1
-              ..addAll(x.item1),
-            x.item2)
-      ]));
+          Tuple2<List<String>, String>(
+              symbolModulePairs.firstWhere((k) => k.item2 == x.item2).item1
+                ..addAll(x.item1),
+              x.item2)
+        ])
+      : symbolModulePairs.add(Tuple2<List<String>, String>(x.item1, x.item2)));
 
   var res = symbolModulePairs
       .map((x) => [
