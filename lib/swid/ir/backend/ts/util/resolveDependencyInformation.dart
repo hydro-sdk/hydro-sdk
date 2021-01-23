@@ -6,7 +6,6 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
@@ -19,15 +18,6 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
   bool rewriteReferences = true,
 }) =>
     dependencies
-        .where((x) => narrowSwidInterfaceByReferenceDeclaration(
-              swidInterface: x,
-              onPrimitive: (_) => false,
-              onClass: (_) => true,
-              onEnum: (_) => true,
-              onVoid: (_) => false,
-              onTypeParameter: (_) => false,
-              onDynamic: (_) => false,
-            ))
         .map((x) => SwidInterface.clone(
             swidType: x, name: removeTypeArguments(str: x.name)))
         .fold<List<SwidInterface>>(

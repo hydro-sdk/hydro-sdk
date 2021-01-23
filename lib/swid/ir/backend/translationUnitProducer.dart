@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
@@ -46,7 +47,16 @@ List<TsIr> _tsImportBlock({
   List<Tuple2<List<String>, String>> symbolModulePairs =
       resolveDependencyInformation(
           dependencies: collectAllReferences(
-              swidType: SwidType.fromSwidClass(swidClass: swidClass)),
+                  swidType: SwidType.fromSwidClass(swidClass: swidClass))
+              .where((x) => narrowSwidInterfaceByReferenceDeclaration(
+                    swidInterface: x,
+                    onPrimitive: (_) => false,
+                    onClass: (_) => true,
+                    onEnum: (_) => true,
+                    onVoid: (_) => false,
+                    onTypeParameter: (_) => false,
+                    onDynamic: (_) => false,
+                  )),
           importer: SwidType.fromSwidClass(swidClass: swidClass),
           prefixPaths: prefixPaths);
 
@@ -54,7 +64,16 @@ List<TsIr> _tsImportBlock({
       resolveDependencyInformation(
           rewriteReferences: false,
           dependencies: collectAllStaticConstReferences(
-              swidType: SwidType.fromSwidClass(swidClass: swidClass)),
+                  swidType: SwidType.fromSwidClass(swidClass: swidClass))
+              .where((x) => narrowSwidInterfaceByReferenceDeclaration(
+                    swidInterface: x,
+                    onPrimitive: (val) => val.name == "double",
+                    onClass: (_) => true,
+                    onEnum: (_) => true,
+                    onVoid: (_) => false,
+                    onTypeParameter: (_) => false,
+                    onDynamic: (_) => false,
+                  )),
           importer: SwidType.fromSwidClass(swidClass: swidClass),
           prefixPaths: prefixPaths);
 
