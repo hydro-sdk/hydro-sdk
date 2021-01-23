@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/visitAllClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
 
 void main() {
@@ -47,15 +47,10 @@ void main() {
       typeFormals: [],
     );
 
-    List<SwidInterface> dependencies = [];
-    visitAllClassReferences(
-      swidType: SwidType.fromSwidFunctionType(swidFunctionType: getProperties),
-      onClassReference: ({swidInterface}) => dependencies.add(swidInterface),
-      onEnumReference: ({swidInterface}) => dependencies.add(swidInterface),
-    );
-
     expect(
-        dependencies
+        collectAllReferences(
+                swidType: SwidType.fromSwidFunctionType(
+                    swidFunctionType: getProperties))
             .map((x) => resolveTsImportsPaths(
                 importee: SwidType.fromSwidInterface(swidInterface: x),
                 importer: SwidType.fromSwidFunctionType(
