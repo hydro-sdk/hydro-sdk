@@ -40,6 +40,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
@@ -203,12 +204,17 @@ class TranslationUnitProducer {
                         TsIr.fromTsClassInstanceFieldDeclarations(
                             tsClassInstanceFieldDeclarations:
                                 TsClassInstanceFieldDeclarations(
-                                    swidClass: SwidClass.mergeSuperClasses(
-                                        swidClass: swidClass))),
+                                    swidClass:
+                                        rewriteClassReferencesToInterfaceReferencesInClass(
+                                            swidClass:
+                                                SwidClass.mergeSuperClasses(
+                                                    swidClass: swidClass)))),
                         TsIr.fromTsClassConstructorImplementation(
                             tsClassConstructorImplementation:
                                 TsClassConstructorImplementation(
-                                    swidClass: swidClass)),
+                                    swidClass:
+                                        rewriteClassReferencesToInterfaceReferencesInClass(
+                                            swidClass: swidClass))),
                         ...((SwidClass propagatedClass) => ([
                                   ...[
                                     ...propagatedClass.factoryConstructors,
