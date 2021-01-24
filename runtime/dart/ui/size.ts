@@ -1,3 +1,4 @@
+import { double } from "../core/double";
 import { IOffset } from "./offset";
 import { IOffsetBase } from "./offsetBase";
 declare const dart: {
