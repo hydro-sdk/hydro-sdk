@@ -1,8 +1,8 @@
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
-import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsVmDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
