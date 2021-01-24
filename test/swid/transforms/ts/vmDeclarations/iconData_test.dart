@@ -18,7 +18,7 @@ void main() {
     expect(TsClassVmDeclaration(swidClass: iconDataClass).toTsSource(), """
 declare const flutter: {
 widgets: {
-iconData: (this: void, iconData: IconData, codePoint: number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IconData
+iconData: (this: void, iconData: IIconData, codePoint: number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IconData
 }
 };
 """);
