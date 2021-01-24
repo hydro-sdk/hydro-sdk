@@ -12,7 +12,21 @@ List<SwidInterface> collectReferencesFromStaticConst(
         fromSwidStringLiteral: (_) => [],
         fromSwidIntegerLiteral: (_) => [],
         fromDoubleLiteral: (_) => [],
-        fromSwidStaticConstFunctionInvocation: (_) => [],
+        fromSwidStaticConstFunctionInvocation: (val) => [
+          ...((List<List<SwidInterface>> elements) =>
+              elements.isNotEmpty
+                  ? elements.reduce((value, element) => [...value, ...element])
+                  : <SwidInterface>[])(val.normalParameters
+              .map((x) => collectReferencesFromStaticConst(swidStaticConst: x))
+              .toList()),
+          ...((List<List<SwidInterface>> elements) =>
+              elements.isNotEmpty
+                  ? elements.reduce((value, element) => [...value, ...element])
+                  : <SwidInterface>[])(val.namedParameters.entries
+              .map((x) =>
+                  collectReferencesFromStaticConst(swidStaticConst: x.value))
+              .toList()),
+        ],
         fromSwidStaticConstFieldReference: (_) => [],
         fromSwidStaticConstPrefixedExpression: (val) =>
             collectReferencesFromStaticConst(swidStaticConst: val.expression),
