@@ -53,6 +53,14 @@ class _$DartIrTearOff {
   }
 
 // ignore: unused_element
+  _$FromDartImportStatement fromDartImportStatement(
+      {@required DartImportStatement dartImportStatement}) {
+    return _$FromDartImportStatement(
+      dartImportStatement: dartImportStatement,
+    );
+  }
+
+// ignore: unused_element
   _$FromDartFunctionSelfBindingInvocation fromDartFunctionSelfBindingInvocation(
       {@required
           DartFunctionSelfBindingInvocation
@@ -176,6 +184,8 @@ mixin _$DartIr {
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -220,6 +230,7 @@ mixin _$DartIr {
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -255,6 +266,7 @@ mixin _$DartIr {
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -292,6 +304,7 @@ mixin _$DartIr {
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -410,6 +423,8 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -449,6 +464,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -474,6 +490,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -517,6 +534,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -551,6 +569,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -574,6 +593,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -698,6 +718,8 @@ class _$_$FromDartBindInstanceFieldDirect
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -737,6 +759,7 @@ class _$_$FromDartBindInstanceFieldDirect
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -762,6 +785,7 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -805,6 +829,7 @@ class _$_$FromDartBindInstanceFieldDirect
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -839,6 +864,7 @@ class _$_$FromDartBindInstanceFieldDirect
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -862,6 +888,7 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -981,6 +1008,8 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -1020,6 +1049,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -1045,6 +1075,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -1088,6 +1119,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -1122,6 +1154,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -1145,6 +1178,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -1258,6 +1292,8 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -1297,6 +1333,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -1322,6 +1359,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -1365,6 +1403,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -1399,6 +1438,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -1422,6 +1462,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -1540,6 +1581,8 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -1579,6 +1622,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -1604,6 +1648,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -1647,6 +1692,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -1681,6 +1727,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -1704,6 +1751,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -1739,6 +1787,294 @@ abstract class _$FromDartBoxObjectReference implements DartIr {
   DartBoxObjectReference get dartBoxObjectReference;
   _$$FromDartBoxObjectReferenceCopyWith<_$FromDartBoxObjectReference>
       get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromDartImportStatementCopyWith<$Res> {
+  factory _$$FromDartImportStatementCopyWith(_$FromDartImportStatement value,
+          $Res Function(_$FromDartImportStatement) then) =
+      __$$FromDartImportStatementCopyWithImpl<$Res>;
+  $Res call({DartImportStatement dartImportStatement});
+}
+
+/// @nodoc
+class __$$FromDartImportStatementCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartImportStatementCopyWith<$Res> {
+  __$$FromDartImportStatementCopyWithImpl(_$FromDartImportStatement _value,
+      $Res Function(_$FromDartImportStatement) _then)
+      : super(_value, (v) => _then(v as _$FromDartImportStatement));
+
+  @override
+  _$FromDartImportStatement get _value =>
+      super._value as _$FromDartImportStatement;
+
+  @override
+  $Res call({
+    Object dartImportStatement = freezed,
+  }) {
+    return _then(_$FromDartImportStatement(
+      dartImportStatement: dartImportStatement == freezed
+          ? _value.dartImportStatement
+          : dartImportStatement as DartImportStatement,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartImportStatement implements _$FromDartImportStatement {
+  _$_$FromDartImportStatement({@required this.dartImportStatement})
+      : assert(dartImportStatement != null);
+
+  @override
+  final DartImportStatement dartImportStatement;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartImportStatement(dartImportStatement: $dartImportStatement)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartImportStatement &&
+            (identical(other.dartImportStatement, dartImportStatement) ||
+                const DeepCollectionEquality()
+                    .equals(other.dartImportStatement, dartImportStatement)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(dartImportStatement);
+
+  @override
+  _$$FromDartImportStatementCopyWith<_$FromDartImportStatement> get copyWith =>
+      __$$FromDartImportStatementCopyWithImpl<_$FromDartImportStatement>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            StaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration),
+    @required
+        Result fromVMManagedClassDeclaration(
+            VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromDartImportStatement(dartImportStatement);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        StaticMethodNamespaceSymbolDeclaration
+            staticMethodNamespaceSymbolDeclaration),
+    Result fromVMManagedClassDeclaration(
+        VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartImportStatement != null) {
+      return fromDartImportStatement(dartImportStatement);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            $FromDartVMManagedClassBoxerRegistrant value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            _$FromStaticMethodNamespaceSymbolDeclaration value),
+    @required
+        Result fromVMManagedClassDeclaration(
+            _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
+  }) {
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromDartImportStatement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        $FromDartVMManagedClassBoxerRegistrant value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        _$FromStaticMethodNamespaceSymbolDeclaration value),
+    Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartImportStatement != null) {
+      return fromDartImportStatement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartImportStatement implements DartIr {
+  factory _$FromDartImportStatement(
+          {@required DartImportStatement dartImportStatement}) =
+      _$_$FromDartImportStatement;
+
+  DartImportStatement get dartImportStatement;
+  _$$FromDartImportStatementCopyWith<_$FromDartImportStatement> get copyWith;
 }
 
 /// @nodoc
@@ -1833,6 +2169,8 @@ class _$_$FromDartFunctionSelfBindingInvocation
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -1872,6 +2210,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -1898,6 +2237,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -1942,6 +2282,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -1976,6 +2317,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -1999,6 +2341,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -2115,6 +2458,8 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -2154,6 +2499,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -2179,6 +2525,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -2222,6 +2569,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -2256,6 +2604,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -2279,6 +2628,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -2397,6 +2747,8 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -2436,6 +2788,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -2461,6 +2814,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -2504,6 +2858,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -2538,6 +2893,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -2561,6 +2917,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -2679,6 +3036,8 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -2718,6 +3077,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -2743,6 +3103,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -2786,6 +3147,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -2820,6 +3182,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -2843,6 +3206,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -2971,6 +3335,8 @@ class _$$FromDartVMManagedClassBoxerRegistrant
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -3010,6 +3376,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -3036,6 +3403,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -3080,6 +3448,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -3114,6 +3483,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -3137,6 +3507,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -3264,6 +3635,8 @@ class _$_$FromLoadNamespaceSymbolDeclaration
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -3303,6 +3676,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -3328,6 +3702,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -3371,6 +3746,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -3405,6 +3781,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -3428,6 +3805,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -3554,6 +3932,8 @@ class _$_$FromMethodInjectionImplementation
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -3593,6 +3973,7 @@ class _$_$FromMethodInjectionImplementation
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -3618,6 +3999,7 @@ class _$_$FromMethodInjectionImplementation
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -3661,6 +4043,7 @@ class _$_$FromMethodInjectionImplementation
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -3695,6 +4078,7 @@ class _$_$FromMethodInjectionImplementation
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -3718,6 +4102,7 @@ class _$_$FromMethodInjectionImplementation
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -3842,6 +4227,8 @@ class _$_$FromRTManagedClassDeclaration
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -3881,6 +4268,7 @@ class _$_$FromRTManagedClassDeclaration
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -3906,6 +4294,7 @@ class _$_$FromRTManagedClassDeclaration
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -3949,6 +4338,7 @@ class _$_$FromRTManagedClassDeclaration
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -3983,6 +4373,7 @@ class _$_$FromRTManagedClassDeclaration
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -4006,6 +4397,7 @@ class _$_$FromRTManagedClassDeclaration
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -4139,6 +4531,8 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -4178,6 +4572,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -4204,6 +4599,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -4248,6 +4644,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -4282,6 +4679,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -4305,6 +4703,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -4431,6 +4830,8 @@ class _$_$FromVMManagedClassDeclaration
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -4470,6 +4871,7 @@ class _$_$FromVMManagedClassDeclaration
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -4495,6 +4897,7 @@ class _$_$FromVMManagedClassDeclaration
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -4538,6 +4941,7 @@ class _$_$FromVMManagedClassDeclaration
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -4572,6 +4976,7 @@ class _$_$FromVMManagedClassDeclaration
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -4595,6 +5000,7 @@ class _$_$FromVMManagedClassDeclaration
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
@@ -4734,6 +5140,8 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
         Result fromDartBoxObjectReference(
             DartBoxObjectReference dartBoxObjectReference),
     @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
         Result fromDartFunctionSelfBindingInvocation(
             DartFunctionSelfBindingInvocation
                 dartFunctionSelfBindingInvocation),
@@ -4773,6 +5181,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -4799,6 +5208,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromDartBoxList(DartBoxList dartBoxList),
     Result fromDartBoxObjectReference(
         DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
     Result fromDartFunctionSelfBindingInvocation(
         DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
     Result fromDartLinebreak(DartLinebreak dartLinebreak),
@@ -4843,6 +5253,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     @required Result fromDartBoxList(_$FromDartBoxList value),
     @required
         Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
     @required
         Result fromDartFunctionSelfBindingInvocation(
             _$FromDartFunctionSelfBindingInvocation value),
@@ -4877,6 +5288,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     assert(fromDartBoxEnumReference != null);
     assert(fromDartBoxList != null);
     assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
     assert(fromDartFunctionSelfBindingInvocation != null);
     assert(fromDartLinebreak != null);
     assert(fromDartUnboxingExpression != null);
@@ -4900,6 +5312,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
     Result fromDartBoxList(_$FromDartBoxList value),
     Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
     Result fromDartFunctionSelfBindingInvocation(
         _$FromDartFunctionSelfBindingInvocation value),
     Result fromDartLinebreak(_$FromDartLinebreak value),
