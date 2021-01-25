@@ -19,11 +19,5 @@ Future<void> writeTranslationUnit(
           p.separator +
           translationUnit.fileName;
 
-  String content = "";
-
-  if (await File(filePath).exists()) {
-    content = await File(filePath).readAsString();
-  }
-
   await File(filePath).writeAsString(translationUnit.toSource());
 }
