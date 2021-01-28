@@ -81,7 +81,7 @@ void main() {
     ]);
 
     expect(res.path, "dart");
-    expect(res.members[0].originalPackagePath, "dart/core");
+    expect(res.members[0].originalPackagePath, "core");
     expect(
         res.members[0]
             .maybeWhen(
@@ -119,7 +119,7 @@ void main() {
             .name,
         "List");
 
-    expect(res.members[1].originalPackagePath, "dart/ui");
+    expect(res.members[1].originalPackagePath, "ui");
     expect(
         res.members[1]
             .maybeWhen(

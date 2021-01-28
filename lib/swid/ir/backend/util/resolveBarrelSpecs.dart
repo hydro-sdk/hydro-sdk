@@ -49,7 +49,18 @@ BarrelSpec resolveBarrelSpecs({@required List<BarrelMember> members}) {
               ])),
   ).reduce((value, element) =>
       BarrelSpec(path: value.path.split(path.separator).first, members: [
-        BarrelMember.fromBarrelSpec(barrelSpec: value),
-        BarrelMember.fromBarrelSpec(barrelSpec: element),
+        BarrelMember.fromBarrelSpec(
+          barrelSpec: BarrelSpec.clone(
+            barrelSpec: value,
+            path: value.path.split(path.separator).skip(1).join(path.separator),
+          ),
+        ),
+        BarrelMember.fromBarrelSpec(
+          barrelSpec: BarrelSpec.clone(
+            barrelSpec: element,
+            path:
+                element.path.split(path.separator).skip(1).join(path.separator),
+          ),
+        ),
       ]));
 }
