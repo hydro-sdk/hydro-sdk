@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 
 void main() {

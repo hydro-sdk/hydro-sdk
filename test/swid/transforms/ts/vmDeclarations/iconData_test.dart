@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsClassVmDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 
 void main() {
@@ -18,7 +18,7 @@ void main() {
     expect(TsClassVmDeclaration(swidClass: iconDataClass).toTsSource(), """
 declare const flutter: {
 widgets: {
-iconData: (this: void, iconData: IconData, codePoint: number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IconData
+iconData: (this: void, iconData: IIconData, codePoint: number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IIconData
 }
 };
 """);

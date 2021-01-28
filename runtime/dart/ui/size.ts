@@ -1,9 +1,9 @@
-import { double } from "./../core/double";
+import { double } from "../core/double";
 import { IOffset } from "./offset";
 import { IOffsetBase } from "./offsetBase";
 declare const dart: {
     ui: {
-        size: (this: void, size: Size, width: number, height: number) => Size;
+        size: (this: void, size: ISize, width: number, height: number) => ISize;
         sizeCopy: (source: ISize) => ISize;
         sizeSquare: (dimension: number) => ISize;
         sizeFromWidth: (width: number) => ISize;

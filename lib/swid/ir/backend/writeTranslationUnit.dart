@@ -19,24 +19,5 @@ Future<void> writeTranslationUnit(
           p.separator +
           translationUnit.fileName;
 
-  String content = "";
-
-  if (await File(filePath).exists()) {
-    content = await File(filePath).readAsString();
-  }
-
-  await File(filePath).writeAsString(content
-          .split("\n")
-          .where((x) =>
-              x.isNotEmpty &&
-              x.length >= 5 &&
-              x[0] == "i" &&
-              x[1] == "m" &&
-              x[2] == "p" &&
-              x[3] == "o" &&
-              x[4] == "r" &&
-              x[5] == "t")
-          .toList()
-          .join("\n") +
-      translationUnit.toSource());
+  await File(filePath).writeAsString(translationUnit.toSource());
 }

@@ -9,6 +9,9 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByRefere
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 
+String rewriteReferenceName({@required String name}) =>
+    name != "Object" ? "I${name}" : name;
+
 SwidType rewriteClassReferencesToInterfaceReferences(
         {@required SwidType swidType}) =>
     swidType.when(
@@ -26,7 +29,7 @@ SwidType rewriteClassReferencesToInterfaceReferences(
                 onPrimitive: (val) => val,
                 onClass: (val) => SwidInterface.clone(
                     swidType: val,
-                    name: val.name != "Object" ? "I${val.name}" : val.name,
+                    name: rewriteReferenceName(name: val.name),
                     typeArguments: val.typeArguments
                         .map((x) => rewriteClassReferencesToInterfaceReferences(
                             swidType: x))

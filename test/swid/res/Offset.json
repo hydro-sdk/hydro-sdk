@@ -1286,16 +1286,34 @@
                     "value": "Offset",
                     "normalParameters": [
                         {
-                            "swidStaticConstFieldReference": {
-                                "name": "double.infinity"
+                            "staticConstPrefixedIdentifier": {
+                                "prefix": {
+                                    "name": "double",
+                                    "nullabilitySuffix": "none",
+                                    "originalPackagePath": "dart:core",
+                                    "typeArguments": [],
+                                    "referenceDeclarationKind": "classElement"
+                                },
+                                "staticConstFieldReference": {
+                                    "name": "infinity"
+                                }
                             },
-                            "runtimeType": "fromSwidStaticConstFieldReference"
+                            "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
                         },
                         {
-                            "swidStaticConstFieldReference": {
-                                "name": "double.infinity"
+                            "staticConstPrefixedIdentifier": {
+                                "prefix": {
+                                    "name": "double",
+                                    "nullabilitySuffix": "none",
+                                    "originalPackagePath": "dart:core",
+                                    "typeArguments": [],
+                                    "referenceDeclarationKind": "classElement"
+                                },
+                                "staticConstFieldReference": {
+                                    "name": "infinity"
+                                }
                             },
-                            "runtimeType": "fromSwidStaticConstFieldReference"
+                            "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
                         }
                     ],
                     "namedParameters": {},

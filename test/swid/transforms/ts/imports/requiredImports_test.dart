@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/ts/tsResolvedImport.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/visitAllClassReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllReferences.dart';
+import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
 
 void main() {
   testWidgets('', (WidgetTester tester) async {
@@ -47,24 +47,16 @@ void main() {
       typeFormals: [],
     );
 
-    List<SwidInterface> dependencies = [];
-    visitAllClassReferences(
-      swidType: SwidType.fromSwidFunctionType(swidFunctionType: getProperties),
-      onClassReference: ({swidInterface}) => dependencies.add(swidInterface),
-      onEnumReference: ({swidInterface}) => dependencies.add(swidInterface),
-    );
-
     expect(
-        dependencies
-            .map((x) => TsResolvedImport(
+        collectAllReferences(
+                swidType: SwidType.fromSwidFunctionType(
+                    swidFunctionType: getProperties))
+            .map((x) => resolveTsImportsPaths(
                 importee: SwidType.fromSwidInterface(swidInterface: x),
                 importer: SwidType.fromSwidFunctionType(
                     swidFunctionType: getProperties),
-                prefixPaths: ["runtime"]).toTsSource())
+                prefixPaths: ["runtime"]))
             .join("\n"),
-        [
-          "import { List } from \"../../dart/core/list\"",
-          "import { DiagnosticsNode } from \"./diagnosticsNode\""
-        ].join("\n"));
+        ["../../dart/core", "."].join("\n"));
   }, tags: "swid");
 }

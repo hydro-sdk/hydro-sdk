@@ -1,5 +1,5 @@
-import { IEfficientLengthIterable } from "./../_internal/efficientLengthIterable";
-import { Random } from "./../math/random";
+import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
+import { IRandom } from "../math/random";
 import { IIterable } from "./iterable";
 import { IIterator } from "./iterator";
 import { ISet } from "./set";
@@ -7,9 +7,9 @@ declare const dart: {
     core: {
         list: <E>(
             this: void,
-            list: List<E>,
+            list: IList<E>,
             length?: number | undefined
-        ) => List<E>;
+        ) => IList<E>;
         listFilled: <E>(
             length: number,
             fill: E,
@@ -70,7 +70,7 @@ export interface IList<E> {
     addAll: (iterable: IIterable<E>) => void;
     getReversed: () => IIterable<E>;
     sort: (compare?: (a: E, b: E) => number) => void;
-    shuffle: (random?: Random | undefined) => void;
+    shuffle: (random?: IRandom | undefined) => void;
     indexOf: (element: E, start: number) => number;
     indexWhere: (test: (element: E) => boolean, start: number) => number;
     lastIndexWhere: (
@@ -232,7 +232,7 @@ export class List<E> implements IEfficientLengthIterable<E> {
         compare?: (a: E, b: E) => number
     ) => void = undefined as any;
     private readonly _dart_shuffle: (
-        random?: Random | undefined
+        random?: IRandom | undefined
     ) => void = undefined as any;
     private readonly _dart_indexOf: (
         element: E,
@@ -404,7 +404,7 @@ export class List<E> implements IEfficientLengthIterable<E> {
     public sort(compare?: (a: E, b: E) => number): void {
         return this._dart_sort(compare);
     }
-    public shuffle(random?: Random | undefined): void {
+    public shuffle(random?: IRandom | undefined): void {
         return this._dart_shuffle(random);
     }
     public indexOf(element: E, start: number = 0): number {

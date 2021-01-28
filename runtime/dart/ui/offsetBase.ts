@@ -2,10 +2,10 @@ declare const dart: {
     ui: {
         offsetBase: (
             this: void,
-            offsetBase: OffsetBase,
+            offsetBase: IOffsetBase,
             _dx: number,
             _dy: number
-        ) => OffsetBase;
+        ) => IOffsetBase;
     };
 };
 export interface IOffsetBase {

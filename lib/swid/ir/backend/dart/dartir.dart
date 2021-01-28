@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartImportStatement.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
@@ -36,6 +37,9 @@ abstract class DartIr with _$DartIr {
   factory DartIr.fromDartBoxObjectReference(
           {@required DartBoxObjectReference dartBoxObjectReference}) =
       _$FromDartBoxObjectReference;
+  factory DartIr.fromDartImportStatement(
+          {@required DartImportStatement dartImportStatement}) =
+      _$FromDartImportStatement;
   factory DartIr.fromDartFunctionSelfBindingInvocation(
           {@required
               DartFunctionSelfBindingInvocation
@@ -87,6 +91,7 @@ extension DartIrMethods on DartIr {
         fromDartBoxEnumReference: (val) => val.toDartSource(),
         fromDartBoxList: (val) => val.toDartSource(),
         fromDartBoxObjectReference: (val) => val.toDartSource(),
+        fromDartImportStatement: (val) => val.toDartSource(),
         fromDartFunctionSelfBindingInvocation: (val) => val.toDartSource(),
         fromDartLinebreak: (val) => val.toDartSource(),
         fromDartUnboxingExpression: (val) => val.toDartSource(),

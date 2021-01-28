@@ -2,7 +2,12 @@ import { double } from "../core/double";
 import { IOffsetBase } from "./offsetBase";
 declare const dart: {
     ui: {
-        offset: (this: void, offset: Offset, dx: number, dy: number) => Offset;
+        offset: (
+            this: void,
+            offset: IOffset,
+            dx: number,
+            dy: number
+        ) => IOffset;
         offsetFromDirection: (direction: number, distance: number) => IOffset;
         offsetLerp: (
             a: IOffset | undefined,

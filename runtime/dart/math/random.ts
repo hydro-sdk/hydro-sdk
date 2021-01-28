@@ -2,9 +2,9 @@ declare const dart: {
     math: {
         random: (
             this: void,
-            random: Random,
+            random: IRandom,
             seed?: number | undefined
-        ) => Random;
+        ) => IRandom;
         randomSecure: () => IRandom;
     };
 };
