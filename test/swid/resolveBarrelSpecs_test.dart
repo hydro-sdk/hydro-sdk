@@ -77,11 +77,45 @@ void main() {
               mixedInClasses: [],
               extendedClass: null,
               isMixin: false,
+              typeFormals: [])),
+      BarrelMember.fromSwidClass(
+          swidClass: SwidClass(
+              name: "EfficientLengthIterable",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:_internal",
+              constructorType: null,
+              factoryConstructors: [],
+              staticMethods: [],
+              methods: [],
+              implementedClasses: [],
+              staticConstFieldDeclarations: [],
+              instanceFieldDeclarations: {},
+              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              mixedInClasses: [],
+              extendedClass: null,
+              isMixin: false,
+              typeFormals: [])),
+      BarrelMember.fromSwidClass(
+          swidClass: SwidClass(
+              name: "Random",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:math",
+              constructorType: null,
+              factoryConstructors: [],
+              staticMethods: [],
+              methods: [],
+              implementedClasses: [],
+              staticConstFieldDeclarations: [],
+              instanceFieldDeclarations: {},
+              swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+              mixedInClasses: [],
+              extendedClass: null,
+              isMixin: false,
               typeFormals: []))
     ]);
 
     expect(res.path, "dart");
-    expect(res.members[0].originalPackagePath, "core");
+    expect(res.members[0].originalPackagePath, "dart/core");
     expect(
         res.members[0]
             .maybeWhen(
@@ -119,7 +153,7 @@ void main() {
             .name,
         "List");
 
-    expect(res.members[1].originalPackagePath, "ui");
+    expect(res.members[1].originalPackagePath, "dart/ui");
     expect(
         res.members[1]
             .maybeWhen(
@@ -143,6 +177,44 @@ void main() {
             )
             .name,
         "Offset");
+    expect(
+        res.members[1]
+            .maybeWhen(
+              fromBarrelSpec: (val) => val,
+              orElse: () => null,
+            )
+            .members[1]
+            .maybeWhen(
+              fromSwidClass: (val) => val,
+              orElse: () => null,
+            )
+            .name,
+        "RRect");
+
+    expect(res.members[2].originalPackagePath, "dart/_internal");
+    expect(
+        res.members[2]
+            .maybeWhen(
+              fromBarrelSpec: (val) => val,
+              orElse: () => null,
+            )
+            .members[0]
+            .originalPackagePath,
+        "dart:_internal");
+
+    expect(
+        res.members[2]
+            .maybeWhen(
+              fromBarrelSpec: (val) => val,
+              orElse: () => null,
+            )
+            .members[0]
+            .maybeWhen(
+              fromSwidClass: (val) => val,
+              orElse: () => null,
+            )
+            .name,
+        "EfficientLengthIterable");
     expect(
         res.members[1]
             .maybeWhen(
