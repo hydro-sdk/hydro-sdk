@@ -34,6 +34,16 @@ List<BarrelSpec> _groupMembers({@required List<BarrelMember> members}) =>
               BarrelSpec(
                 path: transformPackageUri(
                     packageUri: element.originalPackagePath),
+                name:
+                    transformPackageUri(packageUri: element.originalPackagePath)
+                            .split(path.separator)
+                            .isNotEmpty
+                        ? transformPackageUri(
+                                packageUri: element.originalPackagePath)
+                            .split(path.separator)
+                            .last
+                        : transformPackageUri(
+                            packageUri: element.originalPackagePath),
                 members: [element],
               )
             ]
@@ -49,6 +59,16 @@ List<BarrelSpec> _groupMembers({@required List<BarrelMember> members}) =>
                   BarrelSpec(
                       path: transformPackageUri(
                           packageUri: element.originalPackagePath),
+                      name: transformPackageUri(
+                                  packageUri: element.originalPackagePath)
+                              .split(path.separator)
+                              .isNotEmpty
+                          ? transformPackageUri(
+                                  packageUri: element.originalPackagePath)
+                              .split(path.separator)
+                              .last
+                          : transformPackageUri(
+                              packageUri: element.originalPackagePath),
                       members: [
                         ...previousValue
                             .firstWhere(
@@ -68,6 +88,9 @@ BarrelSpec resolveBarrelSpecs({@required List<BarrelMember> members}) {
       BarrelSpec.clone(
           barrelSpec: value,
           path: transformPackageUri(packageUri: value.path)
+              .split(path.separator)
+              .first,
+          name: transformPackageUri(packageUri: value.path)
               .split(path.separator)
               .first,
           members: [

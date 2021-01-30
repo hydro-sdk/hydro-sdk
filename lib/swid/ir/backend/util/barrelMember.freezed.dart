@@ -360,6 +360,8 @@ abstract class _$$FromBarrelSpecCopyWith<$Res> {
           _$FromBarrelSpec value, $Res Function(_$FromBarrelSpec) then) =
       __$$FromBarrelSpecCopyWithImpl<$Res>;
   $Res call({BarrelSpec barrelSpec});
+
+  $BarrelSpecCopyWith<$Res> get barrelSpec;
 }
 
 /// @nodoc
@@ -381,6 +383,16 @@ class __$$FromBarrelSpecCopyWithImpl<$Res>
       barrelSpec:
           barrelSpec == freezed ? _value.barrelSpec : barrelSpec as BarrelSpec,
     ));
+  }
+
+  @override
+  $BarrelSpecCopyWith<$Res> get barrelSpec {
+    if (_value.barrelSpec == null) {
+      return null;
+    }
+    return $BarrelSpecCopyWith<$Res>(_value.barrelSpec, (value) {
+      return _then(_value.copyWith(barrelSpec: value));
+    });
   }
 }
 

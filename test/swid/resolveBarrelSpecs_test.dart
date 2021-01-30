@@ -115,6 +115,7 @@ void main() {
     ]);
 
     expect(res.path, "dart");
+    expect(res.name, "dart");
     expect(res.members[0].originalPackagePath, "dart/core");
     expect(
         res.members[0]
@@ -153,7 +154,16 @@ void main() {
             .name,
         "List");
 
-    expect(res.members[1].originalPackagePath, "dart/ui");
+    expect(
+        res.members[1]
+            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)
+            .path,
+        "dart/ui");
+    expect(
+        res.members[1]
+            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)
+            .name,
+        "ui");
     expect(
         res.members[1]
             .maybeWhen(
@@ -191,7 +201,16 @@ void main() {
             .name,
         "RRect");
 
-    expect(res.members[2].originalPackagePath, "dart/_internal");
+    expect(
+        res.members[2]
+            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)
+            .path,
+        "dart/_internal");
+    expect(
+        res.members[2]
+            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)
+            .name,
+        "_internal");
     expect(
         res.members[2]
             .maybeWhen(
