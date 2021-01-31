@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelSpec.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
 List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
@@ -32,29 +33,41 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
                     path: "package:hydro_sdk/hydroState.dart")),
             DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
             ...barrelSpec.members
-                .map((x) => [
-                      DartIr.fromDartImportStatement(
-                          dartImportStatement: DartImportStatement(
-                              path: [
-                        "package:",
-                        packageName,
-                        p.separator,
-                        prefixPaths.first == "lib"
-                            ? prefixPaths.skip(1).join(p.separator)
-                            : prefixPaths.join(p.separator),
-                        p.separator,
-                        x.originalPackagePath,
-                        p.separator,
-                        transformToCamelCase(
-                          str: x.when(
-                            fromSwidClass: (val) => val.name,
-                            fromSwidEnum: (val) => val.identifier,
-                            fromBarrelSpec: (val) => val.name,
+                .map((x) => x.when(
+                        fromSwidClass: (val) =>
+                            requiresDartClassTranslationUnit(swidClass: val),
+                        fromSwidEnum: (_) => false,
+                        fromBarrelSpec: (val) => val.members.every((e) =>
+                            e.when(
+                                fromSwidClass: (val) =>
+                                    requiresDartClassTranslationUnit(
+                                        swidClass: val),
+                                fromSwidEnum: (_) => true,
+                                fromBarrelSpec: (_) => true)))
+                    ? [
+                        DartIr.fromDartImportStatement(
+                            dartImportStatement: DartImportStatement(
+                                path: [
+                          "package:",
+                          packageName,
+                          p.separator,
+                          prefixPaths.first == "lib"
+                              ? prefixPaths.skip(1).join(p.separator)
+                              : prefixPaths.join(p.separator),
+                          p.separator,
+                          x.originalPackagePath,
+                          p.separator,
+                          transformToCamelCase(
+                            str: x.when(
+                              fromSwidClass: (val) => val.name,
+                              fromSwidEnum: (val) => val.identifier,
+                              fromBarrelSpec: (val) => val.name,
+                            ),
                           ),
-                        ),
-                        ".dart",
-                      ].join()))
-                    ])
+                          ".dart",
+                        ].join()))
+                      ]
+                    : [])
                 .reduce((value, element) => [...value, ...element])
           ]),
       // ...((List<List<DartTranslationUnit>> translationUnits) => translationUnits

@@ -9,7 +9,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.da
 import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/removeNonEmitCandidates.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/requiresDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllReferences.dart';
@@ -23,9 +23,7 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
     (({
       @required SwidClass swidClass,
     }) =>
-        swidClass.originalPackagePath != "dart:_internal" &&
-                (requiresDartBinding(swidClass: swidClass) ||
-                    swidClass.isConstructible())
+        requiresDartClassTranslationUnit(swidClass: swidClass)
             ? DartTranslationUnit(
                 path: prefixPaths.join(p.separator) + p.separator + path,
                 fileName: "$baseFileName.dart",
