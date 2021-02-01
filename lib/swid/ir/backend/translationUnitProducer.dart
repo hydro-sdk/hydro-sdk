@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 
-import 'package:hydro_sdk/swid/ir/backend/dart/produceDartTranslationUnitFromDartClass.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/produceDartTranslationUnitFromSwidClass.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/produceTsTranslationUnitFromSwidClass.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsEnum.dart';

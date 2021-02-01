@@ -15,9 +15,12 @@ class _$BarrelSpecTearOff {
 
 // ignore: unused_element
   _$BarrelSpecCtor call(
-      {@required String path, @required List<BarrelMember> members}) {
+      {@required String path,
+      @required String name,
+      @required List<BarrelMember> members}) {
     return _$BarrelSpecCtor(
       path: path,
+      name: name,
       members: members,
     );
   }
@@ -30,6 +33,7 @@ const $BarrelSpec = _$BarrelSpecTearOff();
 /// @nodoc
 mixin _$BarrelSpec {
   String get path;
+  String get name;
   List<BarrelMember> get members;
 
   $BarrelSpecCopyWith<BarrelSpec> get copyWith;
@@ -40,7 +44,7 @@ abstract class $BarrelSpecCopyWith<$Res> {
   factory $BarrelSpecCopyWith(
           BarrelSpec value, $Res Function(BarrelSpec) then) =
       _$BarrelSpecCopyWithImpl<$Res>;
-  $Res call({String path, List<BarrelMember> members});
+  $Res call({String path, String name, List<BarrelMember> members});
 }
 
 /// @nodoc
@@ -54,10 +58,12 @@ class _$BarrelSpecCopyWithImpl<$Res> implements $BarrelSpecCopyWith<$Res> {
   @override
   $Res call({
     Object path = freezed,
+    Object name = freezed,
     Object members = freezed,
   }) {
     return _then(_value.copyWith(
       path: path == freezed ? _value.path : path as String,
+      name: name == freezed ? _value.name : name as String,
       members:
           members == freezed ? _value.members : members as List<BarrelMember>,
     ));
@@ -71,7 +77,7 @@ abstract class _$$BarrelSpecCtorCopyWith<$Res>
           _$BarrelSpecCtor value, $Res Function(_$BarrelSpecCtor) then) =
       __$$BarrelSpecCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String path, List<BarrelMember> members});
+  $Res call({String path, String name, List<BarrelMember> members});
 }
 
 /// @nodoc
@@ -88,10 +94,12 @@ class __$$BarrelSpecCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object path = freezed,
+    Object name = freezed,
     Object members = freezed,
   }) {
     return _then(_$BarrelSpecCtor(
       path: path == freezed ? _value.path : path as String,
+      name: name == freezed ? _value.name : name as String,
       members:
           members == freezed ? _value.members : members as List<BarrelMember>,
     ));
@@ -100,18 +108,22 @@ class __$$BarrelSpecCtorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
-  _$_$BarrelSpecCtor({@required this.path, @required this.members})
+  _$_$BarrelSpecCtor(
+      {@required this.path, @required this.name, @required this.members})
       : assert(path != null),
+        assert(name != null),
         assert(members != null);
 
   @override
   final String path;
   @override
+  final String name;
+  @override
   final List<BarrelMember> members;
 
   @override
   String toString() {
-    return 'BarrelSpec(path: $path, members: $members)';
+    return 'BarrelSpec(path: $path, name: $name, members: $members)';
   }
 
   @override
@@ -120,6 +132,8 @@ class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
         (other is _$BarrelSpecCtor &&
             (identical(other.path, path) ||
                 const DeepCollectionEquality().equals(other.path, path)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.members, members) ||
                 const DeepCollectionEquality().equals(other.members, members)));
   }
@@ -128,6 +142,7 @@ class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(path) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(members);
 
   @override
@@ -138,10 +153,13 @@ class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
 abstract class _$BarrelSpecCtor implements BarrelSpec {
   factory _$BarrelSpecCtor(
       {@required String path,
+      @required String name,
       @required List<BarrelMember> members}) = _$_$BarrelSpecCtor;
 
   @override
   String get path;
+  @override
+  String get name;
   @override
   List<BarrelMember> get members;
   @override

@@ -22,5 +22,5 @@ void loadDartLib({@required HydroState hydroState, @required Context ctx}) {
   loadAsync(table: dart, hydroState: hydroState);
   loadConvert(table: dart, hydroState: hydroState);
   loadCollection(hydroState: hydroState, table: dart);
-  loadMath(luaState: hydroState, table: dart);
+  loadMath(hydroState: hydroState, table: dart);
 }
