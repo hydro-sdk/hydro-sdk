@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
 
@@ -24,4 +25,8 @@ abstract class BarrelSpec with _$BarrelSpec {
         name: name ?? barrelSpec.name,
         members: members ?? List.from(barrelSpec.members ?? []),
       );
+}
+
+extension BarrelSpecMethods on BarrelSpec {
+  bool isTopLevel() => path.split(p.separator).length == 1;
 }

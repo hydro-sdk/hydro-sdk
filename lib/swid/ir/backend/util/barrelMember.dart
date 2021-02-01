@@ -23,4 +23,10 @@ extension BarrelMemberMethods on BarrelMember {
         fromSwidEnum: (val) => val.originalPackagePath,
         fromBarrelSpec: (val) => val.path,
       );
+
+  String get name => when(
+        fromSwidClass: (val) => val.name,
+        fromSwidEnum: (val) => val.identifier,
+        fromBarrelSpec: (val) => val.name,
+      );
 }
