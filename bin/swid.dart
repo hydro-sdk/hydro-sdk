@@ -1,4 +1,7 @@
+import 'package:hydro_sdk/swid/ir/backend/dart/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnitProducer.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/ir/backend/writeTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/swid.dart';
@@ -23,46 +26,58 @@ void main(List<String> args) async {
         (x) => writeTranslationUnit(translationUnit: x));
   }
   print(visitor.classes.length);
-  for (var i = 0; i != visitor.classes.length; ++i) {
-    if (visitor.classes[i].name == "Icons" ||
-        visitor.classes[i].name == "CupertinoIcons" ||
-        visitor.classes[i].name == "IconData" ||
-        visitor.classes[i].name == "TextTreeConfiguration" ||
-        visitor.classes[i].name == "DiagnosticsNode" ||
-        visitor.classes[i].name == "DiagnosticsSerializationDelegate" ||
-        visitor.classes[i].name == "DiagnosticPropertiesBuilder" ||
-        visitor.classes[i].name == "Diagnosticable" ||
-        visitor.classes[i].name == "DiagnosticableTree" ||
-        visitor.classes[i].name == "Key" ||
-        visitor.classes[i].name == "Size" ||
-        visitor.classes[i].name == "Offset" ||
-        visitor.classes[i].name == "OffsetBase" ||
-        visitor.classes[i].name == "Rect" ||
-        visitor.classes[i].name == "AccessibilityFeatures" ||
-        visitor.classes[i].name == "CallbackHandle" ||
-        visitor.classes[i].name == "RRect" ||
-        visitor.classes[i].name == "Path" ||
-        visitor.classes[i].name == "PathMetric" ||
-        visitor.classes[i].name == "Tangent" ||
-        visitor.classes[i].name == "Iterable" ||
-        visitor.classes[i].name == "Iterator" ||
-        visitor.classes[i].name == "EfficientLengthIterable" ||
-        visitor.classes[i].name == "Set" ||
-        visitor.classes[i].name == "List" ||
-        visitor.classes[i].name == "Random") {
-      await Future.forEach(
-          TranslationUnitProducer(
-            prefixPaths: ["runtime"],
-            path: transformPackageUri(
-              packageUri: visitor.classes[i].originalPackagePath,
-            ),
-            baseFileName:
-                "${transformToCamelCase(str: visitor.classes[i].name)}",
-            tsPrefixPaths: ["runtime"],
-            dartPrefixPaths: ["lib", "cfr", "builtins", "libs"],
-          ).produceFromSwidClass(
-              swidClass: fixupNullability(swidClass: visitor.classes[i])),
-          (x) => writeTranslationUnit(translationUnit: x));
-    }
+  var classes = visitor.classes
+      .where((x) =>
+          x.name == "Icons" ||
+          x.name == "CupertinoIcons" ||
+          x.name == "IconData" ||
+          x.name == "TextTreeConfiguration" ||
+          x.name == "DiagnosticsNode" ||
+          x.name == "DiagnosticsSerializationDelegate" ||
+          x.name == "DiagnosticPropertiesBuilder" ||
+          x.name == "Diagnosticable" ||
+          x.name == "DiagnosticableTree" ||
+          x.name == "Key" ||
+          x.name == "Size" ||
+          x.name == "Offset" ||
+          x.name == "OffsetBase" ||
+          x.name == "Rect" ||
+          x.name == "AccessibilityFeatures" ||
+          x.name == "CallbackHandle" ||
+          x.name == "RRect" ||
+          x.name == "Path" ||
+          x.name == "PathMetric" ||
+          x.name == "Tangent" ||
+          x.name == "Iterable" ||
+          x.name == "Iterator" ||
+          x.name == "EfficientLengthIterable" ||
+          x.name == "Set" ||
+          x.name == "List" ||
+          x.name == "Random")
+      .toList();
+  for (var i = 0; i != classes.length; ++i) {
+    await Future.forEach(
+        TranslationUnitProducer(
+          prefixPaths: ["runtime"],
+          path: transformPackageUri(
+            packageUri: classes[i].originalPackagePath,
+          ),
+          baseFileName: "${transformToCamelCase(str: classes[i].name)}",
+          tsPrefixPaths: ["runtime"],
+          dartPrefixPaths: ["lib", "cfr", "builtins", "libs"],
+        ).produceFromSwidClass(
+            swidClass: fixupNullability(swidClass: classes[i])),
+        (x) => writeTranslationUnit(translationUnit: x));
   }
+
+  await Future.forEach(
+      produceDartTranslationUnitsFromBarrelSpec(
+        packageName: "hydro_sdk",
+        prefixPaths: ["lib", "cfr", "builtins", "libs"],
+        barrelSpec: resolveBarrelSpecs(
+            members: classes
+                .map((x) => BarrelMember.fromSwidClass(swidClass: x))
+                .toList()),
+      ),
+      (x) => writeTranslationUnit(translationUnit: x));
 }
