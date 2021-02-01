@@ -14,6 +14,18 @@ class _$DartIrTearOff {
   const _$DartIrTearOff();
 
 // ignore: unused_element
+  _$FromDartBarrelLoadNamespaceSymbolDeclaration
+      fromDartBarrelLoadNamespaceSymbolDeclaration(
+          {@required
+              DartBarrelLoadNamespaceSymbolDeclaration
+                  dartBarrelLoadNamespaceSymbolDeclaration}) {
+    return _$FromDartBarrelLoadNamespaceSymbolDeclaration(
+      dartBarrelLoadNamespaceSymbolDeclaration:
+          dartBarrelLoadNamespaceSymbolDeclaration,
+    );
+  }
+
+// ignore: unused_element
   _$FromDartBindInstanceField fromDartBindInstanceField(
       {@required DartBindInstanceField dartBindInstanceField}) {
     return _$FromDartBindInstanceField(
@@ -171,6 +183,10 @@ mixin _$DartIr {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -222,6 +238,9 @@ mixin _$DartIr {
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -257,6 +276,9 @@ mixin _$DartIr {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
@@ -298,6 +320,8 @@ mixin _$DartIr {
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -339,6 +363,330 @@ class _$DartIrCopyWithImpl<$Res> implements $DartIrCopyWith<$Res> {
   final DartIr _value;
   // ignore: unused_field
   final $Res Function(DartIr) _then;
+}
+
+/// @nodoc
+abstract class _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res> {
+  factory _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith(
+          _$FromDartBarrelLoadNamespaceSymbolDeclaration value,
+          $Res Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration) then) =
+      __$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>;
+  $Res call(
+      {DartBarrelLoadNamespaceSymbolDeclaration
+          dartBarrelLoadNamespaceSymbolDeclaration});
+}
+
+/// @nodoc
+class __$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
+    extends _$DartIrCopyWithImpl<$Res>
+    implements _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res> {
+  __$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl(
+      _$FromDartBarrelLoadNamespaceSymbolDeclaration _value,
+      $Res Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration) _then)
+      : super(_value,
+            (v) => _then(v as _$FromDartBarrelLoadNamespaceSymbolDeclaration));
+
+  @override
+  _$FromDartBarrelLoadNamespaceSymbolDeclaration get _value =>
+      super._value as _$FromDartBarrelLoadNamespaceSymbolDeclaration;
+
+  @override
+  $Res call({
+    Object dartBarrelLoadNamespaceSymbolDeclaration = freezed,
+  }) {
+    return _then(_$FromDartBarrelLoadNamespaceSymbolDeclaration(
+      dartBarrelLoadNamespaceSymbolDeclaration:
+          dartBarrelLoadNamespaceSymbolDeclaration == freezed
+              ? _value.dartBarrelLoadNamespaceSymbolDeclaration
+              : dartBarrelLoadNamespaceSymbolDeclaration
+                  as DartBarrelLoadNamespaceSymbolDeclaration,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
+    implements _$FromDartBarrelLoadNamespaceSymbolDeclaration {
+  _$_$FromDartBarrelLoadNamespaceSymbolDeclaration(
+      {@required this.dartBarrelLoadNamespaceSymbolDeclaration})
+      : assert(dartBarrelLoadNamespaceSymbolDeclaration != null);
+
+  @override
+  final DartBarrelLoadNamespaceSymbolDeclaration
+      dartBarrelLoadNamespaceSymbolDeclaration;
+
+  @override
+  String toString() {
+    return 'DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(dartBarrelLoadNamespaceSymbolDeclaration: $dartBarrelLoadNamespaceSymbolDeclaration)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromDartBarrelLoadNamespaceSymbolDeclaration &&
+            (identical(other.dartBarrelLoadNamespaceSymbolDeclaration,
+                    dartBarrelLoadNamespaceSymbolDeclaration) ||
+                const DeepCollectionEquality().equals(
+                    other.dartBarrelLoadNamespaceSymbolDeclaration,
+                    dartBarrelLoadNamespaceSymbolDeclaration)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality()
+          .hash(dartBarrelLoadNamespaceSymbolDeclaration);
+
+  @override
+  _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith<
+          _$FromDartBarrelLoadNamespaceSymbolDeclaration>
+      get copyWith =>
+          __$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<
+              _$FromDartBarrelLoadNamespaceSymbolDeclaration>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
+        Result fromDartBindInstanceField(
+            DartBindInstanceField dartBindInstanceField),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    @required
+        Result fromDartBoxEnumReference(
+            DartBoxEnumReference dartBoxEnumReference),
+    @required Result fromDartBoxList(DartBoxList dartBoxList),
+    @required
+        Result fromDartBoxObjectReference(
+            DartBoxObjectReference dartBoxObjectReference),
+    @required
+        Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation),
+    @required Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    @required
+        Result fromDartUnboxingExpression(
+            DartUnboxingExpression dartUnboxingExpression),
+    @required
+        Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    @required
+        Result fromMethodInjectionImplementation(
+            MethodInjectionImplementation methodInjectionImplementation),
+    @required
+        Result fromRTManagedClassDeclaration(
+            RTManagedClassDeclaration rtManagedClassDeclaration),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            StaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration),
+    @required
+        Result fromVMManagedClassDeclaration(
+            VMManagedClassDeclaration vmManagedClassDeclaration),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            VMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation),
+  }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromDartBarrelLoadNamespaceSymbolDeclaration(
+        dartBarrelLoadNamespaceSymbolDeclaration);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
+    Result fromDartBindInstanceField(
+        DartBindInstanceField dartBindInstanceField),
+    Result fromDartBindInstanceFieldDirect(
+        DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
+    Result fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference),
+    Result fromDartBoxList(DartBoxList dartBoxList),
+    Result fromDartBoxObjectReference(
+        DartBoxObjectReference dartBoxObjectReference),
+    Result fromDartImportStatement(DartImportStatement dartImportStatement),
+    Result fromDartFunctionSelfBindingInvocation(
+        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation),
+    Result fromDartLinebreak(DartLinebreak dartLinebreak),
+    Result fromDartUnboxingExpression(
+        DartUnboxingExpression dartUnboxingExpression),
+    Result fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+    Result fromMethodInjectionImplementation(
+        MethodInjectionImplementation methodInjectionImplementation),
+    Result fromRTManagedClassDeclaration(
+        RTManagedClassDeclaration rtManagedClassDeclaration),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        StaticMethodNamespaceSymbolDeclaration
+            staticMethodNamespaceSymbolDeclaration),
+    Result fromVMManagedClassDeclaration(
+        VMManagedClassDeclaration vmManagedClassDeclaration),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        VMManagedClassMethodInjectionImplementation
+            vmManagedClassMethodInjectionImplementation),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBarrelLoadNamespaceSymbolDeclaration != null) {
+      return fromDartBarrelLoadNamespaceSymbolDeclaration(
+          dartBarrelLoadNamespaceSymbolDeclaration);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    @required
+        Result fromDartBindInstanceFieldDirect(
+            _$FromDartBindInstanceFieldDirect value),
+    @required Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    @required Result fromDartBoxList(_$FromDartBoxList value),
+    @required
+        Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    @required Result fromDartImportStatement(_$FromDartImportStatement value),
+    @required
+        Result fromDartFunctionSelfBindingInvocation(
+            _$FromDartFunctionSelfBindingInvocation value),
+    @required Result fromDartLinebreak(_$FromDartLinebreak value),
+    @required
+        Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    @required Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
+    @required
+        Result fromDartVMManagedClassBoxerRegistrant(
+            $FromDartVMManagedClassBoxerRegistrant value),
+    @required
+        Result fromLoadNamepsaceSymbolDeclaration(
+            _$FromLoadNamespaceSymbolDeclaration value),
+    @required
+        Result fromMethodInjectionImplementation(
+            _$FromMethodInjectionImplementation value),
+    @required
+        Result fromRTManagedClassDeclaration(
+            _$FromRTManagedClassDeclaration value),
+    @required
+        Result fromStaticMethodNamespaceSymbolDeclaration(
+            _$FromStaticMethodNamespaceSymbolDeclaration value),
+    @required
+        Result fromVMManagedClassDeclaration(
+            _$FromVMManagedClassDeclaration value),
+    @required
+        Result fromVMManagedClassMethodInjectionImplementation(
+            _$FromVMManagedClassMethodInjectionImplementation value),
+  }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
+    assert(fromDartBindInstanceField != null);
+    assert(fromDartBindInstanceFieldDirect != null);
+    assert(fromDartBoxEnumReference != null);
+    assert(fromDartBoxList != null);
+    assert(fromDartBoxObjectReference != null);
+    assert(fromDartImportStatement != null);
+    assert(fromDartFunctionSelfBindingInvocation != null);
+    assert(fromDartLinebreak != null);
+    assert(fromDartUnboxingExpression != null);
+    assert(fromDartUnpackClosures != null);
+    assert(fromDartVMManagedClassBoxerRegistrant != null);
+    assert(fromLoadNamepsaceSymbolDeclaration != null);
+    assert(fromMethodInjectionImplementation != null);
+    assert(fromRTManagedClassDeclaration != null);
+    assert(fromStaticMethodNamespaceSymbolDeclaration != null);
+    assert(fromVMManagedClassDeclaration != null);
+    assert(fromVMManagedClassMethodInjectionImplementation != null);
+    return fromDartBarrelLoadNamespaceSymbolDeclaration(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
+    Result fromDartBindInstanceFieldDirect(
+        _$FromDartBindInstanceFieldDirect value),
+    Result fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
+    Result fromDartBoxList(_$FromDartBoxList value),
+    Result fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
+    Result fromDartImportStatement(_$FromDartImportStatement value),
+    Result fromDartFunctionSelfBindingInvocation(
+        _$FromDartFunctionSelfBindingInvocation value),
+    Result fromDartLinebreak(_$FromDartLinebreak value),
+    Result fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
+    Result fromDartUnpackClosures(_$FromDartUnpackClosures value),
+    Result fromDartVMManagedClassBoxerRegistrant(
+        $FromDartVMManagedClassBoxerRegistrant value),
+    Result fromLoadNamepsaceSymbolDeclaration(
+        _$FromLoadNamespaceSymbolDeclaration value),
+    Result fromMethodInjectionImplementation(
+        _$FromMethodInjectionImplementation value),
+    Result fromRTManagedClassDeclaration(_$FromRTManagedClassDeclaration value),
+    Result fromStaticMethodNamespaceSymbolDeclaration(
+        _$FromStaticMethodNamespaceSymbolDeclaration value),
+    Result fromVMManagedClassDeclaration(_$FromVMManagedClassDeclaration value),
+    Result fromVMManagedClassMethodInjectionImplementation(
+        _$FromVMManagedClassMethodInjectionImplementation value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromDartBarrelLoadNamespaceSymbolDeclaration != null) {
+      return fromDartBarrelLoadNamespaceSymbolDeclaration(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$FromDartBarrelLoadNamespaceSymbolDeclaration
+    implements DartIr {
+  factory _$FromDartBarrelLoadNamespaceSymbolDeclaration(
+          {@required
+              DartBarrelLoadNamespaceSymbolDeclaration
+                  dartBarrelLoadNamespaceSymbolDeclaration}) =
+      _$_$FromDartBarrelLoadNamespaceSymbolDeclaration;
+
+  DartBarrelLoadNamespaceSymbolDeclaration
+      get dartBarrelLoadNamespaceSymbolDeclaration;
+  _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith<
+      _$FromDartBarrelLoadNamespaceSymbolDeclaration> get copyWith;
 }
 
 /// @nodoc
@@ -410,6 +758,10 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -459,6 +811,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -482,6 +835,9 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -526,6 +882,9 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -564,6 +923,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -587,6 +947,8 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -705,6 +1067,10 @@ class _$_$FromDartBindInstanceFieldDirect
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -754,6 +1120,7 @@ class _$_$FromDartBindInstanceFieldDirect
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -777,6 +1144,9 @@ class _$_$FromDartBindInstanceFieldDirect
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -821,6 +1191,9 @@ class _$_$FromDartBindInstanceFieldDirect
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -859,6 +1232,7 @@ class _$_$FromDartBindInstanceFieldDirect
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -882,6 +1256,8 @@ class _$_$FromDartBindInstanceFieldDirect
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -995,6 +1371,10 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -1044,6 +1424,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -1067,6 +1448,9 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -1111,6 +1495,9 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -1149,6 +1536,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -1172,6 +1560,8 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -1279,6 +1669,10 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -1328,6 +1722,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -1351,6 +1746,9 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -1395,6 +1793,9 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -1433,6 +1834,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -1456,6 +1858,8 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -1568,6 +1972,10 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -1617,6 +2025,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -1640,6 +2049,9 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -1684,6 +2096,9 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -1722,6 +2137,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -1745,6 +2161,8 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -1857,6 +2275,10 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -1906,6 +2328,7 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -1929,6 +2352,9 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -1973,6 +2399,9 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -2011,6 +2440,7 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -2034,6 +2464,8 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -2156,6 +2588,10 @@ class _$_$FromDartFunctionSelfBindingInvocation
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -2205,6 +2641,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -2229,6 +2666,9 @@ class _$_$FromDartFunctionSelfBindingInvocation
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -2274,6 +2714,9 @@ class _$_$FromDartFunctionSelfBindingInvocation
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -2312,6 +2755,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -2335,6 +2779,8 @@ class _$_$FromDartFunctionSelfBindingInvocation
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -2445,6 +2891,10 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -2494,6 +2944,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -2517,6 +2968,9 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -2561,6 +3015,9 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -2599,6 +3056,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -2622,6 +3080,8 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -2734,6 +3194,10 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -2783,6 +3247,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -2806,6 +3271,9 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -2850,6 +3318,9 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -2888,6 +3359,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -2911,6 +3383,8 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -3023,6 +3497,10 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -3072,6 +3550,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -3095,6 +3574,9 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -3139,6 +3621,9 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -3177,6 +3662,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -3200,6 +3686,8 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -3322,6 +3810,10 @@ class _$$FromDartVMManagedClassBoxerRegistrant
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -3371,6 +3863,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -3395,6 +3888,9 @@ class _$$FromDartVMManagedClassBoxerRegistrant
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -3440,6 +3936,9 @@ class _$$FromDartVMManagedClassBoxerRegistrant
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -3478,6 +3977,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -3501,6 +4001,8 @@ class _$$FromDartVMManagedClassBoxerRegistrant
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -3622,6 +4124,10 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -3671,6 +4177,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -3694,6 +4201,9 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -3738,6 +4248,9 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -3776,6 +4289,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -3799,6 +4313,8 @@ class _$_$FromLoadNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -3919,6 +4435,10 @@ class _$_$FromMethodInjectionImplementation
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -3968,6 +4488,7 @@ class _$_$FromMethodInjectionImplementation
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -3991,6 +4512,9 @@ class _$_$FromMethodInjectionImplementation
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -4035,6 +4559,9 @@ class _$_$FromMethodInjectionImplementation
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -4073,6 +4600,7 @@ class _$_$FromMethodInjectionImplementation
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -4096,6 +4624,8 @@ class _$_$FromMethodInjectionImplementation
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -4214,6 +4744,10 @@ class _$_$FromRTManagedClassDeclaration
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -4263,6 +4797,7 @@ class _$_$FromRTManagedClassDeclaration
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -4286,6 +4821,9 @@ class _$_$FromRTManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -4330,6 +4868,9 @@ class _$_$FromRTManagedClassDeclaration
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -4368,6 +4909,7 @@ class _$_$FromRTManagedClassDeclaration
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -4391,6 +4933,8 @@ class _$_$FromRTManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -4518,6 +5062,10 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -4567,6 +5115,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -4591,6 +5140,9 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -4636,6 +5188,9 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -4674,6 +5229,7 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -4697,6 +5253,8 @@ class _$_$FromStaticMethodNamespaceSymbolDeclaration
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -4817,6 +5375,10 @@ class _$_$FromVMManagedClassDeclaration
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -4866,6 +5428,7 @@ class _$_$FromVMManagedClassDeclaration
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -4889,6 +5452,9 @@ class _$_$FromVMManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -4933,6 +5499,9 @@ class _$_$FromVMManagedClassDeclaration
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -4971,6 +5540,7 @@ class _$_$FromVMManagedClassDeclaration
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -4994,6 +5564,8 @@ class _$_$FromVMManagedClassDeclaration
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),
@@ -5127,6 +5699,10 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration),
+    @required
         Result fromDartBindInstanceField(
             DartBindInstanceField dartBindInstanceField),
     @required
@@ -5176,6 +5752,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
             VMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -5200,6 +5777,9 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        DartBarrelLoadNamespaceSymbolDeclaration
+            dartBarrelLoadNamespaceSymbolDeclaration),
     Result fromDartBindInstanceField(
         DartBindInstanceField dartBindInstanceField),
     Result fromDartBindInstanceFieldDirect(
@@ -5245,6 +5825,9 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required
+        Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
+    @required
         Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     @required
         Result fromDartBindInstanceFieldDirect(
@@ -5283,6 +5866,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
         Result fromVMManagedClassMethodInjectionImplementation(
             _$FromVMManagedClassMethodInjectionImplementation value),
   }) {
+    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
     assert(fromDartBindInstanceField != null);
     assert(fromDartBindInstanceFieldDirect != null);
     assert(fromDartBoxEnumReference != null);
@@ -5306,6 +5890,8 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result fromDartBarrelLoadNamespaceSymbolDeclaration(
+        _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
     Result fromDartBindInstanceField(_$FromDartBindInstanceField value),
     Result fromDartBindInstanceFieldDirect(
         _$FromDartBindInstanceFieldDirect value),

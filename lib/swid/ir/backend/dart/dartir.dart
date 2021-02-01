@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
@@ -23,6 +24,11 @@ part 'dartir.freezed.dart';
 
 @freezed
 abstract class DartIr with _$DartIr {
+  factory DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
+          {@required
+              DartBarrelLoadNamespaceSymbolDeclaration
+                  dartBarrelLoadNamespaceSymbolDeclaration}) =
+      _$FromDartBarrelLoadNamespaceSymbolDeclaration;
   factory DartIr.fromDartBindInstanceField(
           {@required DartBindInstanceField dartBindInstanceField}) =
       _$FromDartBindInstanceField;
@@ -86,6 +92,8 @@ abstract class DartIr with _$DartIr {
 
 extension DartIrMethods on DartIr {
   String toDartSource() => when(
+        fromDartBarrelLoadNamespaceSymbolDeclaration: (val) =>
+            val.toDartSource(),
         fromDartBindInstanceField: (val) => val.toDartSource(),
         fromDartBindInstanceFieldDirect: (val) => val.toDartSource(),
         fromDartBoxEnumReference: (val) => val.toDartSource(),
