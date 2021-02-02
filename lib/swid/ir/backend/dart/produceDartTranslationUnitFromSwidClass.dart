@@ -44,8 +44,9 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                           .toList())(importStatements: [
                     DartImportStatement(path: "package:meta/meta.dart"),
                     ...collectAllReferences(
-                            swidType:
-                                SwidType.fromSwidClass(swidClass: swidClass))
+                            swidType: SwidType.fromSwidClass(
+                                swidClass: SwidClass.mergeSuperClasses(
+                                    swidClass: swidClass)))
                         .where((x) =>
                             x.originalPackagePath !=
                             swidClass.originalPackagePath)
