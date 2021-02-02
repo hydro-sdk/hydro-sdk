@@ -34,6 +34,14 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
                 dartImportStatement: DartImportStatement(
                     path: "package:hydro_sdk/hydroState.dart")),
             DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
+            ...(barrelSpec.isTopLevel()
+                ? [
+                    DartIr.fromDartImportStatement(
+                        dartImportStatement: DartImportStatement(
+                            path: "package:hydro_sdk/cfr/vm/context.dart")),
+                    DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
+                  ]
+                : []),
             ...barrelSpec.members
                 .map((x) => x.when(
                         fromSwidClass: (val) =>
@@ -60,12 +68,12 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
                           transformPackageUri(
                               packageUri: x.originalPackagePath),
                           p.separator,
-                          transformToCamelCase(
-                            str: x.when(
-                              fromSwidClass: (val) => val.name,
-                              fromSwidEnum: (val) => val.identifier,
-                              fromBarrelSpec: (val) => val.name,
-                            ),
+                          x.when(
+                            fromSwidClass: (val) =>
+                                transformToCamelCase(str: val.name),
+                            fromSwidEnum: (val) =>
+                                transformToCamelCase(str: val.identifier),
+                            fromBarrelSpec: (val) => val.name,
                           ),
                           ".dart",
                         ].join()))
