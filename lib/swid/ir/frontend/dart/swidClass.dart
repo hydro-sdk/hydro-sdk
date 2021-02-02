@@ -372,7 +372,9 @@ abstract class SwidClass with _$SwidClass {
         instanceFieldDeclarations: {},
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
-        implementedClasses: [],
+        implementedClasses: interfaceType.interfaces
+            .map((x) => SwidClass.fromInterfaceType(interfaceType: x))
+            .toList(),
         isMixin: false,
         extendedClass: interfaceType.superclass != null
             ? SwidClass.fromInterfaceType(
