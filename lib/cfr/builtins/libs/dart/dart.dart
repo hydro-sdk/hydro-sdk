@@ -12,10 +12,10 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadDartLib({@required HydroState hydroState, @required Context ctx}) {
+void loaddart({@required HydroState hydroState, @required Context context}) {
   var dart = HydroTable();
 
-  ctx.env["dart"] = dart;
+  context.env["dart"] = dart;
 
   loadCore(table: dart, luaState: hydroState);
   loadUi(table: dart, luaState: hydroState);
@@ -23,6 +23,6 @@ void loadDartLib({@required HydroState hydroState, @required Context ctx}) {
   loadAsync(table: dart, hydroState: hydroState);
   loadConvert(table: dart, hydroState: hydroState);
   loadCollection(hydroState: hydroState, table: dart);
-  loadMath(hydroState: hydroState, table: dart);
-  loadTypedData(table: dart, hydroState: hydroState);
+  loadmath(hydroState: hydroState, table: dart);
+  loadtyped_data(table: dart, hydroState: hydroState);
 }

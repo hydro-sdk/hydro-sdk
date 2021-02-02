@@ -23,7 +23,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/uint8List.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadTypedData(
+void loadtyped_data(
     {@required HydroState hydroState, @required HydroTable table}) {
   final typed_data = HydroTable();
   table['typed_data'] = typed_data;
