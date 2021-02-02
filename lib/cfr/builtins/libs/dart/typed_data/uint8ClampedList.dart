@@ -218,6 +218,282 @@ class VMManagedUint8ClampedList extends VMManagedBox<Uint8ClampedList> {
     table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.hashCode];
     });
+    table['followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.followedBy(maybeUnBoxAndBuildArgument<Iterable>(
+                args[1],
+                parentState: hydroState)),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['map'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure f = args[1];
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.map(f != null
+                ? (e) => f.dispatch(
+                      [args[0], e],
+                      parentState: hydroState,
+                    )[0]
+                : null),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['where'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.where(test != null
+                ? (element) => test.dispatch(
+                      [args[0], element],
+                      parentState: hydroState,
+                    )[0]
+                : null),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['whereType'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.whereType(),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['expand'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure f = args[1];
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.expand(f != null
+                ? (element) => maybeUnBoxAndBuildArgument<Iterable>(
+                    f.dispatch(
+                      [args[0], element],
+                      parentState: hydroState,
+                    )[0],
+                    parentState: hydroState)
+                : null),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+            parentState: hydroState))
+      ];
+    });
+    table['forEach'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure f = args[1];
+      vmObject.forEach(f != null
+          ? (element) => f.dispatch(
+                [args[0], element],
+                parentState: hydroState,
+              )
+          : null);
+      return [];
+    });
+    table['reduce'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure combine = args[1];
+      return [
+        vmObject.reduce(combine != null
+            ? (value, element) => combine.dispatch(
+                  [args[0], value, element],
+                  parentState: hydroState,
+                )[0]
+            : null)
+      ];
+    });
+    table['fold'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure combine = args[2];
+      return [
+        vmObject.fold(
+            args[1],
+            combine != null
+                ? (previousValue, element) => combine.dispatch(
+                      [args[0], previousValue, element],
+                      parentState: hydroState,
+                    )[0]
+                : null)
+      ];
+    });
+    table['every'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        vmObject.every(test != null
+            ? (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0]
+            : null)
+      ];
+    });
+    table['join'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.join(args[1])];
+    });
+    table['any'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        vmObject.any(test != null
+            ? (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0]
+            : null)
+      ];
+    });
+    table['toList'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<List<dynamic>>(
+            object: vmObject.toList(growable: args[1]['growable']),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['toSet'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Set>(
+            object: vmObject.toSet(),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['take'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.take(args[1]),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['takeWhile'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.takeWhile(test != null
+                ? (value) => test.dispatch(
+                      [args[0], value],
+                      parentState: hydroState,
+                    )[0]
+                : null),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['skip'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.skip(args[1]),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['skipWhile'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.skipWhile(test != null
+                ? (value) => test.dispatch(
+                      [args[0], value],
+                      parentState: hydroState,
+                    )[0]
+                : null),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      Closure orElse = args[2]['orElse'];
+      return [
+        vmObject.firstWhere(
+            test != null
+                ? (element) => test.dispatch(
+                      [args[0], element],
+                      parentState: hydroState,
+                    )[0]
+                : null,
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
+      ];
+    });
+    table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      Closure orElse = args[2]['orElse'];
+      return [
+        vmObject.lastWhere(
+            test != null
+                ? (element) => test.dispatch(
+                      [args[0], element],
+                      parentState: hydroState,
+                    )[0]
+                : null,
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
+      ];
+    });
+    table['singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      Closure orElse = args[2]['orElse'];
+      return [
+        vmObject.singleWhere(
+            test != null
+                ? (element) => test.dispatch(
+                      [args[0], element],
+                      parentState: hydroState,
+                    )[0]
+                : null,
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
+      ];
+    });
+    table['elementAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.elementAt(args[1])];
+    });
+    table['getIterator'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Iterator>(
+            object: vmObject.iterator,
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.isEmpty];
+    });
+    table['getIsNotEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.isNotEmpty];
+    });
+    table['getFirst'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.first];
+    });
+    table['getLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.last];
+    });
+    table['getSingle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.single];
+    });
     table['getElementSizeInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.elementSizeInBytes];

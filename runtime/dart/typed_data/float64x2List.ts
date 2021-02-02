@@ -1,5 +1,7 @@
 import { IIterable } from "../core/iterable";
+import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
+import { ISet } from "../core/set";
 import { IRandom } from "../math/random";
 import { IByteBuffer } from "./byteBuffer";
 import { IFloat64x2 } from "./float64x2";
@@ -76,6 +78,48 @@ export interface IFloat64x2List {
     getReversed: () => IIterable<IFloat64x2>;
     toString: () => string;
     getHashCode: () => number;
+    followedBy: (other: IIterable<IFloat64x2>) => IIterable<IFloat64x2>;
+    map: <T>(f: (e: IFloat64x2) => T) => IIterable<T>;
+    where: (test: (element: IFloat64x2) => boolean) => IIterable<IFloat64x2>;
+    whereType: <T>() => IIterable<T>;
+    expand: <T>(f: (element: IFloat64x2) => IIterable<T>) => IIterable<T>;
+    contains: (element?: Object | undefined) => boolean;
+    forEach: (f: (element: IFloat64x2) => void) => void;
+    reduce: (
+        combine: (value: IFloat64x2, element: IFloat64x2) => IFloat64x2
+    ) => IFloat64x2;
+    fold: <T>(
+        initialValue: T,
+        combine: (previousValue: T, element: IFloat64x2) => T
+    ) => T;
+    every: (test: (element: IFloat64x2) => boolean) => boolean;
+    join: (separator: string) => string;
+    any: (test: (element: IFloat64x2) => boolean) => boolean;
+    toList: (props: { growable: boolean }) => IList<IFloat64x2>;
+    toSet: () => ISet<IFloat64x2>;
+    take: (count: number) => IIterable<IFloat64x2>;
+    takeWhile: (test: (value: IFloat64x2) => boolean) => IIterable<IFloat64x2>;
+    skip: (count: number) => IIterable<IFloat64x2>;
+    skipWhile: (test: (value: IFloat64x2) => boolean) => IIterable<IFloat64x2>;
+    firstWhere: (
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ) => IFloat64x2;
+    lastWhere: (
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ) => IFloat64x2;
+    singleWhere: (
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ) => IFloat64x2;
+    elementAt: (index: number) => IFloat64x2;
+    getIterator: () => IIterator<IFloat64x2>;
+    getIsEmpty: () => boolean;
+    getIsNotEmpty: () => boolean;
+    getFirst: () => IFloat64x2;
+    getLast: () => IFloat64x2;
+    getSingle: () => IFloat64x2;
     getElementSizeInBytes: () => number;
     getOffsetInBytes: () => number;
     getLengthInBytes: () => number;
@@ -200,6 +244,78 @@ export class Float64x2List implements IList<Float64x2>, ITypedData {
     private readonly _dart_getReversed: () => IIterable<IFloat64x2> = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_followedBy: (
+        other: IIterable<IFloat64x2>
+    ) => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_map: <T>(
+        f: (e: IFloat64x2) => T
+    ) => IIterable<T> = undefined as any;
+    private readonly _dart_where: (
+        test: (element: IFloat64x2) => boolean
+    ) => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_whereType: <T>() => IIterable<T> = undefined as any;
+    private readonly _dart_expand: <T>(
+        f: (element: IFloat64x2) => IIterable<T>
+    ) => IIterable<T> = undefined as any;
+    private readonly _dart_contains: (
+        element?: Object | undefined
+    ) => boolean = undefined as any;
+    private readonly _dart_forEach: (
+        f: (element: IFloat64x2) => void
+    ) => void = undefined as any;
+    private readonly _dart_reduce: (
+        combine: (value: IFloat64x2, element: IFloat64x2) => IFloat64x2
+    ) => IFloat64x2 = undefined as any;
+    private readonly _dart_fold: <T>(
+        initialValue: T,
+        combine: (previousValue: T, element: IFloat64x2) => T
+    ) => T = undefined as any;
+    private readonly _dart_every: (
+        test: (element: IFloat64x2) => boolean
+    ) => boolean = undefined as any;
+    private readonly _dart_join: (
+        separator: string
+    ) => string = undefined as any;
+    private readonly _dart_any: (
+        test: (element: IFloat64x2) => boolean
+    ) => boolean = undefined as any;
+    private readonly _dart_toList: (props: {
+        growable: boolean;
+    }) => IList<IFloat64x2> = undefined as any;
+    private readonly _dart_toSet: () => ISet<IFloat64x2> = undefined as any;
+    private readonly _dart_take: (
+        count: number
+    ) => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_takeWhile: (
+        test: (value: IFloat64x2) => boolean
+    ) => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_skip: (
+        count: number
+    ) => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_skipWhile: (
+        test: (value: IFloat64x2) => boolean
+    ) => IIterable<IFloat64x2> = undefined as any;
+    private readonly _dart_firstWhere: (
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ) => IFloat64x2 = undefined as any;
+    private readonly _dart_lastWhere: (
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ) => IFloat64x2 = undefined as any;
+    private readonly _dart_singleWhere: (
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ) => IFloat64x2 = undefined as any;
+    private readonly _dart_elementAt: (
+        index: number
+    ) => IFloat64x2 = undefined as any;
+    private readonly _dart_getIterator: () => IIterator<IFloat64x2> = undefined as any;
+    private readonly _dart_getIsEmpty: () => boolean = undefined as any;
+    private readonly _dart_getIsNotEmpty: () => boolean = undefined as any;
+    private readonly _dart_getFirst: () => IFloat64x2 = undefined as any;
+    private readonly _dart_getLast: () => IFloat64x2 = undefined as any;
+    private readonly _dart_getSingle: () => IFloat64x2 = undefined as any;
     private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
@@ -321,6 +437,110 @@ export class Float64x2List implements IList<Float64x2>, ITypedData {
     }
     public getHashCode(): number {
         return this._dart_getHashCode();
+    }
+    public followedBy(other: IIterable<IFloat64x2>): IIterable<IFloat64x2> {
+        return this._dart_followedBy(other);
+    }
+    public map<T>(f: (e: IFloat64x2) => T): IIterable<T> {
+        return this._dart_map(f);
+    }
+    public where(
+        test: (element: IFloat64x2) => boolean
+    ): IIterable<IFloat64x2> {
+        return this._dart_where(test);
+    }
+    public whereType<T>(): IIterable<T> {
+        return this._dart_whereType();
+    }
+    public expand<T>(f: (element: IFloat64x2) => IIterable<T>): IIterable<T> {
+        return this._dart_expand(f);
+    }
+    public contains(element?: Object | undefined): boolean {
+        return this._dart_contains(element);
+    }
+    public forEach(f: (element: IFloat64x2) => void): void {
+        return this._dart_forEach(f);
+    }
+    public reduce(
+        combine: (value: IFloat64x2, element: IFloat64x2) => IFloat64x2
+    ): IFloat64x2 {
+        return this._dart_reduce(combine);
+    }
+    public fold<T>(
+        initialValue: T,
+        combine: (previousValue: T, element: IFloat64x2) => T
+    ): T {
+        return this._dart_fold(initialValue, combine);
+    }
+    public every(test: (element: IFloat64x2) => boolean): boolean {
+        return this._dart_every(test);
+    }
+    public join(separator: string = ""): string {
+        return this._dart_join(separator);
+    }
+    public any(test: (element: IFloat64x2) => boolean): boolean {
+        return this._dart_any(test);
+    }
+    public toList(props: { growable: boolean }): IList<IFloat64x2> {
+        return this._dart_toList(props);
+    }
+    public toSet(): ISet<IFloat64x2> {
+        return this._dart_toSet();
+    }
+    public take(count: number): IIterable<IFloat64x2> {
+        return this._dart_take(count);
+    }
+    public takeWhile(
+        test: (value: IFloat64x2) => boolean
+    ): IIterable<IFloat64x2> {
+        return this._dart_takeWhile(test);
+    }
+    public skip(count: number): IIterable<IFloat64x2> {
+        return this._dart_skip(count);
+    }
+    public skipWhile(
+        test: (value: IFloat64x2) => boolean
+    ): IIterable<IFloat64x2> {
+        return this._dart_skipWhile(test);
+    }
+    public firstWhere(
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ): IFloat64x2 {
+        return this._dart_firstWhere(test, props);
+    }
+    public lastWhere(
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ): IFloat64x2 {
+        return this._dart_lastWhere(test, props);
+    }
+    public singleWhere(
+        test: (element: IFloat64x2) => boolean,
+        props: { orElse?: () => IFloat64x2 | undefined }
+    ): IFloat64x2 {
+        return this._dart_singleWhere(test, props);
+    }
+    public elementAt(index: number): IFloat64x2 {
+        return this._dart_elementAt(index);
+    }
+    public getIterator(): IIterator<IFloat64x2> {
+        return this._dart_getIterator();
+    }
+    public getIsEmpty(): boolean {
+        return this._dart_getIsEmpty();
+    }
+    public getIsNotEmpty(): boolean {
+        return this._dart_getIsNotEmpty();
+    }
+    public getFirst(): IFloat64x2 {
+        return this._dart_getFirst();
+    }
+    public getLast(): IFloat64x2 {
+        return this._dart_getLast();
+    }
+    public getSingle(): IFloat64x2 {
+        return this._dart_getSingle();
     }
     public getElementSizeInBytes(): number {
         return this._dart_getElementSizeInBytes();

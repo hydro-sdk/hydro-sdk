@@ -1,5 +1,7 @@
 import { IIterable } from "../core/iterable";
+import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
+import { ISet } from "../core/set";
 import { IRandom } from "../math/random";
 import { IByteBuffer } from "./byteBuffer";
 import { ITypedData } from "./typedData";
@@ -73,6 +75,46 @@ export interface IInt8List {
     getReversed: () => IIterable<number>;
     toString: () => string;
     getHashCode: () => number;
+    followedBy: (other: IIterable<number>) => IIterable<number>;
+    map: <T>(f: (e: number) => T) => IIterable<T>;
+    where: (test: (element: number) => boolean) => IIterable<number>;
+    whereType: <T>() => IIterable<T>;
+    expand: <T>(f: (element: number) => IIterable<T>) => IIterable<T>;
+    contains: (element?: Object | undefined) => boolean;
+    forEach: (f: (element: number) => void) => void;
+    reduce: (combine: (value: number, element: number) => number) => number;
+    fold: <T>(
+        initialValue: T,
+        combine: (previousValue: T, element: number) => T
+    ) => T;
+    every: (test: (element: number) => boolean) => boolean;
+    join: (separator: string) => string;
+    any: (test: (element: number) => boolean) => boolean;
+    toList: (props: { growable: boolean }) => IList<number>;
+    toSet: () => ISet<number>;
+    take: (count: number) => IIterable<number>;
+    takeWhile: (test: (value: number) => boolean) => IIterable<number>;
+    skip: (count: number) => IIterable<number>;
+    skipWhile: (test: (value: number) => boolean) => IIterable<number>;
+    firstWhere: (
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ) => number;
+    lastWhere: (
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ) => number;
+    singleWhere: (
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ) => number;
+    elementAt: (index: number) => number;
+    getIterator: () => IIterator<number>;
+    getIsEmpty: () => boolean;
+    getIsNotEmpty: () => boolean;
+    getFirst: () => number;
+    getLast: () => number;
+    getSingle: () => number;
     getElementSizeInBytes: () => number;
     getOffsetInBytes: () => number;
     getLengthInBytes: () => number;
@@ -193,6 +235,78 @@ export class Int8List implements IList<int>, I_TypedIntList {
     private readonly _dart_getReversed: () => IIterable<number> = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_followedBy: (
+        other: IIterable<number>
+    ) => IIterable<number> = undefined as any;
+    private readonly _dart_map: <T>(
+        f: (e: number) => T
+    ) => IIterable<T> = undefined as any;
+    private readonly _dart_where: (
+        test: (element: number) => boolean
+    ) => IIterable<number> = undefined as any;
+    private readonly _dart_whereType: <T>() => IIterable<T> = undefined as any;
+    private readonly _dart_expand: <T>(
+        f: (element: number) => IIterable<T>
+    ) => IIterable<T> = undefined as any;
+    private readonly _dart_contains: (
+        element?: Object | undefined
+    ) => boolean = undefined as any;
+    private readonly _dart_forEach: (
+        f: (element: number) => void
+    ) => void = undefined as any;
+    private readonly _dart_reduce: (
+        combine: (value: number, element: number) => number
+    ) => number = undefined as any;
+    private readonly _dart_fold: <T>(
+        initialValue: T,
+        combine: (previousValue: T, element: number) => T
+    ) => T = undefined as any;
+    private readonly _dart_every: (
+        test: (element: number) => boolean
+    ) => boolean = undefined as any;
+    private readonly _dart_join: (
+        separator: string
+    ) => string = undefined as any;
+    private readonly _dart_any: (
+        test: (element: number) => boolean
+    ) => boolean = undefined as any;
+    private readonly _dart_toList: (props: {
+        growable: boolean;
+    }) => IList<number> = undefined as any;
+    private readonly _dart_toSet: () => ISet<number> = undefined as any;
+    private readonly _dart_take: (
+        count: number
+    ) => IIterable<number> = undefined as any;
+    private readonly _dart_takeWhile: (
+        test: (value: number) => boolean
+    ) => IIterable<number> = undefined as any;
+    private readonly _dart_skip: (
+        count: number
+    ) => IIterable<number> = undefined as any;
+    private readonly _dart_skipWhile: (
+        test: (value: number) => boolean
+    ) => IIterable<number> = undefined as any;
+    private readonly _dart_firstWhere: (
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ) => number = undefined as any;
+    private readonly _dart_lastWhere: (
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ) => number = undefined as any;
+    private readonly _dart_singleWhere: (
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ) => number = undefined as any;
+    private readonly _dart_elementAt: (
+        index: number
+    ) => number = undefined as any;
+    private readonly _dart_getIterator: () => IIterator<number> = undefined as any;
+    private readonly _dart_getIsEmpty: () => boolean = undefined as any;
+    private readonly _dart_getIsNotEmpty: () => boolean = undefined as any;
+    private readonly _dart_getFirst: () => number = undefined as any;
+    private readonly _dart_getLast: () => number = undefined as any;
+    private readonly _dart_getSingle: () => number = undefined as any;
     private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
@@ -311,6 +425,102 @@ export class Int8List implements IList<int>, I_TypedIntList {
     }
     public getHashCode(): number {
         return this._dart_getHashCode();
+    }
+    public followedBy(other: IIterable<number>): IIterable<number> {
+        return this._dart_followedBy(other);
+    }
+    public map<T>(f: (e: number) => T): IIterable<T> {
+        return this._dart_map(f);
+    }
+    public where(test: (element: number) => boolean): IIterable<number> {
+        return this._dart_where(test);
+    }
+    public whereType<T>(): IIterable<T> {
+        return this._dart_whereType();
+    }
+    public expand<T>(f: (element: number) => IIterable<T>): IIterable<T> {
+        return this._dart_expand(f);
+    }
+    public contains(element?: Object | undefined): boolean {
+        return this._dart_contains(element);
+    }
+    public forEach(f: (element: number) => void): void {
+        return this._dart_forEach(f);
+    }
+    public reduce(combine: (value: number, element: number) => number): number {
+        return this._dart_reduce(combine);
+    }
+    public fold<T>(
+        initialValue: T,
+        combine: (previousValue: T, element: number) => T
+    ): T {
+        return this._dart_fold(initialValue, combine);
+    }
+    public every(test: (element: number) => boolean): boolean {
+        return this._dart_every(test);
+    }
+    public join(separator: string = ""): string {
+        return this._dart_join(separator);
+    }
+    public any(test: (element: number) => boolean): boolean {
+        return this._dart_any(test);
+    }
+    public toList(props: { growable: boolean }): IList<number> {
+        return this._dart_toList(props);
+    }
+    public toSet(): ISet<number> {
+        return this._dart_toSet();
+    }
+    public take(count: number): IIterable<number> {
+        return this._dart_take(count);
+    }
+    public takeWhile(test: (value: number) => boolean): IIterable<number> {
+        return this._dart_takeWhile(test);
+    }
+    public skip(count: number): IIterable<number> {
+        return this._dart_skip(count);
+    }
+    public skipWhile(test: (value: number) => boolean): IIterable<number> {
+        return this._dart_skipWhile(test);
+    }
+    public firstWhere(
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ): number {
+        return this._dart_firstWhere(test, props);
+    }
+    public lastWhere(
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ): number {
+        return this._dart_lastWhere(test, props);
+    }
+    public singleWhere(
+        test: (element: number) => boolean,
+        props: { orElse?: () => number | undefined }
+    ): number {
+        return this._dart_singleWhere(test, props);
+    }
+    public elementAt(index: number): number {
+        return this._dart_elementAt(index);
+    }
+    public getIterator(): IIterator<number> {
+        return this._dart_getIterator();
+    }
+    public getIsEmpty(): boolean {
+        return this._dart_getIsEmpty();
+    }
+    public getIsNotEmpty(): boolean {
+        return this._dart_getIsNotEmpty();
+    }
+    public getFirst(): number {
+        return this._dart_getFirst();
+    }
+    public getLast(): number {
+        return this._dart_getLast();
+    }
+    public getSingle(): number {
+        return this._dart_getSingle();
     }
     public getElementSizeInBytes(): number {
         return this._dart_getElementSizeInBytes();
