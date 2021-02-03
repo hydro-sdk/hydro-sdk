@@ -162,7 +162,8 @@ SwidType castTypeParametersToDynamic({
                         .toList()),
                 typeFormals: val.typeFormals
                     .map((_) => SwidTypeFormal(
-                          name: "dynamic",
+                          value:
+                              SwidTypeFormalValue.fromString(string: "dynamic"),
                           swidReferenceDeclarationKind:
                               SwidReferenceDeclarationKind.dynamicType,
                         ))
@@ -176,7 +177,8 @@ SwidType castTypeParametersToDynamic({
                 typeFormals: !preserveFunctionTypeFormals
                     ? val.typeFormals
                         .map((_) => SwidTypeFormal(
-                              name: "dynamic",
+                              value: SwidTypeFormalValue.fromString(
+                                  string: "dynamic"),
                               swidReferenceDeclarationKind:
                                   SwidReferenceDeclarationKind.dynamicType,
                             ))

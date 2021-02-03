@@ -27,6 +27,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart'
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
@@ -182,7 +183,7 @@ class RTManagedClassDeclaration {
                       ? MethodType.setter
                       : null
               ..types.addAll(
-                x.typeFormals.map((e) => Reference(e.name)).toList(),
+                x.typeFormals.map((e) => Reference(e.value.name)).toList(),
               )
               ..requiredParameters.addAll([
                 ...x.normalParameterNames

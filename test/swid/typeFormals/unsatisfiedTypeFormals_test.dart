@@ -84,7 +84,7 @@ void main() {
       isFactory: false,
       typeFormals: [
         SwidTypeFormal(
-          name: "T",
+          value: SwidTypeFormalValue.fromString(string: "T"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         ),
@@ -99,7 +99,7 @@ void main() {
   */
     expect(unsatisfiedTypesFromMap, isNotNull);
     expect(unsatisfiedTypesFromMap.length, 1);
-    expect(unsatisfiedTypesFromMap.first.name, "E");
+    expect(unsatisfiedTypesFromMap.first.value.name, "E");
 
     var mapWithNoTypeParameters = SwidFunctionType.clone(
       swidFunctionType: map,
@@ -118,15 +118,15 @@ void main() {
     expect(unsatisfiedTypesFromMapWithNoTypes.length, 3);
     expect(unsatisfiedTypesFromMapWithNoTypes, [
       SwidTypeFormal(
-          name: "E",
+          value: SwidTypeFormalValue.fromString(string: "E"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType),
       SwidTypeFormal(
-          name: "T",
+          value: SwidTypeFormalValue.fromString(string: "T"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType),
       SwidTypeFormal(
-          name: "T",
+          value: SwidTypeFormalValue.fromString(string: "T"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType),
     ]);
@@ -176,7 +176,7 @@ void main() {
     expect(unsatisfiedTypesFromEmpty.length, 1);
     expect(unsatisfiedTypesFromEmpty, [
       SwidTypeFormal(
-          name: "E",
+          value: SwidTypeFormalValue.fromString(string: "E"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType)
     ]);
@@ -222,7 +222,7 @@ void main() {
     expect(unsatisfiedTypesFromConstructor.length, 1);
     expect(unsatisfiedTypesFromConstructor, [
       SwidTypeFormal(
-          name: "E",
+          value: SwidTypeFormalValue.fromString(string: "E"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType)
     ]);
@@ -248,7 +248,7 @@ void main() {
         isMixin: false,
         typeFormals: [
           SwidTypeFormal(
-            name: "E",
+            value: SwidTypeFormalValue.fromString(string: "E"),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           )
@@ -270,7 +270,7 @@ void main() {
                     SwidClass.clone(swidClass: iterable, typeFormals: []))),
         [
           SwidTypeFormal(
-            name: "E",
+            value: SwidTypeFormalValue.fromString(string: "E"),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           )
@@ -306,12 +306,12 @@ void main() {
                     swidClass: iterableWithMapMethod, typeFormals: []))),
         [
           SwidTypeFormal(
-            name: "E",
+            value: SwidTypeFormalValue.fromString(string: "E"),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           ),
           SwidTypeFormal(
-            name: "E",
+            value: SwidTypeFormalValue.fromString(string: "E"),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           )
@@ -347,7 +347,7 @@ void main() {
     expect(unsatisfiedTypesFromIterableWithMapAndEmpty.length, 1);
     expect(unsatisfiedTypesFromIterableWithMapAndEmpty, [
       SwidTypeFormal(
-          name: "E",
+          value: SwidTypeFormalValue.fromString(string: "E"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType)
     ]);
@@ -395,7 +395,7 @@ void main() {
         1);
     expect(
         propagatedIterableWithMapAndEmpty
-            .factoryConstructors.first.typeFormals.first.name,
+            .factoryConstructors.first.typeFormals.first.value.name,
         "E");
   }, tags: "swid");
 }

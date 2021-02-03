@@ -8,6 +8,538 @@ part of 'swidTypeFormal.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+SwidTypeFormalValue _$SwidTypeFormalValueFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType'] as String) {
+    case 'fromString':
+      return _$FromString.fromJson(json);
+    case 'fromSwidClass':
+      return _$FromSwidClass.fromJson(json);
+    case 'fromSwidInterface':
+      return _$FromSwidInterface.fromJson(json);
+
+    default:
+      throw FallThroughError();
+  }
+}
+
+/// @nodoc
+class _$SwidTypeFormalValueTearOff {
+  const _$SwidTypeFormalValueTearOff();
+
+// ignore: unused_element
+  _$FromString fromString({@required String string}) {
+    return _$FromString(
+      string: string,
+    );
+  }
+
+// ignore: unused_element
+  _$FromSwidClass fromSwidClass({@required SwidClass swidClass}) {
+    return _$FromSwidClass(
+      swidClass: swidClass,
+    );
+  }
+
+// ignore: unused_element
+  _$FromSwidInterface fromSwidInterface(
+      {@required SwidInterface swidInterface}) {
+    return _$FromSwidInterface(
+      swidInterface: swidInterface,
+    );
+  }
+
+// ignore: unused_element
+  SwidTypeFormalValue fromJson(Map<String, Object> json) {
+    return SwidTypeFormalValue.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $SwidTypeFormalValue = _$SwidTypeFormalValueTearOff();
+
+/// @nodoc
+mixin _$SwidTypeFormalValue {
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fromString(String string),
+    @required Result fromSwidClass(SwidClass swidClass),
+    @required Result fromSwidInterface(SwidInterface swidInterface),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromString(String string),
+    Result fromSwidClass(SwidClass swidClass),
+    Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fromString(_$FromString value),
+    @required Result fromSwidClass(_$FromSwidClass value),
+    @required Result fromSwidInterface(_$FromSwidInterface value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromString(_$FromString value),
+    Result fromSwidClass(_$FromSwidClass value),
+    Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result orElse(),
+  });
+  Map<String, dynamic> toJson();
+}
+
+/// @nodoc
+abstract class $SwidTypeFormalValueCopyWith<$Res> {
+  factory $SwidTypeFormalValueCopyWith(
+          SwidTypeFormalValue value, $Res Function(SwidTypeFormalValue) then) =
+      _$SwidTypeFormalValueCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SwidTypeFormalValueCopyWithImpl<$Res>
+    implements $SwidTypeFormalValueCopyWith<$Res> {
+  _$SwidTypeFormalValueCopyWithImpl(this._value, this._then);
+
+  final SwidTypeFormalValue _value;
+  // ignore: unused_field
+  final $Res Function(SwidTypeFormalValue) _then;
+}
+
+/// @nodoc
+abstract class _$$FromStringCopyWith<$Res> {
+  factory _$$FromStringCopyWith(
+          _$FromString value, $Res Function(_$FromString) then) =
+      __$$FromStringCopyWithImpl<$Res>;
+  $Res call({String string});
+}
+
+/// @nodoc
+class __$$FromStringCopyWithImpl<$Res>
+    extends _$SwidTypeFormalValueCopyWithImpl<$Res>
+    implements _$$FromStringCopyWith<$Res> {
+  __$$FromStringCopyWithImpl(
+      _$FromString _value, $Res Function(_$FromString) _then)
+      : super(_value, (v) => _then(v as _$FromString));
+
+  @override
+  _$FromString get _value => super._value as _$FromString;
+
+  @override
+  $Res call({
+    Object string = freezed,
+  }) {
+    return _then(_$FromString(
+      string: string == freezed ? _value.string : string as String,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_$FromString implements _$FromString {
+  _$_$FromString({@required this.string}) : assert(string != null);
+
+  factory _$_$FromString.fromJson(Map<String, dynamic> json) =>
+      _$_$_$FromStringFromJson(json);
+
+  @override
+  final String string;
+
+  @override
+  String toString() {
+    return 'SwidTypeFormalValue.fromString(string: $string)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromString &&
+            (identical(other.string, string) ||
+                const DeepCollectionEquality().equals(other.string, string)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(string);
+
+  @override
+  _$$FromStringCopyWith<_$FromString> get copyWith =>
+      __$$FromStringCopyWithImpl<_$FromString>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fromString(String string),
+    @required Result fromSwidClass(SwidClass swidClass),
+    @required Result fromSwidInterface(SwidInterface swidInterface),
+  }) {
+    assert(fromString != null);
+    assert(fromSwidClass != null);
+    assert(fromSwidInterface != null);
+    return fromString(string);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromString(String string),
+    Result fromSwidClass(SwidClass swidClass),
+    Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromString != null) {
+      return fromString(string);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fromString(_$FromString value),
+    @required Result fromSwidClass(_$FromSwidClass value),
+    @required Result fromSwidInterface(_$FromSwidInterface value),
+  }) {
+    assert(fromString != null);
+    assert(fromSwidClass != null);
+    assert(fromSwidInterface != null);
+    return fromString(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromString(_$FromString value),
+    Result fromSwidClass(_$FromSwidClass value),
+    Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromString != null) {
+      return fromString(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$FromStringToJson(this)..['runtimeType'] = 'fromString';
+  }
+}
+
+abstract class _$FromString implements SwidTypeFormalValue {
+  factory _$FromString({@required String string}) = _$_$FromString;
+
+  factory _$FromString.fromJson(Map<String, dynamic> json) =
+      _$_$FromString.fromJson;
+
+  String get string;
+  _$$FromStringCopyWith<_$FromString> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromSwidClassCopyWith<$Res> {
+  factory _$$FromSwidClassCopyWith(
+          _$FromSwidClass value, $Res Function(_$FromSwidClass) then) =
+      __$$FromSwidClassCopyWithImpl<$Res>;
+  $Res call({SwidClass swidClass});
+
+  $SwidClassCopyWith<$Res> get swidClass;
+}
+
+/// @nodoc
+class __$$FromSwidClassCopyWithImpl<$Res>
+    extends _$SwidTypeFormalValueCopyWithImpl<$Res>
+    implements _$$FromSwidClassCopyWith<$Res> {
+  __$$FromSwidClassCopyWithImpl(
+      _$FromSwidClass _value, $Res Function(_$FromSwidClass) _then)
+      : super(_value, (v) => _then(v as _$FromSwidClass));
+
+  @override
+  _$FromSwidClass get _value => super._value as _$FromSwidClass;
+
+  @override
+  $Res call({
+    Object swidClass = freezed,
+  }) {
+    return _then(_$FromSwidClass(
+      swidClass:
+          swidClass == freezed ? _value.swidClass : swidClass as SwidClass,
+    ));
+  }
+
+  @override
+  $SwidClassCopyWith<$Res> get swidClass {
+    if (_value.swidClass == null) {
+      return null;
+    }
+    return $SwidClassCopyWith<$Res>(_value.swidClass, (value) {
+      return _then(_value.copyWith(swidClass: value));
+    });
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_$FromSwidClass implements _$FromSwidClass {
+  _$_$FromSwidClass({@required this.swidClass}) : assert(swidClass != null);
+
+  factory _$_$FromSwidClass.fromJson(Map<String, dynamic> json) =>
+      _$_$_$FromSwidClassFromJson(json);
+
+  @override
+  final SwidClass swidClass;
+
+  @override
+  String toString() {
+    return 'SwidTypeFormalValue.fromSwidClass(swidClass: $swidClass)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromSwidClass &&
+            (identical(other.swidClass, swidClass) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidClass, swidClass)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidClass);
+
+  @override
+  _$$FromSwidClassCopyWith<_$FromSwidClass> get copyWith =>
+      __$$FromSwidClassCopyWithImpl<_$FromSwidClass>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fromString(String string),
+    @required Result fromSwidClass(SwidClass swidClass),
+    @required Result fromSwidInterface(SwidInterface swidInterface),
+  }) {
+    assert(fromString != null);
+    assert(fromSwidClass != null);
+    assert(fromSwidInterface != null);
+    return fromSwidClass(swidClass);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromString(String string),
+    Result fromSwidClass(SwidClass swidClass),
+    Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromSwidClass != null) {
+      return fromSwidClass(swidClass);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fromString(_$FromString value),
+    @required Result fromSwidClass(_$FromSwidClass value),
+    @required Result fromSwidInterface(_$FromSwidInterface value),
+  }) {
+    assert(fromString != null);
+    assert(fromSwidClass != null);
+    assert(fromSwidInterface != null);
+    return fromSwidClass(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromString(_$FromString value),
+    Result fromSwidClass(_$FromSwidClass value),
+    Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromSwidClass != null) {
+      return fromSwidClass(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$FromSwidClassToJson(this)..['runtimeType'] = 'fromSwidClass';
+  }
+}
+
+abstract class _$FromSwidClass implements SwidTypeFormalValue {
+  factory _$FromSwidClass({@required SwidClass swidClass}) = _$_$FromSwidClass;
+
+  factory _$FromSwidClass.fromJson(Map<String, dynamic> json) =
+      _$_$FromSwidClass.fromJson;
+
+  SwidClass get swidClass;
+  _$$FromSwidClassCopyWith<_$FromSwidClass> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromSwidInterfaceCopyWith<$Res> {
+  factory _$$FromSwidInterfaceCopyWith(
+          _$FromSwidInterface value, $Res Function(_$FromSwidInterface) then) =
+      __$$FromSwidInterfaceCopyWithImpl<$Res>;
+  $Res call({SwidInterface swidInterface});
+
+  $SwidInterfaceCopyWith<$Res> get swidInterface;
+}
+
+/// @nodoc
+class __$$FromSwidInterfaceCopyWithImpl<$Res>
+    extends _$SwidTypeFormalValueCopyWithImpl<$Res>
+    implements _$$FromSwidInterfaceCopyWith<$Res> {
+  __$$FromSwidInterfaceCopyWithImpl(
+      _$FromSwidInterface _value, $Res Function(_$FromSwidInterface) _then)
+      : super(_value, (v) => _then(v as _$FromSwidInterface));
+
+  @override
+  _$FromSwidInterface get _value => super._value as _$FromSwidInterface;
+
+  @override
+  $Res call({
+    Object swidInterface = freezed,
+  }) {
+    return _then(_$FromSwidInterface(
+      swidInterface: swidInterface == freezed
+          ? _value.swidInterface
+          : swidInterface as SwidInterface,
+    ));
+  }
+
+  @override
+  $SwidInterfaceCopyWith<$Res> get swidInterface {
+    if (_value.swidInterface == null) {
+      return null;
+    }
+    return $SwidInterfaceCopyWith<$Res>(_value.swidInterface, (value) {
+      return _then(_value.copyWith(swidInterface: value));
+    });
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_$FromSwidInterface implements _$FromSwidInterface {
+  _$_$FromSwidInterface({@required this.swidInterface})
+      : assert(swidInterface != null);
+
+  factory _$_$FromSwidInterface.fromJson(Map<String, dynamic> json) =>
+      _$_$_$FromSwidInterfaceFromJson(json);
+
+  @override
+  final SwidInterface swidInterface;
+
+  @override
+  String toString() {
+    return 'SwidTypeFormalValue.fromSwidInterface(swidInterface: $swidInterface)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromSwidInterface &&
+            (identical(other.swidInterface, swidInterface) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidInterface, swidInterface)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidInterface);
+
+  @override
+  _$$FromSwidInterfaceCopyWith<_$FromSwidInterface> get copyWith =>
+      __$$FromSwidInterfaceCopyWithImpl<_$FromSwidInterface>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fromString(String string),
+    @required Result fromSwidClass(SwidClass swidClass),
+    @required Result fromSwidInterface(SwidInterface swidInterface),
+  }) {
+    assert(fromString != null);
+    assert(fromSwidClass != null);
+    assert(fromSwidInterface != null);
+    return fromSwidInterface(swidInterface);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromString(String string),
+    Result fromSwidClass(SwidClass swidClass),
+    Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromSwidInterface != null) {
+      return fromSwidInterface(swidInterface);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fromString(_$FromString value),
+    @required Result fromSwidClass(_$FromSwidClass value),
+    @required Result fromSwidInterface(_$FromSwidInterface value),
+  }) {
+    assert(fromString != null);
+    assert(fromSwidClass != null);
+    assert(fromSwidInterface != null);
+    return fromSwidInterface(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromString(_$FromString value),
+    Result fromSwidClass(_$FromSwidClass value),
+    Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromSwidInterface != null) {
+      return fromSwidInterface(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$FromSwidInterfaceToJson(this)
+      ..['runtimeType'] = 'fromSwidInterface';
+  }
+}
+
+abstract class _$FromSwidInterface implements SwidTypeFormalValue {
+  factory _$FromSwidInterface({@required SwidInterface swidInterface}) =
+      _$_$FromSwidInterface;
+
+  factory _$FromSwidInterface.fromJson(Map<String, dynamic> json) =
+      _$_$FromSwidInterface.fromJson;
+
+  SwidInterface get swidInterface;
+  _$$FromSwidInterfaceCopyWith<_$FromSwidInterface> get copyWith;
+}
+
 SwidTypeFormal _$SwidTypeFormalFromJson(Map<String, dynamic> json) {
   return _$Data.fromJson(json);
 }
@@ -18,10 +550,10 @@ class _$SwidTypeFormalTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required String name,
+      {@required SwidTypeFormalValue value,
       @required SwidReferenceDeclarationKind swidReferenceDeclarationKind}) {
     return _$Data(
-      name: name,
+      value: value,
       swidReferenceDeclarationKind: swidReferenceDeclarationKind,
     );
   }
@@ -38,7 +570,7 @@ const $SwidTypeFormal = _$SwidTypeFormalTearOff();
 
 /// @nodoc
 mixin _$SwidTypeFormal {
-  String get name;
+  SwidTypeFormalValue get value;
   SwidReferenceDeclarationKind get swidReferenceDeclarationKind;
 
   Map<String, dynamic> toJson();
@@ -51,7 +583,10 @@ abstract class $SwidTypeFormalCopyWith<$Res> {
           SwidTypeFormal value, $Res Function(SwidTypeFormal) then) =
       _$SwidTypeFormalCopyWithImpl<$Res>;
   $Res call(
-      {String name, SwidReferenceDeclarationKind swidReferenceDeclarationKind});
+      {SwidTypeFormalValue value,
+      SwidReferenceDeclarationKind swidReferenceDeclarationKind});
+
+  $SwidTypeFormalValueCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -65,15 +600,25 @@ class _$SwidTypeFormalCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object value = freezed,
     Object swidReferenceDeclarationKind = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      value: value == freezed ? _value.value : value as SwidTypeFormalValue,
       swidReferenceDeclarationKind: swidReferenceDeclarationKind == freezed
           ? _value.swidReferenceDeclarationKind
           : swidReferenceDeclarationKind as SwidReferenceDeclarationKind,
     ));
+  }
+
+  @override
+  $SwidTypeFormalValueCopyWith<$Res> get value {
+    if (_value.value == null) {
+      return null;
+    }
+    return $SwidTypeFormalValueCopyWith<$Res>(_value.value, (value) {
+      return _then(_value.copyWith(value: value));
+    });
   }
 }
 
@@ -83,7 +628,11 @@ abstract class _$$DataCopyWith<$Res> implements $SwidTypeFormalCopyWith<$Res> {
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name, SwidReferenceDeclarationKind swidReferenceDeclarationKind});
+      {SwidTypeFormalValue value,
+      SwidReferenceDeclarationKind swidReferenceDeclarationKind});
+
+  @override
+  $SwidTypeFormalValueCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -97,11 +646,11 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object value = freezed,
     Object swidReferenceDeclarationKind = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : name as String,
+      value: value == freezed ? _value.value : value as SwidTypeFormalValue,
       swidReferenceDeclarationKind: swidReferenceDeclarationKind == freezed
           ? _value.swidReferenceDeclarationKind
           : swidReferenceDeclarationKind as SwidReferenceDeclarationKind,
@@ -113,29 +662,29 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.name, @required this.swidReferenceDeclarationKind})
-      : assert(name != null),
+  _$_$Data({@required this.value, @required this.swidReferenceDeclarationKind})
+      : assert(value != null),
         assert(swidReferenceDeclarationKind != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
 
   @override
-  final String name;
+  final SwidTypeFormalValue value;
   @override
   final SwidReferenceDeclarationKind swidReferenceDeclarationKind;
 
   @override
   String toString() {
-    return 'SwidTypeFormal(name: $name, swidReferenceDeclarationKind: $swidReferenceDeclarationKind)';
+    return 'SwidTypeFormal(value: $value, swidReferenceDeclarationKind: $swidReferenceDeclarationKind)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$Data &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.swidReferenceDeclarationKind,
                     swidReferenceDeclarationKind) ||
                 const DeepCollectionEquality().equals(
@@ -146,7 +695,7 @@ class _$_$Data implements _$Data {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(value) ^
       const DeepCollectionEquality().hash(swidReferenceDeclarationKind);
 
   @override
@@ -162,7 +711,7 @@ class _$_$Data implements _$Data {
 abstract class _$Data implements SwidTypeFormal {
   factory _$Data(
           {@required
-              String name,
+              SwidTypeFormalValue value,
           @required
               SwidReferenceDeclarationKind swidReferenceDeclarationKind}) =
       _$_$Data;
@@ -170,7 +719,7 @@ abstract class _$Data implements SwidTypeFormal {
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get name;
+  SwidTypeFormalValue get value;
   @override
   SwidReferenceDeclarationKind get swidReferenceDeclarationKind;
   @override

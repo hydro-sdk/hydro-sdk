@@ -19,6 +19,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInClassToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -44,7 +45,7 @@ class VMManagedClassDeclaration {
                           (castedClass.typeFormals.isNotEmpty
                               ? "<" +
                                   castedClass.typeFormals
-                                      .map((x) => x.name)
+                                      .map((x) => x.value.name)
                                       .join(",") +
                                   ">"
                               : ""))(

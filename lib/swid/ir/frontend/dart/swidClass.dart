@@ -19,6 +19,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
@@ -380,7 +381,19 @@ abstract class SwidClass with _$SwidClass {
             ? SwidClass.fromInterfaceType(
                 interfaceType: interfaceType.superclass)
             : null,
-        typeFormals: [],
+        typeFormals: interfaceType.typeArguments
+            .where((x) => x is TypeName)
+            .cast<TypeName>()
+            .map(
+              (x) => SwidTypeFormal(
+                value: SwidTypeFormalValue.fromSwidClass(
+                  swidClass: SwidClass.fromInterfaceType(interfaceType: x.type),
+                ),
+                swidReferenceDeclarationKind:
+                    SwidReferenceDeclarationKind.classElement,
+              ),
+            )
+            .toList(),
       );
 }
 

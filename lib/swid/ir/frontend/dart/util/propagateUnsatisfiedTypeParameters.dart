@@ -25,8 +25,9 @@ SwidClass propagateUnsatisfiedTypeParameters(
                               (swidFunctionType, unsatisfiedTypeParameter) =>
                                   swidFunctionType.typeFormals.firstWhere(
                                             (x) =>
-                                                x.name ==
-                                                unsatisfiedTypeParameter.name,
+                                                x.value.name ==
+                                                unsatisfiedTypeParameter
+                                                    .value.name,
                                             orElse: () => null,
                                           ) ==
                                           null
