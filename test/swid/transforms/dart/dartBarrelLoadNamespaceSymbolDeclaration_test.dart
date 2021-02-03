@@ -122,13 +122,12 @@ void main() {
         DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec)
             .toDartSource(),
         """
-void loadDart({@required HydroState hydroState, @required Context context}) {
+void loaddart({@required HydroState hydroState, @required Context context}) {
   final dart = HydroTable();
   context.env[\'dart\'] = dart;
-  loadCore(table: dart, hydroState: hydroState);
-  loadUi(table: dart, hydroState: hydroState);
-  loadInternal(table: dart, hydroState: hydroState);
-  loadMath(table: dart, hydroState: hydroState);
+  loadcore(table: dart, hydroState: hydroState);
+  loadui(table: dart, hydroState: hydroState);
+  loadmath(table: dart, hydroState: hydroState);
 }
 """);
   }, tags: "swid");
