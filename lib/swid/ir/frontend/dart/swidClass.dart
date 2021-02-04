@@ -11,7 +11,9 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
 
-import 'package:analyzer/dart/element/type.dart' show InterfaceType;
+import 'package:analyzer/dart/element/type.dart'
+    show InterfaceType, TypeParameterType;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -336,8 +338,15 @@ abstract class SwidClass with _$SwidClass {
         )));
   }
 
-  factory SwidClass.fromInterfaceType(
-          {@required InterfaceType interfaceType}) =>
+  factory SwidClass.fromInterfaceType({
+    @required InterfaceType interfaceType,
+    /*
+      This is a hack to break cycles in self-referencing class declarations (declarations that look like CRTP).
+      Should probably use an inheritance manager of some sort similar to package:analyzer.
+      A SWID inheritance manager would have to be fully serializable.
+    */
+    bool fullyResolveInterfaceTypeFormals = true,
+  }) =>
       SwidClass(
         name: interfaceType.getDisplayString(withNullability: false),
         nullabilitySuffix: mapNullabilitySuffix(
@@ -374,25 +383,50 @@ abstract class SwidClass with _$SwidClass {
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
         implementedClasses: interfaceType.interfaces
-            .map((x) => SwidClass.fromInterfaceType(interfaceType: x))
+            .map((x) => SwidClass.fromInterfaceType(
+                  interfaceType: x,
+                  fullyResolveInterfaceTypeFormals: false,
+                ))
             .toList(),
         isMixin: false,
         extendedClass: interfaceType.superclass != null
             ? SwidClass.fromInterfaceType(
-                interfaceType: interfaceType.superclass)
+                interfaceType: interfaceType.superclass,
+                fullyResolveInterfaceTypeFormals: false,
+              )
             : null,
         typeFormals: interfaceType.typeArguments
-            .where((x) => x is TypeName)
-            .cast<TypeName>()
-            .map(
-              (x) => SwidTypeFormal(
-                value: SwidTypeFormalValue.fromSwidClass(
-                  swidClass: SwidClass.fromInterfaceType(interfaceType: x.type),
-                ),
-                swidReferenceDeclarationKind:
-                    SwidReferenceDeclarationKind.classElement,
-              ),
-            )
+            .map((x) => x is InterfaceType && fullyResolveInterfaceTypeFormals
+                ? SwidTypeFormal(
+                    value: SwidTypeFormalValue.fromSwidClass(
+                      swidClass: SwidClass.fromInterfaceType(
+                        interfaceType: x,
+                        fullyResolveInterfaceTypeFormals: false,
+                      ),
+                    ),
+                    swidReferenceDeclarationKind:
+                        SwidReferenceDeclarationKind.classElement,
+                  )
+                : x is TypeName
+                    ? SwidTypeFormal(
+                        value: SwidTypeFormalValue.fromSwidClass(
+                          swidClass: SwidClass.fromInterfaceType(
+                              interfaceType: (x as TypeName).type),
+                        ),
+                        swidReferenceDeclarationKind:
+                            SwidReferenceDeclarationKind.classElement,
+                      )
+                    : x is TypeParameterType
+                        ? SwidTypeFormal(
+                            value: SwidTypeFormalValue.fromSwidInterface(
+                              swidInterface:
+                                  SwidInterface.fromTypeParameterType(
+                                      typeParameterType: x),
+                            ),
+                            swidReferenceDeclarationKind:
+                                SwidReferenceDeclarationKind.typeParameterType,
+                          )
+                        : null)
             .toList(),
       );
 }
