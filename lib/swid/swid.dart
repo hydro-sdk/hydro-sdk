@@ -74,7 +74,7 @@ class SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitClassDeclaration(ClassDeclaration node) {
-    if (node.nativeClause == null && node.name.name[0] != "_") {
+    if (node.nativeClause == null) {
       var res = SwidClass.fromClassOrMixinDeclaration(
         classOrMixinDeclaration: node,
         isMixin: false,
@@ -177,12 +177,6 @@ class SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "RRect") {
       print(node.name.name);
       File("test/swid/res/RRect.json")
-          .writeAsStringSync(json.encode(classes.last.toJson()));
-    }
-
-    if (node.name.name == "Float32List") {
-      print(node.name.name);
-      File("test/swid/res/Float32List.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 

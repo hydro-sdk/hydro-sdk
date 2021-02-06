@@ -74,6 +74,7 @@ void main(List<String> args) async {
           x.name == "Float32x4" ||
           x.name == "Float64x2" ||
           x.name == "Int32x4" ||
+          x.name == "_TypedFloatList" ||
           x.name == "Random")
       .toList();
   for (var i = 0; i != classes.length; ++i) {
