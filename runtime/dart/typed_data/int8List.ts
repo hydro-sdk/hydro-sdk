@@ -120,7 +120,7 @@ export interface IInt8List {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Int8List implements IList<int>, I_TypedIntList {
+export class Int8List implements IList<number>, I_TypedIntList {
     public static bytesPerElement = 1;
     public constructor(length: number) {
         dart.typed_data.int8List(this, length);

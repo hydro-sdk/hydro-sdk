@@ -120,7 +120,7 @@ export interface IInt16List {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Int16List implements IList<int>, I_TypedIntList {
+export class Int16List implements IList<number>, I_TypedIntList {
     public static bytesPerElement = 2;
     public constructor(length: number) {
         dart.typed_data.int16List(this, length);

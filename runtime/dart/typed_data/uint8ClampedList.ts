@@ -122,7 +122,7 @@ export interface IUint8ClampedList {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Uint8ClampedList implements IList<int>, I_TypedIntList {
+export class Uint8ClampedList implements IList<number>, I_TypedIntList {
     public static bytesPerElement = 1;
     public constructor(length: number) {
         dart.typed_data.uint8ClampedList(this, length);
