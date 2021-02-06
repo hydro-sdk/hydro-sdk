@@ -62,33 +62,37 @@ SwidType transformPrimitiveNamesToTs({@required SwidType swidType}) =>
                   ))
               .toList(),
           typeFormals: val.typeFormals
-              .map((x) => SwidTypeFormal.clone(
-                  swidTypeFormal: x,
-                  value: x.value.when(
-                    fromString: (val) =>
-                        SwidTypeFormalValue.fromString(string: val),
-                    fromSwidClass: (val) => SwidTypeFormalValue.fromSwidClass(
-                        swidClass: transformPrimitiveNamesToTs(
-                                swidType:
-                                    SwidType.fromSwidClass(swidClass: val))
-                            .when(
-                      fromSwidInterface: (_) => null,
-                      fromSwidClass: (val) => val,
-                      fromSwidDefaultFormalParameter: (_) => null,
-                      fromSwidFunctionType: (_) => null,
-                    )),
-                    fromSwidInterface: (val) =>
-                        SwidTypeFormalValue.fromSwidInterface(
-                            swidInterface: transformPrimitiveNamesToTs(
-                                    swidType: SwidType.fromSwidInterface(
-                                        swidInterface: val))
-                                .when(
-                      fromSwidInterface: (val) => val,
-                      fromSwidClass: (_) => null,
-                      fromSwidDefaultFormalParameter: (_) => null,
-                      fromSwidFunctionType: (_) => null,
-                    )),
-                  )))
+              .map((x) => x != null
+                  ? SwidTypeFormal.clone(
+                      swidTypeFormal: x,
+                      value: x.value.when(
+                        fromString: (val) =>
+                            SwidTypeFormalValue.fromString(string: val),
+                        fromSwidClass: (val) =>
+                            SwidTypeFormalValue.fromSwidClass(
+                                swidClass: transformPrimitiveNamesToTs(
+                                        swidType: SwidType.fromSwidClass(
+                                            swidClass: val))
+                                    .when(
+                          fromSwidInterface: (_) => null,
+                          fromSwidClass: (val) => val,
+                          fromSwidDefaultFormalParameter: (_) => null,
+                          fromSwidFunctionType: (_) => null,
+                        )),
+                        fromSwidInterface: (val) =>
+                            SwidTypeFormalValue.fromSwidInterface(
+                                swidInterface: transformPrimitiveNamesToTs(
+                                        swidType: SwidType.fromSwidInterface(
+                                            swidInterface: val))
+                                    .when(
+                          fromSwidInterface: (val) => val,
+                          fromSwidClass: (_) => null,
+                          fromSwidDefaultFormalParameter: (_) => null,
+                          fromSwidFunctionType: (_) => null,
+                        )),
+                      ))
+                  : null)
+              .where((x) => x != null)
               .toList(),
         ),
       ),
