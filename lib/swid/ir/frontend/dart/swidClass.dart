@@ -442,4 +442,6 @@ extension SwidClassMethods on SwidClass {
       staticConstFieldDeclarations.isEmpty;
 
   bool isConstructible() => constructorType != null;
+
+  String get displayName => SwidType.fromSwidClass(swidClass: this).displayName;
 }

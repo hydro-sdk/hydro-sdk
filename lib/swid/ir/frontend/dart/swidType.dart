@@ -7,6 +7,8 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidDefaultFormalParameter.dart'
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 
 part 'swidType.freezed.dart';
 part 'swidType.g.dart';
@@ -50,4 +52,37 @@ extension SwidTypeMethods on SwidType {
         fromSwidDefaultFormalParameter: (val) => val.originalPackagePath,
         fromSwidFunctionType: (val) => val.originalPackagePath,
       );
+
+  String get displayName => [
+        when(
+          fromSwidInterface: (val) => [
+            removeTypeArguments(str: val.name),
+            ...(val.typeArguments.isNotEmpty
+                ? [
+                    "<",
+                    val.typeArguments
+                        .map((x) => x.displayName)
+                        .toList()
+                        .join(""),
+                    ">"
+                  ]
+                : [])
+          ].join(""),
+          fromSwidClass: (val) => [
+            removeTypeArguments(str: val.name),
+            ...(val.typeFormals.isNotEmpty
+                ? [
+                    "<",
+                    val.typeFormals
+                        .map((x) => x.value.displayName)
+                        .toList()
+                        .join(""),
+                    ">"
+                  ]
+                : [])
+          ].join(""),
+          fromSwidDefaultFormalParameter: (val) => val.name,
+          fromSwidFunctionType: (val) => val.name,
+        ),
+      ].join("");
 }

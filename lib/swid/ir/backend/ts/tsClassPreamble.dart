@@ -11,10 +11,12 @@ class TsClassPreamble {
     @required this.swidClass,
   }) : superInterfaces = ([
           swidClass.extendedClass != null
-              ? "I${swidClass.extendedClass.name}"
+              ? "I${swidClass.extendedClass.displayName}"
               : null,
-          ...swidClass.mixedInClasses.map((x) => "I${x.name}").toList(),
-          ...swidClass.implementedClasses.map((x) => "I${x.name}").toList()
+          ...swidClass.mixedInClasses.map((x) => "I${x.displayName}").toList(),
+          ...swidClass.implementedClasses
+              .map((x) => "I${x.displayName}")
+              .toList()
         ]..removeWhere((x) => x == null));
 
   String toTsSource() => ([

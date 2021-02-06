@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 
 part 'swidTypeFormal.freezed.dart';
 part 'swidTypeFormal.g.dart';
@@ -28,6 +29,14 @@ extension SwidTypeFormalValueMethods on SwidTypeFormalValue {
         fromString: (val) => val,
         fromSwidClass: (val) => val.name,
         fromSwidInterface: (val) => val.name,
+      );
+
+  String get displayName => when(
+        fromString: (val) => val,
+        fromSwidClass: (val) =>
+            SwidType.fromSwidClass(swidClass: val).displayName,
+        fromSwidInterface: (val) =>
+            SwidType.fromSwidInterface(swidInterface: val).displayName,
       );
 }
 
