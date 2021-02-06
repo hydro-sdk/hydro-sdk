@@ -4,8 +4,8 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/transforms/ts/mapPrimitiveSwidTypeNameToPrimitiveTsTypeName.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveFunctionTypeNamesToTs.dart';
-import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveInterfaceNamesToTs.dart';
 
 SwidType transformPrimitiveNamesToTs({@required SwidType swidType}) =>
     swidType.when(
@@ -14,7 +14,10 @@ SwidType transformPrimitiveNamesToTs({@required SwidType swidType}) =>
               transformPrimitiveFunctionTypeNamesToTs(swidFunctionType: val)),
       fromSwidInterface: (val) => SwidType.fromSwidInterface(
         swidInterface: SwidInterface.clone(
-          swidType: transformPrimitiveInterfaceNamesToTs(swidInterface: val),
+          swidType: val,
+          name: val.originalPackagePath == "dart:core"
+              ? mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(str: val.name)
+              : val.name,
           typeArguments: val.typeArguments
               .map((x) => transformPrimitiveNamesToTs(swidType: x))
               .toList(),
@@ -24,6 +27,40 @@ SwidType transformPrimitiveNamesToTs({@required SwidType swidType}) =>
       fromSwidClass: (val) => SwidType.fromSwidClass(
         swidClass: SwidClass.clone(
           swidClass: val,
+          name: val.originalPackagePath == "dart:core"
+              ? mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(str: val.name)
+              : val.name,
+          extendedClass: val.extendedClass != null
+              ? transformPrimitiveNamesToTs(
+                      swidType:
+                          SwidType.fromSwidClass(swidClass: val.extendedClass))
+                  .when(
+                  fromSwidInterface: (_) => null,
+                  fromSwidClass: (val) => val,
+                  fromSwidDefaultFormalParameter: (_) => null,
+                  fromSwidFunctionType: (_) => null,
+                )
+              : null,
+          implementedClasses: val.implementedClasses
+              .map((x) => transformPrimitiveNamesToTs(
+                          swidType: SwidType.fromSwidClass(swidClass: x))
+                      .when(
+                    fromSwidInterface: (_) => null,
+                    fromSwidClass: (val) => val,
+                    fromSwidDefaultFormalParameter: (_) => null,
+                    fromSwidFunctionType: (_) => null,
+                  ))
+              .toList(),
+          mixedInClasses: val.mixedInClasses
+              .map((x) => transformPrimitiveNamesToTs(
+                          swidType: SwidType.fromSwidClass(swidClass: x))
+                      .when(
+                    fromSwidInterface: (_) => null,
+                    fromSwidClass: (val) => val,
+                    fromSwidDefaultFormalParameter: (_) => null,
+                    fromSwidFunctionType: (_) => null,
+                  ))
+              .toList(),
           typeFormals: val.typeFormals
               .map((x) => SwidTypeFormal.clone(
                   swidTypeFormal: x,
