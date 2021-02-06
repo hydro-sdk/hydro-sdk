@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelSpec.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
 class DartBarrelLoadNamespaceSymbolDeclaration {
@@ -56,6 +57,12 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
               .toString(),
       ...barrelSpec.members
           .where((x) => x.name != "_internal")
+          .where((x) => x.when(
+                fromSwidClass: (val) =>
+                    requiresDartClassTranslationUnit(swidClass: val),
+                fromSwidEnum: (_) => true,
+                fromBarrelSpec: (_) => true,
+              ))
           .map((x) => refer(x.when(
                 fromSwidClass: (val) =>
                     "load${transformToPascalCase(str: val.name)}",
