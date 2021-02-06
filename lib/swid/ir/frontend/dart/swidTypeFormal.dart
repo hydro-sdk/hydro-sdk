@@ -20,6 +20,19 @@ abstract class SwidTypeFormalValue with _$SwidTypeFormalValue {
   factory SwidTypeFormalValue.fromSwidInterface(
       {@required SwidInterface swidInterface}) = _$FromSwidInterface;
 
+  factory SwidTypeFormalValue.clone({
+    @required SwidTypeFormalValue swidTypeFormalValue,
+  }) =>
+      swidTypeFormalValue.when(
+        fromString: (val) => SwidTypeFormalValue.fromString(string: val),
+        fromSwidClass: (val) => SwidTypeFormalValue.fromSwidClass(
+          swidClass: SwidClass.clone(swidClass: val),
+        ),
+        fromSwidInterface: (val) => SwidTypeFormalValue.fromSwidInterface(
+          swidInterface: SwidInterface.clone(swidType: val),
+        ),
+      );
+
   factory SwidTypeFormalValue.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFormalValueFromJson(json);
 }
@@ -66,4 +79,17 @@ abstract class SwidTypeFormal with _$SwidTypeFormal {
               SwidTypeFormalValue.fromString(string: typeParameter.name.name),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType);
+
+  factory SwidTypeFormal.clone({
+    @required SwidTypeFormal swidTypeFormal,
+    SwidTypeFormalValue value,
+    SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+  }) =>
+      SwidTypeFormal(
+        value: value ??
+            SwidTypeFormalValue.clone(
+                swidTypeFormalValue: swidTypeFormal.value),
+        swidReferenceDeclarationKind: swidReferenceDeclarationKind ??
+            swidTypeFormal.swidReferenceDeclarationKind,
+      );
 }
