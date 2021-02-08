@@ -381,7 +381,10 @@
                         "isFactory": false,
                         "typeFormals": [
                             {
-                                "name": "R",
+                                "value": {
+                                    "string": "R",
+                                    "runtimeType": "fromString"
+                                },
                                 "swidReferenceDeclarationKind": "typeParameterType"
                             }
                         ]
@@ -440,11 +443,11 @@
             "isFactory": false,
             "typeFormals": [
                 {
-                    "name": "S",
+                    "value": { "string": "S", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 },
                 {
-                    "name": "T",
+                    "value": { "string": "T", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 }
             ]
@@ -511,7 +514,7 @@
             "isFactory": false,
             "typeFormals": [
                 {
-                    "name": "R",
+                    "value": { "string": "R", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 }
             ]
@@ -1868,7 +1871,10 @@
                     "isFactory": false,
                     "typeFormals": [
                         {
-                            "name": "R",
+                            "value": {
+                                "string": "R",
+                                "runtimeType": "fromString"
+                            },
                             "swidReferenceDeclarationKind": "typeParameterType"
                         }
                     ]
@@ -2079,7 +2085,10 @@
                     "isFactory": false,
                     "typeFormals": [
                         {
-                            "name": "T",
+                            "value": {
+                                "string": "T",
+                                "runtimeType": "fromString"
+                            },
                             "swidReferenceDeclarationKind": "typeParameterType"
                         }
                     ]
@@ -2268,7 +2277,10 @@
                     "isFactory": false,
                     "typeFormals": [
                         {
-                            "name": "T",
+                            "value": {
+                                "string": "T",
+                                "runtimeType": "fromString"
+                            },
                             "swidReferenceDeclarationKind": "typeParameterType"
                         }
                     ]
@@ -2408,7 +2420,10 @@
                     "isFactory": false,
                     "typeFormals": [
                         {
-                            "name": "T",
+                            "value": {
+                                "string": "T",
+                                "runtimeType": "fromString"
+                            },
                             "swidReferenceDeclarationKind": "typeParameterType"
                         }
                     ]
@@ -2845,7 +2860,10 @@
                     "isFactory": false,
                     "typeFormals": [
                         {
-                            "name": "T",
+                            "value": {
+                                "string": "T",
+                                "runtimeType": "fromString"
+                            },
                             "swidReferenceDeclarationKind": "typeParameterType"
                         }
                     ]
@@ -4976,13 +4994,44 @@
                 "typeFormals": []
             },
             "isMixin": false,
-            "typeFormals": []
+            "typeFormals": [
+                {
+                    "value": {
+                        "swidInterface": {
+                            "name": "E",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:core",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "typeParameterType"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
+                    "swidReferenceDeclarationKind": "typeParameterType"
+                }
+            ]
         },
         "isMixin": false,
-        "typeFormals": []
+        "typeFormals": [
+            {
+                "value": {
+                    "swidInterface": {
+                        "name": "E",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "typeParameterType"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "swidReferenceDeclarationKind": "typeParameterType"
+            }
+        ]
     },
     "isMixin": false,
     "typeFormals": [
-        { "name": "E", "swidReferenceDeclarationKind": "typeParameterType" }
+        {
+            "value": { "string": "E", "runtimeType": "fromString" },
+            "swidReferenceDeclarationKind": "typeParameterType"
+        }
     ]
 }

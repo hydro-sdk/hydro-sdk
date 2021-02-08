@@ -11,7 +11,9 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
 
-import 'package:analyzer/dart/element/type.dart' show InterfaceType;
+import 'package:analyzer/dart/element/type.dart'
+    show InterfaceType, TypeParameterType;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -19,6 +21,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
@@ -335,8 +338,15 @@ abstract class SwidClass with _$SwidClass {
         )));
   }
 
-  factory SwidClass.fromInterfaceType(
-          {@required InterfaceType interfaceType}) =>
+  factory SwidClass.fromInterfaceType({
+    @required InterfaceType interfaceType,
+    /*
+      This is a hack to break cycles in self-referencing class declarations (declarations that look like CRTP).
+      Should probably use an inheritance manager of some sort similar to package:analyzer.
+      A SWID inheritance manager would have to be fully serializable.
+    */
+    bool fullyResolveInterfaceTypeFormals = true,
+  }) =>
       SwidClass(
         name: interfaceType.getDisplayString(withNullability: false),
         nullabilitySuffix: mapNullabilitySuffix(
@@ -372,13 +382,52 @@ abstract class SwidClass with _$SwidClass {
         instanceFieldDeclarations: {},
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
         mixedInClasses: [],
-        implementedClasses: [],
+        implementedClasses: interfaceType.interfaces
+            .map((x) => SwidClass.fromInterfaceType(
+                  interfaceType: x,
+                  fullyResolveInterfaceTypeFormals: false,
+                ))
+            .toList(),
         isMixin: false,
         extendedClass: interfaceType.superclass != null
             ? SwidClass.fromInterfaceType(
-                interfaceType: interfaceType.superclass)
+                interfaceType: interfaceType.superclass,
+                fullyResolveInterfaceTypeFormals: false,
+              )
             : null,
-        typeFormals: [],
+        typeFormals: interfaceType.typeArguments
+            .map((x) => x is InterfaceType && fullyResolveInterfaceTypeFormals
+                ? SwidTypeFormal(
+                    value: SwidTypeFormalValue.fromSwidClass(
+                      swidClass: SwidClass.fromInterfaceType(
+                        interfaceType: x,
+                        fullyResolveInterfaceTypeFormals: false,
+                      ),
+                    ),
+                    swidReferenceDeclarationKind:
+                        SwidReferenceDeclarationKind.classElement,
+                  )
+                : x is TypeName
+                    ? SwidTypeFormal(
+                        value: SwidTypeFormalValue.fromSwidClass(
+                          swidClass: SwidClass.fromInterfaceType(
+                              interfaceType: (x as TypeName).type),
+                        ),
+                        swidReferenceDeclarationKind:
+                            SwidReferenceDeclarationKind.classElement,
+                      )
+                    : x is TypeParameterType
+                        ? SwidTypeFormal(
+                            value: SwidTypeFormalValue.fromSwidInterface(
+                              swidInterface:
+                                  SwidInterface.fromTypeParameterType(
+                                      typeParameterType: x),
+                            ),
+                            swidReferenceDeclarationKind:
+                                SwidReferenceDeclarationKind.typeParameterType,
+                          )
+                        : null)
+            .toList(),
       );
 }
 
@@ -393,4 +442,6 @@ extension SwidClassMethods on SwidClass {
       staticConstFieldDeclarations.isEmpty;
 
   bool isConstructible() => constructorType != null;
+
+  String get displayName => SwidType.fromSwidClass(swidClass: this).displayName;
 }

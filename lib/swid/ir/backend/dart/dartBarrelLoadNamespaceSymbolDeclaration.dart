@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelSpec.dart';
+import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
 class DartBarrelLoadNamespaceSymbolDeclaration {
@@ -13,7 +14,7 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
 
   DartBarrelLoadNamespaceSymbolDeclaration({@required this.barrelSpec});
   String toDartSource() => DartFormatter().format(Method((m) => m
-    ..name = "load${transformToPascalCase(str: barrelSpec.name)}"
+    ..name = "load${barrelSpec.name}"
     ..returns = refer("void")
     ..optionalParameters.addAll([
       Parameter((p) => p
@@ -55,14 +56,27 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
               .accept(DartEmitter())
               .toString(),
       ...barrelSpec.members
-          .map((x) => refer("load${transformToPascalCase(str: x.name)}")
-              .call([], {
-                "table": refer(barrelSpec.name),
-                "hydroState": refer("hydroState"),
-              })
-              .statement
-              .accept(DartEmitter())
-              .toString())
+          .where((x) => x.name != "_internal")
+          .where((x) => x.when(
+                fromSwidClass: (val) =>
+                    requiresDartClassTranslationUnit(swidClass: val),
+                fromSwidEnum: (_) => true,
+                fromBarrelSpec: (_) => true,
+              ))
+          .map((x) => refer(x.when(
+                fromSwidClass: (val) =>
+                    "load${transformToPascalCase(str: val.name)}",
+                fromSwidEnum: (val) =>
+                    "load${transformToPascalCase(str: val.identifier)}",
+                fromBarrelSpec: (val) => "load${val.name}",
+              ))
+                  .call([], {
+                    "table": refer(barrelSpec.name),
+                    "hydroState": refer("hydroState"),
+                  })
+                  .statement
+                  .accept(DartEmitter())
+                  .toString())
           .toList()
     ].join("\n"))).accept(DartEmitter()).toString());
 }

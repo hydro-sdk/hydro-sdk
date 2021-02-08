@@ -53,6 +53,29 @@ void main(List<String> args) async {
           x.name == "EfficientLengthIterable" ||
           x.name == "Set" ||
           x.name == "List" ||
+          x.name == "Float64List" ||
+          x.name == "ByteBuffer" ||
+          x.name == "TypedData" ||
+          x.name == "ByteData" ||
+          x.name == "Float32List" ||
+          x.name == "Float32x4List" ||
+          x.name == "Float64List" ||
+          x.name == "Float64x2List" ||
+          x.name == "Int16List" ||
+          x.name == "Int32List" ||
+          x.name == "Int32x4List" ||
+          x.name == "Int64List" ||
+          x.name == "Int8List" ||
+          x.name == "Uint16List" ||
+          x.name == "Uint32List" ||
+          x.name == "Uint64List" ||
+          x.name == "Uint8ClampedList" ||
+          x.name == "Uint8List" ||
+          x.name == "Float32x4" ||
+          x.name == "Float64x2" ||
+          x.name == "Int32x4" ||
+          x.name == "Endian" ||
+          x.name == "_TypedFloatList" ||
           x.name == "Random")
       .toList();
   for (var i = 0; i != classes.length; ++i) {

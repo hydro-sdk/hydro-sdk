@@ -27,28 +27,39 @@ Current and WIP results:
 - [x] `Random`
 
 ### `dart:typed_data`
-- [ ] `Float64List`
-- [ ] `TypedData`
 - [ ] `ByteBuffer`
-- [ ] `ByteData`
+- [ ] `ByteData`x
+- [ ] `Endian`
 - [ ] `Float32List`
-- [ ] `Float32x4List`
 - [ ] `Float32x4`
-- [ ] `Int32x4`
+- [ ] `Float32x4List`
+- [ ] `Float64List`
 - [ ] `Float64x2`
-- [ ] `Float64x2List`
+- [ ] `Int8List`
+- [ ] `Int16List`
+- [ ] `Int32List`
+- [ ] `Int32x4`
+- [ ] `Int32x4List`x
+- [ ] `Int64List`
+- [ ] `TypedData`
+- [ ] `TypeFloatList`
+- [ ] `Uint8ClampedList`
+- [ ] `Uint8List`
+- [ ] `Uint16List`
+- [ ] `Uint32List`
+- [ ] `Uint64List`
 
 ### `dart:_internal`
 - [x] `EfficientLengthIterable`
 
 ### `dart:ui`
 - [x] All enums
+- [x] `AccessibilityFeatures`
+- [x] `CallbackHandle`
 - [x] `Offset`
 - [x] `OffsetBase`
 - [x] `Size`
 - [x] `Rect`
-- [x] `AccessibilityFeatures`
-- [x] `CallbackHandle`
 - [x] `RRect`
 - [ ] `Path`
 - [x] `PathMetric`

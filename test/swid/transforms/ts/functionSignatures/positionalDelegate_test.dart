@@ -141,7 +141,7 @@ void main() {
             isFactory: false,
             typeFormals: [
               SwidTypeFormal(
-                name: "T",
+                value: SwidTypeFormalValue.fromString(string: "T"),
                 swidReferenceDeclarationKind:
                     SwidReferenceDeclarationKind.typeParameterType,
               ),

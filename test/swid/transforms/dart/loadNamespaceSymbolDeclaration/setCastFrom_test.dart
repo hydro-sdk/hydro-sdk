@@ -73,7 +73,7 @@ void main() {
               isFactory: false,
               typeFormals: [
                 SwidTypeFormal(
-                  name: "R",
+                  value: SwidTypeFormalValue.fromString(string: "R"),
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType,
                 )
@@ -129,12 +129,12 @@ void main() {
       isFactory: false,
       typeFormals: [
         SwidTypeFormal(
-          name: "S",
+          value: SwidTypeFormalValue.fromString(string: "S"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         ),
         SwidTypeFormal(
-          name: "T",
+          value: SwidTypeFormalValue.fromString(string: "T"),
           swidReferenceDeclarationKind:
               SwidReferenceDeclarationKind.typeParameterType,
         ),

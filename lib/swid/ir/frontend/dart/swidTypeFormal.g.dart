@@ -6,9 +6,50 @@ part of 'swidTypeFormal.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$_$FromString _$_$_$FromStringFromJson(Map<String, dynamic> json) {
+  return _$_$FromString(
+    string: json['string'] as String,
+  );
+}
+
+Map<String, dynamic> _$_$_$FromStringToJson(_$_$FromString instance) =>
+    <String, dynamic>{
+      'string': instance.string,
+    };
+
+_$_$FromSwidClass _$_$_$FromSwidClassFromJson(Map<String, dynamic> json) {
+  return _$_$FromSwidClass(
+    swidClass: json['swidClass'] == null
+        ? null
+        : SwidClass.fromJson(json['swidClass'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidClassToJson(_$_$FromSwidClass instance) =>
+    <String, dynamic>{
+      'swidClass': instance.swidClass,
+    };
+
+_$_$FromSwidInterface _$_$_$FromSwidInterfaceFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidInterface(
+    swidInterface: json['swidInterface'] == null
+        ? null
+        : SwidInterface.fromJson(json['swidInterface'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidInterfaceToJson(
+        _$_$FromSwidInterface instance) =>
+    <String, dynamic>{
+      'swidInterface': instance.swidInterface,
+    };
+
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
-    name: json['name'] as String,
+    value: json['value'] == null
+        ? null
+        : SwidTypeFormalValue.fromJson(json['value'] as Map<String, dynamic>),
     swidReferenceDeclarationKind: _$enumDecodeNullable(
         _$SwidReferenceDeclarationKindEnumMap,
         json['swidReferenceDeclarationKind']),
@@ -16,7 +57,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
-      'name': instance.name,
+      'value': instance.value,
       'swidReferenceDeclarationKind': _$SwidReferenceDeclarationKindEnumMap[
           instance.swidReferenceDeclarationKind],
     };

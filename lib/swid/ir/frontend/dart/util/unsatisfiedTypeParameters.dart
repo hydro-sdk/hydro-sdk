@@ -20,9 +20,9 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
         fromSwidInterface: (val) => ([
           (val.referenceDeclarationKind ==
                       SwidReferenceDeclarationKind.typeParameterType &&
-                  !ancestorTypeFormals.any((x) => x.name == val.name)
+                  !ancestorTypeFormals.any((x) => x.value.name == val.name)
               ? SwidTypeFormal(
-                  name: val.name,
+                  value: SwidTypeFormalValue.fromString(string: val.name),
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType)
               : null),

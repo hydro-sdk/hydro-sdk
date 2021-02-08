@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
@@ -39,7 +40,7 @@ class TsClassVmDeclaration {
                             typeArguments: swidClass.typeFormals
                                 .map((x) => SwidType.fromSwidInterface(
                                         swidInterface: SwidInterface(
-                                      name: x.name,
+                                      name: x.value.name,
                                       nullabilitySuffix:
                                           SwidNullabilitySuffix.none,
                                       originalPackagePath: "",
@@ -53,7 +54,7 @@ class TsClassVmDeclaration {
                                 (swidClass.typeFormals.isNotEmpty
                                     ? "<" +
                                         swidClass.typeFormals
-                                            .map((x) => x.name)
+                                            .map((x) => x.value.name)
                                             .toList()
                                             .join(",") +
                                         ">"

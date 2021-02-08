@@ -142,7 +142,7 @@ void main() {
         isMixin: false,
         typeFormals: [
           SwidTypeFormal(
-            name: "E",
+            value: SwidTypeFormalValue.fromString(string: "E"),
             swidReferenceDeclarationKind:
                 SwidReferenceDeclarationKind.typeParameterType,
           )

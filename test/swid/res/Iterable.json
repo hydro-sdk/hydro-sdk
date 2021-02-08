@@ -342,11 +342,11 @@
             "isFactory": false,
             "typeFormals": [
                 {
-                    "name": "S",
+                    "value": { "string": "S", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 },
                 {
-                    "name": "T",
+                    "value": { "string": "T", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 }
             ]
@@ -473,7 +473,7 @@
             "isFactory": false,
             "typeFormals": [
                 {
-                    "name": "R",
+                    "value": { "string": "R", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 }
             ]
@@ -684,7 +684,7 @@
             "isFactory": false,
             "typeFormals": [
                 {
-                    "name": "T",
+                    "value": { "string": "T", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 }
             ]
@@ -873,7 +873,7 @@
             "isFactory": false,
             "typeFormals": [
                 {
-                    "name": "T",
+                    "value": { "string": "T", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 }
             ]
@@ -1013,7 +1013,7 @@
             "isFactory": false,
             "typeFormals": [
                 {
-                    "name": "T",
+                    "value": { "string": "T", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 }
             ]
@@ -1447,7 +1447,7 @@
             "isFactory": false,
             "typeFormals": [
                 {
-                    "name": "T",
+                    "value": { "string": "T", "runtimeType": "fromString" },
                     "swidReferenceDeclarationKind": "typeParameterType"
                 }
             ]
@@ -3226,6 +3226,9 @@
     "extendedClass": null,
     "isMixin": false,
     "typeFormals": [
-        { "name": "E", "swidReferenceDeclarationKind": "typeParameterType" }
+        {
+            "value": { "string": "E", "runtimeType": "fromString" },
+            "swidReferenceDeclarationKind": "typeParameterType"
+        }
     ]
 }

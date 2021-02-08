@@ -1,6 +1,8 @@
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 class TsClassPreamble {
@@ -11,10 +13,24 @@ class TsClassPreamble {
     @required this.swidClass,
   }) : superInterfaces = ([
           swidClass.extendedClass != null
-              ? "I${swidClass.extendedClass.name}"
+              ? "I${swidClass.extendedClass.displayName}"
               : null,
-          ...swidClass.mixedInClasses.map((x) => "I${x.name}").toList(),
-          ...swidClass.implementedClasses.map((x) => "I${x.name}").toList()
+          ...swidClass.mixedInClasses
+              .map(
+                (x) => transformPrimitiveNamesToTs(
+                  swidType: SwidType.fromSwidClass(swidClass: x),
+                ),
+              )
+              .map((x) => "I${x.displayName}")
+              .toList(),
+          ...swidClass.implementedClasses
+              .map(
+                (x) => transformPrimitiveNamesToTs(
+                  swidType: SwidType.fromSwidClass(swidClass: x),
+                ),
+              )
+              .map((x) => "I${x.displayName}")
+              .toList()
         ]..removeWhere((x) => x == null));
 
   String toTsSource() => ([

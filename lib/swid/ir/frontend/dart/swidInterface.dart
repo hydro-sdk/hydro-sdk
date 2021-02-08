@@ -117,3 +117,8 @@ abstract class SwidInterface with _$SwidInterface {
         referenceDeclarationKind: SwidReferenceDeclarationKind.dynamicType,
       );
 }
+
+extension SwidInterfaceMethods on SwidInterface {
+  String get displayName =>
+      SwidType.fromSwidInterface(swidInterface: this).displayName;
+}

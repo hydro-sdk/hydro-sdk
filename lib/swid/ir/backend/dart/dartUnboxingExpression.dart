@@ -12,6 +12,7 @@ import 'package:code_builder/code_builder.dart'
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartUnboxingExpression {
@@ -64,7 +65,7 @@ class DartUnboxingExpression {
             ...[
               val.typeFormals.isNotEmpty
                   ? ("<" +
-                      val.typeFormals.map((x) => x.name).toList().join() +
+                      val.typeFormals.map((x) => x.value.name).toList().join() +
                       ">")
                   : "",
               Method(

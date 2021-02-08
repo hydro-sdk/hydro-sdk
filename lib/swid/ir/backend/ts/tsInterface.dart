@@ -46,25 +46,20 @@ class TsInterface {
         typeFormals: List.from(swidClass.typeFormals),
       );
 
-  String toTsSource() => (members?.isNotEmpty ?? false)
-      ? ([
-          "export interface $name",
-          transformTypeFormalsToTs(swidTypeFormals: typeFormals),
-          ...(emitSuperInterfaceExtensions
-              ? superInterfaces.isNotEmpty
-                  ? [
-                      "extends",
-                      superInterfaces.map((x) => x).toList().join(", ")
-                    ]
-                  : []
-              : []),
-          "{",
-          ...members.entries
-              .map((x) =>
-                  "${x.key}: ${transformTypeDeclarationToTs(swidType: x.value)};")
-              .toList(),
-          "}"
-        ]..removeWhere((x) => x == null))
-          .join("\n")
-      : "";
+  String toTsSource() => ([
+        "export interface $name",
+        transformTypeFormalsToTs(swidTypeFormals: typeFormals),
+        ...(emitSuperInterfaceExtensions
+            ? superInterfaces.isNotEmpty
+                ? ["extends", superInterfaces.map((x) => x).toList().join(", ")]
+                : []
+            : []),
+        "{",
+        ...members.entries
+            .map((x) =>
+                "${x.key}: ${transformTypeDeclarationToTs(swidType: x.value)};")
+            .toList(),
+        "}"
+      ]..removeWhere((x) => x == null))
+          .join("\n");
 }

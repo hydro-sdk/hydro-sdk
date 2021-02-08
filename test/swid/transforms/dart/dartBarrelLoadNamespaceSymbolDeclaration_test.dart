@@ -1,10 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
@@ -126,13 +122,12 @@ void main() {
         DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec)
             .toDartSource(),
         """
-void loadDart({@required HydroState hydroState, @required Context context}) {
+void loaddart({@required HydroState hydroState, @required Context context}) {
   final dart = HydroTable();
   context.env[\'dart\'] = dart;
-  loadCore(table: dart, hydroState: hydroState);
-  loadUi(table: dart, hydroState: hydroState);
-  loadInternal(table: dart, hydroState: hydroState);
-  loadMath(table: dart, hydroState: hydroState);
+  loadcore(table: dart, hydroState: hydroState);
+  loadui(table: dart, hydroState: hydroState);
+  loadmath(table: dart, hydroState: hydroState);
 }
 """);
   }, tags: "swid");
