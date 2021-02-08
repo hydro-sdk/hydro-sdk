@@ -54,12 +54,12 @@ Current and WIP results:
 
 ### `dart:ui`
 - [x] All enums
+- [x] `AccessibilityFeatures`
+- [x] `CallbackHandle`
 - [x] `Offset`
 - [x] `OffsetBase`
 - [x] `Size`
 - [x] `Rect`
-- [x] `AccessibilityFeatures`
-- [x] `CallbackHandle`
 - [x] `RRect`
 - [ ] `Path`
 - [x] `PathMetric`
