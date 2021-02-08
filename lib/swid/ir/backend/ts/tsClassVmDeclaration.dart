@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isInexpressibleStaticConst.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
@@ -95,6 +97,30 @@ class TsClassVmDeclaration {
                                   methods: [
                                     ...swidClass.factoryConstructors,
                                     ...swidClass.staticMethods,
+                                    // ...swidClass.staticConstFieldDeclarations
+                                    //     .where((x) =>
+                                    //         isInexpressibleStaticConst(
+                                    //             staticConst: x.value))
+                                    //     .map((x) => SwidFunctionType(
+                                    //           name: x.name,
+                                    //           nullabilitySuffix:
+                                    //               SwidNullabilitySuffix.none,
+                                    //           originalPackagePath:
+                                    //               swidClass.originalPackagePath,
+                                    //           swidDeclarationModifiers:
+                                    //               SwidDeclarationModifiers
+                                    //                   .empty(),
+                                    //           namedParameterTypes: {},
+                                    //           namedDefaults: {},
+                                    //           normalParameterNames: [],
+                                    //           normalParameterTypes: [],
+                                    //           optionalParameterNames: [],
+                                    //           optionalParameterTypes: [],
+                                    //           returnType: null,
+                                    //           isFactory: false,
+                                    //           typeFormals: [],
+                                    //         ))
+                                    //     .toList()
                                   ]
                                       .map((x) => SwidFunctionType.clone(
                                             swidFunctionType: x,

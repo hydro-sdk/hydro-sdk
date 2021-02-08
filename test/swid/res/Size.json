@@ -1925,6 +1925,16 @@
             "value": {
                 "staticConstFunctionInvocation": {
                     "value": "Size",
+                    "staticType": {
+                        "swidInterface": {
+                            "name": "Size",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
                     "normalParameters": [
                         {
                             "swidDoubleLiteral": { "value": "0.0" },
@@ -1946,6 +1956,16 @@
             "value": {
                 "staticConstFunctionInvocation": {
                     "value": "Size",
+                    "staticType": {
+                        "swidInterface": {
+                            "name": "Size",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
                     "normalParameters": [
                         {
                             "staticConstPrefixedIdentifier": {

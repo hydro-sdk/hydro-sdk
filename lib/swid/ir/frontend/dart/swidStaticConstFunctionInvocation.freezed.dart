@@ -20,11 +20,13 @@ class _$SwidStaticConstFunctionInvocationTearOff {
 // ignore: unused_element
   _$Data call(
       {@required String value,
+      @required SwidType staticType,
       @required List<SwidStaticConst> normalParameters,
       @required Map<String, SwidStaticConst> namedParameters,
       @required bool isConstructorInvocation}) {
     return _$Data(
       value: value,
+      staticType: staticType,
       normalParameters: normalParameters,
       namedParameters: namedParameters,
       isConstructorInvocation: isConstructorInvocation,
@@ -45,6 +47,7 @@ const $SwidStaticConstFunctionInvocation =
 /// @nodoc
 mixin _$SwidStaticConstFunctionInvocation {
   String get value;
+  SwidType get staticType;
   List<SwidStaticConst> get normalParameters;
   Map<String, SwidStaticConst> get namedParameters;
   bool get isConstructorInvocation;
@@ -62,9 +65,12 @@ abstract class $SwidStaticConstFunctionInvocationCopyWith<$Res> {
       _$SwidStaticConstFunctionInvocationCopyWithImpl<$Res>;
   $Res call(
       {String value,
+      SwidType staticType,
       List<SwidStaticConst> normalParameters,
       Map<String, SwidStaticConst> namedParameters,
       bool isConstructorInvocation});
+
+  $SwidTypeCopyWith<$Res> get staticType;
 }
 
 /// @nodoc
@@ -79,12 +85,15 @@ class _$SwidStaticConstFunctionInvocationCopyWithImpl<$Res>
   @override
   $Res call({
     Object value = freezed,
+    Object staticType = freezed,
     Object normalParameters = freezed,
     Object namedParameters = freezed,
     Object isConstructorInvocation = freezed,
   }) {
     return _then(_value.copyWith(
       value: value == freezed ? _value.value : value as String,
+      staticType:
+          staticType == freezed ? _value.staticType : staticType as SwidType,
       normalParameters: normalParameters == freezed
           ? _value.normalParameters
           : normalParameters as List<SwidStaticConst>,
@@ -96,6 +105,16 @@ class _$SwidStaticConstFunctionInvocationCopyWithImpl<$Res>
           : isConstructorInvocation as bool,
     ));
   }
+
+  @override
+  $SwidTypeCopyWith<$Res> get staticType {
+    if (_value.staticType == null) {
+      return null;
+    }
+    return $SwidTypeCopyWith<$Res>(_value.staticType, (value) {
+      return _then(_value.copyWith(staticType: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -106,9 +125,13 @@ abstract class _$$DataCopyWith<$Res>
   @override
   $Res call(
       {String value,
+      SwidType staticType,
       List<SwidStaticConst> normalParameters,
       Map<String, SwidStaticConst> namedParameters,
       bool isConstructorInvocation});
+
+  @override
+  $SwidTypeCopyWith<$Res> get staticType;
 }
 
 /// @nodoc
@@ -124,12 +147,15 @@ class __$$DataCopyWithImpl<$Res>
   @override
   $Res call({
     Object value = freezed,
+    Object staticType = freezed,
     Object normalParameters = freezed,
     Object namedParameters = freezed,
     Object isConstructorInvocation = freezed,
   }) {
     return _then(_$Data(
       value: value == freezed ? _value.value : value as String,
+      staticType:
+          staticType == freezed ? _value.staticType : staticType as SwidType,
       normalParameters: normalParameters == freezed
           ? _value.normalParameters
           : normalParameters as List<SwidStaticConst>,
@@ -149,10 +175,12 @@ class __$$DataCopyWithImpl<$Res>
 class _$_$Data implements _$Data {
   _$_$Data(
       {@required this.value,
+      @required this.staticType,
       @required this.normalParameters,
       @required this.namedParameters,
       @required this.isConstructorInvocation})
       : assert(value != null),
+        assert(staticType != null),
         assert(normalParameters != null),
         assert(namedParameters != null),
         assert(isConstructorInvocation != null);
@@ -163,6 +191,8 @@ class _$_$Data implements _$Data {
   @override
   final String value;
   @override
+  final SwidType staticType;
+  @override
   final List<SwidStaticConst> normalParameters;
   @override
   final Map<String, SwidStaticConst> namedParameters;
@@ -171,7 +201,7 @@ class _$_$Data implements _$Data {
 
   @override
   String toString() {
-    return 'SwidStaticConstFunctionInvocation(value: $value, normalParameters: $normalParameters, namedParameters: $namedParameters, isConstructorInvocation: $isConstructorInvocation)';
+    return 'SwidStaticConstFunctionInvocation(value: $value, staticType: $staticType, normalParameters: $normalParameters, namedParameters: $namedParameters, isConstructorInvocation: $isConstructorInvocation)';
   }
 
   @override
@@ -180,6 +210,9 @@ class _$_$Data implements _$Data {
         (other is _$Data &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
+            (identical(other.staticType, staticType) ||
+                const DeepCollectionEquality()
+                    .equals(other.staticType, staticType)) &&
             (identical(other.normalParameters, normalParameters) ||
                 const DeepCollectionEquality()
                     .equals(other.normalParameters, normalParameters)) &&
@@ -196,6 +229,7 @@ class _$_$Data implements _$Data {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(staticType) ^
       const DeepCollectionEquality().hash(normalParameters) ^
       const DeepCollectionEquality().hash(namedParameters) ^
       const DeepCollectionEquality().hash(isConstructorInvocation);
@@ -213,6 +247,7 @@ class _$_$Data implements _$Data {
 abstract class _$Data implements SwidStaticConstFunctionInvocation {
   factory _$Data(
       {@required String value,
+      @required SwidType staticType,
       @required List<SwidStaticConst> normalParameters,
       @required Map<String, SwidStaticConst> namedParameters,
       @required bool isConstructorInvocation}) = _$_$Data;
@@ -221,6 +256,8 @@ abstract class _$Data implements SwidStaticConstFunctionInvocation {
 
   @override
   String get value;
+  @override
+  SwidType get staticType;
   @override
   List<SwidStaticConst> get normalParameters;
   @override

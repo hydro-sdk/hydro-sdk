@@ -1,10 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 
 void main() {
@@ -15,6 +19,15 @@ void main() {
         value: SwidStaticConst.fromSwidStaticConstFunctionInvocation(
             staticConstFunctionInvocation: SwidStaticConstFunctionInvocation(
                 value: "IconData",
+                staticType: SwidType.fromSwidInterface(
+                    swidInterface: SwidInterface(
+                  name: "IconData",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "package:flutter/widgets.dart",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
+                )),
                 normalParameters: [
                   SwidStaticConst.fromSwidIntegerLiteral(
                       swidIntegerLiteral: SwidIntegerLiteral(value: "0xe52a"))

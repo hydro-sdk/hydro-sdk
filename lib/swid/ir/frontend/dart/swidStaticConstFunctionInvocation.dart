@@ -12,7 +12,9 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/extractStaticConstFromSyntacticEntity.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
@@ -23,6 +25,7 @@ abstract class SwidStaticConstFunctionInvocation
     with _$SwidStaticConstFunctionInvocation {
   factory SwidStaticConstFunctionInvocation({
     @required String value,
+    @required SwidType staticType,
     @required List<SwidStaticConst> normalParameters,
     @required Map<String, SwidStaticConst> namedParameters,
     @required bool isConstructorInvocation,
@@ -37,6 +40,9 @@ abstract class SwidStaticConstFunctionInvocation
     ConstructorName constructor = instanceCreationExpression.childEntities
         .firstWhere((x) => x is ConstructorName);
     return SwidStaticConstFunctionInvocation(
+        staticType: SwidType.fromSwidInterface(
+            swidInterface: SwidInterface.fromInterface(
+                interfaceType: instanceCreationExpression.staticType)),
         value: constructor.type.name.name +
             (constructor.name != null ? ".${constructor.name.name}" : ""),
         normalParameters: (instanceCreationExpression.childEntities
