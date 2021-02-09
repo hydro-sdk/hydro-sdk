@@ -76,6 +76,7 @@ void main(List<String> args) async {
           x.name == "Int32x4" ||
           x.name == "Endian" ||
           x.name == "_TypedFloatList" ||
+          x.name == "_TypedIntList" ||
           x.name == "Random")
       .toList();
   for (var i = 0; i != classes.length; ++i) {
