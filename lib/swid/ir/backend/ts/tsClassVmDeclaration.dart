@@ -1,5 +1,3 @@
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/isInexpressibleStaticConst.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
