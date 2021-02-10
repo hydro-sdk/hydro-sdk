@@ -228,5 +228,88 @@ void main() {
           staticConst: rect.staticConstFieldDeclarations.last.value,
         ),
         false);
+
+    var cupertinoIcons = SwidClass(
+      name: "Icons",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "package:flutter/src/cupertino/icons.dart",
+      constructorType: null,
+      factoryConstructors: [],
+      staticMethods: [],
+      methods: [],
+      implementedClasses: [],
+      staticConstFieldDeclarations: [
+        SwidStaticConstFieldDeclaration(
+          name: "iconFont",
+          value: SwidStaticConst.fromSwidStringLiteral(
+            swidStringLiteral: SwidStringLiteral(value: "CupertinoIcons"),
+          ),
+        ),
+        SwidStaticConstFieldDeclaration(
+          name: "iconFontPackage",
+          value: SwidStaticConst.fromSwidStringLiteral(
+            swidStringLiteral: SwidStringLiteral(value: "cupertino_icons"),
+          ),
+        ),
+        SwidStaticConstFieldDeclaration(
+          name: "left_chevron",
+          value: SwidStaticConst.fromSwidStaticConstFunctionInvocation(
+            staticConstFunctionInvocation: SwidStaticConstFunctionInvocation(
+              value: "IconData",
+              staticType: SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  name: "IconData",
+                  nullabilitySuffix: SwidNullabilitySuffix.star,
+                  originalPackagePath:
+                      "package:flutter/src/widgets/icon_data.dart",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
+                ),
+              ),
+              normalParameters: [
+                SwidStaticConst.fromSwidIntegerLiteral(
+                  swidIntegerLiteral: SwidIntegerLiteral(
+                    value: "oxf3d2",
+                  ),
+                ),
+              ],
+              namedParameters: {
+                "fontFamily": SwidStaticConst.fromSwidStaticConstFieldReference(
+                  swidStaticConstFieldReference: SwidStaticConstFieldReference(
+                    name: "iconFont",
+                  ),
+                ),
+                "fontPackage":
+                    SwidStaticConst.fromSwidStaticConstFieldReference(
+                  swidStaticConstFieldReference: SwidStaticConstFieldReference(
+                    name: "iconFontPackage",
+                  ),
+                ),
+                "matchTextDirection": SwidStaticConst.fromSwidBooleanLiteral(
+                  swidBooleanLiteral: SwidBooleanLiteral(
+                    value: "true",
+                  ),
+                )
+              },
+              isConstructorInvocation: true,
+            ),
+          ),
+        )
+      ],
+      instanceFieldDeclarations: {},
+      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      extendedClass: null,
+      isMixin: false,
+      typeFormals: [],
+    );
+
+    expect(
+        cupertinoIcons.staticConstFieldDeclarations.every((x) =>
+            isInexpressibleStaticConst(
+                parentClass: cupertinoIcons, staticConst: x.value) ==
+            false),
+        true);
   }, tags: "swid");
 }
