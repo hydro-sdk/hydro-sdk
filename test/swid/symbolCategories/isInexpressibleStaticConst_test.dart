@@ -1,15 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidBooleanLiteral.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/isInexpressibleStaticConst.dart';
@@ -63,6 +66,7 @@ void main() {
 
     expect(
         isInexpressibleStaticConst(
+          parentClass: endian,
           staticConst: endian.staticConstFieldDeclarations.first.value,
         ),
         true);
@@ -122,7 +126,106 @@ void main() {
 
     expect(
         isInexpressibleStaticConst(
+          parentClass: icons,
           staticConst: icons.staticConstFieldDeclarations.first.value,
+        ),
+        false);
+
+    var rect = SwidClass(
+      name: "Icons",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "package:flutter/material.dart",
+      constructorType: null,
+      factoryConstructors: [],
+      staticMethods: [],
+      methods: [],
+      implementedClasses: [],
+      staticConstFieldDeclarations: [
+        SwidStaticConstFieldDeclaration(
+          name: "_giantScalar",
+          value: SwidStaticConst.fromDoubleLiteral(
+            swidDoubleLiteral: SwidDoubleLiteral(
+              value: "1.0E+9",
+            ),
+          ),
+        ),
+        SwidStaticConstFieldDeclaration(
+          name: "largest",
+          value: SwidStaticConst.fromSwidStaticConstFunctionInvocation(
+            staticConstFunctionInvocation: SwidStaticConstFunctionInvocation(
+              value: "Rect.fromLTRB",
+              staticType: SwidType.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  name: "Rect",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "dart:ui",
+                  typeArguments: [],
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.classElement,
+                ),
+              ),
+              normalParameters: [
+                SwidStaticConst.fromSwidStaticConstPrefixedExpression(
+                  swidStaticConstPrefixedExpression:
+                      SwidStaticConstPrefixedExpression(
+                    prefix: "-",
+                    expression:
+                        SwidStaticConst.fromSwidStaticConstFieldReference(
+                      swidStaticConstFieldReference:
+                          SwidStaticConstFieldReference(
+                        name: "_giantScalar",
+                      ),
+                    ),
+                  ),
+                ),
+                SwidStaticConst.fromSwidStaticConstPrefixedExpression(
+                  swidStaticConstPrefixedExpression:
+                      SwidStaticConstPrefixedExpression(
+                    prefix: "-",
+                    expression:
+                        SwidStaticConst.fromSwidStaticConstFieldReference(
+                      swidStaticConstFieldReference:
+                          SwidStaticConstFieldReference(
+                        name: "_giantScalar",
+                      ),
+                    ),
+                  ),
+                ),
+                SwidStaticConst.fromSwidStaticConstFieldReference(
+                  swidStaticConstFieldReference: SwidStaticConstFieldReference(
+                    name: "_giantScalar",
+                  ),
+                ),
+                SwidStaticConst.fromSwidStaticConstFieldReference(
+                  swidStaticConstFieldReference: SwidStaticConstFieldReference(
+                    name: "_giantScalar",
+                  ),
+                ),
+              ],
+              namedParameters: {},
+              isConstructorInvocation: false,
+            ),
+          ),
+        ),
+      ],
+      instanceFieldDeclarations: {},
+      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      extendedClass: null,
+      isMixin: false,
+      typeFormals: [],
+    );
+
+    expect(
+        isInexpressibleStaticConst(
+          parentClass: rect,
+          staticConst: rect.staticConstFieldDeclarations.first.value,
+        ),
+        false);
+    expect(
+        isInexpressibleStaticConst(
+          parentClass: rect,
+          staticConst: rect.staticConstFieldDeclarations.last.value,
         ),
         false);
   }, tags: "swid");
