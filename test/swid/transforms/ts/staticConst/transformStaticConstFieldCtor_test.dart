@@ -1,4 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
@@ -14,6 +16,24 @@ import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaratio
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
+    var icons = SwidClass(
+      name: "Icons",
+      nullabilitySuffix: SwidNullabilitySuffix.none,
+      originalPackagePath: "package:flutter/material.dart",
+      constructorType: null,
+      factoryConstructors: [],
+      staticMethods: [],
+      methods: [],
+      implementedClasses: [],
+      staticConstFieldDeclarations: [],
+      instanceFieldDeclarations: {},
+      swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+      mixedInClasses: [],
+      extendedClass: null,
+      isMixin: false,
+      typeFormals: [],
+    );
+
     var tenk = SwidStaticConstFieldDeclaration(
         name: "ten_k",
         value: SwidStaticConst.fromSwidStaticConstFunctionInvocation(
@@ -40,7 +60,9 @@ void main() {
                 isConstructorInvocation: true)));
     expect(
         transformStaticConstFieldDeclaration(
-            staticConstFieldDeclaration: tenk, scopeResolver: (_) => null),
+            parentClass: icons,
+            staticConstFieldDeclaration: tenk,
+            scopeResolver: (_) => null),
         "public static ten_k = new IconData(0xe52a,{ fontFamily: \"MaterialIcons\" });");
   }, tags: "swid");
 }

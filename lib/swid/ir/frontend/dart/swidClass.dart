@@ -124,6 +124,24 @@ abstract class SwidClass with _$SwidClass {
         typeFormals: typeFormals ?? List.from(swidClass.typeFormals ?? []),
       );
 
+  factory SwidClass.empty() => SwidClass(
+        name: "",
+        nullabilitySuffix: SwidNullabilitySuffix.none,
+        originalPackagePath: "",
+        constructorType: null,
+        factoryConstructors: [],
+        staticMethods: [],
+        methods: [],
+        staticConstFieldDeclarations: [],
+        instanceFieldDeclarations: {},
+        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        mixedInClasses: [],
+        implementedClasses: [],
+        extendedClass: null,
+        isMixin: false,
+        typeFormals: [],
+      );
+
   factory SwidClass.mergeDeclarations(
           {@required SwidClass swidClass, @required SwidClass superClass}) =>
       superClass != null

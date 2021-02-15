@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
@@ -17,7 +18,10 @@ void main() {
 
     expect(
         transformNamedParametersToTs(
-            namedParameters: namedParameters, scopeResolver: (_) => null),
+            parentClass: SwidClass.empty(),
+            inexpressibleFunctionInvocationFallback: "",
+            namedParameters: namedParameters,
+            scopeResolver: (_) => null),
         "{ fontFamily: \"Material\", size: 12 }");
   }, tags: "swid");
 }

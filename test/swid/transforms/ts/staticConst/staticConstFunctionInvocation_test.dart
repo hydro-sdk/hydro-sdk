@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
@@ -31,6 +32,8 @@ void main() {
         isConstructorInvocation: false);
     expect(
         transformStaticConstFunctionInvocation(
+            parentClass: SwidClass.empty(),
+            inexpressibleFunctionInvocationFallback: "",
             swidStaticConstFunctionInvocation: normal,
             scopeResolver: (_) => null),
         "IconData(0xe52a)");
@@ -59,6 +62,8 @@ void main() {
         isConstructorInvocation: false);
     expect(
         transformStaticConstFunctionInvocation(
+            parentClass: SwidClass.empty(),
+            inexpressibleFunctionInvocationFallback: "",
             swidStaticConstFunctionInvocation: manyNormal,
             scopeResolver: (_) => null),
         "IconData(0xe52a, \"foo\", \"bar\", 123)");
@@ -85,6 +90,8 @@ void main() {
         isConstructorInvocation: false);
     expect(
         transformStaticConstFunctionInvocation(
+            parentClass: SwidClass.empty(),
+            inexpressibleFunctionInvocationFallback: "",
             swidStaticConstFunctionInvocation: manyNamed,
             scopeResolver: (_) => null),
         "IconData({ foo: \"foo\", bar: \"bar\", offset: 123 })");
@@ -111,6 +118,8 @@ void main() {
 
     expect(
         transformStaticConstFunctionInvocation(
+            parentClass: SwidClass.empty(),
+            inexpressibleFunctionInvocationFallback: "",
             swidStaticConstFunctionInvocation: normalAndNamedCtor,
             scopeResolver: (_) => null),
         "new IconData(0xe52a,{ fontFamily: \"MaterialIcons\" })");
