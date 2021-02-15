@@ -125,7 +125,7 @@ export interface IFloat32x4List {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Float32x4List implements IList<Float32x4>, ITypedData {
+export class Float32x4List implements IList<IFloat32x4>, ITypedData {
     public static bytesPerElement = 16;
     public constructor(length: number) {
         dart.typed_data.float32x4List(this, length);

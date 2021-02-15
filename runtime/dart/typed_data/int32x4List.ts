@@ -122,7 +122,7 @@ export interface IInt32x4List {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Int32x4List implements IList<Int32x4>, ITypedData {
+export class Int32x4List implements IList<IInt32x4>, ITypedData {
     public static bytesPerElement = 16;
     public constructor(length: number) {
         dart.typed_data.int32x4List(this, length);
