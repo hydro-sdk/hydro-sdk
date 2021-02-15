@@ -22,7 +22,7 @@ void loaddart({@required HydroState hydroState, @required Context context}) {
   loadDeveloper(dart);
   loadAsync(table: dart, hydroState: hydroState);
   loadConvert(table: dart, hydroState: hydroState);
-  loadCollection(hydroState: hydroState, table: dart);
+  loadcollection(hydroState: hydroState, table: dart);
   loadmath(hydroState: hydroState, table: dart);
   loadtyped_data(table: dart, hydroState: hydroState);
 }
