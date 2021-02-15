@@ -2,22 +2,17 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 
-bool isPrimitive({@required SwidType swidType}) => swidType.when(
-      fromSwidInterface: (val) =>
-          val.originalPackagePath == "dart:core" &&
-          (val.name == "String" ||
-              val.name == "String*" ||
-              val.name == "bool" ||
-              val.name == "bool*" ||
-              val.name == "int" ||
-              val.name == "int*" ||
-              val.name == "double" ||
-              val.name == "double*" ||
-              //Including TS types here is leaky
-              val.name == "string" ||
-              val.name == "number" ||
-              val.name == "boolean"),
-      fromSwidClass: (_) => false,
-      fromSwidDefaultFormalParameter: (_) => false,
-      fromSwidFunctionType: (_) => false,
-    );
+bool isPrimitive({@required SwidType swidType}) =>
+    swidType.originalPackagePath == "dart:core" &&
+    (swidType.name == "String" ||
+        swidType.name == "String*" ||
+        swidType.name == "bool" ||
+        swidType.name == "bool*" ||
+        swidType.name == "int" ||
+        swidType.name == "int*" ||
+        swidType.name == "double" ||
+        swidType.name == "double*" ||
+        //Including TS types here is leaky
+        swidType.name == "string" ||
+        swidType.name == "number" ||
+        swidType.name == "boolean");
