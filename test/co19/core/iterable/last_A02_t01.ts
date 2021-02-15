@@ -8,7 +8,7 @@
  * @description Checks that StateError is thrown if this Iteratable is empty.
  */
 
-import { IIterable,List } from "./../../../../runtime/dart/index";
+import { IIterable, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

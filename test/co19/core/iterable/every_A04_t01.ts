@@ -6,7 +6,7 @@
  * @description Checks that predicate exception goes through to the caller
  */
 
-import { IIterable,List,IList } from "./../../../../runtime/dart/index";
+import { IIterable, IList, List } from "./../../../../runtime/dart/index";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function every_A04_t01(

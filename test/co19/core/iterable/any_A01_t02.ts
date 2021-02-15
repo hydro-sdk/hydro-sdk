@@ -7,8 +7,7 @@
  * each element of this iteratable
  */
 
-import { IIterable,Set,List } from "../../../../runtime/dart/index";
-
+import { IIterable, List, Set } from "../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

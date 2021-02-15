@@ -12,7 +12,7 @@
  * equivalent to const [0, ..., n - 1].map(generator)
  */
 
-import { Iterable,List } from "./../../../../runtime/dart/index";
+import { Iterable, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

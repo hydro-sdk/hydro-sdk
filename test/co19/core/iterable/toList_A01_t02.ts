@@ -7,7 +7,7 @@
  * it's size.
  */
 
-import { IIterable,List,IList } from "./../../../../runtime/dart/index";
+import { IIterable, IList, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

@@ -7,7 +7,7 @@
  * over, the supplied function test will not be invoked
  */
 
-import { IIterable,List } from "./../../../../runtime/dart/index";
+import { IIterable, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

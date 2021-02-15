@@ -7,7 +7,7 @@
  * the returned Iterable is not iterated over.
  */
 
-import { IIterable,List } from "./../../../../runtime/dart/index";
+import { IIterable, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

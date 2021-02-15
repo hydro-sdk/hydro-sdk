@@ -8,7 +8,7 @@
  * @description Checks that the last element of the list is returned.
  */
 
-import { IIterable ,List,IList} from "./../../../../runtime/dart/index";
+import { IIterable, IList, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

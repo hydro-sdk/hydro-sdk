@@ -5,7 +5,7 @@
  * resulting collection equals to the initial one
  */
 
-import { IIterable,List } from "./../../../../runtime/dart/index";
+import { IIterable, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

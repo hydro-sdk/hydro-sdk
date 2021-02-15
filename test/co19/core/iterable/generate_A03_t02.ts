@@ -13,7 +13,7 @@
  * generator function is called
  */
 
-import { Iterable ,List} from "./../../../../runtime/dart/index";
+import { Iterable, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 

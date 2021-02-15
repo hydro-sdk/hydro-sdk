@@ -4,7 +4,7 @@
  * @description Checks that proper Set is created.
  */
 
-import { IIterable,ISet,Set,List } from "./../../../../runtime/dart/index";
+import { IIterable, ISet, List, Set } from "./../../../../runtime/dart/index";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function toSet_A01_t01(

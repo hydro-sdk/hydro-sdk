@@ -4,7 +4,7 @@
  * @description Checks that a StateError is thrown if no element match.
  */
 
-import { IIterable,List } from "./../../../../runtime/dart/index";
+import { IIterable, List } from "./../../../../runtime/dart/index";
 
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
