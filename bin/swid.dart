@@ -47,6 +47,8 @@ void main(List<String> args) async {
           x.name == "RRect" ||
           x.name == "Path" ||
           x.name == "PathMetric" ||
+          x.name == "PathMetrics" ||
+          x.name == "IterableBase" ||
           x.name == "Tangent" ||
           x.name == "Iterable" ||
           x.name == "Iterator" ||
