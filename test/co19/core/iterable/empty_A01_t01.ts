@@ -6,7 +6,7 @@
  * @description Checks that Iterator created by the Iterable.empty() has no
  * elements
  */
-import { Iterable } from "./../../../../runtime/dart/core/iterable";
+import { Iterable } from "./../../../../runtime/dart/index";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function empty_A01_t01() {
