@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
 
+import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -85,7 +85,8 @@ void main() {
       typeFormals: [],
     );
     expect(requiresDartClassTranslationUnit(swidClass: endian), true);
-    expect(TsClassStaticConstFieldDeclarations(swidClass: endian).toTsSource(), """
+    expect(
+        TsClassStaticConstFieldDeclarations(swidClass: endian).toTsSource(), """
     public static big = dart.typed_data.endianBig();
     public static little = dart.typed_data.endianLittle();
 """);
