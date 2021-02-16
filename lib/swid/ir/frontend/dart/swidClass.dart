@@ -377,9 +377,33 @@ abstract class SwidClass with _$SwidClass {
         methods: [
           ...interfaceType.methods
               .where((x) => !x.isStatic)
-              .map((x) => SwidFunctionType.fromFunctionType(
-                  functionType: x.type,
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty()))
+              .map(
+                (x) => (({
+                  SwidFunctionType baseClassMethod,
+                  SwidFunctionType childClassMethod,
+                }) =>
+                    SwidFunctionType.clone(
+                        swidFunctionType: childClassMethod,
+                        namedDefaults: Map.of(baseClassMethod.namedDefaults)
+                          ..addAll(childClassMethod.namedDefaults)))(
+                  baseClassMethod: SwidFunctionType.fromFunctionType(
+                    functionType: x.declaration.type,
+                    swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty(),
+                      isAbstract: x.isAbstract,
+                    ),
+                  ),
+                  childClassMethod: SwidFunctionType.fromFunctionType(
+                    functionType: x.type,
+                    swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty(),
+                      isAbstract: x.isAbstract,
+                    ),
+                  ),
+                ),
+              )
               .toList(),
           ...interfaceType.accessors
               .whereType<PropertyAccessorElement>()
