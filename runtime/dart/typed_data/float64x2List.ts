@@ -26,6 +26,9 @@ declare const dart: {
         ) => IFloat64x2List;
     };
 };
+const toListDefaultProps = {
+    growable: true,
+};
 export interface IFloat64x2List {
     sublist: (start: number, end?: number | undefined) => IFloat64x2List;
     cast: <R>() => IList<R>;
@@ -338,12 +341,12 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
     public shuffle(random?: IRandom | undefined): void {
         return this._dart_shuffle(random);
     }
-    public indexOf(element: IFloat64x2, start: number): number {
+    public indexOf(element: IFloat64x2, start: number = 0): number {
         return this._dart_indexOf(element, start);
     }
     public indexWhere(
         test: (element: IFloat64x2) => boolean,
-        start: number
+        start: number = 0
     ): number {
         return this._dart_indexWhere(test, start);
     }
@@ -393,7 +396,7 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
         start: number,
         end: number,
         iterable: IIterable<IFloat64x2>,
-        skipCount: number
+        skipCount: number = 0
     ): void {
         return this._dart_setRange(start, end, iterable, skipCount);
     }
@@ -481,8 +484,11 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
     public any(test: (element: IFloat64x2) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<IFloat64x2> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<IFloat64x2> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public toSet(): ISet<IFloat64x2> {
         return this._dart_toSet();

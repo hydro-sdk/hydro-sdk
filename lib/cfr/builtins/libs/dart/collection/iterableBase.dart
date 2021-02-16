@@ -713,7 +713,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   }
 
   @override
-  List toList({bool growable}) {
+  List toList({bool growable = true}) {
     Closure closure = table["toList"];
     return maybeUnBoxAndBuildArgument<List>(
         closure.dispatch([table], parentState: hydroState)[0],

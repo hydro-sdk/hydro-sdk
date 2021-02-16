@@ -7,6 +7,9 @@ import { IPathMetric } from "./pathMetric";
 declare const dart: {
     ui: {};
 };
+const toListDefaultProps = {
+    growable: true,
+};
 export interface IPathMetrics {
     getIterator: () => IIterator<IPathMetric>;
     cast: <R>() => IIterable<R>;
@@ -185,8 +188,11 @@ export class PathMetrics implements IIterableBase<IPathMetric> {
     public any(test: (element: IPathMetric) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<IPathMetric> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<IPathMetric> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public toSet(): ISet<IPathMetric> {
         return this._dart_toSet();

@@ -20,6 +20,9 @@ declare const dart: {
         ) => string;
     };
 };
+const toListDefaultProps = {
+    growable: true,
+};
 export interface IIterableBase<E> {
     cast: <R>() => IIterable<R>;
     followedBy: (other: IIterable<E>) => IIterable<E>;
@@ -208,8 +211,11 @@ export class IterableBase<E> implements IIterable<E> {
     public any(test: (element: E) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<E> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<E> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public toSet(): ISet<E> {
         return this._dart_toSet();
