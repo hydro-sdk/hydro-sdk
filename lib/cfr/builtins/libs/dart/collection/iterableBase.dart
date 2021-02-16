@@ -591,7 +591,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
       return [super.toString()];
     });
     table['_dart_getIterator'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.iterator];
+      return [iterator];
     });
     table['_dart_getLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.length];
