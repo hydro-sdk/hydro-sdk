@@ -388,7 +388,11 @@ abstract class SwidClass with _$SwidClass {
                 (x) => SwidFunctionType.fromFunctionType(
                   functionType: x.type,
                   swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty(),
+                      isAbstract: x.isAbstract,
+                    ),
                     isGetter: x.isGetter,
                     isSetter: x.isSetter,
                   ),
