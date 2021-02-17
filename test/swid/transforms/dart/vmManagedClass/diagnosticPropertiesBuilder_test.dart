@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 
 void main() {
@@ -14,7 +14,7 @@ void main() {
             .readAsStringSync()));
 
     expect(
-        VMManagedClassDeclaration(swidClass: diagnosticPropertiesBuilderClass)
+        DartVMManagedClassDeclaration(swidClass: diagnosticPropertiesBuilderClass)
             .toDartSource(),
         """
 class VMManagedDiagnosticPropertiesBuilder

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -12,7 +12,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var ir = VMManagedClassDeclaration(
+    var ir = DartVMManagedClassDeclaration(
         swidClass: SwidClass(
       name: "fooClass",
       typeFormals: [],

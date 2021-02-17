@@ -24,10 +24,10 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInClas
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
-class VMManagedClassDeclaration {
+class DartVMManagedClassDeclaration {
   final SwidClass swidClass;
 
-  VMManagedClassDeclaration({@required this.swidClass});
+  DartVMManagedClassDeclaration({@required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Class(
         (c) => c

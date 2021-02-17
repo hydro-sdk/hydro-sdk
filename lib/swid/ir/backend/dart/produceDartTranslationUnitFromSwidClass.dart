@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/removeNonEmitCandidates.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -75,7 +75,7 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                         path: "package:hydro_sdk/hydroState.dart"),
                   ]),
                   DartIr.fromVMManagedClassDeclaration(
-                    vmManagedClassDeclaration: VMManagedClassDeclaration(
+                    vmManagedClassDeclaration: DartVMManagedClassDeclaration(
                       swidClass:
                           SwidClass.mergeSuperClasses(swidClass: swidClass),
                     ),

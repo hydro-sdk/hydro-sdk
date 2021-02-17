@@ -17,7 +17,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaratio
 import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
 
 part 'dartir.freezed.dart';
@@ -81,7 +81,7 @@ abstract class DartIr with _$DartIr {
                   staticMethodNamespaceSymbolDeclaration}) =
       _$FromDartStaticMethodNamespaceSymbolDeclaration;
   factory DartIr.fromVMManagedClassDeclaration(
-          {@required VMManagedClassDeclaration vmManagedClassDeclaration}) =
+          {@required DartVMManagedClassDeclaration vmManagedClassDeclaration}) =
       _$FromVMManagedClassDeclaration;
   factory DartIr.fromVMManagedClassMethodInjectionImplementation(
           {@required
