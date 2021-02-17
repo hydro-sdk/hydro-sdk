@@ -127,7 +127,7 @@ class _$DartIrTearOff {
 
 // ignore: unused_element
   _$FromMethodInjectionImplementation fromMethodInjectionImplementation(
-      {@required MethodInjectionImplementation methodInjectionImplementation}) {
+      {@required DartMethodInjectionImplementation methodInjectionImplementation}) {
     return _$FromMethodInjectionImplementation(
       methodInjectionImplementation: methodInjectionImplementation,
     );
@@ -220,7 +220,7 @@ mixin _$DartIr {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -261,7 +261,7 @@ mixin _$DartIr {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -485,7 +485,7 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -549,7 +549,7 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -795,7 +795,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -858,7 +858,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -1104,7 +1104,7 @@ class _$_$FromDartBindInstanceFieldDirect
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -1167,7 +1167,7 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -1408,7 +1408,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -1471,7 +1471,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -1706,7 +1706,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -1769,7 +1769,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -2009,7 +2009,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -2072,7 +2072,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -2312,7 +2312,7 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -2375,7 +2375,7 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -2625,7 +2625,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -2689,7 +2689,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -2928,7 +2928,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -2991,7 +2991,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -3231,7 +3231,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -3294,7 +3294,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -3534,7 +3534,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -3597,7 +3597,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -3847,7 +3847,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -3911,7 +3911,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -4161,7 +4161,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -4224,7 +4224,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -4366,7 +4366,7 @@ abstract class _$$FromMethodInjectionImplementationCopyWith<$Res> {
           _$FromMethodInjectionImplementation value,
           $Res Function(_$FromMethodInjectionImplementation) then) =
       __$$FromMethodInjectionImplementationCopyWithImpl<$Res>;
-  $Res call({MethodInjectionImplementation methodInjectionImplementation});
+  $Res call({DartMethodInjectionImplementation methodInjectionImplementation});
 }
 
 /// @nodoc
@@ -4389,7 +4389,7 @@ class __$$FromMethodInjectionImplementationCopyWithImpl<$Res>
     return _then(_$FromMethodInjectionImplementation(
       methodInjectionImplementation: methodInjectionImplementation == freezed
           ? _value.methodInjectionImplementation
-          : methodInjectionImplementation as MethodInjectionImplementation,
+          : methodInjectionImplementation as DartMethodInjectionImplementation,
     ));
   }
 }
@@ -4402,7 +4402,7 @@ class _$_$FromMethodInjectionImplementation
       : assert(methodInjectionImplementation != null);
 
   @override
-  final MethodInjectionImplementation methodInjectionImplementation;
+  final DartMethodInjectionImplementation methodInjectionImplementation;
 
   @override
   String toString() {
@@ -4472,7 +4472,7 @@ class _$_$FromMethodInjectionImplementation
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -4535,7 +4535,7 @@ class _$_$FromMethodInjectionImplementation
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -4663,10 +4663,10 @@ class _$_$FromMethodInjectionImplementation
 abstract class _$FromMethodInjectionImplementation implements DartIr {
   factory _$FromMethodInjectionImplementation(
           {@required
-              MethodInjectionImplementation methodInjectionImplementation}) =
+              DartMethodInjectionImplementation methodInjectionImplementation}) =
       _$_$FromMethodInjectionImplementation;
 
-  MethodInjectionImplementation get methodInjectionImplementation;
+  DartMethodInjectionImplementation get methodInjectionImplementation;
   _$$FromMethodInjectionImplementationCopyWith<
       _$FromMethodInjectionImplementation> get copyWith;
 }
@@ -4781,7 +4781,7 @@ class _$_$FromRTManagedClassDeclaration
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -4844,7 +4844,7 @@ class _$_$FromRTManagedClassDeclaration
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -5099,7 +5099,7 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -5163,7 +5163,7 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -5412,7 +5412,7 @@ class _$_$FromVMManagedClassDeclaration
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -5475,7 +5475,7 @@ class _$_$FromVMManagedClassDeclaration
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(
@@ -5736,7 +5736,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
             DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
-            MethodInjectionImplementation methodInjectionImplementation),
+            DartMethodInjectionImplementation methodInjectionImplementation),
     @required
         Result fromRTManagedClassDeclaration(
             RTManagedClassDeclaration rtManagedClassDeclaration),
@@ -5800,7 +5800,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromLoadNamepsaceSymbolDeclaration(
         DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
-        MethodInjectionImplementation methodInjectionImplementation),
+        DartMethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
         RTManagedClassDeclaration rtManagedClassDeclaration),
     Result fromDartStaticMethodNamespaceSymbolDeclaration(

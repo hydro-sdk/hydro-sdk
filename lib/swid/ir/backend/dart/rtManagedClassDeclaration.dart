@@ -22,7 +22,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -149,7 +149,7 @@ class RTManagedClassDeclaration {
             .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
-            .map((x) => Code(MethodInjectionImplementation(
+            .map((x) => Code(DartMethodInjectionImplementation(
                     swidFunctionType: castAllTypeParametersInFunctionToDynamic(
                   swidFunctionType: x,
                   preserveTypeParametersInLists: true,

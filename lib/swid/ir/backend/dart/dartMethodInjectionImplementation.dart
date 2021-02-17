@@ -13,10 +13,10 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByRefere
 import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
-class MethodInjectionImplementation {
+class DartMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
 
-  MethodInjectionImplementation({@required this.swidFunctionType});
+  DartMethodInjectionImplementation({@required this.swidFunctionType});
 
   String _methodInvocation() =>
       (swidFunctionType.swidDeclarationModifiers.isGetter
