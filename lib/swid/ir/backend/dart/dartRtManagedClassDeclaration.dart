@@ -34,10 +34,10 @@ import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNa
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 
-class RTManagedClassDeclaration {
+class DartRTManagedClassDeclaration {
   final SwidClass swidClass;
 
-  RTManagedClassDeclaration({@required this.swidClass});
+  DartRTManagedClassDeclaration({@required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Class((x) => x
     ..name = "RTManaged${swidClass.name}"

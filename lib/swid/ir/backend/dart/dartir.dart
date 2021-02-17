@@ -15,7 +15,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
@@ -73,7 +73,7 @@ abstract class DartIr with _$DartIr {
               DartMethodInjectionImplementation methodInjectionImplementation}) =
       _$FromMethodInjectionImplementation;
   factory DartIr.fromRTManagedClassDeclaration(
-          {@required RTManagedClassDeclaration rtManagedClassDeclaration}) =
+          {@required DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
       _$FromRTManagedClassDeclaration;
   factory DartIr.fromDartStaticMethodNamespaceSymbolDeclaration(
           {@required

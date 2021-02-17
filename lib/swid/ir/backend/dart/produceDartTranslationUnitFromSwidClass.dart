@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/removeNonEmitCandidates.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
@@ -85,7 +85,7 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                           swidClass.isConstructible() &&
                           !swidClass.constructorType.isFactory
                       ? DartIr.fromRTManagedClassDeclaration(
-                          rtManagedClassDeclaration: RTManagedClassDeclaration(
+                          rtManagedClassDeclaration: DartRTManagedClassDeclaration(
                               swidClass: SwidClass.mergeSuperClasses(
                                   swidClass: swidClass)),
                         )
