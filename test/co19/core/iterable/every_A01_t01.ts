@@ -7,8 +7,8 @@
  * satisfies the predicate [f].
  */
 
-import { IIterable } from "./../../../../runtime/dart/core/iterable";
-import { List } from "../../../../runtime/dart/core/list";
+import { IIterable, List } from "./../../../../runtime/dart/index";
+
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function every_A01_t01(

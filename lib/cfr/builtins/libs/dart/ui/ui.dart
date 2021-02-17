@@ -8,6 +8,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offset.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offsetBase.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/path.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/pathMetric.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/pathMetrics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rRect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/radius.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rect.dart';
@@ -38,4 +39,5 @@ void loadUi({@required HydroState luaState, @required HydroTable table}) {
   loadPath(hydroState: luaState, table: ui);
   loadPathMetric(hydroState: luaState, table: ui);
   loadTangent(hydroState: luaState, table: ui);
+  loadPathMetrics(hydroState: luaState, table: ui);
 }

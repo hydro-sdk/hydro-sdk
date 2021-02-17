@@ -14,7 +14,7 @@
  * Checks that Iterators created by the Iterable contain results of invocations
  * of [generator].
  */
-import { Iterable } from "./../../../../runtime/dart/core/iterable";
+import { Iterable } from "./../../../../runtime/dart/index";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 function check(count: number) {

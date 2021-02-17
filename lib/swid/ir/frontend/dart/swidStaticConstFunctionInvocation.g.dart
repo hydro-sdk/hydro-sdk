@@ -9,6 +9,9 @@ part of 'swidStaticConstFunctionInvocation.dart';
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     value: json['value'] as String,
+    staticType: json['staticType'] == null
+        ? null
+        : SwidType.fromJson(json['staticType'] as Map<String, dynamic>),
     normalParameters: (json['normalParameters'] as List)
         ?.map((e) => e == null
             ? null
@@ -27,6 +30,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'value': instance.value,
+      'staticType': instance.staticType,
       'normalParameters': instance.normalParameters,
       'namedParameters': instance.namedParameters,
       'isConstructorInvocation': instance.isConstructorInvocation,

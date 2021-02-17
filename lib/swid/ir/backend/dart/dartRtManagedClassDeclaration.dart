@@ -21,9 +21,9 @@ import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/swidTypeToDartTypeReference.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/util/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
@@ -34,10 +34,10 @@ import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNa
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 
-class RTManagedClassDeclaration {
+class DartRTManagedClassDeclaration {
   final SwidClass swidClass;
 
-  RTManagedClassDeclaration({@required this.swidClass});
+  DartRTManagedClassDeclaration({@required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Class((x) => x
     ..name = "RTManaged${swidClass.name}"
@@ -149,7 +149,7 @@ class RTManagedClassDeclaration {
             .toList()),
         ...(swidClass.methods
             .where((x) => x.name != "==")
-            .map((x) => Code(MethodInjectionImplementation(
+            .map((x) => Code(DartMethodInjectionImplementation(
                     swidFunctionType: castAllTypeParametersInFunctionToDynamic(
                   swidFunctionType: x,
                   preserveTypeParametersInLists: true,

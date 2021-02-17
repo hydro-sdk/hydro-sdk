@@ -26,6 +26,9 @@ declare const dart: {
         ) => IFloat32x4List;
     };
 };
+const toListDefaultProps = {
+    growable: true,
+};
 export interface IFloat32x4List {
     sublist: (start: number, end?: number | undefined) => IFloat32x4List;
     cast: <R>() => IList<R>;
@@ -125,7 +128,7 @@ export interface IFloat32x4List {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Float32x4List implements IList<Float32x4>, ITypedData {
+export class Float32x4List implements IList<IFloat32x4>, ITypedData {
     public static bytesPerElement = 16;
     public constructor(length: number) {
         dart.typed_data.float32x4List(this, length);
@@ -338,12 +341,12 @@ export class Float32x4List implements IList<Float32x4>, ITypedData {
     public shuffle(random?: IRandom | undefined): void {
         return this._dart_shuffle(random);
     }
-    public indexOf(element: IFloat32x4, start: number): number {
+    public indexOf(element: IFloat32x4, start: number = 0): number {
         return this._dart_indexOf(element, start);
     }
     public indexWhere(
         test: (element: IFloat32x4) => boolean,
-        start: number
+        start: number = 0
     ): number {
         return this._dart_indexWhere(test, start);
     }
@@ -393,7 +396,7 @@ export class Float32x4List implements IList<Float32x4>, ITypedData {
         start: number,
         end: number,
         iterable: IIterable<IFloat32x4>,
-        skipCount: number
+        skipCount: number = 0
     ): void {
         return this._dart_setRange(start, end, iterable, skipCount);
     }
@@ -481,8 +484,11 @@ export class Float32x4List implements IList<Float32x4>, ITypedData {
     public any(test: (element: IFloat32x4) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<IFloat32x4> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<IFloat32x4> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public toSet(): ISet<IFloat32x4> {
         return this._dart_toSet();

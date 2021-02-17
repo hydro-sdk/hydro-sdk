@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/backend/dart/produceDartTranslationUnitsFromBarrelSpec.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
@@ -47,6 +47,8 @@ void main(List<String> args) async {
           x.name == "RRect" ||
           x.name == "Path" ||
           x.name == "PathMetric" ||
+          x.name == "PathMetrics" ||
+          x.name == "IterableBase" ||
           x.name == "Tangent" ||
           x.name == "Iterable" ||
           x.name == "Iterator" ||

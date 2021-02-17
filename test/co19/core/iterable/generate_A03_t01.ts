@@ -12,8 +12,8 @@
  * equivalent to const [0, ..., n - 1].map(generator)
  */
 
-import { Iterable } from "./../../../../runtime/dart/core/iterable";
-import { List } from "./../../../../runtime/dart/core/list";
+import { Iterable, List } from "./../../../../runtime/dart/index";
+
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 const generator = (index: number) => index * 2;

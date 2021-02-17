@@ -14,6 +14,9 @@ declare const dart: {
         ) => ISet<T>;
     };
 };
+const toListDefaultProps = {
+    growable: true,
+};
 export interface ISet<E> {
     cast: <R>() => ISet<R>;
     getIterator: () => IIterator<E>;
@@ -291,8 +294,11 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     public any(test: (element: E) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<E> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<E> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public take(count: number): IIterable<E> {
         return this._dart_take(count);

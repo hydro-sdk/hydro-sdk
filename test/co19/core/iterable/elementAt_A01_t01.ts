@@ -9,8 +9,8 @@
  * @description Checks that the indexth element is returned.
  */
 
-import { IIterable } from "./../../../../runtime/dart/core/iterable";
-import { IList, List } from "./../../../../runtime/dart/core/list";
+import { IIterable, IList, List } from "./../../../../runtime/dart/index";
+
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function elementAt_A01_t01(

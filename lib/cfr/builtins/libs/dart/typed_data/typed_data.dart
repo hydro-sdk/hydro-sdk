@@ -2,6 +2,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/byteBuffer.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/byteData.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/endian.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/float32List.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/float32x4.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/float32x4List.dart';
@@ -29,6 +30,7 @@ void loadtyped_data(
   table['typed_data'] = typed_data;
   loadByteBuffer(table: typed_data, hydroState: hydroState);
   loadTypedData(table: typed_data, hydroState: hydroState);
+  loadEndian(table: typed_data, hydroState: hydroState);
   loadByteData(table: typed_data, hydroState: hydroState);
   loadInt8List(table: typed_data, hydroState: hydroState);
   loadUint8List(table: typed_data, hydroState: hydroState);

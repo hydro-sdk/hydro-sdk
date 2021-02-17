@@ -124,6 +124,24 @@ abstract class SwidClass with _$SwidClass {
         typeFormals: typeFormals ?? List.from(swidClass.typeFormals ?? []),
       );
 
+  factory SwidClass.empty() => SwidClass(
+        name: "",
+        nullabilitySuffix: SwidNullabilitySuffix.none,
+        originalPackagePath: "",
+        constructorType: null,
+        factoryConstructors: [],
+        staticMethods: [],
+        methods: [],
+        staticConstFieldDeclarations: [],
+        instanceFieldDeclarations: {},
+        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+        mixedInClasses: [],
+        implementedClasses: [],
+        extendedClass: null,
+        isMixin: false,
+        typeFormals: [],
+      );
+
   factory SwidClass.mergeDeclarations(
           {@required SwidClass swidClass, @required SwidClass superClass}) =>
       superClass != null
@@ -359,9 +377,33 @@ abstract class SwidClass with _$SwidClass {
         methods: [
           ...interfaceType.methods
               .where((x) => !x.isStatic)
-              .map((x) => SwidFunctionType.fromFunctionType(
-                  functionType: x.type,
-                  swidDeclarationModifiers: SwidDeclarationModifiers.empty()))
+              .map(
+                (x) => (({
+                  SwidFunctionType baseClassMethod,
+                  SwidFunctionType childClassMethod,
+                }) =>
+                    SwidFunctionType.clone(
+                        swidFunctionType: childClassMethod,
+                        namedDefaults: Map.of(baseClassMethod.namedDefaults)
+                          ..addAll(childClassMethod.namedDefaults)))(
+                  baseClassMethod: SwidFunctionType.fromFunctionType(
+                    functionType: x.declaration.type,
+                    swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty(),
+                      isAbstract: x.isAbstract,
+                    ),
+                  ),
+                  childClassMethod: SwidFunctionType.fromFunctionType(
+                    functionType: x.type,
+                    swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty(),
+                      isAbstract: x.isAbstract,
+                    ),
+                  ),
+                ),
+              )
               .toList(),
           ...interfaceType.accessors
               .whereType<PropertyAccessorElement>()
@@ -370,7 +412,11 @@ abstract class SwidClass with _$SwidClass {
                 (x) => SwidFunctionType.fromFunctionType(
                   functionType: x.type,
                   swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
+                    swidDeclarationModifiers: SwidDeclarationModifiers.clone(
+                      swidDeclarationModifiers:
+                          SwidDeclarationModifiers.empty(),
+                      isAbstract: x.isAbstract,
+                    ),
                     isGetter: x.isGetter,
                     isSetter: x.isSetter,
                   ),

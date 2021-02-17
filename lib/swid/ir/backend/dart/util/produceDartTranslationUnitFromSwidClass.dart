@@ -3,11 +3,11 @@ import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartImportStatement.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/removeNonEmitCandidates.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -75,7 +75,7 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                         path: "package:hydro_sdk/hydroState.dart"),
                   ]),
                   DartIr.fromVMManagedClassDeclaration(
-                    vmManagedClassDeclaration: VMManagedClassDeclaration(
+                    vmManagedClassDeclaration: DartVMManagedClassDeclaration(
                       swidClass:
                           SwidClass.mergeSuperClasses(swidClass: swidClass),
                     ),
@@ -85,14 +85,16 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                           swidClass.isConstructible() &&
                           !swidClass.constructorType.isFactory
                       ? DartIr.fromRTManagedClassDeclaration(
-                          rtManagedClassDeclaration: RTManagedClassDeclaration(
-                              swidClass: SwidClass.mergeSuperClasses(
-                                  swidClass: swidClass)),
+                          rtManagedClassDeclaration:
+                              DartRTManagedClassDeclaration(
+                                  swidClass: SwidClass.mergeSuperClasses(
+                                      swidClass: swidClass)),
                         )
                       : null,
                   DartIr.fromLoadNamepsaceSymbolDeclaration(
                       loadNamespaceSymbolDeclaration:
-                          LoadNamespaceSymbolDeclaration(swidClass: swidClass))
+                          DartLoadNamespaceSymbolDeclaration(
+                              swidClass: swidClass))
                 ]..removeWhere((x) => x == null),
               )
             : null)(

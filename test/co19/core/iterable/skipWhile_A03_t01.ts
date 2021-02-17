@@ -6,8 +6,8 @@
  * tested and satisfy the test, or are returned by the iterator .
  */
 
-import { IIterable } from "./../../../../runtime/dart/core/iterable";
-import { List } from "../../../../runtime/dart/core/list";
+import { IIterable, List } from "./../../../../runtime/dart/index";
+
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function skipwhile_A03_t01(

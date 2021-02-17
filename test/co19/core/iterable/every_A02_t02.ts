@@ -6,7 +6,7 @@
  * @description Checks that [f] is not called if list is empty
  */
 
-import { IIterable } from "./../../../../runtime/dart/core/iterable";
+import { IIterable } from "./../../../../runtime/dart/index";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function every_A02_t02(

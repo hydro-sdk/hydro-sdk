@@ -15,17 +15,19 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/staticMethodNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
-class LoadNamespaceSymbolDeclaration {
+class DartLoadNamespaceSymbolDeclaration {
   final SwidClass swidClass;
 
-  LoadNamespaceSymbolDeclaration({@required this.swidClass});
+  DartLoadNamespaceSymbolDeclaration({@required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Method((m) => m
     ..name = "load${swidClass.name}"
@@ -72,10 +74,23 @@ class LoadNamespaceSymbolDeclaration {
               .statement
           : null,
       ...[
+        ...swidClass.staticConstFieldDeclarations
+            .where((x) => isInexpressibleStaticConst(
+                  parentClass: swidClass,
+                  staticConst: x.value,
+                ))
+            .map((x) =>
+                DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                        swidClass: swidClass,
+                        swidStaticConstFieldDeclaration: x)
+                    .toCode())
+            .toList()
+      ],
+      ...[
         ...swidClass.factoryConstructors,
         ...swidClass.staticMethods,
       ]
-          .map((x) => StaticMethodNamespaceSymbolDeclaration(
+          .map((x) => DartStaticMethodNamespaceSymbolDeclaration(
                   swidClass: swidClass, swidFunctionType: x)
               .toCode())
           .toList(),
