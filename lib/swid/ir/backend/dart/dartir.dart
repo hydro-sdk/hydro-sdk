@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartImportStatement.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
@@ -46,6 +47,11 @@ abstract class DartIr with _$DartIr {
   factory DartIr.fromDartImportStatement(
           {@required DartImportStatement dartImportStatement}) =
       _$FromDartImportStatement;
+  factory DartIr.fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+          {@required
+              DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                  dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
+      _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
   factory DartIr.fromDartFunctionSelfBindingInvocation(
           {@required
               DartFunctionSelfBindingInvocation
