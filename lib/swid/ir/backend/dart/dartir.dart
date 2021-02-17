@@ -16,7 +16,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant
 import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/staticMethodNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
 
@@ -75,11 +75,11 @@ abstract class DartIr with _$DartIr {
   factory DartIr.fromRTManagedClassDeclaration(
           {@required RTManagedClassDeclaration rtManagedClassDeclaration}) =
       _$FromRTManagedClassDeclaration;
-  factory DartIr.fromStaticMethodNamespaceSymbolDeclaration(
+  factory DartIr.fromDartStaticMethodNamespaceSymbolDeclaration(
           {@required
-              StaticMethodNamespaceSymbolDeclaration
+              DartStaticMethodNamespaceSymbolDeclaration
                   staticMethodNamespaceSymbolDeclaration}) =
-      _$FromStaticMethodNamespaceSymbolDeclaration;
+      _$FromDartStaticMethodNamespaceSymbolDeclaration;
   factory DartIr.fromVMManagedClassDeclaration(
           {@required VMManagedClassDeclaration vmManagedClassDeclaration}) =
       _$FromVMManagedClassDeclaration;
@@ -108,7 +108,7 @@ extension DartIrMethods on DartIr {
         fromLoadNamepsaceSymbolDeclaration: (val) => val.toDartSource(),
         fromMethodInjectionImplementation: (val) => val.toDartSource(),
         fromRTManagedClassDeclaration: (val) => val.toDartSource(),
-        fromStaticMethodNamespaceSymbolDeclaration: (val) => val.toDartSource(),
+        fromDartStaticMethodNamespaceSymbolDeclaration: (val) => val.toDartSource(),
         fromVMManagedClassDeclaration: (val) => val.toDartSource(),
         fromVMManagedClassMethodInjectionImplementation: (val) =>
             val.toDartSource(),

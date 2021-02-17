@@ -23,11 +23,11 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByRefere
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
-class StaticMethodNamespaceSymbolDeclaration {
+class DartStaticMethodNamespaceSymbolDeclaration {
   final SwidClass swidClass;
   final SwidFunctionType swidFunctionType;
 
-  StaticMethodNamespaceSymbolDeclaration(
+  DartStaticMethodNamespaceSymbolDeclaration(
       {@required this.swidClass, @required this.swidFunctionType});
 
   Code _body() => Code(DartBoxObjectReference(
