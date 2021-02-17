@@ -3,7 +3,7 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/codeKind.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';

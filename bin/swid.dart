@@ -1,4 +1,4 @@
-import 'package:hydro_sdk/swid/ir/backend/dart/produceDartTranslationUnitsFromBarrelSpec.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/ir/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
