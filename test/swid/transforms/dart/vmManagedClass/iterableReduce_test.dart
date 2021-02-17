@@ -147,7 +147,8 @@ void main() {
                 SwidReferenceDeclarationKind.typeParameterType,
           )
         ]);
-    expect(DartVMManagedClassDeclaration(swidClass: iterable).toDartSource(), """
+    expect(
+        DartVMManagedClassDeclaration(swidClass: iterable).toDartSource(), """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
       {@required this.table,

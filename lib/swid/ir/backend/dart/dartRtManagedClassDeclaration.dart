@@ -21,8 +21,8 @@ import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/util/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';

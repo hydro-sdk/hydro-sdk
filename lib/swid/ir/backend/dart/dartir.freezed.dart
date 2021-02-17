@@ -127,7 +127,8 @@ class _$DartIrTearOff {
 
 // ignore: unused_element
   _$FromMethodInjectionImplementation fromMethodInjectionImplementation(
-      {@required DartMethodInjectionImplementation methodInjectionImplementation}) {
+      {@required
+          DartMethodInjectionImplementation methodInjectionImplementation}) {
     return _$FromMethodInjectionImplementation(
       methodInjectionImplementation: methodInjectionImplementation,
     );
@@ -4055,7 +4056,8 @@ abstract class _$$FromLoadNamespaceSymbolDeclarationCopyWith<$Res> {
           _$FromLoadNamespaceSymbolDeclaration value,
           $Res Function(_$FromLoadNamespaceSymbolDeclaration) then) =
       __$$FromLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>;
-  $Res call({DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration});
+  $Res call(
+      {DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration});
 }
 
 /// @nodoc
@@ -4078,7 +4080,8 @@ class __$$FromLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
     return _then(_$FromLoadNamespaceSymbolDeclaration(
       loadNamespaceSymbolDeclaration: loadNamespaceSymbolDeclaration == freezed
           ? _value.loadNamespaceSymbolDeclaration
-          : loadNamespaceSymbolDeclaration as DartLoadNamespaceSymbolDeclaration,
+          : loadNamespaceSymbolDeclaration
+              as DartLoadNamespaceSymbolDeclaration,
     ));
   }
 }
@@ -4352,7 +4355,8 @@ class _$_$FromLoadNamespaceSymbolDeclaration
 abstract class _$FromLoadNamespaceSymbolDeclaration implements DartIr {
   factory _$FromLoadNamespaceSymbolDeclaration(
           {@required
-              DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) =
+              DartLoadNamespaceSymbolDeclaration
+                  loadNamespaceSymbolDeclaration}) =
       _$_$FromLoadNamespaceSymbolDeclaration;
 
   DartLoadNamespaceSymbolDeclaration get loadNamespaceSymbolDeclaration;
@@ -4663,7 +4667,8 @@ class _$_$FromMethodInjectionImplementation
 abstract class _$FromMethodInjectionImplementation implements DartIr {
   factory _$FromMethodInjectionImplementation(
           {@required
-              DartMethodInjectionImplementation methodInjectionImplementation}) =
+              DartMethodInjectionImplementation
+                  methodInjectionImplementation}) =
       _$_$FromMethodInjectionImplementation;
 
   DartMethodInjectionImplementation get methodInjectionImplementation;
@@ -4983,7 +4988,8 @@ abstract class _$FromRTManagedClassDeclaration implements DartIr {
 abstract class _$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWith<$Res> {
   factory _$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWith(
           _$FromDartStaticMethodNamespaceSymbolDeclaration value,
-          $Res Function(_$FromDartStaticMethodNamespaceSymbolDeclaration) then) =
+          $Res Function(_$FromDartStaticMethodNamespaceSymbolDeclaration)
+              then) =
       __$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWithImpl<$Res>;
   $Res call(
       {DartStaticMethodNamespaceSymbolDeclaration
@@ -4997,8 +5003,10 @@ class __$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWithImpl<$Res>
   __$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWithImpl(
       _$FromDartStaticMethodNamespaceSymbolDeclaration _value,
       $Res Function(_$FromDartStaticMethodNamespaceSymbolDeclaration) _then)
-      : super(_value,
-            (v) => _then(v as _$FromDartStaticMethodNamespaceSymbolDeclaration));
+      : super(
+            _value,
+            (v) =>
+                _then(v as _$FromDartStaticMethodNamespaceSymbolDeclaration));
 
   @override
   _$FromDartStaticMethodNamespaceSymbolDeclaration get _value =>
@@ -5056,7 +5064,8 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
           _$FromDartStaticMethodNamespaceSymbolDeclaration>
       get copyWith =>
           __$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWithImpl<
-              _$FromDartStaticMethodNamespaceSymbolDeclaration>(this, _$identity);
+                  _$FromDartStaticMethodNamespaceSymbolDeclaration>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5289,7 +5298,8 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
   }
 }
 
-abstract class _$FromDartStaticMethodNamespaceSymbolDeclaration implements DartIr {
+abstract class _$FromDartStaticMethodNamespaceSymbolDeclaration
+    implements DartIr {
   factory _$FromDartStaticMethodNamespaceSymbolDeclaration(
           {@required
               DartStaticMethodNamespaceSymbolDeclaration

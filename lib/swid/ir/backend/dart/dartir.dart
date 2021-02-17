@@ -10,13 +10,13 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartImportStatement.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
 
@@ -66,11 +66,13 @@ abstract class DartIr with _$DartIr {
       $FromDartVMManagedClassBoxerRegistrant;
   factory DartIr.fromLoadNamepsaceSymbolDeclaration(
           {@required
-              DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) =
+              DartLoadNamespaceSymbolDeclaration
+                  loadNamespaceSymbolDeclaration}) =
       _$FromLoadNamespaceSymbolDeclaration;
   factory DartIr.fromMethodInjectionImplementation(
           {@required
-              DartMethodInjectionImplementation methodInjectionImplementation}) =
+              DartMethodInjectionImplementation
+                  methodInjectionImplementation}) =
       _$FromMethodInjectionImplementation;
   factory DartIr.fromRTManagedClassDeclaration(
           {@required DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
@@ -108,7 +110,8 @@ extension DartIrMethods on DartIr {
         fromLoadNamepsaceSymbolDeclaration: (val) => val.toDartSource(),
         fromMethodInjectionImplementation: (val) => val.toDartSource(),
         fromRTManagedClassDeclaration: (val) => val.toDartSource(),
-        fromDartStaticMethodNamespaceSymbolDeclaration: (val) => val.toDartSource(),
+        fromDartStaticMethodNamespaceSymbolDeclaration: (val) =>
+            val.toDartSource(),
         fromVMManagedClassDeclaration: (val) => val.toDartSource(),
         fromVMManagedClassMethodInjectionImplementation: (val) =>
             val.toDartSource(),

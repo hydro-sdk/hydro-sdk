@@ -14,7 +14,8 @@ void main() {
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
-        DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass).toDartSource(),
+        DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass)
+            .toDartSource(),
         """
 void loadIconData(
     {@required HydroState hydroState, @required HydroTable table}) {

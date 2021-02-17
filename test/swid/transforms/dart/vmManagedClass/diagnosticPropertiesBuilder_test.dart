@@ -14,7 +14,8 @@ void main() {
             .readAsStringSync()));
 
     expect(
-        DartVMManagedClassDeclaration(swidClass: diagnosticPropertiesBuilderClass)
+        DartVMManagedClassDeclaration(
+                swidClass: diagnosticPropertiesBuilderClass)
             .toDartSource(),
         """
 class VMManagedDiagnosticPropertiesBuilder

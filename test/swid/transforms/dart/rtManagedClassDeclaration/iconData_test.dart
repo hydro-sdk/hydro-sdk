@@ -14,7 +14,8 @@ void main() {
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
-        DartRTManagedClassDeclaration(swidClass: iconDataClass).toDartSource(), """
+        DartRTManagedClassDeclaration(swidClass: iconDataClass).toDartSource(),
+        """
 class RTManagedIconData extends IconData implements Box<IconData> {
   RTManagedIconData(int codePoint,
       {String fontFamily,
