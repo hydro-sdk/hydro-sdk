@@ -1728,7 +1728,7 @@
                 "nullabilitySuffix": "none",
                 "originalPackagePath": "dart:_internal",
                 "swidDeclarationModifiers": {
-                    "isAbstract": false,
+                    "isAbstract": true,
                     "isGetter": true,
                     "isOperator": false,
                     "isSetter": false,
@@ -3212,7 +3212,23 @@
                             "runtimeType": "fromSwidInterface"
                         }
                     },
-                    "namedDefaults": {},
+                    "namedDefaults": {
+                        "growable": {
+                            "name": "true",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:core",
+                            "value": {
+                                "swidInterface": {
+                                    "name": "bool",
+                                    "nullabilitySuffix": "none",
+                                    "originalPackagePath": "dart:core",
+                                    "typeArguments": [],
+                                    "referenceDeclarationKind": "classElement"
+                                },
+                                "runtimeType": "fromSwidInterface"
+                            }
+                        }
+                    },
                     "normalParameterNames": [],
                     "normalParameterTypes": [],
                     "optionalParameterNames": [],
@@ -4303,7 +4319,7 @@
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "swidDeclarationModifiers": {
-                        "isAbstract": false,
+                        "isAbstract": true,
                         "isGetter": true,
                         "isOperator": false,
                         "isSetter": false,

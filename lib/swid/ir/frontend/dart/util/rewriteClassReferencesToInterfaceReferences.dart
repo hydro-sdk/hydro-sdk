@@ -4,6 +4,8 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitive.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
@@ -29,7 +31,11 @@ SwidType rewriteClassReferencesToInterfaceReferences(
                 onPrimitive: (val) => val,
                 onClass: (val) => SwidInterface.clone(
                     swidType: val,
-                    name: rewriteReferenceName(name: val.name),
+                    name: !isPrimitive(
+                            swidType:
+                                SwidType.fromSwidInterface(swidInterface: val))
+                        ? rewriteReferenceName(name: val.name)
+                        : val.name,
                     typeArguments: val.typeArguments
                         .map((x) => rewriteClassReferencesToInterfaceReferences(
                             swidType: x))
@@ -47,6 +53,45 @@ SwidType rewriteClassReferencesToInterfaceReferences(
                 ? rewriteClassReferencesToInterfaceReferencesInFunction(
                     swidFunctionType: val.constructorType)
                 : null,
+            typeFormals: val.typeFormals
+                .map(
+                  (x) => x != null
+                      ? SwidTypeFormal.clone(
+                          swidTypeFormal: x,
+                          value: x.value.when(
+                            fromString: (val) =>
+                                SwidTypeFormalValue.fromString(string: val),
+                            fromSwidClass: (val) =>
+                                SwidTypeFormalValue.fromSwidClass(
+                              swidClass: SwidClass.clone(
+                                swidClass:
+                                    rewriteClassReferencesToInterfaceReferencesInClass(
+                                        swidClass: val),
+                                name: !isPrimitive(
+                                        swidType: SwidType.fromSwidClass(
+                                            swidClass: val))
+                                    ? rewriteReferenceName(name: val.name)
+                                    : val.name,
+                              ),
+                            ),
+                            fromSwidInterface: (val) =>
+                                SwidTypeFormalValue.fromSwidInterface(
+                              swidInterface:
+                                  rewriteClassReferencesToInterfaceReferences(
+                                swidType: SwidType.fromSwidInterface(
+                                    swidInterface: val),
+                              ).when(
+                                fromSwidInterface: (val) => val,
+                                fromSwidClass: (_) => null,
+                                fromSwidDefaultFormalParameter: (_) => null,
+                                fromSwidFunctionType: (_) => null,
+                              ),
+                            ),
+                          ),
+                        )
+                      : null,
+                )
+                .toList(),
             factoryConstructors: val.factoryConstructors
                 .map((x) =>
                     rewriteClassReferencesToInterfaceReferencesInFunction(

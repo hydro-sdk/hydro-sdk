@@ -4,12 +4,14 @@ import 'package:path/path.dart' as path;
 import 'package:hydro_sdk/swid/ir/backend/ts/tsVmDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/requiresDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
@@ -80,33 +82,85 @@ class TsClassVmDeclaration {
   String toTsSource() => requiresDartBinding(swidClass: swidClass) ||
           swidClass.isConstructible()
       ? ((SwidClass swidClass) => transformVmDeclarationToTs(
-              tsVmDeclaration: transformPackageUri(
-                      packageUri: swidClass.originalPackagePath)
-                  .split(path.separator)
-                  .map((x) =>
-                      TsVmDeclaration(name: x, methods: [], children: []))
-                  .reduce((previousValue, element) => TsVmDeclaration.clone(
+                tsVmDeclaration: transformPackageUri(
+                        packageUri: swidClass.originalPackagePath)
+                    .split(path.separator)
+                    .map((x) =>
+                        TsVmDeclaration(name: x, methods: [], children: []))
+                    .reduce(
+                      (previousValue, element) => TsVmDeclaration.clone(
                         tsVmDeclaration: _addConstructorBindingDeclarations(
                             tsVmDeclaration: previousValue),
                         children: [
                           _addConstructorBindingDeclarations(
-                              tsVmDeclaration: TsVmDeclaration.clone(
-                                  tsVmDeclaration: element,
-                                  methods: [
-                                    ...swidClass.factoryConstructors,
-                                    ...swidClass.staticMethods,
-                                  ]
-                                      .map((x) => SwidFunctionType.clone(
-                                            swidFunctionType: x,
-                                            name: transformToCamelCase(
-                                                    str: swidClass.name) +
-                                                transformToPascalCase(
-                                                    str: x.name),
-                                          ))
-                                      .toList())),
+                            tsVmDeclaration: TsVmDeclaration.clone(
+                              tsVmDeclaration: element,
+                              methods: [
+                                ...swidClass.factoryConstructors,
+                                ...swidClass.staticMethods,
+                                ...swidClass.staticConstFieldDeclarations
+                                    .where((x) => isInexpressibleStaticConst(
+                                          staticConst: x.value,
+                                          parentClass: swidClass,
+                                        ))
+                                    .map(
+                                      (x) => SwidFunctionType.MakeReceiverVoid(
+                                        swidFunctionType: SwidFunctionType(
+                                          name: x.name,
+                                          nullabilitySuffix:
+                                              SwidNullabilitySuffix.none,
+                                          originalPackagePath:
+                                              swidClass.originalPackagePath,
+                                          swidDeclarationModifiers:
+                                              SwidDeclarationModifiers.empty(),
+                                          namedParameterTypes: {},
+                                          namedDefaults: {},
+                                          normalParameterNames: [],
+                                          normalParameterTypes: [],
+                                          optionalParameterNames: [],
+                                          optionalParameterTypes: [],
+                                          returnType: x.value.when<SwidType>(
+                                            fromSwidBooleanLiteral: (_) => null,
+                                            fromSwidStringLiteral: (_) => null,
+                                            fromSwidIntegerLiteral: (_) => null,
+                                            fromDoubleLiteral: (_) => null,
+                                            fromSwidStaticConstFunctionInvocation:
+                                                (val) => val.staticType,
+                                            fromSwidStaticConstFieldReference:
+                                                (_) => null,
+                                            fromSwidStaticConstPrefixedExpression:
+                                                (_) => null,
+                                            fromSwidStaticConstBinaryExpression:
+                                                (_) => null,
+                                            fromSwidStaticConstPrefixedIdentifier:
+                                                (_) => null,
+                                          ),
+                                          isFactory: false,
+                                          typeFormals: [],
+                                        ),
+                                      ),
+                                    )
+                                    .toList()
+                              ]
+                                  .map(
+                                    (x) => SwidFunctionType.clone(
+                                      swidFunctionType: x,
+                                      name: transformToCamelCase(
+                                              str: swidClass.name) +
+                                          transformToPascalCase(str: x.name),
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          ),
                         ],
-                      ))))(rewriteClassReferencesToInterfaceReferencesInClass(
-              swidClass: swidClass)) +
+                      ),
+                    ),
+              ))(
+            rewriteClassReferencesToInterfaceReferencesInClass(
+              swidClass: swidClass,
+            ),
+          ) +
           ";\n"
       : "";
 }

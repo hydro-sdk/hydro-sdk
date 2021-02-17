@@ -16,7 +16,7 @@ import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
@@ -24,10 +24,10 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInClas
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
-class VMManagedClassDeclaration {
+class DartVMManagedClassDeclaration {
   final SwidClass swidClass;
 
-  VMManagedClassDeclaration({@required this.swidClass});
+  DartVMManagedClassDeclaration({@required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Class(
         (c) => c
@@ -116,7 +116,7 @@ class VMManagedClassDeclaration {
                         .where((x) => x.name != "==")
                         .where((x) => !x.swidDeclarationModifiers.hasProtected)
                         .map((x) => Code(
-                              VMManagedClassMethodInjectionImplementation(
+                              DartVMManagedClassMethodInjectionImplementation(
                                   tableKey:
                                       transformAccessorName(swidFunctionType: x)
                                           .name,

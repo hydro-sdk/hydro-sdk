@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -153,7 +153,7 @@ void main() {
           )
         ]);
     expect(
-        VMManagedClassDeclaration(
+        DartVMManagedClassDeclaration(
           swidClass: castTypeParametersToDynamic(
             swidType: SwidType.fromSwidClass(swidClass: iterable),
             preserveTypeParametersInLists: false,

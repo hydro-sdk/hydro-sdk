@@ -9,16 +9,17 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartImportStatement.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/staticMethodNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
 
 part 'dartir.freezed.dart';
 
@@ -46,6 +47,11 @@ abstract class DartIr with _$DartIr {
   factory DartIr.fromDartImportStatement(
           {@required DartImportStatement dartImportStatement}) =
       _$FromDartImportStatement;
+  factory DartIr.fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+          {@required
+              DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                  dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
+      _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
   factory DartIr.fromDartFunctionSelfBindingInvocation(
           {@required
               DartFunctionSelfBindingInvocation
@@ -66,26 +72,28 @@ abstract class DartIr with _$DartIr {
       $FromDartVMManagedClassBoxerRegistrant;
   factory DartIr.fromLoadNamepsaceSymbolDeclaration(
           {@required
-              LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) =
+              DartLoadNamespaceSymbolDeclaration
+                  loadNamespaceSymbolDeclaration}) =
       _$FromLoadNamespaceSymbolDeclaration;
   factory DartIr.fromMethodInjectionImplementation(
           {@required
-              MethodInjectionImplementation methodInjectionImplementation}) =
+              DartMethodInjectionImplementation
+                  methodInjectionImplementation}) =
       _$FromMethodInjectionImplementation;
   factory DartIr.fromRTManagedClassDeclaration(
-          {@required RTManagedClassDeclaration rtManagedClassDeclaration}) =
+          {@required DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
       _$FromRTManagedClassDeclaration;
-  factory DartIr.fromStaticMethodNamespaceSymbolDeclaration(
+  factory DartIr.fromDartStaticMethodNamespaceSymbolDeclaration(
           {@required
-              StaticMethodNamespaceSymbolDeclaration
+              DartStaticMethodNamespaceSymbolDeclaration
                   staticMethodNamespaceSymbolDeclaration}) =
-      _$FromStaticMethodNamespaceSymbolDeclaration;
+      _$FromDartStaticMethodNamespaceSymbolDeclaration;
   factory DartIr.fromVMManagedClassDeclaration(
-          {@required VMManagedClassDeclaration vmManagedClassDeclaration}) =
+          {@required DartVMManagedClassDeclaration vmManagedClassDeclaration}) =
       _$FromVMManagedClassDeclaration;
   factory DartIr.fromVMManagedClassMethodInjectionImplementation(
           {@required
-              VMManagedClassMethodInjectionImplementation
+              DartVMManagedClassMethodInjectionImplementation
                   vmManagedClassMethodInjectionImplementation}) =
       _$FromVMManagedClassMethodInjectionImplementation;
 }
@@ -108,7 +116,8 @@ extension DartIrMethods on DartIr {
         fromLoadNamepsaceSymbolDeclaration: (val) => val.toDartSource(),
         fromMethodInjectionImplementation: (val) => val.toDartSource(),
         fromRTManagedClassDeclaration: (val) => val.toDartSource(),
-        fromStaticMethodNamespaceSymbolDeclaration: (val) => val.toDartSource(),
+        fromDartStaticMethodNamespaceSymbolDeclaration: (val) =>
+            val.toDartSource(),
         fromVMManagedClassDeclaration: (val) => val.toDartSource(),
         fromVMManagedClassMethodInjectionImplementation: (val) =>
             val.toDartSource(),

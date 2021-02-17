@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
@@ -90,7 +90,7 @@ void main() {
         mixedInClasses: [],
         extendedClass: null,
         isMixin: false);
-    expect(RTManagedClassDeclaration(swidClass: ast).toDartSource(), """
+    expect(DartRTManagedClassDeclaration(swidClass: ast).toDartSource(), """
 class RTManagedPath extends Path implements Box<Path> {
   RTManagedPath({@required this.table, @required this.hydroState}) : super() {
     table['vmObject'] = vmObject;

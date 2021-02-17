@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
@@ -21,7 +22,10 @@ void main() {
 
     expect(
         transformNormalParametersToTs(
-            swidLiterals: normalParameters, scopeResolver: (_) => null),
+            parentClass: SwidClass.empty(),
+            inexpressibleFunctionInvocationFallback: "",
+            swidLiterals: normalParameters,
+            scopeResolver: (_) => null),
         "0xe52a, \"0xe52a\", \"1\", 1");
   }, tags: "swid");
 }

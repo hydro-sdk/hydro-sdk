@@ -14,7 +14,9 @@ void main() async {
           BuiltinLib.base,
           BuiltinLib.string,
           BuiltinLib.table,
-          BuiltinLib.math
+          BuiltinLib.math,
+          BuiltinLib.bit,
+          BuiltinLib.bit32,
         ]);
 
     if (!res.success) {

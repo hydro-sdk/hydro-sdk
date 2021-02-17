@@ -15,6 +15,7 @@ class TsClassStaticConstFieldDeclarations {
       res += "    " +
           transformStaticConstFieldDeclaration(
               staticConstFieldDeclaration: x,
+              parentClass: swidClass,
               scopeResolver: (staticConstFieldReference) =>
                   ((SwidStaticConstFieldDeclaration
                           swidStaticConstFieldDeclaration) =>

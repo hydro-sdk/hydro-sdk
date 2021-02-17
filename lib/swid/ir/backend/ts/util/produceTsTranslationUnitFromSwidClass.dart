@@ -86,7 +86,8 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                                         swidClassWithInterfaceReferences
                                             .methods)))),
                     TsIr.fromTsClassPreamble(
-                        tsClassPreamble: TsClassPreamble(swidClass: swidClass)),
+                        tsClassPreamble: TsClassPreamble(
+                            swidClass: swidClassWithInterfaceReferences)),
                     TsIr.fromTsClassStaticConstFieldDeclarations(
                         tsClassStaticConstFieldDeclarations:
                             TsClassStaticConstFieldDeclarations(

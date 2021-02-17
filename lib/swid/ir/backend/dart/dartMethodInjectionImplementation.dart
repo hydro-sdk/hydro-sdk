@@ -7,16 +7,16 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
-class MethodInjectionImplementation {
+class DartMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
 
-  MethodInjectionImplementation({@required this.swidFunctionType});
+  DartMethodInjectionImplementation({@required this.swidFunctionType});
 
   String _methodInvocation() =>
       (swidFunctionType.swidDeclarationModifiers.isGetter

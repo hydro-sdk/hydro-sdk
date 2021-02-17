@@ -1263,6 +1263,16 @@
             "value": {
                 "staticConstFunctionInvocation": {
                     "value": "Offset",
+                    "staticType": {
+                        "swidInterface": {
+                            "name": "Offset",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
                     "normalParameters": [
                         {
                             "swidDoubleLiteral": { "value": "0.0" },
@@ -1284,6 +1294,16 @@
             "value": {
                 "staticConstFunctionInvocation": {
                     "value": "Offset",
+                    "staticType": {
+                        "swidInterface": {
+                            "name": "Offset",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
                     "normalParameters": [
                         {
                             "staticConstPrefixedIdentifier": {

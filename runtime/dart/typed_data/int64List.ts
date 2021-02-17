@@ -26,6 +26,9 @@ declare const dart: {
         ) => IInt64List;
     };
 };
+const toListDefaultProps = {
+    growable: true,
+};
 export interface IInt64List {
     sublist: (start: number, end?: number | undefined) => IInt64List;
     cast: <R>() => IList<R>;
@@ -329,12 +332,12 @@ export class Int64List implements IList<number>, I_TypedIntList {
     public shuffle(random?: IRandom | undefined): void {
         return this._dart_shuffle(random);
     }
-    public indexOf(element: number, start: number): number {
+    public indexOf(element: number, start: number = 0): number {
         return this._dart_indexOf(element, start);
     }
     public indexWhere(
         test: (element: number) => boolean,
-        start: number
+        start: number = 0
     ): number {
         return this._dart_indexWhere(test, start);
     }
@@ -381,7 +384,7 @@ export class Int64List implements IList<number>, I_TypedIntList {
         start: number,
         end: number,
         iterable: IIterable<number>,
-        skipCount: number
+        skipCount: number = 0
     ): void {
         return this._dart_setRange(start, end, iterable, skipCount);
     }
@@ -465,8 +468,11 @@ export class Int64List implements IList<number>, I_TypedIntList {
     public any(test: (element: number) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<number> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<number> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public toSet(): ISet<number> {
         return this._dart_toSet();
