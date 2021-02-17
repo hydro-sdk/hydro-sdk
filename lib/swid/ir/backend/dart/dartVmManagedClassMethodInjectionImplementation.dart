@@ -11,11 +11,11 @@ import 'package:hydro_sdk/swid/ir/backend/dart/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
-class VMManagedClassMethodInjectionImplementation {
+class DartVMManagedClassMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
   final String tableKey;
 
-  VMManagedClassMethodInjectionImplementation({
+  DartVMManagedClassMethodInjectionImplementation({
     @required this.swidFunctionType,
     @required this.tableKey,
   });

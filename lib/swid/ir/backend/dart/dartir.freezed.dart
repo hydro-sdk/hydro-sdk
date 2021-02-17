@@ -165,7 +165,7 @@ class _$DartIrTearOff {
   _$FromVMManagedClassMethodInjectionImplementation
       fromVMManagedClassMethodInjectionImplementation(
           {@required
-              VMManagedClassMethodInjectionImplementation
+              DartVMManagedClassMethodInjectionImplementation
                   vmManagedClassMethodInjectionImplementation}) {
     return _$FromVMManagedClassMethodInjectionImplementation(
       vmManagedClassMethodInjectionImplementation:
@@ -233,7 +233,7 @@ mixin _$DartIr {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   });
   @optionalTypeArgs
@@ -270,7 +270,7 @@ mixin _$DartIr {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   });
@@ -498,7 +498,7 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -558,7 +558,7 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -808,7 +808,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -867,7 +867,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -1117,7 +1117,7 @@ class _$_$FromDartBindInstanceFieldDirect
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -1176,7 +1176,7 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -1421,7 +1421,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -1480,7 +1480,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -1719,7 +1719,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -1778,7 +1778,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -2022,7 +2022,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -2081,7 +2081,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -2325,7 +2325,7 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -2384,7 +2384,7 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -2638,7 +2638,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -2698,7 +2698,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -2941,7 +2941,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -3000,7 +3000,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -3244,7 +3244,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -3303,7 +3303,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -3547,7 +3547,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -3606,7 +3606,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -3860,7 +3860,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -3920,7 +3920,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -4174,7 +4174,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -4233,7 +4233,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -4485,7 +4485,7 @@ class _$_$FromMethodInjectionImplementation
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -4544,7 +4544,7 @@ class _$_$FromMethodInjectionImplementation
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -4794,7 +4794,7 @@ class _$_$FromRTManagedClassDeclaration
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -4853,7 +4853,7 @@ class _$_$FromRTManagedClassDeclaration
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -5112,7 +5112,7 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -5172,7 +5172,7 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -5425,7 +5425,7 @@ class _$_$FromVMManagedClassDeclaration
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -5484,7 +5484,7 @@ class _$_$FromVMManagedClassDeclaration
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -5619,7 +5619,7 @@ abstract class _$$FromVMManagedClassMethodInjectionImplementationCopyWith<
               then) =
       __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>;
   $Res call(
-      {VMManagedClassMethodInjectionImplementation
+      {DartVMManagedClassMethodInjectionImplementation
           vmManagedClassMethodInjectionImplementation});
 }
 
@@ -5649,7 +5649,7 @@ class __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>
           vmManagedClassMethodInjectionImplementation == freezed
               ? _value.vmManagedClassMethodInjectionImplementation
               : vmManagedClassMethodInjectionImplementation
-                  as VMManagedClassMethodInjectionImplementation,
+                  as DartVMManagedClassMethodInjectionImplementation,
     ));
   }
 }
@@ -5662,7 +5662,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
       : assert(vmManagedClassMethodInjectionImplementation != null);
 
   @override
-  final VMManagedClassMethodInjectionImplementation
+  final DartVMManagedClassMethodInjectionImplementation
       vmManagedClassMethodInjectionImplementation;
 
   @override
@@ -5749,7 +5749,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
             DartVMManagedClassDeclaration vmManagedClassDeclaration),
     @required
         Result fromVMManagedClassMethodInjectionImplementation(
-            VMManagedClassMethodInjectionImplementation
+            DartVMManagedClassMethodInjectionImplementation
                 vmManagedClassMethodInjectionImplementation),
   }) {
     assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
@@ -5809,7 +5809,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromVMManagedClassDeclaration(
         DartVMManagedClassDeclaration vmManagedClassDeclaration),
     Result fromVMManagedClassMethodInjectionImplementation(
-        VMManagedClassMethodInjectionImplementation
+        DartVMManagedClassMethodInjectionImplementation
             vmManagedClassMethodInjectionImplementation),
     @required Result orElse(),
   }) {
@@ -5930,11 +5930,11 @@ abstract class _$FromVMManagedClassMethodInjectionImplementation
     implements DartIr {
   factory _$FromVMManagedClassMethodInjectionImplementation(
           {@required
-              VMManagedClassMethodInjectionImplementation
+              DartVMManagedClassMethodInjectionImplementation
                   vmManagedClassMethodInjectionImplementation}) =
       _$_$FromVMManagedClassMethodInjectionImplementation;
 
-  VMManagedClassMethodInjectionImplementation
+  DartVMManagedClassMethodInjectionImplementation
       get vmManagedClassMethodInjectionImplementation;
   _$$FromVMManagedClassMethodInjectionImplementationCopyWith<
       _$FromVMManagedClassMethodInjectionImplementation> get copyWith;

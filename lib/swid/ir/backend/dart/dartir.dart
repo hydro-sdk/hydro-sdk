@@ -18,7 +18,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation
 import 'package:hydro_sdk/swid/ir/backend/dart/dartRtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassMethodInjectionImplementation.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
 
 part 'dartir.freezed.dart';
 
@@ -85,7 +85,7 @@ abstract class DartIr with _$DartIr {
       _$FromVMManagedClassDeclaration;
   factory DartIr.fromVMManagedClassMethodInjectionImplementation(
           {@required
-              VMManagedClassMethodInjectionImplementation
+              DartVMManagedClassMethodInjectionImplementation
                   vmManagedClassMethodInjectionImplementation}) =
       _$FromVMManagedClassMethodInjectionImplementation;
 }
