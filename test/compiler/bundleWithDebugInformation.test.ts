@@ -32,13 +32,13 @@ test("", async () => {
     const bundleResult = bundle(bundleInfo);
 
     expect(bundleResult.debugSymbols.length).toBe(144);
-    expect(bundleResult.debugSymbols[0].lineStart).toBe(13);
-    expect(bundleResult.debugSymbols[0].lineEnd).toBe(15);
+    expect(bundleResult.debugSymbols[0].lineStart).toBe(20);
+    expect(bundleResult.debugSymbols[0].lineEnd).toBe(22);
     expect(bundleResult.debugSymbols[0].symbolName).toBe("____exports.bar");
     expect(bundleResult.debugSymbols[0].parameterNames).toStrictEqual(["self"]);
 
-    expect(bundleResult.debugSymbols[1].lineStart).toBe(26);
-    expect(bundleResult.debugSymbols[1].lineEnd).toBe(28);
+    expect(bundleResult.debugSymbols[1].lineStart).toBe(33);
+    expect(bundleResult.debugSymbols[1].lineEnd).toBe(35);
     expect(bundleResult.debugSymbols[1].symbolName).toBe(
         "FooClass.prototype.____constructor"
     );
