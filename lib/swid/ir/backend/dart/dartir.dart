@@ -13,7 +13,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/methodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
@@ -66,7 +66,7 @@ abstract class DartIr with _$DartIr {
       $FromDartVMManagedClassBoxerRegistrant;
   factory DartIr.fromLoadNamepsaceSymbolDeclaration(
           {@required
-              LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) =
+              DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) =
       _$FromLoadNamespaceSymbolDeclaration;
   factory DartIr.fromMethodInjectionImplementation(
           {@required

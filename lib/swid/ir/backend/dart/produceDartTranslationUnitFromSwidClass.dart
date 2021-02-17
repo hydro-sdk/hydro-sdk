@@ -5,7 +5,7 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartImportStatement.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/removeNonEmitCandidates.dart';
@@ -92,7 +92,7 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                       : null,
                   DartIr.fromLoadNamepsaceSymbolDeclaration(
                       loadNamespaceSymbolDeclaration:
-                          LoadNamespaceSymbolDeclaration(swidClass: swidClass))
+                          DartLoadNamespaceSymbolDeclaration(swidClass: swidClass))
                 ]..removeWhere((x) => x == null),
               )
             : null)(

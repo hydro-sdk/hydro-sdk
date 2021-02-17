@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 
 void main() {
@@ -13,7 +13,7 @@ void main() {
         json.decode(File("../test/swid/res/Key.json").readAsStringSync()));
 
     expect(
-        LoadNamespaceSymbolDeclaration(swidClass: keyClass).toDartSource(), """
+        DartLoadNamespaceSymbolDeclaration(swidClass: keyClass).toDartSource(), """
 void loadKey({@required HydroState hydroState, @required HydroTable table}) {
   table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [

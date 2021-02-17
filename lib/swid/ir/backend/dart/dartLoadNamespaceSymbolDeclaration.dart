@@ -22,10 +22,10 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
-class LoadNamespaceSymbolDeclaration {
+class DartLoadNamespaceSymbolDeclaration {
   final SwidClass swidClass;
 
-  LoadNamespaceSymbolDeclaration({@required this.swidClass});
+  DartLoadNamespaceSymbolDeclaration({@required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Method((m) => m
     ..name = "load${swidClass.name}"

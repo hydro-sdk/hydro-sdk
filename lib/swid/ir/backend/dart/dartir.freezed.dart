@@ -119,7 +119,7 @@ class _$DartIrTearOff {
 // ignore: unused_element
   _$FromLoadNamespaceSymbolDeclaration fromLoadNamepsaceSymbolDeclaration(
       {@required
-          LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) {
+          DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) {
     return _$FromLoadNamespaceSymbolDeclaration(
       loadNamespaceSymbolDeclaration: loadNamespaceSymbolDeclaration,
     );
@@ -217,7 +217,7 @@ mixin _$DartIr {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -259,7 +259,7 @@ mixin _$DartIr {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -482,7 +482,7 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -547,7 +547,7 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -792,7 +792,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -856,7 +856,7 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -1101,7 +1101,7 @@ class _$_$FromDartBindInstanceFieldDirect
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -1165,7 +1165,7 @@ class _$_$FromDartBindInstanceFieldDirect
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -1405,7 +1405,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -1469,7 +1469,7 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -1703,7 +1703,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -1767,7 +1767,7 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -2006,7 +2006,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -2070,7 +2070,7 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -2309,7 +2309,7 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -2373,7 +2373,7 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -2622,7 +2622,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -2687,7 +2687,7 @@ class _$_$FromDartFunctionSelfBindingInvocation
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -2925,7 +2925,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -2989,7 +2989,7 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -3228,7 +3228,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -3292,7 +3292,7 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -3531,7 +3531,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -3595,7 +3595,7 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -3844,7 +3844,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -3909,7 +3909,7 @@ class _$$FromDartVMManagedClassBoxerRegistrant
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -4055,7 +4055,7 @@ abstract class _$$FromLoadNamespaceSymbolDeclarationCopyWith<$Res> {
           _$FromLoadNamespaceSymbolDeclaration value,
           $Res Function(_$FromLoadNamespaceSymbolDeclaration) then) =
       __$$FromLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>;
-  $Res call({LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration});
+  $Res call({DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration});
 }
 
 /// @nodoc
@@ -4078,7 +4078,7 @@ class __$$FromLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
     return _then(_$FromLoadNamespaceSymbolDeclaration(
       loadNamespaceSymbolDeclaration: loadNamespaceSymbolDeclaration == freezed
           ? _value.loadNamespaceSymbolDeclaration
-          : loadNamespaceSymbolDeclaration as LoadNamespaceSymbolDeclaration,
+          : loadNamespaceSymbolDeclaration as DartLoadNamespaceSymbolDeclaration,
     ));
   }
 }
@@ -4091,7 +4091,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
       : assert(loadNamespaceSymbolDeclaration != null);
 
   @override
-  final LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration;
+  final DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration;
 
   @override
   String toString() {
@@ -4158,7 +4158,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -4222,7 +4222,7 @@ class _$_$FromLoadNamespaceSymbolDeclaration
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -4352,10 +4352,10 @@ class _$_$FromLoadNamespaceSymbolDeclaration
 abstract class _$FromLoadNamespaceSymbolDeclaration implements DartIr {
   factory _$FromLoadNamespaceSymbolDeclaration(
           {@required
-              LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) =
+              DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) =
       _$_$FromLoadNamespaceSymbolDeclaration;
 
-  LoadNamespaceSymbolDeclaration get loadNamespaceSymbolDeclaration;
+  DartLoadNamespaceSymbolDeclaration get loadNamespaceSymbolDeclaration;
   _$$FromLoadNamespaceSymbolDeclarationCopyWith<
       _$FromLoadNamespaceSymbolDeclaration> get copyWith;
 }
@@ -4469,7 +4469,7 @@ class _$_$FromMethodInjectionImplementation
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -4533,7 +4533,7 @@ class _$_$FromMethodInjectionImplementation
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -4778,7 +4778,7 @@ class _$_$FromRTManagedClassDeclaration
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -4842,7 +4842,7 @@ class _$_$FromRTManagedClassDeclaration
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -5096,7 +5096,7 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -5161,7 +5161,7 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -5409,7 +5409,7 @@ class _$_$FromVMManagedClassDeclaration
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -5473,7 +5473,7 @@ class _$_$FromVMManagedClassDeclaration
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(
@@ -5733,7 +5733,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
                 dartVMManagedClassBoxerRegistrant),
     @required
         Result fromLoadNamepsaceSymbolDeclaration(
-            LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     @required
         Result fromMethodInjectionImplementation(
             MethodInjectionImplementation methodInjectionImplementation),
@@ -5798,7 +5798,7 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
     Result fromDartVMManagedClassBoxerRegistrant(
         DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant),
     Result fromLoadNamepsaceSymbolDeclaration(
-        LoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
+        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
     Result fromMethodInjectionImplementation(
         MethodInjectionImplementation methodInjectionImplementation),
     Result fromRTManagedClassDeclaration(

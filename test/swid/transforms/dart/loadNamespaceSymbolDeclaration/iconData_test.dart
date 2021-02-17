@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 
 void main() {
@@ -14,7 +14,7 @@ void main() {
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
-        LoadNamespaceSymbolDeclaration(swidClass: iconDataClass).toDartSource(),
+        DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass).toDartSource(),
         """
 void loadIconData(
     {@required HydroState hydroState, @required HydroTable table}) {

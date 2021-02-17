@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
 
 void main() {
@@ -13,7 +13,7 @@ void main() {
         File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
-        LoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
+        DartLoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
             .toDartSource(),
         """
 void loadDiagnosticsNode(
