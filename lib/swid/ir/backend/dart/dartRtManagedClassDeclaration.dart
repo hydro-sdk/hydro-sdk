@@ -19,6 +19,7 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
+import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
@@ -225,6 +226,29 @@ class DartRTManagedClassDeclaration {
                         ..named = false
                         ..required = false
                         ..defaultTo = Code(e.value.name)),
+                    )
+                    .toList(),
+                ...x.optionalParameterNames
+                    .where((e) =>
+                        x.namedDefaults.entries.firstWhere((k) => k.key == e,
+                            orElse: () => null) ==
+                        null)
+                    .map(
+                      (e) =>
+                          (({Tuple2<String, SwidType> optionalParameterType}) =>
+                              Parameter((p) => p
+                                ..name = optionalParameterType.item1
+                                ..type = swidTypeToDartTypeReference(
+                                    swidType: optionalParameterType.item2)
+                                ..named = false
+                                ..required = false))(
+                        optionalParameterType: Tuple2(
+                          e,
+                          x.optionalParameterTypes.elementAt(
+                            x.optionalParameterNames.indexWhere((k) => k == e),
+                          ),
+                        ),
+                      ),
                     )
                     .toList()
               ])
