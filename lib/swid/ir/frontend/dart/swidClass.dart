@@ -172,21 +172,32 @@ abstract class SwidClass with _$SwidClass {
           : SwidClass.clone(swidClass: swidClass);
 
   factory SwidClass.mergeSuperClasses({@required SwidClass swidClass}) =>
-      (({SwidClass swidClassWithMergedSuperClasses}) =>
-          swidClassWithMergedSuperClasses.implementedClasses.isNotEmpty
-              ? swidClassWithMergedSuperClasses.implementedClasses.fold(
-                  swidClassWithMergedSuperClasses,
-                  (previousValue, element) => SwidClass.mergeDeclarations(
-                      swidClass: previousValue,
-                      superClass:
-                          SwidClass.mergeSuperClasses(swidClass: element)))
-              : swidClassWithMergedSuperClasses)(
-        swidClassWithMergedSuperClasses: swidClass.extendedClass != null
-            ? SwidClass.mergeDeclarations(
-                swidClass: swidClass,
-                superClass: SwidClass.mergeSuperClasses(
-                    swidClass: swidClass.extendedClass),
-              )
+      (({SwidClass swidClassWithMergedInterfaces}) => ((
+                  {SwidClass swidClassWithMixinApplications}) =>
+              swidClassWithMixinApplications.extendedClass != null
+                  ? SwidClass.mergeDeclarations(
+                      swidClass: swidClassWithMixinApplications,
+                      superClass: SwidClass.mergeSuperClasses(
+                          swidClass:
+                              swidClassWithMixinApplications.extendedClass))
+                  : SwidClass.clone(swidClass: swidClassWithMixinApplications))(
+            swidClassWithMixinApplications: swidClassWithMergedInterfaces
+                    .mixedInClasses.isNotEmpty
+                ? swidClassWithMergedInterfaces.mixedInClasses.fold(
+                    swidClassWithMergedInterfaces,
+                    (previousValue, element) => SwidClass.mergeDeclarations(
+                        swidClass: previousValue,
+                        superClass:
+                            SwidClass.mergeSuperClasses(swidClass: element)))
+                : SwidClass.clone(swidClass: swidClassWithMergedInterfaces),
+          ))(
+        swidClassWithMergedInterfaces: swidClass.implementedClasses.isNotEmpty
+            ? swidClass.implementedClasses.fold(
+                swidClass,
+                (previousValue, element) => SwidClass.mergeDeclarations(
+                    swidClass: previousValue,
+                    superClass:
+                        SwidClass.mergeSuperClasses(swidClass: element)))
             : SwidClass.clone(swidClass: swidClass),
       );
 
@@ -408,6 +419,7 @@ abstract class SwidClass with _$SwidClass {
           ...interfaceType.accessors
               .whereType<PropertyAccessorElement>()
               .where((x) => x.name[0] != "_")
+              .where((x) => !x.isStatic)
               .map(
                 (x) => SwidFunctionType.fromFunctionType(
                   functionType: x.type,
