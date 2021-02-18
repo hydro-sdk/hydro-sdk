@@ -31,6 +31,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castTypeParametersToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
@@ -149,7 +150,7 @@ class DartRTManagedClassDeclaration {
                 ).toDartSource()))
             .toList()),
         ...(swidClass.methods
-            .where((x) => x.name != "==")
+            .where((x) => !isOperator(swidFunctionType: x))
             .map((x) => Code(DartMethodInjectionImplementation(
                     swidFunctionType: castAllTypeParametersInFunctionToDynamic(
                   swidFunctionType: x,
@@ -169,7 +170,7 @@ class DartRTManagedClassDeclaration {
         ..body = refer("this").code)
     ])
     ..methods.addAll(swidClass.methods
-            .where((x) => x.name != "==")
+            .where((x) => !isOperator(swidFunctionType: x))
             .where((x) => !x.swidDeclarationModifiers.hasProtected)
             .map((x) => transformAccessorName(
                   swidFunctionType: x,

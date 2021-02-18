@@ -22,6 +22,7 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInClassToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
 class DartVMManagedClassDeclaration {
@@ -113,8 +114,8 @@ class DartVMManagedClassDeclaration {
                             ).toDartSource()))
                         .toList()),
                     ...(swidClass.methods
-                        .where((x) => x.name != "==")
                         .where((x) => !x.swidDeclarationModifiers.hasProtected)
+                        .where((x) => !isOperator(swidFunctionType: x))
                         .map((x) => Code(
                               DartVMManagedClassMethodInjectionImplementation(
                                   tableKey:
