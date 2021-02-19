@@ -33,21 +33,53 @@ SwidType instantiateGeneric({
         onPrimitive: (val) => SwidType.fromSwidInterface(
           swidInterface: SwidInterface.clone(
             swidType: val,
+            typeArguments: val.typeArguments
+                .map(
+                  (x) => instantiateGeneric(
+                    genericInstantiator: genericInstantiator,
+                    swidType: x,
+                  ),
+                )
+                .toList(),
           ),
         ),
         onClass: (val) => SwidType.fromSwidInterface(
           swidInterface: SwidInterface.clone(
             swidType: val,
+            typeArguments: val.typeArguments
+                .map(
+                  (x) => instantiateGeneric(
+                    genericInstantiator: genericInstantiator,
+                    swidType: x,
+                  ),
+                )
+                .toList(),
           ),
         ),
         onEnum: (val) => SwidType.fromSwidInterface(
           swidInterface: SwidInterface.clone(
             swidType: val,
+            typeArguments: val.typeArguments
+                .map(
+                  (x) => instantiateGeneric(
+                    genericInstantiator: genericInstantiator,
+                    swidType: x,
+                  ),
+                )
+                .toList(),
           ),
         ),
         onVoid: (val) => SwidType.fromSwidInterface(
           swidInterface: SwidInterface.clone(
             swidType: val,
+            typeArguments: val.typeArguments
+                .map(
+                  (x) => instantiateGeneric(
+                    genericInstantiator: genericInstantiator,
+                    swidType: x,
+                  ),
+                )
+                .toList(),
           ),
         ),
         onTypeParameter: (val) => val.name == genericInstantiator.name
@@ -56,6 +88,14 @@ SwidType instantiateGeneric({
         onDynamic: (val) => SwidType.fromSwidInterface(
           swidInterface: SwidInterface.clone(
             swidType: val,
+            typeArguments: val.typeArguments
+                .map(
+                  (x) => instantiateGeneric(
+                    genericInstantiator: genericInstantiator,
+                    swidType: x,
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),
