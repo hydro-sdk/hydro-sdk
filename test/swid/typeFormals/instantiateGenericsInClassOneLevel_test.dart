@@ -146,5 +146,37 @@ void main() {
     );
 
     expect(replacedIterable.typeFormals.isEmpty, true);
+
+    //The return type of the optional generator parameter to Iterable.generate should be replaced
+    //with a double
+    expect(
+        replacedIterable.factoryConstructors.first.optionalParameterTypes.first
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+            .returnType
+            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
+        SwidInterface(
+          name: "double",
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          originalPackagePath: "dart:core",
+          typeArguments: [],
+          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+        ));
+
+    var generateReturnType = replacedIterable
+        .factoryConstructors.first.returnType
+        .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null);
+
+    //The return type of Iterable.generate should be Iterable<double>
+    expect(
+        generateReturnType.typeArguments.first
+            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
+        SwidInterface(
+          name: "double",
+          nullabilitySuffix: SwidNullabilitySuffix.none,
+          originalPackagePath: "dart:core",
+          typeArguments: [],
+          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+        ));
+    expect(generateReturnType.displayName, "Iterable<double>");
   }, tags: "swid");
 }
