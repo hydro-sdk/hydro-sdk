@@ -63,7 +63,7 @@ extension SwidTypeMethods on SwidType {
                     val.typeArguments
                         .map((x) => x.displayName)
                         .toList()
-                        .join(""),
+                        .join(","),
                     ">"
                   ]
                 : [])
