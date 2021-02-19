@@ -84,7 +84,9 @@ SwidType instantiateGeneric({
         ),
         onTypeParameter: (val) => val.name == genericInstantiator.name
             ? genericInstantiator.type
-            : val,
+            : SwidType.fromSwidInterface(
+                swidInterface: val,
+              ),
         onDynamic: (val) => SwidType.fromSwidInterface(
           swidInterface: SwidInterface.clone(
             swidType: val,
