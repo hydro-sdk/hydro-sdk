@@ -4,14 +4,14 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dar
 import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidInstantiableGeneric.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidInstantiatedGeneric.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAs.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidInstantiableGeneric.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidInstantiatedGeneric.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
