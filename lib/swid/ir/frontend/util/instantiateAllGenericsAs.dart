@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/instantiateGeneric.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
@@ -7,6 +6,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateGeneric.dart';
 
 SwidType instantiateAllGenericsAs({
   @required SwidType swidType,
