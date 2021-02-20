@@ -19,7 +19,7 @@ part 'swidInterface.g.dart';
 
 @freezed
 abstract class SwidInterface with _$SwidInterface {
-  factory SwidInterface({
+  const factory SwidInterface({
     @required String name,
     @required SwidNullabilitySuffix nullabilitySuffix,
     @required String originalPackagePath,
