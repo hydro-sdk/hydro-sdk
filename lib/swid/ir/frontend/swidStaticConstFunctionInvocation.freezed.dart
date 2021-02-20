@@ -173,7 +173,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data(
+  const _$_$Data(
       {@required this.value,
       @required this.staticType,
       @required this.normalParameters,
@@ -245,7 +245,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidStaticConstFunctionInvocation {
-  factory _$Data(
+  const factory _$Data(
       {@required String value,
       @required SwidType staticType,
       @required List<SwidStaticConst> normalParameters,

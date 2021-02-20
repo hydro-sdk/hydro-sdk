@@ -100,7 +100,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidIntegerLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.value}) : assert(value != null);
+  const _$_$Data({@required this.value}) : assert(value != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -136,7 +136,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidIntegerLiteral {
-  factory _$Data({@required String value}) = _$_$Data;
+  const factory _$Data({@required String value}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

@@ -22,7 +22,7 @@ part 'swidFunctionType.g.dart';
 
 @freezed
 abstract class SwidFunctionType with _$SwidFunctionType {
-  factory SwidFunctionType({
+  const factory SwidFunctionType({
     @required String name,
     @required SwidNullabilitySuffix nullabilitySuffix,
     @required String originalPackagePath,

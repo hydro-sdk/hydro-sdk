@@ -153,7 +153,7 @@ class __$$FromStringCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromString implements _$FromString {
-  _$_$FromString({@required this.string}) : assert(string != null);
+  const _$_$FromString({@required this.string}) : assert(string != null);
 
   factory _$_$FromString.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromStringFromJson(json);
@@ -251,7 +251,7 @@ class _$_$FromString implements _$FromString {
 }
 
 abstract class _$FromString implements SwidTypeFormalValue {
-  factory _$FromString({@required String string}) = _$_$FromString;
+  const factory _$FromString({@required String string}) = _$_$FromString;
 
   factory _$FromString.fromJson(Map<String, dynamic> json) =
       _$_$FromString.fromJson;
@@ -306,7 +306,8 @@ class __$$FromSwidClassCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidClass implements _$FromSwidClass {
-  _$_$FromSwidClass({@required this.swidClass}) : assert(swidClass != null);
+  const _$_$FromSwidClass({@required this.swidClass})
+      : assert(swidClass != null);
 
   factory _$_$FromSwidClass.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidClassFromJson(json);
@@ -405,7 +406,8 @@ class _$_$FromSwidClass implements _$FromSwidClass {
 }
 
 abstract class _$FromSwidClass implements SwidTypeFormalValue {
-  factory _$FromSwidClass({@required SwidClass swidClass}) = _$_$FromSwidClass;
+  const factory _$FromSwidClass({@required SwidClass swidClass}) =
+      _$_$FromSwidClass;
 
   factory _$FromSwidClass.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidClass.fromJson;
@@ -461,7 +463,7 @@ class __$$FromSwidInterfaceCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidInterface implements _$FromSwidInterface {
-  _$_$FromSwidInterface({@required this.swidInterface})
+  const _$_$FromSwidInterface({@required this.swidInterface})
       : assert(swidInterface != null);
 
   factory _$_$FromSwidInterface.fromJson(Map<String, dynamic> json) =>
@@ -562,7 +564,7 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
 }
 
 abstract class _$FromSwidInterface implements SwidTypeFormalValue {
-  factory _$FromSwidInterface({@required SwidInterface swidInterface}) =
+  const factory _$FromSwidInterface({@required SwidInterface swidInterface}) =
       _$_$FromSwidInterface;
 
   factory _$FromSwidInterface.fromJson(Map<String, dynamic> json) =
@@ -619,7 +621,7 @@ class __$$FromSwidFunctionTypeCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
-  _$_$FromSwidFunctionType({@required this.swidFunctionType})
+  const _$_$FromSwidFunctionType({@required this.swidFunctionType})
       : assert(swidFunctionType != null);
 
   factory _$_$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =>
@@ -722,7 +724,7 @@ class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
 }
 
 abstract class _$FromSwidFunctionType implements SwidTypeFormalValue {
-  factory _$FromSwidFunctionType(
+  const factory _$FromSwidFunctionType(
       {@required SwidFunctionType swidFunctionType}) = _$_$FromSwidFunctionType;
 
   factory _$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =
@@ -854,7 +856,8 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.value, @required this.swidReferenceDeclarationKind})
+  const _$_$Data(
+      {@required this.value, @required this.swidReferenceDeclarationKind})
       : assert(value != null),
         assert(swidReferenceDeclarationKind != null);
 
@@ -901,7 +904,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidTypeFormal {
-  factory _$Data(
+  const factory _$Data(
           {@required
               SwidTypeFormalValue value,
           @required

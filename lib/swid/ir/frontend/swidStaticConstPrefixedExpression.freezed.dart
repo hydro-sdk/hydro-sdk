@@ -130,7 +130,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.prefix, @required this.expression})
+  const _$_$Data({@required this.prefix, @required this.expression})
       : assert(prefix != null),
         assert(expression != null);
 
@@ -175,7 +175,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidStaticConstPrefixedExpression {
-  factory _$Data(
+  const factory _$Data(
       {@required String prefix,
       @required SwidStaticConst expression}) = _$_$Data;
 

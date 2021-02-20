@@ -150,7 +150,8 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.prefix, @required this.staticConstFieldReference})
+  const _$_$Data(
+      {@required this.prefix, @required this.staticConstFieldReference})
       : assert(prefix != null),
         assert(staticConstFieldReference != null);
 
@@ -197,7 +198,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidStaticConstPrefixedIdentifier {
-  factory _$Data(
+  const factory _$Data(
           {@required SwidInterface prefix,
           @required SwidStaticConstFieldReference staticConstFieldReference}) =
       _$_$Data;

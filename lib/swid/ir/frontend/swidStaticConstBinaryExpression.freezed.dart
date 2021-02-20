@@ -162,7 +162,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data(
+  const _$_$Data(
       {@required this.operator,
       @required this.leftOperand,
       @required this.rightOperand})
@@ -218,7 +218,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidStaticConstBinaryExpression {
-  factory _$Data(
+  const factory _$Data(
       {@required String operator,
       @required SwidStaticConst leftOperand,
       @required SwidStaticConst rightOperand}) = _$_$Data;

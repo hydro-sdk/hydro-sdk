@@ -37,7 +37,7 @@ part 'swidClass.g.dart';
 
 @freezed
 abstract class SwidClass with _$SwidClass {
-  factory SwidClass({
+  const factory SwidClass({
     @required String name,
     @required SwidNullabilitySuffix nullabilitySuffix,
     @required String originalPackagePath,

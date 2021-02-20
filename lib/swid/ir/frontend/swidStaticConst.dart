@@ -16,46 +16,46 @@ part 'swidStaticConst.g.dart';
 
 @freezed
 abstract class SwidStaticConst with _$SwidStaticConst {
-  factory SwidStaticConst.fromSwidBooleanLiteral(
+  const factory SwidStaticConst.fromSwidBooleanLiteral(
           {@required SwidBooleanLiteral swidBooleanLiteral}) =
       _$FromSwidBooleanLiteral;
 
-  factory SwidStaticConst.fromSwidStringLiteral(
+  const factory SwidStaticConst.fromSwidStringLiteral(
           {@required SwidStringLiteral swidStringLiteral}) =
       _$FromSwidStringLiteral;
 
-  factory SwidStaticConst.fromSwidIntegerLiteral(
+  const factory SwidStaticConst.fromSwidIntegerLiteral(
           {@required SwidIntegerLiteral swidIntegerLiteral}) =
       _$FromSwidIntegerLiteral;
 
-  factory SwidStaticConst.fromDoubleLiteral(
+  const factory SwidStaticConst.fromDoubleLiteral(
           {@required SwidDoubleLiteral swidDoubleLiteral}) =
       _$FromSwidDoubleLiteral;
 
-  factory SwidStaticConst.fromSwidStaticConstFunctionInvocation(
+  const factory SwidStaticConst.fromSwidStaticConstFunctionInvocation(
           {@required
               SwidStaticConstFunctionInvocation
                   staticConstFunctionInvocation}) =
       _$FromSwidStaticConstFunctionInvocation;
 
-  factory SwidStaticConst.fromSwidStaticConstFieldReference(
+  const factory SwidStaticConst.fromSwidStaticConstFieldReference(
           {@required
               SwidStaticConstFieldReference swidStaticConstFieldReference}) =
       _$FromSwidStaticConstFieldReference;
 
-  factory SwidStaticConst.fromSwidStaticConstPrefixedExpression(
+  const factory SwidStaticConst.fromSwidStaticConstPrefixedExpression(
           {@required
               SwidStaticConstPrefixedExpression
                   swidStaticConstPrefixedExpression}) =
       _$FromSwidStaticConstPrefixedExpression;
 
-  factory SwidStaticConst.fromSwidStaticConstBinaryExpression(
+  const factory SwidStaticConst.fromSwidStaticConstBinaryExpression(
           {@required
               SwidStaticConstBinaryExpression
                   swidStaticConstBinaryExpression}) =
       _$FromSwidStaticConstBinaryExpression;
 
-  factory SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
+  const factory SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
           {@required
               SwidStaticConstPrefixedIdentifier
                   staticConstPrefixedIdentifier}) =

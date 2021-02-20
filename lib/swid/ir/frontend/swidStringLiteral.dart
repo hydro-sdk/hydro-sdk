@@ -7,7 +7,7 @@ part 'swidStringLiteral.g.dart';
 
 @freezed
 abstract class SwidStringLiteral with _$SwidStringLiteral {
-  factory SwidStringLiteral({@required String value}) = _$Data;
+  const factory SwidStringLiteral({@required String value}) = _$Data;
 
   factory SwidStringLiteral.fromSimpleStringLiteral(
           {@required SimpleStringLiteral simpleStringLiteral}) =>

@@ -364,7 +364,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data(
+  const _$_$Data(
       {@required this.isAbstract,
       @required this.isGetter,
       @required this.isOperator,
@@ -583,7 +583,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidDeclarationModifiers {
-  factory _$Data(
+  const factory _$Data(
       {@required bool isAbstract,
       @required bool isGetter,
       @required bool isOperator,

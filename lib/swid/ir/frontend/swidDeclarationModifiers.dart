@@ -8,7 +8,7 @@ part 'swidDeclarationModifiers.g.dart';
 
 @freezed
 abstract class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
-  factory SwidDeclarationModifiers({
+  const factory SwidDeclarationModifiers({
     @required bool isAbstract,
     @required bool isGetter,
     @required bool isOperator,

@@ -143,7 +143,7 @@ class __$$SwidInstantiatedGenericCtorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$SwidInstantiatedGenericCtor implements _$SwidInstantiatedGenericCtor {
-  _$_$SwidInstantiatedGenericCtor(
+  const _$_$SwidInstantiatedGenericCtor(
       {@required this.instantiableGeneric,
       @required this.referenceDeclarationKind})
       : assert(instantiableGeneric != null),
@@ -194,7 +194,7 @@ class _$_$SwidInstantiatedGenericCtor implements _$SwidInstantiatedGenericCtor {
 
 abstract class _$SwidInstantiatedGenericCtor
     implements SwidInstantiatedGeneric {
-  factory _$SwidInstantiatedGenericCtor(
+  const factory _$SwidInstantiatedGenericCtor(
           {@required SwidInstantiableGeneric instantiableGeneric,
           @required SwidReferenceDeclarationKind referenceDeclarationKind}) =
       _$_$SwidInstantiatedGenericCtor;

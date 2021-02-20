@@ -279,7 +279,7 @@ class __$$FromSwidBooleanLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
-  _$_$FromSwidBooleanLiteral({@required this.swidBooleanLiteral})
+  const _$_$FromSwidBooleanLiteral({@required this.swidBooleanLiteral})
       : assert(swidBooleanLiteral != null);
 
   factory _$_$FromSwidBooleanLiteral.fromJson(Map<String, dynamic> json) =>
@@ -445,7 +445,7 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
 }
 
 abstract class _$FromSwidBooleanLiteral implements SwidStaticConst {
-  factory _$FromSwidBooleanLiteral(
+  const factory _$FromSwidBooleanLiteral(
           {@required SwidBooleanLiteral swidBooleanLiteral}) =
       _$_$FromSwidBooleanLiteral;
 
@@ -503,7 +503,7 @@ class __$$FromSwidStringLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
-  _$_$FromSwidStringLiteral({@required this.swidStringLiteral})
+  const _$_$FromSwidStringLiteral({@required this.swidStringLiteral})
       : assert(swidStringLiteral != null);
 
   factory _$_$FromSwidStringLiteral.fromJson(Map<String, dynamic> json) =>
@@ -669,7 +669,7 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
 }
 
 abstract class _$FromSwidStringLiteral implements SwidStaticConst {
-  factory _$FromSwidStringLiteral(
+  const factory _$FromSwidStringLiteral(
           {@required SwidStringLiteral swidStringLiteral}) =
       _$_$FromSwidStringLiteral;
 
@@ -729,7 +729,7 @@ class __$$FromSwidIntegerLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
-  _$_$FromSwidIntegerLiteral({@required this.swidIntegerLiteral})
+  const _$_$FromSwidIntegerLiteral({@required this.swidIntegerLiteral})
       : assert(swidIntegerLiteral != null);
 
   factory _$_$FromSwidIntegerLiteral.fromJson(Map<String, dynamic> json) =>
@@ -895,7 +895,7 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
 }
 
 abstract class _$FromSwidIntegerLiteral implements SwidStaticConst {
-  factory _$FromSwidIntegerLiteral(
+  const factory _$FromSwidIntegerLiteral(
           {@required SwidIntegerLiteral swidIntegerLiteral}) =
       _$_$FromSwidIntegerLiteral;
 
@@ -953,7 +953,7 @@ class __$$FromSwidDoubleLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
-  _$_$FromSwidDoubleLiteral({@required this.swidDoubleLiteral})
+  const _$_$FromSwidDoubleLiteral({@required this.swidDoubleLiteral})
       : assert(swidDoubleLiteral != null);
 
   factory _$_$FromSwidDoubleLiteral.fromJson(Map<String, dynamic> json) =>
@@ -1119,7 +1119,7 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
 }
 
 abstract class _$FromSwidDoubleLiteral implements SwidStaticConst {
-  factory _$FromSwidDoubleLiteral(
+  const factory _$FromSwidDoubleLiteral(
           {@required SwidDoubleLiteral swidDoubleLiteral}) =
       _$_$FromSwidDoubleLiteral;
 
@@ -1185,7 +1185,7 @@ class __$$FromSwidStaticConstFunctionInvocationCopyWithImpl<$Res>
 /// @nodoc
 class _$_$FromSwidStaticConstFunctionInvocation
     implements _$FromSwidStaticConstFunctionInvocation {
-  _$_$FromSwidStaticConstFunctionInvocation(
+  const _$_$FromSwidStaticConstFunctionInvocation(
       {@required this.staticConstFunctionInvocation})
       : assert(staticConstFunctionInvocation != null);
 
@@ -1358,7 +1358,7 @@ class _$_$FromSwidStaticConstFunctionInvocation
 
 abstract class _$FromSwidStaticConstFunctionInvocation
     implements SwidStaticConst {
-  factory _$FromSwidStaticConstFunctionInvocation(
+  const factory _$FromSwidStaticConstFunctionInvocation(
           {@required
               SwidStaticConstFunctionInvocation
                   staticConstFunctionInvocation}) =
@@ -1427,7 +1427,7 @@ class __$$FromSwidStaticConstFieldReferenceCopyWithImpl<$Res>
 /// @nodoc
 class _$_$FromSwidStaticConstFieldReference
     implements _$FromSwidStaticConstFieldReference {
-  _$_$FromSwidStaticConstFieldReference(
+  const _$_$FromSwidStaticConstFieldReference(
       {@required this.swidStaticConstFieldReference})
       : assert(swidStaticConstFieldReference != null);
 
@@ -1598,7 +1598,7 @@ class _$_$FromSwidStaticConstFieldReference
 }
 
 abstract class _$FromSwidStaticConstFieldReference implements SwidStaticConst {
-  factory _$FromSwidStaticConstFieldReference(
+  const factory _$FromSwidStaticConstFieldReference(
           {@required
               SwidStaticConstFieldReference swidStaticConstFieldReference}) =
       _$_$FromSwidStaticConstFieldReference;
@@ -1670,7 +1670,7 @@ class __$$FromSwidStaticConstPrefixedExpressionCopyWithImpl<$Res>
 /// @nodoc
 class _$_$FromSwidStaticConstPrefixedExpression
     implements _$FromSwidStaticConstPrefixedExpression {
-  _$_$FromSwidStaticConstPrefixedExpression(
+  const _$_$FromSwidStaticConstPrefixedExpression(
       {@required this.swidStaticConstPrefixedExpression})
       : assert(swidStaticConstPrefixedExpression != null);
 
@@ -1844,7 +1844,7 @@ class _$_$FromSwidStaticConstPrefixedExpression
 
 abstract class _$FromSwidStaticConstPrefixedExpression
     implements SwidStaticConst {
-  factory _$FromSwidStaticConstPrefixedExpression(
+  const factory _$FromSwidStaticConstPrefixedExpression(
           {@required
               SwidStaticConstPrefixedExpression
                   swidStaticConstPrefixedExpression}) =
@@ -1914,7 +1914,7 @@ class __$$FromSwidStaticConstBinaryExpressionCopyWithImpl<$Res>
 /// @nodoc
 class _$_$FromSwidStaticConstBinaryExpression
     implements _$FromSwidStaticConstBinaryExpression {
-  _$_$FromSwidStaticConstBinaryExpression(
+  const _$_$FromSwidStaticConstBinaryExpression(
       {@required this.swidStaticConstBinaryExpression})
       : assert(swidStaticConstBinaryExpression != null);
 
@@ -2087,7 +2087,7 @@ class _$_$FromSwidStaticConstBinaryExpression
 
 abstract class _$FromSwidStaticConstBinaryExpression
     implements SwidStaticConst {
-  factory _$FromSwidStaticConstBinaryExpression(
+  const factory _$FromSwidStaticConstBinaryExpression(
           {@required
               SwidStaticConstBinaryExpression
                   swidStaticConstBinaryExpression}) =
@@ -2157,7 +2157,7 @@ class __$$FromSwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>
 /// @nodoc
 class _$_$FromSwidStaticConstPrefixedIdentifier
     implements _$FromSwidStaticConstPrefixedIdentifier {
-  _$_$FromSwidStaticConstPrefixedIdentifier(
+  const _$_$FromSwidStaticConstPrefixedIdentifier(
       {@required this.staticConstPrefixedIdentifier})
       : assert(staticConstPrefixedIdentifier != null);
 
@@ -2330,7 +2330,7 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
 
 abstract class _$FromSwidStaticConstPrefixedIdentifier
     implements SwidStaticConst {
-  factory _$FromSwidStaticConstPrefixedIdentifier(
+  const factory _$FromSwidStaticConstPrefixedIdentifier(
           {@required
               SwidStaticConstPrefixedIdentifier
                   staticConstPrefixedIdentifier}) =

@@ -166,7 +166,7 @@ class __$$SwidInstantiableGenericFromSwidClassCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidInstantiableGenericFromSwidClass
     implements _$SwidInstantiableGenericFromSwidClass {
-  _$_$SwidInstantiableGenericFromSwidClass({@required this.swidClass})
+  const _$_$SwidInstantiableGenericFromSwidClass({@required this.swidClass})
       : assert(swidClass != null);
 
   factory _$_$SwidInstantiableGenericFromSwidClass.fromJson(
@@ -271,7 +271,7 @@ class _$_$SwidInstantiableGenericFromSwidClass
 
 abstract class _$SwidInstantiableGenericFromSwidClass
     implements SwidInstantiableGeneric {
-  factory _$SwidInstantiableGenericFromSwidClass(
+  const factory _$SwidInstantiableGenericFromSwidClass(
           {@required SwidClass swidClass}) =
       _$_$SwidInstantiableGenericFromSwidClass;
 
@@ -336,7 +336,8 @@ class __$$SwidInstantiableGenericFromSwidInterfaceCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidInstantiableGenericFromSwidInterface
     implements _$SwidInstantiableGenericFromSwidInterface {
-  _$_$SwidInstantiableGenericFromSwidInterface({@required this.swidInterface})
+  const _$_$SwidInstantiableGenericFromSwidInterface(
+      {@required this.swidInterface})
       : assert(swidInterface != null);
 
   factory _$_$SwidInstantiableGenericFromSwidInterface.fromJson(
@@ -441,7 +442,7 @@ class _$_$SwidInstantiableGenericFromSwidInterface
 
 abstract class _$SwidInstantiableGenericFromSwidInterface
     implements SwidInstantiableGeneric {
-  factory _$SwidInstantiableGenericFromSwidInterface(
+  const factory _$SwidInstantiableGenericFromSwidInterface(
           {@required SwidInterface swidInterface}) =
       _$_$SwidInstantiableGenericFromSwidInterface;
 
@@ -506,7 +507,7 @@ class __$$SwidInstantiableGenericFromSwidFunctionTypeCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidInstantiableGenericFromSwidFunctionType
     implements _$SwidInstantiableGenericFromSwidFunctionType {
-  _$_$SwidInstantiableGenericFromSwidFunctionType(
+  const _$_$SwidInstantiableGenericFromSwidFunctionType(
       {@required this.swidFunctionType})
       : assert(swidFunctionType != null);
 
@@ -614,7 +615,7 @@ class _$_$SwidInstantiableGenericFromSwidFunctionType
 
 abstract class _$SwidInstantiableGenericFromSwidFunctionType
     implements SwidInstantiableGeneric {
-  factory _$SwidInstantiableGenericFromSwidFunctionType(
+  const factory _$SwidInstantiableGenericFromSwidFunctionType(
           {@required SwidFunctionType swidFunctionType}) =
       _$_$SwidInstantiableGenericFromSwidFunctionType;
 

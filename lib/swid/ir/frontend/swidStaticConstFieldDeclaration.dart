@@ -26,7 +26,7 @@ part 'swidStaticConstFieldDeclaration.g.dart';
 @freezed
 abstract class SwidStaticConstFieldDeclaration
     with _$SwidStaticConstFieldDeclaration {
-  factory SwidStaticConstFieldDeclaration({
+  const factory SwidStaticConstFieldDeclaration({
     @required String name,
     @required @nullable SwidStaticConst value,
   }) = _$Data;

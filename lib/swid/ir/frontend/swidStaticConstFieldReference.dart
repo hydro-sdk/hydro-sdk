@@ -8,7 +8,7 @@ part 'swidStaticConstFieldReference.g.dart';
 @freezed
 abstract class SwidStaticConstFieldReference
     with _$SwidStaticConstFieldReference {
-  factory SwidStaticConstFieldReference({@required String name}) = _$Data;
+const   factory SwidStaticConstFieldReference({@required String name}) = _$Data;
 
   factory SwidStaticConstFieldReference.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFieldReferenceFromJson(json);

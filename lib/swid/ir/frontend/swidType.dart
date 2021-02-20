@@ -15,17 +15,17 @@ part 'swidType.g.dart';
 
 @freezed
 abstract class SwidType with _$SwidType {
-  factory SwidType.fromSwidInterface({@required SwidInterface swidInterface}) =
+  const factory SwidType.fromSwidInterface({@required SwidInterface swidInterface}) =
       _$FromSwidInterface;
 
-  factory SwidType.fromSwidClass({@required SwidClass swidClass}) =
+  const factory SwidType.fromSwidClass({@required SwidClass swidClass}) =
       _$FromSwidClass;
 
-  factory SwidType.fromSwidDefaultFormalParameter(
+  const factory SwidType.fromSwidDefaultFormalParameter(
           {@required SwidDefaultFormalParameter swidDefaultFormalParameter}) =
       _$FromSwidDefaultFormalParameter;
 
-  factory SwidType.fromSwidFunctionType(
+  const factory SwidType.fromSwidFunctionType(
       {@required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
 
   factory SwidType.fromJson(Map<String, dynamic> json) =>

@@ -122,7 +122,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidEnumCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data(
+  const _$_$Data(
       {@required this.originalPackagePath,
       @required this.identifier,
       @required this.children})
@@ -178,7 +178,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidEnum {
-  factory _$Data(
+  const factory _$Data(
       {@required String originalPackagePath,
       @required String identifier,
       @required List<String> children}) = _$_$Data;

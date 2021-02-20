@@ -7,7 +7,7 @@ part 'swidEnum.g.dart';
 
 @freezed
 abstract class SwidEnum with _$SwidEnum {
-  factory SwidEnum({
+  const factory SwidEnum({
     @required String originalPackagePath,
     @required String identifier,
     @required List<String> children,

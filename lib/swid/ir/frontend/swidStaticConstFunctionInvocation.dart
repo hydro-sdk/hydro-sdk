@@ -23,7 +23,7 @@ part 'swidStaticConstFunctionInvocation.g.dart';
 @freezed
 abstract class SwidStaticConstFunctionInvocation
     with _$SwidStaticConstFunctionInvocation {
-  factory SwidStaticConstFunctionInvocation({
+  const factory SwidStaticConstFunctionInvocation({
     @required String value,
     @required SwidType staticType,
     @required List<SwidStaticConst> normalParameters,

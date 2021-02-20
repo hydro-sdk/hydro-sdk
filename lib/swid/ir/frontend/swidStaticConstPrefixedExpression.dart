@@ -9,7 +9,7 @@ part 'swidStaticConstPrefixedExpression.g.dart';
 @freezed
 abstract class SwidStaticConstPrefixedExpression
     with _$SwidStaticConstPrefixedExpression {
-  factory SwidStaticConstPrefixedExpression({
+  const factory SwidStaticConstPrefixedExpression({
     @required String prefix,
     @required SwidStaticConst expression,
   }) = _$Data;

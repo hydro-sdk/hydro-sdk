@@ -11,7 +11,7 @@ part 'swidStaticConstPrefixedIdentifier.g.dart';
 @freezed
 abstract class SwidStaticConstPrefixedIdentifier
     with _$SwidStaticConstPrefixedIdentifier {
-  factory SwidStaticConstPrefixedIdentifier({
+const   factory SwidStaticConstPrefixedIdentifier({
     @required SwidInterface prefix,
     @required SwidStaticConstFieldReference staticConstFieldReference,
   }) = _$Data;

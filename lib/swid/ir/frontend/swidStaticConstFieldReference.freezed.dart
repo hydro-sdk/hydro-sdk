@@ -104,7 +104,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.name}) : assert(name != null);
+  const _$_$Data({@required this.name}) : assert(name != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -140,7 +140,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidStaticConstFieldReference {
-  factory _$Data({@required String name}) = _$_$Data;
+  const factory _$Data({@required String name}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

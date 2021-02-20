@@ -341,7 +341,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data(
+  const _$_$Data(
       {@required this.name,
       @required this.nullabilitySuffix,
       @required this.originalPackagePath,
@@ -495,7 +495,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidClass {
-  factory _$Data(
+  const factory _$Data(
       {@required
           String name,
       @required

@@ -11,7 +11,7 @@ part 'swidStaticConstBinaryExpression.g.dart';
 @freezed
 abstract class SwidStaticConstBinaryExpression
     with _$SwidStaticConstBinaryExpression {
-  factory SwidStaticConstBinaryExpression({
+  const factory SwidStaticConstBinaryExpression({
     @required String operator,
     @required SwidStaticConst leftOperand,
     @required SwidStaticConst rightOperand,

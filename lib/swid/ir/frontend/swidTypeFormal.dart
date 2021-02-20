@@ -14,16 +14,16 @@ part 'swidTypeFormal.g.dart';
 
 @freezed
 abstract class SwidTypeFormalValue with _$SwidTypeFormalValue {
-  factory SwidTypeFormalValue.fromString({@required String string}) =
+  const factory SwidTypeFormalValue.fromString({@required String string}) =
       _$FromString;
 
-  factory SwidTypeFormalValue.fromSwidClass({@required SwidClass swidClass}) =
-      _$FromSwidClass;
+  const factory SwidTypeFormalValue.fromSwidClass(
+      {@required SwidClass swidClass}) = _$FromSwidClass;
 
-  factory SwidTypeFormalValue.fromSwidInterface(
+  const factory SwidTypeFormalValue.fromSwidInterface(
       {@required SwidInterface swidInterface}) = _$FromSwidInterface;
 
-  factory SwidTypeFormalValue.fromSwidFunctionType(
+  const factory SwidTypeFormalValue.fromSwidFunctionType(
       {@required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
 
   factory SwidTypeFormalValue.clone({
@@ -69,7 +69,7 @@ extension SwidTypeFormalValueMethods on SwidTypeFormalValue {
 
 @freezed
 abstract class SwidTypeFormal with _$SwidTypeFormal {
-  factory SwidTypeFormal({
+  const factory SwidTypeFormal({
     @required SwidTypeFormalValue value,
     @required SwidReferenceDeclarationKind swidReferenceDeclarationKind,
   }) = _$Data;
