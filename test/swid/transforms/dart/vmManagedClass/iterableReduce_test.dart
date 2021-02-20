@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAsDynamic.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -148,7 +149,12 @@ void main() {
           )
         ]);
     expect(
-        DartVMManagedClassDeclaration(swidClass: iterable).toDartSource(), """
+        DartVMManagedClassDeclaration(
+                swidClass: instantiateAllGenericsAsDynamic(
+                        swidType: SwidType.fromSwidClass(swidClass: iterable))
+                    .maybeWhen(fromSwidClass: (val) => val, orElse: () => null))
+            .toDartSource(),
+        """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
       {@required this.table,

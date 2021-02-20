@@ -18,7 +18,6 @@ import 'package:hydro_sdk/swid/ir/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
@@ -45,12 +44,7 @@ class DartStaticMethodNamespaceSymbolDeclaration {
                       returnValueBoxingProcedure: DartBoxingProcedure.none,
                       emitTableBindingPrefix: false,
                       swidFunctionType: SwidFunctionType.clone(
-                          swidFunctionType:
-                              castAllTypeParametersInFunctionToDynamic(
-                            swidFunctionType: swidFunctionType,
-                            preserveTypeParametersInLists: true,
-                            preserveFunctionTypeFormals: true,
-                          ),
+                          swidFunctionType: swidFunctionType,
                           name: [swidClass.name, swidFunctionType.name]
                               .join(".")))
                   .toDartSource())))

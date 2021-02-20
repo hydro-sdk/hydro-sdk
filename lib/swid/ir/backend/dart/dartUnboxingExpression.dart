@@ -11,6 +11,7 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/narrowSwidInterfaceByReferenceDeclaration.dart';
@@ -42,7 +43,7 @@ class DartUnboxingExpression {
                 ], {
                   "parentState": refer("hydroState")
                 }, [
-                  TypeReference((t) => t..symbol = val.name),
+                  TypeReference((t) => t..symbol = val.displayName),
                 ])
                 .accept(DartEmitter())
                 .toString(),

@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAsDynamic.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -144,7 +145,11 @@ void main() {
     expect(
         DartStaticMethodNamespaceSymbolDeclaration(
           swidClass: set,
-          swidFunctionType: castFrom,
+          swidFunctionType: instantiateAllGenericsAsDynamic(
+                  swidType:
+                      SwidType.fromSwidFunctionType(swidFunctionType: castFrom))
+              .maybeWhen(
+                  fromSwidFunctionType: (val) => val, orElse: () => null),
         ).toDartSource(),
         """
 table  [
@@ -155,8 +160,8 @@ Closure newSet=args  [
 ]  [
 \'newSet\'
 ];
-return  [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set>(args  [
+return  [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set<dynamic>>(args  [
 1
-], parentState: hydroState), newSet: newSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set>(newSet.dispatch([args[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable())]; } );""");
+], parentState: hydroState), newSet: newSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set<R>>(newSet.dispatch([args[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable())]; } );""");
   }, tags: "swid");
 }

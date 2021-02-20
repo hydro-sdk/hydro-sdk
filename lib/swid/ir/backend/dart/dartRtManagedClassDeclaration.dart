@@ -29,8 +29,6 @@ import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/castAllTypeParametersInFunctionToDynamic.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -151,11 +149,9 @@ class DartRTManagedClassDeclaration {
             .toList()),
         ...(swidClass.methods
             .where((x) => !isOperator(swidFunctionType: x))
-            .map((x) => Code(DartMethodInjectionImplementation(
-                    swidFunctionType: castAllTypeParametersInFunctionToDynamic(
-                  swidFunctionType: x,
-                  preserveTypeParametersInLists: true,
-                )).toDartSource()))
+            .map((x) => Code(
+                DartMethodInjectionImplementation(swidFunctionType: x)
+                    .toDartSource()))
             .toList())
       ])))
     ..methods.addAll([
@@ -194,13 +190,9 @@ class DartRTManagedClassDeclaration {
                         (p) => p
                           ..name = e
                           ..type = swidTypeToDartTypeReference(
-                            swidType: castTypeParametersToDynamic(
-                              swidType: x.normalParameterTypes.elementAt(
-                                x.normalParameterNames
-                                    .indexWhere((element) => element == e),
-                              ),
-                              preserveTypeParametersInLists: true,
-                              preserveFunctionTypeFormals: false,
+                            swidType: x.normalParameterTypes.elementAt(
+                              x.normalParameterNames
+                                  .indexWhere((element) => element == e),
                             ),
                           ),
                       ),
@@ -254,25 +246,13 @@ class DartRTManagedClassDeclaration {
                     .toList()
               ])
               ..name = x.name
-              ..returns = refer(
-                x.typeFormals.isEmpty
-                    ? castTypeParametersToDynamic(
-                        swidType: x.returnType,
-                        preserveTypeParametersInLists: true,
-                        preserveFunctionTypeFormals: false,
-                      ).name
-                    : x.returnType.name,
-              )
+              ..returns = refer(x.returnType.displayName)
               ..body = Block.of([
                 Code(
                     "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
                 Code("return " +
                     DartUnboxingExpression(
-                            swidType: castTypeParametersToDynamic(
-                              swidType: x.returnType,
-                              preserveTypeParametersInLists: false,
-                              preserveFunctionTypeFormals: false,
-                            ),
+                            swidType: x.returnType,
                             expression: CodeExpression(Code(
                                 "closure.dispatch([table],parentState: hydroState)[0]")))
                         .toDartSource() +

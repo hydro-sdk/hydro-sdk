@@ -7,7 +7,6 @@ import 'package:code_builder/code_builder.dart'
         FieldModifier,
         Parameter,
         TypeReference,
-        TypeReferenceBuilder,
         refer,
         Block,
         Code;
@@ -19,9 +18,6 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/castAllTypeParametersInClassToDynamic.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/castAllTypeParametersInFunctionToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
@@ -36,26 +32,7 @@ class DartVMManagedClassDeclaration {
           ..extend = TypeReference((t) => t
             ..symbol = "VMManagedBox"
             ..types.addAll([
-              TypeReference(
-                (t) => (({
-                  TypeReferenceBuilder typeReferenceBuilder,
-                  SwidClass castedClass,
-                }) =>
-                    typeReferenceBuilder
-                      ..symbol = castedClass.name +
-                          (castedClass.typeFormals.isNotEmpty
-                              ? "<" +
-                                  castedClass.typeFormals
-                                      .map((x) => x.value.name)
-                                      .join(",") +
-                                  ">"
-                              : ""))(
-                  typeReferenceBuilder: t,
-                  castedClass: castAllTypeParametersInClassToDynamic(
-                    swidClass: swidClass,
-                  ),
-                ),
-              ),
+              TypeReference((t) => t..symbol = swidClass.displayName),
             ]))
           ..fields.addAll([
             Field(
@@ -122,11 +99,7 @@ class DartVMManagedClassDeclaration {
                                       transformAccessorName(swidFunctionType: x)
                                           .name,
                                   swidFunctionType: SwidFunctionType.clone(
-                                    swidFunctionType:
-                                        castAllTypeParametersInFunctionToDynamic(
-                                      swidFunctionType: x,
-                                      preserveTypeParametersInLists: true,
-                                    ),
+                                    swidFunctionType: x,
                                     name: "vmObject.${x.name}",
                                   )).toDartSource(),
                             ))
