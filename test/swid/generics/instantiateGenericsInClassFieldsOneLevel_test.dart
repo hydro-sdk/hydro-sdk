@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/dartPrimitives.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/dartPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';

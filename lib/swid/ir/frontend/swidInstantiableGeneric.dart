@@ -10,7 +10,7 @@ part "swidInstantiableGeneric.g.dart";
 
 @freezed
 abstract class SwidInstantiableGeneric with _$SwidInstantiableGeneric {
-const   factory SwidInstantiableGeneric.fromSwidClass({
+  const factory SwidInstantiableGeneric.fromSwidClass({
     @required SwidClass swidClass,
   }) = _$SwidInstantiableGenericFromSwidClass;
 

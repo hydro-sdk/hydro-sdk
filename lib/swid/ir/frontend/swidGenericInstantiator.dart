@@ -8,7 +8,7 @@ part "swidGenericInstantiator.g.dart";
 
 @freezed
 abstract class SwidGenericInstantiator with _$SwidGenericInstantiator {
-const   factory SwidGenericInstantiator({
+  const factory SwidGenericInstantiator({
     @required String name,
     @required SwidInstantiatedGeneric instantiatedGeneric,
   }) = _$SwidGenericInstantiatorCtor;

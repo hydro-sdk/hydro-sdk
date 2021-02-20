@@ -15,8 +15,8 @@ part 'swidType.g.dart';
 
 @freezed
 abstract class SwidType with _$SwidType {
-  const factory SwidType.fromSwidInterface({@required SwidInterface swidInterface}) =
-      _$FromSwidInterface;
+  const factory SwidType.fromSwidInterface(
+      {@required SwidInterface swidInterface}) = _$FromSwidInterface;
 
   const factory SwidType.fromSwidClass({@required SwidClass swidClass}) =
       _$FromSwidClass;

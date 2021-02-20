@@ -10,7 +10,7 @@ part 'swidDefaultFormalParameter.g.dart';
 
 @freezed
 abstract class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
-const   factory SwidDefaultFormalParameter({
+  const factory SwidDefaultFormalParameter({
     @required String name,
     @required SwidNullabilitySuffix nullabilitySuffix,
     @required String originalPackagePath,
