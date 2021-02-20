@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
 
 void main() {

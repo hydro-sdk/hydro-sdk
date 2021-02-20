@@ -1,10 +1,10 @@
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/transforms/ts/mapPrimitiveSwidTypeNameToPrimitiveTsTypeName.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveFunctionTypeNamesToTs.dart';
 

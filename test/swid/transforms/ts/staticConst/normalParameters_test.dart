@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidIntegerLiteral.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformNormalParametersToTs.dart';
 
 void main() {

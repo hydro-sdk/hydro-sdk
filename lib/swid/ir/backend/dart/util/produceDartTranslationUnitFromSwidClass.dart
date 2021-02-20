@@ -10,9 +10,9 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dar
 import 'package:hydro_sdk/swid/ir/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/removeNonEmitCandidates.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/collectAllReferences.dart';
 
 DartTranslationUnit produceDartTranslationUnitFromSwidClass({
   @required SwidClass swidClass,

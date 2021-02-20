@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 

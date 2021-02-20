@@ -1,8 +1,8 @@
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/ts/tsFunctionDefaultNamedPropsObjectName.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 class TsFunctionDefaultNamedProps {

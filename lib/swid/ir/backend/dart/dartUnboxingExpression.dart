@@ -11,9 +11,9 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartUnboxingExpression {
   final SwidType swidType;

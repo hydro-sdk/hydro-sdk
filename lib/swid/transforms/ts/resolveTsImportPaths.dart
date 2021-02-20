@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 
 String resolveTsImportsPaths({

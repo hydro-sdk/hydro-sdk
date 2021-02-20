@@ -16,10 +16,10 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/util/luaDartBinding.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/castAllTypeParametersInFunctionToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 

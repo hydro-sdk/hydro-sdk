@@ -2,11 +2,11 @@ import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/isPrimitiveMap.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/isPrimitiveMap.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/rewriteClassReferencesToInterfaceReferences.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';

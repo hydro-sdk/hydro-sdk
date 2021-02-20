@@ -1,16 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/instantiateAllGenericsAs.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/instantiateGeneric.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAs.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateGeneric.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();

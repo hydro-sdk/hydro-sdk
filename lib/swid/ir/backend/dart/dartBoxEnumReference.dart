@@ -4,7 +4,7 @@ import 'package:code_builder/code_builder.dart'
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/util/codeKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 
 class DartBoxEnumReference {
   final SwidType type;

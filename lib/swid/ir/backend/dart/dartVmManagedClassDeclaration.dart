@@ -17,12 +17,12 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInClassToDynamic.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/isOperator.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/castAllTypeParametersInClassToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/castAllTypeParametersInFunctionToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
 class DartVMManagedClassDeclaration {

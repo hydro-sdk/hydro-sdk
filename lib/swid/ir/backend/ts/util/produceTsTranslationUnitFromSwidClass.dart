@@ -19,10 +19,10 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/prepareClassForTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/requiresDartBinding.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/propagateUnsatisfiedTypeParameters.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/propagateUnsatisfiedTypeParameters.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 
 TsTranslationUnit produceTsTranslationUnitFromSwidClass({
   @required SwidClass swidClass,

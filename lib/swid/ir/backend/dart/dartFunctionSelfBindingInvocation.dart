@@ -15,9 +15,9 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/util/codeKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartFunctionSelfBindingInvocation {
   final SwidFunctionType swidFunctionType;

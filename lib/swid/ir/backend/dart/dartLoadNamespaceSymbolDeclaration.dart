@@ -19,9 +19,9 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartInexpressibleStaticConstField
 import 'package:hydro_sdk/swid/ir/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/util/luaDartBinding.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
 class DartLoadNamespaceSymbolDeclaration {

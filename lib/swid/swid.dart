@@ -10,9 +10,9 @@ import 'package:path/path.dart' as path;
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidEnum.dart';
 
 int dirCount;
 
@@ -177,6 +177,42 @@ class SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "RRect") {
       print(node.name.name);
       File("test/swid/res/RRect.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "UnmodifiableByteBufferView") {
+      print(node.name.name);
+      File("test/swid/res/UnmodifiableByteBufferView.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "UnmodifiableFloat32ListView") {
+      print(node.name.name);
+      File("test/swid/res/UnmodifiableFloat32ListView.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "Float32List") {
+      print(node.name.name);
+      File("test/swid/res/Float32List.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "ListMixin") {
+      print(node.name.name);
+      File("test/swid/res/ListMixin.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "Iterable") {
+      print(node.name.name);
+      File("test/swid/res/Iterable.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "IterableBase") {
+      print(node.name.name);
+      File("test/swid/res/IterableBase.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
