@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidGenericInstantiator.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
@@ -8,69 +9,6 @@ import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/narrowSwidInterfaceByReferenceDeclaration.dart';
-
-part "instantiateGeneric.freezed.dart";
-part "instantiateGeneric.g.dart";
-
-@freezed
-abstract class SwidInstantiableGeneric with _$SwidInstantiableGeneric {
-  factory SwidInstantiableGeneric.fromSwidClass({
-    @required SwidClass swidClass,
-  }) = _$SwidInstantiableGenericFromSwidClass;
-
-  factory SwidInstantiableGeneric.fromSwidInterface({
-    @required SwidInterface swidInterface,
-  }) = _$SwidInstantiableGenericFromSwidInterface;
-
-  factory SwidInstantiableGeneric.fromSwidFunctionType({
-    @required SwidFunctionType swidFunctionType,
-  }) = _$SwidInstantiableGenericFromSwidFunctionType;
-
-  factory SwidInstantiableGeneric.fromJson(Map<String, dynamic> json) =>
-      _$SwidInstantiableGenericFromJson(json);
-}
-
-@freezed
-abstract class SwidInstantiatedGeneric with _$SwidInstantiatedGeneric {
-  factory SwidInstantiatedGeneric({
-    @required SwidInstantiableGeneric instantiableGeneric,
-    @required SwidReferenceDeclarationKind referenceDeclarationKind,
-  }) = _$SwidInstantiatedGenericCtor;
-
-  factory SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
-          {@required SwidInstantiableGeneric swidInstantiableGeneric}) =>
-      swidInstantiableGeneric.when(
-        fromSwidClass: (val) => SwidInstantiatedGeneric(
-          instantiableGeneric:
-              SwidInstantiableGeneric.fromSwidClass(swidClass: val),
-          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
-        ),
-        fromSwidInterface: (val) => SwidInstantiatedGeneric(
-          instantiableGeneric:
-              SwidInstantiableGeneric.fromSwidInterface(swidInterface: val),
-          referenceDeclarationKind: val.referenceDeclarationKind,
-        ),
-        fromSwidFunctionType: (val) => SwidInstantiatedGeneric(
-          instantiableGeneric: SwidInstantiableGeneric.fromSwidFunctionType(
-              swidFunctionType: val),
-          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
-        ),
-      );
-
-  factory SwidInstantiatedGeneric.fromJson(Map<String, dynamic> json) =>
-      _$SwidInstantiatedGenericFromJson(json);
-}
-
-@freezed
-abstract class SwidGenericInstantiator with _$SwidGenericInstantiator {
-  factory SwidGenericInstantiator({
-    @required String name,
-    @required SwidInstantiatedGeneric instantiatedGeneric,
-  }) = _$SwidGenericInstantiatorCtor;
-
-  factory SwidGenericInstantiator.fromJson(Map<String, dynamic> json) =>
-      _$SwidGenericInstantiatorFromJson(json);
-}
 
 SwidType instantiateGeneric({
   @required SwidGenericInstantiator genericInstantiator,

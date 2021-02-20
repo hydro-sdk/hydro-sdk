@@ -9,9 +9,9 @@ import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/castTypeParametersToDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAs.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/instantiateGeneric.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidInstantiableGeneric.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidInstantiatedGeneric.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
