@@ -13,10 +13,59 @@ part "instantiateGeneric.freezed.dart";
 part "instantiateGeneric.g.dart";
 
 @freezed
+abstract class SwidInstantiableGeneric with _$SwidInstantiableGeneric {
+  factory SwidInstantiableGeneric.fromSwidClass({
+    @required SwidClass swidClass,
+  }) = _$SwidInstantiableGenericFromSwidClass;
+
+  factory SwidInstantiableGeneric.fromSwidInterface({
+    @required SwidInterface swidInterface,
+  }) = _$SwidInstantiableGenericFromSwidInterface;
+
+  factory SwidInstantiableGeneric.fromSwidFunctionType({
+    @required SwidFunctionType swidFunctionType,
+  }) = _$SwidInstantiableGenericFromSwidFunctionType;
+
+  factory SwidInstantiableGeneric.fromJson(Map<String, dynamic> json) =>
+      _$SwidInstantiableGenericFromJson(json);
+}
+
+@freezed
+abstract class SwidInstantiatedGeneric with _$SwidInstantiatedGeneric {
+  factory SwidInstantiatedGeneric({
+    @required SwidInstantiableGeneric instantiableGeneric,
+    @required SwidReferenceDeclarationKind referenceDeclarationKind,
+  }) = _$SwidInstantiatedGenericCtor;
+
+  factory SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+          {@required SwidInstantiableGeneric swidInstantiableGeneric}) =>
+      swidInstantiableGeneric.when(
+        fromSwidClass: (val) => SwidInstantiatedGeneric(
+          instantiableGeneric:
+              SwidInstantiableGeneric.fromSwidClass(swidClass: val),
+          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+        ),
+        fromSwidInterface: (val) => SwidInstantiatedGeneric(
+          instantiableGeneric:
+              SwidInstantiableGeneric.fromSwidInterface(swidInterface: val),
+          referenceDeclarationKind: val.referenceDeclarationKind,
+        ),
+        fromSwidFunctionType: (val) => SwidInstantiatedGeneric(
+          instantiableGeneric: SwidInstantiableGeneric.fromSwidFunctionType(
+              swidFunctionType: val),
+          referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+        ),
+      );
+
+  factory SwidInstantiatedGeneric.fromJson(Map<String, dynamic> json) =>
+      _$SwidInstantiatedGenericFromJson(json);
+}
+
+@freezed
 abstract class SwidGenericInstantiator with _$SwidGenericInstantiator {
   factory SwidGenericInstantiator({
     @required String name,
-    @required SwidType type,
+    @required SwidInstantiatedGeneric instantiatedGeneric,
   }) = _$SwidGenericInstantiatorCtor;
 
   factory SwidGenericInstantiator.fromJson(Map<String, dynamic> json) =>
@@ -83,7 +132,13 @@ SwidType instantiateGeneric({
           ),
         ),
         onTypeParameter: (val) => val.name == genericInstantiator.name
-            ? genericInstantiator.type
+            ? genericInstantiator.instantiatedGeneric.instantiableGeneric.when(
+                fromSwidClass: (val) => SwidType.fromSwidClass(swidClass: val),
+                fromSwidInterface: (val) =>
+                    SwidType.fromSwidInterface(swidInterface: val),
+                fromSwidFunctionType: (val) =>
+                    SwidType.fromSwidFunctionType(swidFunctionType: val),
+              )
             : SwidType.fromSwidInterface(
                 swidInterface: val,
               ),
@@ -117,7 +172,23 @@ SwidType instantiateGeneric({
                                   SwidReferenceDeclarationKind
                                       .typeParameterType &&
                               x.value.displayName == genericInstantiator.name
-                          ? null
+                          ? SwidTypeFormal(
+                              value: genericInstantiator
+                                  .instantiatedGeneric.instantiableGeneric
+                                  .when(
+                                fromSwidClass: (val) =>
+                                    SwidTypeFormalValue.fromSwidClass(
+                                        swidClass: val),
+                                fromSwidInterface: (val) =>
+                                    SwidTypeFormalValue.fromSwidInterface(
+                                        swidInterface: val),
+                                fromSwidFunctionType: (val) =>
+                                    SwidTypeFormalValue.fromSwidFunctionType(
+                                        swidFunctionType: val),
+                              ),
+                              swidReferenceDeclarationKind: genericInstantiator
+                                  .instantiatedGeneric.referenceDeclarationKind,
+                            )
                           : x)
                       .toList(),
                 ]..removeWhere((x) => x == null),
@@ -195,7 +266,23 @@ SwidType instantiateGeneric({
             typeFormals: [
               ...val.typeFormals
                   .map((x) => x.value.displayName == genericInstantiator.name
-                      ? null
+                      ? SwidTypeFormal(
+                          value: genericInstantiator
+                              .instantiatedGeneric.instantiableGeneric
+                              .when(
+                            fromSwidClass: (val) =>
+                                SwidTypeFormalValue.fromSwidClass(
+                                    swidClass: val),
+                            fromSwidInterface: (val) =>
+                                SwidTypeFormalValue.fromSwidInterface(
+                                    swidInterface: val),
+                            fromSwidFunctionType: (val) =>
+                                SwidTypeFormalValue.fromSwidFunctionType(
+                                    swidFunctionType: val),
+                          ),
+                          swidReferenceDeclarationKind: genericInstantiator
+                              .instantiatedGeneric.referenceDeclarationKind,
+                        )
                       : x)
                   .toList(),
             ]..removeWhere((x) => x == null),

@@ -125,13 +125,17 @@ void main() {
     var replacedIterable = instantiateGeneric(
       genericInstantiator: SwidGenericInstantiator(
         name: "E",
-        type: SwidType.fromSwidInterface(
-          swidInterface: SwidInterface(
-            name: "double",
-            nullabilitySuffix: SwidNullabilitySuffix.none,
-            originalPackagePath: "dart:core",
-            typeArguments: [],
-            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+        instantiatedGeneric:
+            SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+          swidInstantiableGeneric: SwidInstantiableGeneric.fromSwidInterface(
+            swidInterface: SwidInterface(
+              name: "double",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+            ),
           ),
         ),
       ),
@@ -145,7 +149,8 @@ void main() {
       fromSwidFunctionType: (_) => null,
     );
 
-    expect(replacedIterable.typeFormals.isEmpty, true);
+    expect(replacedIterable.typeFormals.isNotEmpty, true);
+    expect(replacedIterable.typeFormals.first.value.displayName, "double");
 
     //The return type of the optional generator parameter to Iterable.generate should be replaced
     //with a double

@@ -87,6 +87,10 @@ SwidType rewriteClassReferencesToInterfaceReferences(
                                 fromSwidFunctionType: (_) => null,
                               ),
                             ),
+                            fromSwidFunctionType: (val) =>
+                            SwidTypeFormalValue.fromSwidFunctionType(
+                                swidFunctionType: SwidFunctionType.clone(
+                                    swidFunctionType: val)),
                           ),
                         )
                       : null,

@@ -10,6 +10,8 @@ import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dar
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/dart/util/castTypeParametersToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/instantiateAllGenericsAs.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/util/instantiateGeneric.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -154,10 +156,22 @@ void main() {
         ]);
     expect(
         DartVMManagedClassDeclaration(
-          swidClass: castTypeParametersToDynamic(
+          swidClass: instantiateAllGenericsAs(
             swidType: SwidType.fromSwidClass(swidClass: iterable),
-            preserveTypeParametersInLists: false,
-            preserveFunctionTypeFormals: false,
+            instantiatedGeneric:
+                SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+              swidInstantiableGeneric:
+                  SwidInstantiableGeneric.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  name: "dynamic",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "",
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.dynamicType,
+                  typeArguments: [],
+                ),
+              ),
+            ),
           ).when(
             fromSwidInterface: (_) => null,
             fromSwidClass: (val) => val,

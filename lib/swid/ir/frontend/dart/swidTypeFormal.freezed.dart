@@ -16,6 +16,8 @@ SwidTypeFormalValue _$SwidTypeFormalValueFromJson(Map<String, dynamic> json) {
       return _$FromSwidClass.fromJson(json);
     case 'fromSwidInterface':
       return _$FromSwidInterface.fromJson(json);
+    case 'fromSwidFunctionType':
+      return _$FromSwidFunctionType.fromJson(json);
 
     default:
       throw FallThroughError();
@@ -49,6 +51,14 @@ class _$SwidTypeFormalValueTearOff {
   }
 
 // ignore: unused_element
+  _$FromSwidFunctionType fromSwidFunctionType(
+      {@required SwidFunctionType swidFunctionType}) {
+    return _$FromSwidFunctionType(
+      swidFunctionType: swidFunctionType,
+    );
+  }
+
+// ignore: unused_element
   SwidTypeFormalValue fromJson(Map<String, Object> json) {
     return SwidTypeFormalValue.fromJson(json);
   }
@@ -65,12 +75,14 @@ mixin _$SwidTypeFormalValue {
     @required Result fromString(String string),
     @required Result fromSwidClass(SwidClass swidClass),
     @required Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result fromString(String string),
     Result fromSwidClass(SwidClass swidClass),
     Result fromSwidInterface(SwidInterface swidInterface),
+    Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -78,12 +90,14 @@ mixin _$SwidTypeFormalValue {
     @required Result fromString(_$FromString value),
     @required Result fromSwidClass(_$FromSwidClass value),
     @required Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result fromSwidFunctionType(_$FromSwidFunctionType value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result fromString(_$FromString value),
     Result fromSwidClass(_$FromSwidClass value),
     Result fromSwidInterface(_$FromSwidInterface value),
+    Result fromSwidFunctionType(_$FromSwidFunctionType value),
     @required Result orElse(),
   });
   Map<String, dynamic> toJson();
@@ -174,10 +188,12 @@ class _$_$FromString implements _$FromString {
     @required Result fromString(String string),
     @required Result fromSwidClass(SwidClass swidClass),
     @required Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
     assert(fromSwidInterface != null);
+    assert(fromSwidFunctionType != null);
     return fromString(string);
   }
 
@@ -187,6 +203,7 @@ class _$_$FromString implements _$FromString {
     Result fromString(String string),
     Result fromSwidClass(SwidClass swidClass),
     Result fromSwidInterface(SwidInterface swidInterface),
+    Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -202,10 +219,12 @@ class _$_$FromString implements _$FromString {
     @required Result fromString(_$FromString value),
     @required Result fromSwidClass(_$FromSwidClass value),
     @required Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result fromSwidFunctionType(_$FromSwidFunctionType value),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
     assert(fromSwidInterface != null);
+    assert(fromSwidFunctionType != null);
     return fromString(this);
   }
 
@@ -215,6 +234,7 @@ class _$_$FromString implements _$FromString {
     Result fromString(_$FromString value),
     Result fromSwidClass(_$FromSwidClass value),
     Result fromSwidInterface(_$FromSwidInterface value),
+    Result fromSwidFunctionType(_$FromSwidFunctionType value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -322,10 +342,12 @@ class _$_$FromSwidClass implements _$FromSwidClass {
     @required Result fromString(String string),
     @required Result fromSwidClass(SwidClass swidClass),
     @required Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
     assert(fromSwidInterface != null);
+    assert(fromSwidFunctionType != null);
     return fromSwidClass(swidClass);
   }
 
@@ -335,6 +357,7 @@ class _$_$FromSwidClass implements _$FromSwidClass {
     Result fromString(String string),
     Result fromSwidClass(SwidClass swidClass),
     Result fromSwidInterface(SwidInterface swidInterface),
+    Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -350,10 +373,12 @@ class _$_$FromSwidClass implements _$FromSwidClass {
     @required Result fromString(_$FromString value),
     @required Result fromSwidClass(_$FromSwidClass value),
     @required Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result fromSwidFunctionType(_$FromSwidFunctionType value),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
     assert(fromSwidInterface != null);
+    assert(fromSwidFunctionType != null);
     return fromSwidClass(this);
   }
 
@@ -363,6 +388,7 @@ class _$_$FromSwidClass implements _$FromSwidClass {
     Result fromString(_$FromString value),
     Result fromSwidClass(_$FromSwidClass value),
     Result fromSwidInterface(_$FromSwidInterface value),
+    Result fromSwidFunctionType(_$FromSwidFunctionType value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -472,10 +498,12 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
     @required Result fromString(String string),
     @required Result fromSwidClass(SwidClass swidClass),
     @required Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
     assert(fromSwidInterface != null);
+    assert(fromSwidFunctionType != null);
     return fromSwidInterface(swidInterface);
   }
 
@@ -485,6 +513,7 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
     Result fromString(String string),
     Result fromSwidClass(SwidClass swidClass),
     Result fromSwidInterface(SwidInterface swidInterface),
+    Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -500,10 +529,12 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
     @required Result fromString(_$FromString value),
     @required Result fromSwidClass(_$FromSwidClass value),
     @required Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result fromSwidFunctionType(_$FromSwidFunctionType value),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
     assert(fromSwidInterface != null);
+    assert(fromSwidFunctionType != null);
     return fromSwidInterface(this);
   }
 
@@ -513,6 +544,7 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
     Result fromString(_$FromString value),
     Result fromSwidClass(_$FromSwidClass value),
     Result fromSwidInterface(_$FromSwidInterface value),
+    Result fromSwidFunctionType(_$FromSwidFunctionType value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -538,6 +570,166 @@ abstract class _$FromSwidInterface implements SwidTypeFormalValue {
 
   SwidInterface get swidInterface;
   _$$FromSwidInterfaceCopyWith<_$FromSwidInterface> get copyWith;
+}
+
+/// @nodoc
+abstract class _$$FromSwidFunctionTypeCopyWith<$Res> {
+  factory _$$FromSwidFunctionTypeCopyWith(_$FromSwidFunctionType value,
+          $Res Function(_$FromSwidFunctionType) then) =
+      __$$FromSwidFunctionTypeCopyWithImpl<$Res>;
+  $Res call({SwidFunctionType swidFunctionType});
+
+  $SwidFunctionTypeCopyWith<$Res> get swidFunctionType;
+}
+
+/// @nodoc
+class __$$FromSwidFunctionTypeCopyWithImpl<$Res>
+    extends _$SwidTypeFormalValueCopyWithImpl<$Res>
+    implements _$$FromSwidFunctionTypeCopyWith<$Res> {
+  __$$FromSwidFunctionTypeCopyWithImpl(_$FromSwidFunctionType _value,
+      $Res Function(_$FromSwidFunctionType) _then)
+      : super(_value, (v) => _then(v as _$FromSwidFunctionType));
+
+  @override
+  _$FromSwidFunctionType get _value => super._value as _$FromSwidFunctionType;
+
+  @override
+  $Res call({
+    Object swidFunctionType = freezed,
+  }) {
+    return _then(_$FromSwidFunctionType(
+      swidFunctionType: swidFunctionType == freezed
+          ? _value.swidFunctionType
+          : swidFunctionType as SwidFunctionType,
+    ));
+  }
+
+  @override
+  $SwidFunctionTypeCopyWith<$Res> get swidFunctionType {
+    if (_value.swidFunctionType == null) {
+      return null;
+    }
+    return $SwidFunctionTypeCopyWith<$Res>(_value.swidFunctionType, (value) {
+      return _then(_value.copyWith(swidFunctionType: value));
+    });
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
+  _$_$FromSwidFunctionType({@required this.swidFunctionType})
+      : assert(swidFunctionType != null);
+
+  factory _$_$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =>
+      _$_$_$FromSwidFunctionTypeFromJson(json);
+
+  @override
+  final SwidFunctionType swidFunctionType;
+
+  @override
+  String toString() {
+    return 'SwidTypeFormalValue.fromSwidFunctionType(swidFunctionType: $swidFunctionType)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _$FromSwidFunctionType &&
+            (identical(other.swidFunctionType, swidFunctionType) ||
+                const DeepCollectionEquality()
+                    .equals(other.swidFunctionType, swidFunctionType)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(swidFunctionType);
+
+  @override
+  _$$FromSwidFunctionTypeCopyWith<_$FromSwidFunctionType> get copyWith =>
+      __$$FromSwidFunctionTypeCopyWithImpl<_$FromSwidFunctionType>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result fromString(String string),
+    @required Result fromSwidClass(SwidClass swidClass),
+    @required Result fromSwidInterface(SwidInterface swidInterface),
+    @required Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
+  }) {
+    assert(fromString != null);
+    assert(fromSwidClass != null);
+    assert(fromSwidInterface != null);
+    assert(fromSwidFunctionType != null);
+    return fromSwidFunctionType(swidFunctionType);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result fromString(String string),
+    Result fromSwidClass(SwidClass swidClass),
+    Result fromSwidInterface(SwidInterface swidInterface),
+    Result fromSwidFunctionType(SwidFunctionType swidFunctionType),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromSwidFunctionType != null) {
+      return fromSwidFunctionType(swidFunctionType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result fromString(_$FromString value),
+    @required Result fromSwidClass(_$FromSwidClass value),
+    @required Result fromSwidInterface(_$FromSwidInterface value),
+    @required Result fromSwidFunctionType(_$FromSwidFunctionType value),
+  }) {
+    assert(fromString != null);
+    assert(fromSwidClass != null);
+    assert(fromSwidInterface != null);
+    assert(fromSwidFunctionType != null);
+    return fromSwidFunctionType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result fromString(_$FromString value),
+    Result fromSwidClass(_$FromSwidClass value),
+    Result fromSwidInterface(_$FromSwidInterface value),
+    Result fromSwidFunctionType(_$FromSwidFunctionType value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fromSwidFunctionType != null) {
+      return fromSwidFunctionType(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_$FromSwidFunctionTypeToJson(this)
+      ..['runtimeType'] = 'fromSwidFunctionType';
+  }
+}
+
+abstract class _$FromSwidFunctionType implements SwidTypeFormalValue {
+  factory _$FromSwidFunctionType(
+      {@required SwidFunctionType swidFunctionType}) = _$_$FromSwidFunctionType;
+
+  factory _$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =
+      _$_$FromSwidFunctionType.fromJson;
+
+  SwidFunctionType get swidFunctionType;
+  _$$FromSwidFunctionTypeCopyWith<_$FromSwidFunctionType> get copyWith;
 }
 
 SwidTypeFormal _$SwidTypeFormalFromJson(Map<String, dynamic> json) {

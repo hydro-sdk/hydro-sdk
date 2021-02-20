@@ -131,13 +131,17 @@ void main() {
     var replacedIterable = instantiateGeneric(
       genericInstantiator: SwidGenericInstantiator(
         name: "E",
-        type: SwidType.fromSwidInterface(
-          swidInterface: SwidInterface(
-            name: "double",
-            nullabilitySuffix: SwidNullabilitySuffix.none,
-            originalPackagePath: "dart:core",
-            typeArguments: [],
-            referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+        instantiatedGeneric:
+            SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+          swidInstantiableGeneric: SwidInstantiableGeneric.fromSwidInterface(
+            swidInterface: SwidInterface(
+              name: "double",
+              nullabilitySuffix: SwidNullabilitySuffix.none,
+              originalPackagePath: "dart:core",
+              typeArguments: [],
+              referenceDeclarationKind:
+                  SwidReferenceDeclarationKind.classElement,
+            ),
           ),
         ),
       ),

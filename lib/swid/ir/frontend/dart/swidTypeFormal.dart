@@ -1,6 +1,7 @@
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart' show TypeParameterElement;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
@@ -15,10 +16,15 @@ part 'swidTypeFormal.g.dart';
 abstract class SwidTypeFormalValue with _$SwidTypeFormalValue {
   factory SwidTypeFormalValue.fromString({@required String string}) =
       _$FromString;
+
   factory SwidTypeFormalValue.fromSwidClass({@required SwidClass swidClass}) =
       _$FromSwidClass;
+
   factory SwidTypeFormalValue.fromSwidInterface(
       {@required SwidInterface swidInterface}) = _$FromSwidInterface;
+
+  factory SwidTypeFormalValue.fromSwidFunctionType(
+      {@required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
 
   factory SwidTypeFormalValue.clone({
     @required SwidTypeFormalValue swidTypeFormalValue,
@@ -31,6 +37,11 @@ abstract class SwidTypeFormalValue with _$SwidTypeFormalValue {
         fromSwidInterface: (val) => SwidTypeFormalValue.fromSwidInterface(
           swidInterface: SwidInterface.clone(swidType: val),
         ),
+        fromSwidFunctionType: (val) => SwidTypeFormalValue.fromSwidFunctionType(
+          swidFunctionType: SwidFunctionType.clone(
+            swidFunctionType: val,
+          ),
+        ),
       );
 
   factory SwidTypeFormalValue.fromJson(Map<String, dynamic> json) =>
@@ -42,6 +53,7 @@ extension SwidTypeFormalValueMethods on SwidTypeFormalValue {
         fromString: (val) => val,
         fromSwidClass: (val) => val.name,
         fromSwidInterface: (val) => val.name,
+        fromSwidFunctionType: (val) => val.name,
       );
 
   String get displayName => when(
@@ -50,6 +62,8 @@ extension SwidTypeFormalValueMethods on SwidTypeFormalValue {
             SwidType.fromSwidClass(swidClass: val).displayName,
         fromSwidInterface: (val) =>
             SwidType.fromSwidInterface(swidInterface: val).displayName,
+        fromSwidFunctionType: (val) =>
+            SwidType.fromSwidFunctionType(swidFunctionType: val).displayName,
       );
 }
 

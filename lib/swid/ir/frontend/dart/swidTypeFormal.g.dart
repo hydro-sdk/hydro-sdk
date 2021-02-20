@@ -45,6 +45,22 @@ Map<String, dynamic> _$_$_$FromSwidInterfaceToJson(
       'swidInterface': instance.swidInterface,
     };
 
+_$_$FromSwidFunctionType _$_$_$FromSwidFunctionTypeFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidFunctionType(
+    swidFunctionType: json['swidFunctionType'] == null
+        ? null
+        : SwidFunctionType.fromJson(
+            json['swidFunctionType'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidFunctionTypeToJson(
+        _$_$FromSwidFunctionType instance) =>
+    <String, dynamic>{
+      'swidFunctionType': instance.swidFunctionType,
+    };
+
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     value: json['value'] == null
