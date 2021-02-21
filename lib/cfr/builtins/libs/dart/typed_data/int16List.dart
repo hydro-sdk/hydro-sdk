@@ -43,7 +43,7 @@ class VMManagedInt16List extends VMManagedBox<Int16List> {
       return [];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<int>>(args[1],
           parentState: hydroState));
       return [];
     });
@@ -105,14 +105,14 @@ class VMManagedInt16List extends VMManagedBox<Int16List> {
     table['insertAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
       vmObject.insertAll(
           args[1],
-          maybeUnBoxAndBuildArgument<Iterable>(args[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[2],
               parentState: hydroState));
       return [];
     });
     table['setAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
       vmObject.setAll(
           args[1],
-          maybeUnBoxAndBuildArgument<Iterable>(args[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[2],
               parentState: hydroState));
       return [];
     });
@@ -160,7 +160,7 @@ class VMManagedInt16List extends VMManagedBox<Int16List> {
       vmObject.setRange(
           args[1],
           args[2],
-          maybeUnBoxAndBuildArgument<Iterable>(args[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[3],
               parentState: hydroState),
           args[4]);
       return [];
@@ -177,7 +177,7 @@ class VMManagedInt16List extends VMManagedBox<Int16List> {
       vmObject.replaceRange(
           args[1],
           args[2],
-          maybeUnBoxAndBuildArgument<Iterable>(args[3],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[3],
               parentState: hydroState));
       return [];
     });
@@ -212,18 +212,12 @@ class VMManagedInt16List extends VMManagedBox<Int16List> {
             table: HydroTable())
       ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.toString()];
-    });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.hashCode];
-    });
     table['followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.followedBy(maybeUnBoxAndBuildArgument<Iterable>(
-                args[1],
-                parentState: hydroState)),
+            object: vmObject.followedBy(
+                maybeUnBoxAndBuildArgument<Iterable<int>>(args[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -269,7 +263,7 @@ class VMManagedInt16List extends VMManagedBox<Int16List> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.expand(f != null
-                ? (element) => maybeUnBoxAndBuildArgument<Iterable>(
+                ? (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
                     f.dispatch(
                       [args[0], element],
                       parentState: hydroState,
@@ -471,6 +465,9 @@ class VMManagedInt16List extends VMManagedBox<Int16List> {
     table['elementAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.elementAt(args[1])];
     });
+    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.toString()];
+    });
     table['getIterator'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterator>(
@@ -493,6 +490,9 @@ class VMManagedInt16List extends VMManagedBox<Int16List> {
     });
     table['getSingle'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.single];
+    });
+    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.hashCode];
     });
     table['getElementSizeInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> args) {

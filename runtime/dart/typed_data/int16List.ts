@@ -76,8 +76,6 @@ export interface IInt16List {
     getLength: () => number;
     setLength: (newLength: number) => void;
     getReversed: () => IIterable<number>;
-    toString: () => string;
-    getHashCode: () => number;
     followedBy: (other: IIterable<number>) => IIterable<number>;
     map: <T>(f: (e: number) => T) => IIterable<T>;
     where: (test: (element: number) => boolean) => IIterable<number>;
@@ -112,12 +110,14 @@ export interface IInt16List {
         props: { orElse?: () => number | undefined }
     ) => number;
     elementAt: (index: number) => number;
+    toString: () => string;
     getIterator: () => IIterator<number>;
     getIsEmpty: () => boolean;
     getIsNotEmpty: () => boolean;
     getFirst: () => number;
     getLast: () => number;
     getSingle: () => number;
+    getHashCode: () => number;
     getElementSizeInBytes: () => number;
     getOffsetInBytes: () => number;
     getLengthInBytes: () => number;
@@ -236,8 +236,6 @@ export class Int16List implements IList<number>, I_TypedIntList {
         newLength: number
     ) => void = undefined as any;
     private readonly _dart_getReversed: () => IIterable<number> = undefined as any;
-    private readonly _dart_toString: () => string = undefined as any;
-    private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_followedBy: (
         other: IIterable<number>
     ) => IIterable<number> = undefined as any;
@@ -304,12 +302,14 @@ export class Int16List implements IList<number>, I_TypedIntList {
     private readonly _dart_elementAt: (
         index: number
     ) => number = undefined as any;
+    private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getIterator: () => IIterator<number> = undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
     private readonly _dart_getIsNotEmpty: () => boolean = undefined as any;
     private readonly _dart_getFirst: () => number = undefined as any;
     private readonly _dart_getLast: () => number = undefined as any;
     private readonly _dart_getSingle: () => number = undefined as any;
+    private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
@@ -423,12 +423,6 @@ export class Int16List implements IList<number>, I_TypedIntList {
     public getReversed(): IIterable<number> {
         return this._dart_getReversed();
     }
-    public toString(): string {
-        return this._dart_toString();
-    }
-    public getHashCode(): number {
-        return this._dart_getHashCode();
-    }
     public followedBy(other: IIterable<number>): IIterable<number> {
         return this._dart_followedBy(other);
     }
@@ -510,6 +504,9 @@ export class Int16List implements IList<number>, I_TypedIntList {
     public elementAt(index: number): number {
         return this._dart_elementAt(index);
     }
+    public toString(): string {
+        return this._dart_toString();
+    }
     public getIterator(): IIterator<number> {
         return this._dart_getIterator();
     }
@@ -527,6 +524,9 @@ export class Int16List implements IList<number>, I_TypedIntList {
     }
     public getSingle(): number {
         return this._dart_getSingle();
+    }
+    public getHashCode(): number {
+        return this._dart_getHashCode();
     }
     public getElementSizeInBytes(): number {
         return this._dart_getElementSizeInBytes();

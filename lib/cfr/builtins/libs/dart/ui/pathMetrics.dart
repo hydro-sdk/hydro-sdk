@@ -41,9 +41,9 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     table['followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.followedBy(maybeUnBoxAndBuildArgument<Iterable>(
-                args[1],
-                parentState: hydroState)),
+            object: vmObject.followedBy(
+                maybeUnBoxAndBuildArgument<Iterable<PathMetric>>(args[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -89,7 +89,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.expand(f != null
-                ? (element) => maybeUnBoxAndBuildArgument<Iterable>(
+                ? (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
                     f.dispatch(
                       [args[0], element],
                       parentState: hydroState,
