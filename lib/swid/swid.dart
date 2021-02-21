@@ -10,6 +10,7 @@ import 'package:path/path.dart' as path;
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/dart/dartClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidEnum.dart';
@@ -75,10 +76,11 @@ class SwidVisitor extends RecursiveAstVisitor
   @override
   void visitClassDeclaration(ClassDeclaration node) {
     if (node.nativeClause == null) {
-      var res = SwidClass.fromClassOrMixinDeclaration(
-        classOrMixinDeclaration: node,
-        isMixin: false,
-      );
+      var res =
+          DartClass.swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
+              dartClassOrMixinOrClassTypAliasDeclaration:
+                  DartClassOrMixinOrClassTypAliasDeclaration
+                      .fromClassDeclaration(classDeclaration: node));
 
       if (res != null) {
         res = SwidClass.clone(
@@ -216,7 +218,37 @@ class SwidVisitor extends RecursiveAstVisitor
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
+    if (node.name.name == "UnmodifiableListBase") {
+      print(node.name.name);
+      File("test/swid/res/UnmodifiableListBase.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     super.visitClassDeclaration(node);
+  }
+
+  @override
+  void visitClassTypeAlias(ClassTypeAlias node) {
+    var res = DartClass.swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
+        dartClassOrMixinOrClassTypAliasDeclaration:
+            DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias(
+                classTypeAlias: node));
+    if (res != null) {
+      classes.add(res);
+    }
+    if (node.name.name == "UnmodifiableListBase") {
+      print(node.name.name);
+      File("test/swid/res/UnmodifiableListBase.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "_UnmodifiableListMixin") {
+      print(node.name.name);
+      File("test/swid/res/_UnmodifiableListMixin.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    return super.visitClassTypeAlias(node);
   }
 
   @override
@@ -224,8 +256,11 @@ class SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "Diagnosticable") {
       print(node.name.name);
 
-      var res = SwidClass.fromClassOrMixinDeclaration(
-          classOrMixinDeclaration: node, isMixin: true);
+      var res =
+          DartClass.swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
+              dartClassOrMixinOrClassTypAliasDeclaration:
+                  DartClassOrMixinOrClassTypAliasDeclaration
+                      .fromMixinDeclaration(mixinDeclaration: node));
 
       if (res != null) {
         classes.add(res);
