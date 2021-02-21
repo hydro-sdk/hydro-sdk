@@ -78,6 +78,8 @@ void main(List<String> args) async {
           x.name == "Int32x4" ||
           x.name == "Endian" ||
           x.name == "_TypedFloatList" ||
+          x.name == "UnmodifiableListBase" ||
+          x.name == "Invocation" ||
           x.originalPackagePath == "dart:typed_data" ||
           x.name == "Random")
       .toList();
