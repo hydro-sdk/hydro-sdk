@@ -19,25 +19,27 @@ SwidType instantiateAllGenericsAs({
         swidInterface: val,
       ),
       fromSwidClass: (val) => SwidType.fromSwidClass(
-        swidClass: val.typeFormals.fold<SwidClass>(
-          val,
-          (previousValue, element) => element.swidReferenceDeclarationKind ==
-                  SwidReferenceDeclarationKind.typeParameterType
-              ? instantiateGeneric(
-                  swidType: SwidType.fromSwidClass(swidClass: previousValue),
-                  genericInstantiator: SwidGenericInstantiator(
-                    name: element.value.name,
-                    instantiatedGeneric: instantiatedGeneric,
+        swidClass: SwidClass.clone(
+          swidClass: val.typeFormals.fold<SwidClass>(
+            val,
+            (previousValue, element) => element.swidReferenceDeclarationKind ==
+                    SwidReferenceDeclarationKind.typeParameterType
+                ? instantiateGeneric(
+                    swidType: SwidType.fromSwidClass(swidClass: previousValue),
+                    genericInstantiator: SwidGenericInstantiator(
+                      name: element.value.name,
+                      instantiatedGeneric: instantiatedGeneric,
+                    ),
+                  ).when(
+                    fromSwidInterface: (_) => null,
+                    fromSwidClass: (val) => val,
+                    fromSwidDefaultFormalParameter: (_) => null,
+                    fromSwidFunctionType: (_) => null,
+                  )
+                : SwidClass.clone(
+                    swidClass: previousValue,
                   ),
-                ).when(
-                  fromSwidInterface: (_) => null,
-                  fromSwidClass: (val) => val,
-                  fromSwidDefaultFormalParameter: (_) => null,
-                  fromSwidFunctionType: (_) => null,
-                )
-              : SwidClass.clone(
-                  swidClass: previousValue,
-                ),
+          ),
         ),
       ),
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(

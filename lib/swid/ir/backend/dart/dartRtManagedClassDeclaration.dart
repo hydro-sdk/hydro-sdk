@@ -29,6 +29,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
@@ -149,9 +150,17 @@ class DartRTManagedClassDeclaration {
             .toList()),
         ...(swidClass.methods
             .where((x) => !isOperator(swidFunctionType: x))
-            .map((x) => Code(
-                DartMethodInjectionImplementation(swidFunctionType: x)
-                    .toDartSource()))
+            .map((x) => Code(DartMethodInjectionImplementation(
+                  swidFunctionType: instantiateAllGenericsAsDynamic(
+                    swidType:
+                        SwidType.fromSwidFunctionType(swidFunctionType: x),
+                  ).when(
+                    fromSwidInterface: (_) => null,
+                    fromSwidClass: (_) => null,
+                    fromSwidDefaultFormalParameter: (_) => null,
+                    fromSwidFunctionType: (val) => val,
+                  ),
+                ).toDartSource()))
             .toList())
       ])))
     ..methods.addAll([

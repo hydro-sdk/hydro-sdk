@@ -21,6 +21,8 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant
 import 'package:hydro_sdk/swid/ir/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
@@ -87,12 +89,28 @@ class DartLoadNamespaceSymbolDeclaration {
             .toList()
       ],
       ...[
-        ...swidClass.factoryConstructors,
+        ...(instantiateAllGenericsAsDynamic(
+                swidType: SwidType.fromSwidClass(swidClass: swidClass))
+            .when(
+              fromSwidInterface: (_) => null,
+              fromSwidClass: (val) => val,
+              fromSwidDefaultFormalParameter: (_) => null,
+              fromSwidFunctionType: (_) => null,
+            )
+            .factoryConstructors),
         ...swidClass.staticMethods,
       ]
           .map((x) => DartStaticMethodNamespaceSymbolDeclaration(
-                  swidClass: swidClass, swidFunctionType: x)
-              .toCode())
+                swidClass: swidClass,
+                swidFunctionType: instantiateAllGenericsAsDynamic(
+                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x),
+                ).when(
+                  fromSwidInterface: (_) => null,
+                  fromSwidClass: (_) => null,
+                  fromSwidDefaultFormalParameter: (_) => null,
+                  fromSwidFunctionType: (val) => val,
+                ),
+              ).toCode())
           .toList(),
       Code(DartVMManagedClassBoxerRegistrant(swidClass: swidClass)
           .toDartSource()),
