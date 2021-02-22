@@ -108,6 +108,8 @@ extension DartIrMethods on DartIr {
         fromDartBoxList: (val) => val.toDartSource(),
         fromDartBoxObjectReference: (val) => val.toDartSource(),
         fromDartImportStatement: (val) => val.toDartSource(),
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration:
+            (val) => val.toDartSource(),
         fromDartFunctionSelfBindingInvocation: (val) => val.toDartSource(),
         fromDartLinebreak: (val) => val.toDartSource(),
         fromDartUnboxingExpression: (val) => val.toDartSource(),
