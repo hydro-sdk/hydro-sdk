@@ -71,10 +71,10 @@ extension DartClassOrMixinOrClassTypAliasDeclarationMethods
         fromClassTypeAlias: (val) => val.name,
       );
 
-  ExtendsClause get extendsClause => this.when(
-        fromClassDeclaration: (val) => val.extendsClause,
+  TypeName get superClass => this.when(
+        fromClassDeclaration: (val) => val.extendsClause?.superclass,
         fromMixinDeclaration: (_) => null,
-        fromClassTypeAlias: (_) => null,
+        fromClassTypeAlias: (val) => val.superclass,
       );
 
   ImplementsClause get implementsClause => this.when(
@@ -185,20 +185,22 @@ class DartClass {
                 .map((x) => SwidClass.fromInterfaceType(interfaceType: x.type))
                 .toList()
             : [],
-        extendedClass:
-            dartClassOrMixinOrClassTypAliasDeclaration.extendsClause != null
-                ? ((InterfaceType interfaceType) => interfaceType != null
-                    ? SwidClass.fromInterfaceType(interfaceType: interfaceType)
-                    : null)(((TypeName typeName) => typeName != null &&
-                        typeName.type is InterfaceType
-                    ? typeName.type
-                    : null)(dartClassOrMixinOrClassTypAliasDeclaration.extendsClause.childEntities.firstWhere(
-                    (x) => x is TypeName,
-                    orElse: () => null,
-                  )))
-                : null,
-        implementedClasses: dartClassOrMixinOrClassTypAliasDeclaration.implementsClause != null ? dartClassOrMixinOrClassTypAliasDeclaration.implementsClause.interfaces.where((x) => x.type is InterfaceType).map((x) => SwidClass.fromInterfaceType(interfaceType: x.type)).toList() : [],
-        staticConstFieldDeclarations: dartClassOrMixinOrClassTypAliasDeclaration.childEntities.where((x) => x is FieldDeclaration).toList().cast<FieldDeclaration>().map((x) {
+        extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null && dartClassOrMixinOrClassTypAliasDeclaration.superClass.type is InterfaceType
+            ? SwidClass.fromInterfaceType(
+                interfaceType:
+                    dartClassOrMixinOrClassTypAliasDeclaration.superClass.type)
+            : null,
+        implementedClasses: dartClassOrMixinOrClassTypAliasDeclaration.implementsClause != null
+            ? dartClassOrMixinOrClassTypAliasDeclaration.implementsClause.interfaces
+                .where((x) => x.type is InterfaceType)
+                .map((x) => SwidClass.fromInterfaceType(interfaceType: x.type))
+                .toList()
+            : [],
+        staticConstFieldDeclarations: dartClassOrMixinOrClassTypAliasDeclaration.childEntities
+            .where((x) => x is FieldDeclaration)
+            .toList()
+            .cast<FieldDeclaration>()
+            .map((x) {
           if (x.isStatic) {
             var declarationList =
                 (x.childEntities.firstWhere((k) => k is VariableDeclarationList)
@@ -217,7 +219,7 @@ class DartClass {
             }
           }
         }).toList()
-          ..removeWhere((x) => x == null),
+              ..removeWhere((x) => x == null),
         instanceFieldDeclarations: Map.fromEntries(
           dartClassOrMixinOrClassTypAliasDeclaration.childEntities
               .where((x) => x is FieldDeclaration)
