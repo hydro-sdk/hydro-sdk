@@ -3,7 +3,7 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 
 class DartVMManagedClassBoxerRegistrant {
   final SwidClass swidClass;

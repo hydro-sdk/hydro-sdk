@@ -3,7 +3,7 @@ import 'package:hydro_sdk/swid/ir/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/ir/backend/writeTranslationUnit.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/fixupNullability.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/swid.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
@@ -78,6 +78,9 @@ void main(List<String> args) async {
           x.name == "Int32x4" ||
           x.name == "Endian" ||
           x.name == "_TypedFloatList" ||
+          x.name == "UnmodifiableListBase" ||
+          x.name == "Invocation" ||
+          x.originalPackagePath == "dart:typed_data" ||
           x.name == "Random")
       .toList();
   for (var i = 0; i != classes.length; ++i) {

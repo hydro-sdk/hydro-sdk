@@ -2,9 +2,9 @@ import 'package:code_builder/code_builder.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxObjectReference.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();

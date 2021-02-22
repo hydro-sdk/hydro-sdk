@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/isInexpressibleStaticConst.dart';
 
 bool requiresDartBinding({@required SwidClass swidClass}) =>
     swidClass.instanceFieldDeclarations.entries.isNotEmpty ||

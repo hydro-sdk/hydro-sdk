@@ -46,7 +46,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       return [vmObject.add(args[1])];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
           parentState: hydroState));
       return [];
     });
@@ -63,12 +63,12 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       ];
     });
     table['removeAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.removeAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+      vmObject.removeAll(maybeUnBoxAndBuildArgument<Iterable<Object>>(args[1],
           parentState: hydroState));
       return [];
     });
     table['retainAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.retainAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+      vmObject.retainAll(maybeUnBoxAndBuildArgument<Iterable<Object>>(args[1],
           parentState: hydroState));
       return [];
     });
@@ -94,16 +94,17 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['containsAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable<Object>>(
+            args[1],
             parentState: hydroState))
       ];
     });
     table['intersection'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Set>(
-            object: vmObject.intersection(maybeUnBoxAndBuildArgument<Set>(
-                args[1],
-                parentState: hydroState)),
+            object: vmObject.intersection(
+                maybeUnBoxAndBuildArgument<Set<Object>>(args[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -111,7 +112,8 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['union'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Set>(
-            object: vmObject.union(maybeUnBoxAndBuildArgument<Set>(args[1],
+            object: vmObject.union(maybeUnBoxAndBuildArgument<Set<dynamic>>(
+                args[1],
                 parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -120,7 +122,8 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['difference'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Set>(
-            object: vmObject.difference(maybeUnBoxAndBuildArgument<Set>(args[1],
+            object: vmObject.difference(maybeUnBoxAndBuildArgument<Set<Object>>(
+                args[1],
                 parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -144,9 +147,9 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.followedBy(maybeUnBoxAndBuildArgument<Iterable>(
-                args[1],
-                parentState: hydroState)),
+            object: vmObject.followedBy(
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -192,7 +195,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.expand(f != null
-                ? (element) => maybeUnBoxAndBuildArgument<Iterable>(
+                ? (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
                     f.dispatch(
                       [args[0], element],
                       parentState: hydroState,
@@ -425,7 +428,8 @@ void loadSet({@required HydroState hydroState, @required HydroTable table}) {
   table['setFrom'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Set>(
-          object: Set.from(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+          object: Set.from(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+              args[1],
               parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
@@ -434,7 +438,7 @@ void loadSet({@required HydroState hydroState, @required HydroTable table}) {
   table['setOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Set>(
-          object: Set.of(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+          object: Set.of(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
               parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
@@ -445,9 +449,10 @@ void loadSet({@required HydroState hydroState, @required HydroTable table}) {
     return [
       maybeBoxObject<Set>(
           object: Set.castFrom(
-              maybeUnBoxAndBuildArgument<Set>(args[1], parentState: hydroState),
+              maybeUnBoxAndBuildArgument<Set<dynamic>>(args[1],
+                  parentState: hydroState),
               newSet: newSet != null
-                  ? <R>() => maybeUnBoxAndBuildArgument<Set>(
+                  ? <R>() => maybeUnBoxAndBuildArgument<Set<R>>(
                       newSet.dispatch(
                         [
                           args[0],

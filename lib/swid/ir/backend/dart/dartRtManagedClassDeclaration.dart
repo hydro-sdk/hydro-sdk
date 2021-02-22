@@ -19,17 +19,18 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
+import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/util/swidTypeToDartTypeReference.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/castAllTypeParametersInFunctionToDynamic.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/castTypeParametersToDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
@@ -148,12 +149,18 @@ class DartRTManagedClassDeclaration {
                 ).toDartSource()))
             .toList()),
         ...(swidClass.methods
-            .where((x) => x.name != "==")
+            .where((x) => !isOperator(swidFunctionType: x))
             .map((x) => Code(DartMethodInjectionImplementation(
-                    swidFunctionType: castAllTypeParametersInFunctionToDynamic(
-                  swidFunctionType: x,
-                  preserveTypeParametersInLists: true,
-                )).toDartSource()))
+                  swidFunctionType: instantiateAllGenericsAsDynamic(
+                    swidType:
+                        SwidType.fromSwidFunctionType(swidFunctionType: x),
+                  ).when(
+                    fromSwidInterface: (_) => null,
+                    fromSwidClass: (_) => null,
+                    fromSwidDefaultFormalParameter: (_) => null,
+                    fromSwidFunctionType: (val) => val,
+                  ),
+                ).toDartSource()))
             .toList())
       ])))
     ..methods.addAll([
@@ -168,7 +175,7 @@ class DartRTManagedClassDeclaration {
         ..body = refer("this").code)
     ])
     ..methods.addAll(swidClass.methods
-            .where((x) => x.name != "==")
+            .where((x) => !isOperator(swidFunctionType: x))
             .where((x) => !x.swidDeclarationModifiers.hasProtected)
             .map((x) => transformAccessorName(
                   swidFunctionType: x,
@@ -192,13 +199,9 @@ class DartRTManagedClassDeclaration {
                         (p) => p
                           ..name = e
                           ..type = swidTypeToDartTypeReference(
-                            swidType: castTypeParametersToDynamic(
-                              swidType: x.normalParameterTypes.elementAt(
-                                x.normalParameterNames
-                                    .indexWhere((element) => element == e),
-                              ),
-                              preserveTypeParametersInLists: true,
-                              preserveFunctionTypeFormals: false,
+                            swidType: x.normalParameterTypes.elementAt(
+                              x.normalParameterNames
+                                  .indexWhere((element) => element == e),
                             ),
                           ),
                       ),
@@ -226,28 +229,39 @@ class DartRTManagedClassDeclaration {
                         ..required = false
                         ..defaultTo = Code(e.value.name)),
                     )
+                    .toList(),
+                ...x.optionalParameterNames
+                    .where((e) =>
+                        x.namedDefaults.entries.firstWhere((k) => k.key == e,
+                            orElse: () => null) ==
+                        null)
+                    .map(
+                      (e) =>
+                          (({Tuple2<String, SwidType> optionalParameterType}) =>
+                              Parameter((p) => p
+                                ..name = optionalParameterType.item1
+                                ..type = swidTypeToDartTypeReference(
+                                    swidType: optionalParameterType.item2)
+                                ..named = false
+                                ..required = false))(
+                        optionalParameterType: Tuple2(
+                          e,
+                          x.optionalParameterTypes.elementAt(
+                            x.optionalParameterNames.indexWhere((k) => k == e),
+                          ),
+                        ),
+                      ),
+                    )
                     .toList()
               ])
               ..name = x.name
-              ..returns = refer(
-                x.typeFormals.isEmpty
-                    ? castTypeParametersToDynamic(
-                        swidType: x.returnType,
-                        preserveTypeParametersInLists: true,
-                        preserveFunctionTypeFormals: false,
-                      ).name
-                    : x.returnType.name,
-              )
+              ..returns = refer(x.returnType.displayName)
               ..body = Block.of([
                 Code(
                     "Closure closure = table[\"${transformAccessorName(swidFunctionType: transformTstlMethodNames(swidFunctionType: x)).name}\"];"),
                 Code("return " +
                     DartUnboxingExpression(
-                            swidType: castTypeParametersToDynamic(
-                              swidType: x.returnType,
-                              preserveTypeParametersInLists: false,
-                              preserveFunctionTypeFormals: false,
-                            ),
+                            swidType: x.returnType,
                             expression: CodeExpression(Code(
                                 "closure.dispatch([table],parentState: hydroState)[0]")))
                         .toDartSource() +

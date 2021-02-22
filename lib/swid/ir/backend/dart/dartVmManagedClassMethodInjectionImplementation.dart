@@ -8,8 +8,10 @@ import 'package:hydro_sdk/swid/ir/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/ir/backend/dart/util/luaDartBinding.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartVMManagedClassMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
@@ -23,7 +25,15 @@ class DartVMManagedClassMethodInjectionImplementation {
   String _methodInvocation() => DartFunctionSelfBindingInvocation(
           argumentBoxingProcedure: DartBoxingProcedure.unbox,
           returnValueBoxingProcedure: DartBoxingProcedure.box,
-          swidFunctionType: swidFunctionType,
+          swidFunctionType: instantiateAllGenericsAsDynamic(
+            swidType: SwidType.fromSwidFunctionType(
+                swidFunctionType: swidFunctionType),
+          ).when(
+            fromSwidInterface: (_) => null,
+            fromSwidClass: (_) => null,
+            fromSwidDefaultFormalParameter: (_) => null,
+            fromSwidFunctionType: (val) => val,
+          ),
           emitTableBindingPrefix: false)
       .toDartSource();
 
@@ -47,8 +57,17 @@ class DartVMManagedClassMethodInjectionImplementation {
           onTypeParameter: (_) => _nonVoidBody(),
           onDynamic: (_) => _nonVoidBody(),
           onVoid: (_) => Block.of([
-            Code(DartUnpackClosures(swidFunctionType: swidFunctionType)
-                    .toDartSource() +
+            Code(DartUnpackClosures(
+                  swidFunctionType: instantiateAllGenericsAsDynamic(
+                    swidType: SwidType.fromSwidFunctionType(
+                        swidFunctionType: swidFunctionType),
+                  ).when(
+                    fromSwidInterface: (_) => null,
+                    fromSwidClass: (_) => null,
+                    fromSwidDefaultFormalParameter: (_) => null,
+                    fromSwidFunctionType: (val) => val,
+                  ),
+                ).toDartSource() +
                 _methodInvocation() +
                 ";" +
                 "\n" +

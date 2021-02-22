@@ -2,9 +2,9 @@ import 'package:meta/meta.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/util/removeNonEmitCandidates.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/rewriteClassReferencesToInterfaceReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/rewriteClassReferencesToInterfaceReferences.dart';
 
 Tuple3<SwidClass, SwidClass, SwidClass> prepareClassForTranslationUnit(
         {@required SwidClass swidClass}) =>

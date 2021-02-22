@@ -1,8 +1,8 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformBooleanLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformDoubleLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';

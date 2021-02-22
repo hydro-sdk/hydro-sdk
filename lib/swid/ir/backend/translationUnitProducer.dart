@@ -7,8 +7,8 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsEnum.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/util/produceTsTranslationUnitFromSwidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidEnum.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidEnum.dart';
 
 class TranslationUnitProducer {
   final List<String> tsPrefixPaths;

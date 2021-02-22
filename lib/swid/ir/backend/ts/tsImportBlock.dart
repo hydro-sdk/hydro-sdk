@@ -5,11 +5,11 @@ import 'package:hydro_sdk/swid/ir/backend/ts/tsLinebreak.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsResolvedImport.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/tsir.dart';
 import 'package:hydro_sdk/swid/ir/backend/ts/util/resolveDependencyInformation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllReferences.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllStaticConstReferences.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/narrowSwidInterfaceByReferenceDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/collectAllReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/collectAllStaticConstReferences.dart';
+import 'package:hydro_sdk/swid/ir/frontend/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 List<TsIr> tsImportBlock({
   @required SwidClass swidClass,

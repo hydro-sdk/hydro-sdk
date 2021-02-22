@@ -1,8 +1,8 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstPrefixedIdentifier.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformStaticConstPrefixedIdentifierToTs(

@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
 
 class TsClassStaticConstFieldDeclarations {

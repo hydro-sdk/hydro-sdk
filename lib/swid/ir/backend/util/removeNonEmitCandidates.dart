@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/backend/util/methodIsEmitCandidate.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
 
 SwidClass removeNonEmitCandidates({@required SwidClass swidClass}) =>
     SwidClass.clone(
