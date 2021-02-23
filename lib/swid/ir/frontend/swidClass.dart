@@ -1,12 +1,4 @@
-import 'package:analyzer/dart/ast/ast.dart'
-    show
-        ClassDeclaration,
-        ClassOrMixinDeclaration,
-        FieldDeclaration,
-        VariableDeclaration,
-        VariableDeclarationList,
-        TypeParameterList,
-        TypeName;
+import 'package:analyzer/dart/ast/ast.dart' show TypeName;
 
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
@@ -27,10 +19,6 @@ import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/mapClassLibrarySourcePath.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/narrowModifierProducer.dart';
-
-import 'package:analyzer/src/dart/ast/ast.dart'
-    show ConstructorDeclarationImpl, MethodDeclarationImpl;
 
 part 'swidClass.freezed.dart';
 part 'swidClass.g.dart';

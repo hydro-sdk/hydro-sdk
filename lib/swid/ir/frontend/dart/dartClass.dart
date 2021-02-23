@@ -8,7 +8,6 @@ import 'package:analyzer/dart/ast/ast.dart'
         ClassTypeAlias,
         MixinDeclaration,
         SimpleIdentifier,
-        ExtendsClause,
         ImplementsClause,
         WithClause,
         TypeName;
@@ -22,19 +21,14 @@ import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/mapAnalyzerNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/narrowModifierProducer.dart';
 
-import 'package:analyzer/dart/element/element.dart'
-    show PropertyAccessorElement, ClassElement;
+import 'package:analyzer/dart/element/element.dart' show ClassElement;
 
-import 'package:analyzer/dart/element/type.dart'
-    show InterfaceType, TypeParameterType;
+import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 
 import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
