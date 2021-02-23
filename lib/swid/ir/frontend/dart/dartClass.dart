@@ -13,6 +13,8 @@ import 'package:analyzer/dart/ast/ast.dart'
         TypeName;
 
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
+import 'package:analyzer/dart/element/element.dart' show ClassElement;
+import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -25,10 +27,6 @@ import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstFieldDeclaration.dart'
 import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/narrowModifierProducer.dart';
-
-import 'package:analyzer/dart/element/element.dart' show ClassElement;
-
-import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 
 import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
