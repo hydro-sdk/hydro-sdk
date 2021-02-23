@@ -382,6 +382,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0-nullsafety.1"
+  petitparser:
+    dependency: "direct main"
+    description:
+      name: petitparser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
   pool:
     dependency: transitive
     description:
