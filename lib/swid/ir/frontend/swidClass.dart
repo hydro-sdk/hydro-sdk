@@ -1,11 +1,4 @@
 import 'package:analyzer/dart/ast/ast.dart' show TypeName;
-
-import 'package:analyzer/dart/element/element.dart'
-    show PropertyAccessorElement;
-
-import 'package:analyzer/dart/element/type.dart'
-    show InterfaceType, TypeParameterType;
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -19,6 +12,12 @@ import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/util/mapClassLibrarySourcePath.dart';
+
+import 'package:analyzer/dart/element/element.dart'
+    show PropertyAccessorElement;
+
+import 'package:analyzer/dart/element/type.dart'
+    show InterfaceType, TypeParameterType;
 
 part 'swidClass.freezed.dart';
 part 'swidClass.g.dart';
