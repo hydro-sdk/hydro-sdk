@@ -4,6 +4,8 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.da
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationParser.dart';
 
+import 'lib/parserTestHarness.dart';
+
 class BasicFunctionDeclarationParser extends SwidiGrammarDefinition
     with SwidiFunctionDeclarationParser {
   const BasicFunctionDeclarationParser();
@@ -12,22 +14,13 @@ class BasicFunctionDeclarationParser extends SwidiGrammarDefinition
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var input = """
+    parserTestHarness(
+        input: """
   void foo();
-    """;
-
-    var res = const BasicFunctionDeclarationParser()
-        .build(
-            start: const BasicFunctionDeclarationParser().functionDeclaration)
-        .parse(input);
-
-    if (res.isFailure) {
-      print(res.message);
-    }
-
-    expect(res.isSuccess, true);
-
-    expect(res.value,
-        const SwidiFunctionDeclaration(returnType: "void", name: "foo"));
+    """,
+        parser: const BasicFunctionDeclarationParser().build(
+            start: const BasicFunctionDeclarationParser().functionDeclaration),
+        result:
+            const SwidiFunctionDeclaration(returnType: "void", name: "foo"));
   }, tags: "swid");
 }
