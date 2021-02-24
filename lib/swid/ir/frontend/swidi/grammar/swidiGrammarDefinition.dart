@@ -1,6 +1,7 @@
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarLexicalTokens.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarWhitespace.dart';
-import 'package:petitparser/petitparser.dart';
 
 class SwidiGrammarDefinition extends GrammarDefinition
     with SwidiGrammarWhitespace, SwidiGrammarLexicalTokens {
