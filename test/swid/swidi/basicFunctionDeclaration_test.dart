@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationParser.dart';
-
 import 'lib/parserTestHarness.dart';
 
 class BasicFunctionDeclarationParser extends SwidiGrammarDefinition

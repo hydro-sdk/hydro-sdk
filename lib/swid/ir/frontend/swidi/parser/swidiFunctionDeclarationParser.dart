@@ -1,6 +1,7 @@
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
-import 'package:petitparser/petitparser.dart';
 
 mixin SwidiFunctionDeclarationParser on SwidiGrammarDefinition {
   Parser<SwidiFunctionDeclaration> functionDeclaration() =>
