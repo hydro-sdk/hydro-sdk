@@ -1,5 +1,5 @@
-import 'package:hydro_sdk/swid/ir/frontend/swidi/swidiGrammarLexicalTokens.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidi/swidiGrammarWhitespace.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarLexicalTokens.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarWhitespace.dart';
 import 'package:petitparser/petitparser.dart';
 
 class SwidiGrammarDefinition extends GrammarDefinition
@@ -25,7 +25,11 @@ class SwidiGrammarDefinition extends GrammarDefinition
   Parser topLevelDefinition() => ref(classDefinition);
 
   Parser classDefinition() =>
-      ref(ABSTRACT).optional() & ref(CLASS) & ref(identifier);
+      ref(ABSTRACT).optional() &
+      ref(CLASS) &
+      ref(identifier) &
+      ref(token, '{') &
+      ref(token, '}');
 
   Parser identifier() => ref(token, ref(IDENTIFIER));
 
