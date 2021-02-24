@@ -1,7 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiClassParser.dart';
+
+class BasicClassParser extends SwidiGrammarDefinition with SwidiClassParser {
+  const BasicClassParser();
+}
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -11,7 +16,9 @@ class IconData {
 }
     """;
 
-    var res = const SwidiParser().build().parse(input);
+    var res = const BasicClassParser()
+        .build(start: const BasicClassParser().classDefinition)
+        .parse(input);
 
     if (res.isFailure) {
       print(res.message);
@@ -19,6 +26,6 @@ class IconData {
 
     expect(res.isSuccess, true);
 
-    expect(res.value.first, SwidiClass(name: "IconData"));
+    expect(res.value, const SwidiClass(name: "IconData"));
   }, tags: "swid");
 }
