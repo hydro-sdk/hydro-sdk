@@ -34,8 +34,10 @@ class SwidiGrammarDefinition extends GrammarDefinition
       ref(token, '}');
 
   Parser functionDeclaration() =>
-      ref(returnType) & ref(identifier) & ref(formalParameterList) |
-      ref(identifier) & ref(formalParameterList) & ref(token, ";");
+      ref(returnType) &
+      ref(identifier) &
+      ref(formalParameterList) &
+      ref(token, ";");
 
   Parser formalParameterList() =>
       ref(token, '(') &
