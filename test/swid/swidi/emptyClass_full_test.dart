@@ -13,6 +13,6 @@ class IconData {
 }
     """,
         parser: const SwidiParser().build(),
-        result: const SwidiClass(name: "IconData"));
+        result: [const SwidiClass(name: "IconData")]);
   }, tags: "swid");
 }

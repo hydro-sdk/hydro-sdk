@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiClass.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
@@ -14,7 +15,7 @@ void main() {
   }
     """,
       parser: const SwidiParser().build(),
-      result: const SwidiFunctionDeclaration(returnType: "void", name: "foo"),
+      result: [const SwidiClass(name: "IconData")],
     );
   }, tags: "swid");
 }
