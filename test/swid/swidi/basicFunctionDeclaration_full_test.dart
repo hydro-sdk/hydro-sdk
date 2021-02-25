@@ -15,7 +15,11 @@ void main() {
   }
     """,
       parser: const SwidiParser().build(),
-      result: [const SwidiClass(name: "IconData")],
+      result: [
+        const SwidiClass(name: "IconData", methods: [
+          SwidiFunctionDeclaration(name: "foo", returnType: "void")
+        ]),
+      ],
     );
   }, tags: "swid");
 }

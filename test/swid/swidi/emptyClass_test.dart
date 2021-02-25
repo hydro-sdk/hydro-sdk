@@ -19,6 +19,6 @@ class IconData {
     """,
         parser: const BasicClassParser()
             .build(start: const BasicClassParser().classDefinition),
-        result: const SwidiClass(name: "IconData"));
+        result: const SwidiClass(name: "IconData", methods: []));
   }, tags: "swid");
 }

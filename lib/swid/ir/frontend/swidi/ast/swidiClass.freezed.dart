@@ -14,9 +14,12 @@ class _$SwidiClassTearOff {
   const _$SwidiClassTearOff();
 
 // ignore: unused_element
-  _$SwidiClassCtor call({@required String name}) {
+  _$SwidiClassCtor call(
+      {@required String name,
+      @required List<SwidiFunctionDeclaration> methods}) {
     return _$SwidiClassCtor(
       name: name,
+      methods: methods,
     );
   }
 }
@@ -28,6 +31,7 @@ const $SwidiClass = _$SwidiClassTearOff();
 /// @nodoc
 mixin _$SwidiClass {
   String get name;
+  List<SwidiFunctionDeclaration> get methods;
 
   $SwidiClassCopyWith<SwidiClass> get copyWith;
 }
@@ -37,7 +41,7 @@ abstract class $SwidiClassCopyWith<$Res> {
   factory $SwidiClassCopyWith(
           SwidiClass value, $Res Function(SwidiClass) then) =
       _$SwidiClassCopyWithImpl<$Res>;
-  $Res call({String name});
+  $Res call({String name, List<SwidiFunctionDeclaration> methods});
 }
 
 /// @nodoc
@@ -51,9 +55,13 @@ class _$SwidiClassCopyWithImpl<$Res> implements $SwidiClassCopyWith<$Res> {
   @override
   $Res call({
     Object name = freezed,
+    Object methods = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
+      methods: methods == freezed
+          ? _value.methods
+          : methods as List<SwidiFunctionDeclaration>,
     ));
   }
 }
@@ -65,7 +73,7 @@ abstract class _$$SwidiClassCtorCopyWith<$Res>
           _$SwidiClassCtor value, $Res Function(_$SwidiClassCtor) then) =
       __$$SwidiClassCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name});
+  $Res call({String name, List<SwidiFunctionDeclaration> methods});
 }
 
 /// @nodoc
@@ -82,23 +90,31 @@ class __$$SwidiClassCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object name = freezed,
+    Object methods = freezed,
   }) {
     return _then(_$SwidiClassCtor(
       name: name == freezed ? _value.name : name as String,
+      methods: methods == freezed
+          ? _value.methods
+          : methods as List<SwidiFunctionDeclaration>,
     ));
   }
 }
 
 /// @nodoc
 class _$_$SwidiClassCtor implements _$SwidiClassCtor {
-  const _$_$SwidiClassCtor({@required this.name}) : assert(name != null);
+  const _$_$SwidiClassCtor({@required this.name, @required this.methods})
+      : assert(name != null),
+        assert(methods != null);
 
   @override
   final String name;
+  @override
+  final List<SwidiFunctionDeclaration> methods;
 
   @override
   String toString() {
-    return 'SwidiClass(name: $name)';
+    return 'SwidiClass(name: $name, methods: $methods)';
   }
 
   @override
@@ -106,12 +122,16 @@ class _$_$SwidiClassCtor implements _$SwidiClassCtor {
     return identical(this, other) ||
         (other is _$SwidiClassCtor &&
             (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.methods, methods) ||
+                const DeepCollectionEquality().equals(other.methods, methods)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(methods);
 
   @override
   _$$SwidiClassCtorCopyWith<_$SwidiClassCtor> get copyWith =>
@@ -119,10 +139,14 @@ class _$_$SwidiClassCtor implements _$SwidiClassCtor {
 }
 
 abstract class _$SwidiClassCtor implements SwidiClass {
-  const factory _$SwidiClassCtor({@required String name}) = _$_$SwidiClassCtor;
+  const factory _$SwidiClassCtor(
+      {@required String name,
+      @required List<SwidiFunctionDeclaration> methods}) = _$_$SwidiClassCtor;
 
   @override
   String get name;
+  @override
+  List<SwidiFunctionDeclaration> get methods;
   @override
   _$$SwidiClassCtorCopyWith<_$SwidiClassCtor> get copyWith;
 }
