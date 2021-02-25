@@ -7,7 +7,6 @@ class SwidiGrammarDefinition extends GrammarDefinition
     with SwidiGrammarWhitespace, SwidiGrammarLexicalTokens {
   const SwidiGrammarDefinition();
 
-  //Adapted from https://github.com/petitparser/dart-petitparser/blob/main/petitparser_examples/lib/src/dart/grammar.dart
   Parser token(Object input) {
     if (input is Parser) {
       return input.token().trim(ref(HIDDEN_STUFF));
@@ -16,7 +15,7 @@ class SwidiGrammarDefinition extends GrammarDefinition
     } else if (input is Function) {
       return token(ref(input));
     }
-    throw ArgumentError.value(input, 'invalid token parser');
+    throw ArgumentError.value(input, "invalid token parser");
   }
 
   Parser start() => ref(compilationUnit).end();
@@ -29,72 +28,48 @@ class SwidiGrammarDefinition extends GrammarDefinition
       ref(ABSTRACT).optional() &
       ref(CLASS) &
       ref(identifier) &
-      ref(token, '{') &
+      ref(token, "{") &
       ref(functionDeclaration).star() &
-      ref(token, '}');
+      ref(token, "}");
 
   Parser functionDeclaration() =>
       ref(returnType) &
       ref(identifier) &
-      ref(formalParameterList) &
+      ref(functionDeclarationParameterList) &
       ref(token, ";");
 
-  Parser formalParameterList() =>
-      ref(token, '(') &
-          ref(optionalFormalParameters).optional() &
-          ref(token, ')') |
-      ref(token, '(') &
-          ref(namedFormalParameters).optional() &
-          ref(token, ')') |
-      ref(token, '(') &
-          ref(normalFormalParameter) &
-          ref(normalFormalParameterTail).optional() &
-          ref(token, ')');
+  Parser functionDeclarationParameterList() =>
+      (ref(token, "(") & ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationPositionalParameter) &
+          ref(functionDeclarationPositionalParameterTail).optional() &
+          ref(token, ")"));
 
-  Parser normalFormalParameterTail() =>
-      ref(token, ',') & ref(optionalFormalParameters) |
-      ref(token, ',') & ref(namedFormalParameters) |
-      ref(token, ',') &
-          ref(normalFormalParameter) &
-          ref(normalFormalParameterTail).optional();
+  Parser functionDeclarationPositionalParameter() =>
+      (ref(type) & ref(identifier));
 
-  Parser normalFormalParameter() =>
-      ref(functionDeclaration) | ref(simpleFormalParameter);
+  Parser functionDeclarationPositionalParameterTail() => (ref(token, ",") &
+      ref(functionDeclarationPositionalParameter) &
+      ref(functionDeclarationPositionalParameterTail).optional());
 
-  Parser simpleFormalParameter() => ref(identifier);
-
-  Parser optionalFormalParameters() =>
-      ref(token, '[') &
-      ref(defaultFormalParameter) &
-      (ref(token, ',') & ref(defaultFormalParameter)).star() &
-      ref(token, ']');
-
-  Parser namedFormalParameters() =>
-      ref(token, '{') &
-      ref(namedFormatParameter) &
-      (ref(token, ',') & ref(namedFormatParameter)).star() &
-      ref(token, '}');
-
-  Parser namedFormatParameter() => ref(normalFormalParameter);
-
-  Parser defaultFormalParameter() => ref(normalFormalParameter);
+  Parser simpleDeclaration() => (ref(type) & ref(identifier));
 
   Parser returnType() => ref(VOID) | ref(type);
 
   Parser identifier() => ref(token, ref(IDENTIFIER));
 
   Parser qualified() =>
-      ref(identifier) & (ref(token, '.') & ref(identifier)).star();
+      ref(identifier) & (ref(token, ".") & ref(identifier)).star();
 
   Parser type() => ref(qualified) & ref(typeArguments).optional();
 
-  Parser typeArguments() => ref(token, '<') & ref(typeList) & ref(token, '>');
+  Parser typeArguments() => ref(token, "<") & ref(typeList) & ref(token, ">");
 
-  Parser typeList() => ref(type) & (ref(token, ',') & ref(type)).star();
+  Parser typeList() => ref(type) & (ref(token, ",") & ref(type)).star();
 
-  Parser ABSTRACT() => ref(token, 'abstract');
+  Parser ABSTRACT() => ref(token, "abstract");
 
-  Parser VOID() => ref(token, 'void');
+  Parser VOID() => ref(token, "void");
 
-  Parser CLASS() => ref(token, 'class');
+  Parser CLASS() => ref(token, "class");
 }
