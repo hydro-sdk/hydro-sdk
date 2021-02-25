@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
