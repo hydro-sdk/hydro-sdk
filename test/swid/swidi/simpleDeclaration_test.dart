@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';

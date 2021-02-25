@@ -1,5 +1,6 @@
-import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:petitparser/petitparser.dart';
+
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 
 mixin SwidiTypeParser on SwidiGrammarDefinition {
