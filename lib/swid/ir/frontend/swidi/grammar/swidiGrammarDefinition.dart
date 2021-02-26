@@ -47,6 +47,11 @@ class SwidiGrammarDefinition extends GrammarDefinition
       (ref(token, "(") &
           ref(simpleDeclaration) &
           ref(functionDeclarationPositionalParameterTail).optional() &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(simpleDeclaration) &
+          ref(functionDeclarationPositionalParameterTail).optional() &
+          ref(token, ",") &
           ref(token, ")"));
 
   Parser functionDeclarationPositionalParameterTail() => (ref(token, ",") &

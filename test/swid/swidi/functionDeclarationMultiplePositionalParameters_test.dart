@@ -20,8 +20,8 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input: const ParserTestHarnessInput.fromString(
-            input: "(void foo,int bar)"),
+        input: const ParserTestHarnessInput.fromList(
+            inputs: ["(void foo,int bar)", "(void foo,int bar,)"]),
         parser: const BasicFunctionParameterListParser().build(
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
