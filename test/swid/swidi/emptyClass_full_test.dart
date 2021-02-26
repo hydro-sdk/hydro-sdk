@@ -8,10 +8,8 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input: """
-class IconData {
-}
-    """,
+        input:
+            const ParserTestHarnessInput.fromString(input: "class IconData {}"),
         parser: const SwidiParser().build(),
         result: [
           const SwidiClass(

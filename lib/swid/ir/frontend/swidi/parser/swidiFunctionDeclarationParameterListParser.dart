@@ -13,14 +13,18 @@ mixin SwidiFunctionDeclarationParameterListParser
               .where((e) => e != null)
               .whereType<SwidiDeclaration>()
               .toList(),
-          ...List.from(x)
-              .where((e) => e != null)
-              .whereType<List>()
-              .where((e) => e != null)
-              .reduce((value, element) => [...value, ...element])
+          ...((({List<List<dynamic>> nestedTokens}) => nestedTokens.isNotEmpty
+                      ? nestedTokens
+                          .reduce((value, element) => [...value, ...element])
+                      : [])(
+                  nestedTokens: List.from(x)
+                      .where((e) => e != null)
+                      .whereType<List>()
+                      .where((e) => e != null)
+                      .toList())
               .where((e) => e != null)
               .whereType<SwidiDeclaration>()
-              .toList()
+              .toList())
         ];
         return res;
       });

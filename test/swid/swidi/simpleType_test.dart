@@ -13,7 +13,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input: "void",
+        input: const ParserTestHarnessInput.fromString(input: "void"),
         parser: const SimpleTypeParser()
             .build(start: const SimpleTypeParser().type),
         result: const SwidiInterface(name: "void"));

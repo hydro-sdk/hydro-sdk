@@ -20,11 +20,14 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input: "(void foo)",
+        input: const ParserTestHarnessInput.fromList(
+            inputs: ["(void foo)", "(void foo,)"]),
         parser: const BasicFunctionParameterListParser().build(
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
-        result: const SwidiDeclaration(
-            name: "foo", type: SwidiInterface(name: "void")));
+        result: [
+          const SwidiDeclaration(
+              name: "foo", type: SwidiInterface(name: "void"))
+        ]);
   }, tags: "swid");
 }

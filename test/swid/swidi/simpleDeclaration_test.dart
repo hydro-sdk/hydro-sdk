@@ -16,7 +16,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input: "void foo",
+        input: const ParserTestHarnessInput.fromString(input: "void foo"),
         parser: const SimpleDeclarationParser()
             .build(start: const SimpleDeclarationParser().simpleDeclaration),
         result: const SwidiDeclaration(

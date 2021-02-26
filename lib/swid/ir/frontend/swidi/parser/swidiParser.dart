@@ -10,7 +10,7 @@ class SwidiParser extends SwidiGrammarDefinition
         SwidiClassParser,
         SwidiTypeParser,
         SwidiSimpleDeclarationParser,
-        SwidiFunctionDeclarationParser,
-        SwidiFunctionDeclarationParameterListParser {
+        SwidiFunctionDeclarationParameterListParser,
+        SwidiFunctionDeclarationParser {
   const SwidiParser();
 }

@@ -9,11 +9,11 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-      input: """
+      input: const ParserTestHarnessInput.fromString(input: """
   class IconData {
     void foo();
   }
-    """,
+    """),
       parser: const SwidiParser().build(),
       result: [
         const SwidiClass(name: "IconData", methods: [
