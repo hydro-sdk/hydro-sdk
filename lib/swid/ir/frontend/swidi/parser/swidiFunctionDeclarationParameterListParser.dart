@@ -8,10 +8,11 @@ mixin SwidiFunctionDeclarationParameterListParser
     on SwidiGrammarDefinition, SwidiSimpleDeclarationParser {
   Parser<SwidiDeclaration> functionDeclarationParameterList() =>
       super.functionDeclarationParameterList().map((x) {
-        return List.from(x)
+        var res = List.from(x)
             .where((e) => e != null)
             .whereType<SwidiDeclaration>()
-            .toList()
-            .first;
+            .toList();
+
+        return res.isNotEmpty ? res.first : null;
       });
 }

@@ -15,10 +15,13 @@ class _$SwidiFunctionDeclarationTearOff {
 
 // ignore: unused_element
   _$SwidiFunctionDeclarationCtor call(
-      {@required String name, @required String returnType}) {
+      {@required String name,
+      @required String returnType,
+      @required List<SwidiDeclaration> positionalParameters}) {
     return _$SwidiFunctionDeclarationCtor(
       name: name,
       returnType: returnType,
+      positionalParameters: positionalParameters,
     );
   }
 }
@@ -31,6 +34,7 @@ const $SwidiFunctionDeclaration = _$SwidiFunctionDeclarationTearOff();
 mixin _$SwidiFunctionDeclaration {
   String get name;
   String get returnType;
+  List<SwidiDeclaration> get positionalParameters;
 
   $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith;
 }
@@ -40,7 +44,10 @@ abstract class $SwidiFunctionDeclarationCopyWith<$Res> {
   factory $SwidiFunctionDeclarationCopyWith(SwidiFunctionDeclaration value,
           $Res Function(SwidiFunctionDeclaration) then) =
       _$SwidiFunctionDeclarationCopyWithImpl<$Res>;
-  $Res call({String name, String returnType});
+  $Res call(
+      {String name,
+      String returnType,
+      List<SwidiDeclaration> positionalParameters});
 }
 
 /// @nodoc
@@ -56,11 +63,15 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
   $Res call({
     Object name = freezed,
     Object returnType = freezed,
+    Object positionalParameters = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
       returnType:
           returnType == freezed ? _value.returnType : returnType as String,
+      positionalParameters: positionalParameters == freezed
+          ? _value.positionalParameters
+          : positionalParameters as List<SwidiDeclaration>,
     ));
   }
 }
@@ -73,7 +84,10 @@ abstract class _$$SwidiFunctionDeclarationCtorCopyWith<$Res>
           $Res Function(_$SwidiFunctionDeclarationCtor) then) =
       __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String returnType});
+  $Res call(
+      {String name,
+      String returnType,
+      List<SwidiDeclaration> positionalParameters});
 }
 
 /// @nodoc
@@ -93,11 +107,15 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
   $Res call({
     Object name = freezed,
     Object returnType = freezed,
+    Object positionalParameters = freezed,
   }) {
     return _then(_$SwidiFunctionDeclarationCtor(
       name: name == freezed ? _value.name : name as String,
       returnType:
           returnType == freezed ? _value.returnType : returnType as String,
+      positionalParameters: positionalParameters == freezed
+          ? _value.positionalParameters
+          : positionalParameters as List<SwidiDeclaration>,
     ));
   }
 }
@@ -106,18 +124,23 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
 class _$_$SwidiFunctionDeclarationCtor
     implements _$SwidiFunctionDeclarationCtor {
   const _$_$SwidiFunctionDeclarationCtor(
-      {@required this.name, @required this.returnType})
+      {@required this.name,
+      @required this.returnType,
+      @required this.positionalParameters})
       : assert(name != null),
-        assert(returnType != null);
+        assert(returnType != null),
+        assert(positionalParameters != null);
 
   @override
   final String name;
   @override
   final String returnType;
+  @override
+  final List<SwidiDeclaration> positionalParameters;
 
   @override
   String toString() {
-    return 'SwidiFunctionDeclaration(name: $name, returnType: $returnType)';
+    return 'SwidiFunctionDeclaration(name: $name, returnType: $returnType, positionalParameters: $positionalParameters)';
   }
 
   @override
@@ -128,14 +151,18 @@ class _$_$SwidiFunctionDeclarationCtor
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.returnType, returnType) ||
                 const DeepCollectionEquality()
-                    .equals(other.returnType, returnType)));
+                    .equals(other.returnType, returnType)) &&
+            (identical(other.positionalParameters, positionalParameters) ||
+                const DeepCollectionEquality()
+                    .equals(other.positionalParameters, positionalParameters)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(returnType);
+      const DeepCollectionEquality().hash(returnType) ^
+      const DeepCollectionEquality().hash(positionalParameters);
 
   @override
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
@@ -146,13 +173,17 @@ class _$_$SwidiFunctionDeclarationCtor
 abstract class _$SwidiFunctionDeclarationCtor
     implements SwidiFunctionDeclaration {
   const factory _$SwidiFunctionDeclarationCtor(
-      {@required String name,
-      @required String returnType}) = _$_$SwidiFunctionDeclarationCtor;
+          {@required String name,
+          @required String returnType,
+          @required List<SwidiDeclaration> positionalParameters}) =
+      _$_$SwidiFunctionDeclarationCtor;
 
   @override
   String get name;
   @override
   String get returnType;
+  @override
+  List<SwidiDeclaration> get positionalParameters;
   @override
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
       get copyWith;
