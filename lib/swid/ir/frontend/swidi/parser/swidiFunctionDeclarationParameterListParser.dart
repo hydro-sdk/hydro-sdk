@@ -1,14 +1,17 @@
-import 'dart:developer';
-
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 
-mixin SwidiFunctionDeclarationParameterListParser on SwidiGrammarDefinition {
-  Parser functionDeclarationParameterList() =>
+mixin SwidiFunctionDeclarationParameterListParser
+    on SwidiGrammarDefinition, SwidiSimpleDeclarationParser {
+  Parser<SwidiDeclaration> functionDeclarationParameterList() =>
       super.functionDeclarationParameterList().map((x) {
-        debugger();
-        print(x);
-        return x;
+        return List.from(x)
+            .where((e) => e != null)
+            .whereType<SwidiDeclaration>()
+            .toList()
+            .first;
       });
 }
