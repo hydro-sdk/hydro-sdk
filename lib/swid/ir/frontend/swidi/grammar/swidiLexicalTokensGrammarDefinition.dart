@@ -2,9 +2,9 @@ import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarWhitespace.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
 
-mixin SwidiGrammarLexicalTokens on GrammarDefinition, SwidiGrammarWhitespace {
+mixin SwidiLexicalTokensGrammarDefinition on GrammarDefinition, SwidiWhitespaceGrammarDefinition {
   Parser IDENTIFIER() => ref(IDENTIFIER_START) & ref(IDENTIFIER_PART).star();
 
   Parser HEX_NUMBER() =>

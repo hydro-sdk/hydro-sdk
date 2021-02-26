@@ -2,7 +2,7 @@ import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
-mixin SwidiGrammarWhitespace on GrammarDefinition {
+mixin SwidiWhitespaceGrammarDefinition on GrammarDefinition {
   Parser HIDDEN() => ref(HIDDEN_STUFF).plus();
 
   Parser HIDDEN_STUFF() =>
