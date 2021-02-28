@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiFunctionDeclarationNamedParameterGrammarDefinition.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
@@ -12,7 +13,8 @@ mixin SwidiFunctionGrammarDefinition
         SwidiGrammarTokenizer,
         SwidiDeclarationGrammarDefinition,
         SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
-        SwidiFunctionDeclarationOptionalParameterGrammarDefinition {
+        SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
+        SwidiFunctionDeclarationNamedParameterGrammarDefinition {
   Parser functionDeclaration() =>
       ref(returnType) &
       ref(identifier) &
@@ -38,5 +40,14 @@ mixin SwidiFunctionGrammarDefinition
           ref(token, ")")) |
       (ref(token, "(") &
           ref(functionDeclarationOptionalParameterListForm3) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationNamedParameterListForm1) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationNamedParameterListForm2) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationNamedParameterListForm3) &
           ref(token, ")"));
 }
