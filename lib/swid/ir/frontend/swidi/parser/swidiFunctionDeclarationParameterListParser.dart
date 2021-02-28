@@ -1,10 +1,10 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationNamedParameterParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiFunctionDeclarationNamedParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationOptionalParameterParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationPositionalParameterParser.dart';
@@ -17,7 +17,7 @@ mixin SwidiFunctionDeclarationParameterListParser
         SwidiSimpleDeclarationParser,
         SwidiFunctionDeclarationOptionalParameterParser,
         SwidiFunctionDeclarationPositionalParameterParser,
-        SwidiFunctionDeclarationNamedParameterGrammarDefinition {
+        SwidiFunctionDeclarationNamedParameterParser {
   Parser<List<SwidiPositionalOrOptionalOrNamedParameter>>
       functionDeclarationParameterList() =>
           super.functionDeclarationParameterList().map((x) {
