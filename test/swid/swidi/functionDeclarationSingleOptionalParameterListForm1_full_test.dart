@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
 
@@ -15,12 +15,12 @@ void main() {
       input: const ParserTestHarnessInput.fromList(inputs: [
         """
   class IconData {
-    void foo(int bar);
+    void foo([int bar]);
   }
     """,
         """
   class IconData {
-    void foo(int bar,);
+    void foo([int bar,]);
   }
     """
       ]),
@@ -30,12 +30,12 @@ void main() {
           SwidiFunctionDeclaration(
               name: "foo",
               returnType: "void",
-              optionalParameters: [],
-              positionalParameters: [
-                SwidiPositionalParameter(
+              optionalParameters: [
+                SwidiOptionalParameter(
                     declaration: SwidiDeclaration(
                         name: "bar", type: SwidiInterface(name: "int")))
-              ])
+              ],
+              positionalParameters: [])
         ]),
       ],
     );

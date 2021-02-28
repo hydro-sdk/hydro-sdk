@@ -20,6 +20,7 @@ void main() {
           SwidiFunctionDeclaration(
             name: "foo",
             returnType: "void",
+            optionalParameters: [],
             positionalParameters: [],
           )
         ]),

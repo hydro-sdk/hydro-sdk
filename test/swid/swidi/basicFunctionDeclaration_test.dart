@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationOptionalParameterParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationParameterListParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationPositionalParameterParser.dart';
@@ -13,6 +14,7 @@ class BasicFunctionDeclarationParser extends SwidiGrammarDefinition
     with
         SwidiTypeParser,
         SwidiSimpleDeclarationParser,
+        SwidiFunctionDeclarationOptionalParameterParser,
         SwidiFunctionDeclarationPositionalParameterParser,
         SwidiFunctionDeclarationParameterListParser,
         SwidiFunctionDeclarationParser {
@@ -29,6 +31,7 @@ void main() {
         result: const SwidiFunctionDeclaration(
           returnType: "void",
           name: "foo",
+          optionalParameters: [],
           positionalParameters: [],
         ));
   }, tags: "swid");

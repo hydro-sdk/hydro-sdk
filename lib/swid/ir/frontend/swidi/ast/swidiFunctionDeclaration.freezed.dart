@@ -17,11 +17,13 @@ class _$SwidiFunctionDeclarationTearOff {
   _$SwidiFunctionDeclarationCtor call(
       {@required String name,
       @required String returnType,
-      @required List<SwidiPositionalParameter> positionalParameters}) {
+      @required List<SwidiPositionalParameter> positionalParameters,
+      @required List<SwidiOptionalParameter> optionalParameters}) {
     return _$SwidiFunctionDeclarationCtor(
       name: name,
       returnType: returnType,
       positionalParameters: positionalParameters,
+      optionalParameters: optionalParameters,
     );
   }
 }
@@ -35,6 +37,7 @@ mixin _$SwidiFunctionDeclaration {
   String get name;
   String get returnType;
   List<SwidiPositionalParameter> get positionalParameters;
+  List<SwidiOptionalParameter> get optionalParameters;
 
   $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith;
 }
@@ -47,7 +50,8 @@ abstract class $SwidiFunctionDeclarationCopyWith<$Res> {
   $Res call(
       {String name,
       String returnType,
-      List<SwidiPositionalParameter> positionalParameters});
+      List<SwidiPositionalParameter> positionalParameters,
+      List<SwidiOptionalParameter> optionalParameters});
 }
 
 /// @nodoc
@@ -64,6 +68,7 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
     Object name = freezed,
     Object returnType = freezed,
     Object positionalParameters = freezed,
+    Object optionalParameters = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
@@ -72,6 +77,9 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters as List<SwidiPositionalParameter>,
+      optionalParameters: optionalParameters == freezed
+          ? _value.optionalParameters
+          : optionalParameters as List<SwidiOptionalParameter>,
     ));
   }
 }
@@ -87,7 +95,8 @@ abstract class _$$SwidiFunctionDeclarationCtorCopyWith<$Res>
   $Res call(
       {String name,
       String returnType,
-      List<SwidiPositionalParameter> positionalParameters});
+      List<SwidiPositionalParameter> positionalParameters,
+      List<SwidiOptionalParameter> optionalParameters});
 }
 
 /// @nodoc
@@ -108,6 +117,7 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
     Object name = freezed,
     Object returnType = freezed,
     Object positionalParameters = freezed,
+    Object optionalParameters = freezed,
   }) {
     return _then(_$SwidiFunctionDeclarationCtor(
       name: name == freezed ? _value.name : name as String,
@@ -116,6 +126,9 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters as List<SwidiPositionalParameter>,
+      optionalParameters: optionalParameters == freezed
+          ? _value.optionalParameters
+          : optionalParameters as List<SwidiOptionalParameter>,
     ));
   }
 }
@@ -126,10 +139,12 @@ class _$_$SwidiFunctionDeclarationCtor
   const _$_$SwidiFunctionDeclarationCtor(
       {@required this.name,
       @required this.returnType,
-      @required this.positionalParameters})
+      @required this.positionalParameters,
+      @required this.optionalParameters})
       : assert(name != null),
         assert(returnType != null),
-        assert(positionalParameters != null);
+        assert(positionalParameters != null),
+        assert(optionalParameters != null);
 
   @override
   final String name;
@@ -137,10 +152,12 @@ class _$_$SwidiFunctionDeclarationCtor
   final String returnType;
   @override
   final List<SwidiPositionalParameter> positionalParameters;
+  @override
+  final List<SwidiOptionalParameter> optionalParameters;
 
   @override
   String toString() {
-    return 'SwidiFunctionDeclaration(name: $name, returnType: $returnType, positionalParameters: $positionalParameters)';
+    return 'SwidiFunctionDeclaration(name: $name, returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters)';
   }
 
   @override
@@ -153,8 +170,11 @@ class _$_$SwidiFunctionDeclarationCtor
                 const DeepCollectionEquality()
                     .equals(other.returnType, returnType)) &&
             (identical(other.positionalParameters, positionalParameters) ||
+                const DeepCollectionEquality().equals(
+                    other.positionalParameters, positionalParameters)) &&
+            (identical(other.optionalParameters, optionalParameters) ||
                 const DeepCollectionEquality()
-                    .equals(other.positionalParameters, positionalParameters)));
+                    .equals(other.optionalParameters, optionalParameters)));
   }
 
   @override
@@ -162,7 +182,8 @@ class _$_$SwidiFunctionDeclarationCtor
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(returnType) ^
-      const DeepCollectionEquality().hash(positionalParameters);
+      const DeepCollectionEquality().hash(positionalParameters) ^
+      const DeepCollectionEquality().hash(optionalParameters);
 
   @override
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
@@ -175,7 +196,8 @@ abstract class _$SwidiFunctionDeclarationCtor
   const factory _$SwidiFunctionDeclarationCtor(
           {@required String name,
           @required String returnType,
-          @required List<SwidiPositionalParameter> positionalParameters}) =
+          @required List<SwidiPositionalParameter> positionalParameters,
+          @required List<SwidiOptionalParameter> optionalParameters}) =
       _$_$SwidiFunctionDeclarationCtor;
 
   @override
@@ -184,6 +206,8 @@ abstract class _$SwidiFunctionDeclarationCtor
   String get returnType;
   @override
   List<SwidiPositionalParameter> get positionalParameters;
+  @override
+  List<SwidiOptionalParameter> get optionalParameters;
   @override
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
       get copyWith;
