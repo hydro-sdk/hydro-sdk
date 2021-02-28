@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiOptionalParameter.dart';
@@ -13,5 +14,6 @@ abstract class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
     @required String returnType,
     @required List<SwidiPositionalParameter> positionalParameters,
     @required List<SwidiOptionalParameter> optionalParameters,
+    @required List<SwidiNamedParameter> namedParameters,
   }) = _$SwidiFunctionDeclarationCtor;
 }

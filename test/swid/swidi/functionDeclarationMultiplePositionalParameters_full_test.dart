@@ -31,6 +31,7 @@ void main() {
               name: "foo",
               returnType: "void",
               optionalParameters: [],
+              namedParameters: [],
               positionalParameters: [
                 SwidiPositionalParameter(
                     declaration: SwidiDeclaration(

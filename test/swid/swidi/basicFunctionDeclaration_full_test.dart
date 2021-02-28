@@ -22,6 +22,7 @@ void main() {
             returnType: "void",
             optionalParameters: [],
             positionalParameters: [],
+            namedParameters: [],
           )
         ]),
       ],

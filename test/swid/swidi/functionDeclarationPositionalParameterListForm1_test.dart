@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalOrOptionalParameter.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationOptionalParameterParser.dart';
@@ -31,7 +31,7 @@ void main() {
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
         result: const [
-          SwidiPositionalOrOptionalParameter.fromSwidiPositionalParameter(
+          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter(
               positionalParameter: SwidiPositionalParameter(
                   declaration: SwidiDeclaration(
                       name: "foo", type: SwidiInterface(name: "void"))))

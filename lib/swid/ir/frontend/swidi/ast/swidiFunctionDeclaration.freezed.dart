@@ -18,12 +18,14 @@ class _$SwidiFunctionDeclarationTearOff {
       {@required String name,
       @required String returnType,
       @required List<SwidiPositionalParameter> positionalParameters,
-      @required List<SwidiOptionalParameter> optionalParameters}) {
+      @required List<SwidiOptionalParameter> optionalParameters,
+      @required List<SwidiNamedParameter> namedParameters}) {
     return _$SwidiFunctionDeclarationCtor(
       name: name,
       returnType: returnType,
       positionalParameters: positionalParameters,
       optionalParameters: optionalParameters,
+      namedParameters: namedParameters,
     );
   }
 }
@@ -38,6 +40,7 @@ mixin _$SwidiFunctionDeclaration {
   String get returnType;
   List<SwidiPositionalParameter> get positionalParameters;
   List<SwidiOptionalParameter> get optionalParameters;
+  List<SwidiNamedParameter> get namedParameters;
 
   $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith;
 }
@@ -51,7 +54,8 @@ abstract class $SwidiFunctionDeclarationCopyWith<$Res> {
       {String name,
       String returnType,
       List<SwidiPositionalParameter> positionalParameters,
-      List<SwidiOptionalParameter> optionalParameters});
+      List<SwidiOptionalParameter> optionalParameters,
+      List<SwidiNamedParameter> namedParameters});
 }
 
 /// @nodoc
@@ -69,6 +73,7 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
     Object returnType = freezed,
     Object positionalParameters = freezed,
     Object optionalParameters = freezed,
+    Object namedParameters = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
@@ -80,6 +85,9 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
           : optionalParameters as List<SwidiOptionalParameter>,
+      namedParameters: namedParameters == freezed
+          ? _value.namedParameters
+          : namedParameters as List<SwidiNamedParameter>,
     ));
   }
 }
@@ -96,7 +104,8 @@ abstract class _$$SwidiFunctionDeclarationCtorCopyWith<$Res>
       {String name,
       String returnType,
       List<SwidiPositionalParameter> positionalParameters,
-      List<SwidiOptionalParameter> optionalParameters});
+      List<SwidiOptionalParameter> optionalParameters,
+      List<SwidiNamedParameter> namedParameters});
 }
 
 /// @nodoc
@@ -118,6 +127,7 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
     Object returnType = freezed,
     Object positionalParameters = freezed,
     Object optionalParameters = freezed,
+    Object namedParameters = freezed,
   }) {
     return _then(_$SwidiFunctionDeclarationCtor(
       name: name == freezed ? _value.name : name as String,
@@ -129,6 +139,9 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
           : optionalParameters as List<SwidiOptionalParameter>,
+      namedParameters: namedParameters == freezed
+          ? _value.namedParameters
+          : namedParameters as List<SwidiNamedParameter>,
     ));
   }
 }
@@ -140,11 +153,13 @@ class _$_$SwidiFunctionDeclarationCtor
       {@required this.name,
       @required this.returnType,
       @required this.positionalParameters,
-      @required this.optionalParameters})
+      @required this.optionalParameters,
+      @required this.namedParameters})
       : assert(name != null),
         assert(returnType != null),
         assert(positionalParameters != null),
-        assert(optionalParameters != null);
+        assert(optionalParameters != null),
+        assert(namedParameters != null);
 
   @override
   final String name;
@@ -154,10 +169,12 @@ class _$_$SwidiFunctionDeclarationCtor
   final List<SwidiPositionalParameter> positionalParameters;
   @override
   final List<SwidiOptionalParameter> optionalParameters;
+  @override
+  final List<SwidiNamedParameter> namedParameters;
 
   @override
   String toString() {
-    return 'SwidiFunctionDeclaration(name: $name, returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters)';
+    return 'SwidiFunctionDeclaration(name: $name, returnType: $returnType, positionalParameters: $positionalParameters, optionalParameters: $optionalParameters, namedParameters: $namedParameters)';
   }
 
   @override
@@ -174,7 +191,10 @@ class _$_$SwidiFunctionDeclarationCtor
                     other.positionalParameters, positionalParameters)) &&
             (identical(other.optionalParameters, optionalParameters) ||
                 const DeepCollectionEquality()
-                    .equals(other.optionalParameters, optionalParameters)));
+                    .equals(other.optionalParameters, optionalParameters)) &&
+            (identical(other.namedParameters, namedParameters) ||
+                const DeepCollectionEquality()
+                    .equals(other.namedParameters, namedParameters)));
   }
 
   @override
@@ -183,7 +203,8 @@ class _$_$SwidiFunctionDeclarationCtor
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(returnType) ^
       const DeepCollectionEquality().hash(positionalParameters) ^
-      const DeepCollectionEquality().hash(optionalParameters);
+      const DeepCollectionEquality().hash(optionalParameters) ^
+      const DeepCollectionEquality().hash(namedParameters);
 
   @override
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
@@ -197,7 +218,8 @@ abstract class _$SwidiFunctionDeclarationCtor
           {@required String name,
           @required String returnType,
           @required List<SwidiPositionalParameter> positionalParameters,
-          @required List<SwidiOptionalParameter> optionalParameters}) =
+          @required List<SwidiOptionalParameter> optionalParameters,
+          @required List<SwidiNamedParameter> namedParameters}) =
       _$_$SwidiFunctionDeclarationCtor;
 
   @override
@@ -208,6 +230,8 @@ abstract class _$SwidiFunctionDeclarationCtor
   List<SwidiPositionalParameter> get positionalParameters;
   @override
   List<SwidiOptionalParameter> get optionalParameters;
+  @override
+  List<SwidiNamedParameter> get namedParameters;
   @override
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
       get copyWith;

@@ -23,20 +23,22 @@ void main() {
       result: [
         const SwidiClass(name: "IconData", methods: [
           SwidiFunctionDeclaration(
-              name: "foo",
-              returnType: "void",
-              optionalParameters: [
-                SwidiOptionalParameter(
-                    declaration: SwidiDeclaration(
-                        name: "bar", type: SwidiInterface(name: "int"))),
-                SwidiOptionalParameter(
-                    declaration: SwidiDeclaration(
-                        name: "baz", type: SwidiInterface(name: "int"))),
-                SwidiOptionalParameter(
-                    declaration: SwidiDeclaration(
-                        name: "qux", type: SwidiInterface(name: "int")))
-              ],
-              positionalParameters: [])
+            name: "foo",
+            returnType: "void",
+            optionalParameters: [
+              SwidiOptionalParameter(
+                  declaration: SwidiDeclaration(
+                      name: "bar", type: SwidiInterface(name: "int"))),
+              SwidiOptionalParameter(
+                  declaration: SwidiDeclaration(
+                      name: "baz", type: SwidiInterface(name: "int"))),
+              SwidiOptionalParameter(
+                  declaration: SwidiDeclaration(
+                      name: "qux", type: SwidiInterface(name: "int")))
+            ],
+            positionalParameters: [],
+            namedParameters: [],
+          )
         ]),
       ],
     );

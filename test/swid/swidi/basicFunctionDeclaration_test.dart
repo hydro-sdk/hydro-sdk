@@ -33,6 +33,7 @@ void main() {
           name: "foo",
           optionalParameters: [],
           positionalParameters: [],
+          namedParameters: [],
         ));
   }, tags: "swid");
 }
