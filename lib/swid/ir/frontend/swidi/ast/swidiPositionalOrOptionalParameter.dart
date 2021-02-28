@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
-import 'package:meta/meta.dart';
 
 part 'swidiPositionalOrOptionalParameter.freezed.dart';
 
@@ -16,4 +17,3 @@ abstract class SwidiPositionalOrOptionalParameter
     @required SwidiOptionalParameter optionalParameter,
   }) = _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter;
 }
-
