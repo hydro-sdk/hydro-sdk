@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiFunctionDeclarationOptionalParameterGrammarDefinition.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
@@ -13,7 +14,8 @@ class SwidiGrammarDefinition extends GrammarDefinition
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition,
         SwidiDeclarationGrammarDefinition,
-        SwidiFunctionDeclarationPositionalParamterGrammarDefinition,
+        SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
+        SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
         SwidiFunctionGrammarDefinition {
   const SwidiGrammarDefinition();
 

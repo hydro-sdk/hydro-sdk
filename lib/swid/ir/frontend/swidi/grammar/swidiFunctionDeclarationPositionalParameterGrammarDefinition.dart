@@ -4,7 +4,7 @@ import 'package:petitparser/petitparser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 
-mixin SwidiFunctionDeclarationPositionalParamterGrammarDefinition
+mixin SwidiFunctionDeclarationPositionalParameterGrammarDefinition
     on
         GrammarDefinition,
         SwidiGrammarTokenizer,
