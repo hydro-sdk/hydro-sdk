@@ -1,10 +1,20 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
 
-mixin SwidiLexicalTokensGrammarDefinition on GrammarDefinition, SwidiWhitespaceGrammarDefinition {
+mixin SwidiLexicalTokensGrammarDefinition
+    on
+        GrammarDefinition,
+        SwidiGrammarTokenizer,
+        SwidiWhitespaceGrammarDefinition {
+  Parser ABSTRACT() => ref(token, "abstract");
+
+  Parser VOID() => ref(token, "void");
+
+  Parser CLASS() => ref(token, "class");
   Parser IDENTIFIER() => ref(IDENTIFIER_START) & ref(IDENTIFIER_PART).star();
 
   Parser HEX_NUMBER() =>
