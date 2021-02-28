@@ -1,6 +1,6 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:petitparser/petitparser.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationParameterListParser.dart';
@@ -19,7 +19,7 @@ mixin SwidiFunctionDeclarationParser
             positionalParameters: [
               ...List.from(x)
                   .where((e) => e != null)
-                  .whereType<SwidiDeclaration>()
+                  .whereType<SwidiPositionalParameter>()
                   .toList(),
               ...((({List<List<dynamic>> nestedTokens}) =>
                           nestedTokens.isNotEmpty
@@ -32,7 +32,7 @@ mixin SwidiFunctionDeclarationParser
                           .where((e) => e != null)
                           .toList())
                   .where((e) => e != null)
-                  .whereType<SwidiDeclaration>()
+                  .whereType<SwidiPositionalParameter>()
                   .toList())
             ]);
       });

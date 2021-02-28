@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
 
@@ -30,9 +31,12 @@ void main() {
               name: "foo",
               returnType: "void",
               positionalParameters: [
-                SwidiDeclaration(
-                    name: "bar", type: SwidiInterface(name: "int")),
-                SwidiDeclaration(name: "baz", type: SwidiInterface(name: "int"))
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "bar", type: SwidiInterface(name: "int"))),
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "baz", type: SwidiInterface(name: "int")))
               ],
             )
           ]),

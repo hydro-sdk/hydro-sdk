@@ -23,18 +23,14 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input: const ParserTestHarnessInput.fromList(
-            inputs: ["(void foo,int bar)", "(void foo,int bar,)"]),
+        input: const ParserTestHarnessInput.fromList(inputs: ["(void foo,)"]),
         parser: const BasicFunctionParameterListParser().build(
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
         result: [
           const SwidiPositionalParameter(
               declaration: SwidiDeclaration(
-                  name: "foo", type: SwidiInterface(name: "void"))),
-          const SwidiPositionalParameter(
-              declaration: SwidiDeclaration(
-                  name: "bar", type: SwidiInterface(name: "int")))
+                  name: "foo", type: SwidiInterface(name: "void")))
         ]);
   }, tags: "swid");
 }

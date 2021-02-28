@@ -17,7 +17,7 @@ class _$SwidiFunctionDeclarationTearOff {
   _$SwidiFunctionDeclarationCtor call(
       {@required String name,
       @required String returnType,
-      @required List<SwidiDeclaration> positionalParameters}) {
+      @required List<SwidiPositionalParameter> positionalParameters}) {
     return _$SwidiFunctionDeclarationCtor(
       name: name,
       returnType: returnType,
@@ -34,7 +34,7 @@ const $SwidiFunctionDeclaration = _$SwidiFunctionDeclarationTearOff();
 mixin _$SwidiFunctionDeclaration {
   String get name;
   String get returnType;
-  List<SwidiDeclaration> get positionalParameters;
+  List<SwidiPositionalParameter> get positionalParameters;
 
   $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith;
 }
@@ -47,7 +47,7 @@ abstract class $SwidiFunctionDeclarationCopyWith<$Res> {
   $Res call(
       {String name,
       String returnType,
-      List<SwidiDeclaration> positionalParameters});
+      List<SwidiPositionalParameter> positionalParameters});
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
           returnType == freezed ? _value.returnType : returnType as String,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
-          : positionalParameters as List<SwidiDeclaration>,
+          : positionalParameters as List<SwidiPositionalParameter>,
     ));
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$SwidiFunctionDeclarationCtorCopyWith<$Res>
   $Res call(
       {String name,
       String returnType,
-      List<SwidiDeclaration> positionalParameters});
+      List<SwidiPositionalParameter> positionalParameters});
 }
 
 /// @nodoc
@@ -115,7 +115,7 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
           returnType == freezed ? _value.returnType : returnType as String,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
-          : positionalParameters as List<SwidiDeclaration>,
+          : positionalParameters as List<SwidiPositionalParameter>,
     ));
   }
 }
@@ -136,7 +136,7 @@ class _$_$SwidiFunctionDeclarationCtor
   @override
   final String returnType;
   @override
-  final List<SwidiDeclaration> positionalParameters;
+  final List<SwidiPositionalParameter> positionalParameters;
 
   @override
   String toString() {
@@ -175,7 +175,7 @@ abstract class _$SwidiFunctionDeclarationCtor
   const factory _$SwidiFunctionDeclarationCtor(
           {@required String name,
           @required String returnType,
-          @required List<SwidiDeclaration> positionalParameters}) =
+          @required List<SwidiPositionalParameter> positionalParameters}) =
       _$_$SwidiFunctionDeclarationCtor;
 
   @override
@@ -183,7 +183,7 @@ abstract class _$SwidiFunctionDeclarationCtor
   @override
   String get returnType;
   @override
-  List<SwidiDeclaration> get positionalParameters;
+  List<SwidiPositionalParameter> get positionalParameters;
   @override
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
       get copyWith;
