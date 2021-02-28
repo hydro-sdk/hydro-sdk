@@ -1,8 +1,8 @@
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiFunctionGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
-import 'package:petitparser/petitparser.dart';
-
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiLexicalTokensGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
 

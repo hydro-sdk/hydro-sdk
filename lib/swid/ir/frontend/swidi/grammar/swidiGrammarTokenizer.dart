@@ -1,5 +1,6 @@
-import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
 import 'package:petitparser/petitparser.dart';
+
+import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
 
 mixin SwidiGrammarTokenizer
     on GrammarDefinition, SwidiWhitespaceGrammarDefinition {
