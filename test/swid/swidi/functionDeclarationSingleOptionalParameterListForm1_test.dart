@@ -32,7 +32,8 @@ void main() {
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
         result: [
-          const SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
+          const SwidiPositionalOrOptionalOrNamedParameter
+                  .fromSwidiOptionalParameter(
               optionalParameter: SwidiOptionalParameter(
                   declaration: SwidiDeclaration(
                       name: "foo", type: SwidiInterface(name: "void"))))

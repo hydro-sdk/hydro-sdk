@@ -32,18 +32,21 @@ void main() {
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
         result: const [
-          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter(
-              positionalParameter: SwidiPositionalParameter(
-                  declaration: SwidiDeclaration(
-                      name: "foo", type: SwidiInterface(name: "void")))),
-          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter(
-              positionalParameter: SwidiPositionalParameter(
-                  declaration: SwidiDeclaration(
-                      name: "bar", type: SwidiInterface(name: "int")))),
-          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter(
-              positionalParameter: SwidiPositionalParameter(
-                  declaration: SwidiDeclaration(
-                      name: "baz", type: SwidiInterface(name: "int"))))
+          SwidiPositionalOrOptionalOrNamedParameter
+              .fromSwidiPositionalParameter(
+                  positionalParameter: SwidiPositionalParameter(
+                      declaration: SwidiDeclaration(
+                          name: "foo", type: SwidiInterface(name: "void")))),
+          SwidiPositionalOrOptionalOrNamedParameter
+              .fromSwidiPositionalParameter(
+                  positionalParameter: SwidiPositionalParameter(
+                      declaration: SwidiDeclaration(
+                          name: "bar", type: SwidiInterface(name: "int")))),
+          SwidiPositionalOrOptionalOrNamedParameter
+              .fromSwidiPositionalParameter(
+                  positionalParameter: SwidiPositionalParameter(
+                      declaration: SwidiDeclaration(
+                          name: "baz", type: SwidiInterface(name: "int"))))
         ]);
   }, tags: "swid");
 }
