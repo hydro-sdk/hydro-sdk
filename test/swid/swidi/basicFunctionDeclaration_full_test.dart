@@ -17,17 +17,18 @@ void main() {
     """),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(name: "IconData",
-        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-         methods: [
-          SwidiFunctionDeclaration(
-            name: "foo",
-            returnType: "void",
-            optionalParameters: [],
-            positionalParameters: [],
-            namedParameters: [],
-          )
-        ]),
+        const SwidiClass(
+            name: "IconData",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            methods: [
+              SwidiFunctionDeclaration(
+                name: "foo",
+                returnType: "void",
+                optionalParameters: [],
+                positionalParameters: [],
+                namedParameters: [],
+              )
+            ]),
       ],
     );
   }, tags: "swid");
