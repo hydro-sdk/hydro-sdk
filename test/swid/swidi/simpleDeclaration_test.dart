@@ -4,8 +4,10 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiTypeParser.dart';
 import 'lib/parserTestHarness.dart';
@@ -13,6 +15,7 @@ import 'lib/parserTestHarness.dart';
 class SimpleDeclarationParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
+        SwidiReferenceDeclarationPrefixParser,
         SwidiTypeParser,
         SwidiSimpleDeclarationParser {
   const SimpleDeclarationParser();
@@ -29,6 +32,7 @@ void main() {
             type: SwidiInterface(
               name: "void",
               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+              referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
               nullabilitySuffix: SwidiNullabilitySuffix.none,
             ),
             name: "foo"));
@@ -41,6 +45,7 @@ void main() {
             type: SwidiInterface(
               name: "int",
               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+              referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
               nullabilitySuffix: SwidiNullabilitySuffix.none,
             ),
             name: "foo"));
@@ -53,6 +58,7 @@ void main() {
             type: SwidiInterface(
               name: "int?",
               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+              referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
               nullabilitySuffix: SwidiNullabilitySuffix.question,
             ),
             name: "foo"));

@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
@@ -7,7 +9,11 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/util/collectTokens.dart';
 
-mixin SwidiTypeParser on SwidiGrammarDefinition, SwidiLibraryScopePrefixParser {
+mixin SwidiTypeParser
+    on
+        SwidiGrammarDefinition,
+        SwidiLibraryScopePrefixParser,
+        SwidiReferenceDeclarationPrefixParser {
   Parser<SwidiInterface> type() => super.type().map((x) {
         var tokenList = collectTokens<Token>(x);
         String token;
@@ -17,14 +23,19 @@ mixin SwidiTypeParser on SwidiGrammarDefinition, SwidiLibraryScopePrefixParser {
           nullabilitySuffix = tokenList.first?.input ?? "";
         }
         return SwidiInterface(
-            name:
-                token != nullabilitySuffix ? token + nullabilitySuffix : token,
-            nullabilitySuffix: nullabilitySuffix == "?"
-                ? SwidiNullabilitySuffix.question
-                : SwidiNullabilitySuffix.none,
-            libraryScopePrefix:
-                collectTokens<SwidiLibraryScopePrefix>(x)?.isNotEmpty ?? false
-                    ? collectTokens<SwidiLibraryScopePrefix>(x).first
-                    : SwidiLibraryScopePrefix.empty);
+          name: token != nullabilitySuffix ? token + nullabilitySuffix : token,
+          nullabilitySuffix: nullabilitySuffix == "?"
+              ? SwidiNullabilitySuffix.question
+              : SwidiNullabilitySuffix.none,
+          libraryScopePrefix:
+              collectTokens<SwidiLibraryScopePrefix>(x)?.isNotEmpty ?? false
+                  ? collectTokens<SwidiLibraryScopePrefix>(x).first
+                  : SwidiLibraryScopePrefix.empty,
+          referenceDeclarationPrefix:
+              collectTokens<SwidiReferenceDeclarationPrefix>(x)?.isNotEmpty ??
+                      false
+                  ? collectTokens<SwidiReferenceDeclarationPrefix>(x).first
+                  : SwidiReferenceDeclarationPrefix.empty,
+        );
       });
 }

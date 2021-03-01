@@ -20,9 +20,19 @@ mixin SwidiDeclarationGrammarDefinition
 
   Parser type() =>
       ref(libraryScopePrefix).optional() &
+      ref(referenceDeclarationPrefix).optional() &
       ref(qualified) &
       ref(typeArguments).optional() &
       ref(token, "?").optional();
+
+  Parser referenceDeclarationPrefix() =>
+      (ref(token, "class") |
+          ref(token, "enum") |
+          ref(token, "void") |
+          ref(token, "type") |
+          ref(token, "dynamic")) &
+      ref(token, ":") &
+      ref(token, ":");
 
   Parser libraryScopePrefix() =>
       char('"') &

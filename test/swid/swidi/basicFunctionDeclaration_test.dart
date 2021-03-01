@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclaration
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationPositionalParameterParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiTypeParser.dart';
 import 'lib/parserTestHarness.dart';
@@ -15,6 +16,7 @@ import 'lib/parserTestHarness.dart';
 class BasicFunctionDeclarationParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
+        SwidiReferenceDeclarationPrefixParser,
         SwidiTypeParser,
         SwidiSimpleDeclarationParser,
         SwidiFunctionDeclarationOptionalParameterParser,

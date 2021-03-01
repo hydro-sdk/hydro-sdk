@@ -17,10 +17,12 @@ class _$SwidiInterfaceTearOff {
   _$SwidiInterfaceCtor call(
       {@required String name,
       @required SwidiLibraryScopePrefix libraryScopePrefix,
+      @required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
       @required SwidiNullabilitySuffix nullabilitySuffix}) {
     return _$SwidiInterfaceCtor(
       name: name,
       libraryScopePrefix: libraryScopePrefix,
+      referenceDeclarationPrefix: referenceDeclarationPrefix,
       nullabilitySuffix: nullabilitySuffix,
     );
   }
@@ -34,6 +36,7 @@ const $SwidiInterface = _$SwidiInterfaceTearOff();
 mixin _$SwidiInterface {
   String get name;
   SwidiLibraryScopePrefix get libraryScopePrefix;
+  SwidiReferenceDeclarationPrefix get referenceDeclarationPrefix;
   SwidiNullabilitySuffix get nullabilitySuffix;
 
   $SwidiInterfaceCopyWith<SwidiInterface> get copyWith;
@@ -47,9 +50,11 @@ abstract class $SwidiInterfaceCopyWith<$Res> {
   $Res call(
       {String name,
       SwidiLibraryScopePrefix libraryScopePrefix,
+      SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
       SwidiNullabilitySuffix nullabilitySuffix});
 
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
+  $SwidiReferenceDeclarationPrefixCopyWith<$Res> get referenceDeclarationPrefix;
 }
 
 /// @nodoc
@@ -65,6 +70,7 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
   $Res call({
     Object name = freezed,
     Object libraryScopePrefix = freezed,
+    Object referenceDeclarationPrefix = freezed,
     Object nullabilitySuffix = freezed,
   }) {
     return _then(_value.copyWith(
@@ -72,6 +78,9 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
           : libraryScopePrefix as SwidiLibraryScopePrefix,
+      referenceDeclarationPrefix: referenceDeclarationPrefix == freezed
+          ? _value.referenceDeclarationPrefix
+          : referenceDeclarationPrefix as SwidiReferenceDeclarationPrefix,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
           : nullabilitySuffix as SwidiNullabilitySuffix,
@@ -88,6 +97,18 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
       return _then(_value.copyWith(libraryScopePrefix: value));
     });
   }
+
+  @override
+  $SwidiReferenceDeclarationPrefixCopyWith<$Res>
+      get referenceDeclarationPrefix {
+    if (_value.referenceDeclarationPrefix == null) {
+      return null;
+    }
+    return $SwidiReferenceDeclarationPrefixCopyWith<$Res>(
+        _value.referenceDeclarationPrefix, (value) {
+      return _then(_value.copyWith(referenceDeclarationPrefix: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -100,10 +121,13 @@ abstract class _$$SwidiInterfaceCtorCopyWith<$Res>
   $Res call(
       {String name,
       SwidiLibraryScopePrefix libraryScopePrefix,
+      SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
       SwidiNullabilitySuffix nullabilitySuffix});
 
   @override
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
+  @override
+  $SwidiReferenceDeclarationPrefixCopyWith<$Res> get referenceDeclarationPrefix;
 }
 
 /// @nodoc
@@ -121,6 +145,7 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
   $Res call({
     Object name = freezed,
     Object libraryScopePrefix = freezed,
+    Object referenceDeclarationPrefix = freezed,
     Object nullabilitySuffix = freezed,
   }) {
     return _then(_$SwidiInterfaceCtor(
@@ -128,6 +153,9 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
           : libraryScopePrefix as SwidiLibraryScopePrefix,
+      referenceDeclarationPrefix: referenceDeclarationPrefix == freezed
+          ? _value.referenceDeclarationPrefix
+          : referenceDeclarationPrefix as SwidiReferenceDeclarationPrefix,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
           : nullabilitySuffix as SwidiNullabilitySuffix,
@@ -140,9 +168,11 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
   const _$_$SwidiInterfaceCtor(
       {@required this.name,
       @required this.libraryScopePrefix,
+      @required this.referenceDeclarationPrefix,
       @required this.nullabilitySuffix})
       : assert(name != null),
         assert(libraryScopePrefix != null),
+        assert(referenceDeclarationPrefix != null),
         assert(nullabilitySuffix != null);
 
   @override
@@ -150,11 +180,13 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
   @override
   final SwidiLibraryScopePrefix libraryScopePrefix;
   @override
+  final SwidiReferenceDeclarationPrefix referenceDeclarationPrefix;
+  @override
   final SwidiNullabilitySuffix nullabilitySuffix;
 
   @override
   String toString() {
-    return 'SwidiInterface(name: $name, libraryScopePrefix: $libraryScopePrefix, nullabilitySuffix: $nullabilitySuffix)';
+    return 'SwidiInterface(name: $name, libraryScopePrefix: $libraryScopePrefix, referenceDeclarationPrefix: $referenceDeclarationPrefix, nullabilitySuffix: $nullabilitySuffix)';
   }
 
   @override
@@ -166,6 +198,11 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
             (identical(other.libraryScopePrefix, libraryScopePrefix) ||
                 const DeepCollectionEquality()
                     .equals(other.libraryScopePrefix, libraryScopePrefix)) &&
+            (identical(other.referenceDeclarationPrefix,
+                    referenceDeclarationPrefix) ||
+                const DeepCollectionEquality().equals(
+                    other.referenceDeclarationPrefix,
+                    referenceDeclarationPrefix)) &&
             (identical(other.nullabilitySuffix, nullabilitySuffix) ||
                 const DeepCollectionEquality()
                     .equals(other.nullabilitySuffix, nullabilitySuffix)));
@@ -176,6 +213,7 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(libraryScopePrefix) ^
+      const DeepCollectionEquality().hash(referenceDeclarationPrefix) ^
       const DeepCollectionEquality().hash(nullabilitySuffix);
 
   @override
@@ -188,6 +226,7 @@ abstract class _$SwidiInterfaceCtor implements SwidiInterface {
   const factory _$SwidiInterfaceCtor(
           {@required String name,
           @required SwidiLibraryScopePrefix libraryScopePrefix,
+          @required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
           @required SwidiNullabilitySuffix nullabilitySuffix}) =
       _$_$SwidiInterfaceCtor;
 
@@ -195,6 +234,8 @@ abstract class _$SwidiInterfaceCtor implements SwidiInterface {
   String get name;
   @override
   SwidiLibraryScopePrefix get libraryScopePrefix;
+  @override
+  SwidiReferenceDeclarationPrefix get referenceDeclarationPrefix;
   @override
   SwidiNullabilitySuffix get nullabilitySuffix;
   @override

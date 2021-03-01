@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
 
@@ -44,6 +45,8 @@ void main() {
                             type: SwidiInterface(
                               name: "int",
                               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              referenceDeclarationPrefix:
+                                  SwidiReferenceDeclarationPrefix.empty,
                               nullabilitySuffix: SwidiNullabilitySuffix.none,
                             ))),
                     SwidiPositionalParameter(
@@ -52,6 +55,8 @@ void main() {
                             type: SwidiInterface(
                               name: "int",
                               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              referenceDeclarationPrefix:
+                                  SwidiReferenceDeclarationPrefix.empty,
                               nullabilitySuffix: SwidiNullabilitySuffix.none,
                             )))
                   ],
@@ -90,6 +95,8 @@ void main() {
                             type: SwidiInterface(
                               name: "int?",
                               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              referenceDeclarationPrefix:
+                                  SwidiReferenceDeclarationPrefix.empty,
                               nullabilitySuffix:
                                   SwidiNullabilitySuffix.question,
                             ))),
@@ -99,6 +106,8 @@ void main() {
                             type: SwidiInterface(
                               name: "int",
                               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              referenceDeclarationPrefix:
+                                  SwidiReferenceDeclarationPrefix.empty,
                               nullabilitySuffix: SwidiNullabilitySuffix.none,
                             )))
                   ],
@@ -137,6 +146,8 @@ void main() {
                             type: SwidiInterface(
                               name: "int",
                               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              referenceDeclarationPrefix:
+                                  SwidiReferenceDeclarationPrefix.empty,
                               nullabilitySuffix: SwidiNullabilitySuffix.none,
                             ))),
                     SwidiPositionalParameter(
@@ -145,6 +156,8 @@ void main() {
                             type: SwidiInterface(
                               name: "int?",
                               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              referenceDeclarationPrefix:
+                                  SwidiReferenceDeclarationPrefix.empty,
                               nullabilitySuffix:
                                   SwidiNullabilitySuffix.question,
                             )))
@@ -184,6 +197,7 @@ void main() {
                             type: SwidiInterface(
                               name: "int?",
                               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
                               nullabilitySuffix:
                                   SwidiNullabilitySuffix.question,
                             ))),
@@ -193,6 +207,7 @@ void main() {
                             type: SwidiInterface(
                               name: "int?",
                               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
                               nullabilitySuffix:
                                   SwidiNullabilitySuffix.question,
                             )))
