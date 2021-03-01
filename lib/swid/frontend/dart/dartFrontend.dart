@@ -1,22 +1,21 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:hydro_sdk/swid/ir/swidIr.dart';
-import 'package:meta/meta.dart';
-
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:analyzer/file_system/file_system.dart' hide File;
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/src/dart/ast/ast.dart';
+import 'package:meta/meta.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/dartClass.dart';
+import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
-import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
+import 'package:hydro_sdk/swid/ir/swidIr.dart';
 
 class SwidDartFrontend extends SwidFrontend {
   final List<String> inputs;
