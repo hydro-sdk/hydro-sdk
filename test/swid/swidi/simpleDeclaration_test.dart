@@ -2,14 +2,19 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiTypeParser.dart';
 import 'lib/parserTestHarness.dart';
 
 class SimpleDeclarationParser extends SwidiGrammarDefinition
-    with SwidiTypeParser, SwidiSimpleDeclarationParser {
+    with
+        SwidiLibraryScopePrefixParser,
+        SwidiTypeParser,
+        SwidiSimpleDeclarationParser {
   const SimpleDeclarationParser();
 }
 
@@ -23,6 +28,7 @@ void main() {
         result: const SwidiDeclaration(
             type: SwidiInterface(
               name: "void",
+              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
               nullabilitySuffix: SwidiNullabilitySuffix.none,
             ),
             name: "foo"));
@@ -34,6 +40,7 @@ void main() {
         result: const SwidiDeclaration(
             type: SwidiInterface(
               name: "int",
+              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
               nullabilitySuffix: SwidiNullabilitySuffix.none,
             ),
             name: "foo"));
@@ -45,6 +52,7 @@ void main() {
         result: const SwidiDeclaration(
             type: SwidiInterface(
               name: "int?",
+              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
               nullabilitySuffix: SwidiNullabilitySuffix.question,
             ),
             name: "foo"));

@@ -19,9 +19,17 @@ mixin SwidiDeclarationGrammarDefinition
       ref(identifier) & (ref(token, ".") & ref(identifier)).star();
 
   Parser type() =>
+      ref(libraryScopePrefix).optional() &
       ref(qualified) &
       ref(typeArguments).optional() &
       ref(token, "?").optional();
+
+  Parser libraryScopePrefix() =>
+      char('"') &
+      ref(STRING_CONTENT_DQ).star() &
+      char('"') &
+      ref(token, ":") &
+      ref(token, ":");
 
   Parser typeArguments() => ref(token, "<") & ref(typeList) & ref(token, ">");
 

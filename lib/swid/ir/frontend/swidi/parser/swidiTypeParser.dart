@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
@@ -5,7 +7,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/util/collectTokens.dart';
 
-mixin SwidiTypeParser on SwidiGrammarDefinition {
+mixin SwidiTypeParser on SwidiGrammarDefinition, SwidiLibraryScopePrefixParser {
   Parser<SwidiInterface> type() => super.type().map((x) {
         var tokenList = collectTokens<Token>(x);
         String token;
@@ -15,10 +17,14 @@ mixin SwidiTypeParser on SwidiGrammarDefinition {
           nullabilitySuffix = tokenList.first?.input ?? "";
         }
         return SwidiInterface(
-          name: token != nullabilitySuffix ? token + nullabilitySuffix : token,
-          nullabilitySuffix: nullabilitySuffix == "?"
-              ? SwidiNullabilitySuffix.question
-              : SwidiNullabilitySuffix.none,
-        );
+            name:
+                token != nullabilitySuffix ? token + nullabilitySuffix : token,
+            nullabilitySuffix: nullabilitySuffix == "?"
+                ? SwidiNullabilitySuffix.question
+                : SwidiNullabilitySuffix.none,
+            libraryScopePrefix:
+                collectTokens<SwidiLibraryScopePrefix>(x)?.isNotEmpty ?? false
+                    ? collectTokens<SwidiLibraryScopePrefix>(x).first
+                    : SwidiLibraryScopePrefix.empty);
       });
 }

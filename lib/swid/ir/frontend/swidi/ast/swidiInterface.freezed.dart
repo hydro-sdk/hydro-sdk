@@ -16,9 +16,11 @@ class _$SwidiInterfaceTearOff {
 // ignore: unused_element
   _$SwidiInterfaceCtor call(
       {@required String name,
+      @required SwidiLibraryScopePrefix libraryScopePrefix,
       @required SwidiNullabilitySuffix nullabilitySuffix}) {
     return _$SwidiInterfaceCtor(
       name: name,
+      libraryScopePrefix: libraryScopePrefix,
       nullabilitySuffix: nullabilitySuffix,
     );
   }
@@ -31,6 +33,7 @@ const $SwidiInterface = _$SwidiInterfaceTearOff();
 /// @nodoc
 mixin _$SwidiInterface {
   String get name;
+  SwidiLibraryScopePrefix get libraryScopePrefix;
   SwidiNullabilitySuffix get nullabilitySuffix;
 
   $SwidiInterfaceCopyWith<SwidiInterface> get copyWith;
@@ -41,7 +44,12 @@ abstract class $SwidiInterfaceCopyWith<$Res> {
   factory $SwidiInterfaceCopyWith(
           SwidiInterface value, $Res Function(SwidiInterface) then) =
       _$SwidiInterfaceCopyWithImpl<$Res>;
-  $Res call({String name, SwidiNullabilitySuffix nullabilitySuffix});
+  $Res call(
+      {String name,
+      SwidiLibraryScopePrefix libraryScopePrefix,
+      SwidiNullabilitySuffix nullabilitySuffix});
+
+  $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
 }
 
 /// @nodoc
@@ -56,14 +64,29 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
   @override
   $Res call({
     Object name = freezed,
+    Object libraryScopePrefix = freezed,
     Object nullabilitySuffix = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
+      libraryScopePrefix: libraryScopePrefix == freezed
+          ? _value.libraryScopePrefix
+          : libraryScopePrefix as SwidiLibraryScopePrefix,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
           : nullabilitySuffix as SwidiNullabilitySuffix,
     ));
+  }
+
+  @override
+  $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix {
+    if (_value.libraryScopePrefix == null) {
+      return null;
+    }
+    return $SwidiLibraryScopePrefixCopyWith<$Res>(_value.libraryScopePrefix,
+        (value) {
+      return _then(_value.copyWith(libraryScopePrefix: value));
+    });
   }
 }
 
@@ -74,7 +97,13 @@ abstract class _$$SwidiInterfaceCtorCopyWith<$Res>
           $Res Function(_$SwidiInterfaceCtor) then) =
       __$$SwidiInterfaceCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name, SwidiNullabilitySuffix nullabilitySuffix});
+  $Res call(
+      {String name,
+      SwidiLibraryScopePrefix libraryScopePrefix,
+      SwidiNullabilitySuffix nullabilitySuffix});
+
+  @override
+  $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
 }
 
 /// @nodoc
@@ -91,10 +120,14 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object name = freezed,
+    Object libraryScopePrefix = freezed,
     Object nullabilitySuffix = freezed,
   }) {
     return _then(_$SwidiInterfaceCtor(
       name: name == freezed ? _value.name : name as String,
+      libraryScopePrefix: libraryScopePrefix == freezed
+          ? _value.libraryScopePrefix
+          : libraryScopePrefix as SwidiLibraryScopePrefix,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
           : nullabilitySuffix as SwidiNullabilitySuffix,
@@ -105,18 +138,23 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
   const _$_$SwidiInterfaceCtor(
-      {@required this.name, @required this.nullabilitySuffix})
+      {@required this.name,
+      @required this.libraryScopePrefix,
+      @required this.nullabilitySuffix})
       : assert(name != null),
+        assert(libraryScopePrefix != null),
         assert(nullabilitySuffix != null);
 
   @override
   final String name;
   @override
+  final SwidiLibraryScopePrefix libraryScopePrefix;
+  @override
   final SwidiNullabilitySuffix nullabilitySuffix;
 
   @override
   String toString() {
-    return 'SwidiInterface(name: $name, nullabilitySuffix: $nullabilitySuffix)';
+    return 'SwidiInterface(name: $name, libraryScopePrefix: $libraryScopePrefix, nullabilitySuffix: $nullabilitySuffix)';
   }
 
   @override
@@ -125,6 +163,9 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
         (other is _$SwidiInterfaceCtor &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.libraryScopePrefix, libraryScopePrefix) ||
+                const DeepCollectionEquality()
+                    .equals(other.libraryScopePrefix, libraryScopePrefix)) &&
             (identical(other.nullabilitySuffix, nullabilitySuffix) ||
                 const DeepCollectionEquality()
                     .equals(other.nullabilitySuffix, nullabilitySuffix)));
@@ -134,6 +175,7 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(libraryScopePrefix) ^
       const DeepCollectionEquality().hash(nullabilitySuffix);
 
   @override
@@ -145,11 +187,14 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
 abstract class _$SwidiInterfaceCtor implements SwidiInterface {
   const factory _$SwidiInterfaceCtor(
           {@required String name,
+          @required SwidiLibraryScopePrefix libraryScopePrefix,
           @required SwidiNullabilitySuffix nullabilitySuffix}) =
       _$_$SwidiInterfaceCtor;
 
   @override
   String get name;
+  @override
+  SwidiLibraryScopePrefix get libraryScopePrefix;
   @override
   SwidiNullabilitySuffix get nullabilitySuffix;
   @override
