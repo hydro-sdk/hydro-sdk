@@ -30,7 +30,7 @@ void main() {
             methods: [
               SwidiFunctionDeclaration(
                 name: "foo",
-                returnType:  SwidiInterface(
+                returnType: SwidiInterface(
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix:

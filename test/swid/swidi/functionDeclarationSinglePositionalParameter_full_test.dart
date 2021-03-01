@@ -35,13 +35,13 @@ void main() {
             methods: [
               SwidiFunctionDeclaration(
                   name: "foo",
-                  returnType:  SwidiInterface(
-                  name: "void",
-                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                  referenceDeclarationPrefix:
-                      SwidiReferenceDeclarationPrefix.empty,
-                  nullabilitySuffix: SwidiNullabilitySuffix.none,
-                ),
+                  returnType: SwidiInterface(
+                    name: "void",
+                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                    referenceDeclarationPrefix:
+                        SwidiReferenceDeclarationPrefix.empty,
+                    nullabilitySuffix: SwidiNullabilitySuffix.none,
+                  ),
                   optionalParameters: [],
                   namedParameters: [],
                   positionalParameters: [
