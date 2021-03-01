@@ -28,23 +28,26 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(name: "IconData", methods: [
-          SwidiFunctionDeclaration(
-              name: "foo",
-              returnType: "void",
-              optionalParameters: [],
-              namedParameters: [],
-              positionalParameters: [
-                SwidiPositionalParameter(
-                    declaration: SwidiDeclaration(
-                        name: "bar",
-                        type: SwidiInterface(
-                          name: "int",
-                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                          nullabilitySuffix: SwidiNullabilitySuffix.none,
-                        )))
-              ])
-        ]),
+        const SwidiClass(
+            name: "IconData",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            methods: [
+              SwidiFunctionDeclaration(
+                  name: "foo",
+                  returnType: "void",
+                  optionalParameters: [],
+                  namedParameters: [],
+                  positionalParameters: [
+                    SwidiPositionalParameter(
+                        declaration: SwidiDeclaration(
+                            name: "bar",
+                            type: SwidiInterface(
+                              name: "int",
+                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                              nullabilitySuffix: SwidiNullabilitySuffix.none,
+                            )))
+                  ])
+            ]),
       ],
     );
   }, tags: "swid");

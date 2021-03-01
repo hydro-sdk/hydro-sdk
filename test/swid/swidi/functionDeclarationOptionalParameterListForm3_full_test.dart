@@ -23,40 +23,43 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(name: "IconData", methods: [
-          SwidiFunctionDeclaration(
-            name: "foo",
-            returnType: "void",
-            optionalParameters: [
-              SwidiOptionalParameter(
-                  declaration: SwidiDeclaration(
-                      name: "bar",
-                      type: SwidiInterface(
-                        name: "int",
-                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                        nullabilitySuffix: SwidiNullabilitySuffix.none,
-                      ))),
-              SwidiOptionalParameter(
-                  declaration: SwidiDeclaration(
-                      name: "baz",
-                      type: SwidiInterface(
-                        name: "int",
-                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                        nullabilitySuffix: SwidiNullabilitySuffix.none,
-                      ))),
-              SwidiOptionalParameter(
-                  declaration: SwidiDeclaration(
-                      name: "qux",
-                      type: SwidiInterface(
-                        name: "int",
-                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                        nullabilitySuffix: SwidiNullabilitySuffix.none,
-                      )))
-            ],
-            positionalParameters: [],
-            namedParameters: [],
-          )
-        ]),
+        const SwidiClass(
+            name: "IconData",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            methods: [
+              SwidiFunctionDeclaration(
+                name: "foo",
+                returnType: "void",
+                optionalParameters: [
+                  SwidiOptionalParameter(
+                      declaration: SwidiDeclaration(
+                          name: "bar",
+                          type: SwidiInterface(
+                            name: "int",
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                          ))),
+                  SwidiOptionalParameter(
+                      declaration: SwidiDeclaration(
+                          name: "baz",
+                          type: SwidiInterface(
+                            name: "int",
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                          ))),
+                  SwidiOptionalParameter(
+                      declaration: SwidiDeclaration(
+                          name: "qux",
+                          type: SwidiInterface(
+                            name: "int",
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                          )))
+                ],
+                positionalParameters: [],
+                namedParameters: [],
+              )
+            ]),
       ],
     );
   }, tags: "swid");

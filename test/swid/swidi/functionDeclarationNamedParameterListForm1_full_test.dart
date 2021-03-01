@@ -28,24 +28,27 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(name: "IconData", methods: [
-          SwidiFunctionDeclaration(
-            name: "foo",
-            returnType: "void",
-            optionalParameters: [],
-            positionalParameters: [],
-            namedParameters: [
-              SwidiNamedParameter(
-                  declaration: SwidiDeclaration(
-                      name: "bar",
-                      type: SwidiInterface(
-                        name: "int",
-                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                        nullabilitySuffix: SwidiNullabilitySuffix.none,
-                      )))
-            ],
-          )
-        ]),
+        const SwidiClass(
+            name: "IconData",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            methods: [
+              SwidiFunctionDeclaration(
+                name: "foo",
+                returnType: "void",
+                optionalParameters: [],
+                positionalParameters: [],
+                namedParameters: [
+                  SwidiNamedParameter(
+                      declaration: SwidiDeclaration(
+                          name: "bar",
+                          type: SwidiInterface(
+                            name: "int",
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                          )))
+                ],
+              )
+            ]),
       ],
     );
 
@@ -64,24 +67,27 @@ void main() {
       ]),
       parser: const SwidiParser().build(),
       result: [
-        const SwidiClass(name: "IconData", methods: [
-          SwidiFunctionDeclaration(
-            name: "foo",
-            returnType: "void",
-            optionalParameters: [],
-            positionalParameters: [],
-            namedParameters: [
-              SwidiNamedParameter(
-                  declaration: SwidiDeclaration(
-                      name: "bar",
-                      type: SwidiInterface(
-                        name: "int?",
-                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                        nullabilitySuffix: SwidiNullabilitySuffix.question,
-                      )))
-            ],
-          )
-        ]),
+        const SwidiClass(
+            name: "IconData",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            methods: [
+              SwidiFunctionDeclaration(
+                name: "foo",
+                returnType: "void",
+                optionalParameters: [],
+                positionalParameters: [],
+                namedParameters: [
+                  SwidiNamedParameter(
+                      declaration: SwidiDeclaration(
+                          name: "bar",
+                          type: SwidiInterface(
+                            name: "int?",
+                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            nullabilitySuffix: SwidiNullabilitySuffix.question,
+                          )))
+                ],
+              )
+            ]),
       ],
     );
   }, tags: "swid");
