@@ -1,9 +1,9 @@
-import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/util/collectTokens.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/util/collectTokens.dart';
 
 mixin SwidiTypeParser on SwidiGrammarDefinition {
   Parser<SwidiInterface> type() => super.type().map((x) {
