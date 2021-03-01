@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
@@ -19,7 +20,7 @@ mixin SwidiFunctionDeclarationParser
       super.functionDeclaration().map((x) {
         return SwidiFunctionDeclaration(
           name: x[1].input,
-          returnType: x[0].input,
+          returnType: collectTokens<SwidiInterface>(x).first,
           optionalParameters: [
             ...collectTokens<SwidiOptionalParameter>(x),
             ...collectTokens<SwidiPositionalOrOptionalOrNamedParameter>(x)

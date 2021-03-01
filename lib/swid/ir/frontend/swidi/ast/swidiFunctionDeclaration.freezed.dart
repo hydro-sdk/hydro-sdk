@@ -16,7 +16,7 @@ class _$SwidiFunctionDeclarationTearOff {
 // ignore: unused_element
   _$SwidiFunctionDeclarationCtor call(
       {@required String name,
-      @required String returnType,
+      @required SwidiInterface returnType,
       @required List<SwidiPositionalParameter> positionalParameters,
       @required List<SwidiOptionalParameter> optionalParameters,
       @required List<SwidiNamedParameter> namedParameters}) {
@@ -37,7 +37,7 @@ const $SwidiFunctionDeclaration = _$SwidiFunctionDeclarationTearOff();
 /// @nodoc
 mixin _$SwidiFunctionDeclaration {
   String get name;
-  String get returnType;
+  SwidiInterface get returnType;
   List<SwidiPositionalParameter> get positionalParameters;
   List<SwidiOptionalParameter> get optionalParameters;
   List<SwidiNamedParameter> get namedParameters;
@@ -52,10 +52,12 @@ abstract class $SwidiFunctionDeclarationCopyWith<$Res> {
       _$SwidiFunctionDeclarationCopyWithImpl<$Res>;
   $Res call(
       {String name,
-      String returnType,
+      SwidiInterface returnType,
       List<SwidiPositionalParameter> positionalParameters,
       List<SwidiOptionalParameter> optionalParameters,
       List<SwidiNamedParameter> namedParameters});
+
+  $SwidiInterfaceCopyWith<$Res> get returnType;
 }
 
 /// @nodoc
@@ -77,8 +79,9 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
-      returnType:
-          returnType == freezed ? _value.returnType : returnType as String,
+      returnType: returnType == freezed
+          ? _value.returnType
+          : returnType as SwidiInterface,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters as List<SwidiPositionalParameter>,
@@ -89,6 +92,16 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
           ? _value.namedParameters
           : namedParameters as List<SwidiNamedParameter>,
     ));
+  }
+
+  @override
+  $SwidiInterfaceCopyWith<$Res> get returnType {
+    if (_value.returnType == null) {
+      return null;
+    }
+    return $SwidiInterfaceCopyWith<$Res>(_value.returnType, (value) {
+      return _then(_value.copyWith(returnType: value));
+    });
   }
 }
 
@@ -102,10 +115,13 @@ abstract class _$$SwidiFunctionDeclarationCtorCopyWith<$Res>
   @override
   $Res call(
       {String name,
-      String returnType,
+      SwidiInterface returnType,
       List<SwidiPositionalParameter> positionalParameters,
       List<SwidiOptionalParameter> optionalParameters,
       List<SwidiNamedParameter> namedParameters});
+
+  @override
+  $SwidiInterfaceCopyWith<$Res> get returnType;
 }
 
 /// @nodoc
@@ -131,8 +147,9 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
   }) {
     return _then(_$SwidiFunctionDeclarationCtor(
       name: name == freezed ? _value.name : name as String,
-      returnType:
-          returnType == freezed ? _value.returnType : returnType as String,
+      returnType: returnType == freezed
+          ? _value.returnType
+          : returnType as SwidiInterface,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters as List<SwidiPositionalParameter>,
@@ -164,7 +181,7 @@ class _$_$SwidiFunctionDeclarationCtor
   @override
   final String name;
   @override
-  final String returnType;
+  final SwidiInterface returnType;
   @override
   final List<SwidiPositionalParameter> positionalParameters;
   @override
@@ -216,7 +233,7 @@ abstract class _$SwidiFunctionDeclarationCtor
     implements SwidiFunctionDeclaration {
   const factory _$SwidiFunctionDeclarationCtor(
           {@required String name,
-          @required String returnType,
+          @required SwidiInterface returnType,
           @required List<SwidiPositionalParameter> positionalParameters,
           @required List<SwidiOptionalParameter> optionalParameters,
           @required List<SwidiNamedParameter> namedParameters}) =
@@ -225,7 +242,7 @@ abstract class _$SwidiFunctionDeclarationCtor
   @override
   String get name;
   @override
-  String get returnType;
+  SwidiInterface get returnType;
   @override
   List<SwidiPositionalParameter> get positionalParameters;
   @override

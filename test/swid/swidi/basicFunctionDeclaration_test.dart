@@ -1,6 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationNamedParameterParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationOptionalParameterParser.dart';
@@ -35,7 +39,12 @@ void main() {
         parser: const BasicFunctionDeclarationParser().build(
             start: const BasicFunctionDeclarationParser().functionDeclaration),
         result: const SwidiFunctionDeclaration(
-          returnType: "void",
+          returnType: SwidiInterface(
+            name: "void",
+            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+            nullabilitySuffix: SwidiNullabilitySuffix.none,
+          ),
           name: "foo",
           optionalParameters: [],
           positionalParameters: [],

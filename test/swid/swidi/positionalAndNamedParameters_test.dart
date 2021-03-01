@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
@@ -18,7 +19,11 @@ void main() {
       input: const ParserTestHarnessInput.fromList(inputs: [
         """
   class IconData {
-    void foo({int bar,int baz,int qux});
+    void foo(
+      int bar, {
+      int baz,
+      int? qux,
+    });
   }
     """,
       ]),
@@ -30,7 +35,7 @@ void main() {
             methods: [
               SwidiFunctionDeclaration(
                 name: "foo",
-                returnType:  SwidiInterface(
+                returnType: SwidiInterface(
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix:
@@ -38,9 +43,8 @@ void main() {
                   nullabilitySuffix: SwidiNullabilitySuffix.none,
                 ),
                 optionalParameters: [],
-                positionalParameters: [],
-                namedParameters: [
-                  SwidiNamedParameter(
+                positionalParameters: [
+                  SwidiPositionalParameter(
                       declaration: SwidiDeclaration(
                           name: "bar",
                           type: SwidiInterface(
@@ -50,6 +54,8 @@ void main() {
                                 SwidiReferenceDeclarationPrefix.empty,
                             nullabilitySuffix: SwidiNullabilitySuffix.none,
                           ))),
+                ],
+                namedParameters: [
                   SwidiNamedParameter(
                       declaration: SwidiDeclaration(
                           name: "baz",
@@ -63,74 +69,12 @@ void main() {
                   SwidiNamedParameter(
                       declaration: SwidiDeclaration(
                           name: "qux",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          )))
-                ],
-              )
-            ]),
-      ],
-    );
-
-    parserTestHarness(
-      input: const ParserTestHarnessInput.fromList(inputs: [
-        """
-  class IconData {
-    void foo({int bar,int? baz,int qux});
-  }
-    """,
-      ]),
-      parser: const SwidiParser().build(),
-      result: [
-        const SwidiClass(
-            name: "IconData",
-            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-            methods: [
-              SwidiFunctionDeclaration(
-                name: "foo",
-                returnType:  SwidiInterface(
-                  name: "void",
-                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                  referenceDeclarationPrefix:
-                      SwidiReferenceDeclarationPrefix.empty,
-                  nullabilitySuffix: SwidiNullabilitySuffix.none,
-                ),
-                optionalParameters: [],
-                positionalParameters: [],
-                namedParameters: [
-                  SwidiNamedParameter(
-                      declaration: SwidiDeclaration(
-                          name: "bar",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          ))),
-                  SwidiNamedParameter(
-                      declaration: SwidiDeclaration(
-                          name: "baz",
                           type: SwidiInterface(
                             name: "int?",
                             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                             referenceDeclarationPrefix:
                                 SwidiReferenceDeclarationPrefix.empty,
                             nullabilitySuffix: SwidiNullabilitySuffix.question,
-                          ))),
-                  SwidiNamedParameter(
-                      declaration: SwidiDeclaration(
-                          name: "qux",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
                           )))
                 ],
               )

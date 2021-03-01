@@ -35,7 +35,13 @@ void main() {
             methods: [
               SwidiFunctionDeclaration(
                 name: "foo",
-                returnType: "void",
+                returnType:  SwidiInterface(
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
                 optionalParameters: [],
                 positionalParameters: [],
                 namedParameters: [
@@ -76,7 +82,13 @@ void main() {
             methods: [
               SwidiFunctionDeclaration(
                 name: "foo",
-                returnType: "void",
+                returnType:  SwidiInterface(
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
                 optionalParameters: [],
                 positionalParameters: [],
                 namedParameters: [

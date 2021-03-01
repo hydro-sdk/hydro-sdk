@@ -5,8 +5,9 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiOptionalParameter.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
@@ -17,8 +18,12 @@ void main() {
     parserTestHarness(
       input: const ParserTestHarnessInput.fromList(inputs: [
         """
-  class IconData {
-    void foo([int bar,int baz,int qux,]);
+  class "package:flutter/src/widgets/icon_data.dart"::IconData {
+    void::void foo(
+      "dart:core"::class::int bar, {
+        "dart:core"::class::int baz,
+        "dart:core"::class::int? qux,
+    });
   }
     """,
       ]),
@@ -26,51 +31,56 @@ void main() {
       result: [
         const SwidiClass(
             name: "IconData",
-            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+            libraryScopePrefix: SwidiLibraryScopePrefix(
+                name: "package:flutter/src/widgets/icon_data.dart"),
             methods: [
               SwidiFunctionDeclaration(
                 name: "foo",
-                returnType:  SwidiInterface(
+                returnType: SwidiInterface(
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix:
-                      SwidiReferenceDeclarationPrefix.empty,
+                      SwidiReferenceDeclarationPrefix(name: "void"),
                   nullabilitySuffix: SwidiNullabilitySuffix.none,
                 ),
-                optionalParameters: [
-                  SwidiOptionalParameter(
+                optionalParameters: [],
+                positionalParameters: [
+                  SwidiPositionalParameter(
                       declaration: SwidiDeclaration(
                           name: "bar",
                           type: SwidiInterface(
                             name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            libraryScopePrefix:
+                                SwidiLibraryScopePrefix(name: "dart:core"),
                             referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
+                                SwidiReferenceDeclarationPrefix(name: "class"),
                             nullabilitySuffix: SwidiNullabilitySuffix.none,
                           ))),
-                  SwidiOptionalParameter(
+                ],
+                namedParameters: [
+                  SwidiNamedParameter(
                       declaration: SwidiDeclaration(
                           name: "baz",
                           type: SwidiInterface(
                             name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            libraryScopePrefix:
+                                SwidiLibraryScopePrefix(name: "dart:core"),
                             referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
+                                SwidiReferenceDeclarationPrefix(name: "class"),
                             nullabilitySuffix: SwidiNullabilitySuffix.none,
                           ))),
-                  SwidiOptionalParameter(
+                  SwidiNamedParameter(
                       declaration: SwidiDeclaration(
                           name: "qux",
                           type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                            name: "int?",
+                            libraryScopePrefix:
+                                SwidiLibraryScopePrefix(name: "dart:core"),
                             referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                                SwidiReferenceDeclarationPrefix(name: "class"),
+                            nullabilitySuffix: SwidiNullabilitySuffix.question,
                           )))
                 ],
-                positionalParameters: [],
-                namedParameters: [],
               )
             ]),
       ],

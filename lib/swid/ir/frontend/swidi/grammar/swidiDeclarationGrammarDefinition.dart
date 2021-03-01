@@ -9,7 +9,7 @@ mixin SwidiDeclarationGrammarDefinition
         GrammarDefinition,
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition {
-  Parser returnType() => ref(VOID) | ref(type);
+  Parser returnType() => ref(type);
 
   Parser identifier() => ref(token, ref(IDENTIFIER));
 
