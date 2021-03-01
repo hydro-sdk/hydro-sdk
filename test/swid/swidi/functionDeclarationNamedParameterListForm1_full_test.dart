@@ -5,7 +5,6 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNamedParameter.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
 
