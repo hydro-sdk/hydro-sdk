@@ -1,12 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:hydro_sdk/swid/ir/swidIr.dart';
+import 'package:meta/meta.dart';
+
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:analyzer/file_system/file_system.dart' hide File;
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/src/dart/ast/ast.dart';
-import 'package:path/path.dart' as path;
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
@@ -14,32 +16,50 @@ import 'package:hydro_sdk/swid/frontend/dart/dartClass.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
+import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 
-int dirCount;
+class SwidDartFrontend extends SwidFrontend {
+  final List<String> inputs;
 
-Future<SwidVisitor> swid(List<String> args) async {
-  if (args.length == 1) {
-    var dir = args[0];
-    if (!File('$dir/pubspec.yaml').existsSync()) {
-      print("Recursing into '$dir'...");
-      args = Directory(dir).listSync().map((f) => f.path).toList()..sort();
-      dirCount = args.length;
-      print('(Found $dirCount subdirectories.)');
+  SwidDartFrontend({
+    @required this.inputs,
+  });
+
+  Future<List<SwidIr>> produceIr() async {
+    int dirCount;
+    List<String> args = inputs;
+    if (args.length == 1) {
+      var dir = args[0];
+      if (!File('$dir/pubspec.yaml').existsSync()) {
+        print("Recursing into '$dir'...");
+        args = Directory(dir).listSync().map((f) => f.path).toList()..sort();
+        dirCount = args.length;
+        print('(Found $dirCount subdirectories.)');
+      }
     }
+
+    var driver = Driver.forArgs(args);
+    driver.excludedPaths = ["test", "sdk_ext"];
+    driver.forceSkipInstall = false;
+    driver.showErrors = false;
+    driver.resolveUnits = true;
+    driver.visitor = _SwidVisitor();
+    await driver.analyze();
+
+    return [
+      ...((driver.visitor as _SwidVisitor)
+          .enums
+          .map((x) => SwidIr.fromSwidEnum(swidEnum: x))
+          .toList()),
+      ...((driver.visitor as _SwidVisitor)
+          .classes
+          .map((x) => SwidIr.fromSwidClass(swidClass: x))
+          .toList()),
+    ];
   }
-
-  var driver = Driver.forArgs(args);
-  driver.excludedPaths = ["test", "sdk_ext"];
-  driver.forceSkipInstall = false;
-  driver.showErrors = false;
-  driver.resolveUnits = true;
-  driver.visitor = SwidVisitor();
-  await driver.analyze();
-
-  return driver.visitor;
 }
 
-class SwidVisitor extends RecursiveAstVisitor
+class _SwidVisitor extends RecursiveAstVisitor
     implements PreAnalysisCallback, PostAnalysisCallback, AstContext {
   int count = 0;
   int contexts = 0;
@@ -280,16 +300,7 @@ class SwidVisitor extends RecursiveAstVisitor
 
   @override
   void preAnalysis(SurveyorContext context,
-      {bool subDir, DriverCommands commandCallback}) {
-    if (subDir) {
-      ++dirCount;
-    }
-    var contextRoot = context.analysisContext.contextRoot;
-    currentFolder = contextRoot.root;
-    var dirName = path.basename(contextRoot.root.path);
-
-    print("Analyzing '$dirName' • [${++count}/$dirCount]...");
-  }
+      {bool subDir, DriverCommands commandCallback}) {}
 
   @override
   void setFilePath(String filePath) {}

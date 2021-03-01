@@ -3,30 +3,41 @@ import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/backend/writeTranslationUnit.dart';
+import 'package:hydro_sdk/swid/frontend/dart/dartFrontend.dart';
 import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
-import 'package:hydro_sdk/swid/swid.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
 void main(List<String> args) async {
-  var visitor = await swid([args[0]]);
+  var dartFrontend = SwidDartFrontend(inputs: [args[0]]);
 
-  for (var i = 0; i != visitor.enums.length; ++i) {
+  var ir = await dartFrontend.produceIr();
+
+  var enums = ir
+      .map((x) => x.maybeWhen(fromSwidEnum: (val) => val, orElse: () => null))
+      .where((x) => x != null)
+      .toList();
+
+  var irClasses = ir
+      .map((x) => x.maybeWhen(fromSwidClass: (val) => val, orElse: () => null))
+      .where((x) => x != null)
+      .toList();
+
+  for (var i = 0; i != enums.length; ++i) {
     await Future.forEach(
         TranslationUnitProducer(
           prefixPaths: ["runtime"],
           path: transformPackageUri(
-            packageUri: visitor.enums[i].originalPackagePath,
+            packageUri: enums[i].originalPackagePath,
           ),
-          baseFileName:
-              "${transformToCamelCase(str: visitor.enums[i].identifier)}",
+          baseFileName: "${transformToCamelCase(str: enums[i].identifier)}",
           tsPrefixPaths: ["runtime"],
           dartPrefixPaths: [],
-        ).produceFromSwidEnum(swidEnum: visitor.enums[i]),
+        ).produceFromSwidEnum(swidEnum: enums[i]),
         (x) => writeTranslationUnit(translationUnit: x));
   }
-  print(visitor.classes.length);
-  var classes = visitor.classes
+  print(irClasses.length);
+  var classes = irClasses
       .where((x) =>
           x.name == "Icons" ||
           x.name == "CupertinoIcons" ||
