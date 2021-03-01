@@ -18,7 +18,10 @@ mixin SwidiDeclarationGrammarDefinition
   Parser qualified() =>
       ref(identifier) & (ref(token, ".") & ref(identifier)).star();
 
-  Parser type() => ref(qualified) & ref(typeArguments).optional();
+  Parser type() =>
+      ref(qualified) &
+      ref(typeArguments).optional() &
+      ref(token, "?").optional();
 
   Parser typeArguments() => ref(token, "<") & ref(typeList) & ref(token, ">");
 

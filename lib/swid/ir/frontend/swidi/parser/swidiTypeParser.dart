@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/util/collectTokens.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
@@ -6,18 +7,16 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.
 
 mixin SwidiTypeParser on SwidiGrammarDefinition {
   Parser<SwidiInterface> type() => super.type().map((x) {
-        var token = List.from(x)
-                .where((e) => e != null)
-                .map((e) => [...e])
-                .reduce((value, element) => [...value, ...element])
-                .whereType<Token>()
-                .toList()
-                ?.first
-                ?.input ??
-            "";
+        var tokenList = collectTokens<Token>(x);
+        String token;
+        String nullabilitySuffix;
+        if (tokenList?.isNotEmpty ?? false) {
+          token = tokenList.last?.input ?? "";
+          nullabilitySuffix = tokenList.first?.input ?? "";
+        }
         return SwidiInterface(
-          name: token,
-          nullabilitySuffix: token.endsWith("?")
+          name: token != nullabilitySuffix ? token + nullabilitySuffix : token,
+          nullabilitySuffix: nullabilitySuffix == "?"
               ? SwidiNullabilitySuffix.question
               : SwidiNullabilitySuffix.none,
         );

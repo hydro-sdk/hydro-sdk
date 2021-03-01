@@ -26,5 +26,27 @@ void main() {
               nullabilitySuffix: SwidiNullabilitySuffix.none,
             ),
             name: "foo"));
+
+    parserTestHarness(
+        input: const ParserTestHarnessInput.fromString(input: "int foo"),
+        parser: const SimpleDeclarationParser()
+            .build(start: const SimpleDeclarationParser().simpleDeclaration),
+        result: const SwidiDeclaration(
+            type: SwidiInterface(
+              name: "int",
+              nullabilitySuffix: SwidiNullabilitySuffix.none,
+            ),
+            name: "foo"));
+
+    parserTestHarness(
+        input: const ParserTestHarnessInput.fromString(input: "int? foo"),
+        parser: const SimpleDeclarationParser()
+            .build(start: const SimpleDeclarationParser().simpleDeclaration),
+        result: const SwidiDeclaration(
+            type: SwidiInterface(
+              name: "int?",
+              nullabilitySuffix: SwidiNullabilitySuffix.question,
+            ),
+            name: "foo"));
   }, tags: "swid");
 }

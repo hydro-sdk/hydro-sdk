@@ -21,5 +21,14 @@ void main() {
           name: "void",
           nullabilitySuffix: SwidiNullabilitySuffix.none,
         ));
+
+    parserTestHarness(
+        input: const ParserTestHarnessInput.fromString(input: "void?"),
+        parser: const SimpleTypeParser()
+            .build(start: const SimpleTypeParser().type),
+        result: const SwidiInterface(
+          name: "void?",
+          nullabilitySuffix: SwidiNullabilitySuffix.question,
+        ));
   }, tags: "swid");
 }
