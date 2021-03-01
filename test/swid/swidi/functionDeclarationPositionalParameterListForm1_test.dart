@@ -48,7 +48,8 @@ void main() {
                           type: SwidiInterface(
                             name: "void",
                             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+                            referenceDeclarationPrefix:
+                                SwidiReferenceDeclarationPrefix.empty,
                             nullabilitySuffix: SwidiNullabilitySuffix.none,
                           ))))
         ]);
