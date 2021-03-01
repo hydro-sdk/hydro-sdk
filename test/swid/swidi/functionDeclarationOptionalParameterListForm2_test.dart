@@ -60,5 +60,38 @@ void main() {
                         nullabilitySuffix: SwidiNullabilitySuffix.none,
                       ))))
         ]);
+
+    parserTestHarness(
+        input: const ParserTestHarnessInput.fromList(
+            inputs: ["([void foo,int bar,int? baz])"]),
+        parser: const BasicFunctionParameterListParser().build(
+            start: const BasicFunctionParameterListParser()
+                .functionDeclarationParameterList),
+        result: const [
+          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
+              optionalParameter: SwidiOptionalParameter(
+                  declaration: SwidiDeclaration(
+                      name: "foo",
+                      type: SwidiInterface(
+                        name: "void",
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      )))),
+          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
+              optionalParameter: SwidiOptionalParameter(
+                  declaration: SwidiDeclaration(
+                      name: "bar",
+                      type: SwidiInterface(
+                        name: "int",
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      )))),
+          SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter(
+              optionalParameter: SwidiOptionalParameter(
+                  declaration: SwidiDeclaration(
+                      name: "baz",
+                      type: SwidiInterface(
+                        name: "int?",
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                      ))))
+        ]);
   }, tags: "swid");
 }

@@ -52,5 +52,128 @@ void main() {
             )
           ]),
         ]);
+
+    parserTestHarness(
+        input: const ParserTestHarnessInput.fromList(inputs: [
+          """
+  class IconData {
+    void foo(int? bar,int baz);
+  }
+    """,
+          """
+  class IconData {
+    void foo(int? bar,int baz,);
+  }
+    """,
+        ]),
+        parser: const SwidiParser().build(),
+        result: [
+          const SwidiClass(name: "IconData", methods: [
+            SwidiFunctionDeclaration(
+              name: "foo",
+              returnType: "void",
+              optionalParameters: [],
+              namedParameters: [],
+              positionalParameters: [
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "bar",
+                        type: SwidiInterface(
+                          name: "int?",
+                          nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        ))),
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "baz",
+                        type: SwidiInterface(
+                          name: "int",
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        )))
+              ],
+            )
+          ]),
+        ]);
+
+    parserTestHarness(
+        input: const ParserTestHarnessInput.fromList(inputs: [
+          """
+  class IconData {
+    void foo(int bar,int? baz);
+  }
+    """,
+          """
+  class IconData {
+    void foo(int bar,int? baz,);
+  }
+    """,
+        ]),
+        parser: const SwidiParser().build(),
+        result: [
+          const SwidiClass(name: "IconData", methods: [
+            SwidiFunctionDeclaration(
+              name: "foo",
+              returnType: "void",
+              optionalParameters: [],
+              namedParameters: [],
+              positionalParameters: [
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "bar",
+                        type: SwidiInterface(
+                          name: "int",
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        ))),
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "baz",
+                        type: SwidiInterface(
+                          name: "int?",
+                          nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        )))
+              ],
+            )
+          ]),
+        ]);
+
+    parserTestHarness(
+        input: const ParserTestHarnessInput.fromList(inputs: [
+          """
+  class IconData {
+    void foo(int? bar,int? baz);
+  }
+    """,
+          """
+  class IconData {
+    void foo(int? bar,int? baz,);
+  }
+    """,
+        ]),
+        parser: const SwidiParser().build(),
+        result: [
+          const SwidiClass(name: "IconData", methods: [
+            SwidiFunctionDeclaration(
+              name: "foo",
+              returnType: "void",
+              optionalParameters: [],
+              namedParameters: [],
+              positionalParameters: [
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "bar",
+                        type: SwidiInterface(
+                          name: "int?",
+                          nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        ))),
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "baz",
+                        type: SwidiInterface(
+                          name: "int?",
+                          nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        )))
+              ],
+            )
+          ]),
+        ]);
   }, tags: "swid");
 }
