@@ -69,5 +69,22 @@ mixin SwidiFunctionGrammarDefinition
       (ref(token, "(") &
           ref(functionDeclarationPositionalParameterListForm3) &
           ref(functionDeclarationNamedParameterListForm2) &
+          ref(token, ")")) |
+      //Positional and  optional
+      (ref(token, "(") &
+          ref(functionDeclarationPositionalParameterListForm1) &
+          ref(functionDeclarationOptionalParameterListForm3) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationPositionalParameterListForm1) &
+          ref(functionDeclarationOptionalParameterListForm2) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationPositionalParameterListForm3) &
+          ref(functionDeclarationOptionalParameterListForm3) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationPositionalParameterListForm3) &
+          ref(functionDeclarationOptionalParameterListForm2) &
           ref(token, ")"));
 }
