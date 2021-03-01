@@ -23,6 +23,7 @@ mixin SwidiFunctionGrammarDefinition
 
   Parser functionDeclarationParameterList() =>
       (ref(token, "(") & ref(token, ")")) |
+      //Positional only
       (ref(token, "(") &
           ref(functionDeclarationPositionalParameterListForm1) &
           ref(token, ")")) |
@@ -32,6 +33,7 @@ mixin SwidiFunctionGrammarDefinition
       (ref(token, "(") &
           ref(functionDeclarationPositionalParameterListForm3) &
           ref(token, ")")) |
+      //Optional only
       (ref(token, "(") &
           ref(functionDeclarationOptionalParameterListForm1) &
           ref(token, ")")) |
@@ -41,6 +43,7 @@ mixin SwidiFunctionGrammarDefinition
       (ref(token, "(") &
           ref(functionDeclarationOptionalParameterListForm3) &
           ref(token, ")")) |
+      //Named only
       (ref(token, "(") &
           ref(functionDeclarationNamedParameterListForm1) &
           ref(token, ")")) |
@@ -50,8 +53,21 @@ mixin SwidiFunctionGrammarDefinition
       (ref(token, "(") &
           ref(functionDeclarationNamedParameterListForm3) &
           ref(token, ")")) |
+      //Positional and named
       (ref(token, "(") &
           ref(functionDeclarationPositionalParameterListForm1) &
           ref(functionDeclarationNamedParameterListForm3) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationPositionalParameterListForm1) &
+          ref(functionDeclarationNamedParameterListForm2) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationPositionalParameterListForm3) &
+          ref(functionDeclarationNamedParameterListForm3) &
+          ref(token, ")")) |
+      (ref(token, "(") &
+          ref(functionDeclarationPositionalParameterListForm3) &
+          ref(functionDeclarationNamedParameterListForm2) &
           ref(token, ")"));
 }

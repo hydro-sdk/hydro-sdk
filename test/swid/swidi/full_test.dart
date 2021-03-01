@@ -26,6 +26,15 @@ void main() {
     });
   }
     """,
+        """
+  class "package:flutter/src/widgets/icon_data.dart"::IconData {
+    void::void foo(
+      "dart:core"::class::int bar, {
+        "dart:core"::class::int baz,
+        "dart:core"::class::int? qux
+    });
+  }
+    """
       ]),
       parser: const SwidiParser().build(),
       result: [
