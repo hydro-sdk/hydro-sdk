@@ -26,6 +26,7 @@ dependencies:
   dart_style: null
   freezed: null
   freezed_annotation: null
+  petitparser: "3.1.0"
 dev_dependencies: 
   import_sorter: "4.4.1"
   test: "any"
