@@ -10,10 +10,10 @@ import 'package:path/path.dart' as path;
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/dartClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidEnum.dart';
+import 'package:hydro_sdk/swid/frontend/dart/dartClass.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 
 int dirCount;
 

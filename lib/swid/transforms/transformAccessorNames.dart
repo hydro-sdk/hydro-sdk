@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
 SwidClass transformAccessorNames({@required SwidClass swidClass}) =>

@@ -1,9 +1,9 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 
 SwidType removeNullabilitySuffixFromTypeNames({@required SwidType swidType}) =>

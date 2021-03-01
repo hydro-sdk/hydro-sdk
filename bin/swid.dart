@@ -1,9 +1,9 @@
-import 'package:hydro_sdk/swid/ir/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
-import 'package:hydro_sdk/swid/ir/backend/translationUnitProducer.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
-import 'package:hydro_sdk/swid/ir/backend/writeTranslationUnit.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/fixupNullability.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
+import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
+import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
+import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
+import 'package:hydro_sdk/swid/backend/writeTranslationUnit.dart';
+import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/swid.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';

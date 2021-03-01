@@ -1,17 +1,17 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/requiresDartClassTranslationUnit.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidBooleanLiteral.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstFieldDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/backend/ts/tsClassStaticConstFieldDeclarations.dart';
+import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
+import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();

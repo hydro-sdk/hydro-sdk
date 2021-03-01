@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/barrelSpec.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
+import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
+import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();

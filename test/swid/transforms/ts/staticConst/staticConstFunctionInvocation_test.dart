@@ -1,14 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidIntegerLiteral.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidStringLiteral.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFunctionInvocation.dart';
 
 void main() {

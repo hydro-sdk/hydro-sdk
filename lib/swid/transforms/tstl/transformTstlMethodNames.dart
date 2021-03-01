@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 
 SwidFunctionType transformTstlMethodNames(
         {@required SwidFunctionType swidFunctionType}) =>

@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 
 SwidFunctionType transformPrimitiveFunctionTypeNamesToTs({@required SwidFunctionType swidFunctionType}) => SwidFunctionType.clone(

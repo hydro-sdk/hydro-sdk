@@ -1,9 +1,9 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidStaticConstFunctionInvocation.dart';
-import 'package:hydro_sdk/swid/ir/frontend/util/isInexpressibleStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformNamedParametersToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformNormalParametersToTs.dart';

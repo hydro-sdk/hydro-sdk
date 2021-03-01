@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 

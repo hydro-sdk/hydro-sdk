@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/dartBindInstanceFieldDirect.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceFieldDirect.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();

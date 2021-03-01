@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/swidStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 
 String transformStringLiteralToTs(
         {@required SwidStringLiteral swidStringLiteral}) =>
