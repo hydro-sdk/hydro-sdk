@@ -1,0 +1,4 @@
+enum SwidiNullabilitySuffix {
+  question,
+  none,
+}

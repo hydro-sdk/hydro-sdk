@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiTypeParser.dart';
@@ -20,6 +21,10 @@ void main() {
         parser: const SimpleDeclarationParser()
             .build(start: const SimpleDeclarationParser().simpleDeclaration),
         result: const SwidiDeclaration(
-            type: SwidiInterface(name: "void"), name: "foo"));
+            type: SwidiInterface(
+              name: "void",
+              nullabilitySuffix: SwidiNullabilitySuffix.none,
+            ),
+            name: "foo"));
   }, tags: "swid");
 }

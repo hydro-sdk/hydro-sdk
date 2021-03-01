@@ -14,9 +14,12 @@ class _$SwidiInterfaceTearOff {
   const _$SwidiInterfaceTearOff();
 
 // ignore: unused_element
-  _$SwidiInterfaceCtor call({@required String name}) {
+  _$SwidiInterfaceCtor call(
+      {@required String name,
+      @required SwidiNullabilitySuffix nullabilitySuffix}) {
     return _$SwidiInterfaceCtor(
       name: name,
+      nullabilitySuffix: nullabilitySuffix,
     );
   }
 }
@@ -28,6 +31,7 @@ const $SwidiInterface = _$SwidiInterfaceTearOff();
 /// @nodoc
 mixin _$SwidiInterface {
   String get name;
+  SwidiNullabilitySuffix get nullabilitySuffix;
 
   $SwidiInterfaceCopyWith<SwidiInterface> get copyWith;
 }
@@ -37,7 +41,7 @@ abstract class $SwidiInterfaceCopyWith<$Res> {
   factory $SwidiInterfaceCopyWith(
           SwidiInterface value, $Res Function(SwidiInterface) then) =
       _$SwidiInterfaceCopyWithImpl<$Res>;
-  $Res call({String name});
+  $Res call({String name, SwidiNullabilitySuffix nullabilitySuffix});
 }
 
 /// @nodoc
@@ -52,9 +56,13 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
   @override
   $Res call({
     Object name = freezed,
+    Object nullabilitySuffix = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
+      nullabilitySuffix: nullabilitySuffix == freezed
+          ? _value.nullabilitySuffix
+          : nullabilitySuffix as SwidiNullabilitySuffix,
     ));
   }
 }
@@ -66,7 +74,7 @@ abstract class _$$SwidiInterfaceCtorCopyWith<$Res>
           $Res Function(_$SwidiInterfaceCtor) then) =
       __$$SwidiInterfaceCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name});
+  $Res call({String name, SwidiNullabilitySuffix nullabilitySuffix});
 }
 
 /// @nodoc
@@ -83,23 +91,32 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object name = freezed,
+    Object nullabilitySuffix = freezed,
   }) {
     return _then(_$SwidiInterfaceCtor(
       name: name == freezed ? _value.name : name as String,
+      nullabilitySuffix: nullabilitySuffix == freezed
+          ? _value.nullabilitySuffix
+          : nullabilitySuffix as SwidiNullabilitySuffix,
     ));
   }
 }
 
 /// @nodoc
 class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
-  const _$_$SwidiInterfaceCtor({@required this.name}) : assert(name != null);
+  const _$_$SwidiInterfaceCtor(
+      {@required this.name, @required this.nullabilitySuffix})
+      : assert(name != null),
+        assert(nullabilitySuffix != null);
 
   @override
   final String name;
+  @override
+  final SwidiNullabilitySuffix nullabilitySuffix;
 
   @override
   String toString() {
-    return 'SwidiInterface(name: $name)';
+    return 'SwidiInterface(name: $name, nullabilitySuffix: $nullabilitySuffix)';
   }
 
   @override
@@ -107,12 +124,17 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
     return identical(this, other) ||
         (other is _$SwidiInterfaceCtor &&
             (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.nullabilitySuffix, nullabilitySuffix) ||
+                const DeepCollectionEquality()
+                    .equals(other.nullabilitySuffix, nullabilitySuffix)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(nullabilitySuffix);
 
   @override
   _$$SwidiInterfaceCtorCopyWith<_$SwidiInterfaceCtor> get copyWith =>
@@ -121,11 +143,15 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
 }
 
 abstract class _$SwidiInterfaceCtor implements SwidiInterface {
-  const factory _$SwidiInterfaceCtor({@required String name}) =
+  const factory _$SwidiInterfaceCtor(
+          {@required String name,
+          @required SwidiNullabilitySuffix nullabilitySuffix}) =
       _$_$SwidiInterfaceCtor;
 
   @override
   String get name;
+  @override
+  SwidiNullabilitySuffix get nullabilitySuffix;
   @override
   _$$SwidiInterfaceCtorCopyWith<_$SwidiInterfaceCtor> get copyWith;
 }

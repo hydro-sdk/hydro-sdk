@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNamedParameter.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiFunctionDeclarationNamedParameterParser.dart';
@@ -37,15 +38,27 @@ void main() {
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
               namedParameter: SwidiNamedParameter(
                   declaration: SwidiDeclaration(
-                      name: "foo", type: SwidiInterface(name: "void")))),
+                      name: "foo",
+                      type: SwidiInterface(
+                        name: "void",
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      )))),
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
               namedParameter: SwidiNamedParameter(
                   declaration: SwidiDeclaration(
-                      name: "bar", type: SwidiInterface(name: "int")))),
+                      name: "bar",
+                      type: SwidiInterface(
+                        name: "int",
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      )))),
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
               namedParameter: SwidiNamedParameter(
                   declaration: SwidiDeclaration(
-                      name: "baz", type: SwidiInterface(name: "int"))))
+                      name: "baz",
+                      type: SwidiInterface(
+                        name: "int",
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ))))
         ]);
   }, tags: "swid");
 }

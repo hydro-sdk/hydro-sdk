@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiTypeParser.dart';
 import 'lib/parserTestHarness.dart';
@@ -16,6 +17,9 @@ void main() {
         input: const ParserTestHarnessInput.fromString(input: "void"),
         parser: const SimpleTypeParser()
             .build(start: const SimpleTypeParser().type),
-        result: const SwidiInterface(name: "void"));
+        result: const SwidiInterface(
+          name: "void",
+          nullabilitySuffix: SwidiNullabilitySuffix.none,
+        ));
   }, tags: "swid");
 }

@@ -5,6 +5,7 @@ import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNamedParameter.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/parser/swidiParser.dart';
 import 'lib/parserTestHarness.dart';
 
@@ -30,13 +31,25 @@ void main() {
             namedParameters: [
               SwidiNamedParameter(
                   declaration: SwidiDeclaration(
-                      name: "bar", type: SwidiInterface(name: "int"))),
+                      name: "bar",
+                      type: SwidiInterface(
+                        name: "int",
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ))),
               SwidiNamedParameter(
                   declaration: SwidiDeclaration(
-                      name: "baz", type: SwidiInterface(name: "int"))),
+                      name: "baz",
+                      type: SwidiInterface(
+                        name: "int",
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ))),
               SwidiNamedParameter(
                   declaration: SwidiDeclaration(
-                      name: "qux", type: SwidiInterface(name: "int")))
+                      name: "qux",
+                      type: SwidiInterface(
+                        name: "int",
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      )))
             ],
           )
         ]),

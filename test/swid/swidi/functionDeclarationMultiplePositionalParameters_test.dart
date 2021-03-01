@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiInterface.dart';
+import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/ast/swidiPositionalParameter.dart';
 import 'package:hydro_sdk/swid/ir/frontend/swidi/grammar/swidiGrammarDefinition.dart';
@@ -38,12 +39,20 @@ void main() {
               .fromSwidiPositionalParameter(
                   positionalParameter: SwidiPositionalParameter(
                       declaration: SwidiDeclaration(
-                          name: "foo", type: SwidiInterface(name: "void")))),
+                          name: "foo",
+                          type: SwidiInterface(
+                            name: "void",
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                          )))),
           SwidiPositionalOrOptionalOrNamedParameter
               .fromSwidiPositionalParameter(
                   positionalParameter: SwidiPositionalParameter(
                       declaration: SwidiDeclaration(
-                          name: "bar", type: SwidiInterface(name: "int"))))
+                          name: "bar",
+                          type: SwidiInterface(
+                            name: "int",
+                            nullabilitySuffix: SwidiNullabilitySuffix.none,
+                          ))))
         ]);
   }, tags: "swid");
 }
