@@ -59,14 +59,17 @@ jobs:
     - name: Get packages for Hydro-SDK Dart
       run: flutter pub get
       working-directory: hydro
+
     - name: Pub get Flutter
       shell: bash
       run: cd "${env::GITHUB_WORKSPACE}\flutter\packages\flutter"; flutter pub get
       if: runner.is == 'Windows'
-    - name: Pub get Flutter
+
+    - name: Build SWID
       shell: bash
-      run: cd "$GITHUB_WORKSPACE/flutter/packages/flutter"; flutter pub get
-      if: runner.is != 'Windows'
+      run: time dart2native bin/swid.dart -o bin/swid  -v 
+      working-directory: hydro
+
     # - name: Run binding generator
     #   shell: bash
     #   run: dart bin/swid.dart "${env::GITHUB_WORKSPACE}\flutter\packages\flutter"
@@ -75,7 +78,6 @@ jobs:
     #   shell: bash
     #   run: dart bin/swid.dart "$GITHUB_WORKSPACE/flutter/packages/flutter"
     #   if: runner.is != 'Windows'
-      working-directory: hydro
     - name: Run Hydro-SDK Swid Tests
       shell: bash
       run: export HYDRO_TEST_MODE=ts; flutter test --tags "swid"
