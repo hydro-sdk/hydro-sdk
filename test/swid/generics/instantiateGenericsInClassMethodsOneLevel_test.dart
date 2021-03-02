@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 
-import 'package:hydro_sdk/swid/frontend/dart/dartPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -138,7 +138,7 @@ void main() {
         instantiatedGeneric:
             SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
           swidInstantiableGeneric: SwidInstantiableGeneric.fromSwidInterface(
-              swidInterface: DartPrimitives.dartDouble),
+              swidInterface: dartDouble),
         ),
       ),
       swidType: SwidType.fromSwidClass(
@@ -181,6 +181,6 @@ void main() {
             .normalParameterTypes
             .first
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
-        DartPrimitives.dartDouble);
+        dartDouble);
   }, tags: "swid");
 }

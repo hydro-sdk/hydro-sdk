@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/frontend/dart/dartPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInstantiableGeneric.dart';
 import 'package:hydro_sdk/swid/ir/swidInstantiatedGeneric.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -14,7 +14,7 @@ SwidType instantiateAllGenericsAsDynamic({
       swidType: swidType,
       instantiatedGeneric: SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
         swidInstantiableGeneric: SwidInstantiableGeneric.fromSwidInterface(
-          swidInterface: DartPrimitives.dartDynamic,
+          swidInterface: dartDynamic,
         ),
       ),
     );

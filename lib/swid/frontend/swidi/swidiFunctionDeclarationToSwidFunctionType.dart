@@ -1,5 +1,5 @@
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/swidiContentToSwidIr.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiInterfaceToSwidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';

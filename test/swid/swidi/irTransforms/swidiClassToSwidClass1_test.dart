@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/swid/frontend/dart/dartPrimitives.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiSourceToSwidIr.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -38,23 +38,23 @@ class "package:flutter/src/widgets/icon_data.dart"::IconData {
           swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
           namedParameterTypes: {
             "baz": SwidType.fromSwidInterface(
-              swidInterface: DartPrimitives.dartInt,
+              swidInterface: dartInt,
             ),
             "qux": SwidType.fromSwidInterface(
-              swidInterface: DartPrimitives.dartNullableInt,
+              swidInterface: dartNullableInt,
             )
           },
           namedDefaults: {},
           normalParameterNames: ["bar"],
           normalParameterTypes: [
             SwidType.fromSwidInterface(
-              swidInterface: DartPrimitives.dartInt,
+              swidInterface: dartInt,
             )
           ],
           optionalParameterNames: [],
           optionalParameterTypes: [],
           returnType: SwidType.fromSwidInterface(
-            swidInterface: DartPrimitives.dartVoid,
+            swidInterface: dartVoid,
           ),
           isFactory: false,
           typeFormals: [],
