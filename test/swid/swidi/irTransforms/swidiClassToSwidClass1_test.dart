@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartPrimitives.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/swidiContentToSwidIr.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiSourceToSwidIr.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -11,7 +11,7 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var res = swidiContentToSwidIr(content: """
+    var res = swidiSourceToSwidIr(content: """
 class "package:flutter/src/widgets/icon_data.dart"::IconData {
     void::void foo(
       "dart:core"::class::int bar, {

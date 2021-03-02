@@ -13,7 +13,7 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:meta/meta.dart';
 
-List<SwidIr> swidiContentToSwidIr({@required String content}) {
+List<SwidIr> swidiSourceToSwidIr({@required String content}) {
   var parseResult = const SwidiParser().build().parse(content);
 
   if (parseResult.isFailure) {
