@@ -1,10 +1,11 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiInterfaceToSwidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:meta/meta.dart';
 
 SwidFunctionType swidiFunctionDeclarationToSwidFunctionType(
         {@required SwidiFunctionDeclaration swidiFunctionDeclaration}) =>

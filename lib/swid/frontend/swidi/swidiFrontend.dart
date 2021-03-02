@@ -1,8 +1,9 @@
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/frontend/inputResolver.dart';
+import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiSourceToSwidIr.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
-import 'package:meta/meta.dart';
-import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 
 class SwidiFrontend extends SwidFrontend {
   final List<String> inputs;
