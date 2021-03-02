@@ -1,17 +1,34 @@
+import 'dart:io';
+
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/backend/writeTranslationUnit.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartFrontend.dart';
+import 'package:hydro_sdk/swid/frontend/inputResolver.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/swidiFrontend.dart';
+import 'package:hydro_sdk/swid/ir/swidIr.dart';
 import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
+class SwidiInputResolver extends InputResolver {
+  const SwidiInputResolver();
+
+  @override
+  Future<String> resolveInput({String input}) => File(input).readAsString();
+}
+
 void main(List<String> args) async {
   var dartFrontend = SwidDartFrontend(inputs: [args[0]]);
+  var swidiFrontend = SwidiFrontend(
+    inputs: [],
+    inputResolver: const SwidiInputResolver(),
+  );
 
-  var ir = await dartFrontend.produceIr();
+  var ir = SwidIr.merge(
+      ir: [await swidiFrontend.produceIr(), await dartFrontend.produceIr()]);
 
   var enums = ir
       .map((x) => x.maybeWhen(fromSwidEnum: (val) => val, orElse: () => null))
