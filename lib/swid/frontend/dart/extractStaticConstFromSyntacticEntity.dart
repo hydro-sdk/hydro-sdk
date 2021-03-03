@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstPrefixedIdentifierFromPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStringLiteralFromSimpleStringLiteral.dart';
 import 'package:meta/meta.dart';
 
@@ -11,7 +12,6 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 
 SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity syntacticEntity}) =>
@@ -26,13 +26,13 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity
             swidBooleanLiteral:
                 SwidBooleanLiteral(value: val.value.toString())),
         onSimpleStringLiteral: (val) => SwidStaticConst.fromSwidStringLiteral(
-            swidStringLiteral: swidStringLiteralFromSimpleStringLiteral (
+            swidStringLiteral: swidStringLiteralFromSimpleStringLiteral(
                 simpleStringLiteral: val)),
         onDoubleLiteral: (val) => SwidStaticConst.fromDoubleLiteral(
             swidDoubleLiteral:
                 SwidDoubleLiteral.fromDoubleLiteral(doubleLiteral: val)),
         onPrefixedIdentifier: (val) => SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
-            staticConstPrefixedIdentifier: SwidStaticConstPrefixedIdentifier.fromPrefixedIdentifier(prefixedIdentifier: val)),
+            staticConstPrefixedIdentifier: swidStaticConstPrefixedIdentifierFromPrefixedIdentifier(prefixedIdentifier: val)),
         onSimpleIdentifier: (val) => SwidStaticConst.fromSwidStaticConstFieldReference(swidStaticConstFieldReference: SwidStaticConstFieldReference(name: val.name)),
         onPrefixExpression: (val) => SwidStaticConst.fromSwidStaticConstPrefixedExpression(
                 swidStaticConstPrefixedExpression: SwidStaticConstPrefixedExpression(
