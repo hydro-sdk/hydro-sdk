@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/util/extractStaticConstFromSyntacticEntity.dart';
+import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 
 part 'swidStaticConstBinaryExpression.freezed.dart';
 part 'swidStaticConstBinaryExpression.g.dart';

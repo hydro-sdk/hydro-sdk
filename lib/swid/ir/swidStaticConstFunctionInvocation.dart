@@ -15,7 +15,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/extractStaticConstFromSyntacticEntity.dart';
+import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
 part 'swidStaticConstFunctionInvocation.g.dart';

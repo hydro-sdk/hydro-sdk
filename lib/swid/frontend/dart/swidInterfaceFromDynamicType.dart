@@ -3,7 +3,7 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/util/mapAnalyzerNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 
 import 'package:analyzer/dart/element/type.dart' show DynamicType;
 
