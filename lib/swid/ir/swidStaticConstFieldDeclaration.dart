@@ -11,6 +11,7 @@ import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFunctionInvocationFromInstanceCreationExpression.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/swidStringLiteralFromSimpleStringLiteral.dart';
@@ -18,7 +19,6 @@ import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 
 part 'swidStaticConstFieldDeclaration.freezed.dart';
 part 'swidStaticConstFieldDeclaration.g.dart';
@@ -53,8 +53,8 @@ abstract class SwidStaticConstFieldDeclaration
               ) !=
               null
           ? SwidStaticConst.fromSwidStaticConstFunctionInvocation(
-              staticConstFunctionInvocation: SwidStaticConstFunctionInvocation
-                  .fromInstanceCreationExpression(
+              staticConstFunctionInvocation:
+                  swidStaticConstFunctionInvocationFromInstanceCreationExpression(
                       instanceCreationExpression:
                           declaration.childEntities.firstWhere(
               (x) => x is InstanceCreationExpression,

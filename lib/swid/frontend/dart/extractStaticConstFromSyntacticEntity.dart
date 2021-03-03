@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFunctionInvocationFromInstanceCreationExpression.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
@@ -10,7 +11,6 @@ import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 
@@ -41,8 +41,8 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity
                   syntacticEntity: val.operand),
             )),
         onInstanceCreationExpression: (val) => SwidStaticConst.fromSwidStaticConstFunctionInvocation(
-              staticConstFunctionInvocation: SwidStaticConstFunctionInvocation
-                  .fromInstanceCreationExpression(
+              staticConstFunctionInvocation:
+                  swidStaticConstFunctionInvocationFromInstanceCreationExpression(
                       instanceCreationExpression: val),
             ),
         onBinaryExpression: (val) => SwidStaticConst.fromSwidStaticConstBinaryExpression(
