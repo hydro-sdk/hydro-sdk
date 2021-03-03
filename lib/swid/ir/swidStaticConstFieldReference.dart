@@ -1,4 +1,3 @@
-import 'package:analyzer/dart/ast/ast.dart' show SimpleIdentifier;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -12,8 +11,4 @@ abstract class SwidStaticConstFieldReference
 
   factory SwidStaticConstFieldReference.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFieldReferenceFromJson(json);
-
-  factory SwidStaticConstFieldReference.fromSimpleIdentifier(
-          {@required SimpleIdentifier simpleIdentifier}) =>
-      SwidStaticConstFieldReference(name: simpleIdentifier.name);
 }
