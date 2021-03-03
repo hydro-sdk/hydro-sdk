@@ -14,8 +14,8 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidStaticConstFunctionInvocation
     swidStaticConstFunctionInvocationFromInstanceCreationExpression(
