@@ -8,6 +8,7 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -102,18 +103,18 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
             methods.where((x) => x.swidDeclarationModifiers.isStatic).toList(),
         mixedInClasses: dartClassOrMixinOrClassTypAliasDeclaration.withClause != null
             ? dartClassOrMixinOrClassTypAliasDeclaration.withClause.mixinTypes
-                .map((x) => SwidClass.fromInterfaceType(interfaceType: x.type))
+                .map((x) => swidClassFromInterfaceType(interfaceType: x.type))
                 .toList()
             : [],
         extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null && dartClassOrMixinOrClassTypAliasDeclaration.superClass.type is InterfaceType
-            ? SwidClass.fromInterfaceType(
+            ? swidClassFromInterfaceType(
                 interfaceType:
                     dartClassOrMixinOrClassTypAliasDeclaration.superClass.type)
             : null,
         implementedClasses: dartClassOrMixinOrClassTypAliasDeclaration.implementsClause != null
             ? dartClassOrMixinOrClassTypAliasDeclaration.implementsClause.interfaces
                 .where((x) => x.type is InterfaceType)
-                .map((x) => SwidClass.fromInterfaceType(interfaceType: x.type))
+                .map((x) => swidClassFromInterfaceType(interfaceType: x.type))
                 .toList()
             : [],
         staticConstFieldDeclarations: dartClassOrMixinOrClassTypAliasDeclaration.childEntities
