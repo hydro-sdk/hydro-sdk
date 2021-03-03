@@ -7,13 +7,13 @@ import 'package:analyzer/dart/ast/ast.dart'
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromExecutableElement.dart';
-import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromPropertyAccessorElement.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/narrowModifierProducer.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromExecutableElement.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromPropertyAccessorElement.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFieldDeclarationFromVariableDeclarationList.dart';

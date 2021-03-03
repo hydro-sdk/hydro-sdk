@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
