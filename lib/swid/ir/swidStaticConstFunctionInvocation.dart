@@ -10,12 +10,12 @@ import 'package:analyzer/dart/ast/ast.dart'
         ArgumentList;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 
 part 'swidStaticConstFunctionInvocation.freezed.dart';
 part 'swidStaticConstFunctionInvocation.g.dart';

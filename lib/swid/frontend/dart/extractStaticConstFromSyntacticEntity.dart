@@ -1,6 +1,7 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
@@ -11,7 +12,6 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
-import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
 
 SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity syntacticEntity}) =>
     narrowStaticConstSyntacticEntity(

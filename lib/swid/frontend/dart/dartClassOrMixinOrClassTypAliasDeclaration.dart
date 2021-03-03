@@ -15,7 +15,6 @@ import 'package:meta/meta.dart';
 
 part 'dartClassOrMixinOrClassTypAliasDeclaration.freezed.dart';
 
-
 @freezed
 abstract class DartClassOrMixinOrClassTypAliasDeclaration
     with _$DartClassOrMixinOrClassTypAliasDeclaration {

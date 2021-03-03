@@ -7,13 +7,14 @@ import 'package:analyzer/dart/ast/ast.dart'
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/dart/narrowModifierProducer.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidTypeFormalFromTypeParameter.dart';
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -21,7 +22,6 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/frontend/dart/narrowModifierProducer.dart';
 
 import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
@@ -176,7 +176,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       ),
       typeFormals: ((TypeParameterList typeParameterList) => typeParameterList != null
           ? typeParameterList.typeParameters
-              .map((x) => swidTypeFormalFromTypeParameter (
+              .map((x) => swidTypeFormalFromTypeParameter(
                     typeParameter: x,
                   ))
               .toList()
