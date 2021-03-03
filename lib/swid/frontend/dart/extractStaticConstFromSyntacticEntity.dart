@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidIntegerLiteralFromIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFunctionInvocationFromInstanceCreationExpression.dart';
 import 'package:meta/meta.dart';
 
@@ -7,7 +8,6 @@ import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstPrefixedIdentifierFr
 import 'package:hydro_sdk/swid/frontend/dart/swidStringLiteralFromSimpleStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidBooleanLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
-import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
@@ -19,7 +19,7 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity
         syntacticEntity: syntacticEntity,
         onIntegerLiteral: (val) => SwidStaticConst.fromSwidIntegerLiteral(
             swidIntegerLiteral:
-                SwidIntegerLiteral.fromIntegerLiteral(integerLiteral: val)),
+                swidIntegerLiteralFromIntegerLiteral(integerLiteral: val)),
         onStringLiteral: (val) => SwidStaticConst.fromSwidStringLiteral(
             swidStringLiteral: SwidStringLiteral(value: val.stringValue)),
         onBooleanLiteral: (val) => SwidStaticConst.fromSwidBooleanLiteral(
