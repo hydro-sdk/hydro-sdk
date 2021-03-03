@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/ast/ast.dart' show TypeName;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromTypeParameterType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:meta/meta.dart';
@@ -47,14 +48,14 @@ SwidClass swidClassFromInterfaceType({
                       swidFunctionType: childClassMethod,
                       namedDefaults: Map.of(baseClassMethod.namedDefaults)
                         ..addAll(childClassMethod.namedDefaults)))(
-                baseClassMethod: SwidFunctionType.fromFunctionType(
+                baseClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.declaration.type,
                   swidDeclarationModifiers: SwidDeclarationModifiers.clone(
                     swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
                   ),
                 ),
-                childClassMethod: SwidFunctionType.fromFunctionType(
+                childClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.type,
                   swidDeclarationModifiers: SwidDeclarationModifiers.clone(
                     swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
@@ -69,7 +70,7 @@ SwidClass swidClassFromInterfaceType({
             .where((x) => x.name[0] != "_")
             .where((x) => !x.isStatic)
             .map(
-              (x) => SwidFunctionType.fromFunctionType(
+              (x) => swidFunctionTypeFromFunctionType(
                 functionType: x.type,
                 swidDeclarationModifiers: SwidDeclarationModifiers.clone(
                   swidDeclarationModifiers: SwidDeclarationModifiers.clone(

@@ -6,6 +6,7 @@ import 'package:analyzer/dart/element/type.dart'
         TypeParameterType,
         DynamicType,
         DartType;
+import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromDynamicType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromTypeParameterType.dart';
@@ -14,13 +15,12 @@ import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromVoidType.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidType narrowDartTypeToSwidType({@required DartType dartType}) => dartType
         is FunctionType
     ? SwidType.fromSwidFunctionType(
-        swidFunctionType: SwidFunctionType.fromFunctionType(
+        swidFunctionType: swidFunctionTypeFromFunctionType(
         functionType: dartType,
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
       ))

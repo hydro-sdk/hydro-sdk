@@ -9,6 +9,7 @@ import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:meta/meta.dart';
 
@@ -55,7 +56,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       .where((x) => x.name.name[0] != "_")
       .toList()
       .cast<MethodDeclarationImpl>()
-      .map((x) => SwidFunctionType.fromFunctionType(
+      .map((x) => swidFunctionTypeFromFunctionType(
           functionType: x.declaredElement.type,
           swidDeclarationModifiers: narrowModifierProducer(
               element: x.declaredElement,
@@ -77,7 +78,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
               "",
       constructorType: constructorDeclarationImpl != null
           ? SwidFunctionType.clone(
-              swidFunctionType: SwidFunctionType.fromFunctionType(
+              swidFunctionType: swidFunctionTypeFromFunctionType(
                   swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                   functionType:
                       constructorDeclarationImpl.declaredElement.type),
@@ -88,7 +89,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
           .where((x) => x.name != null && x.name.name[0] != "_")
           .toList()
           .map((x) => SwidFunctionType.clone(
-                swidFunctionType: SwidFunctionType.fromFunctionType(
+                swidFunctionType: swidFunctionTypeFromFunctionType(
                     functionType: x.declaredElement.type,
                     name: x.name.name,
                     swidDeclarationModifiers: SwidDeclarationModifiers.empty()),
