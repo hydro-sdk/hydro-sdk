@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -158,7 +159,7 @@ abstract class SwidFunctionType with _$SwidFunctionType {
                             ))
                           : x.type is InterfaceType
                               ? SwidType.fromSwidInterface(
-                                  swidInterface: SwidInterface.fromInterface(
+                                  swidInterface: swidInterfaceFromInterface(
                                   interfaceType: x.type,
                                 ))
                               : null,

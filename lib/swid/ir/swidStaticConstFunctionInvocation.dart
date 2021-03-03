@@ -10,9 +10,9 @@ import 'package:analyzer/dart/ast/ast.dart'
         ArgumentList;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/extractStaticConstFromSyntacticEntity.dart';
@@ -41,7 +41,7 @@ abstract class SwidStaticConstFunctionInvocation
         .firstWhere((x) => x is ConstructorName);
     return SwidStaticConstFunctionInvocation(
         staticType: SwidType.fromSwidInterface(
-            swidInterface: SwidInterface.fromInterface(
+            swidInterface: swidInterfaceFromInterface(
                 interfaceType: instanceCreationExpression.staticType)),
         value: constructor.type.name.name +
             (constructor.name != null ? ".${constructor.name.name}" : ""),
