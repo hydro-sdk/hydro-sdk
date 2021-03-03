@@ -11,6 +11,7 @@ import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDecl
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidTypeFormalFromTypeParameter.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -175,7 +176,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       ),
       typeFormals: ((TypeParameterList typeParameterList) => typeParameterList != null
           ? typeParameterList.typeParameters
-              .map((x) => SwidTypeFormal.fromTypeParameter(
+              .map((x) => swidTypeFormalFromTypeParameter (
                     typeParameter: x,
                   ))
               .toList()
