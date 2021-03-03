@@ -2,6 +2,22 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
+const dartObject = const SwidInterface(
+  name: "Object",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+);
+
+const dartNullableObject = const SwidInterface(
+  name: "Object?",
+  nullabilitySuffix: SwidNullabilitySuffix.question,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+);
+
 const dartDouble = const SwidInterface(
   name: "double",
   nullabilitySuffix: SwidNullabilitySuffix.none,
