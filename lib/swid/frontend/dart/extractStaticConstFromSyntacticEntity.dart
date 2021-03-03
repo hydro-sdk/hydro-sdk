@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidStringLiteralFromSimpleStringLiteral.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
@@ -25,7 +26,7 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity
             swidBooleanLiteral:
                 SwidBooleanLiteral(value: val.value.toString())),
         onSimpleStringLiteral: (val) => SwidStaticConst.fromSwidStringLiteral(
-            swidStringLiteral: SwidStringLiteral.fromSimpleStringLiteral(
+            swidStringLiteral: swidStringLiteralFromSimpleStringLiteral (
                 simpleStringLiteral: val)),
         onDoubleLiteral: (val) => SwidStaticConst.fromDoubleLiteral(
             swidDoubleLiteral:
