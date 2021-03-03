@@ -7,6 +7,7 @@ import 'package:analyzer/dart/ast/ast.dart'
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFieldDeclarationFromVariableDeclarationList.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
@@ -19,7 +20,6 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
@@ -134,10 +134,9 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
             if (declaration.isConst &&
                 declaration.declaredElement.isConst &&
                 declaration.declaredElement.isStatic) {
-              return SwidStaticConstFieldDeclaration
-                  .fromVariableDeclarationList(
-                      variableDeclarationList: x.childEntities
-                          .firstWhere((k) => k is VariableDeclarationList));
+              return swidStaticConstFieldDeclarationFromVariableDeclarationList(
+                  variableDeclarationList: x.childEntities
+                      .firstWhere((k) => k is VariableDeclarationList));
             }
           }
         }
