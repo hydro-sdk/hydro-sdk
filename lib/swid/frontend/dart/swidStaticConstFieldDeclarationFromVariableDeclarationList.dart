@@ -11,6 +11,7 @@ import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstBinaryExpressionFromBinaryExpression.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFunctionInvocationFromInstanceCreationExpression.dart';
 import 'package:meta/meta.dart';
 
@@ -18,7 +19,6 @@ import 'package:hydro_sdk/swid/frontend/dart/swidStringLiteralFromSimpleStringLi
 import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 
 SwidStaticConstFieldDeclaration
@@ -78,10 +78,9 @@ SwidStaticConstFieldDeclaration
                         null
                     ? SwidStaticConst.fromSwidStaticConstBinaryExpression(
                         swidStaticConstBinaryExpression:
-                            SwidStaticConstBinaryExpression
-                                .fromBinaryExpression(
-                                    binaryExpression:
-                                        declaration.childEntities.firstWhere(
+                            swidStaticConstBinaryExpressionFromBinaryExpression(
+                                binaryExpression:
+                                    declaration.childEntities.firstWhere(
                         (x) => x is BinaryExpression,
                         orElse: () => null,
                       )))
