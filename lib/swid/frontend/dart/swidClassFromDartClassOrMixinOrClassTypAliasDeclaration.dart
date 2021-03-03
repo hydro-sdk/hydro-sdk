@@ -7,6 +7,8 @@ import 'package:analyzer/dart/ast/ast.dart'
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromExecutableElement.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromPropertyAccessorElement.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
@@ -62,10 +64,10 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
           swidDeclarationModifiers: narrowModifierProducer(
               element: x.declaredElement,
               onExecutablElement: (val) =>
-                  SwidDeclarationModifiers.fromExecutableElement(
+                  swidDeclarationModifiersFromExecutableElement(
                       executableElement: val),
               onPropertyAccessorElement: (val) =>
-                  SwidDeclarationModifiers.fromPropertyAccessorElement(
+                  swidDeclarationModifiersFromPropertyAccessorElement(
                       propertyAccessorElement: val))))
       .toList()
       .cast<SwidFunctionType>();

@@ -6,6 +6,7 @@ import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:analyzer/file_system/file_system.dart' hide File;
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/src/dart/ast/ast.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromClassDeclaration.dart';
 import 'package:meta/meta.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
@@ -14,7 +15,6 @@ import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDecl
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromDartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 
@@ -105,7 +105,7 @@ class _SwidVisitor extends RecursiveAstVisitor
         res = SwidClass.clone(
             swidClass: res,
             swidDeclarationModifiers:
-                SwidDeclarationModifiers.fromClassDeclaration(
+                swidDeclarationModifiersFromClassDeclaration(
                     classDeclaration: node));
         classes.add(res);
       }

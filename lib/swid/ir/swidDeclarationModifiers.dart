@@ -1,5 +1,3 @@
-import 'package:analyzer/dart/ast/ast.dart';
-import 'package:analyzer/dart/element/element.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -37,72 +35,6 @@ abstract class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
 
   factory SwidDeclarationModifiers.fromJson(Map<String, dynamic> json) =>
       _$SwidDeclarationModifiersFromJson(json);
-
-  factory SwidDeclarationModifiers.fromExecutableElement(
-          {@required ExecutableElement executableElement}) =>
-      SwidDeclarationModifiers(
-        isAbstract: executableElement.isAbstract,
-        isGetter: false,
-        isOperator: executableElement.isOperator,
-        isSetter: false,
-        isStatic: executableElement.isStatic,
-        isSynthetic: executableElement.isSynthetic,
-        hasAlwaysThrows: executableElement.hasAlwaysThrows,
-        hasDeprecated: executableElement.hasDeprecated,
-        hasFactory: executableElement.hasFactory,
-        hasImplicitReturnType: executableElement.hasImplicitReturnType,
-        hasIsTest: executableElement.hasIsTest,
-        hasIsTestGroup: executableElement.hasIsTestGroup,
-        hasJS: executableElement.hasJS,
-        hasLiteral: executableElement.hasLiteral,
-        hasMustCallSuper: executableElement.hasMustCallSuper,
-        hasNonVirtual: executableElement.hasNonVirtual,
-        hasOptionalTypeArgs: executableElement.hasOptionalTypeArgs,
-        hasOverride: executableElement.hasOverride,
-        hasProtected: executableElement.hasProtected,
-        hasRequired: executableElement.hasRequired,
-        hasSealed: executableElement.hasSealed,
-        hasVisibleForTemplate: executableElement.hasVisibleForTemplate,
-        hasVisibleForTesting: executableElement.hasVisibleForTemplate,
-        isPublic: executableElement.isPublic,
-      );
-
-  factory SwidDeclarationModifiers.fromPropertyAccessorElement(
-          {@required PropertyAccessorElement propertyAccessorElement}) =>
-      SwidDeclarationModifiers(
-        isAbstract: propertyAccessorElement.isAbstract,
-        isGetter: propertyAccessorElement.isGetter,
-        isOperator: propertyAccessorElement.isOperator,
-        isSetter: propertyAccessorElement.isSetter,
-        isStatic: propertyAccessorElement.isStatic,
-        isSynthetic: propertyAccessorElement.isSynthetic,
-        hasAlwaysThrows: propertyAccessorElement.hasAlwaysThrows,
-        hasDeprecated: propertyAccessorElement.hasDeprecated,
-        hasFactory: propertyAccessorElement.hasFactory,
-        hasImplicitReturnType: propertyAccessorElement.hasImplicitReturnType,
-        hasIsTest: propertyAccessorElement.hasIsTest,
-        hasIsTestGroup: propertyAccessorElement.hasIsTestGroup,
-        hasJS: propertyAccessorElement.hasJS,
-        hasLiteral: propertyAccessorElement.hasLiteral,
-        hasMustCallSuper: propertyAccessorElement.hasMustCallSuper,
-        hasNonVirtual: propertyAccessorElement.hasNonVirtual,
-        hasOptionalTypeArgs: propertyAccessorElement.hasOptionalTypeArgs,
-        hasOverride: propertyAccessorElement.hasOverride,
-        hasProtected: propertyAccessorElement.hasProtected,
-        hasRequired: propertyAccessorElement.hasRequired,
-        hasSealed: propertyAccessorElement.hasSealed,
-        hasVisibleForTemplate: propertyAccessorElement.hasVisibleForTemplate,
-        hasVisibleForTesting: propertyAccessorElement.hasVisibleForTemplate,
-        isPublic: propertyAccessorElement.isPublic,
-      );
-
-  factory SwidDeclarationModifiers.fromClassDeclaration(
-          {@required ClassDeclaration classDeclaration}) =>
-      SwidDeclarationModifiers.clone(
-        swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-        isAbstract: classDeclaration.isAbstract,
-        isSynthetic: classDeclaration.isSynthetic,
-      );
 
   factory SwidDeclarationModifiers.clone({
     @required SwidDeclarationModifiers swidDeclarationModifiers,
