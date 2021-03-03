@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/util/mapClassLibrarySourcePath.dart';
+import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
 
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 
