@@ -20,7 +20,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/util/narrowModifierProducer.dart';
+import 'package:hydro_sdk/swid/frontend/dart/narrowModifierProducer.dart';
 
 import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
