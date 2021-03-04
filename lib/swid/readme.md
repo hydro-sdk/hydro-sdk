@@ -27,27 +27,8 @@ Current and WIP results:
 - [x] `Random`
 
 ### `dart:typed_data`
-- [ ] `ByteBuffer`
-- [ ] `ByteData`x
-- [ ] `Endian`
-- [ ] `Float32List`
-- [ ] `Float32x4`
-- [ ] `Float32x4List`
-- [ ] `Float64List`
-- [ ] `Float64x2`
-- [ ] `Int8List`
-- [ ] `Int16List`
-- [ ] `Int32List`
-- [ ] `Int32x4`
-- [ ] `Int32x4List`x
-- [ ] `Int64List`
-- [ ] `TypedData`
-- [ ] `TypeFloatList`
-- [ ] `Uint8ClampedList`
-- [ ] `Uint8List`
-- [ ] `Uint16List`
-- [ ] `Uint32List`
-- [ ] `Uint64List`
+- [x] All enums
+- [ ] most classes
 
 ### `dart:_internal`
 - [x] `EfficientLengthIterable`

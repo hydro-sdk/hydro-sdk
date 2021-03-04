@@ -1,5 +1,3 @@
-import 'package:analyzer/dart/ast/ast.dart';
-import 'package:analyzer/dart/element/element.dart' show TypeParameterElement;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -76,23 +74,6 @@ abstract class SwidTypeFormal with _$SwidTypeFormal {
 
   factory SwidTypeFormal.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFormalFromJson(json);
-
-  factory SwidTypeFormal.fromTypeParameterElement(
-          {@required TypeParameterElement typeParameterElement}) =>
-      SwidTypeFormal(
-        value:
-            SwidTypeFormalValue.fromString(string: typeParameterElement.name),
-        swidReferenceDeclarationKind:
-            SwidReferenceDeclarationKind.typeParameterType,
-      );
-
-  factory SwidTypeFormal.fromTypeParameter(
-          {@required TypeParameter typeParameter}) =>
-      SwidTypeFormal(
-          value:
-              SwidTypeFormalValue.fromString(string: typeParameter.name.name),
-          swidReferenceDeclarationKind:
-              SwidReferenceDeclarationKind.typeParameterType);
 
   factory SwidTypeFormal.clone({
     @required SwidTypeFormal swidTypeFormal,

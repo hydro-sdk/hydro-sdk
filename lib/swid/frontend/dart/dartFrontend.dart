@@ -10,10 +10,11 @@ import 'package:meta/meta.dart';
 import 'package:surveyor/src/driver.dart';
 import 'package:surveyor/src/visitors.dart';
 
-import 'package:hydro_sdk/swid/frontend/dart/dartClass.dart';
+import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidClassFromDartClassOrMixinOrClassTypAliasDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromClassDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 
@@ -95,17 +96,16 @@ class _SwidVisitor extends RecursiveAstVisitor
   @override
   void visitClassDeclaration(ClassDeclaration node) {
     if (node.nativeClause == null) {
-      var res =
-          DartClass.swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
-              dartClassOrMixinOrClassTypAliasDeclaration:
-                  DartClassOrMixinOrClassTypAliasDeclaration
-                      .fromClassDeclaration(classDeclaration: node));
+      var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
+          dartClassOrMixinOrClassTypAliasDeclaration:
+              DartClassOrMixinOrClassTypAliasDeclaration.fromClassDeclaration(
+                  classDeclaration: node));
 
       if (res != null) {
         res = SwidClass.clone(
             swidClass: res,
             swidDeclarationModifiers:
-                SwidDeclarationModifiers.fromClassDeclaration(
+                swidDeclarationModifiersFromClassDeclaration(
                     classDeclaration: node));
         classes.add(res);
       }
@@ -248,7 +248,7 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitClassTypeAlias(ClassTypeAlias node) {
-    var res = DartClass.swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
+    var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
         dartClassOrMixinOrClassTypAliasDeclaration:
             DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias(
                 classTypeAlias: node));
@@ -275,11 +275,10 @@ class _SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "Diagnosticable") {
       print(node.name.name);
 
-      var res =
-          DartClass.swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
-              dartClassOrMixinOrClassTypAliasDeclaration:
-                  DartClassOrMixinOrClassTypAliasDeclaration
-                      .fromMixinDeclaration(mixinDeclaration: node));
+      var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
+          dartClassOrMixinOrClassTypAliasDeclaration:
+              DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(
+                  mixinDeclaration: node));
 
       if (res != null) {
         classes.add(res);

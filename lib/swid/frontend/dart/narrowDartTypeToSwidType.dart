@@ -9,30 +9,33 @@ import 'package:analyzer/dart/element/type.dart'
 
 import 'package:meta/meta.dart';
 
+import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromDynamicType.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromTypeParameterType.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromVoidType.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidType narrowDartTypeToSwidType({@required DartType dartType}) => dartType
         is FunctionType
     ? SwidType.fromSwidFunctionType(
-        swidFunctionType: SwidFunctionType.fromFunctionType(
+        swidFunctionType: swidFunctionTypeFromFunctionType(
         functionType: dartType,
         swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
       ))
     : dartType is InterfaceType
         ? SwidType.fromSwidInterface(
-            swidInterface: SwidInterface.fromInterface(interfaceType: dartType))
+            swidInterface: swidInterfaceFromInterface(interfaceType: dartType))
         : dartType is VoidType
             ? SwidType.fromSwidInterface(
-                swidInterface: SwidInterface.fromVoidType(voidType: dartType))
+                swidInterface: swidInterfaceFromVoidType(voidType: dartType))
             : dartType is TypeParameterType
                 ? SwidType.fromSwidInterface(
-                    swidInterface: SwidInterface.fromTypeParameterType(
+                    swidInterface: swidInterfaceFromTypeParameterType(
                         typeParameterType: dartType))
                 : dartType is DynamicType
                     ? SwidType.fromSwidInterface(
-                        swidInterface: SwidInterface.fromDynamicType(
-                            dynamicType: dartType))
+                        swidInterface:
+                            swidInterfaceFromDynamicType(dynamicType: dartType))
                     : null;
