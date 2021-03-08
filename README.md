@@ -1,6 +1,12 @@
 # Hydro-SDK
 ![Logo](https://github.com/chgibb/hydro-sdk/blob/master/img/socialImage.png)
 
+# Sponsored by:
+<a href="https://github.com/publicdomaincompany">
+    <img align="center" style="height:40px;width:40px" src="https://avatars.githubusercontent.com/u/79655805?s=200&v=4">
+</a>  
+
+
 Author native [Flutter](https://flutter.dev/docs) experiences in Typescript and deliver updates directly to users over the air and out of band.
 
 # What
