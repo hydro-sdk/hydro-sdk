@@ -148,6 +148,7 @@ This error can be seen by regular Typescript code that attempts to access a fiel
 - Pigeon, https://github.com/flutter/packages/tree/master/packages/pigeon
 - Djinni, https://github.com/dropbox/djinni
 - Uniffi-rs, https://github.com/mozilla/uniffi-rs
+- TS to CSharp, https://github.com/mono/TsToCSharp
 
 
 # Interesting Links and Resources
