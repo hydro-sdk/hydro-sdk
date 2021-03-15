@@ -8,18 +8,18 @@ part of 'swidConfig.dart';
 
 _$_$SwidConfigCtor _$_$_$SwidConfigCtorFromJson(Map<String, dynamic> json) {
   return _$_$SwidConfigCtor(
-    allowList: json['allowList'] == null
+    inputPackagePath: json['inputPackagePath'] as String,
+    interfaces: (json['interfaces'] as List)?.map((e) => e as String)?.toList(),
+    emitOptions: json['emitOptions'] == null
         ? null
-        : SwidConfigAllowList.fromJson(
-            json['allowList'] as Map<String, dynamic>),
-    denyList: json['denyList'] == null
-        ? null
-        : SwidConfigDenyList.fromJson(json['denyList'] as Map<String, dynamic>),
+        : SwidConfigEmitOptions.fromJson(
+            json['emitOptions'] as Map<String, dynamic>),
   );
 }
 
 Map<String, dynamic> _$_$_$SwidConfigCtorToJson(_$_$SwidConfigCtor instance) =>
     <String, dynamic>{
-      'allowList': instance.allowList,
-      'denyList': instance.denyList,
+      'inputPackagePath': instance.inputPackagePath,
+      'interfaces': instance.interfaces,
+      'emitOptions': instance.emitOptions,
     };

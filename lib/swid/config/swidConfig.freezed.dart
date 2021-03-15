@@ -18,11 +18,13 @@ class _$SwidConfigTearOff {
 
 // ignore: unused_element
   _$SwidConfigCtor call(
-      {@required SwidConfigAllowList allowList,
-      @required SwidConfigDenyList denyList}) {
+      {@required String inputPackagePath,
+      @required List<String> interfaces,
+      @required SwidConfigEmitOptions emitOptions}) {
     return _$SwidConfigCtor(
-      allowList: allowList,
-      denyList: denyList,
+      inputPackagePath: inputPackagePath,
+      interfaces: interfaces,
+      emitOptions: emitOptions,
     );
   }
 
@@ -38,8 +40,9 @@ const $SwidConfig = _$SwidConfigTearOff();
 
 /// @nodoc
 mixin _$SwidConfig {
-  SwidConfigAllowList get allowList;
-  SwidConfigDenyList get denyList;
+  String get inputPackagePath;
+  List<String> get interfaces;
+  SwidConfigEmitOptions get emitOptions;
 
   Map<String, dynamic> toJson();
   $SwidConfigCopyWith<SwidConfig> get copyWith;
@@ -50,10 +53,12 @@ abstract class $SwidConfigCopyWith<$Res> {
   factory $SwidConfigCopyWith(
           SwidConfig value, $Res Function(SwidConfig) then) =
       _$SwidConfigCopyWithImpl<$Res>;
-  $Res call({SwidConfigAllowList allowList, SwidConfigDenyList denyList});
+  $Res call(
+      {String inputPackagePath,
+      List<String> interfaces,
+      SwidConfigEmitOptions emitOptions});
 
-  $SwidConfigAllowListCopyWith<$Res> get allowList;
-  $SwidConfigDenyListCopyWith<$Res> get denyList;
+  $SwidConfigEmitOptionsCopyWith<$Res> get emitOptions;
 }
 
 /// @nodoc
@@ -66,36 +71,30 @@ class _$SwidConfigCopyWithImpl<$Res> implements $SwidConfigCopyWith<$Res> {
 
   @override
   $Res call({
-    Object allowList = freezed,
-    Object denyList = freezed,
+    Object inputPackagePath = freezed,
+    Object interfaces = freezed,
+    Object emitOptions = freezed,
   }) {
     return _then(_value.copyWith(
-      allowList: allowList == freezed
-          ? _value.allowList
-          : allowList as SwidConfigAllowList,
-      denyList: denyList == freezed
-          ? _value.denyList
-          : denyList as SwidConfigDenyList,
+      inputPackagePath: inputPackagePath == freezed
+          ? _value.inputPackagePath
+          : inputPackagePath as String,
+      interfaces: interfaces == freezed
+          ? _value.interfaces
+          : interfaces as List<String>,
+      emitOptions: emitOptions == freezed
+          ? _value.emitOptions
+          : emitOptions as SwidConfigEmitOptions,
     ));
   }
 
   @override
-  $SwidConfigAllowListCopyWith<$Res> get allowList {
-    if (_value.allowList == null) {
+  $SwidConfigEmitOptionsCopyWith<$Res> get emitOptions {
+    if (_value.emitOptions == null) {
       return null;
     }
-    return $SwidConfigAllowListCopyWith<$Res>(_value.allowList, (value) {
-      return _then(_value.copyWith(allowList: value));
-    });
-  }
-
-  @override
-  $SwidConfigDenyListCopyWith<$Res> get denyList {
-    if (_value.denyList == null) {
-      return null;
-    }
-    return $SwidConfigDenyListCopyWith<$Res>(_value.denyList, (value) {
-      return _then(_value.copyWith(denyList: value));
+    return $SwidConfigEmitOptionsCopyWith<$Res>(_value.emitOptions, (value) {
+      return _then(_value.copyWith(emitOptions: value));
     });
   }
 }
@@ -107,12 +106,13 @@ abstract class _$$SwidConfigCtorCopyWith<$Res>
           _$SwidConfigCtor value, $Res Function(_$SwidConfigCtor) then) =
       __$$SwidConfigCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidConfigAllowList allowList, SwidConfigDenyList denyList});
+  $Res call(
+      {String inputPackagePath,
+      List<String> interfaces,
+      SwidConfigEmitOptions emitOptions});
 
   @override
-  $SwidConfigAllowListCopyWith<$Res> get allowList;
-  @override
-  $SwidConfigDenyListCopyWith<$Res> get denyList;
+  $SwidConfigEmitOptionsCopyWith<$Res> get emitOptions;
 }
 
 /// @nodoc
@@ -128,16 +128,20 @@ class __$$SwidConfigCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object allowList = freezed,
-    Object denyList = freezed,
+    Object inputPackagePath = freezed,
+    Object interfaces = freezed,
+    Object emitOptions = freezed,
   }) {
     return _then(_$SwidConfigCtor(
-      allowList: allowList == freezed
-          ? _value.allowList
-          : allowList as SwidConfigAllowList,
-      denyList: denyList == freezed
-          ? _value.denyList
-          : denyList as SwidConfigDenyList,
+      inputPackagePath: inputPackagePath == freezed
+          ? _value.inputPackagePath
+          : inputPackagePath as String,
+      interfaces: interfaces == freezed
+          ? _value.interfaces
+          : interfaces as List<String>,
+      emitOptions: emitOptions == freezed
+          ? _value.emitOptions
+          : emitOptions as SwidConfigEmitOptions,
     ));
   }
 }
@@ -146,40 +150,50 @@ class __$$SwidConfigCtorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$SwidConfigCtor implements _$SwidConfigCtor {
-  const _$_$SwidConfigCtor({@required this.allowList, @required this.denyList})
-      : assert(allowList != null),
-        assert(denyList != null);
+  const _$_$SwidConfigCtor(
+      {@required this.inputPackagePath,
+      @required this.interfaces,
+      @required this.emitOptions})
+      : assert(inputPackagePath != null),
+        assert(interfaces != null),
+        assert(emitOptions != null);
 
   factory _$_$SwidConfigCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidConfigCtorFromJson(json);
 
   @override
-  final SwidConfigAllowList allowList;
+  final String inputPackagePath;
   @override
-  final SwidConfigDenyList denyList;
+  final List<String> interfaces;
+  @override
+  final SwidConfigEmitOptions emitOptions;
 
   @override
   String toString() {
-    return 'SwidConfig(allowList: $allowList, denyList: $denyList)';
+    return 'SwidConfig(inputPackagePath: $inputPackagePath, interfaces: $interfaces, emitOptions: $emitOptions)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _$SwidConfigCtor &&
-            (identical(other.allowList, allowList) ||
+            (identical(other.inputPackagePath, inputPackagePath) ||
                 const DeepCollectionEquality()
-                    .equals(other.allowList, allowList)) &&
-            (identical(other.denyList, denyList) ||
+                    .equals(other.inputPackagePath, inputPackagePath)) &&
+            (identical(other.interfaces, interfaces) ||
                 const DeepCollectionEquality()
-                    .equals(other.denyList, denyList)));
+                    .equals(other.interfaces, interfaces)) &&
+            (identical(other.emitOptions, emitOptions) ||
+                const DeepCollectionEquality()
+                    .equals(other.emitOptions, emitOptions)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(allowList) ^
-      const DeepCollectionEquality().hash(denyList);
+      const DeepCollectionEquality().hash(inputPackagePath) ^
+      const DeepCollectionEquality().hash(interfaces) ^
+      const DeepCollectionEquality().hash(emitOptions);
 
   @override
   _$$SwidConfigCtorCopyWith<_$SwidConfigCtor> get copyWith =>
@@ -193,16 +207,19 @@ class _$_$SwidConfigCtor implements _$SwidConfigCtor {
 
 abstract class _$SwidConfigCtor implements SwidConfig {
   const factory _$SwidConfigCtor(
-      {@required SwidConfigAllowList allowList,
-      @required SwidConfigDenyList denyList}) = _$_$SwidConfigCtor;
+      {@required String inputPackagePath,
+      @required List<String> interfaces,
+      @required SwidConfigEmitOptions emitOptions}) = _$_$SwidConfigCtor;
 
   factory _$SwidConfigCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigCtor.fromJson;
 
   @override
-  SwidConfigAllowList get allowList;
+  String get inputPackagePath;
   @override
-  SwidConfigDenyList get denyList;
+  List<String> get interfaces;
+  @override
+  SwidConfigEmitOptions get emitOptions;
   @override
   _$$SwidConfigCtorCopyWith<_$SwidConfigCtor> get copyWith;
 }
