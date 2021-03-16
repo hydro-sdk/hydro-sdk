@@ -65,7 +65,7 @@ jobs:
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist-tools"
+          artifacts: "hydro/dist-tools"
           token: ${{ secrets.WAVEFORM_BOT_PAT }}
           allowUpdates: true
           replacesArtifacts: false
@@ -126,7 +126,7 @@ jobs:
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist-tools"
+          artifacts: "hydro/dist-tools"
           token: ${{ secrets.WAVEFORM_BOT_PAT }}
           allowUpdates: true
           replacesArtifacts: false
