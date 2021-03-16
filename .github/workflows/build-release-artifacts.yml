@@ -53,6 +53,9 @@ jobs:
       - name: Get packages for Hydro-SDK JS
         run: npm install
         working-directory: hydro
+      - name: Get packages for Hydro-SDK Dart
+        run: flutter pub get
+        working-directory: hydro
       - name: Run Tsc
         run: ./node_modules/.bin/tsc
         working-directory: hydro
@@ -108,6 +111,9 @@ jobs:
           path: "hydro"
       - name: Get packages for Hydro-SDK JS
         run: npm install
+        working-directory: hydro
+      - name: Get packages for Hydro-SDK Dart
+        run: flutter pub get
         working-directory: hydro
       - name: Run Tsc
         shell: bash
