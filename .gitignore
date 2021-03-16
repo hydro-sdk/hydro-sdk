@@ -63,6 +63,7 @@ dist/**/*.ts
 haxe-4.0.5
 !jest.config.js
 samples.json
+dist-tools
 
 #Typedoc 
 !docs/assets/js/main.js

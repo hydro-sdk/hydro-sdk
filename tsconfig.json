@@ -9,10 +9,12 @@
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "module": "CommonJS"
     },
     "include": [
         "examples",
+        "scripts"
     ],
     "exclude": [
         "node_modules"
