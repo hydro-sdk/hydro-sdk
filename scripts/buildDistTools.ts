@@ -9,6 +9,8 @@ import * as path from "path";
         dartEntryPoints.push(file);
     });
 
+    console.log(`Cwd: ${process.cwd()}`);
+
     const outputFolder = "dist-tools";
 
     if (!fs.existsSync(outputFolder)) {
