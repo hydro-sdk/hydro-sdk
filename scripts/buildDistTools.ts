@@ -17,13 +17,15 @@ import * as path from "path";
         fs.mkdirSync(outputFolder);
     }
 
+    const dart2NativeCommand = process.platform != "win32" ? "dart2native" : "dart2native.bat";
+
     for (let dartEntryPoint of dartEntryPoints) {
         const startTime = +new Date();
-        const outputPath = `${outputFolder}${path.sep}${path.parse(dartEntryPoint).name}-${process.platform}-${process.arch}`;
+        const outputPath = `${outputFolder}${path.sep}${path.parse(dartEntryPoint).name}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
 
         console.log(`Building ${dartEntryPoint} -> ${outputPath}`);
 
-        const dart2Native = cp.spawnSync("dart2native", [`bin${path.sep}${dartEntryPoint}`, '-v', '-o',
+        const dart2Native = cp.spawnSync(dart2NativeCommand, [`bin${path.sep}${dartEntryPoint}`, '-v', '-o',
             outputPath
         ]);
 
