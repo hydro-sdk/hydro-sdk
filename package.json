@@ -21,7 +21,8 @@
   ],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+  },
   "dependencies": {
     "@hydro-sdk/waveform": "0.0.1-nightly.22",
     "@types/clear": "^0.1.0",
@@ -46,6 +47,7 @@
     "luamin": "^1.0.4",
     "luaparse": "^0.3.0",
     "minimist": "^1.2.3",
+    "pkg": "^4.4.9",
     "prettier": "^2.2.0",
     "prettier-plugin-import-sort": "0.0.6",
     "rimraf": "^3.0.2",
@@ -55,7 +57,7 @@
     "typedoc": "0.20.32",
     "typedoc-neo-theme": "1.1.0",
     "typescript": "3.8.3",
-    "typescript-to-lua": "0.34.0"
+    "typescript-to-lua": "0.34.0",
   },
   "importSort": {
     ".js, .jsx, .ts, .tsx": {
