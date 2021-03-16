@@ -109,14 +109,17 @@ jobs:
         run: npm install
         working-directory: hydro
       - name: Run Tsc
+        shell: bash
         run: ./node_modules/.bin/tsc
         working-directory: hydro
       - name: Build Dart Dist Tools
+        shell: bash
         run: node scripts/buildDistTools
         working-directory: hydro
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
           artifacts: "dist-tools/*"
+          token: ${{ secrets.WAVEFORM_BOT_PAT }}
           allowUpdates: true
           replacesArtifacts: false
