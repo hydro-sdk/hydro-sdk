@@ -31,7 +31,7 @@ runApp(
                             child: new FittedBox({
                                 fit: BoxFit.cover,
                                 child: Image.network(
-                                    "https://cdn.pixabay.com/photo/2016/06/17/04/26/mountain-1462655_1280.jpg",
+                                    "https://cdn.pixabay.com/photo/2021/02/12/09/36/sunflowers-6007847_1280.jpg",
                                     {}
                                 ),
                             }),
@@ -47,7 +47,7 @@ runApp(
                                             64 * animation.value()
                                         ),
                                         child: Image.network(
-                                            "https://cdn.pixabay.com/photo/2016/06/17/04/26/mountain-1462655_1280.jpg",
+                                            "https://cdn.pixabay.com/photo/2021/02/12/09/36/sunflowers-6007847_1280.jpg",
                                             {}
                                         ),
                                     }),
