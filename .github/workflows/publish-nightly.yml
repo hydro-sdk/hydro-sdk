@@ -50,6 +50,7 @@ jobs:
     - name: Clone Hydro-SDK
       uses: actions/checkout@v2
       with:
+        token: ${{ secrets.WAVEFORM_BOT_PAT }}
         path: 'hydro'
     
     - name: Get packages for Hydro-SDK JS
