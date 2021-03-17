@@ -56,16 +56,14 @@ jobs:
       - name: Get packages for Hydro-SDK Dart
         run: flutter pub get
         working-directory: hydro
-      - name: Run Tsc
-        run: ./node_modules/.bin/tsc
-        working-directory: hydro
-      - name: Build Dart Dist Tools
-        run: node scripts/buildDistTools
+      - name: Build Sdk Tools
+        shell: bash
+        run: bash scripts/buildSdkTools.bash
         working-directory: hydro
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "hydro/dist-tools/*"
+          artifacts: "hydro/.hydroc/sdk-tools/*"
           token: ${{ secrets.WAVEFORM_BOT_PAT }}
           allowUpdates: true
           replacesArtifacts: false
@@ -115,18 +113,14 @@ jobs:
       - name: Get packages for Hydro-SDK Dart
         run: flutter pub get
         working-directory: hydro
-      - name: Run Tsc
+      - name: Build Sdk Tools
         shell: bash
-        run: ./node_modules/.bin/tsc
-        working-directory: hydro
-      - name: Build Dart Dist Tools
-        shell: bash
-        run: node scripts/buildDistTools
+        run: bash scripts/buildSdkTools.bash
         working-directory: hydro
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "hydro/dist-tools/*"
+          artifacts: "hydro/.hydroc/sdk-tools/*"
           token: ${{ secrets.WAVEFORM_BOT_PAT }}
           allowUpdates: true
           replacesArtifacts: false
@@ -176,22 +170,17 @@ jobs:
       - name: Get packages for Hydro-SDK Dart
         run: flutter pub get
         working-directory: hydro
-      - name: Run Tsc
+      - name: Build Sdk Tools
         shell: bash
-        run: ./node_modules/.bin/tsc
-        working-directory: hydro
-      - name: Build Dart Dist Tools
-        shell: bash
-        run: node scripts/buildDistTools
+        run: bash scripts/buildSdkTools.bash
         working-directory: hydro
       - name: Push Artifacts
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "hydro/dist-tools/*"
+          artifacts: "hydro/.hydroc/sdk-tools/*"
           token: ${{ secrets.WAVEFORM_BOT_PAT }}
           allowUpdates: true
           replacesArtifacts: false
-
 
   trigger-dependents:
     needs: [linux-x64-build, darwin-x64-build, win32-x64-build]

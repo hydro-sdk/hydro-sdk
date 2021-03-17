@@ -9,12 +9,10 @@ import * as path from "path";
         dartEntryPoints.push(file);
     });
 
-    console.log(`Cwd: ${process.cwd()}`);
-
-    const outputFolder = "dist-tools";
+    const outputFolder = `.hydroc${path.sep}sdk-tools`;
 
     if (!fs.existsSync(outputFolder)) {
-        fs.mkdirSync(outputFolder);
+        fs.mkdirSync(outputFolder, { recursive: true });
     }
 
     const dart2NativeCommand = process.platform != "win32" ? "dart2native" : "dart2native.bat";
