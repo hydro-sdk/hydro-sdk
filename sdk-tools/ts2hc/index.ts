@@ -1,40 +1,30 @@
 import * as fs from "fs";
-import * as minimist from "minimist";
-import * as rimraf from "rimraf";
+import { Command, Option } from "commander";
 
 import { buildTs } from "./src/buildTs";
 
-const clear = require("clear");
-const handler = require("serve-handler");
 
-const argv = minimist(process.argv.slice(2));
+const program = new Command();
 
-const entry: string = argv.t;
-const modName: string = argv.m;
-const outDir: string = argv.d;
-const profile: string = argv.p;
+program.addOption(
+    new Option("--cache-dir <path>",
+        "The directory to write cache files to"
+    )
+).addOption(new Option("--entry-point <entry>", "The file to use as the compilation's entry point").makeOptionMandatory())
+    .addOption(new Option("--module-name <name>", "The name to use for the output module").makeOptionMandatory())
+    .addOption(new Option("--out-dir <dir>", "The path to the directory to write the output chunk to").makeOptionMandatory())
+    .addOption(new Option("--profile <profile>", "The profile to use for compilation").makeOptionMandatory());
 
-const clean = argv.clean;
+program.parse();
 
-if (clean) {
-    rimraf.sync(".hydroc/ts2hc");
-    process.exit(0);
-}
+const cacheDir: string = program.opts().cacheDir;
+const entry: string = program.opts().entry;
+const modName: string = program.opts().moduleName;
+const outDir: string = program.opts().outDir;
+const profile: string = program.opts().profile;
 
-const watch: string = argv.w;
-
-if (!entry) {
-    console.log("Entry file must be specified with -t switch");
-    process.exit(1);
-} else {
-    if (!fs.statSync(entry)) {
-        console.log("Entry file does not exist");
-        process.exit(1);
-    }
-}
-
-if (!profile) {
-    console.log("Build profile must be specified with -p switch");
+if (!fs.statSync(entry)) {
+    console.log("Entry file does not exist");
     process.exit(1);
 }
 
@@ -45,28 +35,9 @@ if (profile !== "debug" && profile !== "release") {
     process.exit(1);
 }
 
-let classPath: Array<string> = [];
 
-if (argv["class-path"] !== undefined) {
-    if (typeof argv["class-path"] === "string") {
-        classPath.push(argv["class-path"]);
-    } else {
-        classPath = argv["class-path"];
-    }
-}
-
-if (!modName) {
-    console.log("Output module name must be specified with -m switch");
-    process.exit(1);
-}
-
-if (!outDir) {
-    console.log("Output directory must be specified with -d switch");
-    process.exit(1);
-}
-
-if (!fs.existsSync(".hydroc/ts2hc")) {
-    fs.mkdirSync(".hydroc/ts2hc");
+if (!fs.existsSync(cacheDir)) {
+    fs.mkdirSync(cacheDir);
 }
 
 (async () => {
@@ -74,7 +45,7 @@ if (!fs.existsSync(".hydroc/ts2hc")) {
         entry: entry,
         modName: modName,
         outDir: outDir,
-        cacheDir: ".hydroc",
+        cacheDir: cacheDir,
         profile: profile,
     });
 })();
