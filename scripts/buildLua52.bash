@@ -1,1 +1,1 @@
-(cd sdk-tools/luac52/src ; make macosx)
+(cd sdk-tools/lua52/src ; make $1)
