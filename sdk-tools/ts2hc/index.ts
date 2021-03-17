@@ -1,8 +1,4 @@
 import * as fs from "fs";
-import * as http from "http";
-import * as path from "path";
-
-import * as chokidar from "chokidar";
 import * as minimist from "minimist";
 import * as rimraf from "rimraf";
 
@@ -13,10 +9,10 @@ const handler = require("serve-handler");
 
 const argv = minimist(process.argv.slice(2));
 
-const entry = argv.t;
-const modName = argv.m;
-const outDir = argv.d;
-const profile = argv.p;
+const entry: string = argv.t;
+const modName: string = argv.m;
+const outDir: string = argv.d;
+const profile: string = argv.p;
 
 const clean = argv.clean;
 
@@ -78,6 +74,7 @@ if (!fs.existsSync(".hydroc/ts2hc")) {
         entry: entry,
         modName: modName,
         outDir: outDir,
+        cacheDir: ".hydroc",
         profile: profile,
     });
 })();

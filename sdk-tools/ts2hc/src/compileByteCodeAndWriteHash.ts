@@ -3,8 +3,7 @@ import * as crypto from "crypto";
 import * as fs from "fs";
 
 import { BuildOptions } from "./buildOptions";
-import { maybeReturnExecutableExtension } from "./maybeReturnExecutableExtension";
-import { reconcileResourcePath } from "./reconcileResourcePath";
+import { makeSdkToolPath } from "./makeSdkToolsPath";
 
 export function compileByteCodeAndWriteHash(
     outFile: string,
@@ -13,9 +12,7 @@ export function compileByteCodeAndWriteHash(
     config: BuildOptions
 ) {
     cp.execSync(
-        `${reconcileResourcePath(
-            `res/${process.platform}/luac52${maybeReturnExecutableExtension()}`
-        )} ${config.profile == "release" ? "-s" : ""} -o ${outFile} ${tempFile}`
+        `${makeSdkToolPath({ toolName: "luac52", config: config })} ${config.profile == "release" ? "-s" : ""} -o ${outFile} ${tempFile}`
     );
 
     const hash = crypto.createHash("sha256");
