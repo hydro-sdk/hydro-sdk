@@ -21,6 +21,11 @@ import * as path from "path";
         const startTime = +new Date();
         const outputPath = `${outputFolder}${path.sep}${path.parse(dartEntryPoint).name}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
 
+        if (fs.existsSync(outputPath)) {
+            console.log(`Skipped building ${outputPath}`);
+            continue;
+        }
+
         console.log(`Building ${dartEntryPoint} -> ${outputPath}`);
 
         const dart2Native = cp.spawnSync(dart2NativeCommand, [`bin${path.sep}${dartEntryPoint}`, '-v', '-o',

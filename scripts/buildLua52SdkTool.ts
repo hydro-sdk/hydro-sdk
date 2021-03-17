@@ -12,6 +12,12 @@ import * as path from "path";
 
     const outputPath = `${outputFolder}${path.sep}${"luac52"}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
     const startTime = +new Date();
+
+    if (fs.existsSync(outputPath)) {
+        console.log(`Skipped building ${outputPath}`);
+        process.exit(0);
+    }
+
     console.log(`Building luac52 -> ${outputPath}`);
 
     const bash = cp.spawnSync("bash", ["scripts/buildLua52.bash",

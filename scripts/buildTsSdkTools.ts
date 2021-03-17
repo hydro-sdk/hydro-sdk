@@ -1,4 +1,5 @@
 import * as path from "path";
+import * as fs from "fs";
 import { compile } from "nexe";
 
 const outputFolder = `.hydroc${path.sep}sdk-tools`;
@@ -9,6 +10,11 @@ function makeOutputPath({ fileName }: { fileName: string; }) {
 (async () => {
 
     const outputPath = makeOutputPath({ fileName: "ts2hc" });
+
+    if (fs.existsSync(outputPath)) {
+        console.log(`Skipped building ${outputPath}`);
+        process.exit(0);
+    }
 
     await compile({
         input: "sdk-tools/ts2hc/index.js",
