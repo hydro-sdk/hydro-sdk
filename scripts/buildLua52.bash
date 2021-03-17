@@ -1,0 +1,1 @@
+(cd sdk-tools/luac52/src ; make macosx)
