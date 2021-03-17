@@ -11,7 +11,7 @@ function makeOutputPath({ fileName }: { fileName: string; }) {
     const outputPath = makeOutputPath({ fileName: "ts2hc" });
 
     await compile({
-        input: "compiler/index.js",
+        input: "sdk-tools/ts2hc/index.js",
         output: outputPath,
         resources: [
             "node_modules/source-map/lib/mappings.wasm",
