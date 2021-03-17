@@ -21,7 +21,7 @@ const profile = argv.p;
 const clean = argv.clean;
 
 if (clean) {
-    rimraf.sync(".hydroc");
+    rimraf.sync(".hydroc/ts2hc");
     process.exit(0);
 }
 
@@ -69,8 +69,8 @@ if (!outDir) {
     process.exit(1);
 }
 
-if (!fs.existsSync(".hydroc")) {
-    fs.mkdirSync(".hydroc");
+if (!fs.existsSync(".hydroc/ts2hc")) {
+    fs.mkdirSync(".hydroc/ts2hc");
 }
 
 (async () => {

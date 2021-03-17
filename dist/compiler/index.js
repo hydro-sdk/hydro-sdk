@@ -53,7 +53,7 @@ var outDir = argv.d;
 var profile = argv.p;
 var clean = argv.clean;
 if (clean) {
-    rimraf.sync(".hydroc");
+    rimraf.sync(".hydroc/ts2hc/");
     process.exit(0);
 }
 var watch = argv.w;
@@ -114,8 +114,8 @@ if (!outDir) {
     console.log("Output directory must be specified with -d switch");
     process.exit(1);
 }
-if (!fs.existsSync(".hydroc")) {
-    fs.mkdirSync(".hydroc");
+if (!fs.existsSync(".hydroc/ts2hc/")) {
+    fs.mkdirSync(".hydroc/ts2hc/");
 }
 if (watch !== undefined) {
     var server = http.createServer(function (request, response) {

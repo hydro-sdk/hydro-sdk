@@ -6,9 +6,9 @@ export function setupArtifactDirectories(
     buildHash: string,
     config: BuildOptions
 ) {
-    const tempDir = `.hydroc/${buildHash}`;
-    const oldBundleInfo = `.hydroc/${buildHash}/build.json`;
-    const tempFile = `.hydroc/${buildHash}/${config.modName}`;
+    const tempDir = `.hydroc/ts2hc/${buildHash}`;
+    const oldBundleInfo = `.hydroc/ts2hc/${buildHash}/build.json`;
+    const tempFile = `.hydroc/ts2hc/${buildHash}/${config.modName}`;
     const outFile = `${config.outDir}/${config.modName}.hc`;
     const outFileHash = `${config.outDir}/${config.modName}.hc.sha256`;
     const outFileSymbols = `${config.outDir}/${config.modName}.hc.symbols`;

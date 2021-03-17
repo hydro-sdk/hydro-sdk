@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 function setupArtifactDirectories(buildHash, config) {
-    var tempDir = ".hydroc/" + buildHash;
-    var oldBundleInfo = ".hydroc/" + buildHash + "/build.json";
-    var tempFile = ".hydroc/" + buildHash + "/" + config.modName;
+    var tempDir = ".hydroc/ts2hc//" + buildHash;
+    var oldBundleInfo = ".hydroc/ts2hc//" + buildHash + "/build.json";
+    var tempFile = ".hydroc/ts2hc//" + buildHash + "/" + config.modName;
     var outFile = config.outDir + "/" + config.modName + ".hc";
     var outFileHash = config.outDir + "/" + config.modName + ".hc.sha256";
     var outFileSymbols = config.outDir + "/" + config.modName + ".hc.symbols";

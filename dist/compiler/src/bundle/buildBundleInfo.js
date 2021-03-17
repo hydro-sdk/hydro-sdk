@@ -81,7 +81,7 @@ function buildBundleInfo(buildOptions, updateBuildProgress, oldBundleInfo) {
                             luaTarget: tstl.LuaTarget.Lua52,
                             luaLibImport: tstl.LuaLibImportKind.Require,
                             sourceMapTraceback: false,
-                            outDir: ".hydroc",
+                            outDir: ".hydroc/ts2hc/",
                             include: ["node_modules/hydro-sdk/runtime"],
                         },
                     });
