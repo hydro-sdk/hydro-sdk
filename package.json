@@ -17,7 +17,8 @@
   },
   "files": [
     "dist",
-    "runtime"
+    "runtime",
+    "hydroc.js"
   ],
   "bin": {
     "hydroc": "./hydroc.js"
