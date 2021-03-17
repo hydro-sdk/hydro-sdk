@@ -16,7 +16,6 @@
     "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
   },
   "files": [
-    "dist",
     "runtime",
     "hydroc.js"
   ],
