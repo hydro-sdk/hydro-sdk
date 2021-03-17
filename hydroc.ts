@@ -15,10 +15,7 @@ class Hydroc {
     public readonly sdkToolsDir: string;
     public readonly sdkToolsVersion: string;
 
-    public readonly sdkTools = ["hc2Dart",
-    "ts2hc",
-    "luac52",
-    "swid"];
+    public readonly sdkTools = ["hc2Dart", "ts2hc", "luac52", "swid"];
 
     public constructor({
         cacheDir,
