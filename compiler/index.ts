@@ -6,7 +6,6 @@ import * as chokidar from "chokidar";
 import * as minimist from "minimist";
 import * as rimraf from "rimraf";
 
-import { InputLanguage } from "./src/buildOptions";
 import { buildTs } from "./src/buildTs";
 
 const clear = require("clear");
@@ -50,40 +49,13 @@ if (profile !== "debug" && profile !== "release") {
     process.exit(1);
 }
 
-let inputLanguage: InputLanguage | undefined;
-
-let extName = path.extname(entry);
-
-switch (extName) {
-    case ".ts":
-        inputLanguage = InputLanguage.typescript;
-        break;
-    case ".hx":
-        inputLanguage = InputLanguage.haxe;
-        break;
-}
-
 let classPath: Array<string> = [];
-let mainClass: string | undefined;
 
 if (argv["class-path"] !== undefined) {
     if (typeof argv["class-path"] === "string") {
         classPath.push(argv["class-path"]);
     } else {
         classPath = argv["class-path"];
-    }
-}
-
-if (inputLanguage == InputLanguage.haxe) {
-    if (argv["main-class"] !== undefined) {
-        mainClass = argv["main-class"];
-    } else if (
-        argv["main-class"] === undefined ||
-        argv["main-class"] === "" ||
-        mainClass === undefined ||
-        mainClass === ""
-    ) {
-        console.log("A main class must be provided. Use --main-class");
     }
 }
 
@@ -101,52 +73,11 @@ if (!fs.existsSync(".hydroc")) {
     fs.mkdirSync(".hydroc");
 }
 
-if (watch !== undefined) {
-    const server = http.createServer((request, response) => {
-        return handler(request, response, { public: outDir });
+(async () => {
+    await buildTs({
+        entry: entry,
+        modName: modName,
+        outDir: outDir,
+        profile: profile,
     });
-
-    server.listen(5000, () => {});
-    const printServerInfo = () => {
-        console.log(`Watching for changes in ${watch}`);
-        console.log(`Serving ${outDir} on port 5000`);
-    };
-    (async () => {
-        if (inputLanguage == InputLanguage.typescript) {
-            clear();
-            printServerInfo();
-            await buildTs({
-                inputLanguage: inputLanguage,
-                entry: entry,
-                modName: modName,
-                outDir: outDir,
-                profile: profile,
-            });
-        }
-    })();
-    chokidar.watch(watch).on("change", async () => {
-        if (inputLanguage == InputLanguage.typescript) {
-            clear();
-            printServerInfo();
-            await buildTs({
-                inputLanguage: inputLanguage,
-                entry: entry,
-                modName: modName,
-                outDir: outDir,
-                profile: profile,
-            });
-        }
-    });
-} else {
-    (async () => {
-        if (inputLanguage == InputLanguage.typescript) {
-            await buildTs({
-                inputLanguage: inputLanguage,
-                entry: entry,
-                modName: modName,
-                outDir: outDir,
-                profile: profile,
-            });
-        }
-    })();
-}
+})();

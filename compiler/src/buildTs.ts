@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as chalk from "chalk";
 import * as ts from "typescript";
 
-import { BuildOptions, InputLanguage } from "./buildOptions";
+import { BuildOptions } from "./buildOptions";
 import { buildBundleInfo } from "./bundle/buildBundleInfo";
 import { bundle } from "./bundle/bundle";
 import { BundleInfo } from "./bundle/bundleInfo";
@@ -13,7 +13,7 @@ import { ProgressBar } from "./progressBar";
 import { setupArtifactDirectories } from "./setupArtifactDirectories";
 
 export async function buildTs(
-    config: BuildOptions & { inputLanguage: InputLanguage.typescript }
+    config: BuildOptions 
 ): Promise<void> {
     const startTime = new Date().getTime();
 
