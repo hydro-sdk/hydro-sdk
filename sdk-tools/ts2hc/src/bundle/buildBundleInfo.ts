@@ -39,7 +39,7 @@ export async function buildBundleInfo(
             luaTarget: tstl.LuaTarget.Lua52,
             luaLibImport: tstl.LuaLibImportKind.Require,
             sourceMapTraceback: false,
-            outDir: ".hydroc/ts2hc/",
+            outDir: `${buildOptions.cacheDir}${path.sep}ts2hc${path.sep}`,
             include: ["node_modules/hydro-sdk/runtime"],
         },
     });

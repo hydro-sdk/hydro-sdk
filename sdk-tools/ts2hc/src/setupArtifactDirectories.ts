@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import * as path from "path";
 
 import { BuildOptions } from "./buildOptions";
 
@@ -6,9 +7,9 @@ export function setupArtifactDirectories(
     buildHash: string,
     config: BuildOptions
 ) {
-    const tempDir = `.hydroc/ts2hc/${buildHash}`;
-    const oldBundleInfo = `.hydroc/ts2hc/${buildHash}/build.json`;
-    const tempFile = `.hydroc/ts2hc/${buildHash}/${config.modName}`;
+    const tempDir = `${config.cacheDir}${path.sep}ts2hc${path.sep}${buildHash}`;
+    const oldBundleInfo = `${config.cacheDir}${path.sep}ts2hc${path.sep}${buildHash}/build.json`;
+    const tempFile = `${config.cacheDir}${path.sep}ts2hc${path.sep}${buildHash}/${config.modName}`;
     const outFile = `${config.outDir}/${config.modName}.hc`;
     const outFileHash = `${config.outDir}/${config.modName}.hc.sha256`;
     const outFileSymbols = `${config.outDir}/${config.modName}.hc.symbols`;
