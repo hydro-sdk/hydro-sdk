@@ -184,7 +184,7 @@ export async function buildBundleInfo(
                 buildSourceFileShortPath(sourceFileToTranspile)
             );
             setTimeout(() => {
-                resolve();
+                resolve(undefined);
             }, 200);
         });
 
