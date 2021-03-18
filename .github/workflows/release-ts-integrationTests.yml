@@ -84,6 +84,7 @@ jobs:
         key: ${{ runner.os }}-nexe
     
     - name: Build Sdk Tools
+      uses: ilammy/setup-nasm@v1
       shell: bash
       run: bash scripts/buildSdkTools.bash
       working-directory: hydro
