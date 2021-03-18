@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import { strict } from "assert";
+import * as cp from "child_process";
 import * as fs from "fs";
 import * as path from "path";
-import * as cp from "child_process";
 
 import Axios from "axios";
 import { Command, Option } from "commander";
@@ -38,8 +38,9 @@ class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
-            }`;
+        return `${toolName}-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
     }
 
     public findMissingSdkTools(): Readonly<Array<string>> {
@@ -48,7 +49,8 @@ class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !fs.existsSync(
-                    `${this.sdkToolsDir}${path.sep
+                    `${this.sdkToolsDir}${
+                        path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -68,10 +70,11 @@ class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve, reject) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
-                        }/${this.makeSdkToolPlatformName({
-                            toolName: missingSdkTool,
-                        })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
+                        this.sdkToolsVersion
+                    }/${this.makeSdkToolPlatformName({
+                        toolName: missingSdkTool,
+                    })}`;
 
                     const { data, headers } = await Axios({
                         url,
@@ -94,7 +97,8 @@ class Hydroc {
                     );
 
                     const writer = fs.createWriteStream(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${
+                            path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -125,18 +129,27 @@ class Hydroc {
         profile: string;
         logger: "stdout" | "parent" | "none";
     }) {
-        return cp.spawn(`${this.sdkToolsDir}${path.sep
-            }${this.makeSdkToolPlatformName({ toolName: "ts2hc" })}`, [
-            "--cache-dir",
-            this.cacheDir,
-            "--entry-point", entryPoint,
-            "--module-name", moduleName,
-            "--out-dir", outDir,
-            "--profile", profile,
-            "--logger", logger,
-        ], {
-            stdio: "inherit",
-        }
+        return cp.spawn(
+            `${this.sdkToolsDir}${path.sep}${this.makeSdkToolPlatformName({
+                toolName: "ts2hc",
+            })}`,
+            [
+                "--cache-dir",
+                this.cacheDir,
+                "--entry-point",
+                entryPoint,
+                "--module-name",
+                moduleName,
+                "--out-dir",
+                outDir,
+                "--profile",
+                profile,
+                "--logger",
+                logger,
+            ],
+            {
+                stdio: "inherit",
+            }
         );
     }
 }
@@ -147,8 +160,8 @@ async function readSdkPackage({
     directory: string;
 }): Promise<
     | Readonly<{
-        version: string;
-    }>
+          version: string;
+      }>
     | undefined
 > {
     try {
@@ -191,8 +204,11 @@ async function readSdkPackage({
             await hydroc.downloadMissingSdkTools();
         });
 
-    program.command("ts2hc")
-        .description("Compile the Typescript file given by --entry-point and all of its dependencies into a bytecode chunk, written to --out-dir")
+    program
+        .command("ts2hc")
+        .description(
+            "Compile the Typescript file given by --entry-point and all of its dependencies into a bytecode chunk, written to --out-dir"
+        )
         .addOption(
             new Option(
                 "--entry-point <entry>",
@@ -233,7 +249,9 @@ async function readSdkPackage({
                     logger: "stdout",
                 });
 
-                ts2hc.on("exit", (exitCode) => exitCode == 0 ? resolve(undefined) : reject(exitCode));
+                ts2hc.on("exit", (exitCode) =>
+                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                );
             }).catch((err) => process.exit(err));
         });
     program.parse(process.argv);
