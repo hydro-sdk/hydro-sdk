@@ -1,4 +1,6 @@
 import * as lparse from "luaparse";
+import { LogEventType } from "../logEvent";
+import { LogMgr } from "../logMgr";
 
 import { extractFullyQualifiedFunctionName } from "./extractFullyQualifiedFunctionName";
 import { extractFunctionDeclarationArguments } from "./extractFunctionDeclarationArguments";
@@ -8,6 +10,7 @@ export function findModuleDebugInfo(props: {
     originalFileName: string;
     filename: string;
     fileContent: string;
+    logMgr: LogMgr,
     log?: boolean;
 }): Array<ModuleDebugInfo> {
     let res = new Array<ModuleDebugInfo>();
@@ -107,11 +110,18 @@ function findModuleDebugInfoInner(props: {
     fileContent: string;
     last: lparse.Statement | ExplorableNode;
     cont: Array<ModuleDebugInfo>;
+    logMgr: LogMgr,
     log?: boolean;
 }) {
     if (props.last.type == "FunctionDeclaration") {
         if (props.log) {
-            console.log(`FunctionDeclaration ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message:
+                        `FunctionDeclaration ${props.last.loc?.start?.line}`
+                }
+            });
         }
         extract({
             ...props,
@@ -126,7 +136,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "ReturnStatement") {
         if (props.log) {
-            console.log(`ReturnStatement ${props.last?.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `ReturnStatement ${props.last?.loc?.start?.line}`
+                }
+            });
         }
         props.last.arguments.forEach((k) => {
             if (maybeNarrowNodeType(k)) {
@@ -139,7 +154,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "CallStatement") {
         if (props.log) {
-            console.log(`CallStatement ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `CallStatement ${props.last.loc?.start?.line}`
+                }
+            });
         }
         if (maybeNarrowNodeType(props.last.expression)) {
             findModuleDebugInfoInner({
@@ -150,7 +170,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "AssignmentStatement") {
         if (props.log) {
-            console.log(`AssignmentStatement ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `AssignmentStatement ${props.last.loc?.start?.line}`
+                }
+            });
         }
         extract({
             ...props,
@@ -167,7 +192,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "CallExpression") {
         if (props.log) {
-            console.log(`CallExpression ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `CallExpression ${props.last.loc?.start?.line}`
+                }
+            });
         }
         props.last.arguments.forEach((k) => {
             if (maybeNarrowNodeType(k)) {
@@ -187,9 +217,13 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "TableConstructorExpression") {
         if (props.log) {
-            console.log(
-                `TableConstructorExpression ${props.last.loc?.start?.line}`
-            );
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message:
+                        `TableConstructorExpression ${props.last.loc?.start?.line}`
+                }
+            });
         }
         props.last.fields.forEach((k) => {
             if (maybeNarrowNodeType(k)) {
@@ -237,7 +271,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "ForGenericStatement") {
         if (props.log) {
-            console.log(`ForGenericStatement ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `ForGenericStatement ${props.last.loc?.start?.line}`
+                }
+            });
         }
         props.last.iterators.forEach((k) => {
             if (maybeNarrowNodeType(k)) {
@@ -258,7 +297,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "UnaryExpression") {
         if (props.log) {
-            console.log(`UnaryExpression ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `UnaryExpression ${props.last.loc?.start?.line}`
+                }
+            });
         }
         if (props.last.operator == "not") {
             if (maybeNarrowNodeType(props.last.argument)) {
@@ -271,7 +315,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "LogicalExpression") {
         if (props.log) {
-            console.log(`LogicalExpression ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `LogicalExpression ${props.last.loc?.start?.line}`
+                }
+            });
         }
         if (props.last.operator == "and") {
             if (maybeNarrowNodeType(props.last.left)) {
@@ -304,7 +353,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "TableKeyString") {
         if (props.log) {
-            console.log(`TableKeyString ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `TableKeyString ${props.last.loc?.start?.line}`
+                }
+            });
         }
         if (maybeNarrowNodeType(props.last.value)) {
             findModuleDebugInfoInner({
@@ -315,7 +369,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "TableValue") {
         if (props.log) {
-            console.log(`TableValue ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `TableValue ${props.last.loc?.start?.line}`
+                }
+            });
         }
         if (maybeNarrowNodeType(props.last.value)) {
             findModuleDebugInfoInner({
@@ -326,7 +385,12 @@ function findModuleDebugInfoInner(props: {
     }
     if (props.last.type == "MemberExpression") {
         if (props.log) {
-            console.log(`MemberExpression ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `MemberExpression ${props.last.loc?.start?.line}`
+                }
+            });
         }
         if (maybeNarrowNodeType(props.last.base)) {
             findModuleDebugInfoInner({
@@ -338,7 +402,12 @@ function findModuleDebugInfoInner(props: {
 
     if (props.last.type == "IfClause") {
         if (props.log) {
-            console.log(`IfClause ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `IfClause ${props.last.loc?.start?.line}`
+                }
+            });
         }
 
         if (maybeNarrowNodeType(props.last.condition)) {
@@ -360,7 +429,12 @@ function findModuleDebugInfoInner(props: {
 
     if (props.last.type == "ElseifClause") {
         if (props.log) {
-            console.log(`ElseifClause ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `ElseifClause ${props.last.loc?.start?.line}`
+                }
+            });
         }
 
         if (maybeNarrowNodeType(props.last.condition)) {
@@ -382,7 +456,12 @@ function findModuleDebugInfoInner(props: {
 
     if (props.last.type == "ElseClause") {
         if (props.log) {
-            console.log(`ElseClause ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `ElseClause ${props.last.loc?.start?.line}`
+                }
+            });
         }
 
         props.last.body.forEach((k) => {
@@ -397,7 +476,12 @@ function findModuleDebugInfoInner(props: {
 
     if (props.last.type == "BinaryExpression") {
         if (props.log) {
-            console.log(`BinaryExpression ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `BinaryExpression ${props.last.loc?.start?.line}`
+                }
+            });
         }
 
         if (maybeNarrowNodeType(props.last.left)) {
@@ -417,7 +501,12 @@ function findModuleDebugInfoInner(props: {
 
     if (props.last.type == "DoStatement") {
         if (props.log) {
-            console.log(`DoStatement ${props.last.loc?.start?.line}`);
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `DoStatement ${props.last.loc?.start?.line}`
+                }
+            });
         }
 
         props.last.body.forEach((k) => {
@@ -433,12 +522,13 @@ function findModuleDebugInfoInner(props: {
 
 function extract(props: {
     exp:
-        | lparse.FunctionDeclaration
-        | lparse.MemberExpression
-        | lparse.AssignmentStatement;
+    | lparse.FunctionDeclaration
+    | lparse.MemberExpression
+    | lparse.AssignmentStatement;
     originalFileName: string;
     filename: string;
     fileContent: string;
+    logMgr: LogMgr,
     cont: Array<ModuleDebugInfo>;
 }): void {
     if (props.exp.type == "AssignmentStatement") {

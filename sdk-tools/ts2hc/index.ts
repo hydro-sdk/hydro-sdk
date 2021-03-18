@@ -3,6 +3,8 @@ import * as fs from "fs";
 import { Command, Option } from "commander";
 
 import { buildTs } from "./src/buildTs";
+import { LogMgr } from "./src/logMgr";
+import { LoggingBehaviour } from "./src/loggingBehaviour";
 
 const program = new Command();
 
@@ -52,6 +54,10 @@ const outDir: string = program.opts().outDir;
 const profile: string = program.opts().profile;
 const loggingBehaviour: string = program.opts().logger;
 
+const logMgr = new LogMgr({
+    loggingBehaviour: loggingBehaviour == "stdout" ? LoggingBehaviour.stdout : loggingBehaviour == "parent" ? LoggingBehaviour.parent : LoggingBehaviour.none
+});
+
 if (!fs.statSync(entry)) {
     console.log("Entry file does not exist");
     process.exit(1);
@@ -70,10 +76,13 @@ if (!fs.existsSync(cacheDir)) {
 
 (async () => {
     await buildTs({
-        entry: entry,
-        modName: modName,
-        outDir: outDir,
-        cacheDir: cacheDir,
-        profile: profile,
+        config: {
+            entry: entry,
+            modName: modName,
+            outDir: outDir,
+            cacheDir: cacheDir,
+            profile: profile,
+        },
+        logMgr: logMgr,
     });
 })();

@@ -9,14 +9,21 @@ import { bundle } from "./bundle/bundle";
 import { BundleInfo } from "./bundle/bundleInfo";
 import { compileByteCodeAndWriteHash } from "./compileByteCodeAndWriteHash";
 import { configHash } from "./configHash";
-import { ProgressBar } from "./progressBar";
 import { setupArtifactDirectories } from "./setupArtifactDirectories";
+import { LogMgr } from "./logMgr";
+import { LogEventType } from "./logEvent";
 
-export async function buildTs(config: BuildOptions): Promise<void> {
+export async function buildTs({ config, logMgr }: { config: BuildOptions; logMgr: LogMgr; }): Promise<void> {
     const startTime = new Date().getTime();
 
     const buildHash = configHash(config);
-    console.log(`Build ${chalk.yellow(buildHash)}`);
+
+    logMgr.log({
+        event: {
+            logEventType: LogEventType.diagnostic,
+            message: `Build ${chalk.yellow(buildHash)}`,
+        }
+    });
 
     const {
         outFileHash,
@@ -32,17 +39,36 @@ export async function buildTs(config: BuildOptions): Promise<void> {
         oldBuild = JSON.parse(fs.readFileSync(oldBundleInfo).toString());
     }
 
-    const compileProgressBar = new ProgressBar("Compiling");
+    logMgr.log({
+        event: {
+            logEventType: LogEventType.progressStart,
+            progessId: buildHash,
+        }
+    });
 
     const bundleInfo = await buildBundleInfo(
         config,
+        logMgr,
         (currentStep, totalSteps, suffixMessage) => {
-            compileProgressBar.update(currentStep, totalSteps, suffixMessage);
+            logMgr.log({
+                event: {
+                    logEventType: LogEventType.progressTick,
+                    progessId: buildHash,
+                    currentStep: currentStep,
+                    totalSteps: totalSteps,
+                    suffixMessage: suffixMessage,
+                }
+            });
         },
         oldBuild
     );
 
-    compileProgressBar.stop();
+    logMgr.log({
+        event: {
+            logEventType: LogEventType.progressStop,
+            progessId: buildHash,
+        }
+    });
 
     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
         bundleInfo.diagnostics.forEach((x) => {
@@ -60,14 +86,25 @@ export async function buildTs(config: BuildOptions): Promise<void> {
                 const characterMsg = chalk.yellow(character + 1);
                 const diagMsg = chalk.red(message);
 
-                console.log(
-                    `${fileNameMsg}:${lineMsg}:${characterMsg} - ${diagMsg}`
-                );
+                logMgr.log({
+                    event: {
+                        logEventType: LogEventType.error,
+                        message:
+                            `${fileNameMsg}:${lineMsg}:${characterMsg} - ${diagMsg}`
+                    }
+                });
             } else {
                 const diagMsg = chalk.red(
                     ts.flattenDiagnosticMessageText(x.messageText, "\n")
                 );
-                console.log(diagMsg);
+
+                logMgr.log({
+                    event: {
+                        logEventType: LogEventType.error,
+                        message:
+                            diagMsg
+                    }
+                });
             }
         });
 
@@ -86,13 +123,4 @@ export async function buildTs(config: BuildOptions): Promise<void> {
     compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
 
     const endTime = new Date().getTime();
-    console.log(`Finished build in ${endTime - startTime}ms`);
-
-    console.log(`${chalk.blue(config.entry)} ----> ${chalk.yellow(outFile)}`);
-    console.log(
-        `${chalk.blue(config.entry)} ----> ${chalk.yellow(outFileHash)}`
-    );
-    console.log(
-        `${chalk.blue(config.entry)} ----> ${chalk.yellow(outFileSymbols)}`
-    );
 }
