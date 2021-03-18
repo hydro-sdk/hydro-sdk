@@ -6,12 +6,14 @@ import {
     ProgressStopLogEvent,
     ProgressTickLogEvent,
 } from "./logEvent";
-import { ProgressBar } from "./progressBar";
 import { LoggingBehaviour } from "./loggingBehaviour";
+import { ProgressBar } from "./progressBar";
 
 export class LogMgr {
     public readonly loggingBehaviour: LoggingBehaviour;
-    private readonly progressBars: { [i: string]: ProgressBar | undefined } = {};
+    private readonly progressBars: {
+        [i: string]: ProgressBar | undefined;
+    } = {};
 
     public constructor({
         loggingBehaviour,
@@ -45,11 +47,12 @@ export class LogMgr {
         event,
         loggingBehaviour,
     }: {
-        event: | DiagnosticLogEvent
-        | ErrorLogEvent
-        | ProgressStartLogEvent
-        | ProgressStopLogEvent
-        | ProgressTickLogEvent;
+        event:
+            | DiagnosticLogEvent
+            | ErrorLogEvent
+            | ProgressStartLogEvent
+            | ProgressStopLogEvent
+            | ProgressTickLogEvent;
         loggingBehaviour: LoggingBehaviour.parent;
     }): Promise<void> {
         console.log(JSON.stringify(event));
@@ -73,7 +76,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => { })(loggingBehaviour);
+                ((_: never): void => {})(loggingBehaviour);
         }
     }
 
@@ -95,7 +98,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => { })(loggingBehaviour);
+                ((_: never): void => {})(loggingBehaviour);
         }
     }
 
@@ -110,7 +113,7 @@ export class LogMgr {
             case LoggingBehaviour.stdout:
                 const progressBar = this.progressBars[event.progessId];
 
-                if (progressBar === undefined) {
+                if (progressBar !== undefined) {
                     this.progressBars[event.progessId] = new ProgressBar("");
                 }
                 return;
@@ -121,7 +124,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => { })(loggingBehaviour);
+                ((_: never): void => {})(loggingBehaviour);
         }
     }
 
@@ -136,7 +139,7 @@ export class LogMgr {
             case LoggingBehaviour.stdout:
                 const progressBar = this.progressBars[event.progessId];
 
-                if (progressBar === undefined) {
+                if (progressBar !== undefined) {
                     progressBar.stop();
                 }
                 return;
@@ -147,7 +150,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => { })(loggingBehaviour);
+                ((_: never): void => {})(loggingBehaviour);
         }
     }
 
@@ -162,8 +165,12 @@ export class LogMgr {
             case LoggingBehaviour.stdout:
                 const progressBar = this.progressBars[event.progessId];
 
-                if (progressBar === undefined) {
-                    progressBar.update(event.currentStep, event.totalSteps, event.suffixMessage);
+                if (progressBar !== undefined) {
+                    progressBar.update(
+                        event.currentStep,
+                        event.totalSteps,
+                        event.suffixMessage
+                    );
                 }
                 return;
             case LoggingBehaviour.parent:
@@ -173,7 +180,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => { })(loggingBehaviour);
+                ((_: never): void => {})(loggingBehaviour);
         }
     }
 
@@ -181,11 +188,11 @@ export class LogMgr {
         event,
     }: {
         event:
-        | DiagnosticLogEvent
-        | ErrorLogEvent
-        | ProgressStartLogEvent
-        | ProgressStopLogEvent
-        | ProgressTickLogEvent;
+            | DiagnosticLogEvent
+            | ErrorLogEvent
+            | ProgressStartLogEvent
+            | ProgressStopLogEvent
+            | ProgressTickLogEvent;
     }): Promise<void> {
         switch (event.logEventType) {
             case LogEventType.diagnostic:
@@ -202,17 +209,26 @@ export class LogMgr {
                 });
                 return;
             case LogEventType.progressStart:
-                await this.narrowProgressStartLoggingBehavior({ event, loggingBehaviour: this.loggingBehaviour });
+                await this.narrowProgressStartLoggingBehavior({
+                    event,
+                    loggingBehaviour: this.loggingBehaviour,
+                });
                 return;
             case LogEventType.progressStop:
-                await this.narrowProgressStopLoggingBehavior({ event, loggingBehaviour: this.loggingBehaviour });
+                await this.narrowProgressStopLoggingBehavior({
+                    event,
+                    loggingBehaviour: this.loggingBehaviour,
+                });
                 return;
             case LogEventType.progressTick:
-                await this.narrowProgressTickLoggingBehavior({ event, loggingBehaviour: this.loggingBehaviour });
+                await this.narrowProgressTickLoggingBehavior({
+                    event,
+                    loggingBehaviour: this.loggingBehaviour,
+                });
                 return;
 
             default:
-                ((_: never): void => { })(event);
+                ((_: never): void => {})(event);
         }
     }
 }
