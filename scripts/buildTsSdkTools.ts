@@ -1,7 +1,7 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as os from "os";
 import * as cp from "child_process";
+import * as fs from "fs";
+import * as os from "os";
+import * as path from "path";
 
 import { compile } from "nexe";
 
@@ -10,8 +10,9 @@ const version = JSON.parse(fs.readFileSync("package.json").toString()).version;
 const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 
 function makeOutputPath({ fileName }: { fileName: string }) {
-    return `${outputFolder}${path.sep}${path.parse(fileName).name}-${process.platform
-        }-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
+    return `${outputFolder}${path.sep}${path.parse(fileName).name}-${
+        process.platform
+    }-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
 }
 (async () => {
     const outputPath = makeOutputPath({ fileName: "ts2hc" });

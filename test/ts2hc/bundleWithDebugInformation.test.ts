@@ -1,7 +1,7 @@
-import { LoggingBehaviour } from "../../sdk-tools/ts2hc/src/loggingBehaviour";
-import { LogMgr } from "../../sdk-tools/ts2hc/src/logMgr";
 import { buildBundleInfo } from "../../sdk-tools/ts2hc/src/bundle/buildBundleInfo";
 import { bundle } from "../../sdk-tools/ts2hc/src/bundle/bundle";
+import { LoggingBehaviour } from "../../sdk-tools/ts2hc/src/loggingBehaviour";
+import { LogMgr } from "../../sdk-tools/ts2hc/src/logMgr";
 
 test("", async () => {
     const bundleInfo = await buildBundleInfo(
@@ -11,10 +11,9 @@ test("", async () => {
             outDir: "tmp",
             profile: "debug",
             cacheDir: "tmp",
-
         },
         new LogMgr({ loggingBehaviour: LoggingBehaviour.stdout }),
-        (currentStep, totalSteps, suffixMessage) => { }
+        (currentStep, totalSteps, suffixMessage) => {}
     );
 
     const entries = Object.values(bundleInfo.entries);
@@ -32,7 +31,10 @@ test("", async () => {
     ).toBeTruthy();
     expect(entries.find((x) => x.moduleName == "lualib_bundle")).toBeTruthy();
 
-    const bundleResult = bundle(bundleInfo, new LogMgr({ loggingBehaviour: LoggingBehaviour.stdout }),);
+    const bundleResult = bundle(
+        bundleInfo,
+        new LogMgr({ loggingBehaviour: LoggingBehaviour.stdout })
+    );
 
     expect(bundleResult.debugSymbols.length).toBe(144);
     expect(bundleResult.debugSymbols[0].lineStart).toBe(20);

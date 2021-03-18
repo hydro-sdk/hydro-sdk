@@ -5,12 +5,12 @@ import {
     LuaTarget,
     transpileString,
 } from "typescript-to-lua";
-import { LoggingBehaviour } from "../../sdk-tools/ts2hc/src/loggingBehaviour";
-import { LogMgr } from "../../sdk-tools/ts2hc/src/logMgr";
 
 import { addOriginalMappings } from "./../../sdk-tools/ts2hc/src/ast/addOriginalMappings";
 import { findModuleDebugInfo } from "./../../sdk-tools/ts2hc/src/ast/findModuleDebugInfo";
 import { mangleSymbols } from "./../../sdk-tools/ts2hc/src/ast/mangleSymbols";
+import { LoggingBehaviour } from "../../sdk-tools/ts2hc/src/loggingBehaviour";
+import { LogMgr } from "../../sdk-tools/ts2hc/src/logMgr";
 
 test("", async () => {
     const inFilename = "./runtime/dart/core/type.ts";
