@@ -2,7 +2,9 @@ import * as path from "path";
 import * as fs from "fs";
 import { compile } from "nexe";
 
-const outputFolder = `.hydroc${path.sep}sdk-tools`;
+const version = JSON.parse(fs.readFileSync("package.json").toString()).version;
+
+const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 
 function makeOutputPath({ fileName }: { fileName: string; }) {
     return `${outputFolder}${path.sep}${path.parse(fileName).name}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;

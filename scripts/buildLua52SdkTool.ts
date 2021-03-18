@@ -3,8 +3,9 @@ import * as cp from "child_process";
 import * as path from "path";
 
 (async () => {
+    const version = JSON.parse(fs.readFileSync("package.json").toString()).version;
 
-    const outputFolder = `.hydroc${path.sep}sdk-tools`;
+    const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 
     if (!fs.existsSync(outputFolder)) {
         fs.mkdirSync(outputFolder, { recursive: true });
