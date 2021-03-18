@@ -24,8 +24,13 @@ function makeOutputPath({ fileName }: { fileName: string }) {
     await compile({
         input: "sdk-tools/ts2hc/index.js",
         output: outputPath,
-        build: true,
-        make: ["-j", os.cpus().length.toString()],
+        targets: [
+            {
+                "platform": process.platform,
+                arch: process.arch,
+                version: "14.15.3"
+            }
+        ],
         resources: [
             "node_modules/typescript/lib/lib.es5.d.ts",
             "node_modules/typescript/lib/lib.es2015.d.ts",
