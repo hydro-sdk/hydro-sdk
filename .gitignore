@@ -63,7 +63,13 @@ dist/**/*.ts
 haxe-4.0.5
 !jest.config.js
 samples.json
-dist-tools
+sdk-tools/lua52/src/*.o
+sdk-tools/lua52/src/*.a
+sdk-tools/lua52/src/lua
+sdk-tools/lua52/src/lua.exe
+sdk-tools/lua52/src/lua.dll
+sdk-tools/lua52/src/luac
+sdk-tools/lua52/src/luac.exe
 
 #Typedoc 
 !docs/assets/js/main.js
