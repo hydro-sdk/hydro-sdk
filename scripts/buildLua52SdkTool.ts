@@ -1,9 +1,10 @@
-import * as fs from "fs";
 import * as cp from "child_process";
+import * as fs from "fs";
 import * as path from "path";
 
 (async () => {
-    const version = JSON.parse(fs.readFileSync("package.json").toString()).version;
+    const version = JSON.parse(fs.readFileSync("package.json").toString())
+        .version;
 
     const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 
@@ -11,7 +12,9 @@ import * as path from "path";
         fs.mkdirSync(outputFolder, { recursive: true });
     }
 
-    const outputPath = `${outputFolder}${path.sep}${"luac52"}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
+    const outputPath = `${outputFolder}${path.sep}${"luac52"}-${
+        process.platform
+    }-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
     const startTime = +new Date();
 
     if (fs.existsSync(outputPath)) {
@@ -21,8 +24,15 @@ import * as path from "path";
 
     console.log(`Building luac52 -> ${outputPath}`);
 
-    const bash = cp.spawnSync("bash", ["scripts/buildLua52.bash",
-        process.platform == "darwin" ? "macosx" : process.platform == "win32" ? "cygwin" : process.platform == "linux" ? "linux" : ""
+    const bash = cp.spawnSync("bash", [
+        "scripts/buildLua52.bash",
+        process.platform == "darwin"
+            ? "macosx"
+            : process.platform == "win32"
+            ? "cygwin"
+            : process.platform == "linux"
+            ? "linux"
+            : "",
     ]);
 
     console.log(bash?.stdout?.toString());
@@ -32,7 +42,10 @@ import * as path from "path";
         throw bash?.error;
     }
 
-    fs.copyFileSync(`sdk-tools/lua52/src/luac${process.platform == "win32" ? ".exe" : ""}`, outputPath);
+    fs.copyFileSync(
+        `sdk-tools/lua52/src/luac${process.platform == "win32" ? ".exe" : ""}`,
+        outputPath
+    );
 
     console.log(`Finished in ${+new Date() - startTime}`);
 })();

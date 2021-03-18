@@ -1,5 +1,5 @@
-import * as fs from "fs";
 import * as cp from "child_process";
+import * as fs from "fs";
 import * as path from "path";
 
 (async () => {
@@ -9,7 +9,8 @@ import * as path from "path";
         dartEntryPoints.push(file);
     });
 
-    const version = JSON.parse(fs.readFileSync("package.json").toString()).version;
+    const version = JSON.parse(fs.readFileSync("package.json").toString())
+        .version;
 
     const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 
@@ -17,11 +18,16 @@ import * as path from "path";
         fs.mkdirSync(outputFolder, { recursive: true });
     }
 
-    const dart2NativeCommand = process.platform != "win32" ? "dart2native" : "dart2native.bat";
+    const dart2NativeCommand =
+        process.platform != "win32" ? "dart2native" : "dart2native.bat";
 
     for (let dartEntryPoint of dartEntryPoints) {
         const startTime = +new Date();
-        const outputPath = `${outputFolder}${path.sep}${path.parse(dartEntryPoint).name}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
+        const outputPath = `${outputFolder}${path.sep}${
+            path.parse(dartEntryPoint).name
+        }-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
 
         if (fs.existsSync(outputPath)) {
             console.log(`Skipped building ${outputPath}`);
@@ -30,8 +36,11 @@ import * as path from "path";
 
         console.log(`Building ${dartEntryPoint} -> ${outputPath}`);
 
-        const dart2Native = cp.spawnSync(dart2NativeCommand, [`bin${path.sep}${dartEntryPoint}`, '-v', '-o',
-            outputPath
+        const dart2Native = cp.spawnSync(dart2NativeCommand, [
+            `bin${path.sep}${dartEntryPoint}`,
+            "-v",
+            "-o",
+            outputPath,
         ]);
 
         console.log(dart2Native?.stdout?.toString());

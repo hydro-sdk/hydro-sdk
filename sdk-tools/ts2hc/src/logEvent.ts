@@ -1,5 +1,10 @@
-
-export enum LogEventType { diagnostic, progressTick, progressStart, progressStop, error, }
+export enum LogEventType {
+    diagnostic,
+    progressTick,
+    progressStart,
+    progressStop,
+    error,
+}
 
 export interface DiagnosticLogEvent {
     readonly logEventType: LogEventType.diagnostic;
@@ -9,7 +14,6 @@ export interface DiagnosticLogEvent {
 export interface ErrorLogEvent {
     readonly logEventType: LogEventType.error;
     readonly message: string;
-
 }
 
 export interface ProgressStartLogEvent {

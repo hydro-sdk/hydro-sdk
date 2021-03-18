@@ -1,22 +1,31 @@
+import {
+    DiagnosticLogEvent,
+    ErrorLogEvent,
+    LogEventType,
+    ProgressStartLogEvent,
+    ProgressStopLogEvent,
+    ProgressTickLogEvent,
+} from "./logEvent";
 import { LoggingBehaviour } from "./loggingBehaviour";
-import { LogEventType, DiagnosticLogEvent, ErrorLogEvent, ProgressStartLogEvent, ProgressStopLogEvent, ProgressTickLogEvent } from "./logEvent";
 
 export class LogMgr {
     public readonly loggingBehaviour: LoggingBehaviour;
 
-    public constructor({ loggingBehaviour }: { loggingBehaviour: LoggingBehaviour; }) {
+    public constructor({
+        loggingBehaviour,
+    }: {
+        loggingBehaviour: LoggingBehaviour;
+    }) {
         this.loggingBehaviour = loggingBehaviour;
     }
 
     private async logDiagnosticToStdout({
         event,
-        loggingBehaviour
+        loggingBehaviour,
     }: {
         event: DiagnosticLogEvent;
         loggingBehaviour: LoggingBehaviour.stdout;
-    }
-
-    ): Promise<void> {
+    }): Promise<void> {
         console.log(event.message);
     }
 
@@ -24,8 +33,7 @@ export class LogMgr {
         event,
         loggingBehaviour,
     }: {
-        event:
-        DiagnosticLogEvent
+        event: DiagnosticLogEvent;
         loggingBehaviour: LoggingBehaviour;
     }): Promise<void> {
         switch (loggingBehaviour) {
@@ -38,19 +46,26 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => { })(loggingBehaviour);
+                ((_: never): void => {})(loggingBehaviour);
         }
     }
 
     public async log({
-        event
+        event,
     }: {
         event:
-        DiagnosticLogEvent | ErrorLogEvent | ProgressStartLogEvent | ProgressStopLogEvent | ProgressTickLogEvent
+            | DiagnosticLogEvent
+            | ErrorLogEvent
+            | ProgressStartLogEvent
+            | ProgressStopLogEvent
+            | ProgressTickLogEvent;
     }): Promise<void> {
         switch (event.logEventType) {
             case LogEventType.diagnostic:
-                await this.narrowDiagnosticLoggingBehavior({ event, loggingBehaviour: this.loggingBehaviour });
+                await this.narrowDiagnosticLoggingBehavior({
+                    event,
+                    loggingBehaviour: this.loggingBehaviour,
+                });
                 return;
 
             case LogEventType.error:
@@ -63,7 +78,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => { })(event);
+                ((_: never): void => {})(event);
         }
     }
 }

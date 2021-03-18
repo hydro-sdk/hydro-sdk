@@ -12,9 +12,7 @@ import { configHash } from "./configHash";
 import { ProgressBar } from "./progressBar";
 import { setupArtifactDirectories } from "./setupArtifactDirectories";
 
-export async function buildTs(
-    config: BuildOptions 
-): Promise<void> {
+export async function buildTs(config: BuildOptions): Promise<void> {
     const startTime = new Date().getTime();
 
     const buildHash = configHash(config);

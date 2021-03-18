@@ -17,11 +17,7 @@ class Hydroc {
 
     public readonly sdkTools = ["hc2Dart", "ts2hc", "luac52", "swid"];
 
-    public constructor({
-        sdkToolsVersion,
-    }: {
-        sdkToolsVersion: string;
-    }) {
+    public constructor({ sdkToolsVersion }: { sdkToolsVersion: string }) {
         strict(sdkToolsVersion !== undefined && sdkToolsVersion !== "");
 
         this.cacheDir = `.hydroc${path.sep}${sdkToolsVersion}`;

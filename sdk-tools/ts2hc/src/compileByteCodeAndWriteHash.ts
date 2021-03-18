@@ -12,7 +12,9 @@ export function compileByteCodeAndWriteHash(
     config: BuildOptions
 ) {
     cp.execSync(
-        `${makeSdkToolPath({ toolName: "luac52", config: config })} ${config.profile == "release" ? "-s" : ""} -o ${outFile} ${tempFile}`
+        `${makeSdkToolPath({ toolName: "luac52", config: config })} ${
+            config.profile == "release" ? "-s" : ""
+        } -o ${outFile} ${tempFile}`
     );
 
     const hash = crypto.createHash("sha256");

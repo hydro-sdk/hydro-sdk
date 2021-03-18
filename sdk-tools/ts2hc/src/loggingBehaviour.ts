@@ -1,1 +1,5 @@
-export enum LoggingBehaviour { stdout, parent, none, }
+export enum LoggingBehaviour {
+    stdout,
+    parent,
+    none,
+}
