@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
+import * as os from "os";
 
 import { compile } from "nexe";
 
@@ -23,6 +24,7 @@ function makeOutputPath({ fileName }: { fileName: string }) {
         input: "sdk-tools/ts2hc/index.js",
         output: outputPath,
         build: true,
+        make: ["-j", os.cpus().length.toString()],
         resources: [
             "node_modules/typescript/lib/lib.es5.d.ts",
             "node_modules/typescript/lib/lib.es2015.d.ts",
