@@ -13,7 +13,8 @@ program.addOption(
 ).addOption(new Option("--entry-point <entry>", "The file to use as the compilation's entry point").makeOptionMandatory())
     .addOption(new Option("--module-name <name>", "The name to use for the output module").makeOptionMandatory())
     .addOption(new Option("--out-dir <dir>", "The path to the directory to write the output chunk to").makeOptionMandatory())
-    .addOption(new Option("--profile <profile>", "The profile to use for compilation").makeOptionMandatory());
+    .addOption(new Option("--profile <profile>", "The profile to use for compilation").makeOptionMandatory())
+    .addOption(new Option("--logger <logger>", "The logging behaviour to use").makeOptionMandatory().choices(["stdout", "parent", "none"]));
 
 program.parse();
 
@@ -22,6 +23,7 @@ const entry: string = program.opts().entry;
 const modName: string = program.opts().moduleName;
 const outDir: string = program.opts().outDir;
 const profile: string = program.opts().profile;
+const loggingBehaviour:string = program.opts().logger;
 
 if (!fs.statSync(entry)) {
     console.log("Entry file does not exist");
