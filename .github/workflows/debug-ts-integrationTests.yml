@@ -61,9 +61,16 @@ jobs:
     - name: Get packages for Hydro-SDK Dart
       run: flutter pub get
       working-directory: hydro
+
+    - name: Build Sdk Tools
+      shell: bash
+      run: bash scripts/buildSdkTools.bash
+      working-directory: hydro
+
     - name: Build Typescript debug fixtures
       run: bash scripts/buildAllTs.bash debug
       working-directory: hydro
+      
     - name: Run Hydro-SDK tests
       shell: bash
       run: export HYDRO_TEST_MODE=ts; flutter test --tags "hot || smoke || unit || widget"
