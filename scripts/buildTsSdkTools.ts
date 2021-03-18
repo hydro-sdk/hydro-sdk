@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as os from "os";
+import * as cp from "child_process";
 
 import { compile } from "nexe";
 
@@ -67,4 +68,9 @@ function makeOutputPath({ fileName }: { fileName: string }) {
             "node_modules/typescript-to-lua/dist/lualib/lualib_bundle.lua",
         ],
     });
+
+    if (process.platform == "darwin") {
+        console.log(`chmod +x ${outputPath}`);
+        cp.spawnSync("chmod", ["+x", outputPath]);
+    }
 })();
