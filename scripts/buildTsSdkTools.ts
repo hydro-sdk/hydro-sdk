@@ -8,9 +8,8 @@ const version = JSON.parse(fs.readFileSync("package.json").toString()).version;
 const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 
 function makeOutputPath({ fileName }: { fileName: string }) {
-    return `${outputFolder}${path.sep}${path.parse(fileName).name}-${
-        process.platform
-    }-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
+    return `${outputFolder}${path.sep}${path.parse(fileName).name}-${process.platform
+        }-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
 }
 (async () => {
     const outputPath = makeOutputPath({ fileName: "ts2hc" });
@@ -23,6 +22,7 @@ function makeOutputPath({ fileName }: { fileName: string }) {
     await compile({
         input: "sdk-tools/ts2hc/index.js",
         output: outputPath,
+        build: true,
         resources: [
             "node_modules/typescript/lib/lib.es5.d.ts",
             "node_modules/typescript/lib/lib.es2015.d.ts",
