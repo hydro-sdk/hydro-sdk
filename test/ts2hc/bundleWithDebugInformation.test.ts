@@ -6,7 +6,7 @@ import { LogMgr } from "../../sdk-tools/ts2hc/src/logMgr";
 test("", async () => {
     const bundleInfo = await buildBundleInfo(
         {
-            entry: "test/compiler/res/bundle-1.ts",
+            entry: "test/ts2hc/res/bundle-1.ts",
             modName: "bundle-1",
             outDir: "tmp",
             profile: "debug",
@@ -21,13 +21,13 @@ test("", async () => {
     expect(entries.length).toBe(4);
 
     expect(
-        entries.find((x) => x.moduleName == "test.compiler.res.bundle-1")
+        entries.find((x) => x.moduleName == "test.ts2hc.res.bundle-1")
     ).toBeTruthy();
     expect(
-        entries.find((x) => x.moduleName == "test.compiler.res.dir.bar")
+        entries.find((x) => x.moduleName == "test.ts2hc.res.dir.bar")
     ).toBeTruthy();
     expect(
-        entries.find((x) => x.moduleName == "test.compiler.res.dir.fooClass")
+        entries.find((x) => x.moduleName == "test.ts2hc.res.dir.fooClass")
     ).toBeTruthy();
     expect(entries.find((x) => x.moduleName == "lualib_bundle")).toBeTruthy();
 
