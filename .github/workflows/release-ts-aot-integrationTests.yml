@@ -78,7 +78,7 @@ jobs:
         key: ${{ runner.os }}-nexe
 
     - name: Cache Windows Nexe Node Builds
-      if: runner.os == "Windows"
+      if: runner.os == 'Windows'
       uses: actions/cache@v2
       with:
         path: C:\Users\runneradmin\.nexe
