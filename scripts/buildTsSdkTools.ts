@@ -10,9 +10,8 @@ const version = JSON.parse(fs.readFileSync("package.json").toString()).version;
 const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 
 function makeOutputPath({ fileName }: { fileName: string }) {
-    return `${outputFolder}${path.sep}${path.parse(fileName).name}-${
-        process.platform
-    }-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
+    return `${outputFolder}${path.sep}${path.parse(fileName).name}-${process.platform
+        }-${process.arch}${process.platform == "win32" ? ".exe" : ""}`;
 }
 (async () => {
     const outputPath = makeOutputPath({ fileName: "ts2hc" });
@@ -73,5 +72,6 @@ function makeOutputPath({ fileName }: { fileName: string }) {
     if (process.platform == "darwin") {
         console.log(`chmod +x ${outputPath}`);
         cp.spawnSync("chmod", ["+x", outputPath]);
+        console.log(cp.spawnSync("file", [outputPath]).stdout.toString());
     }
 })();
