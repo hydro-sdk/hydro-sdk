@@ -62,6 +62,27 @@ jobs:
       run: flutter pub get
       working-directory: hydro
 
+    - name: Cache Linux Nexe Node Builds
+      if: runner.os == "Linux"
+      uses: actions/cache@v2
+      with:
+        path: /home/runner/.nexe
+        key: ${{ runner.os }}-nexe
+
+    - name: Cache Darwin Nexe Node Builds
+      if: runner.os == "macOS"
+      uses: actions/cache@v2
+      with:
+        path: /Users/runner/.nexe
+        key: ${{ runner.os }}-nexe
+
+    - name: Cache Windows Nexe Node Builds
+      if: runner.os == "Windows"
+      uses: actions/cache@v2
+      with:
+        path: C:\Users\runneradmin\.nexe
+        key: ${{ runner.os }}-nexe
+
     - name: Build Sdk Tools
       shell: bash
       run: bash scripts/buildSdkTools.bash
