@@ -113,7 +113,7 @@ export class LogMgr {
             case LoggingBehaviour.stdout:
                 const progressBar = this.progressBars[event.progessId];
 
-                if (progressBar !== undefined) {
+                if (progressBar === undefined) {
                     this.progressBars[event.progessId] = new ProgressBar("");
                 }
                 return;
