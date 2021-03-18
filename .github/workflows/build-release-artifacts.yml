@@ -12,6 +12,7 @@ jobs:
       ARCH: x64
       PLATFORM: linux
     steps:
+      - uses: ilammy/setup-nasm@v1
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
@@ -78,8 +79,7 @@ jobs:
           path: C:\Users\runneradmin\.nexe
           key: ${{ runner.os }}-nexe
 
-      - name: Build Sdk Tools
-        uses: ilammy/setup-nasm@v1
+      - name: Build Sdk Tools 
         shell: bash
         run: bash scripts/buildSdkTools.bash
         working-directory: hydro
@@ -97,6 +97,7 @@ jobs:
       ARCH: x64
       PLATFORM: darwin
     steps:
+      - uses: ilammy/setup-nasm@v1
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
@@ -158,8 +159,7 @@ jobs:
           path: C:\Users\runneradmin\.nexe
           key: ${{ runner.os }}-nexe
 
-      - name: Build Sdk Tools
-        uses: ilammy/setup-nasm@v1
+      - name: Build Sdk Tools 
         shell: bash
         run: bash scripts/buildSdkTools.bash
         working-directory: hydro
@@ -177,6 +177,7 @@ jobs:
       ARCH: x64
       PLATFORM: win32
     steps:
+      - uses: ilammy/setup-nasm@v1
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
@@ -238,8 +239,7 @@ jobs:
           path: C:\Users\runneradmin\.nexe
           key: ${{ runner.os }}-nexe
 
-      - name: Build Sdk Tools
-        uses: ilammy/setup-nasm@v1
+      - name: Build Sdk Tools   
         shell: bash
         run: bash scripts/buildSdkTools.bash
         working-directory: hydro

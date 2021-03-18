@@ -18,6 +18,7 @@ jobs:
       fail-fast: false
 
     steps:
+    - uses: ilammy/setup-nasm@v1
     - name: Install Linux dependencies
       if: startsWith(matrix.os, 'ubuntu')
       run: |
@@ -83,8 +84,7 @@ jobs:
         path: C:\Users\runneradmin\.nexe
         key: ${{ runner.os }}-nexe
 
-    - name: Build Sdk Tools
-      uses: ilammy/setup-nasm@v1
+    - name: Build Sdk Tools   
       shell: bash
       run: bash scripts/buildSdkTools.bash
       working-directory: hydro
