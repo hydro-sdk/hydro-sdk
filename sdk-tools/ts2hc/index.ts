@@ -13,7 +13,7 @@ program
         new Option(
             "--cache-dir <path>",
             "The directory to write cache files to"
-        )
+        ).makeOptionMandatory()
     )
     .addOption(
         new Option(
@@ -48,7 +48,7 @@ program
 program.parse();
 
 const cacheDir: string = program.opts().cacheDir;
-const entry: string = program.opts().entry;
+const entry: string = program.opts().entryPoint;
 const modName: string = program.opts().moduleName;
 const outDir: string = program.opts().outDir;
 const profile: string = program.opts().profile;
