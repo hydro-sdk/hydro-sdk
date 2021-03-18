@@ -7,7 +7,7 @@ import {
     transpileString,
 } from "typescript-to-lua";
 
-import { extractFullyQualifiedFunctionName } from "./../../compiler/src/ast/extractFullyQualifiedFunctionName";
+import { extractFullyQualifiedFunctionName } from "./../../sdk-tools/ts2hc/src/ast/extractFullyQualifiedFunctionName";
 
 test("", () => {
     const res = transpileString(

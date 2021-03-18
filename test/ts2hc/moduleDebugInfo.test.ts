@@ -5,10 +5,12 @@ import {
     LuaTarget,
     transpileString,
 } from "typescript-to-lua";
+import { LoggingBehaviour } from "../../sdk-tools/ts2hc/src/loggingBehaviour";
+import { LogMgr } from "../../sdk-tools/ts2hc/src/logMgr";
 
-import { addOriginalMappings } from "./../../compiler/src/ast/addOriginalMappings";
-import { findModuleDebugInfo } from "./../../compiler/src/ast/findModuleDebugInfo";
-import { mangleSymbols } from "./../../compiler/src/ast/mangleSymbols";
+import { addOriginalMappings } from "./../../sdk-tools/ts2hc/src/ast/addOriginalMappings";
+import { findModuleDebugInfo } from "./../../sdk-tools/ts2hc/src/ast/findModuleDebugInfo";
+import { mangleSymbols } from "./../../sdk-tools/ts2hc/src/ast/mangleSymbols";
 
 test("", async () => {
     const inFilename = "./runtime/dart/core/type.ts";
@@ -22,6 +24,7 @@ test("", async () => {
         originalFileName: inFilename,
         filename: "runtime/dart/core/type.lua",
         fileContent: res.file!.lua!,
+        logMgr: new LogMgr({ loggingBehaviour: LoggingBehaviour.stdout }),
     });
 
     await addOriginalMappings(debugInfo, res.file!);
@@ -59,6 +62,7 @@ test("", async () => {
         originalFileName: inFilename,
         filename: "test/widget/center-1.lua",
         fileContent: res.file!.lua!,
+        logMgr: new LogMgr({ loggingBehaviour: LoggingBehaviour.stdout }),
     });
 
     await addOriginalMappings(debugInfo, res.file!);
@@ -96,6 +100,7 @@ test("", async () => {
         originalFileName: inFilename,
         filename: "examples/counter/index.lua",
         fileContent: res.file!.lua!,
+        logMgr: new LogMgr({ loggingBehaviour: LoggingBehaviour.stdout }),
     });
 
     await addOriginalMappings(debugInfo, res.file!);

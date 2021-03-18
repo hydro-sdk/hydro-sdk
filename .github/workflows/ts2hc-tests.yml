@@ -1,4 +1,4 @@
-name: Compiler Tests
+name: Ts2hc Tests
 
 on: [push, pull_request]
 
@@ -63,12 +63,7 @@ jobs:
       run: flutter pub get
       working-directory: hydro
 
-    - name: Build Sdk Tools
+    - name: Run ts2hc tests
       shell: bash
-      run: bash scripts/buildSdkTools.bash
-      working-directory: hydro
-    
-    - name: Run compiler tests
-      shell: bash
-      run: npm run test:compiler
+      run: npm run test:ts2hc
       working-directory: hydro
