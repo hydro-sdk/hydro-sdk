@@ -59,14 +59,14 @@ jobs:
         working-directory: hydro
 
       - name: Cache Linux Nexe Node Builds
-        if: runner.os == "Linux"
+        if: runner.os == 'Linux'
         uses: actions/cache@v2
         with:
           path: /home/runner/.nexe
           key: ${{ runner.os }}-nexe
 
       - name: Cache Darwin Nexe Node Builds
-        if: runner.os == "macOS"
+        if: runner.os == 'macOS'
         uses: actions/cache@v2
         with:
           path: /Users/runner/.nexe
@@ -139,14 +139,14 @@ jobs:
         working-directory: hydro
 
       - name: Cache Linux Nexe Node Builds
-        if: runner.os == "Linux"
+        if: runner.os == 'Linux'
         uses: actions/cache@v2
         with:
           path: /home/runner/.nexe
           key: ${{ runner.os }}-nexe
 
       - name: Cache Darwin Nexe Node Builds
-        if: runner.os == "macOS"
+        if: runner.os == 'macOS'
         uses: actions/cache@v2
         with:
           path: /Users/runner/.nexe
@@ -219,14 +219,14 @@ jobs:
         working-directory: hydro
 
       - name: Cache Linux Nexe Node Builds
-        if: runner.os == "Linux"
+        if: runner.os == 'Linux'
         uses: actions/cache@v2
         with:
           path: /home/runner/.nexe
           key: ${{ runner.os }}-nexe
 
       - name: Cache Darwin Nexe Node Builds
-        if: runner.os == "macOS"
+        if: runner.os == 'macOS'
         uses: actions/cache@v2
         with:
           path: /Users/runner/.nexe
