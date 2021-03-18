@@ -2,11 +2,12 @@ import { findModuleDebugInfo } from "../ast/findModuleDebugInfo";
 import { hashText } from "../ast/hashText";
 import { mangleSymbols } from "../ast/mangleSymbols";
 import { ModuleDebugInfo } from "../ast/moduleDebugInfo";
+import { LogMgr } from "../logMgr";
 import { BundleInfo } from "./bundleInfo";
 import { bundlePrelude } from "./bundlePrelude";
 import { BundleResult } from "./bundleResult";
 
-export function bundle(bundleInfo: BundleInfo): BundleResult {
+export function bundle(bundleInfo: BundleInfo, logMgr: LogMgr): BundleResult {
     //inspired by https://github.com/LuaDist/squish
     let res: BundleResult = {
         bundle: "",
@@ -55,6 +56,7 @@ export function bundle(bundleInfo: BundleInfo): BundleResult {
             originalFileName: "main_chunk",
             filename: "main_chunk",
             fileContent: res.bundle,
+            logMgr: logMgr,
         });
 
         mainChunkSymbols = mainChunkSymbols

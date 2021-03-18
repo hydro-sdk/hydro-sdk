@@ -117,7 +117,7 @@ export async function buildTs({
 
     fs.writeFileSync(oldBundleInfo, JSON.stringify(bundleInfo, undefined, 0));
 
-    const bundleResult = bundle(bundleInfo);
+    const bundleResult = bundle(bundleInfo, logMgr);
 
     fs.writeFileSync(`${tempDir}/${config.modName}`, bundleResult.bundle);
     const symbolsString = JSON.stringify(bundleResult.debugSymbols);
