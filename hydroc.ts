@@ -18,16 +18,13 @@ class Hydroc {
     public readonly sdkTools = ["hc2Dart", "ts2hc", "luac52", "swid"];
 
     public constructor({
-        cacheDir,
         sdkToolsVersion,
     }: {
-        cacheDir: string;
         sdkToolsVersion: string;
     }) {
-        strict(cacheDir !== undefined && sdkToolsVersion !== "");
         strict(sdkToolsVersion !== undefined && sdkToolsVersion !== "");
 
-        this.cacheDir = cacheDir;
+        this.cacheDir = `.hydroc${path.sep}${sdkToolsVersion}`;
         this.sdkToolsDir = `${this.cacheDir}${path.sep}sdk-tools`;
 
         this.sdkToolsVersion = sdkToolsVersion;
@@ -153,12 +150,6 @@ async function readSdkPackage({
     const program = new Command();
 
     program.version(sdkPackage.version);
-    program.addOption(
-        new Option(
-            "--cache-dir <path>",
-            "The directory to write cache files to"
-        ).default(defaultCacheDir)
-    );
 
     program
         .command("sdk-tools")
@@ -173,7 +164,6 @@ async function readSdkPackage({
         )
         .action(async (options) => {
             const hydroc = new Hydroc({
-                cacheDir: program.opts().cacheDir ?? defaultCacheDir,
                 sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
             });
 
