@@ -29,7 +29,7 @@ import * as path from "path";
         process.platform == "darwin"
             ? "macosx"
             : process.platform == "win32"
-            ? "cygwin"
+            ? "mingw"
             : process.platform == "linux"
             ? "linux"
             : "",
