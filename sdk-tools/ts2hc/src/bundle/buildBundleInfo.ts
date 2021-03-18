@@ -79,10 +79,10 @@ export async function buildBundleInfo(
 
     const sourceFilesToTranspile = oldEntries
         ? sourceFiles.filter(
-            (x) =>
-                hashSourceFile(x) !=
-                (oldEntries[x.fileName]?.originalFileHash ?? "")
-        )
+              (x) =>
+                  hashSourceFile(x) !=
+                  (oldEntries[x.fileName]?.originalFileHash ?? "")
+          )
         : sourceFiles;
 
     let currentStep = Math.abs(
@@ -96,17 +96,17 @@ export async function buildBundleInfo(
     ) =>
         newDiagnostics && newDiagnostics.length
             ? (res.diagnostics = [
-                ...res.diagnostics,
-                ...newDiagnostics.map((x) => x),
-            ])
+                  ...res.diagnostics,
+                  ...newDiagnostics.map((x) => x),
+              ])
             : undefined;
 
     const getFullDiagnostics = () => {
         let diagnostics:
             | Readonly<Array<ts.Diagnostic>>
             | Readonly<
-                Array<ts.DiagnosticWithLocation>
-            > = program.getSemanticDiagnostics();
+                  Array<ts.DiagnosticWithLocation>
+              > = program.getSemanticDiagnostics();
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getDeclarationDiagnostics();
@@ -117,8 +117,8 @@ export async function buildBundleInfo(
         let diagnostics:
             | Readonly<Array<ts.Diagnostic>>
             | Readonly<
-                Array<ts.DiagnosticWithLocation>
-            > = program.getSyntacticDiagnostics(sourceFile);
+                  Array<ts.DiagnosticWithLocation>
+              > = program.getSyntacticDiagnostics(sourceFile);
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getSemanticDiagnostics(sourceFile);
@@ -139,38 +139,33 @@ export async function buildBundleInfo(
             debugInfo.forEach((k) => {
                 if (
                     x.symbolFullyQualifiedMangleName ==
-                    k.symbolFullyQualifiedMangleName &&
+                        k.symbolFullyQualifiedMangleName &&
                     x.originalLineStart != k.originalLineStart &&
                     x.originalColumnStart != k.originalColumnStart
                 ) {
-
                     logMgr.log({
                         event: {
                             logEventType: LogEventType.error,
-                            message:
-                                `${x.symbolName} and ${k.symbolName}`
-                        }
+                            message: `${x.symbolName} and ${k.symbolName}`,
+                        },
                     });
                     logMgr.log({
                         event: {
                             logEventType: LogEventType.error,
-                            message:
-                                `Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart}-${x.lineEnd},${x.columnStart}-${x.columnEnd})`
-                        }
+                            message: `Defined at ${x.originalFileName}:${x.originalLineStart},${x.originalColumnStart} (${x.lineStart}-${x.lineEnd},${x.columnStart}-${x.columnEnd})`,
+                        },
                     });
                     logMgr.log({
                         event: {
                             logEventType: LogEventType.error,
-                            message:
-                                `and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart}-${k.lineEnd},${k.columnStart}-${k.columnEnd})`
-                        }
+                            message: `and ${k.originalFileName}:${k.originalLineStart},${k.originalColumnStart} (${k.lineStart}-${k.lineEnd},${k.columnStart}-${k.columnEnd})`,
+                        },
                     });
                     logMgr.log({
                         event: {
                             logEventType: LogEventType.error,
-                            message:
-                                `both mangled to the following: ${x.symbolFullyQualifiedMangleName}`
-                        }
+                            message: `both mangled to the following: ${x.symbolFullyQualifiedMangleName}`,
+                        },
                     });
                     exit(1);
                 }
@@ -228,7 +223,7 @@ export async function buildBundleInfo(
                 originalFileName: transpiledFile.fileName,
                 filename: transpiledFile.fileName,
                 fileContent: transpiledFile.lua!,
-                logMgr
+                logMgr,
             });
 
             await addOriginalMappings(debugInfo, transpiledFile);
@@ -240,11 +235,12 @@ export async function buildBundleInfo(
             res.entries[transpiledFile.fileName] = {
                 debugSymbols: debugInfo,
                 moduleText: transpiledFile.lua!,
-                moduleName: `${makeRelativePath(transpiledFile.fileName)
-                    .split(path.sep)
-                    .join(".")
-                    .split(".ts")[0]
-                    }`,
+                moduleName: `${
+                    makeRelativePath(transpiledFile.fileName)
+                        .split(path.sep)
+                        .join(".")
+                        .split(".ts")[0]
+                }`,
                 originalFileName: transpiledFile.fileName,
                 originalFileHash: hashSourceFile(
                     sourceFilesToTranspile.find(
@@ -273,7 +269,7 @@ export async function buildBundleInfo(
             originalFileName: "lualib_bundle",
             filename: "lualib_bundle",
             fileContent: lualiBundle,
-            logMgr
+            logMgr,
         });
 
         mangleSymbols(

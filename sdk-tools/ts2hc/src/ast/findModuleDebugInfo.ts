@@ -1,7 +1,7 @@
 import * as lparse from "luaparse";
+
 import { LogEventType } from "../logEvent";
 import { LogMgr } from "../logMgr";
-
 import { extractFullyQualifiedFunctionName } from "./extractFullyQualifiedFunctionName";
 import { extractFunctionDeclarationArguments } from "./extractFunctionDeclarationArguments";
 import { ModuleDebugInfo } from "./moduleDebugInfo";
@@ -10,7 +10,7 @@ export function findModuleDebugInfo(props: {
     originalFileName: string;
     filename: string;
     fileContent: string;
-    logMgr: LogMgr,
+    logMgr: LogMgr;
     log?: boolean;
 }): Array<ModuleDebugInfo> {
     let res = new Array<ModuleDebugInfo>();
@@ -110,7 +110,7 @@ function findModuleDebugInfoInner(props: {
     fileContent: string;
     last: lparse.Statement | ExplorableNode;
     cont: Array<ModuleDebugInfo>;
-    logMgr: LogMgr,
+    logMgr: LogMgr;
     log?: boolean;
 }) {
     if (props.last.type == "FunctionDeclaration") {
@@ -118,9 +118,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message:
-                        `FunctionDeclaration ${props.last.loc?.start?.line}`
-                }
+                    message: `FunctionDeclaration ${props.last.loc?.start?.line}`,
+                },
             });
         }
         extract({
@@ -139,8 +138,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `ReturnStatement ${props.last?.loc?.start?.line}`
-                }
+                    message: `ReturnStatement ${props.last?.loc?.start?.line}`,
+                },
             });
         }
         props.last.arguments.forEach((k) => {
@@ -157,8 +156,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `CallStatement ${props.last.loc?.start?.line}`
-                }
+                    message: `CallStatement ${props.last.loc?.start?.line}`,
+                },
             });
         }
         if (maybeNarrowNodeType(props.last.expression)) {
@@ -173,8 +172,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `AssignmentStatement ${props.last.loc?.start?.line}`
-                }
+                    message: `AssignmentStatement ${props.last.loc?.start?.line}`,
+                },
             });
         }
         extract({
@@ -195,8 +194,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `CallExpression ${props.last.loc?.start?.line}`
-                }
+                    message: `CallExpression ${props.last.loc?.start?.line}`,
+                },
             });
         }
         props.last.arguments.forEach((k) => {
@@ -220,9 +219,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message:
-                        `TableConstructorExpression ${props.last.loc?.start?.line}`
-                }
+                    message: `TableConstructorExpression ${props.last.loc?.start?.line}`,
+                },
             });
         }
         props.last.fields.forEach((k) => {
@@ -274,8 +272,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `ForGenericStatement ${props.last.loc?.start?.line}`
-                }
+                    message: `ForGenericStatement ${props.last.loc?.start?.line}`,
+                },
             });
         }
         props.last.iterators.forEach((k) => {
@@ -300,8 +298,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `UnaryExpression ${props.last.loc?.start?.line}`
-                }
+                    message: `UnaryExpression ${props.last.loc?.start?.line}`,
+                },
             });
         }
         if (props.last.operator == "not") {
@@ -318,8 +316,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `LogicalExpression ${props.last.loc?.start?.line}`
-                }
+                    message: `LogicalExpression ${props.last.loc?.start?.line}`,
+                },
             });
         }
         if (props.last.operator == "and") {
@@ -356,8 +354,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `TableKeyString ${props.last.loc?.start?.line}`
-                }
+                    message: `TableKeyString ${props.last.loc?.start?.line}`,
+                },
             });
         }
         if (maybeNarrowNodeType(props.last.value)) {
@@ -372,8 +370,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `TableValue ${props.last.loc?.start?.line}`
-                }
+                    message: `TableValue ${props.last.loc?.start?.line}`,
+                },
             });
         }
         if (maybeNarrowNodeType(props.last.value)) {
@@ -388,8 +386,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `MemberExpression ${props.last.loc?.start?.line}`
-                }
+                    message: `MemberExpression ${props.last.loc?.start?.line}`,
+                },
             });
         }
         if (maybeNarrowNodeType(props.last.base)) {
@@ -405,8 +403,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `IfClause ${props.last.loc?.start?.line}`
-                }
+                    message: `IfClause ${props.last.loc?.start?.line}`,
+                },
             });
         }
 
@@ -432,8 +430,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `ElseifClause ${props.last.loc?.start?.line}`
-                }
+                    message: `ElseifClause ${props.last.loc?.start?.line}`,
+                },
             });
         }
 
@@ -459,8 +457,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `ElseClause ${props.last.loc?.start?.line}`
-                }
+                    message: `ElseClause ${props.last.loc?.start?.line}`,
+                },
             });
         }
 
@@ -479,8 +477,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `BinaryExpression ${props.last.loc?.start?.line}`
-                }
+                    message: `BinaryExpression ${props.last.loc?.start?.line}`,
+                },
             });
         }
 
@@ -504,8 +502,8 @@ function findModuleDebugInfoInner(props: {
             props.logMgr.log({
                 event: {
                     logEventType: LogEventType.diagnostic,
-                    message: `DoStatement ${props.last.loc?.start?.line}`
-                }
+                    message: `DoStatement ${props.last.loc?.start?.line}`,
+                },
             });
         }
 
@@ -522,13 +520,13 @@ function findModuleDebugInfoInner(props: {
 
 function extract(props: {
     exp:
-    | lparse.FunctionDeclaration
-    | lparse.MemberExpression
-    | lparse.AssignmentStatement;
+        | lparse.FunctionDeclaration
+        | lparse.MemberExpression
+        | lparse.AssignmentStatement;
     originalFileName: string;
     filename: string;
     fileContent: string;
-    logMgr: LogMgr,
+    logMgr: LogMgr;
     cont: Array<ModuleDebugInfo>;
 }): void {
     if (props.exp.type == "AssignmentStatement") {

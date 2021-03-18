@@ -9,11 +9,17 @@ import { bundle } from "./bundle/bundle";
 import { BundleInfo } from "./bundle/bundleInfo";
 import { compileByteCodeAndWriteHash } from "./compileByteCodeAndWriteHash";
 import { configHash } from "./configHash";
-import { setupArtifactDirectories } from "./setupArtifactDirectories";
-import { LogMgr } from "./logMgr";
 import { LogEventType } from "./logEvent";
+import { LogMgr } from "./logMgr";
+import { setupArtifactDirectories } from "./setupArtifactDirectories";
 
-export async function buildTs({ config, logMgr }: { config: BuildOptions; logMgr: LogMgr; }): Promise<void> {
+export async function buildTs({
+    config,
+    logMgr,
+}: {
+    config: BuildOptions;
+    logMgr: LogMgr;
+}): Promise<void> {
     const startTime = new Date().getTime();
 
     const buildHash = configHash(config);
@@ -22,7 +28,7 @@ export async function buildTs({ config, logMgr }: { config: BuildOptions; logMgr
         event: {
             logEventType: LogEventType.diagnostic,
             message: `Build ${chalk.yellow(buildHash)}`,
-        }
+        },
     });
 
     const {
@@ -43,7 +49,7 @@ export async function buildTs({ config, logMgr }: { config: BuildOptions; logMgr
         event: {
             logEventType: LogEventType.progressStart,
             progessId: buildHash,
-        }
+        },
     });
 
     const bundleInfo = await buildBundleInfo(
@@ -57,7 +63,7 @@ export async function buildTs({ config, logMgr }: { config: BuildOptions; logMgr
                     currentStep: currentStep,
                     totalSteps: totalSteps,
                     suffixMessage: suffixMessage,
-                }
+                },
             });
         },
         oldBuild
@@ -67,7 +73,7 @@ export async function buildTs({ config, logMgr }: { config: BuildOptions; logMgr
         event: {
             logEventType: LogEventType.progressStop,
             progessId: buildHash,
-        }
+        },
     });
 
     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
@@ -89,9 +95,8 @@ export async function buildTs({ config, logMgr }: { config: BuildOptions; logMgr
                 logMgr.log({
                     event: {
                         logEventType: LogEventType.error,
-                        message:
-                            `${fileNameMsg}:${lineMsg}:${characterMsg} - ${diagMsg}`
-                    }
+                        message: `${fileNameMsg}:${lineMsg}:${characterMsg} - ${diagMsg}`,
+                    },
                 });
             } else {
                 const diagMsg = chalk.red(
@@ -101,9 +106,8 @@ export async function buildTs({ config, logMgr }: { config: BuildOptions; logMgr
                 logMgr.log({
                     event: {
                         logEventType: LogEventType.error,
-                        message:
-                            diagMsg
-                    }
+                        message: diagMsg,
+                    },
                 });
             }
         });

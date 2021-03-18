@@ -3,8 +3,8 @@ import * as fs from "fs";
 import { Command, Option } from "commander";
 
 import { buildTs } from "./src/buildTs";
-import { LogMgr } from "./src/logMgr";
 import { LoggingBehaviour } from "./src/loggingBehaviour";
+import { LogMgr } from "./src/logMgr";
 
 const program = new Command();
 
@@ -55,7 +55,12 @@ const profile: string = program.opts().profile;
 const loggingBehaviour: string = program.opts().logger;
 
 const logMgr = new LogMgr({
-    loggingBehaviour: loggingBehaviour == "stdout" ? LoggingBehaviour.stdout : loggingBehaviour == "parent" ? LoggingBehaviour.parent : LoggingBehaviour.none
+    loggingBehaviour:
+        loggingBehaviour == "stdout"
+            ? LoggingBehaviour.stdout
+            : loggingBehaviour == "parent"
+            ? LoggingBehaviour.parent
+            : LoggingBehaviour.none,
 });
 
 if (!fs.statSync(entry)) {
