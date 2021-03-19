@@ -31,7 +31,11 @@ class ComponentBuilder {
             path.separator,
             "build",
             path.separator,
-            projectConfigComponent.name
+            profile,
+            path.separator,
+            projectConfigComponent.name,
+            path.separator,
+            "chunks"
           ].join(""),
         );
 
