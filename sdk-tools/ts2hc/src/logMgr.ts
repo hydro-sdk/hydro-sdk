@@ -48,14 +48,20 @@ export class LogMgr {
         loggingBehaviour,
     }: {
         event:
-            | DiagnosticLogEvent
-            | ErrorLogEvent
-            | ProgressStartLogEvent
-            | ProgressStopLogEvent
-            | ProgressTickLogEvent;
+        | DiagnosticLogEvent
+        | ErrorLogEvent
+        | ProgressStartLogEvent
+        | ProgressStopLogEvent
+        | ProgressTickLogEvent;
         loggingBehaviour: LoggingBehaviour.parent;
     }): Promise<void> {
-        console.log(JSON.stringify(event));
+        await new Promise((resolve) => {
+            process.stdout.write(JSON.stringify(event) + "\n", () => resolve(undefined));
+        });
+        await new Promise((resolve) => {
+            process.stdout.clearLine(0, () => resolve(undefined));
+        });
+
     }
 
     private async narrowDiagnosticLoggingBehavior({
@@ -76,7 +82,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => {})(loggingBehaviour);
+                ((_: never): void => { })(loggingBehaviour);
         }
     }
 
@@ -98,7 +104,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => {})(loggingBehaviour);
+                ((_: never): void => { })(loggingBehaviour);
         }
     }
 
@@ -124,7 +130,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => {})(loggingBehaviour);
+                ((_: never): void => { })(loggingBehaviour);
         }
     }
 
@@ -150,7 +156,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => {})(loggingBehaviour);
+                ((_: never): void => { })(loggingBehaviour);
         }
     }
 
@@ -180,7 +186,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => {})(loggingBehaviour);
+                ((_: never): void => { })(loggingBehaviour);
         }
     }
 
@@ -188,11 +194,11 @@ export class LogMgr {
         event,
     }: {
         event:
-            | DiagnosticLogEvent
-            | ErrorLogEvent
-            | ProgressStartLogEvent
-            | ProgressStopLogEvent
-            | ProgressTickLogEvent;
+        | DiagnosticLogEvent
+        | ErrorLogEvent
+        | ProgressStartLogEvent
+        | ProgressStopLogEvent
+        | ProgressTickLogEvent;
     }): Promise<void> {
         switch (event.logEventType) {
             case LogEventType.diagnostic:
@@ -228,7 +234,7 @@ export class LogMgr {
                 return;
 
             default:
-                ((_: never): void => {})(event);
+                ((_: never): void => { })(event);
         }
     }
 }
