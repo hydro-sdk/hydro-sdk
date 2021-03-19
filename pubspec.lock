@@ -396,6 +396,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.0-nullsafety.1"
+  progress_bar:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: cbe3c0b5984eef4d7757e4ca87f62386c9e988e2
+      url: "git://github.com/hydro-sdk/progress_bar"
+    source: git
+    version: "0.2.0"
   pub_semver:
     dependency: transitive
     description:
