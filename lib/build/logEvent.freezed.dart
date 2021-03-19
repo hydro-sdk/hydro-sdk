@@ -41,6 +41,7 @@ mixin _$DiagnosticLogEvent {
   String get message;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $DiagnosticLogEventCopyWith<DiagnosticLogEvent> get copyWith;
 }
 
@@ -148,6 +149,7 @@ class _$_$DiagnosticLogEventCtor implements _$DiagnosticLogEventCtor {
       const DeepCollectionEquality().hash(logEventType) ^
       const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   _$$DiagnosticLogEventCtorCopyWith<_$DiagnosticLogEventCtor> get copyWith =>
       __$$DiagnosticLogEventCtorCopyWithImpl<_$DiagnosticLogEventCtor>(
@@ -172,6 +174,7 @@ abstract class _$DiagnosticLogEventCtor implements DiagnosticLogEvent {
   @override
   String get message;
   @override
+  @JsonKey(ignore: true)
   _$$DiagnosticLogEventCtorCopyWith<_$DiagnosticLogEventCtor> get copyWith;
 }
 
@@ -208,6 +211,7 @@ mixin _$ErrorLogEvent {
   String get message;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $ErrorLogEventCopyWith<ErrorLogEvent> get copyWith;
 }
 
@@ -314,6 +318,7 @@ class _$_$ErrorLogEventCtor implements _$ErrorLogEventCtor {
       const DeepCollectionEquality().hash(logEventType) ^
       const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   _$$ErrorLogEventCtorCopyWith<_$ErrorLogEventCtor> get copyWith =>
       __$$ErrorLogEventCtorCopyWithImpl<_$ErrorLogEventCtor>(this, _$identity);
@@ -337,6 +342,7 @@ abstract class _$ErrorLogEventCtor implements ErrorLogEvent {
   @override
   String get message;
   @override
+  @JsonKey(ignore: true)
   _$$ErrorLogEventCtorCopyWith<_$ErrorLogEventCtor> get copyWith;
 }
 
@@ -374,6 +380,7 @@ mixin _$ProgressStartLogEvent {
   String get progressId;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $ProgressStartLogEventCopyWith<ProgressStartLogEvent> get copyWith;
 }
 
@@ -485,6 +492,7 @@ class _$_$ProgressStartLogEventCtor implements _$ProgressStartLogEventCtor {
       const DeepCollectionEquality().hash(logEventType) ^
       const DeepCollectionEquality().hash(progressId);
 
+  @JsonKey(ignore: true)
   @override
   _$$ProgressStartLogEventCtorCopyWith<_$ProgressStartLogEventCtor>
       get copyWith => __$$ProgressStartLogEventCtorCopyWithImpl<
@@ -509,6 +517,7 @@ abstract class _$ProgressStartLogEventCtor implements ProgressStartLogEvent {
   @override
   String get progressId;
   @override
+  @JsonKey(ignore: true)
   _$$ProgressStartLogEventCtorCopyWith<_$ProgressStartLogEventCtor>
       get copyWith;
 }
@@ -546,6 +555,7 @@ mixin _$ProgressStopLogEvent {
   String get progressId;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $ProgressStopLogEventCopyWith<ProgressStopLogEvent> get copyWith;
 }
 
@@ -656,6 +666,7 @@ class _$_$ProgressStopLogEventCtor implements _$ProgressStopLogEventCtor {
       const DeepCollectionEquality().hash(logEventType) ^
       const DeepCollectionEquality().hash(progressId);
 
+  @JsonKey(ignore: true)
   @override
   _$$ProgressStopLogEventCtorCopyWith<_$ProgressStopLogEventCtor>
       get copyWith =>
@@ -681,6 +692,7 @@ abstract class _$ProgressStopLogEventCtor implements ProgressStopLogEvent {
   @override
   String get progressId;
   @override
+  @JsonKey(ignore: true)
   _$$ProgressStopLogEventCtorCopyWith<_$ProgressStopLogEventCtor> get copyWith;
 }
 
@@ -727,6 +739,7 @@ mixin _$ProgressTickLogEvent {
   String get progressId;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $ProgressTickLogEventCopyWith<ProgressTickLogEvent> get copyWith;
 }
 
@@ -890,6 +903,7 @@ class _$_$ProgressTickLogEventCtor implements _$ProgressTickLogEventCtor {
       const DeepCollectionEquality().hash(suffixMessage) ^
       const DeepCollectionEquality().hash(progressId);
 
+  @JsonKey(ignore: true)
   @override
   _$$ProgressTickLogEventCtorCopyWith<_$ProgressTickLogEventCtor>
       get copyWith =>
@@ -924,5 +938,6 @@ abstract class _$ProgressTickLogEventCtor implements ProgressTickLogEvent {
   @override
   String get progressId;
   @override
+  @JsonKey(ignore: true)
   _$$ProgressTickLogEventCtorCopyWith<_$ProgressTickLogEventCtor> get copyWith;
 }

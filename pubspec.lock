@@ -121,7 +121,7 @@ packages:
     source: hosted
     version: "1.0.4"
   cli_util:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: cli_util
       url: "https://pub.dartlang.org"

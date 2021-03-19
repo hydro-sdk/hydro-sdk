@@ -43,6 +43,7 @@ mixin _$ProjectConfigComponent {
   List<ProjectConfigComponentChunk> get chunks;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $ProjectConfigComponentCopyWith<ProjectConfigComponent> get copyWith;
 }
 
@@ -153,6 +154,7 @@ class _$_$ProjectConfigComponentCtor implements _$ProjectConfigComponentCtor {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(chunks);
 
+  @JsonKey(ignore: true)
   @override
   _$$ProjectConfigComponentCtorCopyWith<_$ProjectConfigComponentCtor>
       get copyWith => __$$ProjectConfigComponentCtorCopyWithImpl<
@@ -178,6 +180,7 @@ abstract class _$ProjectConfigComponentCtor implements ProjectConfigComponent {
   @override
   List<ProjectConfigComponentChunk> get chunks;
   @override
+  @JsonKey(ignore: true)
   _$$ProjectConfigComponentCtorCopyWith<_$ProjectConfigComponentCtor>
       get copyWith;
 }

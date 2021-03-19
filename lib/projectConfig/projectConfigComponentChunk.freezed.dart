@@ -43,6 +43,7 @@ mixin _$ProjectConfigComponentChunk {
   String get entryPoint;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $ProjectConfigComponentChunkCopyWith<ProjectConfigComponentChunk>
       get copyWith;
 }
@@ -160,6 +161,7 @@ class _$_$ProjectConfigComponentChunkCtor
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(entryPoint);
 
+  @JsonKey(ignore: true)
   @override
   _$$ProjectConfigComponentChunkCtorCopyWith<_$ProjectConfigComponentChunkCtor>
       get copyWith => __$$ProjectConfigComponentChunkCtorCopyWithImpl<
@@ -185,6 +187,7 @@ abstract class _$ProjectConfigComponentChunkCtor
   @override
   String get entryPoint;
   @override
+  @JsonKey(ignore: true)
   _$$ProjectConfigComponentChunkCtorCopyWith<_$ProjectConfigComponentChunkCtor>
       get copyWith;
 }

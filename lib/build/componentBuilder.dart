@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/build/chunkBuilder.dart';
+import 'package:hydro_sdk/build/manifestBuilder.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
@@ -44,6 +45,19 @@ class ComponentBuilder {
         if (!res) {
           return false;
         }
+      }
+
+      var manifestBuilder = ManifestBuilder(
+        projectConfigComponent: projectConfigComponent,
+        ts2hc: ts2hc,
+        cacheDir: cacheDir,
+        profile: profile,
+      );
+
+      var res = await manifestBuilder.build();
+
+      if (!res) {
+        return false;
       }
     } catch (err) {
       print(err);

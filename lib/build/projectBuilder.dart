@@ -33,7 +33,6 @@ class ProjectBuilder {
           return false;
         }
       }
-      await Future.delayed(Duration(seconds: 1));
     } catch (err) {
       print(err);
       return false;
