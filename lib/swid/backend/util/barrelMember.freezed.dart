@@ -42,30 +42,30 @@ const $BarrelMember = _$BarrelMemberTearOff();
 /// @nodoc
 mixin _$BarrelMember {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromSwidClass(SwidClass swidClass),
-    @required Result fromSwidEnum(SwidEnum swidEnum),
-    @required Result fromBarrelSpec(BarrelSpec barrelSpec),
+  TResult when<TResult extends Object>({
+    @required TResult fromSwidClass(SwidClass swidClass),
+    @required TResult fromSwidEnum(SwidEnum swidEnum),
+    @required TResult fromBarrelSpec(BarrelSpec barrelSpec),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSwidClass(SwidClass swidClass),
-    Result fromSwidEnum(SwidEnum swidEnum),
-    Result fromBarrelSpec(BarrelSpec barrelSpec),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSwidClass(SwidClass swidClass),
+    TResult fromSwidEnum(SwidEnum swidEnum),
+    TResult fromBarrelSpec(BarrelSpec barrelSpec),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSwidClass(_$FromSwidClass value),
-    @required Result fromSwidEnum(_$FromSwidEnum value),
-    @required Result fromBarrelSpec(_$FromBarrelSpec value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSwidClass(_$FromSwidClass value),
+    @required TResult fromSwidEnum(_$FromSwidEnum value),
+    @required TResult fromBarrelSpec(_$FromBarrelSpec value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSwidClass(_$FromSwidClass value),
-    Result fromSwidEnum(_$FromSwidEnum value),
-    Result fromBarrelSpec(_$FromBarrelSpec value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSwidClass(_$FromSwidClass value),
+    TResult fromSwidEnum(_$FromSwidEnum value),
+    TResult fromBarrelSpec(_$FromBarrelSpec value),
+    @required TResult orElse(),
   });
 }
 
@@ -152,16 +152,17 @@ class _$_$FromSwidClass implements _$FromSwidClass {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidClass);
 
+  @JsonKey(ignore: true)
   @override
   _$$FromSwidClassCopyWith<_$FromSwidClass> get copyWith =>
       __$$FromSwidClassCopyWithImpl<_$FromSwidClass>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromSwidClass(SwidClass swidClass),
-    @required Result fromSwidEnum(SwidEnum swidEnum),
-    @required Result fromBarrelSpec(BarrelSpec barrelSpec),
+  TResult when<TResult extends Object>({
+    @required TResult fromSwidClass(SwidClass swidClass),
+    @required TResult fromSwidEnum(SwidEnum swidEnum),
+    @required TResult fromBarrelSpec(BarrelSpec barrelSpec),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -171,11 +172,11 @@ class _$_$FromSwidClass implements _$FromSwidClass {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSwidClass(SwidClass swidClass),
-    Result fromSwidEnum(SwidEnum swidEnum),
-    Result fromBarrelSpec(BarrelSpec barrelSpec),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSwidClass(SwidClass swidClass),
+    TResult fromSwidEnum(SwidEnum swidEnum),
+    TResult fromBarrelSpec(BarrelSpec barrelSpec),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidClass != null) {
@@ -186,10 +187,10 @@ class _$_$FromSwidClass implements _$FromSwidClass {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSwidClass(_$FromSwidClass value),
-    @required Result fromSwidEnum(_$FromSwidEnum value),
-    @required Result fromBarrelSpec(_$FromBarrelSpec value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSwidClass(_$FromSwidClass value),
+    @required TResult fromSwidEnum(_$FromSwidEnum value),
+    @required TResult fromBarrelSpec(_$FromBarrelSpec value),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -199,11 +200,11 @@ class _$_$FromSwidClass implements _$FromSwidClass {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSwidClass(_$FromSwidClass value),
-    Result fromSwidEnum(_$FromSwidEnum value),
-    Result fromBarrelSpec(_$FromBarrelSpec value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSwidClass(_$FromSwidClass value),
+    TResult fromSwidEnum(_$FromSwidEnum value),
+    TResult fromBarrelSpec(_$FromBarrelSpec value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidClass != null) {
@@ -217,6 +218,7 @@ abstract class _$FromSwidClass implements BarrelMember {
   factory _$FromSwidClass({@required SwidClass swidClass}) = _$_$FromSwidClass;
 
   SwidClass get swidClass;
+  @JsonKey(ignore: true)
   _$$FromSwidClassCopyWith<_$FromSwidClass> get copyWith;
 }
 
@@ -286,16 +288,17 @@ class _$_$FromSwidEnum implements _$FromSwidEnum {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidEnum);
 
+  @JsonKey(ignore: true)
   @override
   _$$FromSwidEnumCopyWith<_$FromSwidEnum> get copyWith =>
       __$$FromSwidEnumCopyWithImpl<_$FromSwidEnum>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromSwidClass(SwidClass swidClass),
-    @required Result fromSwidEnum(SwidEnum swidEnum),
-    @required Result fromBarrelSpec(BarrelSpec barrelSpec),
+  TResult when<TResult extends Object>({
+    @required TResult fromSwidClass(SwidClass swidClass),
+    @required TResult fromSwidEnum(SwidEnum swidEnum),
+    @required TResult fromBarrelSpec(BarrelSpec barrelSpec),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -305,11 +308,11 @@ class _$_$FromSwidEnum implements _$FromSwidEnum {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSwidClass(SwidClass swidClass),
-    Result fromSwidEnum(SwidEnum swidEnum),
-    Result fromBarrelSpec(BarrelSpec barrelSpec),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSwidClass(SwidClass swidClass),
+    TResult fromSwidEnum(SwidEnum swidEnum),
+    TResult fromBarrelSpec(BarrelSpec barrelSpec),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidEnum != null) {
@@ -320,10 +323,10 @@ class _$_$FromSwidEnum implements _$FromSwidEnum {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSwidClass(_$FromSwidClass value),
-    @required Result fromSwidEnum(_$FromSwidEnum value),
-    @required Result fromBarrelSpec(_$FromBarrelSpec value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSwidClass(_$FromSwidClass value),
+    @required TResult fromSwidEnum(_$FromSwidEnum value),
+    @required TResult fromBarrelSpec(_$FromBarrelSpec value),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -333,11 +336,11 @@ class _$_$FromSwidEnum implements _$FromSwidEnum {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSwidClass(_$FromSwidClass value),
-    Result fromSwidEnum(_$FromSwidEnum value),
-    Result fromBarrelSpec(_$FromBarrelSpec value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSwidClass(_$FromSwidClass value),
+    TResult fromSwidEnum(_$FromSwidEnum value),
+    TResult fromBarrelSpec(_$FromBarrelSpec value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidEnum != null) {
@@ -351,6 +354,7 @@ abstract class _$FromSwidEnum implements BarrelMember {
   factory _$FromSwidEnum({@required SwidEnum swidEnum}) = _$_$FromSwidEnum;
 
   SwidEnum get swidEnum;
+  @JsonKey(ignore: true)
   _$$FromSwidEnumCopyWith<_$FromSwidEnum> get copyWith;
 }
 
@@ -421,16 +425,17 @@ class _$_$FromBarrelSpec implements _$FromBarrelSpec {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(barrelSpec);
 
+  @JsonKey(ignore: true)
   @override
   _$$FromBarrelSpecCopyWith<_$FromBarrelSpec> get copyWith =>
       __$$FromBarrelSpecCopyWithImpl<_$FromBarrelSpec>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromSwidClass(SwidClass swidClass),
-    @required Result fromSwidEnum(SwidEnum swidEnum),
-    @required Result fromBarrelSpec(BarrelSpec barrelSpec),
+  TResult when<TResult extends Object>({
+    @required TResult fromSwidClass(SwidClass swidClass),
+    @required TResult fromSwidEnum(SwidEnum swidEnum),
+    @required TResult fromBarrelSpec(BarrelSpec barrelSpec),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -440,11 +445,11 @@ class _$_$FromBarrelSpec implements _$FromBarrelSpec {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSwidClass(SwidClass swidClass),
-    Result fromSwidEnum(SwidEnum swidEnum),
-    Result fromBarrelSpec(BarrelSpec barrelSpec),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSwidClass(SwidClass swidClass),
+    TResult fromSwidEnum(SwidEnum swidEnum),
+    TResult fromBarrelSpec(BarrelSpec barrelSpec),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromBarrelSpec != null) {
@@ -455,10 +460,10 @@ class _$_$FromBarrelSpec implements _$FromBarrelSpec {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSwidClass(_$FromSwidClass value),
-    @required Result fromSwidEnum(_$FromSwidEnum value),
-    @required Result fromBarrelSpec(_$FromBarrelSpec value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSwidClass(_$FromSwidClass value),
+    @required TResult fromSwidEnum(_$FromSwidEnum value),
+    @required TResult fromBarrelSpec(_$FromBarrelSpec value),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -468,11 +473,11 @@ class _$_$FromBarrelSpec implements _$FromBarrelSpec {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSwidClass(_$FromSwidClass value),
-    Result fromSwidEnum(_$FromSwidEnum value),
-    Result fromBarrelSpec(_$FromBarrelSpec value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSwidClass(_$FromSwidClass value),
+    TResult fromSwidEnum(_$FromSwidEnum value),
+    TResult fromBarrelSpec(_$FromBarrelSpec value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromBarrelSpec != null) {
@@ -487,5 +492,6 @@ abstract class _$FromBarrelSpec implements BarrelMember {
       _$_$FromBarrelSpec;
 
   BarrelSpec get barrelSpec;
+  @JsonKey(ignore: true)
   _$$FromBarrelSpecCopyWith<_$FromBarrelSpec> get copyWith;
 }

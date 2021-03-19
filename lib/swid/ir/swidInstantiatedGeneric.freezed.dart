@@ -43,6 +43,7 @@ mixin _$SwidInstantiatedGeneric {
   SwidReferenceDeclarationKind get referenceDeclarationKind;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidInstantiatedGenericCopyWith<SwidInstantiatedGeneric> get copyWith;
 }
 
@@ -181,6 +182,7 @@ class _$_$SwidInstantiatedGenericCtor implements _$SwidInstantiatedGenericCtor {
       const DeepCollectionEquality().hash(instantiableGeneric) ^
       const DeepCollectionEquality().hash(referenceDeclarationKind);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidInstantiatedGenericCtorCopyWith<_$SwidInstantiatedGenericCtor>
       get copyWith => __$$SwidInstantiatedGenericCtorCopyWithImpl<
@@ -207,6 +209,7 @@ abstract class _$SwidInstantiatedGenericCtor
   @override
   SwidReferenceDeclarationKind get referenceDeclarationKind;
   @override
+  @JsonKey(ignore: true)
   _$$SwidInstantiatedGenericCtorCopyWith<_$SwidInstantiatedGenericCtor>
       get copyWith;
 }

@@ -45,6 +45,7 @@ mixin _$SwidConfig {
   SwidConfigEmitOptions get emitOptions;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidConfigCopyWith<SwidConfig> get copyWith;
 }
 
@@ -195,6 +196,7 @@ class _$_$SwidConfigCtor implements _$SwidConfigCtor {
       const DeepCollectionEquality().hash(interfaces) ^
       const DeepCollectionEquality().hash(emitOptions);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidConfigCtorCopyWith<_$SwidConfigCtor> get copyWith =>
       __$$SwidConfigCtorCopyWithImpl<_$SwidConfigCtor>(this, _$identity);
@@ -221,5 +223,6 @@ abstract class _$SwidConfigCtor implements SwidConfig {
   @override
   SwidConfigEmitOptions get emitOptions;
   @override
+  @JsonKey(ignore: true)
   _$$SwidConfigCtorCopyWith<_$SwidConfigCtor> get copyWith;
 }

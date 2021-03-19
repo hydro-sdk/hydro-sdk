@@ -45,6 +45,7 @@ mixin _$TsVmDeclaration {
   List<TsVmDeclaration> get children;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $TsVmDeclarationCopyWith<TsVmDeclaration> get copyWith;
 }
 
@@ -170,6 +171,7 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(methods) ^
       const DeepCollectionEquality().hash(children);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -195,5 +197,6 @@ abstract class _$Data implements TsVmDeclaration {
   @override
   List<TsVmDeclaration> get children;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

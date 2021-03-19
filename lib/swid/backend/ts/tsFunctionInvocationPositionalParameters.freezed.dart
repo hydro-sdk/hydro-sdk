@@ -41,6 +41,7 @@ mixin _$TsFunctionInvocationPositionalParameters {
   List<String> get positionalReferences;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $TsFunctionInvocationPositionalParametersCopyWith<
       TsFunctionInvocationPositionalParameters> get copyWith;
 }
@@ -139,6 +140,7 @@ class _$_$Data implements _$Data {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(positionalReferences);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -157,5 +159,6 @@ abstract class _$Data implements TsFunctionInvocationPositionalParameters {
   @override
   List<String> get positionalReferences;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

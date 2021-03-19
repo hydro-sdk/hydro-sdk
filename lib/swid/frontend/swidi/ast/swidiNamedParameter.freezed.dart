@@ -29,6 +29,7 @@ const $SwidiNamedParameter = _$SwidiNamedParameterTearOff();
 mixin _$SwidiNamedParameter {
   SwidiDeclaration get declaration;
 
+  @JsonKey(ignore: true)
   $SwidiNamedParameterCopyWith<SwidiNamedParameter> get copyWith;
 }
 
@@ -136,6 +137,7 @@ class _$_$SwidiNamedParameterCtor implements _$SwidiNamedParameterCtor {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(declaration);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiNamedParameterCtorCopyWith<_$SwidiNamedParameterCtor> get copyWith =>
       __$$SwidiNamedParameterCtorCopyWithImpl<_$SwidiNamedParameterCtor>(
@@ -149,5 +151,6 @@ abstract class _$SwidiNamedParameterCtor implements SwidiNamedParameter {
   @override
   SwidiDeclaration get declaration;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiNamedParameterCtorCopyWith<_$SwidiNamedParameterCtor> get copyWith;
 }

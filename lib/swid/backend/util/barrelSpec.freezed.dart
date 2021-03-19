@@ -36,6 +36,7 @@ mixin _$BarrelSpec {
   String get name;
   List<BarrelMember> get members;
 
+  @JsonKey(ignore: true)
   $BarrelSpecCopyWith<BarrelSpec> get copyWith;
 }
 
@@ -145,6 +146,7 @@ class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(members);
 
+  @JsonKey(ignore: true)
   @override
   _$$BarrelSpecCtorCopyWith<_$BarrelSpecCtor> get copyWith =>
       __$$BarrelSpecCtorCopyWithImpl<_$BarrelSpecCtor>(this, _$identity);
@@ -163,5 +165,6 @@ abstract class _$BarrelSpecCtor implements BarrelSpec {
   @override
   List<BarrelMember> get members;
   @override
+  @JsonKey(ignore: true)
   _$$BarrelSpecCtorCopyWith<_$BarrelSpecCtor> get copyWith;
 }

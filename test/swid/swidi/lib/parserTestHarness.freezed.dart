@@ -35,26 +35,26 @@ const $ParserTestHarnessInput = _$ParserTestHarnessInputTearOff();
 /// @nodoc
 mixin _$ParserTestHarnessInput {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromString(String input),
-    @required Result fromList(List<String> inputs),
+  TResult when<TResult extends Object>({
+    @required TResult fromString(String input),
+    @required TResult fromList(List<String> inputs),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromString(String input),
-    Result fromList(List<String> inputs),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromString(String input),
+    TResult fromList(List<String> inputs),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromString(_$ParserTestHarnessInputFromString value),
-    @required Result fromList(_$ParserTestHarnessInputFromList value),
+  TResult map<TResult extends Object>({
+    @required TResult fromString(_$ParserTestHarnessInputFromString value),
+    @required TResult fromList(_$ParserTestHarnessInputFromList value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromString(_$ParserTestHarnessInputFromString value),
-    Result fromList(_$ParserTestHarnessInputFromList value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromString(_$ParserTestHarnessInputFromString value),
+    TResult fromList(_$ParserTestHarnessInputFromList value),
+    @required TResult orElse(),
   });
 }
 
@@ -133,6 +133,7 @@ class _$_$ParserTestHarnessInputFromString
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
 
+  @JsonKey(ignore: true)
   @override
   _$$ParserTestHarnessInputFromStringCopyWith<
           _$ParserTestHarnessInputFromString>
@@ -141,9 +142,9 @@ class _$_$ParserTestHarnessInputFromString
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromString(String input),
-    @required Result fromList(List<String> inputs),
+  TResult when<TResult extends Object>({
+    @required TResult fromString(String input),
+    @required TResult fromList(List<String> inputs),
   }) {
     assert(fromString != null);
     assert(fromList != null);
@@ -152,10 +153,10 @@ class _$_$ParserTestHarnessInputFromString
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromString(String input),
-    Result fromList(List<String> inputs),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromString(String input),
+    TResult fromList(List<String> inputs),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromString != null) {
@@ -166,9 +167,9 @@ class _$_$ParserTestHarnessInputFromString
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromString(_$ParserTestHarnessInputFromString value),
-    @required Result fromList(_$ParserTestHarnessInputFromList value),
+  TResult map<TResult extends Object>({
+    @required TResult fromString(_$ParserTestHarnessInputFromString value),
+    @required TResult fromList(_$ParserTestHarnessInputFromList value),
   }) {
     assert(fromString != null);
     assert(fromList != null);
@@ -177,10 +178,10 @@ class _$_$ParserTestHarnessInputFromString
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromString(_$ParserTestHarnessInputFromString value),
-    Result fromList(_$ParserTestHarnessInputFromList value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromString(_$ParserTestHarnessInputFromString value),
+    TResult fromList(_$ParserTestHarnessInputFromList value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromString != null) {
@@ -196,6 +197,7 @@ abstract class _$ParserTestHarnessInputFromString
       _$_$ParserTestHarnessInputFromString;
 
   String get input;
+  @JsonKey(ignore: true)
   _$$ParserTestHarnessInputFromStringCopyWith<
       _$ParserTestHarnessInputFromString> get copyWith;
 }
@@ -258,6 +260,7 @@ class _$_$ParserTestHarnessInputFromList
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(inputs);
 
+  @JsonKey(ignore: true)
   @override
   _$$ParserTestHarnessInputFromListCopyWith<_$ParserTestHarnessInputFromList>
       get copyWith => __$$ParserTestHarnessInputFromListCopyWithImpl<
@@ -265,9 +268,9 @@ class _$_$ParserTestHarnessInputFromList
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromString(String input),
-    @required Result fromList(List<String> inputs),
+  TResult when<TResult extends Object>({
+    @required TResult fromString(String input),
+    @required TResult fromList(List<String> inputs),
   }) {
     assert(fromString != null);
     assert(fromList != null);
@@ -276,10 +279,10 @@ class _$_$ParserTestHarnessInputFromList
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromString(String input),
-    Result fromList(List<String> inputs),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromString(String input),
+    TResult fromList(List<String> inputs),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromList != null) {
@@ -290,9 +293,9 @@ class _$_$ParserTestHarnessInputFromList
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromString(_$ParserTestHarnessInputFromString value),
-    @required Result fromList(_$ParserTestHarnessInputFromList value),
+  TResult map<TResult extends Object>({
+    @required TResult fromString(_$ParserTestHarnessInputFromString value),
+    @required TResult fromList(_$ParserTestHarnessInputFromList value),
   }) {
     assert(fromString != null);
     assert(fromList != null);
@@ -301,10 +304,10 @@ class _$_$ParserTestHarnessInputFromList
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromString(_$ParserTestHarnessInputFromString value),
-    Result fromList(_$ParserTestHarnessInputFromList value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromString(_$ParserTestHarnessInputFromString value),
+    TResult fromList(_$ParserTestHarnessInputFromList value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromList != null) {
@@ -320,6 +323,7 @@ abstract class _$ParserTestHarnessInputFromList
       {@required List<String> inputs}) = _$_$ParserTestHarnessInputFromList;
 
   List<String> get inputs;
+  @JsonKey(ignore: true)
   _$$ParserTestHarnessInputFromListCopyWith<_$ParserTestHarnessInputFromList>
       get copyWith;
 }

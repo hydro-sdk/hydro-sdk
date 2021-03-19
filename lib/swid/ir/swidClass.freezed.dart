@@ -100,6 +100,7 @@ mixin _$SwidClass {
   List<SwidTypeFormal> get typeFormals;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidClassCopyWith<SwidClass> get copyWith;
 }
 
@@ -484,6 +485,7 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(isMixin) ^
       const DeepCollectionEquality().hash(typeFormals);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -564,5 +566,6 @@ abstract class _$Data implements SwidClass {
   @override
   List<SwidTypeFormal> get typeFormals;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

@@ -44,6 +44,7 @@ mixin _$SwidStaticConstPrefixedIdentifier {
   SwidStaticConstFieldReference get staticConstFieldReference;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidStaticConstPrefixedIdentifierCopyWith<SwidStaticConstPrefixedIdentifier>
       get copyWith;
 }
@@ -187,6 +188,7 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(prefix) ^
       const DeepCollectionEquality().hash(staticConstFieldReference);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -210,5 +212,6 @@ abstract class _$Data implements SwidStaticConstPrefixedIdentifier {
   @override
   SwidStaticConstFieldReference get staticConstFieldReference;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

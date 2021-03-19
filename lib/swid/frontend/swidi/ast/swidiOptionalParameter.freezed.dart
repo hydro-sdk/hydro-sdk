@@ -29,6 +29,7 @@ const $SwidiOptionalParameter = _$SwidiOptionalParameterTearOff();
 mixin _$SwidiOptionalParameter {
   SwidiDeclaration get declaration;
 
+  @JsonKey(ignore: true)
   $SwidiOptionalParameterCopyWith<SwidiOptionalParameter> get copyWith;
 }
 
@@ -138,6 +139,7 @@ class _$_$SwidiOptionalParameterCtor implements _$SwidiOptionalParameterCtor {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(declaration);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiOptionalParameterCtorCopyWith<_$SwidiOptionalParameterCtor>
       get copyWith => __$$SwidiOptionalParameterCtorCopyWithImpl<
@@ -152,6 +154,7 @@ abstract class _$SwidiOptionalParameterCtor implements SwidiOptionalParameter {
   @override
   SwidiDeclaration get declaration;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiOptionalParameterCtorCopyWith<_$SwidiOptionalParameterCtor>
       get copyWith;
 }

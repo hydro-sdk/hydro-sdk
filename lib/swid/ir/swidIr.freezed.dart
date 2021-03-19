@@ -51,26 +51,26 @@ const $SwidIr = _$SwidIrTearOff();
 /// @nodoc
 mixin _$SwidIr {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromSwidClass(SwidClass swidClass),
-    @required Result fromSwidEnum(SwidEnum swidEnum),
+  TResult when<TResult extends Object>({
+    @required TResult fromSwidClass(SwidClass swidClass),
+    @required TResult fromSwidEnum(SwidEnum swidEnum),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSwidClass(SwidClass swidClass),
-    Result fromSwidEnum(SwidEnum swidEnum),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSwidClass(SwidClass swidClass),
+    TResult fromSwidEnum(SwidEnum swidEnum),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSwidClass(_$SwidIrFromSwidClass value),
-    @required Result fromSwidEnum(_$SwidIrFromSwidEnum value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSwidClass(_$SwidIrFromSwidClass value),
+    @required TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSwidClass(_$SwidIrFromSwidClass value),
-    Result fromSwidEnum(_$SwidIrFromSwidEnum value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSwidClass(_$SwidIrFromSwidClass value),
+    TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
+    @required TResult orElse(),
   });
   Map<String, dynamic> toJson();
 }
@@ -163,6 +163,7 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidClass);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidIrFromSwidClassCopyWith<_$SwidIrFromSwidClass> get copyWith =>
       __$$SwidIrFromSwidClassCopyWithImpl<_$SwidIrFromSwidClass>(
@@ -170,9 +171,9 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromSwidClass(SwidClass swidClass),
-    @required Result fromSwidEnum(SwidEnum swidEnum),
+  TResult when<TResult extends Object>({
+    @required TResult fromSwidClass(SwidClass swidClass),
+    @required TResult fromSwidEnum(SwidEnum swidEnum),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -181,10 +182,10 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSwidClass(SwidClass swidClass),
-    Result fromSwidEnum(SwidEnum swidEnum),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSwidClass(SwidClass swidClass),
+    TResult fromSwidEnum(SwidEnum swidEnum),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidClass != null) {
@@ -195,9 +196,9 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSwidClass(_$SwidIrFromSwidClass value),
-    @required Result fromSwidEnum(_$SwidIrFromSwidEnum value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSwidClass(_$SwidIrFromSwidClass value),
+    @required TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -206,10 +207,10 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSwidClass(_$SwidIrFromSwidClass value),
-    Result fromSwidEnum(_$SwidIrFromSwidEnum value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSwidClass(_$SwidIrFromSwidClass value),
+    TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidClass != null) {
@@ -233,6 +234,7 @@ abstract class _$SwidIrFromSwidClass implements SwidIr {
       _$_$SwidIrFromSwidClass.fromJson;
 
   SwidClass get swidClass;
+  @JsonKey(ignore: true)
   _$$SwidIrFromSwidClassCopyWith<_$SwidIrFromSwidClass> get copyWith;
 }
 
@@ -308,6 +310,7 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(swidEnum);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidIrFromSwidEnumCopyWith<_$SwidIrFromSwidEnum> get copyWith =>
       __$$SwidIrFromSwidEnumCopyWithImpl<_$SwidIrFromSwidEnum>(
@@ -315,9 +318,9 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromSwidClass(SwidClass swidClass),
-    @required Result fromSwidEnum(SwidEnum swidEnum),
+  TResult when<TResult extends Object>({
+    @required TResult fromSwidClass(SwidClass swidClass),
+    @required TResult fromSwidEnum(SwidEnum swidEnum),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -326,10 +329,10 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSwidClass(SwidClass swidClass),
-    Result fromSwidEnum(SwidEnum swidEnum),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSwidClass(SwidClass swidClass),
+    TResult fromSwidEnum(SwidEnum swidEnum),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidEnum != null) {
@@ -340,9 +343,9 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSwidClass(_$SwidIrFromSwidClass value),
-    @required Result fromSwidEnum(_$SwidIrFromSwidEnum value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSwidClass(_$SwidIrFromSwidClass value),
+    @required TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
   }) {
     assert(fromSwidClass != null);
     assert(fromSwidEnum != null);
@@ -351,10 +354,10 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSwidClass(_$SwidIrFromSwidClass value),
-    Result fromSwidEnum(_$SwidIrFromSwidEnum value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSwidClass(_$SwidIrFromSwidClass value),
+    TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidEnum != null) {
@@ -378,5 +381,6 @@ abstract class _$SwidIrFromSwidEnum implements SwidIr {
       _$_$SwidIrFromSwidEnum.fromJson;
 
   SwidEnum get swidEnum;
+  @JsonKey(ignore: true)
   _$$SwidIrFromSwidEnumCopyWith<_$SwidIrFromSwidEnum> get copyWith;
 }

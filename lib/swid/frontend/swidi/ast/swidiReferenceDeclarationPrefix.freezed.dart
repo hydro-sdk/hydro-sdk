@@ -30,6 +30,7 @@ const $SwidiReferenceDeclarationPrefix =
 mixin _$SwidiReferenceDeclarationPrefix {
   String get name;
 
+  @JsonKey(ignore: true)
   $SwidiReferenceDeclarationPrefixCopyWith<SwidiReferenceDeclarationPrefix>
       get copyWith;
 }
@@ -122,6 +123,7 @@ class _$_$SwidiReferenceDeclarationPrefixCtor
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiReferenceDeclarationPrefixCtorCopyWith<
           _$SwidiReferenceDeclarationPrefixCtor>
@@ -137,6 +139,7 @@ abstract class _$SwidiReferenceDeclarationPrefixCtor
   @override
   String get name;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiReferenceDeclarationPrefixCtorCopyWith<
       _$SwidiReferenceDeclarationPrefixCtor> get copyWith;
 }

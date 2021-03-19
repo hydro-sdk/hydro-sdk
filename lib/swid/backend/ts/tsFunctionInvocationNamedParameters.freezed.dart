@@ -61,36 +61,36 @@ const $TsFunctionInvocationNamedParameters =
 /// @nodoc
 mixin _$TsFunctionInvocationNamedParameters {
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result fromSpread(
+        TResult fromSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
     @required
-        Result fromKeyValue(
+        TResult fromKeyValue(
             TsFunctionInvocationNamedParametersKeyValue
                 tsFunctionInvocationNamedParametersKeyValue),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSpread(
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
-    Result fromKeyValue(
+    TResult fromKeyValue(
         TsFunctionInvocationNamedParametersKeyValue
             tsFunctionInvocationNamedParametersKeyValue),
-    @required Result orElse(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSpread(_$FromSpread value),
-    @required Result fromKeyValue(_$FromKeyValue value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSpread(_$FromSpread value),
+    @required TResult fromKeyValue(_$FromKeyValue value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSpread(_$FromSpread value),
-    Result fromKeyValue(_$FromKeyValue value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSpread(_$FromSpread value),
+    TResult fromKeyValue(_$FromKeyValue value),
+    @required TResult orElse(),
   });
   Map<String, dynamic> toJson();
 }
@@ -200,19 +200,20 @@ class _$_$FromSpread implements _$FromSpread {
       const DeepCollectionEquality()
           .hash(tsFunctionInvocationNamedParametersSpread);
 
+  @JsonKey(ignore: true)
   @override
   _$$FromSpreadCopyWith<_$FromSpread> get copyWith =>
       __$$FromSpreadCopyWithImpl<_$FromSpread>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result fromSpread(
+        TResult fromSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
     @required
-        Result fromKeyValue(
+        TResult fromKeyValue(
             TsFunctionInvocationNamedParametersKeyValue
                 tsFunctionInvocationNamedParametersKeyValue),
   }) {
@@ -223,14 +224,14 @@ class _$_$FromSpread implements _$FromSpread {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSpread(
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
-    Result fromKeyValue(
+    TResult fromKeyValue(
         TsFunctionInvocationNamedParametersKeyValue
             tsFunctionInvocationNamedParametersKeyValue),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSpread != null) {
@@ -241,9 +242,9 @@ class _$_$FromSpread implements _$FromSpread {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSpread(_$FromSpread value),
-    @required Result fromKeyValue(_$FromKeyValue value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSpread(_$FromSpread value),
+    @required TResult fromKeyValue(_$FromKeyValue value),
   }) {
     assert(fromSpread != null);
     assert(fromKeyValue != null);
@@ -252,10 +253,10 @@ class _$_$FromSpread implements _$FromSpread {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSpread(_$FromSpread value),
-    Result fromKeyValue(_$FromKeyValue value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSpread(_$FromSpread value),
+    TResult fromKeyValue(_$FromKeyValue value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSpread != null) {
@@ -281,6 +282,7 @@ abstract class _$FromSpread implements TsFunctionInvocationNamedParameters {
 
   TsFunctionInvocationNamedParametersSpread
       get tsFunctionInvocationNamedParametersSpread;
+  @JsonKey(ignore: true)
   _$$FromSpreadCopyWith<_$FromSpread> get copyWith;
 }
 
@@ -371,19 +373,20 @@ class _$_$FromKeyValue implements _$FromKeyValue {
       const DeepCollectionEquality()
           .hash(tsFunctionInvocationNamedParametersKeyValue);
 
+  @JsonKey(ignore: true)
   @override
   _$$FromKeyValueCopyWith<_$FromKeyValue> get copyWith =>
       __$$FromKeyValueCopyWithImpl<_$FromKeyValue>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result fromSpread(
+        TResult fromSpread(
             TsFunctionInvocationNamedParametersSpread
                 tsFunctionInvocationNamedParametersSpread),
     @required
-        Result fromKeyValue(
+        TResult fromKeyValue(
             TsFunctionInvocationNamedParametersKeyValue
                 tsFunctionInvocationNamedParametersKeyValue),
   }) {
@@ -394,14 +397,14 @@ class _$_$FromKeyValue implements _$FromKeyValue {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromSpread(
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromSpread(
         TsFunctionInvocationNamedParametersSpread
             tsFunctionInvocationNamedParametersSpread),
-    Result fromKeyValue(
+    TResult fromKeyValue(
         TsFunctionInvocationNamedParametersKeyValue
             tsFunctionInvocationNamedParametersKeyValue),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromKeyValue != null) {
@@ -412,9 +415,9 @@ class _$_$FromKeyValue implements _$FromKeyValue {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result fromSpread(_$FromSpread value),
-    @required Result fromKeyValue(_$FromKeyValue value),
+  TResult map<TResult extends Object>({
+    @required TResult fromSpread(_$FromSpread value),
+    @required TResult fromKeyValue(_$FromKeyValue value),
   }) {
     assert(fromSpread != null);
     assert(fromKeyValue != null);
@@ -423,10 +426,10 @@ class _$_$FromKeyValue implements _$FromKeyValue {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromSpread(_$FromSpread value),
-    Result fromKeyValue(_$FromKeyValue value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult fromSpread(_$FromSpread value),
+    TResult fromKeyValue(_$FromKeyValue value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromKeyValue != null) {
@@ -452,5 +455,6 @@ abstract class _$FromKeyValue implements TsFunctionInvocationNamedParameters {
 
   TsFunctionInvocationNamedParametersKeyValue
       get tsFunctionInvocationNamedParametersKeyValue;
+  @JsonKey(ignore: true)
   _$$FromKeyValueCopyWith<_$FromKeyValue> get copyWith;
 }

@@ -46,42 +46,42 @@ const $DartClassOrMixinOrClassTypAliasDeclaration =
 /// @nodoc
 mixin _$DartClassOrMixinOrClassTypAliasDeclaration {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromClassDeclaration(ClassDeclaration classDeclaration),
-    @required Result fromMixinDeclaration(MixinDeclaration mixinDeclaration),
-    @required Result fromClassTypeAlias(ClassTypeAlias classTypeAlias),
+  TResult when<TResult extends Object>({
+    @required TResult fromClassDeclaration(ClassDeclaration classDeclaration),
+    @required TResult fromMixinDeclaration(MixinDeclaration mixinDeclaration),
+    @required TResult fromClassTypeAlias(ClassTypeAlias classTypeAlias),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromClassDeclaration(ClassDeclaration classDeclaration),
-    Result fromMixinDeclaration(MixinDeclaration mixinDeclaration),
-    Result fromClassTypeAlias(ClassTypeAlias classTypeAlias),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromClassDeclaration(ClassDeclaration classDeclaration),
+    TResult fromMixinDeclaration(MixinDeclaration mixinDeclaration),
+    TResult fromClassTypeAlias(ClassTypeAlias classTypeAlias),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result fromClassDeclaration(
+        TResult fromClassDeclaration(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
                 value),
     @required
-        Result fromMixinDeclaration(
+        TResult fromMixinDeclaration(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
                 value),
     @required
-        Result fromClassTypeAlias(
+        TResult fromClassTypeAlias(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
                 value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromClassDeclaration(
+  TResult maybeMap<TResult extends Object>({
+    TResult fromClassDeclaration(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration value),
-    Result fromMixinDeclaration(
+    TResult fromMixinDeclaration(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration value),
-    Result fromClassTypeAlias(
+    TResult fromClassTypeAlias(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias value),
-    @required Result orElse(),
+    @required TResult orElse(),
   });
 }
 
@@ -182,6 +182,7 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(classDeclaration);
 
+  @JsonKey(ignore: true)
   @override
   _$$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclarationCopyWith<
           _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration>
@@ -192,10 +193,10 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromClassDeclaration(ClassDeclaration classDeclaration),
-    @required Result fromMixinDeclaration(MixinDeclaration mixinDeclaration),
-    @required Result fromClassTypeAlias(ClassTypeAlias classTypeAlias),
+  TResult when<TResult extends Object>({
+    @required TResult fromClassDeclaration(ClassDeclaration classDeclaration),
+    @required TResult fromMixinDeclaration(MixinDeclaration mixinDeclaration),
+    @required TResult fromClassTypeAlias(ClassTypeAlias classTypeAlias),
   }) {
     assert(fromClassDeclaration != null);
     assert(fromMixinDeclaration != null);
@@ -205,11 +206,11 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromClassDeclaration(ClassDeclaration classDeclaration),
-    Result fromMixinDeclaration(MixinDeclaration mixinDeclaration),
-    Result fromClassTypeAlias(ClassTypeAlias classTypeAlias),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromClassDeclaration(ClassDeclaration classDeclaration),
+    TResult fromMixinDeclaration(MixinDeclaration mixinDeclaration),
+    TResult fromClassTypeAlias(ClassTypeAlias classTypeAlias),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromClassDeclaration != null) {
@@ -220,17 +221,17 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result fromClassDeclaration(
+        TResult fromClassDeclaration(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
                 value),
     @required
-        Result fromMixinDeclaration(
+        TResult fromMixinDeclaration(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
                 value),
     @required
-        Result fromClassTypeAlias(
+        TResult fromClassTypeAlias(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
                 value),
   }) {
@@ -242,14 +243,14 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromClassDeclaration(
+  TResult maybeMap<TResult extends Object>({
+    TResult fromClassDeclaration(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration value),
-    Result fromMixinDeclaration(
+    TResult fromMixinDeclaration(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration value),
-    Result fromClassTypeAlias(
+    TResult fromClassTypeAlias(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias value),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromClassDeclaration != null) {
@@ -266,6 +267,7 @@ abstract class _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
       _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration;
 
   ClassDeclaration get classDeclaration;
+  @JsonKey(ignore: true)
   _$$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclarationCopyWith<
           _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration>
       get copyWith;
@@ -349,6 +351,7 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(mixinDeclaration);
 
+  @JsonKey(ignore: true)
   @override
   _$$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclarationCopyWith<
           _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration>
@@ -359,10 +362,10 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromClassDeclaration(ClassDeclaration classDeclaration),
-    @required Result fromMixinDeclaration(MixinDeclaration mixinDeclaration),
-    @required Result fromClassTypeAlias(ClassTypeAlias classTypeAlias),
+  TResult when<TResult extends Object>({
+    @required TResult fromClassDeclaration(ClassDeclaration classDeclaration),
+    @required TResult fromMixinDeclaration(MixinDeclaration mixinDeclaration),
+    @required TResult fromClassTypeAlias(ClassTypeAlias classTypeAlias),
   }) {
     assert(fromClassDeclaration != null);
     assert(fromMixinDeclaration != null);
@@ -372,11 +375,11 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromClassDeclaration(ClassDeclaration classDeclaration),
-    Result fromMixinDeclaration(MixinDeclaration mixinDeclaration),
-    Result fromClassTypeAlias(ClassTypeAlias classTypeAlias),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromClassDeclaration(ClassDeclaration classDeclaration),
+    TResult fromMixinDeclaration(MixinDeclaration mixinDeclaration),
+    TResult fromClassTypeAlias(ClassTypeAlias classTypeAlias),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromMixinDeclaration != null) {
@@ -387,17 +390,17 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result fromClassDeclaration(
+        TResult fromClassDeclaration(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
                 value),
     @required
-        Result fromMixinDeclaration(
+        TResult fromMixinDeclaration(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
                 value),
     @required
-        Result fromClassTypeAlias(
+        TResult fromClassTypeAlias(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
                 value),
   }) {
@@ -409,14 +412,14 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromClassDeclaration(
+  TResult maybeMap<TResult extends Object>({
+    TResult fromClassDeclaration(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration value),
-    Result fromMixinDeclaration(
+    TResult fromMixinDeclaration(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration value),
-    Result fromClassTypeAlias(
+    TResult fromClassTypeAlias(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias value),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromMixinDeclaration != null) {
@@ -433,6 +436,7 @@ abstract class _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
       _$_$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration;
 
   MixinDeclaration get mixinDeclaration;
+  @JsonKey(ignore: true)
   _$$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclarationCopyWith<
           _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration>
       get copyWith;
@@ -514,6 +518,7 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(classTypeAlias);
 
+  @JsonKey(ignore: true)
   @override
   _$$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAliasCopyWith<
           _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias>
@@ -524,10 +529,10 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result fromClassDeclaration(ClassDeclaration classDeclaration),
-    @required Result fromMixinDeclaration(MixinDeclaration mixinDeclaration),
-    @required Result fromClassTypeAlias(ClassTypeAlias classTypeAlias),
+  TResult when<TResult extends Object>({
+    @required TResult fromClassDeclaration(ClassDeclaration classDeclaration),
+    @required TResult fromMixinDeclaration(MixinDeclaration mixinDeclaration),
+    @required TResult fromClassTypeAlias(ClassTypeAlias classTypeAlias),
   }) {
     assert(fromClassDeclaration != null);
     assert(fromMixinDeclaration != null);
@@ -537,11 +542,11 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result fromClassDeclaration(ClassDeclaration classDeclaration),
-    Result fromMixinDeclaration(MixinDeclaration mixinDeclaration),
-    Result fromClassTypeAlias(ClassTypeAlias classTypeAlias),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult fromClassDeclaration(ClassDeclaration classDeclaration),
+    TResult fromMixinDeclaration(MixinDeclaration mixinDeclaration),
+    TResult fromClassTypeAlias(ClassTypeAlias classTypeAlias),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromClassTypeAlias != null) {
@@ -552,17 +557,17 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result fromClassDeclaration(
+        TResult fromClassDeclaration(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration
                 value),
     @required
-        Result fromMixinDeclaration(
+        TResult fromMixinDeclaration(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration
                 value),
     @required
-        Result fromClassTypeAlias(
+        TResult fromClassTypeAlias(
             _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
                 value),
   }) {
@@ -574,14 +579,14 @@ class _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result fromClassDeclaration(
+  TResult maybeMap<TResult extends Object>({
+    TResult fromClassDeclaration(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromClassDeclaration value),
-    Result fromMixinDeclaration(
+    TResult fromMixinDeclaration(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromMixinDeclaration value),
-    Result fromClassTypeAlias(
+    TResult fromClassTypeAlias(
         _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias value),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromClassTypeAlias != null) {
@@ -598,6 +603,7 @@ abstract class _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias
       _$_$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias;
 
   ClassTypeAlias get classTypeAlias;
+  @JsonKey(ignore: true)
   _$$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAliasCopyWith<
           _$DartClassOrMixinOrClassTypAliasDeclarationFromClassTypeAlias>
       get copyWith;
