@@ -7,7 +7,7 @@
     "eslint.enable": false,
     "haxe.executable": "haxe-4.0.5/haxe",
     "files.exclude": {
-        "compiler/src/**/*.js": true,
-        "compiler/*.js": true
+        "sdk-tools/**/*.js": true,
+        "scripts/**/*.js": true
     }
 }

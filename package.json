@@ -10,13 +10,11 @@
     "build:release": "bash scripts/buildAllTs.bash release",
     "build:docs": "bash scripts/buildDocs.bash && cp _config.yml docs",
     "build:examplesForDist": "npm run build:release && cp assets/**/*.hc dist && cp assets/**/*.hc.sha256 dist",
-    "build:compiler": "bash scripts/buildCompiler.bash",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:compiler": "npm run build:compiler && bash scripts/jest.bash",
+    "test:ts2hc": " bash scripts/jest.bash",
     "dist": "npm run build:docs && npm run build:compiler && npm run build:examplesForDist"
   },
   "files": [
-    "dist",
     "runtime",
     "hydroc.js"
   ],
@@ -53,6 +51,8 @@
     "luamin": "^1.0.4",
     "luaparse": "^0.3.0",
     "minimist": "^1.2.3",
+    "nexe": "^4.0.0-beta.18",
+    "pkg": "^4.4.9",
     "prettier": "^2.2.0",
     "prettier-plugin-import-sort": "0.0.6",
     "progress": "^2.0.3",

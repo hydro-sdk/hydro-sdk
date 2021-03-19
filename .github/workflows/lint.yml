@@ -57,5 +57,5 @@ jobs:
       run: flutter pub run import_sorter:main --no-comments --exit-if-changed
       working-directory: hydro
     - name: Prettier
-      run: ./node_modules/.bin/prettier --check compiler examples runtime test
+      run: ./node_modules/.bin/prettier --check hydroc.ts scripts sdk-tools examples runtime test
       working-directory: hydro

@@ -18,6 +18,7 @@ jobs:
       fail-fast: false
 
     steps:
+    - uses: ilammy/setup-nasm@v1
     - name: Install Linux dependencies
       if: startsWith(matrix.os, 'ubuntu')
       run: |
@@ -61,9 +62,37 @@ jobs:
     - name: Get packages for Hydro-SDK Dart
       run: flutter pub get
       working-directory: hydro
+
+    - name: Cache Linux Nexe Node Builds
+      if: runner.os == 'Linux'
+      uses: actions/cache@v2
+      with:
+        path: /home/runner/.nexe
+        key: ${{ runner.os }}-nexe
+
+    - name: Cache Darwin Nexe Node Builds
+      if: runner.os == 'macOS'
+      uses: actions/cache@v2
+      with:
+        path: /Users/runner/.nexe
+        key: ${{ runner.os }}-nexe
+
+    - name: Cache Windows Nexe Node Builds
+      if: runner.os == 'Windows'
+      uses: actions/cache@v2
+      with:
+        path: C:\Users\runneradmin\.nexe
+        key: ${{ runner.os }}-nexe
+
+    - name: Build Sdk Tools
+      shell: bash
+      run: bash scripts/buildSdkTools.bash
+      working-directory: hydro
+
     - name: Build Typescript debug fixtures
       run: bash scripts/buildAllTs.bash debug
       working-directory: hydro
+      
     - name: Run Hydro-SDK tests
       shell: bash
       run: export HYDRO_TEST_MODE=ts; flutter test --tags "hot || smoke || unit || widget"
