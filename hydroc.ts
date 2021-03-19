@@ -38,8 +38,9 @@ class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
-            }`;
+        return `${toolName}-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
     }
 
     public makeSdkToolPlatformPath({
@@ -58,7 +59,8 @@ class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !fs.existsSync(
-                    `${this.sdkToolsDir}${path.sep
+                    `${this.sdkToolsDir}${
+                        path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -78,10 +80,11 @@ class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve, reject) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
-                        }/${this.makeSdkToolPlatformName({
-                            toolName: missingSdkTool,
-                        })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
+                        this.sdkToolsVersion
+                    }/${this.makeSdkToolPlatformName({
+                        toolName: missingSdkTool,
+                    })}`;
 
                     const { data, headers } = await Axios({
                         url,
@@ -104,7 +107,8 @@ class Hydroc {
                     );
 
                     const writer = fs.createWriteStream(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${
+                            path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -136,7 +140,7 @@ class Hydroc {
         logger: "stdout" | "parent" | "none";
     }) {
         return cp.spawn(
-            this.makeSdkToolPlatformPath({ toolName: "ts2hc", }),
+            this.makeSdkToolPlatformPath({ toolName: "ts2hc" }),
             [
                 "--cache-dir",
                 this.cacheDir,
@@ -167,7 +171,7 @@ class Hydroc {
         profile: string;
     }) {
         return cp.spawn(
-            this.makeSdkToolPlatformPath({ toolName: "build-project", }),
+            this.makeSdkToolPlatformPath({ toolName: "build-project" }),
             [
                 "--project",
                 project,
@@ -191,8 +195,8 @@ async function readSdkPackage({
     directory: string;
 }): Promise<
     | Readonly<{
-        version: string;
-    }>
+          version: string;
+      }>
     | undefined
 > {
     try {
@@ -286,16 +290,21 @@ async function readSdkPackage({
             }).catch((err) => process.exit(err));
         });
 
-    program.command("build")
+    program
+        .command("build")
         .description("Build the project given by --project")
-        .addOption(new Option(
-            "--project <project>",
-            "The project description to use"
-        ).default("hydro.json"))
-        .addOption(new Option(
-            "--profile <profile>",
-            "The build profile to use for all chunks in the project"
-        ).default("release"))
+        .addOption(
+            new Option(
+                "--project <project>",
+                "The project description to use"
+            ).default("hydro.json")
+        )
+        .addOption(
+            new Option(
+                "--profile <profile>",
+                "The build profile to use for all chunks in the project"
+            ).default("release")
+        )
         .action(async (options) => {
             const hydroc = new Hydroc({
                 sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
@@ -307,14 +316,15 @@ async function readSdkPackage({
                 const buildProject = hydroc.buildProject({
                     project: options.project,
                     profile: options.profile,
-                    ts2hc: hydroc.makeSdkToolPlatformPath({ toolName: "ts2hc" })
+                    ts2hc: hydroc.makeSdkToolPlatformPath({
+                        toolName: "ts2hc",
+                    }),
                 });
 
                 buildProject.on("exit", (exitCode) =>
                     exitCode == 0 ? resolve(undefined) : reject(exitCode)
                 );
             }).catch((err) => process.exit(err));
-        })
-        ;
+        });
     program.parse(process.argv);
 })();
