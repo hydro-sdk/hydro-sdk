@@ -1,9 +1,10 @@
 import 'dart:io';
 
-import 'package:hydro_sdk/projectConfig/projectConfigComponentChunk.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 import 'package:progress_bar/progress_bar.dart';
+
+import 'package:hydro_sdk/projectConfig/projectConfigComponentChunk.dart';
 
 class ProgressBarWrapper {
   final ProgressBar progressBar;

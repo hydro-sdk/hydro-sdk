@@ -1,5 +1,6 @@
-import 'package:hydro_sdk/build/componentBuilder.dart';
 import 'package:meta/meta.dart';
+
+import 'package:hydro_sdk/build/componentBuilder.dart';
 import 'package:hydro_sdk/projectConfig/projectConfig.dart';
 
 class ProjectBuilder {

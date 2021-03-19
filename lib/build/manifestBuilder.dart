@@ -1,16 +1,16 @@
 import 'dart:convert';
-
 import 'dart:io';
+
+import 'package:cli_util/cli_logging.dart';
+import 'package:meta/meta.dart';
+import 'package:path/path.dart' as path;
+
 import 'package:hydro_sdk/build/componentBuilder.dart';
 import 'package:hydro_sdk/build/packageManifest.dart';
 import 'package:hydro_sdk/build/packageManifestEntry.dart';
 import 'package:hydro_sdk/build/sha256Data.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponentChunk.dart';
-import 'package:path/path.dart' as path;
-
-import 'package:cli_util/cli_logging.dart';
-import 'package:meta/meta.dart';
 
 class ManifestBuilder {
   final ProjectConfigComponent projectConfigComponent;

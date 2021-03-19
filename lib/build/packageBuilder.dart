@@ -1,11 +1,12 @@
 import 'dart:io';
 
+import 'package:archive/archive_io.dart';
 import 'package:cli_util/cli_logging.dart';
+import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/build/componentBuilder.dart';
 import 'package:hydro_sdk/build/sha256Data.dart';
-import 'package:meta/meta.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
-import 'package:archive/archive_io.dart';
 
 class PackageBuilder {
   final ProjectConfigComponent projectConfigComponent;
