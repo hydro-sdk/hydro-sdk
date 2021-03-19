@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 
-import 'package:hydro_sdk/build/projectBuilder.dart';
+import 'package:hydro_sdk/build-project/projectBuilder.dart';
 import 'package:hydro_sdk/projectConfig/projectConfig.dart';
 
 void main(List<String> args) async {

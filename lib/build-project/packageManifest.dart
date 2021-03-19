@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
-import 'package:hydro_sdk/build/packageManifestEntry.dart';
+import 'package:hydro_sdk/build-project/packageManifestEntry.dart';
 
 part 'packageManifest.freezed.dart';
 part 'packageManifest.g.dart';

@@ -1,9 +1,9 @@
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
-import 'package:hydro_sdk/build/chunkBuilder.dart';
-import 'package:hydro_sdk/build/manifestBuilder.dart';
-import 'package:hydro_sdk/build/packageBuilder.dart';
+import 'package:hydro_sdk/build-project/chunkBuilder.dart';
+import 'package:hydro_sdk/build-project/manifestBuilder.dart';
+import 'package:hydro_sdk/build-project/packageBuilder.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 
 class ComponentBuilder {
