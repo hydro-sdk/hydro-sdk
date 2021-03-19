@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydro_sdk/build/config/projectConfigComponentChunk.dart';
+import 'package:hydro_sdk/projectConfig/projectConfigComponentChunk.dart';
 import 'package:meta/meta.dart';
 
 part 'projectConfigComponent.freezed.dart';
