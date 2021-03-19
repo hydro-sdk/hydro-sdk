@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/build/chunkBuilder.dart';
 import 'package:hydro_sdk/build/manifestBuilder.dart';
+import 'package:hydro_sdk/build/packageBuilder.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
@@ -17,6 +18,16 @@ class ComponentBuilder {
     @required this.profile,
   });
 
+  String unpackedOutputPath() => [
+        cacheDir,
+        path.separator,
+        "build",
+        path.separator,
+        profile,
+        path.separator,
+        projectConfigComponent.name,
+      ].join("");
+
   Future<bool> build() async {
     try {
       print("Building component ${projectConfigComponent.name}");
@@ -28,13 +39,7 @@ class ComponentBuilder {
           cacheDir: cacheDir,
           profile: profile,
           outDir: [
-            cacheDir,
-            path.separator,
-            "build",
-            path.separator,
-            profile,
-            path.separator,
-            projectConfigComponent.name,
+            unpackedOutputPath(),
             path.separator,
             "chunks"
           ].join(""),
@@ -49,12 +54,27 @@ class ComponentBuilder {
 
       var manifestBuilder = ManifestBuilder(
         projectConfigComponent: projectConfigComponent,
+        componentBuilder: this,
         ts2hc: ts2hc,
         cacheDir: cacheDir,
         profile: profile,
       );
 
       var res = await manifestBuilder.build();
+
+      if (!res) {
+        return false;
+      }
+
+      var packageBuilder = PackageBuilder(
+        projectConfigComponent: projectConfigComponent,
+        componentBuilder: this,
+        ts2hc: ts2hc,
+        cacheDir: cacheDir,
+        profile: profile,
+      );
+
+      res = await packageBuilder.build();
 
       if (!res) {
         return false;

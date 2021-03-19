@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:convert/convert.dart';
 import 'dart:io';
-import 'package:crypto/crypto.dart';
+import 'package:hydro_sdk/build/componentBuilder.dart';
 import 'package:hydro_sdk/build/packageManifest.dart';
 import 'package:hydro_sdk/build/packageManifestEntry.dart';
+import 'package:hydro_sdk/build/sha256Data.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponentChunk.dart';
 import 'package:path/path.dart' as path;
@@ -12,27 +12,16 @@ import 'package:path/path.dart' as path;
 import 'package:cli_util/cli_logging.dart';
 import 'package:meta/meta.dart';
 
-String _sha256(List<int> data) {
-  var output = AccumulatorSink<Digest>();
-
-  var input = sha256.startChunkedConversion(output);
-
-  input.add(data);
-
-  input.close();
-  output.close();
-
-  return output.events.single.toString();
-}
-
 class ManifestBuilder {
   final ProjectConfigComponent projectConfigComponent;
+  final ComponentBuilder componentBuilder;
   final String ts2hc;
   final String cacheDir;
   final String profile;
 
   const ManifestBuilder({
     @required this.projectConfigComponent,
+    @required this.componentBuilder,
     @required this.ts2hc,
     @required this.cacheDir,
     @required this.profile,
@@ -43,15 +32,7 @@ class ManifestBuilder {
 
     Progress progress = logger.progress("Assembing manifest");
     try {
-      var files = await Directory([
-        cacheDir,
-        path.separator,
-        "build",
-        path.separator,
-        profile,
-        path.separator,
-        projectConfigComponent.name,
-      ].join(""))
+      var files = await Directory(componentBuilder.unpackedOutputPath())
           .list(recursive: true)
           .toList();
 
@@ -60,15 +41,7 @@ class ManifestBuilder {
       await Future.wait(files.map((fileSystemEntity) async {
         if (fileSystemEntity.statSync().type == FileSystemEntityType.file) {
           var rel = fileSystemEntity.path.replaceAll(
-              [
-                cacheDir,
-                path.separator,
-                "build",
-                path.separator,
-                profile,
-                path.separator,
-                projectConfigComponent.name,
-              ].join(""),
+              componentBuilder.unpackedOutputPath(),
               projectConfigComponent.name);
           if (rel !=
                   [
@@ -79,7 +52,7 @@ class ManifestBuilder {
               path.basename(rel)[0] != ".") {
             manifestEntries.add(PackageManifestEntry(
               path: rel,
-              sha256: _sha256(
+              sha256: sha256Data(
                 await File(fileSystemEntity.path).readAsBytes(),
               ),
             ));
@@ -89,13 +62,7 @@ class ManifestBuilder {
 
       await File(
         [
-          cacheDir,
-          path.separator,
-          "build",
-          path.separator,
-          profile,
-          path.separator,
-          projectConfigComponent.name,
+          componentBuilder.unpackedOutputPath(),
           path.separator,
           "manifest.json",
         ].join(""),
