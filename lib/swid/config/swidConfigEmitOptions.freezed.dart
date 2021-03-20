@@ -52,6 +52,7 @@ mixin _$SwidConfigEmitOptions {
   SwidConfigDenyList get denyList;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidConfigEmitOptionsCopyWith<SwidConfigEmitOptions> get copyWith;
 }
 
@@ -282,6 +283,7 @@ class _$_$SwidConfigEmitOptionsCtor implements _$SwidConfigEmitOptionsCtor {
       const DeepCollectionEquality().hash(allowList) ^
       const DeepCollectionEquality().hash(denyList);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidConfigEmitOptionsCtorCopyWith<_$SwidConfigEmitOptionsCtor>
       get copyWith => __$$SwidConfigEmitOptionsCtorCopyWithImpl<
@@ -315,6 +317,7 @@ abstract class _$SwidConfigEmitOptionsCtor implements SwidConfigEmitOptions {
   @override
   SwidConfigDenyList get denyList;
   @override
+  @JsonKey(ignore: true)
   _$$SwidConfigEmitOptionsCtorCopyWith<_$SwidConfigEmitOptionsCtor>
       get copyWith;
 }

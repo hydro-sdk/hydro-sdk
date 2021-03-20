@@ -36,6 +36,7 @@ mixin _$SwidiClass {
   SwidiLibraryScopePrefix get libraryScopePrefix;
   List<SwidiFunctionDeclaration> get methods;
 
+  @JsonKey(ignore: true)
   $SwidiClassCopyWith<SwidiClass> get copyWith;
 }
 
@@ -176,6 +177,7 @@ class _$_$SwidiClassCtor implements _$SwidiClassCtor {
       const DeepCollectionEquality().hash(libraryScopePrefix) ^
       const DeepCollectionEquality().hash(methods);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiClassCtorCopyWith<_$SwidiClassCtor> get copyWith =>
       __$$SwidiClassCtorCopyWithImpl<_$SwidiClassCtor>(this, _$identity);
@@ -194,5 +196,6 @@ abstract class _$SwidiClassCtor implements SwidiClass {
   @override
   List<SwidiFunctionDeclaration> get methods;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiClassCtorCopyWith<_$SwidiClassCtor> get copyWith;
 }

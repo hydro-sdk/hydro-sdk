@@ -38,6 +38,7 @@ mixin _$SwidIntegerLiteral {
   String get value;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidIntegerLiteralCopyWith<SwidIntegerLiteral> get copyWith;
 }
 
@@ -125,6 +126,7 @@ class _$_$Data implements _$Data {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -143,5 +145,6 @@ abstract class _$Data implements SwidIntegerLiteral {
   @override
   String get value;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

@@ -39,6 +39,7 @@ mixin _$SwidiInterface {
   SwidiReferenceDeclarationPrefix get referenceDeclarationPrefix;
   SwidiNullabilitySuffix get nullabilitySuffix;
 
+  @JsonKey(ignore: true)
   $SwidiInterfaceCopyWith<SwidiInterface> get copyWith;
 }
 
@@ -216,6 +217,7 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
       const DeepCollectionEquality().hash(referenceDeclarationPrefix) ^
       const DeepCollectionEquality().hash(nullabilitySuffix);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiInterfaceCtorCopyWith<_$SwidiInterfaceCtor> get copyWith =>
       __$$SwidiInterfaceCtorCopyWithImpl<_$SwidiInterfaceCtor>(
@@ -239,5 +241,6 @@ abstract class _$SwidiInterfaceCtor implements SwidiInterface {
   @override
   SwidiNullabilitySuffix get nullabilitySuffix;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiInterfaceCtorCopyWith<_$SwidiInterfaceCtor> get copyWith;
 }

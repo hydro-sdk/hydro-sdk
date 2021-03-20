@@ -42,6 +42,7 @@ mixin _$SwidConfigDenyList {
   List<String> get packagePaths;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidConfigDenyListCopyWith<SwidConfigDenyList> get copyWith;
 }
 
@@ -156,6 +157,7 @@ class _$_$SwidConfigDenyListCtor implements _$SwidConfigDenyListCtor {
       const DeepCollectionEquality().hash(classNames) ^
       const DeepCollectionEquality().hash(packagePaths);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidConfigDenyListCtorCopyWith<_$SwidConfigDenyListCtor> get copyWith =>
       __$$SwidConfigDenyListCtorCopyWithImpl<_$SwidConfigDenyListCtor>(
@@ -180,5 +182,6 @@ abstract class _$SwidConfigDenyListCtor implements SwidConfigDenyList {
   @override
   List<String> get packagePaths;
   @override
+  @JsonKey(ignore: true)
   _$$SwidConfigDenyListCtorCopyWith<_$SwidConfigDenyListCtor> get copyWith;
 }

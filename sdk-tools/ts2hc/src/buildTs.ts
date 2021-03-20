@@ -27,7 +27,7 @@ export async function buildTs({
     logMgr.log({
         event: {
             logEventType: LogEventType.diagnostic,
-            message: `Build ${chalk.yellow(buildHash)}`,
+            message: `Lowering files`,
         },
     });
 

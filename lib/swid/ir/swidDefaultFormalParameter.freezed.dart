@@ -50,6 +50,7 @@ mixin _$SwidDefaultFormalParameter {
   SwidType get value;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidDefaultFormalParameterCopyWith<SwidDefaultFormalParameter> get copyWith;
 }
 
@@ -207,6 +208,7 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(originalPackagePath) ^
       const DeepCollectionEquality().hash(value);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -236,5 +238,6 @@ abstract class _$Data implements SwidDefaultFormalParameter {
   @nullable
   SwidType get value;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

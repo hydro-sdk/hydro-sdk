@@ -42,6 +42,7 @@ mixin _$SwidiFunctionDeclaration {
   List<SwidiOptionalParameter> get optionalParameters;
   List<SwidiNamedParameter> get namedParameters;
 
+  @JsonKey(ignore: true)
   $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith;
 }
 
@@ -223,6 +224,7 @@ class _$_$SwidiFunctionDeclarationCtor
       const DeepCollectionEquality().hash(optionalParameters) ^
       const DeepCollectionEquality().hash(namedParameters);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
       get copyWith => __$$SwidiFunctionDeclarationCtorCopyWithImpl<
@@ -250,6 +252,7 @@ abstract class _$SwidiFunctionDeclarationCtor
   @override
   List<SwidiNamedParameter> get namedParameters;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
       get copyWith;
 }

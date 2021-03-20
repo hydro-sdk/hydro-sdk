@@ -30,6 +30,7 @@ const $SwidiPositionalParameter = _$SwidiPositionalParameterTearOff();
 mixin _$SwidiPositionalParameter {
   SwidiDeclaration get declaration;
 
+  @JsonKey(ignore: true)
   $SwidiPositionalParameterCopyWith<SwidiPositionalParameter> get copyWith;
 }
 
@@ -140,6 +141,7 @@ class _$_$SwidiPositionalParameterCtor
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(declaration);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiPositionalParameterCtorCopyWith<_$SwidiPositionalParameterCtor>
       get copyWith => __$$SwidiPositionalParameterCtorCopyWithImpl<
@@ -155,6 +157,7 @@ abstract class _$SwidiPositionalParameterCtor
   @override
   SwidiDeclaration get declaration;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiPositionalParameterCtorCopyWith<_$SwidiPositionalParameterCtor>
       get copyWith;
 }

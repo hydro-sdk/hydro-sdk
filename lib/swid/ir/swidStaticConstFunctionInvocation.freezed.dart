@@ -53,6 +53,7 @@ mixin _$SwidStaticConstFunctionInvocation {
   bool get isConstructorInvocation;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidStaticConstFunctionInvocationCopyWith<SwidStaticConstFunctionInvocation>
       get copyWith;
 }
@@ -234,6 +235,7 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(namedParameters) ^
       const DeepCollectionEquality().hash(isConstructorInvocation);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -265,5 +267,6 @@ abstract class _$Data implements SwidStaticConstFunctionInvocation {
   @override
   bool get isConstructorInvocation;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

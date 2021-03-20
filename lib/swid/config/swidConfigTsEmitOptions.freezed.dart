@@ -39,6 +39,7 @@ mixin _$SwidConfigTsEmitOptions {
   List<String> get prefixPaths;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidConfigTsEmitOptionsCopyWith<SwidConfigTsEmitOptions> get copyWith;
 }
 
@@ -138,6 +139,7 @@ class _$_$SwidConfigTsEmitOptionsCtor implements _$SwidConfigTsEmitOptionsCtor {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(prefixPaths);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidConfigTsEmitOptionsCtorCopyWith<_$SwidConfigTsEmitOptionsCtor>
       get copyWith => __$$SwidConfigTsEmitOptionsCtorCopyWithImpl<
@@ -160,6 +162,7 @@ abstract class _$SwidConfigTsEmitOptionsCtor
   @override
   List<String> get prefixPaths;
   @override
+  @JsonKey(ignore: true)
   _$$SwidConfigTsEmitOptionsCtorCopyWith<_$SwidConfigTsEmitOptionsCtor>
       get copyWith;
 }

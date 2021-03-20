@@ -53,6 +53,7 @@ mixin _$TsFunctionInvocation {
       get tsFunctionInvocationNamedParameters;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $TsFunctionInvocationCopyWith<TsFunctionInvocation> get copyWith;
 }
 
@@ -226,6 +227,7 @@ class _$_$Data implements _$Data {
           .hash(tsFunctionInvocationPositionalParameters) ^
       const DeepCollectionEquality().hash(tsFunctionInvocationNamedParameters);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -258,5 +260,6 @@ abstract class _$Data implements TsFunctionInvocation {
   List<TsFunctionInvocationNamedParameters>
       get tsFunctionInvocationNamedParameters;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

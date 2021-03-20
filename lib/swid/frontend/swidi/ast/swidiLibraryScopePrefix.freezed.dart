@@ -29,6 +29,7 @@ const $SwidiLibraryScopePrefix = _$SwidiLibraryScopePrefixTearOff();
 mixin _$SwidiLibraryScopePrefix {
   String get name;
 
+  @JsonKey(ignore: true)
   $SwidiLibraryScopePrefixCopyWith<SwidiLibraryScopePrefix> get copyWith;
 }
 
@@ -118,6 +119,7 @@ class _$_$SwidiLibraryScopePrefixCtor implements _$SwidiLibraryScopePrefixCtor {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiLibraryScopePrefixCtorCopyWith<_$SwidiLibraryScopePrefixCtor>
       get copyWith => __$$SwidiLibraryScopePrefixCtorCopyWithImpl<
@@ -132,6 +134,7 @@ abstract class _$SwidiLibraryScopePrefixCtor
   @override
   String get name;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiLibraryScopePrefixCtorCopyWith<_$SwidiLibraryScopePrefixCtor>
       get copyWith;
 }

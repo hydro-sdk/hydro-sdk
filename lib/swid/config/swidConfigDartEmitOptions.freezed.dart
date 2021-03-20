@@ -42,6 +42,7 @@ mixin _$SwidConfigDartEmitOptions {
   String get hostPackageName;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidConfigDartEmitOptionsCopyWith<SwidConfigDartEmitOptions> get copyWith;
 }
 
@@ -160,6 +161,7 @@ class _$_$SwidConfigDartEmitOptionsCtor
       const DeepCollectionEquality().hash(prefixPaths) ^
       const DeepCollectionEquality().hash(hostPackageName);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidConfigDartEmitOptionsCtorCopyWith<_$SwidConfigDartEmitOptionsCtor>
       get copyWith => __$$SwidConfigDartEmitOptionsCtorCopyWithImpl<
@@ -185,6 +187,7 @@ abstract class _$SwidConfigDartEmitOptionsCtor
   @override
   String get hostPackageName;
   @override
+  @JsonKey(ignore: true)
   _$$SwidConfigDartEmitOptionsCtorCopyWith<_$SwidConfigDartEmitOptionsCtor>
       get copyWith;
 }

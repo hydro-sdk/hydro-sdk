@@ -18,6 +18,9 @@ dependencies:
     git: 
       ref: "e050fb0dee8f228e0da660f1b49b28daf42291b9"
       url: "git://github.com/hydro-sdk/surveyor"
+  progress_bar:
+    git:
+      url: "git://github.com/hydro-sdk/progress_bar"
   waveform: 
     git: 
       ref: "0.0.1-nightly.22"
@@ -27,6 +30,8 @@ dependencies:
   freezed: null
   freezed_annotation: null
   petitparser: "3.1.0"
+  cli_util:
+  archive:
 dev_dependencies: 
   import_sorter: "4.4.1"
   test: "any"

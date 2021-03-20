@@ -45,6 +45,7 @@ mixin _$SwidEnum {
   List<String> get children;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $SwidEnumCopyWith<SwidEnum> get copyWith;
 }
 
@@ -167,6 +168,7 @@ class _$_$Data implements _$Data {
       const DeepCollectionEquality().hash(identifier) ^
       const DeepCollectionEquality().hash(children);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -192,5 +194,6 @@ abstract class _$Data implements SwidEnum {
   @override
   List<String> get children;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }

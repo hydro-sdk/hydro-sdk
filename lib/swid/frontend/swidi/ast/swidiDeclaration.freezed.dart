@@ -32,6 +32,7 @@ mixin _$SwidiDeclaration {
   String get name;
   SwidiInterface get type;
 
+  @JsonKey(ignore: true)
   $SwidiDeclarationCopyWith<SwidiDeclaration> get copyWith;
 }
 
@@ -144,6 +145,7 @@ class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(type);
 
+  @JsonKey(ignore: true)
   @override
   _$$SwidiDeclarationCtorCopyWith<_$SwidiDeclarationCtor> get copyWith =>
       __$$SwidiDeclarationCtorCopyWithImpl<_$SwidiDeclarationCtor>(
@@ -160,5 +162,6 @@ abstract class _$SwidiDeclarationCtor implements SwidiDeclaration {
   @override
   SwidiInterface get type;
   @override
+  @JsonKey(ignore: true)
   _$$SwidiDeclarationCtorCopyWith<_$SwidiDeclarationCtor> get copyWith;
 }

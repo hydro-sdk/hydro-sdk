@@ -55,7 +55,14 @@ export class LogMgr {
             | ProgressTickLogEvent;
         loggingBehaviour: LoggingBehaviour.parent;
     }): Promise<void> {
-        console.log(JSON.stringify(event));
+        await new Promise((resolve) => {
+            process.stdout.write(JSON.stringify(event) + "\n", () =>
+                resolve(undefined)
+            );
+        });
+        await new Promise((resolve) => {
+            process.stdout.clearLine(0, () => resolve(undefined));
+        });
     }
 
     private async narrowDiagnosticLoggingBehavior({

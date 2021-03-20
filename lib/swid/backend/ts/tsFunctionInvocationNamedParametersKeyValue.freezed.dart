@@ -42,6 +42,7 @@ mixin _$TsFunctionInvocationNamedParametersKeyValue {
   Map<String, String> get namedReferences;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $TsFunctionInvocationNamedParametersKeyValueCopyWith<
       TsFunctionInvocationNamedParametersKeyValue> get copyWith;
 }
@@ -139,6 +140,7 @@ class _$_$Data implements _$Data {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(namedReferences);
 
+  @JsonKey(ignore: true)
   @override
   _$$DataCopyWith<_$Data> get copyWith =>
       __$$DataCopyWithImpl<_$Data>(this, _$identity);
@@ -157,5 +159,6 @@ abstract class _$Data implements TsFunctionInvocationNamedParametersKeyValue {
   @override
   Map<String, String> get namedReferences;
   @override
+  @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;
 }
