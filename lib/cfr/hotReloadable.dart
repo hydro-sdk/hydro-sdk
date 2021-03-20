@@ -43,7 +43,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T>
       func = val;
       res = func.pcall([], parentState: luaState);
     });
-    WidgetsBinding.instance.performReassemble();
+    WidgetsBinding.instance.reassembleApplication();
     return true;
   }
 
