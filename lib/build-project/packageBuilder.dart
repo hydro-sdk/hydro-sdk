@@ -26,7 +26,7 @@ class PackageBuilder {
   Future<bool> build() async {
     Logger logger = Logger.standard();
 
-    Progress progress = logger.progress("Assembing package");
+    Progress progress = logger.progress("Assembling package");
     try {
       var files = await Directory(componentBuilder.unpackedOutputPath())
           .list(recursive: true)

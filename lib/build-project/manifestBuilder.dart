@@ -30,7 +30,7 @@ class ManifestBuilder {
   Future<bool> build() async {
     Logger logger = Logger.standard();
 
-    Progress progress = logger.progress("Assembing manifest");
+    Progress progress = logger.progress("Assembling manifest");
     try {
       var files = await Directory(componentBuilder.unpackedOutputPath())
           .list(recursive: true)
