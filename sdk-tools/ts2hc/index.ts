@@ -59,8 +59,8 @@ const logMgr = new LogMgr({
         loggingBehaviour == "stdout"
             ? LoggingBehaviour.stdout
             : loggingBehaviour == "parent"
-                ? LoggingBehaviour.parent
-                : LoggingBehaviour.none,
+            ? LoggingBehaviour.parent
+            : LoggingBehaviour.none,
 });
 
 if (!fs.statSync(entry)) {
@@ -93,8 +93,7 @@ if (!fs.existsSync(cacheDir)) {
 
     if (!res) {
         process.exit(1);
-    }
-    else {
+    } else {
         process.exit(0);
     }
 })();
