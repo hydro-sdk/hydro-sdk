@@ -87,12 +87,12 @@ void main(List<String> args) async {
             profile: results["profile"],
           );
           if (request.uri.path ==
-              "${projectConfig.project}/${projectConfig.components.first.name}.ota.sha256") {
+              "/${projectConfig.project}/${projectConfig.components.first.name}.ota.sha256") {
             File("${componentBuilder.unpackedOutputPath()}.ota.sha256")
                 .openRead()
                 .pipe(request.response);
           } else if (request.uri.path ==
-              "${projectConfig.project}/${projectConfig.components.first.name}.ota") {
+              "/${projectConfig.project}/${projectConfig.components.first.name}.ota") {
             File("${componentBuilder.unpackedOutputPath()}.ota")
                 .openRead()
                 .pipe(request.response);
