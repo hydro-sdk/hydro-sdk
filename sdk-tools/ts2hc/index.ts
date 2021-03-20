@@ -59,8 +59,8 @@ const logMgr = new LogMgr({
         loggingBehaviour == "stdout"
             ? LoggingBehaviour.stdout
             : loggingBehaviour == "parent"
-            ? LoggingBehaviour.parent
-            : LoggingBehaviour.none,
+                ? LoggingBehaviour.parent
+                : LoggingBehaviour.none,
 });
 
 if (!fs.statSync(entry)) {
@@ -80,7 +80,7 @@ if (!fs.existsSync(cacheDir)) {
 }
 
 (async () => {
-    await buildTs({
+    const res = await buildTs({
         config: {
             entry: entry,
             modName: modName,
@@ -90,4 +90,11 @@ if (!fs.existsSync(cacheDir)) {
         },
         logMgr: logMgr,
     });
+
+    if (!res) {
+        process.exit(1);
+    }
+    else {
+        process.exit(0);
+    }
 })();
