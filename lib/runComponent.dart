@@ -9,17 +9,22 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
 import 'package:hydro_sdk/build-project/packageManifest.dart';
+import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/hotReloadable.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
+import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 class RunComponent extends StatelessWidget {
   final String project;
   final String component;
+  final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+      thunks;
 
   const RunComponent({
     @required this.project,
     @required this.component,
+    this.thunks = const {},
   });
 
   @override
@@ -28,6 +33,7 @@ class RunComponent extends StatelessWidget {
       return _RunDebugComponent(
         project: project,
         component: component,
+        thunks: thunks,
       );
     } else {
       return const SizedBox();
@@ -40,10 +46,13 @@ class _RunDebugComponent extends StatefulWidget {
   final String component;
   final int port;
   final Widget loading;
+  final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+      thunks;
 
   const _RunDebugComponent({
     @required this.project,
     @required this.component,
+    @required this.thunks,
     this.port = 5000,
     this.loading = const Center(
       child: CircularProgressIndicator(),
@@ -113,21 +122,21 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
               bytecodeImage: Uint8List.fromList(mountableChunk),
               baseUrl: manifest.mountableChunk,
               symbols: debugInfo,
-              thunks: {},
+              thunks: widget.thunks,
             );
           } else {
             var status = await hotReload(
               bytecodeImage: Uint8List.fromList(mountableChunk),
               baseUrl: manifest.mountableChunk,
               symbols: debugInfo,
-              thunks: {},
+              thunks: widget.thunks,
             );
             if (!status) {
               await fullRestart(
                 bytecodeImage: Uint8List.fromList(mountableChunk),
                 baseUrl: manifest.mountableChunk,
                 symbols: debugInfo,
-                thunks: {},
+                thunks: widget.thunks,
               );
             }
           }
