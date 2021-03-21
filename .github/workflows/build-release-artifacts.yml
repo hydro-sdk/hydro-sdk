@@ -256,6 +256,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Extract Ref Names
+        id: refs
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
           echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
@@ -298,4 +299,9 @@ jobs:
         working-directory: hydro
       - name: Get packages for Hydro-SDK Dart
         run: flutter pub get
+        working-directory: hydro
+
+      - name: Trigger Dependents
+        run: |
+          flutter pub run waveform:triggerDependent --repo="hydro_demo" --ref="master" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
         working-directory: hydro
