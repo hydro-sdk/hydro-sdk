@@ -10,31 +10,31 @@ dependencies:
   cupertino_icons: "^0.1.2"
   http: "0.12.2"
   json_serializable: "3.5.0"
+  petitparser: "3.1.0"
   recase: "^3.0.0"
   tuple: "^1.0.2"
   flutter: 
     sdk: flutter
+  progress_bar: 
+    git: 
+      url: "git://github.com/hydro-sdk/progress_bar"
   surveyor: 
     git: 
       ref: "e050fb0dee8f228e0da660f1b49b28daf42291b9"
       url: "git://github.com/hydro-sdk/surveyor"
-  progress_bar:
-    git:
-      url: "git://github.com/hydro-sdk/progress_bar"
   waveform: 
     git: 
-      ref: "0.0.1-nightly.22"
+      ref: "0.0.1-nightly.31"
       url: "git://github.com/hydro-sdk/waveform.git"
+  archive: null
+  cli_util: null
   code_builder: null
+  dart_console: null
   dart_style: null
   freezed: null
   freezed_annotation: null
-  petitparser: "3.1.0"
-  cli_util:
-  archive:
-  watcher:
-  dart_console:
-  synchronized:
+  synchronized: null
+  watcher: null
 dev_dependencies: 
   import_sorter: "4.4.1"
   test: "any"
