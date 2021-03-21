@@ -45,8 +45,9 @@ class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
-            }`;
+        return `${toolName}-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
     }
 
     public makeSdkToolPlatformPath({
@@ -65,7 +66,8 @@ class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !fs.existsSync(
-                    `${this.sdkToolsDir}${path.sep
+                    `${this.sdkToolsDir}${
+                        path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -85,10 +87,11 @@ class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve, reject) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
-                        }/${this.makeSdkToolPlatformName({
-                            toolName: missingSdkTool,
-                        })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
+                        this.sdkToolsVersion
+                    }/${this.makeSdkToolPlatformName({
+                        toolName: missingSdkTool,
+                    })}`;
 
                     const { data, headers } = await Axios({
                         url,
@@ -111,7 +114,8 @@ class Hydroc {
                     );
 
                     const writer = fs.createWriteStream(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${
+                            path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -124,8 +128,34 @@ class Hydroc {
                     data.pipe(writer);
                 });
             }
+
+            await Promise.all(
+                this.sdkTools.map(
+                    async (x) =>
+                        await this.setExecutableBitOnSdkTool({ toolName: x })
+                )
+            );
         } else {
             console.log("All Hydro-SDK tools exist");
+        }
+    }
+
+    public async setExecutableBitOnSdkTool({
+        toolName,
+    }: {
+        toolName: string;
+    }): Promise<void> {
+        if (process.platform == "darwin" || process.platform == "linux") {
+            await new Promise((resolve, reject) => {
+                const chmod = cp.spawn("chmod", [
+                    "+x",
+                    this.makeSdkToolPlatformPath({ toolName }),
+                ]);
+
+                chmod.on("exit", (exitCode) =>
+                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                );
+            }).catch((err) => process.exit(err));
         }
     }
 
@@ -191,13 +221,7 @@ class Hydroc {
         );
     }
 
-    public runProject({
-        project,
-        ts2hc,
-    }: {
-        project: string;
-        ts2hc: string;
-    }) {
+    public runProject({ project, ts2hc }: { project: string; ts2hc: string }) {
         return cp.spawn(
             this.makeSdkToolPlatformPath({ toolName: "run-project" }),
             [
@@ -215,7 +239,6 @@ class Hydroc {
             }
         );
     }
-
 }
 
 async function readSdkPackage({
@@ -224,8 +247,8 @@ async function readSdkPackage({
     directory: string;
 }): Promise<
     | Readonly<{
-        version: string;
-    }>
+          version: string;
+      }>
     | undefined
 > {
     try {
