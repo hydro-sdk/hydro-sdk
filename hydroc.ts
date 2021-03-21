@@ -22,6 +22,7 @@ class Hydroc {
         "luac52",
         "swid",
         "build-project",
+        "run-project",
     ];
 
     public constructor({ sdkToolsVersion }: { sdkToolsVersion: string }) {
@@ -127,8 +128,34 @@ class Hydroc {
                     data.pipe(writer);
                 });
             }
+
+            await Promise.all(
+                this.sdkTools.map(
+                    async (x) =>
+                        await this.setExecutableBitOnSdkTool({ toolName: x })
+                )
+            );
         } else {
             console.log("All Hydro-SDK tools exist");
+        }
+    }
+
+    public async setExecutableBitOnSdkTool({
+        toolName,
+    }: {
+        toolName: string;
+    }): Promise<void> {
+        if (process.platform == "darwin" || process.platform == "linux") {
+            await new Promise((resolve, reject) => {
+                const chmod = cp.spawn("chmod", [
+                    "+x",
+                    this.makeSdkToolPlatformPath({ toolName }),
+                ]);
+
+                chmod.on("exit", (exitCode) =>
+                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                );
+            }).catch((err) => process.exit(err));
         }
     }
 
@@ -187,6 +214,25 @@ class Hydroc {
                 this.cacheDir,
                 "--profile",
                 profile,
+            ],
+            {
+                stdio: "inherit",
+            }
+        );
+    }
+
+    public runProject({ project, ts2hc }: { project: string; ts2hc: string }) {
+        return cp.spawn(
+            this.makeSdkToolPlatformPath({ toolName: "run-project" }),
+            [
+                "--project",
+                project,
+                "--ts2hc",
+                ts2hc,
+                "--cache-dir",
+                this.cacheDir,
+                "--profile",
+                "debug",
             ],
             {
                 stdio: "inherit",
@@ -328,6 +374,36 @@ async function readSdkPackage({
                 });
 
                 buildProject.on("exit", (exitCode) =>
+                    exitCode == 0 ? resolve(undefined) : reject(exitCode)
+                );
+            }).catch((err) => process.exit(err));
+        });
+
+    program
+        .command("run")
+        .description("Run the project given by --project")
+        .addOption(
+            new Option(
+                "--project <project>",
+                "The project description to use"
+            ).default("hydro.json")
+        )
+        .action(async (options) => {
+            const hydroc = new Hydroc({
+                sdkToolsVersion: options.toolsVersion ?? sdkPackage.version,
+            });
+
+            await hydroc.downloadMissingSdkTools();
+
+            await new Promise((resolve, reject) => {
+                const runProject = hydroc.runProject({
+                    project: options.project,
+                    ts2hc: hydroc.makeSdkToolPlatformPath({
+                        toolName: "ts2hc",
+                    }),
+                });
+
+                runProject.on("exit", (exitCode) =>
                     exitCode == 0 ? resolve(undefined) : reject(exitCode)
                 );
             }).catch((err) => process.exit(err));

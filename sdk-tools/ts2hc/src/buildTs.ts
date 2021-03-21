@@ -19,7 +19,7 @@ export async function buildTs({
 }: {
     config: BuildOptions;
     logMgr: LogMgr;
-}): Promise<void> {
+}): Promise<boolean> {
     const startTime = new Date().getTime();
 
     const buildHash = configHash(config);
@@ -112,7 +112,7 @@ export async function buildTs({
             }
         });
 
-        return;
+        return false;
     }
 
     fs.writeFileSync(oldBundleInfo, JSON.stringify(bundleInfo, undefined, 0));
@@ -127,4 +127,6 @@ export async function buildTs({
     compileByteCodeAndWriteHash(outFile, outFileHash, tempFile, config);
 
     const endTime = new Date().getTime();
+
+    return true;
 }

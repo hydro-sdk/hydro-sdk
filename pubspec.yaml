@@ -32,6 +32,9 @@ dependencies:
   petitparser: "3.1.0"
   cli_util:
   archive:
+  watcher:
+  dart_console:
+  synchronized:
 dev_dependencies: 
   import_sorter: "4.4.1"
   test: "any"
