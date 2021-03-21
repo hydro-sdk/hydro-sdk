@@ -148,11 +148,20 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
   }
 
   @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
       if (res == null) {
         return widget.loading;
       } else {
+        if (!res.success) {
+          print(res.values[0]);
+        }
         return maybeUnBoxAndBuildArgument<Widget>(
             luaState.context.env["hydro"]["globalBuildResult"].dispatch(
                 args != null ? [...args] : [],
