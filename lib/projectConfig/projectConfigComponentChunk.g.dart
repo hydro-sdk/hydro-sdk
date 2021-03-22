@@ -12,6 +12,7 @@ _$_$ProjectConfigComponentChunkCtor
     type: _$enumDecodeNullable(
         _$ProjectConfigComponentChunkTypeEnumMap, json['type']),
     entryPoint: json['entryPoint'] as String,
+    baseUrl: json['baseUrl'] as String,
   );
 }
 
@@ -20,6 +21,7 @@ Map<String, dynamic> _$_$_$ProjectConfigComponentChunkCtorToJson(
     <String, dynamic>{
       'type': _$ProjectConfigComponentChunkTypeEnumMap[instance.type],
       'entryPoint': instance.entryPoint,
+      'baseUrl': instance.baseUrl,
     };
 
 T _$enumDecode<T>(

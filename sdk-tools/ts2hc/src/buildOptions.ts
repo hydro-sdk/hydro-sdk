@@ -4,4 +4,5 @@ export interface BuildOptions {
     outDir: string;
     cacheDir: string;
     profile: "debug" | "release";
+    baseUrl: string | undefined;
 }

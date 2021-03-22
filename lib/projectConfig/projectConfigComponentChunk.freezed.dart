@@ -20,10 +20,12 @@ class _$ProjectConfigComponentChunkTearOff {
 // ignore: unused_element
   _$ProjectConfigComponentChunkCtor call(
       {@required ProjectConfigComponentChunkType type,
-      @required String entryPoint}) {
+      @required String entryPoint,
+      @nullable String baseUrl}) {
     return _$ProjectConfigComponentChunkCtor(
       type: type,
       entryPoint: entryPoint,
+      baseUrl: baseUrl,
     );
   }
 
@@ -41,6 +43,8 @@ const $ProjectConfigComponentChunk = _$ProjectConfigComponentChunkTearOff();
 mixin _$ProjectConfigComponentChunk {
   ProjectConfigComponentChunkType get type;
   String get entryPoint;
+  @nullable
+  String get baseUrl;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -54,7 +58,10 @@ abstract class $ProjectConfigComponentChunkCopyWith<$Res> {
           ProjectConfigComponentChunk value,
           $Res Function(ProjectConfigComponentChunk) then) =
       _$ProjectConfigComponentChunkCopyWithImpl<$Res>;
-  $Res call({ProjectConfigComponentChunkType type, String entryPoint});
+  $Res call(
+      {ProjectConfigComponentChunkType type,
+      String entryPoint,
+      @nullable String baseUrl});
 }
 
 /// @nodoc
@@ -70,6 +77,7 @@ class _$ProjectConfigComponentChunkCopyWithImpl<$Res>
   $Res call({
     Object type = freezed,
     Object entryPoint = freezed,
+    Object baseUrl = freezed,
   }) {
     return _then(_value.copyWith(
       type: type == freezed
@@ -77,6 +85,7 @@ class _$ProjectConfigComponentChunkCopyWithImpl<$Res>
           : type as ProjectConfigComponentChunkType,
       entryPoint:
           entryPoint == freezed ? _value.entryPoint : entryPoint as String,
+      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String,
     ));
   }
 }
@@ -89,7 +98,10 @@ abstract class _$$ProjectConfigComponentChunkCtorCopyWith<$Res>
           $Res Function(_$ProjectConfigComponentChunkCtor) then) =
       __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>;
   @override
-  $Res call({ProjectConfigComponentChunkType type, String entryPoint});
+  $Res call(
+      {ProjectConfigComponentChunkType type,
+      String entryPoint,
+      @nullable String baseUrl});
 }
 
 /// @nodoc
@@ -109,6 +121,7 @@ class __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>
   $Res call({
     Object type = freezed,
     Object entryPoint = freezed,
+    Object baseUrl = freezed,
   }) {
     return _then(_$ProjectConfigComponentChunkCtor(
       type: type == freezed
@@ -116,6 +129,7 @@ class __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>
           : type as ProjectConfigComponentChunkType,
       entryPoint:
           entryPoint == freezed ? _value.entryPoint : entryPoint as String,
+      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String,
     ));
   }
 }
@@ -126,7 +140,7 @@ class __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>
 class _$_$ProjectConfigComponentChunkCtor
     implements _$ProjectConfigComponentChunkCtor {
   const _$_$ProjectConfigComponentChunkCtor(
-      {@required this.type, @required this.entryPoint})
+      {@required this.type, @required this.entryPoint, @nullable this.baseUrl})
       : assert(type != null),
         assert(entryPoint != null);
 
@@ -138,10 +152,13 @@ class _$_$ProjectConfigComponentChunkCtor
   final ProjectConfigComponentChunkType type;
   @override
   final String entryPoint;
+  @override
+  @nullable
+  final String baseUrl;
 
   @override
   String toString() {
-    return 'ProjectConfigComponentChunk(type: $type, entryPoint: $entryPoint)';
+    return 'ProjectConfigComponentChunk(type: $type, entryPoint: $entryPoint, baseUrl: $baseUrl)';
   }
 
   @override
@@ -152,14 +169,17 @@ class _$_$ProjectConfigComponentChunkCtor
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.entryPoint, entryPoint) ||
                 const DeepCollectionEquality()
-                    .equals(other.entryPoint, entryPoint)));
+                    .equals(other.entryPoint, entryPoint)) &&
+            (identical(other.baseUrl, baseUrl) ||
+                const DeepCollectionEquality().equals(other.baseUrl, baseUrl)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(entryPoint);
+      const DeepCollectionEquality().hash(entryPoint) ^
+      const DeepCollectionEquality().hash(baseUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -177,7 +197,8 @@ abstract class _$ProjectConfigComponentChunkCtor
     implements ProjectConfigComponentChunk {
   const factory _$ProjectConfigComponentChunkCtor(
       {@required ProjectConfigComponentChunkType type,
-      @required String entryPoint}) = _$_$ProjectConfigComponentChunkCtor;
+      @required String entryPoint,
+      @nullable String baseUrl}) = _$_$ProjectConfigComponentChunkCtor;
 
   factory _$ProjectConfigComponentChunkCtor.fromJson(
       Map<String, dynamic> json) = _$_$ProjectConfigComponentChunkCtor.fromJson;
@@ -186,6 +207,9 @@ abstract class _$ProjectConfigComponentChunkCtor
   ProjectConfigComponentChunkType get type;
   @override
   String get entryPoint;
+  @override
+  @nullable
+  String get baseUrl;
   @override
   @JsonKey(ignore: true)
   _$$ProjectConfigComponentChunkCtorCopyWith<_$ProjectConfigComponentChunkCtor>

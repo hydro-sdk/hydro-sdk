@@ -11,7 +11,9 @@ export function configHash(
     hash.update(config.entry);
     hash.update(config.modName);
     hash.update(config.outDir);
+    hash.update(config.cacheDir);
     hash.update(config.profile);
+    hash.update(config.baseUrl ?? "");
 
     if (extra) {
         extra.forEach((x) => hash.update(x));

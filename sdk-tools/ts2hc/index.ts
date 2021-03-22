@@ -43,6 +43,12 @@ program
         new Option("--logger <logger>", "The logging behaviour to use")
             .makeOptionMandatory()
             .choices(["stdout", "parent", "none"])
+    )
+    .addOption(
+        new Option(
+            "--base-url [baseUrl]",
+            "The base Url to resolve imports relative to"
+        )
     );
 
 program.parse();
@@ -53,6 +59,7 @@ const modName: string = program.opts().moduleName;
 const outDir: string = program.opts().outDir;
 const profile: string = program.opts().profile;
 const loggingBehaviour: string = program.opts().logger;
+const baseUrl: string | undefined = program.opts().baseUrl;
 
 const logMgr = new LogMgr({
     loggingBehaviour:
@@ -87,6 +94,7 @@ if (!fs.existsSync(cacheDir)) {
             outDir: outDir,
             cacheDir: cacheDir,
             profile: profile,
+            baseUrl: baseUrl,
         },
         logMgr: logMgr,
     });

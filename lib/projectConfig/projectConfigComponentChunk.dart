@@ -13,6 +13,7 @@ abstract class ProjectConfigComponentChunk with _$ProjectConfigComponentChunk {
   const factory ProjectConfigComponentChunk({
     @required ProjectConfigComponentChunkType type,
     @required String entryPoint,
+    @nullable String baseUrl,
   }) = _$ProjectConfigComponentChunkCtor;
 
   factory ProjectConfigComponentChunk.fromJson(Map<String, dynamic> json) =>

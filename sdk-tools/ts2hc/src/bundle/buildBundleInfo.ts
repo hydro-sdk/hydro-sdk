@@ -44,6 +44,7 @@ export async function buildBundleInfo(
             sourceMapTraceback: false,
             outDir: `${buildOptions.cacheDir}${path.sep}ts2hc${path.sep}`,
             include: ["node_modules/hydro-sdk/runtime"],
+            baseUrl: buildOptions.baseUrl,
         },
     });
 
