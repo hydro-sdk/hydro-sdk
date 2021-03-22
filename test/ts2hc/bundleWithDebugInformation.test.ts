@@ -11,6 +11,7 @@ test("", async () => {
             outDir: "tmp",
             profile: "debug",
             cacheDir: "tmp",
+            baseUrl: undefined,
         },
         new LogMgr({ loggingBehaviour: LoggingBehaviour.stdout }),
         (currentStep, totalSteps, suffixMessage) => {}
