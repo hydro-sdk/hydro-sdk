@@ -21,7 +21,7 @@ class _$ProjectConfigComponentChunkTearOff {
   _$ProjectConfigComponentChunkCtor call(
       {@required ProjectConfigComponentChunkType type,
       @required String entryPoint,
-      @nullable String baseUrl}) {
+      @JsonKey(defaultValue: null) @nullable String baseUrl}) {
     return _$ProjectConfigComponentChunkCtor(
       type: type,
       entryPoint: entryPoint,
@@ -43,6 +43,7 @@ const $ProjectConfigComponentChunk = _$ProjectConfigComponentChunkTearOff();
 mixin _$ProjectConfigComponentChunk {
   ProjectConfigComponentChunkType get type;
   String get entryPoint;
+  @JsonKey(defaultValue: null)
   @nullable
   String get baseUrl;
 
@@ -61,7 +62,7 @@ abstract class $ProjectConfigComponentChunkCopyWith<$Res> {
   $Res call(
       {ProjectConfigComponentChunkType type,
       String entryPoint,
-      @nullable String baseUrl});
+      @JsonKey(defaultValue: null) @nullable String baseUrl});
 }
 
 /// @nodoc
@@ -101,7 +102,7 @@ abstract class _$$ProjectConfigComponentChunkCtorCopyWith<$Res>
   $Res call(
       {ProjectConfigComponentChunkType type,
       String entryPoint,
-      @nullable String baseUrl});
+      @JsonKey(defaultValue: null) @nullable String baseUrl});
 }
 
 /// @nodoc
@@ -140,7 +141,9 @@ class __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>
 class _$_$ProjectConfigComponentChunkCtor
     implements _$ProjectConfigComponentChunkCtor {
   const _$_$ProjectConfigComponentChunkCtor(
-      {@required this.type, @required this.entryPoint, @nullable this.baseUrl})
+      {@required this.type,
+      @required this.entryPoint,
+      @JsonKey(defaultValue: null) @nullable this.baseUrl})
       : assert(type != null),
         assert(entryPoint != null);
 
@@ -153,6 +156,7 @@ class _$_$ProjectConfigComponentChunkCtor
   @override
   final String entryPoint;
   @override
+  @JsonKey(defaultValue: null)
   @nullable
   final String baseUrl;
 
@@ -196,9 +200,10 @@ class _$_$ProjectConfigComponentChunkCtor
 abstract class _$ProjectConfigComponentChunkCtor
     implements ProjectConfigComponentChunk {
   const factory _$ProjectConfigComponentChunkCtor(
-      {@required ProjectConfigComponentChunkType type,
-      @required String entryPoint,
-      @nullable String baseUrl}) = _$_$ProjectConfigComponentChunkCtor;
+          {@required ProjectConfigComponentChunkType type,
+          @required String entryPoint,
+          @JsonKey(defaultValue: null) @nullable String baseUrl}) =
+      _$_$ProjectConfigComponentChunkCtor;
 
   factory _$ProjectConfigComponentChunkCtor.fromJson(
       Map<String, dynamic> json) = _$_$ProjectConfigComponentChunkCtor.fromJson;
@@ -208,6 +213,7 @@ abstract class _$ProjectConfigComponentChunkCtor
   @override
   String get entryPoint;
   @override
+  @JsonKey(defaultValue: null)
   @nullable
   String get baseUrl;
   @override
