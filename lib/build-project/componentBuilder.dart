@@ -11,12 +11,14 @@ class ComponentBuilder {
   final String ts2hc;
   final String cacheDir;
   final String profile;
+  final String outDir;
 
   const ComponentBuilder({
     @required this.projectConfigComponent,
     @required this.ts2hc,
     @required this.cacheDir,
     @required this.profile,
+    this.outDir = "",
   });
 
   String unpackedOutputPath() => [
@@ -69,6 +71,7 @@ class ComponentBuilder {
         ts2hc: ts2hc,
         cacheDir: cacheDir,
         profile: profile,
+        outDir: outDir,
       );
 
       res = await packageBuilder.build();

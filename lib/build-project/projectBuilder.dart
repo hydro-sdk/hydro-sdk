@@ -8,12 +8,14 @@ class ProjectBuilder {
   final String ts2hc;
   final String cacheDir;
   final String profile;
+  final String outDir;
 
   const ProjectBuilder({
     @required this.projectConfig,
     @required this.ts2hc,
     @required this.cacheDir,
     @required this.profile,
+    this.outDir = "",
   });
 
   Future<bool> build() async {
@@ -26,6 +28,7 @@ class ProjectBuilder {
           ts2hc: ts2hc,
           cacheDir: cacheDir,
           profile: profile,
+          outDir: outDir,
         );
 
         var res = await componentBuilder.build();

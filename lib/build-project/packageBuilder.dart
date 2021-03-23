@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:archive/archive_io.dart';
 import 'package:cli_util/cli_logging.dart';
+import 'package:filesize/filesize.dart';
 import 'package:meta/meta.dart';
+import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/build-project/componentBuilder.dart';
 import 'package:hydro_sdk/build-project/sha256Data.dart';
@@ -14,6 +16,7 @@ class PackageBuilder {
   final String ts2hc;
   final String cacheDir;
   final String profile;
+  final String outDir;
 
   const PackageBuilder({
     @required this.projectConfigComponent,
@@ -21,12 +24,14 @@ class PackageBuilder {
     @required this.ts2hc,
     @required this.cacheDir,
     @required this.profile,
+    this.outDir = "",
   });
 
   Future<bool> build() async {
     Logger logger = Logger.standard();
 
     Progress progress = logger.progress("Assembling package");
+    String copyMessage = "";
     try {
       var files = await Directory(componentBuilder.unpackedOutputPath())
           .list(recursive: true)
@@ -48,16 +53,43 @@ class PackageBuilder {
       var tar = TarEncoder().encode(archive);
       var bzip2 = BZip2Encoder().encode(tar);
 
-      await File(componentBuilder.unpackedOutputPath() + ".ota")
-          .writeAsBytes(bzip2);
+      var outputPackage = File(componentBuilder.unpackedOutputPath() + ".ota");
 
-      await File(componentBuilder.unpackedOutputPath() + ".ota.sha256")
-          .writeAsString(sha256Data(bzip2));
+      await outputPackage.writeAsBytes(bzip2);
+
+      var outputPackageHash =
+          File(componentBuilder.unpackedOutputPath() + ".ota.sha256");
+
+      await outputPackageHash.writeAsString(sha256Data(bzip2));
+
+      if (outDir != null && outDir.isNotEmpty) {
+        var copyPackagePath = [
+          outDir,
+          path.separator,
+          path.basename(outputPackage.path)
+        ].join("");
+        await outputPackage.copy(copyPackagePath);
+
+        var copyPackageHashPath = [
+          outDir,
+          path.separator,
+          path.basename(outputPackageHash.path)
+        ].join();
+
+        await outputPackageHash.copy(copyPackageHashPath);
+
+        copyMessage =
+            "->    ${copyPackagePath}    ${filesize(outputPackage.statSync().size)}";
+      }
     } catch (err) {
       print(err);
       return false;
     }
     progress.finish(showTiming: true);
+
+    if (copyMessage?.isNotEmpty ?? false) {
+      print(copyMessage);
+    }
     return true;
   }
 }

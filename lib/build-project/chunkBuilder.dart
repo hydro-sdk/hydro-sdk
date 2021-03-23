@@ -56,8 +56,13 @@ class ChunkBuilder {
           profile,
           "--logger",
           "stdout",
-          "--base-url",
-          projectConfigComponentChunk.baseUrl,
+          ...(projectConfigComponentChunk.baseUrl != null &&
+                  projectConfigComponentChunk.baseUrl.isNotEmpty
+              ? [
+                  "--base-url",
+                  projectConfigComponentChunk.baseUrl,
+                ]
+              : [])
         ],
         mode: ProcessStartMode.inheritStdio,
       );

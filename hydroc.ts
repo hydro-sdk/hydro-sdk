@@ -198,10 +198,12 @@ class Hydroc {
         project,
         ts2hc,
         profile,
+        outDir,
     }: {
         project: string;
         ts2hc: string;
         profile: string;
+        outDir: string;
     }) {
         return cp.spawn(
             this.makeSdkToolPlatformPath({ toolName: "build-project" }),
@@ -214,6 +216,8 @@ class Hydroc {
                 this.cacheDir,
                 "--profile",
                 profile,
+                "--out-dir",
+                outDir,
             ],
             {
                 stdio: "inherit",
@@ -353,6 +357,12 @@ async function readSdkPackage({
         )
         .addOption(
             new Option(
+                "--out-dir <out-dir>",
+                "The directory to write build outputs to"
+            ).default("")
+        )
+        .addOption(
+            new Option(
                 "--profile <profile>",
                 "The build profile to use for all chunks in the project"
             ).default("release")
@@ -368,6 +378,7 @@ async function readSdkPackage({
                 const buildProject = hydroc.buildProject({
                     project: options.project,
                     profile: options.profile,
+                    outDir: options.outDir,
                     ts2hc: hydroc.makeSdkToolPlatformPath({
                         toolName: "ts2hc",
                     }),
