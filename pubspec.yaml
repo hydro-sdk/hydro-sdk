@@ -35,6 +35,7 @@ dependencies:
   freezed_annotation: null
   synchronized: null
   watcher: null
+  filesize:
 dev_dependencies: 
   import_sorter: "4.4.1"
   test: "any"

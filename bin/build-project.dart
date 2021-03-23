@@ -13,6 +13,7 @@ void main(List<String> args) async {
   parser.addOption("ts2hc");
   parser.addOption("cache-dir");
   parser.addOption("profile", allowed: ["debug", "release"]);
+  parser.addOption("out-dir");
 
   var results = parser.parse(args);
 
@@ -24,6 +25,7 @@ void main(List<String> args) async {
     ts2hc: results["ts2hc"],
     cacheDir: results["cache-dir"],
     profile: results["profile"],
+    outDir: results["out-dir"],
   );
 
   var res = await projectBuilder.build();
