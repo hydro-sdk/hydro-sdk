@@ -14,12 +14,10 @@ mixin ReloadableMountableChunk<T extends StatefulWidget> on State<T>
 
     final manifest = PackageManifest.fromJson(jsonDecode(
         _getFileContentFromArchiveAsString(
-            fileName: "${component}/manifest.json",
-            archive: decodedTar)));
+            fileName: "${component}/manifest.json", archive: decodedTar)));
 
     final debugInfo = jsonDecode(_getFileContentFromArchiveAsString(
-            fileName:
-                "${component}/${manifest.mountableChunk}.hc.symbols",
+            fileName: "${component}/${manifest.mountableChunk}.hc.symbols",
             archive: decodedTar))
         .map((x) => ModuleDebugInfo.fromJson(x))
         .toList()
