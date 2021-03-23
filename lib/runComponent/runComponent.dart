@@ -23,6 +23,7 @@ part 'runDebugComponent.dart';
 part 'debugUrls.dart';
 part 'debugDownload.dart';
 part 'reloadableMountableChunk.dart';
+part 'runComponentFromFile.dart';
 
 class RunComponent extends StatelessWidget {
   final String project;
