@@ -63,6 +63,8 @@ class PackageBuilder {
       await outputPackageHash.writeAsString(sha256Data(bzip2));
 
       if (outDir != null && outDir.isNotEmpty) {
+        await Directory(outDir).create(recursive: true);
+
         var copyPackagePath = [
           outDir,
           path.separator,
