@@ -69,7 +69,7 @@ class ManifestBuilder {
       ).writeAsString(jsonEncode(PackageManifest(
         mountableChunk: [
           "chunks",
-          path.separator,
+          "/",
           path.basename(projectConfigComponent.chunks
               .firstWhere(
                 (x) => x.type == ProjectConfigComponentChunkType.mountable,
