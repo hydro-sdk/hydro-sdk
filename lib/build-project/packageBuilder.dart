@@ -41,9 +41,10 @@ class PackageBuilder {
 
       await Future.wait(files.map((fileSystemEntity) async {
         if (fileSystemEntity.statSync().type == FileSystemEntityType.file) {
-          var rel = fileSystemEntity.path.replaceAll(
-              componentBuilder.unpackedOutputPath(),
-              projectConfigComponent.name);
+          var rel = fileSystemEntity.path
+              .replaceAll(componentBuilder.unpackedOutputPath(),
+                  projectConfigComponent.name)
+              .replaceAll(path.separator, "/");
           var content = await File(fileSystemEntity.path).readAsBytes();
 
           archive.addFile(ArchiveFile(rel, content.length, content));
