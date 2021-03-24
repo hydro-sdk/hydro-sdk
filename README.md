@@ -10,7 +10,7 @@ Author native [Flutter](https://flutter.dev/docs) experiences in Typescript and 
 
 # What
 Hydro provides a projection of Dart and Flutter into Typescript. Not everything Flutter provides has been projected yet. See https://hydro-sdk.github.io/hydro-sdk/  
-Hydro compiles your code into a single `.hc` bytecode file which can be easily packed into an existing Flutter app or loaded over the network.
+Hydro compiles your code into a bytecode chunk which can be easily packed into an existing Flutter app or loaded over the network.
 
 ## What About Performance?
 While your code is interpreted, ensuring it will work on all platforms that Flutter will, most of the heavy lifting is done in Dart code by Flutter itself. You don't need to sacrifice FPS or portability for quick iteration. See "Advanced Uses" below for documentation about compiling directly from Typescript to Dart for maximum performance.
@@ -42,33 +42,12 @@ Serve complete experiences over HTTP. Deliver updates to parts of your app, or d
 Hydo-SDK provides a Common Flutter Runtime (CFR), composed of a virtual machine implementing a subset of a Lua 5.2 environment, bindings for Flutter, Dart, some Javascript builtins, and a set of Flutter widgets exposing it all to embedders. All written in pure Dart. Hydro-SDK combines the CFR with guest language projections and a compilation toolchain for compiling supported languages into Lua bytecode, and Lua bytecode into Dart.
 
 # Examples
-Each example can be run over the air directly off of Github using it's corresponding `.hc` file under dist/.
 
-## examples/pokeApp
-An adaptation of https://github.com/iampawan/PokemonApp  
-Shows off how to load data over HTTP using a port of the `http` package, wait until it's ready with `Future`s, parse it from JSON into `interface`s with `dart:convert`, pass it down the widget tree with a port of `ScopedModel`, let the user search on it with `TextFormField`s and animate transitions between screens with `Hero` animations.
-
-## examples/hotel-booking
-A line for line port of https://github.com/cybdom/hotel_booking_ui   
-Shows off a highly customised UI with `Clip`s and `Stack`s.
-
-## examples/animated-list
-A line for line port of the Flutter catalog example showing off basic transition animations.
-
-## examples/basic-app-bar
-A line for line port of the Flutter catalog example showing off app bars and material icons.
-
-## examples/counter
-Obligatory Flutter stateful counter showcase showing a simple use of state.
-
-## examples/hostArgs
-An example demonstrating how to pass non-trivial arguments, including `Widget` trees from a host Flutter application through to embedded Hydro content. See also https://github.com/chgibb/hydro-sdk/blob/master/test/smoke/hostArgs_test.dart
-
-## examples/unityGallery
-Shows off how to use `CustomScrollView`s with `Sliver`s and override `ScrollPhysic`s to create a selection screen with all the other examples embedded.
+## https://github.com/hydro-sdk/counter-app
+Obligatory Flutter counter app.
 
 # Getting Started
-Check out the example project at https://github.com/hydro-sdk/hydro_demo for documentation about getting started
+Check out the example project at https://github.com/hydro-sdk/counter-app for documentation about getting started
 
 # Current Development
 Current development is focused on the Structured Wrapper and Interface generator for Dart (SWID) sub-project under `lib/swid`. This project will allow for automatic projection of Dart packages (like Flutter). See https://github.com/hydro-sdk/hydro-sdk/projects/5

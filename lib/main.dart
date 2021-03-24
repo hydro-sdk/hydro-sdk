@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:hydro_sdk/runComponent.dart';
+import 'package:hydro_sdk/runComponent/runComponent.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
