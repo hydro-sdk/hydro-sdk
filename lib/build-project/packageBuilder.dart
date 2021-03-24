@@ -30,7 +30,7 @@ class PackageBuilder {
   Future<bool> build() async {
     Logger logger = Logger.standard();
 
-    Progress progress = logger.progress("Assembling package");
+    // Progress progress = logger.progress("Assembling package");
     String copyMessage = "";
     try {
       var files = await Directory(componentBuilder.unpackedOutputPath())
@@ -46,6 +46,8 @@ class PackageBuilder {
                   projectConfigComponent.name)
               .replaceAll(path.separator, "/");
           var content = await File(fileSystemEntity.path).readAsBytes();
+
+          print("Packing '${fileSystemEntity.path}' as '${rel}'");
 
           archive.addFile(ArchiveFile(rel, content.length, content));
         }
@@ -88,7 +90,7 @@ class PackageBuilder {
       print(err);
       return false;
     }
-    progress.finish(showTiming: true);
+    // progress.finish(showTiming: true);
 
     if (copyMessage?.isNotEmpty ?? false) {
       print(copyMessage);
