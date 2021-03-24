@@ -17,7 +17,7 @@ While your code is interpreted, ensuring it will work on all platforms that Flut
 
 # Features
 ## Hot Reload, Incremental Compilation
-![Stateful Hot-reload Demo](https://github.com/chgibb/hydro-sdk/blob/master/readme-video.gif)
+![Action Gif](https://github.com/hydro-sdk/counter-app/blob/master/media/action-gif.gif)
 
 ## Source Maps
 ![Source maps screenshot](https://github.com/chgibb/hydro-sdk/blob/master/img/sourceMapScreenShot.png)
