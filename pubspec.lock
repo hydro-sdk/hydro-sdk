@@ -663,8 +663,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "0.0.1-nightly.31"
-      resolved-ref: "09138bdcbbfda5e8cadefcba49a7ce8f83240103"
+      ref: "0.0.1-nightly.33"
+      resolved-ref: d0a37dfd45bfd2c9403d09ba6d5b9c8738f24185
       url: "git://github.com/hydro-sdk/waveform.git"
     source: git
     version: "0.0.1"
