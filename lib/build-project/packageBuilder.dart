@@ -47,8 +47,6 @@ class PackageBuilder {
               .replaceAll(path.separator, "/");
           var content = await File(fileSystemEntity.path).readAsBytes();
 
-          print("Packing '${fileSystemEntity.path}' as '${rel}'");
-
           archive.addFile(ArchiveFile(rel, content.length, content));
         }
       }));
