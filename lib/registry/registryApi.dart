@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
 import 'package:meta/meta.dart';
+import 'package:corsac_jwt/corsac_jwt.dart';
 
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
@@ -56,6 +58,24 @@ class RegistryApi {
   Future<SessionDto> login({
     @required LoginUserDto dto,
   }) async {
+    final response = await post(Uri.https(baseUrl, "api/user"),
+        headers: {
+          "content-type": "application/json",
+          "accept": "*/*",
+        },
+        body: jsonEncode(dto.toJson()));
+
+    if (response.statusCode == 201) {
+      var token = JWT.parse(response.body);
+
+      return SessionDto(
+        authenticatedUser: AuthTokenDto(
+            exp: token.getClaim("exp"),
+            sub: token.getClaim("sub"),
+            username: token.getClaim("username")),
+        authToken: response.body,
+      );
+    }
     return null;
   }
 
