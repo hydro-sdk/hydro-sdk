@@ -37,7 +37,7 @@ test("", async () => {
         new LogMgr({ loggingBehaviour: LoggingBehaviour.stdout })
     );
 
-    expect(bundleResult.debugSymbols.length).toBe(144);
+    expect(bundleResult.debugSymbols.length).toBe(150);
     expect(bundleResult.debugSymbols[0].lineStart).toBe(20);
     expect(bundleResult.debugSymbols[0].lineEnd).toBe(22);
     expect(bundleResult.debugSymbols[0].symbolName).toBe("____exports.bar");
