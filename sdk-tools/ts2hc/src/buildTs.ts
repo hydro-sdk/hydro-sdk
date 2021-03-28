@@ -121,7 +121,7 @@ export async function buildTs({
 
     fs.writeFileSync(`${tempDir}/${config.modName}`, bundleResult.bundle);
 
-    if(config.profile == "debug"){
+    if (config.profile == "debug") {
         const symbolsString = JSON.stringify(bundleResult.debugSymbols);
         fs.writeFileSync(`${tempDir}/${config.modName}.symbols`, symbolsString);
         fs.writeFileSync(outFileSymbols, symbolsString);
