@@ -138,13 +138,14 @@ class RegistryApi {
     @required SessionDto sessionDto,
   }) async {
     final response = await get(
-      Uri.https(baseUrl, "api/component/${sessionDto.authenticatedUser.sub}"),
+      Uri.https(baseUrl,
+          "api/component/canUpdate/${sessionDto.authenticatedUser.sub}"),
       headers: {
         "content-type": "application/json",
         "Authorization": "Bearer ${sessionDto.authToken}",
       },
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return jsonDecode(response.body)
           .map((x) => ComponentReadDto.fromJson(x))
           .toList()

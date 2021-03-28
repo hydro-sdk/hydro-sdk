@@ -9,12 +9,12 @@ abstract class ComponentReadDto with _$ComponentReadDto {
   const factory ComponentReadDto({
     @required String id,
     @required String projectId,
-    @required int createdAt,
-    @required int modifiedAt,
+    @required String createdAt,
+    @required String modifiedAt,
     @required bool isPublic,
     @required String name,
     @required String description,
-    @required String deploymentPublishingKey,
+    @required String deploymentPublicKey,
   }) = _$ComponentReadDtoCtor;
 
   factory ComponentReadDto.fromJson(Map<String, dynamic> json) =>
