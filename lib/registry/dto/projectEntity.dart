@@ -8,8 +8,8 @@ part 'projectEntity.g.dart';
 abstract class ProjectEntity with _$ProjectEntity {
   const factory ProjectEntity({
     @required String id,
-    @required int createdAt,
-    @required int modfiedAt,
+    @required String createdAt,
+    @required String modifiedAt,
     @required bool isPublic,
     @required String name,
     @required String description,

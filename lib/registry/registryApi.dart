@@ -124,7 +124,7 @@ class RegistryApi {
         "Authorization": "Bearer ${sessionDto.authToken}",
       },
     );
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       return jsonDecode(response.body)
           .map((x) => ProjectEntity.fromJson(x))
           .toList()

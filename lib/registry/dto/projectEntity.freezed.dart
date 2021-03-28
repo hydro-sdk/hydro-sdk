@@ -19,8 +19,8 @@ class _$ProjectEntityTearOff {
 // ignore: unused_element
   _$ProjectEntityCtor call(
       {@required String id,
-      @required int createdAt,
-      @required int modfiedAt,
+      @required String createdAt,
+      @required String modifiedAt,
       @required bool isPublic,
       @required String name,
       @required String description,
@@ -29,7 +29,7 @@ class _$ProjectEntityTearOff {
     return _$ProjectEntityCtor(
       id: id,
       createdAt: createdAt,
-      modfiedAt: modfiedAt,
+      modifiedAt: modifiedAt,
       isPublic: isPublic,
       name: name,
       description: description,
@@ -51,8 +51,8 @@ const $ProjectEntity = _$ProjectEntityTearOff();
 /// @nodoc
 mixin _$ProjectEntity {
   String get id;
-  int get createdAt;
-  int get modfiedAt;
+  String get createdAt;
+  String get modifiedAt;
   bool get isPublic;
   String get name;
   String get description;
@@ -71,8 +71,8 @@ abstract class $ProjectEntityCopyWith<$Res> {
       _$ProjectEntityCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      int createdAt,
-      int modfiedAt,
+      String createdAt,
+      String modifiedAt,
       bool isPublic,
       String name,
       String description,
@@ -93,7 +93,7 @@ class _$ProjectEntityCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object createdAt = freezed,
-    Object modfiedAt = freezed,
+    Object modifiedAt = freezed,
     Object isPublic = freezed,
     Object name = freezed,
     Object description = freezed,
@@ -102,8 +102,9 @@ class _$ProjectEntityCopyWithImpl<$Res>
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as int,
-      modfiedAt: modfiedAt == freezed ? _value.modfiedAt : modfiedAt as int,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
+      modifiedAt:
+          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String,
       isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
       name: name == freezed ? _value.name : name as String,
       description:
@@ -126,8 +127,8 @@ abstract class _$$ProjectEntityCtorCopyWith<$Res>
   @override
   $Res call(
       {String id,
-      int createdAt,
-      int modfiedAt,
+      String createdAt,
+      String modifiedAt,
       bool isPublic,
       String name,
       String description,
@@ -150,7 +151,7 @@ class __$$ProjectEntityCtorCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object createdAt = freezed,
-    Object modfiedAt = freezed,
+    Object modifiedAt = freezed,
     Object isPublic = freezed,
     Object name = freezed,
     Object description = freezed,
@@ -159,8 +160,9 @@ class __$$ProjectEntityCtorCopyWithImpl<$Res>
   }) {
     return _then(_$ProjectEntityCtor(
       id: id == freezed ? _value.id : id as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as int,
-      modfiedAt: modfiedAt == freezed ? _value.modfiedAt : modfiedAt as int,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
+      modifiedAt:
+          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String,
       isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
       name: name == freezed ? _value.name : name as String,
       description:
@@ -181,7 +183,7 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
   const _$_$ProjectEntityCtor(
       {@required this.id,
       @required this.createdAt,
-      @required this.modfiedAt,
+      @required this.modifiedAt,
       @required this.isPublic,
       @required this.name,
       @required this.description,
@@ -189,7 +191,7 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
       @required this.otaDownloadLimit})
       : assert(id != null),
         assert(createdAt != null),
-        assert(modfiedAt != null),
+        assert(modifiedAt != null),
         assert(isPublic != null),
         assert(name != null),
         assert(description != null),
@@ -202,9 +204,9 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
   @override
   final String id;
   @override
-  final int createdAt;
+  final String createdAt;
   @override
-  final int modfiedAt;
+  final String modifiedAt;
   @override
   final bool isPublic;
   @override
@@ -218,7 +220,7 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
 
   @override
   String toString() {
-    return 'ProjectEntity(id: $id, createdAt: $createdAt, modfiedAt: $modfiedAt, isPublic: $isPublic, name: $name, description: $description, sessionLimit: $sessionLimit, otaDownloadLimit: $otaDownloadLimit)';
+    return 'ProjectEntity(id: $id, createdAt: $createdAt, modifiedAt: $modifiedAt, isPublic: $isPublic, name: $name, description: $description, sessionLimit: $sessionLimit, otaDownloadLimit: $otaDownloadLimit)';
   }
 
   @override
@@ -230,9 +232,9 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
             (identical(other.createdAt, createdAt) ||
                 const DeepCollectionEquality()
                     .equals(other.createdAt, createdAt)) &&
-            (identical(other.modfiedAt, modfiedAt) ||
+            (identical(other.modifiedAt, modifiedAt) ||
                 const DeepCollectionEquality()
-                    .equals(other.modfiedAt, modfiedAt)) &&
+                    .equals(other.modifiedAt, modifiedAt)) &&
             (identical(other.isPublic, isPublic) ||
                 const DeepCollectionEquality()
                     .equals(other.isPublic, isPublic)) &&
@@ -254,7 +256,7 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(modfiedAt) ^
+      const DeepCollectionEquality().hash(modifiedAt) ^
       const DeepCollectionEquality().hash(isPublic) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(description) ^
@@ -275,8 +277,8 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
 abstract class _$ProjectEntityCtor implements ProjectEntity {
   const factory _$ProjectEntityCtor(
       {@required String id,
-      @required int createdAt,
-      @required int modfiedAt,
+      @required String createdAt,
+      @required String modifiedAt,
       @required bool isPublic,
       @required String name,
       @required String description,
@@ -289,9 +291,9 @@ abstract class _$ProjectEntityCtor implements ProjectEntity {
   @override
   String get id;
   @override
-  int get createdAt;
+  String get createdAt;
   @override
-  int get modfiedAt;
+  String get modifiedAt;
   @override
   bool get isPublic;
   @override

@@ -10,8 +10,8 @@ _$_$ProjectEntityCtor _$_$_$ProjectEntityCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$ProjectEntityCtor(
     id: json['id'] as String,
-    createdAt: json['createdAt'] as int,
-    modfiedAt: json['modfiedAt'] as int,
+    createdAt: json['createdAt'] as String,
+    modifiedAt: json['modifiedAt'] as String,
     isPublic: json['isPublic'] as bool,
     name: json['name'] as String,
     description: json['description'] as String,
@@ -25,7 +25,7 @@ Map<String, dynamic> _$_$_$ProjectEntityCtorToJson(
     <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt,
-      'modfiedAt': instance.modfiedAt,
+      'modifiedAt': instance.modifiedAt,
       'isPublic': instance.isPublic,
       'name': instance.name,
       'description': instance.description,

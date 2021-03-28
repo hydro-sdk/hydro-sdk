@@ -49,6 +49,33 @@ void main() {
 
       expect(loginResponse, isNotNull);
       expect(loginResponse.authenticatedUser.username, username);
+
+      createProjectResponse = await api.createProject(
+        dto: CreateProjectDto(
+          name: projectName,
+          description: projectDescription,
+        ),
+        sessionDto: loginResponse,
+      );
+
+      expect(createProjectResponse, isNotNull);
+      expect(createProjectResponse.name, projectName);
+      expect(createProjectResponse.description, projectDescription);
+
+      var canUpdateProjectResponse = await api.canUpdateProjects(
+        sessionDto: SessionDto.empty(),
+      );
+
+      expect(canUpdateProjectResponse, isNull);
+
+      canUpdateProjectResponse = await api.canUpdateProjects(
+        sessionDto: loginResponse,
+      );
+
+      expect(canUpdateProjectResponse, isNotNull);
+      expect(canUpdateProjectResponse.first.name, createProjectResponse.name);
+      expect(canUpdateProjectResponse.first.description,
+          createProjectResponse.description);
     }, tags: "registry");
   });
 }
