@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/registry/dto/createUserDto.dart';
-import 'package:hydro_sdk/registry/registryApi.dart';
 import 'package:uuid/uuid.dart';
 
+import 'package:hydro_sdk/registry/dto/createUserDto.dart';
+import 'package:hydro_sdk/registry/registryApi.dart';
 import 'registryTestUrl.dart';
 
 void main() {
