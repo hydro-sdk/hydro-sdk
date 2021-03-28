@@ -5,7 +5,8 @@ part 'updateUserProjectCreationsDto.freezed.dart';
 part 'updateUserProjectCreationsDto.g.dart';
 
 @freezed
-abstract class UpdateUserProjectCreationsDto with _$UpdateUserProjectCreationsDto {
+abstract class UpdateUserProjectCreationsDto
+    with _$UpdateUserProjectCreationsDto {
   const factory UpdateUserProjectCreationsDto({
     @required String subject,
     @required int numRemainingProjectCreations,
