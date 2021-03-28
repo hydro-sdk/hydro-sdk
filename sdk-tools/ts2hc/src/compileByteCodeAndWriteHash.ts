@@ -16,8 +16,10 @@ export function compileByteCodeAndWriteHash(
             config.profile == "release" ? "-s" : ""
         } -o ${outFile} ${tempFile}`
     );
-
-    const hash = crypto.createHash("sha256");
-    hash.update(fs.readFileSync(outFile).toString());
-    fs.writeFileSync(outFileHash, hash.digest("hex"));
+    
+    if(config.profile == "debug"){
+        const hash = crypto.createHash("sha256");
+        hash.update(fs.readFileSync(outFile).toString());
+        fs.writeFileSync(outFileHash, hash.digest("hex"));
+    }
 }
