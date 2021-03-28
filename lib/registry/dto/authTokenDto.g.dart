@@ -10,7 +10,7 @@ _$_$AuthTokenDtoCtor _$_$_$AuthTokenDtoCtorFromJson(Map<String, dynamic> json) {
   return _$_$AuthTokenDtoCtor(
     sub: json['sub'] as String,
     username: json['username'] as String,
-    exp: json['exp'] as int,
+    exp: (json['exp'] as num)?.toDouble(),
   );
 }
 

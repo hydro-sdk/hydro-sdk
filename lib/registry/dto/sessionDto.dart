@@ -13,6 +13,11 @@ abstract class SessionDto with _$SessionDto {
     @required String authToken,
   }) = _$SessionDtoCtor;
 
+  factory SessionDto.empty() => SessionDto(
+        authenticatedUser: AuthTokenDto.empty(),
+        authToken: "",
+      );
+
   factory SessionDto.fromJson(Map<String, dynamic> json) =>
       _$SessionDtoFromJson(json);
 }

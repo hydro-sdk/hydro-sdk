@@ -58,7 +58,7 @@ class RegistryApi {
   Future<SessionDto> login({
     @required LoginUserDto dto,
   }) async {
-    final response = await post(Uri.https(baseUrl, "api/user"),
+    final response = await post(Uri.https(baseUrl, "api/login"),
         headers: {
           "content-type": "application/json",
           "accept": "*/*",
@@ -83,6 +83,16 @@ class RegistryApi {
     @required CreateProjectDto dto,
     @required SessionDto sessionDto,
   }) async {
+    final response = await post(Uri.https(baseUrl, "api/project"),
+        headers: {
+          "content-type": "application/json",
+          "Authorization": "Bearer ${sessionDto.authToken}",
+        },
+        body: jsonEncode(dto.toJson()));
+    if (response.statusCode == 201) {
+      return ProjectEntity.fromJson(jsonDecode(response.body));
+    }
+
     return null;
   }
 
@@ -90,18 +100,57 @@ class RegistryApi {
     @required CreateComponentDto dto,
     @required SessionDto sessionDto,
   }) async {
+    final response = await post(Uri.https(baseUrl, "api/component"),
+        headers: {
+          "content-type": "application/json",
+          "Authorization": "Bearer ${sessionDto.authToken}",
+        },
+        body: jsonEncode(dto.toJson()));
+    if (response.statusCode == 201) {
+      return CreateComponentResponseDto.fromJson(jsonDecode(response.body));
+    }
+
     return null;
   }
 
   Future<List<ProjectEntity>> canUpdateProjects({
     @required SessionDto sessionDto,
   }) async {
+    final response = await get(
+      Uri.https(
+          baseUrl, "api/project/canUpdate/${sessionDto.authenticatedUser.sub}"),
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer ${sessionDto.authToken}",
+      },
+    );
+    if (response.statusCode == 201) {
+      return jsonDecode(response.body)
+          .map((x) => ProjectEntity.fromJson(x))
+          .toList()
+          .cast<ProjectEntity>();
+    }
+
     return null;
   }
 
   Future<List<ComponentReadDto>> canUpdateComponents({
     @required SessionDto sessionDto,
   }) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/component/${sessionDto.authenticatedUser.sub}"),
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer ${sessionDto.authToken}",
+      },
+    );
+    if (response.statusCode == 201) {
+      return jsonDecode(response.body)
+          .map((x) => ComponentReadDto.fromJson(x))
+          .toList()
+          .cast<ComponentReadDto>();
+    }
+
     return null;
   }
 }
