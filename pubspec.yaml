@@ -36,6 +36,7 @@ dependencies:
   freezed_annotation: null
   synchronized: null
   watcher: null
+  uuid: null
 dev_dependencies: 
   import_sorter: "4.4.1"
   test: "any"

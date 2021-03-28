@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:hydro_sdk/registry/dto/createUserDto.dart';
 import 'package:meta/meta.dart';
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
@@ -21,7 +22,7 @@ class RegistryApi {
   Future<UserReadDto> getUser({
     @required String username,
   }) async {
-    final Response response = await get(
+    final response = await get(
       Uri.https(baseUrl, "api/user/${username}"),
       headers: {
         "content-type": "application/json",
@@ -33,6 +34,22 @@ class RegistryApi {
     }
 
     return null;
+  }
+
+  Future<bool> createUser({
+    @required CreateUserDto dto,
+  }) async {
+    final response = await post(Uri.https(baseUrl, "api/user"),
+        headers: {
+          "content-type": "application/json",
+          "accept": "*/*",
+        },
+        body: jsonEncode(dto.toJson()));
+    if (response.statusCode == 201) {
+      return true;
+    }
+
+    return false;
   }
 
   Future<SessionDto> login({
