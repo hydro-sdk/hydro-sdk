@@ -55,7 +55,6 @@ List<int> _getFileContentFromArchive({
   @required String fileName,
   @required Archive archive,
 }) {
-  print("Trying to retrieve ${fileName}");
   archive.files.map((x) => print(x.name));
   return archive.fileData(archive.files.indexWhere((x) => x.name == fileName));
 }
