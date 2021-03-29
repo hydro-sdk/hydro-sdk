@@ -55,7 +55,8 @@ type ExplorableNode =
     | lparse.ElseifClause
     | lparse.ElseClause
     | lparse.BinaryExpression
-    | lparse.DoStatement;
+    | lparse.DoStatement
+    | lparse.TableKey;
 
 function maybeNarrowNodeType(
     node: lparse.Base<string>
@@ -100,6 +101,8 @@ function maybeNarrowNodeType(
         return node as lparse.BinaryExpression;
     } else if (node.type == "DoStatement") {
         return node as lparse.DoStatement;
+    } else if (node.type == "TableKey") {
+        return node as lparse.TableKey;
     }
     return;
 }
@@ -515,6 +518,31 @@ function findModuleDebugInfoInner(props: {
                 });
             }
         });
+    }
+
+    if (props.last.type == "TableKey") {
+        if (props.log) {
+            props.logMgr.log({
+                event: {
+                    logEventType: LogEventType.diagnostic,
+                    message: `TableKey ${props.last.loc?.start?.line}`,
+                },
+            });
+        }
+
+        if (maybeNarrowNodeType(props.last.key)) {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.key as ExplorableNode,
+            });
+        }
+
+        if (maybeNarrowNodeType(props.last.value)) {
+            findModuleDebugInfoInner({
+                ...props,
+                last: props.last.value as ExplorableNode,
+            });
+        }
     }
 }
 
