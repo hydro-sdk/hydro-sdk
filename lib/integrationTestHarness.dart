@@ -21,9 +21,13 @@ Widget integrationTestHarness(
     baseUrl: path,
     customNamespaces: customNamespaces,
     downloadHash: (String uri) async {
+      try {
       var file = File("$path.hc.sha256");
       var res = file.readAsStringSync();
       return res;
+      } catch (err) {
+        return null;
+      }
     },
     downloadByteCodeImage: (String uri) async {
       var file = File("$path.hc");
