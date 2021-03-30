@@ -23,6 +23,6 @@ void main() {
 
       expect(response, isNotNull);
       expect(response, true);
-    }, tags: "registry");
+    }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

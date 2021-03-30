@@ -16,6 +16,6 @@ void main() {
       final response = await api.getUser(username: username);
 
       expect(response, isNull);
-    }, tags: "registry");
+    }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

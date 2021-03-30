@@ -114,6 +114,6 @@ void main() {
           canUpdateComponentResponse.first.name, createComponentResponse.name);
       expect(canUpdateComponentResponse.first.description,
           createComponentResponse.description);
-    }, tags: "registry");
+    }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

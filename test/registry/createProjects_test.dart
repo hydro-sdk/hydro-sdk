@@ -76,6 +76,6 @@ void main() {
       expect(canUpdateProjectResponse.first.name, createProjectResponse.name);
       expect(canUpdateProjectResponse.first.description,
           createProjectResponse.description);
-    }, tags: "registry");
+    }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }
