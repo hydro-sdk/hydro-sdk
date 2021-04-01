@@ -3,10 +3,10 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:cli_util/cli_logging.dart';
-import 'package:meta/meta.dart';
 import 'package:encrypt/encrypt.dart';
-import 'package:pointycastle/export.dart' as pc;
+import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
+import 'package:pointycastle/export.dart' as pc;
 
 import 'package:hydro_sdk/build-project/componentBuilder.dart';
 import 'package:hydro_sdk/build-project/packageManifest.dart';
