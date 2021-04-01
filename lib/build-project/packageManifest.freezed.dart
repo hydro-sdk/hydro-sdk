@@ -19,10 +19,12 @@ class _$PackageManifestTearOff {
 // ignore: unused_element
   _$PackageManifestCtor call(
       {@required String mountableChunk,
-      @required List<PackageManifestEntry> entries}) {
+      @required List<PackageManifestEntry> entries,
+      @required String signature}) {
     return _$PackageManifestCtor(
       mountableChunk: mountableChunk,
       entries: entries,
+      signature: signature,
     );
   }
 
@@ -40,6 +42,7 @@ const $PackageManifest = _$PackageManifestTearOff();
 mixin _$PackageManifest {
   String get mountableChunk;
   List<PackageManifestEntry> get entries;
+  String get signature;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -51,7 +54,10 @@ abstract class $PackageManifestCopyWith<$Res> {
   factory $PackageManifestCopyWith(
           PackageManifest value, $Res Function(PackageManifest) then) =
       _$PackageManifestCopyWithImpl<$Res>;
-  $Res call({String mountableChunk, List<PackageManifestEntry> entries});
+  $Res call(
+      {String mountableChunk,
+      List<PackageManifestEntry> entries,
+      String signature});
 }
 
 /// @nodoc
@@ -67,6 +73,7 @@ class _$PackageManifestCopyWithImpl<$Res>
   $Res call({
     Object mountableChunk = freezed,
     Object entries = freezed,
+    Object signature = freezed,
   }) {
     return _then(_value.copyWith(
       mountableChunk: mountableChunk == freezed
@@ -75,6 +82,7 @@ class _$PackageManifestCopyWithImpl<$Res>
       entries: entries == freezed
           ? _value.entries
           : entries as List<PackageManifestEntry>,
+      signature: signature == freezed ? _value.signature : signature as String,
     ));
   }
 }
@@ -86,7 +94,10 @@ abstract class _$$PackageManifestCtorCopyWith<$Res>
           $Res Function(_$PackageManifestCtor) then) =
       __$$PackageManifestCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String mountableChunk, List<PackageManifestEntry> entries});
+  $Res call(
+      {String mountableChunk,
+      List<PackageManifestEntry> entries,
+      String signature});
 }
 
 /// @nodoc
@@ -104,6 +115,7 @@ class __$$PackageManifestCtorCopyWithImpl<$Res>
   $Res call({
     Object mountableChunk = freezed,
     Object entries = freezed,
+    Object signature = freezed,
   }) {
     return _then(_$PackageManifestCtor(
       mountableChunk: mountableChunk == freezed
@@ -112,6 +124,7 @@ class __$$PackageManifestCtorCopyWithImpl<$Res>
       entries: entries == freezed
           ? _value.entries
           : entries as List<PackageManifestEntry>,
+      signature: signature == freezed ? _value.signature : signature as String,
     ));
   }
 }
@@ -121,9 +134,12 @@ class __$$PackageManifestCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$PackageManifestCtor implements _$PackageManifestCtor {
   const _$_$PackageManifestCtor(
-      {@required this.mountableChunk, @required this.entries})
+      {@required this.mountableChunk,
+      @required this.entries,
+      @required this.signature})
       : assert(mountableChunk != null),
-        assert(entries != null);
+        assert(entries != null),
+        assert(signature != null);
 
   factory _$_$PackageManifestCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$PackageManifestCtorFromJson(json);
@@ -132,10 +148,12 @@ class _$_$PackageManifestCtor implements _$PackageManifestCtor {
   final String mountableChunk;
   @override
   final List<PackageManifestEntry> entries;
+  @override
+  final String signature;
 
   @override
   String toString() {
-    return 'PackageManifest(mountableChunk: $mountableChunk, entries: $entries)';
+    return 'PackageManifest(mountableChunk: $mountableChunk, entries: $entries, signature: $signature)';
   }
 
   @override
@@ -146,14 +164,19 @@ class _$_$PackageManifestCtor implements _$PackageManifestCtor {
                 const DeepCollectionEquality()
                     .equals(other.mountableChunk, mountableChunk)) &&
             (identical(other.entries, entries) ||
-                const DeepCollectionEquality().equals(other.entries, entries)));
+                const DeepCollectionEquality()
+                    .equals(other.entries, entries)) &&
+            (identical(other.signature, signature) ||
+                const DeepCollectionEquality()
+                    .equals(other.signature, signature)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(mountableChunk) ^
-      const DeepCollectionEquality().hash(entries);
+      const DeepCollectionEquality().hash(entries) ^
+      const DeepCollectionEquality().hash(signature);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +193,8 @@ class _$_$PackageManifestCtor implements _$PackageManifestCtor {
 abstract class _$PackageManifestCtor implements PackageManifest {
   const factory _$PackageManifestCtor(
       {@required String mountableChunk,
-      @required List<PackageManifestEntry> entries}) = _$_$PackageManifestCtor;
+      @required List<PackageManifestEntry> entries,
+      @required String signature}) = _$_$PackageManifestCtor;
 
   factory _$PackageManifestCtor.fromJson(Map<String, dynamic> json) =
       _$_$PackageManifestCtor.fromJson;
@@ -179,6 +203,8 @@ abstract class _$PackageManifestCtor implements PackageManifest {
   String get mountableChunk;
   @override
   List<PackageManifestEntry> get entries;
+  @override
+  String get signature;
   @override
   @JsonKey(ignore: true)
   _$$PackageManifestCtorCopyWith<_$PackageManifestCtor> get copyWith;

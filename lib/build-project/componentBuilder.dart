@@ -12,12 +12,14 @@ class ComponentBuilder {
   final String cacheDir;
   final String profile;
   final String outDir;
+  final String signingKey;
 
   const ComponentBuilder({
     @required this.projectConfigComponent,
     @required this.ts2hc,
     @required this.cacheDir,
     @required this.profile,
+    @required this.signingKey,
     this.outDir = "",
   });
 
@@ -31,7 +33,9 @@ class ComponentBuilder {
         projectConfigComponent.name,
       ].join("");
 
-  Future<bool> build() async {
+  Future<bool> build({
+    @required bool signManifest,
+  }) async {
     try {
       print("Building component ${projectConfigComponent.name}");
 
@@ -57,9 +61,12 @@ class ComponentBuilder {
         ts2hc: ts2hc,
         cacheDir: cacheDir,
         profile: profile,
+        signingKey: signingKey,
       );
 
-      var res = await manifestBuilder.build();
+      var res = await manifestBuilder.build(
+        signManifest: signManifest,
+      );
 
       if (!res) {
         return false;
