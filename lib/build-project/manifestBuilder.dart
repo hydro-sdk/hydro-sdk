@@ -81,8 +81,7 @@ class ManifestBuilder {
         final signer =
             pc.RSASigner(pc.SHA256Digest(), '0609608648016503040201');
 
-        signer.init(true,
-            pc.PrivateKeyParameter<pc.RSAPrivateKey>(privateKey)); // true=sign
+        signer.init(true, pc.PrivateKeyParameter<pc.RSAPrivateKey>(privateKey));
 
         final sig = signer
             .generateSignature(Uint8List.fromList(rawSignature.codeUnits));
