@@ -34,9 +34,12 @@ void _rebuild({
         ts2hc: ts2hc,
         cacheDir: cacheDir,
         profile: profile,
+        signingKey: "",
       );
 
-      var res = await projectBuilder.build();
+      var res = await projectBuilder.build(
+        signManifest: false,
+      );
 
       if (!res) {
         print("Failed to build");
@@ -85,6 +88,7 @@ void main(List<String> args) async {
             ts2hc: results["ts2hc"],
             cacheDir: results["cache-dir"],
             profile: results["profile"],
+            signingKey: "",
           );
           if (request.uri.path ==
               "/${projectConfig.project}/${projectConfig.components.first.name}.ota.sha256") {
