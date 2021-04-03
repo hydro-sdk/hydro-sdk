@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart';
+import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
@@ -70,7 +71,7 @@ class RegistryApi {
 
       return SessionDto(
         authenticatedUser: AuthTokenDto(
-            exp: token.getClaim("exp"),
+            exp: token.getClaim("exp").toInt(),
             sub: token.getClaim("sub"),
             username: token.getClaim("username")),
         authToken: response.body,
@@ -153,5 +154,17 @@ class RegistryApi {
     }
 
     return null;
+  }
+
+  Future<Response> createPackage({
+    @required CreatePackageDto createPackageDto,
+  }) async {
+    final response = await post(Uri.https(baseUrl, "api/package"),
+        headers: {
+          "content-type": "application/json",
+        },
+        body: jsonEncode(createPackageDto.toJson()));
+    
+    return response;
   }
 }
