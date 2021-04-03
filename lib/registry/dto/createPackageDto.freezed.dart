@@ -20,7 +20,7 @@ class _$CreatePackageDtoTearOff {
   _$CreatePackageDtoCtor call(
       {@required String publishingPrivateKeySha256,
       @required String otaPackageBase64,
-      @required String componentId,
+      @required String componentName,
       @required String displayVersion,
       @required String description,
       @required String readmeMd,
@@ -29,7 +29,7 @@ class _$CreatePackageDtoTearOff {
     return _$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256,
       otaPackageBase64: otaPackageBase64,
-      componentId: componentId,
+      componentName: componentName,
       displayVersion: displayVersion,
       description: description,
       readmeMd: readmeMd,
@@ -52,7 +52,7 @@ const $CreatePackageDto = _$CreatePackageDtoTearOff();
 mixin _$CreatePackageDto {
   String get publishingPrivateKeySha256;
   String get otaPackageBase64;
-  String get componentId;
+  String get componentName;
   String get displayVersion;
   String get description;
   String get readmeMd;
@@ -72,7 +72,7 @@ abstract class $CreatePackageDtoCopyWith<$Res> {
   $Res call(
       {String publishingPrivateKeySha256,
       String otaPackageBase64,
-      String componentId,
+      String componentName,
       String displayVersion,
       String description,
       String readmeMd,
@@ -93,7 +93,7 @@ class _$CreatePackageDtoCopyWithImpl<$Res>
   $Res call({
     Object publishingPrivateKeySha256 = freezed,
     Object otaPackageBase64 = freezed,
-    Object componentId = freezed,
+    Object componentName = freezed,
     Object displayVersion = freezed,
     Object description = freezed,
     Object readmeMd = freezed,
@@ -107,8 +107,9 @@ class _$CreatePackageDtoCopyWithImpl<$Res>
       otaPackageBase64: otaPackageBase64 == freezed
           ? _value.otaPackageBase64
           : otaPackageBase64 as String,
-      componentId:
-          componentId == freezed ? _value.componentId : componentId as String,
+      componentName: componentName == freezed
+          ? _value.componentName
+          : componentName as String,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
           : displayVersion as String,
@@ -133,7 +134,7 @@ abstract class _$$CreatePackageDtoCtorCopyWith<$Res>
   $Res call(
       {String publishingPrivateKeySha256,
       String otaPackageBase64,
-      String componentId,
+      String componentName,
       String displayVersion,
       String description,
       String readmeMd,
@@ -156,7 +157,7 @@ class __$$CreatePackageDtoCtorCopyWithImpl<$Res>
   $Res call({
     Object publishingPrivateKeySha256 = freezed,
     Object otaPackageBase64 = freezed,
-    Object componentId = freezed,
+    Object componentName = freezed,
     Object displayVersion = freezed,
     Object description = freezed,
     Object readmeMd = freezed,
@@ -170,8 +171,9 @@ class __$$CreatePackageDtoCtorCopyWithImpl<$Res>
       otaPackageBase64: otaPackageBase64 == freezed
           ? _value.otaPackageBase64
           : otaPackageBase64 as String,
-      componentId:
-          componentId == freezed ? _value.componentId : componentId as String,
+      componentName: componentName == freezed
+          ? _value.componentName
+          : componentName as String,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
           : displayVersion as String,
@@ -193,7 +195,7 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
   const _$_$CreatePackageDtoCtor(
       {@required this.publishingPrivateKeySha256,
       @required this.otaPackageBase64,
-      @required this.componentId,
+      @required this.componentName,
       @required this.displayVersion,
       @required this.description,
       @required this.readmeMd,
@@ -201,7 +203,7 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
       @required this.pubspecLock})
       : assert(publishingPrivateKeySha256 != null),
         assert(otaPackageBase64 != null),
-        assert(componentId != null),
+        assert(componentName != null),
         assert(displayVersion != null),
         assert(description != null),
         assert(readmeMd != null),
@@ -216,7 +218,7 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
   @override
   final String otaPackageBase64;
   @override
-  final String componentId;
+  final String componentName;
   @override
   final String displayVersion;
   @override
@@ -230,7 +232,7 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
 
   @override
   String toString() {
-    return 'CreatePackageDto(publishingPrivateKeySha256: $publishingPrivateKeySha256, otaPackageBase64: $otaPackageBase64, componentId: $componentId, displayVersion: $displayVersion, description: $description, readmeMd: $readmeMd, pubspecYaml: $pubspecYaml, pubspecLock: $pubspecLock)';
+    return 'CreatePackageDto(publishingPrivateKeySha256: $publishingPrivateKeySha256, otaPackageBase64: $otaPackageBase64, componentName: $componentName, displayVersion: $displayVersion, description: $description, readmeMd: $readmeMd, pubspecYaml: $pubspecYaml, pubspecLock: $pubspecLock)';
   }
 
   @override
@@ -245,9 +247,9 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
             (identical(other.otaPackageBase64, otaPackageBase64) ||
                 const DeepCollectionEquality()
                     .equals(other.otaPackageBase64, otaPackageBase64)) &&
-            (identical(other.componentId, componentId) ||
+            (identical(other.componentName, componentName) ||
                 const DeepCollectionEquality()
-                    .equals(other.componentId, componentId)) &&
+                    .equals(other.componentName, componentName)) &&
             (identical(other.displayVersion, displayVersion) ||
                 const DeepCollectionEquality()
                     .equals(other.displayVersion, displayVersion)) &&
@@ -270,7 +272,7 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(publishingPrivateKeySha256) ^
       const DeepCollectionEquality().hash(otaPackageBase64) ^
-      const DeepCollectionEquality().hash(componentId) ^
+      const DeepCollectionEquality().hash(componentName) ^
       const DeepCollectionEquality().hash(displayVersion) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(readmeMd) ^
@@ -293,7 +295,7 @@ abstract class _$CreatePackageDtoCtor implements CreatePackageDto {
   const factory _$CreatePackageDtoCtor(
       {@required String publishingPrivateKeySha256,
       @required String otaPackageBase64,
-      @required String componentId,
+      @required String componentName,
       @required String displayVersion,
       @required String description,
       @required String readmeMd,
@@ -308,7 +310,7 @@ abstract class _$CreatePackageDtoCtor implements CreatePackageDto {
   @override
   String get otaPackageBase64;
   @override
-  String get componentId;
+  String get componentName;
   @override
   String get displayVersion;
   @override

@@ -18,7 +18,7 @@ class _$AuthTokenDtoTearOff {
 
 // ignore: unused_element
   _$AuthTokenDtoCtor call(
-      {@required String sub, @required String username, @required double exp}) {
+      {@required String sub, @required String username, @required int exp}) {
     return _$AuthTokenDtoCtor(
       sub: sub,
       username: username,
@@ -40,7 +40,7 @@ const $AuthTokenDto = _$AuthTokenDtoTearOff();
 mixin _$AuthTokenDto {
   String get sub;
   String get username;
-  double get exp;
+  int get exp;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -52,7 +52,7 @@ abstract class $AuthTokenDtoCopyWith<$Res> {
   factory $AuthTokenDtoCopyWith(
           AuthTokenDto value, $Res Function(AuthTokenDto) then) =
       _$AuthTokenDtoCopyWithImpl<$Res>;
-  $Res call({String sub, String username, double exp});
+  $Res call({String sub, String username, int exp});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$AuthTokenDtoCopyWithImpl<$Res> implements $AuthTokenDtoCopyWith<$Res> {
     return _then(_value.copyWith(
       sub: sub == freezed ? _value.sub : sub as String,
       username: username == freezed ? _value.username : username as String,
-      exp: exp == freezed ? _value.exp : exp as double,
+      exp: exp == freezed ? _value.exp : exp as int,
     ));
   }
 }
@@ -84,7 +84,7 @@ abstract class _$$AuthTokenDtoCtorCopyWith<$Res>
           _$AuthTokenDtoCtor value, $Res Function(_$AuthTokenDtoCtor) then) =
       __$$AuthTokenDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String sub, String username, double exp});
+  $Res call({String sub, String username, int exp});
 }
 
 /// @nodoc
@@ -107,7 +107,7 @@ class __$$AuthTokenDtoCtorCopyWithImpl<$Res>
     return _then(_$AuthTokenDtoCtor(
       sub: sub == freezed ? _value.sub : sub as String,
       username: username == freezed ? _value.username : username as String,
-      exp: exp == freezed ? _value.exp : exp as double,
+      exp: exp == freezed ? _value.exp : exp as int,
     ));
   }
 }
@@ -130,7 +130,7 @@ class _$_$AuthTokenDtoCtor implements _$AuthTokenDtoCtor {
   @override
   final String username;
   @override
-  final double exp;
+  final int exp;
 
   @override
   String toString() {
@@ -172,7 +172,7 @@ abstract class _$AuthTokenDtoCtor implements AuthTokenDto {
   const factory _$AuthTokenDtoCtor(
       {@required String sub,
       @required String username,
-      @required double exp}) = _$_$AuthTokenDtoCtor;
+      @required int exp}) = _$_$AuthTokenDtoCtor;
 
   factory _$AuthTokenDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$AuthTokenDtoCtor.fromJson;
@@ -182,7 +182,7 @@ abstract class _$AuthTokenDtoCtor implements AuthTokenDto {
   @override
   String get username;
   @override
-  double get exp;
+  int get exp;
   @override
   @JsonKey(ignore: true)
   _$$AuthTokenDtoCtorCopyWith<_$AuthTokenDtoCtor> get copyWith;

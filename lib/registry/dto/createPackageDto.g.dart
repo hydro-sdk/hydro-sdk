@@ -11,7 +11,7 @@ _$_$CreatePackageDtoCtor _$_$_$CreatePackageDtoCtorFromJson(
   return _$_$CreatePackageDtoCtor(
     publishingPrivateKeySha256: json['publishingPrivateKeySha256'] as String,
     otaPackageBase64: json['otaPackageBase64'] as String,
-    componentId: json['componentId'] as String,
+    componentName: json['componentName'] as String,
     displayVersion: json['displayVersion'] as String,
     description: json['description'] as String,
     readmeMd: json['readmeMd'] as String,
@@ -25,7 +25,7 @@ Map<String, dynamic> _$_$_$CreatePackageDtoCtorToJson(
     <String, dynamic>{
       'publishingPrivateKeySha256': instance.publishingPrivateKeySha256,
       'otaPackageBase64': instance.otaPackageBase64,
-      'componentId': instance.componentId,
+      'componentName': instance.componentName,
       'displayVersion': instance.displayVersion,
       'description': instance.description,
       'readmeMd': instance.readmeMd,

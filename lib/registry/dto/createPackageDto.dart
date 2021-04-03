@@ -9,7 +9,7 @@ abstract class CreatePackageDto with _$CreatePackageDto {
   const factory CreatePackageDto({
     @required String publishingPrivateKeySha256,
     @required String otaPackageBase64,
-    @required String componentId,
+    @required String componentName,
     @required String displayVersion,
     @required String description,
     @required String readmeMd,

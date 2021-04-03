@@ -1,8 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/build-project/sha256Data.dart';
+import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:hydro_sdk/build-project/projectBuilder.dart';
@@ -137,9 +140,26 @@ void main() {
         cacheDir: ".hydroc/0.0.1",
         profile: "release",
         signingKey: createComponentResponse.publishingPrivateKey,
+        outDir: ".",
       );
 
       await projectBuilder.build(signManifest: true);
+
+      final createPackageResponse = await api.createPackage(
+          createPackageDto: CreatePackageDto(
+        publishingPrivateKeySha256:
+            sha256Data(createComponentResponse.publishingPrivateKey.codeUnits),
+        otaPackageBase64:
+            base64Encode(await File("${componentName}.ota").readAsBytes()),
+        componentName: componentName,
+        displayVersion: "",
+        description: "",
+        readmeMd: "",
+        pubspecYaml: "",
+        pubspecLock: "",
+      ));
+
+      expect(createPackageResponse, isNotNull);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

@@ -9,7 +9,7 @@ abstract class AuthTokenDto with _$AuthTokenDto {
   const factory AuthTokenDto({
     @required String sub,
     @required String username,
-    @required double exp,
+    @required int exp,
   }) = _$AuthTokenDtoCtor;
 
   factory AuthTokenDto.empty() => const AuthTokenDto(

@@ -71,12 +71,14 @@ class ManifestBuilder {
       String signature;
 
       if (signManifest) {
-        rawSignature = manifestEntries.fold<String>(
-            "",
-            (previousValue, element) => sha256Data([
-                  ...Uint8List.fromList(previousValue.codeUnits),
-                  ...Uint8List.fromList(element.sha256.codeUnits),
-                ]));
+        String concatShas = "";
+        manifestEntries.sort((a, b) => a.sha256.compareTo(b.sha256));
+        manifestEntries.forEach((element) {
+          concatShas += element.sha256;
+        });
+
+        rawSignature = sha256Data(concatShas.codeUnits);
+
         final pc.RSAPrivateKey privateKey = RSAKeyParser().parse(signingKey);
         final signer =
             pc.RSASigner(pc.SHA256Digest(), '0609608648016503040201');
@@ -85,7 +87,7 @@ class ManifestBuilder {
 
         final sig = signer
             .generateSignature(Uint8List.fromList(rawSignature.codeUnits));
-        signature = sha256Data(sig.bytes);
+        signature = base64Encode(sig.bytes);
       }
 
       await File(
