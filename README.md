@@ -50,7 +50,7 @@ Obligatory Flutter counter app.
 Check out the example project at https://github.com/hydro-sdk/counter-app for documentation about getting started
 
 # Current Development
-Current development is focused on the Structured Wrapper and Interface generator for Dart (SWID) sub-project under `lib/swid`. This project will allow for automatic projection of Dart packages (like Flutter). See https://github.com/hydro-sdk/hydro-sdk/projects/5
+Current development is focused on a closed-source package registry to host over-the-air update packages built using the open-source Hydro-SDK.
 
 # Advanced Uses
 ## Transpile Typescript to Dart, Run Code in Mixed Mode With Mixed Native and Virtual (bytecode) Functions
