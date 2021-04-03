@@ -4,15 +4,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hydro_sdk/build-project/sha256Data.dart';
-import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:hydro_sdk/build-project/projectBuilder.dart';
+import 'package:hydro_sdk/build-project/sha256Data.dart';
 import 'package:hydro_sdk/projectConfig/projectConfig.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 import 'package:hydro_sdk/projectConfig/projectConfigComponentChunk.dart';
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
+import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/createUserDto.dart';
 import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
