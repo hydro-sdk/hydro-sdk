@@ -307,4 +307,5 @@ jobs:
           flutter pub run waveform:triggerDependent --repo="animated-list-app" --ref="main" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
           flutter pub run waveform:triggerDependent --repo="basic-appbar-app" --ref="main" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
           flutter pub run waveform:triggerDependent --repo="hotel-booking-app" --ref="main" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
+          flutter pub run waveform:triggerDependent --repo="codepush-tests" --ref="main" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
         working-directory: hydro
