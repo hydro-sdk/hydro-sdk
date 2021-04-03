@@ -20,7 +20,7 @@ void main() {
       final username = "test${Uuid().v4()}";
       final password = Uuid().v4();
 
-      final projectName = "test project ${Uuid().v4()}";
+      final projectName = "test-project-${Uuid().v4()}";
       final projectDescription = "test project descrption ${Uuid().v4()}";
 
       final componentName = "test-component-${Uuid().v4()}";
