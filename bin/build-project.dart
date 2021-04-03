@@ -26,9 +26,12 @@ void main(List<String> args) async {
     cacheDir: results["cache-dir"],
     profile: results["profile"],
     outDir: results["out-dir"],
+    signingKey: "",
   );
 
-  var res = await projectBuilder.build();
+  var res = await projectBuilder.build(
+    signManifest: false,
+  );
   if (!res) {
     exit(1);
   }
