@@ -24,8 +24,7 @@ class _$ComponentReadDtoTearOff {
       @required String modifiedAt,
       @required bool isPublic,
       @required String name,
-      @required String description,
-      @required String deploymentPublicKey}) {
+      @required String description}) {
     return _$ComponentReadDtoCtor(
       id: id,
       projectId: projectId,
@@ -34,7 +33,6 @@ class _$ComponentReadDtoTearOff {
       isPublic: isPublic,
       name: name,
       description: description,
-      deploymentPublicKey: deploymentPublicKey,
     );
   }
 
@@ -57,7 +55,6 @@ mixin _$ComponentReadDto {
   bool get isPublic;
   String get name;
   String get description;
-  String get deploymentPublicKey;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -76,8 +73,7 @@ abstract class $ComponentReadDtoCopyWith<$Res> {
       String modifiedAt,
       bool isPublic,
       String name,
-      String description,
-      String deploymentPublicKey});
+      String description});
 }
 
 /// @nodoc
@@ -98,7 +94,6 @@ class _$ComponentReadDtoCopyWithImpl<$Res>
     Object isPublic = freezed,
     Object name = freezed,
     Object description = freezed,
-    Object deploymentPublicKey = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
@@ -110,9 +105,6 @@ class _$ComponentReadDtoCopyWithImpl<$Res>
       name: name == freezed ? _value.name : name as String,
       description:
           description == freezed ? _value.description : description as String,
-      deploymentPublicKey: deploymentPublicKey == freezed
-          ? _value.deploymentPublicKey
-          : deploymentPublicKey as String,
     ));
   }
 }
@@ -131,8 +123,7 @@ abstract class _$$ComponentReadDtoCtorCopyWith<$Res>
       String modifiedAt,
       bool isPublic,
       String name,
-      String description,
-      String deploymentPublicKey});
+      String description});
 }
 
 /// @nodoc
@@ -155,7 +146,6 @@ class __$$ComponentReadDtoCtorCopyWithImpl<$Res>
     Object isPublic = freezed,
     Object name = freezed,
     Object description = freezed,
-    Object deploymentPublicKey = freezed,
   }) {
     return _then(_$ComponentReadDtoCtor(
       id: id == freezed ? _value.id : id as String,
@@ -167,9 +157,6 @@ class __$$ComponentReadDtoCtorCopyWithImpl<$Res>
       name: name == freezed ? _value.name : name as String,
       description:
           description == freezed ? _value.description : description as String,
-      deploymentPublicKey: deploymentPublicKey == freezed
-          ? _value.deploymentPublicKey
-          : deploymentPublicKey as String,
     ));
   }
 }
@@ -185,16 +172,14 @@ class _$_$ComponentReadDtoCtor implements _$ComponentReadDtoCtor {
       @required this.modifiedAt,
       @required this.isPublic,
       @required this.name,
-      @required this.description,
-      @required this.deploymentPublicKey})
+      @required this.description})
       : assert(id != null),
         assert(projectId != null),
         assert(createdAt != null),
         assert(modifiedAt != null),
         assert(isPublic != null),
         assert(name != null),
-        assert(description != null),
-        assert(deploymentPublicKey != null);
+        assert(description != null);
 
   factory _$_$ComponentReadDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ComponentReadDtoCtorFromJson(json);
@@ -213,12 +198,10 @@ class _$_$ComponentReadDtoCtor implements _$ComponentReadDtoCtor {
   final String name;
   @override
   final String description;
-  @override
-  final String deploymentPublicKey;
 
   @override
   String toString() {
-    return 'ComponentReadDto(id: $id, projectId: $projectId, createdAt: $createdAt, modifiedAt: $modifiedAt, isPublic: $isPublic, name: $name, description: $description, deploymentPublicKey: $deploymentPublicKey)';
+    return 'ComponentReadDto(id: $id, projectId: $projectId, createdAt: $createdAt, modifiedAt: $modifiedAt, isPublic: $isPublic, name: $name, description: $description)';
   }
 
   @override
@@ -243,10 +226,7 @@ class _$_$ComponentReadDtoCtor implements _$ComponentReadDtoCtor {
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.description, description) ||
                 const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.deploymentPublicKey, deploymentPublicKey) ||
-                const DeepCollectionEquality()
-                    .equals(other.deploymentPublicKey, deploymentPublicKey)));
+                    .equals(other.description, description)));
   }
 
   @override
@@ -258,8 +238,7 @@ class _$_$ComponentReadDtoCtor implements _$ComponentReadDtoCtor {
       const DeepCollectionEquality().hash(modifiedAt) ^
       const DeepCollectionEquality().hash(isPublic) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(deploymentPublicKey);
+      const DeepCollectionEquality().hash(description);
 
   @JsonKey(ignore: true)
   @override
@@ -281,8 +260,7 @@ abstract class _$ComponentReadDtoCtor implements ComponentReadDto {
       @required String modifiedAt,
       @required bool isPublic,
       @required String name,
-      @required String description,
-      @required String deploymentPublicKey}) = _$_$ComponentReadDtoCtor;
+      @required String description}) = _$_$ComponentReadDtoCtor;
 
   factory _$ComponentReadDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$ComponentReadDtoCtor.fromJson;
@@ -301,8 +279,6 @@ abstract class _$ComponentReadDtoCtor implements ComponentReadDto {
   String get name;
   @override
   String get description;
-  @override
-  String get deploymentPublicKey;
   @override
   @JsonKey(ignore: true)
   _$$ComponentReadDtoCtorCopyWith<_$ComponentReadDtoCtor> get copyWith;

@@ -14,7 +14,6 @@ abstract class ComponentReadDto with _$ComponentReadDto {
     @required bool isPublic,
     @required String name,
     @required String description,
-    @required String deploymentPublicKey,
   }) = _$ComponentReadDtoCtor;
 
   factory ComponentReadDto.fromJson(Map<String, dynamic> json) =>
