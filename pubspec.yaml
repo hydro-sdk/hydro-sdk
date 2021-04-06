@@ -24,23 +24,23 @@ dependencies:
       url: "git://github.com/hydro-sdk/surveyor"
   waveform: 
     git: 
-      ref: "0.0.1-nightly.34"
+      ref: "0.0.1-nightly.35"
       url: "git://github.com/hydro-sdk/waveform.git"
   archive: null
   cli_util: null
   code_builder: null
+  corsac_jwt: null
   dart_console: null
   dart_style: null
+  encrypt: null
   filesize: null
   freezed: null
   freezed_annotation: null
-  synchronized: null
-  watcher: null
-  uuid: null
-  corsac_jwt: null
-  rsa_pkcs: null
   pointycastle: null
-  encrypt: null
+  rsa_pkcs: null
+  synchronized: null
+  uuid: null
+  watcher: null
 dev_dependencies: 
   import_sorter: "4.4.1"
   test: "any"
