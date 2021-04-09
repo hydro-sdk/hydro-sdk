@@ -25,7 +25,8 @@ class _$CreatePackageDtoTearOff {
       @required String description,
       @required String readmeMd,
       @required String pubspecYaml,
-      @required String pubspecLock}) {
+      @required String pubspecLock,
+      String releaseChannelName = "latest"}) {
     return _$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256,
       otaPackageBase64: otaPackageBase64,
@@ -35,6 +36,7 @@ class _$CreatePackageDtoTearOff {
       readmeMd: readmeMd,
       pubspecYaml: pubspecYaml,
       pubspecLock: pubspecLock,
+      releaseChannelName: releaseChannelName,
     );
   }
 
@@ -58,6 +60,7 @@ mixin _$CreatePackageDto {
   String get readmeMd;
   String get pubspecYaml;
   String get pubspecLock;
+  String get releaseChannelName;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -77,7 +80,8 @@ abstract class $CreatePackageDtoCopyWith<$Res> {
       String description,
       String readmeMd,
       String pubspecYaml,
-      String pubspecLock});
+      String pubspecLock,
+      String releaseChannelName});
 }
 
 /// @nodoc
@@ -99,6 +103,7 @@ class _$CreatePackageDtoCopyWithImpl<$Res>
     Object readmeMd = freezed,
     Object pubspecYaml = freezed,
     Object pubspecLock = freezed,
+    Object releaseChannelName = freezed,
   }) {
     return _then(_value.copyWith(
       publishingPrivateKeySha256: publishingPrivateKeySha256 == freezed
@@ -120,6 +125,9 @@ class _$CreatePackageDtoCopyWithImpl<$Res>
           pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
       pubspecLock:
           pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+      releaseChannelName: releaseChannelName == freezed
+          ? _value.releaseChannelName
+          : releaseChannelName as String,
     ));
   }
 }
@@ -139,7 +147,8 @@ abstract class _$$CreatePackageDtoCtorCopyWith<$Res>
       String description,
       String readmeMd,
       String pubspecYaml,
-      String pubspecLock});
+      String pubspecLock,
+      String releaseChannelName});
 }
 
 /// @nodoc
@@ -163,6 +172,7 @@ class __$$CreatePackageDtoCtorCopyWithImpl<$Res>
     Object readmeMd = freezed,
     Object pubspecYaml = freezed,
     Object pubspecLock = freezed,
+    Object releaseChannelName = freezed,
   }) {
     return _then(_$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256 == freezed
@@ -184,6 +194,9 @@ class __$$CreatePackageDtoCtorCopyWithImpl<$Res>
           pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
       pubspecLock:
           pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+      releaseChannelName: releaseChannelName == freezed
+          ? _value.releaseChannelName
+          : releaseChannelName as String,
     ));
   }
 }
@@ -200,7 +213,8 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
       @required this.description,
       @required this.readmeMd,
       @required this.pubspecYaml,
-      @required this.pubspecLock})
+      @required this.pubspecLock,
+      this.releaseChannelName = "latest"})
       : assert(publishingPrivateKeySha256 != null),
         assert(otaPackageBase64 != null),
         assert(componentName != null),
@@ -208,7 +222,8 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
         assert(description != null),
         assert(readmeMd != null),
         assert(pubspecYaml != null),
-        assert(pubspecLock != null);
+        assert(pubspecLock != null),
+        assert(releaseChannelName != null);
 
   factory _$_$CreatePackageDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$CreatePackageDtoCtorFromJson(json);
@@ -229,10 +244,13 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
   final String pubspecYaml;
   @override
   final String pubspecLock;
+  @JsonKey(defaultValue: "latest")
+  @override
+  final String releaseChannelName;
 
   @override
   String toString() {
-    return 'CreatePackageDto(publishingPrivateKeySha256: $publishingPrivateKeySha256, otaPackageBase64: $otaPackageBase64, componentName: $componentName, displayVersion: $displayVersion, description: $description, readmeMd: $readmeMd, pubspecYaml: $pubspecYaml, pubspecLock: $pubspecLock)';
+    return 'CreatePackageDto(publishingPrivateKeySha256: $publishingPrivateKeySha256, otaPackageBase64: $otaPackageBase64, componentName: $componentName, displayVersion: $displayVersion, description: $description, readmeMd: $readmeMd, pubspecYaml: $pubspecYaml, pubspecLock: $pubspecLock, releaseChannelName: $releaseChannelName)';
   }
 
   @override
@@ -264,7 +282,10 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
                     .equals(other.pubspecYaml, pubspecYaml)) &&
             (identical(other.pubspecLock, pubspecLock) ||
                 const DeepCollectionEquality()
-                    .equals(other.pubspecLock, pubspecLock)));
+                    .equals(other.pubspecLock, pubspecLock)) &&
+            (identical(other.releaseChannelName, releaseChannelName) ||
+                const DeepCollectionEquality()
+                    .equals(other.releaseChannelName, releaseChannelName)));
   }
 
   @override
@@ -277,7 +298,8 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(readmeMd) ^
       const DeepCollectionEquality().hash(pubspecYaml) ^
-      const DeepCollectionEquality().hash(pubspecLock);
+      const DeepCollectionEquality().hash(pubspecLock) ^
+      const DeepCollectionEquality().hash(releaseChannelName);
 
   @JsonKey(ignore: true)
   @override
@@ -300,7 +322,8 @@ abstract class _$CreatePackageDtoCtor implements CreatePackageDto {
       @required String description,
       @required String readmeMd,
       @required String pubspecYaml,
-      @required String pubspecLock}) = _$_$CreatePackageDtoCtor;
+      @required String pubspecLock,
+      String releaseChannelName}) = _$_$CreatePackageDtoCtor;
 
   factory _$CreatePackageDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreatePackageDtoCtor.fromJson;
@@ -321,6 +344,8 @@ abstract class _$CreatePackageDtoCtor implements CreatePackageDto {
   String get pubspecYaml;
   @override
   String get pubspecLock;
+  @override
+  String get releaseChannelName;
   @override
   @JsonKey(ignore: true)
   _$$CreatePackageDtoCtorCopyWith<_$CreatePackageDtoCtor> get copyWith;

@@ -15,6 +15,7 @@ abstract class CreatePackageDto with _$CreatePackageDto {
     @required String readmeMd,
     @required String pubspecYaml,
     @required String pubspecLock,
+    @Default("latest") String releaseChannelName,
   }) = _$CreatePackageDtoCtor;
 
   factory CreatePackageDto.fromJson(Map<String, dynamic> json) =>
