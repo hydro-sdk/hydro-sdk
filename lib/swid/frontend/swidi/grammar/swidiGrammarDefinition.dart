@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionGrammarDefini
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiLexicalTokensGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 
 class SwidiGrammarDefinition extends GrammarDefinition
     with
@@ -18,7 +19,8 @@ class SwidiGrammarDefinition extends GrammarDefinition
         SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
         SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
         SwidiFunctionDeclarationNamedParameterGrammarDefinition,
-        SwidiFunctionGrammarDefinition {
+        SwidiFunctionGrammarDefinition,
+        SwidiConstGrammarDefinition {
   const SwidiGrammarDefinition();
 
   Parser start() => ref(compilationUnit).end();
