@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart';
+import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
@@ -164,6 +165,17 @@ class RegistryApi {
           "content-type": "application/json",
         },
         body: jsonEncode(createPackageDto.toJson()));
+
+    return response;
+  }
+
+  Future<Response> getLatestPackageUri(
+      {@required GetPackageDto getPackageDto}) async {
+    final response = await post(Uri.https(baseUrl, "api/package/latestUri"),
+        headers: {
+          "content-type": "application/json",
+        },
+        body: jsonEncode(getPackageDto.toJson()));
 
     return response;
   }
