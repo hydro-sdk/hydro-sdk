@@ -42,6 +42,22 @@ const dartNullableInt = const SwidInterface(
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
 );
 
+const dartNum= const SwidInterface(
+  name: "num",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+);
+
+const dartNullableNum = const SwidInterface(
+  name: "num?",
+  nullabilitySuffix: SwidNullabilitySuffix.question,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+);
+
 const dartDynamic = const SwidInterface(
   name: "dynamic",
   nullabilitySuffix: SwidNullabilitySuffix.none,
