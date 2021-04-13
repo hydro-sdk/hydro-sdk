@@ -42,7 +42,7 @@ const dartNullableInt = const SwidInterface(
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
 );
 
-const dartNum= const SwidInterface(
+const dartNum = const SwidInterface(
   name: "num",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "dart:core",
