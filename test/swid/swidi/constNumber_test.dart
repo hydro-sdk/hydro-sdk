@@ -1,13 +1,20 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
 
 import 'lib/parserTestHarness.dart';
 
 class SimpleConstNumberParser extends SwidiGrammarDefinition
     with SwidiConstNumberParser {
   const SimpleConstNumberParser();
+}
+
+class SimpleConstParser extends SwidiGrammarDefinition
+    with SwidiConstNumberParser, SwidiConstParser {
+  const SimpleConstParser();
 }
 
 void main() {
@@ -20,6 +27,16 @@ void main() {
       result: const SwidiConstNumber(
         value: "100",
       ),
+    );
+
+    parserTestHarness(
+      input: const ParserTestHarnessInput.fromString(input: "100"),
+      parser: const SimpleConstParser()
+          .build(start: const SimpleConstParser().CONST),
+      result: const SwidiConst.fromSwidiConstNumber(
+          swidiConstNumber: SwidiConstNumber(
+        value: "100",
+      )),
     );
   });
 }

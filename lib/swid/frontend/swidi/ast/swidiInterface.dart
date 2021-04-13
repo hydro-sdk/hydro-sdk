@@ -15,4 +15,26 @@ abstract class SwidiInterface with _$SwidiInterface {
     @required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
     @required SwidiNullabilitySuffix nullabilitySuffix,
   }) = _$SwidiInterfaceCtor;
+
+  factory SwidiInterface.clone({
+    @required SwidiInterface swidiInterface,
+    String name,
+    SwidiLibraryScopePrefix libraryScopePrefix,
+    SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
+    SwidiNullabilitySuffix nullabilitySuffix,
+  }) =>
+      SwidiInterface(
+        name: name ?? swidiInterface.name,
+        libraryScopePrefix: libraryScopePrefix ??
+            SwidiLibraryScopePrefix.clone(
+              swidiLibraryScopePrefix: swidiInterface.libraryScopePrefix,
+            ),
+        referenceDeclarationPrefix: referenceDeclarationPrefix ??
+            SwidiReferenceDeclarationPrefix.clone(
+              swidiReferenceDeclarationPrefix:
+                  swidiInterface.referenceDeclarationPrefix,
+            ),
+        nullabilitySuffix:
+            nullabilitySuffix ?? swidiInterface.nullabilitySuffix,
+      );
 }

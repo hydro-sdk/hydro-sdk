@@ -13,4 +13,28 @@ abstract class SwidiClass with _$SwidiClass {
     @required SwidiLibraryScopePrefix libraryScopePrefix,
     @required List<SwidiFunctionDeclaration> methods,
   }) = _$SwidiClassCtor;
+
+  factory SwidiClass.clone({
+    @required SwidiClass swidiClass,
+    String name,
+    SwidiLibraryScopePrefix libraryScopePrefix,
+    List<SwidiFunctionDeclaration> methods,
+  }) =>
+      SwidiClass(
+        name: name ?? swidiClass.name,
+        libraryScopePrefix: libraryScopePrefix ??
+            SwidiLibraryScopePrefix.clone(
+              swidiLibraryScopePrefix: swidiClass.libraryScopePrefix,
+            ),
+        methods: methods ??
+            List.from(
+              swidiClass.methods
+                  .map(
+                    (x) => SwidiFunctionDeclaration.clone(
+                      swidiFunctionDeclaration: x,
+                    ),
+                  )
+                  .toList(),
+            ),
+      );
 }

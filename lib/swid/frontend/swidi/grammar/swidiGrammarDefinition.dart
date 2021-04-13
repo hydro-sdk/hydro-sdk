@@ -15,12 +15,12 @@ class SwidiGrammarDefinition extends GrammarDefinition
         SwidiWhitespaceGrammarDefinition,
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition,
+        SwidiConstGrammarDefinition,
         SwidiDeclarationGrammarDefinition,
         SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
         SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
         SwidiFunctionDeclarationNamedParameterGrammarDefinition,
-        SwidiFunctionGrammarDefinition,
-        SwidiConstGrammarDefinition {
+        SwidiFunctionGrammarDefinition {
   const SwidiGrammarDefinition();
 
   Parser start() => ref(compilationUnit).end();
