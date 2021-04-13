@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
@@ -40,44 +42,68 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
         input: const ParserTestHarnessInput.fromList(
-            inputs: ["({void foo,int bar,int baz,})"]),
+            inputs: ["({void foo = 100,int bar = 100,int baz = 100})"]),
         parser: const BasicFunctionParameterListParser().build(
             start: const BasicFunctionParameterListParser()
                 .functionDeclarationParameterList),
         result: const [
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
-              namedParameter: SwidiNamedParameter(
-                  declaration: SwidiDeclaration(
-                      name: "foo",
-                      type: SwidiInterface(
-                        name: "void",
-                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                        referenceDeclarationPrefix:
-                            SwidiReferenceDeclarationPrefix.empty,
-                        nullabilitySuffix: SwidiNullabilitySuffix.none,
-                      )))),
+            namedParameter: SwidiNamedParameter(
+              declaration: SwidiDeclaration(
+                name: "foo",
+                type: SwidiInterface(
+                  name: "void",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
+                defaultConstValue: SwidiConst.fromSwidiConstNumber(
+                  swidiConstNumber: SwidiConstNumber(
+                    value: "100",
+                  ),
+                ),
+              ),
+            ),
+          ),
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
-              namedParameter: SwidiNamedParameter(
-                  declaration: SwidiDeclaration(
-                      name: "bar",
-                      type: SwidiInterface(
-                        name: "int",
-                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                        referenceDeclarationPrefix:
-                            SwidiReferenceDeclarationPrefix.empty,
-                        nullabilitySuffix: SwidiNullabilitySuffix.none,
-                      )))),
+            namedParameter: SwidiNamedParameter(
+              declaration: SwidiDeclaration(
+                name: "bar",
+                type: SwidiInterface(
+                  name: "int",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
+                defaultConstValue: SwidiConst.fromSwidiConstNumber(
+                  swidiConstNumber: SwidiConstNumber(
+                    value: "100",
+                  ),
+                ),
+              ),
+            ),
+          ),
           SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter(
-              namedParameter: SwidiNamedParameter(
-                  declaration: SwidiDeclaration(
-                      name: "baz",
-                      type: SwidiInterface(
-                        name: "int",
-                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                        referenceDeclarationPrefix:
-                            SwidiReferenceDeclarationPrefix.empty,
-                        nullabilitySuffix: SwidiNullabilitySuffix.none,
-                      ))))
+            namedParameter: SwidiNamedParameter(
+              declaration: SwidiDeclaration(
+                name: "baz",
+                type: SwidiInterface(
+                  name: "int",
+                  libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                  referenceDeclarationPrefix:
+                      SwidiReferenceDeclarationPrefix.empty,
+                  nullabilitySuffix: SwidiNullabilitySuffix.none,
+                ),
+                defaultConstValue: SwidiConst.fromSwidiConstNumber(
+                  swidiConstNumber: SwidiConstNumber(
+                    value: "100",
+                  ),
+                ),
+              ),
+            ),
+          )
         ]);
   }, tags: "swid");
 }

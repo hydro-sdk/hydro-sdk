@@ -15,10 +15,14 @@ class _$SwidiDeclarationTearOff {
 
 // ignore: unused_element
   _$SwidiDeclarationCtor call(
-      {@required String name, @required SwidiInterface type}) {
+      {@required String name,
+      @required SwidiInterface type,
+      SwidiConst defaultConstValue = const SwidiConst.fromSwidiEmptyConst(
+          swidiEmptyConst: const SwidiEmptyConst())}) {
     return _$SwidiDeclarationCtor(
       name: name,
       type: type,
+      defaultConstValue: defaultConstValue,
     );
   }
 }
@@ -31,6 +35,7 @@ const $SwidiDeclaration = _$SwidiDeclarationTearOff();
 mixin _$SwidiDeclaration {
   String get name;
   SwidiInterface get type;
+  SwidiConst get defaultConstValue;
 
   @JsonKey(ignore: true)
   $SwidiDeclarationCopyWith<SwidiDeclaration> get copyWith;
@@ -41,9 +46,10 @@ abstract class $SwidiDeclarationCopyWith<$Res> {
   factory $SwidiDeclarationCopyWith(
           SwidiDeclaration value, $Res Function(SwidiDeclaration) then) =
       _$SwidiDeclarationCopyWithImpl<$Res>;
-  $Res call({String name, SwidiInterface type});
+  $Res call({String name, SwidiInterface type, SwidiConst defaultConstValue});
 
   $SwidiInterfaceCopyWith<$Res> get type;
+  $SwidiConstCopyWith<$Res> get defaultConstValue;
 }
 
 /// @nodoc
@@ -59,10 +65,14 @@ class _$SwidiDeclarationCopyWithImpl<$Res>
   $Res call({
     Object name = freezed,
     Object type = freezed,
+    Object defaultConstValue = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed ? _value.name : name as String,
       type: type == freezed ? _value.type : type as SwidiInterface,
+      defaultConstValue: defaultConstValue == freezed
+          ? _value.defaultConstValue
+          : defaultConstValue as SwidiConst,
     ));
   }
 
@@ -75,6 +85,16 @@ class _$SwidiDeclarationCopyWithImpl<$Res>
       return _then(_value.copyWith(type: value));
     });
   }
+
+  @override
+  $SwidiConstCopyWith<$Res> get defaultConstValue {
+    if (_value.defaultConstValue == null) {
+      return null;
+    }
+    return $SwidiConstCopyWith<$Res>(_value.defaultConstValue, (value) {
+      return _then(_value.copyWith(defaultConstValue: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -84,10 +104,12 @@ abstract class _$$SwidiDeclarationCtorCopyWith<$Res>
           $Res Function(_$SwidiDeclarationCtor) then) =
       __$$SwidiDeclarationCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name, SwidiInterface type});
+  $Res call({String name, SwidiInterface type, SwidiConst defaultConstValue});
 
   @override
   $SwidiInterfaceCopyWith<$Res> get type;
+  @override
+  $SwidiConstCopyWith<$Res> get defaultConstValue;
 }
 
 /// @nodoc
@@ -105,28 +127,42 @@ class __$$SwidiDeclarationCtorCopyWithImpl<$Res>
   $Res call({
     Object name = freezed,
     Object type = freezed,
+    Object defaultConstValue = freezed,
   }) {
     return _then(_$SwidiDeclarationCtor(
       name: name == freezed ? _value.name : name as String,
       type: type == freezed ? _value.type : type as SwidiInterface,
+      defaultConstValue: defaultConstValue == freezed
+          ? _value.defaultConstValue
+          : defaultConstValue as SwidiConst,
     ));
   }
 }
 
 /// @nodoc
 class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
-  const _$_$SwidiDeclarationCtor({@required this.name, @required this.type})
+  const _$_$SwidiDeclarationCtor(
+      {@required this.name,
+      @required this.type,
+      this.defaultConstValue = const SwidiConst.fromSwidiEmptyConst(
+          swidiEmptyConst: const SwidiEmptyConst())})
       : assert(name != null),
-        assert(type != null);
+        assert(type != null),
+        assert(defaultConstValue != null);
 
   @override
   final String name;
   @override
   final SwidiInterface type;
+  @JsonKey(
+      defaultValue: const SwidiConst.fromSwidiEmptyConst(
+          swidiEmptyConst: const SwidiEmptyConst()))
+  @override
+  final SwidiConst defaultConstValue;
 
   @override
   String toString() {
-    return 'SwidiDeclaration(name: $name, type: $type)';
+    return 'SwidiDeclaration(name: $name, type: $type, defaultConstValue: $defaultConstValue)';
   }
 
   @override
@@ -136,14 +172,18 @@ class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)));
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.defaultConstValue, defaultConstValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.defaultConstValue, defaultConstValue)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(type);
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(defaultConstValue);
 
   @JsonKey(ignore: true)
   @override
@@ -155,12 +195,15 @@ class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
 abstract class _$SwidiDeclarationCtor implements SwidiDeclaration {
   const factory _$SwidiDeclarationCtor(
       {@required String name,
-      @required SwidiInterface type}) = _$_$SwidiDeclarationCtor;
+      @required SwidiInterface type,
+      SwidiConst defaultConstValue}) = _$_$SwidiDeclarationCtor;
 
   @override
   String get name;
   @override
   SwidiInterface get type;
+  @override
+  SwidiConst get defaultConstValue;
   @override
   @JsonKey(ignore: true)
   _$$SwidiDeclarationCtorCopyWith<_$SwidiDeclarationCtor> get copyWith;

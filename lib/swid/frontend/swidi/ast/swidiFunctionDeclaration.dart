@@ -17,4 +17,50 @@ abstract class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
     @required List<SwidiOptionalParameter> optionalParameters,
     @required List<SwidiNamedParameter> namedParameters,
   }) = _$SwidiFunctionDeclarationCtor;
+
+  factory SwidiFunctionDeclaration.clone({
+    @required SwidiFunctionDeclaration swidiFunctionDeclaration,
+    String name,
+    SwidiInterface returnType,
+    List<SwidiPositionalParameter> positionalParameters,
+    List<SwidiOptionalParameter> optionalParameters,
+    List<SwidiNamedParameter> namedParameters,
+  }) =>
+      SwidiFunctionDeclaration(
+        name: name ?? swidiFunctionDeclaration.name,
+        returnType: returnType ??
+            SwidiInterface.clone(
+              swidiInterface: swidiFunctionDeclaration.returnType,
+            ),
+        positionalParameters: positionalParameters ??
+            List.from(
+              swidiFunctionDeclaration.positionalParameters
+                  .map(
+                    (x) => SwidiPositionalParameter.clone(
+                      swidiPositionalParameter: x,
+                    ),
+                  )
+                  .toList(),
+            ),
+        optionalParameters: optionalParameters ??
+            List.from(
+              swidiFunctionDeclaration.optionalParameters
+                  .map(
+                    (x) => SwidiOptionalParameter.clone(
+                      swidiOptionalParameter: x,
+                    ),
+                  )
+                  .toList(),
+            ),
+        namedParameters: namedParameters ??
+            List.from(
+              swidiFunctionDeclaration.namedParameters
+                  .map(
+                    (x) => SwidiNamedParameter.clone(
+                      swidiNamedParameter: x,
+                    ),
+                  )
+                  .toList(),
+            ),
+      );
 }

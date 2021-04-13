@@ -11,4 +11,12 @@ abstract class SwidiReferenceDeclarationPrefix
   }) = _$SwidiReferenceDeclarationPrefixCtor;
 
   static const empty = const SwidiReferenceDeclarationPrefix(name: "");
+
+  factory SwidiReferenceDeclarationPrefix.clone({
+    @required SwidiReferenceDeclarationPrefix swidiReferenceDeclarationPrefix,
+    String name,
+  }) =>
+      SwidiReferenceDeclarationPrefix(
+        name: name ?? swidiReferenceDeclarationPrefix.name,
+      );
 }

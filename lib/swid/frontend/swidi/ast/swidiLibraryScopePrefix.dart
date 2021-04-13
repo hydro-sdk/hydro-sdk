@@ -10,4 +10,12 @@ abstract class SwidiLibraryScopePrefix with _$SwidiLibraryScopePrefix {
   }) = _$SwidiLibraryScopePrefixCtor;
 
   static const empty = const SwidiLibraryScopePrefix(name: "");
+
+  factory SwidiLibraryScopePrefix.clone({
+    @required SwidiLibraryScopePrefix swidiLibraryScopePrefix,
+    String name,
+  }) =>
+      SwidiLibraryScopePrefix(
+        name: name ?? swidiLibraryScopePrefix.name,
+      );
 }

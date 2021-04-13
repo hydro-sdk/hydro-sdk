@@ -1,6 +1,7 @@
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiLexicalTokensGrammarDefinition.dart';
 
@@ -8,12 +9,16 @@ mixin SwidiDeclarationGrammarDefinition
     on
         GrammarDefinition,
         SwidiGrammarTokenizer,
-        SwidiLexicalTokensGrammarDefinition {
+        SwidiLexicalTokensGrammarDefinition,
+        SwidiConstGrammarDefinition {
   Parser returnType() => ref(type);
 
   Parser identifier() => ref(token, ref(IDENTIFIER));
 
   Parser simpleDeclaration() => (ref(type) & ref(identifier));
+
+  Parser declarationWithDefaultConstValue() =>
+      ref(simpleDeclaration) & ref(token, "=") & ref(CONST);
 
   Parser qualified() =>
       ref(identifier) & (ref(token, ".") & ref(identifier)).star();

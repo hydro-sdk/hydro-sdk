@@ -32,5 +32,6 @@ mixin SwidiFunctionDeclarationNamedParameterGrammarDefinition
       ref(token, ",") &
       ref(token, "}");
 
-  Parser functionDeclarationNamedParameter() => ref(simpleDeclaration);
+  Parser functionDeclarationNamedParameter() =>
+      ref(declarationWithDefaultConstValue) | ref(simpleDeclaration);
 }
