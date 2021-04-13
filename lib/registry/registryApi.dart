@@ -11,6 +11,7 @@ import 'package:hydro_sdk/registry/dto/createComponentResponseDto.dart';
 import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/createUserDto.dart';
+import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
@@ -164,6 +165,17 @@ class RegistryApi {
           "content-type": "application/json",
         },
         body: jsonEncode(createPackageDto.toJson()));
+
+    return response;
+  }
+
+  Future<Response> getLatestPackageUri(
+      {@required GetPackageDto getPackageDto}) async {
+    final response = await post(Uri.https(baseUrl, "api/package/latestUri"),
+        headers: {
+          "content-type": "application/json",
+        },
+        body: jsonEncode(getPackageDto.toJson()));
 
     return response;
   }
