@@ -8,6 +8,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationNamedParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationOptionalParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationParameterListParser.dart';
@@ -23,6 +25,8 @@ class BasicFunctionParameterListParser extends SwidiGrammarDefinition
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
         SwidiTypeParser,
+        SwidiConstNumberParser,
+        SwidiConstParser,
         SwidiSimpleDeclarationParser,
         SwidiFunctionDeclarationOptionalParameterParser,
         SwidiFunctionDeclarationPositionalParameterParser,
