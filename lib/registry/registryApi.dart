@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart';
+import 'package:hydro_sdk/registry/dto/componentSearchDto.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
@@ -178,5 +179,26 @@ class RegistryApi {
         body: jsonEncode(getPackageDto.toJson()));
 
     return response;
+  }
+
+  Future<List<ComponentSearchDto>> searchComponents(
+      {@required String searchTerm}) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/component/search", {
+        "q": searchTerm,
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)
+          .map((x) => ComponentSearchDto.fromJson(x))
+          .toList()
+          .cast<ComponentSearchDto>();
+    }
+
+    return null;
   }
 }
