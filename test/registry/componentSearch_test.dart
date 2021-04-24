@@ -120,6 +120,12 @@ void main() {
       expect(componentSearchResponse, isNotNull);
       expect(componentSearchResponse.isNotEmpty, true);
       expect(componentSearchResponse.length, 1);
+
+      componentSearchResponse = await api.searchComponents(searchTerm: "test");
+      expect(componentSearchResponse, isNotNull);
+      expect(componentSearchResponse.isNotEmpty, true);
+      expect(componentSearchResponse.length, greaterThan(1));
+      expect(componentSearchResponse.length, lessThanOrEqualTo(10));
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }
