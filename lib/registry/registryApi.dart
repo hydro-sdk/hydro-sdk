@@ -201,4 +201,23 @@ class RegistryApi {
 
     return null;
   }
+
+  Future<ComponentReadDto> getComponentByNameInProjectByName({
+    @required String projectName,
+    @required String componentName,
+  }) async {
+    final response = await get(
+        Uri.https(baseUrl, "api/component", {
+          "project": projectName,
+          "component": componentName,
+        }),
+        headers: {
+          "content-type": "application/json",
+        });
+    if (response.statusCode == 200) {
+      return ComponentReadDto.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
 }
