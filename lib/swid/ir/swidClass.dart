@@ -123,6 +123,46 @@ abstract class SwidClass with _$SwidClass {
       superClass != null
           ? SwidClass.clone(
               swidClass: swidClass,
+              extendedClass:
+                  swidClass.extendedClass ?? superClass.extendedClass,
+              implementedClasses: [
+                ...swidClass.implementedClasses
+                    .map((x) => SwidClass.clone(swidClass: x))
+                    .toList(),
+                ...superClass.implementedClasses
+                    .where((x) =>
+                        swidClass.implementedClasses.firstWhere(
+                            (k) => k.name == x.name,
+                            orElse: () => null) ==
+                        null)
+                    .map((x) => SwidClass.clone(swidClass: x))
+                    .toList()
+              ],
+              mixedInClasses: [
+                ...swidClass.mixedInClasses,
+                ...superClass.mixedInClasses
+                    .where((x) =>
+                        swidClass.mixedInClasses.firstWhere(
+                            (k) => k.name == x.name,
+                            orElse: () => null) ==
+                        null)
+                    .map((x) => SwidClass.clone(swidClass: x))
+                    .toList()
+              ],
+              constructorType:
+                  swidClass.constructorType ?? superClass.constructorType,
+              factoryConstructors: [
+                ...swidClass.factoryConstructors,
+                ...superClass.factoryConstructors,
+              ],
+              staticMethods: [
+                ...swidClass.staticMethods,
+                ...superClass.staticMethods
+              ],
+              staticConstFieldDeclarations: [
+                ...swidClass.staticConstFieldDeclarations,
+                ...superClass.staticConstFieldDeclarations,
+              ],
               instanceFieldDeclarations: Map.fromEntries([
                 ...swidClass.instanceFieldDeclarations.entries
                     .map((x) => MapEntry(x.key, x.value))
