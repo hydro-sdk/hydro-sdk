@@ -8,6 +8,7 @@ part 'componentSearchDto.g.dart';
 abstract class ComponentSearchDto with _$ComponentSearchDto {
   const factory ComponentSearchDto({
     @required String id,
+    @required String projectName,
     @required String name,
     @required String description,
   }) = _$ComponentSearchDtoCtor;

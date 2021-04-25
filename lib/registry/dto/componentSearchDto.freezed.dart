@@ -19,10 +19,12 @@ class _$ComponentSearchDtoTearOff {
 // ignore: unused_element
   _$ComponentSearchDtoCtor call(
       {@required String id,
+      @required String projectName,
       @required String name,
       @required String description}) {
     return _$ComponentSearchDtoCtor(
       id: id,
+      projectName: projectName,
       name: name,
       description: description,
     );
@@ -41,6 +43,7 @@ const $ComponentSearchDto = _$ComponentSearchDtoTearOff();
 /// @nodoc
 mixin _$ComponentSearchDto {
   String get id;
+  String get projectName;
   String get name;
   String get description;
 
@@ -54,7 +57,7 @@ abstract class $ComponentSearchDtoCopyWith<$Res> {
   factory $ComponentSearchDtoCopyWith(
           ComponentSearchDto value, $Res Function(ComponentSearchDto) then) =
       _$ComponentSearchDtoCopyWithImpl<$Res>;
-  $Res call({String id, String name, String description});
+  $Res call({String id, String projectName, String name, String description});
 }
 
 /// @nodoc
@@ -69,11 +72,14 @@ class _$ComponentSearchDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object projectName = freezed,
     Object name = freezed,
     Object description = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
+      projectName:
+          projectName == freezed ? _value.projectName : projectName as String,
       name: name == freezed ? _value.name : name as String,
       description:
           description == freezed ? _value.description : description as String,
@@ -88,7 +94,7 @@ abstract class _$$ComponentSearchDtoCtorCopyWith<$Res>
           $Res Function(_$ComponentSearchDtoCtor) then) =
       __$$ComponentSearchDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name, String description});
+  $Res call({String id, String projectName, String name, String description});
 }
 
 /// @nodoc
@@ -106,11 +112,14 @@ class __$$ComponentSearchDtoCtorCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object projectName = freezed,
     Object name = freezed,
     Object description = freezed,
   }) {
     return _then(_$ComponentSearchDtoCtor(
       id: id == freezed ? _value.id : id as String,
+      projectName:
+          projectName == freezed ? _value.projectName : projectName as String,
       name: name == freezed ? _value.name : name as String,
       description:
           description == freezed ? _value.description : description as String,
@@ -123,8 +132,12 @@ class __$$ComponentSearchDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
   const _$_$ComponentSearchDtoCtor(
-      {@required this.id, @required this.name, @required this.description})
+      {@required this.id,
+      @required this.projectName,
+      @required this.name,
+      @required this.description})
       : assert(id != null),
+        assert(projectName != null),
         assert(name != null),
         assert(description != null);
 
@@ -134,13 +147,15 @@ class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
   @override
   final String id;
   @override
+  final String projectName;
+  @override
   final String name;
   @override
   final String description;
 
   @override
   String toString() {
-    return 'ComponentSearchDto(id: $id, name: $name, description: $description)';
+    return 'ComponentSearchDto(id: $id, projectName: $projectName, name: $name, description: $description)';
   }
 
   @override
@@ -149,6 +164,9 @@ class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
         (other is _$ComponentSearchDtoCtor &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.projectName, projectName) ||
+                const DeepCollectionEquality()
+                    .equals(other.projectName, projectName)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.description, description) ||
@@ -160,6 +178,7 @@ class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(projectName) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(description);
 
@@ -178,6 +197,7 @@ class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
 abstract class _$ComponentSearchDtoCtor implements ComponentSearchDto {
   const factory _$ComponentSearchDtoCtor(
       {@required String id,
+      @required String projectName,
       @required String name,
       @required String description}) = _$_$ComponentSearchDtoCtor;
 
@@ -186,6 +206,8 @@ abstract class _$ComponentSearchDtoCtor implements ComponentSearchDto {
 
   @override
   String get id;
+  @override
+  String get projectName;
   @override
   String get name;
   @override
