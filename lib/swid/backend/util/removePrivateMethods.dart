@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
 SwidClass removePrivateMethods({@required SwidClass swidClass}) =>

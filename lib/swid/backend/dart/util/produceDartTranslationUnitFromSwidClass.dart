@@ -9,12 +9,12 @@ import 'package:hydro_sdk/swid/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/backend/util/removeNonEmitCandidates.dart';
+import 'package:hydro_sdk/swid/backend/util/removePrivateMethods.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
-import 'package:hydro_sdk/swid/backend/util/removePrivateMethods.dart';
 
 DartTranslationUnit produceDartTranslationUnitFromSwidClass({
   @required SwidClass swidClass,
