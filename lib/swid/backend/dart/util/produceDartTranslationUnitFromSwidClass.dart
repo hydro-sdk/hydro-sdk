@@ -14,6 +14,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
+import 'package:hydro_sdk/swid/backend/util/removePrivateMethods.dart';
 
 DartTranslationUnit produceDartTranslationUnitFromSwidClass({
   @required SwidClass swidClass,
@@ -77,15 +78,17 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                   ]),
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(
-                      swidClass: instantiateAllGenericsAsDynamic(
-                              swidType: SwidType.fromSwidClass(
-                                  swidClass: SwidClass.mergeSuperClasses(
-                                      swidClass: swidClass)))
-                          .when(
-                        fromSwidInterface: (_) => null,
-                        fromSwidClass: (val) => val,
-                        fromSwidDefaultFormalParameter: (_) => null,
-                        fromSwidFunctionType: (_) => null,
+                      swidClass: removePrivateMethods(
+                        swidClass: instantiateAllGenericsAsDynamic(
+                                swidType: SwidType.fromSwidClass(
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass)))
+                            .when(
+                          fromSwidInterface: (_) => null,
+                          fromSwidClass: (val) => val,
+                          fromSwidDefaultFormalParameter: (_) => null,
+                          fromSwidFunctionType: (_) => null,
+                        ),
                       ),
                     ),
                   ),
