@@ -124,13 +124,6 @@ void main() {
       expect(getComponentResponse.name, componentName);
       expect(getComponentResponse.isPublic, true);
 
-      getComponentResponse = await api.getComponentByNameInProjectByName(
-        projectName: projectName,
-        componentName: "foo-bar",
-      );
-
-      expect(getComponentResponse, isNull);
-
       var getReleaseChannelsResponse =
           await api.getAllReleaseChannelsByComponentId(
         componentId: getComponentResponse.id,
