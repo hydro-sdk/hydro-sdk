@@ -99,17 +99,20 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                       ? DartIr.fromRTManagedClassDeclaration(
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
-                                  swidClass: instantiateAllGenericsAsDynamic(
-                                          swidType: SwidType.fromSwidClass(
-                                              swidClass:
-                                                  SwidClass.mergeSuperClasses(
-                                                      swidClass: swidClass)))
-                                      .when(
-                            fromSwidInterface: (_) => null,
-                            fromSwidClass: (val) => val,
-                            fromSwidDefaultFormalParameter: (_) => null,
-                            fromSwidFunctionType: (_) => null,
-                          )),
+                            swidClass: removePrivateMethods(
+                              swidClass: instantiateAllGenericsAsDynamic(
+                                      swidType: SwidType.fromSwidClass(
+                                          swidClass:
+                                              SwidClass.mergeSuperClasses(
+                                                  swidClass: swidClass)))
+                                  .when(
+                                fromSwidInterface: (_) => null,
+                                fromSwidClass: (val) => val,
+                                fromSwidDefaultFormalParameter: (_) => null,
+                                fromSwidFunctionType: (_) => null,
+                              ),
+                            ),
+                          ),
                         )
                       : null,
                   DartIr.fromLoadNamepsaceSymbolDeclaration(
