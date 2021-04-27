@@ -57,21 +57,23 @@ List<SwidClass> _mergeClasses(
                         x.name == element.name,
                     orElse: () => null) !=
                 null
-            ? [
-                ...previousValue
-                    .where((x) =>
-                        x.originalPackagePath != element.originalPackagePath &&
-                        x.name != element.name)
-                    .toList(),
-                SwidClass.mergeDeclarations(
-                    swidClass: previousValue.firstWhere(
-                        (x) =>
-                            x.originalPackagePath ==
-                                element.originalPackagePath &&
-                            x.name == element.name,
-                        orElse: () => null),
-                    superClass: element)
-              ]
+            ? (List.from(previousValue)
+              ..setAll(
+                  previousValue.indexWhere(
+                    (x) =>
+                        x.originalPackagePath == element.originalPackagePath &&
+                        x.name == element.name,
+                  ),
+                  [
+                    SwidClass.mergeDeclarations(
+                        swidClass: previousValue.firstWhere(
+                            (x) =>
+                                x.originalPackagePath ==
+                                    element.originalPackagePath &&
+                                x.name == element.name,
+                            orElse: () => null),
+                        superClass: element),
+                  ]))
             : [
                 ...previousValue,
                 element,
