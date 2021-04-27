@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart';
+import 'package:hydro_sdk/registry/dto/releaseChannelReadDto.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
@@ -216,6 +217,25 @@ class RegistryApi {
         });
     if (response.statusCode == 200) {
       return ComponentReadDto.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
+
+  Future<List<ReleaseChannelReadDto>> getAllReleaseChannelsByComponentId(
+      {@required String componentId}) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/release-channel/component/${componentId}"),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)
+          .map((x) => ReleaseChannelReadDto.fromJson(x))
+          .toList()
+          .cast<ReleaseChannelReadDto>();
     }
 
     return null;
