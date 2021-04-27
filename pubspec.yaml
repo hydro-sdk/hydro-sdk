@@ -41,6 +41,7 @@ dependencies:
   synchronized: null
   uuid: null
   watcher: null
+  glob: null
 dev_dependencies: 
   import_sorter: "4.4.1"
   test: "any"
