@@ -9,7 +9,7 @@ abstract class ReleaseChannelReadDto with _$ReleaseChannelReadDto {
   const factory ReleaseChannelReadDto({
     @required String id,
     @required String componentId,
-    @required int createdAt,
+    @required String createdAt,
     @required bool isPublic,
     @required String name,
     @required String description,

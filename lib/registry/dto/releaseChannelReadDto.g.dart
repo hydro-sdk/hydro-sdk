@@ -11,7 +11,7 @@ _$_$ReleaseChannelReadDtoCtor _$_$_$ReleaseChannelReadDtoCtorFromJson(
   return _$_$ReleaseChannelReadDtoCtor(
     id: json['id'] as String,
     componentId: json['componentId'] as String,
-    createdAt: json['createdAt'] as int,
+    createdAt: json['createdAt'] as String,
     isPublic: json['isPublic'] as bool,
     name: json['name'] as String,
     description: json['description'] as String,

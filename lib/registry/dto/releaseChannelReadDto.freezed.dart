@@ -21,7 +21,7 @@ class _$ReleaseChannelReadDtoTearOff {
   _$ReleaseChannelReadDtoCtor call(
       {@required String id,
       @required String componentId,
-      @required int createdAt,
+      @required String createdAt,
       @required bool isPublic,
       @required String name,
       @required String description,
@@ -51,7 +51,7 @@ const $ReleaseChannelReadDto = _$ReleaseChannelReadDtoTearOff();
 mixin _$ReleaseChannelReadDto {
   String get id;
   String get componentId;
-  int get createdAt;
+  String get createdAt;
   bool get isPublic;
   String get name;
   String get description;
@@ -70,7 +70,7 @@ abstract class $ReleaseChannelReadDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String componentId,
-      int createdAt,
+      String createdAt,
       bool isPublic,
       String name,
       String description,
@@ -100,7 +100,7 @@ class _$ReleaseChannelReadDtoCopyWithImpl<$Res>
       id: id == freezed ? _value.id : id as String,
       componentId:
           componentId == freezed ? _value.componentId : componentId as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as int,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
       isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
       name: name == freezed ? _value.name : name as String,
       description:
@@ -123,7 +123,7 @@ abstract class _$$ReleaseChannelReadDtoCtorCopyWith<$Res>
   $Res call(
       {String id,
       String componentId,
-      int createdAt,
+      String createdAt,
       bool isPublic,
       String name,
       String description,
@@ -156,7 +156,7 @@ class __$$ReleaseChannelReadDtoCtorCopyWithImpl<$Res>
       id: id == freezed ? _value.id : id as String,
       componentId:
           componentId == freezed ? _value.componentId : componentId as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as int,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
       isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
       name: name == freezed ? _value.name : name as String,
       description:
@@ -196,7 +196,7 @@ class _$_$ReleaseChannelReadDtoCtor implements _$ReleaseChannelReadDtoCtor {
   @override
   final String componentId;
   @override
-  final int createdAt;
+  final String createdAt;
   @override
   final bool isPublic;
   @override
@@ -263,7 +263,7 @@ abstract class _$ReleaseChannelReadDtoCtor implements ReleaseChannelReadDto {
   const factory _$ReleaseChannelReadDtoCtor(
       {@required String id,
       @required String componentId,
-      @required int createdAt,
+      @required String createdAt,
       @required bool isPublic,
       @required String name,
       @required String description,
@@ -277,7 +277,7 @@ abstract class _$ReleaseChannelReadDtoCtor implements ReleaseChannelReadDto {
   @override
   String get componentId;
   @override
-  int get createdAt;
+  String get createdAt;
   @override
   bool get isPublic;
   @override
