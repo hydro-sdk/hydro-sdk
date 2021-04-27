@@ -1,7 +1,7 @@
 {
     "inputPackagePath": "/Users/chgibb/Downloads/sky_engine",
     "interfaces": [
-        "interfaces/unmodifiableFloat32ListView.i"
+        "interfaces/*.i"
     ],
     "emitOptions": {
         "prefixPaths": [
