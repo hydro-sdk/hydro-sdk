@@ -19,8 +19,13 @@ class SwidiFrontend extends SwidFrontend {
     for (var i = 0; i != inputs.length; ++i) {
       result = [
         ...result,
-        ...swidiSourceToSwidIr(
-            content: await inputResolver.resolveInput(input: inputs[i])),
+        ...((await inputResolver.resolveInput(input: inputs[i])).when(
+          fromString: (val) => swidiSourceToSwidIr(content: val),
+          fromList: (val) =>
+              val.map((x) => swidiSourceToSwidIr(content: x)).reduce(
+                    (value, element) => [...value, ...element].toList(),
+                  ),
+        ))
       ];
     }
     return result;
