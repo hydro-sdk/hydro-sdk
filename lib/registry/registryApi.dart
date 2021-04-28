@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart';
+import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
@@ -236,6 +237,25 @@ class RegistryApi {
           .map((x) => ReleaseChannelReadDto.fromJson(x))
           .toList()
           .cast<ReleaseChannelReadDto>();
+    }
+
+    return null;
+  }
+
+  Future<List<PackageReadDto>> getLatestMetadataForReleaseChannelId(
+      {@required String releaseChannelId}) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/package/release-channel/${releaseChannelId}"),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)
+          .map((x) => PackageReadDto.fromJson(x))
+          .toList()
+          .cast<PackageReadDto>();
     }
 
     return null;
