@@ -1,7 +1,9 @@
 //Todo: move this test to codepush-tests repository
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_test/flutter_test.dart';
+
 // import 'package:uuid/uuid.dart';
 
 // import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
