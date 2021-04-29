@@ -1,7 +1,7 @@
 //Todo: move this test to codepush-tests repository
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_test/flutter_test.dart';
 // import 'package:uuid/uuid.dart';
 
 // import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
@@ -12,10 +12,10 @@
 // import 'package:hydro_sdk/registry/registryApi.dart';
 // import 'registryTestUrl.dart';
 
-// void main() {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   group("", () {
-//     test("", () async {
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  group("", () {
+    test("", () async {
 //       final api = RegistryApi(baseUrl: registryTestUrl);
 
 //       final username = "test${Uuid().v4()}";
@@ -143,6 +143,6 @@
 
 //       expect(getLatestMetadataForReleaseChannelIdResponse, isNotNull);
 //       expect(getLatestMetadataForReleaseChannelIdResponse.isNotEmpty, true);
-//     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
-//   });
-// }
+    }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
+  });
+}
