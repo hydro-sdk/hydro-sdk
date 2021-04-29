@@ -14,7 +14,9 @@ import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/createUserDto.dart';
 import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
+import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
+import 'package:hydro_sdk/registry/dto/releaseChannelReadDto.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/dto/userReadDto.dart';
 
@@ -197,6 +199,63 @@ class RegistryApi {
           .map((x) => ComponentSearchDto.fromJson(x))
           .toList()
           .cast<ComponentSearchDto>();
+    }
+
+    return null;
+  }
+
+  Future<ComponentReadDto> getComponentByNameInProjectByName({
+    @required String projectName,
+    @required String componentName,
+  }) async {
+    final response = await get(
+        Uri.https(baseUrl, "api/component", {
+          "project": projectName,
+          "component": componentName,
+        }),
+        headers: {
+          "content-type": "application/json",
+        });
+    if (response.statusCode == 200) {
+      return ComponentReadDto.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
+
+  Future<List<ReleaseChannelReadDto>> getAllReleaseChannelsByComponentId(
+      {@required String componentId}) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/release-channel/component/${componentId}"),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)
+          .map((x) => ReleaseChannelReadDto.fromJson(x))
+          .toList()
+          .cast<ReleaseChannelReadDto>();
+    }
+
+    return null;
+  }
+
+  Future<List<PackageReadDto>> getLatestMetadataForReleaseChannelId(
+      {@required String releaseChannelId}) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/package/release-channel/${releaseChannelId}"),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)
+          .map((x) => PackageReadDto.fromJson(x))
+          .toList()
+          .cast<PackageReadDto>();
     }
 
     return null;
