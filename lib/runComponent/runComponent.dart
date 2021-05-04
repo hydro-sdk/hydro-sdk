@@ -89,8 +89,14 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
               rawPackage = base64Decode(downloadResponse.body);
             });
           }
+        }).onError((error, stackTrace) {
+          print(error);
+          print(stackTrace);
         });
       }
+    }).onError((error, stackTrace) {
+      print(error);
+      print(stackTrace);
     });
   }
 
@@ -112,6 +118,9 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
           }
         }
         _attemptToLoadComponentFromRegistry();
+      }).onError((error, stackTrace) {
+        print(error);
+        print(stackTrace);
       });
     } else {
       _attemptToLoadComponentFromRegistry();
