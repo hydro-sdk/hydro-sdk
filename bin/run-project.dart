@@ -66,6 +66,53 @@ void main(List<String> args) async {
   ProjectConfig projectConfig = ProjectConfig.fromJson(
       jsonDecode(await File(results["project"]).readAsString()));
 
+  HttpServer.bind("127.0.0.1", 5000).then((server) {
+    server.listen((request) {
+      switch (request.method) {
+        case "GET":
+          ComponentBuilder componentBuilder = ComponentBuilder(
+            projectConfigComponent: projectConfig.components.first,
+            ts2hc: results["ts2hc"],
+            cacheDir: results["cache-dir"],
+            profile: results["profile"],
+            signingKey: "",
+          );
+
+          if (request.uri.path ==
+              "/available/${projectConfig.project}/${projectConfig.components.first.name}") {
+            if (File("${componentBuilder.unpackedOutputPath()}.ota.sha256")
+                .existsSync()) {
+              request.response.statusCode = 204;
+              request.response.close();
+              return;
+            } else {
+              request.response.statusCode = 503;
+              request.response.close();
+              return;
+            }
+          }
+
+          if (request.uri.path ==
+              "/${projectConfig.project}/${projectConfig.components.first.name}.ota.sha256") {
+            File("${componentBuilder.unpackedOutputPath()}.ota.sha256")
+                .openRead()
+                .pipe(request.response);
+            return;
+          } else if (request.uri.path ==
+              "/${projectConfig.project}/${projectConfig.components.first.name}.ota") {
+            File("${componentBuilder.unpackedOutputPath()}.ota")
+                .openRead()
+                .pipe(request.response);
+            return;
+          }
+          break;
+      }
+      request.response.statusCode = 404;
+      request.response.close();
+      return;
+    });
+  });
+
   var watchPath =
       File(projectConfig.components.first.chunks.first.entryPoint).parent.path;
 
@@ -78,33 +125,6 @@ void main(List<String> args) async {
     cacheDir: results["cache-dir"],
     profile: results["profile"],
   );
-
-  HttpServer.bind("127.0.0.1", 5000).then((server) {
-    server.listen((request) {
-      switch (request.method) {
-        case "GET":
-          ComponentBuilder componentBuilder = ComponentBuilder(
-            projectConfigComponent: projectConfig.components.first,
-            ts2hc: results["ts2hc"],
-            cacheDir: results["cache-dir"],
-            profile: results["profile"],
-            signingKey: "",
-          );
-          if (request.uri.path ==
-              "/${projectConfig.project}/${projectConfig.components.first.name}.ota.sha256") {
-            File("${componentBuilder.unpackedOutputPath()}.ota.sha256")
-                .openRead()
-                .pipe(request.response);
-          } else if (request.uri.path ==
-              "/${projectConfig.project}/${projectConfig.components.first.name}.ota") {
-            File("${componentBuilder.unpackedOutputPath()}.ota")
-                .openRead()
-                .pipe(request.response);
-          }
-          break;
-      }
-    });
-  });
 
   DirectoryWatcher(watchPath).events.listen((event) async {
     await _rebuild(

@@ -20,34 +20,72 @@ import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 part 'runDebugComponent.dart';
-part 'debugUrls.dart';
-part 'debugDownload.dart';
 part 'reloadableMountableChunk.dart';
 part 'runComponentFromFile.dart';
+part 'serviceAware.dart';
 
-class RunComponent extends StatelessWidget {
+enum RunComponentKind {
+  kRunDebugComponent,
+  kRunComponentFromRegistry,
+}
+
+class RunComponent extends StatefulWidget {
   final String project;
   final String component;
   final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
       thunks;
+  final int debugPort;
 
   const RunComponent({
     @required this.project,
     @required this.component,
     this.thunks = const {},
+    this.debugPort = 5000,
   });
+
+  @override
+  _RunComponentState createState() => _RunComponentState();
+}
+
+class _RunComponentState extends State<RunComponent> with ServiceAware {
+  RunComponentKind runComponentKind;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (kDebugMode) {
+      _debugPackageAvailable(
+        project: widget.project,
+        component: widget.component,
+        port: widget.debugPort,
+      ).then((value) {
+        if (value != null && value != RunProjectResponseKind.kUnavailable) {
+          if (mounted) {
+            setState(() {
+              runComponentKind = RunComponentKind.kRunDebugComponent;
+            });
+          }
+        }
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
-      return _RunDebugComponent(
-        project: project,
-        component: component,
-        thunks: thunks,
-      );
+      if (runComponentKind == RunComponentKind.kRunDebugComponent) {
+        return _RunDebugComponent(
+          project: widget.project,
+          component: widget.component,
+          thunks: widget.thunks,
+          port: widget.debugPort,
+        );
+      }
     } else {
       return const SizedBox();
     }
+    return const SizedBox();
   }
 }
 

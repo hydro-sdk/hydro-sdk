@@ -23,7 +23,11 @@ class _RunDebugComponent extends StatefulWidget {
 }
 
 class _RunDebugComponentState extends State<_RunDebugComponent>
-    with HotReloadable, PreloadableCustomNamespaces, ReloadableMountableChunk {
+    with
+        ServiceAware,
+        HotReloadable,
+        PreloadableCustomNamespaces,
+        ReloadableMountableChunk {
   Timer timer;
   List<dynamic> args;
 
@@ -35,30 +39,44 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
   Future<void> maybeReload() async {
     if (kDebugMode) {
       if (mounted) {
-        final newHash = await _downloadDebugPackageHash(
-          port: widget.port,
-          project: widget.project,
-          component: widget.component,
-        );
+        var packageAvailability = await _debugPackageAvailable(
+            project: widget.project,
+            component: widget.component,
+            port: widget.port);
 
-        if (newHash == null) {
-          return;
-        }
-
-        if (newHash != null && newHash != lastHash) {
-          setState(() {
-            lastHash = newHash;
-          });
-          final rawPackage = await _downloadDebugPackage(
+        if (packageAvailability == null ||
+            packageAvailability == RunProjectResponseKind.kUnavailable) {
+          timer.cancel();
+          throw new Exception(
+              "@${widget.project}/${widget.component} is no longer available for local debugging");
+        } else if (packageAvailability == RunProjectResponseKind.kReady) {
+          if (mounted) {
+            final newHash = await _downloadDebugPackageHash(
               port: widget.port,
               project: widget.project,
-              component: widget.component);
+              component: widget.component,
+            );
 
-          await maybeReloadMountableChunk(
-            rawPackage: rawPackage,
-            component: widget.component,
-            thunks: widget.thunks,
-          );
+            if (newHash == null) {
+              return;
+            }
+
+            if (newHash != null && newHash != lastHash) {
+              setState(() {
+                lastHash = newHash;
+              });
+              final rawPackage = await _downloadDebugPackage(
+                  port: widget.port,
+                  project: widget.project,
+                  component: widget.component);
+
+              await maybeReloadMountableChunk(
+                rawPackage: rawPackage,
+                component: widget.component,
+                thunks: widget.thunks,
+              );
+            }
+          }
         }
       }
     }
