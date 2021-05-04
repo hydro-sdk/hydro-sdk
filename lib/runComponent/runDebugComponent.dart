@@ -12,10 +12,8 @@ class _RunDebugComponent extends StatefulWidget {
     @required this.project,
     @required this.component,
     @required this.thunks,
-    this.port = 5000,
-    this.loading = const Center(
-      child: CircularProgressIndicator(),
-    ),
+    @required this.port,
+    @required this.loading,
   });
 
   @override
