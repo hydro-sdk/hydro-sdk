@@ -242,7 +242,7 @@ class RegistryApi {
     return null;
   }
 
-  Future<List<PackageReadDto>> getLatestMetadataForReleaseChannelId(
+  Future<PackageReadDto> getLatestMetadataForReleaseChannelId(
       {@required String releaseChannelId}) async {
     final response = await get(
       Uri.https(baseUrl, "api/package/release-channel/${releaseChannelId}"),
@@ -252,10 +252,7 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return jsonDecode(response.body)
-          .map((x) => PackageReadDto.fromJson(x))
-          .toList()
-          .cast<PackageReadDto>();
+      return PackageReadDto.fromJson(jsonDecode(response.body));
     }
 
     return null;
