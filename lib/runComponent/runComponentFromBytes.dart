@@ -26,11 +26,15 @@ class _RunComponentFromBytesState extends State<RunComponentFromBytes>
   initState() {
     super.initState();
 
-    maybeReloadMountableChunk(
-      rawPackage: widget.bytes,
-      component: widget.component,
-      thunks: widget.thunks,
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        maybeReloadMountableChunk(
+          rawPackage: widget.bytes,
+          component: widget.component,
+          thunks: widget.thunks,
+        );
+      }
+    });
   }
 
   @override

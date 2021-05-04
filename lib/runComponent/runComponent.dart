@@ -63,6 +63,37 @@ class RunComponent extends StatefulWidget {
 class _RunComponentState extends State<RunComponent> with ServiceAware {
   RunComponentKind runComponentKind;
   Uint8List rawPackage;
+
+  void _attemptToLoadComponentFromRegistry() {
+    if (mounted) {
+      setState(() {
+        runComponentKind = RunComponentKind.kLoadingComponentFromRegistry;
+      });
+    }
+    widget.registryApi
+        .getLatestPackageUri(
+      getPackageDto: GetPackageDto(
+        sessionId: Uuid().v4(),
+        projectName: widget.project,
+        componentName: widget.component,
+        releaseChannelName: widget.releaseChannel,
+        currentPackageId: "",
+      ),
+    )
+        .then((latestPackageUri) {
+      if (latestPackageUri?.statusCode == 201) {
+        get(latestPackageUri.body).then((downloadResponse) {
+          if (mounted) {
+            setState(() {
+              runComponentKind = RunComponentKind.kRunComponentFromRegistry;
+              rawPackage = base64Decode(downloadResponse.body);
+            });
+          }
+        });
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -80,57 +111,23 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
             });
           }
         }
+        _attemptToLoadComponentFromRegistry();
       });
     } else {
-      if (mounted) {
-        setState(() {
-          runComponentKind = RunComponentKind.kLoadingComponentFromRegistry;
-        });
-      }
-      widget.registryApi
-          .getLatestPackageUri(
-        getPackageDto: GetPackageDto(
-          sessionId: Uuid().v4(),
-          projectName: widget.project,
-          componentName: widget.component,
-          releaseChannelName: widget.releaseChannel,
-          currentPackageId: "",
-        ),
-      )
-          .then((latestPackageUri) {
-        if (latestPackageUri?.statusCode == 200) {
-          get(latestPackageUri.body).then((downloadResponse) {
-            if (mounted) {
-              setState(() {
-                runComponentKind = RunComponentKind.kRunComponentFromRegistry;
-                rawPackage = base64Decode(downloadResponse.body);
-              });
-            }
-          });
-        }
-      });
-      ;
-
-      if (mounted) {
-        setState(() {
-          runComponentKind = RunComponentKind.kRunComponentFromRegistry;
-        });
-      }
+      _attemptToLoadComponentFromRegistry();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    if (kDebugMode) {
-      if (runComponentKind == RunComponentKind.kRunDebugComponent) {
-        return _RunDebugComponent(
-          project: widget.project,
-          component: widget.component,
-          thunks: widget.thunks,
-          port: widget.debugPort,
-          loading: widget.loading,
-        );
-      }
+    if (kDebugMode && runComponentKind == RunComponentKind.kRunDebugComponent) {
+      return _RunDebugComponent(
+        project: widget.project,
+        component: widget.component,
+        thunks: widget.thunks,
+        port: widget.debugPort,
+        loading: widget.loading,
+      );
     } else if (runComponentKind == RunComponentKind.kRunComponentFromRegistry) {
       return RunComponentFromBytes(
         bytes: rawPackage,
@@ -144,7 +141,6 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
     } else {
       return const SizedBox();
     }
-    return const SizedBox();
   }
 }
 
