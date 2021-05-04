@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 
 import 'package:archive/archive_io.dart';
 import 'package:http/http.dart';
-import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:hydro_sdk/build-project/packageManifest.dart';
@@ -20,6 +19,7 @@ import 'package:hydro_sdk/cfr/hotReloadable.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
+import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:hydro_sdk/registry/registryApi.dart';
 
 part 'runDebugComponent.dart';
