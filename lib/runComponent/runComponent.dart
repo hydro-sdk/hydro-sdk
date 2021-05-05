@@ -91,6 +91,8 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
               runComponentKind = RunComponentKind.kRunComponentFromRegistry;
               rawPackage = base64Decode(downloadResponse.body);
             });
+          } else {
+            print("widget is not mounted");
           }
         }).onError((error, stackTrace) {
           print(error);
