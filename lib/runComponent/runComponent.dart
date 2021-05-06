@@ -65,7 +65,6 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
   Uint8List rawPackage;
 
   void _attemptToLoadComponentFromRegistry() {
-    print("attempting to load from registry");
     if (mounted) {
       setState(() {
         runComponentKind = RunComponentKind.kLoadingComponentFromRegistry;
@@ -82,18 +81,14 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
       ),
     )
         .then((latestPackageUri) {
-      print("result of package uri is ${latestPackageUri.statusCode}");
       if (latestPackageUri?.statusCode == 201) {
         get(latestPackageUri.body).then((downloadResponse) {
-          print("result getting package uri is ${downloadResponse.statusCode}");
           if (mounted) {
             setState(() {
               runComponentKind = RunComponentKind.kRunComponentFromRegistry;
               rawPackage = base64Decode(downloadResponse.body);
             });
-          } else {
-            print("widget is not mounted");
-          }
+          } 
         }).onError((error, stackTrace) {
           print(error);
           print(stackTrace);
@@ -110,13 +105,11 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
     super.initState();
 
     if (kDebugMode) {
-      print("trying to see if debug package is available");
       _debugPackageAvailable(
         project: widget.project,
         component: widget.component,
         port: widget.debugPort,
       ).then((value) {
-        print("result of debug package check is $value");
         if (value != null && value != RunProjectResponseKind.kUnavailable) {
           if (mounted) {
             setState(() {
@@ -136,7 +129,6 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
 
   @override
   Widget build(BuildContext context) {
-    print("runComponentKind $runComponentKind");
     if (kDebugMode && runComponentKind == RunComponentKind.kRunDebugComponent) {
       return _RunDebugComponent(
         project: widget.project,
