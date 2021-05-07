@@ -88,7 +88,7 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
               runComponentKind = RunComponentKind.kRunComponentFromRegistry;
               rawPackage = base64Decode(downloadResponse.body);
             });
-          } 
+          }
         }).onError((error, stackTrace) {
           print(error);
           print(stackTrace);
