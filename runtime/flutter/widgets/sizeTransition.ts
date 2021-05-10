@@ -22,7 +22,8 @@ declare const flutter: {
 
 export class SizeTransition
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(SizeTransition);
     public props: SizeTransitionProps;
     public constructor(props: SizeTransitionProps) {

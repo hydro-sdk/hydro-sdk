@@ -78,12 +78,10 @@ export class Iterable<E> {
     }
     private readonly _dart_getIterator: () => IIterator<E> = undefined as any;
     private readonly _dart_cast: <R>() => IIterable<R> = undefined as any;
-    private readonly _dart_followedBy: (
-        other: IIterable<E>
-    ) => IIterable<E> = undefined as any;
-    private readonly _dart_map: <T>(
-        f: (e: E) => T
-    ) => IIterable<T> = undefined as any;
+    private readonly _dart_followedBy: (other: IIterable<E>) => IIterable<E> =
+        undefined as any;
+    private readonly _dart_map: <T>(f: (e: E) => T) => IIterable<T> =
+        undefined as any;
     private readonly _dart_where: (
         test: (element: E) => boolean
     ) => IIterable<E> = undefined as any;
@@ -91,44 +89,35 @@ export class Iterable<E> {
     private readonly _dart_expand: <T>(
         f: (element: E) => IIterable<T>
     ) => IIterable<T> = undefined as any;
-    private readonly _dart_contains: (
-        element?: Object | undefined
-    ) => boolean = undefined as any;
-    private readonly _dart_forEach: (
-        f: (element: E) => void
-    ) => void = undefined as any;
-    private readonly _dart_reduce: (
-        combine: (value: E, element: E) => E
-    ) => E = undefined as any;
+    private readonly _dart_contains: (element?: Object | undefined) => boolean =
+        undefined as any;
+    private readonly _dart_forEach: (f: (element: E) => void) => void =
+        undefined as any;
+    private readonly _dart_reduce: (combine: (value: E, element: E) => E) => E =
+        undefined as any;
     private readonly _dart_fold: <T>(
         initialValue: T,
         combine: (previousValue: T, element: E) => T
     ) => T = undefined as any;
-    private readonly _dart_every: (
-        test: (element: E) => boolean
-    ) => boolean = undefined as any;
-    private readonly _dart_join: (
-        separator: string
-    ) => string = undefined as any;
-    private readonly _dart_any: (
-        test: (element: E) => boolean
-    ) => boolean = undefined as any;
-    private readonly _dart_toList: (props: {
-        growable: boolean;
-    }) => IList<E> = undefined as any;
+    private readonly _dart_every: (test: (element: E) => boolean) => boolean =
+        undefined as any;
+    private readonly _dart_join: (separator: string) => string =
+        undefined as any;
+    private readonly _dart_any: (test: (element: E) => boolean) => boolean =
+        undefined as any;
+    private readonly _dart_toList: (props: { growable: boolean }) => IList<E> =
+        undefined as any;
     private readonly _dart_toSet: () => ISet<E> = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
     private readonly _dart_getIsNotEmpty: () => boolean = undefined as any;
-    private readonly _dart_take: (
-        count: number
-    ) => IIterable<E> = undefined as any;
+    private readonly _dart_take: (count: number) => IIterable<E> =
+        undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: E) => boolean
     ) => IIterable<E> = undefined as any;
-    private readonly _dart_skip: (
-        count: number
-    ) => IIterable<E> = undefined as any;
+    private readonly _dart_skip: (count: number) => IIterable<E> =
+        undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: E) => boolean
     ) => IIterable<E> = undefined as any;

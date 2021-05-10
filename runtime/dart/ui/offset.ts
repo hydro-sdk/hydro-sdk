@@ -53,10 +53,8 @@ export class Offset implements IOffsetBase {
     private readonly _dart_getDistance: () => number = undefined as any;
     private readonly _dart_getDistanceSquared: () => number = undefined as any;
     private readonly _dart_getDirection: () => number = undefined as any;
-    private readonly _dart_scale: (
-        scaleX: number,
-        scaleY: number
-    ) => IOffset = undefined as any;
+    private readonly _dart_scale: (scaleX: number, scaleY: number) => IOffset =
+        undefined as any;
     private readonly _dart_translate: (
         translateX: number,
         translateY: number

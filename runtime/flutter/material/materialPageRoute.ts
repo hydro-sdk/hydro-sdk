@@ -21,7 +21,8 @@ declare const flutter: {
 
 export class MaterialPageRoute
     extends JITAllocatingRTManagedBox<MaterialPageRouteProps, MaterialPageRoute>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(MaterialPageRoute);
     public props: MaterialPageRouteProps;
     public constructor(props: MaterialPageRouteProps) {

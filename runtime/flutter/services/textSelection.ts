@@ -23,7 +23,8 @@ declare const flutter: {
 
 export class TextSelection
     extends JITAllocatingRTManagedBox<TextSelectionProps, TextSelection>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(TextSelection);
     public props: TextSelectionProps;
 

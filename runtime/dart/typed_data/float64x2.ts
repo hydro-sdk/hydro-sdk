@@ -49,12 +49,10 @@ export class Float64x2 {
     private readonly _dart_getSignMask: () => number = undefined as any;
     private readonly _dart_withX: (x: number) => IFloat64x2 = undefined as any;
     private readonly _dart_withY: (y: number) => IFloat64x2 = undefined as any;
-    private readonly _dart_min: (
-        other: IFloat64x2
-    ) => IFloat64x2 = undefined as any;
-    private readonly _dart_max: (
-        other: IFloat64x2
-    ) => IFloat64x2 = undefined as any;
+    private readonly _dart_min: (other: IFloat64x2) => IFloat64x2 =
+        undefined as any;
+    private readonly _dart_max: (other: IFloat64x2) => IFloat64x2 =
+        undefined as any;
     private readonly _dart_sqrt: () => IFloat64x2 = undefined as any;
     public scale(s: number): IFloat64x2 {
         return this._dart_scale(s);

@@ -105,9 +105,8 @@ export async function buildBundleInfo(
     const getFullDiagnostics = () => {
         let diagnostics:
             | Readonly<Array<ts.Diagnostic>>
-            | Readonly<
-                  Array<ts.DiagnosticWithLocation>
-              > = program.getSemanticDiagnostics();
+            | Readonly<Array<ts.DiagnosticWithLocation>> =
+            program.getSemanticDiagnostics();
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getDeclarationDiagnostics();
@@ -117,9 +116,8 @@ export async function buildBundleInfo(
     const getIncrementalDiagnostics = (sourceFile: Readonly<ts.SourceFile>) => {
         let diagnostics:
             | Readonly<Array<ts.Diagnostic>>
-            | Readonly<
-                  Array<ts.DiagnosticWithLocation>
-              > = program.getSyntacticDiagnostics(sourceFile);
+            | Readonly<Array<ts.DiagnosticWithLocation>> =
+            program.getSyntacticDiagnostics(sourceFile);
         concatDiagnostics(diagnostics);
 
         diagnostics = program.getSemanticDiagnostics(sourceFile);

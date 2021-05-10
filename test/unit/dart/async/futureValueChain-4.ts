@@ -9,36 +9,32 @@ Future.value()
         assert(s1 == "hello world");
         return 5;
     })
-    .then(
-        (n1: number): Array<number> => {
-            assert(n1 != undefined);
-            assert(n1 == 5);
-            return [0, 1, 2];
-        }
-    )
-    .then(
-        (a1: Array<number>): Future<List<number>> => {
-            assert(a1 != undefined);
-            assert(a1[0] == 0);
-            assert(a1[1] == 1);
-            assert(a1[2] == 2);
-            return new Future(() => List.fromArray(a1).map((x) => x + 1)).then(
-                (l1) => {
-                    assert(a1 != undefined);
-                    assert(a1[0] == 0);
-                    assert(a1[1] == 1);
-                    assert(a1[2] == 2);
+    .then((n1: number): Array<number> => {
+        assert(n1 != undefined);
+        assert(n1 == 5);
+        return [0, 1, 2];
+    })
+    .then((a1: Array<number>): Future<List<number>> => {
+        assert(a1 != undefined);
+        assert(a1[0] == 0);
+        assert(a1[1] == 1);
+        assert(a1[2] == 2);
+        return new Future(() => List.fromArray(a1).map((x) => x + 1)).then(
+            (l1) => {
+                assert(a1 != undefined);
+                assert(a1[0] == 0);
+                assert(a1[1] == 1);
+                assert(a1[2] == 2);
 
-                    assert(l1 != undefined);
-                    assert(l1.elementAt(0) == 1);
-                    assert(l1.elementAt(1) == 2);
-                    assert(l1.elementAt(2) == 3);
+                assert(l1 != undefined);
+                assert(l1.elementAt(0) == 1);
+                assert(l1.elementAt(1) == 2);
+                assert(l1.elementAt(2) == 3);
 
-                    return l1.map((x) => x + 2);
-                }
-            );
-        }
-    )
+                return l1.map((x) => x + 2);
+            }
+        );
+    })
     .then((l2: Future<List<number>>) => {
         assert(l2 != undefined);
         l2.then((l3: List<number>) => {

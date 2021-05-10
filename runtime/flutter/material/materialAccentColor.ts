@@ -1,7 +1,8 @@
 import { ColorSwatch, ColorSwatchLike } from "../painting/colorSwatch";
 
 export class MaterialAccentColor<T extends ColorSwatchLike>
-    implements ColorSwatch {
+    implements ColorSwatch
+{
     public primary: number;
     public swatch: T;
 

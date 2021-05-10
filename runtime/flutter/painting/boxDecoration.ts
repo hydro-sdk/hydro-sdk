@@ -21,7 +21,8 @@ declare const flutter: {
 
 export class BoxDecoration
     extends JITAllocatingRTManagedBox<BoxDecorationProps, BoxDecoration>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(BoxDecoration);
     public props: BoxDecorationProps;
     public constructor(props: BoxDecorationProps) {

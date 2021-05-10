@@ -18,7 +18,8 @@ declare const flutter: {
 
 export class TextStyle
     extends JITAllocatingRTManagedBox<TextStyleProps, TextStyle>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(TextStyle);
     public props: TextStyleProps;
     public color?: Color;

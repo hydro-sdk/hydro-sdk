@@ -245,11 +245,7 @@ class Hydroc {
     }
 }
 
-async function readSdkPackage({
-    directory,
-}: {
-    directory: string;
-}): Promise<
+async function readSdkPackage({ directory }: { directory: string }): Promise<
     | Readonly<{
           version: string;
       }>

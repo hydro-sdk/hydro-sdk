@@ -10,7 +10,8 @@ declare const dart: {
 
 export class FontWeight
     extends JITAllocatingRTManagedBox<undefined, FontWeight>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(FontWeight);
     public props = undefined;
     protected readonly index: number;

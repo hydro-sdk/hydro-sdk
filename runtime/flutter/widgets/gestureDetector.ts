@@ -21,7 +21,8 @@ declare const flutter: {
 
 export class GestureDetector
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(GestureDetector);
     public props: GestureDetectorProps;
     public constructor(props: GestureDetectorProps) {
