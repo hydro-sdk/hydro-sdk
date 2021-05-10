@@ -116,8 +116,9 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
               runComponentKind = RunComponentKind.kRunDebugComponent;
             });
           }
+        } else {
+          _attemptToLoadComponentFromRegistry();
         }
-        _attemptToLoadComponentFromRegistry();
       }).onError((error, stackTrace) {
         print(error);
         print(stackTrace);
