@@ -9,8 +9,9 @@ import * as path from "path";
         dartEntryPoints.push(file);
     });
 
-    const version = JSON.parse(fs.readFileSync("package.json").toString())
-        .version;
+    const version = JSON.parse(
+        fs.readFileSync("package.json").toString()
+    ).version;
 
     const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 

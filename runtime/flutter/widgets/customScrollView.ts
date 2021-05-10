@@ -34,7 +34,8 @@ declare const flutter: {
 
 export class CustomScrollView
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(CustomScrollView);
     public props: CustomScrollViewProps;
     public constructor(props: CustomScrollViewProps) {

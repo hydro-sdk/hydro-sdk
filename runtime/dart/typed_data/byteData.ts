@@ -66,16 +66,14 @@ export class ByteData implements ITypedData {
     ): IByteData {
         return dart.typed_data.byteDataSublistView(data, start, end);
     }
-    private readonly _dart_getInt8: (
-        byteOffset: number
-    ) => number = undefined as any;
+    private readonly _dart_getInt8: (byteOffset: number) => number =
+        undefined as any;
     private readonly _dart_setInt8: (
         byteOffset: number,
         value: number
     ) => void = undefined as any;
-    private readonly _dart_getUint8: (
-        byteOffset: number
-    ) => number = undefined as any;
+    private readonly _dart_getUint8: (byteOffset: number) => number =
+        undefined as any;
     private readonly _dart_setUint8: (
         byteOffset: number,
         value: number
@@ -152,7 +150,8 @@ export class ByteData implements ITypedData {
         value: number,
         endian: IEndian
     ) => void = undefined as any;
-    private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
+    private readonly _dart_getElementSizeInBytes: () => number =
+        undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
     private readonly _dart_getBuffer: () => IByteBuffer = undefined as any;

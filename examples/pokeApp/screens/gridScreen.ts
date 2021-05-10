@@ -68,7 +68,8 @@ export class PokeGridScreen extends StatelessWidget {
                               children: List.fromArray(pokeHub.pokemon)
                                   .where((poke) => {
                                       if (textSearchService) {
-                                          const searchText = textSearchService.getSearchText();
+                                          const searchText =
+                                              textSearchService.getSearchText();
                                           if (
                                               searchText !== undefined &&
                                               searchText != ""

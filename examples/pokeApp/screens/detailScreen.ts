@@ -106,8 +106,7 @@ export class DetailScreen extends StatelessWidget {
                                                         label: new Text(t, {
                                                             style: new TextStyle(
                                                                 {
-                                                                    color:
-                                                                        Colors.white,
+                                                                    color: Colors.white,
                                                                 }
                                                             ),
                                                         }),
@@ -152,14 +151,14 @@ export class DetailScreen extends StatelessWidget {
                                                                       {
                                                                           style: new TextStyle(
                                                                               {
-                                                                                  color:
-                                                                                      Colors.white,
+                                                                                  color: Colors.white,
                                                                               }
                                                                           ),
                                                                       }
                                                                   ),
-                                                                  onSelected: () =>
-                                                                      undefined,
+                                                                  onSelected:
+                                                                      () =>
+                                                                          undefined,
                                                               })
                                                       )
                                                       .unwrap(),

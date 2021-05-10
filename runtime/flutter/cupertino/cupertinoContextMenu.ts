@@ -24,7 +24,8 @@ declare const flutter: {
 
 export class CupertinoContextMenu
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(CupertinoContextMenu);
     public props: CupertinoContextMenuProps;
     public constructor(props: CupertinoContextMenuProps) {

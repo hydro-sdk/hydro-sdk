@@ -315,24 +315,18 @@ export class Float32x4 {
     public static fromFloat64x2(v: IFloat64x2): IFloat32x4 {
         return dart.typed_data.float32x4FromFloat64x2(v);
     }
-    private readonly _dart_lessThan: (
-        other: IFloat32x4
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_lessThanOrEqual: (
-        other: IFloat32x4
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_greaterThan: (
-        other: IFloat32x4
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_greaterThanOrEqual: (
-        other: IFloat32x4
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_equal: (
-        other: IFloat32x4
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_notEqual: (
-        other: IFloat32x4
-    ) => IInt32x4 = undefined as any;
+    private readonly _dart_lessThan: (other: IFloat32x4) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_lessThanOrEqual: (other: IFloat32x4) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_greaterThan: (other: IFloat32x4) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_greaterThanOrEqual: (other: IFloat32x4) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_equal: (other: IFloat32x4) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_notEqual: (other: IFloat32x4) => IInt32x4 =
+        undefined as any;
     private readonly _dart_scale: (s: number) => IFloat32x4 = undefined as any;
     private readonly _dart_abs: () => IFloat32x4 = undefined as any;
     private readonly _dart_clamp: (
@@ -344,9 +338,8 @@ export class Float32x4 {
     private readonly _dart_getZ: () => number = undefined as any;
     private readonly _dart_getW: () => number = undefined as any;
     private readonly _dart_getSignMask: () => number = undefined as any;
-    private readonly _dart_shuffle: (
-        mask: number
-    ) => IFloat32x4 = undefined as any;
+    private readonly _dart_shuffle: (mask: number) => IFloat32x4 =
+        undefined as any;
     private readonly _dart_shuffleMix: (
         other: IFloat32x4,
         mask: number
@@ -355,12 +348,10 @@ export class Float32x4 {
     private readonly _dart_withY: (y: number) => IFloat32x4 = undefined as any;
     private readonly _dart_withZ: (z: number) => IFloat32x4 = undefined as any;
     private readonly _dart_withW: (w: number) => IFloat32x4 = undefined as any;
-    private readonly _dart_min: (
-        other: IFloat32x4
-    ) => IFloat32x4 = undefined as any;
-    private readonly _dart_max: (
-        other: IFloat32x4
-    ) => IFloat32x4 = undefined as any;
+    private readonly _dart_min: (other: IFloat32x4) => IFloat32x4 =
+        undefined as any;
+    private readonly _dart_max: (other: IFloat32x4) => IFloat32x4 =
+        undefined as any;
     private readonly _dart_sqrt: () => IFloat32x4 = undefined as any;
     private readonly _dart_reciprocal: () => IFloat32x4 = undefined as any;
     private readonly _dart_reciprocalSqrt: () => IFloat32x4 = undefined as any;

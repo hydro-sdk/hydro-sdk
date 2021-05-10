@@ -26,7 +26,8 @@ export class OutlineInputBorder
         OutlineInputBorderProps,
         OutlineInputBorder
     >
-    implements RuntimeBaseClass, InputBorder {
+    implements RuntimeBaseClass, InputBorder
+{
     public readonly internalRuntimeType = new Type(OutlineInputBorder);
     public props: OutlineInputBorderProps;
     public borderSide: BorderSide;

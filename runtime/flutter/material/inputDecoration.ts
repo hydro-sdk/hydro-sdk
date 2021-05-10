@@ -64,7 +64,8 @@ declare const flutter: {
 
 export class InputDecoration
     extends JITAllocatingRTManagedBox<InputDecorationProps, InputDecoration>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(InputDecoration);
     public props: InputDecorationProps;
 

@@ -20,7 +20,8 @@ declare const flutter: {
 
 export class AnimatedBuilder
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(AnimatedBuilder);
     public props: AnimatedBuilderProps;
     public constructor(props: AnimatedBuilderProps) {

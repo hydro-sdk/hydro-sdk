@@ -3,8 +3,9 @@ import * as fs from "fs";
 import * as path from "path";
 
 (async () => {
-    const version = JSON.parse(fs.readFileSync("package.json").toString())
-        .version;
+    const version = JSON.parse(
+        fs.readFileSync("package.json").toString()
+    ).version;
 
     const outputFolder = `.hydroc${path.sep}${version}${path.sep}sdk-tools`;
 

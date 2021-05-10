@@ -9,7 +9,8 @@ import { StatefulWidget } from "./statefulWidget";
 
 export class AnimatedListState
     extends RTManagedBox<State<StatefulWidget>>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(AnimatedListState);
     protected vmObject: State<StatefulWidget>;
     public constructor() {

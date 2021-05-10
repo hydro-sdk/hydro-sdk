@@ -77,8 +77,7 @@ export class DetailsScreen extends StatelessWidget {
                                                         icon: new Icon(
                                                             Icons.chevron_left,
                                                             {
-                                                                color:
-                                                                    Colors.white,
+                                                                color: Colors.white,
                                                             }
                                                         ),
                                                         onPressed: () => null, // Navigator.pop(context),
@@ -90,22 +89,20 @@ export class DetailsScreen extends StatelessWidget {
                                                     right: 0,
                                                     height: 70,
                                                     child: new Container({
-                                                        decoration: new BoxDecoration(
-                                                            {
-                                                                gradient: new LinearGradient(
-                                                                    {
-                                                                        colors: [
-                                                                            Colors.transparent,
-                                                                            MyColors.darkBlue,
-                                                                        ],
-                                                                        begin:
-                                                                            Alignment.topCenter,
-                                                                        end:
-                                                                            Alignment.bottomCenter,
-                                                                    }
-                                                                ),
-                                                            }
-                                                        ),
+                                                        decoration:
+                                                            new BoxDecoration({
+                                                                gradient:
+                                                                    new LinearGradient(
+                                                                        {
+                                                                            colors: [
+                                                                                Colors.transparent,
+                                                                                MyColors.darkBlue,
+                                                                            ],
+                                                                            begin: Alignment.topCenter,
+                                                                            end: Alignment.bottomCenter,
+                                                                        }
+                                                                    ),
+                                                            }),
                                                     }),
                                                 }),
                                             ],
@@ -127,8 +124,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                 context
                                                             ).textTheme.display1.apply(
                                                                 {
-                                                                    color:
-                                                                        Colors.white,
+                                                                    color: Colors.white,
                                                                 }
                                                             ),
                                                         }
@@ -148,8 +144,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                 context
                                                             ).textTheme.subtitle.apply(
                                                                 {
-                                                                    color:
-                                                                        Colors.white70,
+                                                                    color: Colors.white70,
                                                                 }
                                                             ),
                                                         }
@@ -170,8 +165,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                                 context
                                                                             ).textTheme.display1.apply(
                                                                                 {
-                                                                                    color:
-                                                                                        Colors.white,
+                                                                                    color: Colors.white,
                                                                                 }
                                                                             ),
                                                                         }
@@ -183,8 +177,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                                 context
                                                                             ).textTheme.body2.apply(
                                                                                 {
-                                                                                    color:
-                                                                                        Colors.white70,
+                                                                                    color: Colors.white70,
                                                                                 }
                                                                             ),
                                                                         }
@@ -196,38 +189,39 @@ export class DetailsScreen extends StatelessWidget {
                                                                 width: 50,
                                                                 child: new Stack(
                                                                     {
-                                                                        children: [
-                                                                            Positioned.fill(
-                                                                                {
-                                                                                    child: new CircularProgressIndicator(
-                                                                                        {
-                                                                                            value: 0.25,
-                                                                                            backgroundColor:
-                                                                                                MyColors.lighterBlue,
-                                                                                            valueColor: new AlwaysStoppedAnimation(
-                                                                                                Colors.white,
-                                                                                                new Type(
-                                                                                                    Color
-                                                                                                )
-                                                                                            ),
-                                                                                        }
-                                                                                    ),
-                                                                                }
-                                                                            ),
-                                                                            new Align(
-                                                                                {
-                                                                                    alignment:
-                                                                                        Alignment.center,
-                                                                                    child: new Icon(
-                                                                                        Icons.brightness_3,
-                                                                                        {
-                                                                                            color:
-                                                                                                Colors.white,
-                                                                                        }
-                                                                                    ),
-                                                                                }
-                                                                            ),
-                                                                        ],
+                                                                        children:
+                                                                            [
+                                                                                Positioned.fill(
+                                                                                    {
+                                                                                        child: new CircularProgressIndicator(
+                                                                                            {
+                                                                                                value: 0.25,
+                                                                                                backgroundColor:
+                                                                                                    MyColors.lighterBlue,
+                                                                                                valueColor:
+                                                                                                    new AlwaysStoppedAnimation(
+                                                                                                        Colors.white,
+                                                                                                        new Type(
+                                                                                                            Color
+                                                                                                        )
+                                                                                                    ),
+                                                                                            }
+                                                                                        ),
+                                                                                    }
+                                                                                ),
+                                                                                new Align(
+                                                                                    {
+                                                                                        alignment:
+                                                                                            Alignment.center,
+                                                                                        child: new Icon(
+                                                                                            Icons.brightness_3,
+                                                                                            {
+                                                                                                color: Colors.white,
+                                                                                            }
+                                                                                        ),
+                                                                                    }
+                                                                                ),
+                                                                            ],
                                                                     }
                                                                 ),
                                                             }),
@@ -249,8 +243,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                                 context
                                                                             ).textTheme.display1.apply(
                                                                                 {
-                                                                                    color:
-                                                                                        Colors.white,
+                                                                                    color: Colors.white,
                                                                                 }
                                                                             ),
                                                                         }
@@ -262,8 +255,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                                 context
                                                                             ).textTheme.body2.apply(
                                                                                 {
-                                                                                    color:
-                                                                                        Colors.white70,
+                                                                                    color: Colors.white70,
                                                                                 }
                                                                             ),
                                                                         }
@@ -275,38 +267,39 @@ export class DetailsScreen extends StatelessWidget {
                                                                 width: 50,
                                                                 child: new Stack(
                                                                     {
-                                                                        children: [
-                                                                            Positioned.fill(
-                                                                                {
-                                                                                    child: new CircularProgressIndicator(
-                                                                                        {
-                                                                                            value: 0.25,
-                                                                                            backgroundColor:
-                                                                                                MyColors.lighterBlue,
-                                                                                            valueColor: new AlwaysStoppedAnimation(
-                                                                                                Colors.white,
-                                                                                                new Type(
-                                                                                                    Color
-                                                                                                )
-                                                                                            ),
-                                                                                        }
-                                                                                    ),
-                                                                                }
-                                                                            ),
-                                                                            new Align(
-                                                                                {
-                                                                                    alignment:
-                                                                                        Alignment.center,
-                                                                                    child: new Icon(
-                                                                                        Icons.calendar_today,
-                                                                                        {
-                                                                                            color:
-                                                                                                Colors.white,
-                                                                                        }
-                                                                                    ),
-                                                                                }
-                                                                            ),
-                                                                        ],
+                                                                        children:
+                                                                            [
+                                                                                Positioned.fill(
+                                                                                    {
+                                                                                        child: new CircularProgressIndicator(
+                                                                                            {
+                                                                                                value: 0.25,
+                                                                                                backgroundColor:
+                                                                                                    MyColors.lighterBlue,
+                                                                                                valueColor:
+                                                                                                    new AlwaysStoppedAnimation(
+                                                                                                        Colors.white,
+                                                                                                        new Type(
+                                                                                                            Color
+                                                                                                        )
+                                                                                                    ),
+                                                                                            }
+                                                                                        ),
+                                                                                    }
+                                                                                ),
+                                                                                new Align(
+                                                                                    {
+                                                                                        alignment:
+                                                                                            Alignment.center,
+                                                                                        child: new Icon(
+                                                                                            Icons.calendar_today,
+                                                                                            {
+                                                                                                color: Colors.white,
+                                                                                            }
+                                                                                        ),
+                                                                                    }
+                                                                                ),
+                                                                            ],
                                                                     }
                                                                 ),
                                                             }),
@@ -354,13 +347,13 @@ export class DetailsScreen extends StatelessWidget {
                                             onTap: () => null,
                                             child: new Container({
                                                 decoration: new BoxDecoration({
-                                                    borderRadius: BorderRadius.only(
-                                                        {
-                                                            topLeft: Radius.circular(
-                                                                45
-                                                            ),
-                                                        }
-                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.only({
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    45
+                                                                ),
+                                                        }),
                                                     color: MyColors.red,
                                                 }),
                                                 child: Transform.rotate({
@@ -375,8 +368,7 @@ export class DetailsScreen extends StatelessWidget {
                                                                             context
                                                                         ).textTheme.body1.apply(
                                                                             {
-                                                                                color:
-                                                                                    Colors.white,
+                                                                                color: Colors.white,
                                                                             }
                                                                         ),
                                                                     }
@@ -385,8 +377,7 @@ export class DetailsScreen extends StatelessWidget {
                                                             new Icon(
                                                                 Icons.clear,
                                                                 {
-                                                                    color:
-                                                                        Colors.white60,
+                                                                    color: Colors.white60,
                                                                 }
                                                             ),
                                                         ],

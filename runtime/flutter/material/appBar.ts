@@ -22,7 +22,8 @@ declare const flutter: {
 
 export class AppBar
     extends JITAllocatingRTManagedBox<AppBarProps, Widget>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(AppBar);
     public props: AppBarProps;
     public constructor(props: AppBarProps) {

@@ -19,7 +19,8 @@ declare const flutter: {
 
 export class ResizeImage
     extends JITAllocatingRTManagedBox<ResizeImageProps, ResizeImage>
-    implements ImageProvider {
+    implements ImageProvider
+{
     public readonly internalRuntimeType = new Type(ResizeImage);
     public imageProvider: ImageProvider;
     public props: ResizeImageProps;

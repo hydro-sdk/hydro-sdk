@@ -36,11 +36,8 @@ export class ScopedModel<
             runtimeType: Type;
         }
     >(context: BuildContext, type: T["runtimeType"]): T | undefined {
-        const inheritedModel:
-            | InheritedModel<T>
-            | undefined = context.ancestorInheritedElementForWidgetOfExactType(
-            type
-        );
+        const inheritedModel: InheritedModel<T> | undefined =
+            context.ancestorInheritedElementForWidgetOfExactType(type);
         return inheritedModel?.model;
     }
 }

@@ -63,14 +63,14 @@ export interface IPathMetrics {
     getHashCode: () => number;
 }
 export class PathMetrics implements IIterableBase<IPathMetric> {
-    private readonly _dart_getIterator: () => IIterator<IPathMetric> = undefined as any;
+    private readonly _dart_getIterator: () => IIterator<IPathMetric> =
+        undefined as any;
     private readonly _dart_cast: <R>() => IIterable<R> = undefined as any;
     private readonly _dart_followedBy: (
         other: IIterable<IPathMetric>
     ) => IIterable<IPathMetric> = undefined as any;
-    private readonly _dart_map: <T>(
-        f: (e: IPathMetric) => T
-    ) => IIterable<T> = undefined as any;
+    private readonly _dart_map: <T>(f: (e: IPathMetric) => T) => IIterable<T> =
+        undefined as any;
     private readonly _dart_where: (
         test: (element: IPathMetric) => boolean
     ) => IIterable<IPathMetric> = undefined as any;
@@ -78,9 +78,8 @@ export class PathMetrics implements IIterableBase<IPathMetric> {
     private readonly _dart_expand: <T>(
         f: (element: IPathMetric) => IIterable<T>
     ) => IIterable<T> = undefined as any;
-    private readonly _dart_contains: (
-        element?: Object | undefined
-    ) => boolean = undefined as any;
+    private readonly _dart_contains: (element?: Object | undefined) => boolean =
+        undefined as any;
     private readonly _dart_forEach: (
         f: (element: IPathMetric) => void
     ) => void = undefined as any;
@@ -94,9 +93,8 @@ export class PathMetrics implements IIterableBase<IPathMetric> {
     private readonly _dart_every: (
         test: (element: IPathMetric) => boolean
     ) => boolean = undefined as any;
-    private readonly _dart_join: (
-        separator: string
-    ) => string = undefined as any;
+    private readonly _dart_join: (separator: string) => string =
+        undefined as any;
     private readonly _dart_any: (
         test: (element: IPathMetric) => boolean
     ) => boolean = undefined as any;
@@ -104,15 +102,13 @@ export class PathMetrics implements IIterableBase<IPathMetric> {
         growable: boolean;
     }) => IList<IPathMetric> = undefined as any;
     private readonly _dart_toSet: () => ISet<IPathMetric> = undefined as any;
-    private readonly _dart_take: (
-        count: number
-    ) => IIterable<IPathMetric> = undefined as any;
+    private readonly _dart_take: (count: number) => IIterable<IPathMetric> =
+        undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: IPathMetric) => boolean
     ) => IIterable<IPathMetric> = undefined as any;
-    private readonly _dart_skip: (
-        count: number
-    ) => IIterable<IPathMetric> = undefined as any;
+    private readonly _dart_skip: (count: number) => IIterable<IPathMetric> =
+        undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: IPathMetric) => boolean
     ) => IIterable<IPathMetric> = undefined as any;
@@ -128,9 +124,8 @@ export class PathMetrics implements IIterableBase<IPathMetric> {
         test: (element: IPathMetric) => boolean,
         props: { orElse?: () => IPathMetric | undefined }
     ) => IPathMetric = undefined as any;
-    private readonly _dart_elementAt: (
-        index: number
-    ) => IPathMetric = undefined as any;
+    private readonly _dart_elementAt: (index: number) => IPathMetric =
+        undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
