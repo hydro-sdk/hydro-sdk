@@ -61,7 +61,7 @@
     "source-map": "^0.7.3",
     "ts-jest": "^26.2.0",
     "typedoc": "0.20.36",
-    "typedoc-neo-theme": "1.1.0",
+    "typedoc-neo-theme": "1.1.1",
     "typescript": "3.9.9",
     "typescript-to-lua": "0.34.0"
   },
