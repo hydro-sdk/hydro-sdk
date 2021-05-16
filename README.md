@@ -22,18 +22,20 @@ Author Flutter experiences in Typescript. No native bridge, no V8. Just Dart. Fr
 ### Codepush
 A closed-source component registry for first-class support for hosting and running over-the-air (OTA) update packages built using the open-source Hydro-SDK.
 
-### Lanuage Support
-#### Tier 1 (hot-reload, programmatic debugging, function maps)
+## Lanuage Support
+### Tier 1 (hot-reload, programmatic debugging, function maps)
 - [&check;] Typescript  
     https://github.com/TypeScriptToLua/TypeScriptToLua
-#### Tier 2 (hot-reload, programmatic debugging)
+### Tier 2 (hot-reload, programmatic debugging)
 - [ ] Haxe  
     https://github.com/HaxeFoundation/haxe    
 - [ ] C#  
     https://github.com/yanghuan/CSharp.lua 
 
-### API Support
+## API Support
 Continue expanding available Dart APIs with automatic language projection (ALP) in the Structured Wrapper and Interface generator for Dart (SWID) sub-project https://github.com/hydro-sdk/hydro-sdk/tree/master/lib/swid
+
+
 # Prior Art for Common Flutter Runtime
 - Dartlua, Andre Lipke https://github.com/PixelToast/dartlua
 - React Native, Facebook https://reactnative.dev/

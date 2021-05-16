@@ -18,7 +18,8 @@ declare const flutter: {
 
 export class TextAlignVertical
     extends JITAllocatingRTManagedBox<TextAlignVerticalProps, TextAlignVertical>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(TextAlignVertical);
     public props: TextAlignVerticalProps;
     public constructor(props: TextAlignVerticalProps) {

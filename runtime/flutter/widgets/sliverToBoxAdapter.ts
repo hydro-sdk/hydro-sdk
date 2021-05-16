@@ -20,7 +20,8 @@ declare const flutter: {
 
 export class SliverToBoxAdapter
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(SliverToBoxAdapter);
     public props: SliverToBoxAdapterProps;
     public constructor(props: SliverToBoxAdapterProps) {

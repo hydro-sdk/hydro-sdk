@@ -20,7 +20,8 @@ export interface IDiagnosticPropertiesBuilder {
 }
 export class DiagnosticPropertiesBuilder {
     public readonly properties: List<DiagnosticsNode> = undefined as any;
-    public readonly defaultDiagnosticsTreeStyle: DiagnosticsTreeStyle = undefined as any;
+    public readonly defaultDiagnosticsTreeStyle: DiagnosticsTreeStyle =
+        undefined as any;
     public readonly emptyBodyDescription: string | undefined = undefined as any;
     public constructor() {
         flutter.foundation.diagnosticPropertiesBuilder(this);
@@ -32,9 +33,8 @@ export class DiagnosticPropertiesBuilder {
             properties
         );
     }
-    private readonly _dart_add: (
-        property: IDiagnosticsNode
-    ) => void = undefined as any;
+    private readonly _dart_add: (property: IDiagnosticsNode) => void =
+        undefined as any;
     public add(property: IDiagnosticsNode): void {
         return this._dart_add(property);
     }

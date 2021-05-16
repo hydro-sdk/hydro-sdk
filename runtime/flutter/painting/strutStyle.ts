@@ -25,7 +25,8 @@ declare const flutter: {
 
 export class StrutStyle
     extends JITAllocatingRTManagedBox<StrutStyleProps, StrutStyle>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(StrutStyle);
     public props: StrutStyleProps;
     public constructor(props: StrutStyleProps) {

@@ -128,15 +128,12 @@ export class Rect {
     ) => IRect = undefined as any;
     private readonly _dart_inflate: (delta: number) => IRect = undefined as any;
     private readonly _dart_deflate: (delta: number) => IRect = undefined as any;
-    private readonly _dart_intersect: (
-        other: IRect
-    ) => IRect = undefined as any;
-    private readonly _dart_expandToInclude: (
-        other: IRect
-    ) => IRect = undefined as any;
-    private readonly _dart_overlaps: (
-        other: IRect
-    ) => boolean = undefined as any;
+    private readonly _dart_intersect: (other: IRect) => IRect =
+        undefined as any;
+    private readonly _dart_expandToInclude: (other: IRect) => IRect =
+        undefined as any;
+    private readonly _dart_overlaps: (other: IRect) => boolean =
+        undefined as any;
     private readonly _dart_getShortestSide: () => number = undefined as any;
     private readonly _dart_getLongestSide: () => number = undefined as any;
     private readonly _dart_getTopLeft: () => IOffset = undefined as any;
@@ -148,9 +145,8 @@ export class Rect {
     private readonly _dart_getBottomLeft: () => IOffset = undefined as any;
     private readonly _dart_getBottomCenter: () => IOffset = undefined as any;
     private readonly _dart_getBottomRight: () => IOffset = undefined as any;
-    private readonly _dart_contains: (
-        offset: IOffset
-    ) => boolean = undefined as any;
+    private readonly _dart_contains: (offset: IOffset) => boolean =
+        undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     public getWidth(): number {

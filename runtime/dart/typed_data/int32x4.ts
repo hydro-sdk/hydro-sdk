@@ -316,9 +316,8 @@ export class Int32x4 {
     private readonly _dart_getZ: () => number = undefined as any;
     private readonly _dart_getW: () => number = undefined as any;
     private readonly _dart_getSignMask: () => number = undefined as any;
-    private readonly _dart_shuffle: (
-        mask: number
-    ) => IInt32x4 = undefined as any;
+    private readonly _dart_shuffle: (mask: number) => IInt32x4 =
+        undefined as any;
     private readonly _dart_shuffleMix: (
         other: IInt32x4,
         mask: number
@@ -331,18 +330,14 @@ export class Int32x4 {
     private readonly _dart_getFlagY: () => boolean = undefined as any;
     private readonly _dart_getFlagZ: () => boolean = undefined as any;
     private readonly _dart_getFlagW: () => boolean = undefined as any;
-    private readonly _dart_withFlagX: (
-        x: boolean
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_withFlagY: (
-        y: boolean
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_withFlagZ: (
-        z: boolean
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_withFlagW: (
-        w: boolean
-    ) => IInt32x4 = undefined as any;
+    private readonly _dart_withFlagX: (x: boolean) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_withFlagY: (y: boolean) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_withFlagZ: (z: boolean) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_withFlagW: (w: boolean) => IInt32x4 =
+        undefined as any;
     private readonly _dart_select: (
         trueValue: IFloat32x4,
         falseValue: IFloat32x4

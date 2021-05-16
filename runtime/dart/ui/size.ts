@@ -73,36 +73,26 @@ export class Size implements IOffsetBase {
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
     private readonly _dart_getShortestSide: () => number = undefined as any;
     private readonly _dart_getLongestSide: () => number = undefined as any;
-    private readonly _dart_topLeft: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_topCenter: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_topRight: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_centerLeft: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_center: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_centerRight: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_bottomLeft: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_bottomCenter: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_bottomRight: (
-        origin: IOffset
-    ) => IOffset = undefined as any;
-    private readonly _dart_contains: (
-        offset: IOffset
-    ) => boolean = undefined as any;
+    private readonly _dart_topLeft: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_topCenter: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_topRight: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_centerLeft: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_center: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_centerRight: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_bottomLeft: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_bottomCenter: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_bottomRight: (origin: IOffset) => IOffset =
+        undefined as any;
+    private readonly _dart_contains: (offset: IOffset) => boolean =
+        undefined as any;
     private readonly _dart_getFlipped: () => ISize = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;

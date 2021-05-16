@@ -17,12 +17,12 @@ declare const flutter: {
 
 export class AlwaysStoppedAnimation<T extends double | Color>
     extends Animation<T>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(AlwaysStoppedAnimation);
     public readonly runtimeType = new Type(Animation);
-    public readonly value: () => T extends double
-        ? number
-        : T = undefined as any;
+    public readonly value: () => T extends double ? number : T =
+        undefined as any;
 
     public constructor(value: T, targetRuntimeType: Type) {
         super();

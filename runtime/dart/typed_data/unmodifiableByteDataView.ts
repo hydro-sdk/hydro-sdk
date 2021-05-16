@@ -42,16 +42,14 @@ export class UnmodifiableByteDataView implements IByteData {
     public constructor(data: IByteData) {
         dart.typed_data.unmodifiableByteDataView(this, data);
     }
-    private readonly _dart_getInt8: (
-        byteOffset: number
-    ) => number = undefined as any;
+    private readonly _dart_getInt8: (byteOffset: number) => number =
+        undefined as any;
     private readonly _dart_setInt8: (
         byteOffset: number,
         value: number
     ) => void = undefined as any;
-    private readonly _dart_getUint8: (
-        byteOffset: number
-    ) => number = undefined as any;
+    private readonly _dart_getUint8: (byteOffset: number) => number =
+        undefined as any;
     private readonly _dart_setUint8: (
         byteOffset: number,
         value: number
@@ -128,7 +126,8 @@ export class UnmodifiableByteDataView implements IByteData {
         value: number,
         endian: IEndian
     ) => void = undefined as any;
-    private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
+    private readonly _dart_getElementSizeInBytes: () => number =
+        undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
     private readonly _dart_getBuffer: () => IByteBuffer = undefined as any;

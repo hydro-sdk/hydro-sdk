@@ -140,25 +140,16 @@ export class Path {
         return dart.ui.pathCombine(operation, path1, path2);
     }
     private readonly _dart_getFillType: () => PathFillType = undefined as any;
-    private readonly _dart_setFillType: (
-        value: PathFillType
-    ) => void = undefined as any;
-    private readonly _dart_moveTo: (
-        x: number,
-        y: number
-    ) => void = undefined as any;
-    private readonly _dart_relativeMoveTo: (
-        dx: number,
-        dy: number
-    ) => void = undefined as any;
-    private readonly _dart_lineTo: (
-        x: number,
-        y: number
-    ) => void = undefined as any;
-    private readonly _dart_relativeLineTo: (
-        dx: number,
-        dy: number
-    ) => void = undefined as any;
+    private readonly _dart_setFillType: (value: PathFillType) => void =
+        undefined as any;
+    private readonly _dart_moveTo: (x: number, y: number) => void =
+        undefined as any;
+    private readonly _dart_relativeMoveTo: (dx: number, dy: number) => void =
+        undefined as any;
+    private readonly _dart_lineTo: (x: number, y: number) => void =
+        undefined as any;
+    private readonly _dart_relativeLineTo: (dx: number, dy: number) => void =
+        undefined as any;
     private readonly _dart_quadraticBezierTo: (
         x1: number,
         y1: number,
@@ -249,13 +240,11 @@ export class Path {
     ) => void = undefined as any;
     private readonly _dart_close: () => void = undefined as any;
     private readonly _dart_reset: () => void = undefined as any;
-    private readonly _dart_contains: (
-        point: IOffset
-    ) => boolean = undefined as any;
+    private readonly _dart_contains: (point: IOffset) => boolean =
+        undefined as any;
     private readonly _dart_shift: (offset: IOffset) => IPath = undefined as any;
-    private readonly _dart_transform: (
-        matrix4: IFloat64List
-    ) => IPath = undefined as any;
+    private readonly _dart_transform: (matrix4: IFloat64List) => IPath =
+        undefined as any;
     private readonly _dart_getBounds: () => IRect = undefined as any;
     private readonly _dart_computeMetrics: (props: {
         forceClosed: boolean;

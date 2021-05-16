@@ -79,10 +79,8 @@ export async function buildTs({
     if (bundleInfo.diagnostics && bundleInfo.diagnostics.length) {
         bundleInfo.diagnostics.forEach((x) => {
             if (x.file) {
-                const {
-                    line,
-                    character,
-                } = x.file.getLineAndCharacterOfPosition(x.start!);
+                const { line, character } =
+                    x.file.getLineAndCharacterOfPosition(x.start!);
                 const message = ts.flattenDiagnosticMessageText(
                     x.messageText,
                     "\n"

@@ -107,7 +107,8 @@ export class TextTreeConfiguration {
     public readonly isNameOnOwnLine: boolean = undefined as any;
     public readonly footer: string = undefined as any;
     public readonly mandatoryFooter: string = undefined as any;
-    public readonly isBlankLineBetweenPropertiesAndChildren: boolean = undefined as any;
+    public readonly isBlankLineBetweenPropertiesAndChildren: boolean =
+        undefined as any;
     public constructor(props: {
         addBlankLineIfNoChildren?: boolean;
         afterDescription?: string;

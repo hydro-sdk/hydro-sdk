@@ -95,9 +95,8 @@ export class HomeScreen extends StatelessWidget {
                                             height: 15,
                                         }),
                                         new ClipRRect({
-                                            borderRadius: BorderRadius.circular(
-                                                15.0
-                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
                                             child: new Container({
                                                 decoration: new BoxDecoration({
                                                     color: Colors.white,
@@ -110,23 +109,24 @@ export class HomeScreen extends StatelessWidget {
                                                             height: 15.0,
                                                         }),
                                                         new Padding({
-                                                            padding: EdgeInsets.symmetric(
-                                                                {
-                                                                    horizontal: 15.0,
-                                                                }
-                                                            ),
+                                                            padding:
+                                                                EdgeInsets.symmetric(
+                                                                    {
+                                                                        horizontal: 15.0,
+                                                                    }
+                                                                ),
                                                             child: new Row({
                                                                 children: [
                                                                     new ClipRRect(
                                                                         {
-                                                                            borderRadius: BorderRadius.circular(
-                                                                                5
-                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(
+                                                                                    5
+                                                                                ),
                                                                             child: Image.network(
                                                                                 User.profilePicture,
                                                                                 {
-                                                                                    fit:
-                                                                                        BoxFit.cover,
+                                                                                    fit: BoxFit.cover,
                                                                                     height: 35,
                                                                                     width: 35,
                                                                                 }
@@ -145,8 +145,7 @@ export class HomeScreen extends StatelessWidget {
                                                                                 context
                                                                             ).textTheme.headline.apply(
                                                                                 {
-                                                                                    color:
-                                                                                        MyColors.darkBlue,
+                                                                                    color: MyColors.darkBlue,
                                                                                     fontWeightDelta: 2,
                                                                                 }
                                                                             ),
@@ -160,12 +159,12 @@ export class HomeScreen extends StatelessWidget {
                                                                             icon: new Icon(
                                                                                 Icons.menu,
                                                                                 {
-                                                                                    color:
-                                                                                        MyColors.red,
+                                                                                    color: MyColors.red,
                                                                                 }
                                                                             ),
-                                                                            onPressed: () =>
-                                                                                null,
+                                                                            onPressed:
+                                                                                () =>
+                                                                                    null,
                                                                         }
                                                                     ),
                                                                 ],
@@ -175,46 +174,44 @@ export class HomeScreen extends StatelessWidget {
                                                             height: 15.0,
                                                         }),
                                                         new Padding({
-                                                            padding: EdgeInsets.symmetric(
-                                                                {
-                                                                    horizontal: 15.0,
-                                                                }
-                                                            ),
+                                                            padding:
+                                                                EdgeInsets.symmetric(
+                                                                    {
+                                                                        horizontal: 15.0,
+                                                                    }
+                                                                ),
                                                             child: new RichText(
                                                                 {
                                                                     text: new TextSpan(
                                                                         {
-                                                                            children: [
-                                                                                new TextSpan(
-                                                                                    {
-                                                                                        text:
-                                                                                            "3191",
-                                                                                        style: Theme.of(
-                                                                                            context
-                                                                                        ).textTheme.headline.apply(
-                                                                                            {
-                                                                                                color:
-                                                                                                    MyColors.darkBlue,
-                                                                                                fontWeightDelta: 2,
-                                                                                            }
-                                                                                        ),
-                                                                                    }
-                                                                                ),
-                                                                                new TextSpan(
-                                                                                    {
-                                                                                        text:
-                                                                                            "Travelers points",
-                                                                                        style: Theme.of(
-                                                                                            context
-                                                                                        ).textTheme.body2.apply(
-                                                                                            {
-                                                                                                color:
-                                                                                                    MyColors.darkBlue,
-                                                                                            }
-                                                                                        ),
-                                                                                    }
-                                                                                ),
-                                                                            ],
+                                                                            children:
+                                                                                [
+                                                                                    new TextSpan(
+                                                                                        {
+                                                                                            text: "3191",
+                                                                                            style: Theme.of(
+                                                                                                context
+                                                                                            ).textTheme.headline.apply(
+                                                                                                {
+                                                                                                    color: MyColors.darkBlue,
+                                                                                                    fontWeightDelta: 2,
+                                                                                                }
+                                                                                            ),
+                                                                                        }
+                                                                                    ),
+                                                                                    new TextSpan(
+                                                                                        {
+                                                                                            text: "Travelers points",
+                                                                                            style: Theme.of(
+                                                                                                context
+                                                                                            ).textTheme.body2.apply(
+                                                                                                {
+                                                                                                    color: MyColors.darkBlue,
+                                                                                                }
+                                                                                            ),
+                                                                                        }
+                                                                                    ),
+                                                                                ],
                                                                         }
                                                                     ),
                                                                 }
@@ -224,9 +221,10 @@ export class HomeScreen extends StatelessWidget {
                                                             height: 15.0,
                                                         }),
                                                         new Container({
-                                                            padding: EdgeInsets.all(
-                                                                25.0
-                                                            ),
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    25.0
+                                                                ),
                                                             color: MyColors.red,
                                                             child: new Row({
                                                                 crossAxisAlignment:
@@ -242,8 +240,7 @@ export class HomeScreen extends StatelessWidget {
                                                                                     context
                                                                                 ).textTheme.headline.apply(
                                                                                     {
-                                                                                        color:
-                                                                                            Colors.white,
+                                                                                        color: Colors.white,
                                                                                     }
                                                                                 ),
                                                                             }
@@ -259,8 +256,7 @@ export class HomeScreen extends StatelessWidget {
                                                                                 context
                                                                             ).textTheme.headline.apply(
                                                                                 {
-                                                                                    color:
-                                                                                        Colors.white,
+                                                                                    color: Colors.white,
                                                                                 }
                                                                             ),
                                                                         }
@@ -272,8 +268,7 @@ export class HomeScreen extends StatelessWidget {
                                                                                 context
                                                                             ).textTheme.body1.apply(
                                                                                 {
-                                                                                    color:
-                                                                                        Colors.white,
+                                                                                    color: Colors.white,
                                                                                 }
                                                                             ),
                                                                         }
@@ -316,12 +311,13 @@ export class HomeScreen extends StatelessWidget {
                                                                 context,
                                                                 new MaterialPageRoute(
                                                                     {
-                                                                        builder: (
-                                                                            context: BuildContext
-                                                                        ) =>
-                                                                            new DetailsScreen(
-                                                                                index
-                                                                            ),
+                                                                        builder:
+                                                                            (
+                                                                                context: BuildContext
+                                                                            ) =>
+                                                                                new DetailsScreen(
+                                                                                    index
+                                                                                ),
                                                                     }
                                                                 )
                                                             );
@@ -335,96 +331,99 @@ export class HomeScreen extends StatelessWidget {
                                                             ),
                                                             child: new ClipRRect(
                                                                 {
-                                                                    borderRadius: BorderRadius.circular(
-                                                                        15.0
-                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            15.0
+                                                                        ),
                                                                     child: new Stack(
                                                                         {
-                                                                            children: [
-                                                                                Positioned.fill(
-                                                                                    {
-                                                                                        child: Image.network(
-                                                                                            destinationList[
-                                                                                                index
-                                                                                            ]
-                                                                                                .imageUrl,
-                                                                                            {
-                                                                                                fit:
-                                                                                                    BoxFit.cover,
-                                                                                            }
-                                                                                        ),
-                                                                                    }
-                                                                                ),
-                                                                                new Positioned(
-                                                                                    {
-                                                                                        bottom: 0,
-                                                                                        left: 0,
-                                                                                        right: 0,
-                                                                                        child: new Container(
-                                                                                            {
-                                                                                                padding: EdgeInsets.symmetric(
-                                                                                                    {
-                                                                                                        horizontal: 9.0,
-                                                                                                        vertical: 5.0,
-                                                                                                    }
-                                                                                                ),
-                                                                                                decoration: new BoxDecoration(
-                                                                                                    {
-                                                                                                        color:
-                                                                                                            MyColors.lighterBlue,
-                                                                                                        borderRadius: BorderRadius.only(
+                                                                            children:
+                                                                                [
+                                                                                    Positioned.fill(
+                                                                                        {
+                                                                                            child: Image.network(
+                                                                                                destinationList[
+                                                                                                    index
+                                                                                                ]
+                                                                                                    .imageUrl,
+                                                                                                {
+                                                                                                    fit: BoxFit.cover,
+                                                                                                }
+                                                                                            ),
+                                                                                        }
+                                                                                    ),
+                                                                                    new Positioned(
+                                                                                        {
+                                                                                            bottom: 0,
+                                                                                            left: 0,
+                                                                                            right: 0,
+                                                                                            child: new Container(
+                                                                                                {
+                                                                                                    padding:
+                                                                                                        EdgeInsets.symmetric(
                                                                                                             {
-                                                                                                                topRight: Radius.circular(
-                                                                                                                    15
-                                                                                                                ),
+                                                                                                                horizontal: 9.0,
+                                                                                                                vertical: 5.0,
                                                                                                             }
                                                                                                         ),
-                                                                                                    }
-                                                                                                ),
-                                                                                                child: new Column(
-                                                                                                    {
-                                                                                                        crossAxisAlignment:
-                                                                                                            CrossAxisAlignment.start,
-                                                                                                        children: [
-                                                                                                            new Text(
-                                                                                                                destinationList[
-                                                                                                                    index
-                                                                                                                ].placeName,
-                                                                                                                {
-                                                                                                                    style: new TextStyle(
+                                                                                                    decoration:
+                                                                                                        new BoxDecoration(
+                                                                                                            {
+                                                                                                                color: MyColors.lighterBlue,
+                                                                                                                borderRadius:
+                                                                                                                    BorderRadius.only(
                                                                                                                         {
-                                                                                                                            fontSize: 17,
-                                                                                                                            fontWeight:
-                                                                                                                                FontWeight.bold,
-                                                                                                                            color:
-                                                                                                                                Colors.white,
+                                                                                                                            topRight:
+                                                                                                                                Radius.circular(
+                                                                                                                                    15
+                                                                                                                                ),
                                                                                                                         }
                                                                                                                     ),
-                                                                                                                }
-                                                                                                            ),
-                                                                                                            new Text(
-                                                                                                                destinationList[
-                                                                                                                    index
-                                                                                                                ].date,
-                                                                                                                {
-                                                                                                                    style: Theme.of(
-                                                                                                                        context
-                                                                                                                    ).textTheme.subtitle.apply(
+                                                                                                            }
+                                                                                                        ),
+                                                                                                    child: new Column(
+                                                                                                        {
+                                                                                                            crossAxisAlignment:
+                                                                                                                CrossAxisAlignment.start,
+                                                                                                            children:
+                                                                                                                [
+                                                                                                                    new Text(
+                                                                                                                        destinationList[
+                                                                                                                            index
+                                                                                                                        ].placeName,
                                                                                                                         {
-                                                                                                                            color:
-                                                                                                                                Colors.white,
+                                                                                                                            style: new TextStyle(
+                                                                                                                                {
+                                                                                                                                    fontSize: 17,
+                                                                                                                                    fontWeight:
+                                                                                                                                        FontWeight.bold,
+                                                                                                                                    color: Colors.white,
+                                                                                                                                }
+                                                                                                                            ),
                                                                                                                         }
                                                                                                                     ),
-                                                                                                                }
-                                                                                                            ),
-                                                                                                        ],
-                                                                                                    }
-                                                                                                ),
-                                                                                            }
-                                                                                        ),
-                                                                                    }
-                                                                                ),
-                                                                            ],
+                                                                                                                    new Text(
+                                                                                                                        destinationList[
+                                                                                                                            index
+                                                                                                                        ].date,
+                                                                                                                        {
+                                                                                                                            style: Theme.of(
+                                                                                                                                context
+                                                                                                                            ).textTheme.subtitle.apply(
+                                                                                                                                {
+                                                                                                                                    color: Colors.white,
+                                                                                                                                }
+                                                                                                                            ),
+                                                                                                                        }
+                                                                                                                    ),
+                                                                                                                ],
+                                                                                                        }
+                                                                                                    ),
+                                                                                                }
+                                                                                            ),
+                                                                                        }
+                                                                                    ),
+                                                                                ],
                                                                         }
                                                                     ),
                                                                 }

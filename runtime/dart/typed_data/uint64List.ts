@@ -151,19 +151,15 @@ export class Uint64List implements IList<number>, I_TypedIntList {
     ) => IUint64List = undefined as any;
     private readonly _dart_cast: <R>() => IList<R> = undefined as any;
     private readonly _dart_add: (value: number) => void = undefined as any;
-    private readonly _dart_addAll: (
-        iterable: IIterable<number>
-    ) => void = undefined as any;
+    private readonly _dart_addAll: (iterable: IIterable<number>) => void =
+        undefined as any;
     private readonly _dart_sort: (
         compare?: (a: number, b: number) => number
     ) => void = undefined as any;
-    private readonly _dart_shuffle: (
-        random?: IRandom | undefined
-    ) => void = undefined as any;
-    private readonly _dart_indexOf: (
-        element: number,
-        start: number
-    ) => number = undefined as any;
+    private readonly _dart_shuffle: (random?: IRandom | undefined) => void =
+        undefined as any;
+    private readonly _dart_indexOf: (element: number, start: number) => number =
+        undefined as any;
     private readonly _dart_indexWhere: (
         test: (element: number) => boolean,
         start: number
@@ -177,10 +173,8 @@ export class Uint64List implements IList<number>, I_TypedIntList {
         start?: number | undefined
     ) => number = undefined as any;
     private readonly _dart_clear: () => void = undefined as any;
-    private readonly _dart_insert: (
-        index: number,
-        element: number
-    ) => void = undefined as any;
+    private readonly _dart_insert: (index: number, element: number) => void =
+        undefined as any;
     private readonly _dart_insertAll: (
         index: number,
         iterable: IIterable<number>
@@ -189,12 +183,10 @@ export class Uint64List implements IList<number>, I_TypedIntList {
         index: number,
         iterable: IIterable<number>
     ) => void = undefined as any;
-    private readonly _dart_remove: (
-        value?: Object | undefined
-    ) => boolean = undefined as any;
-    private readonly _dart_removeAt: (
-        index: number
-    ) => number = undefined as any;
+    private readonly _dart_remove: (value?: Object | undefined) => boolean =
+        undefined as any;
+    private readonly _dart_removeAt: (index: number) => number =
+        undefined as any;
     private readonly _dart_removeLast: () => number = undefined as any;
     private readonly _dart_removeWhere: (
         test: (element: number) => boolean
@@ -212,10 +204,8 @@ export class Uint64List implements IList<number>, I_TypedIntList {
         iterable: IIterable<number>,
         skipCount: number
     ) => void = undefined as any;
-    private readonly _dart_removeRange: (
-        start: number,
-        end: number
-    ) => void = undefined as any;
+    private readonly _dart_removeRange: (start: number, end: number) => void =
+        undefined as any;
     private readonly _dart_fillRange: (
         start: number,
         end: number,
@@ -232,16 +222,15 @@ export class Uint64List implements IList<number>, I_TypedIntList {
     private readonly _dart_setFirst: (value: number) => void = undefined as any;
     private readonly _dart_setLast: (value: number) => void = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
-    private readonly _dart_setLength: (
-        newLength: number
-    ) => void = undefined as any;
-    private readonly _dart_getReversed: () => IIterable<number> = undefined as any;
+    private readonly _dart_setLength: (newLength: number) => void =
+        undefined as any;
+    private readonly _dart_getReversed: () => IIterable<number> =
+        undefined as any;
     private readonly _dart_followedBy: (
         other: IIterable<number>
     ) => IIterable<number> = undefined as any;
-    private readonly _dart_map: <T>(
-        f: (e: number) => T
-    ) => IIterable<T> = undefined as any;
+    private readonly _dart_map: <T>(f: (e: number) => T) => IIterable<T> =
+        undefined as any;
     private readonly _dart_where: (
         test: (element: number) => boolean
     ) => IIterable<number> = undefined as any;
@@ -249,12 +238,10 @@ export class Uint64List implements IList<number>, I_TypedIntList {
     private readonly _dart_expand: <T>(
         f: (element: number) => IIterable<T>
     ) => IIterable<T> = undefined as any;
-    private readonly _dart_contains: (
-        element?: Object | undefined
-    ) => boolean = undefined as any;
-    private readonly _dart_forEach: (
-        f: (element: number) => void
-    ) => void = undefined as any;
+    private readonly _dart_contains: (element?: Object | undefined) => boolean =
+        undefined as any;
+    private readonly _dart_forEach: (f: (element: number) => void) => void =
+        undefined as any;
     private readonly _dart_reduce: (
         combine: (value: number, element: number) => number
     ) => number = undefined as any;
@@ -265,9 +252,8 @@ export class Uint64List implements IList<number>, I_TypedIntList {
     private readonly _dart_every: (
         test: (element: number) => boolean
     ) => boolean = undefined as any;
-    private readonly _dart_join: (
-        separator: string
-    ) => string = undefined as any;
+    private readonly _dart_join: (separator: string) => string =
+        undefined as any;
     private readonly _dart_any: (
         test: (element: number) => boolean
     ) => boolean = undefined as any;
@@ -275,15 +261,13 @@ export class Uint64List implements IList<number>, I_TypedIntList {
         growable: boolean;
     }) => IList<number> = undefined as any;
     private readonly _dart_toSet: () => ISet<number> = undefined as any;
-    private readonly _dart_take: (
-        count: number
-    ) => IIterable<number> = undefined as any;
+    private readonly _dart_take: (count: number) => IIterable<number> =
+        undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: number) => boolean
     ) => IIterable<number> = undefined as any;
-    private readonly _dart_skip: (
-        count: number
-    ) => IIterable<number> = undefined as any;
+    private readonly _dart_skip: (count: number) => IIterable<number> =
+        undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: number) => boolean
     ) => IIterable<number> = undefined as any;
@@ -299,18 +283,19 @@ export class Uint64List implements IList<number>, I_TypedIntList {
         test: (element: number) => boolean,
         props: { orElse?: () => number | undefined }
     ) => number = undefined as any;
-    private readonly _dart_elementAt: (
-        index: number
-    ) => number = undefined as any;
+    private readonly _dart_elementAt: (index: number) => number =
+        undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
-    private readonly _dart_getIterator: () => IIterator<number> = undefined as any;
+    private readonly _dart_getIterator: () => IIterator<number> =
+        undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
     private readonly _dart_getIsNotEmpty: () => boolean = undefined as any;
     private readonly _dart_getFirst: () => number = undefined as any;
     private readonly _dart_getLast: () => number = undefined as any;
     private readonly _dart_getSingle: () => number = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
-    private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
+    private readonly _dart_getElementSizeInBytes: () => number =
+        undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
     private readonly _dart_getBuffer: () => IByteBuffer = undefined as any;

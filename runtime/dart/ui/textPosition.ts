@@ -16,7 +16,8 @@ declare const dart: {
 
 export class TextPosition
     extends JITAllocatingRTManagedBox<TextPositionProps, TextPosition>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(TextPosition);
     public props: TextPositionProps;
     public constructor(props: TextPositionProps) {
