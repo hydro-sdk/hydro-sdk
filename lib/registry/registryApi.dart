@@ -15,11 +15,11 @@ import 'package:hydro_sdk/registry/dto/createUserDto.dart';
 import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
+import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
 import 'package:hydro_sdk/registry/dto/releaseChannelReadDto.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/dto/userReadDto.dart';
-import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
 
 class RegistryApi {
   final String baseUrl;
