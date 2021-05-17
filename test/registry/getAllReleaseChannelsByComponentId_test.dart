@@ -77,9 +77,13 @@ void main() {
       );
 
       expect(canUpdateProjectResponse, isNotNull);
-      expect(canUpdateProjectResponse.first.name, createProjectResponse.name);
-      expect(canUpdateProjectResponse.first.description,
-          createProjectResponse.description);
+      
+      var createdProject = canUpdateProjectResponse.firstWhere(
+          (x) => x.name == createProjectResponse.name,
+          orElse: () => null);
+
+      expect(createdProject, isNotNull);
+      expect(createdProject.description, createProjectResponse.description);
 
       var createComponentResponse = await api.createComponent(
         dto: CreateComponentDto(

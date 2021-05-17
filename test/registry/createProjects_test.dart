@@ -72,9 +72,12 @@ void main() {
         sessionDto: loginResponse,
       );
 
-      expect(canUpdateProjectResponse, isNotNull);
-      expect(canUpdateProjectResponse.first.name, createProjectResponse.name);
-      expect(canUpdateProjectResponse.first.description,
+      var createdProject = canUpdateProjectResponse.firstWhere(
+          (x) => x.name == createProjectResponse.name,
+          orElse: () => null);
+
+      expect(createdProject, isNotNull);
+      expect(createdProject.description,
           createProjectResponse.description);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
