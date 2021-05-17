@@ -81,8 +81,7 @@ void main() {
           orElse: () => null);
 
       expect(createdProject, isNotNull);
-      expect(createdProject.description,
-          createProjectResponse.description);
+      expect(createdProject.description, createProjectResponse.description);
 
       var createComponentResponse = await api.createComponent(
         dto: CreateComponentDto(

@@ -77,8 +77,7 @@ void main() {
           orElse: () => null);
 
       expect(createdProject, isNotNull);
-      expect(createdProject.description,
-          createProjectResponse.description);
+      expect(createdProject.description, createProjectResponse.description);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

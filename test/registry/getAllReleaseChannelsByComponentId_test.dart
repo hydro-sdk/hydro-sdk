@@ -77,7 +77,7 @@ void main() {
       );
 
       expect(canUpdateProjectResponse, isNotNull);
-      
+
       var createdProject = canUpdateProjectResponse.firstWhere(
           (x) => x.name == createProjectResponse.name,
           orElse: () => null);
