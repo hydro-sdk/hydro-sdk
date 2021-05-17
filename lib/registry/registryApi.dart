@@ -276,4 +276,20 @@ class RegistryApi {
 
     return null;
   }
+
+  Future<ProjectEntity> getProjectById({
+    @required String projectId,
+  }) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/project/${projectId}"),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+    if (response.statusCode == 201) {
+      return ProjectEntity.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
 }
