@@ -26,7 +26,7 @@ class _$CreatePackageDtoTearOff {
       @required String readmeMd,
       @required String pubspecYaml,
       @required String pubspecLock,
-      String releaseChannelName = 'latest'}) {
+      String releaseChannelName = "latest"}) {
     return _$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256,
       otaPackageBase64: otaPackageBase64,
@@ -214,7 +214,7 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
       @required this.readmeMd,
       @required this.pubspecYaml,
       @required this.pubspecLock,
-      this.releaseChannelName = 'latest'})
+      this.releaseChannelName = "latest"})
       : assert(publishingPrivateKeySha256 != null),
         assert(otaPackageBase64 != null),
         assert(componentName != null),
@@ -244,7 +244,7 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
   final String pubspecYaml;
   @override
   final String pubspecLock;
-  @JsonKey(defaultValue: 'latest')
+  @JsonKey(defaultValue: "latest")
   @override
   final String releaseChannelName;
 

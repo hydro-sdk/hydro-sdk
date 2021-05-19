@@ -15,6 +15,7 @@ import 'package:hydro_sdk/registry/dto/createUserDto.dart';
 import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
+import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
 import 'package:hydro_sdk/registry/dto/releaseChannelReadDto.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
@@ -254,6 +255,40 @@ class RegistryApi {
 
     if (response.statusCode == 200) {
       return PackageReadDto.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
+
+  Future<ProjectCreationsReadDto> getRemainingProjectCreations(
+      {@required SessionDto sessionDto}) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/user/remaining-project-creations"),
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer ${sessionDto.authToken}",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return ProjectCreationsReadDto.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
+
+  Future<ProjectEntity> getProjectById({
+    @required String projectId,
+  }) async {
+    final response = await get(
+      Uri.https(baseUrl, "api/project/${projectId}"),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return ProjectEntity.fromJson(jsonDecode(response.body));
     }
 
     return null;
