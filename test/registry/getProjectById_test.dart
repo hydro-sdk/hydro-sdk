@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/createUserDto.dart';
 import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
@@ -22,9 +21,6 @@ void main() {
 
       final projectName = "test-project-${Uuid().v4()}";
       final projectDescription = "test project descrption ${Uuid().v4()}";
-
-      final componentName = "test-component-${Uuid().v4()}";
-      final componentDescription = "test component descrption ${Uuid().v4()}";
 
       final response = await api.createUser(
           dto: CreateUserDto(
@@ -83,39 +79,19 @@ void main() {
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);
 
-      var createComponentResponse = await api.createComponent(
-        dto: CreateComponentDto(
-          name: componentName,
-          description: componentDescription,
-          projectId: createProjectResponse.id,
-        ),
-        sessionDto: SessionDto.empty(),
+      var firstProjectById = await api.getProjectById(
+        projectId: canUpdateProjectResponse.first.id,
       );
 
-      expect(createComponentResponse, isNull);
+      expect(firstProjectById, isNotNull);
+      expect(firstProjectById.name, username);
 
-      createComponentResponse = await api.createComponent(
-        dto: CreateComponentDto(
-          name: componentName,
-          description: componentDescription,
-          projectId: createProjectResponse.id,
-        ),
-        sessionDto: loginResponse,
+      var lastProjectById = await api.getProjectById(
+        projectId: canUpdateProjectResponse.last.id,
       );
 
-      expect(createComponentResponse, isNotNull);
-      expect(createComponentResponse.name, componentName);
-      expect(createComponentResponse.description, componentDescription);
-
-      var canUpdateComponentResponse = await api.canUpdateComponents(
-        sessionDto: loginResponse,
-      );
-
-      expect(canUpdateComponentResponse, isNotNull);
-      expect(
-          canUpdateComponentResponse.first.name, createComponentResponse.name);
-      expect(canUpdateComponentResponse.first.description,
-          createComponentResponse.description);
+      expect(lastProjectById, isNotNull);
+      expect(lastProjectById.name, projectName);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }
