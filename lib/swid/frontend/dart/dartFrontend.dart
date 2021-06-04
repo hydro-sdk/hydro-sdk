@@ -7,8 +7,8 @@ import 'package:analyzer/file_system/file_system.dart' hide File;
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/src/dart/ast/ast.dart';
 import 'package:meta/meta.dart';
-import 'package:surveyor/src/driver.dart';
-import 'package:surveyor/src/visitors.dart';
+import 'package:hydro_sdk/swid/frontend/dart/surveyor/driver.dart';
+import 'package:hydro_sdk/swid/frontend/dart/surveyor/visitors.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromDartClassOrMixinOrClassTypAliasDeclaration.dart';
