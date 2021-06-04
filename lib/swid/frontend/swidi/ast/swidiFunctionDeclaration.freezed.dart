@@ -15,11 +15,11 @@ class _$SwidiFunctionDeclarationTearOff {
 
 // ignore: unused_element
   _$SwidiFunctionDeclarationCtor call(
-      {@required String name,
-      @required SwidiInterface returnType,
-      @required List<SwidiPositionalParameter> positionalParameters,
-      @required List<SwidiOptionalParameter> optionalParameters,
-      @required List<SwidiNamedParameter> namedParameters}) {
+      {required String name,
+      required SwidiInterface returnType,
+      required List<SwidiPositionalParameter> positionalParameters,
+      required List<SwidiOptionalParameter> optionalParameters,
+      required List<SwidiNamedParameter> namedParameters}) {
     return _$SwidiFunctionDeclarationCtor(
       name: name,
       returnType: returnType,
@@ -38,9 +38,9 @@ const $SwidiFunctionDeclaration = _$SwidiFunctionDeclarationTearOff();
 mixin _$SwidiFunctionDeclaration {
   String get name;
   SwidiInterface get returnType;
-  List<SwidiPositionalParameter> get positionalParameters;
-  List<SwidiOptionalParameter> get optionalParameters;
-  List<SwidiNamedParameter> get namedParameters;
+  List<SwidiPositionalParameter?> get positionalParameters;
+  List<SwidiOptionalParameter?> get optionalParameters;
+  List<SwidiNamedParameter?> get namedParameters;
 
   @JsonKey(ignore: true)
   $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith;
@@ -52,11 +52,11 @@ abstract class $SwidiFunctionDeclarationCopyWith<$Res> {
           $Res Function(SwidiFunctionDeclaration) then) =
       _$SwidiFunctionDeclarationCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      SwidiInterface returnType,
-      List<SwidiPositionalParameter> positionalParameters,
-      List<SwidiOptionalParameter> optionalParameters,
-      List<SwidiNamedParameter> namedParameters});
+      {String? name,
+      SwidiInterface? returnType,
+      List<SwidiPositionalParameter>? positionalParameters,
+      List<SwidiOptionalParameter>? optionalParameters,
+      List<SwidiNamedParameter>? namedParameters});
 
   $SwidiInterfaceCopyWith<$Res> get returnType;
 }
@@ -68,30 +68,30 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
 
   final SwidiFunctionDeclaration _value;
   // ignore: unused_field
-  final $Res Function(SwidiFunctionDeclaration) _then;
+  final $Res Function(SwidiFunctionDeclaration?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object returnType = freezed,
-    Object positionalParameters = freezed,
-    Object optionalParameters = freezed,
-    Object namedParameters = freezed,
+    Object? name = freezed,
+    Object? returnType = freezed,
+    Object? positionalParameters = freezed,
+    Object? optionalParameters = freezed,
+    Object? namedParameters = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       returnType: returnType == freezed
           ? _value.returnType
-          : returnType as SwidiInterface,
+          : returnType as SwidiInterface?,
       positionalParameters: positionalParameters == freezed
-          ? _value.positionalParameters
-          : positionalParameters as List<SwidiPositionalParameter>,
+          ? _value.positionalParameters as List<SwidiPositionalParameter>?
+          : positionalParameters as List<SwidiPositionalParameter>?,
       optionalParameters: optionalParameters == freezed
-          ? _value.optionalParameters
-          : optionalParameters as List<SwidiOptionalParameter>,
+          ? _value.optionalParameters as List<SwidiOptionalParameter>?
+          : optionalParameters as List<SwidiOptionalParameter>?,
       namedParameters: namedParameters == freezed
-          ? _value.namedParameters
-          : namedParameters as List<SwidiNamedParameter>,
+          ? _value.namedParameters as List<SwidiNamedParameter>?
+          : namedParameters as List<SwidiNamedParameter>?,
     ));
   }
 
@@ -115,11 +115,11 @@ abstract class _$$SwidiFunctionDeclarationCtorCopyWith<$Res>
       __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      SwidiInterface returnType,
-      List<SwidiPositionalParameter> positionalParameters,
-      List<SwidiOptionalParameter> optionalParameters,
-      List<SwidiNamedParameter> namedParameters});
+      {String? name,
+      SwidiInterface? returnType,
+      List<SwidiPositionalParameter>? positionalParameters,
+      List<SwidiOptionalParameter>? optionalParameters,
+      List<SwidiNamedParameter>? namedParameters});
 
   @override
   $SwidiInterfaceCopyWith<$Res> get returnType;
@@ -140,26 +140,26 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object returnType = freezed,
-    Object positionalParameters = freezed,
-    Object optionalParameters = freezed,
-    Object namedParameters = freezed,
+    Object? name = freezed,
+    Object? returnType = freezed,
+    Object? positionalParameters = freezed,
+    Object? optionalParameters = freezed,
+    Object? namedParameters = freezed,
   }) {
     return _then(_$SwidiFunctionDeclarationCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       returnType: returnType == freezed
           ? _value.returnType
-          : returnType as SwidiInterface,
+          : (returnType as SwidiInterface?)!,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
-          : positionalParameters as List<SwidiPositionalParameter>,
+          : (positionalParameters as List<SwidiPositionalParameter>?)!,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
-          : optionalParameters as List<SwidiOptionalParameter>,
+          : (optionalParameters as List<SwidiOptionalParameter>?)!,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
-          : namedParameters as List<SwidiNamedParameter>,
+          : (namedParameters as List<SwidiNamedParameter>?)!,
     ));
   }
 }
@@ -168,11 +168,11 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
 class _$_$SwidiFunctionDeclarationCtor
     implements _$SwidiFunctionDeclarationCtor {
   const _$_$SwidiFunctionDeclarationCtor(
-      {@required this.name,
-      @required this.returnType,
-      @required this.positionalParameters,
-      @required this.optionalParameters,
-      @required this.namedParameters})
+      {required this.name,
+      required this.returnType,
+      required this.positionalParameters,
+      required this.optionalParameters,
+      required this.namedParameters})
       : assert(name != null),
         assert(returnType != null),
         assert(positionalParameters != null),
@@ -184,11 +184,11 @@ class _$_$SwidiFunctionDeclarationCtor
   @override
   final SwidiInterface returnType;
   @override
-  final List<SwidiPositionalParameter> positionalParameters;
+  final List<SwidiPositionalParameter?> positionalParameters;
   @override
-  final List<SwidiOptionalParameter> optionalParameters;
+  final List<SwidiOptionalParameter?> optionalParameters;
   @override
-  final List<SwidiNamedParameter> namedParameters;
+  final List<SwidiNamedParameter?> namedParameters;
 
   @override
   String toString() {
@@ -234,11 +234,11 @@ class _$_$SwidiFunctionDeclarationCtor
 abstract class _$SwidiFunctionDeclarationCtor
     implements SwidiFunctionDeclaration {
   const factory _$SwidiFunctionDeclarationCtor(
-          {@required String name,
-          @required SwidiInterface returnType,
-          @required List<SwidiPositionalParameter> positionalParameters,
-          @required List<SwidiOptionalParameter> optionalParameters,
-          @required List<SwidiNamedParameter> namedParameters}) =
+          {required String name,
+          required SwidiInterface returnType,
+          required List<SwidiPositionalParameter?> positionalParameters,
+          required List<SwidiOptionalParameter?> optionalParameters,
+          required List<SwidiNamedParameter?> namedParameters}) =
       _$_$SwidiFunctionDeclarationCtor;
 
   @override
@@ -246,11 +246,11 @@ abstract class _$SwidiFunctionDeclarationCtor
   @override
   SwidiInterface get returnType;
   @override
-  List<SwidiPositionalParameter> get positionalParameters;
+  List<SwidiPositionalParameter?> get positionalParameters;
   @override
-  List<SwidiOptionalParameter> get optionalParameters;
+  List<SwidiOptionalParameter?> get optionalParameters;
   @override
-  List<SwidiNamedParameter> get namedParameters;
+  List<SwidiNamedParameter?> get namedParameters;
   @override
   @JsonKey(ignore: true)
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>

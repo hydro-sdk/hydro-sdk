@@ -9,13 +9,13 @@ import 'package:hydro_sdk/swid/transforms/ts/transformNamedParametersToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformNormalParametersToTs.dart';
 
 String transformStaticConstFunctionInvocation(
-    {@required
+    {required
         SwidStaticConstFunctionInvocation swidStaticConstFunctionInvocation,
-    @required
+    required
         SwidClass parentClass,
-    @required
+    required
         String inexpressibleFunctionInvocationFallback,
-    @required
+    required
         SwidStaticConstFieldReferenceScopeResolver scopeResolver}) {
   var normalParameters = transformNormalParametersToTs(
     swidLiterals: swidStaticConstFunctionInvocation.normalParameters,

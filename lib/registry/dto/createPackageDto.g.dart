@@ -17,7 +17,7 @@ _$_$CreatePackageDtoCtor _$_$_$CreatePackageDtoCtorFromJson(
     readmeMd: json['readmeMd'] as String,
     pubspecYaml: json['pubspecYaml'] as String,
     pubspecLock: json['pubspecLock'] as String,
-    releaseChannelName: json['releaseChannelName'] as String ?? 'latest',
+    releaseChannelName: json['releaseChannelName'] as String? ?? 'latest',
   );
 }
 

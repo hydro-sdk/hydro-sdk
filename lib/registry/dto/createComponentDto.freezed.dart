@@ -18,9 +18,9 @@ class _$CreateComponentDtoTearOff {
 
 // ignore: unused_element
   _$CreateComponentDtoCtor call(
-      {@required String name,
-      @required String description,
-      @required String projectId}) {
+      {required String name,
+      required String description,
+      required String projectId}) {
     return _$CreateComponentDtoCtor(
       name: name,
       description: description,
@@ -54,7 +54,7 @@ abstract class $CreateComponentDtoCopyWith<$Res> {
   factory $CreateComponentDtoCopyWith(
           CreateComponentDto value, $Res Function(CreateComponentDto) then) =
       _$CreateComponentDtoCopyWithImpl<$Res>;
-  $Res call({String name, String description, String projectId});
+  $Res call({String? name, String? description, String? projectId});
 }
 
 /// @nodoc
@@ -64,19 +64,19 @@ class _$CreateComponentDtoCopyWithImpl<$Res>
 
   final CreateComponentDto _value;
   // ignore: unused_field
-  final $Res Function(CreateComponentDto) _then;
+  final $Res Function(CreateComponentDto?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
-    Object projectId = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? projectId = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       description:
-          description == freezed ? _value.description : description as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
+          description == freezed ? _value.description : description as String?,
+      projectId: projectId == freezed ? _value.projectId : projectId as String?,
     ));
   }
 }
@@ -88,7 +88,7 @@ abstract class _$$CreateComponentDtoCtorCopyWith<$Res>
           $Res Function(_$CreateComponentDtoCtor) then) =
       __$$CreateComponentDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String description, String projectId});
+  $Res call({String? name, String? description, String? projectId});
 }
 
 /// @nodoc
@@ -105,15 +105,15 @@ class __$$CreateComponentDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
-    Object projectId = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? projectId = freezed,
   }) {
     return _then(_$CreateComponentDtoCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
+          description == freezed ? _value.description : (description as String?)!,
+      projectId: projectId == freezed ? _value.projectId : (projectId as String?)!,
     ));
   }
 }
@@ -123,9 +123,9 @@ class __$$CreateComponentDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$CreateComponentDtoCtor implements _$CreateComponentDtoCtor {
   const _$_$CreateComponentDtoCtor(
-      {@required this.name,
-      @required this.description,
-      @required this.projectId})
+      {required this.name,
+      required this.description,
+      required this.projectId})
       : assert(name != null),
         assert(description != null),
         assert(projectId != null);
@@ -180,9 +180,9 @@ class _$_$CreateComponentDtoCtor implements _$CreateComponentDtoCtor {
 
 abstract class _$CreateComponentDtoCtor implements CreateComponentDto {
   const factory _$CreateComponentDtoCtor(
-      {@required String name,
-      @required String description,
-      @required String projectId}) = _$_$CreateComponentDtoCtor;
+      {required String name,
+      required String description,
+      required String projectId}) = _$_$CreateComponentDtoCtor;
 
   factory _$CreateComponentDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreateComponentDtoCtor.fromJson;

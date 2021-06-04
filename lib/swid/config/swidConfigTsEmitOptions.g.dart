@@ -9,8 +9,8 @@ part of 'swidConfigTsEmitOptions.dart';
 _$_$SwidConfigTsEmitOptionsCtor _$_$_$SwidConfigTsEmitOptionsCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$SwidConfigTsEmitOptionsCtor(
-    prefixPaths:
-        (json['prefixPaths'] as List)?.map((e) => e as String)?.toList(),
+    (prefixPaths:
+        (json['prefixPaths'] as List?)?.map((e) => e as String)?.toList())!,
   );
 }
 

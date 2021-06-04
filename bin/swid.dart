@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
@@ -21,7 +22,7 @@ class SwidiInputResolver extends InputResolver {
   const SwidiInputResolver();
 
   @override
-  Future<String> resolveInput({String input}) => File(input).readAsString();
+  Future<String> resolveInput({required String input}) => File(input).readAsString();
 }
 
 void main(List<String> args) async {
@@ -60,28 +61,27 @@ void main(List<String> args) async {
         TranslationUnitProducer(
           prefixPaths: ["runtime"],
           path: transformPackageUri(
-            packageUri: enums[i].originalPackagePath,
+            packageUri: enums[i]!.originalPackagePath,
           ),
-          baseFileName: "${transformToCamelCase(str: enums[i].identifier)}",
+          baseFileName: "${transformToCamelCase(str: enums[i]!.identifier)}",
           tsPrefixPaths: ["runtime"],
           dartPrefixPaths: [],
         ).produceFromSwidEnum(swidEnum: enums[i]),
-        (x) => writeTranslationUnit(translationUnit: x));
+        (dynamic x) => writeTranslationUnit(translationUnit: x));
   }
   print(irClasses.length);
   var classes = irClasses
       .where((x) => (config.emitOptions.allowList.classNames
-                  .firstWhere((e) => x.name == e, orElse: () => null) !=
+                  .firstWhereOrNull((e) => x!.name == e) !=
               null ||
-          config.emitOptions.allowList.packagePaths.firstWhere(
-                  (e) => x.originalPackagePath == e,
-                  orElse: () => null) !=
+          config.emitOptions.allowList.packagePaths.firstWhereOrNull(
+                  (e) => x!.originalPackagePath == e) !=
               null))
       .where((x) => (config.emitOptions.denyList.classNames
-                  .firstWhere((e) => x.name == e, orElse: () => null) ==
+                  .firstWhereOrNull((e) => x!.name == e) ==
               null &&
           config.emitOptions.denyList.packagePaths
-                  .firstWhere((e) => x.originalPackagePath == e, orElse: () => null) ==
+                  .firstWhereOrNull((e) => x!.originalPackagePath == e) ==
               null))
       .toList();
   for (var i = 0; i != classes.length; ++i) {
@@ -89,14 +89,14 @@ void main(List<String> args) async {
         TranslationUnitProducer(
           prefixPaths: config.emitOptions.prefixPaths,
           path: transformPackageUri(
-            packageUri: classes[i].originalPackagePath,
+            packageUri: classes[i]!.originalPackagePath,
           ),
-          baseFileName: "${transformToCamelCase(str: classes[i].name)}",
+          baseFileName: "${transformToCamelCase(str: classes[i]!.name)}",
           tsPrefixPaths: config.emitOptions.tsEmitOptions.prefixPaths,
           dartPrefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
         ).produceFromSwidClass(
-            swidClass: fixupNullability(swidClass: classes[i])),
-        (x) => writeTranslationUnit(translationUnit: x));
+            swidClass: fixupNullability(swidClass: classes[i]!)),
+        (dynamic x) => writeTranslationUnit(translationUnit: x));
   }
 
   await Future.forEach(
@@ -105,8 +105,8 @@ void main(List<String> args) async {
         prefixPaths: config.emitOptions.dartEmitOptions.prefixPaths,
         barrelSpec: resolveBarrelSpecs(
             members: classes
-                .map((x) => BarrelMember.fromSwidClass(swidClass: x))
+                .map((x) => BarrelMember.fromSwidClass(swidClass: x!))
                 .toList()),
       ),
-      (x) => writeTranslationUnit(translationUnit: x));
+      (dynamic x) => writeTranslationUnit(translationUnit: x));
 }

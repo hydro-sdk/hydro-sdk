@@ -8,9 +8,9 @@ class HashedPrototype {
   Prototype prototype;
 
   HashedPrototype(
-      {@required this.hash,
-      @required this.hashWithoutSourceInformation,
-      @required this.prototype});
+      {required this.hash,
+      required this.hashWithoutSourceInformation,
+      required this.prototype});
 
   @override
   bool operator ==(o) =>

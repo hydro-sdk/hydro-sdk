@@ -7,8 +7,8 @@ part 'logEvent.g.dart';
 @freezed
 abstract class DiagnosticLogEvent with _$DiagnosticLogEvent {
   const factory DiagnosticLogEvent({
-    @required int logEventType,
-    @required String message,
+    required int logEventType,
+    required String message,
   }) = _$DiagnosticLogEventCtor;
 
   factory DiagnosticLogEvent.fromJson(Map<String, dynamic> json) =>
@@ -18,8 +18,8 @@ abstract class DiagnosticLogEvent with _$DiagnosticLogEvent {
 @freezed
 abstract class ErrorLogEvent with _$ErrorLogEvent {
   const factory ErrorLogEvent({
-    @required int logEventType,
-    @required String message,
+    required int logEventType,
+    required String message,
   }) = _$ErrorLogEventCtor;
 
   factory ErrorLogEvent.fromJson(Map<String, dynamic> json) =>
@@ -29,8 +29,8 @@ abstract class ErrorLogEvent with _$ErrorLogEvent {
 @freezed
 abstract class ProgressStartLogEvent with _$ProgressStartLogEvent {
   const factory ProgressStartLogEvent({
-    @required int logEventType,
-    @required String progressId,
+    required int logEventType,
+    required String progressId,
   }) = _$ProgressStartLogEventCtor;
 
   factory ProgressStartLogEvent.fromJson(Map<String, dynamic> json) =>
@@ -40,8 +40,8 @@ abstract class ProgressStartLogEvent with _$ProgressStartLogEvent {
 @freezed
 abstract class ProgressStopLogEvent with _$ProgressStopLogEvent {
   const factory ProgressStopLogEvent({
-    @required int logEventType,
-    @required String progressId,
+    required int logEventType,
+    required String progressId,
   }) = _$ProgressStopLogEventCtor;
 
   factory ProgressStopLogEvent.fromJson(Map<String, dynamic> json) =>
@@ -51,11 +51,11 @@ abstract class ProgressStopLogEvent with _$ProgressStopLogEvent {
 @freezed
 abstract class ProgressTickLogEvent with _$ProgressTickLogEvent {
   const factory ProgressTickLogEvent({
-    @required int logEventType,
-    @required int currentStep,
-    @required int totalSteps,
-    @required String suffixMessage,
-    @required String progressId,
+    required int logEventType,
+    required int currentStep,
+    required int totalSteps,
+    required String suffixMessage,
+    required String progressId,
   }) = _$ProgressTickLogEventCtor;
 
   factory ProgressTickLogEvent.fromJson(Map<String, dynamic> json) =>

@@ -7,8 +7,8 @@ part 'createProjectDto.g.dart';
 @freezed
 abstract class CreateProjectDto with _$CreateProjectDto {
   const factory CreateProjectDto({
-    @required String name,
-    @required String description,
+    required String name,
+    required String description,
   }) = _$CreateProjectDtoCtor;
 
   factory CreateProjectDto.fromJson(Map<String, dynamic> json) =>

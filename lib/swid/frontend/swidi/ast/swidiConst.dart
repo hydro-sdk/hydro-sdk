@@ -9,7 +9,7 @@ part 'swidiConst.freezed.dart';
 @freezed
 abstract class SwidiConst with _$SwidiConst {
   factory SwidiConst.clone({
-    @required SwidiConst swidiConst,
+    required SwidiConst swidiConst,
   }) =>
       swidiConst.when(
         fromSwidiEmptyConst: (val) => SwidiConst.fromSwidiEmptyConst(
@@ -22,10 +22,10 @@ abstract class SwidiConst with _$SwidiConst {
       );
 
   const factory SwidiConst.fromSwidiEmptyConst({
-    @required SwidiEmptyConst swidiEmptyConst,
+    required SwidiEmptyConst swidiEmptyConst,
   }) = _$FromSwidiEmptyConst;
 
   const factory SwidiConst.fromSwidiConstNumber({
-    @required SwidiConstNumber swidiConstNumber,
+    required SwidiConstNumber swidiConstNumber,
   }) = _$FromSwidiConstNumber;
 }

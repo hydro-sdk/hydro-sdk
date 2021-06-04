@@ -7,15 +7,15 @@ part 'createPackageDto.g.dart';
 @freezed
 abstract class CreatePackageDto with _$CreatePackageDto {
   const factory CreatePackageDto({
-    @required String publishingPrivateKeySha256,
-    @required String otaPackageBase64,
-    @required String componentName,
-    @required String displayVersion,
-    @required String description,
-    @required String readmeMd,
-    @required String pubspecYaml,
-    @required String pubspecLock,
-    @Default("latest") String releaseChannelName,
+    required String publishingPrivateKeySha256,
+    required String otaPackageBase64,
+    required String componentName,
+    required String displayVersion,
+    required String description,
+    required String readmeMd,
+    required String pubspecYaml,
+    required String pubspecLock,
+    @Default("latest") required String releaseChannelName,
   }) = _$CreatePackageDtoCtor;
 
   factory CreatePackageDto.fromJson(Map<String, dynamic> json) =>

@@ -19,7 +19,7 @@ class _$UpdateUserProjectCreationsDtoTearOff {
 
 // ignore: unused_element
   _$UpdateUserProjectCreationsDtoCtor call(
-      {@required String subject, @required int numRemainingProjectCreations}) {
+      {required String subject, required int numRemainingProjectCreations}) {
     return _$UpdateUserProjectCreationsDtoCtor(
       subject: subject,
       numRemainingProjectCreations: numRemainingProjectCreations,
@@ -53,7 +53,7 @@ abstract class $UpdateUserProjectCreationsDtoCopyWith<$Res> {
           UpdateUserProjectCreationsDto value,
           $Res Function(UpdateUserProjectCreationsDto) then) =
       _$UpdateUserProjectCreationsDtoCopyWithImpl<$Res>;
-  $Res call({String subject, int numRemainingProjectCreations});
+  $Res call({String? subject, int? numRemainingProjectCreations});
 }
 
 /// @nodoc
@@ -63,18 +63,18 @@ class _$UpdateUserProjectCreationsDtoCopyWithImpl<$Res>
 
   final UpdateUserProjectCreationsDto _value;
   // ignore: unused_field
-  final $Res Function(UpdateUserProjectCreationsDto) _then;
+  final $Res Function(UpdateUserProjectCreationsDto?) _then;
 
   @override
   $Res call({
-    Object subject = freezed,
-    Object numRemainingProjectCreations = freezed,
+    Object? subject = freezed,
+    Object? numRemainingProjectCreations = freezed,
   }) {
     return _then(_value.copyWith(
-      subject: subject == freezed ? _value.subject : subject as String,
+      subject: subject == freezed ? _value.subject : subject as String?,
       numRemainingProjectCreations: numRemainingProjectCreations == freezed
           ? _value.numRemainingProjectCreations
-          : numRemainingProjectCreations as int,
+          : numRemainingProjectCreations as int?,
     ));
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$UpdateUserProjectCreationsDtoCtorCopyWith<$Res>
           $Res Function(_$UpdateUserProjectCreationsDtoCtor) then) =
       __$$UpdateUserProjectCreationsDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String subject, int numRemainingProjectCreations});
+  $Res call({String? subject, int? numRemainingProjectCreations});
 }
 
 /// @nodoc
@@ -105,14 +105,14 @@ class __$$UpdateUserProjectCreationsDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object subject = freezed,
-    Object numRemainingProjectCreations = freezed,
+    Object? subject = freezed,
+    Object? numRemainingProjectCreations = freezed,
   }) {
     return _then(_$UpdateUserProjectCreationsDtoCtor(
-      subject: subject == freezed ? _value.subject : subject as String,
+      subject: subject == freezed ? _value.subject : (subject as String?)!,
       numRemainingProjectCreations: numRemainingProjectCreations == freezed
           ? _value.numRemainingProjectCreations
-          : numRemainingProjectCreations as int,
+          : (numRemainingProjectCreations as int?)!,
     ));
   }
 }
@@ -123,7 +123,7 @@ class __$$UpdateUserProjectCreationsDtoCtorCopyWithImpl<$Res>
 class _$_$UpdateUserProjectCreationsDtoCtor
     implements _$UpdateUserProjectCreationsDtoCtor {
   const _$_$UpdateUserProjectCreationsDtoCtor(
-      {@required this.subject, @required this.numRemainingProjectCreations})
+      {required this.subject, required this.numRemainingProjectCreations})
       : assert(subject != null),
         assert(numRemainingProjectCreations != null);
 
@@ -177,8 +177,8 @@ class _$_$UpdateUserProjectCreationsDtoCtor
 abstract class _$UpdateUserProjectCreationsDtoCtor
     implements UpdateUserProjectCreationsDto {
   const factory _$UpdateUserProjectCreationsDtoCtor(
-          {@required String subject,
-          @required int numRemainingProjectCreations}) =
+          {required String subject,
+          required int numRemainingProjectCreations}) =
       _$_$UpdateUserProjectCreationsDtoCtor;
 
   factory _$UpdateUserProjectCreationsDtoCtor.fromJson(

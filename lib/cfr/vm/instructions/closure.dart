@@ -5,8 +5,8 @@ import 'package:hydro_sdk/cfr/vm/frame.dart';
 
 @pragma('vm:prefer-inline')
 @pragma('dart2js:tryInline')
-void closure({@required Frame frame, @required int A, @required int B}) {
-  var proto = frame.prototype.prototypes[B];
+void closure({required Frame frame, required int A, required int B}) {
+  var proto = frame.prototype.prototypes![B];
 
   frame.SR(
       A,

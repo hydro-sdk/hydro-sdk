@@ -9,7 +9,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/core/set.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadCore({@required HydroState luaState, @required HydroTable table}) {
+void loadCore({required HydroState luaState, required HydroTable table}) {
   var core = HydroTable();
 
   table["core"] = core;

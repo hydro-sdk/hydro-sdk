@@ -19,9 +19,9 @@ class _$ProjectConfigComponentChunkTearOff {
 
 // ignore: unused_element
   _$ProjectConfigComponentChunkCtor call(
-      {@required ProjectConfigComponentChunkType type,
-      @required String entryPoint,
-      @JsonKey(defaultValue: null) @nullable String baseUrl}) {
+      {required ProjectConfigComponentChunkType type,
+      required String entryPoint,
+      @JsonKey(defaultValue: null) @nullable String? baseUrl}) {
     return _$ProjectConfigComponentChunkCtor(
       type: type,
       entryPoint: entryPoint,
@@ -45,7 +45,7 @@ mixin _$ProjectConfigComponentChunk {
   String get entryPoint;
   @JsonKey(defaultValue: null)
   @nullable
-  String get baseUrl;
+  String? get baseUrl;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -60,9 +60,9 @@ abstract class $ProjectConfigComponentChunkCopyWith<$Res> {
           $Res Function(ProjectConfigComponentChunk) then) =
       _$ProjectConfigComponentChunkCopyWithImpl<$Res>;
   $Res call(
-      {ProjectConfigComponentChunkType type,
-      String entryPoint,
-      @JsonKey(defaultValue: null) @nullable String baseUrl});
+      {ProjectConfigComponentChunkType? type,
+      String? entryPoint,
+      @JsonKey(defaultValue: null) @nullable String? baseUrl});
 }
 
 /// @nodoc
@@ -72,21 +72,21 @@ class _$ProjectConfigComponentChunkCopyWithImpl<$Res>
 
   final ProjectConfigComponentChunk _value;
   // ignore: unused_field
-  final $Res Function(ProjectConfigComponentChunk) _then;
+  final $Res Function(ProjectConfigComponentChunk?) _then;
 
   @override
   $Res call({
-    Object type = freezed,
-    Object entryPoint = freezed,
-    Object baseUrl = freezed,
+    Object? type = freezed,
+    Object? entryPoint = freezed,
+    Object? baseUrl = freezed,
   }) {
     return _then(_value.copyWith(
       type: type == freezed
           ? _value.type
-          : type as ProjectConfigComponentChunkType,
+          : type as ProjectConfigComponentChunkType?,
       entryPoint:
-          entryPoint == freezed ? _value.entryPoint : entryPoint as String,
-      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String,
+          entryPoint == freezed ? _value.entryPoint : entryPoint as String?,
+      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String?,
     ));
   }
 }
@@ -100,9 +100,9 @@ abstract class _$$ProjectConfigComponentChunkCtorCopyWith<$Res>
       __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {ProjectConfigComponentChunkType type,
-      String entryPoint,
-      @JsonKey(defaultValue: null) @nullable String baseUrl});
+      {ProjectConfigComponentChunkType? type,
+      String? entryPoint,
+      @JsonKey(defaultValue: null) @nullable String? baseUrl});
 }
 
 /// @nodoc
@@ -120,17 +120,17 @@ class __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object type = freezed,
-    Object entryPoint = freezed,
-    Object baseUrl = freezed,
+    Object? type = freezed,
+    Object? entryPoint = freezed,
+    Object? baseUrl = freezed,
   }) {
     return _then(_$ProjectConfigComponentChunkCtor(
       type: type == freezed
           ? _value.type
-          : type as ProjectConfigComponentChunkType,
+          : (type as ProjectConfigComponentChunkType?)!,
       entryPoint:
-          entryPoint == freezed ? _value.entryPoint : entryPoint as String,
-      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String,
+          entryPoint == freezed ? _value.entryPoint : (entryPoint as String?)!,
+      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String?,
     ));
   }
 }
@@ -141,8 +141,8 @@ class __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>
 class _$_$ProjectConfigComponentChunkCtor
     implements _$ProjectConfigComponentChunkCtor {
   const _$_$ProjectConfigComponentChunkCtor(
-      {@required this.type,
-      @required this.entryPoint,
+      {required this.type,
+      required this.entryPoint,
       @JsonKey(defaultValue: null) @nullable this.baseUrl})
       : assert(type != null),
         assert(entryPoint != null);
@@ -156,9 +156,9 @@ class _$_$ProjectConfigComponentChunkCtor
   @override
   final String entryPoint;
   @override
-  @JsonKey(defaultValue: null)
+  @JsonKey((defaultValue: null)!)
   @nullable
-  final String baseUrl;
+  final String? baseUrl;
 
   @override
   String toString() {
@@ -200,9 +200,9 @@ class _$_$ProjectConfigComponentChunkCtor
 abstract class _$ProjectConfigComponentChunkCtor
     implements ProjectConfigComponentChunk {
   const factory _$ProjectConfigComponentChunkCtor(
-          {@required ProjectConfigComponentChunkType type,
-          @required String entryPoint,
-          @JsonKey(defaultValue: null) @nullable String baseUrl}) =
+          {required ProjectConfigComponentChunkType type,
+          required String entryPoint,
+          @JsonKey(defaultValue: null) @nullable String? baseUrl}) =
       _$_$ProjectConfigComponentChunkCtor;
 
   factory _$ProjectConfigComponentChunkCtor.fromJson(
@@ -215,7 +215,7 @@ abstract class _$ProjectConfigComponentChunkCtor
   @override
   @JsonKey(defaultValue: null)
   @nullable
-  String get baseUrl;
+  String? get baseUrl;
   @override
   @JsonKey(ignore: true)
   _$$ProjectConfigComponentChunkCtorCopyWith<_$ProjectConfigComponentChunkCtor>

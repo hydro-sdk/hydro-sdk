@@ -10,9 +10,9 @@ part 'swidStaticConstBinaryExpression.g.dart';
 abstract class SwidStaticConstBinaryExpression
     with _$SwidStaticConstBinaryExpression {
   const factory SwidStaticConstBinaryExpression({
-    @required String operator,
-    @required SwidStaticConst leftOperand,
-    @required SwidStaticConst rightOperand,
+    required String operator,
+    required SwidStaticConst leftOperand,
+    required SwidStaticConst rightOperand,
   }) = _$Data;
 
   factory SwidStaticConstBinaryExpression.fromJson(Map<String, dynamic> json) =>

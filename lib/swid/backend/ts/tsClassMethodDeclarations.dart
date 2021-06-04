@@ -12,7 +12,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 class TsClassMethodDeclarations {
   final SwidClass swidClass;
 
-  TsClassMethodDeclarations({@required this.swidClass});
+  TsClassMethodDeclarations({required this.swidClass});
 
   String toTsSource() => (swidClass.methods.isNotEmpty ?? false)
       ? [
@@ -28,7 +28,7 @@ class TsClassMethodDeclarations {
                         swidType: SwidType.fromSwidFunctionType(
                             swidFunctionType:
                                 rewriteClassReferencesToInterfaceReferencesInFunction(
-                                    swidFunctionType: x))) +
+                                    swidFunctionType: x)!)) +
                     " {\n" +
                     "    return " +
                     TsFunctionSelfBindingInvocation(

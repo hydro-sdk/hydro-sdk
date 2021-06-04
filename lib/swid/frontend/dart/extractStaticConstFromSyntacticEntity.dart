@@ -14,14 +14,14 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 
-SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity syntacticEntity}) =>
+SwidStaticConst? extractStaticConstFromSyntacticEntity({required SyntacticEntity? syntacticEntity}) =>
     narrowStaticConstSyntacticEntity(
         syntacticEntity: syntacticEntity,
         onIntegerLiteral: (val) => SwidStaticConst.fromSwidIntegerLiteral(
             swidIntegerLiteral:
                 swidIntegerLiteralFromIntegerLiteral(integerLiteral: val)),
         onStringLiteral: (val) => SwidStaticConst.fromSwidStringLiteral(
-            swidStringLiteral: SwidStringLiteral(value: val.stringValue)),
+            swidStringLiteral: SwidStringLiteral(value: val.stringValue!)),
         onBooleanLiteral: (val) => SwidStaticConst.fromSwidBooleanLiteral(
             swidBooleanLiteral:
                 SwidBooleanLiteral(value: val.value.toString())),
@@ -38,7 +38,7 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity
                 swidStaticConstPrefixedExpression: SwidStaticConstPrefixedExpression(
               prefix: val.operator.lexeme,
               expression: extractStaticConstFromSyntacticEntity(
-                  syntacticEntity: val.operand),
+                  syntacticEntity: val.operand)!,
             )),
         onInstanceCreationExpression: (val) => SwidStaticConst.fromSwidStaticConstFunctionInvocation(
               staticConstFunctionInvocation:
@@ -48,8 +48,8 @@ SwidStaticConst extractStaticConstFromSyntacticEntity({@required SyntacticEntity
         onBinaryExpression: (val) => SwidStaticConst.fromSwidStaticConstBinaryExpression(
                 swidStaticConstBinaryExpression: SwidStaticConstBinaryExpression(
               leftOperand: extractStaticConstFromSyntacticEntity(
-                  syntacticEntity: val.leftOperand),
-              operator: val.operator.value(),
+                  syntacticEntity: val.leftOperand)!,
+              operator: val.operator.value() as String,
               rightOperand: extractStaticConstFromSyntacticEntity(
-                  syntacticEntity: val.rightOperand),
+                  syntacticEntity: val.rightOperand)!,
             )));

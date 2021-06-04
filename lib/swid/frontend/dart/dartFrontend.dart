@@ -22,7 +22,7 @@ class SwidDartFrontend extends SwidFrontend {
   final List<String> inputs;
 
   SwidDartFrontend({
-    @required this.inputs,
+    required this.inputs,
   });
 
   Future<List<SwidIr>> produceIr() async {
@@ -63,9 +63,9 @@ class _SwidVisitor extends RecursiveAstVisitor
     implements PreAnalysisCallback, PostAnalysisCallback, AstContext {
   int count = 0;
   int contexts = 0;
-  String filePath;
-  Folder currentFolder;
-  LineInfo lineInfo;
+  String? filePath;
+  Folder? currentFolder;
+  LineInfo? lineInfo;
 
   List<String> reports = <String>[];
   List<SwidEnum> enums = [];
@@ -74,15 +74,15 @@ class _SwidVisitor extends RecursiveAstVisitor
   @override
   void visitEnumDeclaration(EnumDeclaration node) {
     DeclaredSimpleIdentifier identifier =
-        node.childEntities.firstWhere((x) => x is DeclaredSimpleIdentifier);
+        node.childEntities.firstWhere((x) => x is DeclaredSimpleIdentifier) as DeclaredSimpleIdentifier;
     if (identifier.name[0] != "_") {
       List<EnumConstantDeclarationImpl> declarations = node.childEntities
           .where((x) => x is EnumConstantDeclarationImpl)
           .toList()
           .cast<EnumConstantDeclarationImpl>();
       enums.add(SwidEnum(
-          originalPackagePath: (node.parent.root as CompilationUnit)
-              .declaredElement
+          originalPackagePath: (node.parent!.root as CompilationUnit)
+              .declaredElement!
               .librarySource
               .uri
               .toString(),
@@ -298,7 +298,7 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void preAnalysis(SurveyorContext context,
-      {bool subDir, DriverCommands commandCallback}) {}
+      {bool? subDir, DriverCommands? commandCallback}) {}
 
   @override
   void setFilePath(String filePath) {}

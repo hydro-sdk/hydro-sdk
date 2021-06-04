@@ -10,18 +10,18 @@ part 'swidiInterface.freezed.dart';
 @freezed
 abstract class SwidiInterface with _$SwidiInterface {
   const factory SwidiInterface({
-    @required String name,
-    @required SwidiLibraryScopePrefix libraryScopePrefix,
-    @required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-    @required SwidiNullabilitySuffix nullabilitySuffix,
+    required String name,
+    required SwidiLibraryScopePrefix libraryScopePrefix,
+    required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
+    required SwidiNullabilitySuffix nullabilitySuffix,
   }) = _$SwidiInterfaceCtor;
 
   factory SwidiInterface.clone({
-    @required SwidiInterface swidiInterface,
-    String name,
-    SwidiLibraryScopePrefix libraryScopePrefix,
-    SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-    SwidiNullabilitySuffix nullabilitySuffix,
+    required SwidiInterface swidiInterface,
+    String? name,
+    SwidiLibraryScopePrefix? libraryScopePrefix,
+    SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,
+    SwidiNullabilitySuffix? nullabilitySuffix,
   }) =>
       SwidiInterface(
         name: name ?? swidiInterface.name,

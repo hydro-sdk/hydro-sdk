@@ -19,8 +19,8 @@ class _$SwidInstantiatedGenericTearOff {
 
 // ignore: unused_element
   _$SwidInstantiatedGenericCtor call(
-      {@required SwidInstantiableGeneric instantiableGeneric,
-      @required SwidReferenceDeclarationKind referenceDeclarationKind}) {
+      {required SwidInstantiableGeneric instantiableGeneric,
+      required SwidReferenceDeclarationKind referenceDeclarationKind}) {
     return _$SwidInstantiatedGenericCtor(
       instantiableGeneric: instantiableGeneric,
       referenceDeclarationKind: referenceDeclarationKind,
@@ -53,8 +53,8 @@ abstract class $SwidInstantiatedGenericCopyWith<$Res> {
           $Res Function(SwidInstantiatedGeneric) then) =
       _$SwidInstantiatedGenericCopyWithImpl<$Res>;
   $Res call(
-      {SwidInstantiableGeneric instantiableGeneric,
-      SwidReferenceDeclarationKind referenceDeclarationKind});
+      {SwidInstantiableGeneric? instantiableGeneric,
+      SwidReferenceDeclarationKind? referenceDeclarationKind});
 
   $SwidInstantiableGenericCopyWith<$Res> get instantiableGeneric;
 }
@@ -66,20 +66,20 @@ class _$SwidInstantiatedGenericCopyWithImpl<$Res>
 
   final SwidInstantiatedGeneric _value;
   // ignore: unused_field
-  final $Res Function(SwidInstantiatedGeneric) _then;
+  final $Res Function(SwidInstantiatedGeneric?) _then;
 
   @override
   $Res call({
-    Object instantiableGeneric = freezed,
-    Object referenceDeclarationKind = freezed,
+    Object? instantiableGeneric = freezed,
+    Object? referenceDeclarationKind = freezed,
   }) {
     return _then(_value.copyWith(
       instantiableGeneric: instantiableGeneric == freezed
           ? _value.instantiableGeneric
-          : instantiableGeneric as SwidInstantiableGeneric,
+          : instantiableGeneric as SwidInstantiableGeneric?,
       referenceDeclarationKind: referenceDeclarationKind == freezed
           ? _value.referenceDeclarationKind
-          : referenceDeclarationKind as SwidReferenceDeclarationKind,
+          : referenceDeclarationKind as SwidReferenceDeclarationKind?,
     ));
   }
 
@@ -104,8 +104,8 @@ abstract class _$$SwidInstantiatedGenericCtorCopyWith<$Res>
       __$$SwidInstantiatedGenericCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SwidInstantiableGeneric instantiableGeneric,
-      SwidReferenceDeclarationKind referenceDeclarationKind});
+      {SwidInstantiableGeneric? instantiableGeneric,
+      SwidReferenceDeclarationKind? referenceDeclarationKind});
 
   @override
   $SwidInstantiableGenericCopyWith<$Res> get instantiableGeneric;
@@ -126,16 +126,16 @@ class __$$SwidInstantiatedGenericCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object instantiableGeneric = freezed,
-    Object referenceDeclarationKind = freezed,
+    Object? instantiableGeneric = freezed,
+    Object? referenceDeclarationKind = freezed,
   }) {
     return _then(_$SwidInstantiatedGenericCtor(
       instantiableGeneric: instantiableGeneric == freezed
           ? _value.instantiableGeneric
-          : instantiableGeneric as SwidInstantiableGeneric,
+          : (instantiableGeneric as SwidInstantiableGeneric?)!,
       referenceDeclarationKind: referenceDeclarationKind == freezed
           ? _value.referenceDeclarationKind
-          : referenceDeclarationKind as SwidReferenceDeclarationKind,
+          : (referenceDeclarationKind as SwidReferenceDeclarationKind?)!,
     ));
   }
 }
@@ -145,8 +145,8 @@ class __$$SwidInstantiatedGenericCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidInstantiatedGenericCtor implements _$SwidInstantiatedGenericCtor {
   const _$_$SwidInstantiatedGenericCtor(
-      {@required this.instantiableGeneric,
-      @required this.referenceDeclarationKind})
+      {required this.instantiableGeneric,
+      required this.referenceDeclarationKind})
       : assert(instantiableGeneric != null),
         assert(referenceDeclarationKind != null);
 
@@ -197,8 +197,8 @@ class _$_$SwidInstantiatedGenericCtor implements _$SwidInstantiatedGenericCtor {
 abstract class _$SwidInstantiatedGenericCtor
     implements SwidInstantiatedGeneric {
   const factory _$SwidInstantiatedGenericCtor(
-          {@required SwidInstantiableGeneric instantiableGeneric,
-          @required SwidReferenceDeclarationKind referenceDeclarationKind}) =
+          {required SwidInstantiableGeneric instantiableGeneric,
+          required SwidReferenceDeclarationKind referenceDeclarationKind}) =
       _$_$SwidInstantiatedGenericCtor;
 
   factory _$SwidInstantiatedGenericCtor.fromJson(Map<String, dynamic> json) =

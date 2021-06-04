@@ -2,18 +2,18 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:meta/meta.dart';
 
-T narrowStaticConstSyntacticEntity<T>({
-  @required SyntacticEntity syntacticEntity,
-  @required T Function(IntegerLiteral) onIntegerLiteral,
-  @required T Function(StringLiteral) onStringLiteral,
-  @required T Function(SimpleStringLiteral) onSimpleStringLiteral,
-  @required T Function(DoubleLiteral) onDoubleLiteral,
-  @required T Function(BooleanLiteral) onBooleanLiteral,
-  @required T Function(PrefixedIdentifier) onPrefixedIdentifier,
-  @required T Function(SimpleIdentifier) onSimpleIdentifier,
-  @required T Function(PrefixExpression) onPrefixExpression,
-  @required T Function(InstanceCreationExpression) onInstanceCreationExpression,
-  @required T Function(BinaryExpression) onBinaryExpression,
+T? narrowStaticConstSyntacticEntity<T>({
+  required SyntacticEntity? syntacticEntity,
+  required T Function(IntegerLiteral) onIntegerLiteral,
+  required T Function(StringLiteral) onStringLiteral,
+  required T Function(SimpleStringLiteral) onSimpleStringLiteral,
+  required T Function(DoubleLiteral) onDoubleLiteral,
+  required T Function(BooleanLiteral) onBooleanLiteral,
+  required T Function(PrefixedIdentifier) onPrefixedIdentifier,
+  required T Function(SimpleIdentifier) onSimpleIdentifier,
+  required T Function(PrefixExpression) onPrefixExpression,
+  required T Function(InstanceCreationExpression) onInstanceCreationExpression,
+  required T Function(BinaryExpression) onBinaryExpression,
 }) =>
     syntacticEntity is InstanceCreationExpression
         ? onInstanceCreationExpression(syntacticEntity)

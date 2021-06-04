@@ -18,7 +18,7 @@ class _$SwidStaticConstFieldReferenceTearOff {
   const _$SwidStaticConstFieldReferenceTearOff();
 
 // ignore: unused_element
-  _$Data call({@required String name}) {
+  _$Data call({required String name}) {
     return _$Data(
       name: name,
     );
@@ -50,7 +50,7 @@ abstract class $SwidStaticConstFieldReferenceCopyWith<$Res> {
           SwidStaticConstFieldReference value,
           $Res Function(SwidStaticConstFieldReference) then) =
       _$SwidStaticConstFieldReferenceCopyWithImpl<$Res>;
-  $Res call({String name});
+  $Res call({String? name});
 }
 
 /// @nodoc
@@ -60,14 +60,14 @@ class _$SwidStaticConstFieldReferenceCopyWithImpl<$Res>
 
   final SwidStaticConstFieldReference _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstFieldReference) _then;
+  final $Res Function(SwidStaticConstFieldReference?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
     ));
   }
 }
@@ -78,7 +78,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String name});
+  $Res call({String? name});
 }
 
 /// @nodoc
@@ -93,10 +93,10 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
     ));
   }
 }
@@ -105,7 +105,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  const _$_$Data({@required this.name}) : assert(name != null);
+  const _$_$Data({required this.name}) : assert(name != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -142,7 +142,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidStaticConstFieldReference {
-  const factory _$Data({@required String name}) = _$_$Data;
+  const factory _$Data({required String name}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

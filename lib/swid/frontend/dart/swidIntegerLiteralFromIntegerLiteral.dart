@@ -5,5 +5,5 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 
 SwidIntegerLiteral swidIntegerLiteralFromIntegerLiteral(
-        {@required IntegerLiteral integerLiteral}) =>
+        {required IntegerLiteral integerLiteral}) =>
     SwidIntegerLiteral(value: integerLiteral.literal.lexeme);

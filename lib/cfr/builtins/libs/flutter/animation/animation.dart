@@ -9,33 +9,33 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedAnimation<T> extends VMManagedBox<Animation<T>> {
-  final HydroTable table;
-  final HydroState hydroState;
-  final Animation<T> vmObject;
+class VMManagedAnimation<T> extends VMManagedBox<Animation<T>?> {
+  final HydroTable? table;
+  final HydroState? hydroState;
+  final Animation<T>? vmObject;
   VMManagedAnimation({
-    @required this.table,
-    @required this.hydroState,
-    @required this.vmObject,
+    required this.table,
+    required this.hydroState,
+    required this.vmObject,
   }) : super(
           table: table,
           hydroState: hydroState,
           vmObject: vmObject,
         ) {
-    table["value"] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.value];
+    table!["value"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.value];
     });
   }
 }
 
 void loadAnimation(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   var animation = HydroTable();
 
   table["animation"] = animation;
 
   registerBoxer<Animation<double>>(boxer: (
-      {Animation<double> vmObject, HydroState hydroState, HydroTable table}) {
+      {Animation<double>? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedAnimation<double>(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

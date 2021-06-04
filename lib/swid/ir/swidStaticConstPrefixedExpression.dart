@@ -10,8 +10,8 @@ part 'swidStaticConstPrefixedExpression.g.dart';
 abstract class SwidStaticConstPrefixedExpression
     with _$SwidStaticConstPrefixedExpression {
   const factory SwidStaticConstPrefixedExpression({
-    @required String prefix,
-    @required SwidStaticConst expression,
+    required String prefix,
+    required SwidStaticConst expression,
   }) = _$Data;
 
   factory SwidStaticConstPrefixedExpression.fromJson(

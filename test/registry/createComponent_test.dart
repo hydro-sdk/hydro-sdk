@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -45,11 +46,11 @@ void main() {
 
       expect(createProjectResponse, isNull);
 
-      final loginResponse = await api.login(
+      final loginResponse = await (api.login(
           dto: LoginUserDto(
         username: username,
         password: password,
-      ));
+      )) as FutureOr<SessionDto>);
 
       expect(loginResponse, isNotNull);
       expect(loginResponse.authenticatedUser.username, username);
@@ -63,7 +64,7 @@ void main() {
       );
 
       expect(createProjectResponse, isNotNull);
-      expect(createProjectResponse.name, projectName);
+      expect(createProjectResponse!.name, projectName);
       expect(createProjectResponse.description, projectDescription);
 
       var canUpdateProjectResponse = await api.canUpdateProjects(
@@ -76,9 +77,8 @@ void main() {
         sessionDto: loginResponse,
       );
 
-      var createdProject = canUpdateProjectResponse.firstWhere(
-          (x) => x.name == createProjectResponse.name,
-          orElse: () => null);
+      var createdProject = canUpdateProjectResponse!.firstWhereOrNull(
+          (x) => x.name == createProjectResponse!.name)!;
 
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);
@@ -104,12 +104,12 @@ void main() {
       );
 
       expect(createComponentResponse, isNotNull);
-      expect(createComponentResponse.name, componentName);
+      expect(createComponentResponse!.name, componentName);
       expect(createComponentResponse.description, componentDescription);
 
-      var canUpdateComponentResponse = await api.canUpdateComponents(
+      var canUpdateComponentResponse = await (api.canUpdateComponents(
         sessionDto: loginResponse,
-      );
+      ) as FutureOr<List<ComponentReadDto>>);
 
       expect(canUpdateComponentResponse, isNotNull);
       expect(

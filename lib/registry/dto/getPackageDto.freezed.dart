@@ -18,11 +18,11 @@ class _$GetPackageDtoTearOff {
 
 // ignore: unused_element
   _$GetPackageDtoCtor call(
-      {@required String sessionId,
-      @required String projectName,
-      @required String componentName,
-      @required String releaseChannelName,
-      @required String currentPackageId}) {
+      {required String sessionId,
+      required String projectName,
+      required String componentName,
+      required String releaseChannelName,
+      required String currentPackageId}) {
     return _$GetPackageDtoCtor(
       sessionId: sessionId,
       projectName: projectName,
@@ -61,11 +61,11 @@ abstract class $GetPackageDtoCopyWith<$Res> {
           GetPackageDto value, $Res Function(GetPackageDto) then) =
       _$GetPackageDtoCopyWithImpl<$Res>;
   $Res call(
-      {String sessionId,
-      String projectName,
-      String componentName,
-      String releaseChannelName,
-      String currentPackageId});
+      {String? sessionId,
+      String? projectName,
+      String? componentName,
+      String? releaseChannelName,
+      String? currentPackageId});
 }
 
 /// @nodoc
@@ -75,29 +75,29 @@ class _$GetPackageDtoCopyWithImpl<$Res>
 
   final GetPackageDto _value;
   // ignore: unused_field
-  final $Res Function(GetPackageDto) _then;
+  final $Res Function(GetPackageDto?) _then;
 
   @override
   $Res call({
-    Object sessionId = freezed,
-    Object projectName = freezed,
-    Object componentName = freezed,
-    Object releaseChannelName = freezed,
-    Object currentPackageId = freezed,
+    Object? sessionId = freezed,
+    Object? projectName = freezed,
+    Object? componentName = freezed,
+    Object? releaseChannelName = freezed,
+    Object? currentPackageId = freezed,
   }) {
     return _then(_value.copyWith(
-      sessionId: sessionId == freezed ? _value.sessionId : sessionId as String,
+      sessionId: sessionId == freezed ? _value.sessionId : sessionId as String?,
       projectName:
-          projectName == freezed ? _value.projectName : projectName as String,
+          projectName == freezed ? _value.projectName : projectName as String?,
       componentName: componentName == freezed
           ? _value.componentName
-          : componentName as String,
+          : componentName as String?,
       releaseChannelName: releaseChannelName == freezed
           ? _value.releaseChannelName
-          : releaseChannelName as String,
+          : releaseChannelName as String?,
       currentPackageId: currentPackageId == freezed
           ? _value.currentPackageId
-          : currentPackageId as String,
+          : currentPackageId as String?,
     ));
   }
 }
@@ -110,11 +110,11 @@ abstract class _$$GetPackageDtoCtorCopyWith<$Res>
       __$$GetPackageDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String sessionId,
-      String projectName,
-      String componentName,
-      String releaseChannelName,
-      String currentPackageId});
+      {String? sessionId,
+      String? projectName,
+      String? componentName,
+      String? releaseChannelName,
+      String? currentPackageId});
 }
 
 /// @nodoc
@@ -130,25 +130,25 @@ class __$$GetPackageDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object sessionId = freezed,
-    Object projectName = freezed,
-    Object componentName = freezed,
-    Object releaseChannelName = freezed,
-    Object currentPackageId = freezed,
+    Object? sessionId = freezed,
+    Object? projectName = freezed,
+    Object? componentName = freezed,
+    Object? releaseChannelName = freezed,
+    Object? currentPackageId = freezed,
   }) {
     return _then(_$GetPackageDtoCtor(
-      sessionId: sessionId == freezed ? _value.sessionId : sessionId as String,
+      sessionId: sessionId == freezed ? _value.sessionId : (sessionId as String?)!,
       projectName:
-          projectName == freezed ? _value.projectName : projectName as String,
+          projectName == freezed ? _value.projectName : (projectName as String?)!,
       componentName: componentName == freezed
           ? _value.componentName
-          : componentName as String,
+          : (componentName as String?)!,
       releaseChannelName: releaseChannelName == freezed
           ? _value.releaseChannelName
-          : releaseChannelName as String,
+          : (releaseChannelName as String?)!,
       currentPackageId: currentPackageId == freezed
           ? _value.currentPackageId
-          : currentPackageId as String,
+          : (currentPackageId as String?)!,
     ));
   }
 }
@@ -158,11 +158,11 @@ class __$$GetPackageDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$GetPackageDtoCtor implements _$GetPackageDtoCtor {
   const _$_$GetPackageDtoCtor(
-      {@required this.sessionId,
-      @required this.projectName,
-      @required this.componentName,
-      @required this.releaseChannelName,
-      @required this.currentPackageId})
+      {required this.sessionId,
+      required this.projectName,
+      required this.componentName,
+      required this.releaseChannelName,
+      required this.currentPackageId})
       : assert(sessionId != null),
         assert(projectName != null),
         assert(componentName != null),
@@ -231,11 +231,11 @@ class _$_$GetPackageDtoCtor implements _$GetPackageDtoCtor {
 
 abstract class _$GetPackageDtoCtor implements GetPackageDto {
   const factory _$GetPackageDtoCtor(
-      {@required String sessionId,
-      @required String projectName,
-      @required String componentName,
-      @required String releaseChannelName,
-      @required String currentPackageId}) = _$_$GetPackageDtoCtor;
+      {required String sessionId,
+      required String projectName,
+      required String componentName,
+      required String releaseChannelName,
+      required String currentPackageId}) = _$_$GetPackageDtoCtor;
 
   factory _$GetPackageDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$GetPackageDtoCtor.fromJson;

@@ -24,8 +24,8 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
   final SwidStaticConstFieldDeclaration swidStaticConstFieldDeclaration;
 
   DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration({
-    @required this.swidClass,
-    @required this.swidStaticConstFieldDeclaration,
+    required this.swidClass,
+    required this.swidStaticConstFieldDeclaration,
   });
 
   Code toCode() => refer("table")
@@ -40,8 +40,8 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
                   DartBoxObjectReference(
                     codeKind: CodeKind.expression,
                     boxLists: true,
-                    type: swidStaticConstFieldDeclaration.value
-                        .when<SwidInterface>(
+                    type: swidStaticConstFieldDeclaration.value!
+                        .when<SwidInterface?>(
                       fromSwidBooleanLiteral: (_) => null,
                       fromSwidStringLiteral: (_) => null,
                       fromSwidIntegerLiteral: (_) => null,

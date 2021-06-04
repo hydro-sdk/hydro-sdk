@@ -18,14 +18,14 @@ class _$CreatePackageDtoTearOff {
 
 // ignore: unused_element
   _$CreatePackageDtoCtor call(
-      {@required String publishingPrivateKeySha256,
-      @required String otaPackageBase64,
-      @required String componentName,
-      @required String displayVersion,
-      @required String description,
-      @required String readmeMd,
-      @required String pubspecYaml,
-      @required String pubspecLock,
+      {required String publishingPrivateKeySha256,
+      required String otaPackageBase64,
+      required String componentName,
+      required String displayVersion,
+      required String description,
+      required String readmeMd,
+      required String pubspecYaml,
+      required String pubspecLock,
       String releaseChannelName = "latest"}) {
     return _$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256,
@@ -73,15 +73,15 @@ abstract class $CreatePackageDtoCopyWith<$Res> {
           CreatePackageDto value, $Res Function(CreatePackageDto) then) =
       _$CreatePackageDtoCopyWithImpl<$Res>;
   $Res call(
-      {String publishingPrivateKeySha256,
-      String otaPackageBase64,
-      String componentName,
-      String displayVersion,
-      String description,
-      String readmeMd,
-      String pubspecYaml,
-      String pubspecLock,
-      String releaseChannelName});
+      {String? publishingPrivateKeySha256,
+      String? otaPackageBase64,
+      String? componentName,
+      String? displayVersion,
+      String? description,
+      String? readmeMd,
+      String? pubspecYaml,
+      String? pubspecLock,
+      String? releaseChannelName});
 }
 
 /// @nodoc
@@ -91,43 +91,43 @@ class _$CreatePackageDtoCopyWithImpl<$Res>
 
   final CreatePackageDto _value;
   // ignore: unused_field
-  final $Res Function(CreatePackageDto) _then;
+  final $Res Function(CreatePackageDto?) _then;
 
   @override
   $Res call({
-    Object publishingPrivateKeySha256 = freezed,
-    Object otaPackageBase64 = freezed,
-    Object componentName = freezed,
-    Object displayVersion = freezed,
-    Object description = freezed,
-    Object readmeMd = freezed,
-    Object pubspecYaml = freezed,
-    Object pubspecLock = freezed,
-    Object releaseChannelName = freezed,
+    Object? publishingPrivateKeySha256 = freezed,
+    Object? otaPackageBase64 = freezed,
+    Object? componentName = freezed,
+    Object? displayVersion = freezed,
+    Object? description = freezed,
+    Object? readmeMd = freezed,
+    Object? pubspecYaml = freezed,
+    Object? pubspecLock = freezed,
+    Object? releaseChannelName = freezed,
   }) {
     return _then(_value.copyWith(
       publishingPrivateKeySha256: publishingPrivateKeySha256 == freezed
           ? _value.publishingPrivateKeySha256
-          : publishingPrivateKeySha256 as String,
+          : publishingPrivateKeySha256 as String?,
       otaPackageBase64: otaPackageBase64 == freezed
           ? _value.otaPackageBase64
-          : otaPackageBase64 as String,
+          : otaPackageBase64 as String?,
       componentName: componentName == freezed
           ? _value.componentName
-          : componentName as String,
+          : componentName as String?,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
-          : displayVersion as String,
+          : displayVersion as String?,
       description:
-          description == freezed ? _value.description : description as String,
-      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String,
+          description == freezed ? _value.description : description as String?,
+      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String?,
       pubspecYaml:
-          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
+          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String?,
       pubspecLock:
-          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String?,
       releaseChannelName: releaseChannelName == freezed
           ? _value.releaseChannelName
-          : releaseChannelName as String,
+          : releaseChannelName as String?,
     ));
   }
 }
@@ -140,15 +140,15 @@ abstract class _$$CreatePackageDtoCtorCopyWith<$Res>
       __$$CreatePackageDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String publishingPrivateKeySha256,
-      String otaPackageBase64,
-      String componentName,
-      String displayVersion,
-      String description,
-      String readmeMd,
-      String pubspecYaml,
-      String pubspecLock,
-      String releaseChannelName});
+      {String? publishingPrivateKeySha256,
+      String? otaPackageBase64,
+      String? componentName,
+      String? displayVersion,
+      String? description,
+      String? readmeMd,
+      String? pubspecYaml,
+      String? pubspecLock,
+      String? releaseChannelName});
 }
 
 /// @nodoc
@@ -164,39 +164,39 @@ class __$$CreatePackageDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object publishingPrivateKeySha256 = freezed,
-    Object otaPackageBase64 = freezed,
-    Object componentName = freezed,
-    Object displayVersion = freezed,
-    Object description = freezed,
-    Object readmeMd = freezed,
-    Object pubspecYaml = freezed,
-    Object pubspecLock = freezed,
-    Object releaseChannelName = freezed,
+    Object? publishingPrivateKeySha256 = freezed,
+    Object? otaPackageBase64 = freezed,
+    Object? componentName = freezed,
+    Object? displayVersion = freezed,
+    Object? description = freezed,
+    Object? readmeMd = freezed,
+    Object? pubspecYaml = freezed,
+    Object? pubspecLock = freezed,
+    Object? releaseChannelName = freezed,
   }) {
     return _then(_$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256 == freezed
           ? _value.publishingPrivateKeySha256
-          : publishingPrivateKeySha256 as String,
+          : (publishingPrivateKeySha256 as String?)!,
       otaPackageBase64: otaPackageBase64 == freezed
           ? _value.otaPackageBase64
-          : otaPackageBase64 as String,
+          : (otaPackageBase64 as String?)!,
       componentName: componentName == freezed
           ? _value.componentName
-          : componentName as String,
+          : (componentName as String?)!,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
-          : displayVersion as String,
+          : (displayVersion as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
-      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String,
+          description == freezed ? _value.description : (description as String?)!,
+      readmeMd: readmeMd == freezed ? _value.readmeMd : (readmeMd as String?)!,
       pubspecYaml:
-          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
+          pubspecYaml == freezed ? _value.pubspecYaml : (pubspecYaml as String?)!,
       pubspecLock:
-          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+          pubspecLock == freezed ? _value.pubspecLock : (pubspecLock as String?)!,
       releaseChannelName: releaseChannelName == freezed
           ? _value.releaseChannelName
-          : releaseChannelName as String,
+          : (releaseChannelName as String?)!,
     ));
   }
 }
@@ -206,14 +206,14 @@ class __$$CreatePackageDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
   const _$_$CreatePackageDtoCtor(
-      {@required this.publishingPrivateKeySha256,
-      @required this.otaPackageBase64,
-      @required this.componentName,
-      @required this.displayVersion,
-      @required this.description,
-      @required this.readmeMd,
-      @required this.pubspecYaml,
-      @required this.pubspecLock,
+      {required this.publishingPrivateKeySha256,
+      required this.otaPackageBase64,
+      required this.componentName,
+      required this.displayVersion,
+      required this.description,
+      required this.readmeMd,
+      required this.pubspecYaml,
+      required this.pubspecLock,
       this.releaseChannelName = "latest"})
       : assert(publishingPrivateKeySha256 != null),
         assert(otaPackageBase64 != null),
@@ -315,15 +315,15 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
 
 abstract class _$CreatePackageDtoCtor implements CreatePackageDto {
   const factory _$CreatePackageDtoCtor(
-      {@required String publishingPrivateKeySha256,
-      @required String otaPackageBase64,
-      @required String componentName,
-      @required String displayVersion,
-      @required String description,
-      @required String readmeMd,
-      @required String pubspecYaml,
-      @required String pubspecLock,
-      String releaseChannelName}) = _$_$CreatePackageDtoCtor;
+      {required String publishingPrivateKeySha256,
+      required String otaPackageBase64,
+      required String componentName,
+      required String displayVersion,
+      required String description,
+      required String readmeMd,
+      required String pubspecYaml,
+      required String pubspecLock,
+      required String releaseChannelName}) = _$_$CreatePackageDtoCtor;
 
   factory _$CreatePackageDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreatePackageDtoCtor.fromJson;

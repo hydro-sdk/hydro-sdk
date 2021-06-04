@@ -10,11 +10,11 @@ _$_$PackageManifestCtor _$_$_$PackageManifestCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$PackageManifestCtor(
     mountableChunk: json['mountableChunk'] as String,
-    entries: (json['entries'] as List)
+    (entries: (json['entries'] as List?)
         ?.map((e) => e == null
             ? null
             : PackageManifestEntry.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+        ?.toList())!,
     signature: json['signature'] as String,
   );
 }

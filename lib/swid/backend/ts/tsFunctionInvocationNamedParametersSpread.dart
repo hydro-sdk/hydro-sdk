@@ -8,7 +8,7 @@ part 'tsFunctionInvocationNamedParametersSpread.g.dart';
 abstract class TsFunctionInvocationNamedParametersSpread
     with _$TsFunctionInvocationNamedParametersSpread {
   factory TsFunctionInvocationNamedParametersSpread(
-      {@required List<String> references}) = _$Data;
+      {required List<String> references}) = _$Data;
 
   factory TsFunctionInvocationNamedParametersSpread.fromJson(
           Map<String, dynamic> json) =>

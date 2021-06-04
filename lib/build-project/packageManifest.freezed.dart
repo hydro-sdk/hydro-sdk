@@ -18,9 +18,9 @@ class _$PackageManifestTearOff {
 
 // ignore: unused_element
   _$PackageManifestCtor call(
-      {@required String mountableChunk,
-      @required List<PackageManifestEntry> entries,
-      @required String signature}) {
+      {required String mountableChunk,
+      required List<PackageManifestEntry> entries,
+      required String signature}) {
     return _$PackageManifestCtor(
       mountableChunk: mountableChunk,
       entries: entries,
@@ -55,9 +55,9 @@ abstract class $PackageManifestCopyWith<$Res> {
           PackageManifest value, $Res Function(PackageManifest) then) =
       _$PackageManifestCopyWithImpl<$Res>;
   $Res call(
-      {String mountableChunk,
-      List<PackageManifestEntry> entries,
-      String signature});
+      {String? mountableChunk,
+      List<PackageManifestEntry>? entries,
+      String? signature});
 }
 
 /// @nodoc
@@ -67,22 +67,22 @@ class _$PackageManifestCopyWithImpl<$Res>
 
   final PackageManifest _value;
   // ignore: unused_field
-  final $Res Function(PackageManifest) _then;
+  final $Res Function(PackageManifest?) _then;
 
   @override
   $Res call({
-    Object mountableChunk = freezed,
-    Object entries = freezed,
-    Object signature = freezed,
+    Object? mountableChunk = freezed,
+    Object? entries = freezed,
+    Object? signature = freezed,
   }) {
     return _then(_value.copyWith(
       mountableChunk: mountableChunk == freezed
           ? _value.mountableChunk
-          : mountableChunk as String,
+          : mountableChunk as String?,
       entries: entries == freezed
           ? _value.entries
-          : entries as List<PackageManifestEntry>,
-      signature: signature == freezed ? _value.signature : signature as String,
+          : entries as List<PackageManifestEntry>?,
+      signature: signature == freezed ? _value.signature : signature as String?,
     ));
   }
 }
@@ -95,9 +95,9 @@ abstract class _$$PackageManifestCtorCopyWith<$Res>
       __$$PackageManifestCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String mountableChunk,
-      List<PackageManifestEntry> entries,
-      String signature});
+      {String? mountableChunk,
+      List<PackageManifestEntry>? entries,
+      String? signature});
 }
 
 /// @nodoc
@@ -113,18 +113,18 @@ class __$$PackageManifestCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object mountableChunk = freezed,
-    Object entries = freezed,
-    Object signature = freezed,
+    Object? mountableChunk = freezed,
+    Object? entries = freezed,
+    Object? signature = freezed,
   }) {
     return _then(_$PackageManifestCtor(
       mountableChunk: mountableChunk == freezed
           ? _value.mountableChunk
-          : mountableChunk as String,
+          : (mountableChunk as String?)!,
       entries: entries == freezed
           ? _value.entries
-          : entries as List<PackageManifestEntry>,
-      signature: signature == freezed ? _value.signature : signature as String,
+          : (entries as List<PackageManifestEntry>?)!,
+      signature: signature == freezed ? _value.signature : (signature as String?)!,
     ));
   }
 }
@@ -134,9 +134,9 @@ class __$$PackageManifestCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$PackageManifestCtor implements _$PackageManifestCtor {
   const _$_$PackageManifestCtor(
-      {@required this.mountableChunk,
-      @required this.entries,
-      @required this.signature})
+      {required this.mountableChunk,
+      required this.entries,
+      required this.signature})
       : assert(mountableChunk != null),
         assert(entries != null),
         assert(signature != null);
@@ -192,9 +192,9 @@ class _$_$PackageManifestCtor implements _$PackageManifestCtor {
 
 abstract class _$PackageManifestCtor implements PackageManifest {
   const factory _$PackageManifestCtor(
-      {@required String mountableChunk,
-      @required List<PackageManifestEntry> entries,
-      @required String signature}) = _$_$PackageManifestCtor;
+      {required String mountableChunk,
+      required List<PackageManifestEntry> entries,
+      required String signature}) = _$_$PackageManifestCtor;
 
   factory _$PackageManifestCtor.fromJson(Map<String, dynamic> json) =
       _$_$PackageManifestCtor.fromJson;

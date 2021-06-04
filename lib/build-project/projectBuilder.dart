@@ -5,23 +5,23 @@ import 'package:hydro_sdk/projectConfig/projectConfig.dart';
 
 class ProjectBuilder {
   final ProjectConfig projectConfig;
-  final String ts2hc;
-  final String cacheDir;
-  final String profile;
-  final String outDir;
+  final String? ts2hc;
+  final String? cacheDir;
+  final String? profile;
+  final String? outDir;
   final String signingKey;
 
   const ProjectBuilder({
-    @required this.projectConfig,
-    @required this.ts2hc,
-    @required this.cacheDir,
-    @required this.profile,
-    @required this.signingKey,
+    required this.projectConfig,
+    required this.ts2hc,
+    required this.cacheDir,
+    required this.profile,
+    required this.signingKey,
     this.outDir = "",
   });
 
   Future<bool> build({
-    @required bool signManifest,
+    required bool signManifest,
   }) async {
     try {
       print("Building project ${projectConfig.project}");

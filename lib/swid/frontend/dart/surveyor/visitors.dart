@@ -58,7 +58,7 @@ abstract class PostVisitCallback {
 
 abstract class PreAnalysisCallback {
   void preAnalysis(SurveyorContext context,
-      {bool subDir, DriverCommands commandCallback});
+      {bool? subDir, DriverCommands? commandCallback});
 }
 
 /// A simple visitor for pubspec files.

@@ -5,5 +5,5 @@ import 'package:meta/meta.dart';
 import 'package:hydro_sdk/swid/ir/swidDoubleLiteral.dart';
 
 SwidDoubleLiteral swidDoubleLiteralFromDoubleLiteral(
-        {@required DoubleLiteral doubleLiteral}) =>
+        {required DoubleLiteral doubleLiteral}) =>
     SwidDoubleLiteral(value: doubleLiteral.literal.lexeme);

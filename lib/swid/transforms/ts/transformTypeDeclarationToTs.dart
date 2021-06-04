@@ -11,7 +11,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 
 String transformTypeDeclarationToTs({
-  @required SwidType swidType,
+  required SwidType swidType,
   bool emitTrailingReturnType = true,
   bool emitDefaultFormalsAsOptionalNamed = false,
   bool emitTopLevelInitializersForOptionalPositionals = false,
@@ -28,7 +28,7 @@ String transformTypeDeclarationToTs({
         ? removeNullabilitySuffixFromTypeNames(
                 swidType: transformPrimitiveNamesToTs(swidType: swidType))
             .when(
-                fromSwidInterface: (val) =>
+                fromSwidInterface: ((val) =>
                     narrowSwidInterfaceByReferenceDeclaration(
                       swidInterface: val,
                       onPrimitive: (val) => val.name,
@@ -38,7 +38,7 @@ String transformTypeDeclarationToTs({
                               ? "<" +
                                   val.typeArguments
                                       .map((x) => transformTypeDeclarationToTs(
-                                            swidType: x,
+                                            swidType: x!,
                                             emitTrailingReturnType:
                                                 emitTrailingReturnType,
                                             emitDefaultFormalsAsOptionalNamed:
@@ -60,7 +60,7 @@ String transformTypeDeclarationToTs({
                               ? "<" +
                                   val.typeArguments
                                       .map((x) => transformTypeDeclarationToTs(
-                                            swidType: x,
+                                            swidType: x!,
                                             emitTrailingReturnType:
                                                 emitTrailingReturnType,
                                             emitDefaultFormalsAsOptionalNamed:
@@ -75,7 +75,7 @@ String transformTypeDeclarationToTs({
                                   ">"
                               : ""),
                       onDynamic: (val) => "any",
-                    ),
+                    )!) as String Function(SwidInterface),
                 fromSwidClass: (_) => "",
                 fromSwidDefaultFormalParameter: (val) => val.name,
                 fromSwidFunctionType: (val) => transformFunctionTypeToTs(
@@ -91,9 +91,9 @@ String transformTypeDeclarationToTs({
                 "{[index: " +
                 transformTypeDeclarationToTs(
                     swidType: transformPrimitiveNamesToTs(
-                        swidType: val.typeArguments.first)) +
+                        swidType: val.typeArguments.first!)) +
                 "]: " +
-                transformTypeDeclarationToTs(swidType: val.typeArguments.last) +
+                transformTypeDeclarationToTs(swidType: val.typeArguments.last!) +
                 "}",
             fromSwidClass: (_) => "",
             fromSwidDefaultFormalParameter: (_) => "",

@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
@@ -12,9 +13,9 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
 
 List<Tuple2<List<String>, String>> resolveDependencyInformation({
-  @required List<SwidInterface> dependencies,
-  @required SwidType importer,
-  @required List<String> prefixPaths,
+  required List<SwidInterface> dependencies,
+  required SwidType importer,
+  required List<String> prefixPaths,
   bool rewriteReferences = true,
 }) =>
     dependencies
@@ -22,8 +23,7 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
             swidType: x, name: removeTypeArguments(str: x.name)))
         .fold<List<SwidInterface>>(
             <SwidInterface>[],
-            (prev, element) => prev.firstWhere((x) => x.name == element.name,
-                        orElse: () => null) ==
+            (prev, element) => prev.firstWhereOrNull((x) => x.name == element.name) ==
                     null
                 ? [...prev, element]
                 : prev)

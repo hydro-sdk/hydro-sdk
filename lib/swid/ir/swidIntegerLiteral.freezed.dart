@@ -17,7 +17,7 @@ class _$SwidIntegerLiteralTearOff {
   const _$SwidIntegerLiteralTearOff();
 
 // ignore: unused_element
-  _$Data call({@required String value}) {
+  _$Data call({required String value}) {
     return _$Data(
       value: value,
     );
@@ -47,7 +47,7 @@ abstract class $SwidIntegerLiteralCopyWith<$Res> {
   factory $SwidIntegerLiteralCopyWith(
           SwidIntegerLiteral value, $Res Function(SwidIntegerLiteral) then) =
       _$SwidIntegerLiteralCopyWithImpl<$Res>;
-  $Res call({String value});
+  $Res call({String? value});
 }
 
 /// @nodoc
@@ -57,14 +57,14 @@ class _$SwidIntegerLiteralCopyWithImpl<$Res>
 
   final SwidIntegerLiteral _value;
   // ignore: unused_field
-  final $Res Function(SwidIntegerLiteral) _then;
+  final $Res Function(SwidIntegerLiteral?) _then;
 
   @override
   $Res call({
-    Object value = freezed,
+    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed ? _value.value : value as String,
+      value: value == freezed ? _value.value : value as String?,
     ));
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String value});
+  $Res call({String? value});
 }
 
 /// @nodoc
@@ -89,10 +89,10 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidIntegerLiteralCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object value = freezed,
+    Object? value = freezed,
   }) {
     return _then(_$Data(
-      value: value == freezed ? _value.value : value as String,
+      value: value == freezed ? _value.value : (value as String?)!,
     ));
   }
 }
@@ -101,7 +101,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidIntegerLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  const _$_$Data({@required this.value}) : assert(value != null);
+  const _$_$Data({required this.value}) : assert(value != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -138,7 +138,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements SwidIntegerLiteral {
-  const factory _$Data({@required String value}) = _$_$Data;
+  const factory _$Data({required String value}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

@@ -18,17 +18,17 @@ class _$PackageReadDtoTearOff {
 
 // ignore: unused_element
   _$PackageReadDtoCtor call(
-      {@required String id,
-      @required String createdAt,
-      @required String componentId,
-      @required String sha256,
-      @required String displayVersion,
-      @required String description,
-      @required String deploymentPublicKey,
-      @required String deploymentPublicKeySha256,
-      @required String readmeMd,
-      @required String pubspecYaml,
-      @required String pubspecLock}) {
+      {required String id,
+      required String createdAt,
+      required String componentId,
+      required String sha256,
+      required String displayVersion,
+      required String description,
+      required String deploymentPublicKey,
+      required String deploymentPublicKeySha256,
+      required String readmeMd,
+      required String pubspecYaml,
+      required String pubspecLock}) {
     return _$PackageReadDtoCtor(
       id: id,
       createdAt: createdAt,
@@ -79,17 +79,17 @@ abstract class $PackageReadDtoCopyWith<$Res> {
           PackageReadDto value, $Res Function(PackageReadDto) then) =
       _$PackageReadDtoCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String createdAt,
-      String componentId,
-      String sha256,
-      String displayVersion,
-      String description,
-      String deploymentPublicKey,
-      String deploymentPublicKeySha256,
-      String readmeMd,
-      String pubspecYaml,
-      String pubspecLock});
+      {String? id,
+      String? createdAt,
+      String? componentId,
+      String? sha256,
+      String? displayVersion,
+      String? description,
+      String? deploymentPublicKey,
+      String? deploymentPublicKeySha256,
+      String? readmeMd,
+      String? pubspecYaml,
+      String? pubspecLock});
 }
 
 /// @nodoc
@@ -99,44 +99,44 @@ class _$PackageReadDtoCopyWithImpl<$Res>
 
   final PackageReadDto _value;
   // ignore: unused_field
-  final $Res Function(PackageReadDto) _then;
+  final $Res Function(PackageReadDto?) _then;
 
   @override
   $Res call({
-    Object id = freezed,
-    Object createdAt = freezed,
-    Object componentId = freezed,
-    Object sha256 = freezed,
-    Object displayVersion = freezed,
-    Object description = freezed,
-    Object deploymentPublicKey = freezed,
-    Object deploymentPublicKeySha256 = freezed,
-    Object readmeMd = freezed,
-    Object pubspecYaml = freezed,
-    Object pubspecLock = freezed,
+    Object? id = freezed,
+    Object? createdAt = freezed,
+    Object? componentId = freezed,
+    Object? sha256 = freezed,
+    Object? displayVersion = freezed,
+    Object? description = freezed,
+    Object? deploymentPublicKey = freezed,
+    Object? deploymentPublicKeySha256 = freezed,
+    Object? readmeMd = freezed,
+    Object? pubspecYaml = freezed,
+    Object? pubspecLock = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
+      id: id == freezed ? _value.id : id as String?,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String?,
       componentId:
-          componentId == freezed ? _value.componentId : componentId as String,
-      sha256: sha256 == freezed ? _value.sha256 : sha256 as String,
+          componentId == freezed ? _value.componentId : componentId as String?,
+      sha256: sha256 == freezed ? _value.sha256 : sha256 as String?,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
-          : displayVersion as String,
+          : displayVersion as String?,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : description as String?,
       deploymentPublicKey: deploymentPublicKey == freezed
           ? _value.deploymentPublicKey
-          : deploymentPublicKey as String,
+          : deploymentPublicKey as String?,
       deploymentPublicKeySha256: deploymentPublicKeySha256 == freezed
           ? _value.deploymentPublicKeySha256
-          : deploymentPublicKeySha256 as String,
-      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String,
+          : deploymentPublicKeySha256 as String?,
+      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String?,
       pubspecYaml:
-          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
+          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String?,
       pubspecLock:
-          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String?,
     ));
   }
 }
@@ -149,17 +149,17 @@ abstract class _$$PackageReadDtoCtorCopyWith<$Res>
       __$$PackageReadDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String createdAt,
-      String componentId,
-      String sha256,
-      String displayVersion,
-      String description,
-      String deploymentPublicKey,
-      String deploymentPublicKeySha256,
-      String readmeMd,
-      String pubspecYaml,
-      String pubspecLock});
+      {String? id,
+      String? createdAt,
+      String? componentId,
+      String? sha256,
+      String? displayVersion,
+      String? description,
+      String? deploymentPublicKey,
+      String? deploymentPublicKeySha256,
+      String? readmeMd,
+      String? pubspecYaml,
+      String? pubspecLock});
 }
 
 /// @nodoc
@@ -175,40 +175,40 @@ class __$$PackageReadDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object createdAt = freezed,
-    Object componentId = freezed,
-    Object sha256 = freezed,
-    Object displayVersion = freezed,
-    Object description = freezed,
-    Object deploymentPublicKey = freezed,
-    Object deploymentPublicKeySha256 = freezed,
-    Object readmeMd = freezed,
-    Object pubspecYaml = freezed,
-    Object pubspecLock = freezed,
+    Object? id = freezed,
+    Object? createdAt = freezed,
+    Object? componentId = freezed,
+    Object? sha256 = freezed,
+    Object? displayVersion = freezed,
+    Object? description = freezed,
+    Object? deploymentPublicKey = freezed,
+    Object? deploymentPublicKeySha256 = freezed,
+    Object? readmeMd = freezed,
+    Object? pubspecYaml = freezed,
+    Object? pubspecLock = freezed,
   }) {
     return _then(_$PackageReadDtoCtor(
-      id: id == freezed ? _value.id : id as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
+      id: id == freezed ? _value.id : (id as String?)!,
+      createdAt: createdAt == freezed ? _value.createdAt : (createdAt as String?)!,
       componentId:
-          componentId == freezed ? _value.componentId : componentId as String,
-      sha256: sha256 == freezed ? _value.sha256 : sha256 as String,
+          componentId == freezed ? _value.componentId : (componentId as String?)!,
+      sha256: sha256 == freezed ? _value.sha256 : (sha256 as String?)!,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
-          : displayVersion as String,
+          : (displayVersion as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : (description as String?)!,
       deploymentPublicKey: deploymentPublicKey == freezed
           ? _value.deploymentPublicKey
-          : deploymentPublicKey as String,
+          : (deploymentPublicKey as String?)!,
       deploymentPublicKeySha256: deploymentPublicKeySha256 == freezed
           ? _value.deploymentPublicKeySha256
-          : deploymentPublicKeySha256 as String,
-      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String,
+          : (deploymentPublicKeySha256 as String?)!,
+      readmeMd: readmeMd == freezed ? _value.readmeMd : (readmeMd as String?)!,
       pubspecYaml:
-          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
+          pubspecYaml == freezed ? _value.pubspecYaml : (pubspecYaml as String?)!,
       pubspecLock:
-          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+          pubspecLock == freezed ? _value.pubspecLock : (pubspecLock as String?)!,
     ));
   }
 }
@@ -218,17 +218,17 @@ class __$$PackageReadDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$PackageReadDtoCtor implements _$PackageReadDtoCtor {
   const _$_$PackageReadDtoCtor(
-      {@required this.id,
-      @required this.createdAt,
-      @required this.componentId,
-      @required this.sha256,
-      @required this.displayVersion,
-      @required this.description,
-      @required this.deploymentPublicKey,
-      @required this.deploymentPublicKeySha256,
-      @required this.readmeMd,
-      @required this.pubspecYaml,
-      @required this.pubspecLock})
+      {required this.id,
+      required this.createdAt,
+      required this.componentId,
+      required this.sha256,
+      required this.displayVersion,
+      required this.description,
+      required this.deploymentPublicKey,
+      required this.deploymentPublicKeySha256,
+      required this.readmeMd,
+      required this.pubspecYaml,
+      required this.pubspecLock})
       : assert(id != null),
         assert(createdAt != null),
         assert(componentId != null),
@@ -340,17 +340,17 @@ class _$_$PackageReadDtoCtor implements _$PackageReadDtoCtor {
 
 abstract class _$PackageReadDtoCtor implements PackageReadDto {
   const factory _$PackageReadDtoCtor(
-      {@required String id,
-      @required String createdAt,
-      @required String componentId,
-      @required String sha256,
-      @required String displayVersion,
-      @required String description,
-      @required String deploymentPublicKey,
-      @required String deploymentPublicKeySha256,
-      @required String readmeMd,
-      @required String pubspecYaml,
-      @required String pubspecLock}) = _$_$PackageReadDtoCtor;
+      {required String id,
+      required String createdAt,
+      required String componentId,
+      required String sha256,
+      required String displayVersion,
+      required String description,
+      required String deploymentPublicKey,
+      required String deploymentPublicKeySha256,
+      required String readmeMd,
+      required String pubspecYaml,
+      required String pubspecLock}) = _$_$PackageReadDtoCtor;
 
   factory _$PackageReadDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$PackageReadDtoCtor.fromJson;

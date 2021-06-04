@@ -19,7 +19,7 @@ class _$SwidStaticConstFieldDeclarationTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required String name, @required @nullable SwidStaticConst value}) {
+      {required String name, @nullable required SwidStaticConst value}) {
     return _$Data(
       name: name,
       value: value,
@@ -41,7 +41,7 @@ const $SwidStaticConstFieldDeclaration =
 mixin _$SwidStaticConstFieldDeclaration {
   String get name;
   @nullable
-  SwidStaticConst get value;
+  SwidStaticConst? get value;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -55,9 +55,9 @@ abstract class $SwidStaticConstFieldDeclarationCopyWith<$Res> {
           SwidStaticConstFieldDeclaration value,
           $Res Function(SwidStaticConstFieldDeclaration) then) =
       _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>;
-  $Res call({String name, @nullable SwidStaticConst value});
+  $Res call({String? name, @nullable SwidStaticConst? value});
 
-  $SwidStaticConstCopyWith<$Res> get value;
+  $SwidStaticConstCopyWith<$Res>? get value;
 }
 
 /// @nodoc
@@ -67,21 +67,21 @@ class _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>
 
   final SwidStaticConstFieldDeclaration _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstFieldDeclaration) _then;
+  final $Res Function(SwidStaticConstFieldDeclaration?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object value = freezed,
+    Object? name = freezed,
+    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
-      value: value == freezed ? _value.value : value as SwidStaticConst,
+      name: name == freezed ? _value.name : name as String?,
+      value: value == freezed ? _value.value : value as SwidStaticConst?,
     ));
   }
 
   @override
-  $SwidStaticConstCopyWith<$Res> get value {
+  $SwidStaticConstCopyWith<$Res>? get value {
     if (_value.value == null) {
       return null;
     }
@@ -97,7 +97,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String name, @nullable SwidStaticConst value});
+  $Res call({String? name, @nullable SwidStaticConst? value});
 
   @override
   $SwidStaticConstCopyWith<$Res> get value;
@@ -115,12 +115,12 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object value = freezed,
+    Object? name = freezed,
+    Object? value = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : name as String,
-      value: value == freezed ? _value.value : value as SwidStaticConst,
+      name: name == freezed ? _value.name : (name as String?)!,
+      value: value == freezed ? _value.value : value as SwidStaticConst?,
     ));
   }
 }
@@ -129,7 +129,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  const _$_$Data({@required this.name, @required @nullable this.value})
+  const _$_$Data({required this.name, @nullable required this.value})
       : assert(name != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
@@ -139,7 +139,7 @@ class _$_$Data implements _$Data {
   final String name;
   @override
   @nullable
-  final SwidStaticConst value;
+  final SwidStaticConst? value;
 
   @override
   String toString() {
@@ -175,8 +175,8 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidStaticConstFieldDeclaration {
   const factory _$Data(
-      {@required String name,
-      @required @nullable SwidStaticConst value}) = _$_$Data;
+      {required String name,
+      @nullable required SwidStaticConst? value}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -184,7 +184,7 @@ abstract class _$Data implements SwidStaticConstFieldDeclaration {
   String get name;
   @override
   @nullable
-  SwidStaticConst get value;
+  SwidStaticConst? get value;
   @override
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;

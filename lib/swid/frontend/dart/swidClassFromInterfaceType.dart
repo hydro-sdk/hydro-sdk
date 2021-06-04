@@ -19,7 +19,7 @@ import 'package:analyzer/dart/element/type.dart'
     show InterfaceType, TypeParameterType;
 
 SwidClass swidClassFromInterfaceType({
-  @required InterfaceType interfaceType,
+  required InterfaceType interfaceType,
   /*
       This is a hack to break cycles in self-referencing class declarations (declarations that look like CRTP).
       Should probably use an inheritance manager of some sort similar to package:analyzer.
@@ -30,7 +30,7 @@ SwidClass swidClassFromInterfaceType({
     SwidClass(
       name: interfaceType.getDisplayString(withNullability: false),
       nullabilitySuffix: mapNullabilitySuffix(
-          nullabilitySuffix: interfaceType.nullabilitySuffix),
+          nullabilitySuffix: interfaceType.nullabilitySuffix)!,
       originalPackagePath:
           mapClassLibrarySourcePath(element: interfaceType.element),
       constructorType: null,
@@ -41,8 +41,8 @@ SwidClass swidClassFromInterfaceType({
             .where((x) => !x.isStatic)
             .map(
               (x) => (({
-                SwidFunctionType baseClassMethod,
-                SwidFunctionType childClassMethod,
+                required SwidFunctionType baseClassMethod,
+                required SwidFunctionType childClassMethod,
               }) =>
                   SwidFunctionType.clone(
                       swidFunctionType: childClassMethod,
@@ -97,7 +97,7 @@ SwidClass swidClassFromInterfaceType({
       isMixin: false,
       extendedClass: interfaceType.superclass != null
           ? swidClassFromInterfaceType(
-              interfaceType: interfaceType.superclass,
+              interfaceType: interfaceType.superclass!,
               fullyResolveInterfaceTypeFormals: false,
             )
           : null,
@@ -117,7 +117,7 @@ SwidClass swidClassFromInterfaceType({
                   ? SwidTypeFormal(
                       value: SwidTypeFormalValue.fromSwidClass(
                         swidClass: swidClassFromInterfaceType(
-                            interfaceType: (x as TypeName).type),
+                            interfaceType: (x as TypeName).type as InterfaceType),
                       ),
                       swidReferenceDeclarationKind:
                           SwidReferenceDeclarationKind.classElement,

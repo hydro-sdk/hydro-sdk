@@ -67,7 +67,7 @@ void main() {
     expect(
         isInexpressibleStaticConst(
           parentClass: endian,
-          staticConst: endian.staticConstFieldDeclarations.first.value,
+          staticConst: endian.staticConstFieldDeclarations.first.value!,
         ),
         true);
 
@@ -127,7 +127,7 @@ void main() {
     expect(
         isInexpressibleStaticConst(
           parentClass: icons,
-          staticConst: icons.staticConstFieldDeclarations.first.value,
+          staticConst: icons.staticConstFieldDeclarations.first.value!,
         ),
         false);
 
@@ -219,13 +219,13 @@ void main() {
     expect(
         isInexpressibleStaticConst(
           parentClass: rect,
-          staticConst: rect.staticConstFieldDeclarations.first.value,
+          staticConst: rect.staticConstFieldDeclarations.first.value!,
         ),
         false);
     expect(
         isInexpressibleStaticConst(
           parentClass: rect,
-          staticConst: rect.staticConstFieldDeclarations.last.value,
+          staticConst: rect.staticConstFieldDeclarations.last.value!,
         ),
         false);
 
@@ -308,7 +308,7 @@ void main() {
     expect(
         cupertinoIcons.staticConstFieldDeclarations.every((x) =>
             isInexpressibleStaticConst(
-                parentClass: cupertinoIcons, staticConst: x.value) ==
+                parentClass: cupertinoIcons, staticConst: x.value!) ==
             false),
         true);
   }, tags: "swid");

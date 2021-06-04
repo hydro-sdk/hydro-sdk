@@ -8,22 +8,22 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class StatelessWidgetBox extends StatelessWidget {
   final HydroTable table;
-  final HydroState parentState;
+  final HydroState? parentState;
 
-  StatelessWidgetBox({@required this.table, @required this.parentState});
+  StatelessWidgetBox({required this.table, required this.parentState});
 
   @override
   Widget build(BuildContext context) {
     return managedBuild(
-        context: context, hydroState: parentState, hydroTable: table);
+        context: context, hydroState: parentState!, hydroTable: table)!;
   }
 }
 
 void loadStatelessWidget(
-    {@required HydroState luaState, @required HydroTable table}) {
-  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+    {required HydroState luaState, required HydroTable table}) {
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState? parentState}) {
     if (box is HydroTable) {
-      Closure build =
+      Closure? build =
           maybeFindInheritedMethod(managedObject: box, methodName: "build");
       if (build != null) {
         return StatelessWidgetBox(

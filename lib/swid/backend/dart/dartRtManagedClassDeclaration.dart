@@ -17,6 +17,7 @@ import 'package:code_builder/code_builder.dart'
         CodeExpression,
         Reference;
 
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:dart_style/dart_style.dart';
 import 'package:meta/meta.dart';
 import 'package:tuple/tuple.dart';
@@ -36,17 +37,17 @@ import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 
 class DartRTManagedClassDeclaration {
-  final SwidClass swidClass;
+  final SwidClass? swidClass;
 
-  DartRTManagedClassDeclaration({@required this.swidClass});
+  DartRTManagedClassDeclaration({required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Class((x) => x
-    ..name = "RTManaged${swidClass.name}"
-    ..extend = TypeReference((k) => k.symbol = swidClass.name)
+    ..name = "RTManaged${swidClass!.name}"
+    ..extend = TypeReference((k) => k.symbol = swidClass!.name)
     ..implements.add(TypeReference(
       (k) => k
         ..symbol = "Box"
-        ..types.add(TypeReference((i) => i..symbol = swidClass.name)),
+        ..types.add(TypeReference((i) => i..symbol = swidClass!.name)),
     ))
     ..fields.addAll([
       Field(
@@ -63,13 +64,13 @@ class DartRTManagedClassDeclaration {
       ),
     ])
     ..constructors.add(Constructor((k) => k
-      ..requiredParameters.addAll(swidClass.constructorType.normalParameterNames
+      ..requiredParameters.addAll(swidClass!.constructorType!.normalParameterNames
               .map((e) => Parameter((i) => i
                 ..name = e
                 ..type = TypeReference((j) => j
-                  ..symbol = swidClass.constructorType.normalParameterTypes
-                      .elementAt(swidClass.constructorType.normalParameterNames
-                          .indexOf(e))
+                  ..symbol = swidClass!.constructorType!.normalParameterTypes
+                      .elementAt(swidClass!.constructorType!.normalParameterNames
+                          .indexOf(e))!
                       .when(
                           fromSwidInterface: (val) => val.name,
                           fromSwidClass: (val) => val.name,
@@ -77,10 +78,10 @@ class DartRTManagedClassDeclaration {
                           fromSwidFunctionType: (val) => val.name))))
               ?.toList() ??
           [])
-      ..optionalParameters.addAll(swidClass
-              .constructorType.namedParameterTypes.entries
+      ..optionalParameters.addAll(swidClass!
+              .constructorType!.namedParameterTypes.entries
               .map((x) => MapEntry(x.key,
-                  removeNullabilitySuffixFromTypeNames(swidType: x.value)))
+                  removeNullabilitySuffixFromTypeNames(swidType: x.value!)))
               .toList()
               .map((x) => Parameter((k) => k
                 ..name = x.key
@@ -107,14 +108,14 @@ class DartRTManagedClassDeclaration {
       ])
       ..initializers.addAll([
         Code("super(" +
-            swidClass.constructorType.normalParameterNames
+            swidClass!.constructorType!.normalParameterNames
                 .map((e) => e)
                 .toList()
                 .join(",") +
-            (swidClass.constructorType.normalParameterNames.length >= 1
+            (swidClass!.constructorType!.normalParameterNames.length >= 1
                 ? ","
                 : "") +
-            swidClass.constructorType.namedParameterTypes.entries
+            swidClass!.constructorType!.namedParameterTypes.entries
                 .map((e) => e.key + ": " + e.key)
                 .toList()
                 .join(",") +
@@ -141,19 +142,19 @@ class DartRTManagedClassDeclaration {
                 ])).closure
             }))
             .statement,
-        ...(swidClass.instanceFieldDeclarations.entries
+        ...(swidClass!.instanceFieldDeclarations.entries
             .map((x) => Code(DartBindInstanceField(
                   tableKey: x.key,
                   instanceFieldName: x.key,
                   instanceField: x.value,
-                ).toDartSource()))
+                ).toDartSource()!))
             .toList()),
-        ...(swidClass.methods
-            .where((x) => !isOperator(swidFunctionType: x))
+        ...(swidClass!.methods
+            .where((x) => !isOperator(swidFunctionType: x!))
             .map((x) => Code(DartMethodInjectionImplementation(
                   swidFunctionType: instantiateAllGenericsAsDynamic(
                     swidType:
-                        SwidType.fromSwidFunctionType(swidFunctionType: x),
+                        SwidType.fromSwidFunctionType(swidFunctionType: x!),
                   ).when(
                     fromSwidInterface: (_) => null,
                     fromSwidClass: (_) => null,
@@ -166,19 +167,19 @@ class DartRTManagedClassDeclaration {
     ..methods.addAll([
       Method((k) => k
         ..name = "unwrap"
-        ..returns = refer(swidClass.name)
+        ..returns = refer(swidClass!.name)
         ..body = refer("this").code),
       Method((k) => k
         ..name = "vmObject"
         ..type = MethodType.getter
-        ..returns = refer(swidClass.name)
+        ..returns = refer(swidClass!.name)
         ..body = refer("this").code)
     ])
-    ..methods.addAll(swidClass.methods
-            .where((x) => !isOperator(swidFunctionType: x))
-            .where((x) => !x.swidDeclarationModifiers.hasProtected)
+    ..methods.addAll(swidClass!.methods
+            .where((x) => !isOperator(swidFunctionType: x!))
+            .where((x) => !x!.swidDeclarationModifiers.hasProtected)
             .map((x) => transformAccessorName(
-                  swidFunctionType: x,
+                  swidFunctionType: x!,
                   removeSuffixes: true,
                   addPrefixes: false,
                 ))
@@ -190,7 +191,7 @@ class DartRTManagedClassDeclaration {
                       ? MethodType.setter
                       : null
               ..types.addAll(
-                x.typeFormals.map((e) => Reference(e.value.name)).toList(),
+                x.typeFormals.map((e) => Reference(e!.value.name)).toList(),
               )
               ..requiredParameters.addAll([
                 ...x.normalParameterNames
@@ -213,7 +214,7 @@ class DartRTManagedClassDeclaration {
                     .map((e) => Parameter((p) => p
                       ..name = e.key
                       ..defaultTo = (x.namedDefaults[e.key] != null
-                          ? Code(x.namedDefaults[e.key].name)
+                          ? Code(x.namedDefaults[e.key]!.name)
                           : null)
                       ..named = true
                       ..type = swidTypeToDartTypeReference(swidType: e.value)))
@@ -232,14 +233,13 @@ class DartRTManagedClassDeclaration {
                     .toList(),
                 ...x.optionalParameterNames
                     .where((e) =>
-                        x.namedDefaults.entries.firstWhere((k) => k.key == e,
-                            orElse: () => null) ==
+                        x.namedDefaults.entries.firstWhereOrNull((k) => k.key == e) ==
                         null)
                     .map(
                       (e) =>
-                          (({Tuple2<String, SwidType> optionalParameterType}) =>
+                          (({Tuple2<String, SwidType?>? optionalParameterType}) =>
                               Parameter((p) => p
-                                ..name = optionalParameterType.item1
+                                ..name = optionalParameterType!.item1
                                 ..type = swidTypeToDartTypeReference(
                                     swidType: optionalParameterType.item2)
                                 ..named = false
@@ -264,7 +264,7 @@ class DartRTManagedClassDeclaration {
                             swidType: x.returnType,
                             expression: CodeExpression(Code(
                                 "closure.dispatch([table],parentState: hydroState)[0]")))
-                        .toDartSource() +
+                        .toDartSource()! +
                     ";"),
               ])))
             ?.toList() ??

@@ -37,15 +37,15 @@ class Driver {
   CommandLineOptions options;
 
   /// Hook to contribute a custom AST visitor.
-  AstVisitor visitor;
+  late AstVisitor visitor;
 
   /// Hook to contribute custom options analysis.
-  OptionsVisitor optionsVisitor;
+  OptionsVisitor? optionsVisitor;
 
   /// Hook to contribute custom pubspec analysis.
-  PubspecVisitor pubspecVisitor;
+  PubspecVisitor? pubspecVisitor;
 
-  List<String> _excludedPaths;
+  List<String>? _excludedPaths;
 
   bool showErrors = true;
 
@@ -53,7 +53,7 @@ class Driver {
 
   List<String> sources;
 
-  List<Linter> _lints;
+  late List<Linter> _lints;
 
   bool forceSkipInstall = false;
 
@@ -91,7 +91,7 @@ class Driver {
     _excludedPaths = excludedPaths;
   }
 
-  bool get forcePackageInstall => options.forceInstall;
+  bool? get forcePackageInstall => options.forceInstall;
 
   List<Linter> get lints => _lints;
 
@@ -99,14 +99,14 @@ class Driver {
   set lints(List<Linter> lints) {
     // Ensure lints are registered
     for (var lint in lints) {
-      Registry.ruleRegistry.register(lint);
+      Registry.ruleRegistry.register(lint as LintRule);
     }
     _lints = lints;
   }
 
-  bool get skipPackageInstall => forceSkipInstall || options.skipInstall;
+  bool get skipPackageInstall => forceSkipInstall || options.skipInstall!;
 
-  Future analyze({bool forceInstall}) => _analyze(sources);
+  Future analyze({bool? forceInstall}) => _analyze(sources);
 
   /// Hook to influence context post analysis.
   void postAnalyze(SurveyorContext context, DriverCommands callback) {
@@ -116,7 +116,7 @@ class Driver {
   }
 
   /// Hook to influence context before analysis.
-  void preAnalyze(SurveyorContext context, {bool subDir}) {
+  void preAnalyze(SurveyorContext context, {bool? subDir}) {
     if (visitor is PreAnalysisCallback) {
       (visitor as PreAnalysisCallback).preAnalysis(context, subDir: subDir);
     }
@@ -170,7 +170,7 @@ class Driver {
           // Ensure dependencies are installed.
           if (!skipPackageInstall) {
             await package.installDependencies(
-                force: forcePackageInstall, silent: silent);
+                force: forcePackageInstall!, silent: silent);
           }
 
           // Skip analysis if no .packages.
@@ -219,13 +219,13 @@ class Driver {
 
             if (optionsVisitor != null) {
               if (AnalysisEngine.isAnalysisOptionsFileName(filePath)) {
-                optionsVisitor.visit(AnalysisOptionsFile(filePath));
+                optionsVisitor!.visit(AnalysisOptionsFile(filePath));
               }
             }
 
             if (pubspecVisitor != null) {
               if (path.basename(filePath) == 'pubspec.yaml') {
-                pubspecVisitor.visit(PubspecFile(filePath));
+                pubspecVisitor!.visit(PubspecFile(filePath));
               }
             }
           }

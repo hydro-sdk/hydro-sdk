@@ -9,8 +9,8 @@ part 'projectConfig.g.dart';
 @freezed
 abstract class ProjectConfig with _$ProjectConfig {
   const factory ProjectConfig({
-    @required String project,
-    @required List<ProjectConfigComponent> components,
+    required String project,
+    required List<ProjectConfigComponent> components,
   }) = _$ProjectConfigCtor;
 
   factory ProjectConfig.fromJson(Map<String, dynamic> json) =>

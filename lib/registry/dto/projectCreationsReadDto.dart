@@ -7,7 +7,7 @@ part 'projectCreationsReadDto.g.dart';
 @freezed
 abstract class ProjectCreationsReadDto with _$ProjectCreationsReadDto {
   const factory ProjectCreationsReadDto({
-    @required int remainingProjectCreations,
+    required int remainingProjectCreations,
   }) = _$ProjectCreationsReadDtoCtpr;
 
   factory ProjectCreationsReadDto.fromJson(Map<String, dynamic> json) =>

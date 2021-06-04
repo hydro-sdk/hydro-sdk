@@ -11,21 +11,21 @@ part 'swidDefaultFormalParameter.g.dart';
 @freezed
 abstract class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
   const factory SwidDefaultFormalParameter({
-    @required String name,
-    @required SwidNullabilitySuffix nullabilitySuffix,
-    @required String originalPackagePath,
-    @required @nullable SwidType value,
+    required String name,
+    required SwidNullabilitySuffix nullabilitySuffix,
+    required String originalPackagePath,
+    @nullable required SwidType? value,
   }) = _$Data;
 
   factory SwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =>
       _$SwidDefaultFormalParameterFromJson(json);
 
   factory SwidDefaultFormalParameter.clone(
-          {@required SwidDefaultFormalParameter swidType}) =>
+          {required SwidDefaultFormalParameter swidType}) =>
       SwidDefaultFormalParameter(
         name: swidType.name,
         nullabilitySuffix: swidType.nullabilitySuffix,
         originalPackagePath: swidType.originalPackagePath,
-        value: cloneSwidType(swidType: swidType.value),
+        value: cloneSwidType(swidType: swidType.value!),
       );
 }

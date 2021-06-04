@@ -8,14 +8,14 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedBuildContext extends VMManagedBox<BuildContext> {
-  final HydroTable table;
-  final BuildContext vmObject;
-  final HydroState hydroState;
+class VMManagedBuildContext extends VMManagedBox<BuildContext?> {
+  final HydroTable? table;
+  final BuildContext? vmObject;
+  final HydroState? hydroState;
   VMManagedBuildContext({
-    @required this.table,
-    @required this.vmObject,
-    @required this.hydroState,
+    required this.table,
+    required this.vmObject,
+    required this.hydroState,
   }) : super(
           table: table,
           vmObject: vmObject,
@@ -25,16 +25,16 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
       The real ancestorInheritedElementForWidgetOfExactType is deprecated https://api.flutter.dev/flutter/widgets/BuildContext/ancestorInheritedElementForWidgetOfExactType.html
       This accomplishes the same thing with the same signature
     */
-    table["ancestorInheritedElementForWidgetOfExactType"] =
+    table!["ancestorInheritedElementForWidgetOfExactType"] =
         makeLuaDartFunc(func: (List<dynamic> args) {
-      HydroTable res;
+      HydroTable? res;
       BuildContext activeContext = maybeUnBoxAndBuildArgument<BuildContext>(
           args[0],
-          parentState: hydroState);
+          parentState: hydroState!);
 
       activeContext.visitAncestorElements((element) {
         if (element.widget is InheritedWidgetBox) {
-          InheritedWidgetBox inheritedWidgetBox = element.widget;
+          InheritedWidgetBox inheritedWidgetBox = element.widget as InheritedWidgetBox;
           if (maybeUnBoxRuntimeType(
                   managedObject: inheritedWidgetBox.table,
                   runtimeTypePropName: "runtimeType") ==
@@ -53,7 +53,7 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext> {
 
 void loadBuildContext() {
   registerBoxer(boxer: (
-      {BuildContext vmObject, HydroState hydroState, HydroTable table}) {
+      {BuildContext? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedBuildContext(
       vmObject: vmObject,
       hydroState: hydroState,

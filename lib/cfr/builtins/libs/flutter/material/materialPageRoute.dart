@@ -7,14 +7,14 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadMaterialPageRoute(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["materialPageRoute"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       MaterialPageRoute(
           builder: (BuildContext context) {
             Closure closure = args[0]["builder"];
             var res =
-                closure.dispatch([null, context], parentState: luaState)[0];
+                closure.dispatch([null, context], parentState: luaState)![0];
             return maybeUnBoxAndBuildArgument<Widget>(res,
                 parentState: luaState);
           },

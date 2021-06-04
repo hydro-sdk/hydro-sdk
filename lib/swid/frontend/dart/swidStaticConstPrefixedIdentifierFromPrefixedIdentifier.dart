@@ -8,10 +8,10 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 
 SwidStaticConstPrefixedIdentifier
     swidStaticConstPrefixedIdentifierFromPrefixedIdentifier(
-            {@required PrefixedIdentifier prefixedIdentifier}) =>
+            {required PrefixedIdentifier prefixedIdentifier}) =>
         SwidStaticConstPrefixedIdentifier(
             prefix: swidInterfaceFromClassElement(
-                classElement: prefixedIdentifier.prefix.staticElement),
+                classElement: prefixedIdentifier.prefix.staticElement as ClassElement),
             staticConstFieldReference:
                 swidStaticConstFieldReferenceFromSimpleIdentifier(
                     simpleIdentifier: prefixedIdentifier.identifier));

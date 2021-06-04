@@ -99,7 +99,7 @@ void main() {
   */
     expect(unsatisfiedTypesFromMap, isNotNull);
     expect(unsatisfiedTypesFromMap.length, 1);
-    expect(unsatisfiedTypesFromMap.first.value.name, "E");
+    expect(unsatisfiedTypesFromMap.first!.value.name, "E");
 
     var mapWithNoTypeParameters = SwidFunctionType.clone(
       swidFunctionType: map,
@@ -391,11 +391,11 @@ void main() {
         0);
     expect(
         propagatedIterableWithMapAndEmpty
-            .factoryConstructors.first.typeFormals.length,
+            .factoryConstructors.first!.typeFormals.length,
         1);
     expect(
         propagatedIterableWithMapAndEmpty
-            .factoryConstructors.first.typeFormals.first.value.name,
+            .factoryConstructors.first!.typeFormals.first!.value.name,
         "E");
   }, tags: "swid");
 }

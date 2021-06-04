@@ -8,10 +8,10 @@ import 'package:hydro_sdk/cfr/vm/symbolWithDistance.dart';
 
 class HydroError {
   HydroError(
-      {@required this.errMsg,
-      @required Frame frame,
-      @required this.inst,
-      @required this.dartStackTrace})
+      {required this.errMsg,
+      required Frame frame,
+      required this.inst,
+      required this.dartStackTrace})
       : _frames = [frame];
   final String errMsg;
   List<Frame> _frames;
@@ -20,12 +20,12 @@ class HydroError {
   List<ModuleDebugInfo> _extractedSymbols = [];
   List<ModuleDebugInfo> get extractedSymbols => _extractedSymbols;
 
-  void addFrame({@required Frame frame}) => _frames = [..._frames, frame];
+  void addFrame({required Frame frame}) => _frames = [..._frames, frame];
 
   void _symbolicateFrame(
-      {@required List<ModuleDebugInfo> symbols, @required Frame frame}) {
+      {required List<ModuleDebugInfo>? symbols, required Frame frame}) {
     if (symbols != null) {
-      int moduleLineNumber = maybeAt(frame.prototype.lines, inst);
+      int? moduleLineNumber = maybeAt(frame.prototype.lines, inst);
 
       if (moduleLineNumber != null) {
         List<SymbolWithDistance> symbolsWithDistance = symbols
@@ -46,7 +46,7 @@ class HydroError {
     }
   }
 
-  void addSymbolicatedStackTrace({@required List<ModuleDebugInfo> symbols}) {
+  void addSymbolicatedStackTrace({required List<ModuleDebugInfo>? symbols}) {
     _frames.forEach((x) {
       if (x.prototype.buildProfile == BuildProfile.debug) {
         _symbolicateFrame(frame: x, symbols: symbols);

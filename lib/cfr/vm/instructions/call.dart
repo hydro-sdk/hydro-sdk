@@ -6,11 +6,11 @@ import 'package:hydro_sdk/cfr/vm/frame.dart';
 
 @pragma('vm:prefer-inline')
 @pragma('dart2js:tryInline')
-ThreadResult call(
-    {@required Frame frame,
-    @required int A,
-    @required int B,
-    @required int C}) {
+ThreadResult? call(
+    {required Frame frame,
+    required int A,
+    required int B,
+    required int C}) {
   if (B != 0) frame.setTop(A + B);
   var x = frame.GR(A);
   var args = new List(B == 0 ? frame.top - A : B - 1);

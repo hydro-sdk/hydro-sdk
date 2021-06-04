@@ -19,9 +19,9 @@ class _$CreateComponentResponseDtoTearOff {
 
 // ignore: unused_element
   _$CreateComponentResponseDtoCtor call(
-      {@required String name,
-      @required String description,
-      @required String publishingPrivateKey}) {
+      {required String name,
+      required String description,
+      required String publishingPrivateKey}) {
     return _$CreateComponentResponseDtoCtor(
       name: name,
       description: description,
@@ -55,7 +55,7 @@ abstract class $CreateComponentResponseDtoCopyWith<$Res> {
   factory $CreateComponentResponseDtoCopyWith(CreateComponentResponseDto value,
           $Res Function(CreateComponentResponseDto) then) =
       _$CreateComponentResponseDtoCopyWithImpl<$Res>;
-  $Res call({String name, String description, String publishingPrivateKey});
+  $Res call({String? name, String? description, String? publishingPrivateKey});
 }
 
 /// @nodoc
@@ -65,21 +65,21 @@ class _$CreateComponentResponseDtoCopyWithImpl<$Res>
 
   final CreateComponentResponseDto _value;
   // ignore: unused_field
-  final $Res Function(CreateComponentResponseDto) _then;
+  final $Res Function(CreateComponentResponseDto?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
-    Object publishingPrivateKey = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? publishingPrivateKey = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : description as String?,
       publishingPrivateKey: publishingPrivateKey == freezed
           ? _value.publishingPrivateKey
-          : publishingPrivateKey as String,
+          : publishingPrivateKey as String?,
     ));
   }
 }
@@ -92,7 +92,7 @@ abstract class _$$CreateComponentResponseDtoCtorCopyWith<$Res>
           $Res Function(_$CreateComponentResponseDtoCtor) then) =
       __$$CreateComponentResponseDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String description, String publishingPrivateKey});
+  $Res call({String? name, String? description, String? publishingPrivateKey});
 }
 
 /// @nodoc
@@ -110,17 +110,17 @@ class __$$CreateComponentResponseDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
-    Object publishingPrivateKey = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? publishingPrivateKey = freezed,
   }) {
     return _then(_$CreateComponentResponseDtoCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : (description as String?)!,
       publishingPrivateKey: publishingPrivateKey == freezed
           ? _value.publishingPrivateKey
-          : publishingPrivateKey as String,
+          : (publishingPrivateKey as String?)!,
     ));
   }
 }
@@ -131,9 +131,9 @@ class __$$CreateComponentResponseDtoCtorCopyWithImpl<$Res>
 class _$_$CreateComponentResponseDtoCtor
     implements _$CreateComponentResponseDtoCtor {
   const _$_$CreateComponentResponseDtoCtor(
-      {@required this.name,
-      @required this.description,
-      @required this.publishingPrivateKey})
+      {required this.name,
+      required this.description,
+      required this.publishingPrivateKey})
       : assert(name != null),
         assert(description != null),
         assert(publishingPrivateKey != null);
@@ -190,9 +190,9 @@ class _$_$CreateComponentResponseDtoCtor
 abstract class _$CreateComponentResponseDtoCtor
     implements CreateComponentResponseDto {
   const factory _$CreateComponentResponseDtoCtor(
-          {@required String name,
-          @required String description,
-          @required String publishingPrivateKey}) =
+          {required String name,
+          required String description,
+          required String publishingPrivateKey}) =
       _$_$CreateComponentResponseDtoCtor;
 
   factory _$CreateComponentResponseDtoCtor.fromJson(Map<String, dynamic> json) =

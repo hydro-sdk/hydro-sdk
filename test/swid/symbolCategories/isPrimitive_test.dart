@@ -19,11 +19,11 @@ void main() {
         false);
     expect(
         isPrimitive(
-            swidType: iconDataClass.constructorType.normalParameterTypes[0]),
+            swidType: iconDataClass.constructorType!.normalParameterTypes[0]!),
         true);
 
-    iconDataClass.constructorType.namedParameterTypes.forEach((key, value) {
-      expect(isPrimitive(swidType: value), true);
+    iconDataClass.constructorType!.namedParameterTypes.forEach((key, value) {
+      expect(isPrimitive(swidType: value!), true);
     });
   }, tags: "swid");
 }

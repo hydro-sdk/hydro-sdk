@@ -9,7 +9,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadCoroutineLib(
-    {@required HydroState hydroState, @required Context ctx}) {
+    {required HydroState hydroState, required Context ctx}) {
   var coroutine = new HydroTable();
   ctx.env["coroutine"] = coroutine;
 
@@ -30,14 +30,14 @@ void loadCoroutineLib(
     if (!res.success) return [false, maybeAt(res.values, 0)];
 
     var o = <dynamic>[true];
-    o.addAll(res.values);
+    o.addAll(res.values!);
 
     return [];
   };
 
   coroutine["yield"] = ctx.yield = (List<dynamic> args) {
     throw "attempt to yield across Dart call boundry";
-  };
+  } as List<dynamic> Function(List<dynamic>)?;
 
   coroutine["status"] = (List<dynamic> args) {
     Thread x = Context.getArg1<Thread>(args, 0, "status");

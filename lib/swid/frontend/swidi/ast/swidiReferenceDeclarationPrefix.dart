@@ -7,14 +7,14 @@ part 'swidiReferenceDeclarationPrefix.freezed.dart';
 abstract class SwidiReferenceDeclarationPrefix
     with _$SwidiReferenceDeclarationPrefix {
   const factory SwidiReferenceDeclarationPrefix({
-    @required String name,
+    required String name,
   }) = _$SwidiReferenceDeclarationPrefixCtor;
 
   static const empty = const SwidiReferenceDeclarationPrefix(name: "");
 
   factory SwidiReferenceDeclarationPrefix.clone({
-    @required SwidiReferenceDeclarationPrefix swidiReferenceDeclarationPrefix,
-    String name,
+    required SwidiReferenceDeclarationPrefix swidiReferenceDeclarationPrefix,
+    String? name,
   }) =>
       SwidiReferenceDeclarationPrefix(
         name: name ?? swidiReferenceDeclarationPrefix.name,

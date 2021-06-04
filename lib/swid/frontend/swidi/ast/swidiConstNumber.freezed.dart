@@ -14,7 +14,7 @@ class _$SwidiConstNumberTearOff {
   const _$SwidiConstNumberTearOff();
 
 // ignore: unused_element
-  _$SwidiConstNumberCtor call({@required String value}) {
+  _$SwidiConstNumberCtor call({required String value}) {
     return _$SwidiConstNumberCtor(
       value: value,
     );
@@ -38,7 +38,7 @@ abstract class $SwidiConstNumberCopyWith<$Res> {
   factory $SwidiConstNumberCopyWith(
           SwidiConstNumber value, $Res Function(SwidiConstNumber) then) =
       _$SwidiConstNumberCopyWithImpl<$Res>;
-  $Res call({String value});
+  $Res call({String? value});
 }
 
 /// @nodoc
@@ -48,14 +48,14 @@ class _$SwidiConstNumberCopyWithImpl<$Res>
 
   final SwidiConstNumber _value;
   // ignore: unused_field
-  final $Res Function(SwidiConstNumber) _then;
+  final $Res Function(SwidiConstNumber?) _then;
 
   @override
   $Res call({
-    Object value = freezed,
+    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed ? _value.value : value as String,
+      value: value == freezed ? _value.value : value as String?,
     ));
   }
 }
@@ -67,7 +67,7 @@ abstract class _$$SwidiConstNumberCtorCopyWith<$Res>
           $Res Function(_$SwidiConstNumberCtor) then) =
       __$$SwidiConstNumberCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String value});
+  $Res call({String? value});
 }
 
 /// @nodoc
@@ -83,17 +83,17 @@ class __$$SwidiConstNumberCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object value = freezed,
+    Object? value = freezed,
   }) {
     return _then(_$SwidiConstNumberCtor(
-      value: value == freezed ? _value.value : value as String,
+      value: value == freezed ? _value.value : (value as String?)!,
     ));
   }
 }
 
 /// @nodoc
 class _$_$SwidiConstNumberCtor implements _$SwidiConstNumberCtor {
-  const _$_$SwidiConstNumberCtor({@required this.value})
+  const _$_$SwidiConstNumberCtor({required this.value})
       : assert(value != null);
 
   @override
@@ -124,7 +124,7 @@ class _$_$SwidiConstNumberCtor implements _$SwidiConstNumberCtor {
 }
 
 abstract class _$SwidiConstNumberCtor implements SwidiConstNumber {
-  const factory _$SwidiConstNumberCtor({@required String value}) =
+  const factory _$SwidiConstNumberCtor({required String value}) =
       _$_$SwidiConstNumberCtor;
 
   @override

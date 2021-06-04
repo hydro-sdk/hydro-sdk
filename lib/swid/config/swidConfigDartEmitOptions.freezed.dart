@@ -19,7 +19,7 @@ class _$SwidConfigDartEmitOptionsTearOff {
 
 // ignore: unused_element
   _$SwidConfigDartEmitOptionsCtor call(
-      {@required List<String> prefixPaths, @required String hostPackageName}) {
+      {required List<String> prefixPaths, required String hostPackageName}) {
     return _$SwidConfigDartEmitOptionsCtor(
       prefixPaths: prefixPaths,
       hostPackageName: hostPackageName,
@@ -51,7 +51,7 @@ abstract class $SwidConfigDartEmitOptionsCopyWith<$Res> {
   factory $SwidConfigDartEmitOptionsCopyWith(SwidConfigDartEmitOptions value,
           $Res Function(SwidConfigDartEmitOptions) then) =
       _$SwidConfigDartEmitOptionsCopyWithImpl<$Res>;
-  $Res call({List<String> prefixPaths, String hostPackageName});
+  $Res call({List<String>? prefixPaths, String? hostPackageName});
 }
 
 /// @nodoc
@@ -61,20 +61,20 @@ class _$SwidConfigDartEmitOptionsCopyWithImpl<$Res>
 
   final SwidConfigDartEmitOptions _value;
   // ignore: unused_field
-  final $Res Function(SwidConfigDartEmitOptions) _then;
+  final $Res Function(SwidConfigDartEmitOptions?) _then;
 
   @override
   $Res call({
-    Object prefixPaths = freezed,
-    Object hostPackageName = freezed,
+    Object? prefixPaths = freezed,
+    Object? hostPackageName = freezed,
   }) {
     return _then(_value.copyWith(
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>,
+          : prefixPaths as List<String>?,
       hostPackageName: hostPackageName == freezed
           ? _value.hostPackageName
-          : hostPackageName as String,
+          : hostPackageName as String?,
     ));
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$SwidConfigDartEmitOptionsCtorCopyWith<$Res>
           $Res Function(_$SwidConfigDartEmitOptionsCtor) then) =
       __$$SwidConfigDartEmitOptionsCtorCopyWithImpl<$Res>;
   @override
-  $Res call({List<String> prefixPaths, String hostPackageName});
+  $Res call({List<String>? prefixPaths, String? hostPackageName});
 }
 
 /// @nodoc
@@ -105,16 +105,16 @@ class __$$SwidConfigDartEmitOptionsCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object prefixPaths = freezed,
-    Object hostPackageName = freezed,
+    Object? prefixPaths = freezed,
+    Object? hostPackageName = freezed,
   }) {
     return _then(_$SwidConfigDartEmitOptionsCtor(
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>,
+          : (prefixPaths as List<String>?)!,
       hostPackageName: hostPackageName == freezed
           ? _value.hostPackageName
-          : hostPackageName as String,
+          : (hostPackageName as String?)!,
     ));
   }
 }
@@ -125,7 +125,7 @@ class __$$SwidConfigDartEmitOptionsCtorCopyWithImpl<$Res>
 class _$_$SwidConfigDartEmitOptionsCtor
     implements _$SwidConfigDartEmitOptionsCtor {
   const _$_$SwidConfigDartEmitOptionsCtor(
-      {@required this.prefixPaths, @required this.hostPackageName})
+      {required this.prefixPaths, required this.hostPackageName})
       : assert(prefixPaths != null),
         assert(hostPackageName != null);
 
@@ -176,8 +176,8 @@ class _$_$SwidConfigDartEmitOptionsCtor
 abstract class _$SwidConfigDartEmitOptionsCtor
     implements SwidConfigDartEmitOptions {
   const factory _$SwidConfigDartEmitOptionsCtor(
-      {@required List<String> prefixPaths,
-      @required String hostPackageName}) = _$_$SwidConfigDartEmitOptionsCtor;
+      {required List<String> prefixPaths,
+      required String hostPackageName}) = _$_$SwidConfigDartEmitOptionsCtor;
 
   factory _$SwidConfigDartEmitOptionsCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigDartEmitOptionsCtor.fromJson;

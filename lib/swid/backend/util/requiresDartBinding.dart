@@ -1,14 +1,14 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/util/isInexpressibleStaticConst.dart';
 
-bool requiresDartBinding({@required SwidClass swidClass}) =>
+bool requiresDartBinding({required SwidClass swidClass}) =>
     swidClass.instanceFieldDeclarations.entries.isNotEmpty ||
     swidClass.methods.isNotEmpty ||
-    swidClass.staticConstFieldDeclarations.firstWhere(
+    swidClass.staticConstFieldDeclarations.firstWhereOrNull(
           (x) => isInexpressibleStaticConst(
-              parentClass: swidClass, staticConst: x.value),
-          orElse: () => null,
+              parentClass: swidClass, staticConst: x.value!),
         ) !=
         null;

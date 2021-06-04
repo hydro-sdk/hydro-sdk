@@ -10,7 +10,7 @@ void main() {
 
     List<String> outLines1 = [];
 
-    state1.context.env["print"] = (List<dynamic> args) {
+    state1.context!.env["print"] = (List<dynamic> args) {
       outLines1.add(args
           .map((a) => Context.luaToString(a, hydroState: state1).toString())
           .join("\t"));
@@ -20,7 +20,7 @@ void main() {
 
     List<String> outLines2 = [];
 
-    state2.context.env["print"] = (List<dynamic> args) {
+    state2.context!.env["print"] = (List<dynamic> args) {
       outLines2.add(args
           .map((a) => Context.luaToString(a, hydroState: state2).toString())
           .join("\t"));

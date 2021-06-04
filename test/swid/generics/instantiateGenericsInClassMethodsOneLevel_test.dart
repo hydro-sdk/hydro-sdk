@@ -144,42 +144,42 @@ void main() {
       swidType: SwidType.fromSwidClass(
         swidClass: iterable,
       ),
-    ).when(
-      fromSwidInterface: (_) => null,
+    )!.when(
+      fromSwidInterface: ((_) => null) as SwidClass Function(SwidInterface),
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) => null,
-      fromSwidFunctionType: (_) => null,
+      fromSwidDefaultFormalParameter: ((_) => null) as SwidClass Function(SwidDefaultFormalParameter),
+      fromSwidFunctionType: ((_) => null) as SwidClass Function(SwidFunctionType),
     );
 
     //All instances of T should be left alone
-    expect(replacedIterable.methods.first.typeFormals.isNotEmpty, true);
-    expect(replacedIterable.methods.first.typeFormals.first.value.displayName,
+    expect(replacedIterable.methods.first!.typeFormals.isNotEmpty, true);
+    expect(replacedIterable.methods.first!.typeFormals.first!.value.displayName,
         "T");
-    expect(replacedIterable.methods.first.typeFormals,
-        iterable.methods.first.typeFormals);
+    expect(replacedIterable.methods.first!.typeFormals,
+        iterable.methods.first!.typeFormals);
     expect(
-        replacedIterable.methods.first.returnType.displayName, "Iterable<T>");
-    expect(replacedIterable.methods.first.returnType,
-        iterable.methods.first.returnType);
+        replacedIterable.methods.first!.returnType.displayName, "Iterable<T>");
+    expect(replacedIterable.methods.first!.returnType,
+        iterable.methods.first!.returnType);
     expect(
-        replacedIterable.methods.first.normalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+        replacedIterable.methods.first!.normalParameterTypes.first!
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .returnType
             .displayName,
         "Iterable<T>");
     expect(
-        replacedIterable.methods.first.normalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+        replacedIterable.methods.first!.normalParameterTypes.first!
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .returnType,
-        iterable.methods.first.normalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+        iterable.methods.first!.normalParameterTypes.first!
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .returnType);
     //E should have been replaced with double
     expect(
-        replacedIterable.methods.first.normalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+        replacedIterable.methods.first!.normalParameterTypes.first!
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .normalParameterTypes
-            .first
+            .first!
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
         dartDouble);
   }, tags: "swid");

@@ -18,8 +18,8 @@ class _$SwidConfigAllowListTearOff {
 
 // ignore: unused_element
   _$SwidConfigAllowListCtor call(
-      {@required List<String> classNames,
-      @required List<String> packagePaths}) {
+      {required List<String> classNames,
+      required List<String> packagePaths}) {
     return _$SwidConfigAllowListCtor(
       classNames: classNames,
       packagePaths: packagePaths,
@@ -51,7 +51,7 @@ abstract class $SwidConfigAllowListCopyWith<$Res> {
   factory $SwidConfigAllowListCopyWith(
           SwidConfigAllowList value, $Res Function(SwidConfigAllowList) then) =
       _$SwidConfigAllowListCopyWithImpl<$Res>;
-  $Res call({List<String> classNames, List<String> packagePaths});
+  $Res call({List<String>? classNames, List<String>? packagePaths});
 }
 
 /// @nodoc
@@ -61,20 +61,20 @@ class _$SwidConfigAllowListCopyWithImpl<$Res>
 
   final SwidConfigAllowList _value;
   // ignore: unused_field
-  final $Res Function(SwidConfigAllowList) _then;
+  final $Res Function(SwidConfigAllowList?) _then;
 
   @override
   $Res call({
-    Object classNames = freezed,
-    Object packagePaths = freezed,
+    Object? classNames = freezed,
+    Object? packagePaths = freezed,
   }) {
     return _then(_value.copyWith(
       classNames: classNames == freezed
           ? _value.classNames
-          : classNames as List<String>,
+          : classNames as List<String>?,
       packagePaths: packagePaths == freezed
           ? _value.packagePaths
-          : packagePaths as List<String>,
+          : packagePaths as List<String>?,
     ));
   }
 }
@@ -86,7 +86,7 @@ abstract class _$$SwidConfigAllowListCtorCopyWith<$Res>
           $Res Function(_$SwidConfigAllowListCtor) then) =
       __$$SwidConfigAllowListCtorCopyWithImpl<$Res>;
   @override
-  $Res call({List<String> classNames, List<String> packagePaths});
+  $Res call({List<String>? classNames, List<String>? packagePaths});
 }
 
 /// @nodoc
@@ -103,16 +103,16 @@ class __$$SwidConfigAllowListCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object classNames = freezed,
-    Object packagePaths = freezed,
+    Object? classNames = freezed,
+    Object? packagePaths = freezed,
   }) {
     return _then(_$SwidConfigAllowListCtor(
       classNames: classNames == freezed
           ? _value.classNames
-          : classNames as List<String>,
+          : (classNames as List<String>?)!,
       packagePaths: packagePaths == freezed
           ? _value.packagePaths
-          : packagePaths as List<String>,
+          : (packagePaths as List<String>?)!,
     ));
   }
 }
@@ -122,7 +122,7 @@ class __$$SwidConfigAllowListCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidConfigAllowListCtor implements _$SwidConfigAllowListCtor {
   const _$_$SwidConfigAllowListCtor(
-      {@required this.classNames, @required this.packagePaths})
+      {required this.classNames, required this.packagePaths})
       : assert(classNames != null),
         assert(packagePaths != null);
 
@@ -171,8 +171,8 @@ class _$_$SwidConfigAllowListCtor implements _$SwidConfigAllowListCtor {
 
 abstract class _$SwidConfigAllowListCtor implements SwidConfigAllowList {
   const factory _$SwidConfigAllowListCtor(
-      {@required List<String> classNames,
-      @required List<String> packagePaths}) = _$_$SwidConfigAllowListCtor;
+      {required List<String> classNames,
+      required List<String> packagePaths}) = _$_$SwidConfigAllowListCtor;
 
   factory _$SwidConfigAllowListCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigAllowListCtor.fromJson;

@@ -27,78 +27,78 @@ part 'tsir.freezed.dart';
 @freezed
 abstract class TsIr with _$TsIr {
   factory TsIr.fromTsClassConstructorImplementation(
-          {@required
+          {required
               TsClassConstructorImplementation
                   tsClassConstructorImplementation}) =
       _$FromTsClassConstructorImplementation;
   factory TsIr.fromTsFunctionDefaultNamedProps(
-          {@required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
+          {required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
       _$FromTsFunctionDefaultNamedProps;
   factory TsIr.fromTsClassInstanceFieldDeclarations(
-          {@required
+          {required
               TsClassInstanceFieldDeclarations
                   tsClassInstanceFieldDeclarations}) =
       _$FromClassInstanceFieldDeclarations;
   factory TsIr.fromTsClassMethodDeclarations(
-          {@required TsClassMethodDeclarations tsClassMethodDeclarations}) =
+          {required TsClassMethodDeclarations tsClassMethodDeclarations}) =
       _$FromTsClassMethodDeclarations;
   factory TsIr.fromTsClassMethodInjectionFieldDeclarations(
-          {@required
+          {required
               TsClassMethodInjectionFieldDeclarations
                   tsClassMethodInjectionFieldDeclarations}) =
       _$FromTsClassMethodInjectionFieldDeclarations;
   factory TsIr.fromTsClassMethodInjectionFieldName(
-          {@required
+          {required
               TsClassMethodInjectionFieldName
                   tsClassMethodInjectionFieldName}) =
       _$FromTsClassMethodInjectionFieldName;
   factory TsIr.fromTsClassPostamble(
-      {@required TsClassPostamble tsClassPostamble}) = _$FromTsClassPostamble;
+      {required TsClassPostamble tsClassPostamble}) = _$FromTsClassPostamble;
   factory TsIr.fromTsClassPreamble(
-      {@required TsClassPreamble tsClassPreamble}) = _$FromTsClassPreamble;
+      {required TsClassPreamble tsClassPreamble}) = _$FromTsClassPreamble;
   factory TsIr.fromTsClassStaticConstFieldDeclarations(
-          {@required
+          {required
               TsClassStaticConstFieldDeclarations
                   tsClassStaticConstFieldDeclarations}) =
       _$FromTsClassStaticConstFieldDeclarations;
   factory TsIr.fromTsClassStaticMethodImplementation(
-          {@required
+          {required
               TsClassStaticMethodImplementation
                   tsClassStaticMethodImplementation}) =
       _$FromTsClassStaticMethodImplementation;
-  factory TsIr.fromTsEnum({@required TsEnum tsEnum}) = _$FromTsEnum;
-  factory TsIr.fromTsInterface({@required TsInterface tsInterface}) =
+  factory TsIr.fromTsEnum({required TsEnum tsEnum}) = _$FromTsEnum;
+  factory TsIr.fromTsInterface({required TsInterface tsInterface}) =
       _$FromTsInterface;
   factory TsIr.fromTsClassVmDeclaration(
-          {@required TsClassVmDeclaration tsClassVmDeclaration}) =
+          {required TsClassVmDeclaration tsClassVmDeclaration}) =
       _$FromTsClassVmDeclaration;
   factory TsIr.fromTsFunctionInvocation(
-          {@required TsFunctionInvocation tsFunctionInvocation}) =
+          {required TsFunctionInvocation tsFunctionInvocation}) =
       _$FromTsFunctionInvocation;
   factory TsIr.fromTsFunctionInvocationNamedParameters(
-          {@required
+          {required
               TsFunctionInvocationNamedParameters
                   tsFunctionInvocationNamedParameters}) =
       _$FromTsFunctionInvocationNamedParameters;
   factory TsIr.fromTsFunctionInvocationNamedParametersKeyValue(
-          {@required
+          {required
               TsFunctionInvocationNamedParametersKeyValue
                   tsFunctionInvocationNamedParametersKeyValue}) =
       _$FromTsFunctionInvocationNamedParametersKeyValue;
   factory TsIr.fromTsFunctionInvocationNamedParametersSpread(
-          {@required
+          {required
               TsFunctionInvocationNamedParametersSpread
                   tsFunctionInvocationNamedParametersSpread}) =
       _$TsFunctionInvocationNamedParametersSpread;
-  factory TsIr.fromTsLinebreak({@required TsLinebreak tsLinebreak}) =
+  factory TsIr.fromTsLinebreak({required TsLinebreak tsLinebreak}) =
       _$FromTsLinebreak;
   factory TsIr.fromTsFunctionSelfBindingInvocation(
-          {@required
+          {required
               TsFunctionSelfBindingInvocation
                   tsFunctionSelfBindingInvocation}) =
       _$FromTsFunctionSelfBindingInvocation;
   factory TsIr.fromTsResolvedImport(
-      {@required TsResolvedImport tsResolvedImport}) = _$FromTsResolvedImport;
+      {required TsResolvedImport tsResolvedImport}) = _$FromTsResolvedImport;
 }
 
 extension TsIrMethods on TsIr {

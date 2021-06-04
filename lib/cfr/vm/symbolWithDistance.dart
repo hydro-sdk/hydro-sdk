@@ -6,5 +6,5 @@ class SymbolWithDistance {
   final int distance;
   final ModuleDebugInfo moduleDebugInfo;
 
-  SymbolWithDistance({@required this.distance, @required this.moduleDebugInfo});
+  SymbolWithDistance({required this.distance, required this.moduleDebugInfo});
 }

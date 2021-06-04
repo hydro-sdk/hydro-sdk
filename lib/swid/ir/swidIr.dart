@@ -10,15 +10,15 @@ part 'swidIr.g.dart';
 
 @freezed
 abstract class SwidIr with _$SwidIr {
-  const factory SwidIr.fromSwidClass({@required SwidClass swidClass}) =
+  const factory SwidIr.fromSwidClass({required SwidClass swidClass}) =
       _$SwidIrFromSwidClass;
 
-  const factory SwidIr.fromSwidEnum({@required SwidEnum swidEnum}) =
+  const factory SwidIr.fromSwidEnum({required SwidEnum swidEnum}) =
       _$SwidIrFromSwidEnum;
 
   factory SwidIr.fromJson(Map<String, dynamic> json) => _$SwidIrFromJson(json);
 
-  static List<SwidIr> merge({@required List<List<SwidIr>> ir}) =>
+  static List<SwidIr> merge({required List<List<SwidIr>> ir}) =>
       ir.reduce((value, element) => [
             ...([
               ...value
@@ -31,7 +31,7 @@ abstract class SwidIr with _$SwidIr {
                       fromSwidEnum: (val) => val, orElse: () => null))
                   .where((x) => x != null)
                   .toList(),
-            ].map((x) => SwidIr.fromSwidEnum(swidEnum: x)).toList()),
+            ].map((x) => SwidIr.fromSwidEnum(swidEnum: x!)).toList()),
             ..._mergeClasses(
               first: value
                   .map((x) => x.maybeWhen(
@@ -43,31 +43,31 @@ abstract class SwidIr with _$SwidIr {
                       fromSwidClass: (val) => val, orElse: () => null))
                   .where((x) => x != null)
                   .toList(),
-            ).map((x) => SwidIr.fromSwidClass(swidClass: x)).toList()
+            ).map((x) => SwidIr.fromSwidClass(swidClass: x!)).toList()
           ]);
 }
 
-List<SwidClass> _mergeClasses(
-        {@required List<SwidClass> first, @required List<SwidClass> second}) =>
+List<SwidClass?> _mergeClasses(
+        {required List<SwidClass?> first, required List<SwidClass?> second}) =>
     second.fold(
         first,
         (previousValue, element) => previousValue.firstWhere(
                     (x) =>
-                        x.originalPackagePath == element.originalPackagePath &&
+                        x!.originalPackagePath == element!.originalPackagePath &&
                         x.name == element.name,
                     orElse: () => null) !=
                 null
             ? [
                 ...previousValue
                     .where((x) =>
-                        x.originalPackagePath != element.originalPackagePath &&
+                        x!.originalPackagePath != element!.originalPackagePath &&
                         x.name != element.name)
                     .toList(),
                 SwidClass.mergeDeclarations(
                     swidClass: previousValue.firstWhere(
                         (x) =>
-                            x.originalPackagePath ==
-                                element.originalPackagePath &&
+                            x!.originalPackagePath ==
+                                element!.originalPackagePath &&
                             x.name == element.name,
                         orElse: () => null),
                     superClass: element)

@@ -18,7 +18,7 @@ class _$UserReadDtoTearOff {
 
 // ignore: unused_element
   _$UserReadDtoCtor call(
-      {@required String subject, @required String username}) {
+      {required String subject, required String username}) {
     return _$UserReadDtoCtor(
       subject: subject,
       username: username,
@@ -50,7 +50,7 @@ abstract class $UserReadDtoCopyWith<$Res> {
   factory $UserReadDtoCopyWith(
           UserReadDto value, $Res Function(UserReadDto) then) =
       _$UserReadDtoCopyWithImpl<$Res>;
-  $Res call({String subject, String username});
+  $Res call({String? subject, String? username});
 }
 
 /// @nodoc
@@ -59,16 +59,16 @@ class _$UserReadDtoCopyWithImpl<$Res> implements $UserReadDtoCopyWith<$Res> {
 
   final UserReadDto _value;
   // ignore: unused_field
-  final $Res Function(UserReadDto) _then;
+  final $Res Function(UserReadDto?) _then;
 
   @override
   $Res call({
-    Object subject = freezed,
-    Object username = freezed,
+    Object? subject = freezed,
+    Object? username = freezed,
   }) {
     return _then(_value.copyWith(
-      subject: subject == freezed ? _value.subject : subject as String,
-      username: username == freezed ? _value.username : username as String,
+      subject: subject == freezed ? _value.subject : subject as String?,
+      username: username == freezed ? _value.username : username as String?,
     ));
   }
 }
@@ -80,7 +80,7 @@ abstract class _$$UserReadDtoCtorCopyWith<$Res>
           _$UserReadDtoCtor value, $Res Function(_$UserReadDtoCtor) then) =
       __$$UserReadDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String subject, String username});
+  $Res call({String? subject, String? username});
 }
 
 /// @nodoc
@@ -96,12 +96,12 @@ class __$$UserReadDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object subject = freezed,
-    Object username = freezed,
+    Object? subject = freezed,
+    Object? username = freezed,
   }) {
     return _then(_$UserReadDtoCtor(
-      subject: subject == freezed ? _value.subject : subject as String,
-      username: username == freezed ? _value.username : username as String,
+      subject: subject == freezed ? _value.subject : (subject as String?)!,
+      username: username == freezed ? _value.username : (username as String?)!,
     ));
   }
 }
@@ -110,7 +110,7 @@ class __$$UserReadDtoCtorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$UserReadDtoCtor implements _$UserReadDtoCtor {
-  const _$_$UserReadDtoCtor({@required this.subject, @required this.username})
+  const _$_$UserReadDtoCtor({required this.subject, required this.username})
       : assert(subject != null),
         assert(username != null);
 
@@ -158,8 +158,8 @@ class _$_$UserReadDtoCtor implements _$UserReadDtoCtor {
 
 abstract class _$UserReadDtoCtor implements UserReadDto {
   const factory _$UserReadDtoCtor(
-      {@required String subject,
-      @required String username}) = _$_$UserReadDtoCtor;
+      {required String subject,
+      required String username}) = _$_$UserReadDtoCtor;
 
   factory _$UserReadDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$UserReadDtoCtor.fromJson;

@@ -6,13 +6,13 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformStaticConstPrefixedIdentifierToTs(
-        {@required
+        {required
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier,
-        @required
+        required
             SwidClass parentClass,
-        @required
+        required
             String inexpressibleFunctionInvocationFallback,
-        @required
+        required
             SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
     [
       staticConstPrefixedIdentifier.prefix.name,

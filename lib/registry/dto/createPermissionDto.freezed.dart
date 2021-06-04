@@ -18,12 +18,12 @@ class _$CreatePermissionDtoTearOff {
 
 // ignore: unused_element
   _$CreatePermissionDtoCtor call(
-      {@required String manageeId,
-      @required String managerId,
-      @required bool canUpdate,
-      @required bool canDelete,
-      @required bool canAddToCollection,
-      @required bool canRemoveFromCollection}) {
+      {required String manageeId,
+      required String managerId,
+      required bool canUpdate,
+      required bool canDelete,
+      required bool canAddToCollection,
+      required bool canRemoveFromCollection}) {
     return _$CreatePermissionDtoCtor(
       manageeId: manageeId,
       managerId: managerId,
@@ -64,12 +64,12 @@ abstract class $CreatePermissionDtoCopyWith<$Res> {
           CreatePermissionDto value, $Res Function(CreatePermissionDto) then) =
       _$CreatePermissionDtoCopyWithImpl<$Res>;
   $Res call(
-      {String manageeId,
-      String managerId,
-      bool canUpdate,
-      bool canDelete,
-      bool canAddToCollection,
-      bool canRemoveFromCollection});
+      {String? manageeId,
+      String? managerId,
+      bool? canUpdate,
+      bool? canDelete,
+      bool? canAddToCollection,
+      bool? canRemoveFromCollection});
 }
 
 /// @nodoc
@@ -79,28 +79,28 @@ class _$CreatePermissionDtoCopyWithImpl<$Res>
 
   final CreatePermissionDto _value;
   // ignore: unused_field
-  final $Res Function(CreatePermissionDto) _then;
+  final $Res Function(CreatePermissionDto?) _then;
 
   @override
   $Res call({
-    Object manageeId = freezed,
-    Object managerId = freezed,
-    Object canUpdate = freezed,
-    Object canDelete = freezed,
-    Object canAddToCollection = freezed,
-    Object canRemoveFromCollection = freezed,
+    Object? manageeId = freezed,
+    Object? managerId = freezed,
+    Object? canUpdate = freezed,
+    Object? canDelete = freezed,
+    Object? canAddToCollection = freezed,
+    Object? canRemoveFromCollection = freezed,
   }) {
     return _then(_value.copyWith(
-      manageeId: manageeId == freezed ? _value.manageeId : manageeId as String,
-      managerId: managerId == freezed ? _value.managerId : managerId as String,
-      canUpdate: canUpdate == freezed ? _value.canUpdate : canUpdate as bool,
-      canDelete: canDelete == freezed ? _value.canDelete : canDelete as bool,
+      manageeId: manageeId == freezed ? _value.manageeId : manageeId as String?,
+      managerId: managerId == freezed ? _value.managerId : managerId as String?,
+      canUpdate: canUpdate == freezed ? _value.canUpdate : canUpdate as bool?,
+      canDelete: canDelete == freezed ? _value.canDelete : canDelete as bool?,
       canAddToCollection: canAddToCollection == freezed
           ? _value.canAddToCollection
-          : canAddToCollection as bool,
+          : canAddToCollection as bool?,
       canRemoveFromCollection: canRemoveFromCollection == freezed
           ? _value.canRemoveFromCollection
-          : canRemoveFromCollection as bool,
+          : canRemoveFromCollection as bool?,
     ));
   }
 }
@@ -113,12 +113,12 @@ abstract class _$$CreatePermissionDtoCtorCopyWith<$Res>
       __$$CreatePermissionDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String manageeId,
-      String managerId,
-      bool canUpdate,
-      bool canDelete,
-      bool canAddToCollection,
-      bool canRemoveFromCollection});
+      {String? manageeId,
+      String? managerId,
+      bool? canUpdate,
+      bool? canDelete,
+      bool? canAddToCollection,
+      bool? canRemoveFromCollection});
 }
 
 /// @nodoc
@@ -135,24 +135,24 @@ class __$$CreatePermissionDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object manageeId = freezed,
-    Object managerId = freezed,
-    Object canUpdate = freezed,
-    Object canDelete = freezed,
-    Object canAddToCollection = freezed,
-    Object canRemoveFromCollection = freezed,
+    Object? manageeId = freezed,
+    Object? managerId = freezed,
+    Object? canUpdate = freezed,
+    Object? canDelete = freezed,
+    Object? canAddToCollection = freezed,
+    Object? canRemoveFromCollection = freezed,
   }) {
     return _then(_$CreatePermissionDtoCtor(
-      manageeId: manageeId == freezed ? _value.manageeId : manageeId as String,
-      managerId: managerId == freezed ? _value.managerId : managerId as String,
-      canUpdate: canUpdate == freezed ? _value.canUpdate : canUpdate as bool,
-      canDelete: canDelete == freezed ? _value.canDelete : canDelete as bool,
+      manageeId: manageeId == freezed ? _value.manageeId : (manageeId as String?)!,
+      managerId: managerId == freezed ? _value.managerId : (managerId as String?)!,
+      canUpdate: canUpdate == freezed ? _value.canUpdate : (canUpdate as bool?)!,
+      canDelete: canDelete == freezed ? _value.canDelete : (canDelete as bool?)!,
       canAddToCollection: canAddToCollection == freezed
           ? _value.canAddToCollection
-          : canAddToCollection as bool,
+          : (canAddToCollection as bool?)!,
       canRemoveFromCollection: canRemoveFromCollection == freezed
           ? _value.canRemoveFromCollection
-          : canRemoveFromCollection as bool,
+          : (canRemoveFromCollection as bool?)!,
     ));
   }
 }
@@ -162,12 +162,12 @@ class __$$CreatePermissionDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$CreatePermissionDtoCtor implements _$CreatePermissionDtoCtor {
   const _$_$CreatePermissionDtoCtor(
-      {@required this.manageeId,
-      @required this.managerId,
-      @required this.canUpdate,
-      @required this.canDelete,
-      @required this.canAddToCollection,
-      @required this.canRemoveFromCollection})
+      {required this.manageeId,
+      required this.managerId,
+      required this.canUpdate,
+      required this.canDelete,
+      required this.canAddToCollection,
+      required this.canRemoveFromCollection})
       : assert(manageeId != null),
         assert(managerId != null),
         assert(canUpdate != null),
@@ -245,12 +245,12 @@ class _$_$CreatePermissionDtoCtor implements _$CreatePermissionDtoCtor {
 
 abstract class _$CreatePermissionDtoCtor implements CreatePermissionDto {
   const factory _$CreatePermissionDtoCtor(
-      {@required String manageeId,
-      @required String managerId,
-      @required bool canUpdate,
-      @required bool canDelete,
-      @required bool canAddToCollection,
-      @required bool canRemoveFromCollection}) = _$_$CreatePermissionDtoCtor;
+      {required String manageeId,
+      required String managerId,
+      required bool canUpdate,
+      required bool canDelete,
+      required bool canAddToCollection,
+      required bool canRemoveFromCollection}) = _$_$CreatePermissionDtoCtor;
 
   factory _$CreatePermissionDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreatePermissionDtoCtor.fromJson;

@@ -18,12 +18,12 @@ class _$TsFunctionInvocationTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required
+      {required
           String functionReference,
-      @required
+      required
           TsFunctionInvocationPositionalParameters
               tsFunctionInvocationPositionalParameters,
-      @required
+      required
           List<TsFunctionInvocationNamedParameters>
               tsFunctionInvocationNamedParameters}) {
     return _$Data(
@@ -63,10 +63,10 @@ abstract class $TsFunctionInvocationCopyWith<$Res> {
           $Res Function(TsFunctionInvocation) then) =
       _$TsFunctionInvocationCopyWithImpl<$Res>;
   $Res call(
-      {String functionReference,
-      TsFunctionInvocationPositionalParameters
+      {String? functionReference,
+      TsFunctionInvocationPositionalParameters?
           tsFunctionInvocationPositionalParameters,
-      List<TsFunctionInvocationNamedParameters>
+      List<TsFunctionInvocationNamedParameters>?
           tsFunctionInvocationNamedParameters});
 
   $TsFunctionInvocationPositionalParametersCopyWith<$Res>
@@ -80,28 +80,28 @@ class _$TsFunctionInvocationCopyWithImpl<$Res>
 
   final TsFunctionInvocation _value;
   // ignore: unused_field
-  final $Res Function(TsFunctionInvocation) _then;
+  final $Res Function(TsFunctionInvocation?) _then;
 
   @override
   $Res call({
-    Object functionReference = freezed,
-    Object tsFunctionInvocationPositionalParameters = freezed,
-    Object tsFunctionInvocationNamedParameters = freezed,
+    Object? functionReference = freezed,
+    Object? tsFunctionInvocationPositionalParameters = freezed,
+    Object? tsFunctionInvocationNamedParameters = freezed,
   }) {
     return _then(_value.copyWith(
       functionReference: functionReference == freezed
           ? _value.functionReference
-          : functionReference as String,
+          : functionReference as String?,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters == freezed
               ? _value.tsFunctionInvocationPositionalParameters
               : tsFunctionInvocationPositionalParameters
-                  as TsFunctionInvocationPositionalParameters,
+                  as TsFunctionInvocationPositionalParameters?,
       tsFunctionInvocationNamedParameters:
           tsFunctionInvocationNamedParameters == freezed
               ? _value.tsFunctionInvocationNamedParameters
               : tsFunctionInvocationNamedParameters
-                  as List<TsFunctionInvocationNamedParameters>,
+                  as List<TsFunctionInvocationNamedParameters>?,
     ));
   }
 
@@ -126,10 +126,10 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String functionReference,
-      TsFunctionInvocationPositionalParameters
+      {String? functionReference,
+      TsFunctionInvocationPositionalParameters?
           tsFunctionInvocationPositionalParameters,
-      List<TsFunctionInvocationNamedParameters>
+      List<TsFunctionInvocationNamedParameters>?
           tsFunctionInvocationNamedParameters});
 
   @override
@@ -149,24 +149,24 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object functionReference = freezed,
-    Object tsFunctionInvocationPositionalParameters = freezed,
-    Object tsFunctionInvocationNamedParameters = freezed,
+    Object? functionReference = freezed,
+    Object? tsFunctionInvocationPositionalParameters = freezed,
+    Object? tsFunctionInvocationNamedParameters = freezed,
   }) {
     return _then(_$Data(
       functionReference: functionReference == freezed
           ? _value.functionReference
-          : functionReference as String,
+          : (functionReference as String?)!,
       tsFunctionInvocationPositionalParameters:
           tsFunctionInvocationPositionalParameters == freezed
               ? _value.tsFunctionInvocationPositionalParameters
-              : tsFunctionInvocationPositionalParameters
-                  as TsFunctionInvocationPositionalParameters,
+              : (tsFunctionInvocationPositionalParameters
+                  as TsFunctionInvocationPositionalParameters?)!,
       tsFunctionInvocationNamedParameters:
           tsFunctionInvocationNamedParameters == freezed
               ? _value.tsFunctionInvocationNamedParameters
-              : tsFunctionInvocationNamedParameters
-                  as List<TsFunctionInvocationNamedParameters>,
+              : (tsFunctionInvocationNamedParameters
+                  as List<TsFunctionInvocationNamedParameters>?)!,
     ));
   }
 }
@@ -176,9 +176,9 @@ class __$$DataCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   _$_$Data(
-      {@required this.functionReference,
-      @required this.tsFunctionInvocationPositionalParameters,
-      @required this.tsFunctionInvocationNamedParameters})
+      {required this.functionReference,
+      required this.tsFunctionInvocationPositionalParameters,
+      required this.tsFunctionInvocationNamedParameters})
       : assert(functionReference != null),
         assert(tsFunctionInvocationPositionalParameters != null),
         assert(tsFunctionInvocationNamedParameters != null);
@@ -240,12 +240,12 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements TsFunctionInvocation {
   factory _$Data(
-      {@required
+      {required
           String functionReference,
-      @required
+      required
           TsFunctionInvocationPositionalParameters
               tsFunctionInvocationPositionalParameters,
-      @required
+      required
           List<TsFunctionInvocationNamedParameters>
               tsFunctionInvocationNamedParameters}) = _$_$Data;
 

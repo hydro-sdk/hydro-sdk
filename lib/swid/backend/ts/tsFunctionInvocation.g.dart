@@ -15,13 +15,13 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
             : TsFunctionInvocationPositionalParameters.fromJson(
                 json['tsFunctionInvocationPositionalParameters']
                     as Map<String, dynamic>),
-    tsFunctionInvocationNamedParameters:
-        (json['tsFunctionInvocationNamedParameters'] as List)
+    (tsFunctionInvocationNamedParameters:
+        (json['tsFunctionInvocationNamedParameters'] as List?)
             ?.map((e) => e == null
                 ? null
                 : TsFunctionInvocationNamedParameters.fromJson(
                     e as Map<String, dynamic>))
-            ?.toList(),
+            ?.toList())!,
   );
 }
 

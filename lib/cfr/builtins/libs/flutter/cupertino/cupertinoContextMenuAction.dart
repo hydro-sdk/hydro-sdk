@@ -7,7 +7,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadCupertinoContextMenuAction(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["cupertinoContextMenuAction"] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
@@ -19,7 +19,7 @@ void loadCupertinoContextMenuAction(
         isDefaultAction: args[0]["isDefaultAction"],
         isDestructiveAction: args[0]["isDestructiveAction"],
         onPressed: () {
-          Closure closure = args[0]["onPressed"];
+          Closure? closure = args[0]["onPressed"];
           if (closure != null) {
             closure.dispatch(
               [],

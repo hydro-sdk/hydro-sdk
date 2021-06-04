@@ -11,104 +11,104 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
+class VMManagedFloat64x2 extends VMManagedBox<Float64x2?> {
   VMManagedFloat64x2(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table,
+      required this.vmObject,
+      required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.scale(args[1]?.toDouble()),
-            hydroState: hydroState,
+            object: vmObject!.scale(args[1]?.toDouble()),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['abs'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['abs'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.abs(), hydroState: hydroState, table: HydroTable())
+            object: vmObject!.abs(), hydroState: hydroState!, table: HydroTable())
       ];
     });
-    table['clamp'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['clamp'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.clamp(
+            object: vmObject!.clamp(
                 maybeUnBoxAndBuildArgument<Float64x2>(args[1],
-                    parentState: hydroState),
+                    parentState: hydroState!),
                 maybeUnBoxAndBuildArgument<Float64x2>(args[2],
-                    parentState: hydroState)),
-            hydroState: hydroState,
+                    parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['getX'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.x];
+    table!['getX'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.x];
     });
-    table['getY'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.y];
+    table!['getY'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.y];
     });
-    table['getSignMask'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.signMask];
+    table!['getSignMask'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.signMask];
     });
-    table['withX'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['withX'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.withX(args[1]?.toDouble()),
-            hydroState: hydroState,
+            object: vmObject!.withX(args[1]?.toDouble()),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['withY'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['withY'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.withY(args[1]?.toDouble()),
-            hydroState: hydroState,
+            object: vmObject!.withY(args[1]?.toDouble()),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['min'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['min'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.min(maybeUnBoxAndBuildArgument<Float64x2>(args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+            object: vmObject!.min(maybeUnBoxAndBuildArgument<Float64x2>(args[1],
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['max'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['max'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.max(maybeUnBoxAndBuildArgument<Float64x2>(args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+            object: vmObject!.max(maybeUnBoxAndBuildArgument<Float64x2>(args[1],
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['sqrt'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['sqrt'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.sqrt(),
-            hydroState: hydroState,
+            object: vmObject!.sqrt(),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
   }
 
-  final HydroTable table;
+  final HydroTable? table;
 
-  final HydroState hydroState;
+  final HydroState? hydroState;
 
-  final Float64x2 vmObject;
+  final Float64x2? vmObject;
 }
 
 void loadFloat64x2(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['float64x2'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Float64x2>(
@@ -142,9 +142,9 @@ void loadFloat64x2(
     ];
   });
   registerBoxer<Float64x2>(boxer: (
-      {@required Float64x2 vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Float64x2? vmObject,
+      required HydroState? hydroState,
+      required HydroTable? table}) {
     return VMManagedFloat64x2(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

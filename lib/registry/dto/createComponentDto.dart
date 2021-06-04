@@ -7,9 +7,9 @@ part 'createComponentDto.g.dart';
 @freezed
 abstract class CreateComponentDto with _$CreateComponentDto {
   const factory CreateComponentDto({
-    @required String name,
-    @required String description,
-    @required String projectId,
+    required String name,
+    required String description,
+    required String projectId,
   }) = _$CreateComponentDtoCtor;
 
   factory CreateComponentDto.fromJson(Map<String, dynamic> json) =>

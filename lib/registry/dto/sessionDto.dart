@@ -9,8 +9,8 @@ part 'sessionDto.g.dart';
 @freezed
 abstract class SessionDto with _$SessionDto {
   const factory SessionDto({
-    @required AuthTokenDto authenticatedUser,
-    @required String authToken,
+    required AuthTokenDto authenticatedUser,
+    required String authToken,
   }) = _$SessionDtoCtor;
 
   factory SessionDto.empty() => SessionDto(

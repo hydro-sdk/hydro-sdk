@@ -12,7 +12,7 @@ import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 class DartBarrelLoadNamespaceSymbolDeclaration {
   final BarrelSpec barrelSpec;
 
-  DartBarrelLoadNamespaceSymbolDeclaration({@required this.barrelSpec});
+  DartBarrelLoadNamespaceSymbolDeclaration({required this.barrelSpec});
   String toDartSource() => DartFormatter().format(Method((m) => m
     ..name = "load${barrelSpec.name}"
     ..returns = refer("void")

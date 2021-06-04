@@ -11,7 +11,7 @@ part 'swidiPositionalOrOptionalOrNamedParameter.freezed.dart';
 abstract class SwidiPositionalOrOptionalOrNamedParameter
     with _$SwidiPositionalOrOptionalOrNamedParameter {
   factory SwidiPositionalOrOptionalOrNamedParameter.clone({
-    @required
+    required
         SwidiPositionalOrOptionalOrNamedParameter
             swidiPositionalOrOptionalOrNamedParameter,
   }) =>
@@ -39,14 +39,14 @@ abstract class SwidiPositionalOrOptionalOrNamedParameter
       );
 
   const factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiPositionalParameter({
-    @required SwidiPositionalParameter positionalParameter,
+    required SwidiPositionalParameter positionalParameter,
   }) = _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter;
 
   const factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiOptionalParameter({
-    @required SwidiOptionalParameter optionalParameter,
+    required SwidiOptionalParameter optionalParameter,
   }) = _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter;
 
   const factory SwidiPositionalOrOptionalOrNamedParameter.fromSwidiNamedParameter({
-    @required SwidiNamedParameter namedParameter,
+    required SwidiNamedParameter namedParameter,
   }) = _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter;
 }

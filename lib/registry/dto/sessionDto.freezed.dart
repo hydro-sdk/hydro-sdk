@@ -18,7 +18,7 @@ class _$SessionDtoTearOff {
 
 // ignore: unused_element
   _$SessionDtoCtor call(
-      {@required AuthTokenDto authenticatedUser, @required String authToken}) {
+      {required AuthTokenDto authenticatedUser, required String authToken}) {
     return _$SessionDtoCtor(
       authenticatedUser: authenticatedUser,
       authToken: authToken,
@@ -50,7 +50,7 @@ abstract class $SessionDtoCopyWith<$Res> {
   factory $SessionDtoCopyWith(
           SessionDto value, $Res Function(SessionDto) then) =
       _$SessionDtoCopyWithImpl<$Res>;
-  $Res call({AuthTokenDto authenticatedUser, String authToken});
+  $Res call({AuthTokenDto? authenticatedUser, String? authToken});
 
   $AuthTokenDtoCopyWith<$Res> get authenticatedUser;
 }
@@ -61,18 +61,18 @@ class _$SessionDtoCopyWithImpl<$Res> implements $SessionDtoCopyWith<$Res> {
 
   final SessionDto _value;
   // ignore: unused_field
-  final $Res Function(SessionDto) _then;
+  final $Res Function(SessionDto?) _then;
 
   @override
   $Res call({
-    Object authenticatedUser = freezed,
-    Object authToken = freezed,
+    Object? authenticatedUser = freezed,
+    Object? authToken = freezed,
   }) {
     return _then(_value.copyWith(
       authenticatedUser: authenticatedUser == freezed
           ? _value.authenticatedUser
-          : authenticatedUser as AuthTokenDto,
-      authToken: authToken == freezed ? _value.authToken : authToken as String,
+          : authenticatedUser as AuthTokenDto?,
+      authToken: authToken == freezed ? _value.authToken : authToken as String?,
     ));
   }
 
@@ -94,7 +94,7 @@ abstract class _$$SessionDtoCtorCopyWith<$Res>
           _$SessionDtoCtor value, $Res Function(_$SessionDtoCtor) then) =
       __$$SessionDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({AuthTokenDto authenticatedUser, String authToken});
+  $Res call({AuthTokenDto? authenticatedUser, String? authToken});
 
   @override
   $AuthTokenDtoCopyWith<$Res> get authenticatedUser;
@@ -113,14 +113,14 @@ class __$$SessionDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object authenticatedUser = freezed,
-    Object authToken = freezed,
+    Object? authenticatedUser = freezed,
+    Object? authToken = freezed,
   }) {
     return _then(_$SessionDtoCtor(
       authenticatedUser: authenticatedUser == freezed
           ? _value.authenticatedUser
-          : authenticatedUser as AuthTokenDto,
-      authToken: authToken == freezed ? _value.authToken : authToken as String,
+          : (authenticatedUser as AuthTokenDto?)!,
+      authToken: authToken == freezed ? _value.authToken : (authToken as String?)!,
     ));
   }
 }
@@ -130,7 +130,7 @@ class __$$SessionDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SessionDtoCtor implements _$SessionDtoCtor {
   const _$_$SessionDtoCtor(
-      {@required this.authenticatedUser, @required this.authToken})
+      {required this.authenticatedUser, required this.authToken})
       : assert(authenticatedUser != null),
         assert(authToken != null);
 
@@ -178,8 +178,8 @@ class _$_$SessionDtoCtor implements _$SessionDtoCtor {
 
 abstract class _$SessionDtoCtor implements SessionDto {
   const factory _$SessionDtoCtor(
-      {@required AuthTokenDto authenticatedUser,
-      @required String authToken}) = _$_$SessionDtoCtor;
+      {required AuthTokenDto authenticatedUser,
+      required String authToken}) = _$_$SessionDtoCtor;
 
   factory _$SessionDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$SessionDtoCtor.fromJson;

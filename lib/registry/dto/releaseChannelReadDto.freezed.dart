@@ -19,13 +19,13 @@ class _$ReleaseChannelReadDtoTearOff {
 
 // ignore: unused_element
   _$ReleaseChannelReadDtoCtor call(
-      {@required String id,
-      @required String componentId,
-      @required String createdAt,
-      @required bool isPublic,
-      @required String name,
-      @required String description,
-      @required String currentPackageId}) {
+      {required String id,
+      required String componentId,
+      required String createdAt,
+      required bool isPublic,
+      required String name,
+      required String description,
+      required String currentPackageId}) {
     return _$ReleaseChannelReadDtoCtor(
       id: id,
       componentId: componentId,
@@ -68,13 +68,13 @@ abstract class $ReleaseChannelReadDtoCopyWith<$Res> {
           $Res Function(ReleaseChannelReadDto) then) =
       _$ReleaseChannelReadDtoCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String componentId,
-      String createdAt,
-      bool isPublic,
-      String name,
-      String description,
-      String currentPackageId});
+      {String? id,
+      String? componentId,
+      String? createdAt,
+      bool? isPublic,
+      String? name,
+      String? description,
+      String? currentPackageId});
 }
 
 /// @nodoc
@@ -84,30 +84,30 @@ class _$ReleaseChannelReadDtoCopyWithImpl<$Res>
 
   final ReleaseChannelReadDto _value;
   // ignore: unused_field
-  final $Res Function(ReleaseChannelReadDto) _then;
+  final $Res Function(ReleaseChannelReadDto?) _then;
 
   @override
   $Res call({
-    Object id = freezed,
-    Object componentId = freezed,
-    Object createdAt = freezed,
-    Object isPublic = freezed,
-    Object name = freezed,
-    Object description = freezed,
-    Object currentPackageId = freezed,
+    Object? id = freezed,
+    Object? componentId = freezed,
+    Object? createdAt = freezed,
+    Object? isPublic = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? currentPackageId = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed ? _value.id : id as String?,
       componentId:
-          componentId == freezed ? _value.componentId : componentId as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
-      name: name == freezed ? _value.name : name as String,
+          componentId == freezed ? _value.componentId : componentId as String?,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String?,
+      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool?,
+      name: name == freezed ? _value.name : name as String?,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : description as String?,
       currentPackageId: currentPackageId == freezed
           ? _value.currentPackageId
-          : currentPackageId as String,
+          : currentPackageId as String?,
     ));
   }
 }
@@ -121,13 +121,13 @@ abstract class _$$ReleaseChannelReadDtoCtorCopyWith<$Res>
       __$$ReleaseChannelReadDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String componentId,
-      String createdAt,
-      bool isPublic,
-      String name,
-      String description,
-      String currentPackageId});
+      {String? id,
+      String? componentId,
+      String? createdAt,
+      bool? isPublic,
+      String? name,
+      String? description,
+      String? currentPackageId});
 }
 
 /// @nodoc
@@ -144,26 +144,26 @@ class __$$ReleaseChannelReadDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object componentId = freezed,
-    Object createdAt = freezed,
-    Object isPublic = freezed,
-    Object name = freezed,
-    Object description = freezed,
-    Object currentPackageId = freezed,
+    Object? id = freezed,
+    Object? componentId = freezed,
+    Object? createdAt = freezed,
+    Object? isPublic = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? currentPackageId = freezed,
   }) {
     return _then(_$ReleaseChannelReadDtoCtor(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed ? _value.id : (id as String?)!,
       componentId:
-          componentId == freezed ? _value.componentId : componentId as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
-      name: name == freezed ? _value.name : name as String,
+          componentId == freezed ? _value.componentId : (componentId as String?)!,
+      createdAt: createdAt == freezed ? _value.createdAt : (createdAt as String?)!,
+      isPublic: isPublic == freezed ? _value.isPublic : (isPublic as bool?)!,
+      name: name == freezed ? _value.name : (name as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : (description as String?)!,
       currentPackageId: currentPackageId == freezed
           ? _value.currentPackageId
-          : currentPackageId as String,
+          : (currentPackageId as String?)!,
     ));
   }
 }
@@ -173,13 +173,13 @@ class __$$ReleaseChannelReadDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ReleaseChannelReadDtoCtor implements _$ReleaseChannelReadDtoCtor {
   const _$_$ReleaseChannelReadDtoCtor(
-      {@required this.id,
-      @required this.componentId,
-      @required this.createdAt,
-      @required this.isPublic,
-      @required this.name,
-      @required this.description,
-      @required this.currentPackageId})
+      {required this.id,
+      required this.componentId,
+      required this.createdAt,
+      required this.isPublic,
+      required this.name,
+      required this.description,
+      required this.currentPackageId})
       : assert(id != null),
         assert(componentId != null),
         assert(createdAt != null),
@@ -261,13 +261,13 @@ class _$_$ReleaseChannelReadDtoCtor implements _$ReleaseChannelReadDtoCtor {
 
 abstract class _$ReleaseChannelReadDtoCtor implements ReleaseChannelReadDto {
   const factory _$ReleaseChannelReadDtoCtor(
-      {@required String id,
-      @required String componentId,
-      @required String createdAt,
-      @required bool isPublic,
-      @required String name,
-      @required String description,
-      @required String currentPackageId}) = _$_$ReleaseChannelReadDtoCtor;
+      {required String id,
+      required String componentId,
+      required String createdAt,
+      required bool isPublic,
+      required String name,
+      required String description,
+      required String currentPackageId}) = _$_$ReleaseChannelReadDtoCtor;
 
   factory _$ReleaseChannelReadDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$ReleaseChannelReadDtoCtor.fromJson;

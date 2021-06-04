@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -7,7 +8,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaratio
 class TsClassStaticConstFieldDeclarations {
   final SwidClass swidClass;
 
-  TsClassStaticConstFieldDeclarations({@required this.swidClass});
+  TsClassStaticConstFieldDeclarations({required this.swidClass});
 
   String toTsSource() {
     var res = "";
@@ -17,15 +18,14 @@ class TsClassStaticConstFieldDeclarations {
               staticConstFieldDeclaration: x,
               parentClass: swidClass,
               scopeResolver: (staticConstFieldReference) =>
-                  ((SwidStaticConstFieldDeclaration
+                  ((SwidStaticConstFieldDeclaration?
                           swidStaticConstFieldDeclaration) =>
                       swidStaticConstFieldDeclaration != null
                           ? "${swidClass.name}.${swidStaticConstFieldDeclaration.name}"
                           : staticConstFieldReference.name)(swidClass
                       .staticConstFieldDeclarations
-                      .firstWhere(
-                          (k) => k.name == staticConstFieldReference.name,
-                          orElse: () => null)));
+                      .firstWhereOrNull(
+                          (k) => k.name == staticConstFieldReference.name)));
       res += "\n";
     });
     return res;

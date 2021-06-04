@@ -7,8 +7,8 @@ part 'userReadDto.g.dart';
 @freezed
 abstract class UserReadDto with _$UserReadDto {
   const factory UserReadDto({
-    @required String subject,
-    @required String username,
+    required String subject,
+    required String username,
   }) = _$UserReadDtoCtor;
 
   factory UserReadDto.fromJson(Map<String, dynamic> json) =>

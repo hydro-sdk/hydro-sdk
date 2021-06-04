@@ -11,14 +11,14 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
 SwidInterface swidInterfaceFromInterface(
-        {@required InterfaceType interfaceType}) =>
+        {required InterfaceType interfaceType}) =>
     SwidInterface(
       name: interfaceType.getDisplayString(withNullability: false),
       typeArguments: interfaceType.typeArguments
           .map((x) => narrowDartTypeToSwidType(dartType: x))
           .toList(),
       nullabilitySuffix: mapNullabilitySuffix(
-          nullabilitySuffix: interfaceType.nullabilitySuffix),
+          nullabilitySuffix: interfaceType.nullabilitySuffix)!,
       originalPackagePath:
           mapClassLibrarySourcePath(element: interfaceType.element),
       referenceDeclarationKind: interfaceType.element is EnumElementImpl

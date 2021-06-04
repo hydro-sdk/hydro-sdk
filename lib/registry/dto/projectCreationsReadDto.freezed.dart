@@ -19,7 +19,7 @@ class _$ProjectCreationsReadDtoTearOff {
 
 // ignore: unused_element
   _$ProjectCreationsReadDtoCtpr call(
-      {@required int remainingProjectCreations}) {
+      {required int remainingProjectCreations}) {
     return _$ProjectCreationsReadDtoCtpr(
       remainingProjectCreations: remainingProjectCreations,
     );
@@ -49,7 +49,7 @@ abstract class $ProjectCreationsReadDtoCopyWith<$Res> {
   factory $ProjectCreationsReadDtoCopyWith(ProjectCreationsReadDto value,
           $Res Function(ProjectCreationsReadDto) then) =
       _$ProjectCreationsReadDtoCopyWithImpl<$Res>;
-  $Res call({int remainingProjectCreations});
+  $Res call({int? remainingProjectCreations});
 }
 
 /// @nodoc
@@ -59,16 +59,16 @@ class _$ProjectCreationsReadDtoCopyWithImpl<$Res>
 
   final ProjectCreationsReadDto _value;
   // ignore: unused_field
-  final $Res Function(ProjectCreationsReadDto) _then;
+  final $Res Function(ProjectCreationsReadDto?) _then;
 
   @override
   $Res call({
-    Object remainingProjectCreations = freezed,
+    Object? remainingProjectCreations = freezed,
   }) {
     return _then(_value.copyWith(
       remainingProjectCreations: remainingProjectCreations == freezed
           ? _value.remainingProjectCreations
-          : remainingProjectCreations as int,
+          : remainingProjectCreations as int?,
     ));
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$ProjectCreationsReadDtoCtprCopyWith<$Res>
           $Res Function(_$ProjectCreationsReadDtoCtpr) then) =
       __$$ProjectCreationsReadDtoCtprCopyWithImpl<$Res>;
   @override
-  $Res call({int remainingProjectCreations});
+  $Res call({int? remainingProjectCreations});
 }
 
 /// @nodoc
@@ -99,12 +99,12 @@ class __$$ProjectCreationsReadDtoCtprCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object remainingProjectCreations = freezed,
+    Object? remainingProjectCreations = freezed,
   }) {
     return _then(_$ProjectCreationsReadDtoCtpr(
       remainingProjectCreations: remainingProjectCreations == freezed
           ? _value.remainingProjectCreations
-          : remainingProjectCreations as int,
+          : (remainingProjectCreations as int?)!,
     ));
   }
 }
@@ -114,7 +114,7 @@ class __$$ProjectCreationsReadDtoCtprCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ProjectCreationsReadDtoCtpr implements _$ProjectCreationsReadDtoCtpr {
   const _$_$ProjectCreationsReadDtoCtpr(
-      {@required this.remainingProjectCreations})
+      {required this.remainingProjectCreations})
       : assert(remainingProjectCreations != null);
 
   factory _$_$ProjectCreationsReadDtoCtpr.fromJson(Map<String, dynamic> json) =>
@@ -159,7 +159,7 @@ class _$_$ProjectCreationsReadDtoCtpr implements _$ProjectCreationsReadDtoCtpr {
 abstract class _$ProjectCreationsReadDtoCtpr
     implements ProjectCreationsReadDto {
   const factory _$ProjectCreationsReadDtoCtpr(
-          {@required int remainingProjectCreations}) =
+          {required int remainingProjectCreations}) =
       _$_$ProjectCreationsReadDtoCtpr;
 
   factory _$ProjectCreationsReadDtoCtpr.fromJson(Map<String, dynamic> json) =

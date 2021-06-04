@@ -11,8 +11,8 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateGeneric.dart';
 
 SwidType instantiateAllGenericsAs({
-  @required SwidType swidType,
-  @required SwidInstantiatedGeneric instantiatedGeneric,
+  required SwidType swidType,
+  required SwidInstantiatedGeneric instantiatedGeneric,
 }) =>
     swidType.when(
       fromSwidInterface: (val) => SwidType.fromSwidInterface(
@@ -20,17 +20,17 @@ SwidType instantiateAllGenericsAs({
       ),
       fromSwidClass: (val) => SwidType.fromSwidClass(
         swidClass: SwidClass.clone(
-          swidClass: val.typeFormals.fold<SwidClass>(
+          swidClass: val.typeFormals.fold<SwidClass?>(
             val,
-            (previousValue, element) => element.swidReferenceDeclarationKind ==
+            (previousValue, element) => element!.swidReferenceDeclarationKind ==
                     SwidReferenceDeclarationKind.typeParameterType
                 ? instantiateGeneric(
-                    swidType: SwidType.fromSwidClass(swidClass: previousValue),
+                    swidType: SwidType.fromSwidClass(swidClass: previousValue!),
                     genericInstantiator: SwidGenericInstantiator(
                       name: element.value.name,
                       instantiatedGeneric: instantiatedGeneric,
                     ),
-                  ).when(
+                  )!.when(
                     fromSwidInterface: (_) => null,
                     fromSwidClass: (val) => val,
                     fromSwidDefaultFormalParameter: (_) => null,
@@ -43,18 +43,18 @@ SwidType instantiateAllGenericsAs({
         ),
       ),
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-        swidFunctionType: val.typeFormals.fold<SwidFunctionType>(
+        swidFunctionType: val.typeFormals.fold<SwidFunctionType?>(
           val,
-          (previousValue, element) => element.swidReferenceDeclarationKind ==
+          (previousValue, element) => element!.swidReferenceDeclarationKind ==
                   SwidReferenceDeclarationKind.typeParameterType
               ? instantiateGeneric(
                   swidType: SwidType.fromSwidFunctionType(
-                      swidFunctionType: previousValue),
+                      swidFunctionType: previousValue!),
                   genericInstantiator: SwidGenericInstantiator(
                     name: element.value.name,
                     instantiatedGeneric: instantiatedGeneric,
                   ),
-                ).when(
+                )!.when(
                   fromSwidInterface: (_) => null,
                   fromSwidClass: (_) => null,
                   fromSwidDefaultFormalParameter: (_) => null,
@@ -63,7 +63,7 @@ SwidType instantiateAllGenericsAs({
               : SwidFunctionType.clone(
                   swidFunctionType: previousValue,
                 ),
-        ),
+        )!,
       ),
       fromSwidDefaultFormalParameter: (val) =>
           SwidType.fromSwidDefaultFormalParameter(

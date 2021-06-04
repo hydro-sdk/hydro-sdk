@@ -19,7 +19,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/textRange.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadUi({@required HydroState luaState, @required HydroTable table}) {
+void loadUi({required HydroState luaState, required HydroTable table}) {
   var ui = HydroTable();
 
   table["ui"] = ui;

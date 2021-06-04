@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
@@ -5,7 +6,7 @@ import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 
-List<BarrelMember> _extractMembers({@required BarrelSpec spec}) =>
+List<BarrelMember> _extractMembers({required BarrelSpec spec}) =>
     ((List<List<BarrelMember>> members) =>
         members.isNotEmpty
             ? members.reduce((value, element) => [...value, ...element])
@@ -19,15 +20,14 @@ List<BarrelMember> _extractMembers({@required BarrelSpec spec}) =>
         .where((x) => x != null)
         .toList());
 
-List<BarrelSpec> _groupMembers({@required List<BarrelMember> members}) =>
+List<BarrelSpec> _groupMembers({required List<BarrelMember> members}) =>
     members.fold<List<BarrelSpec>>(
       <BarrelSpec>[],
-      (previousValue, element) => previousValue.firstWhere(
+      (previousValue, element) => previousValue.firstWhereOrNull(
                   (x) =>
                       x.path ==
                       transformPackageUri(
-                          packageUri: element.originalPackagePath),
-                  orElse: () => null) ==
+                          packageUri: element.originalPackagePath)) ==
               null
           ? [
               ...previousValue,
@@ -83,7 +83,7 @@ List<BarrelSpec> _groupMembers({@required List<BarrelMember> members}) =>
                 ])),
     );
 
-BarrelSpec resolveBarrelSpecs({@required List<BarrelMember> members}) {
+BarrelSpec resolveBarrelSpecs({required List<BarrelMember> members}) {
   return _groupMembers(members: members).reduce((value, element) =>
       BarrelSpec.clone(
           barrelSpec: value,

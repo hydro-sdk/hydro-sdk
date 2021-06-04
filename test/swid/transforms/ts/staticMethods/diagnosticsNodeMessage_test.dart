@@ -16,7 +16,7 @@ void main() {
         TsClassStaticMethodImplementation(
             swidClass: diagnosticsNodeClass,
             swidFunctionType: diagnosticsNodeClass.factoryConstructors
-                .firstWhere((x) => x.name == "message")).toTsSource(),
+                .firstWhere((x) => x!.name == "message")).toTsSource(),
         """
 public static message(message: string, props : { allowWrap? : boolean, level? : DiagnosticLevel, style? : DiagnosticsTreeStyle, }) : IDiagnosticsNode{
 return flutter.foundation.diagnosticsNodeMessage(message, {

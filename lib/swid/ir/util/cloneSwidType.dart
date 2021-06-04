@@ -8,8 +8,8 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidType cloneSwidType({
-  @required SwidType swidType,
-  SwidNullabilitySuffix swidNullabilitySuffix,
+  required SwidType swidType,
+  SwidNullabilitySuffix? swidNullabilitySuffix,
 }) =>
     swidType.map(
       fromSwidInterface: (val) => SwidType.fromSwidInterface(

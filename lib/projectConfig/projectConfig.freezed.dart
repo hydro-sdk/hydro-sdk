@@ -18,8 +18,8 @@ class _$ProjectConfigTearOff {
 
 // ignore: unused_element
   _$ProjectConfigCtor call(
-      {@required String project,
-      @required List<ProjectConfigComponent> components}) {
+      {required String project,
+      required List<ProjectConfigComponent> components}) {
     return _$ProjectConfigCtor(
       project: project,
       components: components,
@@ -51,7 +51,7 @@ abstract class $ProjectConfigCopyWith<$Res> {
   factory $ProjectConfigCopyWith(
           ProjectConfig value, $Res Function(ProjectConfig) then) =
       _$ProjectConfigCopyWithImpl<$Res>;
-  $Res call({String project, List<ProjectConfigComponent> components});
+  $Res call({String? project, List<ProjectConfigComponent>? components});
 }
 
 /// @nodoc
@@ -61,18 +61,18 @@ class _$ProjectConfigCopyWithImpl<$Res>
 
   final ProjectConfig _value;
   // ignore: unused_field
-  final $Res Function(ProjectConfig) _then;
+  final $Res Function(ProjectConfig?) _then;
 
   @override
   $Res call({
-    Object project = freezed,
-    Object components = freezed,
+    Object? project = freezed,
+    Object? components = freezed,
   }) {
     return _then(_value.copyWith(
-      project: project == freezed ? _value.project : project as String,
+      project: project == freezed ? _value.project : project as String?,
       components: components == freezed
           ? _value.components
-          : components as List<ProjectConfigComponent>,
+          : components as List<ProjectConfigComponent>?,
     ));
   }
 }
@@ -84,7 +84,7 @@ abstract class _$$ProjectConfigCtorCopyWith<$Res>
           _$ProjectConfigCtor value, $Res Function(_$ProjectConfigCtor) then) =
       __$$ProjectConfigCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String project, List<ProjectConfigComponent> components});
+  $Res call({String? project, List<ProjectConfigComponent>? components});
 }
 
 /// @nodoc
@@ -100,14 +100,14 @@ class __$$ProjectConfigCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object project = freezed,
-    Object components = freezed,
+    Object? project = freezed,
+    Object? components = freezed,
   }) {
     return _then(_$ProjectConfigCtor(
-      project: project == freezed ? _value.project : project as String,
+      project: project == freezed ? _value.project : (project as String?)!,
       components: components == freezed
           ? _value.components
-          : components as List<ProjectConfigComponent>,
+          : (components as List<ProjectConfigComponent>?)!,
     ));
   }
 }
@@ -117,7 +117,7 @@ class __$$ProjectConfigCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ProjectConfigCtor implements _$ProjectConfigCtor {
   const _$_$ProjectConfigCtor(
-      {@required this.project, @required this.components})
+      {required this.project, required this.components})
       : assert(project != null),
         assert(components != null);
 
@@ -165,8 +165,8 @@ class _$_$ProjectConfigCtor implements _$ProjectConfigCtor {
 
 abstract class _$ProjectConfigCtor implements ProjectConfig {
   const factory _$ProjectConfigCtor(
-          {@required String project,
-          @required List<ProjectConfigComponent> components}) =
+          {required String project,
+          required List<ProjectConfigComponent> components}) =
       _$_$ProjectConfigCtor;
 
   factory _$ProjectConfigCtor.fromJson(Map<String, dynamic> json) =

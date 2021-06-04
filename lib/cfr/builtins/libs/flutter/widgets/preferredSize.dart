@@ -8,31 +8,31 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class StatelessPreferredSizeBox extends PreferredSize {
   final HydroTable table;
-  final HydroState parentState;
+  final HydroState? parentState;
 
-  StatelessPreferredSizeBox({@required this.table, @required this.parentState});
+  StatelessPreferredSizeBox({required this.table, required this.parentState});
 
   @override
   Size get preferredSize =>
       maybeUnBoxAndBuildArgument<Widget>(table["preferredSize"]([table.map])[0],
-          parentState: parentState);
+          parentState: parentState!);
 
   @override
   Widget build(BuildContext context) {
     Closure managedBuild =
-        maybeFindInheritedMethod(managedObject: table, methodName: "build");
+        maybeFindInheritedMethod(managedObject: table, methodName: "build")!;
     var buildResult = managedBuild
-        .dispatch([table.map, context], parentState: parentState)[0];
+        .dispatch([table.map, context], parentState: parentState!)![0];
     return maybeUnBoxAndBuildArgument<Widget>(buildResult,
-        parentState: parentState);
+        parentState: parentState!);
   }
 }
 
 void loadPreferredSize(
-    {@required HydroState luaState, @required HydroTable table}) {
-  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+    {required HydroState luaState, required HydroTable table}) {
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState? parentState}) {
     if (box is HydroTable) {
-      Closure build =
+      Closure? build =
           maybeFindInheritedMethod(managedObject: box, methodName: "build");
       if (build != null) {
         if (box["runtimeType"] == "PreferredSize") {

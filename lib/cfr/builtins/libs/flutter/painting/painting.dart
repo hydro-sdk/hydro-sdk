@@ -15,7 +15,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/painting/textStyle.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadPainting({@required HydroState luaState, @required HydroTable table}) {
+void loadPainting({required HydroState luaState, required HydroTable table}) {
   var painting = HydroTable();
 
   table["painting"] = painting;

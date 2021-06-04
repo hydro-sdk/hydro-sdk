@@ -11,11 +11,11 @@ part 'tsFunctionInvocationNamedParameters.g.dart';
 abstract class TsFunctionInvocationNamedParameters
     with _$TsFunctionInvocationNamedParameters {
   factory TsFunctionInvocationNamedParameters.fromSpread(
-      {@required
+      {required
           TsFunctionInvocationNamedParametersSpread
               tsFunctionInvocationNamedParametersSpread}) = _$FromSpread;
   factory TsFunctionInvocationNamedParameters.fromKeyValue(
-      {@required
+      {required
           TsFunctionInvocationNamedParametersKeyValue
               tsFunctionInvocationNamedParametersKeyValue}) = _$FromKeyValue;
 

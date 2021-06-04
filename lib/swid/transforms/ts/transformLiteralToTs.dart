@@ -12,14 +12,14 @@ import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedExpress
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedIdentifierToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
 
-typedef String SwidStaticConstFieldReferenceScopeResolver(
+typedef String? SwidStaticConstFieldReferenceScopeResolver(
     SwidStaticConstFieldReference staticConstFieldReference);
 
 String transformLiteralToTs(
-        {@required SwidStaticConst swidLiteral,
-        @required SwidClass parentClass,
-        @required String inexpressibleFunctionInvocationFallback,
-        @required SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
+        {required SwidStaticConst swidLiteral,
+        required SwidClass parentClass,
+        required String inexpressibleFunctionInvocationFallback,
+        required SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
     swidLiteral.when(
         fromSwidIntegerLiteral: (val) =>
             transformIntegerLiteralToTs(swidIntegerLiteral: val),
@@ -62,7 +62,7 @@ String transformLiteralToTs(
                   inexpressibleFunctionInvocationFallback,
             ),
         fromSwidStaticConstFieldReference: (val) {
-          var res = scopeResolver(val);
+          var res = scopeResolver(val)!;
           assert(res != null);
           return res;
         });

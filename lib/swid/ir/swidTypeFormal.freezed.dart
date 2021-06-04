@@ -9,7 +9,7 @@ part of 'swidTypeFormal.dart';
 
 T _$identity<T>(T value) => value;
 SwidTypeFormalValue _$SwidTypeFormalValueFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType'] as String) {
+  switch (json['runtimeType'] as String?) {
     case 'fromString':
       return _$FromString.fromJson(json);
     case 'fromSwidClass':
@@ -29,14 +29,14 @@ class _$SwidTypeFormalValueTearOff {
   const _$SwidTypeFormalValueTearOff();
 
 // ignore: unused_element
-  _$FromString fromString({@required String string}) {
+  _$FromString fromString({required String string}) {
     return _$FromString(
       string: string,
     );
   }
 
 // ignore: unused_element
-  _$FromSwidClass fromSwidClass({@required SwidClass swidClass}) {
+  _$FromSwidClass fromSwidClass({required SwidClass swidClass}) {
     return _$FromSwidClass(
       swidClass: swidClass,
     );
@@ -44,7 +44,7 @@ class _$SwidTypeFormalValueTearOff {
 
 // ignore: unused_element
   _$FromSwidInterface fromSwidInterface(
-      {@required SwidInterface swidInterface}) {
+      {required SwidInterface swidInterface}) {
     return _$FromSwidInterface(
       swidInterface: swidInterface,
     );
@@ -52,7 +52,7 @@ class _$SwidTypeFormalValueTearOff {
 
 // ignore: unused_element
   _$FromSwidFunctionType fromSwidFunctionType(
-      {@required SwidFunctionType swidFunctionType}) {
+      {required SwidFunctionType swidFunctionType}) {
     return _$FromSwidFunctionType(
       swidFunctionType: swidFunctionType,
     );
@@ -72,33 +72,33 @@ const $SwidTypeFormalValue = _$SwidTypeFormalValueTearOff();
 mixin _$SwidTypeFormalValue {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fromString(String string),
-    @required TResult fromSwidClass(SwidClass swidClass),
-    @required TResult fromSwidInterface(SwidInterface swidInterface),
-    @required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
+    required TResult fromString(String string),
+    required TResult fromSwidClass(SwidClass swidClass),
+    required TResult fromSwidInterface(SwidInterface swidInterface),
+    required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromString(String string),
-    TResult fromSwidClass(SwidClass swidClass),
-    TResult fromSwidInterface(SwidInterface swidInterface),
-    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
-    @required TResult orElse(),
+    TResult fromString(String string)?,
+    TResult fromSwidClass(SwidClass swidClass)?,
+    TResult fromSwidInterface(SwidInterface swidInterface)?,
+    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType)?,
+    required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromString(_$FromString value),
-    @required TResult fromSwidClass(_$FromSwidClass value),
-    @required TResult fromSwidInterface(_$FromSwidInterface value),
-    @required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
+    required TResult fromString(_$FromString value),
+    required TResult fromSwidClass(_$FromSwidClass value),
+    required TResult fromSwidInterface(_$FromSwidInterface value),
+    required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromString(_$FromString value),
-    TResult fromSwidClass(_$FromSwidClass value),
-    TResult fromSwidInterface(_$FromSwidInterface value),
-    TResult fromSwidFunctionType(_$FromSwidFunctionType value),
-    @required TResult orElse(),
+    TResult fromString(_$FromString value)?,
+    TResult fromSwidClass(_$FromSwidClass value)?,
+    TResult fromSwidInterface(_$FromSwidInterface value)?,
+    TResult fromSwidFunctionType(_$FromSwidFunctionType value)?,
+    required TResult orElse(),
   });
   Map<String, dynamic> toJson();
 }
@@ -117,7 +117,7 @@ class _$SwidTypeFormalValueCopyWithImpl<$Res>
 
   final SwidTypeFormalValue _value;
   // ignore: unused_field
-  final $Res Function(SwidTypeFormalValue) _then;
+  final $Res Function(SwidTypeFormalValue?) _then;
 }
 
 /// @nodoc
@@ -125,7 +125,7 @@ abstract class _$$FromStringCopyWith<$Res> {
   factory _$$FromStringCopyWith(
           _$FromString value, $Res Function(_$FromString) then) =
       __$$FromStringCopyWithImpl<$Res>;
-  $Res call({String string});
+  $Res call({String? string});
 }
 
 /// @nodoc
@@ -141,10 +141,10 @@ class __$$FromStringCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object string = freezed,
+    Object? string = freezed,
   }) {
     return _then(_$FromString(
-      string: string == freezed ? _value.string : string as String,
+      string: string == freezed ? _value.string : (string as String?)!,
     ));
   }
 }
@@ -153,7 +153,7 @@ class __$$FromStringCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromString implements _$FromString {
-  const _$_$FromString({@required this.string}) : assert(string != null);
+  const _$_$FromString({required this.string}) : assert(string != null);
 
   factory _$_$FromString.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromStringFromJson(json);
@@ -186,10 +186,10 @@ class _$_$FromString implements _$FromString {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fromString(String string),
-    @required TResult fromSwidClass(SwidClass swidClass),
-    @required TResult fromSwidInterface(SwidInterface swidInterface),
-    @required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
+    required TResult fromString(String string),
+    required TResult fromSwidClass(SwidClass swidClass),
+    required TResult fromSwidInterface(SwidInterface swidInterface),
+    required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
@@ -201,11 +201,11 @@ class _$_$FromString implements _$FromString {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromString(String string),
-    TResult fromSwidClass(SwidClass swidClass),
-    TResult fromSwidInterface(SwidInterface swidInterface),
-    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
-    @required TResult orElse(),
+    TResult fromString(String string)?,
+    TResult fromSwidClass(SwidClass swidClass)?,
+    TResult fromSwidInterface(SwidInterface swidInterface)?,
+    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromString != null) {
@@ -217,10 +217,10 @@ class _$_$FromString implements _$FromString {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromString(_$FromString value),
-    @required TResult fromSwidClass(_$FromSwidClass value),
-    @required TResult fromSwidInterface(_$FromSwidInterface value),
-    @required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
+    required TResult fromString(_$FromString value),
+    required TResult fromSwidClass(_$FromSwidClass value),
+    required TResult fromSwidInterface(_$FromSwidInterface value),
+    required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
@@ -232,11 +232,11 @@ class _$_$FromString implements _$FromString {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromString(_$FromString value),
-    TResult fromSwidClass(_$FromSwidClass value),
-    TResult fromSwidInterface(_$FromSwidInterface value),
-    TResult fromSwidFunctionType(_$FromSwidFunctionType value),
-    @required TResult orElse(),
+    TResult fromString(_$FromString value)?,
+    TResult fromSwidClass(_$FromSwidClass value)?,
+    TResult fromSwidInterface(_$FromSwidInterface value)?,
+    TResult fromSwidFunctionType(_$FromSwidFunctionType value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromString != null) {
@@ -252,7 +252,7 @@ class _$_$FromString implements _$FromString {
 }
 
 abstract class _$FromString implements SwidTypeFormalValue {
-  const factory _$FromString({@required String string}) = _$_$FromString;
+  const factory _$FromString({required String string}) = _$_$FromString;
 
   factory _$FromString.fromJson(Map<String, dynamic> json) =
       _$_$FromString.fromJson;
@@ -267,7 +267,7 @@ abstract class _$$FromSwidClassCopyWith<$Res> {
   factory _$$FromSwidClassCopyWith(
           _$FromSwidClass value, $Res Function(_$FromSwidClass) then) =
       __$$FromSwidClassCopyWithImpl<$Res>;
-  $Res call({SwidClass swidClass});
+  $Res call({SwidClass? swidClass});
 
   $SwidClassCopyWith<$Res> get swidClass;
 }
@@ -285,11 +285,11 @@ class __$$FromSwidClassCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object swidClass = freezed,
+    Object? swidClass = freezed,
   }) {
     return _then(_$FromSwidClass(
       swidClass:
-          swidClass == freezed ? _value.swidClass : swidClass as SwidClass,
+          swidClass == freezed ? _value.swidClass : (swidClass as SwidClass?)!,
     ));
   }
 
@@ -308,7 +308,7 @@ class __$$FromSwidClassCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidClass implements _$FromSwidClass {
-  const _$_$FromSwidClass({@required this.swidClass})
+  const _$_$FromSwidClass({required this.swidClass})
       : assert(swidClass != null);
 
   factory _$_$FromSwidClass.fromJson(Map<String, dynamic> json) =>
@@ -343,10 +343,10 @@ class _$_$FromSwidClass implements _$FromSwidClass {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fromString(String string),
-    @required TResult fromSwidClass(SwidClass swidClass),
-    @required TResult fromSwidInterface(SwidInterface swidInterface),
-    @required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
+    required TResult fromString(String string),
+    required TResult fromSwidClass(SwidClass swidClass),
+    required TResult fromSwidInterface(SwidInterface swidInterface),
+    required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
@@ -358,11 +358,11 @@ class _$_$FromSwidClass implements _$FromSwidClass {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromString(String string),
-    TResult fromSwidClass(SwidClass swidClass),
-    TResult fromSwidInterface(SwidInterface swidInterface),
-    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
-    @required TResult orElse(),
+    TResult fromString(String string)?,
+    TResult fromSwidClass(SwidClass swidClass)?,
+    TResult fromSwidInterface(SwidInterface swidInterface)?,
+    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidClass != null) {
@@ -374,10 +374,10 @@ class _$_$FromSwidClass implements _$FromSwidClass {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromString(_$FromString value),
-    @required TResult fromSwidClass(_$FromSwidClass value),
-    @required TResult fromSwidInterface(_$FromSwidInterface value),
-    @required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
+    required TResult fromString(_$FromString value),
+    required TResult fromSwidClass(_$FromSwidClass value),
+    required TResult fromSwidInterface(_$FromSwidInterface value),
+    required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
@@ -389,11 +389,11 @@ class _$_$FromSwidClass implements _$FromSwidClass {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromString(_$FromString value),
-    TResult fromSwidClass(_$FromSwidClass value),
-    TResult fromSwidInterface(_$FromSwidInterface value),
-    TResult fromSwidFunctionType(_$FromSwidFunctionType value),
-    @required TResult orElse(),
+    TResult fromString(_$FromString value)?,
+    TResult fromSwidClass(_$FromSwidClass value)?,
+    TResult fromSwidInterface(_$FromSwidInterface value)?,
+    TResult fromSwidFunctionType(_$FromSwidFunctionType value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidClass != null) {
@@ -409,7 +409,7 @@ class _$_$FromSwidClass implements _$FromSwidClass {
 }
 
 abstract class _$FromSwidClass implements SwidTypeFormalValue {
-  const factory _$FromSwidClass({@required SwidClass swidClass}) =
+  const factory _$FromSwidClass({required SwidClass swidClass}) =
       _$_$FromSwidClass;
 
   factory _$FromSwidClass.fromJson(Map<String, dynamic> json) =
@@ -425,7 +425,7 @@ abstract class _$$FromSwidInterfaceCopyWith<$Res> {
   factory _$$FromSwidInterfaceCopyWith(
           _$FromSwidInterface value, $Res Function(_$FromSwidInterface) then) =
       __$$FromSwidInterfaceCopyWithImpl<$Res>;
-  $Res call({SwidInterface swidInterface});
+  $Res call({SwidInterface? swidInterface});
 
   $SwidInterfaceCopyWith<$Res> get swidInterface;
 }
@@ -443,12 +443,12 @@ class __$$FromSwidInterfaceCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object swidInterface = freezed,
+    Object? swidInterface = freezed,
   }) {
     return _then(_$FromSwidInterface(
       swidInterface: swidInterface == freezed
           ? _value.swidInterface
-          : swidInterface as SwidInterface,
+          : (swidInterface as SwidInterface?)!,
     ));
   }
 
@@ -467,7 +467,7 @@ class __$$FromSwidInterfaceCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidInterface implements _$FromSwidInterface {
-  const _$_$FromSwidInterface({@required this.swidInterface})
+  const _$_$FromSwidInterface({required this.swidInterface})
       : assert(swidInterface != null);
 
   factory _$_$FromSwidInterface.fromJson(Map<String, dynamic> json) =>
@@ -502,10 +502,10 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fromString(String string),
-    @required TResult fromSwidClass(SwidClass swidClass),
-    @required TResult fromSwidInterface(SwidInterface swidInterface),
-    @required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
+    required TResult fromString(String string),
+    required TResult fromSwidClass(SwidClass swidClass),
+    required TResult fromSwidInterface(SwidInterface swidInterface),
+    required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
@@ -517,11 +517,11 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromString(String string),
-    TResult fromSwidClass(SwidClass swidClass),
-    TResult fromSwidInterface(SwidInterface swidInterface),
-    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
-    @required TResult orElse(),
+    TResult fromString(String string)?,
+    TResult fromSwidClass(SwidClass swidClass)?,
+    TResult fromSwidInterface(SwidInterface swidInterface)?,
+    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidInterface != null) {
@@ -533,10 +533,10 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromString(_$FromString value),
-    @required TResult fromSwidClass(_$FromSwidClass value),
-    @required TResult fromSwidInterface(_$FromSwidInterface value),
-    @required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
+    required TResult fromString(_$FromString value),
+    required TResult fromSwidClass(_$FromSwidClass value),
+    required TResult fromSwidInterface(_$FromSwidInterface value),
+    required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
@@ -548,11 +548,11 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromString(_$FromString value),
-    TResult fromSwidClass(_$FromSwidClass value),
-    TResult fromSwidInterface(_$FromSwidInterface value),
-    TResult fromSwidFunctionType(_$FromSwidFunctionType value),
-    @required TResult orElse(),
+    TResult fromString(_$FromString value)?,
+    TResult fromSwidClass(_$FromSwidClass value)?,
+    TResult fromSwidInterface(_$FromSwidInterface value)?,
+    TResult fromSwidFunctionType(_$FromSwidFunctionType value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidInterface != null) {
@@ -569,7 +569,7 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
 }
 
 abstract class _$FromSwidInterface implements SwidTypeFormalValue {
-  const factory _$FromSwidInterface({@required SwidInterface swidInterface}) =
+  const factory _$FromSwidInterface({required SwidInterface swidInterface}) =
       _$_$FromSwidInterface;
 
   factory _$FromSwidInterface.fromJson(Map<String, dynamic> json) =
@@ -585,7 +585,7 @@ abstract class _$$FromSwidFunctionTypeCopyWith<$Res> {
   factory _$$FromSwidFunctionTypeCopyWith(_$FromSwidFunctionType value,
           $Res Function(_$FromSwidFunctionType) then) =
       __$$FromSwidFunctionTypeCopyWithImpl<$Res>;
-  $Res call({SwidFunctionType swidFunctionType});
+  $Res call({SwidFunctionType? swidFunctionType});
 
   $SwidFunctionTypeCopyWith<$Res> get swidFunctionType;
 }
@@ -603,12 +603,12 @@ class __$$FromSwidFunctionTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object swidFunctionType = freezed,
+    Object? swidFunctionType = freezed,
   }) {
     return _then(_$FromSwidFunctionType(
       swidFunctionType: swidFunctionType == freezed
           ? _value.swidFunctionType
-          : swidFunctionType as SwidFunctionType,
+          : (swidFunctionType as SwidFunctionType?)!,
     ));
   }
 
@@ -627,7 +627,7 @@ class __$$FromSwidFunctionTypeCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
-  const _$_$FromSwidFunctionType({@required this.swidFunctionType})
+  const _$_$FromSwidFunctionType({required this.swidFunctionType})
       : assert(swidFunctionType != null);
 
   factory _$_$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =>
@@ -664,10 +664,10 @@ class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fromString(String string),
-    @required TResult fromSwidClass(SwidClass swidClass),
-    @required TResult fromSwidInterface(SwidInterface swidInterface),
-    @required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
+    required TResult fromString(String string),
+    required TResult fromSwidClass(SwidClass swidClass),
+    required TResult fromSwidInterface(SwidInterface swidInterface),
+    required TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
@@ -679,11 +679,11 @@ class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromString(String string),
-    TResult fromSwidClass(SwidClass swidClass),
-    TResult fromSwidInterface(SwidInterface swidInterface),
-    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType),
-    @required TResult orElse(),
+    TResult fromString(String string)?,
+    TResult fromSwidClass(SwidClass swidClass)?,
+    TResult fromSwidInterface(SwidInterface swidInterface)?,
+    TResult fromSwidFunctionType(SwidFunctionType swidFunctionType)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidFunctionType != null) {
@@ -695,10 +695,10 @@ class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromString(_$FromString value),
-    @required TResult fromSwidClass(_$FromSwidClass value),
-    @required TResult fromSwidInterface(_$FromSwidInterface value),
-    @required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
+    required TResult fromString(_$FromString value),
+    required TResult fromSwidClass(_$FromSwidClass value),
+    required TResult fromSwidInterface(_$FromSwidInterface value),
+    required TResult fromSwidFunctionType(_$FromSwidFunctionType value),
   }) {
     assert(fromString != null);
     assert(fromSwidClass != null);
@@ -710,11 +710,11 @@ class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromString(_$FromString value),
-    TResult fromSwidClass(_$FromSwidClass value),
-    TResult fromSwidInterface(_$FromSwidInterface value),
-    TResult fromSwidFunctionType(_$FromSwidFunctionType value),
-    @required TResult orElse(),
+    TResult fromString(_$FromString value)?,
+    TResult fromSwidClass(_$FromSwidClass value)?,
+    TResult fromSwidInterface(_$FromSwidInterface value)?,
+    TResult fromSwidFunctionType(_$FromSwidFunctionType value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidFunctionType != null) {
@@ -732,7 +732,7 @@ class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
 
 abstract class _$FromSwidFunctionType implements SwidTypeFormalValue {
   const factory _$FromSwidFunctionType(
-      {@required SwidFunctionType swidFunctionType}) = _$_$FromSwidFunctionType;
+      {required SwidFunctionType swidFunctionType}) = _$_$FromSwidFunctionType;
 
   factory _$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidFunctionType.fromJson;
@@ -752,8 +752,8 @@ class _$SwidTypeFormalTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required SwidTypeFormalValue value,
-      @required SwidReferenceDeclarationKind swidReferenceDeclarationKind}) {
+      {required SwidTypeFormalValue value,
+      required SwidReferenceDeclarationKind swidReferenceDeclarationKind}) {
     return _$Data(
       value: value,
       swidReferenceDeclarationKind: swidReferenceDeclarationKind,
@@ -786,8 +786,8 @@ abstract class $SwidTypeFormalCopyWith<$Res> {
           SwidTypeFormal value, $Res Function(SwidTypeFormal) then) =
       _$SwidTypeFormalCopyWithImpl<$Res>;
   $Res call(
-      {SwidTypeFormalValue value,
-      SwidReferenceDeclarationKind swidReferenceDeclarationKind});
+      {SwidTypeFormalValue? value,
+      SwidReferenceDeclarationKind? swidReferenceDeclarationKind});
 
   $SwidTypeFormalValueCopyWith<$Res> get value;
 }
@@ -799,18 +799,18 @@ class _$SwidTypeFormalCopyWithImpl<$Res>
 
   final SwidTypeFormal _value;
   // ignore: unused_field
-  final $Res Function(SwidTypeFormal) _then;
+  final $Res Function(SwidTypeFormal?) _then;
 
   @override
   $Res call({
-    Object value = freezed,
-    Object swidReferenceDeclarationKind = freezed,
+    Object? value = freezed,
+    Object? swidReferenceDeclarationKind = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed ? _value.value : value as SwidTypeFormalValue,
+      value: value == freezed ? _value.value : value as SwidTypeFormalValue?,
       swidReferenceDeclarationKind: swidReferenceDeclarationKind == freezed
           ? _value.swidReferenceDeclarationKind
-          : swidReferenceDeclarationKind as SwidReferenceDeclarationKind,
+          : swidReferenceDeclarationKind as SwidReferenceDeclarationKind?,
     ));
   }
 
@@ -831,8 +831,8 @@ abstract class _$$DataCopyWith<$Res> implements $SwidTypeFormalCopyWith<$Res> {
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SwidTypeFormalValue value,
-      SwidReferenceDeclarationKind swidReferenceDeclarationKind});
+      {SwidTypeFormalValue? value,
+      SwidReferenceDeclarationKind? swidReferenceDeclarationKind});
 
   @override
   $SwidTypeFormalValueCopyWith<$Res> get value;
@@ -849,14 +849,14 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object value = freezed,
-    Object swidReferenceDeclarationKind = freezed,
+    Object? value = freezed,
+    Object? swidReferenceDeclarationKind = freezed,
   }) {
     return _then(_$Data(
-      value: value == freezed ? _value.value : value as SwidTypeFormalValue,
+      value: value == freezed ? _value.value : (value as SwidTypeFormalValue?)!,
       swidReferenceDeclarationKind: swidReferenceDeclarationKind == freezed
           ? _value.swidReferenceDeclarationKind
-          : swidReferenceDeclarationKind as SwidReferenceDeclarationKind,
+          : (swidReferenceDeclarationKind as SwidReferenceDeclarationKind?)!,
     ));
   }
 }
@@ -866,7 +866,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidTypeFormalCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.value, @required this.swidReferenceDeclarationKind})
+      {required this.value, required this.swidReferenceDeclarationKind})
       : assert(value != null),
         assert(swidReferenceDeclarationKind != null);
 
@@ -915,9 +915,9 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidTypeFormal {
   const factory _$Data(
-          {@required
+          {required
               SwidTypeFormalValue value,
-          @required
+          required
               SwidReferenceDeclarationKind swidReferenceDeclarationKind}) =
       _$_$Data;
 

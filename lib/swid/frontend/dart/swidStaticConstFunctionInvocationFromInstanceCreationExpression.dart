@@ -9,6 +9,7 @@ import 'package:analyzer/dart/ast/ast.dart'
         BooleanLiteral,
         ArgumentList;
 
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -19,15 +20,15 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidStaticConstFunctionInvocation
     swidStaticConstFunctionInvocationFromInstanceCreationExpression(
-        {@required InstanceCreationExpression instanceCreationExpression}) {
+        {required InstanceCreationExpression instanceCreationExpression}) {
   ConstructorName constructor = instanceCreationExpression.childEntities
-      .firstWhere((x) => x is ConstructorName);
+      .firstWhere((x) => x is ConstructorName) as ConstructorName;
   return SwidStaticConstFunctionInvocation(
       staticType: SwidType.fromSwidInterface(
           swidInterface: swidInterfaceFromInterface(
-              interfaceType: instanceCreationExpression.staticType)),
+              interfaceType: instanceCreationExpression.staticType as InterfaceType)),
       value: constructor.type.name.name +
-          (constructor.name != null ? ".${constructor.name.name}" : ""),
+          (constructor.name != null ? ".${constructor.name!.name}" : ""),
       normalParameters: (instanceCreationExpression.childEntities
                   ?.firstWhere((x) => x is ArgumentList) as ArgumentList)
               ?.childEntities
@@ -41,12 +42,11 @@ SwidStaticConstFunctionInvocation
               ?.childEntities
               ?.map((x) {
             if (x is NamedExpression) {
-              var argument = x.childEntities.firstWhere(
+              var argument = x.childEntities.firstWhereOrNull(
                   (x) =>
                       x is SimpleStringLiteral ||
                       x is BooleanLiteral ||
-                      x is SimpleIdentifier,
-                  orElse: () => null);
+                      x is SimpleIdentifier);
               return MapEntry(
                   (x.childEntities.firstWhere((x) => x is Label) as Label)
                       .label

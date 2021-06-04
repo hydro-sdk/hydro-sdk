@@ -9,16 +9,16 @@ part 'barrelSpec.freezed.dart';
 @freezed
 abstract class BarrelSpec with _$BarrelSpec {
   factory BarrelSpec({
-    @required String path,
-    @required String name,
-    @required List<BarrelMember> members,
+    required String path,
+    required String name,
+    required List<BarrelMember> members,
   }) = _$BarrelSpecCtor;
 
   factory BarrelSpec.clone({
-    @required BarrelSpec barrelSpec,
-    String path,
-    String name,
-    List<BarrelMember> members,
+    required BarrelSpec barrelSpec,
+    String? path,
+    String? name,
+    List<BarrelMember>? members,
   }) =>
       BarrelSpec(
         path: path ?? barrelSpec.path,

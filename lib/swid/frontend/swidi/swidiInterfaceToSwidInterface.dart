@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
 SwidInterface swidiInterfaceToSwidInterface(
-        {@required SwidiInterface swidiInterface}) =>
+        {required SwidiInterface swidiInterface}) =>
     SwidInterface(
       name: swidiInterface.name,
       nullabilitySuffix:

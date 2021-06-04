@@ -139,32 +139,32 @@ void main() {
       swidType: SwidType.fromSwidClass(
         swidClass: iterable,
       ),
-    ).when(
-      fromSwidInterface: (_) => null,
+    )!.when(
+      fromSwidInterface: ((_) => null) as SwidClass Function(SwidInterface),
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) => null,
-      fromSwidFunctionType: (_) => null,
+      fromSwidDefaultFormalParameter: ((_) => null) as SwidClass Function(SwidDefaultFormalParameter),
+      fromSwidFunctionType: ((_) => null) as SwidClass Function(SwidFunctionType),
     );
 
     expect(replacedIterable.typeFormals.isNotEmpty, true);
-    expect(replacedIterable.typeFormals.first.value.displayName, "double");
+    expect(replacedIterable.typeFormals.first!.value.displayName, "double");
 
     //The return type of the optional generator parameter to Iterable.generate should be replaced
     //with a double
     expect(
-        replacedIterable.factoryConstructors.first.optionalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+        replacedIterable.factoryConstructors.first!.optionalParameterTypes.first!
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .returnType
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
         dartDouble);
 
     var generateReturnType = replacedIterable
-        .factoryConstructors.first.returnType
-        .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null);
+        .factoryConstructors.first!.returnType
+        .maybeWhen(fromSwidInterface: (val) => val, orElse: (() => null) as SwidInterface Function());
 
     //The return type of Iterable.generate should be Iterable<double>
     expect(
-        generateReturnType.typeArguments.first
+        generateReturnType.typeArguments.first!
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
         dartDouble);
     expect(generateReturnType.displayName, "Iterable<double>");

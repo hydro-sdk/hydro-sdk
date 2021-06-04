@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -6,8 +7,8 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 bool isInexpressibleStaticConst(
-        {@required SwidClass parentClass,
-        @required SwidStaticConst staticConst}) =>
+        {required SwidClass parentClass,
+        required SwidStaticConst staticConst}) =>
     staticConst.when(
       fromSwidBooleanLiteral: (_) => false,
       fromSwidStringLiteral: (_) => false,
@@ -18,19 +19,19 @@ bool isInexpressibleStaticConst(
           val.staticType.displayName[0] == "_" ||
           !val.value.split(".").every((x) => !(x[0] == "_")) ||
           !val.normalParameters.every((x) => !isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: x)) ||
+              parentClass: parentClass, staticConst: x!)) ||
           !val.namedParameters.entries.every((x) => !isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: x.value)),
+              parentClass: parentClass, staticConst: x.value!)),
       fromSwidStaticConstFieldReference: (val) =>
           !(val.name[0] != "_") &&
-          (({SwidStaticConstFieldDeclaration declarationOnParent}) =>
+          (({SwidStaticConstFieldDeclaration? declarationOnParent}) =>
                   declarationOnParent != null
                       ? isInexpressibleStaticConst(
                           parentClass: parentClass,
-                          staticConst: declarationOnParent.value)
+                          staticConst: declarationOnParent.value!)
                       : false)(
               declarationOnParent: parentClass.staticConstFieldDeclarations
-                  .firstWhere((x) => x.name == val.name, orElse: () => null)),
+                  .firstWhereOrNull((x) => x.name == val.name)),
       fromSwidStaticConstPrefixedExpression: (val) =>
           isInexpressibleStaticConst(
               parentClass: parentClass, staticConst: val.expression),

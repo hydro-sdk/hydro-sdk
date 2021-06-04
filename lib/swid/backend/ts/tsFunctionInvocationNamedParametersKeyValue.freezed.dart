@@ -19,7 +19,7 @@ class _$TsFunctionInvocationNamedParametersKeyValueTearOff {
   const _$TsFunctionInvocationNamedParametersKeyValueTearOff();
 
 // ignore: unused_element
-  _$Data call({@required Map<String, String> namedReferences}) {
+  _$Data call({required Map<String, String> namedReferences}) {
     return _$Data(
       namedReferences: namedReferences,
     );
@@ -53,7 +53,7 @@ abstract class $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res> {
           TsFunctionInvocationNamedParametersKeyValue value,
           $Res Function(TsFunctionInvocationNamedParametersKeyValue) then) =
       _$TsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>;
-  $Res call({Map<String, String> namedReferences});
+  $Res call({Map<String, String>? namedReferences});
 }
 
 /// @nodoc
@@ -64,16 +64,16 @@ class _$TsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
 
   final TsFunctionInvocationNamedParametersKeyValue _value;
   // ignore: unused_field
-  final $Res Function(TsFunctionInvocationNamedParametersKeyValue) _then;
+  final $Res Function(TsFunctionInvocationNamedParametersKeyValue?) _then;
 
   @override
   $Res call({
-    Object namedReferences = freezed,
+    Object? namedReferences = freezed,
   }) {
     return _then(_value.copyWith(
       namedReferences: namedReferences == freezed
           ? _value.namedReferences
-          : namedReferences as Map<String, String>,
+          : namedReferences as Map<String, String>?,
     ));
   }
 }
@@ -84,7 +84,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({Map<String, String> namedReferences});
+  $Res call({Map<String, String>? namedReferences});
 }
 
 /// @nodoc
@@ -99,12 +99,12 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object namedReferences = freezed,
+    Object? namedReferences = freezed,
   }) {
     return _then(_$Data(
       namedReferences: namedReferences == freezed
           ? _value.namedReferences
-          : namedReferences as Map<String, String>,
+          : (namedReferences as Map<String, String>?)!,
     ));
   }
 }
@@ -113,7 +113,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.namedReferences}) : assert(namedReferences != null);
+  _$_$Data({required this.namedReferences}) : assert(namedReferences != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -152,7 +152,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements TsFunctionInvocationNamedParametersKeyValue {
-  factory _$Data({@required Map<String, String> namedReferences}) = _$_$Data;
+  factory _$Data({required Map<String, String> namedReferences}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

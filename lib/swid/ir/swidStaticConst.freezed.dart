@@ -9,7 +9,7 @@ part of 'swidStaticConst.dart';
 
 T _$identity<T>(T value) => value;
 SwidStaticConst _$SwidStaticConstFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType'] as String) {
+  switch (json['runtimeType'] as String?) {
     case 'fromSwidBooleanLiteral':
       return _$FromSwidBooleanLiteral.fromJson(json);
     case 'fromSwidStringLiteral':
@@ -40,7 +40,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidBooleanLiteral fromSwidBooleanLiteral(
-      {@required SwidBooleanLiteral swidBooleanLiteral}) {
+      {required SwidBooleanLiteral swidBooleanLiteral}) {
     return _$FromSwidBooleanLiteral(
       swidBooleanLiteral: swidBooleanLiteral,
     );
@@ -48,7 +48,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidStringLiteral fromSwidStringLiteral(
-      {@required SwidStringLiteral swidStringLiteral}) {
+      {required SwidStringLiteral swidStringLiteral}) {
     return _$FromSwidStringLiteral(
       swidStringLiteral: swidStringLiteral,
     );
@@ -56,7 +56,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidIntegerLiteral fromSwidIntegerLiteral(
-      {@required SwidIntegerLiteral swidIntegerLiteral}) {
+      {required SwidIntegerLiteral swidIntegerLiteral}) {
     return _$FromSwidIntegerLiteral(
       swidIntegerLiteral: swidIntegerLiteral,
     );
@@ -64,7 +64,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidDoubleLiteral fromDoubleLiteral(
-      {@required SwidDoubleLiteral swidDoubleLiteral}) {
+      {required SwidDoubleLiteral swidDoubleLiteral}) {
     return _$FromSwidDoubleLiteral(
       swidDoubleLiteral: swidDoubleLiteral,
     );
@@ -72,7 +72,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidStaticConstFunctionInvocation fromSwidStaticConstFunctionInvocation(
-      {@required
+      {required
           SwidStaticConstFunctionInvocation staticConstFunctionInvocation}) {
     return _$FromSwidStaticConstFunctionInvocation(
       staticConstFunctionInvocation: staticConstFunctionInvocation,
@@ -81,7 +81,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidStaticConstFieldReference fromSwidStaticConstFieldReference(
-      {@required SwidStaticConstFieldReference swidStaticConstFieldReference}) {
+      {required SwidStaticConstFieldReference swidStaticConstFieldReference}) {
     return _$FromSwidStaticConstFieldReference(
       swidStaticConstFieldReference: swidStaticConstFieldReference,
     );
@@ -89,7 +89,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidStaticConstPrefixedExpression fromSwidStaticConstPrefixedExpression(
-      {@required
+      {required
           SwidStaticConstPrefixedExpression
               swidStaticConstPrefixedExpression}) {
     return _$FromSwidStaticConstPrefixedExpression(
@@ -99,7 +99,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidStaticConstBinaryExpression fromSwidStaticConstBinaryExpression(
-      {@required
+      {required
           SwidStaticConstBinaryExpression swidStaticConstBinaryExpression}) {
     return _$FromSwidStaticConstBinaryExpression(
       swidStaticConstBinaryExpression: swidStaticConstBinaryExpression,
@@ -108,7 +108,7 @@ class _$SwidStaticConstTearOff {
 
 // ignore: unused_element
   _$FromSwidStaticConstPrefixedIdentifier fromSwidStaticConstPrefixedIdentifier(
-      {@required
+      {required
           SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier}) {
     return _$FromSwidStaticConstPrefixedIdentifier(
       staticConstPrefixedIdentifier: staticConstPrefixedIdentifier,
@@ -128,88 +128,88 @@ const $SwidStaticConst = _$SwidStaticConstTearOff();
 /// @nodoc
 mixin _$SwidStaticConst {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
+  TResult when<TResult extends Object?>({
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   });
   Map<String, dynamic> toJson();
 }
@@ -217,7 +217,7 @@ mixin _$SwidStaticConst {
 /// @nodoc
 abstract class $SwidStaticConstCopyWith<$Res> {
   factory $SwidStaticConstCopyWith(
-          SwidStaticConst value, $Res Function(SwidStaticConst) then) =
+          SwidStaticConst? value, $Res Function(SwidStaticConst) then) =
       _$SwidStaticConstCopyWithImpl<$Res>;
 }
 
@@ -226,9 +226,9 @@ class _$SwidStaticConstCopyWithImpl<$Res>
     implements $SwidStaticConstCopyWith<$Res> {
   _$SwidStaticConstCopyWithImpl(this._value, this._then);
 
-  final SwidStaticConst _value;
+  final SwidStaticConst? _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConst) _then;
+  final $Res Function(SwidStaticConst?) _then;
 }
 
 /// @nodoc
@@ -236,7 +236,7 @@ abstract class _$$FromSwidBooleanLiteralCopyWith<$Res> {
   factory _$$FromSwidBooleanLiteralCopyWith(_$FromSwidBooleanLiteral value,
           $Res Function(_$FromSwidBooleanLiteral) then) =
       __$$FromSwidBooleanLiteralCopyWithImpl<$Res>;
-  $Res call({SwidBooleanLiteral swidBooleanLiteral});
+  $Res call({SwidBooleanLiteral? swidBooleanLiteral});
 
   $SwidBooleanLiteralCopyWith<$Res> get swidBooleanLiteral;
 }
@@ -250,28 +250,28 @@ class __$$FromSwidBooleanLiteralCopyWithImpl<$Res>
       : super(_value, (v) => _then(v as _$FromSwidBooleanLiteral));
 
   @override
-  _$FromSwidBooleanLiteral get _value =>
-      super._value as _$FromSwidBooleanLiteral;
+  _$FromSwidBooleanLiteral? get _value =>
+      super._value as _$FromSwidBooleanLiteral?;
 
   @override
   $Res call({
-    Object swidBooleanLiteral = freezed,
+    Object? swidBooleanLiteral = freezed,
   }) {
     return _then(_$FromSwidBooleanLiteral(
       swidBooleanLiteral: swidBooleanLiteral == freezed
-          ? _value.swidBooleanLiteral
-          : swidBooleanLiteral as SwidBooleanLiteral,
+          ? _value!.swidBooleanLiteral
+          : (swidBooleanLiteral as SwidBooleanLiteral?)!,
     ));
   }
 
   @override
   $SwidBooleanLiteralCopyWith<$Res> get swidBooleanLiteral {
-    if (_value.swidBooleanLiteral == null) {
+    if (_value!.swidBooleanLiteral == null) {
       return null;
     }
-    return $SwidBooleanLiteralCopyWith<$Res>(_value.swidBooleanLiteral,
+    return $SwidBooleanLiteralCopyWith<$Res>(_value!.swidBooleanLiteral,
         (value) {
-      return _then(_value.copyWith(swidBooleanLiteral: value));
+      return _then(_value!.copyWith(swidBooleanLiteral: value));
     });
   }
 }
@@ -280,7 +280,7 @@ class __$$FromSwidBooleanLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
-  const _$_$FromSwidBooleanLiteral({@required this.swidBooleanLiteral})
+  const _$_$FromSwidBooleanLiteral({required this.swidBooleanLiteral})
       : assert(swidBooleanLiteral != null);
 
   factory _$_$FromSwidBooleanLiteral.fromJson(Map<String, dynamic> json) =>
@@ -317,27 +317,27 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -356,21 +356,21 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidBooleanLiteral != null) {
@@ -382,23 +382,23 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -417,21 +417,21 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidBooleanLiteral != null) {
@@ -449,7 +449,7 @@ class _$_$FromSwidBooleanLiteral implements _$FromSwidBooleanLiteral {
 
 abstract class _$FromSwidBooleanLiteral implements SwidStaticConst {
   const factory _$FromSwidBooleanLiteral(
-          {@required SwidBooleanLiteral swidBooleanLiteral}) =
+          {required SwidBooleanLiteral swidBooleanLiteral}) =
       _$_$FromSwidBooleanLiteral;
 
   factory _$FromSwidBooleanLiteral.fromJson(Map<String, dynamic> json) =
@@ -465,7 +465,7 @@ abstract class _$$FromSwidStringLiteralCopyWith<$Res> {
   factory _$$FromSwidStringLiteralCopyWith(_$FromSwidStringLiteral value,
           $Res Function(_$FromSwidStringLiteral) then) =
       __$$FromSwidStringLiteralCopyWithImpl<$Res>;
-  $Res call({SwidStringLiteral swidStringLiteral});
+  $Res call({SwidStringLiteral? swidStringLiteral});
 
   $SwidStringLiteralCopyWith<$Res> get swidStringLiteral;
 }
@@ -479,26 +479,26 @@ class __$$FromSwidStringLiteralCopyWithImpl<$Res>
       : super(_value, (v) => _then(v as _$FromSwidStringLiteral));
 
   @override
-  _$FromSwidStringLiteral get _value => super._value as _$FromSwidStringLiteral;
+  _$FromSwidStringLiteral? get _value => super._value as _$FromSwidStringLiteral?;
 
   @override
   $Res call({
-    Object swidStringLiteral = freezed,
+    Object? swidStringLiteral = freezed,
   }) {
     return _then(_$FromSwidStringLiteral(
       swidStringLiteral: swidStringLiteral == freezed
-          ? _value.swidStringLiteral
-          : swidStringLiteral as SwidStringLiteral,
+          ? _value!.swidStringLiteral
+          : (swidStringLiteral as SwidStringLiteral?)!,
     ));
   }
 
   @override
   $SwidStringLiteralCopyWith<$Res> get swidStringLiteral {
-    if (_value.swidStringLiteral == null) {
+    if (_value!.swidStringLiteral == null) {
       return null;
     }
-    return $SwidStringLiteralCopyWith<$Res>(_value.swidStringLiteral, (value) {
-      return _then(_value.copyWith(swidStringLiteral: value));
+    return $SwidStringLiteralCopyWith<$Res>(_value!.swidStringLiteral, (value) {
+      return _then(_value!.copyWith(swidStringLiteral: value));
     });
   }
 }
@@ -507,7 +507,7 @@ class __$$FromSwidStringLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
-  const _$_$FromSwidStringLiteral({@required this.swidStringLiteral})
+  const _$_$FromSwidStringLiteral({required this.swidStringLiteral})
       : assert(swidStringLiteral != null);
 
   factory _$_$FromSwidStringLiteral.fromJson(Map<String, dynamic> json) =>
@@ -544,27 +544,27 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -583,21 +583,21 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStringLiteral != null) {
@@ -609,23 +609,23 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -644,21 +644,21 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStringLiteral != null) {
@@ -676,7 +676,7 @@ class _$_$FromSwidStringLiteral implements _$FromSwidStringLiteral {
 
 abstract class _$FromSwidStringLiteral implements SwidStaticConst {
   const factory _$FromSwidStringLiteral(
-          {@required SwidStringLiteral swidStringLiteral}) =
+          {required SwidStringLiteral swidStringLiteral}) =
       _$_$FromSwidStringLiteral;
 
   factory _$FromSwidStringLiteral.fromJson(Map<String, dynamic> json) =
@@ -692,7 +692,7 @@ abstract class _$$FromSwidIntegerLiteralCopyWith<$Res> {
   factory _$$FromSwidIntegerLiteralCopyWith(_$FromSwidIntegerLiteral value,
           $Res Function(_$FromSwidIntegerLiteral) then) =
       __$$FromSwidIntegerLiteralCopyWithImpl<$Res>;
-  $Res call({SwidIntegerLiteral swidIntegerLiteral});
+  $Res call({SwidIntegerLiteral? swidIntegerLiteral});
 
   $SwidIntegerLiteralCopyWith<$Res> get swidIntegerLiteral;
 }
@@ -706,28 +706,28 @@ class __$$FromSwidIntegerLiteralCopyWithImpl<$Res>
       : super(_value, (v) => _then(v as _$FromSwidIntegerLiteral));
 
   @override
-  _$FromSwidIntegerLiteral get _value =>
-      super._value as _$FromSwidIntegerLiteral;
+  _$FromSwidIntegerLiteral? get _value =>
+      super._value as _$FromSwidIntegerLiteral?;
 
   @override
   $Res call({
-    Object swidIntegerLiteral = freezed,
+    Object? swidIntegerLiteral = freezed,
   }) {
     return _then(_$FromSwidIntegerLiteral(
       swidIntegerLiteral: swidIntegerLiteral == freezed
-          ? _value.swidIntegerLiteral
-          : swidIntegerLiteral as SwidIntegerLiteral,
+          ? _value!.swidIntegerLiteral
+          : (swidIntegerLiteral as SwidIntegerLiteral?)!,
     ));
   }
 
   @override
   $SwidIntegerLiteralCopyWith<$Res> get swidIntegerLiteral {
-    if (_value.swidIntegerLiteral == null) {
+    if (_value!.swidIntegerLiteral == null) {
       return null;
     }
-    return $SwidIntegerLiteralCopyWith<$Res>(_value.swidIntegerLiteral,
+    return $SwidIntegerLiteralCopyWith<$Res>(_value!.swidIntegerLiteral,
         (value) {
-      return _then(_value.copyWith(swidIntegerLiteral: value));
+      return _then(_value!.copyWith(swidIntegerLiteral: value));
     });
   }
 }
@@ -736,7 +736,7 @@ class __$$FromSwidIntegerLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
-  const _$_$FromSwidIntegerLiteral({@required this.swidIntegerLiteral})
+  const _$_$FromSwidIntegerLiteral({required this.swidIntegerLiteral})
       : assert(swidIntegerLiteral != null);
 
   factory _$_$FromSwidIntegerLiteral.fromJson(Map<String, dynamic> json) =>
@@ -773,27 +773,27 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -812,21 +812,21 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidIntegerLiteral != null) {
@@ -838,23 +838,23 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -873,21 +873,21 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidIntegerLiteral != null) {
@@ -905,7 +905,7 @@ class _$_$FromSwidIntegerLiteral implements _$FromSwidIntegerLiteral {
 
 abstract class _$FromSwidIntegerLiteral implements SwidStaticConst {
   const factory _$FromSwidIntegerLiteral(
-          {@required SwidIntegerLiteral swidIntegerLiteral}) =
+          {required SwidIntegerLiteral swidIntegerLiteral}) =
       _$_$FromSwidIntegerLiteral;
 
   factory _$FromSwidIntegerLiteral.fromJson(Map<String, dynamic> json) =
@@ -921,7 +921,7 @@ abstract class _$$FromSwidDoubleLiteralCopyWith<$Res> {
   factory _$$FromSwidDoubleLiteralCopyWith(_$FromSwidDoubleLiteral value,
           $Res Function(_$FromSwidDoubleLiteral) then) =
       __$$FromSwidDoubleLiteralCopyWithImpl<$Res>;
-  $Res call({SwidDoubleLiteral swidDoubleLiteral});
+  $Res call({SwidDoubleLiteral? swidDoubleLiteral});
 
   $SwidDoubleLiteralCopyWith<$Res> get swidDoubleLiteral;
 }
@@ -935,26 +935,26 @@ class __$$FromSwidDoubleLiteralCopyWithImpl<$Res>
       : super(_value, (v) => _then(v as _$FromSwidDoubleLiteral));
 
   @override
-  _$FromSwidDoubleLiteral get _value => super._value as _$FromSwidDoubleLiteral;
+  _$FromSwidDoubleLiteral? get _value => super._value as _$FromSwidDoubleLiteral?;
 
   @override
   $Res call({
-    Object swidDoubleLiteral = freezed,
+    Object? swidDoubleLiteral = freezed,
   }) {
     return _then(_$FromSwidDoubleLiteral(
       swidDoubleLiteral: swidDoubleLiteral == freezed
-          ? _value.swidDoubleLiteral
-          : swidDoubleLiteral as SwidDoubleLiteral,
+          ? _value!.swidDoubleLiteral
+          : (swidDoubleLiteral as SwidDoubleLiteral?)!,
     ));
   }
 
   @override
   $SwidDoubleLiteralCopyWith<$Res> get swidDoubleLiteral {
-    if (_value.swidDoubleLiteral == null) {
+    if (_value!.swidDoubleLiteral == null) {
       return null;
     }
-    return $SwidDoubleLiteralCopyWith<$Res>(_value.swidDoubleLiteral, (value) {
-      return _then(_value.copyWith(swidDoubleLiteral: value));
+    return $SwidDoubleLiteralCopyWith<$Res>(_value!.swidDoubleLiteral, (value) {
+      return _then(_value!.copyWith(swidDoubleLiteral: value));
     });
   }
 }
@@ -963,7 +963,7 @@ class __$$FromSwidDoubleLiteralCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
-  const _$_$FromSwidDoubleLiteral({@required this.swidDoubleLiteral})
+  const _$_$FromSwidDoubleLiteral({required this.swidDoubleLiteral})
       : assert(swidDoubleLiteral != null);
 
   factory _$_$FromSwidDoubleLiteral.fromJson(Map<String, dynamic> json) =>
@@ -1000,27 +1000,27 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -1039,21 +1039,21 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromDoubleLiteral != null) {
@@ -1065,23 +1065,23 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -1100,21 +1100,21 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromDoubleLiteral != null) {
@@ -1132,7 +1132,7 @@ class _$_$FromSwidDoubleLiteral implements _$FromSwidDoubleLiteral {
 
 abstract class _$FromSwidDoubleLiteral implements SwidStaticConst {
   const factory _$FromSwidDoubleLiteral(
-          {@required SwidDoubleLiteral swidDoubleLiteral}) =
+          {required SwidDoubleLiteral swidDoubleLiteral}) =
       _$_$FromSwidDoubleLiteral;
 
   factory _$FromSwidDoubleLiteral.fromJson(Map<String, dynamic> json) =
@@ -1149,7 +1149,7 @@ abstract class _$$FromSwidStaticConstFunctionInvocationCopyWith<$Res> {
           _$FromSwidStaticConstFunctionInvocation value,
           $Res Function(_$FromSwidStaticConstFunctionInvocation) then) =
       __$$FromSwidStaticConstFunctionInvocationCopyWithImpl<$Res>;
-  $Res call({SwidStaticConstFunctionInvocation staticConstFunctionInvocation});
+  $Res call({SwidStaticConstFunctionInvocation? staticConstFunctionInvocation});
 
   $SwidStaticConstFunctionInvocationCopyWith<$Res>
       get staticConstFunctionInvocation;
@@ -1166,29 +1166,29 @@ class __$$FromSwidStaticConstFunctionInvocationCopyWithImpl<$Res>
             _value, (v) => _then(v as _$FromSwidStaticConstFunctionInvocation));
 
   @override
-  _$FromSwidStaticConstFunctionInvocation get _value =>
-      super._value as _$FromSwidStaticConstFunctionInvocation;
+  _$FromSwidStaticConstFunctionInvocation? get _value =>
+      super._value as _$FromSwidStaticConstFunctionInvocation?;
 
   @override
   $Res call({
-    Object staticConstFunctionInvocation = freezed,
+    Object? staticConstFunctionInvocation = freezed,
   }) {
     return _then(_$FromSwidStaticConstFunctionInvocation(
       staticConstFunctionInvocation: staticConstFunctionInvocation == freezed
-          ? _value.staticConstFunctionInvocation
-          : staticConstFunctionInvocation as SwidStaticConstFunctionInvocation,
+          ? _value!.staticConstFunctionInvocation
+          : (staticConstFunctionInvocation as SwidStaticConstFunctionInvocation?)!,
     ));
   }
 
   @override
   $SwidStaticConstFunctionInvocationCopyWith<$Res>
       get staticConstFunctionInvocation {
-    if (_value.staticConstFunctionInvocation == null) {
+    if (_value!.staticConstFunctionInvocation == null) {
       return null;
     }
     return $SwidStaticConstFunctionInvocationCopyWith<$Res>(
-        _value.staticConstFunctionInvocation, (value) {
-      return _then(_value.copyWith(staticConstFunctionInvocation: value));
+        _value!.staticConstFunctionInvocation, (value) {
+      return _then(_value!.copyWith(staticConstFunctionInvocation: value));
     });
   }
 }
@@ -1199,7 +1199,7 @@ class __$$FromSwidStaticConstFunctionInvocationCopyWithImpl<$Res>
 class _$_$FromSwidStaticConstFunctionInvocation
     implements _$FromSwidStaticConstFunctionInvocation {
   const _$_$FromSwidStaticConstFunctionInvocation(
-      {@required this.staticConstFunctionInvocation})
+      {required this.staticConstFunctionInvocation})
       : assert(staticConstFunctionInvocation != null);
 
   factory _$_$FromSwidStaticConstFunctionInvocation.fromJson(
@@ -1240,27 +1240,27 @@ class _$_$FromSwidStaticConstFunctionInvocation
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -1279,21 +1279,21 @@ class _$_$FromSwidStaticConstFunctionInvocation
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstFunctionInvocation != null) {
@@ -1306,23 +1306,23 @@ class _$_$FromSwidStaticConstFunctionInvocation
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -1341,21 +1341,21 @@ class _$_$FromSwidStaticConstFunctionInvocation
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstFunctionInvocation != null) {
@@ -1374,7 +1374,7 @@ class _$_$FromSwidStaticConstFunctionInvocation
 abstract class _$FromSwidStaticConstFunctionInvocation
     implements SwidStaticConst {
   const factory _$FromSwidStaticConstFunctionInvocation(
-          {@required
+          {required
               SwidStaticConstFunctionInvocation
                   staticConstFunctionInvocation}) =
       _$_$FromSwidStaticConstFunctionInvocation;
@@ -1395,7 +1395,7 @@ abstract class _$$FromSwidStaticConstFieldReferenceCopyWith<$Res> {
           _$FromSwidStaticConstFieldReference value,
           $Res Function(_$FromSwidStaticConstFieldReference) then) =
       __$$FromSwidStaticConstFieldReferenceCopyWithImpl<$Res>;
-  $Res call({SwidStaticConstFieldReference swidStaticConstFieldReference});
+  $Res call({SwidStaticConstFieldReference? swidStaticConstFieldReference});
 
   $SwidStaticConstFieldReferenceCopyWith<$Res>
       get swidStaticConstFieldReference;
@@ -1411,29 +1411,29 @@ class __$$FromSwidStaticConstFieldReferenceCopyWithImpl<$Res>
       : super(_value, (v) => _then(v as _$FromSwidStaticConstFieldReference));
 
   @override
-  _$FromSwidStaticConstFieldReference get _value =>
-      super._value as _$FromSwidStaticConstFieldReference;
+  _$FromSwidStaticConstFieldReference? get _value =>
+      super._value as _$FromSwidStaticConstFieldReference?;
 
   @override
   $Res call({
-    Object swidStaticConstFieldReference = freezed,
+    Object? swidStaticConstFieldReference = freezed,
   }) {
     return _then(_$FromSwidStaticConstFieldReference(
       swidStaticConstFieldReference: swidStaticConstFieldReference == freezed
-          ? _value.swidStaticConstFieldReference
-          : swidStaticConstFieldReference as SwidStaticConstFieldReference,
+          ? _value!.swidStaticConstFieldReference
+          : (swidStaticConstFieldReference as SwidStaticConstFieldReference?)!,
     ));
   }
 
   @override
   $SwidStaticConstFieldReferenceCopyWith<$Res>
       get swidStaticConstFieldReference {
-    if (_value.swidStaticConstFieldReference == null) {
+    if (_value!.swidStaticConstFieldReference == null) {
       return null;
     }
     return $SwidStaticConstFieldReferenceCopyWith<$Res>(
-        _value.swidStaticConstFieldReference, (value) {
-      return _then(_value.copyWith(swidStaticConstFieldReference: value));
+        _value!.swidStaticConstFieldReference, (value) {
+      return _then(_value!.copyWith(swidStaticConstFieldReference: value));
     });
   }
 }
@@ -1444,7 +1444,7 @@ class __$$FromSwidStaticConstFieldReferenceCopyWithImpl<$Res>
 class _$_$FromSwidStaticConstFieldReference
     implements _$FromSwidStaticConstFieldReference {
   const _$_$FromSwidStaticConstFieldReference(
-      {@required this.swidStaticConstFieldReference})
+      {required this.swidStaticConstFieldReference})
       : assert(swidStaticConstFieldReference != null);
 
   factory _$_$FromSwidStaticConstFieldReference.fromJson(
@@ -1485,27 +1485,27 @@ class _$_$FromSwidStaticConstFieldReference
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -1524,21 +1524,21 @@ class _$_$FromSwidStaticConstFieldReference
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstFieldReference != null) {
@@ -1550,23 +1550,23 @@ class _$_$FromSwidStaticConstFieldReference
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -1585,21 +1585,21 @@ class _$_$FromSwidStaticConstFieldReference
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstFieldReference != null) {
@@ -1617,7 +1617,7 @@ class _$_$FromSwidStaticConstFieldReference
 
 abstract class _$FromSwidStaticConstFieldReference implements SwidStaticConst {
   const factory _$FromSwidStaticConstFieldReference(
-          {@required
+          {required
               SwidStaticConstFieldReference swidStaticConstFieldReference}) =
       _$_$FromSwidStaticConstFieldReference;
 
@@ -1638,7 +1638,7 @@ abstract class _$$FromSwidStaticConstPrefixedExpressionCopyWith<$Res> {
           $Res Function(_$FromSwidStaticConstPrefixedExpression) then) =
       __$$FromSwidStaticConstPrefixedExpressionCopyWithImpl<$Res>;
   $Res call(
-      {SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression});
+      {SwidStaticConstPrefixedExpression? swidStaticConstPrefixedExpression});
 
   $SwidStaticConstPrefixedExpressionCopyWith<$Res>
       get swidStaticConstPrefixedExpression;
@@ -1655,31 +1655,31 @@ class __$$FromSwidStaticConstPrefixedExpressionCopyWithImpl<$Res>
             _value, (v) => _then(v as _$FromSwidStaticConstPrefixedExpression));
 
   @override
-  _$FromSwidStaticConstPrefixedExpression get _value =>
-      super._value as _$FromSwidStaticConstPrefixedExpression;
+  _$FromSwidStaticConstPrefixedExpression? get _value =>
+      super._value as _$FromSwidStaticConstPrefixedExpression?;
 
   @override
   $Res call({
-    Object swidStaticConstPrefixedExpression = freezed,
+    Object? swidStaticConstPrefixedExpression = freezed,
   }) {
     return _then(_$FromSwidStaticConstPrefixedExpression(
       swidStaticConstPrefixedExpression:
           swidStaticConstPrefixedExpression == freezed
-              ? _value.swidStaticConstPrefixedExpression
-              : swidStaticConstPrefixedExpression
-                  as SwidStaticConstPrefixedExpression,
+              ? _value!.swidStaticConstPrefixedExpression
+              : (swidStaticConstPrefixedExpression
+                  as SwidStaticConstPrefixedExpression?)!,
     ));
   }
 
   @override
   $SwidStaticConstPrefixedExpressionCopyWith<$Res>
       get swidStaticConstPrefixedExpression {
-    if (_value.swidStaticConstPrefixedExpression == null) {
+    if (_value!.swidStaticConstPrefixedExpression == null) {
       return null;
     }
     return $SwidStaticConstPrefixedExpressionCopyWith<$Res>(
-        _value.swidStaticConstPrefixedExpression, (value) {
-      return _then(_value.copyWith(swidStaticConstPrefixedExpression: value));
+        _value!.swidStaticConstPrefixedExpression, (value) {
+      return _then(_value!.copyWith(swidStaticConstPrefixedExpression: value));
     });
   }
 }
@@ -1690,7 +1690,7 @@ class __$$FromSwidStaticConstPrefixedExpressionCopyWithImpl<$Res>
 class _$_$FromSwidStaticConstPrefixedExpression
     implements _$FromSwidStaticConstPrefixedExpression {
   const _$_$FromSwidStaticConstPrefixedExpression(
-      {@required this.swidStaticConstPrefixedExpression})
+      {required this.swidStaticConstPrefixedExpression})
       : assert(swidStaticConstPrefixedExpression != null);
 
   factory _$_$FromSwidStaticConstPrefixedExpression.fromJson(
@@ -1731,27 +1731,27 @@ class _$_$FromSwidStaticConstPrefixedExpression
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -1771,21 +1771,21 @@ class _$_$FromSwidStaticConstPrefixedExpression
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstPrefixedExpression != null) {
@@ -1798,23 +1798,23 @@ class _$_$FromSwidStaticConstPrefixedExpression
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -1833,21 +1833,21 @@ class _$_$FromSwidStaticConstPrefixedExpression
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstPrefixedExpression != null) {
@@ -1866,7 +1866,7 @@ class _$_$FromSwidStaticConstPrefixedExpression
 abstract class _$FromSwidStaticConstPrefixedExpression
     implements SwidStaticConst {
   const factory _$FromSwidStaticConstPrefixedExpression(
-          {@required
+          {required
               SwidStaticConstPrefixedExpression
                   swidStaticConstPrefixedExpression}) =
       _$_$FromSwidStaticConstPrefixedExpression;
@@ -1887,7 +1887,7 @@ abstract class _$$FromSwidStaticConstBinaryExpressionCopyWith<$Res> {
           _$FromSwidStaticConstBinaryExpression value,
           $Res Function(_$FromSwidStaticConstBinaryExpression) then) =
       __$$FromSwidStaticConstBinaryExpressionCopyWithImpl<$Res>;
-  $Res call({SwidStaticConstBinaryExpression swidStaticConstBinaryExpression});
+  $Res call({SwidStaticConstBinaryExpression? swidStaticConstBinaryExpression});
 
   $SwidStaticConstBinaryExpressionCopyWith<$Res>
       get swidStaticConstBinaryExpression;
@@ -1903,30 +1903,30 @@ class __$$FromSwidStaticConstBinaryExpressionCopyWithImpl<$Res>
       : super(_value, (v) => _then(v as _$FromSwidStaticConstBinaryExpression));
 
   @override
-  _$FromSwidStaticConstBinaryExpression get _value =>
-      super._value as _$FromSwidStaticConstBinaryExpression;
+  _$FromSwidStaticConstBinaryExpression? get _value =>
+      super._value as _$FromSwidStaticConstBinaryExpression?;
 
   @override
   $Res call({
-    Object swidStaticConstBinaryExpression = freezed,
+    Object? swidStaticConstBinaryExpression = freezed,
   }) {
     return _then(_$FromSwidStaticConstBinaryExpression(
       swidStaticConstBinaryExpression: swidStaticConstBinaryExpression ==
               freezed
-          ? _value.swidStaticConstBinaryExpression
-          : swidStaticConstBinaryExpression as SwidStaticConstBinaryExpression,
+          ? _value!.swidStaticConstBinaryExpression
+          : (swidStaticConstBinaryExpression as SwidStaticConstBinaryExpression?)!,
     ));
   }
 
   @override
   $SwidStaticConstBinaryExpressionCopyWith<$Res>
       get swidStaticConstBinaryExpression {
-    if (_value.swidStaticConstBinaryExpression == null) {
+    if (_value!.swidStaticConstBinaryExpression == null) {
       return null;
     }
     return $SwidStaticConstBinaryExpressionCopyWith<$Res>(
-        _value.swidStaticConstBinaryExpression, (value) {
-      return _then(_value.copyWith(swidStaticConstBinaryExpression: value));
+        _value!.swidStaticConstBinaryExpression, (value) {
+      return _then(_value!.copyWith(swidStaticConstBinaryExpression: value));
     });
   }
 }
@@ -1937,7 +1937,7 @@ class __$$FromSwidStaticConstBinaryExpressionCopyWithImpl<$Res>
 class _$_$FromSwidStaticConstBinaryExpression
     implements _$FromSwidStaticConstBinaryExpression {
   const _$_$FromSwidStaticConstBinaryExpression(
-      {@required this.swidStaticConstBinaryExpression})
+      {required this.swidStaticConstBinaryExpression})
       : assert(swidStaticConstBinaryExpression != null);
 
   factory _$_$FromSwidStaticConstBinaryExpression.fromJson(
@@ -1978,27 +1978,27 @@ class _$_$FromSwidStaticConstBinaryExpression
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -2017,21 +2017,21 @@ class _$_$FromSwidStaticConstBinaryExpression
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstBinaryExpression != null) {
@@ -2044,23 +2044,23 @@ class _$_$FromSwidStaticConstBinaryExpression
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -2079,21 +2079,21 @@ class _$_$FromSwidStaticConstBinaryExpression
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstBinaryExpression != null) {
@@ -2112,7 +2112,7 @@ class _$_$FromSwidStaticConstBinaryExpression
 abstract class _$FromSwidStaticConstBinaryExpression
     implements SwidStaticConst {
   const factory _$FromSwidStaticConstBinaryExpression(
-          {@required
+          {required
               SwidStaticConstBinaryExpression
                   swidStaticConstBinaryExpression}) =
       _$_$FromSwidStaticConstBinaryExpression;
@@ -2133,7 +2133,7 @@ abstract class _$$FromSwidStaticConstPrefixedIdentifierCopyWith<$Res> {
           _$FromSwidStaticConstPrefixedIdentifier value,
           $Res Function(_$FromSwidStaticConstPrefixedIdentifier) then) =
       __$$FromSwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>;
-  $Res call({SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier});
+  $Res call({SwidStaticConstPrefixedIdentifier? staticConstPrefixedIdentifier});
 
   $SwidStaticConstPrefixedIdentifierCopyWith<$Res>
       get staticConstPrefixedIdentifier;
@@ -2150,29 +2150,29 @@ class __$$FromSwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>
             _value, (v) => _then(v as _$FromSwidStaticConstPrefixedIdentifier));
 
   @override
-  _$FromSwidStaticConstPrefixedIdentifier get _value =>
-      super._value as _$FromSwidStaticConstPrefixedIdentifier;
+  _$FromSwidStaticConstPrefixedIdentifier? get _value =>
+      super._value as _$FromSwidStaticConstPrefixedIdentifier?;
 
   @override
   $Res call({
-    Object staticConstPrefixedIdentifier = freezed,
+    Object? staticConstPrefixedIdentifier = freezed,
   }) {
     return _then(_$FromSwidStaticConstPrefixedIdentifier(
       staticConstPrefixedIdentifier: staticConstPrefixedIdentifier == freezed
-          ? _value.staticConstPrefixedIdentifier
-          : staticConstPrefixedIdentifier as SwidStaticConstPrefixedIdentifier,
+          ? _value!.staticConstPrefixedIdentifier
+          : (staticConstPrefixedIdentifier as SwidStaticConstPrefixedIdentifier?)!,
     ));
   }
 
   @override
   $SwidStaticConstPrefixedIdentifierCopyWith<$Res>
       get staticConstPrefixedIdentifier {
-    if (_value.staticConstPrefixedIdentifier == null) {
+    if (_value!.staticConstPrefixedIdentifier == null) {
       return null;
     }
     return $SwidStaticConstPrefixedIdentifierCopyWith<$Res>(
-        _value.staticConstPrefixedIdentifier, (value) {
-      return _then(_value.copyWith(staticConstPrefixedIdentifier: value));
+        _value!.staticConstPrefixedIdentifier, (value) {
+      return _then(_value!.copyWith(staticConstPrefixedIdentifier: value));
     });
   }
 }
@@ -2183,7 +2183,7 @@ class __$$FromSwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>
 class _$_$FromSwidStaticConstPrefixedIdentifier
     implements _$FromSwidStaticConstPrefixedIdentifier {
   const _$_$FromSwidStaticConstPrefixedIdentifier(
-      {@required this.staticConstPrefixedIdentifier})
+      {required this.staticConstPrefixedIdentifier})
       : assert(staticConstPrefixedIdentifier != null);
 
   factory _$_$FromSwidStaticConstPrefixedIdentifier.fromJson(
@@ -2224,27 +2224,27 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    @required
+    required
         TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    @required
+    required
         TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    @required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
-    @required
+    required TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             SwidStaticConstFieldReference swidStaticConstFieldReference),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             SwidStaticConstPrefixedExpression
                 swidStaticConstPrefixedExpression),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
   }) {
@@ -2263,21 +2263,21 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral),
-    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral),
-    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral),
-    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral),
+    TResult fromSwidBooleanLiteral(SwidBooleanLiteral swidBooleanLiteral)?,
+    TResult fromSwidStringLiteral(SwidStringLiteral swidStringLiteral)?,
+    TResult fromSwidIntegerLiteral(SwidIntegerLiteral swidIntegerLiteral)?,
+    TResult fromDoubleLiteral(SwidDoubleLiteral swidDoubleLiteral)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        SwidStaticConstFunctionInvocation staticConstFunctionInvocation),
+        SwidStaticConstFunctionInvocation staticConstFunctionInvocation)?,
     TResult fromSwidStaticConstFieldReference(
-        SwidStaticConstFieldReference swidStaticConstFieldReference),
+        SwidStaticConstFieldReference swidStaticConstFieldReference)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression),
+        SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression)?,
     TResult fromSwidStaticConstBinaryExpression(
-        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression),
+        SwidStaticConstBinaryExpression swidStaticConstBinaryExpression)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier),
-    @required TResult orElse(),
+        SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstPrefixedIdentifier != null) {
@@ -2290,23 +2290,23 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    @required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    @required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    @required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
-    @required
+    required TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
+    required TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
+    required TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
+    required TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    required
         TResult fromSwidStaticConstFunctionInvocation(
             _$FromSwidStaticConstFunctionInvocation value),
-    @required
+    required
         TResult fromSwidStaticConstFieldReference(
             _$FromSwidStaticConstFieldReference value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedExpression(
             _$FromSwidStaticConstPrefixedExpression value),
-    @required
+    required
         TResult fromSwidStaticConstBinaryExpression(
             _$FromSwidStaticConstBinaryExpression value),
-    @required
+    required
         TResult fromSwidStaticConstPrefixedIdentifier(
             _$FromSwidStaticConstPrefixedIdentifier value),
   }) {
@@ -2325,21 +2325,21 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value),
-    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value),
-    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value),
-    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value),
+    TResult fromSwidBooleanLiteral(_$FromSwidBooleanLiteral value)?,
+    TResult fromSwidStringLiteral(_$FromSwidStringLiteral value)?,
+    TResult fromSwidIntegerLiteral(_$FromSwidIntegerLiteral value)?,
+    TResult fromDoubleLiteral(_$FromSwidDoubleLiteral value)?,
     TResult fromSwidStaticConstFunctionInvocation(
-        _$FromSwidStaticConstFunctionInvocation value),
+        _$FromSwidStaticConstFunctionInvocation value)?,
     TResult fromSwidStaticConstFieldReference(
-        _$FromSwidStaticConstFieldReference value),
+        _$FromSwidStaticConstFieldReference value)?,
     TResult fromSwidStaticConstPrefixedExpression(
-        _$FromSwidStaticConstPrefixedExpression value),
+        _$FromSwidStaticConstPrefixedExpression value)?,
     TResult fromSwidStaticConstBinaryExpression(
-        _$FromSwidStaticConstBinaryExpression value),
+        _$FromSwidStaticConstBinaryExpression value)?,
     TResult fromSwidStaticConstPrefixedIdentifier(
-        _$FromSwidStaticConstPrefixedIdentifier value),
-    @required TResult orElse(),
+        _$FromSwidStaticConstPrefixedIdentifier value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidStaticConstPrefixedIdentifier != null) {
@@ -2358,7 +2358,7 @@ class _$_$FromSwidStaticConstPrefixedIdentifier
 abstract class _$FromSwidStaticConstPrefixedIdentifier
     implements SwidStaticConst {
   const factory _$FromSwidStaticConstPrefixedIdentifier(
-          {@required
+          {required
               SwidStaticConstPrefixedIdentifier
                   staticConstPrefixedIdentifier}) =
       _$_$FromSwidStaticConstPrefixedIdentifier;

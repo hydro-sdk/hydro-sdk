@@ -19,11 +19,11 @@ class _$SwidConfigEmitOptionsTearOff {
 
 // ignore: unused_element
   _$SwidConfigEmitOptionsCtor call(
-      {@required SwidConfigTsEmitOptions tsEmitOptions,
-      @required SwidConfigDartEmitOptions dartEmitOptions,
-      @required List<String> prefixPaths,
-      @required SwidConfigAllowList allowList,
-      @required SwidConfigDenyList denyList}) {
+      {required SwidConfigTsEmitOptions tsEmitOptions,
+      required SwidConfigDartEmitOptions dartEmitOptions,
+      required List<String> prefixPaths,
+      required SwidConfigAllowList allowList,
+      required SwidConfigDenyList denyList}) {
     return _$SwidConfigEmitOptionsCtor(
       tsEmitOptions: tsEmitOptions,
       dartEmitOptions: dartEmitOptions,
@@ -62,11 +62,11 @@ abstract class $SwidConfigEmitOptionsCopyWith<$Res> {
           $Res Function(SwidConfigEmitOptions) then) =
       _$SwidConfigEmitOptionsCopyWithImpl<$Res>;
   $Res call(
-      {SwidConfigTsEmitOptions tsEmitOptions,
-      SwidConfigDartEmitOptions dartEmitOptions,
-      List<String> prefixPaths,
-      SwidConfigAllowList allowList,
-      SwidConfigDenyList denyList});
+      {SwidConfigTsEmitOptions? tsEmitOptions,
+      SwidConfigDartEmitOptions? dartEmitOptions,
+      List<String>? prefixPaths,
+      SwidConfigAllowList? allowList,
+      SwidConfigDenyList? denyList});
 
   $SwidConfigTsEmitOptionsCopyWith<$Res> get tsEmitOptions;
   $SwidConfigDartEmitOptionsCopyWith<$Res> get dartEmitOptions;
@@ -81,32 +81,32 @@ class _$SwidConfigEmitOptionsCopyWithImpl<$Res>
 
   final SwidConfigEmitOptions _value;
   // ignore: unused_field
-  final $Res Function(SwidConfigEmitOptions) _then;
+  final $Res Function(SwidConfigEmitOptions?) _then;
 
   @override
   $Res call({
-    Object tsEmitOptions = freezed,
-    Object dartEmitOptions = freezed,
-    Object prefixPaths = freezed,
-    Object allowList = freezed,
-    Object denyList = freezed,
+    Object? tsEmitOptions = freezed,
+    Object? dartEmitOptions = freezed,
+    Object? prefixPaths = freezed,
+    Object? allowList = freezed,
+    Object? denyList = freezed,
   }) {
     return _then(_value.copyWith(
       tsEmitOptions: tsEmitOptions == freezed
           ? _value.tsEmitOptions
-          : tsEmitOptions as SwidConfigTsEmitOptions,
+          : tsEmitOptions as SwidConfigTsEmitOptions?,
       dartEmitOptions: dartEmitOptions == freezed
           ? _value.dartEmitOptions
-          : dartEmitOptions as SwidConfigDartEmitOptions,
+          : dartEmitOptions as SwidConfigDartEmitOptions?,
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>,
+          : prefixPaths as List<String>?,
       allowList: allowList == freezed
           ? _value.allowList
-          : allowList as SwidConfigAllowList,
+          : allowList as SwidConfigAllowList?,
       denyList: denyList == freezed
           ? _value.denyList
-          : denyList as SwidConfigDenyList,
+          : denyList as SwidConfigDenyList?,
     ));
   }
 
@@ -162,11 +162,11 @@ abstract class _$$SwidConfigEmitOptionsCtorCopyWith<$Res>
       __$$SwidConfigEmitOptionsCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SwidConfigTsEmitOptions tsEmitOptions,
-      SwidConfigDartEmitOptions dartEmitOptions,
-      List<String> prefixPaths,
-      SwidConfigAllowList allowList,
-      SwidConfigDenyList denyList});
+      {SwidConfigTsEmitOptions? tsEmitOptions,
+      SwidConfigDartEmitOptions? dartEmitOptions,
+      List<String>? prefixPaths,
+      SwidConfigAllowList? allowList,
+      SwidConfigDenyList? denyList});
 
   @override
   $SwidConfigTsEmitOptionsCopyWith<$Res> get tsEmitOptions;
@@ -192,28 +192,28 @@ class __$$SwidConfigEmitOptionsCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsEmitOptions = freezed,
-    Object dartEmitOptions = freezed,
-    Object prefixPaths = freezed,
-    Object allowList = freezed,
-    Object denyList = freezed,
+    Object? tsEmitOptions = freezed,
+    Object? dartEmitOptions = freezed,
+    Object? prefixPaths = freezed,
+    Object? allowList = freezed,
+    Object? denyList = freezed,
   }) {
     return _then(_$SwidConfigEmitOptionsCtor(
       tsEmitOptions: tsEmitOptions == freezed
           ? _value.tsEmitOptions
-          : tsEmitOptions as SwidConfigTsEmitOptions,
+          : (tsEmitOptions as SwidConfigTsEmitOptions?)!,
       dartEmitOptions: dartEmitOptions == freezed
           ? _value.dartEmitOptions
-          : dartEmitOptions as SwidConfigDartEmitOptions,
+          : (dartEmitOptions as SwidConfigDartEmitOptions?)!,
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>,
+          : (prefixPaths as List<String>?)!,
       allowList: allowList == freezed
           ? _value.allowList
-          : allowList as SwidConfigAllowList,
+          : (allowList as SwidConfigAllowList?)!,
       denyList: denyList == freezed
           ? _value.denyList
-          : denyList as SwidConfigDenyList,
+          : (denyList as SwidConfigDenyList?)!,
     ));
   }
 }
@@ -223,11 +223,11 @@ class __$$SwidConfigEmitOptionsCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidConfigEmitOptionsCtor implements _$SwidConfigEmitOptionsCtor {
   const _$_$SwidConfigEmitOptionsCtor(
-      {@required this.tsEmitOptions,
-      @required this.dartEmitOptions,
-      @required this.prefixPaths,
-      @required this.allowList,
-      @required this.denyList})
+      {required this.tsEmitOptions,
+      required this.dartEmitOptions,
+      required this.prefixPaths,
+      required this.allowList,
+      required this.denyList})
       : assert(tsEmitOptions != null),
         assert(dartEmitOptions != null),
         assert(prefixPaths != null),
@@ -297,11 +297,11 @@ class _$_$SwidConfigEmitOptionsCtor implements _$SwidConfigEmitOptionsCtor {
 
 abstract class _$SwidConfigEmitOptionsCtor implements SwidConfigEmitOptions {
   const factory _$SwidConfigEmitOptionsCtor(
-      {@required SwidConfigTsEmitOptions tsEmitOptions,
-      @required SwidConfigDartEmitOptions dartEmitOptions,
-      @required List<String> prefixPaths,
-      @required SwidConfigAllowList allowList,
-      @required SwidConfigDenyList denyList}) = _$_$SwidConfigEmitOptionsCtor;
+      {required SwidConfigTsEmitOptions tsEmitOptions,
+      required SwidConfigDartEmitOptions dartEmitOptions,
+      required List<String> prefixPaths,
+      required SwidConfigAllowList allowList,
+      required SwidConfigDenyList denyList}) = _$_$SwidConfigEmitOptionsCtor;
 
   factory _$SwidConfigEmitOptionsCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigEmitOptionsCtor.fromJson;

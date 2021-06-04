@@ -7,9 +7,9 @@ import 'package:hydro_sdk/hydroState.dart';
 import 'package:hydro_sdk/loadFileFromBundle.dart';
 
 Future<CoroutineResult> doFileFromBundle(
-    {@required HydroState hydroState,
-    @required String path,
-    @required Map<String, NativeThunk> thunks,
+    {required HydroState hydroState,
+    required String path,
+    required Map<String, NativeThunk> thunks,
     List<dynamic> args = const []}) async {
   var linkStatus = LinkStatus();
 

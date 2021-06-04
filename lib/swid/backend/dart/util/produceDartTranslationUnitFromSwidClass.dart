@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 
@@ -15,14 +16,14 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 
-DartTranslationUnit produceDartTranslationUnitFromSwidClass({
-  @required SwidClass swidClass,
-  @required String baseFileName,
-  @required String path,
-  @required List<String> prefixPaths,
+DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
+  required SwidClass swidClass,
+  required String baseFileName,
+  required String path,
+  required List<String> prefixPaths,
 }) =>
     (({
-      @required SwidClass swidClass,
+      required SwidClass swidClass,
     }) =>
         requiresDartClassTranslationUnit(swidClass: swidClass)
             ? DartTranslationUnit(
@@ -30,13 +31,12 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                 fileName: "$baseFileName.dart",
                 ir: [
                   DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  ...(({List<DartImportStatement> importStatements}) =>
+                  ...(({required List<DartImportStatement> importStatements}) =>
                       importStatements
                           .fold<List<DartImportStatement>>(
                               <DartImportStatement>[],
-                              (prev, element) => prev.firstWhere(
-                                          (x) => x.path == element.path,
-                                          orElse: () => null) ==
+                              (prev, element) => prev.firstWhereOrNull(
+                                          (x) => x.path == element.path) ==
                                       null
                                   ? [...prev, element]
                                   : prev)
@@ -47,7 +47,7 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                     ...collectAllReferences(
                             swidType: SwidType.fromSwidClass(
                                 swidClass: SwidClass.mergeSuperClasses(
-                                    swidClass: swidClass)))
+                                    swidClass: swidClass)))!
                         .where((x) =>
                             x.originalPackagePath !=
                             swidClass.originalPackagePath)
@@ -92,7 +92,7 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                   DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                   !swidClass.isPureAbstract() &&
                           swidClass.isConstructible() &&
-                          !swidClass.constructorType.isFactory
+                          !swidClass.constructorType!.isFactory
                       ? DartIr.fromRTManagedClassDeclaration(
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(

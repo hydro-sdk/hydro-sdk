@@ -18,10 +18,10 @@ class _$ComponentSearchDtoTearOff {
 
 // ignore: unused_element
   _$ComponentSearchDtoCtor call(
-      {@required String id,
-      @required String projectName,
-      @required String name,
-      @required String description}) {
+      {required String id,
+      required String projectName,
+      required String name,
+      required String description}) {
     return _$ComponentSearchDtoCtor(
       id: id,
       projectName: projectName,
@@ -57,7 +57,7 @@ abstract class $ComponentSearchDtoCopyWith<$Res> {
   factory $ComponentSearchDtoCopyWith(
           ComponentSearchDto value, $Res Function(ComponentSearchDto) then) =
       _$ComponentSearchDtoCopyWithImpl<$Res>;
-  $Res call({String id, String projectName, String name, String description});
+  $Res call({String? id, String? projectName, String? name, String? description});
 }
 
 /// @nodoc
@@ -67,22 +67,22 @@ class _$ComponentSearchDtoCopyWithImpl<$Res>
 
   final ComponentSearchDto _value;
   // ignore: unused_field
-  final $Res Function(ComponentSearchDto) _then;
+  final $Res Function(ComponentSearchDto?) _then;
 
   @override
   $Res call({
-    Object id = freezed,
-    Object projectName = freezed,
-    Object name = freezed,
-    Object description = freezed,
+    Object? id = freezed,
+    Object? projectName = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed ? _value.id : id as String?,
       projectName:
-          projectName == freezed ? _value.projectName : projectName as String,
-      name: name == freezed ? _value.name : name as String,
+          projectName == freezed ? _value.projectName : projectName as String?,
+      name: name == freezed ? _value.name : name as String?,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : description as String?,
     ));
   }
 }
@@ -94,7 +94,7 @@ abstract class _$$ComponentSearchDtoCtorCopyWith<$Res>
           $Res Function(_$ComponentSearchDtoCtor) then) =
       __$$ComponentSearchDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String projectName, String name, String description});
+  $Res call({String? id, String? projectName, String? name, String? description});
 }
 
 /// @nodoc
@@ -111,18 +111,18 @@ class __$$ComponentSearchDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object projectName = freezed,
-    Object name = freezed,
-    Object description = freezed,
+    Object? id = freezed,
+    Object? projectName = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$ComponentSearchDtoCtor(
-      id: id == freezed ? _value.id : id as String,
+      id: id == freezed ? _value.id : (id as String?)!,
       projectName:
-          projectName == freezed ? _value.projectName : projectName as String,
-      name: name == freezed ? _value.name : name as String,
+          projectName == freezed ? _value.projectName : (projectName as String?)!,
+      name: name == freezed ? _value.name : (name as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : (description as String?)!,
     ));
   }
 }
@@ -132,10 +132,10 @@ class __$$ComponentSearchDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
   const _$_$ComponentSearchDtoCtor(
-      {@required this.id,
-      @required this.projectName,
-      @required this.name,
-      @required this.description})
+      {required this.id,
+      required this.projectName,
+      required this.name,
+      required this.description})
       : assert(id != null),
         assert(projectName != null),
         assert(name != null),
@@ -196,10 +196,10 @@ class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
 
 abstract class _$ComponentSearchDtoCtor implements ComponentSearchDto {
   const factory _$ComponentSearchDtoCtor(
-      {@required String id,
-      @required String projectName,
-      @required String name,
-      @required String description}) = _$_$ComponentSearchDtoCtor;
+      {required String id,
+      required String projectName,
+      required String name,
+      required String description}) = _$_$ComponentSearchDtoCtor;
 
   factory _$ComponentSearchDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$ComponentSearchDtoCtor.fromJson;

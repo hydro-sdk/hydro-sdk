@@ -14,7 +14,7 @@ class _$SwidiReferenceDeclarationPrefixTearOff {
   const _$SwidiReferenceDeclarationPrefixTearOff();
 
 // ignore: unused_element
-  _$SwidiReferenceDeclarationPrefixCtor call({@required String name}) {
+  _$SwidiReferenceDeclarationPrefixCtor call({required String name}) {
     return _$SwidiReferenceDeclarationPrefixCtor(
       name: name,
     );
@@ -41,7 +41,7 @@ abstract class $SwidiReferenceDeclarationPrefixCopyWith<$Res> {
           SwidiReferenceDeclarationPrefix value,
           $Res Function(SwidiReferenceDeclarationPrefix) then) =
       _$SwidiReferenceDeclarationPrefixCopyWithImpl<$Res>;
-  $Res call({String name});
+  $Res call({String? name});
 }
 
 /// @nodoc
@@ -51,14 +51,14 @@ class _$SwidiReferenceDeclarationPrefixCopyWithImpl<$Res>
 
   final SwidiReferenceDeclarationPrefix _value;
   // ignore: unused_field
-  final $Res Function(SwidiReferenceDeclarationPrefix) _then;
+  final $Res Function(SwidiReferenceDeclarationPrefix?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
     ));
   }
 }
@@ -71,7 +71,7 @@ abstract class _$$SwidiReferenceDeclarationPrefixCtorCopyWith<$Res>
           $Res Function(_$SwidiReferenceDeclarationPrefixCtor) then) =
       __$$SwidiReferenceDeclarationPrefixCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name});
+  $Res call({String? name});
 }
 
 /// @nodoc
@@ -89,10 +89,10 @@ class __$$SwidiReferenceDeclarationPrefixCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$SwidiReferenceDeclarationPrefixCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
     ));
   }
 }
@@ -100,7 +100,7 @@ class __$$SwidiReferenceDeclarationPrefixCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidiReferenceDeclarationPrefixCtor
     implements _$SwidiReferenceDeclarationPrefixCtor {
-  const _$_$SwidiReferenceDeclarationPrefixCtor({@required this.name})
+  const _$_$SwidiReferenceDeclarationPrefixCtor({required this.name})
       : assert(name != null);
 
   @override
@@ -133,7 +133,7 @@ class _$_$SwidiReferenceDeclarationPrefixCtor
 
 abstract class _$SwidiReferenceDeclarationPrefixCtor
     implements SwidiReferenceDeclarationPrefix {
-  const factory _$SwidiReferenceDeclarationPrefixCtor({@required String name}) =
+  const factory _$SwidiReferenceDeclarationPrefixCtor({required String name}) =
       _$_$SwidiReferenceDeclarationPrefixCtor;
 
   @override

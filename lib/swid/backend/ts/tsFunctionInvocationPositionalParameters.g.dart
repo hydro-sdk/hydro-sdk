@@ -8,9 +8,9 @@ part of 'tsFunctionInvocationPositionalParameters.dart';
 
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
-    positionalReferences: (json['positionalReferences'] as List)
+    (positionalReferences: (json['positionalReferences'] as List?)
         ?.map((e) => e as String)
-        ?.toList(),
+        ?.toList())!,
   );
 }
 

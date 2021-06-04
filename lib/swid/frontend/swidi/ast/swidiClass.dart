@@ -9,16 +9,16 @@ part 'swidiClass.freezed.dart';
 @freezed
 abstract class SwidiClass with _$SwidiClass {
   const factory SwidiClass({
-    @required String name,
-    @required SwidiLibraryScopePrefix libraryScopePrefix,
-    @required List<SwidiFunctionDeclaration> methods,
+    required String name,
+    required SwidiLibraryScopePrefix libraryScopePrefix,
+    required List<SwidiFunctionDeclaration> methods,
   }) = _$SwidiClassCtor;
 
   factory SwidiClass.clone({
-    @required SwidiClass swidiClass,
-    String name,
-    SwidiLibraryScopePrefix libraryScopePrefix,
-    List<SwidiFunctionDeclaration> methods,
+    required SwidiClass swidiClass,
+    String? name,
+    SwidiLibraryScopePrefix? libraryScopePrefix,
+    List<SwidiFunctionDeclaration>? methods,
   }) =>
       SwidiClass(
         name: name ?? swidiClass.name,

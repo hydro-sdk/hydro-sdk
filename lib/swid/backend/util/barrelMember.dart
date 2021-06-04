@@ -9,11 +9,11 @@ part 'barrelMember.freezed.dart';
 
 @freezed
 abstract class BarrelMember with _$BarrelMember {
-  factory BarrelMember.fromSwidClass({@required SwidClass swidClass}) =
+  factory BarrelMember.fromSwidClass({required SwidClass swidClass}) =
       _$FromSwidClass;
-  factory BarrelMember.fromSwidEnum({@required SwidEnum swidEnum}) =
+  factory BarrelMember.fromSwidEnum({required SwidEnum swidEnum}) =
       _$FromSwidEnum;
-  factory BarrelMember.fromBarrelSpec({@required BarrelSpec barrelSpec}) =
+  factory BarrelMember.fromBarrelSpec({required BarrelSpec barrelSpec}) =
       _$FromBarrelSpec;
 }
 

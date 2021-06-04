@@ -3,5 +3,5 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-TypeReference swidTypeToDartTypeReference({@required SwidType swidType}) =>
-    TypeReference((t) => t..symbol = swidType.displayName);
+TypeReference swidTypeToDartTypeReference({required SwidType? swidType}) =>
+    TypeReference((t) => t..symbol = swidType!.displayName);

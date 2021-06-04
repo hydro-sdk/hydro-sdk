@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/vm/const.dart';
 
-Const copyConstant({@required Const source}) {
+Const? copyConstant({required Const source}) {
   switch (source.type) {
     case ConstType.CONST_NIL:
       return Const();

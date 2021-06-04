@@ -109,21 +109,21 @@ void main() {
       swidType: SwidType.fromSwidClass(
         swidClass: iterable,
       ),
-    ).when(
-      fromSwidInterface: (_) => null,
+    )!.when(
+      fromSwidInterface: ((_) => null) as SwidClass Function(SwidInterface),
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) => null,
-      fromSwidFunctionType: (_) => null,
+      fromSwidDefaultFormalParameter: ((_) => null) as SwidClass Function(SwidDefaultFormalParameter),
+      fromSwidFunctionType: ((_) => null) as SwidClass Function(SwidFunctionType),
     );
 
     expect(
-        replacedIterable.methods.first.returnType
+        replacedIterable.methods.first!.returnType
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
         dartDouble);
 
     expect(
-        replacedIterable.methods.last.returnType
-            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null)
+        replacedIterable.methods.last!.returnType
+            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null)!
             .displayName,
         "Iterator<double>");
   }, tags: "swid");

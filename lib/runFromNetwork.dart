@@ -16,7 +16,7 @@ import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
-typedef Widget ErrorBuilder(Exception err);
+typedef Widget ErrorBuilder(Exception? err);
 
 void _rebuildAllChildren(BuildContext context) {
   void rebuild(Element el) {
@@ -32,18 +32,18 @@ class RunFromNetwork extends StatefulWidget {
   final String filePath;
   final List<dynamic> args;
   final Map<String, NativeThunk> thunks;
-  final Future<String> Function(String) downloadHash;
-  final Future<Uint8List> Function(String) downloadByteCodeImage;
-  final Future<List<ModuleDebugInfo>> Function(String) downloadDebugInfo;
-  final ErrorBuilder errorBuilder;
-  final List<CustomNamespaceLoader> customNamespaces;
+  final Future<String> Function(String)? downloadHash;
+  final Future<Uint8List> Function(String)? downloadByteCodeImage;
+  final Future<List<ModuleDebugInfo>?> Function(String)? downloadDebugInfo;
+  final ErrorBuilder? errorBuilder;
+  final List<CustomNamespaceLoader>? customNamespaces;
 
   final bool debugMode;
   RunFromNetwork({
-    @required this.baseUrl,
-    @required this.filePath,
-    @required this.args,
-    @required this.thunks,
+    required this.baseUrl,
+    required this.filePath,
+    required this.args,
+    required this.thunks,
     this.downloadHash,
     this.downloadByteCodeImage,
     this.downloadDebugInfo,
@@ -72,43 +72,43 @@ class _RunFromNetwork extends State<RunFromNetwork>
   final String baseUrl;
   final String filePath;
   final List<dynamic> args;
-  final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+  final Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
       thunks;
-  final ErrorBuilder errorBuilder;
-  final bool debugMode;
-  Exception error;
-  Timer timer;
+  final ErrorBuilder? errorBuilder;
+  final bool? debugMode;
+  Exception? error;
+  Timer? timer;
   bool requiresRebuild = false;
 
-  Future<String> Function(String) downloadHash;
-  Future<Uint8List> Function(String) downloadByteCodeImage;
-  Future<List<ModuleDebugInfo>> Function(String) downloadDebugInfo;
+  Future<String?> Function(String)? downloadHash;
+  Future<Uint8List?> Function(String)? downloadByteCodeImage;
+  Future<List<ModuleDebugInfo>?> Function(String)? downloadDebugInfo;
 
-  String _debugUrl;
+  String? _debugUrl;
 
   _RunFromNetwork({
-    @required this.baseUrl,
-    @required this.filePath,
-    @required this.args,
-    @required this.thunks,
+    required this.baseUrl,
+    required this.filePath,
+    required this.args,
+    required this.thunks,
     this.downloadHash,
     this.downloadByteCodeImage,
     this.downloadDebugInfo,
     this.errorBuilder,
-    List<CustomNamespaceLoader> customNamespaces,
+    List<CustomNamespaceLoader>? customNamespaces,
     this.debugMode,
   }) {
     customNamespaceLoaders = customNamespaces;
-    _debugUrl = debugMode && Platform.isAndroid
+    _debugUrl = debugMode! && Platform.isAndroid
         ? "http://10.0.2.2:5000"
-        : debugMode && Platform.isIOS
+        : debugMode! && Platform.isIOS
             ? "http://localhost:5000"
             : "";
 
-    Future<Response> _attemptDownloadWithDegradation(String uri) async {
+    Future<Response?> _attemptDownloadWithDegradation(String uri) async {
       if (_debugUrl != "") {
         try {
-          return await get("$_debugUrl/$uri");
+          return await get("$_debugUrl/$uri" as Uri);
         } catch (err) {
           print(err);
           setState(() {
@@ -117,7 +117,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
         }
       }
       try {
-        return await get("$baseUrl/$uri");
+        return await get("$baseUrl/$uri" as Uri);
       } catch (err) {
         print(err);
         setState(() {
@@ -131,7 +131,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
     if (downloadHash == null) {
       downloadHash = (String uri) async {
         try {
-          var res = await _attemptDownloadWithDegradation(uri);
+          var res = await (_attemptDownloadWithDegradation(uri) as FutureOr<Response>);
           if (res.statusCode == 200) {
             return res.body;
           }
@@ -149,7 +149,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
     if (downloadByteCodeImage == null) {
       downloadByteCodeImage = (String uri) async {
         try {
-          var res = await _attemptDownloadWithDegradation(uri);
+          var res = await (_attemptDownloadWithDegradation(uri) as FutureOr<Response>);
           return res.bodyBytes;
         } catch (err) {
           print(err);
@@ -168,7 +168,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
             var res = await _attemptDownloadWithDegradation(uri);
             if (res?.statusCode == 200) {
               return json
-                  .decode(res.body)
+                  .decode(res!.body)
                   ?.map((x) => ModuleDebugInfo.fromJson(x))
                   ?.toList()
                   ?.cast<ModuleDebugInfo>();
@@ -196,7 +196,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
   }
 
   Future<void> maybeReload() async {
-    String newHash = await downloadHash("$filePath.sha256");
+    String? newHash = await downloadHash!("$filePath.sha256");
     if (newHash == null) {
       setState(() {
         error = Exception("Unable to load hash ($filePath.sha256)");
@@ -204,10 +204,10 @@ class _RunFromNetwork extends State<RunFromNetwork>
       return;
     }
     if (newHash != null && newHash != lastHash) {
-      var image = await downloadByteCodeImage("$filePath");
-      List<ModuleDebugInfo> symbols;
-      if (debugMode) {
-        symbols = await downloadDebugInfo("$filePath.symbols");
+      var image = await downloadByteCodeImage!("$filePath");
+      List<ModuleDebugInfo>? symbols;
+      if (debugMode!) {
+        symbols = await downloadDebugInfo!("$filePath.symbols");
         if (symbols == null) {
           setState(() {
             error =
@@ -257,7 +257,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
 
   @override
   void dispose() {
-    timer.cancel();
+    timer!.cancel();
     super.dispose();
   }
 
@@ -265,12 +265,12 @@ class _RunFromNetwork extends State<RunFromNetwork>
   Widget build(BuildContext context) {
     if (error != null) {
       if (timer != null) {
-        timer.cancel();
+        timer!.cancel();
       }
       if (errorBuilder != null) {
-        return errorBuilder(error);
+        return errorBuilder!(error);
       }
-      throw error;
+      throw error!;
     }
     if (res == null) {
       return Center(
@@ -292,12 +292,12 @@ class _RunFromNetwork extends State<RunFromNetwork>
         });
       }
 
-      if (!res.success) {
-        print(res.values[0]);
+      if (!res!.success) {
+        print(res!.values![0]);
       }
 
       return maybeUnBoxAndBuildArgument<Widget>(
-          luaState.context.env["hydro"]["globalBuildResult"].dispatch(
+          luaState.context!.env["hydro"]["globalBuildResult"].dispatch(
               args != null ? [...args] : [],
               parentState: luaState)[0],
           parentState: luaState);

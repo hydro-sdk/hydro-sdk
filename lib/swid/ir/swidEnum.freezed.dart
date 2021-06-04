@@ -18,9 +18,9 @@ class _$SwidEnumTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required String originalPackagePath,
-      @required String identifier,
-      @required List<String> children}) {
+      {required String originalPackagePath,
+      required String identifier,
+      required List<String> children}) {
     return _$Data(
       originalPackagePath: originalPackagePath,
       identifier: identifier,
@@ -54,7 +54,7 @@ abstract class $SwidEnumCopyWith<$Res> {
   factory $SwidEnumCopyWith(SwidEnum value, $Res Function(SwidEnum) then) =
       _$SwidEnumCopyWithImpl<$Res>;
   $Res call(
-      {String originalPackagePath, String identifier, List<String> children});
+      {String? originalPackagePath, String? identifier, List<String>? children});
 }
 
 /// @nodoc
@@ -63,22 +63,22 @@ class _$SwidEnumCopyWithImpl<$Res> implements $SwidEnumCopyWith<$Res> {
 
   final SwidEnum _value;
   // ignore: unused_field
-  final $Res Function(SwidEnum) _then;
+  final $Res Function(SwidEnum?) _then;
 
   @override
   $Res call({
-    Object originalPackagePath = freezed,
-    Object identifier = freezed,
-    Object children = freezed,
+    Object? originalPackagePath = freezed,
+    Object? identifier = freezed,
+    Object? children = freezed,
   }) {
     return _then(_value.copyWith(
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
+          : originalPackagePath as String?,
       identifier:
-          identifier == freezed ? _value.identifier : identifier as String,
+          identifier == freezed ? _value.identifier : identifier as String?,
       children:
-          children == freezed ? _value.children : children as List<String>,
+          children == freezed ? _value.children : children as List<String>?,
     ));
   }
 }
@@ -89,7 +89,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidEnumCopyWith<$Res> {
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String originalPackagePath, String identifier, List<String> children});
+      {String? originalPackagePath, String? identifier, List<String>? children});
 }
 
 /// @nodoc
@@ -103,18 +103,18 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidEnumCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object originalPackagePath = freezed,
-    Object identifier = freezed,
-    Object children = freezed,
+    Object? originalPackagePath = freezed,
+    Object? identifier = freezed,
+    Object? children = freezed,
   }) {
     return _then(_$Data(
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
+          : (originalPackagePath as String?)!,
       identifier:
-          identifier == freezed ? _value.identifier : identifier as String,
+          identifier == freezed ? _value.identifier : (identifier as String?)!,
       children:
-          children == freezed ? _value.children : children as List<String>,
+          children == freezed ? _value.children : (children as List<String>?)!,
     ));
   }
 }
@@ -124,9 +124,9 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidEnumCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.originalPackagePath,
-      @required this.identifier,
-      @required this.children})
+      {required this.originalPackagePath,
+      required this.identifier,
+      required this.children})
       : assert(originalPackagePath != null),
         assert(identifier != null),
         assert(children != null);
@@ -181,9 +181,9 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidEnum {
   const factory _$Data(
-      {@required String originalPackagePath,
-      @required String identifier,
-      @required List<String> children}) = _$_$Data;
+      {required String originalPackagePath,
+      required String identifier,
+      required List<String> children}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

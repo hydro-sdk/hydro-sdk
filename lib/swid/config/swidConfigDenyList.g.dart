@@ -9,9 +9,9 @@ part of 'swidConfigDenyList.dart';
 _$_$SwidConfigDenyListCtor _$_$_$SwidConfigDenyListCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$SwidConfigDenyListCtor(
-    classNames: (json['classNames'] as List)?.map((e) => e as String)?.toList(),
-    packagePaths:
-        (json['packagePaths'] as List)?.map((e) => e as String)?.toList(),
+    (classNames: (json['classNames'] as List?)?.map((e) => e as String)?.toList())!,
+    (packagePaths:
+        (json['packagePaths'] as List?)?.map((e) => e as String)?.toList())!,
   );
 }
 

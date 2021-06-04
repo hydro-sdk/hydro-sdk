@@ -18,7 +18,7 @@ class _$PackageManifestEntryTearOff {
 
 // ignore: unused_element
   _$PackageManifestEntryCtor call(
-      {@required String path, @required String sha256}) {
+      {required String path, required String sha256}) {
     return _$PackageManifestEntryCtor(
       path: path,
       sha256: sha256,
@@ -50,7 +50,7 @@ abstract class $PackageManifestEntryCopyWith<$Res> {
   factory $PackageManifestEntryCopyWith(PackageManifestEntry value,
           $Res Function(PackageManifestEntry) then) =
       _$PackageManifestEntryCopyWithImpl<$Res>;
-  $Res call({String path, String sha256});
+  $Res call({String? path, String? sha256});
 }
 
 /// @nodoc
@@ -60,16 +60,16 @@ class _$PackageManifestEntryCopyWithImpl<$Res>
 
   final PackageManifestEntry _value;
   // ignore: unused_field
-  final $Res Function(PackageManifestEntry) _then;
+  final $Res Function(PackageManifestEntry?) _then;
 
   @override
   $Res call({
-    Object path = freezed,
-    Object sha256 = freezed,
+    Object? path = freezed,
+    Object? sha256 = freezed,
   }) {
     return _then(_value.copyWith(
-      path: path == freezed ? _value.path : path as String,
-      sha256: sha256 == freezed ? _value.sha256 : sha256 as String,
+      path: path == freezed ? _value.path : path as String?,
+      sha256: sha256 == freezed ? _value.sha256 : sha256 as String?,
     ));
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$PackageManifestEntryCtorCopyWith<$Res>
           $Res Function(_$PackageManifestEntryCtor) then) =
       __$$PackageManifestEntryCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String path, String sha256});
+  $Res call({String? path, String? sha256});
 }
 
 /// @nodoc
@@ -98,12 +98,12 @@ class __$$PackageManifestEntryCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object path = freezed,
-    Object sha256 = freezed,
+    Object? path = freezed,
+    Object? sha256 = freezed,
   }) {
     return _then(_$PackageManifestEntryCtor(
-      path: path == freezed ? _value.path : path as String,
-      sha256: sha256 == freezed ? _value.sha256 : sha256 as String,
+      path: path == freezed ? _value.path : (path as String?)!,
+      sha256: sha256 == freezed ? _value.sha256 : (sha256 as String?)!,
     ));
   }
 }
@@ -113,7 +113,7 @@ class __$$PackageManifestEntryCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$PackageManifestEntryCtor implements _$PackageManifestEntryCtor {
   const _$_$PackageManifestEntryCtor(
-      {@required this.path, @required this.sha256})
+      {required this.path, required this.sha256})
       : assert(path != null),
         assert(sha256 != null);
 
@@ -161,8 +161,8 @@ class _$_$PackageManifestEntryCtor implements _$PackageManifestEntryCtor {
 
 abstract class _$PackageManifestEntryCtor implements PackageManifestEntry {
   const factory _$PackageManifestEntryCtor(
-      {@required String path,
-      @required String sha256}) = _$_$PackageManifestEntryCtor;
+      {required String path,
+      required String sha256}) = _$_$PackageManifestEntryCtor;
 
   factory _$PackageManifestEntryCtor.fromJson(Map<String, dynamic> json) =
       _$_$PackageManifestEntryCtor.fromJson;

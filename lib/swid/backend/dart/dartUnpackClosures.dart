@@ -8,40 +8,40 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 class DartUnpackClosures {
-  final SwidFunctionType swidFunctionType;
+  final SwidFunctionType? swidFunctionType;
 
   DartUnpackClosures({
-    @required this.swidFunctionType,
+    required this.swidFunctionType,
   });
 
   String toDartSource() => ([
         ...([
-          ...swidFunctionType.normalParameterNames
+          ...swidFunctionType!.normalParameterNames
               .map(
-                (x) => Tuple3<String, SwidType, int>(
+                (x) => Tuple3<String, SwidType?, int>(
                     x,
-                    swidFunctionType.normalParameterTypes.elementAt(
-                      swidFunctionType.normalParameterNames
+                    swidFunctionType!.normalParameterTypes.elementAt(
+                      swidFunctionType!.normalParameterNames
                           .indexWhere((e) => e == x),
                     ),
-                    swidFunctionType.normalParameterNames
+                    swidFunctionType!.normalParameterNames
                             .indexWhere((e) => e == x) +
                         1),
               )
               .toList(),
-          ...swidFunctionType.optionalParameterTypes
+          ...swidFunctionType!.optionalParameterTypes
               .map(
-                (x) => Tuple3<String, SwidType, int>(
-                    swidFunctionType.optionalParameterNames.elementAt(
-                        swidFunctionType.optionalParameterTypes.indexOf(x)),
+                (x) => Tuple3<String, SwidType?, int>(
+                    swidFunctionType!.optionalParameterNames.elementAt(
+                        swidFunctionType!.optionalParameterTypes.indexOf(x)),
                     x,
                     [
-                          ...swidFunctionType.normalParameterNames,
-                          ...swidFunctionType.optionalParameterNames,
+                          ...swidFunctionType!.normalParameterNames,
+                          ...swidFunctionType!.optionalParameterNames,
                         ].indexWhere((e) =>
                             e ==
-                            swidFunctionType.optionalParameterNames.elementAt(
-                                swidFunctionType.optionalParameterTypes
+                            swidFunctionType!.optionalParameterNames.elementAt(
+                                swidFunctionType!.optionalParameterTypes
                                     .indexOf(x))) +
                         1),
               )
@@ -49,9 +49,9 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                String parameterName,
-                SwidType parameterType,
-                int argIndex,
+                String? parameterName,
+                required SwidType parameterType,
+                int? argIndex,
               }) =>
                   parameterType.when(
                     fromSwidInterface: (_) => "",
@@ -62,7 +62,7 @@ class DartUnpackClosures {
                       parameterName,
                       "=",
                       refer("args")
-                          .index(literalNum(argIndex))
+                          .index(literalNum(argIndex!))
                           .statement
                           .accept(DartEmitter())
                           .toString(),
@@ -70,18 +70,18 @@ class DartUnpackClosures {
                         .join(""),
                   ))(
                 parameterName: x.item1,
-                parameterType: x.item2,
+                parameterType: x.item2!,
                 argIndex: x.item3,
               ),
             )
             .toList()),
         ...[
-          ...swidFunctionType.namedParameterTypes.entries,
+          ...swidFunctionType!.namedParameterTypes.entries,
         ]
             .map(
               (x) => (({
-                String parameterName,
-                SwidType parameterType,
+                String? parameterName,
+                required SwidType parameterType,
               }) =>
                   parameterType.when(
                     fromSwidInterface: (_) => "",
@@ -93,8 +93,8 @@ class DartUnpackClosures {
                       "=",
                       refer("args")
                           .index(literalNum(
-                              swidFunctionType.normalParameterNames.length + 1))
-                          .index(literalString(parameterName))
+                              swidFunctionType!.normalParameterNames.length + 1))
+                          .index(literalString(parameterName!))
                           .statement
                           .accept(DartEmitter())
                           .toString(),
@@ -102,7 +102,7 @@ class DartUnpackClosures {
                         .join(""),
                   ))(
                 parameterName: x.key,
-                parameterType: x.value,
+                parameterType: x.value!,
               ),
             )
             .toList()

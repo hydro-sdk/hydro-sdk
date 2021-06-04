@@ -6,7 +6,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadBoxDecoration(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["boxDecoration"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       BoxDecoration(
@@ -16,7 +16,7 @@ void loadBoxDecoration(
               args[0]["borderRadius"],
               parentState: luaState),
           shape: maybeUnBoxEnum<BoxShape>(
-              values: BoxShape.values, boxedEnum: args[0]["shape"]),
+              values: BoxShape.values, boxedEnum: args[0]["shape"])!,
           gradient: maybeUnBoxAndBuildArgument<Gradient>(args[0]["gradient"],
               parentState: luaState)),
     ];

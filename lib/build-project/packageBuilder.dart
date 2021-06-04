@@ -13,17 +13,17 @@ import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 class PackageBuilder {
   final ProjectConfigComponent projectConfigComponent;
   final ComponentBuilder componentBuilder;
-  final String ts2hc;
-  final String cacheDir;
-  final String profile;
-  final String outDir;
+  final String? ts2hc;
+  final String? cacheDir;
+  final String? profile;
+  final String? outDir;
 
   const PackageBuilder({
-    @required this.projectConfigComponent,
-    @required this.componentBuilder,
-    @required this.ts2hc,
-    @required this.cacheDir,
-    @required this.profile,
+    required this.projectConfigComponent,
+    required this.componentBuilder,
+    required this.ts2hc,
+    required this.cacheDir,
+    required this.profile,
     this.outDir = "",
   });
 
@@ -63,8 +63,8 @@ class PackageBuilder {
 
       await outputPackageHash.writeAsString(sha256Data(bzip2));
 
-      if (outDir != null && outDir.isNotEmpty) {
-        await Directory(outDir).create(recursive: true);
+      if (outDir != null && outDir!.isNotEmpty) {
+        await Directory(outDir!).create(recursive: true);
 
         var copyPackagePath = [
           outDir,

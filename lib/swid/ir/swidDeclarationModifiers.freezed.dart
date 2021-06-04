@@ -19,30 +19,30 @@ class _$SwidDeclarationModifiersTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required bool isAbstract,
-      @required bool isGetter,
-      @required bool isOperator,
-      @required bool isSetter,
-      @required bool isStatic,
-      @required bool isSynthetic,
-      @required bool hasAlwaysThrows,
-      @required bool hasDeprecated,
-      @required bool hasFactory,
-      @required bool hasImplicitReturnType,
-      @required bool hasIsTest,
-      @required bool hasIsTestGroup,
-      @required bool hasJS,
-      @required bool hasLiteral,
-      @required bool hasMustCallSuper,
-      @required bool hasNonVirtual,
-      @required bool hasOptionalTypeArgs,
-      @required bool hasOverride,
-      @required bool hasProtected,
-      @required bool hasRequired,
-      @required bool hasSealed,
-      @required bool hasVisibleForTemplate,
-      @required bool hasVisibleForTesting,
-      @required bool isPublic}) {
+      {required bool isAbstract,
+      required bool isGetter,
+      required bool isOperator,
+      required bool isSetter,
+      required bool isStatic,
+      required bool isSynthetic,
+      required bool hasAlwaysThrows,
+      required bool hasDeprecated,
+      required bool hasFactory,
+      required bool hasImplicitReturnType,
+      required bool hasIsTest,
+      required bool hasIsTestGroup,
+      required bool hasJS,
+      required bool hasLiteral,
+      required bool hasMustCallSuper,
+      required bool hasNonVirtual,
+      required bool hasOptionalTypeArgs,
+      required bool hasOverride,
+      required bool hasProtected,
+      required bool hasRequired,
+      required bool hasSealed,
+      required bool hasVisibleForTemplate,
+      required bool hasVisibleForTesting,
+      required bool isPublic}) {
     return _$Data(
       isAbstract: isAbstract,
       isGetter: isGetter,
@@ -119,30 +119,30 @@ abstract class $SwidDeclarationModifiersCopyWith<$Res> {
           $Res Function(SwidDeclarationModifiers) then) =
       _$SwidDeclarationModifiersCopyWithImpl<$Res>;
   $Res call(
-      {bool isAbstract,
-      bool isGetter,
-      bool isOperator,
-      bool isSetter,
-      bool isStatic,
-      bool isSynthetic,
-      bool hasAlwaysThrows,
-      bool hasDeprecated,
-      bool hasFactory,
-      bool hasImplicitReturnType,
-      bool hasIsTest,
-      bool hasIsTestGroup,
-      bool hasJS,
-      bool hasLiteral,
-      bool hasMustCallSuper,
-      bool hasNonVirtual,
-      bool hasOptionalTypeArgs,
-      bool hasOverride,
-      bool hasProtected,
-      bool hasRequired,
-      bool hasSealed,
-      bool hasVisibleForTemplate,
-      bool hasVisibleForTesting,
-      bool isPublic});
+      {bool? isAbstract,
+      bool? isGetter,
+      bool? isOperator,
+      bool? isSetter,
+      bool? isStatic,
+      bool? isSynthetic,
+      bool? hasAlwaysThrows,
+      bool? hasDeprecated,
+      bool? hasFactory,
+      bool? hasImplicitReturnType,
+      bool? hasIsTest,
+      bool? hasIsTestGroup,
+      bool? hasJS,
+      bool? hasLiteral,
+      bool? hasMustCallSuper,
+      bool? hasNonVirtual,
+      bool? hasOptionalTypeArgs,
+      bool? hasOverride,
+      bool? hasProtected,
+      bool? hasRequired,
+      bool? hasSealed,
+      bool? hasVisibleForTemplate,
+      bool? hasVisibleForTesting,
+      bool? isPublic});
 }
 
 /// @nodoc
@@ -152,86 +152,86 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
 
   final SwidDeclarationModifiers _value;
   // ignore: unused_field
-  final $Res Function(SwidDeclarationModifiers) _then;
+  final $Res Function(SwidDeclarationModifiers?) _then;
 
   @override
   $Res call({
-    Object isAbstract = freezed,
-    Object isGetter = freezed,
-    Object isOperator = freezed,
-    Object isSetter = freezed,
-    Object isStatic = freezed,
-    Object isSynthetic = freezed,
-    Object hasAlwaysThrows = freezed,
-    Object hasDeprecated = freezed,
-    Object hasFactory = freezed,
-    Object hasImplicitReturnType = freezed,
-    Object hasIsTest = freezed,
-    Object hasIsTestGroup = freezed,
-    Object hasJS = freezed,
-    Object hasLiteral = freezed,
-    Object hasMustCallSuper = freezed,
-    Object hasNonVirtual = freezed,
-    Object hasOptionalTypeArgs = freezed,
-    Object hasOverride = freezed,
-    Object hasProtected = freezed,
-    Object hasRequired = freezed,
-    Object hasSealed = freezed,
-    Object hasVisibleForTemplate = freezed,
-    Object hasVisibleForTesting = freezed,
-    Object isPublic = freezed,
+    Object? isAbstract = freezed,
+    Object? isGetter = freezed,
+    Object? isOperator = freezed,
+    Object? isSetter = freezed,
+    Object? isStatic = freezed,
+    Object? isSynthetic = freezed,
+    Object? hasAlwaysThrows = freezed,
+    Object? hasDeprecated = freezed,
+    Object? hasFactory = freezed,
+    Object? hasImplicitReturnType = freezed,
+    Object? hasIsTest = freezed,
+    Object? hasIsTestGroup = freezed,
+    Object? hasJS = freezed,
+    Object? hasLiteral = freezed,
+    Object? hasMustCallSuper = freezed,
+    Object? hasNonVirtual = freezed,
+    Object? hasOptionalTypeArgs = freezed,
+    Object? hasOverride = freezed,
+    Object? hasProtected = freezed,
+    Object? hasRequired = freezed,
+    Object? hasSealed = freezed,
+    Object? hasVisibleForTemplate = freezed,
+    Object? hasVisibleForTesting = freezed,
+    Object? isPublic = freezed,
   }) {
     return _then(_value.copyWith(
       isAbstract:
-          isAbstract == freezed ? _value.isAbstract : isAbstract as bool,
-      isGetter: isGetter == freezed ? _value.isGetter : isGetter as bool,
+          isAbstract == freezed ? _value.isAbstract : isAbstract as bool?,
+      isGetter: isGetter == freezed ? _value.isGetter : isGetter as bool?,
       isOperator:
-          isOperator == freezed ? _value.isOperator : isOperator as bool,
-      isSetter: isSetter == freezed ? _value.isSetter : isSetter as bool,
-      isStatic: isStatic == freezed ? _value.isStatic : isStatic as bool,
+          isOperator == freezed ? _value.isOperator : isOperator as bool?,
+      isSetter: isSetter == freezed ? _value.isSetter : isSetter as bool?,
+      isStatic: isStatic == freezed ? _value.isStatic : isStatic as bool?,
       isSynthetic:
-          isSynthetic == freezed ? _value.isSynthetic : isSynthetic as bool,
+          isSynthetic == freezed ? _value.isSynthetic : isSynthetic as bool?,
       hasAlwaysThrows: hasAlwaysThrows == freezed
           ? _value.hasAlwaysThrows
-          : hasAlwaysThrows as bool,
+          : hasAlwaysThrows as bool?,
       hasDeprecated: hasDeprecated == freezed
           ? _value.hasDeprecated
-          : hasDeprecated as bool,
+          : hasDeprecated as bool?,
       hasFactory:
-          hasFactory == freezed ? _value.hasFactory : hasFactory as bool,
+          hasFactory == freezed ? _value.hasFactory : hasFactory as bool?,
       hasImplicitReturnType: hasImplicitReturnType == freezed
           ? _value.hasImplicitReturnType
-          : hasImplicitReturnType as bool,
-      hasIsTest: hasIsTest == freezed ? _value.hasIsTest : hasIsTest as bool,
+          : hasImplicitReturnType as bool?,
+      hasIsTest: hasIsTest == freezed ? _value.hasIsTest : hasIsTest as bool?,
       hasIsTestGroup: hasIsTestGroup == freezed
           ? _value.hasIsTestGroup
-          : hasIsTestGroup as bool,
-      hasJS: hasJS == freezed ? _value.hasJS : hasJS as bool,
+          : hasIsTestGroup as bool?,
+      hasJS: hasJS == freezed ? _value.hasJS : hasJS as bool?,
       hasLiteral:
-          hasLiteral == freezed ? _value.hasLiteral : hasLiteral as bool,
+          hasLiteral == freezed ? _value.hasLiteral : hasLiteral as bool?,
       hasMustCallSuper: hasMustCallSuper == freezed
           ? _value.hasMustCallSuper
-          : hasMustCallSuper as bool,
+          : hasMustCallSuper as bool?,
       hasNonVirtual: hasNonVirtual == freezed
           ? _value.hasNonVirtual
-          : hasNonVirtual as bool,
+          : hasNonVirtual as bool?,
       hasOptionalTypeArgs: hasOptionalTypeArgs == freezed
           ? _value.hasOptionalTypeArgs
-          : hasOptionalTypeArgs as bool,
+          : hasOptionalTypeArgs as bool?,
       hasOverride:
-          hasOverride == freezed ? _value.hasOverride : hasOverride as bool,
+          hasOverride == freezed ? _value.hasOverride : hasOverride as bool?,
       hasProtected:
-          hasProtected == freezed ? _value.hasProtected : hasProtected as bool,
+          hasProtected == freezed ? _value.hasProtected : hasProtected as bool?,
       hasRequired:
-          hasRequired == freezed ? _value.hasRequired : hasRequired as bool,
-      hasSealed: hasSealed == freezed ? _value.hasSealed : hasSealed as bool,
+          hasRequired == freezed ? _value.hasRequired : hasRequired as bool?,
+      hasSealed: hasSealed == freezed ? _value.hasSealed : hasSealed as bool?,
       hasVisibleForTemplate: hasVisibleForTemplate == freezed
           ? _value.hasVisibleForTemplate
-          : hasVisibleForTemplate as bool,
+          : hasVisibleForTemplate as bool?,
       hasVisibleForTesting: hasVisibleForTesting == freezed
           ? _value.hasVisibleForTesting
-          : hasVisibleForTesting as bool,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
+          : hasVisibleForTesting as bool?,
+      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool?,
     ));
   }
 }
@@ -243,30 +243,30 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isAbstract,
-      bool isGetter,
-      bool isOperator,
-      bool isSetter,
-      bool isStatic,
-      bool isSynthetic,
-      bool hasAlwaysThrows,
-      bool hasDeprecated,
-      bool hasFactory,
-      bool hasImplicitReturnType,
-      bool hasIsTest,
-      bool hasIsTestGroup,
-      bool hasJS,
-      bool hasLiteral,
-      bool hasMustCallSuper,
-      bool hasNonVirtual,
-      bool hasOptionalTypeArgs,
-      bool hasOverride,
-      bool hasProtected,
-      bool hasRequired,
-      bool hasSealed,
-      bool hasVisibleForTemplate,
-      bool hasVisibleForTesting,
-      bool isPublic});
+      {bool? isAbstract,
+      bool? isGetter,
+      bool? isOperator,
+      bool? isSetter,
+      bool? isStatic,
+      bool? isSynthetic,
+      bool? hasAlwaysThrows,
+      bool? hasDeprecated,
+      bool? hasFactory,
+      bool? hasImplicitReturnType,
+      bool? hasIsTest,
+      bool? hasIsTestGroup,
+      bool? hasJS,
+      bool? hasLiteral,
+      bool? hasMustCallSuper,
+      bool? hasNonVirtual,
+      bool? hasOptionalTypeArgs,
+      bool? hasOverride,
+      bool? hasProtected,
+      bool? hasRequired,
+      bool? hasSealed,
+      bool? hasVisibleForTemplate,
+      bool? hasVisibleForTesting,
+      bool? isPublic});
 }
 
 /// @nodoc
@@ -281,82 +281,82 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object isAbstract = freezed,
-    Object isGetter = freezed,
-    Object isOperator = freezed,
-    Object isSetter = freezed,
-    Object isStatic = freezed,
-    Object isSynthetic = freezed,
-    Object hasAlwaysThrows = freezed,
-    Object hasDeprecated = freezed,
-    Object hasFactory = freezed,
-    Object hasImplicitReturnType = freezed,
-    Object hasIsTest = freezed,
-    Object hasIsTestGroup = freezed,
-    Object hasJS = freezed,
-    Object hasLiteral = freezed,
-    Object hasMustCallSuper = freezed,
-    Object hasNonVirtual = freezed,
-    Object hasOptionalTypeArgs = freezed,
-    Object hasOverride = freezed,
-    Object hasProtected = freezed,
-    Object hasRequired = freezed,
-    Object hasSealed = freezed,
-    Object hasVisibleForTemplate = freezed,
-    Object hasVisibleForTesting = freezed,
-    Object isPublic = freezed,
+    Object? isAbstract = freezed,
+    Object? isGetter = freezed,
+    Object? isOperator = freezed,
+    Object? isSetter = freezed,
+    Object? isStatic = freezed,
+    Object? isSynthetic = freezed,
+    Object? hasAlwaysThrows = freezed,
+    Object? hasDeprecated = freezed,
+    Object? hasFactory = freezed,
+    Object? hasImplicitReturnType = freezed,
+    Object? hasIsTest = freezed,
+    Object? hasIsTestGroup = freezed,
+    Object? hasJS = freezed,
+    Object? hasLiteral = freezed,
+    Object? hasMustCallSuper = freezed,
+    Object? hasNonVirtual = freezed,
+    Object? hasOptionalTypeArgs = freezed,
+    Object? hasOverride = freezed,
+    Object? hasProtected = freezed,
+    Object? hasRequired = freezed,
+    Object? hasSealed = freezed,
+    Object? hasVisibleForTemplate = freezed,
+    Object? hasVisibleForTesting = freezed,
+    Object? isPublic = freezed,
   }) {
     return _then(_$Data(
       isAbstract:
-          isAbstract == freezed ? _value.isAbstract : isAbstract as bool,
-      isGetter: isGetter == freezed ? _value.isGetter : isGetter as bool,
+          isAbstract == freezed ? _value.isAbstract : (isAbstract as bool?)!,
+      isGetter: isGetter == freezed ? _value.isGetter : (isGetter as bool?)!,
       isOperator:
-          isOperator == freezed ? _value.isOperator : isOperator as bool,
-      isSetter: isSetter == freezed ? _value.isSetter : isSetter as bool,
-      isStatic: isStatic == freezed ? _value.isStatic : isStatic as bool,
+          isOperator == freezed ? _value.isOperator : (isOperator as bool?)!,
+      isSetter: isSetter == freezed ? _value.isSetter : (isSetter as bool?)!,
+      isStatic: isStatic == freezed ? _value.isStatic : (isStatic as bool?)!,
       isSynthetic:
-          isSynthetic == freezed ? _value.isSynthetic : isSynthetic as bool,
+          isSynthetic == freezed ? _value.isSynthetic : (isSynthetic as bool?)!,
       hasAlwaysThrows: hasAlwaysThrows == freezed
           ? _value.hasAlwaysThrows
-          : hasAlwaysThrows as bool,
+          : (hasAlwaysThrows as bool?)!,
       hasDeprecated: hasDeprecated == freezed
           ? _value.hasDeprecated
-          : hasDeprecated as bool,
+          : (hasDeprecated as bool?)!,
       hasFactory:
-          hasFactory == freezed ? _value.hasFactory : hasFactory as bool,
+          hasFactory == freezed ? _value.hasFactory : (hasFactory as bool?)!,
       hasImplicitReturnType: hasImplicitReturnType == freezed
           ? _value.hasImplicitReturnType
-          : hasImplicitReturnType as bool,
-      hasIsTest: hasIsTest == freezed ? _value.hasIsTest : hasIsTest as bool,
+          : (hasImplicitReturnType as bool?)!,
+      hasIsTest: hasIsTest == freezed ? _value.hasIsTest : (hasIsTest as bool?)!,
       hasIsTestGroup: hasIsTestGroup == freezed
           ? _value.hasIsTestGroup
-          : hasIsTestGroup as bool,
-      hasJS: hasJS == freezed ? _value.hasJS : hasJS as bool,
+          : (hasIsTestGroup as bool?)!,
+      hasJS: hasJS == freezed ? _value.hasJS : (hasJS as bool?)!,
       hasLiteral:
-          hasLiteral == freezed ? _value.hasLiteral : hasLiteral as bool,
+          hasLiteral == freezed ? _value.hasLiteral : (hasLiteral as bool?)!,
       hasMustCallSuper: hasMustCallSuper == freezed
           ? _value.hasMustCallSuper
-          : hasMustCallSuper as bool,
+          : (hasMustCallSuper as bool?)!,
       hasNonVirtual: hasNonVirtual == freezed
           ? _value.hasNonVirtual
-          : hasNonVirtual as bool,
+          : (hasNonVirtual as bool?)!,
       hasOptionalTypeArgs: hasOptionalTypeArgs == freezed
           ? _value.hasOptionalTypeArgs
-          : hasOptionalTypeArgs as bool,
+          : (hasOptionalTypeArgs as bool?)!,
       hasOverride:
-          hasOverride == freezed ? _value.hasOverride : hasOverride as bool,
+          hasOverride == freezed ? _value.hasOverride : (hasOverride as bool?)!,
       hasProtected:
-          hasProtected == freezed ? _value.hasProtected : hasProtected as bool,
+          hasProtected == freezed ? _value.hasProtected : (hasProtected as bool?)!,
       hasRequired:
-          hasRequired == freezed ? _value.hasRequired : hasRequired as bool,
-      hasSealed: hasSealed == freezed ? _value.hasSealed : hasSealed as bool,
+          hasRequired == freezed ? _value.hasRequired : (hasRequired as bool?)!,
+      hasSealed: hasSealed == freezed ? _value.hasSealed : (hasSealed as bool?)!,
       hasVisibleForTemplate: hasVisibleForTemplate == freezed
           ? _value.hasVisibleForTemplate
-          : hasVisibleForTemplate as bool,
+          : (hasVisibleForTemplate as bool?)!,
       hasVisibleForTesting: hasVisibleForTesting == freezed
           ? _value.hasVisibleForTesting
-          : hasVisibleForTesting as bool,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
+          : (hasVisibleForTesting as bool?)!,
+      isPublic: isPublic == freezed ? _value.isPublic : (isPublic as bool?)!,
     ));
   }
 }
@@ -366,30 +366,30 @@ class __$$DataCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.isAbstract,
-      @required this.isGetter,
-      @required this.isOperator,
-      @required this.isSetter,
-      @required this.isStatic,
-      @required this.isSynthetic,
-      @required this.hasAlwaysThrows,
-      @required this.hasDeprecated,
-      @required this.hasFactory,
-      @required this.hasImplicitReturnType,
-      @required this.hasIsTest,
-      @required this.hasIsTestGroup,
-      @required this.hasJS,
-      @required this.hasLiteral,
-      @required this.hasMustCallSuper,
-      @required this.hasNonVirtual,
-      @required this.hasOptionalTypeArgs,
-      @required this.hasOverride,
-      @required this.hasProtected,
-      @required this.hasRequired,
-      @required this.hasSealed,
-      @required this.hasVisibleForTemplate,
-      @required this.hasVisibleForTesting,
-      @required this.isPublic})
+      {required this.isAbstract,
+      required this.isGetter,
+      required this.isOperator,
+      required this.isSetter,
+      required this.isStatic,
+      required this.isSynthetic,
+      required this.hasAlwaysThrows,
+      required this.hasDeprecated,
+      required this.hasFactory,
+      required this.hasImplicitReturnType,
+      required this.hasIsTest,
+      required this.hasIsTestGroup,
+      required this.hasJS,
+      required this.hasLiteral,
+      required this.hasMustCallSuper,
+      required this.hasNonVirtual,
+      required this.hasOptionalTypeArgs,
+      required this.hasOverride,
+      required this.hasProtected,
+      required this.hasRequired,
+      required this.hasSealed,
+      required this.hasVisibleForTemplate,
+      required this.hasVisibleForTesting,
+      required this.isPublic})
       : assert(isAbstract != null),
         assert(isGetter != null),
         assert(isOperator != null),
@@ -586,30 +586,30 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidDeclarationModifiers {
   const factory _$Data(
-      {@required bool isAbstract,
-      @required bool isGetter,
-      @required bool isOperator,
-      @required bool isSetter,
-      @required bool isStatic,
-      @required bool isSynthetic,
-      @required bool hasAlwaysThrows,
-      @required bool hasDeprecated,
-      @required bool hasFactory,
-      @required bool hasImplicitReturnType,
-      @required bool hasIsTest,
-      @required bool hasIsTestGroup,
-      @required bool hasJS,
-      @required bool hasLiteral,
-      @required bool hasMustCallSuper,
-      @required bool hasNonVirtual,
-      @required bool hasOptionalTypeArgs,
-      @required bool hasOverride,
-      @required bool hasProtected,
-      @required bool hasRequired,
-      @required bool hasSealed,
-      @required bool hasVisibleForTemplate,
-      @required bool hasVisibleForTesting,
-      @required bool isPublic}) = _$_$Data;
+      {required bool isAbstract,
+      required bool isGetter,
+      required bool isOperator,
+      required bool isSetter,
+      required bool isStatic,
+      required bool isSynthetic,
+      required bool hasAlwaysThrows,
+      required bool hasDeprecated,
+      required bool hasFactory,
+      required bool hasImplicitReturnType,
+      required bool hasIsTest,
+      required bool hasIsTestGroup,
+      required bool hasJS,
+      required bool hasLiteral,
+      required bool hasMustCallSuper,
+      required bool hasNonVirtual,
+      required bool hasOptionalTypeArgs,
+      required bool hasOverride,
+      required bool hasProtected,
+      required bool hasRequired,
+      required bool hasSealed,
+      required bool hasVisibleForTemplate,
+      required bool hasVisibleForTesting,
+      required bool isPublic}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

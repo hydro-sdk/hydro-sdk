@@ -11,13 +11,13 @@ import 'package:hydro_sdk/hc.g.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 Future<CoroutineResult> unitTestHarness({
-  @required String path,
-  @required List<BuiltinLib> libs,
+  required String path,
+  required List<BuiltinLib> libs,
 }) async {
   var state = HydroState();
   loadBuiltins(hydroState: state, builtins: libs);
 
-  List<ModuleDebugInfo> moduleDebugInfo = json
+  List<ModuleDebugInfo>? moduleDebugInfo = json
       .decode(File("$path.symbols").readAsStringSync())
       ?.map((x) => ModuleDebugInfo.fromJson(x))
       ?.toList()

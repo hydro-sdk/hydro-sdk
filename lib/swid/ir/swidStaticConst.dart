@@ -17,46 +17,46 @@ part 'swidStaticConst.g.dart';
 @freezed
 abstract class SwidStaticConst with _$SwidStaticConst {
   const factory SwidStaticConst.fromSwidBooleanLiteral(
-          {@required SwidBooleanLiteral swidBooleanLiteral}) =
+          {required SwidBooleanLiteral swidBooleanLiteral}) =
       _$FromSwidBooleanLiteral;
 
   const factory SwidStaticConst.fromSwidStringLiteral(
-          {@required SwidStringLiteral swidStringLiteral}) =
+          {required SwidStringLiteral swidStringLiteral}) =
       _$FromSwidStringLiteral;
 
   const factory SwidStaticConst.fromSwidIntegerLiteral(
-          {@required SwidIntegerLiteral swidIntegerLiteral}) =
+          {required SwidIntegerLiteral swidIntegerLiteral}) =
       _$FromSwidIntegerLiteral;
 
   const factory SwidStaticConst.fromDoubleLiteral(
-          {@required SwidDoubleLiteral swidDoubleLiteral}) =
+          {required SwidDoubleLiteral swidDoubleLiteral}) =
       _$FromSwidDoubleLiteral;
 
   const factory SwidStaticConst.fromSwidStaticConstFunctionInvocation(
-          {@required
+          {required
               SwidStaticConstFunctionInvocation
                   staticConstFunctionInvocation}) =
       _$FromSwidStaticConstFunctionInvocation;
 
   const factory SwidStaticConst.fromSwidStaticConstFieldReference(
-          {@required
+          {required
               SwidStaticConstFieldReference swidStaticConstFieldReference}) =
       _$FromSwidStaticConstFieldReference;
 
   const factory SwidStaticConst.fromSwidStaticConstPrefixedExpression(
-          {@required
+          {required
               SwidStaticConstPrefixedExpression
                   swidStaticConstPrefixedExpression}) =
       _$FromSwidStaticConstPrefixedExpression;
 
   const factory SwidStaticConst.fromSwidStaticConstBinaryExpression(
-          {@required
+          {required
               SwidStaticConstBinaryExpression
                   swidStaticConstBinaryExpression}) =
       _$FromSwidStaticConstBinaryExpression;
 
   const factory SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
-          {@required
+          {required
               SwidStaticConstPrefixedIdentifier
                   staticConstPrefixedIdentifier}) =
       _$FromSwidStaticConstPrefixedIdentifier;

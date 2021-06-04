@@ -19,7 +19,7 @@ class _$TsFunctionInvocationPositionalParametersTearOff {
   const _$TsFunctionInvocationPositionalParametersTearOff();
 
 // ignore: unused_element
-  _$Data call({@required List<String> positionalReferences}) {
+  _$Data call({required List<String> positionalReferences}) {
     return _$Data(
       positionalReferences: positionalReferences,
     );
@@ -38,7 +38,7 @@ const $TsFunctionInvocationPositionalParameters =
 
 /// @nodoc
 mixin _$TsFunctionInvocationPositionalParameters {
-  List<String> get positionalReferences;
+  List<String?> get positionalReferences;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -52,7 +52,7 @@ abstract class $TsFunctionInvocationPositionalParametersCopyWith<$Res> {
           TsFunctionInvocationPositionalParameters value,
           $Res Function(TsFunctionInvocationPositionalParameters) then) =
       _$TsFunctionInvocationPositionalParametersCopyWithImpl<$Res>;
-  $Res call({List<String> positionalReferences});
+  $Res call({List<String>? positionalReferences});
 }
 
 /// @nodoc
@@ -63,16 +63,16 @@ class _$TsFunctionInvocationPositionalParametersCopyWithImpl<$Res>
 
   final TsFunctionInvocationPositionalParameters _value;
   // ignore: unused_field
-  final $Res Function(TsFunctionInvocationPositionalParameters) _then;
+  final $Res Function(TsFunctionInvocationPositionalParameters?) _then;
 
   @override
   $Res call({
-    Object positionalReferences = freezed,
+    Object? positionalReferences = freezed,
   }) {
     return _then(_value.copyWith(
       positionalReferences: positionalReferences == freezed
-          ? _value.positionalReferences
-          : positionalReferences as List<String>,
+          ? _value.positionalReferences as List<String>?
+          : positionalReferences as List<String>?,
     ));
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({List<String> positionalReferences});
+  $Res call({List<String>? positionalReferences});
 }
 
 /// @nodoc
@@ -98,12 +98,12 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object positionalReferences = freezed,
+    Object? positionalReferences = freezed,
   }) {
     return _then(_$Data(
       positionalReferences: positionalReferences == freezed
           ? _value.positionalReferences
-          : positionalReferences as List<String>,
+          : (positionalReferences as List<String>?)!,
     ));
   }
 }
@@ -112,14 +112,14 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.positionalReferences})
+  _$_$Data({required this.positionalReferences})
       : assert(positionalReferences != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
 
   @override
-  final List<String> positionalReferences;
+  final List<String?> positionalReferences;
 
   @override
   String toString() {
@@ -152,12 +152,12 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements TsFunctionInvocationPositionalParameters {
-  factory _$Data({@required List<String> positionalReferences}) = _$_$Data;
+  factory _$Data({required List<String?> positionalReferences}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  List<String> get positionalReferences;
+  List<String?> get positionalReferences;
   @override
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;

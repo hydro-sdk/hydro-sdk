@@ -18,7 +18,7 @@ class _$CreateUserDtoTearOff {
 
 // ignore: unused_element
   _$CreateUserDtoCtor call(
-      {@required String username, @required String password}) {
+      {required String username, required String password}) {
     return _$CreateUserDtoCtor(
       username: username,
       password: password,
@@ -50,7 +50,7 @@ abstract class $CreateUserDtoCopyWith<$Res> {
   factory $CreateUserDtoCopyWith(
           CreateUserDto value, $Res Function(CreateUserDto) then) =
       _$CreateUserDtoCopyWithImpl<$Res>;
-  $Res call({String username, String password});
+  $Res call({String? username, String? password});
 }
 
 /// @nodoc
@@ -60,16 +60,16 @@ class _$CreateUserDtoCopyWithImpl<$Res>
 
   final CreateUserDto _value;
   // ignore: unused_field
-  final $Res Function(CreateUserDto) _then;
+  final $Res Function(CreateUserDto?) _then;
 
   @override
   $Res call({
-    Object username = freezed,
-    Object password = freezed,
+    Object? username = freezed,
+    Object? password = freezed,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed ? _value.username : username as String,
-      password: password == freezed ? _value.password : password as String,
+      username: username == freezed ? _value.username : username as String?,
+      password: password == freezed ? _value.password : password as String?,
     ));
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$CreateUserDtoCtorCopyWith<$Res>
           _$CreateUserDtoCtor value, $Res Function(_$CreateUserDtoCtor) then) =
       __$$CreateUserDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String username, String password});
+  $Res call({String? username, String? password});
 }
 
 /// @nodoc
@@ -97,12 +97,12 @@ class __$$CreateUserDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object username = freezed,
-    Object password = freezed,
+    Object? username = freezed,
+    Object? password = freezed,
   }) {
     return _then(_$CreateUserDtoCtor(
-      username: username == freezed ? _value.username : username as String,
-      password: password == freezed ? _value.password : password as String,
+      username: username == freezed ? _value.username : (username as String?)!,
+      password: password == freezed ? _value.password : (password as String?)!,
     ));
   }
 }
@@ -112,7 +112,7 @@ class __$$CreateUserDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$CreateUserDtoCtor implements _$CreateUserDtoCtor {
   const _$_$CreateUserDtoCtor(
-      {@required this.username, @required this.password})
+      {required this.username, required this.password})
       : assert(username != null),
         assert(password != null);
 
@@ -160,8 +160,8 @@ class _$_$CreateUserDtoCtor implements _$CreateUserDtoCtor {
 
 abstract class _$CreateUserDtoCtor implements CreateUserDto {
   const factory _$CreateUserDtoCtor(
-      {@required String username,
-      @required String password}) = _$_$CreateUserDtoCtor;
+      {required String username,
+      required String password}) = _$_$CreateUserDtoCtor;
 
   factory _$CreateUserDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreateUserDtoCtor.fromJson;

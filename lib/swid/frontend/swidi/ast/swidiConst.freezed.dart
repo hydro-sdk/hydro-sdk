@@ -15,7 +15,7 @@ class _$SwidiConstTearOff {
 
 // ignore: unused_element
   _$FromSwidiEmptyConst fromSwidiEmptyConst(
-      {@required SwidiEmptyConst swidiEmptyConst}) {
+      {required SwidiEmptyConst swidiEmptyConst}) {
     return _$FromSwidiEmptyConst(
       swidiEmptyConst: swidiEmptyConst,
     );
@@ -23,7 +23,7 @@ class _$SwidiConstTearOff {
 
 // ignore: unused_element
   _$FromSwidiConstNumber fromSwidiConstNumber(
-      {@required SwidiConstNumber swidiConstNumber}) {
+      {required SwidiConstNumber swidiConstNumber}) {
     return _$FromSwidiConstNumber(
       swidiConstNumber: swidiConstNumber,
     );
@@ -37,26 +37,26 @@ const $SwidiConst = _$SwidiConstTearOff();
 /// @nodoc
 mixin _$SwidiConst {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
-    @required TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
+  TResult when<TResult extends Object?>({
+    required TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
+    required TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
-    TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
-    @required TResult orElse(),
+    TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst)?,
+    TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber)?,
+    required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
-    @required TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
+    required TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
+    required TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
-    TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
-    @required TResult orElse(),
+    TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value)?,
+    TResult fromSwidiConstNumber(_$FromSwidiConstNumber value)?,
+    required TResult orElse(),
   });
 }
 
@@ -73,7 +73,7 @@ class _$SwidiConstCopyWithImpl<$Res> implements $SwidiConstCopyWith<$Res> {
 
   final SwidiConst _value;
   // ignore: unused_field
-  final $Res Function(SwidiConst) _then;
+  final $Res Function(SwidiConst?) _then;
 }
 
 /// @nodoc
@@ -81,7 +81,7 @@ abstract class _$$FromSwidiEmptyConstCopyWith<$Res> {
   factory _$$FromSwidiEmptyConstCopyWith(_$FromSwidiEmptyConst value,
           $Res Function(_$FromSwidiEmptyConst) then) =
       __$$FromSwidiEmptyConstCopyWithImpl<$Res>;
-  $Res call({SwidiEmptyConst swidiEmptyConst});
+  $Res call({SwidiEmptyConst? swidiEmptyConst});
 
   $SwidiEmptyConstCopyWith<$Res> get swidiEmptyConst;
 }
@@ -99,12 +99,12 @@ class __$$FromSwidiEmptyConstCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object swidiEmptyConst = freezed,
+    Object? swidiEmptyConst = freezed,
   }) {
     return _then(_$FromSwidiEmptyConst(
       swidiEmptyConst: swidiEmptyConst == freezed
           ? _value.swidiEmptyConst
-          : swidiEmptyConst as SwidiEmptyConst,
+          : (swidiEmptyConst as SwidiEmptyConst?)!,
     ));
   }
 
@@ -121,7 +121,7 @@ class __$$FromSwidiEmptyConstCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidiEmptyConst implements _$FromSwidiEmptyConst {
-  const _$_$FromSwidiEmptyConst({@required this.swidiEmptyConst})
+  const _$_$FromSwidiEmptyConst({required this.swidiEmptyConst})
       : assert(swidiEmptyConst != null);
 
   @override
@@ -155,8 +155,8 @@ class _$_$FromSwidiEmptyConst implements _$FromSwidiEmptyConst {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
-    @required TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
+    required TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
+    required TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
   }) {
     assert(fromSwidiEmptyConst != null);
     assert(fromSwidiConstNumber != null);
@@ -166,9 +166,9 @@ class _$_$FromSwidiEmptyConst implements _$FromSwidiEmptyConst {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
-    TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
-    @required TResult orElse(),
+    TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst)?,
+    TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiEmptyConst != null) {
@@ -180,8 +180,8 @@ class _$_$FromSwidiEmptyConst implements _$FromSwidiEmptyConst {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
-    @required TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
+    required TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
+    required TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
   }) {
     assert(fromSwidiEmptyConst != null);
     assert(fromSwidiConstNumber != null);
@@ -191,9 +191,9 @@ class _$_$FromSwidiEmptyConst implements _$FromSwidiEmptyConst {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
-    TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
-    @required TResult orElse(),
+    TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value)?,
+    TResult fromSwidiConstNumber(_$FromSwidiConstNumber value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiEmptyConst != null) {
@@ -205,7 +205,7 @@ class _$_$FromSwidiEmptyConst implements _$FromSwidiEmptyConst {
 
 abstract class _$FromSwidiEmptyConst implements SwidiConst {
   const factory _$FromSwidiEmptyConst(
-      {@required SwidiEmptyConst swidiEmptyConst}) = _$_$FromSwidiEmptyConst;
+      {required SwidiEmptyConst swidiEmptyConst}) = _$_$FromSwidiEmptyConst;
 
   SwidiEmptyConst get swidiEmptyConst;
   @JsonKey(ignore: true)
@@ -217,7 +217,7 @@ abstract class _$$FromSwidiConstNumberCopyWith<$Res> {
   factory _$$FromSwidiConstNumberCopyWith(_$FromSwidiConstNumber value,
           $Res Function(_$FromSwidiConstNumber) then) =
       __$$FromSwidiConstNumberCopyWithImpl<$Res>;
-  $Res call({SwidiConstNumber swidiConstNumber});
+  $Res call({SwidiConstNumber? swidiConstNumber});
 
   $SwidiConstNumberCopyWith<$Res> get swidiConstNumber;
 }
@@ -235,12 +235,12 @@ class __$$FromSwidiConstNumberCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object swidiConstNumber = freezed,
+    Object? swidiConstNumber = freezed,
   }) {
     return _then(_$FromSwidiConstNumber(
       swidiConstNumber: swidiConstNumber == freezed
           ? _value.swidiConstNumber
-          : swidiConstNumber as SwidiConstNumber,
+          : (swidiConstNumber as SwidiConstNumber?)!,
     ));
   }
 
@@ -257,7 +257,7 @@ class __$$FromSwidiConstNumberCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$FromSwidiConstNumber implements _$FromSwidiConstNumber {
-  const _$_$FromSwidiConstNumber({@required this.swidiConstNumber})
+  const _$_$FromSwidiConstNumber({required this.swidiConstNumber})
       : assert(swidiConstNumber != null);
 
   @override
@@ -291,8 +291,8 @@ class _$_$FromSwidiConstNumber implements _$FromSwidiConstNumber {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
-    @required TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
+    required TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
+    required TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
   }) {
     assert(fromSwidiEmptyConst != null);
     assert(fromSwidiConstNumber != null);
@@ -302,9 +302,9 @@ class _$_$FromSwidiConstNumber implements _$FromSwidiConstNumber {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst),
-    TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber),
-    @required TResult orElse(),
+    TResult fromSwidiEmptyConst(SwidiEmptyConst swidiEmptyConst)?,
+    TResult fromSwidiConstNumber(SwidiConstNumber swidiConstNumber)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiConstNumber != null) {
@@ -316,8 +316,8 @@ class _$_$FromSwidiConstNumber implements _$FromSwidiConstNumber {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
-    @required TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
+    required TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
+    required TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
   }) {
     assert(fromSwidiEmptyConst != null);
     assert(fromSwidiConstNumber != null);
@@ -327,9 +327,9 @@ class _$_$FromSwidiConstNumber implements _$FromSwidiConstNumber {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value),
-    TResult fromSwidiConstNumber(_$FromSwidiConstNumber value),
-    @required TResult orElse(),
+    TResult fromSwidiEmptyConst(_$FromSwidiEmptyConst value)?,
+    TResult fromSwidiConstNumber(_$FromSwidiConstNumber value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiConstNumber != null) {
@@ -341,7 +341,7 @@ class _$_$FromSwidiConstNumber implements _$FromSwidiConstNumber {
 
 abstract class _$FromSwidiConstNumber implements SwidiConst {
   const factory _$FromSwidiConstNumber(
-      {@required SwidiConstNumber swidiConstNumber}) = _$_$FromSwidiConstNumber;
+      {required SwidiConstNumber swidiConstNumber}) = _$_$FromSwidiConstNumber;
 
   SwidiConstNumber get swidiConstNumber;
   @JsonKey(ignore: true)

@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadConvert(
-    {@required HydroTable table, @required HydroState hydroState}) {
+    {required HydroTable table, required HydroState hydroState}) {
   var convert = HydroTable();
 
   table["convert"] = convert;

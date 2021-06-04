@@ -7,9 +7,9 @@ part 'authTokenDto.g.dart';
 @freezed
 abstract class AuthTokenDto with _$AuthTokenDto {
   const factory AuthTokenDto({
-    @required String sub,
-    @required String username,
-    @required int exp,
+    required String sub,
+    required String username,
+    required int exp,
   }) = _$AuthTokenDtoCtor;
 
   factory AuthTokenDto.empty() => const AuthTokenDto(

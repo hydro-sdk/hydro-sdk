@@ -16,17 +16,17 @@ part 'swidType.g.dart';
 @freezed
 abstract class SwidType with _$SwidType {
   const factory SwidType.fromSwidInterface(
-      {@required SwidInterface swidInterface}) = _$FromSwidInterface;
+      {required SwidInterface swidInterface}) = _$FromSwidInterface;
 
-  const factory SwidType.fromSwidClass({@required SwidClass swidClass}) =
+  const factory SwidType.fromSwidClass({required SwidClass swidClass}) =
       _$FromSwidClass;
 
   const factory SwidType.fromSwidDefaultFormalParameter(
-          {@required SwidDefaultFormalParameter swidDefaultFormalParameter}) =
+          {required SwidDefaultFormalParameter swidDefaultFormalParameter}) =
       _$FromSwidDefaultFormalParameter;
 
   const factory SwidType.fromSwidFunctionType(
-      {@required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
+      {required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
 
   factory SwidType.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFromJson(json);
@@ -61,7 +61,7 @@ extension SwidTypeMethods on SwidType {
                 ? [
                     "<",
                     val.typeArguments
-                        .map((x) => x.displayName)
+                        .map((x) => x!.displayName)
                         .toList()
                         .join(","),
                     ">"
@@ -74,7 +74,7 @@ extension SwidTypeMethods on SwidType {
                 ? [
                     "<",
                     val.typeFormals
-                        .map((x) => x.value.displayName)
+                        .map((x) => x!.value.displayName)
                         .toList()
                         .join(""),
                     ">"

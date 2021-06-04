@@ -10,9 +10,9 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
-SwidType instantiateGeneric({
-  @required SwidGenericInstantiator genericInstantiator,
-  @required SwidType swidType,
+SwidType? instantiateGeneric({
+  required SwidGenericInstantiator genericInstantiator,
+  required SwidType swidType,
 }) =>
     swidType.when(
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
@@ -24,7 +24,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x,
+                    swidType: x!,
                   ),
                 )
                 .toList(),
@@ -37,7 +37,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x,
+                    swidType: x!,
                   ),
                 )
                 .toList(),
@@ -50,7 +50,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x,
+                    swidType: x!,
                   ),
                 )
                 .toList(),
@@ -63,7 +63,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x,
+                    swidType: x!,
                   ),
                 )
                 .toList(),
@@ -87,7 +87,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x,
+                    swidType: x!,
                   ),
                 )
                 .toList(),
@@ -96,7 +96,7 @@ SwidType instantiateGeneric({
       ),
       fromSwidClass: (val) => val.typeFormals.firstWhere(
                   (x) =>
-                      x.swidReferenceDeclarationKind ==
+                      x!.swidReferenceDeclarationKind ==
                           SwidReferenceDeclarationKind.typeParameterType &&
                       x.value.displayName == genericInstantiator.name,
                   orElse: () => null) !=
@@ -106,7 +106,7 @@ SwidType instantiateGeneric({
                 swidClass: val,
                 typeFormals: [
                   ...val.typeFormals
-                      .map((x) => x.swidReferenceDeclarationKind ==
+                      .map((x) => x!.swidReferenceDeclarationKind ==
                                   SwidReferenceDeclarationKind
                                       .typeParameterType &&
                               x.value.displayName == genericInstantiator.name
@@ -134,8 +134,8 @@ SwidType instantiateGeneric({
                     ? instantiateGeneric(
                         genericInstantiator: genericInstantiator,
                         swidType: SwidType.fromSwidFunctionType(
-                            swidFunctionType: val.constructorType),
-                      ).when(
+                            swidFunctionType: val.constructorType!),
+                      )!.when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
                         fromSwidDefaultFormalParameter: (_) => null,
@@ -147,9 +147,9 @@ SwidType instantiateGeneric({
                       (x) => instantiateGeneric(
                         genericInstantiator: genericInstantiator,
                         swidType: SwidType.fromSwidFunctionType(
-                          swidFunctionType: x,
+                          swidFunctionType: x!,
                         ),
-                      ).when(
+                      )!.when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
                         fromSwidDefaultFormalParameter: (_) => null,
@@ -162,9 +162,9 @@ SwidType instantiateGeneric({
                       (x) => instantiateGeneric(
                         genericInstantiator: genericInstantiator,
                         swidType: SwidType.fromSwidFunctionType(
-                          swidFunctionType: x,
+                          swidFunctionType: x!,
                         ),
-                      ).when(
+                      )!.when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
                         fromSwidDefaultFormalParameter: (_) => null,
@@ -177,9 +177,9 @@ SwidType instantiateGeneric({
                       (x) => instantiateGeneric(
                         genericInstantiator: genericInstantiator,
                         swidType: SwidType.fromSwidFunctionType(
-                          swidFunctionType: x,
+                          swidFunctionType: x!,
                         ),
-                      ).when(
+                      )!.when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
                         fromSwidDefaultFormalParameter: (_) => null,
@@ -203,7 +203,7 @@ SwidType instantiateGeneric({
             swidFunctionType: val,
             typeFormals: [
               ...val.typeFormals
-                  .map((x) => x.value.displayName == genericInstantiator.name
+                  .map((x) => x!.value.displayName == genericInstantiator.name
                       ? SwidTypeFormal(
                           value: genericInstantiator
                               .instantiatedGeneric.instantiableGeneric
@@ -231,7 +231,7 @@ SwidType instantiateGeneric({
                       x.key,
                       instantiateGeneric(
                         genericInstantiator: genericInstantiator,
-                        swidType: x.value,
+                        swidType: x.value!,
                       ),
                     ),
                   )
@@ -241,7 +241,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x,
+                    swidType: x!,
                   ),
                 )
                 .toList(),
@@ -249,7 +249,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x,
+                    swidType: x!,
                   ),
                 )
                 .toList(),

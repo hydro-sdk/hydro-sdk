@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
@@ -6,12 +7,12 @@ import 'package:hydro_sdk/cfr/vm/const.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 class LStubGenerator {
-  List<HashedPrototype> _prototypes;
-  List<HashedPrototype> get protoypes => _prototypes;
-  LStubGenerator({@required List<HashedPrototype> prototypes}) {
+  List<HashedPrototype>? _prototypes;
+  List<HashedPrototype>? get protoypes => _prototypes;
+  LStubGenerator({required List<HashedPrototype> prototypes}) {
     var unique = List<HashedPrototype>();
     prototypes.forEach((x) {
-      if (unique.firstWhere((k) => k.hash == x.hash, orElse: () => null) ==
+      if (unique.firstWhereOrNull((k) => k.hash == x.hash) ==
           null) {
         unique.add(x);
       }
@@ -76,7 +77,7 @@ import 'package:hydro_sdk/cfr/vm/instructions/vararg.dart';
 Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = {
 """;
 
-  String _generateThunk({@required Prototype prototype}) {
+  String _generateThunk({required Prototype prototype}) {
     String res = "";
 
     res += """
@@ -93,7 +94,7 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
         ..registers = ${prototype.registers}
         ..constants = const [
   """;
-    prototype.constants.forEach((x) {
+    prototype.constants!.forEach((x) {
       if (x.type == ConstType.CONST_NIL) {
         res += "const Const(),\n";
       }
@@ -140,213 +141,213 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
       var pc = frame.programCounter++;
       switch(pc){
     """;
-    for (var i = 0; i != prototype.code.list.length; ++i) {
-      switch (prototype.code.list[i].OP) {
+    for (var i = 0; i != prototype.code!.list.length; ++i) {
+      switch (prototype.code!.list[i].OP) {
         case 0:
           res += "case $i:\n";
           res +=
-              "move(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "move(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 1:
           res += "case $i:\n";
           res +=
-              "loadk(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "loadk(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 2:
           res += "case $i:\n";
           res +=
-              "loadkx(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "loadkx(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 3:
           res += "case $i:\n";
           res +=
-              "loadbool(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "loadbool(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 4:
           res += "case $i:\n";
           res +=
-              "loadnil(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "loadnil(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 5:
           res += "case $i:\n";
           res +=
-              "getupval(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "getupval(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 6:
           res += "case $i:\n";
           res +=
-              "gettabup(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "gettabup(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 7:
           res += "case $i:\n";
           res +=
-              "gettable(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "gettable(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 8:
           res += "case $i:\n";
           res +=
-              "settabup(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "settabup(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 9:
           res += "case $i:\n";
           res +=
-              "setupval(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "setupval(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 10:
           res += "case $i:\n";
           res +=
-              "settable(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "settable(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 11:
           res += "case $i:\n";
-          res += "newtable(frame:frame,A:${prototype.code.list[i].A},);\n";
+          res += "newtable(frame:frame,A:${prototype.code!.list[i].A},);\n";
 
           res += "break;\n";
           break;
         case 12:
           res += "case $i:\n";
           res +=
-              "self(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "self(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 13:
           res += "case $i:\n";
           res +=
-              "add(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "add(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 14:
           res += "case $i:\n";
           res +=
-              "sub(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "sub(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 15:
           res += "case $i:\n";
           res +=
-              "mul(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "mul(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 16:
           res += "case $i:\n";
           res +=
-              "div(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "div(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 17:
           res += "case $i:\n";
           res +=
-              "mod(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "mod(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 18:
           res += "case $i:\n";
           res +=
-              "instPow(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "instPow(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 19:
           res += "case $i:\n";
-          res += "unm(frame:frame,A:${prototype.code.list[i].A},);\n";
+          res += "unm(frame:frame,A:${prototype.code!.list[i].A},);\n";
 
           res += "break;\n";
           break;
         case 20:
           res += "case $i:\n";
           res +=
-              "not(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "not(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 21:
           res += "case $i:\n";
           res +=
-              "len(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "len(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 22:
           res += "case $i:\n";
           res +=
-              "concat(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "concat(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 23:
           res += "case $i:\n";
           res +=
-              "jmp(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "jmp(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 24:
           res += "case $i:\n";
           res +=
-              "eq(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "eq(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 25:
           res += "case $i:\n";
           res +=
-              "lt(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "lt(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 26:
           res += "case $i:\n";
           res +=
-              "le(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "le(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 27:
           res += "case $i:\n";
           res +=
-              "test(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "test(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 28:
           res += "case $i:\n";
           res +=
-              "testset(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "testset(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 29:
           res += "case $i:\n";
           res += """
-        var res = call(frame: frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});
+        var res = call(frame: frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});
           if (res != null) {
             return res;
           }
@@ -356,7 +357,7 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
         case 30:
           res += "case $i:\n";
           res += """
-        var res = tailcall(frame: frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});
+        var res = tailcall(frame: frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});
           if (res != null) {
             return res;
           }
@@ -366,55 +367,55 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
         case 31:
           res += "case $i:\n";
           res +=
-              "return instReturn(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "return instReturn(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
           res += "break;\n";
           break;
         case 32:
           res += "case $i:\n";
           res +=
-              "forloop(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "forloop(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 33:
           res += "case $i:\n";
           res +=
-              "forprep(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "forprep(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 34:
           res += "case $i:\n";
           res +=
-              "tforcall(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "tforcall(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 35:
           res += "case $i:\n";
           res +=
-              "tforloop(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "tforloop(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 36:
           res += "case $i:\n";
           res +=
-              "setlist(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},C:${prototype.code.list[i].C});\n";
+              "setlist(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
 
           res += "break;\n";
           break;
         case 37:
           res += "case $i:\n";
           res +=
-              "closure(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "closure(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
         case 38:
           res += "case $i:\n";
           res +=
-              "instVararg(frame:frame,A:${prototype.code.list[i].A},B:${prototype.code.list[i].B},);\n";
+              "instVararg(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},);\n";
 
           res += "break;\n";
           break;
@@ -434,7 +435,7 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
     res += _lasmPreamble;
 
     res += _thunkPreamble;
-    _prototypes.forEach((x) {
+    _prototypes!.forEach((x) {
       res += _generateThunk(prototype: x.prototype);
     });
     res += _thunkPostAmble;

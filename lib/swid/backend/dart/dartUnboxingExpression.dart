@@ -17,17 +17,17 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartUnboxingExpression {
-  final SwidType swidType;
+  final SwidType? swidType;
   final Expression expression;
   final String identifierName;
 
   DartUnboxingExpression({
-    @required this.swidType,
-    @required this.expression,
+    required this.swidType,
+    required this.expression,
     this.identifierName = "",
   });
 
-  String toDartSource() => swidType.when(
+  String? toDartSource() => swidType!.when(
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
             swidInterface: val,
             onPrimitive: (val) => val.name == "double" || val.name == "double*"
@@ -66,7 +66,7 @@ class DartUnboxingExpression {
             ...[
               val.typeFormals.isNotEmpty
                   ? ("<" +
-                      val.typeFormals.map((x) => x.value.name).toList().join() +
+                      val.typeFormals.map((x) => x!.value.name).toList().join() +
                       ">")
                   : "",
               Method(
@@ -110,7 +110,7 @@ class DartUnboxingExpression {
                             .join(""),
                       ),
                     ),
-                  ).toDartSource()),
+                  ).toDartSource()!),
               ).closure.accept(DartEmitter()).toString(),
             ],
             " : null "

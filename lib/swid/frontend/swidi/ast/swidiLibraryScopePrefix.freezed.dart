@@ -14,7 +14,7 @@ class _$SwidiLibraryScopePrefixTearOff {
   const _$SwidiLibraryScopePrefixTearOff();
 
 // ignore: unused_element
-  _$SwidiLibraryScopePrefixCtor call({@required String name}) {
+  _$SwidiLibraryScopePrefixCtor call({required String name}) {
     return _$SwidiLibraryScopePrefixCtor(
       name: name,
     );
@@ -38,7 +38,7 @@ abstract class $SwidiLibraryScopePrefixCopyWith<$Res> {
   factory $SwidiLibraryScopePrefixCopyWith(SwidiLibraryScopePrefix value,
           $Res Function(SwidiLibraryScopePrefix) then) =
       _$SwidiLibraryScopePrefixCopyWithImpl<$Res>;
-  $Res call({String name});
+  $Res call({String? name});
 }
 
 /// @nodoc
@@ -48,14 +48,14 @@ class _$SwidiLibraryScopePrefixCopyWithImpl<$Res>
 
   final SwidiLibraryScopePrefix _value;
   // ignore: unused_field
-  final $Res Function(SwidiLibraryScopePrefix) _then;
+  final $Res Function(SwidiLibraryScopePrefix?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
     ));
   }
 }
@@ -68,7 +68,7 @@ abstract class _$$SwidiLibraryScopePrefixCtorCopyWith<$Res>
           $Res Function(_$SwidiLibraryScopePrefixCtor) then) =
       __$$SwidiLibraryScopePrefixCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name});
+  $Res call({String? name});
 }
 
 /// @nodoc
@@ -86,17 +86,17 @@ class __$$SwidiLibraryScopePrefixCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$SwidiLibraryScopePrefixCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
     ));
   }
 }
 
 /// @nodoc
 class _$_$SwidiLibraryScopePrefixCtor implements _$SwidiLibraryScopePrefixCtor {
-  const _$_$SwidiLibraryScopePrefixCtor({@required this.name})
+  const _$_$SwidiLibraryScopePrefixCtor({required this.name})
       : assert(name != null);
 
   @override
@@ -128,7 +128,7 @@ class _$_$SwidiLibraryScopePrefixCtor implements _$SwidiLibraryScopePrefixCtor {
 
 abstract class _$SwidiLibraryScopePrefixCtor
     implements SwidiLibraryScopePrefix {
-  const factory _$SwidiLibraryScopePrefixCtor({@required String name}) =
+  const factory _$SwidiLibraryScopePrefixCtor({required String name}) =
       _$_$SwidiLibraryScopePrefixCtor;
 
   @override

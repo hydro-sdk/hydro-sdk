@@ -7,10 +7,10 @@ import 'package:hydro_sdk/cfr/linkStatus.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 Future<HydroFunctionImpl> loadFileFromBundle({
-  @required HydroState hydroState,
-  @required String path,
-  @required LinkStatus linkStatus,
-  @required Map<String, NativeThunk> thunks,
+  required HydroState hydroState,
+  required String path,
+  required LinkStatus linkStatus,
+  required Map<String, NativeThunk> thunks,
 }) async {
   var val = await hydroState.loadBuffer(
       buffer: (await rootBundle.load(path)).buffer.asUint8List(),

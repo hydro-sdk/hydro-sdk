@@ -19,7 +19,7 @@ class _$TsFunctionInvocationNamedParametersSpreadTearOff {
   const _$TsFunctionInvocationNamedParametersSpreadTearOff();
 
 // ignore: unused_element
-  _$Data call({@required List<String> references}) {
+  _$Data call({required List<String> references}) {
     return _$Data(
       references: references,
     );
@@ -52,7 +52,7 @@ abstract class $TsFunctionInvocationNamedParametersSpreadCopyWith<$Res> {
           TsFunctionInvocationNamedParametersSpread value,
           $Res Function(TsFunctionInvocationNamedParametersSpread) then) =
       _$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>;
-  $Res call({List<String> references});
+  $Res call({List<String>? references});
 }
 
 /// @nodoc
@@ -63,16 +63,16 @@ class _$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>
 
   final TsFunctionInvocationNamedParametersSpread _value;
   // ignore: unused_field
-  final $Res Function(TsFunctionInvocationNamedParametersSpread) _then;
+  final $Res Function(TsFunctionInvocationNamedParametersSpread?) _then;
 
   @override
   $Res call({
-    Object references = freezed,
+    Object? references = freezed,
   }) {
     return _then(_value.copyWith(
       references: references == freezed
           ? _value.references
-          : references as List<String>,
+          : references as List<String>?,
     ));
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({List<String> references});
+  $Res call({List<String>? references});
 }
 
 /// @nodoc
@@ -98,12 +98,12 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object references = freezed,
+    Object? references = freezed,
   }) {
     return _then(_$Data(
       references: references == freezed
           ? _value.references
-          : references as List<String>,
+          : (references as List<String>?)!,
     ));
   }
 }
@@ -112,7 +112,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.references}) : assert(references != null);
+  _$_$Data({required this.references}) : assert(references != null);
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -150,7 +150,7 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements TsFunctionInvocationNamedParametersSpread {
-  factory _$Data({@required List<String> references}) = _$_$Data;
+  factory _$Data({required List<String> references}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

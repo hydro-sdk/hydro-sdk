@@ -10,34 +10,34 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedClampingScrollPhysics
-    extends VMManagedBox<ClampingScrollPhysics> {
-  final HydroTable table;
-  final HydroState hydroState;
-  final ClampingScrollPhysics vmObject;
+    extends VMManagedBox<ClampingScrollPhysics?> {
+  final HydroTable? table;
+  final HydroState? hydroState;
+  final ClampingScrollPhysics? vmObject;
   VMManagedClampingScrollPhysics({
-    @required this.table,
-    @required this.hydroState,
-    @required this.vmObject,
+    required this.table,
+    required this.hydroState,
+    required this.vmObject,
   }) : super(
           table: table,
           hydroState: hydroState,
           vmObject: vmObject,
         ) {
-    table["applyTo"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!["applyTo"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
-      ClampingScrollPhysics caller;
+      ClampingScrollPhysics? caller;
       caller = maybeUnBoxAndBuildArgument<ClampingScrollPhysics>(rawCaller,
-          parentState: hydroState);
-      ScrollPhysics ancestor;
+          parentState: hydroState!);
+      ScrollPhysics? ancestor;
       if (args.length >= 2) {
         ancestor = maybeUnBoxAndBuildArgument<ScrollPhysics>(args[1],
-            parentState: hydroState);
+            parentState: hydroState!);
       }
 
       return [
         maybeBoxObject<ClampingScrollPhysics>(
-          object: caller.applyTo(ancestor),
-          hydroState: hydroState,
+          object: caller!.applyTo(ancestor),
+          hydroState: hydroState!,
           table: HydroTable(),
         )
       ];
@@ -46,11 +46,11 @@ class VMManagedClampingScrollPhysics
 }
 
 void loadClampingScrollPhysics(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<ClampingScrollPhysics>(boxer: (
-      {ClampingScrollPhysics vmObject,
-      HydroState hydroState,
-      HydroTable table}) {
+      {ClampingScrollPhysics? vmObject,
+      HydroState? hydroState,
+      HydroTable? table}) {
     return VMManagedClampingScrollPhysics(
       vmObject: vmObject,
       hydroState: hydroState,
@@ -58,8 +58,8 @@ void loadClampingScrollPhysics(
     );
   });
   table["clampingScrollPhysics"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    HydroTable caller = args[0];
-    ScrollPhysics parent;
+    HydroTable? caller = args[0];
+    ScrollPhysics? parent;
     if (args.length >= 2 && args[1] != null) {
       parent = maybeUnBoxAndBuildArgument<ScrollPhysics>(args[1]["parent"],
           parentState: hydroState);

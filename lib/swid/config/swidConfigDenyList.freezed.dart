@@ -18,8 +18,8 @@ class _$SwidConfigDenyListTearOff {
 
 // ignore: unused_element
   _$SwidConfigDenyListCtor call(
-      {@required List<String> classNames,
-      @required List<String> packagePaths}) {
+      {required List<String> classNames,
+      required List<String> packagePaths}) {
     return _$SwidConfigDenyListCtor(
       classNames: classNames,
       packagePaths: packagePaths,
@@ -51,7 +51,7 @@ abstract class $SwidConfigDenyListCopyWith<$Res> {
   factory $SwidConfigDenyListCopyWith(
           SwidConfigDenyList value, $Res Function(SwidConfigDenyList) then) =
       _$SwidConfigDenyListCopyWithImpl<$Res>;
-  $Res call({List<String> classNames, List<String> packagePaths});
+  $Res call({List<String>? classNames, List<String>? packagePaths});
 }
 
 /// @nodoc
@@ -61,20 +61,20 @@ class _$SwidConfigDenyListCopyWithImpl<$Res>
 
   final SwidConfigDenyList _value;
   // ignore: unused_field
-  final $Res Function(SwidConfigDenyList) _then;
+  final $Res Function(SwidConfigDenyList?) _then;
 
   @override
   $Res call({
-    Object classNames = freezed,
-    Object packagePaths = freezed,
+    Object? classNames = freezed,
+    Object? packagePaths = freezed,
   }) {
     return _then(_value.copyWith(
       classNames: classNames == freezed
           ? _value.classNames
-          : classNames as List<String>,
+          : classNames as List<String>?,
       packagePaths: packagePaths == freezed
           ? _value.packagePaths
-          : packagePaths as List<String>,
+          : packagePaths as List<String>?,
     ));
   }
 }
@@ -86,7 +86,7 @@ abstract class _$$SwidConfigDenyListCtorCopyWith<$Res>
           $Res Function(_$SwidConfigDenyListCtor) then) =
       __$$SwidConfigDenyListCtorCopyWithImpl<$Res>;
   @override
-  $Res call({List<String> classNames, List<String> packagePaths});
+  $Res call({List<String>? classNames, List<String>? packagePaths});
 }
 
 /// @nodoc
@@ -103,16 +103,16 @@ class __$$SwidConfigDenyListCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object classNames = freezed,
-    Object packagePaths = freezed,
+    Object? classNames = freezed,
+    Object? packagePaths = freezed,
   }) {
     return _then(_$SwidConfigDenyListCtor(
       classNames: classNames == freezed
           ? _value.classNames
-          : classNames as List<String>,
+          : (classNames as List<String>?)!,
       packagePaths: packagePaths == freezed
           ? _value.packagePaths
-          : packagePaths as List<String>,
+          : (packagePaths as List<String>?)!,
     ));
   }
 }
@@ -122,7 +122,7 @@ class __$$SwidConfigDenyListCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidConfigDenyListCtor implements _$SwidConfigDenyListCtor {
   const _$_$SwidConfigDenyListCtor(
-      {@required this.classNames, @required this.packagePaths})
+      {required this.classNames, required this.packagePaths})
       : assert(classNames != null),
         assert(packagePaths != null);
 
@@ -171,8 +171,8 @@ class _$_$SwidConfigDenyListCtor implements _$SwidConfigDenyListCtor {
 
 abstract class _$SwidConfigDenyListCtor implements SwidConfigDenyList {
   const factory _$SwidConfigDenyListCtor(
-      {@required List<String> classNames,
-      @required List<String> packagePaths}) = _$_$SwidConfigDenyListCtor;
+      {required List<String> classNames,
+      required List<String> packagePaths}) = _$_$SwidConfigDenyListCtor;
 
   factory _$SwidConfigDenyListCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigDenyListCtor.fromJson;

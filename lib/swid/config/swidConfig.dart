@@ -9,9 +9,9 @@ part 'swidConfig.g.dart';
 @freezed
 abstract class SwidConfig with _$SwidConfig {
   const factory SwidConfig({
-    @required String inputPackagePath,
-    @required List<String> interfaces,
-    @required SwidConfigEmitOptions emitOptions,
+    required String inputPackagePath,
+    required List<String> interfaces,
+    required SwidConfigEmitOptions emitOptions,
   }) = _$SwidConfigCtor;
 
   factory SwidConfig.fromJson(Map<String, dynamic> json) =>

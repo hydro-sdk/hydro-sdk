@@ -8,8 +8,8 @@ part 'updateUserProjectCreationsDto.g.dart';
 abstract class UpdateUserProjectCreationsDto
     with _$UpdateUserProjectCreationsDto {
   const factory UpdateUserProjectCreationsDto({
-    @required String subject,
-    @required int numRemainingProjectCreations,
+    required String subject,
+    required int numRemainingProjectCreations,
   }) = _$UpdateUserProjectCreationsDtoCtor;
 
   factory UpdateUserProjectCreationsDto.fromJson(Map<String, dynamic> json) =>

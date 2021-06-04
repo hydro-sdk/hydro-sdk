@@ -11,33 +11,33 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedCallbackHandle extends VMManagedBox<CallbackHandle> {
+class VMManagedCallbackHandle extends VMManagedBox<CallbackHandle?> {
   VMManagedCallbackHandle(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table,
+      required this.vmObject,
+      required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['toRawHandle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.toRawHandle()];
+    table!['toRawHandle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.toRawHandle()];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.hashCode];
     });
   }
 
-  final HydroTable table;
+  final HydroTable? table;
 
-  final HydroState hydroState;
+  final HydroState? hydroState;
 
-  final CallbackHandle vmObject;
+  final CallbackHandle? vmObject;
 }
 
 void loadCallbackHandle(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['callbackHandleFromRawHandle'] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
@@ -48,9 +48,9 @@ void loadCallbackHandle(
     ];
   });
   registerBoxer<CallbackHandle>(boxer: (
-      {@required CallbackHandle vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required CallbackHandle? vmObject,
+      required HydroState? hydroState,
+      required HydroTable? table}) {
     return VMManagedCallbackHandle(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

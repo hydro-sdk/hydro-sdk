@@ -14,7 +14,7 @@ class _$SwidiOptionalParameterTearOff {
   const _$SwidiOptionalParameterTearOff();
 
 // ignore: unused_element
-  _$SwidiOptionalParameterCtor call({@required SwidiDeclaration declaration}) {
+  _$SwidiOptionalParameterCtor call({required SwidiDeclaration declaration}) {
     return _$SwidiOptionalParameterCtor(
       declaration: declaration,
     );
@@ -38,7 +38,7 @@ abstract class $SwidiOptionalParameterCopyWith<$Res> {
   factory $SwidiOptionalParameterCopyWith(SwidiOptionalParameter value,
           $Res Function(SwidiOptionalParameter) then) =
       _$SwidiOptionalParameterCopyWithImpl<$Res>;
-  $Res call({SwidiDeclaration declaration});
+  $Res call({SwidiDeclaration? declaration});
 
   $SwidiDeclarationCopyWith<$Res> get declaration;
 }
@@ -50,16 +50,16 @@ class _$SwidiOptionalParameterCopyWithImpl<$Res>
 
   final SwidiOptionalParameter _value;
   // ignore: unused_field
-  final $Res Function(SwidiOptionalParameter) _then;
+  final $Res Function(SwidiOptionalParameter?) _then;
 
   @override
   $Res call({
-    Object declaration = freezed,
+    Object? declaration = freezed,
   }) {
     return _then(_value.copyWith(
       declaration: declaration == freezed
           ? _value.declaration
-          : declaration as SwidiDeclaration,
+          : declaration as SwidiDeclaration?,
     ));
   }
 
@@ -82,7 +82,7 @@ abstract class _$$SwidiOptionalParameterCtorCopyWith<$Res>
           $Res Function(_$SwidiOptionalParameterCtor) then) =
       __$$SwidiOptionalParameterCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidiDeclaration declaration});
+  $Res call({SwidiDeclaration? declaration});
 
   @override
   $SwidiDeclarationCopyWith<$Res> get declaration;
@@ -103,19 +103,19 @@ class __$$SwidiOptionalParameterCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object declaration = freezed,
+    Object? declaration = freezed,
   }) {
     return _then(_$SwidiOptionalParameterCtor(
       declaration: declaration == freezed
           ? _value.declaration
-          : declaration as SwidiDeclaration,
+          : (declaration as SwidiDeclaration?)!,
     ));
   }
 }
 
 /// @nodoc
 class _$_$SwidiOptionalParameterCtor implements _$SwidiOptionalParameterCtor {
-  const _$_$SwidiOptionalParameterCtor({@required this.declaration})
+  const _$_$SwidiOptionalParameterCtor({required this.declaration})
       : assert(declaration != null);
 
   @override
@@ -148,7 +148,7 @@ class _$_$SwidiOptionalParameterCtor implements _$SwidiOptionalParameterCtor {
 
 abstract class _$SwidiOptionalParameterCtor implements SwidiOptionalParameter {
   const factory _$SwidiOptionalParameterCtor(
-          {@required SwidiDeclaration declaration}) =
+          {required SwidiDeclaration declaration}) =
       _$_$SwidiOptionalParameterCtor;
 
   @override

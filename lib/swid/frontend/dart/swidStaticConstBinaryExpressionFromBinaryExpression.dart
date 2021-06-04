@@ -7,11 +7,11 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 
 SwidStaticConstBinaryExpression
     swidStaticConstBinaryExpressionFromBinaryExpression(
-            {@required BinaryExpression binaryExpression}) =>
+            {required BinaryExpression binaryExpression}) =>
         SwidStaticConstBinaryExpression(
-          operator: binaryExpression.operator.value(),
+          operator: binaryExpression.operator.value() as String,
           leftOperand: extractStaticConstFromSyntacticEntity(
-              syntacticEntity: binaryExpression.leftOperand),
+              syntacticEntity: binaryExpression.leftOperand)!,
           rightOperand: extractStaticConstFromSyntacticEntity(
-              syntacticEntity: binaryExpression.rightOperand),
+              syntacticEntity: binaryExpression.rightOperand)!,
         );

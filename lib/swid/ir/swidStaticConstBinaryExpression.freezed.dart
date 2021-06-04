@@ -19,9 +19,9 @@ class _$SwidStaticConstBinaryExpressionTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required String operator,
-      @required SwidStaticConst leftOperand,
-      @required SwidStaticConst rightOperand}) {
+      {required String operator,
+      required SwidStaticConst leftOperand,
+      required SwidStaticConst rightOperand}) {
     return _$Data(
       operator: operator,
       leftOperand: leftOperand,
@@ -59,9 +59,9 @@ abstract class $SwidStaticConstBinaryExpressionCopyWith<$Res> {
           $Res Function(SwidStaticConstBinaryExpression) then) =
       _$SwidStaticConstBinaryExpressionCopyWithImpl<$Res>;
   $Res call(
-      {String operator,
-      SwidStaticConst leftOperand,
-      SwidStaticConst rightOperand});
+      {String? operator,
+      SwidStaticConst? leftOperand,
+      SwidStaticConst? rightOperand});
 
   $SwidStaticConstCopyWith<$Res> get leftOperand;
   $SwidStaticConstCopyWith<$Res> get rightOperand;
@@ -74,22 +74,22 @@ class _$SwidStaticConstBinaryExpressionCopyWithImpl<$Res>
 
   final SwidStaticConstBinaryExpression _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstBinaryExpression) _then;
+  final $Res Function(SwidStaticConstBinaryExpression?) _then;
 
   @override
   $Res call({
-    Object operator = freezed,
-    Object leftOperand = freezed,
-    Object rightOperand = freezed,
+    Object? operator = freezed,
+    Object? leftOperand = freezed,
+    Object? rightOperand = freezed,
   }) {
     return _then(_value.copyWith(
-      operator: operator == freezed ? _value.operator : operator as String,
+      operator: operator == freezed ? _value.operator : operator as String?,
       leftOperand: leftOperand == freezed
           ? _value.leftOperand
-          : leftOperand as SwidStaticConst,
+          : leftOperand as SwidStaticConst?,
       rightOperand: rightOperand == freezed
           ? _value.rightOperand
-          : rightOperand as SwidStaticConst,
+          : rightOperand as SwidStaticConst?,
     ));
   }
 
@@ -121,9 +121,9 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String operator,
-      SwidStaticConst leftOperand,
-      SwidStaticConst rightOperand});
+      {String? operator,
+      SwidStaticConst? leftOperand,
+      SwidStaticConst? rightOperand});
 
   @override
   $SwidStaticConstCopyWith<$Res> get leftOperand;
@@ -143,18 +143,18 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object operator = freezed,
-    Object leftOperand = freezed,
-    Object rightOperand = freezed,
+    Object? operator = freezed,
+    Object? leftOperand = freezed,
+    Object? rightOperand = freezed,
   }) {
     return _then(_$Data(
-      operator: operator == freezed ? _value.operator : operator as String,
+      operator: operator == freezed ? _value.operator : (operator as String?)!,
       leftOperand: leftOperand == freezed
           ? _value.leftOperand
-          : leftOperand as SwidStaticConst,
+          : (leftOperand as SwidStaticConst?)!,
       rightOperand: rightOperand == freezed
           ? _value.rightOperand
-          : rightOperand as SwidStaticConst,
+          : (rightOperand as SwidStaticConst?)!,
     ));
   }
 }
@@ -164,9 +164,9 @@ class __$$DataCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.operator,
-      @required this.leftOperand,
-      @required this.rightOperand})
+      {required this.operator,
+      required this.leftOperand,
+      required this.rightOperand})
       : assert(operator != null),
         assert(leftOperand != null),
         assert(rightOperand != null);
@@ -221,9 +221,9 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidStaticConstBinaryExpression {
   const factory _$Data(
-      {@required String operator,
-      @required SwidStaticConst leftOperand,
-      @required SwidStaticConst rightOperand}) = _$_$Data;
+      {required String operator,
+      required SwidStaticConst leftOperand,
+      required SwidStaticConst rightOperand}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

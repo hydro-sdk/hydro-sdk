@@ -18,14 +18,14 @@ class _$ProjectEntityTearOff {
 
 // ignore: unused_element
   _$ProjectEntityCtor call(
-      {@required String id,
-      @required String createdAt,
-      @required String modifiedAt,
-      @required bool isPublic,
-      @required String name,
-      @required String description,
-      @required int sessionLimit,
-      @required int otaDownloadLimit}) {
+      {required String id,
+      required String createdAt,
+      required String modifiedAt,
+      required bool isPublic,
+      required String name,
+      required String description,
+      required int sessionLimit,
+      required int otaDownloadLimit}) {
     return _$ProjectEntityCtor(
       id: id,
       createdAt: createdAt,
@@ -70,14 +70,14 @@ abstract class $ProjectEntityCopyWith<$Res> {
           ProjectEntity value, $Res Function(ProjectEntity) then) =
       _$ProjectEntityCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String createdAt,
-      String modifiedAt,
-      bool isPublic,
-      String name,
-      String description,
-      int sessionLimit,
-      int otaDownloadLimit});
+      {String? id,
+      String? createdAt,
+      String? modifiedAt,
+      bool? isPublic,
+      String? name,
+      String? description,
+      int? sessionLimit,
+      int? otaDownloadLimit});
 }
 
 /// @nodoc
@@ -87,33 +87,33 @@ class _$ProjectEntityCopyWithImpl<$Res>
 
   final ProjectEntity _value;
   // ignore: unused_field
-  final $Res Function(ProjectEntity) _then;
+  final $Res Function(ProjectEntity?) _then;
 
   @override
   $Res call({
-    Object id = freezed,
-    Object createdAt = freezed,
-    Object modifiedAt = freezed,
-    Object isPublic = freezed,
-    Object name = freezed,
-    Object description = freezed,
-    Object sessionLimit = freezed,
-    Object otaDownloadLimit = freezed,
+    Object? id = freezed,
+    Object? createdAt = freezed,
+    Object? modifiedAt = freezed,
+    Object? isPublic = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? sessionLimit = freezed,
+    Object? otaDownloadLimit = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
+      id: id == freezed ? _value.id : id as String?,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String?,
       modifiedAt:
-          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
-      name: name == freezed ? _value.name : name as String,
+          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String?,
+      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool?,
+      name: name == freezed ? _value.name : name as String?,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : description as String?,
       sessionLimit:
-          sessionLimit == freezed ? _value.sessionLimit : sessionLimit as int,
+          sessionLimit == freezed ? _value.sessionLimit : sessionLimit as int?,
       otaDownloadLimit: otaDownloadLimit == freezed
           ? _value.otaDownloadLimit
-          : otaDownloadLimit as int,
+          : otaDownloadLimit as int?,
     ));
   }
 }
@@ -126,14 +126,14 @@ abstract class _$$ProjectEntityCtorCopyWith<$Res>
       __$$ProjectEntityCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String createdAt,
-      String modifiedAt,
-      bool isPublic,
-      String name,
-      String description,
-      int sessionLimit,
-      int otaDownloadLimit});
+      {String? id,
+      String? createdAt,
+      String? modifiedAt,
+      bool? isPublic,
+      String? name,
+      String? description,
+      int? sessionLimit,
+      int? otaDownloadLimit});
 }
 
 /// @nodoc
@@ -149,29 +149,29 @@ class __$$ProjectEntityCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object createdAt = freezed,
-    Object modifiedAt = freezed,
-    Object isPublic = freezed,
-    Object name = freezed,
-    Object description = freezed,
-    Object sessionLimit = freezed,
-    Object otaDownloadLimit = freezed,
+    Object? id = freezed,
+    Object? createdAt = freezed,
+    Object? modifiedAt = freezed,
+    Object? isPublic = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? sessionLimit = freezed,
+    Object? otaDownloadLimit = freezed,
   }) {
     return _then(_$ProjectEntityCtor(
-      id: id == freezed ? _value.id : id as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
+      id: id == freezed ? _value.id : (id as String?)!,
+      createdAt: createdAt == freezed ? _value.createdAt : (createdAt as String?)!,
       modifiedAt:
-          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
-      name: name == freezed ? _value.name : name as String,
+          modifiedAt == freezed ? _value.modifiedAt : (modifiedAt as String?)!,
+      isPublic: isPublic == freezed ? _value.isPublic : (isPublic as bool?)!,
+      name: name == freezed ? _value.name : (name as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : (description as String?)!,
       sessionLimit:
-          sessionLimit == freezed ? _value.sessionLimit : sessionLimit as int,
+          sessionLimit == freezed ? _value.sessionLimit : (sessionLimit as int?)!,
       otaDownloadLimit: otaDownloadLimit == freezed
           ? _value.otaDownloadLimit
-          : otaDownloadLimit as int,
+          : (otaDownloadLimit as int?)!,
     ));
   }
 }
@@ -181,14 +181,14 @@ class __$$ProjectEntityCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
   const _$_$ProjectEntityCtor(
-      {@required this.id,
-      @required this.createdAt,
-      @required this.modifiedAt,
-      @required this.isPublic,
-      @required this.name,
-      @required this.description,
-      @required this.sessionLimit,
-      @required this.otaDownloadLimit})
+      {required this.id,
+      required this.createdAt,
+      required this.modifiedAt,
+      required this.isPublic,
+      required this.name,
+      required this.description,
+      required this.sessionLimit,
+      required this.otaDownloadLimit})
       : assert(id != null),
         assert(createdAt != null),
         assert(modifiedAt != null),
@@ -276,14 +276,14 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
 
 abstract class _$ProjectEntityCtor implements ProjectEntity {
   const factory _$ProjectEntityCtor(
-      {@required String id,
-      @required String createdAt,
-      @required String modifiedAt,
-      @required bool isPublic,
-      @required String name,
-      @required String description,
-      @required int sessionLimit,
-      @required int otaDownloadLimit}) = _$_$ProjectEntityCtor;
+      {required String id,
+      required String createdAt,
+      required String modifiedAt,
+      required bool isPublic,
+      required String name,
+      required String description,
+      required int sessionLimit,
+      required int otaDownloadLimit}) = _$_$ProjectEntityCtor;
 
   factory _$ProjectEntityCtor.fromJson(Map<String, dynamic> json) =
       _$_$ProjectEntityCtor.fromJson;

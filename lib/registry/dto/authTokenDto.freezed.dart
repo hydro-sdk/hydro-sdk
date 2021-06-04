@@ -18,7 +18,7 @@ class _$AuthTokenDtoTearOff {
 
 // ignore: unused_element
   _$AuthTokenDtoCtor call(
-      {@required String sub, @required String username, @required int exp}) {
+      {required String sub, required String username, required int exp}) {
     return _$AuthTokenDtoCtor(
       sub: sub,
       username: username,
@@ -52,7 +52,7 @@ abstract class $AuthTokenDtoCopyWith<$Res> {
   factory $AuthTokenDtoCopyWith(
           AuthTokenDto value, $Res Function(AuthTokenDto) then) =
       _$AuthTokenDtoCopyWithImpl<$Res>;
-  $Res call({String sub, String username, int exp});
+  $Res call({String? sub, String? username, int? exp});
 }
 
 /// @nodoc
@@ -61,18 +61,18 @@ class _$AuthTokenDtoCopyWithImpl<$Res> implements $AuthTokenDtoCopyWith<$Res> {
 
   final AuthTokenDto _value;
   // ignore: unused_field
-  final $Res Function(AuthTokenDto) _then;
+  final $Res Function(AuthTokenDto?) _then;
 
   @override
   $Res call({
-    Object sub = freezed,
-    Object username = freezed,
-    Object exp = freezed,
+    Object? sub = freezed,
+    Object? username = freezed,
+    Object? exp = freezed,
   }) {
     return _then(_value.copyWith(
-      sub: sub == freezed ? _value.sub : sub as String,
-      username: username == freezed ? _value.username : username as String,
-      exp: exp == freezed ? _value.exp : exp as int,
+      sub: sub == freezed ? _value.sub : sub as String?,
+      username: username == freezed ? _value.username : username as String?,
+      exp: exp == freezed ? _value.exp : exp as int?,
     ));
   }
 }
@@ -84,7 +84,7 @@ abstract class _$$AuthTokenDtoCtorCopyWith<$Res>
           _$AuthTokenDtoCtor value, $Res Function(_$AuthTokenDtoCtor) then) =
       __$$AuthTokenDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String sub, String username, int exp});
+  $Res call({String? sub, String? username, int? exp});
 }
 
 /// @nodoc
@@ -100,14 +100,14 @@ class __$$AuthTokenDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object sub = freezed,
-    Object username = freezed,
-    Object exp = freezed,
+    Object? sub = freezed,
+    Object? username = freezed,
+    Object? exp = freezed,
   }) {
     return _then(_$AuthTokenDtoCtor(
-      sub: sub == freezed ? _value.sub : sub as String,
-      username: username == freezed ? _value.username : username as String,
-      exp: exp == freezed ? _value.exp : exp as int,
+      sub: sub == freezed ? _value.sub : (sub as String?)!,
+      username: username == freezed ? _value.username : (username as String?)!,
+      exp: exp == freezed ? _value.exp : (exp as int?)!,
     ));
   }
 }
@@ -117,7 +117,7 @@ class __$$AuthTokenDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$AuthTokenDtoCtor implements _$AuthTokenDtoCtor {
   const _$_$AuthTokenDtoCtor(
-      {@required this.sub, @required this.username, @required this.exp})
+      {required this.sub, required this.username, required this.exp})
       : assert(sub != null),
         assert(username != null),
         assert(exp != null);
@@ -170,9 +170,9 @@ class _$_$AuthTokenDtoCtor implements _$AuthTokenDtoCtor {
 
 abstract class _$AuthTokenDtoCtor implements AuthTokenDto {
   const factory _$AuthTokenDtoCtor(
-      {@required String sub,
-      @required String username,
-      @required int exp}) = _$_$AuthTokenDtoCtor;
+      {required String sub,
+      required String username,
+      required int exp}) = _$_$AuthTokenDtoCtor;
 
   factory _$AuthTokenDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$AuthTokenDtoCtor.fromJson;

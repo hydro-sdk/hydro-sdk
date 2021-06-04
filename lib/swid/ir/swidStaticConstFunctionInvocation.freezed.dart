@@ -19,11 +19,11 @@ class _$SwidStaticConstFunctionInvocationTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required String value,
-      @required SwidType staticType,
-      @required List<SwidStaticConst> normalParameters,
-      @required Map<String, SwidStaticConst> namedParameters,
-      @required bool isConstructorInvocation}) {
+      {required String value,
+      required SwidType staticType,
+      required List<SwidStaticConst> normalParameters,
+      required Map<String, SwidStaticConst> namedParameters,
+      required bool isConstructorInvocation}) {
     return _$Data(
       value: value,
       staticType: staticType,
@@ -48,8 +48,8 @@ const $SwidStaticConstFunctionInvocation =
 mixin _$SwidStaticConstFunctionInvocation {
   String get value;
   SwidType get staticType;
-  List<SwidStaticConst> get normalParameters;
-  Map<String, SwidStaticConst> get namedParameters;
+  List<SwidStaticConst?> get normalParameters;
+  Map<String?, SwidStaticConst?> get namedParameters;
   bool get isConstructorInvocation;
 
   Map<String, dynamic> toJson();
@@ -65,11 +65,11 @@ abstract class $SwidStaticConstFunctionInvocationCopyWith<$Res> {
           $Res Function(SwidStaticConstFunctionInvocation) then) =
       _$SwidStaticConstFunctionInvocationCopyWithImpl<$Res>;
   $Res call(
-      {String value,
-      SwidType staticType,
-      List<SwidStaticConst> normalParameters,
-      Map<String, SwidStaticConst> namedParameters,
-      bool isConstructorInvocation});
+      {String? value,
+      SwidType? staticType,
+      List<SwidStaticConst>? normalParameters,
+      Map<String, SwidStaticConst>? namedParameters,
+      bool? isConstructorInvocation});
 
   $SwidTypeCopyWith<$Res> get staticType;
 }
@@ -81,29 +81,29 @@ class _$SwidStaticConstFunctionInvocationCopyWithImpl<$Res>
 
   final SwidStaticConstFunctionInvocation _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstFunctionInvocation) _then;
+  final $Res Function(SwidStaticConstFunctionInvocation?) _then;
 
   @override
   $Res call({
-    Object value = freezed,
-    Object staticType = freezed,
-    Object normalParameters = freezed,
-    Object namedParameters = freezed,
-    Object isConstructorInvocation = freezed,
+    Object? value = freezed,
+    Object? staticType = freezed,
+    Object? normalParameters = freezed,
+    Object? namedParameters = freezed,
+    Object? isConstructorInvocation = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed ? _value.value : value as String,
+      value: value == freezed ? _value.value : value as String?,
       staticType:
-          staticType == freezed ? _value.staticType : staticType as SwidType,
+          staticType == freezed ? _value.staticType : staticType as SwidType?,
       normalParameters: normalParameters == freezed
-          ? _value.normalParameters
-          : normalParameters as List<SwidStaticConst>,
+          ? _value.normalParameters as List<SwidStaticConst>?
+          : normalParameters as List<SwidStaticConst>?,
       namedParameters: namedParameters == freezed
-          ? _value.namedParameters
-          : namedParameters as Map<String, SwidStaticConst>,
+          ? _value.namedParameters as Map<String, SwidStaticConst>?
+          : namedParameters as Map<String, SwidStaticConst>?,
       isConstructorInvocation: isConstructorInvocation == freezed
           ? _value.isConstructorInvocation
-          : isConstructorInvocation as bool,
+          : isConstructorInvocation as bool?,
     ));
   }
 
@@ -125,11 +125,11 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String value,
-      SwidType staticType,
-      List<SwidStaticConst> normalParameters,
-      Map<String, SwidStaticConst> namedParameters,
-      bool isConstructorInvocation});
+      {String? value,
+      SwidType? staticType,
+      List<SwidStaticConst>? normalParameters,
+      Map<String, SwidStaticConst>? namedParameters,
+      bool? isConstructorInvocation});
 
   @override
   $SwidTypeCopyWith<$Res> get staticType;
@@ -147,25 +147,25 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object value = freezed,
-    Object staticType = freezed,
-    Object normalParameters = freezed,
-    Object namedParameters = freezed,
-    Object isConstructorInvocation = freezed,
+    Object? value = freezed,
+    Object? staticType = freezed,
+    Object? normalParameters = freezed,
+    Object? namedParameters = freezed,
+    Object? isConstructorInvocation = freezed,
   }) {
     return _then(_$Data(
-      value: value == freezed ? _value.value : value as String,
+      value: value == freezed ? _value.value : (value as String?)!,
       staticType:
-          staticType == freezed ? _value.staticType : staticType as SwidType,
+          staticType == freezed ? _value.staticType : (staticType as SwidType?)!,
       normalParameters: normalParameters == freezed
           ? _value.normalParameters
-          : normalParameters as List<SwidStaticConst>,
+          : (normalParameters as List<SwidStaticConst>?)!,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
-          : namedParameters as Map<String, SwidStaticConst>,
+          : (namedParameters as Map<String, SwidStaticConst>?)!,
       isConstructorInvocation: isConstructorInvocation == freezed
           ? _value.isConstructorInvocation
-          : isConstructorInvocation as bool,
+          : (isConstructorInvocation as bool?)!,
     ));
   }
 }
@@ -175,11 +175,11 @@ class __$$DataCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.value,
-      @required this.staticType,
-      @required this.normalParameters,
-      @required this.namedParameters,
-      @required this.isConstructorInvocation})
+      {required this.value,
+      required this.staticType,
+      required this.normalParameters,
+      required this.namedParameters,
+      required this.isConstructorInvocation})
       : assert(value != null),
         assert(staticType != null),
         assert(normalParameters != null),
@@ -194,9 +194,9 @@ class _$_$Data implements _$Data {
   @override
   final SwidType staticType;
   @override
-  final List<SwidStaticConst> normalParameters;
+  final List<SwidStaticConst?> normalParameters;
   @override
-  final Map<String, SwidStaticConst> namedParameters;
+  final Map<String?, SwidStaticConst?> namedParameters;
   @override
   final bool isConstructorInvocation;
 
@@ -248,11 +248,11 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidStaticConstFunctionInvocation {
   const factory _$Data(
-      {@required String value,
-      @required SwidType staticType,
-      @required List<SwidStaticConst> normalParameters,
-      @required Map<String, SwidStaticConst> namedParameters,
-      @required bool isConstructorInvocation}) = _$_$Data;
+      {required String value,
+      required SwidType staticType,
+      required List<SwidStaticConst?> normalParameters,
+      required Map<String?, SwidStaticConst?> namedParameters,
+      required bool isConstructorInvocation}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -261,9 +261,9 @@ abstract class _$Data implements SwidStaticConstFunctionInvocation {
   @override
   SwidType get staticType;
   @override
-  List<SwidStaticConst> get normalParameters;
+  List<SwidStaticConst?> get normalParameters;
   @override
-  Map<String, SwidStaticConst> get namedParameters;
+  Map<String?, SwidStaticConst?> get namedParameters;
   @override
   bool get isConstructorInvocation;
   @override

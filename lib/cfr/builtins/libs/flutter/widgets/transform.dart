@@ -6,7 +6,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadTransform(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["transformRotate"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Transform.rotate(

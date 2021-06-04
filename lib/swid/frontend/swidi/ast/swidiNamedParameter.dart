@@ -8,17 +8,17 @@ part 'swidiNamedParameter.freezed.dart';
 @freezed
 abstract class SwidiNamedParameter with _$SwidiNamedParameter {
   const factory SwidiNamedParameter({
-    @required SwidiDeclaration declaration,
+    required SwidiDeclaration declaration,
   }) = _$SwidiNamedParameterCtor;
 
   factory SwidiNamedParameter.clone({
-    @required SwidiNamedParameter swidiNamedParameter,
-    SwidiDeclaration declaration,
+    required SwidiNamedParameter? swidiNamedParameter,
+    SwidiDeclaration? declaration,
   }) =>
       SwidiNamedParameter(
         declaration: declaration ??
             SwidiDeclaration.clone(
-              swidiDeclaration: swidiNamedParameter.declaration,
+              swidiDeclaration: swidiNamedParameter!.declaration,
             ),
       );
 }

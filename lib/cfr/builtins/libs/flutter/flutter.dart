@@ -11,7 +11,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadFlutterLib({@required HydroState luaState, @required Context ctx}) {
+void loadFlutterLib({required HydroState luaState, required Context ctx}) {
   var flutter = HydroTable();
 
   ctx.env["flutter"] = flutter;

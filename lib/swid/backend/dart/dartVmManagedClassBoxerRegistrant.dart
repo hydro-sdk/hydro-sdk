@@ -8,7 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 class DartVMManagedClassBoxerRegistrant {
   final SwidClass swidClass;
 
-  DartVMManagedClassBoxerRegistrant({@required this.swidClass});
+  DartVMManagedClassBoxerRegistrant({required this.swidClass});
 
   String toDartSource() => refer("registerBoxer")
       .call([], {

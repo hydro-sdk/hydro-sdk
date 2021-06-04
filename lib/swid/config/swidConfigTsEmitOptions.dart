@@ -7,7 +7,7 @@ part 'swidConfigTsEmitOptions.g.dart';
 @freezed
 abstract class SwidConfigTsEmitOptions with _$SwidConfigTsEmitOptions {
   const factory SwidConfigTsEmitOptions({
-    @required List<String> prefixPaths,
+    required List<String> prefixPaths,
   }) = _$SwidConfigTsEmitOptionsCtor;
 
   factory SwidConfigTsEmitOptions.fromJson(Map<String, dynamic> json) =>

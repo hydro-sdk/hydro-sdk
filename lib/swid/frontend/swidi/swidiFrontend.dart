@@ -10,8 +10,8 @@ class SwidiFrontend extends SwidFrontend {
   final InputResolver inputResolver;
 
   SwidiFrontend({
-    @required this.inputs,
-    @required this.inputResolver,
+    required this.inputs,
+    required this.inputResolver,
   });
 
   Future<List<SwidIr>> produceIr() async {
@@ -20,7 +20,7 @@ class SwidiFrontend extends SwidFrontend {
       result = [
         ...result,
         ...swidiSourceToSwidIr(
-            content: await inputResolver.resolveInput(input: inputs[i])),
+            content: await inputResolver.resolveInput(input: inputs[i]))!,
       ];
     }
     return result;

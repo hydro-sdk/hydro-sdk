@@ -15,10 +15,10 @@ class _$SwidiInterfaceTearOff {
 
 // ignore: unused_element
   _$SwidiInterfaceCtor call(
-      {@required String name,
-      @required SwidiLibraryScopePrefix libraryScopePrefix,
-      @required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-      @required SwidiNullabilitySuffix nullabilitySuffix}) {
+      {required String name,
+      required SwidiLibraryScopePrefix libraryScopePrefix,
+      required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
+      required SwidiNullabilitySuffix nullabilitySuffix}) {
     return _$SwidiInterfaceCtor(
       name: name,
       libraryScopePrefix: libraryScopePrefix,
@@ -49,10 +49,10 @@ abstract class $SwidiInterfaceCopyWith<$Res> {
           SwidiInterface value, $Res Function(SwidiInterface) then) =
       _$SwidiInterfaceCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      SwidiLibraryScopePrefix libraryScopePrefix,
-      SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-      SwidiNullabilitySuffix nullabilitySuffix});
+      {String? name,
+      SwidiLibraryScopePrefix? libraryScopePrefix,
+      SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,
+      SwidiNullabilitySuffix? nullabilitySuffix});
 
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
   $SwidiReferenceDeclarationPrefixCopyWith<$Res> get referenceDeclarationPrefix;
@@ -65,26 +65,26 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
 
   final SwidiInterface _value;
   // ignore: unused_field
-  final $Res Function(SwidiInterface) _then;
+  final $Res Function(SwidiInterface?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object libraryScopePrefix = freezed,
-    Object referenceDeclarationPrefix = freezed,
-    Object nullabilitySuffix = freezed,
+    Object? name = freezed,
+    Object? libraryScopePrefix = freezed,
+    Object? referenceDeclarationPrefix = freezed,
+    Object? nullabilitySuffix = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
-          : libraryScopePrefix as SwidiLibraryScopePrefix,
+          : libraryScopePrefix as SwidiLibraryScopePrefix?,
       referenceDeclarationPrefix: referenceDeclarationPrefix == freezed
           ? _value.referenceDeclarationPrefix
-          : referenceDeclarationPrefix as SwidiReferenceDeclarationPrefix,
+          : referenceDeclarationPrefix as SwidiReferenceDeclarationPrefix?,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidiNullabilitySuffix,
+          : nullabilitySuffix as SwidiNullabilitySuffix?,
     ));
   }
 
@@ -120,10 +120,10 @@ abstract class _$$SwidiInterfaceCtorCopyWith<$Res>
       __$$SwidiInterfaceCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      SwidiLibraryScopePrefix libraryScopePrefix,
-      SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-      SwidiNullabilitySuffix nullabilitySuffix});
+      {String? name,
+      SwidiLibraryScopePrefix? libraryScopePrefix,
+      SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,
+      SwidiNullabilitySuffix? nullabilitySuffix});
 
   @override
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
@@ -144,22 +144,22 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object libraryScopePrefix = freezed,
-    Object referenceDeclarationPrefix = freezed,
-    Object nullabilitySuffix = freezed,
+    Object? name = freezed,
+    Object? libraryScopePrefix = freezed,
+    Object? referenceDeclarationPrefix = freezed,
+    Object? nullabilitySuffix = freezed,
   }) {
     return _then(_$SwidiInterfaceCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
-          : libraryScopePrefix as SwidiLibraryScopePrefix,
+          : (libraryScopePrefix as SwidiLibraryScopePrefix?)!,
       referenceDeclarationPrefix: referenceDeclarationPrefix == freezed
           ? _value.referenceDeclarationPrefix
-          : referenceDeclarationPrefix as SwidiReferenceDeclarationPrefix,
+          : (referenceDeclarationPrefix as SwidiReferenceDeclarationPrefix?)!,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidiNullabilitySuffix,
+          : (nullabilitySuffix as SwidiNullabilitySuffix?)!,
     ));
   }
 }
@@ -167,10 +167,10 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
   const _$_$SwidiInterfaceCtor(
-      {@required this.name,
-      @required this.libraryScopePrefix,
-      @required this.referenceDeclarationPrefix,
-      @required this.nullabilitySuffix})
+      {required this.name,
+      required this.libraryScopePrefix,
+      required this.referenceDeclarationPrefix,
+      required this.nullabilitySuffix})
       : assert(name != null),
         assert(libraryScopePrefix != null),
         assert(referenceDeclarationPrefix != null),
@@ -226,10 +226,10 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
 
 abstract class _$SwidiInterfaceCtor implements SwidiInterface {
   const factory _$SwidiInterfaceCtor(
-          {@required String name,
-          @required SwidiLibraryScopePrefix libraryScopePrefix,
-          @required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-          @required SwidiNullabilitySuffix nullabilitySuffix}) =
+          {required String name,
+          required SwidiLibraryScopePrefix libraryScopePrefix,
+          required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
+          required SwidiNullabilitySuffix nullabilitySuffix}) =
       _$_$SwidiInterfaceCtor;
 
   @override

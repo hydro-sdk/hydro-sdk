@@ -15,7 +15,7 @@ void main() {
     expect(
         DartMethodInjectionImplementation(
             swidFunctionType: diagnosticsNodeClass.methods
-                .firstWhere((x) => x.name == "isFiltered")).toDartSource(),
+                .firstWhere((x) => x!.name == "isFiltered")).toDartSource(),
         """
 table['_dart_isFiltered'] = makeLuaDartFunc(func: (List<dynamic> args) {
   return [

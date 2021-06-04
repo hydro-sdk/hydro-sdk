@@ -5,13 +5,13 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformStaticConstPrefixedExpressionToTs(
-        {@required
+        {required
             SwidStaticConstPrefixedExpression swidStaticConstPrefixedExpression,
-        @required
+        required
             SwidClass parentClass,
-        @required
+        required
             String inexpressibleFunctionInvocationFallback,
-        @required
+        required
             SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
     swidStaticConstPrefixedExpression.prefix +
     transformLiteralToTs(

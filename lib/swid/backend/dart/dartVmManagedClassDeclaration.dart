@@ -22,17 +22,17 @@ import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
 class DartVMManagedClassDeclaration {
-  final SwidClass swidClass;
+  final SwidClass? swidClass;
 
-  DartVMManagedClassDeclaration({@required this.swidClass});
+  DartVMManagedClassDeclaration({required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Class(
         (c) => c
-          ..name = "VMManaged${swidClass.name}"
+          ..name = "VMManaged${swidClass!.name}"
           ..extend = TypeReference((t) => t
             ..symbol = "VMManagedBox"
             ..types.addAll([
-              TypeReference((t) => t..symbol = swidClass.displayName),
+              TypeReference((t) => t..symbol = swidClass!.displayName),
             ]))
           ..fields.addAll([
             Field(
@@ -50,7 +50,7 @@ class DartVMManagedClassDeclaration {
             Field(
               (k) => k
                 ..modifier = FieldModifier.final$
-                ..type = TypeReference((i) => i..symbol = swidClass.name)
+                ..type = TypeReference((i) => i..symbol = swidClass!.name)
                 ..name = "vmObject",
             ),
           ])
@@ -83,20 +83,20 @@ class DartVMManagedClassDeclaration {
                 ])
                 ..body = Block.of(
                   [
-                    ...(swidClass.instanceFieldDeclarations.entries
+                    ...(swidClass!.instanceFieldDeclarations.entries
                         .map((x) => Code(DartBindInstanceField(
                               tableKey: x.key,
                               instanceFieldName: "vmObject.${x.key}",
                               instanceField: x.value,
-                            ).toDartSource()))
+                            ).toDartSource()!))
                         .toList()),
-                    ...(swidClass.methods
-                        .where((x) => !x.swidDeclarationModifiers.hasProtected)
-                        .where((x) => !isOperator(swidFunctionType: x))
+                    ...(swidClass!.methods
+                        .where((x) => !x!.swidDeclarationModifiers.hasProtected)
+                        .where((x) => !isOperator(swidFunctionType: x!))
                         .map((x) => Code(
                               DartVMManagedClassMethodInjectionImplementation(
                                   tableKey:
-                                      transformAccessorName(swidFunctionType: x)
+                                      transformAccessorName(swidFunctionType: x!)
                                           .name,
                                   swidFunctionType: SwidFunctionType.clone(
                                     swidFunctionType: x,

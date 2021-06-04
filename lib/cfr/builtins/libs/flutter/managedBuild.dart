@@ -6,12 +6,12 @@ import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-Widget managedBuild(
-    {@required BuildContext context,
-    @required HydroState hydroState,
-    @required HydroTable hydroTable}) {
+Widget? managedBuild(
+    {required BuildContext context,
+    required HydroState hydroState,
+    required HydroTable hydroTable}) {
   Closure managedBuild =
-      maybeFindInheritedMethod(managedObject: hydroTable, methodName: "build");
+      maybeFindInheritedMethod(managedObject: hydroTable, methodName: "build")!;
   var buildResult = managedBuild.dispatch([
     hydroTable.map,
     maybeBoxObject(

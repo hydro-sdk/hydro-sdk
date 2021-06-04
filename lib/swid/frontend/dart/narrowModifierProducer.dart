@@ -3,11 +3,11 @@ import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
-SwidDeclarationModifiers narrowModifierProducer({
-  @required dynamic element,
-  @required
+SwidDeclarationModifiers? narrowModifierProducer({
+  required dynamic element,
+  required
       SwidDeclarationModifiers Function(ExecutableElement) onExecutablElement,
-  @required
+  required
       SwidDeclarationModifiers Function(PropertyAccessorElement)
           onPropertyAccessorElement,
 }) {

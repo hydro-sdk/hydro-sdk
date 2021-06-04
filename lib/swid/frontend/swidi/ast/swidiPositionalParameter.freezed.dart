@@ -15,7 +15,7 @@ class _$SwidiPositionalParameterTearOff {
 
 // ignore: unused_element
   _$SwidiPositionalParameterCtor call(
-      {@required SwidiDeclaration declaration}) {
+      {required SwidiDeclaration declaration}) {
     return _$SwidiPositionalParameterCtor(
       declaration: declaration,
     );
@@ -39,7 +39,7 @@ abstract class $SwidiPositionalParameterCopyWith<$Res> {
   factory $SwidiPositionalParameterCopyWith(SwidiPositionalParameter value,
           $Res Function(SwidiPositionalParameter) then) =
       _$SwidiPositionalParameterCopyWithImpl<$Res>;
-  $Res call({SwidiDeclaration declaration});
+  $Res call({SwidiDeclaration? declaration});
 
   $SwidiDeclarationCopyWith<$Res> get declaration;
 }
@@ -51,16 +51,16 @@ class _$SwidiPositionalParameterCopyWithImpl<$Res>
 
   final SwidiPositionalParameter _value;
   // ignore: unused_field
-  final $Res Function(SwidiPositionalParameter) _then;
+  final $Res Function(SwidiPositionalParameter?) _then;
 
   @override
   $Res call({
-    Object declaration = freezed,
+    Object? declaration = freezed,
   }) {
     return _then(_value.copyWith(
       declaration: declaration == freezed
           ? _value.declaration
-          : declaration as SwidiDeclaration,
+          : declaration as SwidiDeclaration?,
     ));
   }
 
@@ -83,7 +83,7 @@ abstract class _$$SwidiPositionalParameterCtorCopyWith<$Res>
           $Res Function(_$SwidiPositionalParameterCtor) then) =
       __$$SwidiPositionalParameterCtorCopyWithImpl<$Res>;
   @override
-  $Res call({SwidiDeclaration declaration});
+  $Res call({SwidiDeclaration? declaration});
 
   @override
   $SwidiDeclarationCopyWith<$Res> get declaration;
@@ -104,12 +104,12 @@ class __$$SwidiPositionalParameterCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object declaration = freezed,
+    Object? declaration = freezed,
   }) {
     return _then(_$SwidiPositionalParameterCtor(
       declaration: declaration == freezed
           ? _value.declaration
-          : declaration as SwidiDeclaration,
+          : (declaration as SwidiDeclaration?)!,
     ));
   }
 }
@@ -117,7 +117,7 @@ class __$$SwidiPositionalParameterCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidiPositionalParameterCtor
     implements _$SwidiPositionalParameterCtor {
-  const _$_$SwidiPositionalParameterCtor({@required this.declaration})
+  const _$_$SwidiPositionalParameterCtor({required this.declaration})
       : assert(declaration != null);
 
   @override
@@ -151,7 +151,7 @@ class _$_$SwidiPositionalParameterCtor
 abstract class _$SwidiPositionalParameterCtor
     implements SwidiPositionalParameter {
   const factory _$SwidiPositionalParameterCtor(
-          {@required SwidiDeclaration declaration}) =
+          {required SwidiDeclaration declaration}) =
       _$_$SwidiPositionalParameterCtor;
 
   @override

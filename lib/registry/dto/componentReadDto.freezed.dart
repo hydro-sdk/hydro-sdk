@@ -18,13 +18,13 @@ class _$ComponentReadDtoTearOff {
 
 // ignore: unused_element
   _$ComponentReadDtoCtor call(
-      {@required String id,
-      @required String projectId,
-      @required String createdAt,
-      @required String modifiedAt,
-      @required bool isPublic,
-      @required String name,
-      @required String description}) {
+      {required String id,
+      required String projectId,
+      required String createdAt,
+      required String modifiedAt,
+      required bool isPublic,
+      required String name,
+      required String description}) {
     return _$ComponentReadDtoCtor(
       id: id,
       projectId: projectId,
@@ -67,13 +67,13 @@ abstract class $ComponentReadDtoCopyWith<$Res> {
           ComponentReadDto value, $Res Function(ComponentReadDto) then) =
       _$ComponentReadDtoCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String projectId,
-      String createdAt,
-      String modifiedAt,
-      bool isPublic,
-      String name,
-      String description});
+      {String? id,
+      String? projectId,
+      String? createdAt,
+      String? modifiedAt,
+      bool? isPublic,
+      String? name,
+      String? description});
 }
 
 /// @nodoc
@@ -83,28 +83,28 @@ class _$ComponentReadDtoCopyWithImpl<$Res>
 
   final ComponentReadDto _value;
   // ignore: unused_field
-  final $Res Function(ComponentReadDto) _then;
+  final $Res Function(ComponentReadDto?) _then;
 
   @override
   $Res call({
-    Object id = freezed,
-    Object projectId = freezed,
-    Object createdAt = freezed,
-    Object modifiedAt = freezed,
-    Object isPublic = freezed,
-    Object name = freezed,
-    Object description = freezed,
+    Object? id = freezed,
+    Object? projectId = freezed,
+    Object? createdAt = freezed,
+    Object? modifiedAt = freezed,
+    Object? isPublic = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
+      id: id == freezed ? _value.id : id as String?,
+      projectId: projectId == freezed ? _value.projectId : projectId as String?,
+      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String?,
       modifiedAt:
-          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
-      name: name == freezed ? _value.name : name as String,
+          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String?,
+      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool?,
+      name: name == freezed ? _value.name : name as String?,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : description as String?,
     ));
   }
 }
@@ -117,13 +117,13 @@ abstract class _$$ComponentReadDtoCtorCopyWith<$Res>
       __$$ComponentReadDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String projectId,
-      String createdAt,
-      String modifiedAt,
-      bool isPublic,
-      String name,
-      String description});
+      {String? id,
+      String? projectId,
+      String? createdAt,
+      String? modifiedAt,
+      bool? isPublic,
+      String? name,
+      String? description});
 }
 
 /// @nodoc
@@ -139,24 +139,24 @@ class __$$ComponentReadDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object projectId = freezed,
-    Object createdAt = freezed,
-    Object modifiedAt = freezed,
-    Object isPublic = freezed,
-    Object name = freezed,
-    Object description = freezed,
+    Object? id = freezed,
+    Object? projectId = freezed,
+    Object? createdAt = freezed,
+    Object? modifiedAt = freezed,
+    Object? isPublic = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$ComponentReadDtoCtor(
-      id: id == freezed ? _value.id : id as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
+      id: id == freezed ? _value.id : (id as String?)!,
+      projectId: projectId == freezed ? _value.projectId : (projectId as String?)!,
+      createdAt: createdAt == freezed ? _value.createdAt : (createdAt as String?)!,
       modifiedAt:
-          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool,
-      name: name == freezed ? _value.name : name as String,
+          modifiedAt == freezed ? _value.modifiedAt : (modifiedAt as String?)!,
+      isPublic: isPublic == freezed ? _value.isPublic : (isPublic as bool?)!,
+      name: name == freezed ? _value.name : (name as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : (description as String?)!,
     ));
   }
 }
@@ -166,13 +166,13 @@ class __$$ComponentReadDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ComponentReadDtoCtor implements _$ComponentReadDtoCtor {
   const _$_$ComponentReadDtoCtor(
-      {@required this.id,
-      @required this.projectId,
-      @required this.createdAt,
-      @required this.modifiedAt,
-      @required this.isPublic,
-      @required this.name,
-      @required this.description})
+      {required this.id,
+      required this.projectId,
+      required this.createdAt,
+      required this.modifiedAt,
+      required this.isPublic,
+      required this.name,
+      required this.description})
       : assert(id != null),
         assert(projectId != null),
         assert(createdAt != null),
@@ -254,13 +254,13 @@ class _$_$ComponentReadDtoCtor implements _$ComponentReadDtoCtor {
 
 abstract class _$ComponentReadDtoCtor implements ComponentReadDto {
   const factory _$ComponentReadDtoCtor(
-      {@required String id,
-      @required String projectId,
-      @required String createdAt,
-      @required String modifiedAt,
-      @required bool isPublic,
-      @required String name,
-      @required String description}) = _$_$ComponentReadDtoCtor;
+      {required String id,
+      required String projectId,
+      required String createdAt,
+      required String modifiedAt,
+      required bool isPublic,
+      required String name,
+      required String description}) = _$_$ComponentReadDtoCtor;
 
   factory _$ComponentReadDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$ComponentReadDtoCtor.fromJson;

@@ -7,41 +7,41 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedTextStyle extends VMManagedBox<TextStyle> {
-  final HydroTable table;
-  final TextStyle vmObject;
-  final HydroState hydroState;
+class VMManagedTextStyle extends VMManagedBox<TextStyle?> {
+  final HydroTable? table;
+  final TextStyle? vmObject;
+  final HydroState? hydroState;
 
   VMManagedTextStyle(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table,
+      required this.vmObject,
+      required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table["copyWith"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!["copyWith"] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<TextStyle>(
-          object: vmObject.copyWith(
+          object: vmObject!.copyWith(
               color: maybeUnBoxAndBuildArgument<Color>(args[1]["color"],
-                  parentState: hydroState)),
-          hydroState: hydroState,
+                  parentState: hydroState!)),
+          hydroState: hydroState!,
           table: HydroTable(),
         ),
       ];
     });
-    table["apply"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!["apply"] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<TextStyle>(
-          object: vmObject.apply(
+          object: vmObject!.apply(
               color: maybeUnBoxAndBuildArgument<Color>(args[1]["color"],
-                  parentState: hydroState),
+                  parentState: hydroState!),
               fontWeightDelta: args[1]["fontWeightDelta"] != null
                   ? args[1]["fontWeightDelta"]
                   : 0),
-          hydroState: hydroState,
+          hydroState: hydroState!,
           table: HydroTable(),
         ),
       ];
@@ -50,9 +50,9 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
 }
 
 void loadTextStyle(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   registerBoxer(
-      boxer: ({TextStyle vmObject, HydroState hydroState, HydroTable table}) {
+      boxer: ({TextStyle? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedTextStyle(
       vmObject: vmObject,
       hydroState: hydroState,

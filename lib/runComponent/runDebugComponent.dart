@@ -5,15 +5,15 @@ class _RunDebugComponent extends StatefulWidget {
   final String component;
   final int port;
   final Widget loading;
-  final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+  final Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
       thunks;
 
   const _RunDebugComponent({
-    @required this.project,
-    @required this.component,
-    @required this.thunks,
-    @required this.port,
-    @required this.loading,
+    required this.project,
+    required this.component,
+    required this.thunks,
+    required this.port,
+    required this.loading,
   });
 
   @override
@@ -26,8 +26,8 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
         HotReloadable,
         PreloadableCustomNamespaces,
         ReloadableMountableChunk {
-  Timer timer;
-  List<dynamic> args;
+  late Timer timer;
+  List<dynamic>? args;
 
   _RunDebugComponentState() {
     maybeReload();
@@ -63,10 +63,10 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
               setState(() {
                 lastHash = newHash;
               });
-              final rawPackage = await _downloadDebugPackage(
+              final rawPackage = await (_downloadDebugPackage(
                   port: widget.port,
                   project: widget.project,
-                  component: widget.component);
+                  component: widget.component) as FutureOr<Uint8List>);
 
               await maybeReloadMountableChunk(
                 rawPackage: rawPackage,
@@ -92,11 +92,11 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
       if (res == null) {
         return widget.loading;
       } else {
-        if (!res.success) {
-          print(res.values[0]);
+        if (!res!.success) {
+          print(res!.values![0]);
         }
         return maybeUnBoxAndBuildArgument<Widget>(
-            luaState.context.env["hydro"]["globalBuildResult"].dispatch(
+            luaState.context!.env["hydro"]["globalBuildResult"].dispatch(
                 args != null ? [...args] : [],
                 parentState: luaState)[0],
             parentState: luaState);

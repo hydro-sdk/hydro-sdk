@@ -14,38 +14,38 @@ import 'package:hydro_sdk/cfr/vm/upvaldef.dart';
 
 class Prototype {
   Prototype(this.root);
-  final CodeDump root;
-  Prototype parent;
-  String hash;
-  String name;
-  int lineStart;
-  int lineEnd;
-  int params;
-  int varag;
-  int registers;
-  InstBlock code;
-  Int32List rawCode;
-  List<Const> constants;
-  Iterable<Const> constantScope;
-  List<Prototype> prototypes;
-  List<UpvalDef> upvals;
-  String source;
-  List<int> lines;
-  List<Local> locals;
-  ModuleDebugInfo debugSymbol;
-  ThreadResult Function({@required Frame frame, @required Prototype prototype})
+  final CodeDump? root;
+  Prototype? parent;
+  String? hash;
+  String? name;
+  int? lineStart;
+  int? lineEnd;
+  int? params;
+  int? varag;
+  int? registers;
+  InstBlock? code;
+  Int32List? rawCode;
+  List<Const>? constants;
+  Iterable<Const>? constantScope;
+  List<Prototype>? prototypes;
+  late List<UpvalDef> upvals;
+  String? source;
+  List<int>? lines;
+  late List<Local> locals;
+  ModuleDebugInfo? debugSymbol;
+  ThreadResult Function({required Frame frame, required Prototype prototype})?
       interpreter;
 
-  Prototype findPrototypeByDebugSymbol({@required ModuleDebugInfo symbol}) {
+  Prototype? findPrototypeByDebugSymbol({required ModuleDebugInfo? symbol}) {
     if (debugSymbol != null &&
         symbol != null &&
-        debugSymbol.symbolFullyQualifiedMangleName ==
+        debugSymbol!.symbolFullyQualifiedMangleName ==
             symbol.symbolFullyQualifiedMangleName) {
       return this;
     } else {
-      if (prototypes != null && prototypes.isNotEmpty) {
-        for (var i = 0; i != prototypes.length; ++i) {
-          var target = prototypes[i].findPrototypeByDebugSymbol(symbol: symbol);
+      if (prototypes != null && prototypes!.isNotEmpty) {
+        for (var i = 0; i != prototypes!.length; ++i) {
+          var target = prototypes![i].findPrototypeByDebugSymbol(symbol: symbol);
           if (target != null) {
             return target;
           }
@@ -56,7 +56,7 @@ class Prototype {
   }
 
   List<int> opCodeRange() {
-    return code.list
+    return code!.list
         .map((x) {
           return x.OP;
         })
@@ -70,7 +70,7 @@ class Prototype {
     if (lineStart == null ||
         lineEnd == null ||
         lines == null ||
-        lines.isEmpty) {
+        lines!.isEmpty) {
       return BuildProfile.release;
     } else {
       return BuildProfile.debug;
@@ -82,10 +82,10 @@ class Prototype {
     int releaseProtos = 0;
     int mixedProtos = 0;
 
-    if (prototypes == null || prototypes.isEmpty) {
+    if (prototypes == null || prototypes!.isEmpty) {
       return topBuildProfile;
     } else {
-      prototypes.forEach((x) {
+      prototypes!.forEach((x) {
         if (x.buildProfile == BuildProfile.debug) {
           debugProtos++;
         } else if (x.buildProfile == BuildProfile.release) {

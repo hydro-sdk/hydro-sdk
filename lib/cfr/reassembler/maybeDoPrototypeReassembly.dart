@@ -8,14 +8,14 @@ import 'package:hydro_sdk/cfr/reassembler/reassembleStatus.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 void maybeDoPrototypeReassembly(
-    {@required ReassembleStatus reassembleStatus,
-    @required Prototype destination,
-    @required List<HashedPrototype> sourceProtos}) {
+    {required ReassembleStatus reassembleStatus,
+    required Prototype? destination,
+    required List<HashedPrototype> sourceProtos}) {
   if (reassembleStatus.bailedOut) {
     return;
   }
   for (var i = 0; i != sourceProtos.length; ++i) {
-    if (isReassemblyCandidate(destination, sourceProtos[i].prototype)) {
+    if (isReassemblyCandidate(destination!, sourceProtos[i].prototype)) {
       String beforeHash = hashPrototype(destination);
       reassemblePrototype(
           destination: destination, source: sourceProtos[i].prototype);
@@ -30,8 +30,8 @@ void maybeDoPrototypeReassembly(
       break;
     }
   }
-  if (destination.prototypes != null && destination.prototypes.isNotEmpty) {
-    destination.prototypes.forEach((x) {
+  if (destination!.prototypes != null && destination.prototypes!.isNotEmpty) {
+    destination.prototypes!.forEach((x) {
       maybeDoPrototypeReassembly(
           reassembleStatus: reassembleStatus,
           destination: x,

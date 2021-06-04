@@ -63,7 +63,7 @@ class _Installer {
   bool hasDependenciesInstalled(Package package) =>
       package.dir.existsSync() && package.packagesFile.existsSync();
 
-  Future<ProcessResult> installDependencies(Package package,
+  Future<ProcessResult?> installDependencies(Package package,
       {bool silent = false}) async {
     var sourcePath = package.dir.path;
     if (!package.dir.existsSync()) {

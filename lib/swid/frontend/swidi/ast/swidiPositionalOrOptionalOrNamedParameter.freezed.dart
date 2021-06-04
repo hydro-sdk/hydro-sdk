@@ -16,7 +16,7 @@ class _$SwidiPositionalOrOptionalOrNamedParameterTearOff {
 // ignore: unused_element
   _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
       fromSwidiPositionalParameter(
-          {@required SwidiPositionalParameter positionalParameter}) {
+          {required SwidiPositionalParameter positionalParameter}) {
     return _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter(
       positionalParameter: positionalParameter,
     );
@@ -25,7 +25,7 @@ class _$SwidiPositionalOrOptionalOrNamedParameterTearOff {
 // ignore: unused_element
   _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
       fromSwidiOptionalParameter(
-          {@required SwidiOptionalParameter optionalParameter}) {
+          {required SwidiOptionalParameter optionalParameter}) {
     return _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter(
       optionalParameter: optionalParameter,
     );
@@ -33,7 +33,7 @@ class _$SwidiPositionalOrOptionalOrNamedParameterTearOff {
 
 // ignore: unused_element
   _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
-      fromSwidiNamedParameter({@required SwidiNamedParameter namedParameter}) {
+      fromSwidiNamedParameter({required SwidiNamedParameter namedParameter}) {
     return _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter(
       namedParameter: namedParameter,
     );
@@ -49,35 +49,35 @@ const $SwidiPositionalOrOptionalOrNamedParameter =
 mixin _$SwidiPositionalOrOptionalOrNamedParameter {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidiPositionalParameter(
             SwidiPositionalParameter positionalParameter),
-    @required
+    required
         TResult fromSwidiOptionalParameter(
             SwidiOptionalParameter optionalParameter),
-    @required
+    required
         TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter),
   });
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
+  TResult maybeWhen<TResult extends Object?>({
     TResult fromSwidiPositionalParameter(
-        SwidiPositionalParameter positionalParameter),
+        SwidiPositionalParameter positionalParameter)?,
     TResult fromSwidiOptionalParameter(
-        SwidiOptionalParameter optionalParameter),
-    TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter),
-    @required TResult orElse(),
+        SwidiOptionalParameter optionalParameter)?,
+    TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter)?,
+    required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required
+    required
         TResult fromSwidiPositionalParameter(
             _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
                 value),
-    @required
+    required
         TResult fromSwidiOptionalParameter(
             _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
                 value),
-    @required
+    required
         TResult fromSwidiNamedParameter(
             _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
                 value),
@@ -85,13 +85,13 @@ mixin _$SwidiPositionalOrOptionalOrNamedParameter {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fromSwidiPositionalParameter(
-        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter value),
+        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter value)?,
     TResult fromSwidiOptionalParameter(
-        _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter value),
+        _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter value)?,
     TResult fromSwidiNamedParameter(
         _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
-            value),
-    @required TResult orElse(),
+            value)?,
+    required TResult orElse(),
   });
 }
 
@@ -111,7 +111,7 @@ class _$SwidiPositionalOrOptionalOrNamedParameterCopyWithImpl<$Res>
 
   final SwidiPositionalOrOptionalOrNamedParameter _value;
   // ignore: unused_field
-  final $Res Function(SwidiPositionalOrOptionalOrNamedParameter) _then;
+  final $Res Function(SwidiPositionalOrOptionalOrNamedParameter?) _then;
 }
 
 /// @nodoc
@@ -124,7 +124,7 @@ abstract class _$$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
               then) =
       __$$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameterCopyWithImpl<
           $Res>;
-  $Res call({SwidiPositionalParameter positionalParameter});
+  $Res call({SwidiPositionalParameter? positionalParameter});
 
   $SwidiPositionalParameterCopyWith<$Res> get positionalParameter;
 }
@@ -153,13 +153,13 @@ class __$$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameterCopyWith
 
   @override
   $Res call({
-    Object positionalParameter = freezed,
+    Object? positionalParameter = freezed,
   }) {
     return _then(
         _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter(
       positionalParameter: positionalParameter == freezed
           ? _value.positionalParameter
-          : positionalParameter as SwidiPositionalParameter,
+          : (positionalParameter as SwidiPositionalParameter?)!,
     ));
   }
 
@@ -180,7 +180,7 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
     implements
         _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter {
   const _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter(
-      {@required this.positionalParameter})
+      {required this.positionalParameter})
       : assert(positionalParameter != null);
 
   @override
@@ -217,13 +217,13 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidiPositionalParameter(
             SwidiPositionalParameter positionalParameter),
-    @required
+    required
         TResult fromSwidiOptionalParameter(
             SwidiOptionalParameter optionalParameter),
-    @required
+    required
         TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter),
   }) {
     assert(fromSwidiPositionalParameter != null);
@@ -236,11 +236,11 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fromSwidiPositionalParameter(
-        SwidiPositionalParameter positionalParameter),
+        SwidiPositionalParameter positionalParameter)?,
     TResult fromSwidiOptionalParameter(
-        SwidiOptionalParameter optionalParameter),
-    TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter),
-    @required TResult orElse(),
+        SwidiOptionalParameter optionalParameter)?,
+    TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiPositionalParameter != null) {
@@ -252,15 +252,15 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required
+    required
         TResult fromSwidiPositionalParameter(
             _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
                 value),
-    @required
+    required
         TResult fromSwidiOptionalParameter(
             _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
                 value),
-    @required
+    required
         TResult fromSwidiNamedParameter(
             _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
                 value),
@@ -275,13 +275,13 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fromSwidiPositionalParameter(
-        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter value),
+        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter value)?,
     TResult fromSwidiOptionalParameter(
-        _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter value),
+        _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter value)?,
     TResult fromSwidiNamedParameter(
         _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
-            value),
-    @required TResult orElse(),
+            value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiPositionalParameter != null) {
@@ -294,7 +294,7 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
 abstract class _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
     implements SwidiPositionalOrOptionalOrNamedParameter {
   const factory _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter(
-          {@required SwidiPositionalParameter positionalParameter}) =
+          {required SwidiPositionalParameter positionalParameter}) =
       _$_$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter;
 
   SwidiPositionalParameter get positionalParameter;
@@ -314,7 +314,7 @@ abstract class _$$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameterCo
               then) =
       __$$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameterCopyWithImpl<
           $Res>;
-  $Res call({SwidiOptionalParameter optionalParameter});
+  $Res call({SwidiOptionalParameter? optionalParameter});
 
   $SwidiOptionalParameterCopyWith<$Res> get optionalParameter;
 }
@@ -343,12 +343,12 @@ class __$$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameterCopyWithIm
 
   @override
   $Res call({
-    Object optionalParameter = freezed,
+    Object? optionalParameter = freezed,
   }) {
     return _then(_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter(
       optionalParameter: optionalParameter == freezed
           ? _value.optionalParameter
-          : optionalParameter as SwidiOptionalParameter,
+          : (optionalParameter as SwidiOptionalParameter?)!,
     ));
   }
 
@@ -368,7 +368,7 @@ class __$$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameterCopyWithIm
 class _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
     implements _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter {
   const _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter(
-      {@required this.optionalParameter})
+      {required this.optionalParameter})
       : assert(optionalParameter != null);
 
   @override
@@ -405,13 +405,13 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidiPositionalParameter(
             SwidiPositionalParameter positionalParameter),
-    @required
+    required
         TResult fromSwidiOptionalParameter(
             SwidiOptionalParameter optionalParameter),
-    @required
+    required
         TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter),
   }) {
     assert(fromSwidiPositionalParameter != null);
@@ -424,11 +424,11 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fromSwidiPositionalParameter(
-        SwidiPositionalParameter positionalParameter),
+        SwidiPositionalParameter positionalParameter)?,
     TResult fromSwidiOptionalParameter(
-        SwidiOptionalParameter optionalParameter),
-    TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter),
-    @required TResult orElse(),
+        SwidiOptionalParameter optionalParameter)?,
+    TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiOptionalParameter != null) {
@@ -440,15 +440,15 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required
+    required
         TResult fromSwidiPositionalParameter(
             _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
                 value),
-    @required
+    required
         TResult fromSwidiOptionalParameter(
             _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
                 value),
-    @required
+    required
         TResult fromSwidiNamedParameter(
             _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
                 value),
@@ -463,13 +463,13 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fromSwidiPositionalParameter(
-        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter value),
+        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter value)?,
     TResult fromSwidiOptionalParameter(
-        _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter value),
+        _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter value)?,
     TResult fromSwidiNamedParameter(
         _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
-            value),
-    @required TResult orElse(),
+            value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiOptionalParameter != null) {
@@ -482,7 +482,7 @@ class _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
 abstract class _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
     implements SwidiPositionalOrOptionalOrNamedParameter {
   const factory _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter(
-          {@required SwidiOptionalParameter optionalParameter}) =
+          {required SwidiOptionalParameter optionalParameter}) =
       _$_$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter;
 
   SwidiOptionalParameter get optionalParameter;
@@ -502,7 +502,7 @@ abstract class _$$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParamet
               then) =
       __$$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameterCopyWithImpl<
           $Res>;
-  $Res call({SwidiNamedParameter namedParameter});
+  $Res call({SwidiNamedParameter? namedParameter});
 
   $SwidiNamedParameterCopyWith<$Res> get namedParameter;
 }
@@ -531,13 +531,13 @@ class __$$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameterCopyWi
 
   @override
   $Res call({
-    Object namedParameter = freezed,
+    Object? namedParameter = freezed,
   }) {
     return _then(
         _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter(
       namedParameter: namedParameter == freezed
           ? _value.namedParameter
-          : namedParameter as SwidiNamedParameter,
+          : (namedParameter as SwidiNamedParameter?)!,
     ));
   }
 
@@ -557,7 +557,7 @@ class _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
     implements
         _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter {
   const _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter(
-      {@required this.namedParameter})
+      {required this.namedParameter})
       : assert(namedParameter != null);
 
   @override
@@ -594,13 +594,13 @@ class _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required
+    required
         TResult fromSwidiPositionalParameter(
             SwidiPositionalParameter positionalParameter),
-    @required
+    required
         TResult fromSwidiOptionalParameter(
             SwidiOptionalParameter optionalParameter),
-    @required
+    required
         TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter),
   }) {
     assert(fromSwidiPositionalParameter != null);
@@ -613,11 +613,11 @@ class _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fromSwidiPositionalParameter(
-        SwidiPositionalParameter positionalParameter),
+        SwidiPositionalParameter positionalParameter)?,
     TResult fromSwidiOptionalParameter(
-        SwidiOptionalParameter optionalParameter),
-    TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter),
-    @required TResult orElse(),
+        SwidiOptionalParameter optionalParameter)?,
+    TResult fromSwidiNamedParameter(SwidiNamedParameter namedParameter)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiNamedParameter != null) {
@@ -629,15 +629,15 @@ class _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required
+    required
         TResult fromSwidiPositionalParameter(
             _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter
                 value),
-    @required
+    required
         TResult fromSwidiOptionalParameter(
             _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter
                 value),
-    @required
+    required
         TResult fromSwidiNamedParameter(
             _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
                 value),
@@ -652,13 +652,13 @@ class _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fromSwidiPositionalParameter(
-        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter value),
+        _$SwidiPositionalOrOptionalParameterFromSwidiPositionalParameter value)?,
     TResult fromSwidiOptionalParameter(
-        _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter value),
+        _$SwidiPositionalOrOptionalParameterFromSwidiOptionalParameter value)?,
     TResult fromSwidiNamedParameter(
         _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
-            value),
-    @required TResult orElse(),
+            value)?,
+    required TResult orElse(),
   }) {
     assert(orElse != null);
     if (fromSwidiNamedParameter != null) {
@@ -671,7 +671,7 @@ class _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
 abstract class _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter
     implements SwidiPositionalOrOptionalOrNamedParameter {
   const factory _$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter(
-          {@required SwidiNamedParameter namedParameter}) =
+          {required SwidiNamedParameter namedParameter}) =
       _$_$SwidiPositionalOrOptionalOrNamedParameterFromSwidiNamedParameter;
 
   SwidiNamedParameter get namedParameter;

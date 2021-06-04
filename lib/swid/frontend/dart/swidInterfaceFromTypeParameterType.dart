@@ -7,13 +7,13 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 
 SwidInterface swidInterfaceFromTypeParameterType(
-        {@required TypeParameterType typeParameterType}) =>
+        {required TypeParameterType typeParameterType}) =>
     SwidInterface(
       name: typeParameterType.element?.name ??
           typeParameterType?.getDisplayString(withNullability: false),
       typeArguments: [],
       nullabilitySuffix: mapNullabilitySuffix(
-          nullabilitySuffix: typeParameterType.nullabilitySuffix),
+          nullabilitySuffix: typeParameterType.nullabilitySuffix)!,
       originalPackagePath:
           typeParameterType.element?.librarySource?.uri?.toString() ?? "",
       referenceDeclarationKind: SwidReferenceDeclarationKind.typeParameterType,

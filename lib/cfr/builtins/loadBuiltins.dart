@@ -26,7 +26,7 @@ enum BuiltinLib {
 }
 
 void loadBuiltins(
-    {@required HydroState hydroState,
+    {required HydroState hydroState,
     List<BuiltinLib> builtins = const [
       BuiltinLib.base,
       BuiltinLib.math,
@@ -42,34 +42,34 @@ void loadBuiltins(
   builtins.forEach((lib) {
     switch (lib) {
       case BuiltinLib.base:
-        loadBaseLib(hydroState: hydroState, ctx: hydroState.context);
+        loadBaseLib(hydroState: hydroState, ctx: hydroState.context!);
         break;
       case BuiltinLib.math:
-        loadMathLib(hydroState.context);
+        loadMathLib(hydroState.context!);
         break;
       case BuiltinLib.string:
-        loadStringLib(hydroState: hydroState, ctx: hydroState.context);
+        loadStringLib(hydroState: hydroState, ctx: hydroState.context!);
         break;
       case BuiltinLib.bit:
-        loadBitLib(hydroState.context);
+        loadBitLib(hydroState.context!);
         break;
       case BuiltinLib.table:
-        loadTableLib(hydroState: hydroState, ctx: hydroState.context);
+        loadTableLib(hydroState: hydroState, ctx: hydroState.context!);
         break;
       case BuiltinLib.bit32:
-        loadBit32Lib(hydroState.context);
+        loadBit32Lib(hydroState.context!);
         break;
       case BuiltinLib.flutter:
-        loadFlutterLib(luaState: hydroState, ctx: hydroState.context);
+        loadFlutterLib(luaState: hydroState, ctx: hydroState.context!);
         break;
       case BuiltinLib.dart:
-        loaddart(hydroState: hydroState, context: hydroState.context);
+        loaddart(hydroState: hydroState, context: hydroState.context!);
         break;
       case BuiltinLib.hydro:
-        loadHydroLib(hydroState.context);
+        loadHydroLib(hydroState.context!);
         break;
       case BuiltinLib.http:
-        loadHttpLib(hydroState: hydroState, ctx: hydroState.context);
+        loadHttpLib(hydroState: hydroState, ctx: hydroState.context!);
         break;
     }
   });

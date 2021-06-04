@@ -15,9 +15,9 @@ class _$BarrelSpecTearOff {
 
 // ignore: unused_element
   _$BarrelSpecCtor call(
-      {@required String path,
-      @required String name,
-      @required List<BarrelMember> members}) {
+      {required String path,
+      required String name,
+      required List<BarrelMember> members}) {
     return _$BarrelSpecCtor(
       path: path,
       name: name,
@@ -45,7 +45,7 @@ abstract class $BarrelSpecCopyWith<$Res> {
   factory $BarrelSpecCopyWith(
           BarrelSpec value, $Res Function(BarrelSpec) then) =
       _$BarrelSpecCopyWithImpl<$Res>;
-  $Res call({String path, String name, List<BarrelMember> members});
+  $Res call({String? path, String? name, List<BarrelMember>? members});
 }
 
 /// @nodoc
@@ -54,19 +54,19 @@ class _$BarrelSpecCopyWithImpl<$Res> implements $BarrelSpecCopyWith<$Res> {
 
   final BarrelSpec _value;
   // ignore: unused_field
-  final $Res Function(BarrelSpec) _then;
+  final $Res Function(BarrelSpec?) _then;
 
   @override
   $Res call({
-    Object path = freezed,
-    Object name = freezed,
-    Object members = freezed,
+    Object? path = freezed,
+    Object? name = freezed,
+    Object? members = freezed,
   }) {
     return _then(_value.copyWith(
-      path: path == freezed ? _value.path : path as String,
-      name: name == freezed ? _value.name : name as String,
+      path: path == freezed ? _value.path : path as String?,
+      name: name == freezed ? _value.name : name as String?,
       members:
-          members == freezed ? _value.members : members as List<BarrelMember>,
+          members == freezed ? _value.members : members as List<BarrelMember>?,
     ));
   }
 }
@@ -78,7 +78,7 @@ abstract class _$$BarrelSpecCtorCopyWith<$Res>
           _$BarrelSpecCtor value, $Res Function(_$BarrelSpecCtor) then) =
       __$$BarrelSpecCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String path, String name, List<BarrelMember> members});
+  $Res call({String? path, String? name, List<BarrelMember>? members});
 }
 
 /// @nodoc
@@ -94,15 +94,15 @@ class __$$BarrelSpecCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object path = freezed,
-    Object name = freezed,
-    Object members = freezed,
+    Object? path = freezed,
+    Object? name = freezed,
+    Object? members = freezed,
   }) {
     return _then(_$BarrelSpecCtor(
-      path: path == freezed ? _value.path : path as String,
-      name: name == freezed ? _value.name : name as String,
+      path: path == freezed ? _value.path : (path as String?)!,
+      name: name == freezed ? _value.name : (name as String?)!,
       members:
-          members == freezed ? _value.members : members as List<BarrelMember>,
+          members == freezed ? _value.members : (members as List<BarrelMember>?)!,
     ));
   }
 }
@@ -110,7 +110,7 @@ class __$$BarrelSpecCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
   _$_$BarrelSpecCtor(
-      {@required this.path, @required this.name, @required this.members})
+      {required this.path, required this.name, required this.members})
       : assert(path != null),
         assert(name != null),
         assert(members != null);
@@ -154,9 +154,9 @@ class _$_$BarrelSpecCtor implements _$BarrelSpecCtor {
 
 abstract class _$BarrelSpecCtor implements BarrelSpec {
   factory _$BarrelSpecCtor(
-      {@required String path,
-      @required String name,
-      @required List<BarrelMember> members}) = _$_$BarrelSpecCtor;
+      {required String path,
+      required String name,
+      required List<BarrelMember> members}) = _$_$BarrelSpecCtor;
 
   @override
   String get path;

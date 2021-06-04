@@ -22,17 +22,17 @@ import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/dto/userReadDto.dart';
 
 class RegistryApi {
-  final String baseUrl;
+  final String? baseUrl;
 
   const RegistryApi({
-    @required this.baseUrl,
+    required this.baseUrl,
   });
 
-  Future<UserReadDto> getUser({
-    @required String username,
+  Future<UserReadDto?> getUser({
+    required String username,
   }) async {
     final response = await get(
-      Uri.https(baseUrl, "api/user/${username}"),
+      Uri.https(baseUrl!, "api/user/${username}"),
       headers: {
         "content-type": "application/json",
       },
@@ -46,9 +46,9 @@ class RegistryApi {
   }
 
   Future<bool> createUser({
-    @required CreateUserDto dto,
+    required CreateUserDto dto,
   }) async {
-    final response = await post(Uri.https(baseUrl, "api/user"),
+    final response = await post(Uri.https(baseUrl!, "api/user"),
         headers: {
           "content-type": "application/json",
           "accept": "*/*",
@@ -61,10 +61,10 @@ class RegistryApi {
     return false;
   }
 
-  Future<SessionDto> login({
-    @required LoginUserDto dto,
+  Future<SessionDto?> login({
+    required LoginUserDto dto,
   }) async {
-    final response = await post(Uri.https(baseUrl, "api/login"),
+    final response = await post(Uri.https(baseUrl!, "api/login"),
         headers: {
           "content-type": "application/json",
           "accept": "*/*",
@@ -85,11 +85,11 @@ class RegistryApi {
     return null;
   }
 
-  Future<ProjectEntity> createProject({
-    @required CreateProjectDto dto,
-    @required SessionDto sessionDto,
+  Future<ProjectEntity?> createProject({
+    required CreateProjectDto dto,
+    required SessionDto sessionDto,
   }) async {
-    final response = await post(Uri.https(baseUrl, "api/project"),
+    final response = await post(Uri.https(baseUrl!, "api/project"),
         headers: {
           "content-type": "application/json",
           "Authorization": "Bearer ${sessionDto.authToken}",
@@ -102,11 +102,11 @@ class RegistryApi {
     return null;
   }
 
-  Future<CreateComponentResponseDto> createComponent({
-    @required CreateComponentDto dto,
-    @required SessionDto sessionDto,
+  Future<CreateComponentResponseDto?> createComponent({
+    required CreateComponentDto dto,
+    required SessionDto sessionDto,
   }) async {
-    final response = await post(Uri.https(baseUrl, "api/component"),
+    final response = await post(Uri.https(baseUrl!, "api/component"),
         headers: {
           "content-type": "application/json",
           "Authorization": "Bearer ${sessionDto.authToken}",
@@ -119,12 +119,12 @@ class RegistryApi {
     return null;
   }
 
-  Future<List<ProjectEntity>> canUpdateProjects({
-    @required SessionDto sessionDto,
+  Future<List<ProjectEntity>?> canUpdateProjects({
+    required SessionDto sessionDto,
   }) async {
     final response = await get(
       Uri.https(
-          baseUrl, "api/project/canUpdate/${sessionDto.authenticatedUser.sub}"),
+          baseUrl!, "api/project/canUpdate/${sessionDto.authenticatedUser.sub}"),
       headers: {
         "content-type": "application/json",
         "Authorization": "Bearer ${sessionDto.authToken}",
@@ -141,11 +141,11 @@ class RegistryApi {
     return null;
   }
 
-  Future<List<ComponentReadDto>> canUpdateComponents({
-    @required SessionDto sessionDto,
+  Future<List<ComponentReadDto>?> canUpdateComponents({
+    required SessionDto sessionDto,
   }) async {
     final response = await get(
-      Uri.https(baseUrl,
+      Uri.https(baseUrl!,
           "api/component/canUpdate/${sessionDto.authenticatedUser.sub}"),
       headers: {
         "content-type": "application/json",
@@ -163,9 +163,9 @@ class RegistryApi {
   }
 
   Future<Response> createPackage({
-    @required CreatePackageDto createPackageDto,
+    required CreatePackageDto createPackageDto,
   }) async {
-    final response = await post(Uri.https(baseUrl, "api/package"),
+    final response = await post(Uri.https(baseUrl!, "api/package"),
         headers: {
           "content-type": "application/json",
         },
@@ -175,8 +175,8 @@ class RegistryApi {
   }
 
   Future<Response> getLatestPackageUri(
-      {@required GetPackageDto getPackageDto}) async {
-    final response = await post(Uri.https(baseUrl, "api/package/latestUri"),
+      {required GetPackageDto getPackageDto}) async {
+    final response = await post(Uri.https(baseUrl!, "api/package/latestUri"),
         headers: {
           "content-type": "application/json",
         },
@@ -185,10 +185,10 @@ class RegistryApi {
     return response;
   }
 
-  Future<List<ComponentSearchDto>> searchComponents(
-      {@required String searchTerm}) async {
+  Future<List<ComponentSearchDto>?> searchComponents(
+      {required String searchTerm}) async {
     final response = await get(
-      Uri.https(baseUrl, "api/component/search", {
+      Uri.https(baseUrl!, "api/component/search", {
         "q": searchTerm,
       }),
       headers: {
@@ -206,12 +206,12 @@ class RegistryApi {
     return null;
   }
 
-  Future<ComponentReadDto> getComponentByNameInProjectByName({
-    @required String projectName,
-    @required String componentName,
+  Future<ComponentReadDto?> getComponentByNameInProjectByName({
+    required String projectName,
+    required String componentName,
   }) async {
     final response = await get(
-        Uri.https(baseUrl, "api/component", {
+        Uri.https(baseUrl!, "api/component", {
           "project": projectName,
           "component": componentName,
         }),
@@ -225,10 +225,10 @@ class RegistryApi {
     return null;
   }
 
-  Future<List<ReleaseChannelReadDto>> getAllReleaseChannelsByComponentId(
-      {@required String componentId}) async {
+  Future<List<ReleaseChannelReadDto>?> getAllReleaseChannelsByComponentId(
+      {required String componentId}) async {
     final response = await get(
-      Uri.https(baseUrl, "api/release-channel/component/${componentId}"),
+      Uri.https(baseUrl!, "api/release-channel/component/${componentId}"),
       headers: {
         "content-type": "application/json",
       },
@@ -244,10 +244,10 @@ class RegistryApi {
     return null;
   }
 
-  Future<PackageReadDto> getLatestMetadataForReleaseChannelId(
-      {@required String releaseChannelId}) async {
+  Future<PackageReadDto?> getLatestMetadataForReleaseChannelId(
+      {required String releaseChannelId}) async {
     final response = await get(
-      Uri.https(baseUrl, "api/package/release-channel/${releaseChannelId}"),
+      Uri.https(baseUrl!, "api/package/release-channel/${releaseChannelId}"),
       headers: {
         "content-type": "application/json",
       },
@@ -260,10 +260,10 @@ class RegistryApi {
     return null;
   }
 
-  Future<ProjectCreationsReadDto> getRemainingProjectCreations(
-      {@required SessionDto sessionDto}) async {
+  Future<ProjectCreationsReadDto?> getRemainingProjectCreations(
+      {required SessionDto sessionDto}) async {
     final response = await get(
-      Uri.https(baseUrl, "api/user/remaining-project-creations"),
+      Uri.https(baseUrl!, "api/user/remaining-project-creations"),
       headers: {
         "content-type": "application/json",
         "Authorization": "Bearer ${sessionDto.authToken}",
@@ -277,11 +277,11 @@ class RegistryApi {
     return null;
   }
 
-  Future<ProjectEntity> getProjectById({
-    @required String projectId,
+  Future<ProjectEntity?> getProjectById({
+    required String projectId,
   }) async {
     final response = await get(
-      Uri.https(baseUrl, "api/project/${projectId}"),
+      Uri.https(baseUrl!, "api/project/${projectId}"),
       headers: {
         "content-type": "application/json",
       },

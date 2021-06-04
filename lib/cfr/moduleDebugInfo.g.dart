@@ -8,22 +8,22 @@ part of 'moduleDebugInfo.dart';
 
 ModuleDebugInfo _$ModuleDebugInfoFromJson(Map<String, dynamic> json) {
   return ModuleDebugInfo(
-    lineStart: json['lineStart'] as int,
-    lineEnd: json['lineEnd'] as int,
-    columnStart: json['columnStart'] as int,
-    columnEnd: json['columnEnd'] as int,
-    symbolName: json['symbolName'] as String,
-    fileName: json['fileName'] as String,
-    moduleName: json['moduleName'] as String,
-    originalFileName: json['originalFileName'] as String,
-    originalLineStart: json['originalLineStart'] as int,
-    originalColumnStart: json['originalColumnStart'] as int,
+    lineStart: json['lineStart'] as int?,
+    lineEnd: json['lineEnd'] as int?,
+    columnStart: json['columnStart'] as int?,
+    columnEnd: json['columnEnd'] as int?,
+    symbolName: json['symbolName'] as String?,
+    fileName: json['fileName'] as String?,
+    moduleName: json['moduleName'] as String?,
+    originalFileName: json['originalFileName'] as String?,
+    originalLineStart: json['originalLineStart'] as int?,
+    originalColumnStart: json['originalColumnStart'] as int?,
     parameterNames:
-        (json['parameterNames'] as List)?.map((e) => e as String)?.toList(),
-    symbolMangleName: json['symbolMangleName'] as String,
+        (json['parameterNames'] as List?)?.map((e) => e as String)?.toList(),
+    symbolMangleName: json['symbolMangleName'] as String?,
     symbolFullyQualifiedMangleName:
-        json['symbolFullyQualifiedMangleName'] as String,
-    symbolDisambiguationIndex: json['symbolDisambiguationIndex'] as int,
+        json['symbolFullyQualifiedMangleName'] as String?,
+    symbolDisambiguationIndex: json['symbolDisambiguationIndex'] as int?,
   );
 }
 

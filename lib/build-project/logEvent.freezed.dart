@@ -18,7 +18,7 @@ class _$DiagnosticLogEventTearOff {
 
 // ignore: unused_element
   _$DiagnosticLogEventCtor call(
-      {@required int logEventType, @required String message}) {
+      {required int logEventType, required String message}) {
     return _$DiagnosticLogEventCtor(
       logEventType: logEventType,
       message: message,
@@ -50,7 +50,7 @@ abstract class $DiagnosticLogEventCopyWith<$Res> {
   factory $DiagnosticLogEventCopyWith(
           DiagnosticLogEvent value, $Res Function(DiagnosticLogEvent) then) =
       _$DiagnosticLogEventCopyWithImpl<$Res>;
-  $Res call({int logEventType, String message});
+  $Res call({int? logEventType, String? message});
 }
 
 /// @nodoc
@@ -60,17 +60,17 @@ class _$DiagnosticLogEventCopyWithImpl<$Res>
 
   final DiagnosticLogEvent _value;
   // ignore: unused_field
-  final $Res Function(DiagnosticLogEvent) _then;
+  final $Res Function(DiagnosticLogEvent?) _then;
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object message = freezed,
+    Object? logEventType = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      message: message == freezed ? _value.message : message as String,
+          logEventType == freezed ? _value.logEventType : logEventType as int?,
+      message: message == freezed ? _value.message : message as String?,
     ));
   }
 }
@@ -82,7 +82,7 @@ abstract class _$$DiagnosticLogEventCtorCopyWith<$Res>
           $Res Function(_$DiagnosticLogEventCtor) then) =
       __$$DiagnosticLogEventCtorCopyWithImpl<$Res>;
   @override
-  $Res call({int logEventType, String message});
+  $Res call({int? logEventType, String? message});
 }
 
 /// @nodoc
@@ -99,13 +99,13 @@ class __$$DiagnosticLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object message = freezed,
+    Object? logEventType = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$DiagnosticLogEventCtor(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      message: message == freezed ? _value.message : message as String,
+          logEventType == freezed ? _value.logEventType : (logEventType as int?)!,
+      message: message == freezed ? _value.message : (message as String?)!,
     ));
   }
 }
@@ -115,7 +115,7 @@ class __$$DiagnosticLogEventCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$DiagnosticLogEventCtor implements _$DiagnosticLogEventCtor {
   const _$_$DiagnosticLogEventCtor(
-      {@required this.logEventType, @required this.message})
+      {required this.logEventType, required this.message})
       : assert(logEventType != null),
         assert(message != null);
 
@@ -163,8 +163,8 @@ class _$_$DiagnosticLogEventCtor implements _$DiagnosticLogEventCtor {
 
 abstract class _$DiagnosticLogEventCtor implements DiagnosticLogEvent {
   const factory _$DiagnosticLogEventCtor(
-      {@required int logEventType,
-      @required String message}) = _$_$DiagnosticLogEventCtor;
+      {required int logEventType,
+      required String message}) = _$_$DiagnosticLogEventCtor;
 
   factory _$DiagnosticLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$DiagnosticLogEventCtor.fromJson;
@@ -188,7 +188,7 @@ class _$ErrorLogEventTearOff {
 
 // ignore: unused_element
   _$ErrorLogEventCtor call(
-      {@required int logEventType, @required String message}) {
+      {required int logEventType, required String message}) {
     return _$ErrorLogEventCtor(
       logEventType: logEventType,
       message: message,
@@ -220,7 +220,7 @@ abstract class $ErrorLogEventCopyWith<$Res> {
   factory $ErrorLogEventCopyWith(
           ErrorLogEvent value, $Res Function(ErrorLogEvent) then) =
       _$ErrorLogEventCopyWithImpl<$Res>;
-  $Res call({int logEventType, String message});
+  $Res call({int? logEventType, String? message});
 }
 
 /// @nodoc
@@ -230,17 +230,17 @@ class _$ErrorLogEventCopyWithImpl<$Res>
 
   final ErrorLogEvent _value;
   // ignore: unused_field
-  final $Res Function(ErrorLogEvent) _then;
+  final $Res Function(ErrorLogEvent?) _then;
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object message = freezed,
+    Object? logEventType = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      message: message == freezed ? _value.message : message as String,
+          logEventType == freezed ? _value.logEventType : logEventType as int?,
+      message: message == freezed ? _value.message : message as String?,
     ));
   }
 }
@@ -252,7 +252,7 @@ abstract class _$$ErrorLogEventCtorCopyWith<$Res>
           _$ErrorLogEventCtor value, $Res Function(_$ErrorLogEventCtor) then) =
       __$$ErrorLogEventCtorCopyWithImpl<$Res>;
   @override
-  $Res call({int logEventType, String message});
+  $Res call({int? logEventType, String? message});
 }
 
 /// @nodoc
@@ -268,13 +268,13 @@ class __$$ErrorLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object message = freezed,
+    Object? logEventType = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$ErrorLogEventCtor(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
-      message: message == freezed ? _value.message : message as String,
+          logEventType == freezed ? _value.logEventType : (logEventType as int?)!,
+      message: message == freezed ? _value.message : (message as String?)!,
     ));
   }
 }
@@ -284,7 +284,7 @@ class __$$ErrorLogEventCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ErrorLogEventCtor implements _$ErrorLogEventCtor {
   const _$_$ErrorLogEventCtor(
-      {@required this.logEventType, @required this.message})
+      {required this.logEventType, required this.message})
       : assert(logEventType != null),
         assert(message != null);
 
@@ -331,8 +331,8 @@ class _$_$ErrorLogEventCtor implements _$ErrorLogEventCtor {
 
 abstract class _$ErrorLogEventCtor implements ErrorLogEvent {
   const factory _$ErrorLogEventCtor(
-      {@required int logEventType,
-      @required String message}) = _$_$ErrorLogEventCtor;
+      {required int logEventType,
+      required String message}) = _$_$ErrorLogEventCtor;
 
   factory _$ErrorLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$ErrorLogEventCtor.fromJson;
@@ -357,7 +357,7 @@ class _$ProgressStartLogEventTearOff {
 
 // ignore: unused_element
   _$ProgressStartLogEventCtor call(
-      {@required int logEventType, @required String progressId}) {
+      {required int logEventType, required String progressId}) {
     return _$ProgressStartLogEventCtor(
       logEventType: logEventType,
       progressId: progressId,
@@ -389,7 +389,7 @@ abstract class $ProgressStartLogEventCopyWith<$Res> {
   factory $ProgressStartLogEventCopyWith(ProgressStartLogEvent value,
           $Res Function(ProgressStartLogEvent) then) =
       _$ProgressStartLogEventCopyWithImpl<$Res>;
-  $Res call({int logEventType, String progressId});
+  $Res call({int? logEventType, String? progressId});
 }
 
 /// @nodoc
@@ -399,18 +399,18 @@ class _$ProgressStartLogEventCopyWithImpl<$Res>
 
   final ProgressStartLogEvent _value;
   // ignore: unused_field
-  final $Res Function(ProgressStartLogEvent) _then;
+  final $Res Function(ProgressStartLogEvent?) _then;
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_value.copyWith(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
+          logEventType == freezed ? _value.logEventType : logEventType as int?,
       progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+          progressId == freezed ? _value.progressId : progressId as String?,
     ));
   }
 }
@@ -423,7 +423,7 @@ abstract class _$$ProgressStartLogEventCtorCopyWith<$Res>
           $Res Function(_$ProgressStartLogEventCtor) then) =
       __$$ProgressStartLogEventCtorCopyWithImpl<$Res>;
   @override
-  $Res call({int logEventType, String progressId});
+  $Res call({int? logEventType, String? progressId});
 }
 
 /// @nodoc
@@ -440,14 +440,14 @@ class __$$ProgressStartLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_$ProgressStartLogEventCtor(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
+          logEventType == freezed ? _value.logEventType : (logEventType as int?)!,
       progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+          progressId == freezed ? _value.progressId : (progressId as String?)!,
     ));
   }
 }
@@ -457,7 +457,7 @@ class __$$ProgressStartLogEventCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ProgressStartLogEventCtor implements _$ProgressStartLogEventCtor {
   const _$_$ProgressStartLogEventCtor(
-      {@required this.logEventType, @required this.progressId})
+      {required this.logEventType, required this.progressId})
       : assert(logEventType != null),
         assert(progressId != null);
 
@@ -506,8 +506,8 @@ class _$_$ProgressStartLogEventCtor implements _$ProgressStartLogEventCtor {
 
 abstract class _$ProgressStartLogEventCtor implements ProgressStartLogEvent {
   const factory _$ProgressStartLogEventCtor(
-      {@required int logEventType,
-      @required String progressId}) = _$_$ProgressStartLogEventCtor;
+      {required int logEventType,
+      required String progressId}) = _$_$ProgressStartLogEventCtor;
 
   factory _$ProgressStartLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$ProgressStartLogEventCtor.fromJson;
@@ -532,7 +532,7 @@ class _$ProgressStopLogEventTearOff {
 
 // ignore: unused_element
   _$ProgressStopLogEventCtor call(
-      {@required int logEventType, @required String progressId}) {
+      {required int logEventType, required String progressId}) {
     return _$ProgressStopLogEventCtor(
       logEventType: logEventType,
       progressId: progressId,
@@ -564,7 +564,7 @@ abstract class $ProgressStopLogEventCopyWith<$Res> {
   factory $ProgressStopLogEventCopyWith(ProgressStopLogEvent value,
           $Res Function(ProgressStopLogEvent) then) =
       _$ProgressStopLogEventCopyWithImpl<$Res>;
-  $Res call({int logEventType, String progressId});
+  $Res call({int? logEventType, String? progressId});
 }
 
 /// @nodoc
@@ -574,18 +574,18 @@ class _$ProgressStopLogEventCopyWithImpl<$Res>
 
   final ProgressStopLogEvent _value;
   // ignore: unused_field
-  final $Res Function(ProgressStopLogEvent) _then;
+  final $Res Function(ProgressStopLogEvent?) _then;
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_value.copyWith(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
+          logEventType == freezed ? _value.logEventType : logEventType as int?,
       progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+          progressId == freezed ? _value.progressId : progressId as String?,
     ));
   }
 }
@@ -597,7 +597,7 @@ abstract class _$$ProgressStopLogEventCtorCopyWith<$Res>
           $Res Function(_$ProgressStopLogEventCtor) then) =
       __$$ProgressStopLogEventCtorCopyWithImpl<$Res>;
   @override
-  $Res call({int logEventType, String progressId});
+  $Res call({int? logEventType, String? progressId});
 }
 
 /// @nodoc
@@ -614,14 +614,14 @@ class __$$ProgressStopLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_$ProgressStopLogEventCtor(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
+          logEventType == freezed ? _value.logEventType : (logEventType as int?)!,
       progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+          progressId == freezed ? _value.progressId : (progressId as String?)!,
     ));
   }
 }
@@ -631,7 +631,7 @@ class __$$ProgressStopLogEventCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ProgressStopLogEventCtor implements _$ProgressStopLogEventCtor {
   const _$_$ProgressStopLogEventCtor(
-      {@required this.logEventType, @required this.progressId})
+      {required this.logEventType, required this.progressId})
       : assert(logEventType != null),
         assert(progressId != null);
 
@@ -681,8 +681,8 @@ class _$_$ProgressStopLogEventCtor implements _$ProgressStopLogEventCtor {
 
 abstract class _$ProgressStopLogEventCtor implements ProgressStopLogEvent {
   const factory _$ProgressStopLogEventCtor(
-      {@required int logEventType,
-      @required String progressId}) = _$_$ProgressStopLogEventCtor;
+      {required int logEventType,
+      required String progressId}) = _$_$ProgressStopLogEventCtor;
 
   factory _$ProgressStopLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$ProgressStopLogEventCtor.fromJson;
@@ -706,11 +706,11 @@ class _$ProgressTickLogEventTearOff {
 
 // ignore: unused_element
   _$ProgressTickLogEventCtor call(
-      {@required int logEventType,
-      @required int currentStep,
-      @required int totalSteps,
-      @required String suffixMessage,
-      @required String progressId}) {
+      {required int logEventType,
+      required int currentStep,
+      required int totalSteps,
+      required String suffixMessage,
+      required String progressId}) {
     return _$ProgressTickLogEventCtor(
       logEventType: logEventType,
       currentStep: currentStep,
@@ -749,11 +749,11 @@ abstract class $ProgressTickLogEventCopyWith<$Res> {
           $Res Function(ProgressTickLogEvent) then) =
       _$ProgressTickLogEventCopyWithImpl<$Res>;
   $Res call(
-      {int logEventType,
-      int currentStep,
-      int totalSteps,
-      String suffixMessage,
-      String progressId});
+      {int? logEventType,
+      int? currentStep,
+      int? totalSteps,
+      String? suffixMessage,
+      String? progressId});
 }
 
 /// @nodoc
@@ -763,27 +763,27 @@ class _$ProgressTickLogEventCopyWithImpl<$Res>
 
   final ProgressTickLogEvent _value;
   // ignore: unused_field
-  final $Res Function(ProgressTickLogEvent) _then;
+  final $Res Function(ProgressTickLogEvent?) _then;
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object currentStep = freezed,
-    Object totalSteps = freezed,
-    Object suffixMessage = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? currentStep = freezed,
+    Object? totalSteps = freezed,
+    Object? suffixMessage = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_value.copyWith(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
+          logEventType == freezed ? _value.logEventType : logEventType as int?,
       currentStep:
-          currentStep == freezed ? _value.currentStep : currentStep as int,
-      totalSteps: totalSteps == freezed ? _value.totalSteps : totalSteps as int,
+          currentStep == freezed ? _value.currentStep : currentStep as int?,
+      totalSteps: totalSteps == freezed ? _value.totalSteps : totalSteps as int?,
       suffixMessage: suffixMessage == freezed
           ? _value.suffixMessage
-          : suffixMessage as String,
+          : suffixMessage as String?,
       progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+          progressId == freezed ? _value.progressId : progressId as String?,
     ));
   }
 }
@@ -796,11 +796,11 @@ abstract class _$$ProgressTickLogEventCtorCopyWith<$Res>
       __$$ProgressTickLogEventCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int logEventType,
-      int currentStep,
-      int totalSteps,
-      String suffixMessage,
-      String progressId});
+      {int? logEventType,
+      int? currentStep,
+      int? totalSteps,
+      String? suffixMessage,
+      String? progressId});
 }
 
 /// @nodoc
@@ -817,23 +817,23 @@ class __$$ProgressTickLogEventCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object logEventType = freezed,
-    Object currentStep = freezed,
-    Object totalSteps = freezed,
-    Object suffixMessage = freezed,
-    Object progressId = freezed,
+    Object? logEventType = freezed,
+    Object? currentStep = freezed,
+    Object? totalSteps = freezed,
+    Object? suffixMessage = freezed,
+    Object? progressId = freezed,
   }) {
     return _then(_$ProgressTickLogEventCtor(
       logEventType:
-          logEventType == freezed ? _value.logEventType : logEventType as int,
+          logEventType == freezed ? _value.logEventType : (logEventType as int?)!,
       currentStep:
-          currentStep == freezed ? _value.currentStep : currentStep as int,
-      totalSteps: totalSteps == freezed ? _value.totalSteps : totalSteps as int,
+          currentStep == freezed ? _value.currentStep : (currentStep as int?)!,
+      totalSteps: totalSteps == freezed ? _value.totalSteps : (totalSteps as int?)!,
       suffixMessage: suffixMessage == freezed
           ? _value.suffixMessage
-          : suffixMessage as String,
+          : (suffixMessage as String?)!,
       progressId:
-          progressId == freezed ? _value.progressId : progressId as String,
+          progressId == freezed ? _value.progressId : (progressId as String?)!,
     ));
   }
 }
@@ -843,11 +843,11 @@ class __$$ProgressTickLogEventCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$ProgressTickLogEventCtor implements _$ProgressTickLogEventCtor {
   const _$_$ProgressTickLogEventCtor(
-      {@required this.logEventType,
-      @required this.currentStep,
-      @required this.totalSteps,
-      @required this.suffixMessage,
-      @required this.progressId})
+      {required this.logEventType,
+      required this.currentStep,
+      required this.totalSteps,
+      required this.suffixMessage,
+      required this.progressId})
       : assert(logEventType != null),
         assert(currentStep != null),
         assert(totalSteps != null),
@@ -918,11 +918,11 @@ class _$_$ProgressTickLogEventCtor implements _$ProgressTickLogEventCtor {
 
 abstract class _$ProgressTickLogEventCtor implements ProgressTickLogEvent {
   const factory _$ProgressTickLogEventCtor(
-      {@required int logEventType,
-      @required int currentStep,
-      @required int totalSteps,
-      @required String suffixMessage,
-      @required String progressId}) = _$_$ProgressTickLogEventCtor;
+      {required int logEventType,
+      required int currentStep,
+      required int totalSteps,
+      required String suffixMessage,
+      required String progressId}) = _$_$ProgressTickLogEventCtor;
 
   factory _$ProgressTickLogEventCtor.fromJson(Map<String, dynamic> json) =
       _$_$ProgressTickLogEventCtor.fromJson;

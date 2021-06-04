@@ -18,11 +18,11 @@ class _$SwidInterfaceTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required String name,
-      @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath,
-      @required List<SwidType> typeArguments,
-      @required SwidReferenceDeclarationKind referenceDeclarationKind}) {
+      {required String name,
+      required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      required List<SwidType> typeArguments,
+      required SwidReferenceDeclarationKind referenceDeclarationKind}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -47,7 +47,7 @@ mixin _$SwidInterface {
   String get name;
   SwidNullabilitySuffix get nullabilitySuffix;
   String get originalPackagePath;
-  List<SwidType> get typeArguments;
+  List<SwidType?> get typeArguments;
   SwidReferenceDeclarationKind get referenceDeclarationKind;
 
   Map<String, dynamic> toJson();
@@ -61,11 +61,11 @@ abstract class $SwidInterfaceCopyWith<$Res> {
           SwidInterface value, $Res Function(SwidInterface) then) =
       _$SwidInterfaceCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      SwidNullabilitySuffix nullabilitySuffix,
-      String originalPackagePath,
-      List<SwidType> typeArguments,
-      SwidReferenceDeclarationKind referenceDeclarationKind});
+      {String? name,
+      SwidNullabilitySuffix? nullabilitySuffix,
+      String? originalPackagePath,
+      List<SwidType>? typeArguments,
+      SwidReferenceDeclarationKind? referenceDeclarationKind});
 }
 
 /// @nodoc
@@ -75,30 +75,30 @@ class _$SwidInterfaceCopyWithImpl<$Res>
 
   final SwidInterface _value;
   // ignore: unused_field
-  final $Res Function(SwidInterface) _then;
+  final $Res Function(SwidInterface?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object nullabilitySuffix = freezed,
-    Object originalPackagePath = freezed,
-    Object typeArguments = freezed,
-    Object referenceDeclarationKind = freezed,
+    Object? name = freezed,
+    Object? nullabilitySuffix = freezed,
+    Object? originalPackagePath = freezed,
+    Object? typeArguments = freezed,
+    Object? referenceDeclarationKind = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix,
+          : nullabilitySuffix as SwidNullabilitySuffix?,
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
+          : originalPackagePath as String?,
       typeArguments: typeArguments == freezed
-          ? _value.typeArguments
-          : typeArguments as List<SwidType>,
+          ? _value.typeArguments as List<SwidType>?
+          : typeArguments as List<SwidType>?,
       referenceDeclarationKind: referenceDeclarationKind == freezed
           ? _value.referenceDeclarationKind
-          : referenceDeclarationKind as SwidReferenceDeclarationKind,
+          : referenceDeclarationKind as SwidReferenceDeclarationKind?,
     ));
   }
 }
@@ -109,11 +109,11 @@ abstract class _$$DataCopyWith<$Res> implements $SwidInterfaceCopyWith<$Res> {
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      SwidNullabilitySuffix nullabilitySuffix,
-      String originalPackagePath,
-      List<SwidType> typeArguments,
-      SwidReferenceDeclarationKind referenceDeclarationKind});
+      {String? name,
+      SwidNullabilitySuffix? nullabilitySuffix,
+      String? originalPackagePath,
+      List<SwidType>? typeArguments,
+      SwidReferenceDeclarationKind? referenceDeclarationKind});
 }
 
 /// @nodoc
@@ -127,26 +127,26 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object nullabilitySuffix = freezed,
-    Object originalPackagePath = freezed,
-    Object typeArguments = freezed,
-    Object referenceDeclarationKind = freezed,
+    Object? name = freezed,
+    Object? nullabilitySuffix = freezed,
+    Object? originalPackagePath = freezed,
+    Object? typeArguments = freezed,
+    Object? referenceDeclarationKind = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix,
+          : (nullabilitySuffix as SwidNullabilitySuffix?)!,
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
+          : (originalPackagePath as String?)!,
       typeArguments: typeArguments == freezed
           ? _value.typeArguments
-          : typeArguments as List<SwidType>,
+          : (typeArguments as List<SwidType>?)!,
       referenceDeclarationKind: referenceDeclarationKind == freezed
           ? _value.referenceDeclarationKind
-          : referenceDeclarationKind as SwidReferenceDeclarationKind,
+          : (referenceDeclarationKind as SwidReferenceDeclarationKind?)!,
     ));
   }
 }
@@ -156,11 +156,11 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.name,
-      @required this.nullabilitySuffix,
-      @required this.originalPackagePath,
-      @required this.typeArguments,
-      @required this.referenceDeclarationKind})
+      {required this.name,
+      required this.nullabilitySuffix,
+      required this.originalPackagePath,
+      required this.typeArguments,
+      required this.referenceDeclarationKind})
       : assert(name != null),
         assert(nullabilitySuffix != null),
         assert(originalPackagePath != null),
@@ -177,7 +177,7 @@ class _$_$Data implements _$Data {
   @override
   final String originalPackagePath;
   @override
-  final List<SwidType> typeArguments;
+  final List<SwidType?> typeArguments;
   @override
   final SwidReferenceDeclarationKind referenceDeclarationKind;
 
@@ -229,11 +229,11 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidInterface {
   const factory _$Data(
-          {@required String name,
-          @required SwidNullabilitySuffix nullabilitySuffix,
-          @required String originalPackagePath,
-          @required List<SwidType> typeArguments,
-          @required SwidReferenceDeclarationKind referenceDeclarationKind}) =
+          {required String name,
+          required SwidNullabilitySuffix nullabilitySuffix,
+          required String originalPackagePath,
+          required List<SwidType?> typeArguments,
+          required SwidReferenceDeclarationKind referenceDeclarationKind}) =
       _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
@@ -245,7 +245,7 @@ abstract class _$Data implements SwidInterface {
   @override
   String get originalPackagePath;
   @override
-  List<SwidType> get typeArguments;
+  List<SwidType?> get typeArguments;
   @override
   SwidReferenceDeclarationKind get referenceDeclarationKind;
   @override

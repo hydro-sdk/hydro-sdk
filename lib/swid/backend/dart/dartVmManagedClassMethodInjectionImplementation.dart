@@ -18,11 +18,11 @@ class DartVMManagedClassMethodInjectionImplementation {
   final String tableKey;
 
   DartVMManagedClassMethodInjectionImplementation({
-    @required this.swidFunctionType,
-    @required this.tableKey,
+    required this.swidFunctionType,
+    required this.tableKey,
   });
 
-  String _methodInvocation() => DartFunctionSelfBindingInvocation(
+  String? _methodInvocation() => DartFunctionSelfBindingInvocation(
           argumentBoxingProcedure: DartBoxingProcedure.unbox,
           returnValueBoxingProcedure: DartBoxingProcedure.box,
           swidFunctionType: instantiateAllGenericsAsDynamic(
@@ -40,14 +40,14 @@ class DartVMManagedClassMethodInjectionImplementation {
   Block _nonVoidBody() => Block.of([
         Code(
             "${DartUnpackClosures(swidFunctionType: swidFunctionType).toDartSource()}  return [" +
-                _methodInvocation() +
+                _methodInvocation()! +
                 "];")
       ]);
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")
       .index(literalString(tableKey))
       .assign(luaDartBinding(
-          code: swidFunctionType.returnType.when<Block>(
+          code: swidFunctionType.returnType.when<Block?>(
         fromSwidInterface: (val) =>
             narrowSwidInterfaceByReferenceDeclaration<Block>(
           swidInterface: val,
@@ -68,7 +68,7 @@ class DartVMManagedClassMethodInjectionImplementation {
                     fromSwidFunctionType: (val) => val,
                   ),
                 ).toDartSource() +
-                _methodInvocation() +
+                _methodInvocation()! +
                 ";" +
                 "\n" +
                 "return [];")

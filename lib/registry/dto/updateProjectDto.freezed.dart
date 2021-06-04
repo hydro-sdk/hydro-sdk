@@ -18,7 +18,7 @@ class _$UpdateProjectDtoTearOff {
 
 // ignore: unused_element
   _$UpdateProjectDtoCtor call(
-      {@required String name, @required String description}) {
+      {required String name, required String description}) {
     return _$UpdateProjectDtoCtor(
       name: name,
       description: description,
@@ -50,7 +50,7 @@ abstract class $UpdateProjectDtoCopyWith<$Res> {
   factory $UpdateProjectDtoCopyWith(
           UpdateProjectDto value, $Res Function(UpdateProjectDto) then) =
       _$UpdateProjectDtoCopyWithImpl<$Res>;
-  $Res call({String name, String description});
+  $Res call({String? name, String? description});
 }
 
 /// @nodoc
@@ -60,17 +60,17 @@ class _$UpdateProjectDtoCopyWithImpl<$Res>
 
   final UpdateProjectDto _value;
   // ignore: unused_field
-  final $Res Function(UpdateProjectDto) _then;
+  final $Res Function(UpdateProjectDto?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : description as String?,
     ));
   }
 }
@@ -82,7 +82,7 @@ abstract class _$$UpdateProjectDtoCtorCopyWith<$Res>
           $Res Function(_$UpdateProjectDtoCtor) then) =
       __$$UpdateProjectDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String description});
+  $Res call({String? name, String? description});
 }
 
 /// @nodoc
@@ -98,13 +98,13 @@ class __$$UpdateProjectDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$UpdateProjectDtoCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       description:
-          description == freezed ? _value.description : description as String,
+          description == freezed ? _value.description : (description as String?)!,
     ));
   }
 }
@@ -114,7 +114,7 @@ class __$$UpdateProjectDtoCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$UpdateProjectDtoCtor implements _$UpdateProjectDtoCtor {
   const _$_$UpdateProjectDtoCtor(
-      {@required this.name, @required this.description})
+      {required this.name, required this.description})
       : assert(name != null),
         assert(description != null);
 
@@ -162,8 +162,8 @@ class _$_$UpdateProjectDtoCtor implements _$UpdateProjectDtoCtor {
 
 abstract class _$UpdateProjectDtoCtor implements UpdateProjectDto {
   const factory _$UpdateProjectDtoCtor(
-      {@required String name,
-      @required String description}) = _$_$UpdateProjectDtoCtor;
+      {required String name,
+      required String description}) = _$_$UpdateProjectDtoCtor;
 
   factory _$UpdateProjectDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$UpdateProjectDtoCtor.fromJson;

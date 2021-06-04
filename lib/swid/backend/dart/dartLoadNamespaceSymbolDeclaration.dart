@@ -29,7 +29,7 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 class DartLoadNamespaceSymbolDeclaration {
   final SwidClass swidClass;
 
-  DartLoadNamespaceSymbolDeclaration({@required this.swidClass});
+  DartLoadNamespaceSymbolDeclaration({required this.swidClass});
 
   String toDartSource() => DartFormatter().format(Method((m) => m
     ..name = "load${swidClass.name}"
@@ -56,21 +56,21 @@ class DartLoadNamespaceSymbolDeclaration {
                   Code(DartFunctionSelfBindingInvocation(
                           argumentBoxingProcedure: DartBoxingProcedure.unbox,
                           returnValueBoxingProcedure:
-                              !swidClass.constructorType.isFactory
+                              !swidClass.constructorType!.isFactory
                                   ? DartBoxingProcedure.none
                                   : DartBoxingProcedure.box,
                           emitTableBindingPrefix:
-                              !swidClass.constructorType.isFactory,
+                              !swidClass.constructorType!.isFactory,
                           swidFunctionType: SwidFunctionType.clone(
                               swidFunctionType: swidClass.constructorType,
-                              name: !swidClass.constructorType.isFactory
+                              name: !swidClass.constructorType!.isFactory
                                   ? "RTManaged${swidClass.name}"
                                   : swidClass.name),
                           returnValueBoxingTableExpression:
-                              swidClass.constructorType.isFactory
+                              swidClass.constructorType!.isFactory
                                   ? refer("args").index(literalNum(0))
                                   : null)
-                      .toDartSource())
+                      .toDartSource()!)
                 ]).returned.statement
               ])))
               .statement
@@ -79,7 +79,7 @@ class DartLoadNamespaceSymbolDeclaration {
         ...swidClass.staticConstFieldDeclarations
             .where((x) => isInexpressibleStaticConst(
                   parentClass: swidClass,
-                  staticConst: x.value,
+                  staticConst: x.value!,
                 ))
             .map((x) =>
                 DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
@@ -96,14 +96,14 @@ class DartLoadNamespaceSymbolDeclaration {
               fromSwidClass: (val) => val,
               fromSwidDefaultFormalParameter: (_) => null,
               fromSwidFunctionType: (_) => null,
-            )
+            )!
             .factoryConstructors),
         ...swidClass.staticMethods,
       ]
           .map((x) => DartStaticMethodNamespaceSymbolDeclaration(
                 swidClass: swidClass,
                 swidFunctionType: instantiateAllGenericsAsDynamic(
-                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x),
+                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x!),
                 ).when(
                   fromSwidInterface: (_) => null,
                   fromSwidClass: (_) => null,

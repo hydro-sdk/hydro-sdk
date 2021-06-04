@@ -11,8 +11,8 @@ part 'swidStaticConstPrefixedIdentifier.g.dart';
 abstract class SwidStaticConstPrefixedIdentifier
     with _$SwidStaticConstPrefixedIdentifier {
   const factory SwidStaticConstPrefixedIdentifier({
-    @required SwidInterface prefix,
-    @required SwidStaticConstFieldReference staticConstFieldReference,
+    required SwidInterface prefix,
+    required SwidStaticConstFieldReference staticConstFieldReference,
   }) = _$Data;
 
   factory SwidStaticConstPrefixedIdentifier.fromJson(

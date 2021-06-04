@@ -14,11 +14,11 @@ import 'package:hydro_sdk/projectConfig/projectConfig.dart';
 Lock _rebuildLock = Lock();
 
 void _rebuild({
-  @required String project,
-  @required String ts2hc,
-  @required String cacheDir,
-  @required String profile,
-  @required String watchPath,
+  required String? project,
+  required String? ts2hc,
+  required String? cacheDir,
+  required String? profile,
+  required String watchPath,
 }) async =>
     _rebuildLock.synchronized(() async {
       var console = Console();
@@ -27,7 +27,7 @@ void _rebuild({
       _printInfo(watchPath: watchPath);
 
       ProjectConfig projectConfig = ProjectConfig.fromJson(
-          jsonDecode(await File(project).readAsString()));
+          jsonDecode(await File(project!).readAsString()));
 
       ProjectBuilder projectBuilder = ProjectBuilder(
         projectConfig: projectConfig,
@@ -47,7 +47,7 @@ void _rebuild({
     });
 
 void _printInfo({
-  @required String watchPath,
+  required String watchPath,
 }) {
   print("Watching for changes in ${watchPath}");
 }

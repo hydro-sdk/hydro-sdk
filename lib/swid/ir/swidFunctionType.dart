@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -17,26 +18,26 @@ part 'swidFunctionType.g.dart';
 @freezed
 abstract class SwidFunctionType with _$SwidFunctionType {
   const factory SwidFunctionType({
-    @required String name,
-    @required SwidNullabilitySuffix nullabilitySuffix,
-    @required String originalPackagePath,
-    @required SwidDeclarationModifiers swidDeclarationModifiers,
-    @required Map<String, SwidType> namedParameterTypes,
-    @required Map<String, SwidDefaultFormalParameter> namedDefaults,
-    @required List<String> normalParameterNames,
-    @required List<SwidType> normalParameterTypes,
-    @required List<String> optionalParameterNames,
-    @required List<SwidType> optionalParameterTypes,
-    @required SwidType returnType,
-    @required bool isFactory,
-    @required List<SwidTypeFormal> typeFormals,
+    required String name,
+    required SwidNullabilitySuffix nullabilitySuffix,
+    required String originalPackagePath,
+    required SwidDeclarationModifiers swidDeclarationModifiers,
+    required Map<String, SwidType?> namedParameterTypes,
+    required Map<String, SwidDefaultFormalParameter> namedDefaults,
+    required List<String> normalParameterNames,
+    required List<SwidType?> normalParameterTypes,
+    required List<String> optionalParameterNames,
+    required List<SwidType?> optionalParameterTypes,
+    required SwidType returnType,
+    required bool isFactory,
+    required List<SwidTypeFormal?> typeFormals,
   }) = _$Data;
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$SwidFunctionTypeFromJson(json);
 
   factory SwidFunctionType.MakeReceiverVoid(
-          {@required SwidFunctionType swidFunctionType}) =>
+          {required SwidFunctionType swidFunctionType}) =>
       SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
         normalParameterNames: [
@@ -57,9 +58,9 @@ abstract class SwidFunctionType with _$SwidFunctionType {
       );
 
   factory SwidFunctionType.InsertLeadingPositionalParameter(
-          {@required SwidFunctionType swidFunctionType,
-          @required String typeName,
-          @required SwidType swidType}) =>
+          {required SwidFunctionType swidFunctionType,
+          required String typeName,
+          required SwidType swidType}) =>
       SwidFunctionType.clone(
           swidFunctionType: swidFunctionType,
           normalParameterNames: [
@@ -72,47 +73,47 @@ abstract class SwidFunctionType with _$SwidFunctionType {
           ]);
 
   factory SwidFunctionType.clone({
-    @required SwidFunctionType swidFunctionType,
-    String name,
-    SwidNullabilitySuffix nullabilitySuffix,
-    String originalPackagePath,
-    SwidDeclarationModifiers swidDeclarationModifiers,
-    Map<String, SwidType> namedParameterTypes,
-    Map<String, SwidDefaultFormalParameter> namedDefaults,
-    List<String> normalParameterNames,
-    List<SwidType> normalParameterTypes,
-    List<String> optionalParameterNames,
-    List<SwidType> optionalParameterTypes,
-    SwidType returnType,
-    bool isFactory,
-    List<SwidTypeFormal> typeFormals,
+    required SwidFunctionType? swidFunctionType,
+    String? name,
+    SwidNullabilitySuffix? nullabilitySuffix,
+    String? originalPackagePath,
+    SwidDeclarationModifiers? swidDeclarationModifiers,
+    Map<String, SwidType?>? namedParameterTypes,
+    Map<String, SwidDefaultFormalParameter>? namedDefaults,
+    List<String>? normalParameterNames,
+    List<SwidType?>? normalParameterTypes,
+    List<String>? optionalParameterNames,
+    List<SwidType?>? optionalParameterTypes,
+    SwidType? returnType,
+    bool? isFactory,
+    List<SwidTypeFormal?>? typeFormals,
   }) {
     return SwidFunctionType(
-      name: name ?? swidFunctionType.name,
+      name: name ?? swidFunctionType!.name,
       nullabilitySuffix:
-          nullabilitySuffix ?? swidFunctionType.nullabilitySuffix,
+          nullabilitySuffix ?? swidFunctionType!.nullabilitySuffix,
       originalPackagePath:
-          nullabilitySuffix ?? swidFunctionType.originalPackagePath,
+          nullabilitySuffix as String? ?? swidFunctionType!.originalPackagePath,
       swidDeclarationModifiers: swidDeclarationModifiers ??
           SwidDeclarationModifiers.clone(
               swidDeclarationModifiers:
-                  swidFunctionType.swidDeclarationModifiers ?? []),
+                  (swidFunctionType!.swidDeclarationModifiers ?? []) as SwidDeclarationModifiers),
       namedParameterTypes: namedParameterTypes ??
-          Map.from(swidFunctionType.namedParameterTypes ?? {}),
+          Map.from(swidFunctionType!.namedParameterTypes ?? {}),
       namedDefaults:
-          namedDefaults ?? Map.from(swidFunctionType.namedDefaults ?? {}),
+          namedDefaults ?? Map.from(swidFunctionType!.namedDefaults ?? {}),
       normalParameterNames: normalParameterNames ??
-          List.from(swidFunctionType.normalParameterNames ?? []),
+          List.from(swidFunctionType!.normalParameterNames ?? []),
       normalParameterTypes: normalParameterTypes ??
-          List.from(swidFunctionType.normalParameterTypes ?? []),
+          List.from(swidFunctionType!.normalParameterTypes ?? []),
       optionalParameterNames: optionalParameterNames ??
-          List.from(swidFunctionType.optionalParameterNames ?? []),
+          List.from(swidFunctionType!.optionalParameterNames ?? []),
       optionalParameterTypes: optionalParameterTypes ??
-          List.from(swidFunctionType.optionalParameterTypes ?? []),
+          List.from(swidFunctionType!.optionalParameterTypes ?? []),
       returnType:
-          returnType ?? cloneSwidType(swidType: swidFunctionType.returnType),
-      isFactory: isFactory ?? swidFunctionType.isFactory,
-      typeFormals: typeFormals ?? List.from(swidFunctionType.typeFormals ?? []),
+          returnType ?? cloneSwidType(swidType: swidFunctionType!.returnType),
+      isFactory: isFactory ?? swidFunctionType!.isFactory,
+      typeFormals: typeFormals ?? List.from(swidFunctionType!.typeFormals ?? []),
     );
   }
 }
@@ -123,7 +124,7 @@ extension SwidFunctionTypeMethods on SwidFunctionType {
         ...namedDefaults.entries
             .where((x) =>
                 namedParameterTypes.entries
-                    .firstWhere((k) => k.key == x.key, orElse: () => null) !=
+                    .firstWhereOrNull((k) => k.key == x.key) !=
                 null)
             .toList()
       ]..removeWhere((x) => x == null)));
@@ -132,8 +133,7 @@ extension SwidFunctionTypeMethods on SwidFunctionType {
       Map.fromEntries(([
         ...namedDefaults.entries
             .where((x) =>
-                optionalParameterNames.firstWhere((k) => k == x.key,
-                    orElse: () => null) !=
+                optionalParameterNames.firstWhereOrNull((k) => k == x.key) !=
                 null)
             .toList()
       ]..removeWhere((x) => x == null)));

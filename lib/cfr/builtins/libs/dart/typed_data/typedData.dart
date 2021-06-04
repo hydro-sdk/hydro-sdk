@@ -11,49 +11,49 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedTypedData extends VMManagedBox<TypedData> {
+class VMManagedTypedData extends VMManagedBox<TypedData?> {
   VMManagedTypedData(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table,
+      required this.vmObject,
+      required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getElementSizeInBytes'] =
+    table!['getElementSizeInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.elementSizeInBytes];
+      return [vmObject!.elementSizeInBytes];
     });
-    table['getOffsetInBytes'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.offsetInBytes];
+    table!['getOffsetInBytes'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.offsetInBytes];
     });
-    table['getLengthInBytes'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.lengthInBytes];
+    table!['getLengthInBytes'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.lengthInBytes];
     });
-    table['getBuffer'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['getBuffer'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<ByteBuffer>(
-            object: vmObject.buffer,
-            hydroState: hydroState,
+            object: vmObject!.buffer,
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
   }
 
-  final HydroTable table;
+  final HydroTable? table;
 
-  final HydroState hydroState;
+  final HydroState? hydroState;
 
-  final TypedData vmObject;
+  final TypedData? vmObject;
 }
 
 void loadTypedData(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<TypedData>(boxer: (
-      {@required TypedData vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required TypedData? vmObject,
+      required HydroState? hydroState,
+      required HydroTable? table}) {
     return VMManagedTypedData(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

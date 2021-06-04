@@ -7,31 +7,31 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData> {
-  final HydroTable table;
-  final HydroState hydroState;
-  final MediaQueryData vmObject;
+class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData?> {
+  final HydroTable? table;
+  final HydroState? hydroState;
+  final MediaQueryData? vmObject;
   VMManagedMediaQueryData(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table,
+      required this.vmObject,
+      required this.hydroState})
       : super(
           table: table,
           hydroState: hydroState,
           vmObject: vmObject,
         ) {
-    table["size"] = maybeBoxObject(
-      object: vmObject.size,
-      hydroState: hydroState,
+    table!["size"] = maybeBoxObject(
+      object: vmObject!.size,
+      hydroState: hydroState!,
       table: HydroTable(),
     );
   }
 }
 
 void loadMediaQuery(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   registerBoxer(boxer: (
-      {MediaQueryData vmObject, HydroState hydroState, HydroTable table}) {
+      {MediaQueryData? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedMediaQueryData(
       vmObject: vmObject,
       hydroState: hydroState,

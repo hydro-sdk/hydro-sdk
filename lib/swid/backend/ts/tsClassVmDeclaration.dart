@@ -22,10 +22,10 @@ import 'package:hydro_sdk/swid/transforms/ts/transformVmDeclarationToTs.dart';
 class TsClassVmDeclaration {
   final SwidClass swidClass;
 
-  TsClassVmDeclaration({@required this.swidClass});
+  TsClassVmDeclaration({required this.swidClass});
 
   TsVmDeclaration _addConstructorBindingDeclarations(
-          {@required TsVmDeclaration tsVmDeclaration}) =>
+          {required TsVmDeclaration tsVmDeclaration}) =>
       swidClass.constructorType != null &&
               transformPackageUri(packageUri: swidClass.originalPackagePath)
                       .split(path.separator)
@@ -42,7 +42,7 @@ class TsClassVmDeclaration {
                             typeArguments: swidClass.typeFormals
                                 .map((x) => SwidType.fromSwidInterface(
                                         swidInterface: SwidInterface(
-                                      name: x.value.name,
+                                      name: x!.value.name,
                                       nullabilitySuffix:
                                           SwidNullabilitySuffix.none,
                                       originalPackagePath: "",
@@ -56,7 +56,7 @@ class TsClassVmDeclaration {
                                 (swidClass.typeFormals.isNotEmpty
                                     ? "<" +
                                         swidClass.typeFormals
-                                            .map((x) => x.value.name)
+                                            .map((x) => x!.value.name)
                                             .toList()
                                             .join(",") +
                                         ">"
@@ -100,7 +100,7 @@ class TsClassVmDeclaration {
                                 ...swidClass.staticMethods,
                                 ...swidClass.staticConstFieldDeclarations
                                     .where((x) => isInexpressibleStaticConst(
-                                          staticConst: x.value,
+                                          staticConst: x.value!,
                                           parentClass: swidClass,
                                         ))
                                     .map(
@@ -119,7 +119,7 @@ class TsClassVmDeclaration {
                                           normalParameterTypes: [],
                                           optionalParameterNames: [],
                                           optionalParameterTypes: [],
-                                          returnType: x.value.when<SwidType>(
+                                          returnType: x.value!.when<SwidType?>(
                                             fromSwidBooleanLiteral: (_) => null,
                                             fromSwidStringLiteral: (_) => null,
                                             fromSwidIntegerLiteral: (_) => null,
@@ -134,7 +134,7 @@ class TsClassVmDeclaration {
                                                 (_) => null,
                                             fromSwidStaticConstPrefixedIdentifier:
                                                 (_) => null,
-                                          ),
+                                          )!,
                                           isFactory: false,
                                           typeFormals: [],
                                         ),
@@ -147,7 +147,7 @@ class TsClassVmDeclaration {
                                       swidFunctionType: x,
                                       name: transformToCamelCase(
                                               str: swidClass.name) +
-                                          transformToPascalCase(str: x.name),
+                                          transformToPascalCase(str: x!.name),
                                     ),
                                   )
                                   .toList(),
@@ -159,7 +159,7 @@ class TsClassVmDeclaration {
               ))(
             rewriteClassReferencesToInterfaceReferencesInClass(
               swidClass: swidClass,
-            ),
+            )!,
           ) +
           ";\n"
       : "";

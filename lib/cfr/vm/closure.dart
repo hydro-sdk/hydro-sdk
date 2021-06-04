@@ -19,15 +19,15 @@ class Closure {
     this.upvalues,
   });
 
-  Prototype proto;
-  Frame parent;
-  final Context context;
-  List<Upval> upvalues;
+  Prototype? proto;
+  Frame? parent;
+  final Context? context;
+  List<Upval?>? upvalues;
 
-  BuildProfile get buildProfile => proto.buildProfile;
+  BuildProfile get buildProfile => proto!.buildProfile;
 
   static Prototype maybeLookupReloadedPrototype(
-      {@required Prototype prototype, @required HydroState parentState}) {
+      {required Prototype prototype, required HydroState parentState}) {
     assert(parentState != null);
     if (prototype.buildProfile != BuildProfile.debug) {
       return prototype;
@@ -44,7 +44,7 @@ class Closure {
     //If the calling environment didn't setup a dispatch context then
     //there's no point trying to dispatch and enforce one
     if (parentState.dispatchContext != null) {
-      Prototype targetProto = parentState
+      Prototype? targetProto = parentState
           ?.dispatchContext?.dispatchContext?.closure?.proto
           ?.findPrototypeByDebugSymbol(symbol: prototype.debugSymbol);
 
@@ -57,12 +57,12 @@ class Closure {
     return prototype;
   }
 
-  List<dynamic> dispatch(List<dynamic> args,
-      {@required HydroState parentState,
+  List<dynamic>? dispatch(List<dynamic> args,
+      {required HydroState parentState,
       bool resetEnclosingLexicalEnvironment = false}) {
     try {
       proto = maybeLookupReloadedPrototype(
-          prototype: proto, parentState: parentState);
+          prototype: proto!, parentState: parentState);
       if (resetEnclosingLexicalEnvironment) {
         //Quietly rebuild this closure from scratch with the (potentially)
         //updated function prototype, and pass that along to be executed
@@ -72,11 +72,11 @@ class Closure {
               proto,
               context: context,
               parent: parent,
-              upvalues: List.generate(proto.upvals.length, (i) {
-                var def = proto.upvals[i];
+              upvalues: List.generate(proto!.upvals.length, (i) {
+                var def = proto!.upvals[i];
                 return def.stack
-                    ? parent.openUpval(def.reg)
-                    : parent.upvalues[def.reg];
+                    ? parent!.openUpval(def.reg)
+                    : parent!.upvalues[def.reg];
               }),
             ));
       }
@@ -87,10 +87,10 @@ class Closure {
     }
   }
 
-  static List<dynamic> _dispatch(List<dynamic> args,
-      {HydroState parentState, Closure closure}) {
+  static List<dynamic>? _dispatch(List<dynamic> args,
+      {required HydroState parentState, required Closure closure}) {
     assert(parentState != null);
-    var f = new Thread(closure: closure, hydroState: parentState).frame;
+    var f = new Thread(closure: closure, hydroState: parentState).frame!;
     f.loadArgs(args);
     ThreadResult x;
     x = f.cont();

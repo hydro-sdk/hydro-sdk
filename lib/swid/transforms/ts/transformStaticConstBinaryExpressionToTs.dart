@@ -5,13 +5,13 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformStaticConstBinaryExpressionToTs(
-        {@required
+        {required
             SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
-        @required
+        required
             SwidClass parentClass,
-        @required
+        required
             String inexpressibleFunctionInvocationFallback,
-        @required
+        required
             SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
     transformLiteralToTs(
       swidLiteral: swidStaticConstBinaryExpression.leftOperand,

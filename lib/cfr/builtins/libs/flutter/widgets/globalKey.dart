@@ -8,29 +8,29 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
-  final HydroTable table;
-  final GlobalKey vmObject;
+class RTManagedGlobalKey extends RTManagedBox<GlobalKey?> {
+  final HydroTable? table;
+  final GlobalKey? vmObject;
   final HydroState parentState;
 
   RTManagedGlobalKey(
-      {@required this.table,
-      @required this.parentState,
-      @required this.vmObject}) {
-    table["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      {required this.table,
+      required this.parentState,
+      required this.vmObject}) {
+    table!["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
       HydroTable currentState = HydroTable();
       currentState["insertItem"] = (List<dynamic> args) {
-        (vmObject.currentState as dynamic).insertItem(args[1]);
+        (vmObject!.currentState as dynamic).insertItem(args[1]);
       };
 
       currentState["removeItem"] = (List<dynamic> args) {
-        (vmObject.currentState as dynamic).removeItem(args[1],
+        (vmObject!.currentState as dynamic).removeItem(args[1],
             (BuildContext context, Animation<double> animation) {
           Closure closure = args[2];
           return maybeUnBoxAndBuildArgument<Widget>(
               closure.dispatch([args[0], context, animation],
-                  parentState: parentState)[0],
-              parentState: parentState) as Widget;
+                  parentState: parentState)![0],
+              parentState: parentState) as Widget?;
         });
       };
       return [currentState];
@@ -39,9 +39,9 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
 }
 
 void loadGlobalKey(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["globalKeyCtor"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    GlobalKey key = translateRTTIToGenericGlobalKey(
+    GlobalKey? key = translateRTTIToGenericGlobalKey(
         runtimeType: RuntimeTypes.values.firstWhere((x) =>
             x.toString().split(".")[1] ==
             maybeUnBoxRuntimeType(

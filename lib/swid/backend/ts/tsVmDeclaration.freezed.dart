@@ -18,9 +18,9 @@ class _$TsVmDeclarationTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required String name,
-      @required List<SwidFunctionType> methods,
-      @required List<TsVmDeclaration> children}) {
+      {required String name,
+      required List<SwidFunctionType> methods,
+      required List<TsVmDeclaration> children}) {
     return _$Data(
       name: name,
       methods: methods,
@@ -41,7 +41,7 @@ const $TsVmDeclaration = _$TsVmDeclarationTearOff();
 /// @nodoc
 mixin _$TsVmDeclaration {
   String get name;
-  List<SwidFunctionType> get methods;
+  List<SwidFunctionType?> get methods;
   List<TsVmDeclaration> get children;
 
   Map<String, dynamic> toJson();
@@ -55,9 +55,9 @@ abstract class $TsVmDeclarationCopyWith<$Res> {
           TsVmDeclaration value, $Res Function(TsVmDeclaration) then) =
       _$TsVmDeclarationCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      List<SwidFunctionType> methods,
-      List<TsVmDeclaration> children});
+      {String? name,
+      List<SwidFunctionType>? methods,
+      List<TsVmDeclaration>? children});
 }
 
 /// @nodoc
@@ -67,22 +67,22 @@ class _$TsVmDeclarationCopyWithImpl<$Res>
 
   final TsVmDeclaration _value;
   // ignore: unused_field
-  final $Res Function(TsVmDeclaration) _then;
+  final $Res Function(TsVmDeclaration?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object methods = freezed,
-    Object children = freezed,
+    Object? name = freezed,
+    Object? methods = freezed,
+    Object? children = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       methods: methods == freezed
-          ? _value.methods
-          : methods as List<SwidFunctionType>,
+          ? _value.methods as List<SwidFunctionType>?
+          : methods as List<SwidFunctionType>?,
       children: children == freezed
           ? _value.children
-          : children as List<TsVmDeclaration>,
+          : children as List<TsVmDeclaration>?,
     ));
   }
 }
@@ -93,9 +93,9 @@ abstract class _$$DataCopyWith<$Res> implements $TsVmDeclarationCopyWith<$Res> {
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      List<SwidFunctionType> methods,
-      List<TsVmDeclaration> children});
+      {String? name,
+      List<SwidFunctionType>? methods,
+      List<TsVmDeclaration>? children});
 }
 
 /// @nodoc
@@ -109,18 +109,18 @@ class __$$DataCopyWithImpl<$Res> extends _$TsVmDeclarationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object methods = freezed,
-    Object children = freezed,
+    Object? name = freezed,
+    Object? methods = freezed,
+    Object? children = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       methods: methods == freezed
           ? _value.methods
-          : methods as List<SwidFunctionType>,
+          : (methods as List<SwidFunctionType>?)!,
       children: children == freezed
           ? _value.children
-          : children as List<TsVmDeclaration>,
+          : (children as List<TsVmDeclaration>?)!,
     ));
   }
 }
@@ -130,7 +130,7 @@ class __$$DataCopyWithImpl<$Res> extends _$TsVmDeclarationCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   _$_$Data(
-      {@required this.name, @required this.methods, @required this.children})
+      {required this.name, required this.methods, required this.children})
       : assert(name != null),
         assert(methods != null),
         assert(children != null);
@@ -141,7 +141,7 @@ class _$_$Data implements _$Data {
   @override
   final String name;
   @override
-  final List<SwidFunctionType> methods;
+  final List<SwidFunctionType?> methods;
   @override
   final List<TsVmDeclaration> children;
 
@@ -184,16 +184,16 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements TsVmDeclaration {
   factory _$Data(
-      {@required String name,
-      @required List<SwidFunctionType> methods,
-      @required List<TsVmDeclaration> children}) = _$_$Data;
+      {required String name,
+      required List<SwidFunctionType?> methods,
+      required List<TsVmDeclaration> children}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
   String get name;
   @override
-  List<SwidFunctionType> get methods;
+  List<SwidFunctionType?> get methods;
   @override
   List<TsVmDeclaration> get children;
   @override

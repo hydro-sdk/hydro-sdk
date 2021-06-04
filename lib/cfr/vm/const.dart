@@ -18,20 +18,20 @@ class Const {
 class BoolConst extends Const {
   const BoolConst(this.value);
   final type = ConstType.CONST_BOOL;
-  final bool value;
+  final bool? value;
   toString() => value.toString();
 }
 
 class NumberConst extends Const {
   const NumberConst(this.value);
   final type = ConstType.CONST_NUMBER;
-  final num value;
+  final num? value;
   toString() => value.toString();
 }
 
 class StringConst extends Const {
   const StringConst(this.value);
   final type = ConstType.CONST_STRING;
-  final String value;
-  toString() => "\"${luaEscape(value)}\"";
+  final String? value;
+  toString() => "\"${luaEscape(value!)}\"";
 }

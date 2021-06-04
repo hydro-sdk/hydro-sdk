@@ -1,5 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+import 'package:collection/collection.dart' show IterableExtension;
 part of 'swidInstantiatedGeneric.dart';
 
 // **************************************************************************
@@ -15,7 +16,7 @@ _$_$SwidInstantiatedGenericCtor _$_$_$SwidInstantiatedGenericCtorFromJson(
             json['instantiableGeneric'] as Map<String, dynamic>),
     referenceDeclarationKind: _$enumDecodeNullable(
         _$SwidReferenceDeclarationKindEnumMap,
-        json['referenceDeclarationKind']),
+        json['referenceDeclarationKind'])!,
   );
 }
 
@@ -27,10 +28,10 @@ Map<String, dynamic> _$_$_$SwidInstantiatedGenericCtorToJson(
           instance.referenceDeclarationKind],
     };
 
-T _$enumDecode<T>(
+T? _$enumDecode<T>(
   Map<T, dynamic> enumValues,
   dynamic source, {
-  T unknownValue,
+  T? unknownValue,
 }) {
   if (source == null) {
     throw ArgumentError('A value must be provided. Supported values: '
@@ -38,7 +39,7 @@ T _$enumDecode<T>(
   }
 
   final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
+      .singleWhereOrNull((e) => e.value == source)
       ?.key;
 
   if (value == null && unknownValue == null) {
@@ -48,10 +49,10 @@ T _$enumDecode<T>(
   return value ?? unknownValue;
 }
 
-T _$enumDecodeNullable<T>(
+T? _$enumDecodeNullable<T>(
   Map<T, dynamic> enumValues,
   dynamic source, {
-  T unknownValue,
+  T? unknownValue,
 }) {
   if (source == null) {
     return null;

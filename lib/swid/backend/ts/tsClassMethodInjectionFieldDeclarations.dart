@@ -10,7 +10,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 class TsClassMethodInjectionFieldDeclarations {
   final SwidClass swidClass;
 
-  TsClassMethodInjectionFieldDeclarations({@required this.swidClass});
+  TsClassMethodInjectionFieldDeclarations({required this.swidClass});
 
   String toTsSource() => (swidClass.methods.isNotEmpty ?? false)
       ? [
@@ -27,7 +27,7 @@ class TsClassMethodInjectionFieldDeclarations {
                     transformFunctionTypeToTs(
                       swidFunctionType:
                           rewriteClassReferencesToInterfaceReferencesInFunction(
-                              swidFunctionType: x),
+                              swidFunctionType: x)!,
                       trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
                     ) +
                     " = undefined as any;")

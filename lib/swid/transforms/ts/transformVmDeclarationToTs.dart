@@ -5,11 +5,11 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 String _transformVmDeclarationToTs(
-        {@required TsVmDeclaration tsVmDeclaration}) =>
+        {required TsVmDeclaration tsVmDeclaration}) =>
     "${tsVmDeclaration.name}: {\n" +
     tsVmDeclaration.methods
         .map((x) =>
-            "${x.name}: " +
+            "${x!.name}: " +
             transformTypeDeclarationToTs(
                 swidType: SwidType.fromSwidFunctionType(swidFunctionType: x)))
         ?.toList()
@@ -21,6 +21,6 @@ String _transformVmDeclarationToTs(
     "\n}";
 
 String transformVmDeclarationToTs(
-        {@required TsVmDeclaration tsVmDeclaration}) =>
+        {required TsVmDeclaration tsVmDeclaration}) =>
     "declare const " +
     _transformVmDeclarationToTs(tsVmDeclaration: tsVmDeclaration);

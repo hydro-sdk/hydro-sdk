@@ -10,11 +10,11 @@ _$_$ProjectConfigComponentCtor _$_$_$ProjectConfigComponentCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$ProjectConfigComponentCtor(
     name: json['name'] as String,
-    chunks: (json['chunks'] as List)
+    (chunks: (json['chunks'] as List?)
         ?.map((e) => e == null
             ? null
             : ProjectConfigComponentChunk.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+        ?.toList())!,
   );
 }
 

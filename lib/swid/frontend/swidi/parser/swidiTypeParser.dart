@@ -16,14 +16,14 @@ mixin SwidiTypeParser
         SwidiReferenceDeclarationPrefixParser {
   Parser<SwidiInterface> type() => super.type().map((x) {
         var tokenList = collectTokens<Token>(x);
-        String token;
-        String nullabilitySuffix;
+        String? token;
+        String? nullabilitySuffix;
         if (tokenList?.isNotEmpty ?? false) {
           token = tokenList.last?.input ?? "";
           nullabilitySuffix = tokenList.first?.input ?? "";
         }
         return SwidiInterface(
-          name: token != nullabilitySuffix ? token + nullabilitySuffix : token,
+          name: token != nullabilitySuffix ? token! + nullabilitySuffix! : token!,
           nullabilitySuffix: nullabilitySuffix == "?"
               ? SwidiNullabilitySuffix.question
               : SwidiNullabilitySuffix.none,

@@ -16,18 +16,18 @@ import 'package:analyzer/dart/element/type.dart'
     show FunctionType, InterfaceType;
 
 SwidFunctionType swidFunctionTypeFromFunctionType(
-        {@required FunctionType functionType,
-        @required SwidDeclarationModifiers swidDeclarationModifiers,
-        String name}) =>
+        {required FunctionType functionType,
+        required SwidDeclarationModifiers swidDeclarationModifiers,
+        String? name}) =>
     SwidFunctionType(
         name: name ?? functionType.element?.name ?? "",
         nullabilitySuffix: mapNullabilitySuffix(
-            nullabilitySuffix: functionType.nullabilitySuffix),
+            nullabilitySuffix: functionType.nullabilitySuffix)!,
         originalPackagePath:
             functionType.element?.librarySource?.uri?.toString() ?? "",
         swidDeclarationModifiers: swidDeclarationModifiers,
         namedParameterTypes: Map.fromEntries(functionType?.namedParameterTypes?.keys
-            ?.map((x) => MapEntry<String, SwidType>(
+            ?.map((x) => MapEntry<String, SwidType?>(
                 x,
                 narrowDartTypeToSwidType(
                     dartType: functionType?.namedParameterTypes[x])))),
@@ -44,14 +44,14 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
                           ? SwidType.fromSwidFunctionType(
                               swidFunctionType:
                                   swidFunctionTypeFromFunctionType(
-                              functionType: x.type,
+                              functionType: x.type as FunctionType,
                               swidDeclarationModifiers:
                                   SwidDeclarationModifiers.empty(),
                             ))
                           : x.type is InterfaceType
                               ? SwidType.fromSwidInterface(
                                   swidInterface: swidInterfaceFromInterface(
-                                  interfaceType: x.type,
+                                  interfaceType: x.type as InterfaceType,
                                 ))
                               : null,
                     )))
@@ -64,7 +64,7 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
             functionType.normalParameterTypes?.map((x) => narrowDartTypeToSwidType(dartType: x))?.toList() ?? []),
         optionalParameterNames: List.from(functionType.optionalParameterNames ?? []),
         optionalParameterTypes: List.from(functionType.optionalParameterTypes?.map((x) => narrowDartTypeToSwidType(dartType: x))?.toList() ?? []),
-        returnType: narrowDartTypeToSwidType(dartType: functionType.returnType),
+        returnType: narrowDartTypeToSwidType(dartType: functionType.returnType)!,
         isFactory: false,
         typeFormals: functionType.typeFormals != null
             ? functionType.typeFormals

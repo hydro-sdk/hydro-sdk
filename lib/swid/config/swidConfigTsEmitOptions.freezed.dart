@@ -18,7 +18,7 @@ class _$SwidConfigTsEmitOptionsTearOff {
   const _$SwidConfigTsEmitOptionsTearOff();
 
 // ignore: unused_element
-  _$SwidConfigTsEmitOptionsCtor call({@required List<String> prefixPaths}) {
+  _$SwidConfigTsEmitOptionsCtor call({required List<String> prefixPaths}) {
     return _$SwidConfigTsEmitOptionsCtor(
       prefixPaths: prefixPaths,
     );
@@ -48,7 +48,7 @@ abstract class $SwidConfigTsEmitOptionsCopyWith<$Res> {
   factory $SwidConfigTsEmitOptionsCopyWith(SwidConfigTsEmitOptions value,
           $Res Function(SwidConfigTsEmitOptions) then) =
       _$SwidConfigTsEmitOptionsCopyWithImpl<$Res>;
-  $Res call({List<String> prefixPaths});
+  $Res call({List<String>? prefixPaths});
 }
 
 /// @nodoc
@@ -58,16 +58,16 @@ class _$SwidConfigTsEmitOptionsCopyWithImpl<$Res>
 
   final SwidConfigTsEmitOptions _value;
   // ignore: unused_field
-  final $Res Function(SwidConfigTsEmitOptions) _then;
+  final $Res Function(SwidConfigTsEmitOptions?) _then;
 
   @override
   $Res call({
-    Object prefixPaths = freezed,
+    Object? prefixPaths = freezed,
   }) {
     return _then(_value.copyWith(
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>,
+          : prefixPaths as List<String>?,
     ));
   }
 }
@@ -80,7 +80,7 @@ abstract class _$$SwidConfigTsEmitOptionsCtorCopyWith<$Res>
           $Res Function(_$SwidConfigTsEmitOptionsCtor) then) =
       __$$SwidConfigTsEmitOptionsCtorCopyWithImpl<$Res>;
   @override
-  $Res call({List<String> prefixPaths});
+  $Res call({List<String>? prefixPaths});
 }
 
 /// @nodoc
@@ -98,12 +98,12 @@ class __$$SwidConfigTsEmitOptionsCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object prefixPaths = freezed,
+    Object? prefixPaths = freezed,
   }) {
     return _then(_$SwidConfigTsEmitOptionsCtor(
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>,
+          : (prefixPaths as List<String>?)!,
     ));
   }
 }
@@ -112,7 +112,7 @@ class __$$SwidConfigTsEmitOptionsCtorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$SwidConfigTsEmitOptionsCtor implements _$SwidConfigTsEmitOptionsCtor {
-  const _$_$SwidConfigTsEmitOptionsCtor({@required this.prefixPaths})
+  const _$_$SwidConfigTsEmitOptionsCtor({required this.prefixPaths})
       : assert(prefixPaths != null);
 
   factory _$_$SwidConfigTsEmitOptionsCtor.fromJson(Map<String, dynamic> json) =>
@@ -154,7 +154,7 @@ class _$_$SwidConfigTsEmitOptionsCtor implements _$SwidConfigTsEmitOptionsCtor {
 abstract class _$SwidConfigTsEmitOptionsCtor
     implements SwidConfigTsEmitOptions {
   const factory _$SwidConfigTsEmitOptionsCtor(
-      {@required List<String> prefixPaths}) = _$_$SwidConfigTsEmitOptionsCtor;
+      {required List<String> prefixPaths}) = _$_$SwidConfigTsEmitOptionsCtor;
 
   factory _$SwidConfigTsEmitOptionsCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigTsEmitOptionsCtor.fromJson;

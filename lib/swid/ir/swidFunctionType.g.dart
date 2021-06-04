@@ -1,5 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+import 'package:collection/collection.dart' show IterableExtension;
 part of 'swidFunctionType.dart';
 
 // **************************************************************************
@@ -10,47 +11,47 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     name: json['name'] as String,
     nullabilitySuffix: _$enumDecodeNullable(
-        _$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
+        _$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix'])!,
     originalPackagePath: json['originalPackagePath'] as String,
     swidDeclarationModifiers: json['swidDeclarationModifiers'] == null
         ? null
         : SwidDeclarationModifiers.fromJson(
             json['swidDeclarationModifiers'] as Map<String, dynamic>),
-    namedParameterTypes:
-        (json['namedParameterTypes'] as Map<String, dynamic>)?.map(
+    (namedParameterTypes:
+        (json['namedParameterTypes'] as Map<String, dynamic>?)?.map(
       (k, e) => MapEntry(
           k, e == null ? null : SwidType.fromJson(e as Map<String, dynamic>)),
-    ),
-    namedDefaults: (json['namedDefaults'] as Map<String, dynamic>)?.map(
+    ))!,
+    (namedDefaults: (json['namedDefaults'] as Map<String, dynamic>?)?.map(
       (k, e) => MapEntry(
           k,
           e == null
               ? null
               : SwidDefaultFormalParameter.fromJson(e as Map<String, dynamic>)),
-    ),
-    normalParameterNames: (json['normalParameterNames'] as List)
+    ))!,
+    (normalParameterNames: (json['normalParameterNames'] as List?)
         ?.map((e) => e as String)
-        ?.toList(),
-    normalParameterTypes: (json['normalParameterTypes'] as List)
+        ?.toList())!,
+    (normalParameterTypes: (json['normalParameterTypes'] as List?)
         ?.map((e) =>
             e == null ? null : SwidType.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    optionalParameterNames: (json['optionalParameterNames'] as List)
+        ?.toList())!,
+    (optionalParameterNames: (json['optionalParameterNames'] as List?)
         ?.map((e) => e as String)
-        ?.toList(),
-    optionalParameterTypes: (json['optionalParameterTypes'] as List)
+        ?.toList())!,
+    (optionalParameterTypes: (json['optionalParameterTypes'] as List?)
         ?.map((e) =>
             e == null ? null : SwidType.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+        ?.toList())!,
     returnType: json['returnType'] == null
         ? null
         : SwidType.fromJson(json['returnType'] as Map<String, dynamic>),
     isFactory: json['isFactory'] as bool,
-    typeFormals: (json['typeFormals'] as List)
+    (typeFormals: (json['typeFormals'] as List?)
         ?.map((e) => e == null
             ? null
             : SwidTypeFormal.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+        ?.toList())!,
   );
 }
 
@@ -71,10 +72,10 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'typeFormals': instance.typeFormals,
     };
 
-T _$enumDecode<T>(
+T? _$enumDecode<T>(
   Map<T, dynamic> enumValues,
   dynamic source, {
-  T unknownValue,
+  T? unknownValue,
 }) {
   if (source == null) {
     throw ArgumentError('A value must be provided. Supported values: '
@@ -82,7 +83,7 @@ T _$enumDecode<T>(
   }
 
   final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
+      .singleWhereOrNull((e) => e.value == source)
       ?.key;
 
   if (value == null && unknownValue == null) {
@@ -92,10 +93,10 @@ T _$enumDecode<T>(
   return value ?? unknownValue;
 }
 
-T _$enumDecodeNullable<T>(
+T? _$enumDecodeNullable<T>(
   Map<T, dynamic> enumValues,
   dynamic source, {
-  T unknownValue,
+  T? unknownValue,
 }) {
   if (source == null) {
     return null;

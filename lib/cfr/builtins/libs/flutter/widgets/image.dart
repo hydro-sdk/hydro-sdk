@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadImage({@required HydroState luaState, @required HydroTable table}) {
+void loadImage({required HydroState luaState, required HydroTable table}) {
   table["image"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Image(
@@ -26,12 +26,12 @@ void loadImage({@required HydroState luaState, @required HydroTable table}) {
           alignment: maybeUnBoxAndBuildArgument<Widget>(args[0]["alignment"],
               parentState: luaState),
           repeat: maybeUnBoxEnum<ImageRepeat>(
-              values: ImageRepeat.values, boxedEnum: args[0]["repeat"]),
+              values: ImageRepeat.values, boxedEnum: args[0]["repeat"])!,
           matchTextDirection: args[0]["matchTextDirection"],
           gaplessPlayback: args[0]["gaplessPlayback"],
           filterQuality: maybeUnBoxEnum<FilterQuality>(
               values: FilterQuality.values,
-              boxedEnum: args[0]["filterQuality"]))
+              boxedEnum: args[0]["filterQuality"])!)
     ];
   });
 }

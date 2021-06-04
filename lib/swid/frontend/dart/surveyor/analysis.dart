@@ -32,8 +32,8 @@ final Map<String, int> _severityCompare = {
   'hint': 1,
 };
 
-WorkspacePackage getPackage(CompilationUnit unit) {
-  var element = unit.declaredElement;
+WorkspacePackage? getPackage(CompilationUnit unit) {
+  var element = unit.declaredElement!;
   var libraryPath = element.library.source.source.fullName;
   var workspace = element.session?.analysisContext?.workspace;
   return workspace?.findPackageFor(libraryPath);
@@ -44,7 +44,7 @@ bool implementsInterface(DartType type, String interface, String library) {
     return false;
   }
   bool predicate(InterfaceType i) => isInterface(i, interface, library);
-  ClassElement element = type.element;
+  ClassElement? element = type.element;
   return predicate(type) ||
       !element.isSynthetic && element.allSupertypes.any(predicate);
 }
@@ -65,7 +65,7 @@ bool inPrivateMember(AstNode node) {
 /// Return true if this compilation unit [node] is declared within the given
 /// [package]'s `lib/` directory tree.
 bool isInLibDir(CompilationUnit node, WorkspacePackage package) {
-  var cuPath = node.declaredElement.library?.source?.fullName;
+  var cuPath = node.declaredElement!.library?.source?.fullName;
   if (cuPath == null) return false;
   var libDir = path.join(package.root, 'lib');
   return path.isWithin(libDir, cuPath);
@@ -75,7 +75,7 @@ bool isInterface(InterfaceType type, String interface, String library) =>
     type.element?.name == interface && type.element.library.name == library;
 
 /// Check if the given identifier has a private name.
-bool isPrivate(SimpleIdentifier identifier) =>
+bool isPrivate(SimpleIdentifier? identifier) =>
     identifier != null && Identifier.isPrivateName(identifier.name);
 
 bool isWidgetType(DartType type) => implementsInterface(type, 'Widget', '');
@@ -110,7 +110,7 @@ class AnalysisStats {
   int get filteredCount => errorCount + warnCount + hintCount + lintCount;
 
   /// Print statistics to [out].
-  void print([StringSink out]) {
+  void print([StringSink? out]) {
     out ??= io.stdout;
     var hasErrors = errorCount != 0;
     var hasWarns = warnCount != 0;
@@ -185,14 +185,14 @@ class AnsiLogger {
 
 /// An [AnalysisError] with line and column information.
 class CLIError implements Comparable<CLIError> {
-  String severity;
-  String sourcePath;
-  int offset;
-  int line;
-  int column;
-  String message;
-  String errorCode;
-  String correction;
+  String? severity;
+  String? sourcePath;
+  int? offset;
+  int? line;
+  int? column;
+  String? message;
+  String? errorCode;
+  String? correction;
 
   CLIError({
     this.severity,
@@ -207,7 +207,7 @@ class CLIError implements Comparable<CLIError> {
 
   @override
   int get hashCode =>
-      severity.hashCode ^ sourcePath.hashCode ^ errorCode.hashCode ^ offset;
+      severity.hashCode ^ sourcePath.hashCode ^ errorCode.hashCode ^ offset!;
   bool get isError => severity == 'error';
   bool get isHint => severity == 'hint';
   bool get isLint => severity == 'lint';
@@ -227,16 +227,16 @@ class CLIError implements Comparable<CLIError> {
   @override
   int compareTo(CLIError other) {
     // severity
-    var compare = _severityCompare[other.severity] - _severityCompare[severity];
+    var compare = _severityCompare[other.severity!]! - _severityCompare[severity!]!;
     if (compare != 0) return compare;
 
     // path
     compare = Comparable.compare(
-        sourcePath.toLowerCase(), other.sourcePath.toLowerCase());
+        sourcePath!.toLowerCase(), other.sourcePath!.toLowerCase());
     if (compare != 0) return compare;
 
     // offset
-    return offset - other.offset;
+    return offset! - other.offset!;
   }
 }
 
@@ -247,9 +247,9 @@ class CLIError implements Comparable<CLIError> {
 abstract class ErrorFormatter {
   StringSink out;
   AnalysisStats stats;
-  SeverityProcessor _severityProcessor;
+  late SeverityProcessor _severityProcessor;
 
-  ErrorFormatter(this.out, this.stats, {SeverityProcessor severityProcessor}) {
+  ErrorFormatter(this.out, this.stats, {SeverityProcessor? severityProcessor}) {
     _severityProcessor = severityProcessor ?? _severityIdentity;
   }
 
@@ -285,14 +285,14 @@ abstract class ErrorFormatter {
 }
 
 class HumanErrorFormatter extends ErrorFormatter {
-  AnsiLogger ansi;
+  late AnsiLogger ansi;
   bool displayCorrections;
 
   // This is a Set in order to de-dup CLI errors.
   Set<CLIError> batchedErrors = {};
 
   HumanErrorFormatter(StringSink out, AnalysisStats stats,
-      {SeverityProcessor severityProcessor,
+      {SeverityProcessor? severityProcessor,
       bool ansiColor = false,
       this.displayCorrections = false})
       : super(out, stats, severityProcessor: severityProcessor) {
@@ -327,7 +327,7 @@ class HumanErrorFormatter extends ErrorFormatter {
 
       if (displayCorrections && error.correction != null) {
         out.writeln(
-            '${' '.padLeft(error.severity.length + 2)}${error.correction}');
+            '${' '.padLeft(error.severity!.length + 2)}${error.correction}');
       }
     }
 
@@ -339,7 +339,7 @@ class HumanErrorFormatter extends ErrorFormatter {
   void formatError(
       Map<AnalysisError, LineInfo> errorToLine, AnalysisError error) {
     var source = error.source;
-    var location = errorToLine[error].getLocation(error.offset);
+    var location = errorToLine[error]!.getLocation(error.offset);
 
     var severity = _severityProcessor(error);
 

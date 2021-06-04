@@ -18,7 +18,7 @@ class _$SwidStaticConstPrefixedExpressionTearOff {
   const _$SwidStaticConstPrefixedExpressionTearOff();
 
 // ignore: unused_element
-  _$Data call({@required String prefix, @required SwidStaticConst expression}) {
+  _$Data call({required String prefix, required SwidStaticConst expression}) {
     return _$Data(
       prefix: prefix,
       expression: expression,
@@ -53,7 +53,7 @@ abstract class $SwidStaticConstPrefixedExpressionCopyWith<$Res> {
           SwidStaticConstPrefixedExpression value,
           $Res Function(SwidStaticConstPrefixedExpression) then) =
       _$SwidStaticConstPrefixedExpressionCopyWithImpl<$Res>;
-  $Res call({String prefix, SwidStaticConst expression});
+  $Res call({String? prefix, SwidStaticConst? expression});
 
   $SwidStaticConstCopyWith<$Res> get expression;
 }
@@ -65,18 +65,18 @@ class _$SwidStaticConstPrefixedExpressionCopyWithImpl<$Res>
 
   final SwidStaticConstPrefixedExpression _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstPrefixedExpression) _then;
+  final $Res Function(SwidStaticConstPrefixedExpression?) _then;
 
   @override
   $Res call({
-    Object prefix = freezed,
-    Object expression = freezed,
+    Object? prefix = freezed,
+    Object? expression = freezed,
   }) {
     return _then(_value.copyWith(
-      prefix: prefix == freezed ? _value.prefix : prefix as String,
+      prefix: prefix == freezed ? _value.prefix : prefix as String?,
       expression: expression == freezed
           ? _value.expression
-          : expression as SwidStaticConst,
+          : expression as SwidStaticConst?,
     ));
   }
 
@@ -97,7 +97,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String prefix, SwidStaticConst expression});
+  $Res call({String? prefix, SwidStaticConst? expression});
 
   @override
   $SwidStaticConstCopyWith<$Res> get expression;
@@ -115,14 +115,14 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object prefix = freezed,
-    Object expression = freezed,
+    Object? prefix = freezed,
+    Object? expression = freezed,
   }) {
     return _then(_$Data(
-      prefix: prefix == freezed ? _value.prefix : prefix as String,
+      prefix: prefix == freezed ? _value.prefix : (prefix as String?)!,
       expression: expression == freezed
           ? _value.expression
-          : expression as SwidStaticConst,
+          : (expression as SwidStaticConst?)!,
     ));
   }
 }
@@ -131,7 +131,7 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_$Data implements _$Data {
-  const _$_$Data({@required this.prefix, @required this.expression})
+  const _$_$Data({required this.prefix, required this.expression})
       : assert(prefix != null),
         assert(expression != null);
 
@@ -178,8 +178,8 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidStaticConstPrefixedExpression {
   const factory _$Data(
-      {@required String prefix,
-      @required SwidStaticConst expression}) = _$_$Data;
+      {required String prefix,
+      required SwidStaticConst expression}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

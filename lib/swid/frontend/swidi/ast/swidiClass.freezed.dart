@@ -15,9 +15,9 @@ class _$SwidiClassTearOff {
 
 // ignore: unused_element
   _$SwidiClassCtor call(
-      {@required String name,
-      @required SwidiLibraryScopePrefix libraryScopePrefix,
-      @required List<SwidiFunctionDeclaration> methods}) {
+      {required String name,
+      required SwidiLibraryScopePrefix libraryScopePrefix,
+      required List<SwidiFunctionDeclaration> methods}) {
     return _$SwidiClassCtor(
       name: name,
       libraryScopePrefix: libraryScopePrefix,
@@ -46,9 +46,9 @@ abstract class $SwidiClassCopyWith<$Res> {
           SwidiClass value, $Res Function(SwidiClass) then) =
       _$SwidiClassCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      SwidiLibraryScopePrefix libraryScopePrefix,
-      List<SwidiFunctionDeclaration> methods});
+      {String? name,
+      SwidiLibraryScopePrefix? libraryScopePrefix,
+      List<SwidiFunctionDeclaration>? methods});
 
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
 }
@@ -59,22 +59,22 @@ class _$SwidiClassCopyWithImpl<$Res> implements $SwidiClassCopyWith<$Res> {
 
   final SwidiClass _value;
   // ignore: unused_field
-  final $Res Function(SwidiClass) _then;
+  final $Res Function(SwidiClass?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object libraryScopePrefix = freezed,
-    Object methods = freezed,
+    Object? name = freezed,
+    Object? libraryScopePrefix = freezed,
+    Object? methods = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
-          : libraryScopePrefix as SwidiLibraryScopePrefix,
+          : libraryScopePrefix as SwidiLibraryScopePrefix?,
       methods: methods == freezed
           ? _value.methods
-          : methods as List<SwidiFunctionDeclaration>,
+          : methods as List<SwidiFunctionDeclaration>?,
     ));
   }
 
@@ -98,9 +98,9 @@ abstract class _$$SwidiClassCtorCopyWith<$Res>
       __$$SwidiClassCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      SwidiLibraryScopePrefix libraryScopePrefix,
-      List<SwidiFunctionDeclaration> methods});
+      {String? name,
+      SwidiLibraryScopePrefix? libraryScopePrefix,
+      List<SwidiFunctionDeclaration>? methods});
 
   @override
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
@@ -119,18 +119,18 @@ class __$$SwidiClassCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object libraryScopePrefix = freezed,
-    Object methods = freezed,
+    Object? name = freezed,
+    Object? libraryScopePrefix = freezed,
+    Object? methods = freezed,
   }) {
     return _then(_$SwidiClassCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
-          : libraryScopePrefix as SwidiLibraryScopePrefix,
+          : (libraryScopePrefix as SwidiLibraryScopePrefix?)!,
       methods: methods == freezed
           ? _value.methods
-          : methods as List<SwidiFunctionDeclaration>,
+          : (methods as List<SwidiFunctionDeclaration>?)!,
     ));
   }
 }
@@ -138,9 +138,9 @@ class __$$SwidiClassCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidiClassCtor implements _$SwidiClassCtor {
   const _$_$SwidiClassCtor(
-      {@required this.name,
-      @required this.libraryScopePrefix,
-      @required this.methods})
+      {required this.name,
+      required this.libraryScopePrefix,
+      required this.methods})
       : assert(name != null),
         assert(libraryScopePrefix != null),
         assert(methods != null);
@@ -185,9 +185,9 @@ class _$_$SwidiClassCtor implements _$SwidiClassCtor {
 
 abstract class _$SwidiClassCtor implements SwidiClass {
   const factory _$SwidiClassCtor(
-      {@required String name,
-      @required SwidiLibraryScopePrefix libraryScopePrefix,
-      @required List<SwidiFunctionDeclaration> methods}) = _$_$SwidiClassCtor;
+      {required String name,
+      required SwidiLibraryScopePrefix libraryScopePrefix,
+      required List<SwidiFunctionDeclaration> methods}) = _$_$SwidiClassCtor;
 
   @override
   String get name;

@@ -25,7 +25,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadtyped_data(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   final typed_data = HydroTable();
   table['typed_data'] = typed_data;
   loadByteBuffer(table: typed_data, hydroState: hydroState);

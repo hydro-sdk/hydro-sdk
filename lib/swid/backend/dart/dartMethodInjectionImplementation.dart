@@ -14,24 +14,24 @@ import 'package:hydro_sdk/swid/transforms/methodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 
 class DartMethodInjectionImplementation {
-  final SwidFunctionType swidFunctionType;
+  final SwidFunctionType? swidFunctionType;
 
-  DartMethodInjectionImplementation({@required this.swidFunctionType});
+  DartMethodInjectionImplementation({required this.swidFunctionType});
 
-  String _methodInvocation() =>
-      (swidFunctionType.swidDeclarationModifiers.isGetter
-          ? (!swidFunctionType.swidDeclarationModifiers.isAbstract
+  String? _methodInvocation() =>
+      (swidFunctionType!.swidDeclarationModifiers.isGetter
+          ? (!swidFunctionType!.swidDeclarationModifiers.isAbstract
                   ? "super."
                   : "") +
-              swidFunctionType.name +
-              (!swidFunctionType.swidDeclarationModifiers.isGetter ? "()" : "")
+              swidFunctionType!.name +
+              (!swidFunctionType!.swidDeclarationModifiers.isGetter ? "()" : "")
           : DartFunctionSelfBindingInvocation(
                   argumentBoxingProcedure: DartBoxingProcedure.unbox,
                   returnValueBoxingProcedure: DartBoxingProcedure.box,
                   swidFunctionType: SwidFunctionType.clone(
                     swidFunctionType: swidFunctionType,
-                    name: !swidFunctionType.swidDeclarationModifiers.isAbstract
-                        ? "super.${swidFunctionType.name}"
+                    name: !swidFunctionType!.swidDeclarationModifiers.isAbstract
+                        ? "super.${swidFunctionType!.name}"
                         : null,
                   ),
                   emitTableBindingPrefix: false)
@@ -40,16 +40,16 @@ class DartMethodInjectionImplementation {
   Block _nonVoidBody() => Block.of([
         Code(
             "${DartUnpackClosures(swidFunctionType: swidFunctionType).toDartSource()} return [" +
-                _methodInvocation() +
+                _methodInvocation()! +
                 "];")
       ]);
 
   String toDartSource() => DartFormatter().formatStatement(refer("table")
       .index(literalString(methodInjectionFieldName(
           swidFunctionType:
-              transformAccessorName(swidFunctionType: swidFunctionType))))
+              transformAccessorName(swidFunctionType: swidFunctionType!))))
       .assign(luaDartBinding(
-          code: swidFunctionType.returnType.when<Block>(
+          code: swidFunctionType!.returnType.when<Block?>(
         fromSwidInterface: (val) =>
             narrowSwidInterfaceByReferenceDeclaration<Block>(
           swidInterface: val,
@@ -61,7 +61,7 @@ class DartMethodInjectionImplementation {
           onVoid: (_) => Block.of([
             Code(DartUnpackClosures(swidFunctionType: swidFunctionType)
                     .toDartSource() +
-                _methodInvocation() +
+                _methodInvocation()! +
                 ";" +
                 "\n" +
                 "return [];")

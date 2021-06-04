@@ -19,10 +19,10 @@ class _$SwidDefaultFormalParameterTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required String name,
-      @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath,
-      @required @nullable SwidType value}) {
+      {required String name,
+      required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      @nullable required SwidType value}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -47,7 +47,7 @@ mixin _$SwidDefaultFormalParameter {
   SwidNullabilitySuffix get nullabilitySuffix;
   String get originalPackagePath;
   @nullable
-  SwidType get value;
+  SwidType? get value;
 
   Map<String, dynamic> toJson();
   @JsonKey(ignore: true)
@@ -60,12 +60,12 @@ abstract class $SwidDefaultFormalParameterCopyWith<$Res> {
           $Res Function(SwidDefaultFormalParameter) then) =
       _$SwidDefaultFormalParameterCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      SwidNullabilitySuffix nullabilitySuffix,
-      String originalPackagePath,
-      @nullable SwidType value});
+      {String? name,
+      SwidNullabilitySuffix? nullabilitySuffix,
+      String? originalPackagePath,
+      @nullable SwidType? value});
 
-  $SwidTypeCopyWith<$Res> get value;
+  $SwidTypeCopyWith<$Res>? get value;
 }
 
 /// @nodoc
@@ -75,29 +75,29 @@ class _$SwidDefaultFormalParameterCopyWithImpl<$Res>
 
   final SwidDefaultFormalParameter _value;
   // ignore: unused_field
-  final $Res Function(SwidDefaultFormalParameter) _then;
+  final $Res Function(SwidDefaultFormalParameter?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object nullabilitySuffix = freezed,
-    Object originalPackagePath = freezed,
-    Object value = freezed,
+    Object? name = freezed,
+    Object? nullabilitySuffix = freezed,
+    Object? originalPackagePath = freezed,
+    Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : name as String?,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix,
+          : nullabilitySuffix as SwidNullabilitySuffix?,
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
-      value: value == freezed ? _value.value : value as SwidType,
+          : originalPackagePath as String?,
+      value: value == freezed ? _value.value : value as SwidType?,
     ));
   }
 
   @override
-  $SwidTypeCopyWith<$Res> get value {
+  $SwidTypeCopyWith<$Res>? get value {
     if (_value.value == null) {
       return null;
     }
@@ -114,10 +114,10 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      SwidNullabilitySuffix nullabilitySuffix,
-      String originalPackagePath,
-      @nullable SwidType value});
+      {String? name,
+      SwidNullabilitySuffix? nullabilitySuffix,
+      String? originalPackagePath,
+      @nullable SwidType? value});
 
   @override
   $SwidTypeCopyWith<$Res> get value;
@@ -135,20 +135,20 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object nullabilitySuffix = freezed,
-    Object originalPackagePath = freezed,
-    Object value = freezed,
+    Object? name = freezed,
+    Object? nullabilitySuffix = freezed,
+    Object? originalPackagePath = freezed,
+    Object? value = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed ? _value.name : (name as String?)!,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix,
+          : (nullabilitySuffix as SwidNullabilitySuffix?)!,
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
-      value: value == freezed ? _value.value : value as SwidType,
+          : (originalPackagePath as String?)!,
+      value: value == freezed ? _value.value : value as SwidType?,
     ));
   }
 }
@@ -158,10 +158,10 @@ class __$$DataCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.name,
-      @required this.nullabilitySuffix,
-      @required this.originalPackagePath,
-      @required @nullable this.value})
+      {required this.name,
+      required this.nullabilitySuffix,
+      required this.originalPackagePath,
+      @nullable required this.value})
       : assert(name != null),
         assert(nullabilitySuffix != null),
         assert(originalPackagePath != null);
@@ -177,7 +177,7 @@ class _$_$Data implements _$Data {
   final String originalPackagePath;
   @override
   @nullable
-  final SwidType value;
+  final SwidType? value;
 
   @override
   String toString() {
@@ -221,10 +221,10 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidDefaultFormalParameter {
   const factory _$Data(
-      {@required String name,
-      @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath,
-      @required @nullable SwidType value}) = _$_$Data;
+      {required String name,
+      required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      @nullable required SwidType? value}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
@@ -236,7 +236,7 @@ abstract class _$Data implements SwidDefaultFormalParameter {
   String get originalPackagePath;
   @override
   @nullable
-  SwidType get value;
+  SwidType? get value;
   @override
   @JsonKey(ignore: true)
   _$$DataCopyWith<_$Data> get copyWith;

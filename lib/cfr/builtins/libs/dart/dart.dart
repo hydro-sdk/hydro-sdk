@@ -12,7 +12,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loaddart({@required HydroState hydroState, @required Context context}) {
+void loaddart({required HydroState hydroState, required Context context}) {
   var dart = HydroTable();
 
   context.env["dart"] = dart;

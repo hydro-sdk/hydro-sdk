@@ -4,37 +4,37 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-List<SwidInterface> collectReferencesFromStaticConst(
-        {@required SwidStaticConst swidStaticConst}) =>
+List<SwidInterface>? collectReferencesFromStaticConst(
+        {required SwidStaticConst swidStaticConst}) =>
     ([
-      ...swidStaticConst.when<List<SwidInterface>>(
+      ...swidStaticConst.when<List<SwidInterface>?>(
         fromSwidBooleanLiteral: (_) => [],
         fromSwidStringLiteral: (_) => [],
         fromSwidIntegerLiteral: (_) => [],
         fromDoubleLiteral: (_) => [],
         fromSwidStaticConstFunctionInvocation: (val) => [
-          ...((List<List<SwidInterface>> elements) =>
+          ...((List<List<SwidInterface>?> elements) =>
               elements.isNotEmpty
-                  ? elements.reduce((value, element) => [...value, ...element])
+                  ? elements.reduce((value, element) => [...value!, ...element!])
                   : <SwidInterface>[])(val.normalParameters
-              .map((x) => collectReferencesFromStaticConst(swidStaticConst: x))
-              .toList()),
-          ...((List<List<SwidInterface>> elements) =>
+              .map((x) => collectReferencesFromStaticConst(swidStaticConst: x!))
+              .toList())!,
+          ...((List<List<SwidInterface>?> elements) =>
               elements.isNotEmpty
-                  ? elements.reduce((value, element) => [...value, ...element])
+                  ? elements.reduce((value, element) => [...value!, ...element!])
                   : <SwidInterface>[])(val.namedParameters.entries
               .map((x) =>
-                  collectReferencesFromStaticConst(swidStaticConst: x.value))
-              .toList()),
+                  collectReferencesFromStaticConst(swidStaticConst: x.value!))
+              .toList())!,
         ],
         fromSwidStaticConstFieldReference: (_) => [],
         fromSwidStaticConstPrefixedExpression: (val) =>
             collectReferencesFromStaticConst(swidStaticConst: val.expression),
         fromSwidStaticConstBinaryExpression: (val) => [
-          ...(collectReferencesFromStaticConst(swidStaticConst: val.leftOperand)
+          ...(collectReferencesFromStaticConst(swidStaticConst: val.leftOperand)!
             ..removeWhere((x) => x == null)),
           ...(collectReferencesFromStaticConst(
-              swidStaticConst: val.rightOperand)
+              swidStaticConst: val.rightOperand)!
             ..removeWhere((x) => x == null)),
         ],
         fromSwidStaticConstPrefixedIdentifier: (val) => [
@@ -44,7 +44,7 @@ List<SwidInterface> collectReferencesFromStaticConst(
     ]
         .fold(
             <SwidInterface>[],
-            (prev, element) => prev.firstWhere((x) => x.name == element.name,
+            (dynamic prev, element) => prev.firstWhere((x) => x.name == element.name,
                         orElse: () => null) ==
                     null
                 ? [...prev, element]
@@ -53,50 +53,50 @@ List<SwidInterface> collectReferencesFromStaticConst(
         .cast<SwidInterface>())
       ..removeWhere((x) => x == null);
 
-List<SwidInterface> collectAllStaticConstReferences({
-  @required SwidType swidType,
+List<SwidInterface>? collectAllStaticConstReferences({
+  required SwidType swidType,
 }) =>
     ([
-      ...swidType.when<List<SwidInterface>>(
+      ...swidType.when<List<SwidInterface?>?>(
         fromSwidInterface: (_) => null,
         fromSwidClass: (val) => ([
           ...(val.constructorType != null
               ? collectAllStaticConstReferences(
                   swidType: SwidType.fromSwidFunctionType(
-                      swidFunctionType: val.constructorType))
+                      swidFunctionType: val.constructorType!))!
               : <SwidInterface>[]),
-          ...((List<List<SwidInterface>> elements) =>
+          ...((List<List<SwidInterface>?> elements) =>
               elements.isNotEmpty
-                  ? elements.reduce((value, element) => [...value, ...element])
+                  ? elements.reduce((value, element) => [...value!, ...element!])
                   : <SwidInterface>[])(val.factoryConstructors
               .map((x) => collectAllStaticConstReferences(
-                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x)))
-              .toList()),
-          ...((List<List<SwidInterface>> elements) =>
+                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x!)))
+              .toList())!,
+          ...((List<List<SwidInterface>?> elements) =>
               elements.isNotEmpty
-                  ? elements.reduce((value, element) => [...value, ...element])
+                  ? elements.reduce((value, element) => [...value!, ...element!])
                   : <SwidInterface>[])(val.staticMethods
               .map((x) => collectAllStaticConstReferences(
-                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x)))
-              .toList()),
-          ...((List<List<SwidInterface>> elements) =>
+                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x!)))
+              .toList())!,
+          ...((List<List<SwidInterface>?> elements) =>
               elements.isNotEmpty
-                  ? elements.reduce((value, element) => [...value, ...element])
+                  ? elements.reduce((value, element) => [...value!, ...element!])
                   : <SwidInterface>[])(val.methods
               .map((x) => collectAllStaticConstReferences(
-                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x)))
-              .toList()),
-          ...((List<List<SwidInterface>> elements) =>
+                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x!)))
+              .toList())!,
+          ...((List<List<SwidInterface>?> elements) =>
               elements.isNotEmpty
-                  ? elements.reduce((value, element) => [...value, ...element])
+                  ? elements.reduce((value, element) => [...value!, ...element!])
                   : <SwidInterface>[])(val.staticConstFieldDeclarations
               .map((x) =>
-                  collectReferencesFromStaticConst(swidStaticConst: x.value))
-              .toList()),
+                  collectReferencesFromStaticConst(swidStaticConst: x.value!))
+              .toList())!,
         ])
-          ..removeWhere((x) => x == null),
+          ..removeWhere(((x) => x == null) as bool Function(SwidInterface?)),
         fromSwidDefaultFormalParameter: (val) => ([
-          val.value.when(
+          val.value!.when(
             fromSwidInterface: (val) => val,
             fromSwidClass: (_) => null,
             fromSwidDefaultFormalParameter: (_) => null,
@@ -104,20 +104,20 @@ List<SwidInterface> collectAllStaticConstReferences({
           )
         ]..removeWhere((x) => x == null)),
         fromSwidFunctionType: (val) => ([
-          ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
-                  ? elements.reduce((value, element) => [...value, ...element])
+          ...((List<List<SwidInterface>?> elements) => elements.isNotEmpty
+                  ? elements.reduce((value, element) => [...value!, ...element!])
                   : <SwidInterface>[])(
               val.namedDefaults.entries
                   .map((x) => collectAllStaticConstReferences(
                       swidType: SwidType.fromSwidDefaultFormalParameter(
                           swidDefaultFormalParameter: x.value)))
-                  .toList()),
+                  .toList())!,
         ]),
       )
     ]
         .fold(
             <SwidInterface>[],
-            (prev, element) => prev.firstWhere((x) => x.name == element.name,
+            (dynamic prev, element) => prev.firstWhere((x) => x.name == element!.name,
                         orElse: () => null) ==
                     null
                 ? [...prev, element]

@@ -19,8 +19,8 @@ class _$SwidStaticConstPrefixedIdentifierTearOff {
 
 // ignore: unused_element
   _$Data call(
-      {@required SwidInterface prefix,
-      @required SwidStaticConstFieldReference staticConstFieldReference}) {
+      {required SwidInterface prefix,
+      required SwidStaticConstFieldReference staticConstFieldReference}) {
     return _$Data(
       prefix: prefix,
       staticConstFieldReference: staticConstFieldReference,
@@ -56,8 +56,8 @@ abstract class $SwidStaticConstPrefixedIdentifierCopyWith<$Res> {
           $Res Function(SwidStaticConstPrefixedIdentifier) then) =
       _$SwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>;
   $Res call(
-      {SwidInterface prefix,
-      SwidStaticConstFieldReference staticConstFieldReference});
+      {SwidInterface? prefix,
+      SwidStaticConstFieldReference? staticConstFieldReference});
 
   $SwidInterfaceCopyWith<$Res> get prefix;
   $SwidStaticConstFieldReferenceCopyWith<$Res> get staticConstFieldReference;
@@ -70,18 +70,18 @@ class _$SwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>
 
   final SwidStaticConstPrefixedIdentifier _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstPrefixedIdentifier) _then;
+  final $Res Function(SwidStaticConstPrefixedIdentifier?) _then;
 
   @override
   $Res call({
-    Object prefix = freezed,
-    Object staticConstFieldReference = freezed,
+    Object? prefix = freezed,
+    Object? staticConstFieldReference = freezed,
   }) {
     return _then(_value.copyWith(
-      prefix: prefix == freezed ? _value.prefix : prefix as SwidInterface,
+      prefix: prefix == freezed ? _value.prefix : prefix as SwidInterface?,
       staticConstFieldReference: staticConstFieldReference == freezed
           ? _value.staticConstFieldReference
-          : staticConstFieldReference as SwidStaticConstFieldReference,
+          : staticConstFieldReference as SwidStaticConstFieldReference?,
     ));
   }
 
@@ -114,8 +114,8 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SwidInterface prefix,
-      SwidStaticConstFieldReference staticConstFieldReference});
+      {SwidInterface? prefix,
+      SwidStaticConstFieldReference? staticConstFieldReference});
 
   @override
   $SwidInterfaceCopyWith<$Res> get prefix;
@@ -135,14 +135,14 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object prefix = freezed,
-    Object staticConstFieldReference = freezed,
+    Object? prefix = freezed,
+    Object? staticConstFieldReference = freezed,
   }) {
     return _then(_$Data(
-      prefix: prefix == freezed ? _value.prefix : prefix as SwidInterface,
+      prefix: prefix == freezed ? _value.prefix : (prefix as SwidInterface?)!,
       staticConstFieldReference: staticConstFieldReference == freezed
           ? _value.staticConstFieldReference
-          : staticConstFieldReference as SwidStaticConstFieldReference,
+          : (staticConstFieldReference as SwidStaticConstFieldReference?)!,
     ));
   }
 }
@@ -152,7 +152,7 @@ class __$$DataCopyWithImpl<$Res>
 /// @nodoc
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.prefix, @required this.staticConstFieldReference})
+      {required this.prefix, required this.staticConstFieldReference})
       : assert(prefix != null),
         assert(staticConstFieldReference != null);
 
@@ -201,8 +201,8 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidStaticConstPrefixedIdentifier {
   const factory _$Data(
-          {@required SwidInterface prefix,
-          @required SwidStaticConstFieldReference staticConstFieldReference}) =
+          {required SwidInterface prefix,
+          required SwidStaticConstFieldReference staticConstFieldReference}) =
       _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;

@@ -7,8 +7,8 @@ enum RunProjectResponseKind {
 }
 
 mixin ServiceAware {
-  String _debugBaseUrl({
-    @required int port,
+  String? _debugBaseUrl({
+    required int port,
   }) =>
       kDebugMode
           ? Platform.isAndroid
@@ -16,10 +16,10 @@ mixin ServiceAware {
               : "http://127.0.0.1:${port}"
           : null;
 
-  String _debugComponentUrl({
-    @required int port,
-    @required String project,
-    @required String component,
+  String? _debugComponentUrl({
+    required int port,
+    required String project,
+    required String component,
   }) =>
       kDebugMode
           ? [
@@ -31,10 +31,10 @@ mixin ServiceAware {
             ].join("")
           : null;
 
-  String _debugPackageAvailabilityUrl({
-    @required String project,
-    @required String component,
-    @required int port,
+  String? _debugPackageAvailabilityUrl({
+    required String project,
+    required String component,
+    required int port,
   }) =>
       kDebugMode
           ? [
@@ -48,15 +48,15 @@ mixin ServiceAware {
             ].join("")
           : null;
 
-  Future<RunProjectResponseKind> _debugPackageAvailable({
-    @required String project,
-    @required String component,
-    @required int port,
+  Future<RunProjectResponseKind?> _debugPackageAvailable({
+    required String project,
+    required String component,
+    required int port,
   }) async {
     if (kDebugMode) {
       try {
         final response = await get(_debugPackageAvailabilityUrl(
-            project: project, component: component, port: port));
+            project: project, component: component, port: port) as Uri);
         if (response.statusCode == 204) {
           return RunProjectResponseKind.kReady;
         } else if (response.statusCode == 503) {
@@ -72,10 +72,10 @@ mixin ServiceAware {
     return null;
   }
 
-  Future<String> _downloadDebugPackageHash({
-    @required int port,
-    @required String project,
-    @required String component,
+  Future<String?> _downloadDebugPackageHash({
+    required int port,
+    required String project,
+    required String component,
   }) async {
     if (kDebugMode) {
       try {
@@ -86,7 +86,7 @@ mixin ServiceAware {
             component: component,
           ),
           ".ota.sha256",
-        ].join(""));
+        ].join("") as Uri);
         if (response?.statusCode == 200) {
           return response?.body;
         }
@@ -99,10 +99,10 @@ mixin ServiceAware {
     return null;
   }
 
-  Future<Uint8List> _downloadDebugPackage({
-    @required int port,
-    @required String project,
-    @required String component,
+  Future<Uint8List?> _downloadDebugPackage({
+    required int port,
+    required String project,
+    required String component,
   }) async {
     if (kDebugMode) {
       try {
@@ -113,7 +113,7 @@ mixin ServiceAware {
             component: component,
           ),
           ".ota",
-        ].join(""));
+        ].join("") as Uri);
         if (response?.statusCode == 200) {
           return response?.bodyBytes;
         }

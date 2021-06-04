@@ -7,13 +7,13 @@ import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 class DartBoxEnumReference {
-  final SwidType type;
+  final SwidType? type;
   final String referenceName;
   final CodeKind codeKind;
 
   DartBoxEnumReference({
-    @required this.type,
-    @required this.referenceName,
+    required this.type,
+    required this.referenceName,
     this.codeKind = CodeKind.statement,
   });
 
@@ -23,7 +23,7 @@ class DartBoxEnumReference {
               : codeKind == CodeKind.expression
                   ? expression.expression
                   : null)(
-          refer(type.name).property("values").property("indexWhere").call(
+          refer(type!.name).property("values").property("indexWhere").call(
         [
           Method((k) => k
             ..requiredParameters.addAll([
@@ -32,5 +32,5 @@ class DartBoxEnumReference {
             ..body = Block.of([Code("return x == $referenceName;")])).closure
         ],
         {},
-      )).accept(DartEmitter()).toString();
+      ))!.accept(DartEmitter()).toString();
 }

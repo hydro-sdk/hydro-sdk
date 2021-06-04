@@ -9,7 +9,7 @@ import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 ReassembleStatus reassembleClosures(
-    {@required Closure destination, @required Closure source}) {
+    {required Closure destination, required Closure source}) {
   ReassembleStatus res = ReassembleStatus(
       relocatedProtos: 0,
       reassembledProtos: 0,
@@ -20,8 +20,8 @@ ReassembleStatus reassembleClosures(
   List<HashedPrototype> sourceProtos = [];
   List<HashedPrototype> destinationProtos = [];
 
-  hashProtos(sourceProtos: sourceProtos, prototype: source.proto);
-  hashProtos(sourceProtos: destinationProtos, prototype: destination.proto);
+  hashProtos(sourceProtos: sourceProtos, prototype: source.proto!);
+  hashProtos(sourceProtos: destinationProtos, prototype: destination.proto!);
 
   if (sourceProtos.length > destinationProtos.length) {
     res.bailedOut = true;
@@ -32,7 +32,7 @@ ReassembleStatus reassembleClosures(
 
   maybeDoPrototypeRelocation(
       reassembleStatus: res,
-      destination: destination.proto,
+      destination: destination.proto!,
       sourceProtos: sourceProtos);
 
   maybeDoPrototypeReassembly(
@@ -44,23 +44,23 @@ ReassembleStatus reassembleClosures(
 }
 
 void hashProtos(
-    {@required List<HashedPrototype> sourceProtos,
-    @required Prototype prototype}) {
+    {required List<HashedPrototype> sourceProtos,
+    required Prototype prototype}) {
   sourceProtos.add(HashedPrototype(
       hash: hashPrototype(prototype),
       hashWithoutSourceInformation:
           hashPrototype(prototype, includeSourceLocations: false),
       prototype: prototype));
 
-  if (prototype.prototypes != null && prototype.prototypes.isNotEmpty) {
-    prototype.prototypes.forEach((x) {
+  if (prototype.prototypes != null && prototype.prototypes!.isNotEmpty) {
+    prototype.prototypes!.forEach((x) {
       sourceProtos.add(HashedPrototype(
           hash: hashPrototype(x),
           hashWithoutSourceInformation:
               hashPrototype(prototype, includeSourceLocations: false),
           prototype: x));
 
-      if (x.prototypes != null && x.prototypes.isNotEmpty) {
+      if (x.prototypes != null && x.prototypes!.isNotEmpty) {
         hashProtos(sourceProtos: sourceProtos, prototype: x);
       }
     });

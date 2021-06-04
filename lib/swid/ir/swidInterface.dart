@@ -12,23 +12,23 @@ part 'swidInterface.g.dart';
 @freezed
 abstract class SwidInterface with _$SwidInterface {
   const factory SwidInterface({
-    @required String name,
-    @required SwidNullabilitySuffix nullabilitySuffix,
-    @required String originalPackagePath,
-    @required List<SwidType> typeArguments,
-    @required SwidReferenceDeclarationKind referenceDeclarationKind,
+    required String name,
+    required SwidNullabilitySuffix nullabilitySuffix,
+    required String originalPackagePath,
+    required List<SwidType?> typeArguments,
+    required SwidReferenceDeclarationKind referenceDeclarationKind,
   }) = _$Data;
 
   factory SwidInterface.fromJson(Map<String, dynamic> json) =>
       _$SwidInterfaceFromJson(json);
 
   factory SwidInterface.clone(
-          {@required SwidInterface swidType,
-          String name,
-          SwidNullabilitySuffix nullabilitySuffix,
-          String originalPackagePath,
-          List<SwidType> typeArguments,
-          SwidReferenceDeclarationKind referenceDeclarationKind}) =>
+          {required SwidInterface swidType,
+          String? name,
+          SwidNullabilitySuffix? nullabilitySuffix,
+          String? originalPackagePath,
+          List<SwidType?>? typeArguments,
+          SwidReferenceDeclarationKind? referenceDeclarationKind}) =>
       SwidInterface(
         name: name ?? swidType.name,
         nullabilitySuffix: nullabilitySuffix ?? swidType.nullabilitySuffix,
@@ -39,7 +39,7 @@ abstract class SwidInterface with _$SwidInterface {
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
       );
 
-  factory SwidInterface.fromSwidClass({@required SwidClass swidClass}) =>
+  factory SwidInterface.fromSwidClass({required SwidClass swidClass}) =>
       SwidInterface(
           name: swidClass.name,
           nullabilitySuffix: swidClass.nullabilitySuffix,

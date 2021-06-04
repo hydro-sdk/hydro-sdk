@@ -18,9 +18,9 @@ class _$SwidConfigTearOff {
 
 // ignore: unused_element
   _$SwidConfigCtor call(
-      {@required String inputPackagePath,
-      @required List<String> interfaces,
-      @required SwidConfigEmitOptions emitOptions}) {
+      {required String inputPackagePath,
+      required List<String> interfaces,
+      required SwidConfigEmitOptions emitOptions}) {
     return _$SwidConfigCtor(
       inputPackagePath: inputPackagePath,
       interfaces: interfaces,
@@ -55,9 +55,9 @@ abstract class $SwidConfigCopyWith<$Res> {
           SwidConfig value, $Res Function(SwidConfig) then) =
       _$SwidConfigCopyWithImpl<$Res>;
   $Res call(
-      {String inputPackagePath,
-      List<String> interfaces,
-      SwidConfigEmitOptions emitOptions});
+      {String? inputPackagePath,
+      List<String>? interfaces,
+      SwidConfigEmitOptions? emitOptions});
 
   $SwidConfigEmitOptionsCopyWith<$Res> get emitOptions;
 }
@@ -68,24 +68,24 @@ class _$SwidConfigCopyWithImpl<$Res> implements $SwidConfigCopyWith<$Res> {
 
   final SwidConfig _value;
   // ignore: unused_field
-  final $Res Function(SwidConfig) _then;
+  final $Res Function(SwidConfig?) _then;
 
   @override
   $Res call({
-    Object inputPackagePath = freezed,
-    Object interfaces = freezed,
-    Object emitOptions = freezed,
+    Object? inputPackagePath = freezed,
+    Object? interfaces = freezed,
+    Object? emitOptions = freezed,
   }) {
     return _then(_value.copyWith(
       inputPackagePath: inputPackagePath == freezed
           ? _value.inputPackagePath
-          : inputPackagePath as String,
+          : inputPackagePath as String?,
       interfaces: interfaces == freezed
           ? _value.interfaces
-          : interfaces as List<String>,
+          : interfaces as List<String>?,
       emitOptions: emitOptions == freezed
           ? _value.emitOptions
-          : emitOptions as SwidConfigEmitOptions,
+          : emitOptions as SwidConfigEmitOptions?,
     ));
   }
 
@@ -108,9 +108,9 @@ abstract class _$$SwidConfigCtorCopyWith<$Res>
       __$$SwidConfigCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String inputPackagePath,
-      List<String> interfaces,
-      SwidConfigEmitOptions emitOptions});
+      {String? inputPackagePath,
+      List<String>? interfaces,
+      SwidConfigEmitOptions? emitOptions});
 
   @override
   $SwidConfigEmitOptionsCopyWith<$Res> get emitOptions;
@@ -129,20 +129,20 @@ class __$$SwidConfigCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object inputPackagePath = freezed,
-    Object interfaces = freezed,
-    Object emitOptions = freezed,
+    Object? inputPackagePath = freezed,
+    Object? interfaces = freezed,
+    Object? emitOptions = freezed,
   }) {
     return _then(_$SwidConfigCtor(
       inputPackagePath: inputPackagePath == freezed
           ? _value.inputPackagePath
-          : inputPackagePath as String,
+          : (inputPackagePath as String?)!,
       interfaces: interfaces == freezed
           ? _value.interfaces
-          : interfaces as List<String>,
+          : (interfaces as List<String>?)!,
       emitOptions: emitOptions == freezed
           ? _value.emitOptions
-          : emitOptions as SwidConfigEmitOptions,
+          : (emitOptions as SwidConfigEmitOptions?)!,
     ));
   }
 }
@@ -152,9 +152,9 @@ class __$$SwidConfigCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidConfigCtor implements _$SwidConfigCtor {
   const _$_$SwidConfigCtor(
-      {@required this.inputPackagePath,
-      @required this.interfaces,
-      @required this.emitOptions})
+      {required this.inputPackagePath,
+      required this.interfaces,
+      required this.emitOptions})
       : assert(inputPackagePath != null),
         assert(interfaces != null),
         assert(emitOptions != null);
@@ -209,9 +209,9 @@ class _$_$SwidConfigCtor implements _$SwidConfigCtor {
 
 abstract class _$SwidConfigCtor implements SwidConfig {
   const factory _$SwidConfigCtor(
-      {@required String inputPackagePath,
-      @required List<String> interfaces,
-      @required SwidConfigEmitOptions emitOptions}) = _$_$SwidConfigCtor;
+      {required String inputPackagePath,
+      required List<String> interfaces,
+      required SwidConfigEmitOptions emitOptions}) = _$_$SwidConfigCtor;
 
   factory _$SwidConfigCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigCtor.fromJson;

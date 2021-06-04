@@ -9,62 +9,62 @@ enum SwidClassTypeFormalClosureKind {
   kNoCloseOverTypeFormalsInStaticMembers,
 }
 
-List<SwidTypeFormal> unsatisfiedTypeParameters({
-  @required SwidType swidType,
+List<SwidTypeFormal?> unsatisfiedTypeParameters({
+  required SwidType swidType,
   SwidClassTypeFormalClosureKind classTypeFormalClosureKind =
       SwidClassTypeFormalClosureKind.kNoCloseOverTypeFormalsInStaticMembers,
-  List<SwidTypeFormal> ancestorTypeFormals = const [],
+  List<SwidTypeFormal?> ancestorTypeFormals = const [],
 }) =>
     ([
       ...swidType.when(
         fromSwidInterface: (val) => ([
           (val.referenceDeclarationKind ==
                       SwidReferenceDeclarationKind.typeParameterType &&
-                  !ancestorTypeFormals.any((x) => x.value.name == val.name)
+                  !ancestorTypeFormals.any((x) => x!.value.name == val.name)
               ? SwidTypeFormal(
                   value: SwidTypeFormalValue.fromString(string: val.name),
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType)
               : null),
-          ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
+          ...((List<List<SwidTypeFormal?>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.typeArguments
               .map((x) => unsatisfiedTypeParameters(
-                    swidType: x,
+                    swidType: x!,
                     ancestorTypeFormals: ancestorTypeFormals,
                   ))
-              .toList())
+              .toList()) as Iterable<SwidTypeFormal?>
         ]..removeWhere((x) => x == null)),
-        fromSwidDefaultFormalParameter: (_) => null,
+        fromSwidDefaultFormalParameter: ((_) => null) as Iterable<SwidTypeFormal?> Function(SwidDefaultFormalParameter),
         fromSwidFunctionType: (val) => ([
-          ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
+          ...((List<List<SwidTypeFormal?>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.namedParameterTypes.entries
               .map((x) => unsatisfiedTypeParameters(
-                    swidType: x.value,
+                    swidType: x.value!,
                     ancestorTypeFormals: [
                       ...ancestorTypeFormals,
                       ...val.typeFormals,
                     ],
                   ))
-              .toList()),
-          ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
+              .toList()) as Iterable<SwidTypeFormal?>,
+          ...((List<List<SwidTypeFormal?>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.normalParameterTypes
               .map((x) => unsatisfiedTypeParameters(
-                    swidType: x,
+                    swidType: x!,
                     ancestorTypeFormals: [
                       ...ancestorTypeFormals,
                       ...val.typeFormals,
                     ],
                   ))
-              .toList()),
+              .toList()) as Iterable<SwidTypeFormal?>,
           ...unsatisfiedTypeParameters(
             swidType: val.returnType,
             ancestorTypeFormals: [
@@ -77,20 +77,20 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
           ...(val.constructorType != null
               ? unsatisfiedTypeParameters(
                   swidType: SwidType.fromSwidFunctionType(
-                      swidFunctionType: val.constructorType),
+                      swidFunctionType: val.constructorType!),
                   ancestorTypeFormals: [
                       ...ancestorTypeFormals,
                       ...val.typeFormals,
                     ])
               : []),
-          ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
+          ...((List<List<SwidTypeFormal?>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.factoryConstructors
               .map((x) => unsatisfiedTypeParameters(
                       swidType:
-                          SwidType.fromSwidFunctionType(swidFunctionType: x),
+                          SwidType.fromSwidFunctionType(swidFunctionType: x!),
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
                         ...(classTypeFormalClosureKind ==
@@ -99,15 +99,15 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                             ? val.typeFormals
                             : []),
                       ]))
-              .toList()),
-          ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
+              .toList()) as Iterable<SwidTypeFormal?>,
+          ...((List<List<SwidTypeFormal?>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.staticMethods
               .map((x) => unsatisfiedTypeParameters(
                       swidType:
-                          SwidType.fromSwidFunctionType(swidFunctionType: x),
+                          SwidType.fromSwidFunctionType(swidFunctionType: x!),
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
                         ...(classTypeFormalClosureKind ==
@@ -116,32 +116,32 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                             ? val.typeFormals
                             : []),
                       ]))
-              .toList()),
-          ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
+              .toList()) as Iterable<SwidTypeFormal?>,
+          ...((List<List<SwidTypeFormal?>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.methods
               .map((x) => unsatisfiedTypeParameters(
                       swidType:
-                          SwidType.fromSwidFunctionType(swidFunctionType: x),
+                          SwidType.fromSwidFunctionType(swidFunctionType: x!),
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
                         ...val.typeFormals,
                       ]))
-              .toList()),
-          ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
+              .toList()) as Iterable<SwidTypeFormal?>,
+          ...((List<List<SwidTypeFormal?>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.instanceFieldDeclarations.entries
               .map((x) => unsatisfiedTypeParameters(
-                      swidType: x.value,
+                      swidType: x.value!,
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
                         ...val.typeFormals,
                       ]))
-              .toList()),
+              .toList()) as Iterable<SwidTypeFormal?>,
         ]..removeWhere((x) => x == null)),
       )
     ])

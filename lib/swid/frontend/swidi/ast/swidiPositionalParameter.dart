@@ -8,17 +8,17 @@ part 'swidiPositionalParameter.freezed.dart';
 @freezed
 abstract class SwidiPositionalParameter with _$SwidiPositionalParameter {
   const factory SwidiPositionalParameter({
-    @required SwidiDeclaration declaration,
+    required SwidiDeclaration declaration,
   }) = _$SwidiPositionalParameterCtor;
 
   factory SwidiPositionalParameter.clone({
-    @required SwidiPositionalParameter swidiPositionalParameter,
-    SwidiDeclaration declaration,
+    required SwidiPositionalParameter? swidiPositionalParameter,
+    SwidiDeclaration? declaration,
   }) =>
       SwidiPositionalParameter(
         declaration: declaration ??
             SwidiDeclaration.clone(
-              swidiDeclaration: swidiPositionalParameter.declaration,
+              swidiDeclaration: swidiPositionalParameter!.declaration,
             ),
       );
 }

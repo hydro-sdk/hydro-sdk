@@ -15,8 +15,8 @@ class _$SwidiDeclarationTearOff {
 
 // ignore: unused_element
   _$SwidiDeclarationCtor call(
-      {@required String name,
-      @required SwidiInterface type,
+      {required String name,
+      required SwidiInterface type,
       SwidiConst defaultConstValue = const SwidiConst.fromSwidiEmptyConst(
           swidiEmptyConst: SwidiEmptyConst())}) {
     return _$SwidiDeclarationCtor(
@@ -46,7 +46,7 @@ abstract class $SwidiDeclarationCopyWith<$Res> {
   factory $SwidiDeclarationCopyWith(
           SwidiDeclaration value, $Res Function(SwidiDeclaration) then) =
       _$SwidiDeclarationCopyWithImpl<$Res>;
-  $Res call({String name, SwidiInterface type, SwidiConst defaultConstValue});
+  $Res call({String? name, SwidiInterface? type, SwidiConst? defaultConstValue});
 
   $SwidiInterfaceCopyWith<$Res> get type;
   $SwidiConstCopyWith<$Res> get defaultConstValue;
@@ -59,20 +59,20 @@ class _$SwidiDeclarationCopyWithImpl<$Res>
 
   final SwidiDeclaration _value;
   // ignore: unused_field
-  final $Res Function(SwidiDeclaration) _then;
+  final $Res Function(SwidiDeclaration?) _then;
 
   @override
   $Res call({
-    Object name = freezed,
-    Object type = freezed,
-    Object defaultConstValue = freezed,
+    Object? name = freezed,
+    Object? type = freezed,
+    Object? defaultConstValue = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
-      type: type == freezed ? _value.type : type as SwidiInterface,
+      name: name == freezed ? _value.name : name as String?,
+      type: type == freezed ? _value.type : type as SwidiInterface?,
       defaultConstValue: defaultConstValue == freezed
           ? _value.defaultConstValue
-          : defaultConstValue as SwidiConst,
+          : defaultConstValue as SwidiConst?,
     ));
   }
 
@@ -104,7 +104,7 @@ abstract class _$$SwidiDeclarationCtorCopyWith<$Res>
           $Res Function(_$SwidiDeclarationCtor) then) =
       __$$SwidiDeclarationCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String name, SwidiInterface type, SwidiConst defaultConstValue});
+  $Res call({String? name, SwidiInterface? type, SwidiConst? defaultConstValue});
 
   @override
   $SwidiInterfaceCopyWith<$Res> get type;
@@ -125,16 +125,16 @@ class __$$SwidiDeclarationCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object type = freezed,
-    Object defaultConstValue = freezed,
+    Object? name = freezed,
+    Object? type = freezed,
+    Object? defaultConstValue = freezed,
   }) {
     return _then(_$SwidiDeclarationCtor(
-      name: name == freezed ? _value.name : name as String,
-      type: type == freezed ? _value.type : type as SwidiInterface,
+      name: name == freezed ? _value.name : (name as String?)!,
+      type: type == freezed ? _value.type : (type as SwidiInterface?)!,
       defaultConstValue: defaultConstValue == freezed
           ? _value.defaultConstValue
-          : defaultConstValue as SwidiConst,
+          : (defaultConstValue as SwidiConst?)!,
     ));
   }
 }
@@ -142,8 +142,8 @@ class __$$SwidiDeclarationCtorCopyWithImpl<$Res>
 /// @nodoc
 class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
   const _$_$SwidiDeclarationCtor(
-      {@required this.name,
-      @required this.type,
+      {required this.name,
+      required this.type,
       this.defaultConstValue = const SwidiConst.fromSwidiEmptyConst(
           swidiEmptyConst: SwidiEmptyConst())})
       : assert(name != null),
@@ -194,9 +194,9 @@ class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
 
 abstract class _$SwidiDeclarationCtor implements SwidiDeclaration {
   const factory _$SwidiDeclarationCtor(
-      {@required String name,
-      @required SwidiInterface type,
-      SwidiConst defaultConstValue}) = _$_$SwidiDeclarationCtor;
+      {required String name,
+      required SwidiInterface type,
+      required SwidiConst defaultConstValue}) = _$_$SwidiDeclarationCtor;
 
   @override
   String get name;

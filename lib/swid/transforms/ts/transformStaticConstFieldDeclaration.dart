@@ -9,9 +9,9 @@ import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformStaticConstFieldDeclaration({
-  @required SwidStaticConstFieldDeclaration staticConstFieldDeclaration,
-  @required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
-  @required SwidClass parentClass,
+  required SwidStaticConstFieldDeclaration staticConstFieldDeclaration,
+  required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
+  required SwidClass parentClass,
 }) =>
     [
       staticConstFieldDeclaration.name[0] != "_" ? "public" : "private",
@@ -23,7 +23,7 @@ String transformStaticConstFieldDeclaration({
       "=",
       " ",
       transformLiteralToTs(
-          swidLiteral: staticConstFieldDeclaration.value,
+          swidLiteral: staticConstFieldDeclaration.value!,
           scopeResolver: scopeResolver,
           parentClass: parentClass,
           //should match the corresponding vm declaration for the inexpressible field in the same translation unit

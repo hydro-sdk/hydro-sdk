@@ -11,188 +11,188 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedSize extends VMManagedBox<Size> {
+class VMManagedSize extends VMManagedBox<Size?> {
   VMManagedSize(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table,
+      required this.vmObject,
+      required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.width];
+    table!['getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.width];
     });
-    table['getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.height];
+    table!['getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.height];
     });
-    table['getAspectRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.aspectRatio];
+    table!['getAspectRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.aspectRatio];
     });
-    table['getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.isEmpty];
+    table!['getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.isEmpty];
     });
-    table['getShortestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.shortestSide];
+    table!['getShortestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.shortestSide];
     });
-    table['getLongestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.longestSide];
+    table!['getLongestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.longestSide];
     });
-    table['topLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['topLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.topLeft(maybeUnBoxAndBuildArgument<Offset>(args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+            object: vmObject!.topLeft(maybeUnBoxAndBuildArgument<Offset>(args[1],
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['topCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['topCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.topCenter(maybeUnBoxAndBuildArgument<Offset>(
+            object: vmObject!.topCenter(maybeUnBoxAndBuildArgument<Offset>(
                 args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['topRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['topRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.topRight(maybeUnBoxAndBuildArgument<Offset>(
+            object: vmObject!.topRight(maybeUnBoxAndBuildArgument<Offset>(
                 args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['centerLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['centerLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.centerLeft(maybeUnBoxAndBuildArgument<Offset>(
+            object: vmObject!.centerLeft(maybeUnBoxAndBuildArgument<Offset>(
                 args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['center'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['center'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.center(maybeUnBoxAndBuildArgument<Offset>(args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+            object: vmObject!.center(maybeUnBoxAndBuildArgument<Offset>(args[1],
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['centerRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['centerRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.centerRight(maybeUnBoxAndBuildArgument<Offset>(
+            object: vmObject!.centerRight(maybeUnBoxAndBuildArgument<Offset>(
                 args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['bottomLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['bottomLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.bottomLeft(maybeUnBoxAndBuildArgument<Offset>(
+            object: vmObject!.bottomLeft(maybeUnBoxAndBuildArgument<Offset>(
                 args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['bottomCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['bottomCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.bottomCenter(maybeUnBoxAndBuildArgument<Offset>(
+            object: vmObject!.bottomCenter(maybeUnBoxAndBuildArgument<Offset>(
                 args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['bottomRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['bottomRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject.bottomRight(maybeUnBoxAndBuildArgument<Offset>(
+            object: vmObject!.bottomRight(maybeUnBoxAndBuildArgument<Offset>(
                 args[1],
-                parentState: hydroState)),
-            hydroState: hydroState,
+                parentState: hydroState!)),
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Offset>(args[1],
-            parentState: hydroState))
+        vmObject!.contains(maybeUnBoxAndBuildArgument<Offset>(args[1],
+            parentState: hydroState!))
       ];
     });
-    table['getFlipped'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['getFlipped'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Size>(
-            object: vmObject.flipped,
-            hydroState: hydroState,
+            object: vmObject!.flipped,
+            hydroState: hydroState!,
             table: HydroTable())
       ];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.toString()];
     });
-    table['getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.isInfinite];
+    table!['getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.isInfinite];
     });
-    table['getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.isFinite];
+    table!['getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject!.isFinite];
     });
   }
 
-  final HydroTable table;
+  final HydroTable? table;
 
-  final HydroState hydroState;
+  final HydroState? hydroState;
 
-  final Size vmObject;
+  final Size? vmObject;
 }
 
 class RTManagedSize extends Size implements Box<Size> {
   RTManagedSize(double width, double height,
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super(
           width,
           height,
         ) {
-    table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['vmObject'] = vmObject;
+    table!['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
-    table['_dart_getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.width];
     });
-    table['_dart_getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.height];
     });
-    table['_dart_getAspectRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getAspectRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.aspectRatio];
     });
-    table['_dart_getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isEmpty];
     });
-    table['_dart_getShortestSide'] =
+    table!['_dart_getShortestSide'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.shortestSide];
     });
-    table['_dart_getLongestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getLongestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.longestSide];
     });
-    table['_dart_topLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_topLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.topLeft(maybeUnBoxAndBuildArgument<Offset>(args[1],
@@ -201,7 +201,7 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_topCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_topCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.topCenter(maybeUnBoxAndBuildArgument<Offset>(args[1],
@@ -210,7 +210,7 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_topRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_topRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.topRight(maybeUnBoxAndBuildArgument<Offset>(args[1],
@@ -219,7 +219,7 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_centerLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_centerLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.centerLeft(maybeUnBoxAndBuildArgument<Offset>(args[1],
@@ -228,7 +228,7 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_center'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_center'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.center(maybeUnBoxAndBuildArgument<Offset>(args[1],
@@ -237,7 +237,7 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_centerRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_centerRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.centerRight(maybeUnBoxAndBuildArgument<Offset>(
@@ -247,7 +247,7 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_bottomLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_bottomLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.bottomLeft(maybeUnBoxAndBuildArgument<Offset>(args[1],
@@ -256,7 +256,7 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_bottomCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_bottomCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.bottomCenter(maybeUnBoxAndBuildArgument<Offset>(
@@ -266,7 +266,7 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_bottomRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_bottomRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
             object: super.bottomRight(maybeUnBoxAndBuildArgument<Offset>(
@@ -276,30 +276,30 @@ class RTManagedSize extends Size implements Box<Size> {
             table: HydroTable())
       ];
     });
-    table['_dart_contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         super.contains(maybeUnBoxAndBuildArgument<Offset>(args[1],
             parentState: hydroState))
       ];
     });
-    table['_dart_getFlipped'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getFlipped'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.flipped];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.toString()];
     });
-    table['_dart_getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isInfinite];
     });
-    table['_dart_getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isFinite];
     });
   }
 
-  final HydroTable table;
+  final HydroTable? table;
 
   final HydroState hydroState;
 
@@ -307,152 +307,152 @@ class RTManagedSize extends Size implements Box<Size> {
   Size get vmObject => this;
   @override
   double get width {
-    Closure closure = table["getWidth"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+    Closure closure = table!["getWidth"];
+    return closure.dispatch([table], parentState: hydroState)![0]?.toDouble();
   }
 
   @override
   double get height {
-    Closure closure = table["getHeight"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+    Closure closure = table!["getHeight"];
+    return closure.dispatch([table], parentState: hydroState)![0]?.toDouble();
   }
 
   @override
   double get aspectRatio {
-    Closure closure = table["getAspectRatio"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+    Closure closure = table!["getAspectRatio"];
+    return closure.dispatch([table], parentState: hydroState)![0]?.toDouble();
   }
 
   @override
   bool get isEmpty {
-    Closure closure = table["getIsEmpty"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    Closure closure = table!["getIsEmpty"];
+    return closure.dispatch([table], parentState: hydroState)![0];
   }
 
   @override
   double get shortestSide {
-    Closure closure = table["getShortestSide"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+    Closure closure = table!["getShortestSide"];
+    return closure.dispatch([table], parentState: hydroState)![0]?.toDouble();
   }
 
   @override
   double get longestSide {
-    Closure closure = table["getLongestSide"];
-    return closure.dispatch([table], parentState: hydroState)[0]?.toDouble();
+    Closure closure = table!["getLongestSide"];
+    return closure.dispatch([table], parentState: hydroState)![0]?.toDouble();
   }
 
   @override
   Offset topLeft(Offset origin) {
-    Closure closure = table["topLeft"];
+    Closure closure = table!["topLeft"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   Offset topCenter(Offset origin) {
-    Closure closure = table["topCenter"];
+    Closure closure = table!["topCenter"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   Offset topRight(Offset origin) {
-    Closure closure = table["topRight"];
+    Closure closure = table!["topRight"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   Offset centerLeft(Offset origin) {
-    Closure closure = table["centerLeft"];
+    Closure closure = table!["centerLeft"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   Offset center(Offset origin) {
-    Closure closure = table["center"];
+    Closure closure = table!["center"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   Offset centerRight(Offset origin) {
-    Closure closure = table["centerRight"];
+    Closure closure = table!["centerRight"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   Offset bottomLeft(Offset origin) {
-    Closure closure = table["bottomLeft"];
+    Closure closure = table!["bottomLeft"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   Offset bottomCenter(Offset origin) {
-    Closure closure = table["bottomCenter"];
+    Closure closure = table!["bottomCenter"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   Offset bottomRight(Offset origin) {
-    Closure closure = table["bottomRight"];
+    Closure closure = table!["bottomRight"];
     return maybeUnBoxAndBuildArgument<Offset>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   bool contains(Offset offset) {
-    Closure closure = table["contains"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    Closure closure = table!["contains"];
+    return closure.dispatch([table], parentState: hydroState)![0];
   }
 
   @override
   Size get flipped {
-    Closure closure = table["getFlipped"];
+    Closure closure = table!["getFlipped"];
     return maybeUnBoxAndBuildArgument<Size>(
-        closure.dispatch([table], parentState: hydroState)[0],
+        closure.dispatch([table], parentState: hydroState)![0],
         parentState: hydroState);
   }
 
   @override
   int get hashCode {
-    Closure closure = table["getHashCode"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    Closure closure = table!["getHashCode"];
+    return closure.dispatch([table], parentState: hydroState)![0];
   }
 
   @override
   String toString() {
-    Closure closure = table["__tostring"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    Closure closure = table!["__tostring"];
+    return closure.dispatch([table], parentState: hydroState)![0];
   }
 
   @override
   bool get isInfinite {
-    Closure closure = table["getIsInfinite"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    Closure closure = table!["getIsInfinite"];
+    return closure.dispatch([table], parentState: hydroState)![0];
   }
 
   @override
   bool get isFinite {
-    Closure closure = table["getIsFinite"];
-    return closure.dispatch([table], parentState: hydroState)[0];
+    Closure closure = table!["getIsFinite"];
+    return closure.dispatch([table], parentState: hydroState)![0];
   }
 }
 
-void loadSize({@required HydroState hydroState, @required HydroTable table}) {
+void loadSize({required HydroState hydroState, required HydroTable table}) {
   table['size'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedSize(args[1]?.toDouble(), args[2]?.toDouble(),
@@ -502,7 +502,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   });
   table['sizeLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<Size>(
+      maybeBoxObject<Size?>(
           object: Size.lerp(
               maybeUnBoxAndBuildArgument<Size>(args[1],
                   parentState: hydroState),
@@ -514,9 +514,9 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Size>(boxer: (
-      {@required Size vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Size? vmObject,
+      required HydroState? hydroState,
+      required HydroTable? table}) {
     return VMManagedSize(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

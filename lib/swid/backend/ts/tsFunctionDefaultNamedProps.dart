@@ -6,13 +6,13 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 class TsFunctionDefaultNamedProps {
-  final SwidFunctionType swidFunctionType;
+  final SwidFunctionType? swidFunctionType;
 
-  TsFunctionDefaultNamedProps({@required this.swidFunctionType});
+  TsFunctionDefaultNamedProps({required this.swidFunctionType});
 
-  String toTsSource() => swidFunctionType.namedDefaultParameters.isNotEmpty
+  String toTsSource() => swidFunctionType!.namedDefaultParameters.isNotEmpty
       ? "const ${TsFunctionDefaultNamedPropsObjectName(swidFunctionType: swidFunctionType).toTsSource()} = {\n" +
-          swidFunctionType.namedDefaultParameters.entries
+          swidFunctionType!.namedDefaultParameters.entries
               .map((x) =>
                   "    ${x.key}: " +
                   "${transformTypeDeclarationToTs(swidType: SwidType.fromSwidDefaultFormalParameter(swidDefaultFormalParameter: x.value))}")

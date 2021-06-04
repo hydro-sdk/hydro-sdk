@@ -18,7 +18,7 @@ void main() {
         ]);
 
     if (!res.success) {
-      print(res.values[0]);
+      print(res.values![0]);
     }
 
     expect(res.success, true);

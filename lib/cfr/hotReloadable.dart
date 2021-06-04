@@ -16,19 +16,19 @@ import 'package:hydro_sdk/hydroState.dart';
 mixin HotReloadable<T extends StatefulWidget> on State<T>
     implements PreloadableCustomNamespaces<T> {
   HydroState luaState = HydroState();
-  String lastHash;
-  HydroFunctionImpl func;
-  CoroutineResult res;
+  String? lastHash;
+  HydroFunctionImpl? func;
+  CoroutineResult? res;
 
   Future<bool> hotReload(
-      {@required
+      {required
           Uint8List bytecodeImage,
-      @required
-          List<ModuleDebugInfo> symbols,
-      @required
+      required
+          List<ModuleDebugInfo>? symbols,
+      required
           String baseUrl,
-      @required
-          Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+      required
+          Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
               thunks}) async {
     var linkStatus = LinkStatus();
     luaState.symbols = symbols;
@@ -41,21 +41,21 @@ mixin HotReloadable<T extends StatefulWidget> on State<T>
     print("I/Hydro: Reloaded function prototypes");
     setState(() {
       func = val;
-      res = func.pcall([], parentState: luaState);
+      res = func!.pcall([], parentState: luaState);
     });
-    WidgetsBinding.instance.reassembleApplication();
+    WidgetsBinding.instance!.reassembleApplication();
     return true;
   }
 
   Future<void> fullRestart(
-      {@required
+      {required
           Uint8List bytecodeImage,
-      @required
+      required
           String baseUrl,
-      @required
-          List<ModuleDebugInfo> symbols,
-      @required
-          Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+      required
+          List<ModuleDebugInfo>? symbols,
+      required
+          Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
               thunks}) async {
     setState(() {
       luaState = HydroState();
@@ -79,7 +79,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T>
       //  print("I/Hydro Linked ${linkStatus.linkedNativePrototypes} native prototypes");
       setState(() {
         func = val;
-        res = func.pcall([], parentState: luaState);
+        res = func!.pcall([], parentState: luaState);
       });
     });
   }

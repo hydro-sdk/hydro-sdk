@@ -8,7 +8,7 @@ part 'tsFunctionInvocationNamedParametersKeyValue.g.dart';
 abstract class TsFunctionInvocationNamedParametersKeyValue
     with _$TsFunctionInvocationNamedParametersKeyValue {
   factory TsFunctionInvocationNamedParametersKeyValue(
-      {@required Map<String, String> namedReferences}) = _$Data;
+      {required Map<String, String> namedReferences}) = _$Data;
 
   factory TsFunctionInvocationNamedParametersKeyValue.fromJson(
           Map<String, dynamic> json) =>

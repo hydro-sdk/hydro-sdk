@@ -39,14 +39,14 @@ class RunComponent extends StatefulWidget {
   final String component;
   final String releaseChannel;
   final RegistryApi registryApi;
-  final Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
+  final Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
       thunks;
   final Widget loading;
   final int debugPort;
 
   const RunComponent({
-    @required this.project,
-    @required this.component,
+    required this.project,
+    required this.component,
     this.releaseChannel = "latest",
     this.registryApi = const RegistryApi(baseUrl: ""),
     this.thunks = const {},
@@ -61,8 +61,8 @@ class RunComponent extends StatefulWidget {
 }
 
 class _RunComponentState extends State<RunComponent> with ServiceAware {
-  RunComponentKind runComponentKind;
-  Uint8List rawPackage;
+  RunComponentKind? runComponentKind;
+  Uint8List? rawPackage;
 
   void _attemptToLoadComponentFromRegistry() {
     if (mounted) {
@@ -82,19 +82,19 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
     )
         .then((latestPackageUri) {
       if (latestPackageUri?.statusCode == 201) {
-        get(latestPackageUri.body).then((downloadResponse) {
+        get(latestPackageUri.body as Uri).then((downloadResponse) {
           if (mounted) {
             setState(() {
               runComponentKind = RunComponentKind.kRunComponentFromRegistry;
               rawPackage = base64Decode(downloadResponse.body);
             });
           }
-        }).onError((error, stackTrace) {
+        }).onError((dynamic error, stackTrace) {
           print(error);
           print(stackTrace);
         });
       }
-    }).onError((error, stackTrace) {
+    }).onError((dynamic error, stackTrace) {
       print(error);
       print(stackTrace);
     });
@@ -119,7 +119,7 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
         } else {
           _attemptToLoadComponentFromRegistry();
         }
-      }).onError((error, stackTrace) {
+      }).onError((dynamic error, stackTrace) {
         print(error);
         print(stackTrace);
       });
@@ -155,16 +155,16 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
 }
 
 List<int> _getFileContentFromArchive({
-  @required String fileName,
-  @required Archive archive,
+  required String fileName,
+  required Archive archive,
 }) {
   archive.files.map((x) => print(x.name));
   return archive.fileData(archive.files.indexWhere((x) => x.name == fileName));
 }
 
 String _getFileContentFromArchiveAsString({
-  @required String fileName,
-  @required Archive archive,
+  required String fileName,
+  required Archive archive,
 }) =>
     String.fromCharCodes(_getFileContentFromArchive(
       fileName: fileName,

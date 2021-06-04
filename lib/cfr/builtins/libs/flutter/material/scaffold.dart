@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadScaffold({@required HydroState luaState, @required HydroTable table}) {
+void loadScaffold({required HydroState luaState, required HydroTable table}) {
   table["scaffold"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Scaffold(

@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParse
 
 mixin SwidiFunctionDeclarationPositionalParameterParser
     on SwidiGrammarDefinition, SwidiSimpleDeclarationParser {
-  Parser<SwidiPositionalParameter> functionDeclarationPositionalParameter() =>
+  Parser<SwidiPositionalParameter?> functionDeclarationPositionalParameter() =>
       super.functionDeclarationPositionalParameter().map((x) {
         if (x is SwidiDeclaration) {
           return SwidiPositionalParameter(declaration: x);
