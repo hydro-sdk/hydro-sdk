@@ -5,7 +5,7 @@ part 'createPackageDto.freezed.dart';
 part 'createPackageDto.g.dart';
 
 @freezed
-abstract class CreatePackageDto with _$CreatePackageDto {
+class CreatePackageDto with _$CreatePackageDto {
   const factory CreatePackageDto({
     required String publishingPrivateKeySha256,
     required String otaPackageBase64,

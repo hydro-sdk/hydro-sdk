@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 part 'swidiPositionalParameter.freezed.dart';
 
 @freezed
-abstract class SwidiPositionalParameter with _$SwidiPositionalParameter {
+class SwidiPositionalParameter with _$SwidiPositionalParameter {
   const factory SwidiPositionalParameter({
     required SwidiDeclaration declaration,
   }) = _$SwidiPositionalParameterCtor;

@@ -16,7 +16,7 @@ import 'package:meta/meta.dart';
 part 'dartClassOrMixinOrClassTypAliasDeclaration.freezed.dart';
 
 @freezed
-abstract class DartClassOrMixinOrClassTypAliasDeclaration
+class DartClassOrMixinOrClassTypAliasDeclaration
     with _$DartClassOrMixinOrClassTypAliasDeclaration {
   const factory DartClassOrMixinOrClassTypAliasDeclaration.fromClassDeclaration({
     required ClassDeclaration classDeclaration,

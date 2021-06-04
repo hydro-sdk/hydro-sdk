@@ -9,13 +9,10 @@ part of 'swidStaticConstBinaryExpression.dart';
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     operator: json['operator'] as String,
-    leftOperand: json['leftOperand'] == null
-        ? null
-        : SwidStaticConst.fromJson(json['leftOperand'] as Map<String, dynamic>),
-    rightOperand: json['rightOperand'] == null
-        ? null
-        : SwidStaticConst.fromJson(
-            json['rightOperand'] as Map<String, dynamic>),
+    leftOperand:
+        SwidStaticConst.fromJson(json['leftOperand'] as Map<String, dynamic>),
+    rightOperand:
+        SwidStaticConst.fromJson(json['rightOperand'] as Map<String, dynamic>),
   );
 }
 

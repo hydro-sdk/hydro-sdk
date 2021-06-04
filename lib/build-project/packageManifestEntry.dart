@@ -5,7 +5,7 @@ part 'packageManifestEntry.freezed.dart';
 part 'packageManifestEntry.g.dart';
 
 @freezed
-abstract class PackageManifestEntry with _$PackageManifestEntry {
+class PackageManifestEntry with _$PackageManifestEntry {
   const factory PackageManifestEntry({
     required String path,
     required String sha256,

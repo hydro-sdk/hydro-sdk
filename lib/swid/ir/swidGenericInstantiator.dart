@@ -7,7 +7,7 @@ part "swidGenericInstantiator.freezed.dart";
 part "swidGenericInstantiator.g.dart";
 
 @freezed
-abstract class SwidGenericInstantiator with _$SwidGenericInstantiator {
+class SwidGenericInstantiator with _$SwidGenericInstantiator {
   const factory SwidGenericInstantiator({
     required String name,
     required SwidInstantiatedGeneric instantiatedGeneric,

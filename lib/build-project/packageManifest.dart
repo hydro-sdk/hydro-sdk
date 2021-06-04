@@ -7,7 +7,7 @@ part 'packageManifest.freezed.dart';
 part 'packageManifest.g.dart';
 
 @freezed
-abstract class PackageManifest with _$PackageManifest {
+class PackageManifest with _$PackageManifest {
   const factory PackageManifest({
     required String mountableChunk,
     required List<PackageManifestEntry> entries,

@@ -16,21 +16,21 @@ part 'swidFunctionType.freezed.dart';
 part 'swidFunctionType.g.dart';
 
 @freezed
-abstract class SwidFunctionType with _$SwidFunctionType {
+class SwidFunctionType with _$SwidFunctionType {
   const factory SwidFunctionType({
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,
     required String originalPackagePath,
     required SwidDeclarationModifiers swidDeclarationModifiers,
-    required Map<String, SwidType?> namedParameterTypes,
+    required Map<String, SwidType> namedParameterTypes,
     required Map<String, SwidDefaultFormalParameter> namedDefaults,
     required List<String> normalParameterNames,
-    required List<SwidType?> normalParameterTypes,
+    required List<SwidType> normalParameterTypes,
     required List<String> optionalParameterNames,
-    required List<SwidType?> optionalParameterTypes,
+    required List<SwidType> optionalParameterTypes,
     required SwidType returnType,
     required bool isFactory,
-    required List<SwidTypeFormal?> typeFormals,
+    required List<SwidTypeFormal> typeFormals,
   }) = _$Data;
 
   factory SwidFunctionType.fromJson(Map<String, dynamic> json) =>

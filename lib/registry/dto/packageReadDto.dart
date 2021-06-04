@@ -5,7 +5,7 @@ part 'packageReadDto.freezed.dart';
 part 'packageReadDto.g.dart';
 
 @freezed
-abstract class PackageReadDto with _$PackageReadDto {
+class PackageReadDto with _$PackageReadDto {
   const factory PackageReadDto({
     required String id,
     required String createdAt,

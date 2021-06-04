@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 part 'swidiReferenceDeclarationPrefix.freezed.dart';
 
 @freezed
-abstract class SwidiReferenceDeclarationPrefix
+class SwidiReferenceDeclarationPrefix
     with _$SwidiReferenceDeclarationPrefix {
   const factory SwidiReferenceDeclarationPrefix({
     required String name,

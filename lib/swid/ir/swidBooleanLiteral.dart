@@ -5,7 +5,7 @@ part 'swidBooleanLiteral.freezed.dart';
 part 'swidBooleanLiteral.g.dart';
 
 @freezed
-abstract class SwidBooleanLiteral with _$SwidBooleanLiteral {
+class SwidBooleanLiteral with _$SwidBooleanLiteral {
   const factory SwidBooleanLiteral({required String value}) = _$Data;
 
   factory SwidBooleanLiteral.fromJson(Map<String, dynamic> json) =>

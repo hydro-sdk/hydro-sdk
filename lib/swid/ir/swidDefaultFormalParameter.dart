@@ -9,12 +9,12 @@ part 'swidDefaultFormalParameter.freezed.dart';
 part 'swidDefaultFormalParameter.g.dart';
 
 @freezed
-abstract class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
+class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
   const factory SwidDefaultFormalParameter({
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,
     required String originalPackagePath,
-    @nullable required SwidType? value,
+     required SwidType? value,
   }) = _$Data;
 
   factory SwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =>

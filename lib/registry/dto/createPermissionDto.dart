@@ -5,7 +5,7 @@ part 'createPermissionDto.freezed.dart';
 part 'createPermissionDto.g.dart';
 
 @freezed
-abstract class CreatePermissionDto with _$CreatePermissionDto {
+class CreatePermissionDto with _$CreatePermissionDto {
   const factory CreatePermissionDto({
     required String manageeId,
     required String managerId,

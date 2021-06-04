@@ -5,7 +5,7 @@ part 'userReadDto.freezed.dart';
 part 'userReadDto.g.dart';
 
 @freezed
-abstract class UserReadDto with _$UserReadDto {
+class UserReadDto with _$UserReadDto {
   const factory UserReadDto({
     required String subject,
     required String username,

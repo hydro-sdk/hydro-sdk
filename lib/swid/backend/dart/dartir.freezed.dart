@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'dartir.dart';
 
@@ -9,23 +9,23 @@ part of 'dartir.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$DartIrTearOff {
   const _$DartIrTearOff();
 
-// ignore: unused_element
   _$FromDartBarrelLoadNamespaceSymbolDeclaration
       fromDartBarrelLoadNamespaceSymbolDeclaration(
-          {required
-              DartBarrelLoadNamespaceSymbolDeclaration
-                  dartBarrelLoadNamespaceSymbolDeclaration}) {
+          {required DartBarrelLoadNamespaceSymbolDeclaration
+              dartBarrelLoadNamespaceSymbolDeclaration}) {
     return _$FromDartBarrelLoadNamespaceSymbolDeclaration(
       dartBarrelLoadNamespaceSymbolDeclaration:
           dartBarrelLoadNamespaceSymbolDeclaration,
     );
   }
 
-// ignore: unused_element
   _$FromDartBindInstanceField fromDartBindInstanceField(
       {required DartBindInstanceField dartBindInstanceField}) {
     return _$FromDartBindInstanceField(
@@ -33,7 +33,6 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromDartBindInstanceFieldDirect fromDartBindInstanceFieldDirect(
       {required DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) {
     return _$FromDartBindInstanceFieldDirect(
@@ -41,7 +40,6 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromDartBoxEnumReference fromDartBoxEnumReference(
       {required DartBoxEnumReference dartBoxEnumReference}) {
     return _$FromDartBoxEnumReference(
@@ -49,14 +47,12 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromDartBoxList fromDartBoxList({required DartBoxList dartBoxList}) {
     return _$FromDartBoxList(
       dartBoxList: dartBoxList,
     );
   }
 
-// ignore: unused_element
   _$FromDartBoxObjectReference fromDartBoxObjectReference(
       {required DartBoxObjectReference dartBoxObjectReference}) {
     return _$FromDartBoxObjectReference(
@@ -64,7 +60,6 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromDartImportStatement fromDartImportStatement(
       {required DartImportStatement dartImportStatement}) {
     return _$FromDartImportStatement(
@@ -72,29 +67,24 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
       fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-          {required
-              DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                  dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) {
+          {required DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+              dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) {
     return _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
       dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration:
           dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
     );
   }
 
-// ignore: unused_element
   _$FromDartFunctionSelfBindingInvocation fromDartFunctionSelfBindingInvocation(
-      {required
-          DartFunctionSelfBindingInvocation
-              dartFunctionSelfBindingInvocation}) {
+      {required DartFunctionSelfBindingInvocation
+          dartFunctionSelfBindingInvocation}) {
     return _$FromDartFunctionSelfBindingInvocation(
       dartFunctionSelfBindingInvocation: dartFunctionSelfBindingInvocation,
     );
   }
 
-// ignore: unused_element
   _$FromDartLinebreak fromDartLinebreak(
       {required DartLinebreak dartLinebreak}) {
     return _$FromDartLinebreak(
@@ -102,7 +92,6 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromDartUnboxingExpression fromDartUnboxingExpression(
       {required DartUnboxingExpression dartUnboxingExpression}) {
     return _$FromDartUnboxingExpression(
@@ -110,7 +99,6 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromDartUnpackClosures fromDartUnpackClosures(
       {required DartUnpackClosures dartUnpackClosures}) {
     return _$FromDartUnpackClosures(
@@ -118,35 +106,30 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   $FromDartVMManagedClassBoxerRegistrant fromDartVMManagedClassBoxerRegistrant(
-      {required
-          DartVMManagedClassBoxerRegistrant
-              dartVMManagedClassBoxerRegistrant}) {
+      {required DartVMManagedClassBoxerRegistrant
+          dartVMManagedClassBoxerRegistrant}) {
     return $FromDartVMManagedClassBoxerRegistrant(
       dartVMManagedClassBoxerRegistrant: dartVMManagedClassBoxerRegistrant,
     );
   }
 
-// ignore: unused_element
   _$FromLoadNamespaceSymbolDeclaration fromLoadNamepsaceSymbolDeclaration(
-      {required
-          DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration}) {
+      {required DartLoadNamespaceSymbolDeclaration
+          loadNamespaceSymbolDeclaration}) {
     return _$FromLoadNamespaceSymbolDeclaration(
       loadNamespaceSymbolDeclaration: loadNamespaceSymbolDeclaration,
     );
   }
 
-// ignore: unused_element
   _$FromMethodInjectionImplementation fromMethodInjectionImplementation(
-      {required
-          DartMethodInjectionImplementation methodInjectionImplementation}) {
+      {required DartMethodInjectionImplementation
+          methodInjectionImplementation}) {
     return _$FromMethodInjectionImplementation(
       methodInjectionImplementation: methodInjectionImplementation,
     );
   }
 
-// ignore: unused_element
   _$FromRTManagedClassDeclaration fromRTManagedClassDeclaration(
       {required DartRTManagedClassDeclaration rtManagedClassDeclaration}) {
     return _$FromRTManagedClassDeclaration(
@@ -154,19 +137,16 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromDartStaticMethodNamespaceSymbolDeclaration
       fromDartStaticMethodNamespaceSymbolDeclaration(
-          {required
-              DartStaticMethodNamespaceSymbolDeclaration
-                  staticMethodNamespaceSymbolDeclaration}) {
+          {required DartStaticMethodNamespaceSymbolDeclaration
+              staticMethodNamespaceSymbolDeclaration}) {
     return _$FromDartStaticMethodNamespaceSymbolDeclaration(
       staticMethodNamespaceSymbolDeclaration:
           staticMethodNamespaceSymbolDeclaration,
     );
   }
 
-// ignore: unused_element
   _$FromVMManagedClassDeclaration fromVMManagedClassDeclaration(
       {required DartVMManagedClassDeclaration vmManagedClassDeclaration}) {
     return _$FromVMManagedClassDeclaration(
@@ -174,12 +154,10 @@ class _$DartIrTearOff {
     );
   }
 
-// ignore: unused_element
   _$FromVMManagedClassMethodInjectionImplementation
       fromVMManagedClassMethodInjectionImplementation(
-          {required
-              DartVMManagedClassMethodInjectionImplementation
-                  vmManagedClassMethodInjectionImplementation}) {
+          {required DartVMManagedClassMethodInjectionImplementation
+              vmManagedClassMethodInjectionImplementation}) {
     return _$FromVMManagedClassMethodInjectionImplementation(
       vmManagedClassMethodInjectionImplementation:
           vmManagedClassMethodInjectionImplementation,
@@ -188,197 +166,206 @@ class _$DartIrTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $DartIr = _$DartIrTearOff();
 
 /// @nodoc
 mixin _$DartIr {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
-  });
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
-  });
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
-  });
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
-  });
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -403,7 +390,7 @@ abstract class _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith<$Res> {
           $Res Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration) then) =
       __$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>;
   $Res call(
-      {DartBarrelLoadNamespaceSymbolDeclaration?
+      {DartBarrelLoadNamespaceSymbolDeclaration
           dartBarrelLoadNamespaceSymbolDeclaration});
 }
 
@@ -429,18 +416,18 @@ class __$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
       dartBarrelLoadNamespaceSymbolDeclaration:
           dartBarrelLoadNamespaceSymbolDeclaration == freezed
               ? _value.dartBarrelLoadNamespaceSymbolDeclaration
-              : (dartBarrelLoadNamespaceSymbolDeclaration
-                  as DartBarrelLoadNamespaceSymbolDeclaration?)!,
+              : dartBarrelLoadNamespaceSymbolDeclaration // ignore: cast_nullable_to_non_nullable
+                  as DartBarrelLoadNamespaceSymbolDeclaration,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
     implements _$FromDartBarrelLoadNamespaceSymbolDeclaration {
   _$_$FromDartBarrelLoadNamespaceSymbolDeclaration(
-      {required this.dartBarrelLoadNamespaceSymbolDeclaration})
-      : assert(dartBarrelLoadNamespaceSymbolDeclaration != null);
+      {required this.dartBarrelLoadNamespaceSymbolDeclaration});
 
   @override
   final DartBarrelLoadNamespaceSymbolDeclaration
@@ -478,134 +465,118 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBarrelLoadNamespaceSymbolDeclaration(
         dartBarrelLoadNamespaceSymbolDeclaration);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBarrelLoadNamespaceSymbolDeclaration != null) {
       return fromDartBarrelLoadNamespaceSymbolDeclaration(
           dartBarrelLoadNamespaceSymbolDeclaration);
@@ -615,115 +586,93 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBarrelLoadNamespaceSymbolDeclaration(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBarrelLoadNamespaceSymbolDeclaration != null) {
       return fromDartBarrelLoadNamespaceSymbolDeclaration(this);
     }
@@ -734,16 +683,17 @@ class _$_$FromDartBarrelLoadNamespaceSymbolDeclaration
 abstract class _$FromDartBarrelLoadNamespaceSymbolDeclaration
     implements DartIr {
   factory _$FromDartBarrelLoadNamespaceSymbolDeclaration(
-          {required
-              DartBarrelLoadNamespaceSymbolDeclaration
-                  dartBarrelLoadNamespaceSymbolDeclaration}) =
+          {required DartBarrelLoadNamespaceSymbolDeclaration
+              dartBarrelLoadNamespaceSymbolDeclaration}) =
       _$_$FromDartBarrelLoadNamespaceSymbolDeclaration;
 
   DartBarrelLoadNamespaceSymbolDeclaration
-      get dartBarrelLoadNamespaceSymbolDeclaration;
+      get dartBarrelLoadNamespaceSymbolDeclaration =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromDartBarrelLoadNamespaceSymbolDeclarationCopyWith<
-      _$FromDartBarrelLoadNamespaceSymbolDeclaration> get copyWith;
+          _$FromDartBarrelLoadNamespaceSymbolDeclaration>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -752,7 +702,7 @@ abstract class _$$FromDartBindInstanceFieldCopyWith<$Res> {
           _$FromDartBindInstanceField value,
           $Res Function(_$FromDartBindInstanceField) then) =
       __$$FromDartBindInstanceFieldCopyWithImpl<$Res>;
-  $Res call({DartBindInstanceField? dartBindInstanceField});
+  $Res call({DartBindInstanceField dartBindInstanceField});
 }
 
 /// @nodoc
@@ -774,15 +724,16 @@ class __$$FromDartBindInstanceFieldCopyWithImpl<$Res>
     return _then(_$FromDartBindInstanceField(
       dartBindInstanceField: dartBindInstanceField == freezed
           ? _value.dartBindInstanceField
-          : (dartBindInstanceField as DartBindInstanceField?)!,
+          : dartBindInstanceField // ignore: cast_nullable_to_non_nullable
+              as DartBindInstanceField,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
-  _$_$FromDartBindInstanceField({required this.dartBindInstanceField})
-      : assert(dartBindInstanceField != null);
+  _$_$FromDartBindInstanceField({required this.dartBindInstanceField});
 
   @override
   final DartBindInstanceField dartBindInstanceField;
@@ -814,133 +765,117 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBindInstanceField(dartBindInstanceField);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBindInstanceField != null) {
       return fromDartBindInstanceField(dartBindInstanceField);
     }
@@ -949,115 +884,93 @@ class _$_$FromDartBindInstanceField implements _$FromDartBindInstanceField {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBindInstanceField(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBindInstanceField != null) {
       return fromDartBindInstanceField(this);
     }
@@ -1070,10 +983,11 @@ abstract class _$FromDartBindInstanceField implements DartIr {
           {required DartBindInstanceField dartBindInstanceField}) =
       _$_$FromDartBindInstanceField;
 
-  DartBindInstanceField get dartBindInstanceField;
+  DartBindInstanceField get dartBindInstanceField =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromDartBindInstanceFieldCopyWith<_$FromDartBindInstanceField>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1082,7 +996,7 @@ abstract class _$$FromDartBindInstanceFieldDirectCopyWith<$Res> {
           _$FromDartBindInstanceFieldDirect value,
           $Res Function(_$FromDartBindInstanceFieldDirect) then) =
       __$$FromDartBindInstanceFieldDirectCopyWithImpl<$Res>;
-  $Res call({DartBindInstanceFieldDirect? dartBindInstanceFieldDirect});
+  $Res call({DartBindInstanceFieldDirect dartBindInstanceFieldDirect});
 }
 
 /// @nodoc
@@ -1105,17 +1019,18 @@ class __$$FromDartBindInstanceFieldDirectCopyWithImpl<$Res>
     return _then(_$FromDartBindInstanceFieldDirect(
       dartBindInstanceFieldDirect: dartBindInstanceFieldDirect == freezed
           ? _value.dartBindInstanceFieldDirect
-          : (dartBindInstanceFieldDirect as DartBindInstanceFieldDirect?)!,
+          : dartBindInstanceFieldDirect // ignore: cast_nullable_to_non_nullable
+              as DartBindInstanceFieldDirect,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartBindInstanceFieldDirect
     implements _$FromDartBindInstanceFieldDirect {
   _$_$FromDartBindInstanceFieldDirect(
-      {required this.dartBindInstanceFieldDirect})
-      : assert(dartBindInstanceFieldDirect != null);
+      {required this.dartBindInstanceFieldDirect});
 
   @override
   final DartBindInstanceFieldDirect dartBindInstanceFieldDirect;
@@ -1149,133 +1064,117 @@ class _$_$FromDartBindInstanceFieldDirect
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBindInstanceFieldDirect(dartBindInstanceFieldDirect);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBindInstanceFieldDirect != null) {
       return fromDartBindInstanceFieldDirect(dartBindInstanceFieldDirect);
     }
@@ -1284,115 +1183,93 @@ class _$_$FromDartBindInstanceFieldDirect
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBindInstanceFieldDirect(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBindInstanceFieldDirect != null) {
       return fromDartBindInstanceFieldDirect(this);
     }
@@ -1405,10 +1282,11 @@ abstract class _$FromDartBindInstanceFieldDirect implements DartIr {
           {required DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) =
       _$_$FromDartBindInstanceFieldDirect;
 
-  DartBindInstanceFieldDirect get dartBindInstanceFieldDirect;
+  DartBindInstanceFieldDirect get dartBindInstanceFieldDirect =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromDartBindInstanceFieldDirectCopyWith<_$FromDartBindInstanceFieldDirect>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1416,7 +1294,7 @@ abstract class _$$FromDartBoxEnumReferenceCopyWith<$Res> {
   factory _$$FromDartBoxEnumReferenceCopyWith(_$FromDartBoxEnumReference value,
           $Res Function(_$FromDartBoxEnumReference) then) =
       __$$FromDartBoxEnumReferenceCopyWithImpl<$Res>;
-  $Res call({DartBoxEnumReference? dartBoxEnumReference});
+  $Res call({DartBoxEnumReference dartBoxEnumReference});
 }
 
 /// @nodoc
@@ -1438,15 +1316,16 @@ class __$$FromDartBoxEnumReferenceCopyWithImpl<$Res>
     return _then(_$FromDartBoxEnumReference(
       dartBoxEnumReference: dartBoxEnumReference == freezed
           ? _value.dartBoxEnumReference
-          : (dartBoxEnumReference as DartBoxEnumReference?)!,
+          : dartBoxEnumReference // ignore: cast_nullable_to_non_nullable
+              as DartBoxEnumReference,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
-  _$_$FromDartBoxEnumReference({required this.dartBoxEnumReference})
-      : assert(dartBoxEnumReference != null);
+  _$_$FromDartBoxEnumReference({required this.dartBoxEnumReference});
 
   @override
   final DartBoxEnumReference dartBoxEnumReference;
@@ -1479,133 +1358,117 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxEnumReference(dartBoxEnumReference);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBoxEnumReference != null) {
       return fromDartBoxEnumReference(dartBoxEnumReference);
     }
@@ -1614,115 +1477,93 @@ class _$_$FromDartBoxEnumReference implements _$FromDartBoxEnumReference {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxEnumReference(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBoxEnumReference != null) {
       return fromDartBoxEnumReference(this);
     }
@@ -1735,9 +1576,11 @@ abstract class _$FromDartBoxEnumReference implements DartIr {
           {required DartBoxEnumReference dartBoxEnumReference}) =
       _$_$FromDartBoxEnumReference;
 
-  DartBoxEnumReference get dartBoxEnumReference;
+  DartBoxEnumReference get dartBoxEnumReference =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromDartBoxEnumReferenceCopyWith<_$FromDartBoxEnumReference> get copyWith;
+  _$$FromDartBoxEnumReferenceCopyWith<_$FromDartBoxEnumReference>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1745,7 +1588,7 @@ abstract class _$$FromDartBoxListCopyWith<$Res> {
   factory _$$FromDartBoxListCopyWith(
           _$FromDartBoxList value, $Res Function(_$FromDartBoxList) then) =
       __$$FromDartBoxListCopyWithImpl<$Res>;
-  $Res call({DartBoxList? dartBoxList});
+  $Res call({DartBoxList dartBoxList});
 }
 
 /// @nodoc
@@ -1765,15 +1608,16 @@ class __$$FromDartBoxListCopyWithImpl<$Res> extends _$DartIrCopyWithImpl<$Res>
     return _then(_$FromDartBoxList(
       dartBoxList: dartBoxList == freezed
           ? _value.dartBoxList
-          : (dartBoxList as DartBoxList?)!,
+          : dartBoxList // ignore: cast_nullable_to_non_nullable
+              as DartBoxList,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartBoxList implements _$FromDartBoxList {
-  _$_$FromDartBoxList({required this.dartBoxList})
-      : assert(dartBoxList != null);
+  _$_$FromDartBoxList({required this.dartBoxList});
 
   @override
   final DartBoxList dartBoxList;
@@ -1803,133 +1647,117 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxList(dartBoxList);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBoxList != null) {
       return fromDartBoxList(dartBoxList);
     }
@@ -1938,115 +1766,93 @@ class _$_$FromDartBoxList implements _$FromDartBoxList {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxList(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBoxList != null) {
       return fromDartBoxList(this);
     }
@@ -2058,9 +1864,10 @@ abstract class _$FromDartBoxList implements DartIr {
   factory _$FromDartBoxList({required DartBoxList dartBoxList}) =
       _$_$FromDartBoxList;
 
-  DartBoxList get dartBoxList;
+  DartBoxList get dartBoxList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromDartBoxListCopyWith<_$FromDartBoxList> get copyWith;
+  _$$FromDartBoxListCopyWith<_$FromDartBoxList> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2069,7 +1876,7 @@ abstract class _$$FromDartBoxObjectReferenceCopyWith<$Res> {
           _$FromDartBoxObjectReference value,
           $Res Function(_$FromDartBoxObjectReference) then) =
       __$$FromDartBoxObjectReferenceCopyWithImpl<$Res>;
-  $Res call({DartBoxObjectReference? dartBoxObjectReference});
+  $Res call({DartBoxObjectReference dartBoxObjectReference});
 }
 
 /// @nodoc
@@ -2092,15 +1899,16 @@ class __$$FromDartBoxObjectReferenceCopyWithImpl<$Res>
     return _then(_$FromDartBoxObjectReference(
       dartBoxObjectReference: dartBoxObjectReference == freezed
           ? _value.dartBoxObjectReference
-          : (dartBoxObjectReference as DartBoxObjectReference?)!,
+          : dartBoxObjectReference // ignore: cast_nullable_to_non_nullable
+              as DartBoxObjectReference,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
-  _$_$FromDartBoxObjectReference({required this.dartBoxObjectReference})
-      : assert(dartBoxObjectReference != null);
+  _$_$FromDartBoxObjectReference({required this.dartBoxObjectReference});
 
   @override
   final DartBoxObjectReference dartBoxObjectReference;
@@ -2132,133 +1940,117 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxObjectReference(dartBoxObjectReference);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBoxObjectReference != null) {
       return fromDartBoxObjectReference(dartBoxObjectReference);
     }
@@ -2267,115 +2059,93 @@ class _$_$FromDartBoxObjectReference implements _$FromDartBoxObjectReference {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartBoxObjectReference(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartBoxObjectReference != null) {
       return fromDartBoxObjectReference(this);
     }
@@ -2388,10 +2158,11 @@ abstract class _$FromDartBoxObjectReference implements DartIr {
           {required DartBoxObjectReference dartBoxObjectReference}) =
       _$_$FromDartBoxObjectReference;
 
-  DartBoxObjectReference get dartBoxObjectReference;
+  DartBoxObjectReference get dartBoxObjectReference =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromDartBoxObjectReferenceCopyWith<_$FromDartBoxObjectReference>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2399,7 +2170,7 @@ abstract class _$$FromDartImportStatementCopyWith<$Res> {
   factory _$$FromDartImportStatementCopyWith(_$FromDartImportStatement value,
           $Res Function(_$FromDartImportStatement) then) =
       __$$FromDartImportStatementCopyWithImpl<$Res>;
-  $Res call({DartImportStatement? dartImportStatement});
+  $Res call({DartImportStatement dartImportStatement});
 }
 
 /// @nodoc
@@ -2421,15 +2192,16 @@ class __$$FromDartImportStatementCopyWithImpl<$Res>
     return _then(_$FromDartImportStatement(
       dartImportStatement: dartImportStatement == freezed
           ? _value.dartImportStatement
-          : (dartImportStatement as DartImportStatement?)!,
+          : dartImportStatement // ignore: cast_nullable_to_non_nullable
+              as DartImportStatement,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartImportStatement implements _$FromDartImportStatement {
-  _$_$FromDartImportStatement({required this.dartImportStatement})
-      : assert(dartImportStatement != null);
+  _$_$FromDartImportStatement({required this.dartImportStatement});
 
   @override
   final DartImportStatement dartImportStatement;
@@ -2461,133 +2233,117 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartImportStatement(dartImportStatement);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartImportStatement != null) {
       return fromDartImportStatement(dartImportStatement);
     }
@@ -2596,115 +2352,93 @@ class _$_$FromDartImportStatement implements _$FromDartImportStatement {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartImportStatement(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartImportStatement != null) {
       return fromDartImportStatement(this);
     }
@@ -2717,9 +2451,11 @@ abstract class _$FromDartImportStatement implements DartIr {
           {required DartImportStatement dartImportStatement}) =
       _$_$FromDartImportStatement;
 
-  DartImportStatement get dartImportStatement;
+  DartImportStatement get dartImportStatement =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromDartImportStatementCopyWith<_$FromDartImportStatement> get copyWith;
+  _$$FromDartImportStatementCopyWith<_$FromDartImportStatement> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2734,7 +2470,7 @@ abstract class _$$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDec
       __$$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclarationCopyWithImpl<
           $Res>;
   $Res call(
-      {DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration?
+      {DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
           dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration});
 }
 
@@ -2772,22 +2508,19 @@ class __$$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
                   freezed
               ? _value
                   .dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-              : (dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                  as DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration?)!,
+              : dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration // ignore: cast_nullable_to_non_nullable
+                  as DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
     implements
         _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
   _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-      {required
-          this.dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration})
-      : assert(
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-                null);
+      {required this.dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration});
 
   @override
   final DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
@@ -2829,134 +2562,118 @@ class _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
         dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
         null) {
       return fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
@@ -2967,116 +2684,94 @@ class _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
         this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
         null) {
       return fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
@@ -3089,17 +2784,17 @@ class _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
 abstract class _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
     implements DartIr {
   factory _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-          {required
-              DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                  dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
+          {required DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+              dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
       _$_$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
 
   DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-      get dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
+      get dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclarationCopyWith<
           _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3109,7 +2804,7 @@ abstract class _$$FromDartFunctionSelfBindingInvocationCopyWith<$Res> {
           $Res Function(_$FromDartFunctionSelfBindingInvocation) then) =
       __$$FromDartFunctionSelfBindingInvocationCopyWithImpl<$Res>;
   $Res call(
-      {DartFunctionSelfBindingInvocation? dartFunctionSelfBindingInvocation});
+      {DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation});
 }
 
 /// @nodoc
@@ -3131,21 +2826,21 @@ class __$$FromDartFunctionSelfBindingInvocationCopyWithImpl<$Res>
     Object? dartFunctionSelfBindingInvocation = freezed,
   }) {
     return _then(_$FromDartFunctionSelfBindingInvocation(
-      dartFunctionSelfBindingInvocation:
-          dartFunctionSelfBindingInvocation == freezed
-              ? _value.dartFunctionSelfBindingInvocation
-              : (dartFunctionSelfBindingInvocation
-                  as DartFunctionSelfBindingInvocation?)!,
+      dartFunctionSelfBindingInvocation: dartFunctionSelfBindingInvocation ==
+              freezed
+          ? _value.dartFunctionSelfBindingInvocation
+          : dartFunctionSelfBindingInvocation // ignore: cast_nullable_to_non_nullable
+              as DartFunctionSelfBindingInvocation,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartFunctionSelfBindingInvocation
     implements _$FromDartFunctionSelfBindingInvocation {
   _$_$FromDartFunctionSelfBindingInvocation(
-      {required this.dartFunctionSelfBindingInvocation})
-      : assert(dartFunctionSelfBindingInvocation != null);
+      {required this.dartFunctionSelfBindingInvocation});
 
   @override
   final DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation;
@@ -3180,134 +2875,118 @@ class _$_$FromDartFunctionSelfBindingInvocation
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartFunctionSelfBindingInvocation(
         dartFunctionSelfBindingInvocation);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartFunctionSelfBindingInvocation != null) {
       return fromDartFunctionSelfBindingInvocation(
           dartFunctionSelfBindingInvocation);
@@ -3317,115 +2996,93 @@ class _$_$FromDartFunctionSelfBindingInvocation
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartFunctionSelfBindingInvocation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartFunctionSelfBindingInvocation != null) {
       return fromDartFunctionSelfBindingInvocation(this);
     }
@@ -3435,15 +3092,16 @@ class _$_$FromDartFunctionSelfBindingInvocation
 
 abstract class _$FromDartFunctionSelfBindingInvocation implements DartIr {
   factory _$FromDartFunctionSelfBindingInvocation(
-          {required
-              DartFunctionSelfBindingInvocation
-                  dartFunctionSelfBindingInvocation}) =
+          {required DartFunctionSelfBindingInvocation
+              dartFunctionSelfBindingInvocation}) =
       _$_$FromDartFunctionSelfBindingInvocation;
 
-  DartFunctionSelfBindingInvocation get dartFunctionSelfBindingInvocation;
+  DartFunctionSelfBindingInvocation get dartFunctionSelfBindingInvocation =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromDartFunctionSelfBindingInvocationCopyWith<
-      _$FromDartFunctionSelfBindingInvocation> get copyWith;
+          _$FromDartFunctionSelfBindingInvocation>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3451,7 +3109,7 @@ abstract class _$$FromDartLinebreakCopyWith<$Res> {
   factory _$$FromDartLinebreakCopyWith(
           _$FromDartLinebreak value, $Res Function(_$FromDartLinebreak) then) =
       __$$FromDartLinebreakCopyWithImpl<$Res>;
-  $Res call({DartLinebreak? dartLinebreak});
+  $Res call({DartLinebreak dartLinebreak});
 }
 
 /// @nodoc
@@ -3471,15 +3129,16 @@ class __$$FromDartLinebreakCopyWithImpl<$Res> extends _$DartIrCopyWithImpl<$Res>
     return _then(_$FromDartLinebreak(
       dartLinebreak: dartLinebreak == freezed
           ? _value.dartLinebreak
-          : (dartLinebreak as DartLinebreak?)!,
+          : dartLinebreak // ignore: cast_nullable_to_non_nullable
+              as DartLinebreak,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartLinebreak implements _$FromDartLinebreak {
-  _$_$FromDartLinebreak({required this.dartLinebreak})
-      : assert(dartLinebreak != null);
+  _$_$FromDartLinebreak({required this.dartLinebreak});
 
   @override
   final DartLinebreak dartLinebreak;
@@ -3509,133 +3168,117 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartLinebreak(dartLinebreak);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartLinebreak != null) {
       return fromDartLinebreak(dartLinebreak);
     }
@@ -3644,115 +3287,93 @@ class _$_$FromDartLinebreak implements _$FromDartLinebreak {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartLinebreak(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartLinebreak != null) {
       return fromDartLinebreak(this);
     }
@@ -3764,9 +3385,10 @@ abstract class _$FromDartLinebreak implements DartIr {
   factory _$FromDartLinebreak({required DartLinebreak dartLinebreak}) =
       _$_$FromDartLinebreak;
 
-  DartLinebreak get dartLinebreak;
+  DartLinebreak get dartLinebreak => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromDartLinebreakCopyWith<_$FromDartLinebreak> get copyWith;
+  _$$FromDartLinebreakCopyWith<_$FromDartLinebreak> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3775,7 +3397,7 @@ abstract class _$$FromDartUnboxingExpressionCopyWith<$Res> {
           _$FromDartUnboxingExpression value,
           $Res Function(_$FromDartUnboxingExpression) then) =
       __$$FromDartUnboxingExpressionCopyWithImpl<$Res>;
-  $Res call({DartUnboxingExpression? dartUnboxingExpression});
+  $Res call({DartUnboxingExpression dartUnboxingExpression});
 }
 
 /// @nodoc
@@ -3798,15 +3420,16 @@ class __$$FromDartUnboxingExpressionCopyWithImpl<$Res>
     return _then(_$FromDartUnboxingExpression(
       dartUnboxingExpression: dartUnboxingExpression == freezed
           ? _value.dartUnboxingExpression
-          : (dartUnboxingExpression as DartUnboxingExpression?)!,
+          : dartUnboxingExpression // ignore: cast_nullable_to_non_nullable
+              as DartUnboxingExpression,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
-  _$_$FromDartUnboxingExpression({required this.dartUnboxingExpression})
-      : assert(dartUnboxingExpression != null);
+  _$_$FromDartUnboxingExpression({required this.dartUnboxingExpression});
 
   @override
   final DartUnboxingExpression dartUnboxingExpression;
@@ -3838,133 +3461,117 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartUnboxingExpression(dartUnboxingExpression);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartUnboxingExpression != null) {
       return fromDartUnboxingExpression(dartUnboxingExpression);
     }
@@ -3973,115 +3580,93 @@ class _$_$FromDartUnboxingExpression implements _$FromDartUnboxingExpression {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartUnboxingExpression(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartUnboxingExpression != null) {
       return fromDartUnboxingExpression(this);
     }
@@ -4094,10 +3679,11 @@ abstract class _$FromDartUnboxingExpression implements DartIr {
           {required DartUnboxingExpression dartUnboxingExpression}) =
       _$_$FromDartUnboxingExpression;
 
-  DartUnboxingExpression get dartUnboxingExpression;
+  DartUnboxingExpression get dartUnboxingExpression =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromDartUnboxingExpressionCopyWith<_$FromDartUnboxingExpression>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4105,7 +3691,7 @@ abstract class _$$FromDartUnpackClosuresCopyWith<$Res> {
   factory _$$FromDartUnpackClosuresCopyWith(_$FromDartUnpackClosures value,
           $Res Function(_$FromDartUnpackClosures) then) =
       __$$FromDartUnpackClosuresCopyWithImpl<$Res>;
-  $Res call({DartUnpackClosures? dartUnpackClosures});
+  $Res call({DartUnpackClosures dartUnpackClosures});
 }
 
 /// @nodoc
@@ -4127,15 +3713,16 @@ class __$$FromDartUnpackClosuresCopyWithImpl<$Res>
     return _then(_$FromDartUnpackClosures(
       dartUnpackClosures: dartUnpackClosures == freezed
           ? _value.dartUnpackClosures
-          : (dartUnpackClosures as DartUnpackClosures?)!,
+          : dartUnpackClosures // ignore: cast_nullable_to_non_nullable
+              as DartUnpackClosures,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
-  _$_$FromDartUnpackClosures({required this.dartUnpackClosures})
-      : assert(dartUnpackClosures != null);
+  _$_$FromDartUnpackClosures({required this.dartUnpackClosures});
 
   @override
   final DartUnpackClosures dartUnpackClosures;
@@ -4167,133 +3754,117 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartUnpackClosures(dartUnpackClosures);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartUnpackClosures != null) {
       return fromDartUnpackClosures(dartUnpackClosures);
     }
@@ -4302,115 +3873,93 @@ class _$_$FromDartUnpackClosures implements _$FromDartUnpackClosures {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartUnpackClosures(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartUnpackClosures != null) {
       return fromDartUnpackClosures(this);
     }
@@ -4423,9 +3972,11 @@ abstract class _$FromDartUnpackClosures implements DartIr {
           {required DartUnpackClosures dartUnpackClosures}) =
       _$_$FromDartUnpackClosures;
 
-  DartUnpackClosures get dartUnpackClosures;
+  DartUnpackClosures get dartUnpackClosures =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromDartUnpackClosuresCopyWith<_$FromDartUnpackClosures> get copyWith;
+  _$$FromDartUnpackClosuresCopyWith<_$FromDartUnpackClosures> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4435,7 +3986,7 @@ abstract class $$FromDartVMManagedClassBoxerRegistrantCopyWith<$Res> {
           $Res Function($FromDartVMManagedClassBoxerRegistrant) then) =
       _$$FromDartVMManagedClassBoxerRegistrantCopyWithImpl<$Res>;
   $Res call(
-      {DartVMManagedClassBoxerRegistrant? dartVMManagedClassBoxerRegistrant});
+      {DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant});
 }
 
 /// @nodoc
@@ -4457,21 +4008,21 @@ class _$$FromDartVMManagedClassBoxerRegistrantCopyWithImpl<$Res>
     Object? dartVMManagedClassBoxerRegistrant = freezed,
   }) {
     return _then($FromDartVMManagedClassBoxerRegistrant(
-      dartVMManagedClassBoxerRegistrant:
-          dartVMManagedClassBoxerRegistrant == freezed
-              ? _value.dartVMManagedClassBoxerRegistrant
-              : (dartVMManagedClassBoxerRegistrant
-                  as DartVMManagedClassBoxerRegistrant?)!,
+      dartVMManagedClassBoxerRegistrant: dartVMManagedClassBoxerRegistrant ==
+              freezed
+          ? _value.dartVMManagedClassBoxerRegistrant
+          : dartVMManagedClassBoxerRegistrant // ignore: cast_nullable_to_non_nullable
+              as DartVMManagedClassBoxerRegistrant,
     ));
   }
 }
 
 /// @nodoc
+
 class _$$FromDartVMManagedClassBoxerRegistrant
     implements $FromDartVMManagedClassBoxerRegistrant {
   _$$FromDartVMManagedClassBoxerRegistrant(
-      {required this.dartVMManagedClassBoxerRegistrant})
-      : assert(dartVMManagedClassBoxerRegistrant != null);
+      {required this.dartVMManagedClassBoxerRegistrant});
 
   @override
   final DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant;
@@ -4506,134 +4057,118 @@ class _$$FromDartVMManagedClassBoxerRegistrant
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartVMManagedClassBoxerRegistrant(
         dartVMManagedClassBoxerRegistrant);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartVMManagedClassBoxerRegistrant != null) {
       return fromDartVMManagedClassBoxerRegistrant(
           dartVMManagedClassBoxerRegistrant);
@@ -4643,115 +4178,93 @@ class _$$FromDartVMManagedClassBoxerRegistrant
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartVMManagedClassBoxerRegistrant(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartVMManagedClassBoxerRegistrant != null) {
       return fromDartVMManagedClassBoxerRegistrant(this);
     }
@@ -4761,15 +4274,16 @@ class _$$FromDartVMManagedClassBoxerRegistrant
 
 abstract class $FromDartVMManagedClassBoxerRegistrant implements DartIr {
   factory $FromDartVMManagedClassBoxerRegistrant(
-          {required
-              DartVMManagedClassBoxerRegistrant
-                  dartVMManagedClassBoxerRegistrant}) =
+          {required DartVMManagedClassBoxerRegistrant
+              dartVMManagedClassBoxerRegistrant}) =
       _$$FromDartVMManagedClassBoxerRegistrant;
 
-  DartVMManagedClassBoxerRegistrant get dartVMManagedClassBoxerRegistrant;
+  DartVMManagedClassBoxerRegistrant get dartVMManagedClassBoxerRegistrant =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $$FromDartVMManagedClassBoxerRegistrantCopyWith<
-      $FromDartVMManagedClassBoxerRegistrant> get copyWith;
+          $FromDartVMManagedClassBoxerRegistrant>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4779,7 +4293,7 @@ abstract class _$$FromLoadNamespaceSymbolDeclarationCopyWith<$Res> {
           $Res Function(_$FromLoadNamespaceSymbolDeclaration) then) =
       __$$FromLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>;
   $Res call(
-      {DartLoadNamespaceSymbolDeclaration? loadNamespaceSymbolDeclaration});
+      {DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration});
 }
 
 /// @nodoc
@@ -4802,18 +4316,18 @@ class __$$FromLoadNamespaceSymbolDeclarationCopyWithImpl<$Res>
     return _then(_$FromLoadNamespaceSymbolDeclaration(
       loadNamespaceSymbolDeclaration: loadNamespaceSymbolDeclaration == freezed
           ? _value.loadNamespaceSymbolDeclaration
-          : (loadNamespaceSymbolDeclaration
-              as DartLoadNamespaceSymbolDeclaration?)!,
+          : loadNamespaceSymbolDeclaration // ignore: cast_nullable_to_non_nullable
+              as DartLoadNamespaceSymbolDeclaration,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromLoadNamespaceSymbolDeclaration
     implements _$FromLoadNamespaceSymbolDeclaration {
   _$_$FromLoadNamespaceSymbolDeclaration(
-      {required this.loadNamespaceSymbolDeclaration})
-      : assert(loadNamespaceSymbolDeclaration != null);
+      {required this.loadNamespaceSymbolDeclaration});
 
   @override
   final DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration;
@@ -4848,133 +4362,117 @@ class _$_$FromLoadNamespaceSymbolDeclaration
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromLoadNamepsaceSymbolDeclaration(loadNamespaceSymbolDeclaration);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromLoadNamepsaceSymbolDeclaration != null) {
       return fromLoadNamepsaceSymbolDeclaration(loadNamespaceSymbolDeclaration);
     }
@@ -4983,115 +4481,93 @@ class _$_$FromLoadNamespaceSymbolDeclaration
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromLoadNamepsaceSymbolDeclaration(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromLoadNamepsaceSymbolDeclaration != null) {
       return fromLoadNamepsaceSymbolDeclaration(this);
     }
@@ -5101,15 +4577,16 @@ class _$_$FromLoadNamespaceSymbolDeclaration
 
 abstract class _$FromLoadNamespaceSymbolDeclaration implements DartIr {
   factory _$FromLoadNamespaceSymbolDeclaration(
-          {required
-              DartLoadNamespaceSymbolDeclaration
-                  loadNamespaceSymbolDeclaration}) =
+          {required DartLoadNamespaceSymbolDeclaration
+              loadNamespaceSymbolDeclaration}) =
       _$_$FromLoadNamespaceSymbolDeclaration;
 
-  DartLoadNamespaceSymbolDeclaration get loadNamespaceSymbolDeclaration;
+  DartLoadNamespaceSymbolDeclaration get loadNamespaceSymbolDeclaration =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromLoadNamespaceSymbolDeclarationCopyWith<
-      _$FromLoadNamespaceSymbolDeclaration> get copyWith;
+          _$FromLoadNamespaceSymbolDeclaration>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -5118,7 +4595,7 @@ abstract class _$$FromMethodInjectionImplementationCopyWith<$Res> {
           _$FromMethodInjectionImplementation value,
           $Res Function(_$FromMethodInjectionImplementation) then) =
       __$$FromMethodInjectionImplementationCopyWithImpl<$Res>;
-  $Res call({DartMethodInjectionImplementation? methodInjectionImplementation});
+  $Res call({DartMethodInjectionImplementation methodInjectionImplementation});
 }
 
 /// @nodoc
@@ -5141,17 +4618,18 @@ class __$$FromMethodInjectionImplementationCopyWithImpl<$Res>
     return _then(_$FromMethodInjectionImplementation(
       methodInjectionImplementation: methodInjectionImplementation == freezed
           ? _value.methodInjectionImplementation
-          : (methodInjectionImplementation as DartMethodInjectionImplementation?)!,
+          : methodInjectionImplementation // ignore: cast_nullable_to_non_nullable
+              as DartMethodInjectionImplementation,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromMethodInjectionImplementation
     implements _$FromMethodInjectionImplementation {
   _$_$FromMethodInjectionImplementation(
-      {required this.methodInjectionImplementation})
-      : assert(methodInjectionImplementation != null);
+      {required this.methodInjectionImplementation});
 
   @override
   final DartMethodInjectionImplementation methodInjectionImplementation;
@@ -5186,133 +4664,117 @@ class _$_$FromMethodInjectionImplementation
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromMethodInjectionImplementation(methodInjectionImplementation);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromMethodInjectionImplementation != null) {
       return fromMethodInjectionImplementation(methodInjectionImplementation);
     }
@@ -5321,115 +4783,93 @@ class _$_$FromMethodInjectionImplementation
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromMethodInjectionImplementation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromMethodInjectionImplementation != null) {
       return fromMethodInjectionImplementation(this);
     }
@@ -5439,15 +4879,16 @@ class _$_$FromMethodInjectionImplementation
 
 abstract class _$FromMethodInjectionImplementation implements DartIr {
   factory _$FromMethodInjectionImplementation(
-          {required
-              DartMethodInjectionImplementation
-                  methodInjectionImplementation}) =
+          {required DartMethodInjectionImplementation
+              methodInjectionImplementation}) =
       _$_$FromMethodInjectionImplementation;
 
-  DartMethodInjectionImplementation get methodInjectionImplementation;
+  DartMethodInjectionImplementation get methodInjectionImplementation =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromMethodInjectionImplementationCopyWith<
-      _$FromMethodInjectionImplementation> get copyWith;
+          _$FromMethodInjectionImplementation>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -5456,7 +4897,7 @@ abstract class _$$FromRTManagedClassDeclarationCopyWith<$Res> {
           _$FromRTManagedClassDeclaration value,
           $Res Function(_$FromRTManagedClassDeclaration) then) =
       __$$FromRTManagedClassDeclarationCopyWithImpl<$Res>;
-  $Res call({DartRTManagedClassDeclaration? rtManagedClassDeclaration});
+  $Res call({DartRTManagedClassDeclaration rtManagedClassDeclaration});
 }
 
 /// @nodoc
@@ -5479,16 +4920,17 @@ class __$$FromRTManagedClassDeclarationCopyWithImpl<$Res>
     return _then(_$FromRTManagedClassDeclaration(
       rtManagedClassDeclaration: rtManagedClassDeclaration == freezed
           ? _value.rtManagedClassDeclaration
-          : (rtManagedClassDeclaration as DartRTManagedClassDeclaration?)!,
+          : rtManagedClassDeclaration // ignore: cast_nullable_to_non_nullable
+              as DartRTManagedClassDeclaration,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromRTManagedClassDeclaration
     implements _$FromRTManagedClassDeclaration {
-  _$_$FromRTManagedClassDeclaration({required this.rtManagedClassDeclaration})
-      : assert(rtManagedClassDeclaration != null);
+  _$_$FromRTManagedClassDeclaration({required this.rtManagedClassDeclaration});
 
   @override
   final DartRTManagedClassDeclaration rtManagedClassDeclaration;
@@ -5522,133 +4964,117 @@ class _$_$FromRTManagedClassDeclaration
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromRTManagedClassDeclaration(rtManagedClassDeclaration);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromRTManagedClassDeclaration != null) {
       return fromRTManagedClassDeclaration(rtManagedClassDeclaration);
     }
@@ -5657,115 +5083,93 @@ class _$_$FromRTManagedClassDeclaration
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromRTManagedClassDeclaration(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromRTManagedClassDeclaration != null) {
       return fromRTManagedClassDeclaration(this);
     }
@@ -5778,10 +5182,11 @@ abstract class _$FromRTManagedClassDeclaration implements DartIr {
           {required DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
       _$_$FromRTManagedClassDeclaration;
 
-  DartRTManagedClassDeclaration get rtManagedClassDeclaration;
+  DartRTManagedClassDeclaration get rtManagedClassDeclaration =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromRTManagedClassDeclarationCopyWith<_$FromRTManagedClassDeclaration>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -5792,7 +5197,7 @@ abstract class _$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWith<$Res> {
               then) =
       __$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWithImpl<$Res>;
   $Res call(
-      {DartStaticMethodNamespaceSymbolDeclaration?
+      {DartStaticMethodNamespaceSymbolDeclaration
           staticMethodNamespaceSymbolDeclaration});
 }
 
@@ -5820,18 +5225,18 @@ class __$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWithImpl<$Res>
       staticMethodNamespaceSymbolDeclaration:
           staticMethodNamespaceSymbolDeclaration == freezed
               ? _value.staticMethodNamespaceSymbolDeclaration
-              : (staticMethodNamespaceSymbolDeclaration
-                  as DartStaticMethodNamespaceSymbolDeclaration?)!,
+              : staticMethodNamespaceSymbolDeclaration // ignore: cast_nullable_to_non_nullable
+                  as DartStaticMethodNamespaceSymbolDeclaration,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
     implements _$FromDartStaticMethodNamespaceSymbolDeclaration {
   _$_$FromDartStaticMethodNamespaceSymbolDeclaration(
-      {required this.staticMethodNamespaceSymbolDeclaration})
-      : assert(staticMethodNamespaceSymbolDeclaration != null);
+      {required this.staticMethodNamespaceSymbolDeclaration});
 
   @override
   final DartStaticMethodNamespaceSymbolDeclaration
@@ -5870,134 +5275,118 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartStaticMethodNamespaceSymbolDeclaration(
         staticMethodNamespaceSymbolDeclaration);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartStaticMethodNamespaceSymbolDeclaration != null) {
       return fromDartStaticMethodNamespaceSymbolDeclaration(
           staticMethodNamespaceSymbolDeclaration);
@@ -6007,115 +5396,93 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromDartStaticMethodNamespaceSymbolDeclaration(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromDartStaticMethodNamespaceSymbolDeclaration != null) {
       return fromDartStaticMethodNamespaceSymbolDeclaration(this);
     }
@@ -6126,16 +5493,17 @@ class _$_$FromDartStaticMethodNamespaceSymbolDeclaration
 abstract class _$FromDartStaticMethodNamespaceSymbolDeclaration
     implements DartIr {
   factory _$FromDartStaticMethodNamespaceSymbolDeclaration(
-          {required
-              DartStaticMethodNamespaceSymbolDeclaration
-                  staticMethodNamespaceSymbolDeclaration}) =
+          {required DartStaticMethodNamespaceSymbolDeclaration
+              staticMethodNamespaceSymbolDeclaration}) =
       _$_$FromDartStaticMethodNamespaceSymbolDeclaration;
 
   DartStaticMethodNamespaceSymbolDeclaration
-      get staticMethodNamespaceSymbolDeclaration;
+      get staticMethodNamespaceSymbolDeclaration =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromDartStaticMethodNamespaceSymbolDeclarationCopyWith<
-      _$FromDartStaticMethodNamespaceSymbolDeclaration> get copyWith;
+          _$FromDartStaticMethodNamespaceSymbolDeclaration>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -6144,7 +5512,7 @@ abstract class _$$FromVMManagedClassDeclarationCopyWith<$Res> {
           _$FromVMManagedClassDeclaration value,
           $Res Function(_$FromVMManagedClassDeclaration) then) =
       __$$FromVMManagedClassDeclarationCopyWithImpl<$Res>;
-  $Res call({DartVMManagedClassDeclaration? vmManagedClassDeclaration});
+  $Res call({DartVMManagedClassDeclaration vmManagedClassDeclaration});
 }
 
 /// @nodoc
@@ -6167,16 +5535,17 @@ class __$$FromVMManagedClassDeclarationCopyWithImpl<$Res>
     return _then(_$FromVMManagedClassDeclaration(
       vmManagedClassDeclaration: vmManagedClassDeclaration == freezed
           ? _value.vmManagedClassDeclaration
-          : (vmManagedClassDeclaration as DartVMManagedClassDeclaration?)!,
+          : vmManagedClassDeclaration // ignore: cast_nullable_to_non_nullable
+              as DartVMManagedClassDeclaration,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromVMManagedClassDeclaration
     implements _$FromVMManagedClassDeclaration {
-  _$_$FromVMManagedClassDeclaration({required this.vmManagedClassDeclaration})
-      : assert(vmManagedClassDeclaration != null);
+  _$_$FromVMManagedClassDeclaration({required this.vmManagedClassDeclaration});
 
   @override
   final DartVMManagedClassDeclaration vmManagedClassDeclaration;
@@ -6210,133 +5579,117 @@ class _$_$FromVMManagedClassDeclaration
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromVMManagedClassDeclaration(vmManagedClassDeclaration);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromVMManagedClassDeclaration != null) {
       return fromVMManagedClassDeclaration(vmManagedClassDeclaration);
     }
@@ -6345,115 +5698,93 @@ class _$_$FromVMManagedClassDeclaration
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromVMManagedClassDeclaration(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromVMManagedClassDeclaration != null) {
       return fromVMManagedClassDeclaration(this);
     }
@@ -6466,10 +5797,11 @@ abstract class _$FromVMManagedClassDeclaration implements DartIr {
           {required DartVMManagedClassDeclaration vmManagedClassDeclaration}) =
       _$_$FromVMManagedClassDeclaration;
 
-  DartVMManagedClassDeclaration get vmManagedClassDeclaration;
+  DartVMManagedClassDeclaration get vmManagedClassDeclaration =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromVMManagedClassDeclarationCopyWith<_$FromVMManagedClassDeclaration>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -6481,7 +5813,7 @@ abstract class _$$FromVMManagedClassMethodInjectionImplementationCopyWith<
               then) =
       __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>;
   $Res call(
-      {DartVMManagedClassMethodInjectionImplementation?
+      {DartVMManagedClassMethodInjectionImplementation
           vmManagedClassMethodInjectionImplementation});
 }
 
@@ -6510,18 +5842,18 @@ class __$$FromVMManagedClassMethodInjectionImplementationCopyWithImpl<$Res>
       vmManagedClassMethodInjectionImplementation:
           vmManagedClassMethodInjectionImplementation == freezed
               ? _value.vmManagedClassMethodInjectionImplementation
-              : (vmManagedClassMethodInjectionImplementation
-                  as DartVMManagedClassMethodInjectionImplementation?)!,
+              : vmManagedClassMethodInjectionImplementation // ignore: cast_nullable_to_non_nullable
+                  as DartVMManagedClassMethodInjectionImplementation,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromVMManagedClassMethodInjectionImplementation
     implements _$FromVMManagedClassMethodInjectionImplementation {
   _$_$FromVMManagedClassMethodInjectionImplementation(
-      {required this.vmManagedClassMethodInjectionImplementation})
-      : assert(vmManagedClassMethodInjectionImplementation != null);
+      {required this.vmManagedClassMethodInjectionImplementation});
 
   @override
   final DartVMManagedClassMethodInjectionImplementation
@@ -6560,134 +5892,118 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             DartBarrelLoadNamespaceSymbolDeclaration
-                dartBarrelLoadNamespaceSymbolDeclaration),
-    required
-        TResult fromDartBindInstanceField(
-            DartBindInstanceField dartBindInstanceField),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            DartBindInstanceFieldDirect dartBindInstanceFieldDirect),
-    required
-        TResult fromDartBoxEnumReference(
-            DartBoxEnumReference dartBoxEnumReference),
-    required TResult fromDartBoxList(DartBoxList dartBoxList),
-    required
-        TResult fromDartBoxObjectReference(
-            DartBoxObjectReference dartBoxObjectReference),
-    required
-        TResult fromDartImportStatement(
-            DartImportStatement dartImportStatement),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                dartBarrelLoadNamespaceSymbolDeclaration)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(DartBindInstanceField dartBindInstanceField)
+        fromDartBindInstanceField,
+    required TResult Function(
+            DartBindInstanceFieldDirect dartBindInstanceFieldDirect)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(DartBoxEnumReference dartBoxEnumReference)
+        fromDartBoxEnumReference,
+    required TResult Function(DartBoxList dartBoxList) fromDartBoxList,
+    required TResult Function(DartBoxObjectReference dartBoxObjectReference)
+        fromDartBoxObjectReference,
+    required TResult Function(DartImportStatement dartImportStatement)
+        fromDartImportStatement,
+    required TResult Function(
             DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            DartFunctionSelfBindingInvocation
-                dartFunctionSelfBindingInvocation),
-    required TResult fromDartLinebreak(DartLinebreak dartLinebreak),
-    required
-        TResult fromDartUnboxingExpression(
-            DartUnboxingExpression dartUnboxingExpression),
-    required
-        TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            DartVMManagedClassBoxerRegistrant
-                dartVMManagedClassBoxerRegistrant),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration),
-    required
-        TResult fromMethodInjectionImplementation(
-            DartMethodInjectionImplementation methodInjectionImplementation),
-    required
-        TResult fromRTManagedClassDeclaration(
-            DartRTManagedClassDeclaration rtManagedClassDeclaration),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(DartLinebreak dartLinebreak) fromDartLinebreak,
+    required TResult Function(DartUnboxingExpression dartUnboxingExpression)
+        fromDartUnboxingExpression,
+    required TResult Function(DartUnpackClosures dartUnpackClosures)
+        fromDartUnpackClosures,
+    required TResult Function(
+            DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)
+        fromMethodInjectionImplementation,
+    required TResult Function(
+            DartRTManagedClassDeclaration rtManagedClassDeclaration)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
             DartStaticMethodNamespaceSymbolDeclaration
-                staticMethodNamespaceSymbolDeclaration),
-    required
-        TResult fromVMManagedClassDeclaration(
-            DartVMManagedClassDeclaration vmManagedClassDeclaration),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
+                staticMethodNamespaceSymbolDeclaration)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(
+            DartVMManagedClassDeclaration vmManagedClassDeclaration)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
             DartVMManagedClassMethodInjectionImplementation
-                vmManagedClassMethodInjectionImplementation),
+                vmManagedClassMethodInjectionImplementation)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromVMManagedClassMethodInjectionImplementation(
         vmManagedClassMethodInjectionImplementation);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        DartBarrelLoadNamespaceSymbolDeclaration
-            dartBarrelLoadNamespaceSymbolDeclaration)?,
-    TResult fromDartBindInstanceField(
-        DartBindInstanceField dartBindInstanceField)?,
-    TResult fromDartBindInstanceFieldDirect(
-        DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?,
-    TResult fromDartBoxEnumReference(DartBoxEnumReference dartBoxEnumReference)?,
-    TResult fromDartBoxList(DartBoxList dartBoxList)?,
-    TResult fromDartBoxObjectReference(
-        DartBoxObjectReference dartBoxObjectReference)?,
-    TResult fromDartImportStatement(DartImportStatement dartImportStatement)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        DartFunctionSelfBindingInvocation dartFunctionSelfBindingInvocation)?,
-    TResult fromDartLinebreak(DartLinebreak dartLinebreak)?,
-    TResult fromDartUnboxingExpression(
-        DartUnboxingExpression dartUnboxingExpression)?,
-    TResult fromDartUnpackClosures(DartUnpackClosures dartUnpackClosures)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        DartVMManagedClassBoxerRegistrant dartVMManagedClassBoxerRegistrant)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?,
-    TResult fromMethodInjectionImplementation(
-        DartMethodInjectionImplementation methodInjectionImplementation)?,
-    TResult fromRTManagedClassDeclaration(
-        DartRTManagedClassDeclaration rtManagedClassDeclaration)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        DartStaticMethodNamespaceSymbolDeclaration
-            staticMethodNamespaceSymbolDeclaration)?,
-    TResult fromVMManagedClassDeclaration(
-        DartVMManagedClassDeclaration vmManagedClassDeclaration)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        DartVMManagedClassMethodInjectionImplementation
-            vmManagedClassMethodInjectionImplementation)?,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            DartBarrelLoadNamespaceSymbolDeclaration
+                dartBarrelLoadNamespaceSymbolDeclaration)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(DartBindInstanceField dartBindInstanceField)?
+        fromDartBindInstanceField,
+    TResult Function(DartBindInstanceFieldDirect dartBindInstanceFieldDirect)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(DartBoxEnumReference dartBoxEnumReference)?
+        fromDartBoxEnumReference,
+    TResult Function(DartBoxList dartBoxList)? fromDartBoxList,
+    TResult Function(DartBoxObjectReference dartBoxObjectReference)?
+        fromDartBoxObjectReference,
+    TResult Function(DartImportStatement dartImportStatement)?
+        fromDartImportStatement,
+    TResult Function(
+            DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(
+            DartFunctionSelfBindingInvocation
+                dartFunctionSelfBindingInvocation)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(DartLinebreak dartLinebreak)? fromDartLinebreak,
+    TResult Function(DartUnboxingExpression dartUnboxingExpression)?
+        fromDartUnboxingExpression,
+    TResult Function(DartUnpackClosures dartUnpackClosures)?
+        fromDartUnpackClosures,
+    TResult Function(
+            DartVMManagedClassBoxerRegistrant
+                dartVMManagedClassBoxerRegistrant)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(
+            DartLoadNamespaceSymbolDeclaration loadNamespaceSymbolDeclaration)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(
+            DartMethodInjectionImplementation methodInjectionImplementation)?
+        fromMethodInjectionImplementation,
+    TResult Function(DartRTManagedClassDeclaration rtManagedClassDeclaration)?
+        fromRTManagedClassDeclaration,
+    TResult Function(
+            DartStaticMethodNamespaceSymbolDeclaration
+                staticMethodNamespaceSymbolDeclaration)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(DartVMManagedClassDeclaration vmManagedClassDeclaration)?
+        fromVMManagedClassDeclaration,
+    TResult Function(
+            DartVMManagedClassMethodInjectionImplementation
+                vmManagedClassMethodInjectionImplementation)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromVMManagedClassMethodInjectionImplementation != null) {
       return fromVMManagedClassMethodInjectionImplementation(
           vmManagedClassMethodInjectionImplementation);
@@ -6697,115 +6013,93 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    required
-        TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-            _$FromDartBarrelLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromDartBindInstanceField(_$FromDartBindInstanceField value),
-    required
-        TResult fromDartBindInstanceFieldDirect(
-            _$FromDartBindInstanceFieldDirect value),
-    required
-        TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value),
-    required TResult fromDartBoxList(_$FromDartBoxList value),
-    required
-        TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value),
-    required TResult fromDartImportStatement(_$FromDartImportStatement value),
-    required
-        TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            _$FromDartBarrelLoadNamespaceSymbolDeclaration value)
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartBindInstanceField value)
+        fromDartBindInstanceField,
+    required TResult Function(_$FromDartBindInstanceFieldDirect value)
+        fromDartBindInstanceFieldDirect,
+    required TResult Function(_$FromDartBoxEnumReference value)
+        fromDartBoxEnumReference,
+    required TResult Function(_$FromDartBoxList value) fromDartBoxList,
+    required TResult Function(_$FromDartBoxObjectReference value)
+        fromDartBoxObjectReference,
+    required TResult Function(_$FromDartImportStatement value)
+        fromDartImportStatement,
+    required TResult Function(
             _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                value),
-    required
-        TResult fromDartFunctionSelfBindingInvocation(
-            _$FromDartFunctionSelfBindingInvocation value),
-    required TResult fromDartLinebreak(_$FromDartLinebreak value),
-    required
-        TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value),
-    required TResult fromDartUnpackClosures(_$FromDartUnpackClosures value),
-    required
-        TResult fromDartVMManagedClassBoxerRegistrant(
-            $FromDartVMManagedClassBoxerRegistrant value),
-    required
-        TResult fromLoadNamepsaceSymbolDeclaration(
-            _$FromLoadNamespaceSymbolDeclaration value),
-    required
-        TResult fromMethodInjectionImplementation(
-            _$FromMethodInjectionImplementation value),
-    required
-        TResult fromRTManagedClassDeclaration(
-            _$FromRTManagedClassDeclaration value),
-    required
-        TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-            _$FromDartStaticMethodNamespaceSymbolDeclaration value),
-    required
-        TResult fromVMManagedClassDeclaration(
-            _$FromVMManagedClassDeclaration value),
-    required
-        TResult fromVMManagedClassMethodInjectionImplementation(
-            _$FromVMManagedClassMethodInjectionImplementation value),
+                value)
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    required TResult Function(_$FromDartFunctionSelfBindingInvocation value)
+        fromDartFunctionSelfBindingInvocation,
+    required TResult Function(_$FromDartLinebreak value) fromDartLinebreak,
+    required TResult Function(_$FromDartUnboxingExpression value)
+        fromDartUnboxingExpression,
+    required TResult Function(_$FromDartUnpackClosures value)
+        fromDartUnpackClosures,
+    required TResult Function($FromDartVMManagedClassBoxerRegistrant value)
+        fromDartVMManagedClassBoxerRegistrant,
+    required TResult Function(_$FromLoadNamespaceSymbolDeclaration value)
+        fromLoadNamepsaceSymbolDeclaration,
+    required TResult Function(_$FromMethodInjectionImplementation value)
+        fromMethodInjectionImplementation,
+    required TResult Function(_$FromRTManagedClassDeclaration value)
+        fromRTManagedClassDeclaration,
+    required TResult Function(
+            _$FromDartStaticMethodNamespaceSymbolDeclaration value)
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    required TResult Function(_$FromVMManagedClassDeclaration value)
+        fromVMManagedClassDeclaration,
+    required TResult Function(
+            _$FromVMManagedClassMethodInjectionImplementation value)
+        fromVMManagedClassMethodInjectionImplementation,
   }) {
-    assert(fromDartBarrelLoadNamespaceSymbolDeclaration != null);
-    assert(fromDartBindInstanceField != null);
-    assert(fromDartBindInstanceFieldDirect != null);
-    assert(fromDartBoxEnumReference != null);
-    assert(fromDartBoxList != null);
-    assert(fromDartBoxObjectReference != null);
-    assert(fromDartImportStatement != null);
-    assert(
-        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration !=
-            null);
-    assert(fromDartFunctionSelfBindingInvocation != null);
-    assert(fromDartLinebreak != null);
-    assert(fromDartUnboxingExpression != null);
-    assert(fromDartUnpackClosures != null);
-    assert(fromDartVMManagedClassBoxerRegistrant != null);
-    assert(fromLoadNamepsaceSymbolDeclaration != null);
-    assert(fromMethodInjectionImplementation != null);
-    assert(fromRTManagedClassDeclaration != null);
-    assert(fromDartStaticMethodNamespaceSymbolDeclaration != null);
-    assert(fromVMManagedClassDeclaration != null);
-    assert(fromVMManagedClassMethodInjectionImplementation != null);
     return fromVMManagedClassMethodInjectionImplementation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromDartBarrelLoadNamespaceSymbolDeclaration(
-        _$FromDartBarrelLoadNamespaceSymbolDeclaration value)?,
-    TResult fromDartBindInstanceField(_$FromDartBindInstanceField value)?,
-    TResult fromDartBindInstanceFieldDirect(
-        _$FromDartBindInstanceFieldDirect value)?,
-    TResult fromDartBoxEnumReference(_$FromDartBoxEnumReference value)?,
-    TResult fromDartBoxList(_$FromDartBoxList value)?,
-    TResult fromDartBoxObjectReference(_$FromDartBoxObjectReference value)?,
-    TResult fromDartImportStatement(_$FromDartImportStatement value)?,
-    TResult fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-        _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-            value)?,
-    TResult fromDartFunctionSelfBindingInvocation(
-        _$FromDartFunctionSelfBindingInvocation value)?,
-    TResult fromDartLinebreak(_$FromDartLinebreak value)?,
-    TResult fromDartUnboxingExpression(_$FromDartUnboxingExpression value)?,
-    TResult fromDartUnpackClosures(_$FromDartUnpackClosures value)?,
-    TResult fromDartVMManagedClassBoxerRegistrant(
-        $FromDartVMManagedClassBoxerRegistrant value)?,
-    TResult fromLoadNamepsaceSymbolDeclaration(
-        _$FromLoadNamespaceSymbolDeclaration value)?,
-    TResult fromMethodInjectionImplementation(
-        _$FromMethodInjectionImplementation value)?,
-    TResult fromRTManagedClassDeclaration(
-        _$FromRTManagedClassDeclaration value)?,
-    TResult fromDartStaticMethodNamespaceSymbolDeclaration(
-        _$FromDartStaticMethodNamespaceSymbolDeclaration value)?,
-    TResult fromVMManagedClassDeclaration(
-        _$FromVMManagedClassDeclaration value)?,
-    TResult fromVMManagedClassMethodInjectionImplementation(
-        _$FromVMManagedClassMethodInjectionImplementation value)?,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromDartBarrelLoadNamespaceSymbolDeclaration value)?
+        fromDartBarrelLoadNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartBindInstanceField value)?
+        fromDartBindInstanceField,
+    TResult Function(_$FromDartBindInstanceFieldDirect value)?
+        fromDartBindInstanceFieldDirect,
+    TResult Function(_$FromDartBoxEnumReference value)?
+        fromDartBoxEnumReference,
+    TResult Function(_$FromDartBoxList value)? fromDartBoxList,
+    TResult Function(_$FromDartBoxObjectReference value)?
+        fromDartBoxObjectReference,
+    TResult Function(_$FromDartImportStatement value)? fromDartImportStatement,
+    TResult Function(
+            _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+                value)?
+        fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration,
+    TResult Function(_$FromDartFunctionSelfBindingInvocation value)?
+        fromDartFunctionSelfBindingInvocation,
+    TResult Function(_$FromDartLinebreak value)? fromDartLinebreak,
+    TResult Function(_$FromDartUnboxingExpression value)?
+        fromDartUnboxingExpression,
+    TResult Function(_$FromDartUnpackClosures value)? fromDartUnpackClosures,
+    TResult Function($FromDartVMManagedClassBoxerRegistrant value)?
+        fromDartVMManagedClassBoxerRegistrant,
+    TResult Function(_$FromLoadNamespaceSymbolDeclaration value)?
+        fromLoadNamepsaceSymbolDeclaration,
+    TResult Function(_$FromMethodInjectionImplementation value)?
+        fromMethodInjectionImplementation,
+    TResult Function(_$FromRTManagedClassDeclaration value)?
+        fromRTManagedClassDeclaration,
+    TResult Function(_$FromDartStaticMethodNamespaceSymbolDeclaration value)?
+        fromDartStaticMethodNamespaceSymbolDeclaration,
+    TResult Function(_$FromVMManagedClassDeclaration value)?
+        fromVMManagedClassDeclaration,
+    TResult Function(_$FromVMManagedClassMethodInjectionImplementation value)?
+        fromVMManagedClassMethodInjectionImplementation,
     required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromVMManagedClassMethodInjectionImplementation != null) {
       return fromVMManagedClassMethodInjectionImplementation(this);
     }
@@ -6816,14 +6110,15 @@ class _$_$FromVMManagedClassMethodInjectionImplementation
 abstract class _$FromVMManagedClassMethodInjectionImplementation
     implements DartIr {
   factory _$FromVMManagedClassMethodInjectionImplementation(
-          {required
-              DartVMManagedClassMethodInjectionImplementation
-                  vmManagedClassMethodInjectionImplementation}) =
+          {required DartVMManagedClassMethodInjectionImplementation
+              vmManagedClassMethodInjectionImplementation}) =
       _$_$FromVMManagedClassMethodInjectionImplementation;
 
   DartVMManagedClassMethodInjectionImplementation
-      get vmManagedClassMethodInjectionImplementation;
+      get vmManagedClassMethodInjectionImplementation =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromVMManagedClassMethodInjectionImplementationCopyWith<
-      _$FromVMManagedClassMethodInjectionImplementation> get copyWith;
+          _$FromVMManagedClassMethodInjectionImplementation>
+      get copyWith => throw _privateConstructorUsedError;
 }

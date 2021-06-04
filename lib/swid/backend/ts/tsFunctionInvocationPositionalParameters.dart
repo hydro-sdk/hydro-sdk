@@ -5,7 +5,7 @@ part 'tsFunctionInvocationPositionalParameters.freezed.dart';
 part 'tsFunctionInvocationPositionalParameters.g.dart';
 
 @freezed
-abstract class TsFunctionInvocationPositionalParameters
+class TsFunctionInvocationPositionalParameters
     with _$TsFunctionInvocationPositionalParameters {
   factory TsFunctionInvocationPositionalParameters(
       {required List<String?> positionalReferences}) = _$Data;

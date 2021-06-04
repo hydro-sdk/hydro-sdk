@@ -5,7 +5,7 @@ part 'createUserDto.freezed.dart';
 part 'createUserDto.g.dart';
 
 @freezed
-abstract class CreateUserDto with _$CreateUserDto {
+class CreateUserDto with _$CreateUserDto {
   const factory CreateUserDto({
     required String username,
     required String password,

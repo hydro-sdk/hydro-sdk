@@ -31,7 +31,7 @@ class DartUnpackClosures {
               .toList(),
           ...swidFunctionType!.optionalParameterTypes
               .map(
-                (x) => Tuple3<String, SwidType?, int>(
+                (x) => Tuple3<String, SwidType, int>(
                     swidFunctionType!.optionalParameterNames.elementAt(
                         swidFunctionType!.optionalParameterTypes.indexOf(x)),
                     x,

@@ -1,6 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-import 'package:collection/collection.dart' show IterableExtension;
 part of 'swidInstantiatedGeneric.dart';
 
 // **************************************************************************
@@ -10,13 +9,11 @@ part of 'swidInstantiatedGeneric.dart';
 _$_$SwidInstantiatedGenericCtor _$_$_$SwidInstantiatedGenericCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$SwidInstantiatedGenericCtor(
-    instantiableGeneric: json['instantiableGeneric'] == null
-        ? null
-        : SwidInstantiableGeneric.fromJson(
-            json['instantiableGeneric'] as Map<String, dynamic>),
-    referenceDeclarationKind: _$enumDecodeNullable(
+    instantiableGeneric: SwidInstantiableGeneric.fromJson(
+        json['instantiableGeneric'] as Map<String, dynamic>),
+    referenceDeclarationKind: _$enumDecode(
         _$SwidReferenceDeclarationKindEnumMap,
-        json['referenceDeclarationKind'])!,
+        json['referenceDeclarationKind']),
   );
 }
 
@@ -28,36 +25,30 @@ Map<String, dynamic> _$_$_$SwidInstantiatedGenericCtorToJson(
           instance.referenceDeclarationKind],
     };
 
-T? _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T? unknownValue,
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
 }) {
   if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
   }
 
-  final value = enumValues.entries
-      .singleWhereOrNull((e) => e.value == source)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
-}
-
-T? _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
 }
 
 const _$SwidReferenceDeclarationKindEnumMap = {

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'projectConfigComponentChunk.dart';
 
@@ -8,6 +8,10 @@ part of 'projectConfigComponentChunk.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ProjectConfigComponentChunk _$ProjectConfigComponentChunkFromJson(
     Map<String, dynamic> json) {
   return _$ProjectConfigComponentChunkCtor.fromJson(json);
@@ -17,11 +21,10 @@ ProjectConfigComponentChunk _$ProjectConfigComponentChunkFromJson(
 class _$ProjectConfigComponentChunkTearOff {
   const _$ProjectConfigComponentChunkTearOff();
 
-// ignore: unused_element
   _$ProjectConfigComponentChunkCtor call(
       {required ProjectConfigComponentChunkType type,
       required String entryPoint,
-      @JsonKey(defaultValue: null) @nullable String? baseUrl}) {
+      required String? baseUrl}) {
     return _$ProjectConfigComponentChunkCtor(
       type: type,
       entryPoint: entryPoint,
@@ -29,28 +32,25 @@ class _$ProjectConfigComponentChunkTearOff {
     );
   }
 
-// ignore: unused_element
   ProjectConfigComponentChunk fromJson(Map<String, Object> json) {
     return ProjectConfigComponentChunk.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProjectConfigComponentChunk = _$ProjectConfigComponentChunkTearOff();
 
 /// @nodoc
 mixin _$ProjectConfigComponentChunk {
-  ProjectConfigComponentChunkType get type;
-  String get entryPoint;
-  @JsonKey(defaultValue: null)
-  @nullable
-  String? get baseUrl;
+  ProjectConfigComponentChunkType get type =>
+      throw _privateConstructorUsedError;
+  String get entryPoint => throw _privateConstructorUsedError;
+  String? get baseUrl => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProjectConfigComponentChunkCopyWith<ProjectConfigComponentChunk>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,9 +60,9 @@ abstract class $ProjectConfigComponentChunkCopyWith<$Res> {
           $Res Function(ProjectConfigComponentChunk) then) =
       _$ProjectConfigComponentChunkCopyWithImpl<$Res>;
   $Res call(
-      {ProjectConfigComponentChunkType? type,
-      String? entryPoint,
-      @JsonKey(defaultValue: null) @nullable String? baseUrl});
+      {ProjectConfigComponentChunkType type,
+      String entryPoint,
+      String? baseUrl});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$ProjectConfigComponentChunkCopyWithImpl<$Res>
 
   final ProjectConfigComponentChunk _value;
   // ignore: unused_field
-  final $Res Function(ProjectConfigComponentChunk?) _then;
+  final $Res Function(ProjectConfigComponentChunk) _then;
 
   @override
   $Res call({
@@ -83,10 +83,16 @@ class _$ProjectConfigComponentChunkCopyWithImpl<$Res>
     return _then(_value.copyWith(
       type: type == freezed
           ? _value.type
-          : type as ProjectConfigComponentChunkType?,
-      entryPoint:
-          entryPoint == freezed ? _value.entryPoint : entryPoint as String?,
-      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String?,
+          : type // ignore: cast_nullable_to_non_nullable
+              as ProjectConfigComponentChunkType,
+      entryPoint: entryPoint == freezed
+          ? _value.entryPoint
+          : entryPoint // ignore: cast_nullable_to_non_nullable
+              as String,
+      baseUrl: baseUrl == freezed
+          ? _value.baseUrl
+          : baseUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -100,9 +106,9 @@ abstract class _$$ProjectConfigComponentChunkCtorCopyWith<$Res>
       __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {ProjectConfigComponentChunkType? type,
-      String? entryPoint,
-      @JsonKey(defaultValue: null) @nullable String? baseUrl});
+      {ProjectConfigComponentChunkType type,
+      String entryPoint,
+      String? baseUrl});
 }
 
 /// @nodoc
@@ -127,25 +133,26 @@ class __$$ProjectConfigComponentChunkCtorCopyWithImpl<$Res>
     return _then(_$ProjectConfigComponentChunkCtor(
       type: type == freezed
           ? _value.type
-          : (type as ProjectConfigComponentChunkType?)!,
-      entryPoint:
-          entryPoint == freezed ? _value.entryPoint : (entryPoint as String?)!,
-      baseUrl: baseUrl == freezed ? _value.baseUrl : baseUrl as String?,
+          : type // ignore: cast_nullable_to_non_nullable
+              as ProjectConfigComponentChunkType,
+      entryPoint: entryPoint == freezed
+          ? _value.entryPoint
+          : entryPoint // ignore: cast_nullable_to_non_nullable
+              as String,
+      baseUrl: baseUrl == freezed
+          ? _value.baseUrl
+          : baseUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ProjectConfigComponentChunkCtor
     implements _$ProjectConfigComponentChunkCtor {
   const _$_$ProjectConfigComponentChunkCtor(
-      {required this.type,
-      required this.entryPoint,
-      @JsonKey(defaultValue: null) @nullable this.baseUrl})
-      : assert(type != null),
-        assert(entryPoint != null);
+      {required this.type, required this.entryPoint, required this.baseUrl});
 
   factory _$_$ProjectConfigComponentChunkCtor.fromJson(
           Map<String, dynamic> json) =>
@@ -156,8 +163,6 @@ class _$_$ProjectConfigComponentChunkCtor
   @override
   final String entryPoint;
   @override
-  @JsonKey((defaultValue: null)!)
-  @nullable
   final String? baseUrl;
 
   @override
@@ -200,24 +205,22 @@ class _$_$ProjectConfigComponentChunkCtor
 abstract class _$ProjectConfigComponentChunkCtor
     implements ProjectConfigComponentChunk {
   const factory _$ProjectConfigComponentChunkCtor(
-          {required ProjectConfigComponentChunkType type,
-          required String entryPoint,
-          @JsonKey(defaultValue: null) @nullable String? baseUrl}) =
-      _$_$ProjectConfigComponentChunkCtor;
+      {required ProjectConfigComponentChunkType type,
+      required String entryPoint,
+      required String? baseUrl}) = _$_$ProjectConfigComponentChunkCtor;
 
   factory _$ProjectConfigComponentChunkCtor.fromJson(
       Map<String, dynamic> json) = _$_$ProjectConfigComponentChunkCtor.fromJson;
 
   @override
-  ProjectConfigComponentChunkType get type;
+  ProjectConfigComponentChunkType get type =>
+      throw _privateConstructorUsedError;
   @override
-  String get entryPoint;
+  String get entryPoint => throw _privateConstructorUsedError;
   @override
-  @JsonKey(defaultValue: null)
-  @nullable
-  String? get baseUrl;
+  String? get baseUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$ProjectConfigComponentChunkCtorCopyWith<_$ProjectConfigComponentChunkCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

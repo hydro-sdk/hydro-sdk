@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'projectEntity.dart';
 
@@ -8,6 +8,10 @@ part of 'projectEntity.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ProjectEntity _$ProjectEntityFromJson(Map<String, dynamic> json) {
   return _$ProjectEntityCtor.fromJson(json);
 }
@@ -16,7 +20,6 @@ ProjectEntity _$ProjectEntityFromJson(Map<String, dynamic> json) {
 class _$ProjectEntityTearOff {
   const _$ProjectEntityTearOff();
 
-// ignore: unused_element
   _$ProjectEntityCtor call(
       {required String id,
       required String createdAt,
@@ -38,30 +41,29 @@ class _$ProjectEntityTearOff {
     );
   }
 
-// ignore: unused_element
   ProjectEntity fromJson(Map<String, Object> json) {
     return ProjectEntity.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProjectEntity = _$ProjectEntityTearOff();
 
 /// @nodoc
 mixin _$ProjectEntity {
-  String get id;
-  String get createdAt;
-  String get modifiedAt;
-  bool get isPublic;
-  String get name;
-  String get description;
-  int get sessionLimit;
-  int get otaDownloadLimit;
+  String get id => throw _privateConstructorUsedError;
+  String get createdAt => throw _privateConstructorUsedError;
+  String get modifiedAt => throw _privateConstructorUsedError;
+  bool get isPublic => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  int get sessionLimit => throw _privateConstructorUsedError;
+  int get otaDownloadLimit => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProjectEntityCopyWith<ProjectEntity> get copyWith;
+  $ProjectEntityCopyWith<ProjectEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -70,14 +72,14 @@ abstract class $ProjectEntityCopyWith<$Res> {
           ProjectEntity value, $Res Function(ProjectEntity) then) =
       _$ProjectEntityCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
-      String? createdAt,
-      String? modifiedAt,
-      bool? isPublic,
-      String? name,
-      String? description,
-      int? sessionLimit,
-      int? otaDownloadLimit});
+      {String id,
+      String createdAt,
+      String modifiedAt,
+      bool isPublic,
+      String name,
+      String description,
+      int sessionLimit,
+      int otaDownloadLimit});
 }
 
 /// @nodoc
@@ -87,7 +89,7 @@ class _$ProjectEntityCopyWithImpl<$Res>
 
   final ProjectEntity _value;
   // ignore: unused_field
-  final $Res Function(ProjectEntity?) _then;
+  final $Res Function(ProjectEntity) _then;
 
   @override
   $Res call({
@@ -101,19 +103,38 @@ class _$ProjectEntityCopyWithImpl<$Res>
     Object? otaDownloadLimit = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String?,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String?,
-      modifiedAt:
-          modifiedAt == freezed ? _value.modifiedAt : modifiedAt as String?,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool?,
-      name: name == freezed ? _value.name : name as String?,
-      description:
-          description == freezed ? _value.description : description as String?,
-      sessionLimit:
-          sessionLimit == freezed ? _value.sessionLimit : sessionLimit as int?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      modifiedAt: modifiedAt == freezed
+          ? _value.modifiedAt
+          : modifiedAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      isPublic: isPublic == freezed
+          ? _value.isPublic
+          : isPublic // ignore: cast_nullable_to_non_nullable
+              as bool,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessionLimit: sessionLimit == freezed
+          ? _value.sessionLimit
+          : sessionLimit // ignore: cast_nullable_to_non_nullable
+              as int,
       otaDownloadLimit: otaDownloadLimit == freezed
           ? _value.otaDownloadLimit
-          : otaDownloadLimit as int?,
+          : otaDownloadLimit // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -126,14 +147,14 @@ abstract class _$$ProjectEntityCtorCopyWith<$Res>
       __$$ProjectEntityCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
-      String? createdAt,
-      String? modifiedAt,
-      bool? isPublic,
-      String? name,
-      String? description,
-      int? sessionLimit,
-      int? otaDownloadLimit});
+      {String id,
+      String createdAt,
+      String modifiedAt,
+      bool isPublic,
+      String name,
+      String description,
+      int sessionLimit,
+      int otaDownloadLimit});
 }
 
 /// @nodoc
@@ -159,26 +180,44 @@ class __$$ProjectEntityCtorCopyWithImpl<$Res>
     Object? otaDownloadLimit = freezed,
   }) {
     return _then(_$ProjectEntityCtor(
-      id: id == freezed ? _value.id : (id as String?)!,
-      createdAt: createdAt == freezed ? _value.createdAt : (createdAt as String?)!,
-      modifiedAt:
-          modifiedAt == freezed ? _value.modifiedAt : (modifiedAt as String?)!,
-      isPublic: isPublic == freezed ? _value.isPublic : (isPublic as bool?)!,
-      name: name == freezed ? _value.name : (name as String?)!,
-      description:
-          description == freezed ? _value.description : (description as String?)!,
-      sessionLimit:
-          sessionLimit == freezed ? _value.sessionLimit : (sessionLimit as int?)!,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      modifiedAt: modifiedAt == freezed
+          ? _value.modifiedAt
+          : modifiedAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      isPublic: isPublic == freezed
+          ? _value.isPublic
+          : isPublic // ignore: cast_nullable_to_non_nullable
+              as bool,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      sessionLimit: sessionLimit == freezed
+          ? _value.sessionLimit
+          : sessionLimit // ignore: cast_nullable_to_non_nullable
+              as int,
       otaDownloadLimit: otaDownloadLimit == freezed
           ? _value.otaDownloadLimit
-          : (otaDownloadLimit as int?)!,
+          : otaDownloadLimit // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
   const _$_$ProjectEntityCtor(
       {required this.id,
@@ -188,15 +227,7 @@ class _$_$ProjectEntityCtor implements _$ProjectEntityCtor {
       required this.name,
       required this.description,
       required this.sessionLimit,
-      required this.otaDownloadLimit})
-      : assert(id != null),
-        assert(createdAt != null),
-        assert(modifiedAt != null),
-        assert(isPublic != null),
-        assert(name != null),
-        assert(description != null),
-        assert(sessionLimit != null),
-        assert(otaDownloadLimit != null);
+      required this.otaDownloadLimit});
 
   factory _$_$ProjectEntityCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ProjectEntityCtorFromJson(json);
@@ -289,22 +320,23 @@ abstract class _$ProjectEntityCtor implements ProjectEntity {
       _$_$ProjectEntityCtor.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get createdAt;
+  String get createdAt => throw _privateConstructorUsedError;
   @override
-  String get modifiedAt;
+  String get modifiedAt => throw _privateConstructorUsedError;
   @override
-  bool get isPublic;
+  bool get isPublic => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  int get sessionLimit;
+  int get sessionLimit => throw _privateConstructorUsedError;
   @override
-  int get otaDownloadLimit;
+  int get otaDownloadLimit => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$ProjectEntityCtorCopyWith<_$ProjectEntityCtor> get copyWith;
+  _$$ProjectEntityCtorCopyWith<_$ProjectEntityCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

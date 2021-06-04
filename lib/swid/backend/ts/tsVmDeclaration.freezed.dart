@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'tsVmDeclaration.dart';
 
@@ -8,6 +8,10 @@ part of 'tsVmDeclaration.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 TsVmDeclaration _$TsVmDeclarationFromJson(Map<String, dynamic> json) {
   return _$Data.fromJson(json);
 }
@@ -16,10 +20,9 @@ TsVmDeclaration _$TsVmDeclarationFromJson(Map<String, dynamic> json) {
 class _$TsVmDeclarationTearOff {
   const _$TsVmDeclarationTearOff();
 
-// ignore: unused_element
   _$Data call(
       {required String name,
-      required List<SwidFunctionType> methods,
+      required List<SwidFunctionType?> methods,
       required List<TsVmDeclaration> children}) {
     return _$Data(
       name: name,
@@ -28,25 +31,24 @@ class _$TsVmDeclarationTearOff {
     );
   }
 
-// ignore: unused_element
   TsVmDeclaration fromJson(Map<String, Object> json) {
     return TsVmDeclaration.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TsVmDeclaration = _$TsVmDeclarationTearOff();
 
 /// @nodoc
 mixin _$TsVmDeclaration {
-  String get name;
-  List<SwidFunctionType?> get methods;
-  List<TsVmDeclaration> get children;
+  String get name => throw _privateConstructorUsedError;
+  List<SwidFunctionType?> get methods => throw _privateConstructorUsedError;
+  List<TsVmDeclaration> get children => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TsVmDeclarationCopyWith<TsVmDeclaration> get copyWith;
+  $TsVmDeclarationCopyWith<TsVmDeclaration> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,9 +57,9 @@ abstract class $TsVmDeclarationCopyWith<$Res> {
           TsVmDeclaration value, $Res Function(TsVmDeclaration) then) =
       _$TsVmDeclarationCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      List<SwidFunctionType>? methods,
-      List<TsVmDeclaration>? children});
+      {String name,
+      List<SwidFunctionType?> methods,
+      List<TsVmDeclaration> children});
 }
 
 /// @nodoc
@@ -67,7 +69,7 @@ class _$TsVmDeclarationCopyWithImpl<$Res>
 
   final TsVmDeclaration _value;
   // ignore: unused_field
-  final $Res Function(TsVmDeclaration?) _then;
+  final $Res Function(TsVmDeclaration) _then;
 
   @override
   $Res call({
@@ -76,13 +78,18 @@ class _$TsVmDeclarationCopyWithImpl<$Res>
     Object? children = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       methods: methods == freezed
-          ? _value.methods as List<SwidFunctionType>?
-          : methods as List<SwidFunctionType>?,
+          ? _value.methods
+          : methods // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType?>,
       children: children == freezed
           ? _value.children
-          : children as List<TsVmDeclaration>?,
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<TsVmDeclaration>,
     ));
   }
 }
@@ -93,9 +100,9 @@ abstract class _$$DataCopyWith<$Res> implements $TsVmDeclarationCopyWith<$Res> {
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      List<SwidFunctionType>? methods,
-      List<TsVmDeclaration>? children});
+      {String name,
+      List<SwidFunctionType?> methods,
+      List<TsVmDeclaration> children});
 }
 
 /// @nodoc
@@ -114,26 +121,26 @@ class __$$DataCopyWithImpl<$Res> extends _$TsVmDeclarationCopyWithImpl<$Res>
     Object? children = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : (name as String?)!,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       methods: methods == freezed
           ? _value.methods
-          : (methods as List<SwidFunctionType>?)!,
+          : methods // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType?>,
       children: children == freezed
           ? _value.children
-          : (children as List<TsVmDeclaration>?)!,
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<TsVmDeclaration>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
-  _$_$Data(
-      {required this.name, required this.methods, required this.children})
-      : assert(name != null),
-        assert(methods != null),
-        assert(children != null);
+  _$_$Data({required this.name, required this.methods, required this.children});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -191,12 +198,12 @@ abstract class _$Data implements TsVmDeclaration {
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  List<SwidFunctionType?> get methods;
+  List<SwidFunctionType?> get methods => throw _privateConstructorUsedError;
   @override
-  List<TsVmDeclaration> get children;
+  List<TsVmDeclaration> get children => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

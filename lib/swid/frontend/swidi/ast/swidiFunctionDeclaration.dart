@@ -9,7 +9,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart'
 part 'swidiFunctionDeclaration.freezed.dart';
 
 @freezed
-abstract class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
+class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
   const factory SwidiFunctionDeclaration({
     required String name,
     required SwidiInterface returnType,

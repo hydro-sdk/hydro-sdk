@@ -5,7 +5,7 @@ part 'updatePermissionDto.freezed.dart';
 part 'updatePermissionDto.g.dart';
 
 @freezed
-abstract class UpdatePermissionDto with _$UpdatePermissionDto {
+class UpdatePermissionDto with _$UpdatePermissionDto {
   const factory UpdatePermissionDto({
     required String manageeId,
     required String managerId,

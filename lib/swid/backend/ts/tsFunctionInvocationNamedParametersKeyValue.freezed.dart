@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'tsFunctionInvocationNamedParametersKeyValue.dart';
 
@@ -8,6 +8,10 @@ part of 'tsFunctionInvocationNamedParametersKeyValue.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 TsFunctionInvocationNamedParametersKeyValue
     _$TsFunctionInvocationNamedParametersKeyValueFromJson(
         Map<String, dynamic> json) {
@@ -18,14 +22,12 @@ TsFunctionInvocationNamedParametersKeyValue
 class _$TsFunctionInvocationNamedParametersKeyValueTearOff {
   const _$TsFunctionInvocationNamedParametersKeyValueTearOff();
 
-// ignore: unused_element
   _$Data call({required Map<String, String> namedReferences}) {
     return _$Data(
       namedReferences: namedReferences,
     );
   }
 
-// ignore: unused_element
   TsFunctionInvocationNamedParametersKeyValue fromJson(
       Map<String, Object> json) {
     return TsFunctionInvocationNamedParametersKeyValue.fromJson(json);
@@ -33,18 +35,18 @@ class _$TsFunctionInvocationNamedParametersKeyValueTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TsFunctionInvocationNamedParametersKeyValue =
     _$TsFunctionInvocationNamedParametersKeyValueTearOff();
 
 /// @nodoc
 mixin _$TsFunctionInvocationNamedParametersKeyValue {
-  Map<String, String> get namedReferences;
+  Map<String, String> get namedReferences => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TsFunctionInvocationNamedParametersKeyValueCopyWith<
-      TsFunctionInvocationNamedParametersKeyValue> get copyWith;
+          TsFunctionInvocationNamedParametersKeyValue>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -53,7 +55,7 @@ abstract class $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res> {
           TsFunctionInvocationNamedParametersKeyValue value,
           $Res Function(TsFunctionInvocationNamedParametersKeyValue) then) =
       _$TsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>;
-  $Res call({Map<String, String>? namedReferences});
+  $Res call({Map<String, String> namedReferences});
 }
 
 /// @nodoc
@@ -64,7 +66,7 @@ class _$TsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
 
   final TsFunctionInvocationNamedParametersKeyValue _value;
   // ignore: unused_field
-  final $Res Function(TsFunctionInvocationNamedParametersKeyValue?) _then;
+  final $Res Function(TsFunctionInvocationNamedParametersKeyValue) _then;
 
   @override
   $Res call({
@@ -73,7 +75,8 @@ class _$TsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
     return _then(_value.copyWith(
       namedReferences: namedReferences == freezed
           ? _value.namedReferences
-          : namedReferences as Map<String, String>?,
+          : namedReferences // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
     ));
   }
 }
@@ -84,7 +87,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({Map<String, String>? namedReferences});
+  $Res call({Map<String, String> namedReferences});
 }
 
 /// @nodoc
@@ -104,16 +107,16 @@ class __$$DataCopyWithImpl<$Res>
     return _then(_$Data(
       namedReferences: namedReferences == freezed
           ? _value.namedReferences
-          : (namedReferences as Map<String, String>?)!,
+          : namedReferences // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
-  _$_$Data({required this.namedReferences}) : assert(namedReferences != null);
+  _$_$Data({required this.namedReferences});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -157,8 +160,8 @@ abstract class _$Data implements TsFunctionInvocationNamedParametersKeyValue {
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  Map<String, String> get namedReferences;
+  Map<String, String> get namedReferences => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

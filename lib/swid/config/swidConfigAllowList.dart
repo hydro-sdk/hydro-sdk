@@ -5,7 +5,7 @@ part 'swidConfigAllowList.freezed.dart';
 part 'swidConfigAllowList.g.dart';
 
 @freezed
-abstract class SwidConfigAllowList with _$SwidConfigAllowList {
+class SwidConfigAllowList with _$SwidConfigAllowList {
   const factory SwidConfigAllowList({
     required List<String> classNames,
     required List<String> packagePaths,

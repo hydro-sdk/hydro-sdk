@@ -5,7 +5,7 @@ part 'swidConfigDartEmitOptions.freezed.dart';
 part 'swidConfigDartEmitOptions.g.dart';
 
 @freezed
-abstract class SwidConfigDartEmitOptions with _$SwidConfigDartEmitOptions {
+class SwidConfigDartEmitOptions with _$SwidConfigDartEmitOptions {
   const factory SwidConfigDartEmitOptions({
     required List<String> prefixPaths,
     required String hostPackageName,

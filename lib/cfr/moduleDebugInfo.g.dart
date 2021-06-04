@@ -18,8 +18,9 @@ ModuleDebugInfo _$ModuleDebugInfoFromJson(Map<String, dynamic> json) {
     originalFileName: json['originalFileName'] as String?,
     originalLineStart: json['originalLineStart'] as int?,
     originalColumnStart: json['originalColumnStart'] as int?,
-    parameterNames:
-        (json['parameterNames'] as List?)?.map((e) => e as String)?.toList(),
+    parameterNames: (json['parameterNames'] as List<dynamic>?)
+        ?.map((e) => e as String)
+        .toList(),
     symbolMangleName: json['symbolMangleName'] as String?,
     symbolFullyQualifiedMangleName:
         json['symbolFullyQualifiedMangleName'] as String?,

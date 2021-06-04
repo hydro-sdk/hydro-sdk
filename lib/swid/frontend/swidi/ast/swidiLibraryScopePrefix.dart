@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 part 'swidiLibraryScopePrefix.freezed.dart';
 
 @freezed
-abstract class SwidiLibraryScopePrefix with _$SwidiLibraryScopePrefix {
+class SwidiLibraryScopePrefix with _$SwidiLibraryScopePrefix {
   const factory SwidiLibraryScopePrefix({
     required String name,
   }) = _$SwidiLibraryScopePrefixCtor;

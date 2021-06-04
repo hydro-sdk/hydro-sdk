@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'userReadDto.dart';
 
@@ -8,6 +8,10 @@ part of 'userReadDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 UserReadDto _$UserReadDtoFromJson(Map<String, dynamic> json) {
   return _$UserReadDtoCtor.fromJson(json);
 }
@@ -16,33 +20,30 @@ UserReadDto _$UserReadDtoFromJson(Map<String, dynamic> json) {
 class _$UserReadDtoTearOff {
   const _$UserReadDtoTearOff();
 
-// ignore: unused_element
-  _$UserReadDtoCtor call(
-      {required String subject, required String username}) {
+  _$UserReadDtoCtor call({required String subject, required String username}) {
     return _$UserReadDtoCtor(
       subject: subject,
       username: username,
     );
   }
 
-// ignore: unused_element
   UserReadDto fromJson(Map<String, Object> json) {
     return UserReadDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UserReadDto = _$UserReadDtoTearOff();
 
 /// @nodoc
 mixin _$UserReadDto {
-  String get subject;
-  String get username;
+  String get subject => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserReadDtoCopyWith<UserReadDto> get copyWith;
+  $UserReadDtoCopyWith<UserReadDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -50,7 +51,7 @@ abstract class $UserReadDtoCopyWith<$Res> {
   factory $UserReadDtoCopyWith(
           UserReadDto value, $Res Function(UserReadDto) then) =
       _$UserReadDtoCopyWithImpl<$Res>;
-  $Res call({String? subject, String? username});
+  $Res call({String subject, String username});
 }
 
 /// @nodoc
@@ -59,7 +60,7 @@ class _$UserReadDtoCopyWithImpl<$Res> implements $UserReadDtoCopyWith<$Res> {
 
   final UserReadDto _value;
   // ignore: unused_field
-  final $Res Function(UserReadDto?) _then;
+  final $Res Function(UserReadDto) _then;
 
   @override
   $Res call({
@@ -67,8 +68,14 @@ class _$UserReadDtoCopyWithImpl<$Res> implements $UserReadDtoCopyWith<$Res> {
     Object? username = freezed,
   }) {
     return _then(_value.copyWith(
-      subject: subject == freezed ? _value.subject : subject as String?,
-      username: username == freezed ? _value.username : username as String?,
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -80,7 +87,7 @@ abstract class _$$UserReadDtoCtorCopyWith<$Res>
           _$UserReadDtoCtor value, $Res Function(_$UserReadDtoCtor) then) =
       __$$UserReadDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String? subject, String? username});
+  $Res call({String subject, String username});
 }
 
 /// @nodoc
@@ -100,19 +107,22 @@ class __$$UserReadDtoCtorCopyWithImpl<$Res>
     Object? username = freezed,
   }) {
     return _then(_$UserReadDtoCtor(
-      subject: subject == freezed ? _value.subject : (subject as String?)!,
-      username: username == freezed ? _value.username : (username as String?)!,
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$UserReadDtoCtor implements _$UserReadDtoCtor {
-  const _$_$UserReadDtoCtor({required this.subject, required this.username})
-      : assert(subject != null),
-        assert(username != null);
+  const _$_$UserReadDtoCtor({required this.subject, required this.username});
 
   factory _$_$UserReadDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$UserReadDtoCtorFromJson(json);
@@ -165,10 +175,11 @@ abstract class _$UserReadDtoCtor implements UserReadDto {
       _$_$UserReadDtoCtor.fromJson;
 
   @override
-  String get subject;
+  String get subject => throw _privateConstructorUsedError;
   @override
-  String get username;
+  String get username => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$UserReadDtoCtorCopyWith<_$UserReadDtoCtor> get copyWith;
+  _$$UserReadDtoCtorCopyWith<_$UserReadDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

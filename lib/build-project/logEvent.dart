@@ -5,7 +5,7 @@ part 'logEvent.freezed.dart';
 part 'logEvent.g.dart';
 
 @freezed
-abstract class DiagnosticLogEvent with _$DiagnosticLogEvent {
+class DiagnosticLogEvent with _$DiagnosticLogEvent {
   const factory DiagnosticLogEvent({
     required int logEventType,
     required String message,
@@ -16,7 +16,7 @@ abstract class DiagnosticLogEvent with _$DiagnosticLogEvent {
 }
 
 @freezed
-abstract class ErrorLogEvent with _$ErrorLogEvent {
+class ErrorLogEvent with _$ErrorLogEvent {
   const factory ErrorLogEvent({
     required int logEventType,
     required String message,
@@ -27,7 +27,7 @@ abstract class ErrorLogEvent with _$ErrorLogEvent {
 }
 
 @freezed
-abstract class ProgressStartLogEvent with _$ProgressStartLogEvent {
+class ProgressStartLogEvent with _$ProgressStartLogEvent {
   const factory ProgressStartLogEvent({
     required int logEventType,
     required String progressId,
@@ -38,7 +38,7 @@ abstract class ProgressStartLogEvent with _$ProgressStartLogEvent {
 }
 
 @freezed
-abstract class ProgressStopLogEvent with _$ProgressStopLogEvent {
+class ProgressStopLogEvent with _$ProgressStopLogEvent {
   const factory ProgressStopLogEvent({
     required int logEventType,
     required String progressId,
@@ -49,7 +49,7 @@ abstract class ProgressStopLogEvent with _$ProgressStopLogEvent {
 }
 
 @freezed
-abstract class ProgressTickLogEvent with _$ProgressTickLogEvent {
+class ProgressTickLogEvent with _$ProgressTickLogEvent {
   const factory ProgressTickLogEvent({
     required int logEventType,
     required int currentStep,

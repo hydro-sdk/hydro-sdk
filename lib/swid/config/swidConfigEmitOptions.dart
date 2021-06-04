@@ -10,7 +10,7 @@ part 'swidConfigEmitOptions.freezed.dart';
 part 'swidConfigEmitOptions.g.dart';
 
 @freezed
-abstract class SwidConfigEmitOptions with _$SwidConfigEmitOptions {
+class SwidConfigEmitOptions with _$SwidConfigEmitOptions {
   const factory SwidConfigEmitOptions({
     required SwidConfigTsEmitOptions tsEmitOptions,
     required SwidConfigDartEmitOptions dartEmitOptions,

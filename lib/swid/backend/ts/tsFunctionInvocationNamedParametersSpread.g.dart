@@ -8,7 +8,8 @@ part of 'tsFunctionInvocationNamedParametersSpread.dart';
 
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
-    (references: (json['references'] as List?)?.map((e) => e as String)?.toList())!,
+    references:
+        (json['references'] as List<dynamic>).map((e) => e as String).toList(),
   );
 }
 

@@ -8,7 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 part 'barrelMember.freezed.dart';
 
 @freezed
-abstract class BarrelMember with _$BarrelMember {
+class BarrelMember with _$BarrelMember {
   factory BarrelMember.fromSwidClass({required SwidClass swidClass}) =
       _$FromSwidClass;
   factory BarrelMember.fromSwidEnum({required SwidEnum swidEnum}) =

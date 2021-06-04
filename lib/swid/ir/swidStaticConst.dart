@@ -15,7 +15,7 @@ part 'swidStaticConst.freezed.dart';
 part 'swidStaticConst.g.dart';
 
 @freezed
-abstract class SwidStaticConst with _$SwidStaticConst {
+class SwidStaticConst with _$SwidStaticConst {
   const factory SwidStaticConst.fromSwidBooleanLiteral(
           {required SwidBooleanLiteral swidBooleanLiteral}) =
       _$FromSwidBooleanLiteral;

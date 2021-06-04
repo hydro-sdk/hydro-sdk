@@ -7,7 +7,7 @@ part 'sessionDto.freezed.dart';
 part 'sessionDto.g.dart';
 
 @freezed
-abstract class SessionDto with _$SessionDto {
+class SessionDto with _$SessionDto {
   const factory SessionDto({
     required AuthTokenDto authenticatedUser,
     required String authToken,

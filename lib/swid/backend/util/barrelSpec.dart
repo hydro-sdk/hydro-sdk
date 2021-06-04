@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 part 'barrelSpec.freezed.dart';
 
 @freezed
-abstract class BarrelSpec with _$BarrelSpec {
+class BarrelSpec with _$BarrelSpec {
   factory BarrelSpec({
     required String path,
     required String name,

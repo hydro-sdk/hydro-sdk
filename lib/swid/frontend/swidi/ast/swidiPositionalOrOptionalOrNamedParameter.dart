@@ -8,7 +8,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart'
 part 'swidiPositionalOrOptionalOrNamedParameter.freezed.dart';
 
 @freezed
-abstract class SwidiPositionalOrOptionalOrNamedParameter
+class SwidiPositionalOrOptionalOrNamedParameter
     with _$SwidiPositionalOrOptionalOrNamedParameter {
   factory SwidiPositionalOrOptionalOrNamedParameter.clone({
     required

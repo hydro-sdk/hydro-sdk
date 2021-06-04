@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidiConstNumber.dart';
 
@@ -9,11 +9,13 @@ part of 'swidiConstNumber.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SwidiConstNumberTearOff {
   const _$SwidiConstNumberTearOff();
 
-// ignore: unused_element
   _$SwidiConstNumberCtor call({required String value}) {
     return _$SwidiConstNumberCtor(
       value: value,
@@ -22,15 +24,15 @@ class _$SwidiConstNumberTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidiConstNumber = _$SwidiConstNumberTearOff();
 
 /// @nodoc
 mixin _$SwidiConstNumber {
-  String get value;
+  String get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiConstNumberCopyWith<SwidiConstNumber> get copyWith;
+  $SwidiConstNumberCopyWith<SwidiConstNumber> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -38,7 +40,7 @@ abstract class $SwidiConstNumberCopyWith<$Res> {
   factory $SwidiConstNumberCopyWith(
           SwidiConstNumber value, $Res Function(SwidiConstNumber) then) =
       _$SwidiConstNumberCopyWithImpl<$Res>;
-  $Res call({String? value});
+  $Res call({String value});
 }
 
 /// @nodoc
@@ -48,14 +50,17 @@ class _$SwidiConstNumberCopyWithImpl<$Res>
 
   final SwidiConstNumber _value;
   // ignore: unused_field
-  final $Res Function(SwidiConstNumber?) _then;
+  final $Res Function(SwidiConstNumber) _then;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed ? _value.value : value as String?,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -67,7 +72,7 @@ abstract class _$$SwidiConstNumberCtorCopyWith<$Res>
           $Res Function(_$SwidiConstNumberCtor) then) =
       __$$SwidiConstNumberCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String? value});
+  $Res call({String value});
 }
 
 /// @nodoc
@@ -86,15 +91,18 @@ class __$$SwidiConstNumberCtorCopyWithImpl<$Res>
     Object? value = freezed,
   }) {
     return _then(_$SwidiConstNumberCtor(
-      value: value == freezed ? _value.value : (value as String?)!,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$SwidiConstNumberCtor implements _$SwidiConstNumberCtor {
-  const _$_$SwidiConstNumberCtor({required this.value})
-      : assert(value != null);
+  const _$_$SwidiConstNumberCtor({required this.value});
 
   @override
   final String value;
@@ -128,8 +136,9 @@ abstract class _$SwidiConstNumberCtor implements SwidiConstNumber {
       _$_$SwidiConstNumberCtor;
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$SwidiConstNumberCtorCopyWith<_$SwidiConstNumberCtor> get copyWith;
+  _$$SwidiConstNumberCtorCopyWith<_$SwidiConstNumberCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

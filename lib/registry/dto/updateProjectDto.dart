@@ -5,7 +5,7 @@ part 'updateProjectDto.freezed.dart';
 part 'updateProjectDto.g.dart';
 
 @freezed
-abstract class UpdateProjectDto with _$UpdateProjectDto {
+class UpdateProjectDto with _$UpdateProjectDto {
   const factory UpdateProjectDto({
     required String name,
     required String description,

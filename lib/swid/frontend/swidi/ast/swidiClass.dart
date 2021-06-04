@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 part 'swidiClass.freezed.dart';
 
 @freezed
-abstract class SwidiClass with _$SwidiClass {
+class SwidiClass with _$SwidiClass {
   const factory SwidiClass({
     required String name,
     required SwidiLibraryScopePrefix libraryScopePrefix,

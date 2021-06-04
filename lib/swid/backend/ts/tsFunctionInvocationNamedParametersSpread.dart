@@ -5,7 +5,7 @@ part 'tsFunctionInvocationNamedParametersSpread.freezed.dart';
 part 'tsFunctionInvocationNamedParametersSpread.g.dart';
 
 @freezed
-abstract class TsFunctionInvocationNamedParametersSpread
+class TsFunctionInvocationNamedParametersSpread
     with _$TsFunctionInvocationNamedParametersSpread {
   factory TsFunctionInvocationNamedParametersSpread(
       {required List<String> references}) = _$Data;

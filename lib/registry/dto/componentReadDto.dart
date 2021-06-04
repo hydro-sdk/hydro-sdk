@@ -5,7 +5,7 @@ part 'componentReadDto.freezed.dart';
 part 'componentReadDto.g.dart';
 
 @freezed
-abstract class ComponentReadDto with _$ComponentReadDto {
+class ComponentReadDto with _$ComponentReadDto {
   const factory ComponentReadDto({
     required String id,
     required String projectId,

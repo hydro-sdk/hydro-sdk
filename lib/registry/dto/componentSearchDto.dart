@@ -5,7 +5,7 @@ part 'componentSearchDto.freezed.dart';
 part 'componentSearchDto.g.dart';
 
 @freezed
-abstract class ComponentSearchDto with _$ComponentSearchDto {
+class ComponentSearchDto with _$ComponentSearchDto {
   const factory ComponentSearchDto({
     required String id,
     required String projectName,

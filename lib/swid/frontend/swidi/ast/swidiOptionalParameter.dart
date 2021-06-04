@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 part 'swidiOptionalParameter.freezed.dart';
 
 @freezed
-abstract class SwidiOptionalParameter with _$SwidiOptionalParameter {
+class SwidiOptionalParameter with _$SwidiOptionalParameter {
   const factory SwidiOptionalParameter({
     required SwidiDeclaration declaration,
   }) = _$SwidiOptionalParameterCtor;

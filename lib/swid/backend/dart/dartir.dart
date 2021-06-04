@@ -24,7 +24,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassMethodInjectionImp
 part 'dartir.freezed.dart';
 
 @freezed
-abstract class DartIr with _$DartIr {
+class DartIr with _$DartIr {
   factory DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
           {required
               DartBarrelLoadNamespaceSymbolDeclaration

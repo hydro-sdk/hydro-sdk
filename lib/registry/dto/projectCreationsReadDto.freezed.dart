@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'projectCreationsReadDto.dart';
 
@@ -8,6 +8,10 @@ part of 'projectCreationsReadDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ProjectCreationsReadDto _$ProjectCreationsReadDtoFromJson(
     Map<String, dynamic> json) {
   return _$ProjectCreationsReadDtoCtpr.fromJson(json);
@@ -17,31 +21,28 @@ ProjectCreationsReadDto _$ProjectCreationsReadDtoFromJson(
 class _$ProjectCreationsReadDtoTearOff {
   const _$ProjectCreationsReadDtoTearOff();
 
-// ignore: unused_element
-  _$ProjectCreationsReadDtoCtpr call(
-      {required int remainingProjectCreations}) {
+  _$ProjectCreationsReadDtoCtpr call({required int remainingProjectCreations}) {
     return _$ProjectCreationsReadDtoCtpr(
       remainingProjectCreations: remainingProjectCreations,
     );
   }
 
-// ignore: unused_element
   ProjectCreationsReadDto fromJson(Map<String, Object> json) {
     return ProjectCreationsReadDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProjectCreationsReadDto = _$ProjectCreationsReadDtoTearOff();
 
 /// @nodoc
 mixin _$ProjectCreationsReadDto {
-  int get remainingProjectCreations;
+  int get remainingProjectCreations => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProjectCreationsReadDtoCopyWith<ProjectCreationsReadDto> get copyWith;
+  $ProjectCreationsReadDtoCopyWith<ProjectCreationsReadDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -49,7 +50,7 @@ abstract class $ProjectCreationsReadDtoCopyWith<$Res> {
   factory $ProjectCreationsReadDtoCopyWith(ProjectCreationsReadDto value,
           $Res Function(ProjectCreationsReadDto) then) =
       _$ProjectCreationsReadDtoCopyWithImpl<$Res>;
-  $Res call({int? remainingProjectCreations});
+  $Res call({int remainingProjectCreations});
 }
 
 /// @nodoc
@@ -59,7 +60,7 @@ class _$ProjectCreationsReadDtoCopyWithImpl<$Res>
 
   final ProjectCreationsReadDto _value;
   // ignore: unused_field
-  final $Res Function(ProjectCreationsReadDto?) _then;
+  final $Res Function(ProjectCreationsReadDto) _then;
 
   @override
   $Res call({
@@ -68,7 +69,8 @@ class _$ProjectCreationsReadDtoCopyWithImpl<$Res>
     return _then(_value.copyWith(
       remainingProjectCreations: remainingProjectCreations == freezed
           ? _value.remainingProjectCreations
-          : remainingProjectCreations as int?,
+          : remainingProjectCreations // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -81,7 +83,7 @@ abstract class _$$ProjectCreationsReadDtoCtprCopyWith<$Res>
           $Res Function(_$ProjectCreationsReadDtoCtpr) then) =
       __$$ProjectCreationsReadDtoCtprCopyWithImpl<$Res>;
   @override
-  $Res call({int? remainingProjectCreations});
+  $Res call({int remainingProjectCreations});
 }
 
 /// @nodoc
@@ -104,18 +106,17 @@ class __$$ProjectCreationsReadDtoCtprCopyWithImpl<$Res>
     return _then(_$ProjectCreationsReadDtoCtpr(
       remainingProjectCreations: remainingProjectCreations == freezed
           ? _value.remainingProjectCreations
-          : (remainingProjectCreations as int?)!,
+          : remainingProjectCreations // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ProjectCreationsReadDtoCtpr implements _$ProjectCreationsReadDtoCtpr {
   const _$_$ProjectCreationsReadDtoCtpr(
-      {required this.remainingProjectCreations})
-      : assert(remainingProjectCreations != null);
+      {required this.remainingProjectCreations});
 
   factory _$_$ProjectCreationsReadDtoCtpr.fromJson(Map<String, dynamic> json) =>
       _$_$_$ProjectCreationsReadDtoCtprFromJson(json);
@@ -166,9 +167,9 @@ abstract class _$ProjectCreationsReadDtoCtpr
       _$_$ProjectCreationsReadDtoCtpr.fromJson;
 
   @override
-  int get remainingProjectCreations;
+  int get remainingProjectCreations => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$ProjectCreationsReadDtoCtprCopyWith<_$ProjectCreationsReadDtoCtpr>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

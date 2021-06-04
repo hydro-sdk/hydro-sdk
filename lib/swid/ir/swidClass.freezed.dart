@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidClass.dart';
 
@@ -8,6 +8,10 @@ part of 'swidClass.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidClass _$SwidClassFromJson(Map<String, dynamic> json) {
   return _$Data.fromJson(json);
 }
@@ -16,38 +20,23 @@ SwidClass _$SwidClassFromJson(Map<String, dynamic> json) {
 class _$SwidClassTearOff {
   const _$SwidClassTearOff();
 
-// ignore: unused_element
   _$Data call(
-      {required
-          String name,
-      required
-          SwidNullabilitySuffix nullabilitySuffix,
-      required
-          String originalPackagePath,
-      @nullable
-          required SwidFunctionType constructorType,
-      required
-          List<SwidFunctionType> factoryConstructors,
-      required
-          List<SwidFunctionType> staticMethods,
-      required
-          List<SwidFunctionType> methods,
-      required
-          List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-      required
-          Map<String, SwidType> instanceFieldDeclarations,
-      required
-          SwidDeclarationModifiers swidDeclarationModifiers,
-      required
-          List<SwidClass> mixedInClasses,
-      required
-          List<SwidClass> implementedClasses,
-      @nullable
-          required SwidClass extendedClass,
-      required
-          bool isMixin,
-      required
-          List<SwidTypeFormal> typeFormals}) {
+      {required String name,
+      required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      required SwidFunctionType? constructorType,
+      required List<SwidFunctionType> factoryConstructors,
+      required List<SwidFunctionType> staticMethods,
+      required List<SwidFunctionType> methods,
+      required List<SwidStaticConstFieldDeclaration>
+          staticConstFieldDeclarations,
+      required Map<String, SwidType> instanceFieldDeclarations,
+      required SwidDeclarationModifiers swidDeclarationModifiers,
+      required List<SwidClass> mixedInClasses,
+      required List<SwidClass> implementedClasses,
+      required SwidClass extendedClass,
+      required bool isMixin,
+      required List<SwidTypeFormal> typeFormals}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -67,74 +56,77 @@ class _$SwidClassTearOff {
     );
   }
 
-// ignore: unused_element
   SwidClass fromJson(Map<String, Object> json) {
     return SwidClass.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidClass = _$SwidClassTearOff();
 
 /// @nodoc
 mixin _$SwidClass {
-  String get name;
-  SwidNullabilitySuffix get nullabilitySuffix;
-  String get originalPackagePath;
-  @nullable
-  SwidFunctionType? get constructorType;
-  List<SwidFunctionType?> get factoryConstructors;
-  List<SwidFunctionType?> get staticMethods;
-  List<SwidFunctionType?> get methods;
-  List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
-  Map<String, SwidType?> get instanceFieldDeclarations;
-  SwidDeclarationModifiers get swidDeclarationModifiers;
-  List<SwidClass?> get mixedInClasses;
-  List<SwidClass?> get implementedClasses;
-  @nullable
-  SwidClass? get extendedClass;
-  bool get isMixin;
-  List<SwidTypeFormal?> get typeFormals;
+  String get name => throw _privateConstructorUsedError;
+  SwidNullabilitySuffix get nullabilitySuffix =>
+      throw _privateConstructorUsedError;
+  String get originalPackagePath => throw _privateConstructorUsedError;
+  SwidFunctionType? get constructorType => throw _privateConstructorUsedError;
+  List<SwidFunctionType> get factoryConstructors =>
+      throw _privateConstructorUsedError;
+  List<SwidFunctionType> get staticMethods =>
+      throw _privateConstructorUsedError;
+  List<SwidFunctionType> get methods => throw _privateConstructorUsedError;
+  List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations =>
+      throw _privateConstructorUsedError;
+  Map<String, SwidType> get instanceFieldDeclarations =>
+      throw _privateConstructorUsedError;
+  SwidDeclarationModifiers get swidDeclarationModifiers =>
+      throw _privateConstructorUsedError;
+  List<SwidClass> get mixedInClasses => throw _privateConstructorUsedError;
+  List<SwidClass> get implementedClasses => throw _privateConstructorUsedError;
+  SwidClass get extendedClass => throw _privateConstructorUsedError;
+  bool get isMixin => throw _privateConstructorUsedError;
+  List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidClassCopyWith<SwidClass> get copyWith;
+  $SwidClassCopyWith<SwidClass> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SwidClassCopyWith<$Res> {
-  factory $SwidClassCopyWith(SwidClass? value, $Res Function(SwidClass) then) =
+  factory $SwidClassCopyWith(SwidClass value, $Res Function(SwidClass) then) =
       _$SwidClassCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      SwidNullabilitySuffix? nullabilitySuffix,
-      String? originalPackagePath,
-      @nullable SwidFunctionType? constructorType,
-      List<SwidFunctionType>? factoryConstructors,
-      List<SwidFunctionType>? staticMethods,
-      List<SwidFunctionType>? methods,
-      List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
-      Map<String, SwidType>? instanceFieldDeclarations,
-      SwidDeclarationModifiers? swidDeclarationModifiers,
-      List<SwidClass>? mixedInClasses,
-      List<SwidClass>? implementedClasses,
-      @nullable SwidClass? extendedClass,
-      bool? isMixin,
-      List<SwidTypeFormal>? typeFormals});
+      {String name,
+      SwidNullabilitySuffix nullabilitySuffix,
+      String originalPackagePath,
+      SwidFunctionType? constructorType,
+      List<SwidFunctionType> factoryConstructors,
+      List<SwidFunctionType> staticMethods,
+      List<SwidFunctionType> methods,
+      List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+      Map<String, SwidType> instanceFieldDeclarations,
+      SwidDeclarationModifiers swidDeclarationModifiers,
+      List<SwidClass> mixedInClasses,
+      List<SwidClass> implementedClasses,
+      SwidClass extendedClass,
+      bool isMixin,
+      List<SwidTypeFormal> typeFormals});
 
   $SwidFunctionTypeCopyWith<$Res>? get constructorType;
   $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
-  $SwidClassCopyWith<$Res>? get extendedClass;
+  $SwidClassCopyWith<$Res> get extendedClass;
 }
 
 /// @nodoc
 class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
   _$SwidClassCopyWithImpl(this._value, this._then);
 
-  final SwidClass? _value;
+  final SwidClass _value;
   // ignore: unused_field
-  final $Res Function(SwidClass?) _then;
+  final $Res Function(SwidClass) _then;
 
   @override
   $Res call({
@@ -154,80 +146,93 @@ class _$SwidClassCopyWithImpl<$Res> implements $SwidClassCopyWith<$Res> {
     Object? isMixin = freezed,
     Object? typeFormals = freezed,
   }) {
-    return _then(_value!.copyWith(
-      name: name == freezed ? _value!.name : name as String?,
+    return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       nullabilitySuffix: nullabilitySuffix == freezed
-          ? _value!.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix?,
+          ? _value.nullabilitySuffix
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidNullabilitySuffix,
       originalPackagePath: originalPackagePath == freezed
-          ? _value!.originalPackagePath
-          : originalPackagePath as String?,
+          ? _value.originalPackagePath
+          : originalPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
       constructorType: constructorType == freezed
-          ? _value!.constructorType
-          : constructorType as SwidFunctionType?,
+          ? _value.constructorType
+          : constructorType // ignore: cast_nullable_to_non_nullable
+              as SwidFunctionType?,
       factoryConstructors: factoryConstructors == freezed
-          ? _value!.factoryConstructors as List<SwidFunctionType>?
-          : factoryConstructors as List<SwidFunctionType>?,
+          ? _value.factoryConstructors
+          : factoryConstructors // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType>,
       staticMethods: staticMethods == freezed
-          ? _value!.staticMethods as List<SwidFunctionType>?
-          : staticMethods as List<SwidFunctionType>?,
+          ? _value.staticMethods
+          : staticMethods // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType>,
       methods: methods == freezed
-          ? _value!.methods as List<SwidFunctionType>?
-          : methods as List<SwidFunctionType>?,
+          ? _value.methods
+          : methods // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType>,
       staticConstFieldDeclarations: staticConstFieldDeclarations == freezed
-          ? _value!.staticConstFieldDeclarations
-          : staticConstFieldDeclarations
-              as List<SwidStaticConstFieldDeclaration>?,
+          ? _value.staticConstFieldDeclarations
+          : staticConstFieldDeclarations // ignore: cast_nullable_to_non_nullable
+              as List<SwidStaticConstFieldDeclaration>,
       instanceFieldDeclarations: instanceFieldDeclarations == freezed
-          ? _value!.instanceFieldDeclarations as Map<String, SwidType>?
-          : instanceFieldDeclarations as Map<String, SwidType>?,
+          ? _value.instanceFieldDeclarations
+          : instanceFieldDeclarations // ignore: cast_nullable_to_non_nullable
+              as Map<String, SwidType>,
       swidDeclarationModifiers: swidDeclarationModifiers == freezed
-          ? _value!.swidDeclarationModifiers
-          : swidDeclarationModifiers as SwidDeclarationModifiers?,
+          ? _value.swidDeclarationModifiers
+          : swidDeclarationModifiers // ignore: cast_nullable_to_non_nullable
+              as SwidDeclarationModifiers,
       mixedInClasses: mixedInClasses == freezed
-          ? _value!.mixedInClasses as List<SwidClass>?
-          : mixedInClasses as List<SwidClass>?,
+          ? _value.mixedInClasses
+          : mixedInClasses // ignore: cast_nullable_to_non_nullable
+              as List<SwidClass>,
       implementedClasses: implementedClasses == freezed
-          ? _value!.implementedClasses as List<SwidClass>?
-          : implementedClasses as List<SwidClass>?,
+          ? _value.implementedClasses
+          : implementedClasses // ignore: cast_nullable_to_non_nullable
+              as List<SwidClass>,
       extendedClass: extendedClass == freezed
-          ? _value!.extendedClass
-          : extendedClass as SwidClass?,
-      isMixin: isMixin == freezed ? _value!.isMixin : isMixin as bool?,
+          ? _value.extendedClass
+          : extendedClass // ignore: cast_nullable_to_non_nullable
+              as SwidClass,
+      isMixin: isMixin == freezed
+          ? _value.isMixin
+          : isMixin // ignore: cast_nullable_to_non_nullable
+              as bool,
       typeFormals: typeFormals == freezed
-          ? _value!.typeFormals as List<SwidTypeFormal>?
-          : typeFormals as List<SwidTypeFormal>?,
+          ? _value.typeFormals
+          : typeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidTypeFormal>,
     ));
   }
 
   @override
   $SwidFunctionTypeCopyWith<$Res>? get constructorType {
-    if (_value!.constructorType == null) {
+    if (_value.constructorType == null) {
       return null;
     }
-    return $SwidFunctionTypeCopyWith<$Res>(_value!.constructorType, (value) {
-      return _then(_value!.copyWith(constructorType: value));
+
+    return $SwidFunctionTypeCopyWith<$Res>(_value.constructorType!, (value) {
+      return _then(_value.copyWith(constructorType: value));
     });
   }
 
   @override
   $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers {
-    if (_value!.swidDeclarationModifiers == null) {
-      return null;
-    }
     return $SwidDeclarationModifiersCopyWith<$Res>(
-        _value!.swidDeclarationModifiers, (value) {
-      return _then(_value!.copyWith(swidDeclarationModifiers: value));
+        _value.swidDeclarationModifiers, (value) {
+      return _then(_value.copyWith(swidDeclarationModifiers: value));
     });
   }
 
   @override
-  $SwidClassCopyWith<$Res>? get extendedClass {
-    if (_value!.extendedClass == null) {
-      return null;
-    }
-    return $SwidClassCopyWith<$Res>(_value!.extendedClass, (value) {
-      return _then(_value!.copyWith(extendedClass: value));
+  $SwidClassCopyWith<$Res> get extendedClass {
+    return $SwidClassCopyWith<$Res>(_value.extendedClass, (value) {
+      return _then(_value.copyWith(extendedClass: value));
     });
   }
 }
@@ -238,24 +243,24 @@ abstract class _$$DataCopyWith<$Res> implements $SwidClassCopyWith<$Res> {
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      SwidNullabilitySuffix? nullabilitySuffix,
-      String? originalPackagePath,
-      @nullable SwidFunctionType? constructorType,
-      List<SwidFunctionType>? factoryConstructors,
-      List<SwidFunctionType>? staticMethods,
-      List<SwidFunctionType>? methods,
-      List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
-      Map<String, SwidType>? instanceFieldDeclarations,
-      SwidDeclarationModifiers? swidDeclarationModifiers,
-      List<SwidClass>? mixedInClasses,
-      List<SwidClass>? implementedClasses,
-      @nullable SwidClass? extendedClass,
-      bool? isMixin,
-      List<SwidTypeFormal>? typeFormals});
+      {String name,
+      SwidNullabilitySuffix nullabilitySuffix,
+      String originalPackagePath,
+      SwidFunctionType? constructorType,
+      List<SwidFunctionType> factoryConstructors,
+      List<SwidFunctionType> staticMethods,
+      List<SwidFunctionType> methods,
+      List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+      Map<String, SwidType> instanceFieldDeclarations,
+      SwidDeclarationModifiers swidDeclarationModifiers,
+      List<SwidClass> mixedInClasses,
+      List<SwidClass> implementedClasses,
+      SwidClass extendedClass,
+      bool isMixin,
+      List<SwidTypeFormal> typeFormals});
 
   @override
-  $SwidFunctionTypeCopyWith<$Res> get constructorType;
+  $SwidFunctionTypeCopyWith<$Res>? get constructorType;
   @override
   $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers;
   @override
@@ -269,7 +274,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
       : super(_value, (v) => _then(v as _$Data));
 
   @override
-  _$Data? get _value => super._value as _$Data?;
+  _$Data get _value => super._value as _$Data;
 
   @override
   $Res call({
@@ -290,61 +295,78 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidClassCopyWithImpl<$Res>
     Object? typeFormals = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value!.name : (name as String?)!,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       nullabilitySuffix: nullabilitySuffix == freezed
-          ? _value!.nullabilitySuffix
-          : (nullabilitySuffix as SwidNullabilitySuffix?)!,
+          ? _value.nullabilitySuffix
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidNullabilitySuffix,
       originalPackagePath: originalPackagePath == freezed
-          ? _value!.originalPackagePath
-          : (originalPackagePath as String?)!,
+          ? _value.originalPackagePath
+          : originalPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
       constructorType: constructorType == freezed
-          ? _value!.constructorType
-          : constructorType as SwidFunctionType?,
+          ? _value.constructorType
+          : constructorType // ignore: cast_nullable_to_non_nullable
+              as SwidFunctionType?,
       factoryConstructors: factoryConstructors == freezed
-          ? _value!.factoryConstructors
-          : (factoryConstructors as List<SwidFunctionType>?)!,
+          ? _value.factoryConstructors
+          : factoryConstructors // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType>,
       staticMethods: staticMethods == freezed
-          ? _value!.staticMethods
-          : (staticMethods as List<SwidFunctionType>?)!,
+          ? _value.staticMethods
+          : staticMethods // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType>,
       methods: methods == freezed
-          ? _value!.methods
-          : (methods as List<SwidFunctionType>?)!,
+          ? _value.methods
+          : methods // ignore: cast_nullable_to_non_nullable
+              as List<SwidFunctionType>,
       staticConstFieldDeclarations: staticConstFieldDeclarations == freezed
-          ? _value!.staticConstFieldDeclarations
-          : (staticConstFieldDeclarations
-              as List<SwidStaticConstFieldDeclaration>?)!,
+          ? _value.staticConstFieldDeclarations
+          : staticConstFieldDeclarations // ignore: cast_nullable_to_non_nullable
+              as List<SwidStaticConstFieldDeclaration>,
       instanceFieldDeclarations: instanceFieldDeclarations == freezed
-          ? _value!.instanceFieldDeclarations
-          : (instanceFieldDeclarations as Map<String, SwidType>?)!,
+          ? _value.instanceFieldDeclarations
+          : instanceFieldDeclarations // ignore: cast_nullable_to_non_nullable
+              as Map<String, SwidType>,
       swidDeclarationModifiers: swidDeclarationModifiers == freezed
-          ? _value!.swidDeclarationModifiers
-          : (swidDeclarationModifiers as SwidDeclarationModifiers?)!,
+          ? _value.swidDeclarationModifiers
+          : swidDeclarationModifiers // ignore: cast_nullable_to_non_nullable
+              as SwidDeclarationModifiers,
       mixedInClasses: mixedInClasses == freezed
-          ? _value!.mixedInClasses
-          : (mixedInClasses as List<SwidClass>?)!,
+          ? _value.mixedInClasses
+          : mixedInClasses // ignore: cast_nullable_to_non_nullable
+              as List<SwidClass>,
       implementedClasses: implementedClasses == freezed
-          ? _value!.implementedClasses
-          : (implementedClasses as List<SwidClass>?)!,
+          ? _value.implementedClasses
+          : implementedClasses // ignore: cast_nullable_to_non_nullable
+              as List<SwidClass>,
       extendedClass: extendedClass == freezed
-          ? _value!.extendedClass
-          : extendedClass as SwidClass?,
-      isMixin: isMixin == freezed ? _value!.isMixin : (isMixin as bool?)!,
+          ? _value.extendedClass
+          : extendedClass // ignore: cast_nullable_to_non_nullable
+              as SwidClass,
+      isMixin: isMixin == freezed
+          ? _value.isMixin
+          : isMixin // ignore: cast_nullable_to_non_nullable
+              as bool,
       typeFormals: typeFormals == freezed
-          ? _value!.typeFormals
-          : (typeFormals as List<SwidTypeFormal>?)!,
+          ? _value.typeFormals
+          : typeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidTypeFormal>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
   const _$_$Data(
       {required this.name,
       required this.nullabilitySuffix,
       required this.originalPackagePath,
-      @nullable required this.constructorType,
+      required this.constructorType,
       required this.factoryConstructors,
       required this.staticMethods,
       required this.methods,
@@ -353,22 +375,9 @@ class _$_$Data implements _$Data {
       required this.swidDeclarationModifiers,
       required this.mixedInClasses,
       required this.implementedClasses,
-      @nullable required this.extendedClass,
+      required this.extendedClass,
       required this.isMixin,
-      required this.typeFormals})
-      : assert(name != null),
-        assert(nullabilitySuffix != null),
-        assert(originalPackagePath != null),
-        assert(factoryConstructors != null),
-        assert(staticMethods != null),
-        assert(methods != null),
-        assert(staticConstFieldDeclarations != null),
-        assert(instanceFieldDeclarations != null),
-        assert(swidDeclarationModifiers != null),
-        assert(mixedInClasses != null),
-        assert(implementedClasses != null),
-        assert(isMixin != null),
-        assert(typeFormals != null);
+      required this.typeFormals});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -380,31 +389,29 @@ class _$_$Data implements _$Data {
   @override
   final String originalPackagePath;
   @override
-  @nullable
   final SwidFunctionType? constructorType;
   @override
-  final List<SwidFunctionType?> factoryConstructors;
+  final List<SwidFunctionType> factoryConstructors;
   @override
-  final List<SwidFunctionType?> staticMethods;
+  final List<SwidFunctionType> staticMethods;
   @override
-  final List<SwidFunctionType?> methods;
+  final List<SwidFunctionType> methods;
   @override
   final List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations;
   @override
-  final Map<String, SwidType?> instanceFieldDeclarations;
+  final Map<String, SwidType> instanceFieldDeclarations;
   @override
   final SwidDeclarationModifiers swidDeclarationModifiers;
   @override
-  final List<SwidClass?> mixedInClasses;
+  final List<SwidClass> mixedInClasses;
   @override
-  final List<SwidClass?> implementedClasses;
+  final List<SwidClass> implementedClasses;
   @override
-  @nullable
-  final SwidClass? extendedClass;
+  final SwidClass extendedClass;
   @override
   final bool isMixin;
   @override
-  final List<SwidTypeFormal?> typeFormals;
+  final List<SwidTypeFormal> typeFormals;
 
   @override
   String toString() {
@@ -496,72 +503,62 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidClass {
   const factory _$Data(
-      {required
-          String name,
-      required
-          SwidNullabilitySuffix nullabilitySuffix,
-      required
-          String originalPackagePath,
-      @nullable
-          required SwidFunctionType? constructorType,
-      required
-          List<SwidFunctionType?> factoryConstructors,
-      required
-          List<SwidFunctionType?> staticMethods,
-      required
-          List<SwidFunctionType?> methods,
-      required
-          List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-      required
-          Map<String, SwidType?> instanceFieldDeclarations,
-      required
-          SwidDeclarationModifiers swidDeclarationModifiers,
-      required
-          List<SwidClass?> mixedInClasses,
-      required
-          List<SwidClass?> implementedClasses,
-      @nullable
-          required SwidClass? extendedClass,
-      required
-          bool isMixin,
-      required
-          List<SwidTypeFormal?> typeFormals}) = _$_$Data;
+      {required String name,
+      required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      required SwidFunctionType? constructorType,
+      required List<SwidFunctionType> factoryConstructors,
+      required List<SwidFunctionType> staticMethods,
+      required List<SwidFunctionType> methods,
+      required List<SwidStaticConstFieldDeclaration>
+          staticConstFieldDeclarations,
+      required Map<String, SwidType> instanceFieldDeclarations,
+      required SwidDeclarationModifiers swidDeclarationModifiers,
+      required List<SwidClass> mixedInClasses,
+      required List<SwidClass> implementedClasses,
+      required SwidClass extendedClass,
+      required bool isMixin,
+      required List<SwidTypeFormal> typeFormals}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  SwidNullabilitySuffix get nullabilitySuffix;
+  SwidNullabilitySuffix get nullabilitySuffix =>
+      throw _privateConstructorUsedError;
   @override
-  String get originalPackagePath;
+  String get originalPackagePath => throw _privateConstructorUsedError;
   @override
-  @nullable
-  SwidFunctionType? get constructorType;
+  SwidFunctionType? get constructorType => throw _privateConstructorUsedError;
   @override
-  List<SwidFunctionType?> get factoryConstructors;
+  List<SwidFunctionType> get factoryConstructors =>
+      throw _privateConstructorUsedError;
   @override
-  List<SwidFunctionType?> get staticMethods;
+  List<SwidFunctionType> get staticMethods =>
+      throw _privateConstructorUsedError;
   @override
-  List<SwidFunctionType?> get methods;
+  List<SwidFunctionType> get methods => throw _privateConstructorUsedError;
   @override
-  List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations;
+  List<SwidStaticConstFieldDeclaration> get staticConstFieldDeclarations =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, SwidType?> get instanceFieldDeclarations;
+  Map<String, SwidType> get instanceFieldDeclarations =>
+      throw _privateConstructorUsedError;
   @override
-  SwidDeclarationModifiers get swidDeclarationModifiers;
+  SwidDeclarationModifiers get swidDeclarationModifiers =>
+      throw _privateConstructorUsedError;
   @override
-  List<SwidClass?> get mixedInClasses;
+  List<SwidClass> get mixedInClasses => throw _privateConstructorUsedError;
   @override
-  List<SwidClass?> get implementedClasses;
+  List<SwidClass> get implementedClasses => throw _privateConstructorUsedError;
   @override
-  @nullable
-  SwidClass? get extendedClass;
+  SwidClass get extendedClass => throw _privateConstructorUsedError;
   @override
-  bool get isMixin;
+  bool get isMixin => throw _privateConstructorUsedError;
   @override
-  List<SwidTypeFormal?> get typeFormals;
+  List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidBooleanLiteral.dart';
 
@@ -8,6 +8,10 @@ part of 'swidBooleanLiteral.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidBooleanLiteral _$SwidBooleanLiteralFromJson(Map<String, dynamic> json) {
   return _$Data.fromJson(json);
 }
@@ -16,30 +20,28 @@ SwidBooleanLiteral _$SwidBooleanLiteralFromJson(Map<String, dynamic> json) {
 class _$SwidBooleanLiteralTearOff {
   const _$SwidBooleanLiteralTearOff();
 
-// ignore: unused_element
   _$Data call({required String value}) {
     return _$Data(
       value: value,
     );
   }
 
-// ignore: unused_element
   SwidBooleanLiteral fromJson(Map<String, Object> json) {
     return SwidBooleanLiteral.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidBooleanLiteral = _$SwidBooleanLiteralTearOff();
 
 /// @nodoc
 mixin _$SwidBooleanLiteral {
-  String get value;
+  String get value => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidBooleanLiteralCopyWith<SwidBooleanLiteral> get copyWith;
+  $SwidBooleanLiteralCopyWith<SwidBooleanLiteral> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -47,7 +49,7 @@ abstract class $SwidBooleanLiteralCopyWith<$Res> {
   factory $SwidBooleanLiteralCopyWith(
           SwidBooleanLiteral value, $Res Function(SwidBooleanLiteral) then) =
       _$SwidBooleanLiteralCopyWithImpl<$Res>;
-  $Res call({String? value});
+  $Res call({String value});
 }
 
 /// @nodoc
@@ -57,14 +59,17 @@ class _$SwidBooleanLiteralCopyWithImpl<$Res>
 
   final SwidBooleanLiteral _value;
   // ignore: unused_field
-  final $Res Function(SwidBooleanLiteral?) _then;
+  final $Res Function(SwidBooleanLiteral) _then;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed ? _value.value : value as String?,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -75,7 +80,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String? value});
+  $Res call({String value});
 }
 
 /// @nodoc
@@ -92,16 +97,18 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidBooleanLiteralCopyWithImpl<$Res>
     Object? value = freezed,
   }) {
     return _then(_$Data(
-      value: value == freezed ? _value.value : (value as String?)!,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
-  const _$_$Data({required this.value}) : assert(value != null);
+  const _$_$Data({required this.value});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -143,8 +150,8 @@ abstract class _$Data implements SwidBooleanLiteral {
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get value;
+  String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

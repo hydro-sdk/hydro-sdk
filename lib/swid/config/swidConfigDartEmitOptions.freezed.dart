@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidConfigDartEmitOptions.dart';
 
@@ -8,6 +8,10 @@ part of 'swidConfigDartEmitOptions.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidConfigDartEmitOptions _$SwidConfigDartEmitOptionsFromJson(
     Map<String, dynamic> json) {
   return _$SwidConfigDartEmitOptionsCtor.fromJson(json);
@@ -17,7 +21,6 @@ SwidConfigDartEmitOptions _$SwidConfigDartEmitOptionsFromJson(
 class _$SwidConfigDartEmitOptionsTearOff {
   const _$SwidConfigDartEmitOptionsTearOff();
 
-// ignore: unused_element
   _$SwidConfigDartEmitOptionsCtor call(
       {required List<String> prefixPaths, required String hostPackageName}) {
     return _$SwidConfigDartEmitOptionsCtor(
@@ -26,24 +29,23 @@ class _$SwidConfigDartEmitOptionsTearOff {
     );
   }
 
-// ignore: unused_element
   SwidConfigDartEmitOptions fromJson(Map<String, Object> json) {
     return SwidConfigDartEmitOptions.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidConfigDartEmitOptions = _$SwidConfigDartEmitOptionsTearOff();
 
 /// @nodoc
 mixin _$SwidConfigDartEmitOptions {
-  List<String> get prefixPaths;
-  String get hostPackageName;
+  List<String> get prefixPaths => throw _privateConstructorUsedError;
+  String get hostPackageName => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidConfigDartEmitOptionsCopyWith<SwidConfigDartEmitOptions> get copyWith;
+  $SwidConfigDartEmitOptionsCopyWith<SwidConfigDartEmitOptions> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,7 +53,7 @@ abstract class $SwidConfigDartEmitOptionsCopyWith<$Res> {
   factory $SwidConfigDartEmitOptionsCopyWith(SwidConfigDartEmitOptions value,
           $Res Function(SwidConfigDartEmitOptions) then) =
       _$SwidConfigDartEmitOptionsCopyWithImpl<$Res>;
-  $Res call({List<String>? prefixPaths, String? hostPackageName});
+  $Res call({List<String> prefixPaths, String hostPackageName});
 }
 
 /// @nodoc
@@ -61,7 +63,7 @@ class _$SwidConfigDartEmitOptionsCopyWithImpl<$Res>
 
   final SwidConfigDartEmitOptions _value;
   // ignore: unused_field
-  final $Res Function(SwidConfigDartEmitOptions?) _then;
+  final $Res Function(SwidConfigDartEmitOptions) _then;
 
   @override
   $Res call({
@@ -71,10 +73,12 @@ class _$SwidConfigDartEmitOptionsCopyWithImpl<$Res>
     return _then(_value.copyWith(
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>?,
+          : prefixPaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       hostPackageName: hostPackageName == freezed
           ? _value.hostPackageName
-          : hostPackageName as String?,
+          : hostPackageName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -87,7 +91,7 @@ abstract class _$$SwidConfigDartEmitOptionsCtorCopyWith<$Res>
           $Res Function(_$SwidConfigDartEmitOptionsCtor) then) =
       __$$SwidConfigDartEmitOptionsCtorCopyWithImpl<$Res>;
   @override
-  $Res call({List<String>? prefixPaths, String? hostPackageName});
+  $Res call({List<String> prefixPaths, String hostPackageName});
 }
 
 /// @nodoc
@@ -111,23 +115,22 @@ class __$$SwidConfigDartEmitOptionsCtorCopyWithImpl<$Res>
     return _then(_$SwidConfigDartEmitOptionsCtor(
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : (prefixPaths as List<String>?)!,
+          : prefixPaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       hostPackageName: hostPackageName == freezed
           ? _value.hostPackageName
-          : (hostPackageName as String?)!,
+          : hostPackageName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$SwidConfigDartEmitOptionsCtor
     implements _$SwidConfigDartEmitOptionsCtor {
   const _$_$SwidConfigDartEmitOptionsCtor(
-      {required this.prefixPaths, required this.hostPackageName})
-      : assert(prefixPaths != null),
-        assert(hostPackageName != null);
+      {required this.prefixPaths, required this.hostPackageName});
 
   factory _$_$SwidConfigDartEmitOptionsCtor.fromJson(
           Map<String, dynamic> json) =>
@@ -183,11 +186,11 @@ abstract class _$SwidConfigDartEmitOptionsCtor
       _$_$SwidConfigDartEmitOptionsCtor.fromJson;
 
   @override
-  List<String> get prefixPaths;
+  List<String> get prefixPaths => throw _privateConstructorUsedError;
   @override
-  String get hostPackageName;
+  String get hostPackageName => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidConfigDartEmitOptionsCtorCopyWith<_$SwidConfigDartEmitOptionsCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

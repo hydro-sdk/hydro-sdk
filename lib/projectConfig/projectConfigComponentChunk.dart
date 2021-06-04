@@ -9,11 +9,11 @@ enum ProjectConfigComponentChunkType {
 }
 
 @freezed
-abstract class ProjectConfigComponentChunk with _$ProjectConfigComponentChunk {
+class ProjectConfigComponentChunk with _$ProjectConfigComponentChunk {
   const factory ProjectConfigComponentChunk({
     required ProjectConfigComponentChunkType type,
     required String entryPoint,
-    @JsonKey(defaultValue: null) @nullable String? baseUrl,
+    required String? baseUrl,
   }) = _$ProjectConfigComponentChunkCtor;
 
   factory ProjectConfigComponentChunk.fromJson(Map<String, dynamic> json) =>

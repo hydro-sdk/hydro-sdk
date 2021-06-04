@@ -5,7 +5,7 @@ part 'projectEntity.freezed.dart';
 part 'projectEntity.g.dart';
 
 @freezed
-abstract class ProjectEntity with _$ProjectEntity {
+class ProjectEntity with _$ProjectEntity {
   const factory ProjectEntity({
     required String id,
     required String createdAt,

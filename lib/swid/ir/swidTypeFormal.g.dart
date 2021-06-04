@@ -1,6 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-import 'package:collection/collection.dart' show IterableExtension;
 part of 'swidTypeFormal.dart';
 
 // **************************************************************************
@@ -20,9 +19,7 @@ Map<String, dynamic> _$_$_$FromStringToJson(_$_$FromString instance) =>
 
 _$_$FromSwidClass _$_$_$FromSwidClassFromJson(Map<String, dynamic> json) {
   return _$_$FromSwidClass(
-    swidClass: json['swidClass'] == null
-        ? null
-        : SwidClass.fromJson(json['swidClass'] as Map<String, dynamic>),
+    swidClass: SwidClass.fromJson(json['swidClass'] as Map<String, dynamic>),
   );
 }
 
@@ -34,9 +31,8 @@ Map<String, dynamic> _$_$_$FromSwidClassToJson(_$_$FromSwidClass instance) =>
 _$_$FromSwidInterface _$_$_$FromSwidInterfaceFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidInterface(
-    swidInterface: json['swidInterface'] == null
-        ? null
-        : SwidInterface.fromJson(json['swidInterface'] as Map<String, dynamic>),
+    swidInterface:
+        SwidInterface.fromJson(json['swidInterface'] as Map<String, dynamic>),
   );
 }
 
@@ -49,10 +45,8 @@ Map<String, dynamic> _$_$_$FromSwidInterfaceToJson(
 _$_$FromSwidFunctionType _$_$_$FromSwidFunctionTypeFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidFunctionType(
-    swidFunctionType: json['swidFunctionType'] == null
-        ? null
-        : SwidFunctionType.fromJson(
-            json['swidFunctionType'] as Map<String, dynamic>),
+    swidFunctionType: SwidFunctionType.fromJson(
+        json['swidFunctionType'] as Map<String, dynamic>),
   );
 }
 
@@ -64,12 +58,10 @@ Map<String, dynamic> _$_$_$FromSwidFunctionTypeToJson(
 
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
-    value: json['value'] == null
-        ? null
-        : SwidTypeFormalValue.fromJson(json['value'] as Map<String, dynamic>),
-    swidReferenceDeclarationKind: _$enumDecodeNullable(
+    value: SwidTypeFormalValue.fromJson(json['value'] as Map<String, dynamic>),
+    swidReferenceDeclarationKind: _$enumDecode(
         _$SwidReferenceDeclarationKindEnumMap,
-        json['swidReferenceDeclarationKind'])!,
+        json['swidReferenceDeclarationKind']),
   );
 }
 
@@ -79,36 +71,30 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
           instance.swidReferenceDeclarationKind],
     };
 
-T? _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T? unknownValue,
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
 }) {
   if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
   }
 
-  final value = enumValues.entries
-      .singleWhereOrNull((e) => e.value == source)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
-}
-
-T? _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
 }
 
 const _$SwidReferenceDeclarationKindEnumMap = {

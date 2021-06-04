@@ -9,7 +9,7 @@ part 'swidIr.freezed.dart';
 part 'swidIr.g.dart';
 
 @freezed
-abstract class SwidIr with _$SwidIr {
+class SwidIr with _$SwidIr {
   const factory SwidIr.fromSwidClass({required SwidClass swidClass}) =
       _$SwidIrFromSwidClass;
 

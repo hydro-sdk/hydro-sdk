@@ -1,6 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-import 'package:collection/collection.dart' show IterableExtension;
 part of 'swidClass.dart';
 
 // **************************************************************************
@@ -10,60 +9,45 @@ part of 'swidClass.dart';
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     name: json['name'] as String,
-    nullabilitySuffix: _$enumDecodeNullable(
-        _$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix'])!,
+    nullabilitySuffix:
+        _$enumDecode(_$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
     originalPackagePath: json['originalPackagePath'] as String,
     constructorType: json['constructorType'] == null
         ? null
         : SwidFunctionType.fromJson(
             json['constructorType'] as Map<String, dynamic>),
-    (factoryConstructors: (json['factoryConstructors'] as List?)
-        ?.map((e) => e == null
-            ? null
-            : SwidFunctionType.fromJson(e as Map<String, dynamic>))
-        ?.toList())!,
-    (staticMethods: (json['staticMethods'] as List?)
-        ?.map((e) => e == null
-            ? null
-            : SwidFunctionType.fromJson(e as Map<String, dynamic>))
-        ?.toList())!,
-    (methods: (json['methods'] as List?)
-        ?.map((e) => e == null
-            ? null
-            : SwidFunctionType.fromJson(e as Map<String, dynamic>))
-        ?.toList())!,
-    (staticConstFieldDeclarations: (json['staticConstFieldDeclarations'] as List?)
-        ?.map((e) => e == null
-            ? null
-            : SwidStaticConstFieldDeclaration.fromJson(
-                e as Map<String, dynamic>))
-        ?.toList())!,
-    (instanceFieldDeclarations:
-        (json['instanceFieldDeclarations'] as Map<String, dynamic>?)?.map(
-      (k, e) => MapEntry(
-          k, e == null ? null : SwidType.fromJson(e as Map<String, dynamic>)),
-    ))!,
-    swidDeclarationModifiers: json['swidDeclarationModifiers'] == null
-        ? null
-        : SwidDeclarationModifiers.fromJson(
-            json['swidDeclarationModifiers'] as Map<String, dynamic>),
-    (mixedInClasses: (json['mixedInClasses'] as List?)
-        ?.map((e) =>
-            e == null ? null : SwidClass.fromJson(e as Map<String, dynamic>))
-        ?.toList())!,
-    (implementedClasses: (json['implementedClasses'] as List?)
-        ?.map((e) =>
-            e == null ? null : SwidClass.fromJson(e as Map<String, dynamic>))
-        ?.toList())!,
-    extendedClass: json['extendedClass'] == null
-        ? null
-        : SwidClass.fromJson(json['extendedClass'] as Map<String, dynamic>),
+    factoryConstructors: (json['factoryConstructors'] as List<dynamic>)
+        .map((e) => SwidFunctionType.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    staticMethods: (json['staticMethods'] as List<dynamic>)
+        .map((e) => SwidFunctionType.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    methods: (json['methods'] as List<dynamic>)
+        .map((e) => SwidFunctionType.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    staticConstFieldDeclarations: (json['staticConstFieldDeclarations']
+            as List<dynamic>)
+        .map((e) =>
+            SwidStaticConstFieldDeclaration.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    instanceFieldDeclarations:
+        (json['instanceFieldDeclarations'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, SwidType.fromJson(e as Map<String, dynamic>)),
+    ),
+    swidDeclarationModifiers: SwidDeclarationModifiers.fromJson(
+        json['swidDeclarationModifiers'] as Map<String, dynamic>),
+    mixedInClasses: (json['mixedInClasses'] as List<dynamic>)
+        .map((e) => SwidClass.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    implementedClasses: (json['implementedClasses'] as List<dynamic>)
+        .map((e) => SwidClass.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    extendedClass:
+        SwidClass.fromJson(json['extendedClass'] as Map<String, dynamic>),
     isMixin: json['isMixin'] as bool,
-    (typeFormals: (json['typeFormals'] as List?)
-        ?.map((e) => e == null
-            ? null
-            : SwidTypeFormal.fromJson(e as Map<String, dynamic>))
-        ?.toList())!,
+    typeFormals: (json['typeFormals'] as List<dynamic>)
+        .map((e) => SwidTypeFormal.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -86,36 +70,30 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'typeFormals': instance.typeFormals,
     };
 
-T? _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T? unknownValue,
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
 }) {
   if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
   }
 
-  final value = enumValues.entries
-      .singleWhereOrNull((e) => e.value == source)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
-}
-
-T? _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
 }
 
 const _$SwidNullabilitySuffixEnumMap = {

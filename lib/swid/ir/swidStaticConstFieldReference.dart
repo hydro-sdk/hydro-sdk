@@ -5,7 +5,7 @@ part 'swidStaticConstFieldReference.freezed.dart';
 part 'swidStaticConstFieldReference.g.dart';
 
 @freezed
-abstract class SwidStaticConstFieldReference
+class SwidStaticConstFieldReference
     with _$SwidStaticConstFieldReference {
   const factory SwidStaticConstFieldReference({required String name}) = _$Data;
 

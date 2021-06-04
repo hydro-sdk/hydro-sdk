@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidiClass.dart';
 
@@ -9,11 +9,13 @@ part of 'swidiClass.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SwidiClassTearOff {
   const _$SwidiClassTearOff();
 
-// ignore: unused_element
   _$SwidiClassCtor call(
       {required String name,
       required SwidiLibraryScopePrefix libraryScopePrefix,
@@ -27,17 +29,19 @@ class _$SwidiClassTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidiClass = _$SwidiClassTearOff();
 
 /// @nodoc
 mixin _$SwidiClass {
-  String get name;
-  SwidiLibraryScopePrefix get libraryScopePrefix;
-  List<SwidiFunctionDeclaration> get methods;
+  String get name => throw _privateConstructorUsedError;
+  SwidiLibraryScopePrefix get libraryScopePrefix =>
+      throw _privateConstructorUsedError;
+  List<SwidiFunctionDeclaration> get methods =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiClassCopyWith<SwidiClass> get copyWith;
+  $SwidiClassCopyWith<SwidiClass> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -46,9 +50,9 @@ abstract class $SwidiClassCopyWith<$Res> {
           SwidiClass value, $Res Function(SwidiClass) then) =
       _$SwidiClassCopyWithImpl<$Res>;
   $Res call(
-      {String? name,
-      SwidiLibraryScopePrefix? libraryScopePrefix,
-      List<SwidiFunctionDeclaration>? methods});
+      {String name,
+      SwidiLibraryScopePrefix libraryScopePrefix,
+      List<SwidiFunctionDeclaration> methods});
 
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
 }
@@ -59,7 +63,7 @@ class _$SwidiClassCopyWithImpl<$Res> implements $SwidiClassCopyWith<$Res> {
 
   final SwidiClass _value;
   // ignore: unused_field
-  final $Res Function(SwidiClass?) _then;
+  final $Res Function(SwidiClass) _then;
 
   @override
   $Res call({
@@ -68,21 +72,23 @@ class _$SwidiClassCopyWithImpl<$Res> implements $SwidiClassCopyWith<$Res> {
     Object? methods = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
-          : libraryScopePrefix as SwidiLibraryScopePrefix?,
+          : libraryScopePrefix // ignore: cast_nullable_to_non_nullable
+              as SwidiLibraryScopePrefix,
       methods: methods == freezed
           ? _value.methods
-          : methods as List<SwidiFunctionDeclaration>?,
+          : methods // ignore: cast_nullable_to_non_nullable
+              as List<SwidiFunctionDeclaration>,
     ));
   }
 
   @override
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix {
-    if (_value.libraryScopePrefix == null) {
-      return null;
-    }
     return $SwidiLibraryScopePrefixCopyWith<$Res>(_value.libraryScopePrefix,
         (value) {
       return _then(_value.copyWith(libraryScopePrefix: value));
@@ -98,9 +104,9 @@ abstract class _$$SwidiClassCtorCopyWith<$Res>
       __$$SwidiClassCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? name,
-      SwidiLibraryScopePrefix? libraryScopePrefix,
-      List<SwidiFunctionDeclaration>? methods});
+      {String name,
+      SwidiLibraryScopePrefix libraryScopePrefix,
+      List<SwidiFunctionDeclaration> methods});
 
   @override
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix;
@@ -124,26 +130,29 @@ class __$$SwidiClassCtorCopyWithImpl<$Res>
     Object? methods = freezed,
   }) {
     return _then(_$SwidiClassCtor(
-      name: name == freezed ? _value.name : (name as String?)!,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
-          : (libraryScopePrefix as SwidiLibraryScopePrefix?)!,
+          : libraryScopePrefix // ignore: cast_nullable_to_non_nullable
+              as SwidiLibraryScopePrefix,
       methods: methods == freezed
           ? _value.methods
-          : (methods as List<SwidiFunctionDeclaration>?)!,
+          : methods // ignore: cast_nullable_to_non_nullable
+              as List<SwidiFunctionDeclaration>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$SwidiClassCtor implements _$SwidiClassCtor {
   const _$_$SwidiClassCtor(
       {required this.name,
       required this.libraryScopePrefix,
-      required this.methods})
-      : assert(name != null),
-        assert(libraryScopePrefix != null),
-        assert(methods != null);
+      required this.methods});
 
   @override
   final String name;
@@ -190,12 +199,15 @@ abstract class _$SwidiClassCtor implements SwidiClass {
       required List<SwidiFunctionDeclaration> methods}) = _$_$SwidiClassCtor;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  SwidiLibraryScopePrefix get libraryScopePrefix;
+  SwidiLibraryScopePrefix get libraryScopePrefix =>
+      throw _privateConstructorUsedError;
   @override
-  List<SwidiFunctionDeclaration> get methods;
+  List<SwidiFunctionDeclaration> get methods =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$SwidiClassCtorCopyWith<_$SwidiClassCtor> get copyWith;
+  _$$SwidiClassCtorCopyWith<_$SwidiClassCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'updateUserProjectCreationsDto.dart';
 
@@ -8,6 +8,10 @@ part of 'updateUserProjectCreationsDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 UpdateUserProjectCreationsDto _$UpdateUserProjectCreationsDtoFromJson(
     Map<String, dynamic> json) {
   return _$UpdateUserProjectCreationsDtoCtor.fromJson(json);
@@ -17,7 +21,6 @@ UpdateUserProjectCreationsDto _$UpdateUserProjectCreationsDtoFromJson(
 class _$UpdateUserProjectCreationsDtoTearOff {
   const _$UpdateUserProjectCreationsDtoTearOff();
 
-// ignore: unused_element
   _$UpdateUserProjectCreationsDtoCtor call(
       {required String subject, required int numRemainingProjectCreations}) {
     return _$UpdateUserProjectCreationsDtoCtor(
@@ -26,25 +29,23 @@ class _$UpdateUserProjectCreationsDtoTearOff {
     );
   }
 
-// ignore: unused_element
   UpdateUserProjectCreationsDto fromJson(Map<String, Object> json) {
     return UpdateUserProjectCreationsDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateUserProjectCreationsDto = _$UpdateUserProjectCreationsDtoTearOff();
 
 /// @nodoc
 mixin _$UpdateUserProjectCreationsDto {
-  String get subject;
-  int get numRemainingProjectCreations;
+  String get subject => throw _privateConstructorUsedError;
+  int get numRemainingProjectCreations => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UpdateUserProjectCreationsDtoCopyWith<UpdateUserProjectCreationsDto>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -53,7 +54,7 @@ abstract class $UpdateUserProjectCreationsDtoCopyWith<$Res> {
           UpdateUserProjectCreationsDto value,
           $Res Function(UpdateUserProjectCreationsDto) then) =
       _$UpdateUserProjectCreationsDtoCopyWithImpl<$Res>;
-  $Res call({String? subject, int? numRemainingProjectCreations});
+  $Res call({String subject, int numRemainingProjectCreations});
 }
 
 /// @nodoc
@@ -63,7 +64,7 @@ class _$UpdateUserProjectCreationsDtoCopyWithImpl<$Res>
 
   final UpdateUserProjectCreationsDto _value;
   // ignore: unused_field
-  final $Res Function(UpdateUserProjectCreationsDto?) _then;
+  final $Res Function(UpdateUserProjectCreationsDto) _then;
 
   @override
   $Res call({
@@ -71,10 +72,14 @@ class _$UpdateUserProjectCreationsDtoCopyWithImpl<$Res>
     Object? numRemainingProjectCreations = freezed,
   }) {
     return _then(_value.copyWith(
-      subject: subject == freezed ? _value.subject : subject as String?,
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
       numRemainingProjectCreations: numRemainingProjectCreations == freezed
           ? _value.numRemainingProjectCreations
-          : numRemainingProjectCreations as int?,
+          : numRemainingProjectCreations // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -87,7 +92,7 @@ abstract class _$$UpdateUserProjectCreationsDtoCtorCopyWith<$Res>
           $Res Function(_$UpdateUserProjectCreationsDtoCtor) then) =
       __$$UpdateUserProjectCreationsDtoCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String? subject, int? numRemainingProjectCreations});
+  $Res call({String subject, int numRemainingProjectCreations});
 }
 
 /// @nodoc
@@ -109,23 +114,24 @@ class __$$UpdateUserProjectCreationsDtoCtorCopyWithImpl<$Res>
     Object? numRemainingProjectCreations = freezed,
   }) {
     return _then(_$UpdateUserProjectCreationsDtoCtor(
-      subject: subject == freezed ? _value.subject : (subject as String?)!,
+      subject: subject == freezed
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
       numRemainingProjectCreations: numRemainingProjectCreations == freezed
           ? _value.numRemainingProjectCreations
-          : (numRemainingProjectCreations as int?)!,
+          : numRemainingProjectCreations // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$UpdateUserProjectCreationsDtoCtor
     implements _$UpdateUserProjectCreationsDtoCtor {
   const _$_$UpdateUserProjectCreationsDtoCtor(
-      {required this.subject, required this.numRemainingProjectCreations})
-      : assert(subject != null),
-        assert(numRemainingProjectCreations != null);
+      {required this.subject, required this.numRemainingProjectCreations});
 
   factory _$_$UpdateUserProjectCreationsDtoCtor.fromJson(
           Map<String, dynamic> json) =>
@@ -186,11 +192,12 @@ abstract class _$UpdateUserProjectCreationsDtoCtor
       _$_$UpdateUserProjectCreationsDtoCtor.fromJson;
 
   @override
-  String get subject;
+  String get subject => throw _privateConstructorUsedError;
   @override
-  int get numRemainingProjectCreations;
+  int get numRemainingProjectCreations => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$UpdateUserProjectCreationsDtoCtorCopyWith<
-      _$UpdateUserProjectCreationsDtoCtor> get copyWith;
+          _$UpdateUserProjectCreationsDtoCtor>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -5,7 +5,7 @@ part 'projectCreationsReadDto.freezed.dart';
 part 'projectCreationsReadDto.g.dart';
 
 @freezed
-abstract class ProjectCreationsReadDto with _$ProjectCreationsReadDto {
+class ProjectCreationsReadDto with _$ProjectCreationsReadDto {
   const factory ProjectCreationsReadDto({
     required int remainingProjectCreations,
   }) = _$ProjectCreationsReadDtoCtpr;

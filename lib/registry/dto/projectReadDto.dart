@@ -5,7 +5,7 @@ part 'projectReadDto.freezed.dart';
 part 'projectReadDto.g.dart';
 
 @freezed
-abstract class ProjectReadDto with _$ProjectReadDto {
+class ProjectReadDto with _$ProjectReadDto {
   const factory ProjectReadDto({
     required String id,
     required String createdAt,

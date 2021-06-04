@@ -10,7 +10,7 @@ part 'swidInterface.freezed.dart';
 part 'swidInterface.g.dart';
 
 @freezed
-abstract class SwidInterface with _$SwidInterface {
+class SwidInterface with _$SwidInterface {
   const factory SwidInterface({
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,

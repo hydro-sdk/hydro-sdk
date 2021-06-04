@@ -11,7 +11,7 @@ part 'swidTypeFormal.freezed.dart';
 part 'swidTypeFormal.g.dart';
 
 @freezed
-abstract class SwidTypeFormalValue with _$SwidTypeFormalValue {
+class SwidTypeFormalValue with _$SwidTypeFormalValue {
   const factory SwidTypeFormalValue.fromString({required String string}) =
       _$FromString;
 
@@ -66,7 +66,7 @@ extension SwidTypeFormalValueMethods on SwidTypeFormalValue {
 }
 
 @freezed
-abstract class SwidTypeFormal with _$SwidTypeFormal {
+class SwidTypeFormal with _$SwidTypeFormal {
   const factory SwidTypeFormal({
     required SwidTypeFormalValue value,
     required SwidReferenceDeclarationKind swidReferenceDeclarationKind,

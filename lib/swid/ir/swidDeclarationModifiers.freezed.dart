@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidDeclarationModifiers.dart';
 
@@ -8,6 +8,10 @@ part of 'swidDeclarationModifiers.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidDeclarationModifiers _$SwidDeclarationModifiersFromJson(
     Map<String, dynamic> json) {
   return _$Data.fromJson(json);
@@ -17,7 +21,6 @@ SwidDeclarationModifiers _$SwidDeclarationModifiersFromJson(
 class _$SwidDeclarationModifiersTearOff {
   const _$SwidDeclarationModifiersTearOff();
 
-// ignore: unused_element
   _$Data call(
       {required bool isAbstract,
       required bool isGetter,
@@ -71,46 +74,45 @@ class _$SwidDeclarationModifiersTearOff {
     );
   }
 
-// ignore: unused_element
   SwidDeclarationModifiers fromJson(Map<String, Object> json) {
     return SwidDeclarationModifiers.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidDeclarationModifiers = _$SwidDeclarationModifiersTearOff();
 
 /// @nodoc
 mixin _$SwidDeclarationModifiers {
-  bool get isAbstract;
-  bool get isGetter;
-  bool get isOperator;
-  bool get isSetter;
-  bool get isStatic;
-  bool get isSynthetic;
-  bool get hasAlwaysThrows;
-  bool get hasDeprecated;
-  bool get hasFactory;
-  bool get hasImplicitReturnType;
-  bool get hasIsTest;
-  bool get hasIsTestGroup;
-  bool get hasJS;
-  bool get hasLiteral;
-  bool get hasMustCallSuper;
-  bool get hasNonVirtual;
-  bool get hasOptionalTypeArgs;
-  bool get hasOverride;
-  bool get hasProtected;
-  bool get hasRequired;
-  bool get hasSealed;
-  bool get hasVisibleForTemplate;
-  bool get hasVisibleForTesting;
-  bool get isPublic;
+  bool get isAbstract => throw _privateConstructorUsedError;
+  bool get isGetter => throw _privateConstructorUsedError;
+  bool get isOperator => throw _privateConstructorUsedError;
+  bool get isSetter => throw _privateConstructorUsedError;
+  bool get isStatic => throw _privateConstructorUsedError;
+  bool get isSynthetic => throw _privateConstructorUsedError;
+  bool get hasAlwaysThrows => throw _privateConstructorUsedError;
+  bool get hasDeprecated => throw _privateConstructorUsedError;
+  bool get hasFactory => throw _privateConstructorUsedError;
+  bool get hasImplicitReturnType => throw _privateConstructorUsedError;
+  bool get hasIsTest => throw _privateConstructorUsedError;
+  bool get hasIsTestGroup => throw _privateConstructorUsedError;
+  bool get hasJS => throw _privateConstructorUsedError;
+  bool get hasLiteral => throw _privateConstructorUsedError;
+  bool get hasMustCallSuper => throw _privateConstructorUsedError;
+  bool get hasNonVirtual => throw _privateConstructorUsedError;
+  bool get hasOptionalTypeArgs => throw _privateConstructorUsedError;
+  bool get hasOverride => throw _privateConstructorUsedError;
+  bool get hasProtected => throw _privateConstructorUsedError;
+  bool get hasRequired => throw _privateConstructorUsedError;
+  bool get hasSealed => throw _privateConstructorUsedError;
+  bool get hasVisibleForTemplate => throw _privateConstructorUsedError;
+  bool get hasVisibleForTesting => throw _privateConstructorUsedError;
+  bool get isPublic => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidDeclarationModifiersCopyWith<SwidDeclarationModifiers> get copyWith;
+  $SwidDeclarationModifiersCopyWith<SwidDeclarationModifiers> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -119,30 +121,30 @@ abstract class $SwidDeclarationModifiersCopyWith<$Res> {
           $Res Function(SwidDeclarationModifiers) then) =
       _$SwidDeclarationModifiersCopyWithImpl<$Res>;
   $Res call(
-      {bool? isAbstract,
-      bool? isGetter,
-      bool? isOperator,
-      bool? isSetter,
-      bool? isStatic,
-      bool? isSynthetic,
-      bool? hasAlwaysThrows,
-      bool? hasDeprecated,
-      bool? hasFactory,
-      bool? hasImplicitReturnType,
-      bool? hasIsTest,
-      bool? hasIsTestGroup,
-      bool? hasJS,
-      bool? hasLiteral,
-      bool? hasMustCallSuper,
-      bool? hasNonVirtual,
-      bool? hasOptionalTypeArgs,
-      bool? hasOverride,
-      bool? hasProtected,
-      bool? hasRequired,
-      bool? hasSealed,
-      bool? hasVisibleForTemplate,
-      bool? hasVisibleForTesting,
-      bool? isPublic});
+      {bool isAbstract,
+      bool isGetter,
+      bool isOperator,
+      bool isSetter,
+      bool isStatic,
+      bool isSynthetic,
+      bool hasAlwaysThrows,
+      bool hasDeprecated,
+      bool hasFactory,
+      bool hasImplicitReturnType,
+      bool hasIsTest,
+      bool hasIsTestGroup,
+      bool hasJS,
+      bool hasLiteral,
+      bool hasMustCallSuper,
+      bool hasNonVirtual,
+      bool hasOptionalTypeArgs,
+      bool hasOverride,
+      bool hasProtected,
+      bool hasRequired,
+      bool hasSealed,
+      bool hasVisibleForTemplate,
+      bool hasVisibleForTesting,
+      bool isPublic});
 }
 
 /// @nodoc
@@ -152,7 +154,7 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
 
   final SwidDeclarationModifiers _value;
   // ignore: unused_field
-  final $Res Function(SwidDeclarationModifiers?) _then;
+  final $Res Function(SwidDeclarationModifiers) _then;
 
   @override
   $Res call({
@@ -182,56 +184,102 @@ class _$SwidDeclarationModifiersCopyWithImpl<$Res>
     Object? isPublic = freezed,
   }) {
     return _then(_value.copyWith(
-      isAbstract:
-          isAbstract == freezed ? _value.isAbstract : isAbstract as bool?,
-      isGetter: isGetter == freezed ? _value.isGetter : isGetter as bool?,
-      isOperator:
-          isOperator == freezed ? _value.isOperator : isOperator as bool?,
-      isSetter: isSetter == freezed ? _value.isSetter : isSetter as bool?,
-      isStatic: isStatic == freezed ? _value.isStatic : isStatic as bool?,
-      isSynthetic:
-          isSynthetic == freezed ? _value.isSynthetic : isSynthetic as bool?,
+      isAbstract: isAbstract == freezed
+          ? _value.isAbstract
+          : isAbstract // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetter: isGetter == freezed
+          ? _value.isGetter
+          : isGetter // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOperator: isOperator == freezed
+          ? _value.isOperator
+          : isOperator // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSetter: isSetter == freezed
+          ? _value.isSetter
+          : isSetter // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isStatic: isStatic == freezed
+          ? _value.isStatic
+          : isStatic // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSynthetic: isSynthetic == freezed
+          ? _value.isSynthetic
+          : isSynthetic // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasAlwaysThrows: hasAlwaysThrows == freezed
           ? _value.hasAlwaysThrows
-          : hasAlwaysThrows as bool?,
+          : hasAlwaysThrows // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasDeprecated: hasDeprecated == freezed
           ? _value.hasDeprecated
-          : hasDeprecated as bool?,
-      hasFactory:
-          hasFactory == freezed ? _value.hasFactory : hasFactory as bool?,
+          : hasDeprecated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasFactory: hasFactory == freezed
+          ? _value.hasFactory
+          : hasFactory // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasImplicitReturnType: hasImplicitReturnType == freezed
           ? _value.hasImplicitReturnType
-          : hasImplicitReturnType as bool?,
-      hasIsTest: hasIsTest == freezed ? _value.hasIsTest : hasIsTest as bool?,
+          : hasImplicitReturnType // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasIsTest: hasIsTest == freezed
+          ? _value.hasIsTest
+          : hasIsTest // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasIsTestGroup: hasIsTestGroup == freezed
           ? _value.hasIsTestGroup
-          : hasIsTestGroup as bool?,
-      hasJS: hasJS == freezed ? _value.hasJS : hasJS as bool?,
-      hasLiteral:
-          hasLiteral == freezed ? _value.hasLiteral : hasLiteral as bool?,
+          : hasIsTestGroup // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasJS: hasJS == freezed
+          ? _value.hasJS
+          : hasJS // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasLiteral: hasLiteral == freezed
+          ? _value.hasLiteral
+          : hasLiteral // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasMustCallSuper: hasMustCallSuper == freezed
           ? _value.hasMustCallSuper
-          : hasMustCallSuper as bool?,
+          : hasMustCallSuper // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasNonVirtual: hasNonVirtual == freezed
           ? _value.hasNonVirtual
-          : hasNonVirtual as bool?,
+          : hasNonVirtual // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasOptionalTypeArgs: hasOptionalTypeArgs == freezed
           ? _value.hasOptionalTypeArgs
-          : hasOptionalTypeArgs as bool?,
-      hasOverride:
-          hasOverride == freezed ? _value.hasOverride : hasOverride as bool?,
-      hasProtected:
-          hasProtected == freezed ? _value.hasProtected : hasProtected as bool?,
-      hasRequired:
-          hasRequired == freezed ? _value.hasRequired : hasRequired as bool?,
-      hasSealed: hasSealed == freezed ? _value.hasSealed : hasSealed as bool?,
+          : hasOptionalTypeArgs // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasOverride: hasOverride == freezed
+          ? _value.hasOverride
+          : hasOverride // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasProtected: hasProtected == freezed
+          ? _value.hasProtected
+          : hasProtected // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasRequired: hasRequired == freezed
+          ? _value.hasRequired
+          : hasRequired // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasSealed: hasSealed == freezed
+          ? _value.hasSealed
+          : hasSealed // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasVisibleForTemplate: hasVisibleForTemplate == freezed
           ? _value.hasVisibleForTemplate
-          : hasVisibleForTemplate as bool?,
+          : hasVisibleForTemplate // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasVisibleForTesting: hasVisibleForTesting == freezed
           ? _value.hasVisibleForTesting
-          : hasVisibleForTesting as bool?,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool?,
+          : hasVisibleForTesting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPublic: isPublic == freezed
+          ? _value.isPublic
+          : isPublic // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -243,30 +291,30 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool? isAbstract,
-      bool? isGetter,
-      bool? isOperator,
-      bool? isSetter,
-      bool? isStatic,
-      bool? isSynthetic,
-      bool? hasAlwaysThrows,
-      bool? hasDeprecated,
-      bool? hasFactory,
-      bool? hasImplicitReturnType,
-      bool? hasIsTest,
-      bool? hasIsTestGroup,
-      bool? hasJS,
-      bool? hasLiteral,
-      bool? hasMustCallSuper,
-      bool? hasNonVirtual,
-      bool? hasOptionalTypeArgs,
-      bool? hasOverride,
-      bool? hasProtected,
-      bool? hasRequired,
-      bool? hasSealed,
-      bool? hasVisibleForTemplate,
-      bool? hasVisibleForTesting,
-      bool? isPublic});
+      {bool isAbstract,
+      bool isGetter,
+      bool isOperator,
+      bool isSetter,
+      bool isStatic,
+      bool isSynthetic,
+      bool hasAlwaysThrows,
+      bool hasDeprecated,
+      bool hasFactory,
+      bool hasImplicitReturnType,
+      bool hasIsTest,
+      bool hasIsTestGroup,
+      bool hasJS,
+      bool hasLiteral,
+      bool hasMustCallSuper,
+      bool hasNonVirtual,
+      bool hasOptionalTypeArgs,
+      bool hasOverride,
+      bool hasProtected,
+      bool hasRequired,
+      bool hasSealed,
+      bool hasVisibleForTemplate,
+      bool hasVisibleForTesting,
+      bool isPublic});
 }
 
 /// @nodoc
@@ -307,63 +355,108 @@ class __$$DataCopyWithImpl<$Res>
     Object? isPublic = freezed,
   }) {
     return _then(_$Data(
-      isAbstract:
-          isAbstract == freezed ? _value.isAbstract : (isAbstract as bool?)!,
-      isGetter: isGetter == freezed ? _value.isGetter : (isGetter as bool?)!,
-      isOperator:
-          isOperator == freezed ? _value.isOperator : (isOperator as bool?)!,
-      isSetter: isSetter == freezed ? _value.isSetter : (isSetter as bool?)!,
-      isStatic: isStatic == freezed ? _value.isStatic : (isStatic as bool?)!,
-      isSynthetic:
-          isSynthetic == freezed ? _value.isSynthetic : (isSynthetic as bool?)!,
+      isAbstract: isAbstract == freezed
+          ? _value.isAbstract
+          : isAbstract // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isGetter: isGetter == freezed
+          ? _value.isGetter
+          : isGetter // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOperator: isOperator == freezed
+          ? _value.isOperator
+          : isOperator // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSetter: isSetter == freezed
+          ? _value.isSetter
+          : isSetter // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isStatic: isStatic == freezed
+          ? _value.isStatic
+          : isStatic // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSynthetic: isSynthetic == freezed
+          ? _value.isSynthetic
+          : isSynthetic // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasAlwaysThrows: hasAlwaysThrows == freezed
           ? _value.hasAlwaysThrows
-          : (hasAlwaysThrows as bool?)!,
+          : hasAlwaysThrows // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasDeprecated: hasDeprecated == freezed
           ? _value.hasDeprecated
-          : (hasDeprecated as bool?)!,
-      hasFactory:
-          hasFactory == freezed ? _value.hasFactory : (hasFactory as bool?)!,
+          : hasDeprecated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasFactory: hasFactory == freezed
+          ? _value.hasFactory
+          : hasFactory // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasImplicitReturnType: hasImplicitReturnType == freezed
           ? _value.hasImplicitReturnType
-          : (hasImplicitReturnType as bool?)!,
-      hasIsTest: hasIsTest == freezed ? _value.hasIsTest : (hasIsTest as bool?)!,
+          : hasImplicitReturnType // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasIsTest: hasIsTest == freezed
+          ? _value.hasIsTest
+          : hasIsTest // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasIsTestGroup: hasIsTestGroup == freezed
           ? _value.hasIsTestGroup
-          : (hasIsTestGroup as bool?)!,
-      hasJS: hasJS == freezed ? _value.hasJS : (hasJS as bool?)!,
-      hasLiteral:
-          hasLiteral == freezed ? _value.hasLiteral : (hasLiteral as bool?)!,
+          : hasIsTestGroup // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasJS: hasJS == freezed
+          ? _value.hasJS
+          : hasJS // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasLiteral: hasLiteral == freezed
+          ? _value.hasLiteral
+          : hasLiteral // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasMustCallSuper: hasMustCallSuper == freezed
           ? _value.hasMustCallSuper
-          : (hasMustCallSuper as bool?)!,
+          : hasMustCallSuper // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasNonVirtual: hasNonVirtual == freezed
           ? _value.hasNonVirtual
-          : (hasNonVirtual as bool?)!,
+          : hasNonVirtual // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasOptionalTypeArgs: hasOptionalTypeArgs == freezed
           ? _value.hasOptionalTypeArgs
-          : (hasOptionalTypeArgs as bool?)!,
-      hasOverride:
-          hasOverride == freezed ? _value.hasOverride : (hasOverride as bool?)!,
-      hasProtected:
-          hasProtected == freezed ? _value.hasProtected : (hasProtected as bool?)!,
-      hasRequired:
-          hasRequired == freezed ? _value.hasRequired : (hasRequired as bool?)!,
-      hasSealed: hasSealed == freezed ? _value.hasSealed : (hasSealed as bool?)!,
+          : hasOptionalTypeArgs // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasOverride: hasOverride == freezed
+          ? _value.hasOverride
+          : hasOverride // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasProtected: hasProtected == freezed
+          ? _value.hasProtected
+          : hasProtected // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasRequired: hasRequired == freezed
+          ? _value.hasRequired
+          : hasRequired // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasSealed: hasSealed == freezed
+          ? _value.hasSealed
+          : hasSealed // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasVisibleForTemplate: hasVisibleForTemplate == freezed
           ? _value.hasVisibleForTemplate
-          : (hasVisibleForTemplate as bool?)!,
+          : hasVisibleForTemplate // ignore: cast_nullable_to_non_nullable
+              as bool,
       hasVisibleForTesting: hasVisibleForTesting == freezed
           ? _value.hasVisibleForTesting
-          : (hasVisibleForTesting as bool?)!,
-      isPublic: isPublic == freezed ? _value.isPublic : (isPublic as bool?)!,
+          : hasVisibleForTesting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPublic: isPublic == freezed
+          ? _value.isPublic
+          : isPublic // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
   const _$_$Data(
       {required this.isAbstract,
@@ -389,31 +482,7 @@ class _$_$Data implements _$Data {
       required this.hasSealed,
       required this.hasVisibleForTemplate,
       required this.hasVisibleForTesting,
-      required this.isPublic})
-      : assert(isAbstract != null),
-        assert(isGetter != null),
-        assert(isOperator != null),
-        assert(isSetter != null),
-        assert(isStatic != null),
-        assert(isSynthetic != null),
-        assert(hasAlwaysThrows != null),
-        assert(hasDeprecated != null),
-        assert(hasFactory != null),
-        assert(hasImplicitReturnType != null),
-        assert(hasIsTest != null),
-        assert(hasIsTestGroup != null),
-        assert(hasJS != null),
-        assert(hasLiteral != null),
-        assert(hasMustCallSuper != null),
-        assert(hasNonVirtual != null),
-        assert(hasOptionalTypeArgs != null),
-        assert(hasOverride != null),
-        assert(hasProtected != null),
-        assert(hasRequired != null),
-        assert(hasSealed != null),
-        assert(hasVisibleForTemplate != null),
-        assert(hasVisibleForTesting != null),
-        assert(isPublic != null);
+      required this.isPublic});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -614,54 +683,54 @@ abstract class _$Data implements SwidDeclarationModifiers {
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  bool get isAbstract;
+  bool get isAbstract => throw _privateConstructorUsedError;
   @override
-  bool get isGetter;
+  bool get isGetter => throw _privateConstructorUsedError;
   @override
-  bool get isOperator;
+  bool get isOperator => throw _privateConstructorUsedError;
   @override
-  bool get isSetter;
+  bool get isSetter => throw _privateConstructorUsedError;
   @override
-  bool get isStatic;
+  bool get isStatic => throw _privateConstructorUsedError;
   @override
-  bool get isSynthetic;
+  bool get isSynthetic => throw _privateConstructorUsedError;
   @override
-  bool get hasAlwaysThrows;
+  bool get hasAlwaysThrows => throw _privateConstructorUsedError;
   @override
-  bool get hasDeprecated;
+  bool get hasDeprecated => throw _privateConstructorUsedError;
   @override
-  bool get hasFactory;
+  bool get hasFactory => throw _privateConstructorUsedError;
   @override
-  bool get hasImplicitReturnType;
+  bool get hasImplicitReturnType => throw _privateConstructorUsedError;
   @override
-  bool get hasIsTest;
+  bool get hasIsTest => throw _privateConstructorUsedError;
   @override
-  bool get hasIsTestGroup;
+  bool get hasIsTestGroup => throw _privateConstructorUsedError;
   @override
-  bool get hasJS;
+  bool get hasJS => throw _privateConstructorUsedError;
   @override
-  bool get hasLiteral;
+  bool get hasLiteral => throw _privateConstructorUsedError;
   @override
-  bool get hasMustCallSuper;
+  bool get hasMustCallSuper => throw _privateConstructorUsedError;
   @override
-  bool get hasNonVirtual;
+  bool get hasNonVirtual => throw _privateConstructorUsedError;
   @override
-  bool get hasOptionalTypeArgs;
+  bool get hasOptionalTypeArgs => throw _privateConstructorUsedError;
   @override
-  bool get hasOverride;
+  bool get hasOverride => throw _privateConstructorUsedError;
   @override
-  bool get hasProtected;
+  bool get hasProtected => throw _privateConstructorUsedError;
   @override
-  bool get hasRequired;
+  bool get hasRequired => throw _privateConstructorUsedError;
   @override
-  bool get hasSealed;
+  bool get hasSealed => throw _privateConstructorUsedError;
   @override
-  bool get hasVisibleForTemplate;
+  bool get hasVisibleForTemplate => throw _privateConstructorUsedError;
   @override
-  bool get hasVisibleForTesting;
+  bool get hasVisibleForTesting => throw _privateConstructorUsedError;
   @override
-  bool get isPublic;
+  bool get isPublic => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

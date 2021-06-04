@@ -5,7 +5,7 @@ part 'releaseChannelReadDto.freezed.dart';
 part 'releaseChannelReadDto.g.dart';
 
 @freezed
-abstract class ReleaseChannelReadDto with _$ReleaseChannelReadDto {
+class ReleaseChannelReadDto with _$ReleaseChannelReadDto {
   const factory ReleaseChannelReadDto({
     required String id,
     required String componentId,

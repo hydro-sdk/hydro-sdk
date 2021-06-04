@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidConfigEmitOptions.dart';
 
@@ -8,6 +8,10 @@ part of 'swidConfigEmitOptions.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidConfigEmitOptions _$SwidConfigEmitOptionsFromJson(
     Map<String, dynamic> json) {
   return _$SwidConfigEmitOptionsCtor.fromJson(json);
@@ -17,7 +21,6 @@ SwidConfigEmitOptions _$SwidConfigEmitOptionsFromJson(
 class _$SwidConfigEmitOptionsTearOff {
   const _$SwidConfigEmitOptionsTearOff();
 
-// ignore: unused_element
   _$SwidConfigEmitOptionsCtor call(
       {required SwidConfigTsEmitOptions tsEmitOptions,
       required SwidConfigDartEmitOptions dartEmitOptions,
@@ -33,27 +36,28 @@ class _$SwidConfigEmitOptionsTearOff {
     );
   }
 
-// ignore: unused_element
   SwidConfigEmitOptions fromJson(Map<String, Object> json) {
     return SwidConfigEmitOptions.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidConfigEmitOptions = _$SwidConfigEmitOptionsTearOff();
 
 /// @nodoc
 mixin _$SwidConfigEmitOptions {
-  SwidConfigTsEmitOptions get tsEmitOptions;
-  SwidConfigDartEmitOptions get dartEmitOptions;
-  List<String> get prefixPaths;
-  SwidConfigAllowList get allowList;
-  SwidConfigDenyList get denyList;
+  SwidConfigTsEmitOptions get tsEmitOptions =>
+      throw _privateConstructorUsedError;
+  SwidConfigDartEmitOptions get dartEmitOptions =>
+      throw _privateConstructorUsedError;
+  List<String> get prefixPaths => throw _privateConstructorUsedError;
+  SwidConfigAllowList get allowList => throw _privateConstructorUsedError;
+  SwidConfigDenyList get denyList => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidConfigEmitOptionsCopyWith<SwidConfigEmitOptions> get copyWith;
+  $SwidConfigEmitOptionsCopyWith<SwidConfigEmitOptions> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -62,11 +66,11 @@ abstract class $SwidConfigEmitOptionsCopyWith<$Res> {
           $Res Function(SwidConfigEmitOptions) then) =
       _$SwidConfigEmitOptionsCopyWithImpl<$Res>;
   $Res call(
-      {SwidConfigTsEmitOptions? tsEmitOptions,
-      SwidConfigDartEmitOptions? dartEmitOptions,
-      List<String>? prefixPaths,
-      SwidConfigAllowList? allowList,
-      SwidConfigDenyList? denyList});
+      {SwidConfigTsEmitOptions tsEmitOptions,
+      SwidConfigDartEmitOptions dartEmitOptions,
+      List<String> prefixPaths,
+      SwidConfigAllowList allowList,
+      SwidConfigDenyList denyList});
 
   $SwidConfigTsEmitOptionsCopyWith<$Res> get tsEmitOptions;
   $SwidConfigDartEmitOptionsCopyWith<$Res> get dartEmitOptions;
@@ -81,7 +85,7 @@ class _$SwidConfigEmitOptionsCopyWithImpl<$Res>
 
   final SwidConfigEmitOptions _value;
   // ignore: unused_field
-  final $Res Function(SwidConfigEmitOptions?) _then;
+  final $Res Function(SwidConfigEmitOptions) _then;
 
   @override
   $Res call({
@@ -94,27 +98,29 @@ class _$SwidConfigEmitOptionsCopyWithImpl<$Res>
     return _then(_value.copyWith(
       tsEmitOptions: tsEmitOptions == freezed
           ? _value.tsEmitOptions
-          : tsEmitOptions as SwidConfigTsEmitOptions?,
+          : tsEmitOptions // ignore: cast_nullable_to_non_nullable
+              as SwidConfigTsEmitOptions,
       dartEmitOptions: dartEmitOptions == freezed
           ? _value.dartEmitOptions
-          : dartEmitOptions as SwidConfigDartEmitOptions?,
+          : dartEmitOptions // ignore: cast_nullable_to_non_nullable
+              as SwidConfigDartEmitOptions,
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : prefixPaths as List<String>?,
+          : prefixPaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       allowList: allowList == freezed
           ? _value.allowList
-          : allowList as SwidConfigAllowList?,
+          : allowList // ignore: cast_nullable_to_non_nullable
+              as SwidConfigAllowList,
       denyList: denyList == freezed
           ? _value.denyList
-          : denyList as SwidConfigDenyList?,
+          : denyList // ignore: cast_nullable_to_non_nullable
+              as SwidConfigDenyList,
     ));
   }
 
   @override
   $SwidConfigTsEmitOptionsCopyWith<$Res> get tsEmitOptions {
-    if (_value.tsEmitOptions == null) {
-      return null;
-    }
     return $SwidConfigTsEmitOptionsCopyWith<$Res>(_value.tsEmitOptions,
         (value) {
       return _then(_value.copyWith(tsEmitOptions: value));
@@ -123,9 +129,6 @@ class _$SwidConfigEmitOptionsCopyWithImpl<$Res>
 
   @override
   $SwidConfigDartEmitOptionsCopyWith<$Res> get dartEmitOptions {
-    if (_value.dartEmitOptions == null) {
-      return null;
-    }
     return $SwidConfigDartEmitOptionsCopyWith<$Res>(_value.dartEmitOptions,
         (value) {
       return _then(_value.copyWith(dartEmitOptions: value));
@@ -134,9 +137,6 @@ class _$SwidConfigEmitOptionsCopyWithImpl<$Res>
 
   @override
   $SwidConfigAllowListCopyWith<$Res> get allowList {
-    if (_value.allowList == null) {
-      return null;
-    }
     return $SwidConfigAllowListCopyWith<$Res>(_value.allowList, (value) {
       return _then(_value.copyWith(allowList: value));
     });
@@ -144,9 +144,6 @@ class _$SwidConfigEmitOptionsCopyWithImpl<$Res>
 
   @override
   $SwidConfigDenyListCopyWith<$Res> get denyList {
-    if (_value.denyList == null) {
-      return null;
-    }
     return $SwidConfigDenyListCopyWith<$Res>(_value.denyList, (value) {
       return _then(_value.copyWith(denyList: value));
     });
@@ -162,11 +159,11 @@ abstract class _$$SwidConfigEmitOptionsCtorCopyWith<$Res>
       __$$SwidConfigEmitOptionsCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SwidConfigTsEmitOptions? tsEmitOptions,
-      SwidConfigDartEmitOptions? dartEmitOptions,
-      List<String>? prefixPaths,
-      SwidConfigAllowList? allowList,
-      SwidConfigDenyList? denyList});
+      {SwidConfigTsEmitOptions tsEmitOptions,
+      SwidConfigDartEmitOptions dartEmitOptions,
+      List<String> prefixPaths,
+      SwidConfigAllowList allowList,
+      SwidConfigDenyList denyList});
 
   @override
   $SwidConfigTsEmitOptionsCopyWith<$Res> get tsEmitOptions;
@@ -201,38 +198,37 @@ class __$$SwidConfigEmitOptionsCtorCopyWithImpl<$Res>
     return _then(_$SwidConfigEmitOptionsCtor(
       tsEmitOptions: tsEmitOptions == freezed
           ? _value.tsEmitOptions
-          : (tsEmitOptions as SwidConfigTsEmitOptions?)!,
+          : tsEmitOptions // ignore: cast_nullable_to_non_nullable
+              as SwidConfigTsEmitOptions,
       dartEmitOptions: dartEmitOptions == freezed
           ? _value.dartEmitOptions
-          : (dartEmitOptions as SwidConfigDartEmitOptions?)!,
+          : dartEmitOptions // ignore: cast_nullable_to_non_nullable
+              as SwidConfigDartEmitOptions,
       prefixPaths: prefixPaths == freezed
           ? _value.prefixPaths
-          : (prefixPaths as List<String>?)!,
+          : prefixPaths // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       allowList: allowList == freezed
           ? _value.allowList
-          : (allowList as SwidConfigAllowList?)!,
+          : allowList // ignore: cast_nullable_to_non_nullable
+              as SwidConfigAllowList,
       denyList: denyList == freezed
           ? _value.denyList
-          : (denyList as SwidConfigDenyList?)!,
+          : denyList // ignore: cast_nullable_to_non_nullable
+              as SwidConfigDenyList,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$SwidConfigEmitOptionsCtor implements _$SwidConfigEmitOptionsCtor {
   const _$_$SwidConfigEmitOptionsCtor(
       {required this.tsEmitOptions,
       required this.dartEmitOptions,
       required this.prefixPaths,
       required this.allowList,
-      required this.denyList})
-      : assert(tsEmitOptions != null),
-        assert(dartEmitOptions != null),
-        assert(prefixPaths != null),
-        assert(allowList != null),
-        assert(denyList != null);
+      required this.denyList});
 
   factory _$_$SwidConfigEmitOptionsCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidConfigEmitOptionsCtorFromJson(json);
@@ -307,17 +303,19 @@ abstract class _$SwidConfigEmitOptionsCtor implements SwidConfigEmitOptions {
       _$_$SwidConfigEmitOptionsCtor.fromJson;
 
   @override
-  SwidConfigTsEmitOptions get tsEmitOptions;
+  SwidConfigTsEmitOptions get tsEmitOptions =>
+      throw _privateConstructorUsedError;
   @override
-  SwidConfigDartEmitOptions get dartEmitOptions;
+  SwidConfigDartEmitOptions get dartEmitOptions =>
+      throw _privateConstructorUsedError;
   @override
-  List<String> get prefixPaths;
+  List<String> get prefixPaths => throw _privateConstructorUsedError;
   @override
-  SwidConfigAllowList get allowList;
+  SwidConfigAllowList get allowList => throw _privateConstructorUsedError;
   @override
-  SwidConfigDenyList get denyList;
+  SwidConfigDenyList get denyList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidConfigEmitOptionsCtorCopyWith<_$SwidConfigEmitOptionsCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

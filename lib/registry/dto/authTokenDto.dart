@@ -5,7 +5,7 @@ part 'authTokenDto.freezed.dart';
 part 'authTokenDto.g.dart';
 
 @freezed
-abstract class AuthTokenDto with _$AuthTokenDto {
+class AuthTokenDto with _$AuthTokenDto {
   const factory AuthTokenDto({
     required String sub,
     required String username,

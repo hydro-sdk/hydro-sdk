@@ -9,16 +9,14 @@ part of 'tsVmDeclaration.dart';
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     name: json['name'] as String,
-    (methods: (json['methods'] as List?)
-        ?.map((e) => e == null
+    methods: (json['methods'] as List<dynamic>)
+        .map((e) => e == null
             ? null
             : SwidFunctionType.fromJson(e as Map<String, dynamic>))
-        ?.toList())!,
-    (children: (json['children'] as List?)
-        ?.map((e) => e == null
-            ? null
-            : TsVmDeclaration.fromJson(e as Map<String, dynamic>))
-        ?.toList())!,
+        .toList(),
+    children: (json['children'] as List<dynamic>)
+        .map((e) => TsVmDeclaration.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 

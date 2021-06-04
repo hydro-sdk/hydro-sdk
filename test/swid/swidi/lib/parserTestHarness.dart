@@ -6,8 +6,7 @@ import 'package:petitparser/petitparser.dart';
 
 part 'parserTestHarness.freezed.dart';
 
-@freezed
-abstract class ParserTestHarnessInput with _$ParserTestHarnessInput {
+@freezed class ParserTestHarnessInput with _$ParserTestHarnessInput {
   const factory ParserTestHarnessInput.fromString({required String input}) =
       _$ParserTestHarnessInputFromString;
   const factory ParserTestHarnessInput.fromList(

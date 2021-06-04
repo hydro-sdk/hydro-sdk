@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'releaseChannelReadDto.dart';
 
@@ -8,6 +8,10 @@ part of 'releaseChannelReadDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ReleaseChannelReadDto _$ReleaseChannelReadDtoFromJson(
     Map<String, dynamic> json) {
   return _$ReleaseChannelReadDtoCtor.fromJson(json);
@@ -17,7 +21,6 @@ ReleaseChannelReadDto _$ReleaseChannelReadDtoFromJson(
 class _$ReleaseChannelReadDtoTearOff {
   const _$ReleaseChannelReadDtoTearOff();
 
-// ignore: unused_element
   _$ReleaseChannelReadDtoCtor call(
       {required String id,
       required String componentId,
@@ -37,29 +40,28 @@ class _$ReleaseChannelReadDtoTearOff {
     );
   }
 
-// ignore: unused_element
   ReleaseChannelReadDto fromJson(Map<String, Object> json) {
     return ReleaseChannelReadDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ReleaseChannelReadDto = _$ReleaseChannelReadDtoTearOff();
 
 /// @nodoc
 mixin _$ReleaseChannelReadDto {
-  String get id;
-  String get componentId;
-  String get createdAt;
-  bool get isPublic;
-  String get name;
-  String get description;
-  String get currentPackageId;
+  String get id => throw _privateConstructorUsedError;
+  String get componentId => throw _privateConstructorUsedError;
+  String get createdAt => throw _privateConstructorUsedError;
+  bool get isPublic => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get currentPackageId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ReleaseChannelReadDtoCopyWith<ReleaseChannelReadDto> get copyWith;
+  $ReleaseChannelReadDtoCopyWith<ReleaseChannelReadDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -68,13 +70,13 @@ abstract class $ReleaseChannelReadDtoCopyWith<$Res> {
           $Res Function(ReleaseChannelReadDto) then) =
       _$ReleaseChannelReadDtoCopyWithImpl<$Res>;
   $Res call(
-      {String? id,
-      String? componentId,
-      String? createdAt,
-      bool? isPublic,
-      String? name,
-      String? description,
-      String? currentPackageId});
+      {String id,
+      String componentId,
+      String createdAt,
+      bool isPublic,
+      String name,
+      String description,
+      String currentPackageId});
 }
 
 /// @nodoc
@@ -84,7 +86,7 @@ class _$ReleaseChannelReadDtoCopyWithImpl<$Res>
 
   final ReleaseChannelReadDto _value;
   // ignore: unused_field
-  final $Res Function(ReleaseChannelReadDto?) _then;
+  final $Res Function(ReleaseChannelReadDto) _then;
 
   @override
   $Res call({
@@ -97,17 +99,34 @@ class _$ReleaseChannelReadDtoCopyWithImpl<$Res>
     Object? currentPackageId = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String?,
-      componentId:
-          componentId == freezed ? _value.componentId : componentId as String?,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String?,
-      isPublic: isPublic == freezed ? _value.isPublic : isPublic as bool?,
-      name: name == freezed ? _value.name : name as String?,
-      description:
-          description == freezed ? _value.description : description as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: componentId == freezed
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      isPublic: isPublic == freezed
+          ? _value.isPublic
+          : isPublic // ignore: cast_nullable_to_non_nullable
+              as bool,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       currentPackageId: currentPackageId == freezed
           ? _value.currentPackageId
-          : currentPackageId as String?,
+          : currentPackageId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -121,13 +140,13 @@ abstract class _$$ReleaseChannelReadDtoCtorCopyWith<$Res>
       __$$ReleaseChannelReadDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? id,
-      String? componentId,
-      String? createdAt,
-      bool? isPublic,
-      String? name,
-      String? description,
-      String? currentPackageId});
+      {String id,
+      String componentId,
+      String createdAt,
+      bool isPublic,
+      String name,
+      String description,
+      String currentPackageId});
 }
 
 /// @nodoc
@@ -153,24 +172,40 @@ class __$$ReleaseChannelReadDtoCtorCopyWithImpl<$Res>
     Object? currentPackageId = freezed,
   }) {
     return _then(_$ReleaseChannelReadDtoCtor(
-      id: id == freezed ? _value.id : (id as String?)!,
-      componentId:
-          componentId == freezed ? _value.componentId : (componentId as String?)!,
-      createdAt: createdAt == freezed ? _value.createdAt : (createdAt as String?)!,
-      isPublic: isPublic == freezed ? _value.isPublic : (isPublic as bool?)!,
-      name: name == freezed ? _value.name : (name as String?)!,
-      description:
-          description == freezed ? _value.description : (description as String?)!,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: componentId == freezed
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      isPublic: isPublic == freezed
+          ? _value.isPublic
+          : isPublic // ignore: cast_nullable_to_non_nullable
+              as bool,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       currentPackageId: currentPackageId == freezed
           ? _value.currentPackageId
-          : (currentPackageId as String?)!,
+          : currentPackageId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ReleaseChannelReadDtoCtor implements _$ReleaseChannelReadDtoCtor {
   const _$_$ReleaseChannelReadDtoCtor(
       {required this.id,
@@ -179,14 +214,7 @@ class _$_$ReleaseChannelReadDtoCtor implements _$ReleaseChannelReadDtoCtor {
       required this.isPublic,
       required this.name,
       required this.description,
-      required this.currentPackageId})
-      : assert(id != null),
-        assert(componentId != null),
-        assert(createdAt != null),
-        assert(isPublic != null),
-        assert(name != null),
-        assert(description != null),
-        assert(currentPackageId != null);
+      required this.currentPackageId});
 
   factory _$_$ReleaseChannelReadDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ReleaseChannelReadDtoCtorFromJson(json);
@@ -273,21 +301,21 @@ abstract class _$ReleaseChannelReadDtoCtor implements ReleaseChannelReadDto {
       _$_$ReleaseChannelReadDtoCtor.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get componentId;
+  String get componentId => throw _privateConstructorUsedError;
   @override
-  String get createdAt;
+  String get createdAt => throw _privateConstructorUsedError;
   @override
-  bool get isPublic;
+  bool get isPublic => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  String get currentPackageId;
+  String get currentPackageId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$ReleaseChannelReadDtoCtorCopyWith<_$ReleaseChannelReadDtoCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

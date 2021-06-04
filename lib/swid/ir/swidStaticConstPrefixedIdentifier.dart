@@ -8,7 +8,7 @@ part 'swidStaticConstPrefixedIdentifier.freezed.dart';
 part 'swidStaticConstPrefixedIdentifier.g.dart';
 
 @freezed
-abstract class SwidStaticConstPrefixedIdentifier
+class SwidStaticConstPrefixedIdentifier
     with _$SwidStaticConstPrefixedIdentifier {
   const factory SwidStaticConstPrefixedIdentifier({
     required SwidInterface prefix,

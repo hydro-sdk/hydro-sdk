@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'createPermissionDto.dart';
 
@@ -8,6 +8,10 @@ part of 'createPermissionDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 CreatePermissionDto _$CreatePermissionDtoFromJson(Map<String, dynamic> json) {
   return _$CreatePermissionDtoCtor.fromJson(json);
 }
@@ -16,7 +20,6 @@ CreatePermissionDto _$CreatePermissionDtoFromJson(Map<String, dynamic> json) {
 class _$CreatePermissionDtoTearOff {
   const _$CreatePermissionDtoTearOff();
 
-// ignore: unused_element
   _$CreatePermissionDtoCtor call(
       {required String manageeId,
       required String managerId,
@@ -34,28 +37,27 @@ class _$CreatePermissionDtoTearOff {
     );
   }
 
-// ignore: unused_element
   CreatePermissionDto fromJson(Map<String, Object> json) {
     return CreatePermissionDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreatePermissionDto = _$CreatePermissionDtoTearOff();
 
 /// @nodoc
 mixin _$CreatePermissionDto {
-  String get manageeId;
-  String get managerId;
-  bool get canUpdate;
-  bool get canDelete;
-  bool get canAddToCollection;
-  bool get canRemoveFromCollection;
+  String get manageeId => throw _privateConstructorUsedError;
+  String get managerId => throw _privateConstructorUsedError;
+  bool get canUpdate => throw _privateConstructorUsedError;
+  bool get canDelete => throw _privateConstructorUsedError;
+  bool get canAddToCollection => throw _privateConstructorUsedError;
+  bool get canRemoveFromCollection => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreatePermissionDtoCopyWith<CreatePermissionDto> get copyWith;
+  $CreatePermissionDtoCopyWith<CreatePermissionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -64,12 +66,12 @@ abstract class $CreatePermissionDtoCopyWith<$Res> {
           CreatePermissionDto value, $Res Function(CreatePermissionDto) then) =
       _$CreatePermissionDtoCopyWithImpl<$Res>;
   $Res call(
-      {String? manageeId,
-      String? managerId,
-      bool? canUpdate,
-      bool? canDelete,
-      bool? canAddToCollection,
-      bool? canRemoveFromCollection});
+      {String manageeId,
+      String managerId,
+      bool canUpdate,
+      bool canDelete,
+      bool canAddToCollection,
+      bool canRemoveFromCollection});
 }
 
 /// @nodoc
@@ -79,7 +81,7 @@ class _$CreatePermissionDtoCopyWithImpl<$Res>
 
   final CreatePermissionDto _value;
   // ignore: unused_field
-  final $Res Function(CreatePermissionDto?) _then;
+  final $Res Function(CreatePermissionDto) _then;
 
   @override
   $Res call({
@@ -91,16 +93,30 @@ class _$CreatePermissionDtoCopyWithImpl<$Res>
     Object? canRemoveFromCollection = freezed,
   }) {
     return _then(_value.copyWith(
-      manageeId: manageeId == freezed ? _value.manageeId : manageeId as String?,
-      managerId: managerId == freezed ? _value.managerId : managerId as String?,
-      canUpdate: canUpdate == freezed ? _value.canUpdate : canUpdate as bool?,
-      canDelete: canDelete == freezed ? _value.canDelete : canDelete as bool?,
+      manageeId: manageeId == freezed
+          ? _value.manageeId
+          : manageeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      managerId: managerId == freezed
+          ? _value.managerId
+          : managerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      canUpdate: canUpdate == freezed
+          ? _value.canUpdate
+          : canUpdate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canDelete: canDelete == freezed
+          ? _value.canDelete
+          : canDelete // ignore: cast_nullable_to_non_nullable
+              as bool,
       canAddToCollection: canAddToCollection == freezed
           ? _value.canAddToCollection
-          : canAddToCollection as bool?,
+          : canAddToCollection // ignore: cast_nullable_to_non_nullable
+              as bool,
       canRemoveFromCollection: canRemoveFromCollection == freezed
           ? _value.canRemoveFromCollection
-          : canRemoveFromCollection as bool?,
+          : canRemoveFromCollection // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -113,12 +129,12 @@ abstract class _$$CreatePermissionDtoCtorCopyWith<$Res>
       __$$CreatePermissionDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? manageeId,
-      String? managerId,
-      bool? canUpdate,
-      bool? canDelete,
-      bool? canAddToCollection,
-      bool? canRemoveFromCollection});
+      {String manageeId,
+      String managerId,
+      bool canUpdate,
+      bool canDelete,
+      bool canAddToCollection,
+      bool canRemoveFromCollection});
 }
 
 /// @nodoc
@@ -143,23 +159,36 @@ class __$$CreatePermissionDtoCtorCopyWithImpl<$Res>
     Object? canRemoveFromCollection = freezed,
   }) {
     return _then(_$CreatePermissionDtoCtor(
-      manageeId: manageeId == freezed ? _value.manageeId : (manageeId as String?)!,
-      managerId: managerId == freezed ? _value.managerId : (managerId as String?)!,
-      canUpdate: canUpdate == freezed ? _value.canUpdate : (canUpdate as bool?)!,
-      canDelete: canDelete == freezed ? _value.canDelete : (canDelete as bool?)!,
+      manageeId: manageeId == freezed
+          ? _value.manageeId
+          : manageeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      managerId: managerId == freezed
+          ? _value.managerId
+          : managerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      canUpdate: canUpdate == freezed
+          ? _value.canUpdate
+          : canUpdate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canDelete: canDelete == freezed
+          ? _value.canDelete
+          : canDelete // ignore: cast_nullable_to_non_nullable
+              as bool,
       canAddToCollection: canAddToCollection == freezed
           ? _value.canAddToCollection
-          : (canAddToCollection as bool?)!,
+          : canAddToCollection // ignore: cast_nullable_to_non_nullable
+              as bool,
       canRemoveFromCollection: canRemoveFromCollection == freezed
           ? _value.canRemoveFromCollection
-          : (canRemoveFromCollection as bool?)!,
+          : canRemoveFromCollection // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$CreatePermissionDtoCtor implements _$CreatePermissionDtoCtor {
   const _$_$CreatePermissionDtoCtor(
       {required this.manageeId,
@@ -167,13 +196,7 @@ class _$_$CreatePermissionDtoCtor implements _$CreatePermissionDtoCtor {
       required this.canUpdate,
       required this.canDelete,
       required this.canAddToCollection,
-      required this.canRemoveFromCollection})
-      : assert(manageeId != null),
-        assert(managerId != null),
-        assert(canUpdate != null),
-        assert(canDelete != null),
-        assert(canAddToCollection != null),
-        assert(canRemoveFromCollection != null);
+      required this.canRemoveFromCollection});
 
   factory _$_$CreatePermissionDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$CreatePermissionDtoCtorFromJson(json);
@@ -256,18 +279,19 @@ abstract class _$CreatePermissionDtoCtor implements CreatePermissionDto {
       _$_$CreatePermissionDtoCtor.fromJson;
 
   @override
-  String get manageeId;
+  String get manageeId => throw _privateConstructorUsedError;
   @override
-  String get managerId;
+  String get managerId => throw _privateConstructorUsedError;
   @override
-  bool get canUpdate;
+  bool get canUpdate => throw _privateConstructorUsedError;
   @override
-  bool get canDelete;
+  bool get canDelete => throw _privateConstructorUsedError;
   @override
-  bool get canAddToCollection;
+  bool get canAddToCollection => throw _privateConstructorUsedError;
   @override
-  bool get canRemoveFromCollection;
+  bool get canRemoveFromCollection => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$CreatePermissionDtoCtorCopyWith<_$CreatePermissionDtoCtor> get copyWith;
+  _$$CreatePermissionDtoCtorCopyWith<_$CreatePermissionDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

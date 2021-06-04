@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidStaticConstPrefixedIdentifier.dart';
 
@@ -8,6 +8,10 @@ part of 'swidStaticConstPrefixedIdentifier.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidStaticConstPrefixedIdentifier _$SwidStaticConstPrefixedIdentifierFromJson(
     Map<String, dynamic> json) {
   return _$Data.fromJson(json);
@@ -17,7 +21,6 @@ SwidStaticConstPrefixedIdentifier _$SwidStaticConstPrefixedIdentifierFromJson(
 class _$SwidStaticConstPrefixedIdentifierTearOff {
   const _$SwidStaticConstPrefixedIdentifierTearOff();
 
-// ignore: unused_element
   _$Data call(
       {required SwidInterface prefix,
       required SwidStaticConstFieldReference staticConstFieldReference}) {
@@ -27,26 +30,25 @@ class _$SwidStaticConstPrefixedIdentifierTearOff {
     );
   }
 
-// ignore: unused_element
   SwidStaticConstPrefixedIdentifier fromJson(Map<String, Object> json) {
     return SwidStaticConstPrefixedIdentifier.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidStaticConstPrefixedIdentifier =
     _$SwidStaticConstPrefixedIdentifierTearOff();
 
 /// @nodoc
 mixin _$SwidStaticConstPrefixedIdentifier {
-  SwidInterface get prefix;
-  SwidStaticConstFieldReference get staticConstFieldReference;
+  SwidInterface get prefix => throw _privateConstructorUsedError;
+  SwidStaticConstFieldReference get staticConstFieldReference =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SwidStaticConstPrefixedIdentifierCopyWith<SwidStaticConstPrefixedIdentifier>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -56,8 +58,8 @@ abstract class $SwidStaticConstPrefixedIdentifierCopyWith<$Res> {
           $Res Function(SwidStaticConstPrefixedIdentifier) then) =
       _$SwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>;
   $Res call(
-      {SwidInterface? prefix,
-      SwidStaticConstFieldReference? staticConstFieldReference});
+      {SwidInterface prefix,
+      SwidStaticConstFieldReference staticConstFieldReference});
 
   $SwidInterfaceCopyWith<$Res> get prefix;
   $SwidStaticConstFieldReferenceCopyWith<$Res> get staticConstFieldReference;
@@ -70,7 +72,7 @@ class _$SwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>
 
   final SwidStaticConstPrefixedIdentifier _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstPrefixedIdentifier?) _then;
+  final $Res Function(SwidStaticConstPrefixedIdentifier) _then;
 
   @override
   $Res call({
@@ -78,18 +80,19 @@ class _$SwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>
     Object? staticConstFieldReference = freezed,
   }) {
     return _then(_value.copyWith(
-      prefix: prefix == freezed ? _value.prefix : prefix as SwidInterface?,
+      prefix: prefix == freezed
+          ? _value.prefix
+          : prefix // ignore: cast_nullable_to_non_nullable
+              as SwidInterface,
       staticConstFieldReference: staticConstFieldReference == freezed
           ? _value.staticConstFieldReference
-          : staticConstFieldReference as SwidStaticConstFieldReference?,
+          : staticConstFieldReference // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConstFieldReference,
     ));
   }
 
   @override
   $SwidInterfaceCopyWith<$Res> get prefix {
-    if (_value.prefix == null) {
-      return null;
-    }
     return $SwidInterfaceCopyWith<$Res>(_value.prefix, (value) {
       return _then(_value.copyWith(prefix: value));
     });
@@ -97,9 +100,6 @@ class _$SwidStaticConstPrefixedIdentifierCopyWithImpl<$Res>
 
   @override
   $SwidStaticConstFieldReferenceCopyWith<$Res> get staticConstFieldReference {
-    if (_value.staticConstFieldReference == null) {
-      return null;
-    }
     return $SwidStaticConstFieldReferenceCopyWith<$Res>(
         _value.staticConstFieldReference, (value) {
       return _then(_value.copyWith(staticConstFieldReference: value));
@@ -114,8 +114,8 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SwidInterface? prefix,
-      SwidStaticConstFieldReference? staticConstFieldReference});
+      {SwidInterface prefix,
+      SwidStaticConstFieldReference staticConstFieldReference});
 
   @override
   $SwidInterfaceCopyWith<$Res> get prefix;
@@ -139,22 +139,23 @@ class __$$DataCopyWithImpl<$Res>
     Object? staticConstFieldReference = freezed,
   }) {
     return _then(_$Data(
-      prefix: prefix == freezed ? _value.prefix : (prefix as SwidInterface?)!,
+      prefix: prefix == freezed
+          ? _value.prefix
+          : prefix // ignore: cast_nullable_to_non_nullable
+              as SwidInterface,
       staticConstFieldReference: staticConstFieldReference == freezed
           ? _value.staticConstFieldReference
-          : (staticConstFieldReference as SwidStaticConstFieldReference?)!,
+          : staticConstFieldReference // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConstFieldReference,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {required this.prefix, required this.staticConstFieldReference})
-      : assert(prefix != null),
-        assert(staticConstFieldReference != null);
+      {required this.prefix, required this.staticConstFieldReference});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -208,10 +209,11 @@ abstract class _$Data implements SwidStaticConstPrefixedIdentifier {
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  SwidInterface get prefix;
+  SwidInterface get prefix => throw _privateConstructorUsedError;
   @override
-  SwidStaticConstFieldReference get staticConstFieldReference;
+  SwidStaticConstFieldReference get staticConstFieldReference =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

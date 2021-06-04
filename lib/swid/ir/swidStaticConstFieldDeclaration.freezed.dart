@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidStaticConstFieldDeclaration.dart';
 
@@ -8,6 +8,10 @@ part of 'swidStaticConstFieldDeclaration.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidStaticConstFieldDeclaration _$SwidStaticConstFieldDeclarationFromJson(
     Map<String, dynamic> json) {
   return _$Data.fromJson(json);
@@ -17,36 +21,31 @@ SwidStaticConstFieldDeclaration _$SwidStaticConstFieldDeclarationFromJson(
 class _$SwidStaticConstFieldDeclarationTearOff {
   const _$SwidStaticConstFieldDeclarationTearOff();
 
-// ignore: unused_element
-  _$Data call(
-      {required String name, @nullable required SwidStaticConst value}) {
+  _$Data call({required String name, required SwidStaticConst? value}) {
     return _$Data(
       name: name,
       value: value,
     );
   }
 
-// ignore: unused_element
   SwidStaticConstFieldDeclaration fromJson(Map<String, Object> json) {
     return SwidStaticConstFieldDeclaration.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidStaticConstFieldDeclaration =
     _$SwidStaticConstFieldDeclarationTearOff();
 
 /// @nodoc
 mixin _$SwidStaticConstFieldDeclaration {
-  String get name;
-  @nullable
-  SwidStaticConst? get value;
+  String get name => throw _privateConstructorUsedError;
+  SwidStaticConst? get value => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SwidStaticConstFieldDeclarationCopyWith<SwidStaticConstFieldDeclaration>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,7 +54,7 @@ abstract class $SwidStaticConstFieldDeclarationCopyWith<$Res> {
           SwidStaticConstFieldDeclaration value,
           $Res Function(SwidStaticConstFieldDeclaration) then) =
       _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>;
-  $Res call({String? name, @nullable SwidStaticConst? value});
+  $Res call({String name, SwidStaticConst? value});
 
   $SwidStaticConstCopyWith<$Res>? get value;
 }
@@ -67,7 +66,7 @@ class _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>
 
   final SwidStaticConstFieldDeclaration _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstFieldDeclaration?) _then;
+  final $Res Function(SwidStaticConstFieldDeclaration) _then;
 
   @override
   $Res call({
@@ -75,8 +74,14 @@ class _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>
     Object? value = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String?,
-      value: value == freezed ? _value.value : value as SwidStaticConst?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst?,
     ));
   }
 
@@ -85,7 +90,8 @@ class _$SwidStaticConstFieldDeclarationCopyWithImpl<$Res>
     if (_value.value == null) {
       return null;
     }
-    return $SwidStaticConstCopyWith<$Res>(_value.value, (value) {
+
+    return $SwidStaticConstCopyWith<$Res>(_value.value!, (value) {
       return _then(_value.copyWith(value: value));
     });
   }
@@ -97,10 +103,10 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, @nullable SwidStaticConst? value});
+  $Res call({String name, SwidStaticConst? value});
 
   @override
-  $SwidStaticConstCopyWith<$Res> get value;
+  $SwidStaticConstCopyWith<$Res>? get value;
 }
 
 /// @nodoc
@@ -119,18 +125,22 @@ class __$$DataCopyWithImpl<$Res>
     Object? value = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : (name as String?)!,
-      value: value == freezed ? _value.value : value as SwidStaticConst?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
-  const _$_$Data({required this.name, @nullable required this.value})
-      : assert(name != null);
+  const _$_$Data({required this.name, required this.value});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -138,7 +148,6 @@ class _$_$Data implements _$Data {
   @override
   final String name;
   @override
-  @nullable
   final SwidStaticConst? value;
 
   @override
@@ -175,17 +184,15 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidStaticConstFieldDeclaration {
   const factory _$Data(
-      {required String name,
-      @nullable required SwidStaticConst? value}) = _$_$Data;
+      {required String name, required SwidStaticConst? value}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  @nullable
-  SwidStaticConst? get value;
+  SwidStaticConst? get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

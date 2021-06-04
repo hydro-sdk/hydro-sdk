@@ -7,7 +7,7 @@ part 'swidStaticConstPrefixedExpression.freezed.dart';
 part 'swidStaticConstPrefixedExpression.g.dart';
 
 @freezed
-abstract class SwidStaticConstPrefixedExpression
+class SwidStaticConstPrefixedExpression
     with _$SwidStaticConstPrefixedExpression {
   const factory SwidStaticConstPrefixedExpression({
     required String prefix,

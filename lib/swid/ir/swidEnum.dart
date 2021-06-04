@@ -6,7 +6,7 @@ part 'swidEnum.freezed.dart';
 part 'swidEnum.g.dart';
 
 @freezed
-abstract class SwidEnum with _$SwidEnum {
+class SwidEnum with _$SwidEnum {
   const factory SwidEnum({
     required String originalPackagePath,
     required String identifier,

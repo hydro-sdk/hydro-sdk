@@ -8,7 +8,7 @@ part 'tsFunctionInvocationNamedParameters.freezed.dart';
 part 'tsFunctionInvocationNamedParameters.g.dart';
 
 @freezed
-abstract class TsFunctionInvocationNamedParameters
+class TsFunctionInvocationNamedParameters
     with _$TsFunctionInvocationNamedParameters {
   factory TsFunctionInvocationNamedParameters.fromSpread(
       {required

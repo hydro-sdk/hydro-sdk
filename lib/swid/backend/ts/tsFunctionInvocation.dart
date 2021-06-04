@@ -8,7 +8,7 @@ part 'tsFunctionInvocation.freezed.dart';
 part 'tsFunctionInvocation.g.dart';
 
 @freezed
-abstract class TsFunctionInvocation with _$TsFunctionInvocation {
+class TsFunctionInvocation with _$TsFunctionInvocation {
   factory TsFunctionInvocation({
     required String functionReference,
     required

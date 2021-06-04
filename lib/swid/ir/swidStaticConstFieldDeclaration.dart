@@ -7,11 +7,10 @@ part 'swidStaticConstFieldDeclaration.freezed.dart';
 part 'swidStaticConstFieldDeclaration.g.dart';
 
 @freezed
-abstract class SwidStaticConstFieldDeclaration
-    with _$SwidStaticConstFieldDeclaration {
+class SwidStaticConstFieldDeclaration with _$SwidStaticConstFieldDeclaration {
   const factory SwidStaticConstFieldDeclaration({
     required String name,
-    @nullable required SwidStaticConst? value,
+    required SwidStaticConst? value,
   }) = _$Data;
 
   factory SwidStaticConstFieldDeclaration.fromJson(Map<String, dynamic> json) =>

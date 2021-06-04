@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'projectConfigComponent.dart';
 
@@ -8,6 +8,10 @@ part of 'projectConfigComponent.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ProjectConfigComponent _$ProjectConfigComponentFromJson(
     Map<String, dynamic> json) {
   return _$ProjectConfigComponentCtor.fromJson(json);
@@ -17,7 +21,6 @@ ProjectConfigComponent _$ProjectConfigComponentFromJson(
 class _$ProjectConfigComponentTearOff {
   const _$ProjectConfigComponentTearOff();
 
-// ignore: unused_element
   _$ProjectConfigComponentCtor call(
       {required String name,
       required List<ProjectConfigComponentChunk> chunks}) {
@@ -27,24 +30,24 @@ class _$ProjectConfigComponentTearOff {
     );
   }
 
-// ignore: unused_element
   ProjectConfigComponent fromJson(Map<String, Object> json) {
     return ProjectConfigComponent.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProjectConfigComponent = _$ProjectConfigComponentTearOff();
 
 /// @nodoc
 mixin _$ProjectConfigComponent {
-  String get name;
-  List<ProjectConfigComponentChunk> get chunks;
+  String get name => throw _privateConstructorUsedError;
+  List<ProjectConfigComponentChunk> get chunks =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProjectConfigComponentCopyWith<ProjectConfigComponent> get copyWith;
+  $ProjectConfigComponentCopyWith<ProjectConfigComponent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -52,7 +55,7 @@ abstract class $ProjectConfigComponentCopyWith<$Res> {
   factory $ProjectConfigComponentCopyWith(ProjectConfigComponent value,
           $Res Function(ProjectConfigComponent) then) =
       _$ProjectConfigComponentCopyWithImpl<$Res>;
-  $Res call({String? name, List<ProjectConfigComponentChunk>? chunks});
+  $Res call({String name, List<ProjectConfigComponentChunk> chunks});
 }
 
 /// @nodoc
@@ -62,7 +65,7 @@ class _$ProjectConfigComponentCopyWithImpl<$Res>
 
   final ProjectConfigComponent _value;
   // ignore: unused_field
-  final $Res Function(ProjectConfigComponent?) _then;
+  final $Res Function(ProjectConfigComponent) _then;
 
   @override
   $Res call({
@@ -70,10 +73,14 @@ class _$ProjectConfigComponentCopyWithImpl<$Res>
     Object? chunks = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       chunks: chunks == freezed
           ? _value.chunks
-          : chunks as List<ProjectConfigComponentChunk>?,
+          : chunks // ignore: cast_nullable_to_non_nullable
+              as List<ProjectConfigComponentChunk>,
     ));
   }
 }
@@ -86,7 +93,7 @@ abstract class _$$ProjectConfigComponentCtorCopyWith<$Res>
           $Res Function(_$ProjectConfigComponentCtor) then) =
       __$$ProjectConfigComponentCtorCopyWithImpl<$Res>;
   @override
-  $Res call({String? name, List<ProjectConfigComponentChunk>? chunks});
+  $Res call({String name, List<ProjectConfigComponentChunk> chunks});
 }
 
 /// @nodoc
@@ -108,22 +115,23 @@ class __$$ProjectConfigComponentCtorCopyWithImpl<$Res>
     Object? chunks = freezed,
   }) {
     return _then(_$ProjectConfigComponentCtor(
-      name: name == freezed ? _value.name : (name as String?)!,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       chunks: chunks == freezed
           ? _value.chunks
-          : (chunks as List<ProjectConfigComponentChunk>?)!,
+          : chunks // ignore: cast_nullable_to_non_nullable
+              as List<ProjectConfigComponentChunk>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ProjectConfigComponentCtor implements _$ProjectConfigComponentCtor {
   const _$_$ProjectConfigComponentCtor(
-      {required this.name, required this.chunks})
-      : assert(name != null),
-        assert(chunks != null);
+      {required this.name, required this.chunks});
 
   factory _$_$ProjectConfigComponentCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ProjectConfigComponentCtorFromJson(json);
@@ -176,11 +184,12 @@ abstract class _$ProjectConfigComponentCtor implements ProjectConfigComponent {
       _$_$ProjectConfigComponentCtor.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  List<ProjectConfigComponentChunk> get chunks;
+  List<ProjectConfigComponentChunk> get chunks =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$ProjectConfigComponentCtorCopyWith<_$ProjectConfigComponentCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

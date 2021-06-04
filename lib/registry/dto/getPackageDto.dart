@@ -5,7 +5,7 @@ part 'getPackageDto.freezed.dart';
 part 'getPackageDto.g.dart';
 
 @freezed
-abstract class GetPackageDto with _$GetPackageDto {
+class GetPackageDto with _$GetPackageDto {
   const factory GetPackageDto({
     required String sessionId,
     required String projectName,

@@ -7,7 +7,7 @@ part 'swidConfig.freezed.dart';
 part 'swidConfig.g.dart';
 
 @freezed
-abstract class SwidConfig with _$SwidConfig {
+class SwidConfig with _$SwidConfig {
   const factory SwidConfig({
     required String inputPackagePath,
     required List<String> interfaces,

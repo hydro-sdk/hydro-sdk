@@ -7,7 +7,7 @@ part 'projectConfig.freezed.dart';
 part 'projectConfig.g.dart';
 
 @freezed
-abstract class ProjectConfig with _$ProjectConfig {
+class ProjectConfig with _$ProjectConfig {
   const factory ProjectConfig({
     required String project,
     required List<ProjectConfigComponent> components,

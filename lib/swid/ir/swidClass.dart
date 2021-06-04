@@ -13,24 +13,23 @@ part 'swidClass.freezed.dart';
 part 'swidClass.g.dart';
 
 @freezed
-abstract class SwidClass with _$SwidClass {
+class SwidClass with _$SwidClass {
   const factory SwidClass({
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,
     required String originalPackagePath,
-    @nullable required SwidFunctionType? constructorType,
-    required List<SwidFunctionType?> factoryConstructors,
-    required List<SwidFunctionType?> staticMethods,
-    required List<SwidFunctionType?> methods,
-    required
-        List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
-    required Map<String, SwidType?> instanceFieldDeclarations,
+    required SwidFunctionType? constructorType,
+    required List<SwidFunctionType> factoryConstructors,
+    required List<SwidFunctionType> staticMethods,
+    required List<SwidFunctionType> methods,
+    required List<SwidStaticConstFieldDeclaration> staticConstFieldDeclarations,
+    required Map<String, SwidType> instanceFieldDeclarations,
     required SwidDeclarationModifiers swidDeclarationModifiers,
-    required List<SwidClass?> mixedInClasses,
-    required List<SwidClass?> implementedClasses,
-    @nullable required SwidClass? extendedClass,
+    required List<SwidClass> mixedInClasses,
+    required List<SwidClass> implementedClasses,
+    required SwidClass extendedClass,
     required bool isMixin,
-    required List<SwidTypeFormal?> typeFormals,
+    required List<SwidTypeFormal> typeFormals,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
@@ -130,8 +129,8 @@ abstract class SwidClass with _$SwidClass {
                     .toList(),
                 ...superClass.instanceFieldDeclarations.entries
                     .where((x) =>
-                        swidClass.instanceFieldDeclarations.entries.firstWhereOrNull(
-                            (k) => k.key == x.key) ==
+                        swidClass.instanceFieldDeclarations.entries
+                            .firstWhereOrNull((k) => k.key == x.key) ==
                         null)
                     .map((x) => MapEntry(x.key, x.value))
                     .toList()

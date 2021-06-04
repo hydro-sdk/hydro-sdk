@@ -25,7 +25,7 @@ import 'package:hydro_sdk/swid/backend/ts/tsResolvedImport.dart';
 part 'tsir.freezed.dart';
 
 @freezed
-abstract class TsIr with _$TsIr {
+class TsIr with _$TsIr {
   factory TsIr.fromTsClassConstructorImplementation(
           {required
               TsClassConstructorImplementation

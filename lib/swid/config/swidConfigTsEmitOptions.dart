@@ -5,7 +5,7 @@ part 'swidConfigTsEmitOptions.freezed.dart';
 part 'swidConfigTsEmitOptions.g.dart';
 
 @freezed
-abstract class SwidConfigTsEmitOptions with _$SwidConfigTsEmitOptions {
+class SwidConfigTsEmitOptions with _$SwidConfigTsEmitOptions {
   const factory SwidConfigTsEmitOptions({
     required List<String> prefixPaths,
   }) = _$SwidConfigTsEmitOptionsCtor;

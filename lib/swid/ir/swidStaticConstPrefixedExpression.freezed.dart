@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidStaticConstPrefixedExpression.dart';
 
@@ -8,6 +8,10 @@ part of 'swidStaticConstPrefixedExpression.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidStaticConstPrefixedExpression _$SwidStaticConstPrefixedExpressionFromJson(
     Map<String, dynamic> json) {
   return _$Data.fromJson(json);
@@ -17,7 +21,6 @@ SwidStaticConstPrefixedExpression _$SwidStaticConstPrefixedExpressionFromJson(
 class _$SwidStaticConstPrefixedExpressionTearOff {
   const _$SwidStaticConstPrefixedExpressionTearOff();
 
-// ignore: unused_element
   _$Data call({required String prefix, required SwidStaticConst expression}) {
     return _$Data(
       prefix: prefix,
@@ -25,26 +28,24 @@ class _$SwidStaticConstPrefixedExpressionTearOff {
     );
   }
 
-// ignore: unused_element
   SwidStaticConstPrefixedExpression fromJson(Map<String, Object> json) {
     return SwidStaticConstPrefixedExpression.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidStaticConstPrefixedExpression =
     _$SwidStaticConstPrefixedExpressionTearOff();
 
 /// @nodoc
 mixin _$SwidStaticConstPrefixedExpression {
-  String get prefix;
-  SwidStaticConst get expression;
+  String get prefix => throw _privateConstructorUsedError;
+  SwidStaticConst get expression => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SwidStaticConstPrefixedExpressionCopyWith<SwidStaticConstPrefixedExpression>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -53,7 +54,7 @@ abstract class $SwidStaticConstPrefixedExpressionCopyWith<$Res> {
           SwidStaticConstPrefixedExpression value,
           $Res Function(SwidStaticConstPrefixedExpression) then) =
       _$SwidStaticConstPrefixedExpressionCopyWithImpl<$Res>;
-  $Res call({String? prefix, SwidStaticConst? expression});
+  $Res call({String prefix, SwidStaticConst expression});
 
   $SwidStaticConstCopyWith<$Res> get expression;
 }
@@ -65,7 +66,7 @@ class _$SwidStaticConstPrefixedExpressionCopyWithImpl<$Res>
 
   final SwidStaticConstPrefixedExpression _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstPrefixedExpression?) _then;
+  final $Res Function(SwidStaticConstPrefixedExpression) _then;
 
   @override
   $Res call({
@@ -73,18 +74,19 @@ class _$SwidStaticConstPrefixedExpressionCopyWithImpl<$Res>
     Object? expression = freezed,
   }) {
     return _then(_value.copyWith(
-      prefix: prefix == freezed ? _value.prefix : prefix as String?,
+      prefix: prefix == freezed
+          ? _value.prefix
+          : prefix // ignore: cast_nullable_to_non_nullable
+              as String,
       expression: expression == freezed
           ? _value.expression
-          : expression as SwidStaticConst?,
+          : expression // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst,
     ));
   }
 
   @override
   $SwidStaticConstCopyWith<$Res> get expression {
-    if (_value.expression == null) {
-      return null;
-    }
     return $SwidStaticConstCopyWith<$Res>(_value.expression, (value) {
       return _then(_value.copyWith(expression: value));
     });
@@ -97,7 +99,7 @@ abstract class _$$DataCopyWith<$Res>
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
   @override
-  $Res call({String? prefix, SwidStaticConst? expression});
+  $Res call({String prefix, SwidStaticConst expression});
 
   @override
   $SwidStaticConstCopyWith<$Res> get expression;
@@ -119,21 +121,22 @@ class __$$DataCopyWithImpl<$Res>
     Object? expression = freezed,
   }) {
     return _then(_$Data(
-      prefix: prefix == freezed ? _value.prefix : (prefix as String?)!,
+      prefix: prefix == freezed
+          ? _value.prefix
+          : prefix // ignore: cast_nullable_to_non_nullable
+              as String,
       expression: expression == freezed
           ? _value.expression
-          : (expression as SwidStaticConst?)!,
+          : expression // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
-  const _$_$Data({required this.prefix, required this.expression})
-      : assert(prefix != null),
-        assert(expression != null);
+  const _$_$Data({required this.prefix, required this.expression});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -178,16 +181,15 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidStaticConstPrefixedExpression {
   const factory _$Data(
-      {required String prefix,
-      required SwidStaticConst expression}) = _$_$Data;
+      {required String prefix, required SwidStaticConst expression}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get prefix;
+  String get prefix => throw _privateConstructorUsedError;
   @override
-  SwidStaticConst get expression;
+  SwidStaticConst get expression => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

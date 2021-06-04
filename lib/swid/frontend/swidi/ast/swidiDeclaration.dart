@@ -8,7 +8,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 part 'swidiDeclaration.freezed.dart';
 
 @freezed
-abstract class SwidiDeclaration with _$SwidiDeclaration {
+class SwidiDeclaration with _$SwidiDeclaration {
   const factory SwidiDeclaration({
     required
         String name,

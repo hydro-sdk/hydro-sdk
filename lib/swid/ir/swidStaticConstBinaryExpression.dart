@@ -7,7 +7,7 @@ part 'swidStaticConstBinaryExpression.freezed.dart';
 part 'swidStaticConstBinaryExpression.g.dart';
 
 @freezed
-abstract class SwidStaticConstBinaryExpression
+class SwidStaticConstBinaryExpression
     with _$SwidStaticConstBinaryExpression {
   const factory SwidStaticConstBinaryExpression({
     required String operator,

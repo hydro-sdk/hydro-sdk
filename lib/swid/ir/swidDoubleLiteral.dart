@@ -5,7 +5,7 @@ part 'swidDoubleLiteral.freezed.dart';
 part 'swidDoubleLiteral.g.dart';
 
 @freezed
-abstract class SwidDoubleLiteral with _$SwidDoubleLiteral {
+class SwidDoubleLiteral with _$SwidDoubleLiteral {
   const factory SwidDoubleLiteral({required String value}) = _$Data;
 
   factory SwidDoubleLiteral.fromJson(Map<String, dynamic> json) =>

@@ -5,7 +5,7 @@ part 'createComponentDto.freezed.dart';
 part 'createComponentDto.g.dart';
 
 @freezed
-abstract class CreateComponentDto with _$CreateComponentDto {
+class CreateComponentDto with _$CreateComponentDto {
   const factory CreateComponentDto({
     required String name,
     required String description,

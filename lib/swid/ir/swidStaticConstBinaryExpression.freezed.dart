@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidStaticConstBinaryExpression.dart';
 
@@ -8,6 +8,10 @@ part of 'swidStaticConstBinaryExpression.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidStaticConstBinaryExpression _$SwidStaticConstBinaryExpressionFromJson(
     Map<String, dynamic> json) {
   return _$Data.fromJson(json);
@@ -17,7 +21,6 @@ SwidStaticConstBinaryExpression _$SwidStaticConstBinaryExpressionFromJson(
 class _$SwidStaticConstBinaryExpressionTearOff {
   const _$SwidStaticConstBinaryExpressionTearOff();
 
-// ignore: unused_element
   _$Data call(
       {required String operator,
       required SwidStaticConst leftOperand,
@@ -29,27 +32,25 @@ class _$SwidStaticConstBinaryExpressionTearOff {
     );
   }
 
-// ignore: unused_element
   SwidStaticConstBinaryExpression fromJson(Map<String, Object> json) {
     return SwidStaticConstBinaryExpression.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidStaticConstBinaryExpression =
     _$SwidStaticConstBinaryExpressionTearOff();
 
 /// @nodoc
 mixin _$SwidStaticConstBinaryExpression {
-  String get operator;
-  SwidStaticConst get leftOperand;
-  SwidStaticConst get rightOperand;
+  String get operator => throw _privateConstructorUsedError;
+  SwidStaticConst get leftOperand => throw _privateConstructorUsedError;
+  SwidStaticConst get rightOperand => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SwidStaticConstBinaryExpressionCopyWith<SwidStaticConstBinaryExpression>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -59,9 +60,9 @@ abstract class $SwidStaticConstBinaryExpressionCopyWith<$Res> {
           $Res Function(SwidStaticConstBinaryExpression) then) =
       _$SwidStaticConstBinaryExpressionCopyWithImpl<$Res>;
   $Res call(
-      {String? operator,
-      SwidStaticConst? leftOperand,
-      SwidStaticConst? rightOperand});
+      {String operator,
+      SwidStaticConst leftOperand,
+      SwidStaticConst rightOperand});
 
   $SwidStaticConstCopyWith<$Res> get leftOperand;
   $SwidStaticConstCopyWith<$Res> get rightOperand;
@@ -74,7 +75,7 @@ class _$SwidStaticConstBinaryExpressionCopyWithImpl<$Res>
 
   final SwidStaticConstBinaryExpression _value;
   // ignore: unused_field
-  final $Res Function(SwidStaticConstBinaryExpression?) _then;
+  final $Res Function(SwidStaticConstBinaryExpression) _then;
 
   @override
   $Res call({
@@ -83,21 +84,23 @@ class _$SwidStaticConstBinaryExpressionCopyWithImpl<$Res>
     Object? rightOperand = freezed,
   }) {
     return _then(_value.copyWith(
-      operator: operator == freezed ? _value.operator : operator as String?,
+      operator: operator == freezed
+          ? _value.operator
+          : operator // ignore: cast_nullable_to_non_nullable
+              as String,
       leftOperand: leftOperand == freezed
           ? _value.leftOperand
-          : leftOperand as SwidStaticConst?,
+          : leftOperand // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst,
       rightOperand: rightOperand == freezed
           ? _value.rightOperand
-          : rightOperand as SwidStaticConst?,
+          : rightOperand // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst,
     ));
   }
 
   @override
   $SwidStaticConstCopyWith<$Res> get leftOperand {
-    if (_value.leftOperand == null) {
-      return null;
-    }
     return $SwidStaticConstCopyWith<$Res>(_value.leftOperand, (value) {
       return _then(_value.copyWith(leftOperand: value));
     });
@@ -105,9 +108,6 @@ class _$SwidStaticConstBinaryExpressionCopyWithImpl<$Res>
 
   @override
   $SwidStaticConstCopyWith<$Res> get rightOperand {
-    if (_value.rightOperand == null) {
-      return null;
-    }
     return $SwidStaticConstCopyWith<$Res>(_value.rightOperand, (value) {
       return _then(_value.copyWith(rightOperand: value));
     });
@@ -121,9 +121,9 @@ abstract class _$$DataCopyWith<$Res>
       __$$DataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? operator,
-      SwidStaticConst? leftOperand,
-      SwidStaticConst? rightOperand});
+      {String operator,
+      SwidStaticConst leftOperand,
+      SwidStaticConst rightOperand});
 
   @override
   $SwidStaticConstCopyWith<$Res> get leftOperand;
@@ -148,28 +148,29 @@ class __$$DataCopyWithImpl<$Res>
     Object? rightOperand = freezed,
   }) {
     return _then(_$Data(
-      operator: operator == freezed ? _value.operator : (operator as String?)!,
+      operator: operator == freezed
+          ? _value.operator
+          : operator // ignore: cast_nullable_to_non_nullable
+              as String,
       leftOperand: leftOperand == freezed
           ? _value.leftOperand
-          : (leftOperand as SwidStaticConst?)!,
+          : leftOperand // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst,
       rightOperand: rightOperand == freezed
           ? _value.rightOperand
-          : (rightOperand as SwidStaticConst?)!,
+          : rightOperand // ignore: cast_nullable_to_non_nullable
+              as SwidStaticConst,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
   const _$_$Data(
       {required this.operator,
       required this.leftOperand,
-      required this.rightOperand})
-      : assert(operator != null),
-        assert(leftOperand != null),
-        assert(rightOperand != null);
+      required this.rightOperand});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -228,12 +229,12 @@ abstract class _$Data implements SwidStaticConstBinaryExpression {
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get operator;
+  String get operator => throw _privateConstructorUsedError;
   @override
-  SwidStaticConst get leftOperand;
+  SwidStaticConst get leftOperand => throw _privateConstructorUsedError;
   @override
-  SwidStaticConst get rightOperand;
+  SwidStaticConst get rightOperand => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

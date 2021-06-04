@@ -5,7 +5,7 @@ part 'swidDeclarationModifiers.freezed.dart';
 part 'swidDeclarationModifiers.g.dart';
 
 @freezed
-abstract class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
+class SwidDeclarationModifiers with _$SwidDeclarationModifiers {
   const factory SwidDeclarationModifiers({
     required bool isAbstract,
     required bool isGetter,

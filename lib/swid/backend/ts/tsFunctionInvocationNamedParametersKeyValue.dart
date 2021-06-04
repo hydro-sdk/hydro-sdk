@@ -5,7 +5,7 @@ part 'tsFunctionInvocationNamedParametersKeyValue.freezed.dart';
 part 'tsFunctionInvocationNamedParametersKeyValue.g.dart';
 
 @freezed
-abstract class TsFunctionInvocationNamedParametersKeyValue
+class TsFunctionInvocationNamedParametersKeyValue
     with _$TsFunctionInvocationNamedParametersKeyValue {
   factory TsFunctionInvocationNamedParametersKeyValue(
       {required Map<String, String> namedReferences}) = _$Data;

@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 part 'swidiConst.freezed.dart';
 
 @freezed
-abstract class SwidiConst with _$SwidiConst {
+class SwidiConst with _$SwidiConst {
   factory SwidiConst.clone({
     required SwidiConst swidiConst,
   }) =>

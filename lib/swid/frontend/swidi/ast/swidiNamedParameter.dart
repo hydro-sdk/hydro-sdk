@@ -6,7 +6,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
 part 'swidiNamedParameter.freezed.dart';
 
 @freezed
-abstract class SwidiNamedParameter with _$SwidiNamedParameter {
+class SwidiNamedParameter with _$SwidiNamedParameter {
   const factory SwidiNamedParameter({
     required SwidiDeclaration declaration,
   }) = _$SwidiNamedParameterCtor;
