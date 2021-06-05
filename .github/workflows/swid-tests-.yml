@@ -65,10 +65,10 @@ jobs:
       run: cd "${env::GITHUB_WORKSPACE}\flutter\packages\flutter"; flutter pub get
       if: runner.is == 'Windows'
 
-    - name: Build SWID
-      shell: bash
-      run: time dart2native bin/swid.dart -o bin/swid  -v 
-      working-directory: hydro
+    # - name: Build SWID
+    #   shell: bash
+    #   run: time dart2native bin/swid.dart -o bin/swid  -v 
+    #   working-directory: hydro
 
     # - name: Run binding generator
     #   shell: bash
