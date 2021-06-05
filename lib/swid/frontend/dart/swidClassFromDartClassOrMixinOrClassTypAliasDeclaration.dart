@@ -8,7 +8,7 @@ import 'package:analyzer/dart/ast/ast.dart'
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
 
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/narrowModifierProducer.dart';

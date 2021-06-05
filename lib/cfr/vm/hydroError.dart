@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
@@ -7,12 +6,12 @@ import 'package:hydro_sdk/cfr/vm/frame.dart';
 import 'package:hydro_sdk/cfr/vm/symbolWithDistance.dart';
 
 class HydroError {
-  HydroError(
-      {required this.errMsg,
-      required Frame frame,
-      required this.inst,
-      required this.dartStackTrace})
-      : _frames = [frame];
+  HydroError({
+    required this.errMsg,
+    required Frame frame,
+    required this.inst,
+    required this.dartStackTrace,
+  }) : _frames = [frame];
   final String errMsg;
   List<Frame> _frames;
   final int inst;
@@ -30,9 +29,9 @@ class HydroError {
       if (moduleLineNumber != null) {
         List<SymbolWithDistance> symbolsWithDistance = symbols
             .map((e) => SymbolWithDistance(
-                distance: moduleLineNumber - (e?.lineStart ?? 0),
+                distance: moduleLineNumber - (e.lineStart ?? 0),
                 moduleDebugInfo: e))
-            ?.toList();
+            .toList();
         symbolsWithDistance.removeWhere((element) => element.distance < 0);
         symbolsWithDistance.sort((a, b) => a.distance.compareTo(b.distance));
 

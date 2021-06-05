@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashedPrototype.dart';
@@ -10,7 +9,7 @@ class LStubGenerator {
   List<HashedPrototype>? _prototypes;
   List<HashedPrototype>? get protoypes => _prototypes;
   LStubGenerator({required List<HashedPrototype> prototypes}) {
-    var unique = List<HashedPrototype>();
+    var unique = <HashedPrototype>[];
     prototypes.forEach((x) {
       if (unique.firstWhereOrNull((k) => k.hash == x.hash) ==
           null) {

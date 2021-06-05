@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
 
 part 'swidConfigTsEmitOptions.freezed.dart';
 part 'swidConfigTsEmitOptions.g.dart';

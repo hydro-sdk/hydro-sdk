@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';

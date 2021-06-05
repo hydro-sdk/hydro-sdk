@@ -12,7 +12,7 @@ import 'package:code_builder/code_builder.dart'
         Code;
 
 import 'package:dart_style/dart_style.dart';
-import 'package:meta/meta.dart';
+
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';

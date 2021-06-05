@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:meta/meta.dart';
+
 
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';

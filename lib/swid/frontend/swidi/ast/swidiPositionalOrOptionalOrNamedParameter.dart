@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';

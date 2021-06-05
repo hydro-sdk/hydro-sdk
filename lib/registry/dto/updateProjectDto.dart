@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
 
 part 'updateProjectDto.freezed.dart';
 part 'updateProjectDto.g.dart';

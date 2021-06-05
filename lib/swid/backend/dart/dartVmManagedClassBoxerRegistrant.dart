@@ -1,7 +1,7 @@
 import 'package:code_builder/code_builder.dart'
     show refer, Block, Method, Parameter, TypeReference, DartEmitter;
 
-import 'package:meta/meta.dart';
+
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
 
 part 'getPackageDto.freezed.dart';
 part 'getPackageDto.g.dart';

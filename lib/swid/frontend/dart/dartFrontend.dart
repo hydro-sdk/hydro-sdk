@@ -6,7 +6,7 @@ import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:analyzer/file_system/file_system.dart' hide File;
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/src/dart/ast/ast.dart';
-import 'package:meta/meta.dart';
+
 import 'package:hydro_sdk/swid/frontend/dart/surveyor/driver.dart';
 import 'package:hydro_sdk/swid/frontend/dart/surveyor/visitors.dart';
 

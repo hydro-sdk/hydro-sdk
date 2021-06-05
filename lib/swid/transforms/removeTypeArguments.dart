@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+
 
 String removeTypeArguments({required String str}) {
   var openingBracket = str.indexOf("<");

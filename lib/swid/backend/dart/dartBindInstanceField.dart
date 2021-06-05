@@ -1,7 +1,7 @@
 import 'package:code_builder/code_builder.dart'
     show Code, CodeExpression, DartEmitter, refer, literalString;
 
-import 'package:meta/meta.dart';
+
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceFieldDirect.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';

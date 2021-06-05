@@ -1,6 +1,6 @@
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
-import 'package:meta/meta.dart';
+
 
 T? narrowStaticConstSyntacticEntity<T>({
   required SyntacticEntity? syntacticEntity,

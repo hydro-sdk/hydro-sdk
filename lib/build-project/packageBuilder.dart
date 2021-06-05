@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:archive/archive_io.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:filesize/filesize.dart';
-import 'package:meta/meta.dart';
+
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/build-project/componentBuilder.dart';

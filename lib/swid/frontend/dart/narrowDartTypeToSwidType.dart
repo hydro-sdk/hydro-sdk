@@ -7,7 +7,7 @@ import 'package:analyzer/dart/element/type.dart'
         DynamicType,
         DartType;
 
-import 'package:meta/meta.dart';
+
 
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromDynamicType.dart';

@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/ts/tsClassConstructorImplementation.dart';

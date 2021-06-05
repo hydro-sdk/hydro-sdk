@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
 
 import 'package:hydro_sdk/swid/config/swidConfigAllowList.dart';
 import 'package:hydro_sdk/swid/config/swidConfigDartEmitOptions.dart';

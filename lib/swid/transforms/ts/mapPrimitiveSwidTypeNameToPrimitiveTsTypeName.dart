@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+
 
 String mapPrimitiveSwidTypeNameToPrimitiveTsTypeName({required String str}) =>
     str == "String" || str == "String*" || str == "String?"

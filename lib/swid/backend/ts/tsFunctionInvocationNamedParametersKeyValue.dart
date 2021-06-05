@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
+
 
 part 'tsFunctionInvocationNamedParametersKeyValue.freezed.dart';
 part 'tsFunctionInvocationNamedParametersKeyValue.g.dart';

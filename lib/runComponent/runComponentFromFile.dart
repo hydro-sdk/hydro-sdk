@@ -47,7 +47,7 @@ class _RunComponentFromFileState extends State<RunComponentFromFile>
       }
       return maybeUnBoxAndBuildArgument<Widget>(
           luaState.context!.env["hydro"]["globalBuildResult"].dispatch(
-              args != null ? [...args] : [],
+              args != null ? [...args!] : [],
               parentState: luaState)[0],
           parentState: luaState);
     }
