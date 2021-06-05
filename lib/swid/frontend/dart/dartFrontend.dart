@@ -101,14 +101,14 @@ class _SwidVisitor extends RecursiveAstVisitor
               DartClassOrMixinOrClassTypAliasDeclaration.fromClassDeclaration(
                   classDeclaration: node));
 
-      if (res != null) {
+      
         res = SwidClass.clone(
             swidClass: res,
             swidDeclarationModifiers:
                 swidDeclarationModifiersFromClassDeclaration(
                     classDeclaration: node));
         classes.add(res);
-      }
+      
     }
 
     if (node.name.name == "IconData") {
@@ -252,9 +252,8 @@ class _SwidVisitor extends RecursiveAstVisitor
         dartClassOrMixinOrClassTypAliasDeclaration:
             DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias(
                 classTypeAlias: node));
-    if (res != null) {
       classes.add(res);
-    }
+
     if (node.name.name == "UnmodifiableListBase") {
       print(node.name.name);
       File("test/swid/res/UnmodifiableListBase.json")
@@ -280,9 +279,7 @@ class _SwidVisitor extends RecursiveAstVisitor
               DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(
                   mixinDeclaration: node));
 
-      if (res != null) {
         classes.add(res);
-      }
 
       File("test/swid/res/Diagnosticable.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));

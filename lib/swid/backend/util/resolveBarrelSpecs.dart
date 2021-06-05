@@ -17,7 +17,6 @@ List<BarrelMember> _extractMembers({required BarrelSpec spec}) =>
                   [BarrelMember.fromSwidClass(swidClass: val)],
               fromBarrelSpec: (val) => _extractMembers(spec: val),
             ))
-        .where((x) => x != null)
         .toList());
 
 List<BarrelSpec> _groupMembers({required List<BarrelMember> members}) =>

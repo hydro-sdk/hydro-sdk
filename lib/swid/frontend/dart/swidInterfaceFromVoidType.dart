@@ -1,5 +1,4 @@
 import 'package:analyzer/dart/element/type.dart' show VoidType;
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';

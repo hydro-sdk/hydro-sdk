@@ -3,19 +3,19 @@ import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
 mixin SwidiWhitespaceGrammarDefinition on GrammarDefinition {
-  Parser HIDDEN() => ref(HIDDEN_STUFF).plus();
+  Parser HIDDEN() => ref0(HIDDEN_STUFF).plus();
 
   Parser HIDDEN_STUFF() =>
-      ref(WHITESPACE) | ref(SINGLE_LINE_COMMENT) | ref(MULTI_LINE_COMMENT);
+      ref0(WHITESPACE) |ref0(SINGLE_LINE_COMMENT) | ref0(MULTI_LINE_COMMENT);
 
   Parser WHITESPACE() => whitespace();
 
   Parser SINGLE_LINE_COMMENT() =>
-      string('//') & ref(NEWLINE).neg().star() & ref(NEWLINE).optional();
+      string('//') & ref0(NEWLINE).neg().star() &ref0(NEWLINE).optional();
 
   Parser MULTI_LINE_COMMENT() =>
       string('/*') &
-      (ref(MULTI_LINE_COMMENT) | string('*/').neg()).star() &
+      (ref0(MULTI_LINE_COMMENT) | string('*/').neg()).star() &
       string('*/');
 
   Parser NEWLINE() => pattern('\n\r');

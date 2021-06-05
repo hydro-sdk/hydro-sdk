@@ -11,42 +11,43 @@ mixin SwidiDeclarationGrammarDefinition
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition,
         SwidiConstGrammarDefinition {
-  Parser returnType() => ref(type);
+  Parser returnType() => ref0(type);
 
-  Parser identifier() => ref(token, ref(IDENTIFIER));
+  Parser identifier() => ref1(token, ref0(IDENTIFIER));
 
-  Parser simpleDeclaration() => (ref(type) & ref(identifier));
+  Parser simpleDeclaration() => (ref0(type) & ref0(identifier));
 
   Parser declarationWithDefaultConstValue() =>
-      ref(simpleDeclaration) & ref(token, "=") & ref(CONST);
+      ref0(simpleDeclaration) & ref1(token, "=") & ref0(CONST);
 
   Parser qualified() =>
-      ref(identifier) & (ref(token, ".") & ref(identifier)).star();
+      ref0(identifier) & (ref1(token, ".") & ref0(identifier)).star();
 
   Parser type() =>
-      ref(libraryScopePrefix).optional() &
-      ref(referenceDeclarationPrefix).optional() &
-      ref(qualified) &
-      ref(typeArguments).optional() &
-      ref(token, "?").optional();
+      ref0(libraryScopePrefix).optional() &
+      ref0(referenceDeclarationPrefix).optional() &
+      ref0(qualified) &
+      ref0(typeArguments).optional() &
+      ref1(token, "?").optional();
 
   Parser referenceDeclarationPrefix() =>
-      (ref(token, "class") |
-          ref(token, "enum") |
-          ref(token, "void") |
-          ref(token, "type") |
-          ref(token, "dynamic")) &
-      ref(token, ":") &
-      ref(token, ":");
+      (ref1(token, "class") |
+          ref1(token, "enum") |
+          ref1(token, "void") |
+          ref1(token, "type") |
+          ref1(token, "dynamic")) &
+      ref1(token, ":") &
+      ref1(token, ":");
 
   Parser libraryScopePrefix() =>
       char('"') &
-      ref(STRING_CONTENT_DQ).star() &
+      ref0(STRING_CONTENT_DQ).star() &
       char('"') &
-      ref(token, ":") &
-      ref(token, ":");
+      ref1(token, ":") &
+      ref1(token, ":");
 
-  Parser typeArguments() => ref(token, "<") & ref(typeList) & ref(token, ">");
+  Parser typeArguments() =>
+      ref1(token, "<") & ref0(typeList) & ref1(token, ">");
 
-  Parser typeList() => ref(type) & (ref(token, ",") & ref(type)).star();
+  Parser typeList() => ref0(type) & (ref1(token, ",") & ref0(type)).star();
 }

@@ -1,5 +1,4 @@
 import 'package:analyzer/dart/ast/ast.dart' show TypeName;
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
