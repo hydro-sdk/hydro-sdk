@@ -4,10 +4,10 @@ import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
-List<SwidInterface>? collectReferencesFromStaticConst(
+List<SwidInterface> collectReferencesFromStaticConst(
         {required SwidStaticConst swidStaticConst}) =>
     ([
-      ...swidStaticConst.when<List<SwidInterface>?>(
+      ...swidStaticConst.when<List<SwidInterface>>(
         fromSwidBooleanLiteral: (_) => [],
         fromSwidStringLiteral: (_) => [],
         fromSwidIntegerLiteral: (_) => [],
@@ -53,11 +53,11 @@ List<SwidInterface>? collectReferencesFromStaticConst(
         .cast<SwidInterface>())
       ..removeWhere((x) => x == null);
 
-List<SwidInterface>? collectAllStaticConstReferences({
+List<SwidInterface> collectAllStaticConstReferences({
   required SwidType swidType,
 }) =>
     ([
-      ...swidType.when<List<SwidInterface?>?>(
+      ...swidType.when<List<SwidInterface?>>(
         fromSwidInterface: (_) => null,
         fromSwidClass: (val) => ([
           ...(val.constructorType != null

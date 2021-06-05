@@ -74,7 +74,7 @@ class DartLoadNamespaceSymbolDeclaration {
                 ]).returned.statement
               ])))
               .statement
-          : null,
+          : Code(""),
       ...[
         ...swidClass.staticConstFieldDeclarations
             .where((x) => isInexpressibleStaticConst(

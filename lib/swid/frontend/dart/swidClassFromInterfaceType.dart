@@ -101,7 +101,7 @@ SwidClass swidClassFromInterfaceType({
               fullyResolveInterfaceTypeFormals: false,
             )
           : null,
-      typeFormals: interfaceType.typeArguments
+      typeFormals: (interfaceType.typeArguments
           .map((x) => x is InterfaceType && fullyResolveInterfaceTypeFormals
               ? SwidTypeFormal(
                   value: SwidTypeFormalValue.fromSwidClass(
@@ -132,5 +132,5 @@ SwidClass swidClassFromInterfaceType({
                               SwidReferenceDeclarationKind.typeParameterType,
                         )
                       : null)
-          .toList(),
+          .toList()..removeWhere((x) =>x==null)) as List<SwidTypeFormal>,
     );

@@ -16,7 +16,7 @@ import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
-typedef Widget ErrorBuilder(Exception? err);
+typedef Widget ErrorBuilder(Object? err);
 
 void _rebuildAllChildren(BuildContext context) {
   void rebuild(Element el) {
@@ -30,7 +30,7 @@ void _rebuildAllChildren(BuildContext context) {
 class RunFromNetwork extends StatefulWidget {
   final String baseUrl;
   final String filePath;
-  final List<dynamic> args;
+  final List<dynamic>? args;
   final Map<String, NativeThunk> thunks;
   final Future<String> Function(String)? downloadHash;
   final Future<Uint8List> Function(String)? downloadByteCodeImage;
@@ -42,7 +42,7 @@ class RunFromNetwork extends StatefulWidget {
   RunFromNetwork({
     required this.baseUrl,
     required this.filePath,
-    required this.args,
+     this.args,
     required this.thunks,
     this.downloadHash,
     this.downloadByteCodeImage,
@@ -71,12 +71,12 @@ class _RunFromNetwork extends State<RunFromNetwork>
     with HotReloadable, PreloadableCustomNamespaces {
   final String baseUrl;
   final String filePath;
-  final List<dynamic> args;
+  final List<dynamic>? args;
   final Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
       thunks;
   final ErrorBuilder? errorBuilder;
   final bool? debugMode;
-  Exception? error;
+  Object? error;
   Timer? timer;
   bool requiresRebuild = false;
 
@@ -89,7 +89,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
   _RunFromNetwork({
     required this.baseUrl,
     required this.filePath,
-    required this.args,
+     this.args,
     required this.thunks,
     this.downloadHash,
     this.downloadByteCodeImage,
@@ -203,7 +203,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
       });
       return;
     }
-    if (newHash != null && newHash != lastHash) {
+    if (newHash != lastHash) {
       var image = await downloadByteCodeImage!("$filePath");
       List<ModuleDebugInfo>? symbols;
       if (debugMode!) {
@@ -298,7 +298,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
 
       return maybeUnBoxAndBuildArgument<Widget>(
           luaState.context!.env["hydro"]["globalBuildResult"].dispatch(
-              args != null ? [...args] : [],
+              args != null ? [...args!] : [],
               parentState: luaState)[0],
           parentState: luaState);
     }

@@ -10,7 +10,7 @@ part 'swidStaticConstFieldDeclaration.g.dart';
 class SwidStaticConstFieldDeclaration with _$SwidStaticConstFieldDeclaration {
   const factory SwidStaticConstFieldDeclaration({
     required String name,
-    required SwidStaticConst? value,
+    required SwidStaticConst value,
   }) = _$Data;
 
   factory SwidStaticConstFieldDeclaration.fromJson(Map<String, dynamic> json) =>

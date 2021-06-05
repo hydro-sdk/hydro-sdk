@@ -18,7 +18,6 @@ T? maybeUnBoxEnum<T>(
   //For Haxe, the enum index is placed onto the zero entry of the object's table for some reason.
   //This gets optimized into array storage by the VM
   else if (boxedEnum is HydroTable &&
-      boxedEnum.arr != null &&
       boxedEnum.arr.isNotEmpty) {
     return values.firstWhere((x) => x.index == boxedEnum.arr[0],
         orElse: () => null);
@@ -74,7 +73,6 @@ dynamic maybeUnBoxAndBuildArgument<T>(
   BuildContext? context,
   required HydroState parentState,
 }) {
-  assert(parentState != null);
   //Unboxed target object
   if (arg is T) {
     return arg;
@@ -131,7 +129,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
       }
     }
     //Unbox an array of managed objects
-    if (arg.arr != null) {
+    if (arg.arr.isNotEmpty) {
       List<dynamic> target = arg.arr;
       //Haxe likes to place the first element of arrays using the string "0" as key instead of using integers
       //The VM will optimize tables with integer keys into array storage but this pattern will get missed
@@ -144,7 +142,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
               (x) => maybeUnBoxAndBuildArgument<T>(x, parentState: parentState))
           .toList()
           .cast<T>();
-    } else if (arg.arr != null && arg.arr.isEmpty) {
+    } else if (arg.arr.isEmpty) {
       return [].cast<T>();
     }
   } else if (arg is List) {

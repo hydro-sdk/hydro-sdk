@@ -10,7 +10,7 @@ SwidInterface swidInterfaceFromDynamicType(
         {required DynamicType dynamicType}) =>
     SwidInterface(
       name: dynamicType.element?.name ??
-          dynamicType?.getDisplayString(withNullability: false),
+          dynamicType.getDisplayString(withNullability: false),
       typeArguments: [],
       nullabilitySuffix: mapNullabilitySuffix(
           nullabilitySuffix: dynamicType.nullabilitySuffix)!,

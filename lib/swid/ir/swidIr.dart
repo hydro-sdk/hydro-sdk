@@ -33,22 +33,27 @@ class SwidIr with _$SwidIr {
                   .toList(),
             ].map((x) => SwidIr.fromSwidEnum(swidEnum: x!)).toList()),
             ..._mergeClasses(
-              first: value
+              first: 
+              (value
                   .map((x) => x.maybeWhen(
                       fromSwidClass: (val) => val, orElse: () => null))
                   .where((x) => x != null)
-                  .toList(),
-              second: element
+                  .toList()
+                  ..removeWhere((x) =>x==null))as List<SwidClass>
+                  ,
+              second:( element
                   .map((x) => x.maybeWhen(
                       fromSwidClass: (val) => val, orElse: () => null))
                   .where((x) => x != null)
-                  .toList(),
+                  .toList()..removeWhere((x) =>x==null)) as List<SwidClass>
+                  
+                  ,
             ).map((x) => SwidIr.fromSwidClass(swidClass: x!)).toList()
           ]);
 }
 
 List<SwidClass?> _mergeClasses(
-        {required List<SwidClass?> first, required List<SwidClass?> second}) =>
+        {required List<SwidClass> first, required List<SwidClass> second}) =>
     second.fold(
         first,
         (previousValue, element) => previousValue.firstWhere(
@@ -67,9 +72,9 @@ List<SwidClass?> _mergeClasses(
                     swidClass: previousValue.firstWhere(
                         (x) =>
                             x!.originalPackagePath ==
-                                element!.originalPackagePath &&
+                                element.originalPackagePath &&
                             x.name == element.name,
-                        orElse: () => null),
+                        orElse: () => null)!,
                     superClass: element)
               ]
             : [

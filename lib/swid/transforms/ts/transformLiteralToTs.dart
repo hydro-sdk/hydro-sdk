@@ -63,6 +63,5 @@ String transformLiteralToTs(
             ),
         fromSwidStaticConstFieldReference: (val) {
           var res = scopeResolver(val)!;
-          assert(res != null);
           return res;
         });

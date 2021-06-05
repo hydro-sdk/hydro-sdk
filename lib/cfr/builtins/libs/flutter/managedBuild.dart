@@ -10,9 +10,9 @@ Widget? managedBuild(
     {required BuildContext context,
     required HydroState hydroState,
     required HydroTable hydroTable}) {
-  Closure managedBuild =
+  Closure? managedBuild =
       maybeFindInheritedMethod(managedObject: hydroTable, methodName: "build")!;
-  var buildResult = managedBuild.dispatch([
+  var buildResult = managedBuild?.dispatch([
     hydroTable.map,
     maybeBoxObject(
       object: context,

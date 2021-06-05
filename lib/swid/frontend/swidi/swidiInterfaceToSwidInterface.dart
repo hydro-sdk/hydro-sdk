@@ -28,5 +28,5 @@ SwidInterface swidiInterfaceToSwidInterface(
                           : swidiInterface.referenceDeclarationPrefix.name ==
                                   "dynamic"
                               ? SwidReferenceDeclarationKind.dynamicType
-                              : null,
+                              : SwidReferenceDeclarationKind.unknown  ,
     );

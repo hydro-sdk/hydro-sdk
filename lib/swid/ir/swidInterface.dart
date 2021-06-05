@@ -15,7 +15,7 @@ class SwidInterface with _$SwidInterface {
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,
     required String originalPackagePath,
-    required List<SwidType?> typeArguments,
+    required List<SwidType> typeArguments,
     required SwidReferenceDeclarationKind referenceDeclarationKind,
   }) = _$Data;
 
@@ -27,7 +27,7 @@ class SwidInterface with _$SwidInterface {
           String? name,
           SwidNullabilitySuffix? nullabilitySuffix,
           String? originalPackagePath,
-          List<SwidType?>? typeArguments,
+          List<SwidType>? typeArguments,
           SwidReferenceDeclarationKind? referenceDeclarationKind}) =>
       SwidInterface(
         name: name ?? swidType.name,

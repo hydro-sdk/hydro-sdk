@@ -1,6 +1,7 @@
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 const dartObject = const SwidInterface(
   name: "Object",
@@ -72,4 +73,16 @@ const dartVoid = const SwidInterface(
   originalPackagePath: "",
   referenceDeclarationKind: SwidReferenceDeclarationKind.voidType,
   typeArguments: [],
+);
+
+const dartUnkownInterface = const SwidInterface(
+  name: "Unkown",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "",
+  referenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
+  typeArguments: [],
+);
+
+const dartUnkownType = const SwidType.fromSwidInterface(
+  swidInterface: dartUnkownInterface,
 );

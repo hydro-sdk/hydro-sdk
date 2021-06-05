@@ -27,31 +27,31 @@ class SwidClass with _$SwidClass {
     required SwidDeclarationModifiers swidDeclarationModifiers,
     required List<SwidClass> mixedInClasses,
     required List<SwidClass> implementedClasses,
-    required SwidClass extendedClass,
     required bool isMixin,
     required List<SwidTypeFormal> typeFormals,
+     SwidClass? extendedClass,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
       _$SwidClassFromJson(json);
 
   factory SwidClass.clone({
-    required SwidClass? swidClass,
+    required SwidClass swidClass,
     String? name,
     SwidNullabilitySuffix? nullabilitySuffix,
     String? originalPackagePath,
     SwidFunctionType? constructorType,
-    List<SwidFunctionType?>? factoryConstructors,
-    List<SwidFunctionType?>? staticMethods,
-    List<SwidFunctionType?>? methods,
+    List<SwidFunctionType>? factoryConstructors,
+    List<SwidFunctionType>? staticMethods,
+    List<SwidFunctionType>? methods,
     List<SwidStaticConstFieldDeclaration>? staticConstFieldDeclarations,
-    Map<String, SwidType?>? instanceFieldDeclarations,
+    Map<String, SwidType>? instanceFieldDeclarations,
     SwidDeclarationModifiers? swidDeclarationModifiers,
-    List<SwidClass?>? mixedInClasses,
-    List<SwidClass?>? implementedClasses,
+    List<SwidClass>? mixedInClasses,
+    List<SwidClass>? implementedClasses,
     bool? isMixin,
     SwidClass? extendedClass,
-    List<SwidTypeFormal?>? typeFormals,
+    List<SwidTypeFormal>? typeFormals,
   }) =>
       SwidClass(
         name: name ?? swidClass!.name,
@@ -75,9 +75,9 @@ class SwidClass with _$SwidClass {
                     ?.toList() ??
                 []),
         methods: methods ??
-            List.from(swidClass?.methods
-                    ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                    ?.toList() ??
+            List.from(swidClass.methods
+                    .map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                    .toList() ??
                 []),
         staticConstFieldDeclarations: staticConstFieldDeclarations ??
             List.from(swidClass!.staticConstFieldDeclarations ?? []),
@@ -119,12 +119,12 @@ class SwidClass with _$SwidClass {
       );
 
   factory SwidClass.mergeDeclarations(
-          {required SwidClass? swidClass, required SwidClass? superClass}) =>
+          {required SwidClass swidClass, required SwidClass? superClass}) =>
       superClass != null
           ? SwidClass.clone(
               swidClass: swidClass,
               instanceFieldDeclarations: Map.fromEntries([
-                ...swidClass!.instanceFieldDeclarations.entries
+                ...swidClass.instanceFieldDeclarations.entries
                     .map((x) => MapEntry(x.key, x.value))
                     .toList(),
                 ...superClass.instanceFieldDeclarations.entries
@@ -139,7 +139,7 @@ class SwidClass with _$SwidClass {
                 ...swidClass.methods,
                 ...superClass.methods
                     .where((x) =>
-                        swidClass.methods.firstWhere((k) => k!.name == x!.name,
+                       <SwidFunctionType?>[... swidClass.methods].firstWhere((k) => k?.name == x.name,
                             orElse: () => null) ==
                         null)
                     .toList()

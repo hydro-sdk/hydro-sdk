@@ -24,7 +24,7 @@ class _$SwidInterfaceTearOff {
       {required String name,
       required SwidNullabilitySuffix nullabilitySuffix,
       required String originalPackagePath,
-      required List<SwidType?> typeArguments,
+      required List<SwidType> typeArguments,
       required SwidReferenceDeclarationKind referenceDeclarationKind}) {
     return _$Data(
       name: name,
@@ -49,7 +49,7 @@ mixin _$SwidInterface {
   SwidNullabilitySuffix get nullabilitySuffix =>
       throw _privateConstructorUsedError;
   String get originalPackagePath => throw _privateConstructorUsedError;
-  List<SwidType?> get typeArguments => throw _privateConstructorUsedError;
+  List<SwidType> get typeArguments => throw _privateConstructorUsedError;
   SwidReferenceDeclarationKind get referenceDeclarationKind =>
       throw _privateConstructorUsedError;
 
@@ -68,7 +68,7 @@ abstract class $SwidInterfaceCopyWith<$Res> {
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      List<SwidType?> typeArguments,
+      List<SwidType> typeArguments,
       SwidReferenceDeclarationKind referenceDeclarationKind});
 }
 
@@ -105,7 +105,7 @@ class _$SwidInterfaceCopyWithImpl<$Res>
       typeArguments: typeArguments == freezed
           ? _value.typeArguments
           : typeArguments // ignore: cast_nullable_to_non_nullable
-              as List<SwidType?>,
+              as List<SwidType>,
       referenceDeclarationKind: referenceDeclarationKind == freezed
           ? _value.referenceDeclarationKind
           : referenceDeclarationKind // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ abstract class _$$DataCopyWith<$Res> implements $SwidInterfaceCopyWith<$Res> {
       {String name,
       SwidNullabilitySuffix nullabilitySuffix,
       String originalPackagePath,
-      List<SwidType?> typeArguments,
+      List<SwidType> typeArguments,
       SwidReferenceDeclarationKind referenceDeclarationKind});
 }
 
@@ -160,7 +160,7 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
       typeArguments: typeArguments == freezed
           ? _value.typeArguments
           : typeArguments // ignore: cast_nullable_to_non_nullable
-              as List<SwidType?>,
+              as List<SwidType>,
       referenceDeclarationKind: referenceDeclarationKind == freezed
           ? _value.referenceDeclarationKind
           : referenceDeclarationKind // ignore: cast_nullable_to_non_nullable
@@ -189,7 +189,7 @@ class _$_$Data implements _$Data {
   @override
   final String originalPackagePath;
   @override
-  final List<SwidType?> typeArguments;
+  final List<SwidType> typeArguments;
   @override
   final SwidReferenceDeclarationKind referenceDeclarationKind;
 
@@ -244,7 +244,7 @@ abstract class _$Data implements SwidInterface {
           {required String name,
           required SwidNullabilitySuffix nullabilitySuffix,
           required String originalPackagePath,
-          required List<SwidType?> typeArguments,
+          required List<SwidType> typeArguments,
           required SwidReferenceDeclarationKind referenceDeclarationKind}) =
       _$_$Data;
 
@@ -258,7 +258,7 @@ abstract class _$Data implements SwidInterface {
   @override
   String get originalPackagePath => throw _privateConstructorUsedError;
   @override
-  List<SwidType?> get typeArguments => throw _privateConstructorUsedError;
+  List<SwidType> get typeArguments => throw _privateConstructorUsedError;
   @override
   SwidReferenceDeclarationKind get referenceDeclarationKind =>
       throw _privateConstructorUsedError;

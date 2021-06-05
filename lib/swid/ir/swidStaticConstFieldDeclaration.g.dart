@@ -9,9 +9,7 @@ part of 'swidStaticConstFieldDeclaration.dart';
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     name: json['name'] as String,
-    value: json['value'] == null
-        ? null
-        : SwidStaticConst.fromJson(json['value'] as Map<String, dynamic>),
+    value: SwidStaticConst.fromJson(json['value'] as Map<String, dynamic>),
   );
 }
 

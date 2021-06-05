@@ -21,9 +21,9 @@ import 'package:hydro_sdk/swid/ir/swidIr.dart';
 class SwidDartFrontend extends SwidFrontend {
   final List<String> inputs;
 
-  SwidDartFrontend({
+  const SwidDartFrontend({
     required this.inputs,
-  });
+  }) : super(inputs: inputs,);
 
   Future<List<SwidIr>> produceIr() async {
     int dirCount;

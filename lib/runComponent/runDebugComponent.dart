@@ -59,7 +59,7 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
               return;
             }
 
-            if (newHash != null && newHash != lastHash) {
+            if (newHash != lastHash) {
               setState(() {
                 lastHash = newHash;
               });
@@ -97,7 +97,7 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
         }
         return maybeUnBoxAndBuildArgument<Widget>(
             luaState.context!.env["hydro"]["globalBuildResult"].dispatch(
-                args != null ? [...args] : [],
+                args != null ? [...args!] : [],
                 parentState: luaState)[0],
             parentState: luaState);
       }

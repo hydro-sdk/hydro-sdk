@@ -42,12 +42,13 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     implementedClasses: (json['implementedClasses'] as List<dynamic>)
         .map((e) => SwidClass.fromJson(e as Map<String, dynamic>))
         .toList(),
-    extendedClass:
-        SwidClass.fromJson(json['extendedClass'] as Map<String, dynamic>),
     isMixin: json['isMixin'] as bool,
     typeFormals: (json['typeFormals'] as List<dynamic>)
         .map((e) => SwidTypeFormal.fromJson(e as Map<String, dynamic>))
         .toList(),
+    extendedClass: json['extendedClass'] == null
+        ? null
+        : SwidClass.fromJson(json['extendedClass'] as Map<String, dynamic>),
   );
 }
 
@@ -65,9 +66,9 @@ Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
       'swidDeclarationModifiers': instance.swidDeclarationModifiers,
       'mixedInClasses': instance.mixedInClasses,
       'implementedClasses': instance.implementedClasses,
-      'extendedClass': instance.extendedClass,
       'isMixin': instance.isMixin,
       'typeFormals': instance.typeFormals,
+      'extendedClass': instance.extendedClass,
     };
 
 K _$enumDecode<K, V>(

@@ -13,7 +13,7 @@ import 'package:hydro_sdk/projectConfig/projectConfig.dart';
 
 Lock _rebuildLock = Lock();
 
-void _rebuild({
+Future<void> _rebuild({
   required String? project,
   required String? ts2hc,
   required String? cacheDir,

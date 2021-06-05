@@ -23,6 +23,7 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
@@ -121,7 +122,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
               .map((x) => swidClassFromInterfaceType(interfaceType: x.type as InterfaceType))
               .toList()
           : [],
-      staticConstFieldDeclarations: dartClassOrMixinOrClassTypAliasDeclaration.childEntities
+      staticConstFieldDeclarations: (dartClassOrMixinOrClassTypAliasDeclaration.childEntities
           .where((x) => x is FieldDeclaration)
           .toList()
           .cast<FieldDeclaration>()
@@ -143,9 +144,9 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
           }
         }
       }).toList()
-            ..removeWhere((x) => x == null),
+            ..removeWhere((x) => x == null))as List<SwidStaticConstFieldDeclaration> ,
       instanceFieldDeclarations: Map.fromEntries(
-        dartClassOrMixinOrClassTypAliasDeclaration.childEntities
+        (dartClassOrMixinOrClassTypAliasDeclaration.childEntities
             .where((x) => x is FieldDeclaration)
             .toList()
             .cast<FieldDeclaration>()
@@ -173,7 +174,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
             }
           }
         }).toList()
-              ..removeWhere((x) => x == null),
+              ..removeWhere((x) => x == null))as Iterable<MapEntry<String,SwidType>> ,
       ),
       typeFormals: ((TypeParameterList? typeParameterList) => typeParameterList != null
           ? typeParameterList.typeParameters

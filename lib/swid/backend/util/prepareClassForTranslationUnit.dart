@@ -1,4 +1,7 @@
 
+import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/util/removeNonEmitCandidates.dart';

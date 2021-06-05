@@ -1,11 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/frontend/dart/narrowDartTypeToSwidType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidTypeFormalFromTypeParameterElement.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -26,12 +25,17 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
         originalPackagePath:
             functionType.element?.librarySource?.uri?.toString() ?? "",
         swidDeclarationModifiers: swidDeclarationModifiers,
-        namedParameterTypes: Map.fromEntries(functionType?.namedParameterTypes?.keys
-            ?.map((x) => MapEntry<String, SwidType?>(
+        namedParameterTypes: Map.fromEntries(
+          (functionType.namedParameterTypes.keys
+            .map((x) => MapEntry<String, SwidType?>(
                 x,
                 narrowDartTypeToSwidType(
-                    dartType: functionType?.namedParameterTypes[x])))),
-        namedDefaults: functionType?.parameters != null
+                    dartType: functionType?.namedParameterTypes[x]))
+                    
+                    ).toList()..removeWhere((x) =>x.value==null )) as List< MapEntry<String, SwidType>>
+                    
+                    ),
+        namedDefaults: functionType.parameters.isNotEmpty
             ? Map.fromEntries(functionType.parameters
                 .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
                     x.displayName,
@@ -53,7 +57,7 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
                                   swidInterface: swidInterfaceFromInterface(
                                   interfaceType: x.type as InterfaceType,
                                 ))
-                              : null,
+                              : dartUnkownType ,
                     )))
                 .toList()
                   ..removeWhere((x) => x.value.name == ""))
@@ -66,7 +70,7 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
         optionalParameterTypes: List.from(functionType.optionalParameterTypes?.map((x) => narrowDartTypeToSwidType(dartType: x))?.toList() ?? []),
         returnType: narrowDartTypeToSwidType(dartType: functionType.returnType)!,
         isFactory: false,
-        typeFormals: functionType.typeFormals != null
+        typeFormals: functionType.typeFormals.isNotEmpty
             ? functionType.typeFormals
                 .map(
                   (x) => swidTypeFormalFromTypeParameterElement(

@@ -14,7 +14,7 @@ class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,
     required String originalPackagePath,
-     required SwidType? value,
+     required SwidType value,
   }) = _$Data;
 
   factory SwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =>

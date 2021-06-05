@@ -79,7 +79,7 @@ class ManifestBuilder {
 
         rawSignature = sha256Data(concatShas.codeUnits);
 
-        final pc.RSAPrivateKey privateKey = RSAKeyParser().parse(signingKey) as RSAPrivateKey;
+        final pc.RSAPrivateKey privateKey = RSAKeyParser().parse(signingKey) as pc.RSAPrivateKey;
         final signer =
             pc.RSASigner(pc.SHA256Digest(), '0609608648016503040201');
 

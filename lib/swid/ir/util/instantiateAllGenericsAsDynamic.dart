@@ -1,4 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';

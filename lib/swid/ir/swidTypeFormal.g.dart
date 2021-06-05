@@ -103,4 +103,5 @@ const _$SwidReferenceDeclarationKindEnumMap = {
   SwidReferenceDeclarationKind.voidType: 'voidType',
   SwidReferenceDeclarationKind.typeParameterType: 'typeParameterType',
   SwidReferenceDeclarationKind.dynamicType: 'dynamicType',
+  SwidReferenceDeclarationKind.unknown: 'unknown',
 };
