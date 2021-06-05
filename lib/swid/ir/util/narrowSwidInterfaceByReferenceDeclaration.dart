@@ -1,11 +1,9 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitive.dart';
 
-T? narrowSwidInterfaceByReferenceDeclaration<T>({
+T narrowSwidInterfaceByReferenceDeclaration<T>({
   required SwidInterface swidInterface,
   required T Function(SwidInterface) onPrimitive,
   required T Function(SwidInterface) onClass,
@@ -13,6 +11,7 @@ T? narrowSwidInterfaceByReferenceDeclaration<T>({
   required T Function(SwidInterface) onVoid,
   required T Function(SwidInterface) onTypeParameter,
   required T Function(SwidInterface) onDynamic,
+  required T Function(SwidInterface) onUnknown,
 }) =>
     swidInterface.referenceDeclarationKind ==
             SwidReferenceDeclarationKind.voidType
@@ -38,4 +37,4 @@ T? narrowSwidInterfaceByReferenceDeclaration<T>({
                         : swidInterface.referenceDeclarationKind ==
                                 SwidReferenceDeclarationKind.dynamicType
                             ? onDynamic(swidInterface)
-                            : null;
+                            : onUnknown(swidInterface);

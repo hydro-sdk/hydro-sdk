@@ -1,6 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidGenericInstantiator.dart';
@@ -20,9 +17,9 @@ SwidType instantiateAllGenericsAs({
       ),
       fromSwidClass: (val) => SwidType.fromSwidClass(
         swidClass: SwidClass.clone(
-          swidClass: val.typeFormals.fold<SwidClass?>(
+          swidClass: val.typeFormals.fold<SwidClass>(
             val,
-            (previousValue, element) => element!.swidReferenceDeclarationKind ==
+            (previousValue, element) => element.swidReferenceDeclarationKind ==
                     SwidReferenceDeclarationKind.typeParameterType
                 ? instantiateGeneric(
                     swidType: SwidType.fromSwidClass(swidClass: previousValue!),

@@ -17,7 +17,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartUnboxingExpression {
-  final SwidType? swidType;
+  final SwidType swidType;
   final Expression expression;
   final String identifierName;
 
@@ -27,7 +27,7 @@ class DartUnboxingExpression {
     this.identifierName = "",
   });
 
-  String? toDartSource() => swidType!.when(
+  String toDartSource() => swidType.when(
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
             swidInterface: val,
             onPrimitive: (val) => val.name == "double" || val.name == "double*"
