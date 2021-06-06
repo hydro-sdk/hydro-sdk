@@ -18,7 +18,6 @@ import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.da
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFieldDeclarationFromVariableDeclarationList.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidTypeFormalFromTypeParameter.dart';
-import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';

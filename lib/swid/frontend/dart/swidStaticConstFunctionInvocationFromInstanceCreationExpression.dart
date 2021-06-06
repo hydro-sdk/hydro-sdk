@@ -47,12 +47,16 @@ SwidStaticConstFunctionInvocation
                   x is SimpleStringLiteral ||
                   x is BooleanLiteral ||
                   x is SimpleIdentifier);
-              return MapEntry(
+              if (argument != null) {
+                return MapEntry(
                   (x.childEntities.firstWhere((x) => x is Label) as Label)
                       .label
                       .name,
                   extractStaticConstFromSyntacticEntity(
-                      syntacticEntity: argument));
+                    syntacticEntity: argument,
+                  ),
+                );
+              }
             }
             return const MapEntry(null, null);
           })
