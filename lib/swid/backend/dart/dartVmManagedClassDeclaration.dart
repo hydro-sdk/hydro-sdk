@@ -25,7 +25,7 @@ class DartVMManagedClassDeclaration {
 
   DartVMManagedClassDeclaration({required this.swidClass});
 
-  String toDartSource() => DartFormatter().format(Class(
+  String toDartSource() => (Class(
         (c) => c
           ..name = "VMManaged${swidClass!.name}"
           ..extend = TypeReference((t) => t

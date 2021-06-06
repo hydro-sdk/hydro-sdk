@@ -49,7 +49,7 @@ class DartBindInstanceField {
                 .toString(),
             onVoid: (_) => "void",
             onUnknown: (_) => "unknown",
-            onTypeParameter: ((_) => null) as String Function(SwidInterface),
+            onTypeParameter: (_) => "",
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",

@@ -44,7 +44,7 @@ class DartVMManagedClassMethodInjectionImplementation {
                 "];")
       ]);
 
-  String toDartSource() => DartFormatter().formatStatement(refer("table")
+  String toDartSource() => (refer("table")
       .index(literalString(tableKey))
       .assign(luaDartBinding(
           code: swidFunctionType.returnType.when<Block?>(
