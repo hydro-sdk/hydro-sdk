@@ -20,7 +20,7 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType(
           Map.fromEntries(swidiFunctionDeclaration.namedParameters
               .map(
                 (x) => MapEntry(
-                  x!.declaration.name,
+                  x.declaration.name,
                   SwidType.fromSwidInterface(
                     swidInterface: swidiInterfaceToSwidInterface(
                       swidiInterface: x.declaration.type,
@@ -51,7 +51,7 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType(
           .toList()
             ..removeWhere((x) => x == dartUnkownDefaultFormalParameterEntry)),
       normalParameterNames: swidiFunctionDeclaration.positionalParameters
-          .map((x) => x!.declaration.name)
+          .map((x) => x.declaration.name)
           .toList(),
       normalParameterTypes: swidiFunctionDeclaration.positionalParameters
           .map(
@@ -63,13 +63,13 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType(
           )
           .toList(),
       optionalParameterNames: swidiFunctionDeclaration.optionalParameters
-          .map((x) => x!.declaration.name)
+          .map((x) => x.declaration.name)
           .toList(),
       optionalParameterTypes: swidiFunctionDeclaration.optionalParameters
           .map(
             (x) => SwidType.fromSwidInterface(
               swidInterface: swidiInterfaceToSwidInterface(
-                swidiInterface: x!.declaration.type,
+                swidiInterface: x.declaration.type,
               ),
             ),
           )

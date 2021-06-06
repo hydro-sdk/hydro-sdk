@@ -44,7 +44,7 @@ SwidType transformPrimitiveNamesToTs({required SwidType swidType}) =>
               : null,
           implementedClasses: val.implementedClasses
               .map((x) => transformPrimitiveNamesToTs(
-                          swidType: SwidType.fromSwidClass(swidClass: x!))
+                          swidType: SwidType.fromSwidClass(swidClass: x,),)
                       .when(
                     fromSwidInterface: (_) => null,
                     fromSwidClass: (val) => val,

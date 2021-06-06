@@ -1,5 +1,6 @@
 
 
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -14,8 +15,8 @@ import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferenc
 String rewriteReferenceName({required String name}) =>
     name != "Object" ? "I${name}" : name;
 
-SwidType? rewriteClassReferencesToInterfaceReferences(
-        {required SwidType swidType}) =>
+SwidType rewriteClassReferencesToInterfaceReferences(
+        {required SwidType swidType,}) =>
     swidType.when(
       fromSwidInterface: (val) => isPrimitiveMap(
               swidType: SwidType.fromSwidInterface(swidInterface: val))
@@ -23,7 +24,7 @@ SwidType? rewriteClassReferencesToInterfaceReferences(
               swidInterface: SwidInterface.clone(swidType: val, typeArguments: [
               val.typeArguments.first,
               rewriteClassReferencesToInterfaceReferences(
-                  swidType: val.typeArguments.last!),
+                  swidType: val.typeArguments.last),
             ]))
           : SwidType.fromSwidInterface(
               swidInterface: narrowSwidInterfaceByReferenceDeclaration(
@@ -38,12 +39,13 @@ SwidType? rewriteClassReferencesToInterfaceReferences(
                         : val.name,
                     typeArguments: val.typeArguments
                         .map((x) => rewriteClassReferencesToInterfaceReferences(
-                            swidType: x!))
+                            swidType: x,))
                         .toList()),
                 onEnum: (val) => val,
                 onVoid: (val) => val,
                 onTypeParameter: (val) => val,
                 onDynamic: (val) => val,
+                onUnknown:  (val) => val,
               )!,
             ),
       fromSwidClass: (val) => SwidType.fromSwidClass(
@@ -55,8 +57,8 @@ SwidType? rewriteClassReferencesToInterfaceReferences(
                 : null,
             typeFormals: val.typeFormals
                 .map(
-                  (x) => x != null
-                      ? SwidTypeFormal.clone(
+                  (x) =>
+                       SwidTypeFormal.clone(
                           swidTypeFormal: x,
                           value: x.value.when(
                             fromString: (val) =>
@@ -66,7 +68,7 @@ SwidType? rewriteClassReferencesToInterfaceReferences(
                               swidClass: SwidClass.clone(
                                 swidClass:
                                     rewriteClassReferencesToInterfaceReferencesInClass(
-                                        swidClass: val),
+                                        swidClass: val,),
                                 name: !isPrimitive(
                                         swidType: SwidType.fromSwidClass(
                                             swidClass: val))
@@ -80,43 +82,43 @@ SwidType? rewriteClassReferencesToInterfaceReferences(
                                   rewriteClassReferencesToInterfaceReferences(
                                 swidType: SwidType.fromSwidInterface(
                                     swidInterface: val),
-                              )!.when(
+                              ).when(
                                 fromSwidInterface: (val) => val,
-                                fromSwidClass: ((_) => null) as SwidInterface Function(SwidClass),
-                                fromSwidDefaultFormalParameter: ((_) => null) as SwidInterface Function(SwidDefaultFormalParameter),
-                                fromSwidFunctionType: ((_) => null) as SwidInterface Function(SwidFunctionType),
+                                fromSwidClass: (_) => dartUnkownInterface,
+                                fromSwidDefaultFormalParameter: (_) => dartUnkownInterface,
+                                fromSwidFunctionType: (_) => dartUnkownInterface,
                               ),
                             ),
                             fromSwidFunctionType: (val) =>
                                 SwidTypeFormalValue.fromSwidFunctionType(
                                     swidFunctionType: SwidFunctionType.clone(
-                                        swidFunctionType: val)),
+                                        swidFunctionType: val,),),
                           ),
                         )
-                      : null,
+                      ,
                 )
                 .toList(),
             factoryConstructors: val.factoryConstructors
                 .map((x) =>
                     rewriteClassReferencesToInterfaceReferencesInFunction(
-                        swidFunctionType: x!))
+                        swidFunctionType: x,))
                 .toList(),
             staticMethods: val.staticMethods
                 .map((x) =>
                     rewriteClassReferencesToInterfaceReferencesInFunction(
-                        swidFunctionType: x!))
+                        swidFunctionType: x,))
                 .toList(),
             methods: val.methods
                 .map((x) =>
                     rewriteClassReferencesToInterfaceReferencesInFunction(
-                        swidFunctionType: x!))
+                        swidFunctionType: x,))
                 .toList(),
             instanceFieldDeclarations: Map.fromEntries(
               val.instanceFieldDeclarations.entries
                   .map((x) => MapEntry(
                       x.key,
                       rewriteClassReferencesToInterfaceReferences(
-                          swidType: x.value!)))
+                          swidType: x.value,)))
                   .toList(),
             ),
             extendedClass: val.extendedClass != null
@@ -125,14 +127,14 @@ SwidType? rewriteClassReferencesToInterfaceReferences(
                 : null,
             implementedClasses: val.implementedClasses
                 .map((x) => rewriteClassReferencesToInterfaceReferencesInClass(
-                    swidClass: x!))
+                    swidClass: x,))
                 .toList(),
             mixedInClasses: val.mixedInClasses
                 .map((x) =>
-                    rewriteClassReferencesToInterfaceReferencesInClass(swidClass: x!))
+                    rewriteClassReferencesToInterfaceReferencesInClass(swidClass: x,))
                 .toList()),
       ),
-      fromSwidDefaultFormalParameter: (_) => null,
+      fromSwidDefaultFormalParameter: (_) => dartUnkownType,
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
         swidFunctionType: SwidFunctionType.clone(
             swidFunctionType: val,
@@ -141,17 +143,17 @@ SwidType? rewriteClassReferencesToInterfaceReferences(
             ),
             normalParameterTypes: val.normalParameterTypes
                 .map((x) =>
-                    rewriteClassReferencesToInterfaceReferences(swidType: x!))
+                    rewriteClassReferencesToInterfaceReferences(swidType: x,))
                 .toList(),
             optionalParameterTypes: val.optionalParameterTypes
                 .map((x) =>
-                    rewriteClassReferencesToInterfaceReferences(swidType: x!))
+                    rewriteClassReferencesToInterfaceReferences(swidType: x,))
                 .toList(),
             namedParameterTypes: Map.fromEntries(val.namedParameterTypes.entries
                 .map((x) => MapEntry(
                     x.key,
                     rewriteClassReferencesToInterfaceReferences(
-                        swidType: x.value!)))
+                        swidType: x.value,),),)
                 .toList())),
       ),
     );
