@@ -22,58 +22,72 @@ class SwidIr with _$SwidIr {
             ...([
               ...value
                   .map((x) => x.maybeWhen(
-                      fromSwidEnum: (val) => val, orElse: () => null))
+                        fromSwidEnum: (val) => val,
+                        orElse: () => null,
+                      ))
                   .where((x) => x != null)
-                  .toList(),
+                  .toList()
+                  .cast<SwidEnum>(),
               ...element
                   .map((x) => x.maybeWhen(
-                      fromSwidEnum: (val) => val, orElse: () => null))
+                        fromSwidEnum: (val) => val,
+                        orElse: () => null,
+                      ))
                   .where((x) => x != null)
-                  .toList(),
-            ].map((x) => SwidIr.fromSwidEnum(swidEnum: x!)).toList()),
+                  .toList()
+                  .cast<SwidEnum>(),
+            ].map((x) => SwidIr.fromSwidEnum(swidEnum: x)).toList()),
             ..._mergeClasses(
-              first: (value
+              first: value
                   .map((x) => x.maybeWhen(
-                      fromSwidClass: (val) => val, orElse: () => null))
+                        fromSwidClass: (val) => val,
+                        orElse: () => null,
+                      ))
                   .where((x) => x != null)
                   .toList()
-                    ..removeWhere((x) => x == null)) as List<SwidClass>,
-              second: (element
+                  .cast<SwidClass>(),
+              second: element
                   .map((x) => x.maybeWhen(
-                      fromSwidClass: (val) => val, orElse: () => null))
+                        fromSwidClass: (val) => val,
+                        orElse: () => null,
+                      ))
                   .where((x) => x != null)
                   .toList()
-                    ..removeWhere((x) => x == null)) as List<SwidClass>,
-            ).map((x) => SwidIr.fromSwidClass(swidClass: x!)).toList()
+                  .cast<SwidClass>(),
+            ).map((x) => SwidIr.fromSwidClass(swidClass: x)).toList()
           ]);
 }
 
-List<SwidClass?> _mergeClasses(
-        {required List<SwidClass> first, required List<SwidClass> second}) =>
+List<SwidClass> _mergeClasses({
+  required List<SwidClass> first,
+  required List<SwidClass> second,
+}) =>
     second.fold(
-        first,
-        (previousValue, element) => previousValue.firstWhere(
-                    (x) =>
-                        x!.originalPackagePath == element.originalPackagePath &&
-                        x.name == element.name,
-                    orElse: () => null) !=
-                null
-            ? [
-                ...previousValue
-                    .where((x) =>
-                        x!.originalPackagePath != element.originalPackagePath &&
-                        x.name != element.name)
-                    .toList(),
-                SwidClass.mergeDeclarations(
-                    swidClass: previousValue.firstWhere(
-                        (x) =>
-                            x!.originalPackagePath ==
-                                element.originalPackagePath &&
-                            x.name == element.name,
-                        orElse: () => null)!,
-                    superClass: element)
-              ]
-            : [
+      first,
+      (previousValue, element) => <SwidClass?>[
                 ...previousValue,
-                element,
-              ]);
+              ].firstWhere(
+                  (x) =>
+                      x?.originalPackagePath == element.originalPackagePath &&
+                      x?.name == element.name,
+                  orElse: () => null) !=
+              null
+          ? [
+              ...previousValue
+                  .where((x) =>
+                      x.originalPackagePath != element.originalPackagePath &&
+                      x.name != element.name)
+                  .toList(),
+              SwidClass.mergeDeclarations(
+                  swidClass: previousValue.firstWhere(
+                    (x) =>
+                        x.originalPackagePath == element.originalPackagePath &&
+                        x.name == element.name,
+                  ),
+                  superClass: element)
+            ]
+          : [
+              ...previousValue,
+              element,
+            ],
+    );
