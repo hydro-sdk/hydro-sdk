@@ -20,7 +20,7 @@ class _$SwidiDeclarationTearOff {
       {required String name,
       required SwidiInterface type,
       SwidiConst defaultConstValue = const SwidiConst.fromSwidiEmptyConst(
-          swidiEmptyConst: const SwidiEmptyConst())}) {
+          swidiEmptyConst: swidiEmptyConst)}) {
     return _$SwidiDeclarationCtor(
       name: name,
       type: type,
@@ -156,7 +156,7 @@ class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
       {required this.name,
       required this.type,
       this.defaultConstValue = const SwidiConst.fromSwidiEmptyConst(
-          swidiEmptyConst: const SwidiEmptyConst())});
+          swidiEmptyConst: swidiEmptyConst)});
 
   @override
   final String name;
@@ -164,7 +164,7 @@ class _$_$SwidiDeclarationCtor implements _$SwidiDeclarationCtor {
   final SwidiInterface type;
   @JsonKey(
       defaultValue: const SwidiConst.fromSwidiEmptyConst(
-          swidiEmptyConst: const SwidiEmptyConst()))
+          swidiEmptyConst: swidiEmptyConst))
   @override
   final SwidiConst defaultConstValue;
 

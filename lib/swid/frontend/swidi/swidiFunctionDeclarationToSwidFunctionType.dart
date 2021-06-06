@@ -10,7 +10,7 @@ import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidFunctionType swidiFunctionDeclarationToSwidFunctionType(
-        {required SwidiFunctionDeclaration swidiFunctionDeclaration}) =>
+        {required SwidiFunctionDeclaration swidiFunctionDeclaration,}) =>
     SwidFunctionType(
       name: swidiFunctionDeclaration.name,
       nullabilitySuffix: SwidNullabilitySuffix.none,
@@ -31,8 +31,8 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType(
               .toList()),
       namedDefaults: Map.fromEntries(swidiFunctionDeclaration.optionalParameters
           .map(
-            (x) => x!.declaration.defaultConstValue.when(
-              fromSwidiEmptyConst: (val) => null,
+            (x) => x.declaration.defaultConstValue.when(
+              fromSwidiEmptyConst: (val) =>  dartUnkownDefaultFormalParameterEntry    ,
               fromSwidiConstNumber: (val) => MapEntry(
                 x.declaration.name,
                 SwidDefaultFormalParameter(
@@ -48,8 +48,8 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType(
               ),
             ),
           )
-          .toList() as Iterable<MapEntry<String, SwidDefaultFormalParameter>>
-            ..removeWhere((x) => x == null)),
+          .toList()
+            ..removeWhere((x) => x == dartUnkownDefaultFormalParameterEntry)),
       normalParameterNames: swidiFunctionDeclaration.positionalParameters
           .map((x) => x!.declaration.name)
           .toList(),
@@ -57,7 +57,7 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType(
           .map(
             (x) => SwidType.fromSwidInterface(
               swidInterface: swidiInterfaceToSwidInterface(
-                swidiInterface: x!.declaration.type,
+                swidiInterface: x.declaration.type,
               ),
             ),
           )

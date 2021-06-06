@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
@@ -13,7 +14,7 @@ class SwidiDeclaration with _$SwidiDeclaration {
     required SwidiInterface type,
     @Default(
       const SwidiConst.fromSwidiEmptyConst(
-        swidiEmptyConst: SwidiEmptyConst(),
+        swidiEmptyConst: swidiEmptyConst ,
       ),
     )
         SwidiConst defaultConstValue,

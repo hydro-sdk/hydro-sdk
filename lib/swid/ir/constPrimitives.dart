@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
@@ -181,6 +182,18 @@ const dartUnkownTypeFormal = const SwidTypeFormal(
     swidInterface: dartUnkownInterface,
   ),
   swidReferenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
+);
+
+const dartUnknownDefaultFormalParameter = const SwidDefaultFormalParameter(
+  name: "Unknown",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "",
+  value: dartUnkownType,
+);
+
+const dartUnkownDefaultFormalParameterEntry = const MapEntry(
+  "Unknown",
+  dartUnknownDefaultFormalParameter,
 );
 
 const dartUnknownConst =

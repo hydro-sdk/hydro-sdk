@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
 
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
@@ -13,7 +14,7 @@ class SwidiConst with _$SwidiConst {
   }) =>
       swidiConst.when(
         fromSwidiEmptyConst: (val) => SwidiConst.fromSwidiEmptyConst(
-            swidiEmptyConst: const SwidiEmptyConst()),
+            swidiEmptyConst: swidiEmptyConst, ),
         fromSwidiConstNumber: (val) => SwidiConst.fromSwidiConstNumber(
           swidiConstNumber: SwidiConstNumber.clone(
             swidiConstNumber: val,

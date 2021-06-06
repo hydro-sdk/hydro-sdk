@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiDeclaration.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
@@ -30,3 +31,5 @@ const swidiUnknownPositionalParameter = const SwidiPositionalParameter(
 const swidiUnknownNamedParameter = const SwidiNamedParameter(
   declaration: swidiUnkownDeclaration,
 );
+
+const swidiEmptyConst = const SwidiEmptyConst();
