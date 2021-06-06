@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -35,7 +36,7 @@ SwidStaticConstFunctionInvocation
               .firstWhere((x) => x is ArgumentList) as ArgumentList)
           .childEntities
           .map((x) => extractStaticConstFromSyntacticEntity(syntacticEntity: x))
-          .where((x) => x != null)
+          .where((x) => x != dartUnknownConst)
           .toList()
           .cast<SwidStaticConst>(),
       namedParameters: Map.fromEntries((instanceCreationExpression.childEntities
@@ -61,6 +62,7 @@ SwidStaticConstFunctionInvocation
             return const MapEntry(null, null);
           })
           .where((x) => x.key != null && x.value != null)
+          .where((x) => x.value != dartUnknownConst)
           .toList()
           .cast<MapEntry<String, SwidStaticConst>>()),
       isConstructorInvocation: constructor.name == null);
