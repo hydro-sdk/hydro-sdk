@@ -10,6 +10,7 @@
                 "dart:typed_data"
             ],
             "classNames": [
+                "Random",
                 "Icons",
                 "CupertinoIcons",
                 "IconData",
