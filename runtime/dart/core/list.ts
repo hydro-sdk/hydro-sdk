@@ -294,9 +294,8 @@ export class List<E> implements IEfficientLengthIterable<E> {
         end: number,
         replacement: IIterable<E>
     ) => void = undefined as any;
-    private readonly _dart_asMap: () => {
-        [index: number]: E;
-    } = undefined as any;
+    private readonly _dart_asMap: () => { [index: number]: E } =
+        undefined as any;
     private readonly _dart_followedBy: (other: IIterable<E>) => IIterable<E> =
         undefined as any;
     private readonly _dart_map: <T>(f: (e: E) => T) => IIterable<T> =

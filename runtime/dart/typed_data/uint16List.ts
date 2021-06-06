@@ -216,9 +216,8 @@ export class Uint16List implements IList<number>, I_TypedIntList {
         end: number,
         replacement: IIterable<number>
     ) => void = undefined as any;
-    private readonly _dart_asMap: () => {
-        [index: number]: number;
-    } = undefined as any;
+    private readonly _dart_asMap: () => { [index: number]: number } =
+        undefined as any;
     private readonly _dart_setFirst: (value: number) => void = undefined as any;
     private readonly _dart_setLast: (value: number) => void = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
