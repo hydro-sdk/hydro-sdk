@@ -18,15 +18,16 @@ class Closure {
   });
 
   Prototype? proto;
-  Frame? parent;
+  final Frame? parent;
   final Context? context;
-  List<Upval?>? upvalues;
+  final List<Upval?>? upvalues;
 
   BuildProfile get buildProfile => proto!.buildProfile;
 
-  static Prototype maybeLookupReloadedPrototype(
-      {required Prototype prototype, required HydroState parentState}) {
-    assert(parentState != null);
+  static Prototype maybeLookupReloadedPrototype({
+    required Prototype prototype,
+    required HydroState parentState,
+  }) {
     if (prototype.buildProfile != BuildProfile.debug) {
       return prototype;
     } else if (prototype.buildProfile == BuildProfile.debug &&
@@ -55,9 +56,11 @@ class Closure {
     return prototype;
   }
 
-  List<dynamic>? dispatch(List<dynamic> args,
-      {required HydroState parentState,
-      bool resetEnclosingLexicalEnvironment = false}) {
+  List<dynamic> dispatch(
+    List<dynamic> args, {
+    required HydroState parentState,
+    bool resetEnclosingLexicalEnvironment = false,
+  }) {
     try {
       proto = maybeLookupReloadedPrototype(
           prototype: proto!, parentState: parentState);
@@ -85,9 +88,11 @@ class Closure {
     }
   }
 
-  static List<dynamic>? _dispatch(List<dynamic> args,
-      {required HydroState parentState, required Closure closure}) {
-    assert(parentState != null);
+  static List<dynamic> _dispatch(
+    List<dynamic> args, {
+    required HydroState parentState,
+    required Closure closure,
+  }) {
     var f = new Thread(closure: closure, hydroState: parentState).frame!;
     f.loadArgs(args);
     ThreadResult x;
@@ -98,6 +103,6 @@ class Closure {
       if (v is HydroError) throw v;
       throw maybeAt(x.values, 0);
     }
-    return x.values;
+    return x.values ?? [];
   }
 }
