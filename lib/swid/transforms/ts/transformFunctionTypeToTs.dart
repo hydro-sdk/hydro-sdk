@@ -33,7 +33,7 @@ String transformFunctionTypeToTs({
   for (var i = 0; i != swidFunctionType.optionalParameterNames.length; ++i) {
     normalTypes.addEntries([
       MapEntry(swidFunctionType.optionalParameterNames[i],
-          cloneSwidType(swidType: swidFunctionType.optionalParameterTypes[i]!))
+          cloneSwidType(swidType: swidFunctionType.optionalParameterTypes[i]))
     ]);
   }
 
@@ -113,7 +113,7 @@ String transformFunctionTypeToTs({
 
     swidFunctionType.namedParameterTypes.entries.forEach((x) {
       res +=
-          "${x.key}${x.value!.nullabilitySuffix == SwidNullabilitySuffix.question || (emitDefaultFormalsAsOptionalNamed && swidFunctionType.namedDefaults[x.key] != null) ? "?" : ""} : ${transformTypeDeclarationToTs(swidType: x.value!)}, ";
+          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question || (emitDefaultFormalsAsOptionalNamed && swidFunctionType.namedDefaults[x.key] != null) ? "?" : ""} : ${transformTypeDeclarationToTs(swidType: x.value)}, ";
     });
     res += "}";
   }

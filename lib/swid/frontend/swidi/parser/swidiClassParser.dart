@@ -14,7 +14,7 @@ mixin SwidiClassParser on SwidiGrammarDefinition {
         return SwidiClass(
           name:
               List.from(name).where((x) => x != null).toList()[1].input.trim(),
-          libraryScopePrefix: libraryPrefix?.isNotEmpty ?? false
+          libraryScopePrefix: libraryPrefix.isNotEmpty
               ? libraryPrefix.first
               : SwidiLibraryScopePrefix.empty,
           methods: methods,

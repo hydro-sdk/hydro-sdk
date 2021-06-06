@@ -1,5 +1,4 @@
 import 'package:analyzer/dart/element/type.dart' show DynamicType;
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
@@ -15,6 +14,6 @@ SwidInterface swidInterfaceFromDynamicType(
       nullabilitySuffix: mapNullabilitySuffix(
           nullabilitySuffix: dynamicType.nullabilitySuffix)!,
       originalPackagePath:
-          dynamicType.element?.librarySource?.uri?.toString() ?? "",
+          dynamicType.element?.librarySource?.uri.toString() ?? "",
       referenceDeclarationKind: SwidReferenceDeclarationKind.dynamicType,
     );

@@ -17,7 +17,7 @@ SwidClass fixupNullability({required SwidClass swidClass}) => swidClass.name ==
                     ? MapEntry(
                         x.key,
                         cloneSwidType(
-                            swidType: x.value!,
+                            swidType: x.value,
                             swidNullabilitySuffix:
                                 SwidNullabilitySuffix.question))
                     : MapEntry(x.key, x.value)))))

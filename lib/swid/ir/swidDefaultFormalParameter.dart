@@ -26,6 +26,6 @@ class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
         name: swidType.name,
         nullabilitySuffix: swidType.nullabilitySuffix,
         originalPackagePath: swidType.originalPackagePath,
-        value: cloneSwidType(swidType: swidType.value!),
+        value: cloneSwidType(swidType: swidType.value),
       );
 }

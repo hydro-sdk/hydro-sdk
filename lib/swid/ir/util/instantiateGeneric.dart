@@ -36,7 +36,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x!,
+                    swidType: x,
                   ),
                 )
                 .toList(),
@@ -49,7 +49,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x!,
+                    swidType: x,
                   ),
                 )
                 .toList(),
@@ -62,7 +62,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x!,
+                    swidType: x,
                   ),
                 )
                 .toList(),
@@ -106,7 +106,7 @@ SwidType instantiateGeneric({
                 swidClass: val,
                 typeFormals: [
                   ...val.typeFormals
-                      .map((x) => x!.swidReferenceDeclarationKind ==
+                      .map((x) => x.swidReferenceDeclarationKind ==
                                   SwidReferenceDeclarationKind
                                       .typeParameterType &&
                               x.value.displayName == genericInstantiator.name
@@ -129,13 +129,13 @@ SwidType instantiateGeneric({
                             )
                           : x)
                       .toList(),
-                ]..removeWhere((x) => x == null),
+                ]..removeWhere((x) => x == dartUnkownTypeFormal),
                 constructorType: val.constructorType != null
                     ? instantiateGeneric(
                         genericInstantiator: genericInstantiator,
                         swidType: SwidType.fromSwidFunctionType(
                             swidFunctionType: val.constructorType!),
-                      )!.when(
+                      ).when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
                         fromSwidDefaultFormalParameter: (_) => null,
@@ -166,7 +166,7 @@ SwidType instantiateGeneric({
                         swidType: SwidType.fromSwidFunctionType(
                           swidFunctionType: x,
                         ),
-                      )!.when(
+                      ).when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
                         fromSwidDefaultFormalParameter: (_) => null,
@@ -183,9 +183,9 @@ SwidType instantiateGeneric({
                       (x) => instantiateGeneric(
                         genericInstantiator: genericInstantiator,
                         swidType: SwidType.fromSwidFunctionType(
-                          swidFunctionType: x!,
+                          swidFunctionType: x,
                         ),
-                      )!.when(
+                      ).when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
                         fromSwidDefaultFormalParameter: (_) => null,
@@ -211,7 +211,7 @@ SwidType instantiateGeneric({
             swidFunctionType: val,
             typeFormals: [
               ...val.typeFormals
-                  .map((x) => x!.value.displayName == genericInstantiator.name
+                  .map((x) => x.value.displayName == genericInstantiator.name
                       ? SwidTypeFormal(
                           value: genericInstantiator
                               .instantiatedGeneric.instantiableGeneric
@@ -231,7 +231,7 @@ SwidType instantiateGeneric({
                         )
                       : x)
                   .toList(),
-            ]..removeWhere((x) => x == null),
+            ]..removeWhere((x) => x == dartUnkownTypeFormal  ),
             namedParameterTypes: Map.fromEntries(
               val.namedParameterTypes.entries
                   .map(
@@ -239,7 +239,7 @@ SwidType instantiateGeneric({
                       x.key,
                       instantiateGeneric(
                         genericInstantiator: genericInstantiator,
-                        swidType: x.value!,
+                        swidType: x.value,
                       ),
                     ),
                   )
@@ -249,7 +249,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x!,
+                    swidType: x,
                   ),
                 )
                 .toList(),
@@ -257,7 +257,7 @@ SwidType instantiateGeneric({
                 .map(
                   (x) => instantiateGeneric(
                     genericInstantiator: genericInstantiator,
-                    swidType: x!,
+                    swidType: x,
                   ),
                 )
                 .toList(),

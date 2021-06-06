@@ -97,23 +97,23 @@ class SwidFunctionType with _$SwidFunctionType {
       swidDeclarationModifiers: swidDeclarationModifiers ??
           SwidDeclarationModifiers.clone(
               swidDeclarationModifiers:
-                  (swidFunctionType!.swidDeclarationModifiers ?? []) as SwidDeclarationModifiers),
+                  swidFunctionType!.swidDeclarationModifiers ),
       namedParameterTypes: namedParameterTypes ??
-          Map.from(swidFunctionType!.namedParameterTypes ?? {}),
+          Map.from(swidFunctionType!.namedParameterTypes ),
       namedDefaults:
-          namedDefaults ?? Map.from(swidFunctionType!.namedDefaults ?? {}),
+          namedDefaults ?? Map.from(swidFunctionType!.namedDefaults ),
       normalParameterNames: normalParameterNames ??
-          List.from(swidFunctionType!.normalParameterNames ?? []),
+          List.from(swidFunctionType!.normalParameterNames ),
       normalParameterTypes: normalParameterTypes ??
-          List.from(swidFunctionType!.normalParameterTypes ?? []),
+          List.from(swidFunctionType!.normalParameterTypes ),
       optionalParameterNames: optionalParameterNames ??
-          List.from(swidFunctionType!.optionalParameterNames ?? []),
+          List.from(swidFunctionType!.optionalParameterNames ),
       optionalParameterTypes: optionalParameterTypes ??
-          List.from(swidFunctionType!.optionalParameterTypes ?? []),
+          List.from(swidFunctionType!.optionalParameterTypes ),
       returnType:
           returnType ?? cloneSwidType(swidType: swidFunctionType!.returnType),
       isFactory: isFactory ?? swidFunctionType!.isFactory,
-      typeFormals: typeFormals ?? List.from(swidFunctionType!.typeFormals ?? []),
+      typeFormals: typeFormals ?? List.from(swidFunctionType!.typeFormals ),
     );
   }
 }

@@ -19,6 +19,7 @@ import 'package:hydro_sdk/swid/frontend/dart/swidIntegerLiteralFromIntegerLitera
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstBinaryExpressionFromBinaryExpression.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFunctionInvocationFromInstanceCreationExpression.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStringLiteralFromSimpleStringLiteral.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 
@@ -29,7 +30,6 @@ SwidStaticConstFieldDeclaration
   assert(!variableDeclarationList.isLate);
   VariableDeclaration declaration = variableDeclarationList.childEntities
       .firstWhere((x) => x is VariableDeclaration) as VariableDeclaration;
-  assert(declaration != null);
   assert(declaration.declaredElement is ConstFieldElementImpl);
   assert(declaration.declaredElement!.isConst);
   assert(declaration.declaredElement!.isStatic);
@@ -85,6 +85,6 @@ SwidStaticConstFieldDeclaration
                                 swidIntegerLiteralFromIntegerLiteral(
                                     integerLiteral: declaration.childEntities
                                         .firstWhereOrNull((x) => x is IntegerLiteral) as IntegerLiteral))
-                        : null,
+                        : dartUnknownConst,
   );
 }

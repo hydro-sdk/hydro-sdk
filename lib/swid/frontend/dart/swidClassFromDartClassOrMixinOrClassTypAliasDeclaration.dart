@@ -78,7 +78,7 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       nullabilitySuffix: SwidNullabilitySuffix.none,
       swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
       originalPackagePath:
-          dartClassOrMixinOrClassTypAliasDeclaration.declaredElement?.librarySource?.uri?.toString() ??
+          dartClassOrMixinOrClassTypAliasDeclaration.declaredElement?.librarySource.uri.toString() ??
               "",
       constructorType: constructorDeclarationImpl != null
           ? SwidFunctionType.clone(

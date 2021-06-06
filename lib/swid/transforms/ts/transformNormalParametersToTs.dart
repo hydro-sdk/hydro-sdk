@@ -11,12 +11,12 @@ String transformNormalParametersToTs({
   required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
     swidLiterals
-        ?.map((x) => transformLiteralToTs(
+        .map((x) => transformLiteralToTs(
               swidLiteral: x!,
               parentClass: parentClass,
               scopeResolver: scopeResolver,
               inexpressibleFunctionInvocationFallback:
                   inexpressibleFunctionInvocationFallback,
             ))
-        ?.join(", ") ??
-    "";
+        .join(", ") 
+    ;

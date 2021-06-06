@@ -14,6 +14,6 @@ SwidInterface swidInterfaceFromTypeParameterType(
       nullabilitySuffix: mapNullabilitySuffix(
           nullabilitySuffix: typeParameterType.nullabilitySuffix)!,
       originalPackagePath:
-          typeParameterType.element?.librarySource?.uri?.toString() ?? "",
+          typeParameterType.element.librarySource?.uri.toString() ?? "",
       referenceDeclarationKind: SwidReferenceDeclarationKind.typeParameterType,
     );

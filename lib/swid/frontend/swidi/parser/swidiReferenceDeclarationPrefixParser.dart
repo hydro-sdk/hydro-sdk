@@ -9,7 +9,7 @@ mixin SwidiReferenceDeclarationPrefixParser on SwidiGrammarDefinition {
       super.referenceDeclarationPrefix().map((x) {
         var tokenList = collectTokens<Token>(x);
         return SwidiReferenceDeclarationPrefix(
-          name: tokenList.isNotEmpty ? tokenList.first?.input ?? "" : "",
+          name: tokenList.isNotEmpty ? tokenList.first.input  : "",
         );
       });
 }

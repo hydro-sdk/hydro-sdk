@@ -1,6 +1,5 @@
 import 'package:analyzer/dart/ast/ast.dart' show PrefixedIdentifier;
-import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:analyzer/dart/element/element.dart' show ClassElement;
 
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromClassElement.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFieldReferenceFromSimpleIdentifier.dart';

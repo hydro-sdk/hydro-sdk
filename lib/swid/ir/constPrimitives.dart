@@ -4,6 +4,8 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
@@ -179,4 +181,11 @@ const dartUnkownTypeFormal = const SwidTypeFormal(
     swidInterface: dartUnkownInterface,
   ),
   swidReferenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
+);
+
+const dartUnknownConst =
+    const SwidStaticConst.fromSwidStaticConstFieldReference(
+  swidStaticConstFieldReference: SwidStaticConstFieldReference(
+    name: "Unknown",
+  ),
 );

@@ -34,7 +34,7 @@ class SwidInterface with _$SwidInterface {
         nullabilitySuffix: nullabilitySuffix ?? swidType.nullabilitySuffix,
         originalPackagePath:
             originalPackagePath ?? swidType.originalPackagePath,
-        typeArguments: typeArguments ?? List.from(swidType.typeArguments ?? []),
+        typeArguments: typeArguments ?? List.from(swidType.typeArguments ),
         referenceDeclarationKind:
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
       );

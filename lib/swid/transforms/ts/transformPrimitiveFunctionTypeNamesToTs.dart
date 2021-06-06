@@ -8,14 +8,14 @@ SwidFunctionType transformPrimitiveFunctionTypeNamesToTs({required SwidFunctionT
     swidFunctionType: swidFunctionType,
     normalParameterTypes: swidFunctionType.normalParameterTypes != null
         ? List.from(swidFunctionType.normalParameterTypes.map((x) =>
-            cloneSwidType(swidType: transformPrimitiveNamesToTs(swidType: x!))))
+            cloneSwidType(swidType: transformPrimitiveNamesToTs(swidType: x,))))
         : null,
     optionalParameterTypes: swidFunctionType.optionalParameterTypes != null
         ? List.from(swidFunctionType.optionalParameterTypes.map((x) =>
-            cloneSwidType(swidType: transformPrimitiveNamesToTs(swidType: x!))))
+            cloneSwidType(swidType: transformPrimitiveNamesToTs(swidType: x,))))
         : null,
     namedParameterTypes: swidFunctionType.namedParameterTypes != null
         ? Map.from(
-            swidFunctionType.namedParameterTypes.map((k, x) => MapEntry(k, cloneSwidType(swidType: transformPrimitiveNamesToTs(swidType: x!)))))
+            swidFunctionType.namedParameterTypes.map((k, x) => MapEntry(k, cloneSwidType(swidType: transformPrimitiveNamesToTs(swidType: x,)))))
         : null,
     returnType: transformPrimitiveNamesToTs(swidType: swidFunctionType.returnType));

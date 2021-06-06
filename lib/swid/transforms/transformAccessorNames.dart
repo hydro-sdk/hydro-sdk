@@ -7,6 +7,6 @@ SwidClass transformAccessorNames({required SwidClass swidClass}) =>
     SwidClass.clone(
         swidClass: swidClass,
         methods: swidClass.methods
-                ?.map((x) => transformAccessorName(swidFunctionType: x!))
-                ?.toList() ??
-            []);
+                .map((x) => transformAccessorName(swidFunctionType: x,))
+                .toList() 
+            );

@@ -61,7 +61,7 @@ extension SwidTypeMethods on SwidType {
                 ? [
                     "<",
                     val.typeArguments
-                        .map((x) => x!.displayName)
+                        .map((x) => x.displayName)
                         .toList()
                         .join(","),
                     ">"
@@ -74,7 +74,7 @@ extension SwidTypeMethods on SwidType {
                 ? [
                     "<",
                     val.typeFormals
-                        .map((x) => x!.value.displayName)
+                        .map((x) => x.value.displayName)
                         .toList()
                         .join(""),
                     ">"

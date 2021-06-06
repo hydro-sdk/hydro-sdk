@@ -23,7 +23,7 @@ String transformStaticConstFieldDeclaration({
       "=",
       " ",
       transformLiteralToTs(
-          swidLiteral: staticConstFieldDeclaration.value!,
+          swidLiteral: staticConstFieldDeclaration.value,
           scopeResolver: scopeResolver,
           parentClass: parentClass,
           //should match the corresponding vm declaration for the inexpressible field in the same translation unit

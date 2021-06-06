@@ -54,50 +54,50 @@ class SwidClass with _$SwidClass {
     List<SwidTypeFormal>? typeFormals,
   }) =>
       SwidClass(
-        name: name ?? swidClass!.name,
-        nullabilitySuffix: nullabilitySuffix ?? swidClass!.nullabilitySuffix,
+        name: name ?? swidClass.name,
+        nullabilitySuffix: nullabilitySuffix ?? swidClass.nullabilitySuffix,
         originalPackagePath:
-            originalPackagePath ?? swidClass!.originalPackagePath,
+            originalPackagePath ?? swidClass.originalPackagePath,
         constructorType: constructorType != null
             ? constructorType
-            : swidClass!.constructorType != null
+            : swidClass.constructorType != null
                 ? SwidFunctionType.clone(
                     swidFunctionType: swidClass.constructorType)
                 : null,
         factoryConstructors: factoryConstructors ??
-            List.from(swidClass!.factoryConstructors
-                    ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                    ?.toList() ??
-                []),
+            List.from(swidClass.factoryConstructors
+                    .map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                    .toList() 
+                ),
         staticMethods: staticMethods ??
-            List.from(swidClass!.staticMethods
-                    ?.map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                    ?.toList() ??
-                []),
+            List.from(swidClass.staticMethods
+                    .map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                    .toList() 
+                ),
         methods: methods ??
             List.from(swidClass.methods
                     .map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                    .toList() ??
-                []),
+                    .toList() 
+                ),
         staticConstFieldDeclarations: staticConstFieldDeclarations ??
-            List.from(swidClass!.staticConstFieldDeclarations ?? []),
+            List.from(swidClass.staticConstFieldDeclarations ),
         instanceFieldDeclarations: instanceFieldDeclarations ??
-            Map.from(swidClass!.instanceFieldDeclarations ?? {}),
+            Map.from(swidClass.instanceFieldDeclarations ),
         swidDeclarationModifiers:
-            swidDeclarationModifiers ?? swidClass!.swidDeclarationModifiers,
+            swidDeclarationModifiers ?? swidClass.swidDeclarationModifiers,
         mixedInClasses: mixedInClasses ??
-            List.from(swidClass!.mixedInClasses
-                    ?.map((x) => SwidClass.clone(swidClass: x))
-                    ?.toList() ??
-                []),
+            List.from(swidClass.mixedInClasses
+                    .map((x) => SwidClass.clone(swidClass: x))
+                    .toList() 
+                ),
         implementedClasses: implementedClasses ??
-            List.from(swidClass!.implementedClasses
-                    ?.map((x) => SwidClass.clone(swidClass: x))
-                    ?.toList() ??
-                []),
-        isMixin: isMixin ?? swidClass!.isMixin,
-        extendedClass: extendedClass ?? swidClass!.extendedClass,
-        typeFormals: typeFormals ?? List.from(swidClass!.typeFormals ?? []),
+            List.from(swidClass.implementedClasses
+                    .map((x) => SwidClass.clone(swidClass: x))
+                    .toList() 
+                ),
+        isMixin: isMixin ?? swidClass.isMixin,
+        extendedClass: extendedClass ?? swidClass.extendedClass,
+        typeFormals: typeFormals ?? List.from(swidClass.typeFormals ),
       );
 
   factory SwidClass.empty() => SwidClass(
@@ -163,7 +163,7 @@ class SwidClass with _$SwidClass {
                     (previousValue, element) => SwidClass.mergeDeclarations(
                         swidClass: previousValue,
                         superClass:
-                            SwidClass.mergeSuperClasses(swidClass: element!)))
+                            SwidClass.mergeSuperClasses(swidClass: element)))
                 : SwidClass.clone(swidClass: swidClassWithMergedInterfaces),
           ))(
         swidClassWithMergedInterfaces: swidClass.implementedClasses.isNotEmpty
@@ -172,7 +172,7 @@ class SwidClass with _$SwidClass {
                 (previousValue, element) => SwidClass.mergeDeclarations(
                     swidClass: previousValue,
                     superClass:
-                        SwidClass.mergeSuperClasses(swidClass: element!)))
+                        SwidClass.mergeSuperClasses(swidClass: element)))
             : SwidClass.clone(swidClass: swidClass),
       );
 }
@@ -181,7 +181,7 @@ extension SwidClassMethods on SwidClass {
   bool isPureAbstract() =>
       swidDeclarationModifiers.isAbstract &&
       (methods.isNotEmpty
-          ? methods.every((x) => x!.swidDeclarationModifiers.isAbstract)
+          ? methods.every((x) => x.swidDeclarationModifiers.isAbstract)
           : false) &&
       staticMethods.isEmpty &&
       factoryConstructors.isEmpty &&

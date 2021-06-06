@@ -36,7 +36,7 @@ String transformStaticConstFunctionInvocation(
 
     res += swidStaticConstFunctionInvocation.value + "(";
 
-    if (normalParameters?.isNotEmpty ?? false) {
+    if (normalParameters.isNotEmpty) {
       res += normalParameters;
     }
 
@@ -48,12 +48,12 @@ String transformStaticConstFunctionInvocation(
           inexpressibleFunctionInvocationFallback,
     );
 
-    if ((normalParameters?.isNotEmpty ?? false) &&
-        (namedParameters?.isNotEmpty ?? false)) {
+    if ((normalParameters.isNotEmpty ) &&
+        (namedParameters.isNotEmpty )) {
       res += ",";
     }
 
-    if (namedParameters?.isNotEmpty ?? false) {
+    if (namedParameters.isNotEmpty) {
       res += namedParameters;
     }
 

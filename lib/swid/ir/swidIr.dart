@@ -58,14 +58,14 @@ List<SwidClass?> _mergeClasses(
         first,
         (previousValue, element) => previousValue.firstWhere(
                     (x) =>
-                        x!.originalPackagePath == element!.originalPackagePath &&
+                        x!.originalPackagePath == element.originalPackagePath &&
                         x.name == element.name,
                     orElse: () => null) !=
                 null
             ? [
                 ...previousValue
                     .where((x) =>
-                        x!.originalPackagePath != element!.originalPackagePath &&
+                        x!.originalPackagePath != element.originalPackagePath &&
                         x.name != element.name)
                     .toList(),
                 SwidClass.mergeDeclarations(

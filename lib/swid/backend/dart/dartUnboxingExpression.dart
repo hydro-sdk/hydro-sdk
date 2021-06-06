@@ -67,7 +67,7 @@ class DartUnboxingExpression {
             ...[
               val.typeFormals.isNotEmpty
                   ? ("<" +
-                      val.typeFormals.map((x) => x!.value.name).toList().join() +
+                      val.typeFormals.map((x) => x.value.name).toList().join() +
                       ">")
                   : "",
               Method(
@@ -112,7 +112,7 @@ class DartUnboxingExpression {
                             .join(""),
                       ),
                     ),
-                  ).toDartSource()!),
+                  ).toDartSource()),
               ).closure.accept(DartEmitter()).toString(),
             ],
             " : null "

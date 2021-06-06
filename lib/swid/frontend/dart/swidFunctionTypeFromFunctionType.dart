@@ -23,14 +23,14 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
         nullabilitySuffix: mapNullabilitySuffix(
             nullabilitySuffix: functionType.nullabilitySuffix)!,
         originalPackagePath:
-            functionType.element?.librarySource?.uri?.toString() ?? "",
+            functionType.element?.librarySource.uri.toString() ?? "",
         swidDeclarationModifiers: swidDeclarationModifiers,
         namedParameterTypes: Map.fromEntries(
           (functionType.namedParameterTypes.keys
             .map((x) => MapEntry<String, SwidType?>(
                 x,
                 narrowDartTypeToSwidType(
-                    dartType: functionType?.namedParameterTypes[x]))
+                    dartType: functionType.namedParameterTypes[x]))
                     
                     ).toList()..removeWhere((x) =>x.value==null )) as List< MapEntry<String, SwidType>>
                     
@@ -63,12 +63,12 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
                   ..removeWhere((x) => x.value.name == ""))
             : {},
         normalParameterNames:
-            List.from(functionType.normalParameterNames ?? []),
+            List.from(functionType.normalParameterNames ),
         normalParameterTypes: List.from(
-            functionType.normalParameterTypes?.map((x) => narrowDartTypeToSwidType(dartType: x))?.toList() ?? []),
-        optionalParameterNames: List.from(functionType.optionalParameterNames ?? []),
-        optionalParameterTypes: List.from(functionType.optionalParameterTypes?.map((x) => narrowDartTypeToSwidType(dartType: x))?.toList() ?? []),
-        returnType: narrowDartTypeToSwidType(dartType: functionType.returnType)!,
+            functionType.normalParameterTypes.map((x) => narrowDartTypeToSwidType(dartType: x)).toList()),
+        optionalParameterNames: List.from(functionType.optionalParameterNames ),
+        optionalParameterTypes: List.from(functionType.optionalParameterTypes.map((x) => narrowDartTypeToSwidType(dartType: x)).toList() ),
+        returnType: narrowDartTypeToSwidType(dartType: functionType.returnType),
         isFactory: false,
         typeFormals: functionType.typeFormals.isNotEmpty
             ? functionType.typeFormals
