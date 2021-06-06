@@ -39,7 +39,7 @@ class DartBoxObjectReference {
                 type: type,
                 referenceName: objectReference.accept(DartEmitter()).toString(),
                 codeKind: CodeKind.expression,
-              ).toDartSource()!))
+              ).toDartSource()))
             : objectReference,
         "hydroState": refer("hydroState"),
         "table": tableExpression!,
