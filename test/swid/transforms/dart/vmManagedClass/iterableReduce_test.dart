@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -150,10 +151,13 @@ void main() {
         ]);
     expect(
         DartVMManagedClassDeclaration(
-                swidClass: instantiateAllGenericsAsDynamic(
-                        swidType: SwidType.fromSwidClass(swidClass: iterable))
-                    .maybeWhen(fromSwidClass: (val) => val, orElse: () => null))
-            .toDartSource(),
+          swidClass: instantiateAllGenericsAsDynamic(
+                  swidType: SwidType.fromSwidClass(swidClass: iterable))
+              .maybeWhen(
+            fromSwidClass: (val) => val,
+            orElse: () => dartUnknownClass,
+          ),
+        ).toDartSource(),
         """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
