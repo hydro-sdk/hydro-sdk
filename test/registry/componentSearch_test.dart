@@ -46,21 +46,22 @@ void main() {
 
       expect(createProjectResponse, isNull);
 
-      final loginResponse = await (api.login(
-          dto: LoginUserDto(
-        username: username,
-        password: password,
-      )) as FutureOr<SessionDto>);
+      final loginResponse = await api.login(
+        dto: LoginUserDto(
+          username: username,
+          password: password,
+        ),
+      );
 
       expect(loginResponse, isNotNull);
-      expect(loginResponse.authenticatedUser.username, username);
+      expect(loginResponse?.authenticatedUser.username, username);
 
       createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: loginResponse,
+        sessionDto: loginResponse!,
       );
 
       expect(createProjectResponse, isNotNull);
@@ -107,28 +108,27 @@ void main() {
       expect(createComponentResponse!.name, componentName);
       expect(createComponentResponse.description, componentDescription);
 
-      var canUpdateComponentResponse = await (api.canUpdateComponents(
+      var canUpdateComponentResponse = await api.canUpdateComponents(
         sessionDto: loginResponse,
-      ) as FutureOr<List<ComponentReadDto>>);
+      );
 
       expect(canUpdateComponentResponse, isNotNull);
       expect(
-          canUpdateComponentResponse.first.name, createComponentResponse.name);
-      expect(canUpdateComponentResponse.first.description,
+          canUpdateComponentResponse?.first.name, createComponentResponse.name);
+      expect(canUpdateComponentResponse?.first.description,
           createComponentResponse.description);
 
-      var componentSearchResponse = await (api.searchComponents(
-          searchTerm: componentName) as FutureOr<List<ComponentSearchDto>>);
+      var componentSearchResponse =
+          await api.searchComponents(searchTerm: componentName);
       expect(componentSearchResponse, isNotNull);
-      expect(componentSearchResponse.isNotEmpty, true);
-      expect(componentSearchResponse.length, 1);
+      expect(componentSearchResponse?.isNotEmpty, true);
+      expect(componentSearchResponse?.length, 1);
 
-      componentSearchResponse = await (api.searchComponents(searchTerm: "test")
-          as FutureOr<List<ComponentSearchDto>>);
+      componentSearchResponse = await api.searchComponents(searchTerm: "test");
       expect(componentSearchResponse, isNotNull);
-      expect(componentSearchResponse.isNotEmpty, true);
-      expect(componentSearchResponse.length, greaterThan(1));
-      expect(componentSearchResponse.length, lessThanOrEqualTo(10));
+      expect(componentSearchResponse?.isNotEmpty, true);
+      expect(componentSearchResponse?.length, greaterThan(1));
+      expect(componentSearchResponse?.length, lessThanOrEqualTo(10));
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

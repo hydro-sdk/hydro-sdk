@@ -42,21 +42,22 @@ void main() {
 
       expect(createProjectResponse, isNull);
 
-      final loginResponse = await (api.login(
-          dto: LoginUserDto(
-        username: username,
-        password: password,
-      )) as FutureOr<SessionDto>);
+      final loginResponse = await api.login(
+        dto: LoginUserDto(
+          username: username,
+          password: password,
+        ),
+      );
 
       expect(loginResponse, isNotNull);
-      expect(loginResponse.authenticatedUser.username, username);
+      expect(loginResponse?.authenticatedUser.username, username);
 
       createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: loginResponse,
+        sessionDto: loginResponse!,
       );
 
       expect(createProjectResponse, isNotNull);
@@ -79,19 +80,19 @@ void main() {
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);
 
-      var firstProjectById = await (api.getProjectById(
+      var firstProjectById = await api.getProjectById(
         projectId: canUpdateProjectResponse.first.id,
-      ) as FutureOr<ProjectEntity>);
+      );
 
       expect(firstProjectById, isNotNull);
-      expect(firstProjectById.name, username);
+      expect(firstProjectById?.name, username);
 
-      var lastProjectById = await (api.getProjectById(
+      var lastProjectById = await api.getProjectById(
         projectId: canUpdateProjectResponse.last.id,
-      ) as FutureOr<ProjectEntity>);
+      );
 
       expect(lastProjectById, isNotNull);
-      expect(lastProjectById.name, projectName);
+      expect(lastProjectById?.name, projectName);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

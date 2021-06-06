@@ -46,21 +46,22 @@ void main() {
 
       expect(createProjectResponse, isNull);
 
-      final loginResponse = await (api.login(
-          dto: LoginUserDto(
-        username: username,
-        password: password,
-      )) as FutureOr<SessionDto>);
+      final loginResponse = await api.login(
+        dto: LoginUserDto(
+          username: username,
+          password: password,
+        ),
+      );
 
       expect(loginResponse, isNotNull);
-      expect(loginResponse.authenticatedUser.username, username);
+      expect(loginResponse?.authenticatedUser.username, username);
 
       createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: loginResponse,
+        sessionDto: loginResponse!,
       );
 
       expect(createProjectResponse, isNotNull);
@@ -109,35 +110,35 @@ void main() {
       expect(createComponentResponse!.name, componentName);
       expect(createComponentResponse.description, componentDescription);
 
-      var canUpdateComponentResponse = await (api.canUpdateComponents(
+      var canUpdateComponentResponse = await api.canUpdateComponents(
         sessionDto: loginResponse,
-      ) as FutureOr<List<ComponentReadDto>>);
+      );
 
       expect(canUpdateComponentResponse, isNotNull);
       expect(
-          canUpdateComponentResponse.first.name, createComponentResponse.name);
-      expect(canUpdateComponentResponse.first.description,
+          canUpdateComponentResponse?.first.name, createComponentResponse.name);
+      expect(canUpdateComponentResponse?.first.description,
           createComponentResponse.description);
 
-      var getComponentResponse = await (api.getComponentByNameInProjectByName(
+      var getComponentResponse = await api.getComponentByNameInProjectByName(
         projectName: projectName,
         componentName: componentName,
-      ) as FutureOr<ComponentReadDto>);
+      );
 
       expect(getComponentResponse, isNotNull);
-      expect(getComponentResponse.name, componentName);
-      expect(getComponentResponse.isPublic, true);
+      expect(getComponentResponse?.name, componentName);
+      expect(getComponentResponse?.isPublic, true);
 
       var getReleaseChannelsResponse =
-          await (api.getAllReleaseChannelsByComponentId(
-        componentId: getComponentResponse.id,
-      ) as FutureOr<List<ReleaseChannelReadDto>>);
+          await api.getAllReleaseChannelsByComponentId(
+        componentId: getComponentResponse!.id,
+      );
 
       expect(getReleaseChannelsResponse, isNotNull);
-      expect(getReleaseChannelsResponse.isNotEmpty, true);
-      expect(getReleaseChannelsResponse.first.componentId,
+      expect(getReleaseChannelsResponse?.isNotEmpty, true);
+      expect(getReleaseChannelsResponse?.first.componentId,
           getComponentResponse.id);
-      expect(getReleaseChannelsResponse.first.name, "latest");
+      expect(getReleaseChannelsResponse?.first.name, "latest");
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

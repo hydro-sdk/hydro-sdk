@@ -42,21 +42,22 @@ void main() {
 
       expect(createProjectResponse, isNull);
 
-      final loginResponse = await (api.login(
-          dto: LoginUserDto(
-        username: username,
-        password: password,
-      )) as FutureOr<SessionDto>);
+      final loginResponse = await api.login(
+        dto: LoginUserDto(
+          username: username,
+          password: password,
+        ),
+      );
 
       expect(loginResponse, isNotNull);
-      expect(loginResponse.authenticatedUser.username, username);
+      expect(loginResponse?.authenticatedUser.username, username);
 
       createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: loginResponse,
+        sessionDto: loginResponse!,
       );
 
       expect(createProjectResponse, isNotNull);
