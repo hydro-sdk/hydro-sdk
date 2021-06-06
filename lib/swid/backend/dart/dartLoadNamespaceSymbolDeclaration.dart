@@ -38,12 +38,12 @@ class DartLoadNamespaceSymbolDeclaration {
     ..returns = refer("void")
     ..optionalParameters.addAll([
       Parameter((p) => p
-        ..annotations.add(refer("required"))
+        ..required = true
         ..named = true
         ..name = "hydroState"
         ..type = refer("HydroState")),
       Parameter((p) => p
-        ..annotations.add(refer("required"))
+        ..required = true
         ..named = true
         ..name = "table"
         ..type = refer("HydroTable")),

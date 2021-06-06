@@ -17,18 +17,18 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
     ..returns = refer("void")
     ..optionalParameters.addAll([
       Parameter((p) => p
-        ..annotations.add(refer("required"))
+        ..required = true
         ..named = true
         ..name = "hydroState"
         ..type = refer("HydroState")),
       barrelSpec.isTopLevel()
           ? Parameter((p) => p
-            ..annotations.add(refer("required"))
+            ..required = true
             ..named = true
             ..name = "context"
             ..type = refer("Context"))
           : Parameter((p) => p
-            ..annotations.add(refer("required"))
+            ..required = true
             ..named = true
             ..name = "table"
             ..type = refer("HydroTable")),

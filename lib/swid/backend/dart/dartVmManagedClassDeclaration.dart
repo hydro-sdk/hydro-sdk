@@ -58,17 +58,17 @@ class DartVMManagedClassDeclaration {
               (c) => c
                 ..optionalParameters.addAll([
                   Parameter((p) => p
-                    ..annotations.add(refer("required"))
+                    ..required = true
                     ..toThis = true
                     ..named = true
                     ..name = "table"),
                   Parameter((p) => p
-                    ..annotations.add(refer("required"))
+                    ..required = true
                     ..toThis = true
                     ..named = true
                     ..name = "vmObject"),
                   Parameter((p) => p
-                    ..annotations.add(refer("required"))
+                    ..required = true
                     ..toThis = true
                     ..named = true
                     ..name = "hydroState"),

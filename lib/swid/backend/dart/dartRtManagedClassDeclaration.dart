@@ -99,12 +99,12 @@ class DartRTManagedClassDeclaration {
           .toList())
       ..optionalParameters.addAll([
         Parameter((i) => i
-          ..annotations.add(refer("required"))
+          ..required = true
           ..toThis = true
           ..named = true
           ..name = "table"),
         Parameter((i) => i
-          ..annotations.add(refer("required"))
+          ..required = true
           ..toThis = true
           ..named = true
           ..name = "hydroState")

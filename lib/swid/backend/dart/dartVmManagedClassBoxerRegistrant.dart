@@ -14,17 +14,17 @@ class DartVMManagedClassBoxerRegistrant {
           ..optionalParameters.addAll([
             Parameter((p) => p
               ..named = true
-              ..annotations.add(refer("required"))
+              ..required = true
               ..name = "vmObject"
               ..type = TypeReference((t) => t..symbol = swidClass.name)),
             Parameter((p) => p
               ..named = true
-              ..annotations.add(refer("required"))
+              ..required = true
               ..name = "hydroState"
               ..type = TypeReference((t) => t..symbol = "HydroState")),
             Parameter((p) => p
               ..named = true
-              ..annotations.add(refer("required"))
+              ..required = true
               ..name = "table"
               ..type = TypeReference((t) => t..symbol = "HydroTable")),
           ])
