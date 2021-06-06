@@ -25,50 +25,53 @@ class DartBoxList {
 
   String _boxList() =>
       ((Expression expression) => codeKind == CodeKind.statement
-          ? expression.statement
-          : codeKind == CodeKind.expression
-              ? expression.expression
-              : null)(refer(referenceName)
-          .property("map")
-          .call([
-            Method((m) => m
-              ..requiredParameters.addAll([
-                Parameter((p) => p..name = "x"),
-              ])
-              ..lambda = true
-              ..body = Block.of([
-                Code(
-                  narrowSwidInterfaceByReferenceDeclaration(
-                    swidInterface: type.typeArguments.first.when(
-                      fromSwidInterface: (val) => val,
-                      fromSwidClass: (_) => dartUnknownInterface,
-                      fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
-                      fromSwidFunctionType: (_) => dartUnknownInterface,
-                    ),
-                    onPrimitive: (_) => "",
-                    onClass: (val) => DartBoxObjectReference(
-                      type: val,
-                      boxLists: true,
-                      objectReference: refer("x"),
-                      codeKind: CodeKind.expression,
-                    ).toDartSource(),
-                    onEnum: (val) => DartBoxEnumReference(
-                            type:
-                                SwidType.fromSwidInterface(swidInterface: val),
-                            codeKind: CodeKind.expression,
-                            referenceName:
-                                refer("x").accept(DartEmitter()).toString())
-                        .toDartSource(),
-                    onVoid: (_) => "",
-                    onTypeParameter: (_) => "",
-                    onDynamic: (_) => "",
-                    onUnknown: (_) => "",
-                  ),
-                )
-              ])).closure.expression
-          ], {})
-          .property("toList")
-          .call([]))!.accept(DartEmitter()).toString();
+              ? expression.statement
+              : codeKind == CodeKind.expression
+                  ? expression.expression
+                  : null)(refer(referenceName)
+              .property("map")
+              .call([
+                Method((m) => m
+                  ..requiredParameters.addAll([
+                    Parameter((p) => p..name = "x"),
+                  ])
+                  ..lambda = true
+                  ..body = Block.of([
+                    Code(
+                      narrowSwidInterfaceByReferenceDeclaration(
+                        swidInterface: type.typeArguments.first.when(
+                          fromSwidInterface: (val) => val,
+                          fromSwidClass: (_) => dartUnknownInterface,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownInterface,
+                          fromSwidFunctionType: (_) => dartUnknownInterface,
+                        ),
+                        onPrimitive: (_) => "",
+                        onClass: (val) => DartBoxObjectReference(
+                          type: val,
+                          boxLists: true,
+                          objectReference: refer("x"),
+                          codeKind: CodeKind.expression,
+                        ).toDartSource(),
+                        onEnum: (val) => DartBoxEnumReference(
+                                type: SwidType.fromSwidInterface(
+                                    swidInterface: val),
+                                codeKind: CodeKind.expression,
+                                referenceName:
+                                    refer("x").accept(DartEmitter()).toString())
+                            .toDartSource(),
+                        onVoid: (_) => "",
+                        onTypeParameter: (_) => "",
+                        onDynamic: (_) => "",
+                        onUnknown: (_) => "",
+                      ),
+                    )
+                  ])).closure.expression
+              ], {})
+              .property("toList")
+              .call([]))!
+          .accept(DartEmitter())
+          .toString();
 
   String toDartSource() => narrowSwidInterfaceByReferenceDeclaration(
         swidInterface: type.typeArguments.first.when(

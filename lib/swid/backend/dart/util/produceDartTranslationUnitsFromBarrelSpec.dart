@@ -78,8 +78,10 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
                         ].join()))
                       ]
                     : [])
-                .reduce((value, element) =>
-                    [...value, ...element]) as Iterable<DartIr?>,
+                .reduce((value, element) => [
+                      ...value,
+                      ...element,
+                    ]),
             DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
                 dartBarrelLoadNamespaceSymbolDeclaration:
                     DartBarrelLoadNamespaceSymbolDeclaration(
@@ -102,5 +104,5 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
               ),
             )
             .toList(),
-      ) as Iterable<DartTranslationUnit>
+      )
     ];
