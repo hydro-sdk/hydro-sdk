@@ -14,11 +14,11 @@ import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartBoxList {
-  final SwidInterface? type;
+  final SwidInterface type;
   final String referenceName;
   final CodeKind codeKind;
 
-  DartBoxList({
+  const DartBoxList({
     required this.type,
     required this.referenceName,
     this.codeKind = CodeKind.statement,
@@ -40,7 +40,7 @@ class DartBoxList {
               ..body = Block.of([
                 Code(
                   narrowSwidInterfaceByReferenceDeclaration(
-                    swidInterface: type!.typeArguments.first!.when(
+                    swidInterface: type.typeArguments.first.when(
                       fromSwidInterface: (val) => val,
                       fromSwidClass: ((_) => null) as SwidInterface Function(SwidClass),
                       fromSwidDefaultFormalParameter: ((_) => null) as SwidInterface Function(SwidDefaultFormalParameter),
@@ -63,7 +63,8 @@ class DartBoxList {
                     onVoid: (_) => "",
                     onTypeParameter: (_) =>"",
                     onDynamic: (_) => "",
-                  )!,
+                    onUnknown:  (_) => "",
+                  ),
                 )
               ])).closure.expression
           ], {})
@@ -71,7 +72,7 @@ class DartBoxList {
           .call([]))!.accept(DartEmitter()).toString();
 
   String? toDartSource() => narrowSwidInterfaceByReferenceDeclaration(
-        swidInterface: type!.typeArguments.first!.when(
+        swidInterface: type.typeArguments.first.when(
           fromSwidInterface: (val) => val,
           fromSwidClass: ((_) => null) as SwidInterface Function(SwidClass),
           fromSwidDefaultFormalParameter: ((_) => null) as SwidInterface Function(SwidDefaultFormalParameter),
@@ -83,5 +84,6 @@ class DartBoxList {
         onVoid: (_) => referenceName,
         onDynamic: (_) => referenceName,
         onTypeParameter: (_) => referenceName,
+        onUnknown: (_) => referenceName,
       );
 }

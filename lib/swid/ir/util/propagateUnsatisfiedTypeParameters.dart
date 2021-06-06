@@ -18,9 +18,9 @@ SwidClass propagateUnsatisfiedTypeParameters(
             swidClass: swidClass,
             factoryConstructors: swidClass.factoryConstructors
                 .map(
-                  (x) => ((List<SwidTypeFormal?> unsatisfiedTypeParameters) =>
+                  (x) => ((List<SwidTypeFormal> unsatisfiedTypeParameters) =>
                       unsatisfiedTypeParameters.isNotEmpty
-                          ? unsatisfiedTypeParameters.fold<SwidFunctionType?>(
+                          ? unsatisfiedTypeParameters.fold<SwidFunctionType>(
                               x,
                               (swidFunctionType, unsatisfiedTypeParameter) =>
                                   swidFunctionType!.typeFormals.firstWhere(

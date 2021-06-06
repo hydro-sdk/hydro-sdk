@@ -21,7 +21,7 @@ class DartUnboxingExpression {
   final Expression expression;
   final String identifierName;
 
-  DartUnboxingExpression({
+  const DartUnboxingExpression({
     required this.swidType,
     required this.expression,
     this.identifierName = "",
@@ -57,6 +57,7 @@ class DartUnboxingExpression {
             onVoid: (_) => expression.accept(DartEmitter()).toString(),
             onTypeParameter: (_) => expression.accept(DartEmitter()).toString(),
             onDynamic: (_) => expression.accept(DartEmitter()).toString(),
+            onUnknown: (_) => expression.accept(DartEmitter()).toString(),
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",
@@ -101,6 +102,7 @@ class DartUnboxingExpression {
                               onVoid: (_) => "",
                               onTypeParameter: (_) => "[0]",
                               onDynamic: (_) => "[0]",
+                              onUnknown: (_)=>"",
                             ),
                             fromSwidClass: (_) => "[0]",
                             fromSwidDefaultFormalParameter: (_) => "[0]",

@@ -1,7 +1,11 @@
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
 const dartObject = const SwidInterface(
   name: "Object",
@@ -85,4 +89,94 @@ const dartUnkownInterface = const SwidInterface(
 
 const dartUnkownType = const SwidType.fromSwidInterface(
   swidInterface: dartUnkownInterface,
+);
+
+const dartUnkownClass = const SwidClass(
+  name: "Unknown",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "",
+  constructorType: null,
+  factoryConstructors: [],
+  staticMethods: [],
+  methods: [],
+  staticConstFieldDeclarations: [],
+  instanceFieldDeclarations: {},
+  swidDeclarationModifiers: SwidDeclarationModifiers(
+    isAbstract: false,
+    isGetter: false,
+    isOperator: false,
+    isSetter: false,
+    isStatic: false,
+    isSynthetic: false,
+    hasAlwaysThrows: false,
+    hasDeprecated: false,
+    hasFactory: false,
+    hasImplicitReturnType: false,
+    hasIsTest: false,
+    hasIsTestGroup: false,
+    hasJS: false,
+    hasLiteral: false,
+    hasMustCallSuper: false,
+    hasNonVirtual: false,
+    hasOptionalTypeArgs: false,
+    hasOverride: false,
+    hasProtected: false,
+    hasRequired: false,
+    hasSealed: false,
+    hasVisibleForTemplate: false,
+    hasVisibleForTesting: false,
+    isPublic: true,
+  ),
+  mixedInClasses: [],
+  implementedClasses: [],
+  isMixin: false,
+  typeFormals: [],
+);
+
+const dartUnknownFunction = const SwidFunctionType(
+  name: "Unknown",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "",
+  swidDeclarationModifiers: SwidDeclarationModifiers(
+    isAbstract: false,
+    isGetter: false,
+    isOperator: false,
+    isSetter: false,
+    isStatic: false,
+    isSynthetic: false,
+    hasAlwaysThrows: false,
+    hasDeprecated: false,
+    hasFactory: false,
+    hasImplicitReturnType: false,
+    hasIsTest: false,
+    hasIsTestGroup: false,
+    hasJS: false,
+    hasLiteral: false,
+    hasMustCallSuper: false,
+    hasNonVirtual: false,
+    hasOptionalTypeArgs: false,
+    hasOverride: false,
+    hasProtected: false,
+    hasRequired: false,
+    hasSealed: false,
+    hasVisibleForTemplate: false,
+    hasVisibleForTesting: false,
+    isPublic: true,
+  ),
+  namedParameterTypes: {},
+  namedDefaults: {},
+  normalParameterNames: [],
+  normalParameterTypes: [],
+  optionalParameterNames: [],
+  optionalParameterTypes: [],
+  returnType: dartUnkownType,
+  isFactory: false,
+  typeFormals: [],
+);
+
+const dartUnkownTypeFormal = const SwidTypeFormal(
+  value: SwidTypeFormalValue.fromSwidInterface(
+    swidInterface: dartUnkownInterface,
+  ),
+  swidReferenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
 );

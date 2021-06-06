@@ -13,14 +13,14 @@ import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration
 class DartBindInstanceField {
   final String instanceFieldName;
   final String tableKey;
-  final SwidType? instanceField;
+  final SwidType instanceField;
 
-  DartBindInstanceField(
+  const DartBindInstanceField(
       {required this.instanceFieldName,
       required this.tableKey,
-      required this.instanceField});
+      required this.instanceField,});
 
-  String? toDartSource() => instanceField!.when(
+  String toDartSource() => instanceField.when(
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
             swidInterface: val,
             onPrimitive: (val) => DartBindInstanceFieldDirect(
@@ -49,6 +49,7 @@ class DartBindInstanceField {
                 .accept(DartEmitter())
                 .toString(),
             onVoid: (_) => "void",
+            onUnknown: (_)=>"unknown",
             onTypeParameter: ((_) => null) as String Function(SwidInterface),
           ),
       fromSwidClass: (_) => "",

@@ -19,6 +19,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartInexpressibleStaticConstFieldBin
 import 'package:hydro_sdk/swid/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -29,7 +30,7 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 class DartLoadNamespaceSymbolDeclaration {
   final SwidClass swidClass;
 
-  DartLoadNamespaceSymbolDeclaration({required this.swidClass});
+  const DartLoadNamespaceSymbolDeclaration({required this.swidClass,});
 
   String toDartSource() => DartFormatter().format(Method((m) => m
     ..name = "load${swidClass.name}"
@@ -70,44 +71,44 @@ class DartLoadNamespaceSymbolDeclaration {
                               swidClass.constructorType!.isFactory
                                   ? refer("args").index(literalNum(0))
                                   : null)
-                      .toDartSource()!)
-                ]).returned.statement
-              ])))
+                      .toDartSource(),),
+                ],).returned.statement,
+              ],),),)
               .statement
           : Code(""),
       ...[
         ...swidClass.staticConstFieldDeclarations
             .where((x) => isInexpressibleStaticConst(
                   parentClass: swidClass,
-                  staticConst: x.value!,
+                  staticConst: x.value,
                 ))
             .map((x) =>
                 DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
                         swidClass: swidClass,
-                        swidStaticConstFieldDeclaration: x)
-                    .toCode())
+                        swidStaticConstFieldDeclaration: x,)
+                    .toCode(),)
             .toList()
       ],
       ...[
         ...(instantiateAllGenericsAsDynamic(
                 swidType: SwidType.fromSwidClass(swidClass: swidClass))
             .when(
-              fromSwidInterface: (_) => null,
+              fromSwidInterface: (_) => dartUnkownClass,
               fromSwidClass: (val) => val,
-              fromSwidDefaultFormalParameter: (_) => null,
-              fromSwidFunctionType: (_) => null,
-            )!
+              fromSwidDefaultFormalParameter: (_) => dartUnkownClass,
+              fromSwidFunctionType: (_) => dartUnkownClass,
+            )
             .factoryConstructors),
         ...swidClass.staticMethods,
       ]
           .map((x) => DartStaticMethodNamespaceSymbolDeclaration(
                 swidClass: swidClass,
                 swidFunctionType: instantiateAllGenericsAsDynamic(
-                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x!),
+                  swidType: SwidType.fromSwidFunctionType(swidFunctionType: x),
                 ).when(
-                  fromSwidInterface: (_) => null,
-                  fromSwidClass: (_) => null,
-                  fromSwidDefaultFormalParameter: (_) => null,
+                  fromSwidInterface: (_) => dartUnknownFunction,
+                  fromSwidClass: (_) => dartUnknownFunction,
+                  fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
                   fromSwidFunctionType: (val) => val,
                 ),
               ).toCode())

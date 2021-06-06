@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidGenericInstantiator.dart';
@@ -22,16 +23,16 @@ SwidType instantiateAllGenericsAs({
             (previousValue, element) => element.swidReferenceDeclarationKind ==
                     SwidReferenceDeclarationKind.typeParameterType
                 ? instantiateGeneric(
-                    swidType: SwidType.fromSwidClass(swidClass: previousValue!),
+                    swidType: SwidType.fromSwidClass(swidClass: previousValue,),
                     genericInstantiator: SwidGenericInstantiator(
                       name: element.value.name,
                       instantiatedGeneric: instantiatedGeneric,
                     ),
-                  )!.when(
-                    fromSwidInterface: (_) => null,
+                  ).when(
+                    fromSwidInterface: (_) => dartUnkownClass,
                     fromSwidClass: (val) => val,
-                    fromSwidDefaultFormalParameter: (_) => null,
-                    fromSwidFunctionType: (_) => null,
+                    fromSwidDefaultFormalParameter: (_) => dartUnkownClass,
+                    fromSwidFunctionType: (_) => dartUnkownClass,
                   )
                 : SwidClass.clone(
                     swidClass: previousValue,
@@ -40,9 +41,9 @@ SwidType instantiateAllGenericsAs({
         ),
       ),
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-        swidFunctionType: val.typeFormals.fold<SwidFunctionType?>(
+        swidFunctionType: val.typeFormals.fold<SwidFunctionType>(
           val,
-          (previousValue, element) => element!.swidReferenceDeclarationKind ==
+          (previousValue, element) => element.swidReferenceDeclarationKind ==
                   SwidReferenceDeclarationKind.typeParameterType
               ? instantiateGeneric(
                   swidType: SwidType.fromSwidFunctionType(
@@ -51,16 +52,16 @@ SwidType instantiateAllGenericsAs({
                     name: element.value.name,
                     instantiatedGeneric: instantiatedGeneric,
                   ),
-                )!.when(
-                  fromSwidInterface: (_) => null,
-                  fromSwidClass: (_) => null,
-                  fromSwidDefaultFormalParameter: (_) => null,
+                ).when(
+                  fromSwidInterface: (_) => dartUnknownFunction,
+                  fromSwidClass: (_) => dartUnknownFunction,
+                  fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
                   fromSwidFunctionType: (val) => val,
                 )
               : SwidFunctionType.clone(
                   swidFunctionType: previousValue,
                 ),
-        )!,
+        ),
       ),
       fromSwidDefaultFormalParameter: (val) =>
           SwidType.fromSwidDefaultFormalParameter(

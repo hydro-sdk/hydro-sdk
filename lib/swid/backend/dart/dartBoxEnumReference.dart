@@ -11,7 +11,7 @@ class DartBoxEnumReference {
   final String referenceName;
   final CodeKind codeKind;
 
-  DartBoxEnumReference({
+  const DartBoxEnumReference({
     required this.type,
     required this.referenceName,
     this.codeKind = CodeKind.statement,

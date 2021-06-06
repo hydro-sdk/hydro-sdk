@@ -16,6 +16,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.da
 import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
@@ -24,19 +25,19 @@ import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
 class DartStaticMethodNamespaceSymbolDeclaration {
   final SwidClass swidClass;
-  final SwidFunctionType? swidFunctionType;
+  final SwidFunctionType swidFunctionType;
 
-  DartStaticMethodNamespaceSymbolDeclaration(
-      {required this.swidClass, required this.swidFunctionType});
+  const DartStaticMethodNamespaceSymbolDeclaration(
+      {required this.swidClass, required this.swidFunctionType,});
 
   Code _body() => Code(DartBoxObjectReference(
           codeKind: CodeKind.expression,
           boxLists: true,
-          type: swidFunctionType!.returnType.when(
+          type: swidFunctionType.returnType.when(
             fromSwidInterface: (val) => val,
-            fromSwidClass: (_) => null,
-            fromSwidDefaultFormalParameter: (_) => null,
-            fromSwidFunctionType: (_) => null,
+            fromSwidClass: (_) => dartUnkownInterface,
+            fromSwidDefaultFormalParameter: (_) => dartUnkownInterface,
+            fromSwidFunctionType: (_) => dartUnkownInterface,
           ),
           objectReference: CodeExpression(Code(
               DartFunctionSelfBindingInvocation(
@@ -45,21 +46,21 @@ class DartStaticMethodNamespaceSymbolDeclaration {
                       emitTableBindingPrefix: false,
                       swidFunctionType: SwidFunctionType.clone(
                           swidFunctionType: swidFunctionType,
-                          name: [swidClass.name, swidFunctionType!.name]
-                              .join(".")))
-                  .toDartSource()!)))
+                          name: [swidClass.name, swidFunctionType.name,]
+                              .join("."),),)
+                  .toDartSource(),),),)
       .toDartSource());
 
-  Code _nonVoidBody() => literalList([_body()]).returned.statement;
+  Code _nonVoidBody() => literalList([_body(),]).returned.statement;
 
   Code toCode() => refer("table")
       .index(literalString(transformToCamelCase(str: swidClass.name) +
-          transformToPascalCase(str: swidFunctionType!.name)))
+          transformToPascalCase(str: swidFunctionType.name),),)
       .assign(luaDartBinding(
           code: Block.of([
         Code(DartUnpackClosures(swidFunctionType: swidFunctionType)
             .toDartSource()),
-        swidFunctionType!.returnType.when<Code?>(
+        swidFunctionType.returnType.when<Code>(
           fromSwidInterface: (val) =>
               narrowSwidInterfaceByReferenceDeclaration<Code>(
             swidInterface: val,
@@ -70,12 +71,13 @@ class DartStaticMethodNamespaceSymbolDeclaration {
                 Code(_body().accept(DartEmitter()).toString() + ";return[];"),
             onTypeParameter: (_) => _nonVoidBody(),
             onDynamic: (_) => _nonVoidBody(),
+            onUnknown:  (_) => _nonVoidBody(),
           ),
           fromSwidClass: (_) => _nonVoidBody(),
           fromSwidDefaultFormalParameter: (_) => _nonVoidBody(),
           fromSwidFunctionType: (_) => _nonVoidBody(),
-        )!
-      ])))
+        ),
+      ],),),)
       .statement;
 
   String toDartSource() => toCode().accept(DartEmitter()).toString();

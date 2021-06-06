@@ -19,7 +19,7 @@ List<TsIr> tsImportBlock({
   List<Tuple2<List<String>, String>> symbolModulePairs =
       resolveDependencyInformation(
           dependencies: collectAllReferences(
-                  swidType: SwidType.fromSwidClass(swidClass: swidClass))!
+                  swidType: SwidType.fromSwidClass(swidClass: swidClass))!\
               .where((x) => narrowSwidInterfaceByReferenceDeclaration(
                     swidInterface: x,
                     onPrimitive: (_) => false,
@@ -28,6 +28,7 @@ List<TsIr> tsImportBlock({
                     onVoid: (_) => false,
                     onTypeParameter: (_) => false,
                     onDynamic: (_) => false,
+
                   )!)
               .toList(),
           importer: SwidType.fromSwidClass(swidClass: swidClass),
