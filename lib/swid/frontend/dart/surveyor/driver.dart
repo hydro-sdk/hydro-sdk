@@ -21,23 +21,22 @@ import 'package:analyzer/file_system/file_system.dart';
 import 'package:analyzer/file_system/physical_file_system.dart';
 import 'package:analyzer/src/generated/engine.dart' // ignore: implementation_imports
     show
-        AnalysisEngine,
         AnalysisOptionsImpl;
+import 'package:analyzer/src/lint/linter.dart'; // ignore: implementation_imports
 import 'package:analyzer/src/lint/registry.dart'; // ignore: implementation_imports
-import 'package:analyzer/src/services/lint.dart'; // ignore: implementation_imports
 import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:path/path.dart' as path;
 
-import 'package:hydro_sdk/swid/frontend/dart/surveyor/common.dart';
-import 'package:hydro_sdk/swid/frontend/dart/surveyor/install.dart';
-import 'package:hydro_sdk/swid/frontend/dart/surveyor/visitors.dart';
+import 'common.dart';
+import 'install.dart';
+import 'visitors.dart';
 
 class Driver {
   CommandLineOptions options;
 
   /// Hook to contribute a custom AST visitor.
-  late AstVisitor visitor;
+  AstVisitor? visitor;
 
   /// Hook to contribute custom options analysis.
   OptionsVisitor? optionsVisitor;
@@ -45,7 +44,13 @@ class Driver {
   /// Hook to contribute custom pubspec analysis.
   PubspecVisitor? pubspecVisitor;
 
-  List<String>? _excludedPaths;
+  /// List of paths to exclude from analysis.
+  /// For example:
+  /// ```
+  ///   driver.excludedPaths = ['example', 'test'];
+  /// ```
+  /// excludes package `example` and `test` directories.
+  List<String> excludedPaths = [];
 
   bool showErrors = true;
 
@@ -53,11 +58,13 @@ class Driver {
 
   List<String> sources;
 
-  late List<Linter> _lints;
+  List<LintRule>? _lints;
 
   bool forceSkipInstall = false;
 
   bool silent = false;
+
+  String? sdkPath;
 
   /// Handles printing.  Can be overwritten by clients.
   Logger logger = Logger.standard();
@@ -66,45 +73,37 @@ class Driver {
       : options = CommandLineOptions.fromArgs(argResults),
         sources = argResults.rest
             .map((p) => path.normalize(io.File(p).absolute.path))
-            .toList();
+            .toList() {
+    sdkPath = options.sdk;
+  }
 
   factory Driver.forArgs(List<String> args) {
     var argParser = ArgParser()
       ..addFlag('verbose', abbr: 'v', help: 'verbose output.')
       ..addFlag('force-install', help: 'force package (re)installation.')
       ..addFlag('skip-install', help: 'skip package install checks.')
-      ..addFlag('color', help: 'color output.');
+      ..addFlag('color', help: 'color output.')
+      ..addOption('sdk', help: 'set a custom SDK path');
     var argResults = argParser.parse(args);
     return Driver(argResults);
   }
 
-  /// List of paths to exclude from analysis.
-  List<String> get excludedPaths => _excludedPaths ?? [];
+  bool get forcePackageInstall => options.forceInstall;
 
-  /// List of paths to exclude from analysis.
-  /// For example:
-  /// ```
-  ///   driver.excludedPaths = ['example', 'test'];
-  /// ```
-  /// excludes package `example` and `test` directories.
-  set excludedPaths(List<String> excludedPaths) {
-    _excludedPaths = excludedPaths;
-  }
-
-  bool? get forcePackageInstall => options.forceInstall;
-
-  List<Linter> get lints => _lints;
+  List<LintRule>? get lints => _lints;
 
   /// Hook to contribute custom lint rules.
-  set lints(List<Linter> lints) {
-    // Ensure lints are registered
-    for (var lint in lints) {
-      Registry.ruleRegistry.register(lint as LintRule);
+  set lints(List<LintRule>? lints) {
+    if (lints != null) {
+      // Ensure lints are registered
+      for (var lint in lints) {
+        Registry.ruleRegistry.register(lint);
+      }
     }
     _lints = lints;
   }
 
-  bool get skipPackageInstall => forceSkipInstall || options.skipInstall!;
+  bool get skipPackageInstall => forceSkipInstall || options.skipInstall;
 
   Future analyze({bool? forceInstall}) => _analyze(sources);
 
@@ -149,12 +148,15 @@ class Driver {
 
     for (var root in analysisRoots) {
       if (cmd.continueAnalyzing) {
+        // todo(pq):replace w/ AnalysisContextCollection post analyzer 1.4.0.
         var collection = AnalysisContextCollection(
           includedPaths: [root],
           excludedPaths: excludedPaths.map((p) => path.join(root, p)).toList(),
           resourceProvider: resourceProvider,
+          sdkPath: sdkPath,
         );
 
+        var lints = this.lints;
         for (var context in collection.contexts) {
           // Add custom lints.
           if (lints != null) {
@@ -170,7 +172,7 @@ class Driver {
           // Ensure dependencies are installed.
           if (!skipPackageInstall) {
             await package.installDependencies(
-                force: forcePackageInstall!, silent: silent);
+                force: forcePackageInstall, silent: silent);
           }
 
           // Skip analysis if no .packages.
@@ -190,12 +192,13 @@ class Driver {
           }
 
           for (var filePath in context.contextRoot.analyzedFiles()) {
-            if (AnalysisEngine.isDartFileName(filePath)) {
+            if (isDartFileName(filePath)) {
               try {
                 var result = resolveUnits
                     ? await context.currentSession.getResolvedUnit(filePath)
                     : context.currentSession.getParsedUnit(filePath);
 
+                var visitor = this.visitor;
                 if (visitor != null) {
                   if (visitor is ErrorReporter) {
                     (visitor as ErrorReporter).reportError(result);
@@ -208,7 +211,7 @@ class Driver {
                   if (result is ParsedUnitResult) {
                     result.unit.accept(visitor);
                   } else if (result is ResolvedUnitResult) {
-                    result.unit.accept(visitor);
+                    result.unit?.accept(visitor);
                   }
                 }
               } catch (e) {
@@ -217,15 +220,17 @@ class Driver {
               }
             }
 
+            var optionsVisitor = this.optionsVisitor;
             if (optionsVisitor != null) {
-              if (AnalysisEngine.isAnalysisOptionsFileName(filePath)) {
-                optionsVisitor!.visit(AnalysisOptionsFile(filePath));
+              if (isAnalysisOptionsFileName(filePath)) {
+                optionsVisitor.visit(AnalysisOptionsFile(filePath));
               }
             }
 
+            var pubspecVisitor = this.pubspecVisitor;
             if (pubspecVisitor != null) {
               if (path.basename(filePath) == 'pubspec.yaml') {
-                pubspecVisitor!.visit(PubspecFile(filePath));
+                pubspecVisitor.visit(PubspecFile(filePath));
               }
             }
           }
@@ -247,6 +252,13 @@ class Driver {
       logger.stdout(msg);
     }
   }
+
+  /// Returns `true` if this [fileName] is an analysis options file.
+  static bool isAnalysisOptionsFileName(String fileName) =>
+      fileName == 'analysis_options.yaml';
+
+  /// Returns `true` if this [fileName] is a Dart file.
+  static bool isDartFileName(String fileName) => fileName.endsWith('.dart');
 }
 
 class DriverCommands {

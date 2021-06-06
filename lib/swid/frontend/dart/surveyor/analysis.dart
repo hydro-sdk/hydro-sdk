@@ -15,7 +15,6 @@
 import 'dart:io' as io;
 
 import 'package:analyzer/dart/ast/ast.dart';
-import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:analyzer/error/error.dart';
 import 'package:analyzer/source/line_info.dart';
@@ -33,10 +32,13 @@ final Map<String, int> _severityCompare = {
 };
 
 WorkspacePackage? getPackage(CompilationUnit unit) {
-  var element = unit.declaredElement!;
+  var element = unit.declaredElement;
+  if (element == null) {
+    return null;
+  }
   var libraryPath = element.library.source.source.fullName;
-  var workspace = element.session?.analysisContext?.workspace;
-  return workspace?.findPackageFor(libraryPath);
+  var workspace = element.session.analysisContext.contextRoot.workspace;
+  return workspace.findPackageFor(libraryPath);
 }
 
 bool implementsInterface(DartType type, String interface, String library) {
@@ -44,7 +46,7 @@ bool implementsInterface(DartType type, String interface, String library) {
     return false;
   }
   bool predicate(InterfaceType i) => isInterface(i, interface, library);
-  ClassElement? element = type.element;
+  var element = type.element;
   return predicate(type) ||
       !element.isSynthetic && element.allSupertypes.any(predicate);
 }
@@ -57,7 +59,8 @@ bool inPrivateMember(AstNode node) {
     return isPrivate(parent.name);
   }
   if (parent is ExtensionDeclaration) {
-    return parent.name == null || isPrivate(parent.name);
+    var parentName = parent.name;
+    return parentName == null || isPrivate(parentName);
   }
   return false;
 }
@@ -65,18 +68,18 @@ bool inPrivateMember(AstNode node) {
 /// Return true if this compilation unit [node] is declared within the given
 /// [package]'s `lib/` directory tree.
 bool isInLibDir(CompilationUnit node, WorkspacePackage package) {
-  var cuPath = node.declaredElement!.library?.source?.fullName;
+  var cuPath = node.declaredElement?.library.source.fullName;
   if (cuPath == null) return false;
   var libDir = path.join(package.root, 'lib');
   return path.isWithin(libDir, cuPath);
 }
 
 bool isInterface(InterfaceType type, String interface, String library) =>
-    type.element?.name == interface && type.element.library.name == library;
+    type.element.name == interface && type.element.library.name == library;
 
 /// Check if the given identifier has a private name.
-bool isPrivate(SimpleIdentifier? identifier) =>
-    identifier != null && Identifier.isPrivateName(identifier.name);
+bool isPrivate(SimpleIdentifier identifier) =>
+    Identifier.isPrivateName(identifier.name);
 
 bool isWidgetType(DartType type) => implementsInterface(type, 'Widget', '');
 
@@ -185,29 +188,29 @@ class AnsiLogger {
 
 /// An [AnalysisError] with line and column information.
 class CLIError implements Comparable<CLIError> {
-  String? severity;
-  String? sourcePath;
-  int? offset;
-  int? line;
-  int? column;
-  String? message;
-  String? errorCode;
+  String severity;
+  String sourcePath;
+  int offset;
+  int line;
+  int column;
+  String message;
+  String errorCode;
   String? correction;
 
   CLIError({
-    this.severity,
-    this.sourcePath,
-    this.offset,
-    this.line,
-    this.column,
-    this.message,
-    this.errorCode,
-    this.correction,
+    required this.severity,
+    required this.sourcePath,
+    required this.offset,
+    required this.line,
+    required this.column,
+    required this.message,
+    required this.errorCode,
+    required this.correction,
   });
 
   @override
   int get hashCode =>
-      severity.hashCode ^ sourcePath.hashCode ^ errorCode.hashCode ^ offset!;
+      severity.hashCode ^ sourcePath.hashCode ^ errorCode.hashCode ^ offset;
   bool get isError => severity == 'error';
   bool get isHint => severity == 'hint';
   bool get isLint => severity == 'lint';
@@ -227,16 +230,17 @@ class CLIError implements Comparable<CLIError> {
   @override
   int compareTo(CLIError other) {
     // severity
-    var compare = _severityCompare[other.severity!]! - _severityCompare[severity!]!;
+    var compare =
+        _severityCompare[other.severity]! - _severityCompare[severity]!;
     if (compare != 0) return compare;
 
     // path
     compare = Comparable.compare(
-        sourcePath!.toLowerCase(), other.sourcePath!.toLowerCase());
+        sourcePath.toLowerCase(), other.sourcePath.toLowerCase());
     if (compare != 0) return compare;
 
     // offset
-    return offset! - other.offset!;
+    return offset - other.offset;
   }
 }
 
@@ -247,11 +251,10 @@ class CLIError implements Comparable<CLIError> {
 abstract class ErrorFormatter {
   StringSink out;
   AnalysisStats stats;
-  late SeverityProcessor _severityProcessor;
+  final SeverityProcessor _severityProcessor;
 
-  ErrorFormatter(this.out, this.stats, {SeverityProcessor? severityProcessor}) {
-    _severityProcessor = severityProcessor ?? _severityIdentity;
-  }
+  ErrorFormatter(this.out, this.stats, {SeverityProcessor? severityProcessor})
+      : _severityProcessor = severityProcessor ?? _severityIdentity;
 
   /// Call to write any batched up errors from [formatErrors].
   void flush();
@@ -266,10 +269,8 @@ abstract class ErrorFormatter {
     var errorToLine = <AnalysisError, LineInfo>{};
     for (var errorInfo in errorInfos) {
       for (var error in errorInfo.errors) {
-        if (_computeSeverity(error) != null) {
-          errors.add(error);
-          errorToLine[error] = errorInfo.lineInfo;
-        }
+        errors.add(error);
+        errorToLine[error] = errorInfo.lineInfo;
       }
     }
 
@@ -277,15 +278,10 @@ abstract class ErrorFormatter {
       formatError(errorToLine, error);
     }
   }
-
-  /// Compute the severity for this [error] or `null` if this error should be
-  /// filtered.
-  ErrorSeverity _computeSeverity(AnalysisError error) =>
-      _severityProcessor(error);
 }
 
 class HumanErrorFormatter extends ErrorFormatter {
-  late AnsiLogger ansi;
+  AnsiLogger ansi;
   bool displayCorrections;
 
   // This is a Set in order to de-dup CLI errors.
@@ -295,9 +291,8 @@ class HumanErrorFormatter extends ErrorFormatter {
       {SeverityProcessor? severityProcessor,
       bool ansiColor = false,
       this.displayCorrections = false})
-      : super(out, stats, severityProcessor: severityProcessor) {
-    ansi = AnsiLogger(ansiColor);
-  }
+      : ansi = AnsiLogger(ansiColor),
+        super(out, stats, severityProcessor: severityProcessor);
 
   @override
   void flush() {
@@ -325,9 +320,9 @@ class HumanErrorFormatter extends ErrorFormatter {
       out.write('${ansi.bullet} ${error.errorCode}');
       out.writeln();
 
-      if (displayCorrections && error.correction != null) {
+      if (displayCorrections) {
         out.writeln(
-            '${' '.padLeft(error.severity!.length + 2)}${error.correction}');
+            '${' '.padLeft(error.severity.length + 2)}${error.correction}');
       }
     }
 

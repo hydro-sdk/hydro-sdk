@@ -75,7 +75,7 @@ class _Installer {
       return null;
     }
 
-    if (package.dependencies?.containsKey('flutter') == true) {
+    if (package.dependencies.containsKey('flutter') == true) {
       _print(
           'Running "flutter packages get" in ${pathutil.basename(sourcePath)}',
           silent);
