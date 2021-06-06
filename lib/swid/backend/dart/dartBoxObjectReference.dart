@@ -4,6 +4,7 @@ import 'package:code_builder/code_builder.dart'
 import 'package:hydro_sdk/swid/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isList.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
@@ -46,7 +47,12 @@ class DartBoxObjectReference {
       }, [
         isList(swidType: SwidType.fromSwidInterface(swidInterface: type))
             ? Reference("List<dynamic>")
-            : Reference(removeTypeArguments(str: type.name))
+            : Reference([
+                removeTypeArguments(str: type.name),
+                type.nullabilitySuffix == SwidNullabilitySuffix.question
+                    ? "?"
+                    : "",
+              ].join())
       ]);
 
   String toDartSource() =>
