@@ -40,7 +40,7 @@ class DartRTManagedClassDeclaration {
 
   DartRTManagedClassDeclaration({required this.swidClass});
 
-  String toDartSource() => DartFormatter().format(Class((x) => x
+  String toDartSource() => (Class((x) => x
     ..name = "RTManaged${swidClass!.name}"
     ..extend = TypeReference((k) => k.symbol = swidClass!.name)
     ..implements.add(TypeReference(

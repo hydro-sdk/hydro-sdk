@@ -43,7 +43,7 @@ class DartMethodInjectionImplementation {
                 "];")
       ]);
 
-  String toDartSource() => DartFormatter().formatStatement(refer("table")
+  String toDartSource() => (refer("table")
       .index(literalString(methodInjectionFieldName(
           swidFunctionType:
               transformAccessorName(swidFunctionType: swidFunctionType!))))

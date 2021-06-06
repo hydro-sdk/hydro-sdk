@@ -49,10 +49,11 @@ List<SwidInterface> collectReferencesFromStaticConst({
         ],
       )
     ]
-        .fold(
+        .fold<List<SwidInterface>>(
             <SwidInterface>[],
-            (dynamic prev, element) => prev.firstWhere(
-                        (x) => x.name == element.name,
+            (prev, element) => <SwidInterface?>[
+                      ...prev,
+                    ].firstWhere((x) => x?.name == element.name,
                         orElse: () => null) ==
                     null
                 ? [
@@ -62,7 +63,7 @@ List<SwidInterface> collectReferencesFromStaticConst({
                 : prev)
         .toList()
         .cast<SwidInterface>())
-      ..removeWhere((x) => x == null);
+      ..removeWhere((x) => x == dartUnknownInterface);
 
 List<SwidInterface> collectAllStaticConstReferences({
   required SwidType swidType,
