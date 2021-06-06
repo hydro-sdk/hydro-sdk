@@ -29,7 +29,7 @@ class _$CreatePackageDtoTearOff {
       required String readmeMd,
       required String pubspecYaml,
       required String pubspecLock,
-      required String releaseChannelName = "latest"}) {
+      String releaseChannelName = "latest"}) {
     return _$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256,
       otaPackageBase64: otaPackageBase64,
@@ -243,7 +243,7 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
       required this.readmeMd,
       required this.pubspecYaml,
       required this.pubspecLock,
-      required this.releaseChannelName = "latest"});
+      this.releaseChannelName = "latest"});
 
   factory _$_$CreatePackageDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$CreatePackageDtoCtorFromJson(json);
@@ -343,7 +343,7 @@ abstract class _$CreatePackageDtoCtor implements CreatePackageDto {
       required String readmeMd,
       required String pubspecYaml,
       required String pubspecLock,
-      required String releaseChannelName}) = _$_$CreatePackageDtoCtor;
+      String releaseChannelName}) = _$_$CreatePackageDtoCtor;
 
   factory _$CreatePackageDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreatePackageDtoCtor.fromJson;
