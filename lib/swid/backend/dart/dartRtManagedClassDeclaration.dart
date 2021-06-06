@@ -245,8 +245,7 @@ class DartRTManagedClassDeclaration {
                         .firstWhereOrNull((k) => k.key == e) ==
                     null)
                 .map(
-                  (e) => ((
-                          {Tuple2<String, SwidType?>? optionalParameterType}) =>
+                  (e) => (({Tuple2<String, SwidType>? optionalParameterType}) =>
                       Parameter((p) => p
                         ..name = optionalParameterType!.item1
                         ..type = swidTypeToDartTypeReference(
