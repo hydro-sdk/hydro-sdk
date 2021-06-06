@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'createPermissionDto.freezed.dart';
 part 'createPermissionDto.g.dart';
 

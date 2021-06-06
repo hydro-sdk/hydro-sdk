@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:petitparser/debug.dart';
 import 'package:petitparser/petitparser.dart';
 
 part 'parserTestHarness.freezed.dart';
 
-@freezed class ParserTestHarnessInput with _$ParserTestHarnessInput {
+@freezed
+class ParserTestHarnessInput with _$ParserTestHarnessInput {
   const factory ParserTestHarnessInput.fromString({required String input}) =
       _$ParserTestHarnessInputFromString;
   const factory ParserTestHarnessInput.fromList(

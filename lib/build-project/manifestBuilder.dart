@@ -4,7 +4,6 @@ import 'dart:typed_data';
 
 import 'package:cli_util/cli_logging.dart';
 import 'package:encrypt/encrypt.dart';
-
 import 'package:path/path.dart' as path;
 import 'package:pointycastle/export.dart' as pc;
 
@@ -79,7 +78,8 @@ class ManifestBuilder {
 
         rawSignature = sha256Data(concatShas.codeUnits);
 
-        final pc.RSAPrivateKey privateKey = RSAKeyParser().parse(signingKey) as pc.RSAPrivateKey;
+        final pc.RSAPrivateKey privateKey =
+            RSAKeyParser().parse(signingKey) as pc.RSAPrivateKey;
         final signer =
             pc.RSASigner(pc.SHA256Digest(), '0609608648016503040201');
 

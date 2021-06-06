@@ -1,6 +1,5 @@
 import 'package:http/http.dart';
 
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
@@ -24,8 +23,7 @@ class VMManagedResponse extends VMManagedBox<Response?> {
   }
 }
 
-void loadResponse(
-    {required HydroState hydroState, required HydroTable table}) {
+void loadResponse({required HydroState hydroState, required HydroTable table}) {
   registerBoxer<Response>(
       boxer: ({Response? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedResponse(

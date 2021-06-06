@@ -19,8 +19,7 @@ class HydroFunctionImpl extends HydroFunction {
   HydroState? get state => closure.context!.userdata as HydroState?;
   List<dynamic>? call(List<dynamic> args) =>
       closure.dispatch(args, parentState: state!);
-  CoroutineResult pcall(List<dynamic> args,
-      {required HydroState parentState}) {
+  CoroutineResult pcall(List<dynamic> args, {required HydroState parentState}) {
     try {
       return new CoroutineResult(
           true, closure.dispatch(args, parentState: parentState));

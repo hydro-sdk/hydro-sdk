@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart' show IterableExtension;
-
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/dart/dartImportStatement.dart';

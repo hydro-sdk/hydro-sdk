@@ -1,6 +1,5 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 
-
 import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDoubleLiteralFromDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidIntegerLiteralFromIntegerLiteral.dart';

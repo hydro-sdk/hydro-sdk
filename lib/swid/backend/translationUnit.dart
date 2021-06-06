@@ -1,5 +1,3 @@
-
-
 abstract class TranslationUnit {
   final String path;
   final String fileName;

@@ -12,9 +12,7 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData?> {
   final HydroState? hydroState;
   final MediaQueryData? vmObject;
   VMManagedMediaQueryData(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           hydroState: hydroState,
@@ -28,8 +26,7 @@ class VMManagedMediaQueryData extends VMManagedBox<MediaQueryData?> {
   }
 }
 
-void loadMediaQuery(
-    {required HydroState luaState, required HydroTable table}) {
+void loadMediaQuery({required HydroState luaState, required HydroTable table}) {
   registerBoxer(boxer: (
       {MediaQueryData? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedMediaQueryData(

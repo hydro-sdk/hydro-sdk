@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'projectConfigComponentChunk.freezed.dart';
 part 'projectConfigComponentChunk.g.dart';
 

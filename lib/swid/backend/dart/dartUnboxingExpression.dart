@@ -9,8 +9,6 @@ import 'package:code_builder/code_builder.dart'
         CodeExpression,
         Code;
 
-
-
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
@@ -102,7 +100,7 @@ class DartUnboxingExpression {
                               onVoid: (_) => "",
                               onTypeParameter: (_) => "[0]",
                               onDynamic: (_) => "[0]",
-                              onUnknown: (_)=>"",
+                              onUnknown: (_) => "",
                             ),
                             fromSwidClass: (_) => "[0]",
                             fromSwidDefaultFormalParameter: (_) => "[0]",

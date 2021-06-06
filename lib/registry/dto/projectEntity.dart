@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'projectEntity.freezed.dart';
 part 'projectEntity.g.dart';
 

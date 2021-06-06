@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:math';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedRandom extends VMManagedBox<Random?> {
   VMManagedRandom(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,

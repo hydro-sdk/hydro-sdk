@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
 
 part 'sessionDto.freezed.dart';

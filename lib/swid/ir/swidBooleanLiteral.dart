@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'swidBooleanLiteral.freezed.dart';
 part 'swidBooleanLiteral.g.dart';
 

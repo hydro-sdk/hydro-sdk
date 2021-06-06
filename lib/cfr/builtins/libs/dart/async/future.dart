@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -30,7 +28,8 @@ class VMManagedFuture extends VMManagedBox<Future<List<dynamic>>?> {
       },
           test: test != null
               ? (obj) {
-                  return test.dispatch([null, obj], parentState: hydroState!)![0];
+                  return test
+                      .dispatch([null, obj], parentState: hydroState!)![0];
                 } as bool Function(Object)?
               : null);
       return [caller];

@@ -110,10 +110,10 @@ void main() {
         swidClass: iterable,
       ),
     ).when(
-      fromSwidInterface: (_) => dartUnknownClass ,
+      fromSwidInterface: (_) => dartUnknownClass,
       fromSwidClass: (val) => val,
       fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-      fromSwidFunctionType: (_) => dartUnknownClass ,
+      fromSwidFunctionType: (_) => dartUnknownClass,
     );
 
     expect(

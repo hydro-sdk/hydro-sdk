@@ -1,8 +1,6 @@
 import 'dart:collection';
 import 'dart:core';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>?> {
   VMManagedIterableBase(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -81,11 +77,12 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>?> {
         maybeBoxObject<Iterable>(
             object: vmObject!.expand(f != null
                 ? ((element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
-                      [args[0], element],
-                      parentState: hydroState!,
-                    )![0],
-                    parentState: hydroState!)) as Iterable<dynamic> Function(dynamic)
+                        f.dispatch(
+                          [args[0], element],
+                          parentState: hydroState!,
+                        )![0],
+                        parentState: hydroState!))
+                    as Iterable<dynamic> Function(dynamic)
                 : null),
             hydroState: hydroState!,
             table: HydroTable())
@@ -388,11 +385,12 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
         maybeBoxObject<Iterable>(
             object: super.expand(f != null
                 ? ((element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
-                      [args[0], element],
-                      parentState: hydroState,
-                    )![0],
-                    parentState: hydroState)) as Iterable<dynamic> Function(dynamic)
+                        f.dispatch(
+                          [args[0], element],
+                          parentState: hydroState,
+                        )![0],
+                        parentState: hydroState))
+                    as Iterable<dynamic> Function(dynamic)
                 : null),
             hydroState: hydroState,
             table: HydroTable())

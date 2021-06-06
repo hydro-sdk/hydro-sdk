@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/translationUnit.dart';

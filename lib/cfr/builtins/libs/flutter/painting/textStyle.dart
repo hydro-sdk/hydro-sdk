@@ -13,9 +13,7 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle?> {
   final HydroState? hydroState;
 
   VMManagedTextStyle(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -49,10 +47,9 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle?> {
   }
 }
 
-void loadTextStyle(
-    {required HydroState luaState, required HydroTable table}) {
-  registerBoxer(
-      boxer: ({TextStyle? vmObject, HydroState? hydroState, HydroTable? table}) {
+void loadTextStyle({required HydroState luaState, required HydroTable table}) {
+  registerBoxer(boxer: (
+      {TextStyle? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedTextStyle(
       vmObject: vmObject,
       hydroState: hydroState,

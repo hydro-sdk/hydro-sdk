@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 
@@ -8,7 +6,7 @@ SwidFunctionType transformAccessorName({
   bool addPrefixes = true,
   bool removeSuffixes = true,
 }) {
-  if (swidFunctionType.swidDeclarationModifiers.isSetter ) {
+  if (swidFunctionType.swidDeclarationModifiers.isSetter) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
         name: ([
@@ -26,7 +24,7 @@ SwidFunctionType transformAccessorName({
                   : swidFunctionType.name,
         ]..removeWhere((x) => x == null))
             .join());
-  } else if (swidFunctionType.swidDeclarationModifiers.isGetter ) {
+  } else if (swidFunctionType.swidDeclarationModifiers.isGetter) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
         name: ([

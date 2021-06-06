@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
@@ -23,7 +22,7 @@ class BarrelSpec with _$BarrelSpec {
       BarrelSpec(
         path: path ?? barrelSpec.path,
         name: name ?? barrelSpec.name,
-        members: members ?? List.from(barrelSpec.members ),
+        members: members ?? List.from(barrelSpec.members),
       );
 }
 

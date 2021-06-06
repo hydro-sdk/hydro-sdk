@@ -2,7 +2,6 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -97,23 +96,22 @@ class SwidFunctionType with _$SwidFunctionType {
       swidDeclarationModifiers: swidDeclarationModifiers ??
           SwidDeclarationModifiers.clone(
               swidDeclarationModifiers:
-                  swidFunctionType!.swidDeclarationModifiers ),
+                  swidFunctionType!.swidDeclarationModifiers),
       namedParameterTypes: namedParameterTypes ??
-          Map.from(swidFunctionType!.namedParameterTypes ),
-      namedDefaults:
-          namedDefaults ?? Map.from(swidFunctionType!.namedDefaults ),
+          Map.from(swidFunctionType!.namedParameterTypes),
+      namedDefaults: namedDefaults ?? Map.from(swidFunctionType!.namedDefaults),
       normalParameterNames: normalParameterNames ??
-          List.from(swidFunctionType!.normalParameterNames ),
+          List.from(swidFunctionType!.normalParameterNames),
       normalParameterTypes: normalParameterTypes ??
-          List.from(swidFunctionType!.normalParameterTypes ),
+          List.from(swidFunctionType!.normalParameterTypes),
       optionalParameterNames: optionalParameterNames ??
-          List.from(swidFunctionType!.optionalParameterNames ),
+          List.from(swidFunctionType!.optionalParameterNames),
       optionalParameterTypes: optionalParameterTypes ??
-          List.from(swidFunctionType!.optionalParameterTypes ),
+          List.from(swidFunctionType!.optionalParameterTypes),
       returnType:
           returnType ?? cloneSwidType(swidType: swidFunctionType!.returnType),
       isFactory: isFactory ?? swidFunctionType!.isFactory,
-      typeFormals: typeFormals ?? List.from(swidFunctionType!.typeFormals ),
+      typeFormals: typeFormals ?? List.from(swidFunctionType!.typeFormals),
     );
   }
 }

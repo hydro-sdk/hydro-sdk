@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiFunctionDeclarationToSwidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';

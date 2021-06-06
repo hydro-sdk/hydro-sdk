@@ -1,6 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
 
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
@@ -19,16 +18,21 @@ bool isInexpressibleStaticConst(
           val.staticType.displayName[0] == "_" ||
           !val.value.split(".").every((x) => !(x[0] == "_")) ||
           !val.normalParameters.every((x) => !isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: x,)) ||
+                parentClass: parentClass,
+                staticConst: x,
+              )) ||
           !val.namedParameters.entries.every((x) => !isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: x.value,)),
+                parentClass: parentClass,
+                staticConst: x.value,
+              )),
       fromSwidStaticConstFieldReference: (val) =>
           !(val.name[0] != "_") &&
           (({SwidStaticConstFieldDeclaration? declarationOnParent}) =>
                   declarationOnParent != null
                       ? isInexpressibleStaticConst(
                           parentClass: parentClass,
-                          staticConst: declarationOnParent.value,)
+                          staticConst: declarationOnParent.value,
+                        )
                       : false)(
               declarationOnParent: parentClass.staticConstFieldDeclarations
                   .firstWhereOrNull((x) => x.name == val.name)),

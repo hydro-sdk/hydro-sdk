@@ -1,4 +1,3 @@
-
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/ir/swidType.dart';

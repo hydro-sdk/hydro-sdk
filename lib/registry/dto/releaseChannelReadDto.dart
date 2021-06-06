@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'releaseChannelReadDto.freezed.dart';
 part 'releaseChannelReadDto.g.dart';
 

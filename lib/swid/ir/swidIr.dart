@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 
@@ -33,21 +32,18 @@ class SwidIr with _$SwidIr {
                   .toList(),
             ].map((x) => SwidIr.fromSwidEnum(swidEnum: x!)).toList()),
             ..._mergeClasses(
-              first: 
-              (value
+              first: (value
                   .map((x) => x.maybeWhen(
                       fromSwidClass: (val) => val, orElse: () => null))
                   .where((x) => x != null)
                   .toList()
-                  ..removeWhere((x) =>x==null))as List<SwidClass>
-                  ,
-              second:( element
+                    ..removeWhere((x) => x == null)) as List<SwidClass>,
+              second: (element
                   .map((x) => x.maybeWhen(
                       fromSwidClass: (val) => val, orElse: () => null))
                   .where((x) => x != null)
-                  .toList()..removeWhere((x) =>x==null)) as List<SwidClass>
-                  
-                  ,
+                  .toList()
+                    ..removeWhere((x) => x == null)) as List<SwidClass>,
             ).map((x) => SwidIr.fromSwidClass(swidClass: x!)).toList()
           ]);
 }

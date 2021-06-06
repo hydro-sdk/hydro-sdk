@@ -147,7 +147,7 @@ void main() {
     ).when(
       fromSwidInterface: (_) => dartUnknownClass,
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) =>dartUnknownClass ,
+      fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
       fromSwidFunctionType: (_) => dartUnknownClass,
     );
 

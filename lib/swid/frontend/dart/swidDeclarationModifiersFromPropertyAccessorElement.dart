@@ -1,8 +1,6 @@
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
 
-
-
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
 SwidDeclarationModifiers swidDeclarationModifiersFromPropertyAccessorElement(

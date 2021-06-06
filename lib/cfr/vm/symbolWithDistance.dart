@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 
 class SymbolWithDistance {

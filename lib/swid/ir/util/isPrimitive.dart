@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 bool isPrimitive({required SwidType swidType}) =>

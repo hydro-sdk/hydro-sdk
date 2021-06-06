@@ -10,9 +10,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedDiagnosticable extends VMManagedBox<Diagnosticable?> {
   VMManagedDiagnosticable(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,

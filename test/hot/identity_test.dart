@@ -50,27 +50,27 @@ void main() {
     var local3 = res3.closure.proto!.prototypes![2];
 
     //All 4 functions should have identical instructions
-    expect(
-        hashInstructionBlock(global1.code!), hashInstructionBlock(local1.code!));
-    expect(
-        hashInstructionBlock(global2.code!), hashInstructionBlock(local2.code!));
-    expect(
-        hashInstructionBlock(global1.code!), hashInstructionBlock(global2.code!));
-    expect(
-        hashInstructionBlock(global1.code!), hashInstructionBlock(local2.code!));
+    expect(hashInstructionBlock(global1.code!),
+        hashInstructionBlock(local1.code!));
+    expect(hashInstructionBlock(global2.code!),
+        hashInstructionBlock(local2.code!));
+    expect(hashInstructionBlock(global1.code!),
+        hashInstructionBlock(global2.code!));
+    expect(hashInstructionBlock(global1.code!),
+        hashInstructionBlock(local2.code!));
     expect(
         hashInstructionBlock(local1.code!), hashInstructionBlock(local3.code!));
-    expect(
-        hashInstructionBlock(global3.code!), hashInstructionBlock(global3.code!));
+    expect(hashInstructionBlock(global3.code!),
+        hashInstructionBlock(global3.code!));
 
     expect(
         hashInstructionBlock(local1.code!), hashInstructionBlock(local1.code!));
-    expect(
-        hashInstructionBlock(global2.code!), hashInstructionBlock(global2.code!));
+    expect(hashInstructionBlock(global2.code!),
+        hashInstructionBlock(global2.code!));
     expect(
         hashInstructionBlock(local3.code!), hashInstructionBlock(local3.code!));
-    expect(
-        hashInstructionBlock(global3.code!), hashInstructionBlock(global3.code!));
+    expect(hashInstructionBlock(global3.code!),
+        hashInstructionBlock(global3.code!));
 
     expect(hashPrototype(global1), hashPrototype(global1));
     expect(hashPrototype(local1), hashPrototype(local1));

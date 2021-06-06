@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -28,5 +26,5 @@ SwidInterface swidiInterfaceToSwidInterface(
                           : swidiInterface.referenceDeclarationPrefix.name ==
                                   "dynamic"
                               ? SwidReferenceDeclarationKind.dynamicType
-                              : SwidReferenceDeclarationKind.unknown  ,
+                              : SwidReferenceDeclarationKind.unknown,
     );

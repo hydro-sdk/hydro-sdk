@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:dart_console/dart_console.dart';
-
 import 'package:synchronized/synchronized.dart';
 import 'package:watcher/watcher.dart';
 

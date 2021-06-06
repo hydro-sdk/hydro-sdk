@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/cfr/coroutine/coroutinestatus.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
@@ -8,8 +6,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadCoroutineLib(
-    {required HydroState hydroState, required Context ctx}) {
+void loadCoroutineLib({required HydroState hydroState, required Context ctx}) {
   var coroutine = new HydroTable();
   ctx.env["coroutine"] = coroutine;
 

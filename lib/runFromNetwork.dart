@@ -42,7 +42,7 @@ class RunFromNetwork extends StatefulWidget {
   RunFromNetwork({
     required this.baseUrl,
     required this.filePath,
-     this.args,
+    this.args,
     required this.thunks,
     this.downloadHash,
     this.downloadByteCodeImage,
@@ -89,7 +89,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
   _RunFromNetwork({
     required this.baseUrl,
     required this.filePath,
-     this.args,
+    this.args,
     required this.thunks,
     this.downloadHash,
     this.downloadByteCodeImage,
@@ -131,7 +131,8 @@ class _RunFromNetwork extends State<RunFromNetwork>
     if (downloadHash == null) {
       downloadHash = (String uri) async {
         try {
-          var res = await (_attemptDownloadWithDegradation(uri) as FutureOr<Response>);
+          var res = await (_attemptDownloadWithDegradation(uri)
+              as FutureOr<Response>);
           if (res.statusCode == 200) {
             return res.body;
           }
@@ -149,7 +150,8 @@ class _RunFromNetwork extends State<RunFromNetwork>
     if (downloadByteCodeImage == null) {
       downloadByteCodeImage = (String uri) async {
         try {
-          var res = await (_attemptDownloadWithDegradation(uri) as FutureOr<Response>);
+          var res = await (_attemptDownloadWithDegradation(uri)
+              as FutureOr<Response>);
           return res.bodyBytes;
         } catch (err) {
           print(err);

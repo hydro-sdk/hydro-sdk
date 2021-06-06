@@ -2,8 +2,6 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/loadBuiltins.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
@@ -21,15 +19,12 @@ mixin HotReloadable<T extends StatefulWidget> on State<T>
   CoroutineResult? res;
 
   Future<bool> hotReload(
-      {required
-          Uint8List bytecodeImage,
-      required
-          List<ModuleDebugInfo>? symbols,
-      required
-          String baseUrl,
-      required
-          Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
-              thunks}) async {
+      {required Uint8List bytecodeImage,
+      required List<ModuleDebugInfo>? symbols,
+      required String baseUrl,
+      required Map<String,
+              Prototype Function({CodeDump? codeDump, Prototype? parent})>
+          thunks}) async {
     var linkStatus = LinkStatus();
     luaState.symbols = symbols;
     var val = await luaState.loadBuffer(
@@ -48,15 +43,12 @@ mixin HotReloadable<T extends StatefulWidget> on State<T>
   }
 
   Future<void> fullRestart(
-      {required
-          Uint8List bytecodeImage,
-      required
-          String baseUrl,
-      required
-          List<ModuleDebugInfo>? symbols,
-      required
-          Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
-              thunks}) async {
+      {required Uint8List bytecodeImage,
+      required String baseUrl,
+      required List<ModuleDebugInfo>? symbols,
+      required Map<String,
+              Prototype Function({CodeDump? codeDump, Prototype? parent})>
+          thunks}) async {
     setState(() {
       luaState = HydroState();
       luaState.symbols = symbols;

@@ -1,10 +1,9 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveFunctionTypeNamesToTs.dart';
 
-SwidClass transformPrimitiveClassTypeNamesToTs(
-        {required SwidClass swidClass,}) =>
+SwidClass transformPrimitiveClassTypeNamesToTs({
+  required SwidClass swidClass,
+}) =>
     SwidClass.clone(
         swidClass: swidClass,
         constructorType: transformPrimitiveFunctionTypeNamesToTs(
@@ -13,6 +12,7 @@ SwidClass transformPrimitiveClassTypeNamesToTs(
         methods: swidClass.methods != null
             ? swidClass.methods
                 .map((x) => transformPrimitiveFunctionTypeNamesToTs(
-                    swidFunctionType: x,))
+                      swidFunctionType: x,
+                    ))
                 .toList()
             : null);

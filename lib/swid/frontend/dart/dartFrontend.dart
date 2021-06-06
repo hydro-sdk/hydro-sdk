@@ -7,10 +7,9 @@ import 'package:analyzer/file_system/file_system.dart' hide File;
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/src/dart/ast/ast.dart';
 
+import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/surveyor/driver.dart';
 import 'package:hydro_sdk/swid/frontend/dart/surveyor/visitors.dart';
-
-import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromDartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDeclarationModifiersFromClassDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
@@ -23,7 +22,9 @@ class SwidDartFrontend extends SwidFrontend {
 
   const SwidDartFrontend({
     required this.inputs,
-  }) : super(inputs: inputs,);
+  }) : super(
+          inputs: inputs,
+        );
 
   Future<List<SwidIr>> produceIr() async {
     int dirCount;
@@ -74,7 +75,8 @@ class _SwidVisitor extends RecursiveAstVisitor
   @override
   void visitEnumDeclaration(EnumDeclaration node) {
     DeclaredSimpleIdentifier identifier =
-        node.childEntities.firstWhere((x) => x is DeclaredSimpleIdentifier) as DeclaredSimpleIdentifier;
+        node.childEntities.firstWhere((x) => x is DeclaredSimpleIdentifier)
+            as DeclaredSimpleIdentifier;
     if (identifier.name[0] != "_") {
       List<EnumConstantDeclarationImpl> declarations = node.childEntities
           .where((x) => x is EnumConstantDeclarationImpl)
@@ -101,14 +103,12 @@ class _SwidVisitor extends RecursiveAstVisitor
               DartClassOrMixinOrClassTypAliasDeclaration.fromClassDeclaration(
                   classDeclaration: node));
 
-      
-        res = SwidClass.clone(
-            swidClass: res,
-            swidDeclarationModifiers:
-                swidDeclarationModifiersFromClassDeclaration(
-                    classDeclaration: node));
-        classes.add(res);
-      
+      res = SwidClass.clone(
+          swidClass: res,
+          swidDeclarationModifiers:
+              swidDeclarationModifiersFromClassDeclaration(
+                  classDeclaration: node));
+      classes.add(res);
     }
 
     if (node.name.name == "IconData") {
@@ -252,7 +252,7 @@ class _SwidVisitor extends RecursiveAstVisitor
         dartClassOrMixinOrClassTypAliasDeclaration:
             DartClassOrMixinOrClassTypAliasDeclaration.fromClassTypeAlias(
                 classTypeAlias: node));
-      classes.add(res);
+    classes.add(res);
 
     if (node.name.name == "UnmodifiableListBase") {
       print(node.name.name);
@@ -279,7 +279,7 @@ class _SwidVisitor extends RecursiveAstVisitor
               DartClassOrMixinOrClassTypAliasDeclaration.fromMixinDeclaration(
                   mixinDeclaration: node));
 
-        classes.add(res);
+      classes.add(res);
 
       File("test/swid/res/Diagnosticable.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));

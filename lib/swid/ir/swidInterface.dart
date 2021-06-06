@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
@@ -34,7 +33,7 @@ class SwidInterface with _$SwidInterface {
         nullabilitySuffix: nullabilitySuffix ?? swidType.nullabilitySuffix,
         originalPackagePath:
             originalPackagePath ?? swidType.originalPackagePath,
-        typeArguments: typeArguments ?? List.from(swidType.typeArguments ),
+        typeArguments: typeArguments ?? List.from(swidType.typeArguments),
         referenceDeclarationKind:
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
       );

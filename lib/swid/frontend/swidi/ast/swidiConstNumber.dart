@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'swidiConstNumber.freezed.dart';
 
 @freezed

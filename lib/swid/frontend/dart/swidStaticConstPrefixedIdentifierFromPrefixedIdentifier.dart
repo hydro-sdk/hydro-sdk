@@ -10,7 +10,8 @@ SwidStaticConstPrefixedIdentifier
             {required PrefixedIdentifier prefixedIdentifier}) =>
         SwidStaticConstPrefixedIdentifier(
             prefix: swidInterfaceFromClassElement(
-                classElement: prefixedIdentifier.prefix.staticElement as ClassElement),
+                classElement:
+                    prefixedIdentifier.prefix.staticElement as ClassElement),
             staticConstFieldReference:
                 swidStaticConstFieldReferenceFromSimpleIdentifier(
                     simpleIdentifier: prefixedIdentifier.identifier));

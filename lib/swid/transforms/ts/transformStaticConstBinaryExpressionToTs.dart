@@ -1,18 +1,13 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstBinaryExpression.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformStaticConstBinaryExpressionToTs(
-        {required
-            SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
-        required
-            SwidClass parentClass,
-        required
-            String inexpressibleFunctionInvocationFallback,
-        required
-            SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
+        {required SwidStaticConstBinaryExpression
+            swidStaticConstBinaryExpression,
+        required SwidClass parentClass,
+        required String inexpressibleFunctionInvocationFallback,
+        required SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
     transformLiteralToTs(
       swidLiteral: swidStaticConstBinaryExpression.leftOperand,
       scopeResolver: scopeResolver,

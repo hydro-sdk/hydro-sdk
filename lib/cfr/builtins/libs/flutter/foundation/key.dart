@@ -8,9 +8,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedKey extends VMManagedBox<Key?> {
   VMManagedKey(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,

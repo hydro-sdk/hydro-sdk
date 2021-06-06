@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 

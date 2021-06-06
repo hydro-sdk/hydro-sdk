@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/frontend/inputResolver.dart';
 import 'package:hydro_sdk/swid/frontend/swidFrontend.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiSourceToSwidIr.dart';
@@ -12,7 +10,9 @@ class SwidiFrontend extends SwidFrontend {
   SwidiFrontend({
     required this.inputs,
     required this.inputResolver,
-  }):super(inputs: inputs,);
+  }) : super(
+          inputs: inputs,
+        );
 
   Future<List<SwidIr>> produceIr() async {
     List<SwidIr> result = [];

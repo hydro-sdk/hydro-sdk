@@ -1,14 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 
 part 'swidStaticConstBinaryExpression.freezed.dart';
 part 'swidStaticConstBinaryExpression.g.dart';
 
 @freezed
-class SwidStaticConstBinaryExpression
-    with _$SwidStaticConstBinaryExpression {
+class SwidStaticConstBinaryExpression with _$SwidStaticConstBinaryExpression {
   const factory SwidStaticConstBinaryExpression({
     required String operator,
     required SwidStaticConst leftOperand,

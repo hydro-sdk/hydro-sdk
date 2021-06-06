@@ -27,8 +27,8 @@ class VMManagedThemeData extends VMManagedBox<ThemeData?> {
 }
 
 void loadThemeData({required HydroState hydroState}) {
-  registerBoxer(
-      boxer: ({ThemeData? vmObject, HydroState? hydroState, HydroTable? table}) {
+  registerBoxer(boxer: (
+      {ThemeData? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedThemeData(
       vmObject: vmObject,
       hydroState: hydroState,

@@ -11,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode?> {
   VMManagedDiagnosticsNode(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -55,7 +53,9 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode?> {
     table!['getValue'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Object?>(
-            object: vmObject!.value, hydroState: hydroState!, table: HydroTable())
+            object: vmObject!.value,
+            hydroState: hydroState!,
+            table: HydroTable())
       ];
     });
     table!['getAllowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {

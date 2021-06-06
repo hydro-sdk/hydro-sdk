@@ -23,5 +23,5 @@ SwidInterface swidInterfaceFromInterface(
           ? SwidReferenceDeclarationKind.enumElement
           : interfaceType.element is ClassElement
               ? SwidReferenceDeclarationKind.classElement
-              : SwidReferenceDeclarationKind.unknown ,
+              : SwidReferenceDeclarationKind.unknown,
     );

@@ -1,8 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, Reference, Expression, CodeExpression, Code;
 
-
-
 import 'package:hydro_sdk/swid/backend/dart/dartBoxList.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
@@ -19,7 +17,7 @@ class DartBoxObjectReference {
   final CodeKind codeKind;
   Expression? tableExpression;
 
-   DartBoxObjectReference({
+  DartBoxObjectReference({
     required this.type,
     required this.objectReference,
     required this.boxLists,
@@ -53,10 +51,10 @@ class DartBoxObjectReference {
 
   String toDartSource() =>
       ((Expression? expression) => codeKind == CodeKind.statement
-          ? expression!.statement
-          : codeKind == CodeKind.expression
-              ? expression!.expression
-              : null)(narrowSwidInterfaceByReferenceDeclaration(
+              ? expression!.statement
+              : codeKind == CodeKind.expression
+                  ? expression!.expression
+                  : null)(narrowSwidInterfaceByReferenceDeclaration(
         swidInterface: type,
         onPrimitive: (_) => _boxObject(),
         onClass: (_) => _boxObject(),
@@ -64,6 +62,8 @@ class DartBoxObjectReference {
         onVoid: (_) => objectReference,
         onTypeParameter: (_) => _boxObject(),
         onDynamic: (_) => _boxObject(),
-        onUnknown: (_)=>objectReference,
-      ))!.accept(DartEmitter()).toString();
+        onUnknown: (_) => objectReference,
+      ))!
+          .accept(DartEmitter())
+          .toString();
 }

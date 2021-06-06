@@ -1,4 +1,3 @@
-
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
@@ -79,7 +78,8 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
                         ].join()))
                       ]
                     : [])
-                .reduce((value, element) => [...value, ...element]) as Iterable<DartIr?>,
+                .reduce((value, element) =>
+                    [...value, ...element]) as Iterable<DartIr?>,
             DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
                 dartBarrelLoadNamespaceSymbolDeclaration:
                     DartBarrelLoadNamespaceSymbolDeclaration(

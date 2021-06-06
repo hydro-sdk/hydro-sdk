@@ -1,5 +1,3 @@
-
-
 class DartImportStatement {
   final String path;
 

@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:typed_data';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class VMManagedUnmodifiableByteDataView
     extends VMManagedBox<UnmodifiableByteDataView?> {
   VMManagedUnmodifiableByteDataView(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -45,8 +41,11 @@ class VMManagedUnmodifiableByteDataView
       ];
     });
     table!['setInt16'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.setInt16(args[1], args[2],
-          maybeUnBoxAndBuildArgument<Endian>(args[3], parentState: hydroState!));
+      vmObject!.setInt16(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Endian>(args[3],
+              parentState: hydroState!));
       return [];
     });
     table!['getUint16'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -58,8 +57,11 @@ class VMManagedUnmodifiableByteDataView
       ];
     });
     table!['setUint16'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.setUint16(args[1], args[2],
-          maybeUnBoxAndBuildArgument<Endian>(args[3], parentState: hydroState!));
+      vmObject!.setUint16(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Endian>(args[3],
+              parentState: hydroState!));
       return [];
     });
     table!['getInt32'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -71,8 +73,11 @@ class VMManagedUnmodifiableByteDataView
       ];
     });
     table!['setInt32'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.setInt32(args[1], args[2],
-          maybeUnBoxAndBuildArgument<Endian>(args[3], parentState: hydroState!));
+      vmObject!.setInt32(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Endian>(args[3],
+              parentState: hydroState!));
       return [];
     });
     table!['getUint32'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -84,8 +89,11 @@ class VMManagedUnmodifiableByteDataView
       ];
     });
     table!['setUint32'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.setUint32(args[1], args[2],
-          maybeUnBoxAndBuildArgument<Endian>(args[3], parentState: hydroState!));
+      vmObject!.setUint32(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Endian>(args[3],
+              parentState: hydroState!));
       return [];
     });
     table!['getInt64'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -97,8 +105,11 @@ class VMManagedUnmodifiableByteDataView
       ];
     });
     table!['setInt64'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.setInt64(args[1], args[2],
-          maybeUnBoxAndBuildArgument<Endian>(args[3], parentState: hydroState!));
+      vmObject!.setInt64(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Endian>(args[3],
+              parentState: hydroState!));
       return [];
     });
     table!['getUint64'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -110,8 +121,11 @@ class VMManagedUnmodifiableByteDataView
       ];
     });
     table!['setUint64'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.setUint64(args[1], args[2],
-          maybeUnBoxAndBuildArgument<Endian>(args[3], parentState: hydroState!));
+      vmObject!.setUint64(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Endian>(args[3],
+              parentState: hydroState!));
       return [];
     });
     table!['getFloat32'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -123,8 +137,11 @@ class VMManagedUnmodifiableByteDataView
       ];
     });
     table!['setFloat32'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.setFloat32(args[1], args[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Endian>(args[3], parentState: hydroState!));
+      vmObject!.setFloat32(
+          args[1],
+          args[2]?.toDouble(),
+          maybeUnBoxAndBuildArgument<Endian>(args[3],
+              parentState: hydroState!));
       return [];
     });
     table!['getFloat64'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -136,8 +153,11 @@ class VMManagedUnmodifiableByteDataView
       ];
     });
     table!['setFloat64'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.setFloat64(args[1], args[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Endian>(args[3], parentState: hydroState!));
+      vmObject!.setFloat64(
+          args[1],
+          args[2]?.toDouble(),
+          maybeUnBoxAndBuildArgument<Endian>(args[3],
+              parentState: hydroState!));
       return [];
     });
     table!['getElementSizeInBytes'] =

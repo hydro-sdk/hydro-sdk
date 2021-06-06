@@ -23,7 +23,9 @@ SwidType instantiateAllGenericsAs({
             (previousValue, element) => element.swidReferenceDeclarationKind ==
                     SwidReferenceDeclarationKind.typeParameterType
                 ? instantiateGeneric(
-                    swidType: SwidType.fromSwidClass(swidClass: previousValue,),
+                    swidType: SwidType.fromSwidClass(
+                      swidClass: previousValue,
+                    ),
                     genericInstantiator: SwidGenericInstantiator(
                       name: element.value.name,
                       instantiatedGeneric: instantiatedGeneric,

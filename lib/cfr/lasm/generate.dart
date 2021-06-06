@@ -11,8 +11,7 @@ class LStubGenerator {
   LStubGenerator({required List<HashedPrototype> prototypes}) {
     var unique = <HashedPrototype>[];
     prototypes.forEach((x) {
-      if (unique.firstWhereOrNull((k) => k.hash == x.hash) ==
-          null) {
+      if (unique.firstWhereOrNull((k) => k.hash == x.hash) == null) {
         unique.add(x);
       }
     });

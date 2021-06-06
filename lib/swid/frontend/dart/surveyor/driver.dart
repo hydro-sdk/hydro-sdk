@@ -19,11 +19,6 @@ import 'package:analyzer/dart/analysis/results.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/file_system/file_system.dart';
 import 'package:analyzer/file_system/physical_file_system.dart';
-import 'package:analyzer/src/generated/engine.dart' // ignore: implementation_imports
-    show
-        AnalysisOptionsImpl;
-import 'package:analyzer/src/lint/linter.dart'; // ignore: implementation_imports
-import 'package:analyzer/src/lint/registry.dart'; // ignore: implementation_imports
 import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:path/path.dart' as path;
@@ -31,6 +26,12 @@ import 'package:path/path.dart' as path;
 import 'common.dart';
 import 'install.dart';
 import 'visitors.dart';
+
+import 'package:analyzer/src/generated/engine.dart' // ignore: implementation_imports
+    show
+        AnalysisOptionsImpl;
+import 'package:analyzer/src/lint/linter.dart'; // ignore: implementation_imports
+import 'package:analyzer/src/lint/registry.dart'; // ignore: implementation_imports
 
 class Driver {
   CommandLineOptions options;
@@ -214,7 +215,7 @@ class Driver {
                     result.unit?.accept(visitor);
                   }
                 }
-              } catch (e,stack) {
+              } catch (e, stack) {
                 _print('Exception caught analyzing: $filePath');
                 _print(e.toString());
                 _print(stack.toString());

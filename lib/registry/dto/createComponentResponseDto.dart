@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'createComponentResponseDto.freezed.dart';
 part 'createComponentResponseDto.g.dart';
 

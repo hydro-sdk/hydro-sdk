@@ -1,5 +1,3 @@
-
-
 String removeTypeArguments({required String str}) {
   var openingBracket = str.indexOf("<");
 

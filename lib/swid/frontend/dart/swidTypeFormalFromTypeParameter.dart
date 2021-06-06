@@ -1,6 +1,5 @@
 import 'package:analyzer/dart/ast/ast.dart';
 
-
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 

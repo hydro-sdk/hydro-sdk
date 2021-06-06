@@ -49,8 +49,8 @@ class VMManagedTextTheme extends VMManagedBox<TextTheme?> {
 }
 
 void loadTextTheme({required HydroState hydroState}) {
-  registerBoxer(
-      boxer: ({TextTheme? vmObject, HydroState? hydroState, HydroTable? table}) {
+  registerBoxer(boxer: (
+      {TextTheme? vmObject, HydroState? hydroState, HydroTable? table}) {
     return VMManagedTextTheme(
       vmObject: vmObject,
       hydroState: hydroState,

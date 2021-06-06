@@ -1,7 +1,6 @@
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 
-
 T? narrowStaticConstSyntacticEntity<T>({
   required SyntacticEntity? syntacticEntity,
   required T Function(IntegerLiteral) onIntegerLiteral,

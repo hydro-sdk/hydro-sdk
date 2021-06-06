@@ -50,7 +50,8 @@ void main() {
     expect(
         collectAllReferences(
                 swidType: SwidType.fromSwidFunctionType(
-                    swidFunctionType: getProperties,))
+          swidFunctionType: getProperties,
+        ))
             .map((x) => resolveTsImportsPaths(
                 importee: SwidType.fromSwidInterface(swidInterface: x),
                 importer: SwidType.fromSwidFunctionType(

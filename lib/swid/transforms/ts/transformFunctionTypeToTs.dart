@@ -1,6 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
 
-
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';

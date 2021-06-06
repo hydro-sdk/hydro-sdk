@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'tsFunctionInvocationNamedParametersSpread.freezed.dart';
 part 'tsFunctionInvocationNamedParametersSpread.g.dart';
 

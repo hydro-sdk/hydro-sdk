@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'createUserDto.freezed.dart';
 part 'createUserDto.g.dart';
 

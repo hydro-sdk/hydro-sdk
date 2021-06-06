@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-
-
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/decode/decoderException.dart';
 import 'package:hydro_sdk/cfr/decode/flavor.dart';
@@ -123,7 +121,8 @@ class Decoder {
             hydroState: hydroState,
             thunks: thunks));
     doing = "reading upvals";
-    prim.upvals = new List.generate(readInt(code!.intSize, code!.bigEndian), (i) {
+    prim.upvals =
+        new List.generate(readInt(code!.intSize, code!.bigEndian), (i) {
       return new UpvalDef(read(1)[0] == 1, read(1)[0]);
     });
     doing = "reading source code";
@@ -134,7 +133,8 @@ class Decoder {
     prim.lines = new List.generate(readInt(code!.intSize, code!.bigEndian),
         (i) => readInt(code!.intSize, code!.bigEndian));
     doing = "reading locals";
-    prim.locals = new List.generate(readInt(code!.intSize, code!.bigEndian), (i) {
+    prim.locals =
+        new List.generate(readInt(code!.intSize, code!.bigEndian), (i) {
       return new Local(readString(), readInt(code!.intSize, code!.bigEndian),
           readInt(code!.intSize, code!.bigEndian));
     });

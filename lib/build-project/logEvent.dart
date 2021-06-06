@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'logEvent.freezed.dart';
 part 'logEvent.g.dart';
 

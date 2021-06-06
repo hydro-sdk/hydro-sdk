@@ -13,7 +13,6 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:dart_style/dart_style.dart';
 
-
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -92,12 +91,14 @@ class DartVMManagedClassDeclaration {
                         .toList()),
                     ...(swidClass!.methods
                         .where((x) => !x.swidDeclarationModifiers.hasProtected)
-                        .where((x) => !isOperator(swidFunctionType: x,))
+                        .where((x) => !isOperator(
+                              swidFunctionType: x,
+                            ))
                         .map((x) => Code(
                               DartVMManagedClassMethodInjectionImplementation(
-                                  tableKey:
-                                      transformAccessorName(swidFunctionType: x,)
-                                          .name,
+                                  tableKey: transformAccessorName(
+                                    swidFunctionType: x,
+                                  ).name,
                                   swidFunctionType: SwidFunctionType.clone(
                                     swidFunctionType: x,
                                     name: "vmObject.${x.name}",

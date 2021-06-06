@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:typed_data';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedFloat64x2 extends VMManagedBox<Float64x2?> {
   VMManagedFloat64x2(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -32,7 +28,9 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2?> {
     table!['abs'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject!.abs(), hydroState: hydroState!, table: HydroTable())
+            object: vmObject!.abs(),
+            hydroState: hydroState!,
+            table: HydroTable())
       ];
     });
     table!['clamp'] = makeLuaDartFunc(func: (List<dynamic> args) {

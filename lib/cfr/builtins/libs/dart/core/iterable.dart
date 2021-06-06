@@ -1,7 +1,5 @@
 import 'dart:core';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -12,9 +10,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>?> {
   VMManagedIterable(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -88,11 +84,12 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>?> {
         maybeBoxObject<Iterable>(
             object: vmObject!.expand(f != null
                 ? ((element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
-                      [args[0], element],
-                      parentState: hydroState!,
-                    )![0],
-                    parentState: hydroState!)) as Iterable<dynamic> Function(dynamic)
+                        f.dispatch(
+                          [args[0], element],
+                          parentState: hydroState!,
+                        )![0],
+                        parentState: hydroState!))
+                    as Iterable<dynamic> Function(dynamic)
                 : null),
             hydroState: hydroState!,
             table: HydroTable())
@@ -320,8 +317,7 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>?> {
 }
 
 class RTManagedIterable extends Iterable implements Box<Iterable> {
-  RTManagedIterable({required this.table, required this.hydroState})
-      : super() {
+  RTManagedIterable({required this.table, required this.hydroState}) : super() {
     table!['vmObject'] = vmObject;
     table!['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
@@ -387,11 +383,12 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
         maybeBoxObject<Iterable>(
             object: super.expand(f != null
                 ? ((element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
-                      [args[0], element],
-                      parentState: hydroState,
-                    )![0],
-                    parentState: hydroState)) as Iterable<dynamic> Function(dynamic)
+                        f.dispatch(
+                          [args[0], element],
+                          parentState: hydroState,
+                        )![0],
+                        parentState: hydroState))
+                    as Iterable<dynamic> Function(dynamic)
                 : null),
             hydroState: hydroState,
             table: HydroTable())
@@ -828,8 +825,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   }
 }
 
-void loadIterable(
-    {required HydroState hydroState, required HydroTable table}) {
+void loadIterable({required HydroState hydroState, required HydroTable table}) {
   table['iterable'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [RTManagedIterable(table: args[0], hydroState: hydroState)];
   });

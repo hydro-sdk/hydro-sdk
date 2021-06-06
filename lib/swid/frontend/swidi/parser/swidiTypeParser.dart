@@ -18,12 +18,13 @@ mixin SwidiTypeParser
         final tokenList = collectTokens<Token>(x);
         String? token;
         String? nullabilitySuffix;
-        if (tokenList.isNotEmpty ) {
-          token = tokenList.last.input ;
-          nullabilitySuffix = tokenList.first.input ;
+        if (tokenList.isNotEmpty) {
+          token = tokenList.last.input;
+          nullabilitySuffix = tokenList.first.input;
         }
         return SwidiInterface(
-          name: token != nullabilitySuffix ? token! + nullabilitySuffix! : token!,
+          name:
+              token != nullabilitySuffix ? token! + nullabilitySuffix! : token!,
           nullabilitySuffix: nullabilitySuffix == "?"
               ? SwidiNullabilitySuffix.question
               : SwidiNullabilitySuffix.none,
@@ -33,7 +34,6 @@ mixin SwidiTypeParser
                   : SwidiLibraryScopePrefix.empty,
           referenceDeclarationPrefix:
               collectTokens<SwidiReferenceDeclarationPrefix>(x).isNotEmpty
-                      
                   ? collectTokens<SwidiReferenceDeclarationPrefix>(x).first
                   : SwidiReferenceDeclarationPrefix.empty,
         );

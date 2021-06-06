@@ -32,7 +32,7 @@ mixin SwidiLexicalTokensGrammarDefinition
           ref0(NUMBER_OPT_ILLEGAL_END);
 
   Parser NUMBER_OPT_FRACTIONAL_PART() =>
-      char('.') &ref0(DIGIT).plus() | epsilon();
+      char('.') & ref0(DIGIT).plus() | epsilon();
 
   Parser NUMBER_OPT_ILLEGAL_END() => epsilon();
 

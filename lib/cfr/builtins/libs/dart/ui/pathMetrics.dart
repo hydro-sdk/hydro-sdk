@@ -2,8 +2,6 @@ import 'dart:collection';
 import 'dart:core';
 import 'dart:ui';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedPathMetrics extends VMManagedBox<PathMetrics?> {
   VMManagedPathMetrics(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -90,11 +86,12 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics?> {
         maybeBoxObject<Iterable>(
             object: vmObject!.expand(f != null
                 ? ((element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
-                      [args[0], element],
-                      parentState: hydroState!,
-                    )![0],
-                    parentState: hydroState!)) as Iterable<dynamic> Function(PathMetric)
+                        f.dispatch(
+                          [args[0], element],
+                          parentState: hydroState!,
+                        )![0],
+                        parentState: hydroState!))
+                    as Iterable<dynamic> Function(PathMetric)
                 : null),
             hydroState: hydroState!,
             table: HydroTable())
@@ -122,11 +119,12 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics?> {
         maybeBoxObject<PathMetric>(
             object: vmObject!.reduce(combine != null
                 ? ((value, element) => maybeUnBoxAndBuildArgument<PathMetric>(
-                    combine.dispatch(
-                      [args[0], value, element],
-                      parentState: hydroState!,
-                    )![0],
-                    parentState: hydroState!)) as PathMetric Function(PathMetric, PathMetric)
+                        combine.dispatch(
+                          [args[0], value, element],
+                          parentState: hydroState!,
+                        )![0],
+                        parentState: hydroState!))
+                    as PathMetric Function(PathMetric, PathMetric)
                 : null),
             hydroState: hydroState!,
             table: HydroTable())
@@ -335,13 +333,17 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics?> {
     table!['getFirst'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<PathMetric>(
-            object: vmObject!.first, hydroState: hydroState!, table: HydroTable())
+            object: vmObject!.first,
+            hydroState: hydroState!,
+            table: HydroTable())
       ];
     });
     table!['getLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<PathMetric>(
-            object: vmObject!.last, hydroState: hydroState!, table: HydroTable())
+            object: vmObject!.last,
+            hydroState: hydroState!,
+            table: HydroTable())
       ];
     });
     table!['getSingle'] = makeLuaDartFunc(func: (List<dynamic> args) {

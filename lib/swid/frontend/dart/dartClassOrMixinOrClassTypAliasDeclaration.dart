@@ -12,7 +12,6 @@ import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:analyzer/dart/element/element.dart' show ClassElement;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'dartClassOrMixinOrClassTypAliasDeclaration.freezed.dart';
 
 @freezed

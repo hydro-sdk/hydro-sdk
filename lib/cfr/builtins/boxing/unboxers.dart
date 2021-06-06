@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -17,8 +15,7 @@ T? maybeUnBoxEnum<T>(
   }
   //For Haxe, the enum index is placed onto the zero entry of the object's table for some reason.
   //This gets optimized into array storage by the VM
-  else if (boxedEnum is HydroTable &&
-      boxedEnum.arr.isNotEmpty) {
+  else if (boxedEnum is HydroTable && boxedEnum.arr.isNotEmpty) {
     return values.firstWhere((x) => x.index == boxedEnum.arr[0],
         orElse: () => null);
   }

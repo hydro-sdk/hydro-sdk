@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalToTs.dart';
 

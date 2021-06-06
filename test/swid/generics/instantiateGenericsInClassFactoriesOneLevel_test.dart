@@ -140,7 +140,7 @@ void main() {
         swidClass: iterable,
       ),
     ).when(
-      fromSwidInterface: (_) => dartUnknownClass ,
+      fromSwidInterface: (_) => dartUnknownClass,
       fromSwidClass: (val) => val,
       fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
       fromSwidFunctionType: (_) => dartUnknownClass,
@@ -158,9 +158,10 @@ void main() {
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
         dartDouble);
 
-    var generateReturnType = replacedIterable
-        .factoryConstructors.first.returnType
-        .maybeWhen(fromSwidInterface: (val) => val, orElse: (() => null) as SwidInterface Function());
+    var generateReturnType =
+        replacedIterable.factoryConstructors.first.returnType.maybeWhen(
+            fromSwidInterface: (val) => val,
+            orElse: (() => null) as SwidInterface Function());
 
     //The return type of Iterable.generate should be Iterable<double>
     expect(

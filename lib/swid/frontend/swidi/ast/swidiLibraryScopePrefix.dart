@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'swidiLibraryScopePrefix.freezed.dart';
 
 @freezed

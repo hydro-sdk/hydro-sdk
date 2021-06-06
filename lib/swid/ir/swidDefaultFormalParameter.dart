@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
@@ -14,7 +13,7 @@ class SwidDefaultFormalParameter with _$SwidDefaultFormalParameter {
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,
     required String originalPackagePath,
-     required SwidType value,
+    required SwidType value,
   }) = _$Data;
 
   factory SwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =>

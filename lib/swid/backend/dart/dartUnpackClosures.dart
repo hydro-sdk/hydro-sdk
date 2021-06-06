@@ -1,7 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, literalNum;
 
-
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -93,7 +92,8 @@ class DartUnpackClosures {
                       "=",
                       refer("args")
                           .index(literalNum(
-                              swidFunctionType!.normalParameterNames.length + 1))
+                              swidFunctionType!.normalParameterNames.length +
+                                  1))
                           .index(literalString(parameterName!))
                           .statement
                           .accept(DartEmitter())

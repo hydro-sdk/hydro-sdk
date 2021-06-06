@@ -3,7 +3,6 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:dart_style/dart_style.dart';
 
-
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
@@ -30,7 +29,7 @@ class DartVMManagedClassMethodInjectionImplementation {
             swidType: SwidType.fromSwidFunctionType(
                 swidFunctionType: swidFunctionType),
           ).when(
-            fromSwidInterface: (_) => dartUnknownFunction ,
+            fromSwidInterface: (_) => dartUnknownFunction,
             fromSwidClass: (_) => dartUnknownFunction,
             fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
             fromSwidFunctionType: (val) => val,
@@ -57,7 +56,7 @@ class DartVMManagedClassMethodInjectionImplementation {
           onEnum: (_) => _nonVoidBody(),
           onTypeParameter: (_) => _nonVoidBody(),
           onDynamic: (_) => _nonVoidBody(),
-          onUnknown:  (_) => _nonVoidBody(),
+          onUnknown: (_) => _nonVoidBody(),
           onVoid: (_) => Block.of([
             Code(DartUnpackClosures(
                   swidFunctionType: instantiateAllGenericsAsDynamic(

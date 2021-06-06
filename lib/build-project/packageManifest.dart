@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/build-project/packageManifestEntry.dart';
 
 part 'packageManifest.freezed.dart';

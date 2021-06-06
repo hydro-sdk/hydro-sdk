@@ -150,7 +150,9 @@ void main() {
                   swidType:
                       SwidType.fromSwidFunctionType(swidFunctionType: castFrom))
               .maybeWhen(
-                  fromSwidFunctionType: (val) => val, orElse: () => dartUnknownFunction,  ),
+            fromSwidFunctionType: (val) => val,
+            orElse: () => dartUnknownFunction,
+          ),
         ).toDartSource(),
         """
 table  [

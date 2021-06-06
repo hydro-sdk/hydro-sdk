@@ -8,8 +8,6 @@ import 'package:code_builder/code_builder.dart'
         Block,
         DartEmitter;
 
-
-
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
@@ -51,13 +49,18 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
                           val.staticType.when(
                         fromSwidInterface: (val) => val,
                         fromSwidClass: (_) => dartUnknownInterface,
-                        fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+                        fromSwidDefaultFormalParameter: (_) =>
+                            dartUnknownInterface,
                         fromSwidFunctionType: (_) => dartUnknownInterface,
                       ),
-                      fromSwidStaticConstFieldReference: (_) => dartUnknownInterface,
-                      fromSwidStaticConstPrefixedExpression: (_) => dartUnknownInterface,
-                      fromSwidStaticConstBinaryExpression: (_) => dartUnknownInterface,
-                      fromSwidStaticConstPrefixedIdentifier: (_) => dartUnknownInterface,
+                      fromSwidStaticConstFieldReference: (_) =>
+                          dartUnknownInterface,
+                      fromSwidStaticConstPrefixedExpression: (_) =>
+                          dartUnknownInterface,
+                      fromSwidStaticConstBinaryExpression: (_) =>
+                          dartUnknownInterface,
+                      fromSwidStaticConstPrefixedIdentifier: (_) =>
+                          dartUnknownInterface,
                     ),
                     objectReference: CodeExpression(
                       Code(

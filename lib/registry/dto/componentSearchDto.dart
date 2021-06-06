@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'componentSearchDto.freezed.dart';
 part 'componentSearchDto.g.dart';
 

@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInstantiableGeneric.dart';
 import 'package:hydro_sdk/swid/ir/swidInstantiatedGeneric.dart';

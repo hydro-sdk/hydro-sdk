@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
@@ -18,7 +16,9 @@ class TsClassPreamble {
           ...swidClass.mixedInClasses
               .map(
                 (x) => transformPrimitiveNamesToTs(
-                  swidType: SwidType.fromSwidClass(swidClass: x,),
+                  swidType: SwidType.fromSwidClass(
+                    swidClass: x,
+                  ),
                 ),
               )
               .map((x) => "I${x.displayName}")
@@ -26,7 +26,9 @@ class TsClassPreamble {
           ...swidClass.implementedClasses
               .map(
                 (x) => transformPrimitiveNamesToTs(
-                  swidType: SwidType.fromSwidClass(swidClass: x,),
+                  swidType: SwidType.fromSwidClass(
+                    swidClass: x,
+                  ),
                 ),
               )
               .map((x) => "I${x.displayName}")

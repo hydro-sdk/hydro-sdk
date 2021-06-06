@@ -12,7 +12,6 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:dart_style/dart_style.dart';
 
-
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration.dart';
@@ -30,7 +29,9 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 class DartLoadNamespaceSymbolDeclaration {
   final SwidClass swidClass;
 
-  const DartLoadNamespaceSymbolDeclaration({required this.swidClass,});
+  const DartLoadNamespaceSymbolDeclaration({
+    required this.swidClass,
+  });
 
   String toDartSource() => DartFormatter().format(Method((m) => m
     ..name = "load${swidClass.name}"
@@ -51,29 +52,41 @@ class DartLoadNamespaceSymbolDeclaration {
       !swidClass.isPureAbstract() && swidClass.isConstructible()
           ? refer("table")
               .index(literalString(transformToCamelCase(str: swidClass.name)))
-              .assign(luaDartBinding(
-                  code: Block.of([
-                literalList([
-                  Code(DartFunctionSelfBindingInvocation(
-                          argumentBoxingProcedure: DartBoxingProcedure.unbox,
-                          returnValueBoxingProcedure:
-                              !swidClass.constructorType!.isFactory
-                                  ? DartBoxingProcedure.none
-                                  : DartBoxingProcedure.box,
-                          emitTableBindingPrefix:
-                              !swidClass.constructorType!.isFactory,
-                          swidFunctionType: SwidFunctionType.clone(
-                              swidFunctionType: swidClass.constructorType,
-                              name: !swidClass.constructorType!.isFactory
-                                  ? "RTManaged${swidClass.name}"
-                                  : swidClass.name),
-                          returnValueBoxingTableExpression:
-                              swidClass.constructorType!.isFactory
-                                  ? refer("args").index(literalNum(0))
-                                  : null)
-                      .toDartSource(),),
-                ],).returned.statement,
-              ],),),)
+              .assign(
+                luaDartBinding(
+                  code: Block.of(
+                    [
+                      literalList(
+                        [
+                          Code(
+                            DartFunctionSelfBindingInvocation(
+                                    argumentBoxingProcedure:
+                                        DartBoxingProcedure.unbox,
+                                    returnValueBoxingProcedure:
+                                        !swidClass.constructorType!.isFactory
+                                            ? DartBoxingProcedure.none
+                                            : DartBoxingProcedure.box,
+                                    emitTableBindingPrefix:
+                                        !swidClass.constructorType!.isFactory,
+                                    swidFunctionType: SwidFunctionType.clone(
+                                        swidFunctionType:
+                                            swidClass.constructorType,
+                                        name: !swidClass
+                                                .constructorType!.isFactory
+                                            ? "RTManaged${swidClass.name}"
+                                            : swidClass.name),
+                                    returnValueBoxingTableExpression:
+                                        swidClass.constructorType!.isFactory
+                                            ? refer("args").index(literalNum(0))
+                                            : null)
+                                .toDartSource(),
+                          ),
+                        ],
+                      ).returned.statement,
+                    ],
+                  ),
+                ),
+              )
               .statement
           : Code(""),
       ...[
@@ -82,11 +95,13 @@ class DartLoadNamespaceSymbolDeclaration {
                   parentClass: swidClass,
                   staticConst: x.value,
                 ))
-            .map((x) =>
-                DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-                        swidClass: swidClass,
-                        swidStaticConstFieldDeclaration: x,)
-                    .toCode(),)
+            .map(
+              (x) =>
+                  DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
+                swidClass: swidClass,
+                swidStaticConstFieldDeclaration: x,
+              ).toCode(),
+            )
             .toList()
       ],
       ...[

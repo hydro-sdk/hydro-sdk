@@ -38,8 +38,7 @@ class RTManagedGlobalKey extends RTManagedBox<GlobalKey?> {
   }
 }
 
-void loadGlobalKey(
-    {required HydroState luaState, required HydroTable table}) {
+void loadGlobalKey({required HydroState luaState, required HydroTable table}) {
   table["globalKeyCtor"] = makeLuaDartFunc(func: (List<dynamic> args) {
     GlobalKey? key = translateRTTIToGenericGlobalKey(
         runtimeType: RuntimeTypes.values.firstWhere((x) =>

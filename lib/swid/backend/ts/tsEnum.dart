@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidEnum.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformEnumToTs.dart';
 

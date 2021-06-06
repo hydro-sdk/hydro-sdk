@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'authTokenDto.freezed.dart';
 part 'authTokenDto.g.dart';
 

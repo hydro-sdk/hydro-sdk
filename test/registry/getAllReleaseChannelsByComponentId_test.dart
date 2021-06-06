@@ -1,6 +1,6 @@
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -79,8 +79,8 @@ void main() {
 
       expect(canUpdateProjectResponse, isNotNull);
 
-      var createdProject = canUpdateProjectResponse!.firstWhereOrNull(
-          (x) => x.name == createProjectResponse!.name)!;
+      var createdProject = canUpdateProjectResponse!
+          .firstWhereOrNull((x) => x.name == createProjectResponse!.name)!;
 
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart';
 
-
 import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
 import 'package:hydro_sdk/registry/dto/componentSearchDto.dart';
@@ -123,8 +122,8 @@ class RegistryApi {
     required SessionDto sessionDto,
   }) async {
     final response = await get(
-      Uri.https(
-          baseUrl!, "api/project/canUpdate/${sessionDto.authenticatedUser.sub}"),
+      Uri.https(baseUrl!,
+          "api/project/canUpdate/${sessionDto.authenticatedUser.sub}"),
       headers: {
         "content-type": "application/json",
         "Authorization": "Bearer ${sessionDto.authToken}",

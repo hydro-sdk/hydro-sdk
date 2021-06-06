@@ -2,8 +2,6 @@ import 'dart:collection';
 import 'dart:math';
 import 'dart:typed_data';
 
-
-
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/thread/threadResult.dart';
 import 'package:hydro_sdk/cfr/util.dart';
@@ -59,7 +57,7 @@ class Frame {
     Context? context,
     List<Upval?>? upvalues,
     required Thread thread,
-  })  : context = context ?? parent!.context,
+  })   : context = context ?? parent!.context,
         upvalues = upvalues ?? new List.filled(prototype.upvals.length, null),
         K = prototype.constants,
         R = new List.filled(prototype.registers!, null, growable: true),

@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart' show IterableExtension;
-
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
@@ -23,10 +22,10 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
             swidType: x, name: removeTypeArguments(str: x.name)))
         .fold<List<SwidInterface>>(
             <SwidInterface>[],
-            (prev, element) => prev.firstWhereOrNull((x) => x.name == element.name) ==
-                    null
-                ? [...prev, element]
-                : prev)
+            (prev, element) =>
+                prev.firstWhereOrNull((x) => x.name == element.name) == null
+                    ? [...prev, element]
+                    : prev)
         .toList()
         .cast<SwidInterface>()
         .where((x) => !isPrimitiveMap(

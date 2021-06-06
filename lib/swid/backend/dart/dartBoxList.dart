@@ -1,8 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, Expression, refer, Method, Parameter, Block, Code;
 
-
-
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
@@ -24,12 +22,12 @@ class DartBoxList {
     this.codeKind = CodeKind.statement,
   });
 
-  String _boxList() =>
-      ((Expression expression) => codeKind == CodeKind.statement
-          ? expression.statement
-          : codeKind == CodeKind.expression
-              ? expression.expression
-              : null)(refer(referenceName)
+  String _boxList() => ((Expression expression) =>
+          codeKind == CodeKind.statement
+              ? expression.statement
+              : codeKind == CodeKind.expression
+                  ? expression.expression
+                  : null)(refer(referenceName)
           .property("map")
           .call([
             Method((m) => m
@@ -42,9 +40,12 @@ class DartBoxList {
                   narrowSwidInterfaceByReferenceDeclaration(
                     swidInterface: type.typeArguments.first.when(
                       fromSwidInterface: (val) => val,
-                      fromSwidClass: ((_) => null) as SwidInterface Function(SwidClass),
-                      fromSwidDefaultFormalParameter: ((_) => null) as SwidInterface Function(SwidDefaultFormalParameter),
-                      fromSwidFunctionType: ((_) => null) as SwidInterface Function(SwidFunctionType),
+                      fromSwidClass:
+                          ((_) => null) as SwidInterface Function(SwidClass),
+                      fromSwidDefaultFormalParameter: ((_) => null)
+                          as SwidInterface Function(SwidDefaultFormalParameter),
+                      fromSwidFunctionType: ((_) => null) as SwidInterface
+                          Function(SwidFunctionType),
                     ),
                     onPrimitive: (_) => "",
                     onClass: (val) => DartBoxObjectReference(
@@ -61,22 +62,26 @@ class DartBoxList {
                                 refer("x").accept(DartEmitter()).toString())
                         .toDartSource(),
                     onVoid: (_) => "",
-                    onTypeParameter: (_) =>"",
+                    onTypeParameter: (_) => "",
                     onDynamic: (_) => "",
-                    onUnknown:  (_) => "",
+                    onUnknown: (_) => "",
                   ),
                 )
               ])).closure.expression
           ], {})
           .property("toList")
-          .call([]))!.accept(DartEmitter()).toString();
+          .call([]))!
+      .accept(DartEmitter())
+      .toString();
 
   String? toDartSource() => narrowSwidInterfaceByReferenceDeclaration(
         swidInterface: type.typeArguments.first.when(
           fromSwidInterface: (val) => val,
           fromSwidClass: ((_) => null) as SwidInterface Function(SwidClass),
-          fromSwidDefaultFormalParameter: ((_) => null) as SwidInterface Function(SwidDefaultFormalParameter),
-          fromSwidFunctionType: ((_) => null) as SwidInterface Function(SwidFunctionType),
+          fromSwidDefaultFormalParameter: ((_) => null) as SwidInterface
+              Function(SwidDefaultFormalParameter),
+          fromSwidFunctionType:
+              ((_) => null) as SwidInterface Function(SwidFunctionType),
         ),
         onPrimitive: (_) => referenceName,
         onClass: (_) => _boxList(),

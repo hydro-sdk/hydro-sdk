@@ -8,8 +8,6 @@ import 'package:code_builder/code_builder.dart'
         Code,
         CodeExpression;
 
-
-
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
@@ -64,7 +62,7 @@ class DartFunctionSelfBindingInvocation {
                     onVoid: (_) => expression.accept(DartEmitter()).toString(),
                     onTypeParameter: (_) =>
                         expression.accept(DartEmitter()).toString(),
-                        onUnknown:  (_) =>
+                    onUnknown: (_) =>
                         expression.accept(DartEmitter()).toString(),
                   ),
                   fromSwidClass: (_) => "",

@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
-
 import 'package:collection/collection.dart' show IterableExtension;
+
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitsFromBarrelSpec.dart';
 import 'package:hydro_sdk/swid/backend/translationUnitProducer.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';

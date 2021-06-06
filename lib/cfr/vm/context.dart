@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashClosure.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
@@ -300,7 +298,9 @@ class Context {
       {required HydroState hydroState}) {
     if (hasMetamethod(x, method)) {
       return maybeAt(
-          invokeMetamethod(x, method, [x], parentState: hydroState) as List<num>?, 0);
+          invokeMetamethod(x, method, [x], parentState: hydroState)
+              as List<num>?,
+          0);
     } else if (x is! num) {
       throw "attempt to perform arithmetic on a ${getTypename(x)} value";
     } else {
@@ -324,10 +324,14 @@ class Context {
   static bool? checkLT(dynamic x, dynamic y, {required HydroState hydroState}) {
     if (hasMetamethod(x, "__lt")) {
       return maybeAt(
-          invokeMetamethod(x, "__lt", [x, y], parentState: hydroState) as List<bool>?, 0);
+          invokeMetamethod(x, "__lt", [x, y], parentState: hydroState)
+              as List<bool>?,
+          0);
     } else if (hasMetamethod(y, "__lt")) {
       return maybeAt(
-          invokeMetamethod(y, "__lt", [x, y], parentState: hydroState) as List<bool>?, 0);
+          invokeMetamethod(y, "__lt", [x, y], parentState: hydroState)
+              as List<bool>?,
+          0);
     } else if (x is! num) {
       throw "attempt to compare ${getTypename(x)} with ${getTypename(y)}";
     } else if (y is! num) {
@@ -340,10 +344,14 @@ class Context {
   static bool? checkLE(dynamic x, dynamic y, {required HydroState hydroState}) {
     if (hasMetamethod(x, "__le")) {
       return maybeAt(
-          invokeMetamethod(x, "__le", [x, y], parentState: hydroState) as List<bool>?, 0);
+          invokeMetamethod(x, "__le", [x, y], parentState: hydroState)
+              as List<bool>?,
+          0);
     } else if (hasMetamethod(y, "__le")) {
       return maybeAt(
-          invokeMetamethod(y, "__le", [x, y], parentState: hydroState) as List<bool>?, 0);
+          invokeMetamethod(y, "__le", [x, y], parentState: hydroState)
+              as List<bool>?,
+          0);
     } else if (x is! num) {
       throw "attempt to compare ${getTypename(x)} with ${getTypename(y)}";
     } else if (y is! num) {

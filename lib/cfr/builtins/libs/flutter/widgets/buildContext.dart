@@ -34,7 +34,8 @@ class VMManagedBuildContext extends VMManagedBox<BuildContext?> {
 
       activeContext.visitAncestorElements((element) {
         if (element.widget is InheritedWidgetBox) {
-          InheritedWidgetBox inheritedWidgetBox = element.widget as InheritedWidgetBox;
+          InheritedWidgetBox inheritedWidgetBox =
+              element.widget as InheritedWidgetBox;
           if (maybeUnBoxRuntimeType(
                   managedObject: inheritedWidgetBox.table,
                   runtimeTypePropName: "runtimeType") ==

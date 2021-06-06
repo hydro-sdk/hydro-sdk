@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
@@ -11,9 +10,8 @@ part 'swidiPositionalOrOptionalOrNamedParameter.freezed.dart';
 class SwidiPositionalOrOptionalOrNamedParameter
     with _$SwidiPositionalOrOptionalOrNamedParameter {
   factory SwidiPositionalOrOptionalOrNamedParameter.clone({
-    required
-        SwidiPositionalOrOptionalOrNamedParameter
-            swidiPositionalOrOptionalOrNamedParameter,
+    required SwidiPositionalOrOptionalOrNamedParameter
+        swidiPositionalOrOptionalOrNamedParameter,
   }) =>
       swidiPositionalOrOptionalOrNamedParameter.when(
         fromSwidiPositionalParameter: (val) =>

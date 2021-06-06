@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart' show IterableExtension;
-
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
@@ -22,11 +21,10 @@ List<BarrelMember> _extractMembers({required BarrelSpec spec}) =>
 List<BarrelSpec> _groupMembers({required List<BarrelMember> members}) =>
     members.fold<List<BarrelSpec>>(
       <BarrelSpec>[],
-      (previousValue, element) => previousValue.firstWhereOrNull(
-                  (x) =>
-                      x.path ==
-                      transformPackageUri(
-                          packageUri: element.originalPackagePath)) ==
+      (previousValue, element) => previousValue.firstWhereOrNull((x) =>
+                  x.path ==
+                  transformPackageUri(
+                      packageUri: element.originalPackagePath)) ==
               null
           ? [
               ...previousValue,

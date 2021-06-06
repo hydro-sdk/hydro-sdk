@@ -1,8 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show Code, CodeExpression, DartEmitter, refer, literalString;
 
-
-
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceFieldDirect.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
@@ -15,10 +13,11 @@ class DartBindInstanceField {
   final String tableKey;
   final SwidType instanceField;
 
-  const DartBindInstanceField(
-      {required this.instanceFieldName,
-      required this.tableKey,
-      required this.instanceField,});
+  const DartBindInstanceField({
+    required this.instanceFieldName,
+    required this.tableKey,
+    required this.instanceField,
+  });
 
   String toDartSource() => instanceField.when(
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
@@ -49,7 +48,7 @@ class DartBindInstanceField {
                 .accept(DartEmitter())
                 .toString(),
             onVoid: (_) => "void",
-            onUnknown: (_)=>"unknown",
+            onUnknown: (_) => "unknown",
             onTypeParameter: ((_) => null) as String Function(SwidInterface),
           ),
       fromSwidClass: (_) => "",

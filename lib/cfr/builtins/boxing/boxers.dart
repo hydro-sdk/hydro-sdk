@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
@@ -30,7 +28,10 @@ Box<T?> maybeBoxObject<T>({
   required HydroTable? table,
 }) {
   assert(hydroState != null);
-  Box<dynamic> Function({HydroState hydroState, HydroTable? table, dynamic vmObject})? boxer = _boxers[T];
+  Box<dynamic> Function(
+      {HydroState hydroState,
+      HydroTable? table,
+      dynamic vmObject})? boxer = _boxers[T];
   if (boxer != null) {
     var res = boxer(
       vmObject: object,

@@ -1,7 +1,6 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
@@ -29,7 +28,7 @@ class SwidClass with _$SwidClass {
     required List<SwidClass> implementedClasses,
     required bool isMixin,
     required List<SwidTypeFormal> typeFormals,
-     SwidClass? extendedClass,
+    SwidClass? extendedClass,
   }) = _$Data;
 
   factory SwidClass.fromJson(Map<String, dynamic> json) =>
@@ -66,38 +65,33 @@ class SwidClass with _$SwidClass {
                 : null,
         factoryConstructors: factoryConstructors ??
             List.from(swidClass.factoryConstructors
-                    .map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                    .toList() 
-                ),
+                .map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                .toList()),
         staticMethods: staticMethods ??
             List.from(swidClass.staticMethods
-                    .map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                    .toList() 
-                ),
+                .map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                .toList()),
         methods: methods ??
             List.from(swidClass.methods
-                    .map((x) => SwidFunctionType.clone(swidFunctionType: x))
-                    .toList() 
-                ),
+                .map((x) => SwidFunctionType.clone(swidFunctionType: x))
+                .toList()),
         staticConstFieldDeclarations: staticConstFieldDeclarations ??
-            List.from(swidClass.staticConstFieldDeclarations ),
+            List.from(swidClass.staticConstFieldDeclarations),
         instanceFieldDeclarations: instanceFieldDeclarations ??
-            Map.from(swidClass.instanceFieldDeclarations ),
+            Map.from(swidClass.instanceFieldDeclarations),
         swidDeclarationModifiers:
             swidDeclarationModifiers ?? swidClass.swidDeclarationModifiers,
         mixedInClasses: mixedInClasses ??
             List.from(swidClass.mixedInClasses
-                    .map((x) => SwidClass.clone(swidClass: x))
-                    .toList() 
-                ),
+                .map((x) => SwidClass.clone(swidClass: x))
+                .toList()),
         implementedClasses: implementedClasses ??
             List.from(swidClass.implementedClasses
-                    .map((x) => SwidClass.clone(swidClass: x))
-                    .toList() 
-                ),
+                .map((x) => SwidClass.clone(swidClass: x))
+                .toList()),
         isMixin: isMixin ?? swidClass.isMixin,
         extendedClass: extendedClass ?? swidClass.extendedClass,
-        typeFormals: typeFormals ?? List.from(swidClass.typeFormals ),
+        typeFormals: typeFormals ?? List.from(swidClass.typeFormals),
       );
 
   factory SwidClass.empty() => SwidClass(
@@ -139,7 +133,8 @@ class SwidClass with _$SwidClass {
                 ...swidClass.methods,
                 ...superClass.methods
                     .where((x) =>
-                       <SwidFunctionType?>[... swidClass.methods].firstWhere((k) => k?.name == x.name,
+                        <SwidFunctionType?>[...swidClass.methods].firstWhere(
+                            (k) => k?.name == x.name,
                             orElse: () => null) ==
                         null)
                     .toList()

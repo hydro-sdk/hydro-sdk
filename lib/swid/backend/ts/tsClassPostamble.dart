@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
 class TsClassPostamble {

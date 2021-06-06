@@ -1,6 +1,6 @@
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -77,8 +77,8 @@ void main() {
         sessionDto: loginResponse,
       );
 
-      var createdProject = canUpdateProjectResponse!.firstWhereOrNull(
-          (x) => x.name == createProjectResponse!.name)!;
+      var createdProject = canUpdateProjectResponse!
+          .firstWhereOrNull((x) => x.name == createProjectResponse!.name)!;
 
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);
@@ -117,13 +117,14 @@ void main() {
       expect(canUpdateComponentResponse.first.description,
           createComponentResponse.description);
 
-      var componentSearchResponse =
-          await (api.searchComponents(searchTerm: componentName) as FutureOr<List<ComponentSearchDto>>);
+      var componentSearchResponse = await (api.searchComponents(
+          searchTerm: componentName) as FutureOr<List<ComponentSearchDto>>);
       expect(componentSearchResponse, isNotNull);
       expect(componentSearchResponse.isNotEmpty, true);
       expect(componentSearchResponse.length, 1);
 
-      componentSearchResponse = await (api.searchComponents(searchTerm: "test") as FutureOr<List<ComponentSearchDto>>);
+      componentSearchResponse = await (api.searchComponents(searchTerm: "test")
+          as FutureOr<List<ComponentSearchDto>>);
       expect(componentSearchResponse, isNotNull);
       expect(componentSearchResponse.isNotEmpty, true);
       expect(componentSearchResponse.length, greaterThan(1));

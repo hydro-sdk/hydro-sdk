@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedSize extends VMManagedBox<Size?> {
   VMManagedSize(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -42,7 +38,8 @@ class VMManagedSize extends VMManagedBox<Size?> {
     table!['topLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Offset>(
-            object: vmObject!.topLeft(maybeUnBoxAndBuildArgument<Offset>(args[1],
+            object: vmObject!.topLeft(maybeUnBoxAndBuildArgument<Offset>(
+                args[1],
                 parentState: hydroState!)),
             hydroState: hydroState!,
             table: HydroTable())
@@ -179,7 +176,8 @@ class RTManagedSize extends Size implements Box<Size> {
     table!['_dart_getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.height];
     });
-    table!['_dart_getAspectRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getAspectRatio'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.aspectRatio];
     });
     table!['_dart_getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -189,7 +187,8 @@ class RTManagedSize extends Size implements Box<Size> {
         makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.shortestSide];
     });
-    table!['_dart_getLongestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_getLongestSide'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.longestSide];
     });
     table!['_dart_topLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {

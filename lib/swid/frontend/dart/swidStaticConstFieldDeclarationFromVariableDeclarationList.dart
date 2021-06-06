@@ -13,7 +13,6 @@ import 'package:analyzer/src/dart/element/element.dart'
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/frontend/dart/swidDoubleLiteralFromDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidIntegerLiteralFromIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstBinaryExpressionFromBinaryExpression.dart';
@@ -53,7 +52,8 @@ SwidStaticConstFieldDeclaration
                 null
             ? SwidStaticConst.fromSwidStringLiteral(
                 swidStringLiteral: swidStringLiteralFromSimpleStringLiteral(
-                    simpleStringLiteral: declaration.childEntities.firstWhereOrNull(
+                    simpleStringLiteral:
+                        declaration.childEntities.firstWhereOrNull(
                 (x) => x is SimpleStringLiteral,
               ) as SimpleStringLiteral))
             : declaration.childEntities.firstWhereOrNull(
@@ -62,8 +62,9 @@ SwidStaticConstFieldDeclaration
                     null
                 ? SwidStaticConst.fromDoubleLiteral(
                     swidDoubleLiteral: swidDoubleLiteralFromDoubleLiteral(
-                      doubleLiteral: declaration.childEntities.firstWhereOrNull(
-                          (x) => x is DoubleLiteral) as DoubleLiteral,
+                      doubleLiteral: declaration.childEntities
+                              .firstWhereOrNull((x) => x is DoubleLiteral)
+                          as DoubleLiteral,
                     ),
                   )
                 : declaration.childEntities.firstWhereOrNull(
@@ -77,14 +78,16 @@ SwidStaticConstFieldDeclaration
                                     declaration.childEntities.firstWhereOrNull(
                         (x) => x is BinaryExpression,
                       ) as BinaryExpression))
-                    : declaration.childEntities.firstWhereOrNull(
-                                (x) => x is IntegerLiteral) !=
+                    : declaration.childEntities
+                                .firstWhereOrNull((x) => x is IntegerLiteral) !=
                             null
                         ? SwidStaticConst.fromSwidIntegerLiteral(
                             swidIntegerLiteral:
                                 swidIntegerLiteralFromIntegerLiteral(
                                     integerLiteral: declaration.childEntities
-                                        .firstWhereOrNull((x) => x is IntegerLiteral) as IntegerLiteral))
+                                            .firstWhereOrNull(
+                                                (x) => x is IntegerLiteral)
+                                        as IntegerLiteral))
                         : dartUnknownConst,
   );
 }

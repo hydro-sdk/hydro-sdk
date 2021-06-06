@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionCandidates.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsClassMethodInjectionFieldName.dart';
 import 'package:hydro_sdk/swid/backend/ts/tsFunctionSelfBindingInvocation.dart';
@@ -12,9 +10,11 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 class TsClassMethodDeclarations {
   final SwidClass swidClass;
 
-const  TsClassMethodDeclarations({required this.swidClass,});
+  const TsClassMethodDeclarations({
+    required this.swidClass,
+  });
 
-  String toTsSource() => (swidClass.methods.isNotEmpty )
+  String toTsSource() => (swidClass.methods.isNotEmpty)
       ? [
             ...tsClassMethodInjectionCandidates(swidFunctionTypes: swidClass.methods)
                 .map((x) =>

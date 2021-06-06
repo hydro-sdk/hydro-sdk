@@ -1,4 +1,3 @@
-
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/tsVmDeclaration.dart';
@@ -22,7 +21,9 @@ import 'package:hydro_sdk/swid/transforms/ts/transformVmDeclarationToTs.dart';
 class TsClassVmDeclaration {
   final SwidClass swidClass;
 
-  const TsClassVmDeclaration({required this.swidClass,});
+  const TsClassVmDeclaration({
+    required this.swidClass,
+  });
 
   TsVmDeclaration _addConstructorBindingDeclarations(
           {required TsVmDeclaration tsVmDeclaration}) =>

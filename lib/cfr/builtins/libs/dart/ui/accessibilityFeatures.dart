@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class VMManagedAccessibilityFeatures
     extends VMManagedBox<AccessibilityFeatures?> {
   VMManagedAccessibilityFeatures(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -29,7 +25,8 @@ class VMManagedAccessibilityFeatures
     table!['getInvertColors'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject!.invertColors];
     });
-    table!['getDisableAnimations'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['getDisableAnimations'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject!.disableAnimations];
     });
     table!['getBoldText'] = makeLuaDartFunc(func: (List<dynamic> args) {

@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'swidDeclarationModifiers.freezed.dart';
 part 'swidDeclarationModifiers.g.dart';
 

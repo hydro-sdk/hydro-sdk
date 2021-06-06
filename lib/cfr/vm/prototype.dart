@@ -1,7 +1,5 @@
 import 'dart:typed_data';
 
-
-
 import 'package:hydro_sdk/cfr/buildProfile.dart';
 import 'package:hydro_sdk/cfr/decode/codedump.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
@@ -45,7 +43,8 @@ class Prototype {
     } else {
       if (prototypes != null && prototypes!.isNotEmpty) {
         for (var i = 0; i != prototypes!.length; ++i) {
-          var target = prototypes![i].findPrototypeByDebugSymbol(symbol: symbol);
+          var target =
+              prototypes![i].findPrototypeByDebugSymbol(symbol: symbol);
           if (target != null) {
             return target;
           }

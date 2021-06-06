@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'userReadDto.freezed.dart';
 part 'userReadDto.g.dart';
 

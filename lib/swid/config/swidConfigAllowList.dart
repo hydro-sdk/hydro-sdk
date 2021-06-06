@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'swidConfigAllowList.freezed.dart';
 part 'swidConfigAllowList.g.dart';
 

@@ -11,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedDiagnosticableTree extends VMManagedBox<DiagnosticableTree?> {
   VMManagedDiagnosticableTree(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -134,7 +132,8 @@ class RTManagedDiagnosticableTree extends DiagnosticableTree
   }
 
   @override
-  DiagnosticsNode toDiagnosticsNode({String? name, DiagnosticsTreeStyle? style}) {
+  DiagnosticsNode toDiagnosticsNode(
+      {String? name, DiagnosticsTreeStyle? style}) {
     Closure closure = table!["toDiagnosticsNode"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode>(
         closure.dispatch([table], parentState: hydroState)![0],

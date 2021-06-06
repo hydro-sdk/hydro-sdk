@@ -2,8 +2,6 @@ import 'dart:core';
 import 'dart:math';
 import 'dart:typed_data';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedInt32x4List extends VMManagedBox<Int32x4List?> {
   VMManagedInt32x4List(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -59,8 +55,8 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List?> {
       return [];
     });
     table!['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.shuffle(
-          maybeUnBoxAndBuildArgument<Random>(args[1], parentState: hydroState!));
+      vmObject!.shuffle(maybeUnBoxAndBuildArgument<Random>(args[1],
+          parentState: hydroState!));
       return [];
     });
     table!['indexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -294,11 +290,12 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List?> {
         maybeBoxObject<Iterable>(
             object: vmObject!.expand(f != null
                 ? ((element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
-                      [args[0], element],
-                      parentState: hydroState!,
-                    )![0],
-                    parentState: hydroState!)) as Iterable<dynamic> Function(Int32x4)
+                        f.dispatch(
+                          [args[0], element],
+                          parentState: hydroState!,
+                        )![0],
+                        parentState: hydroState!))
+                    as Iterable<dynamic> Function(Int32x4)
                 : null),
             hydroState: hydroState!,
             table: HydroTable())
@@ -326,11 +323,12 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List?> {
         maybeBoxObject<Int32x4>(
             object: vmObject!.reduce(combine != null
                 ? ((value, element) => maybeUnBoxAndBuildArgument<Int32x4>(
-                    combine.dispatch(
-                      [args[0], value, element],
-                      parentState: hydroState!,
-                    )![0],
-                    parentState: hydroState!)) as Int32x4 Function(Int32x4, Int32x4)
+                        combine.dispatch(
+                          [args[0], value, element],
+                          parentState: hydroState!,
+                        )![0],
+                        parentState: hydroState!))
+                    as Int32x4 Function(Int32x4, Int32x4)
                 : null),
             hydroState: hydroState!,
             table: HydroTable())
@@ -544,13 +542,17 @@ class VMManagedInt32x4List extends VMManagedBox<Int32x4List?> {
     table!['getFirst'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.first, hydroState: hydroState!, table: HydroTable())
+            object: vmObject!.first,
+            hydroState: hydroState!,
+            table: HydroTable())
       ];
     });
     table!['getLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.last, hydroState: hydroState!, table: HydroTable())
+            object: vmObject!.last,
+            hydroState: hydroState!,
+            table: HydroTable())
       ];
     });
     table!['getSingle'] = makeLuaDartFunc(func: (List<dynamic> args) {

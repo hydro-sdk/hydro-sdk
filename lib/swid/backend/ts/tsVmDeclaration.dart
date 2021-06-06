@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 
 part 'tsVmDeclaration.freezed.dart';

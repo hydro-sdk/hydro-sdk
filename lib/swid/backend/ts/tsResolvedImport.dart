@@ -1,5 +1,3 @@
-
-
 class TsResolvedImport {
   final List<String> symbols;
   final String path;

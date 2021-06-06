@@ -1,5 +1,3 @@
-
-
 abstract class InputResolver {
   const InputResolver();
 

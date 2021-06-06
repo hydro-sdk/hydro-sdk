@@ -8,8 +8,8 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleIdentifier,
         BooleanLiteral,
         ArgumentList;
-import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 
+import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 

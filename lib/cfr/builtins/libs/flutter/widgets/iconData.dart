@@ -9,9 +9,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedIconData extends VMManagedBox<IconData?> {
   VMManagedIconData(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -82,8 +80,7 @@ class RTManagedIconData extends IconData implements Box<IconData> {
   }
 }
 
-void loadIconData(
-    {required HydroState hydroState, required HydroTable table}) {
+void loadIconData({required HydroState hydroState, required HydroTable table}) {
   table['iconData'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedIconData(args[1],

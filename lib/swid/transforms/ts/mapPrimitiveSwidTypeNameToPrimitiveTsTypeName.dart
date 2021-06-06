@@ -1,5 +1,3 @@
-
-
 String mapPrimitiveSwidTypeNameToPrimitiveTsTypeName({required String str}) =>
     str == "String" || str == "String*" || str == "String?"
         ? "string"

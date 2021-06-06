@@ -11,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class VMManagedDiagnosticsSerializationDelegate
     extends VMManagedBox<DiagnosticsSerializationDelegate?> {
   VMManagedDiagnosticsSerializationDelegate(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -91,7 +89,8 @@ class VMManagedDiagnosticsSerializationDelegate
     table!['getSubtreeDepth'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject!.subtreeDepth];
     });
-    table!['getIncludeProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['getIncludeProperties'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject!.includeProperties];
     });
     table!['getExpandPropertyValues'] =

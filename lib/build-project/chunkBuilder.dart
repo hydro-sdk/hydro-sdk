@@ -1,9 +1,9 @@
 import 'dart:io';
 
-
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/projectConfig/projectConfigComponentChunk.dart';
+
 class ChunkBuilder {
   final ProjectConfigComponentChunk projectConfigComponentChunk;
   final String? ts2hc;

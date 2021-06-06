@@ -1,5 +1,3 @@
-
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
@@ -18,5 +16,4 @@ String transformNormalParametersToTs({
               inexpressibleFunctionInvocationFallback:
                   inexpressibleFunctionInvocationFallback,
             ))
-        .join(", ") 
-    ;
+        .join(", ");

@@ -1,7 +1,5 @@
 import 'dart:core';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -12,9 +10,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedIterator extends VMManagedBox<Iterator<dynamic>?> {
   VMManagedIterator(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -35,8 +31,7 @@ class VMManagedIterator extends VMManagedBox<Iterator<dynamic>?> {
   final Iterator? vmObject;
 }
 
-void loadIterator(
-    {required HydroState hydroState, required HydroTable table}) {
+void loadIterator({required HydroState hydroState, required HydroTable table}) {
   registerBoxer<Iterator>(boxer: (
       {required Iterator? vmObject,
       required HydroState? hydroState,

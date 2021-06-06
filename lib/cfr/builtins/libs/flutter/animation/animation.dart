@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/alwaysStoppedAnimation.dart';
@@ -28,14 +26,15 @@ class VMManagedAnimation<T> extends VMManagedBox<Animation<T>?> {
   }
 }
 
-void loadAnimation(
-    {required HydroState luaState, required HydroTable table}) {
+void loadAnimation({required HydroState luaState, required HydroTable table}) {
   var animation = HydroTable();
 
   table["animation"] = animation;
 
   registerBoxer<Animation<double>>(boxer: (
-      {Animation<double>? vmObject, HydroState? hydroState, HydroTable? table}) {
+      {Animation<double>? vmObject,
+      HydroState? hydroState,
+      HydroTable? table}) {
     return VMManagedAnimation<double>(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

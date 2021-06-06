@@ -2,8 +2,6 @@ import 'dart:core';
 import 'dart:math';
 import 'dart:typed_data';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedFloat64List extends VMManagedBox<Float64List?> {
   VMManagedFloat64List(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -58,8 +54,8 @@ class VMManagedFloat64List extends VMManagedBox<Float64List?> {
       return [];
     });
     table!['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.shuffle(
-          maybeUnBoxAndBuildArgument<Random>(args[1], parentState: hydroState!));
+      vmObject!.shuffle(maybeUnBoxAndBuildArgument<Random>(args[1],
+          parentState: hydroState!));
       return [];
     });
     table!['indexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -264,11 +260,12 @@ class VMManagedFloat64List extends VMManagedBox<Float64List?> {
         maybeBoxObject<Iterable>(
             object: vmObject!.expand(f != null
                 ? ((element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
-                      [args[0], element],
-                      parentState: hydroState!,
-                    )![0],
-                    parentState: hydroState!)) as Iterable<dynamic> Function(double)
+                        f.dispatch(
+                          [args[0], element],
+                          parentState: hydroState!,
+                        )![0],
+                        parentState: hydroState!))
+                    as Iterable<dynamic> Function(double)
                 : null),
             hydroState: hydroState!,
             table: HydroTable())

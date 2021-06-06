@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceFieldDirect.dart';
@@ -26,9 +25,8 @@ part 'dartir.freezed.dart';
 @freezed
 class DartIr with _$DartIr {
   factory DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
-          {required
-              DartBarrelLoadNamespaceSymbolDeclaration
-                  dartBarrelLoadNamespaceSymbolDeclaration}) =
+          {required DartBarrelLoadNamespaceSymbolDeclaration
+              dartBarrelLoadNamespaceSymbolDeclaration}) =
       _$FromDartBarrelLoadNamespaceSymbolDeclaration;
   factory DartIr.fromDartBindInstanceField(
           {required DartBindInstanceField dartBindInstanceField}) =
@@ -48,14 +46,12 @@ class DartIr with _$DartIr {
           {required DartImportStatement dartImportStatement}) =
       _$FromDartImportStatement;
   factory DartIr.fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-          {required
-              DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                  dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
+          {required DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+              dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
       _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
   factory DartIr.fromDartFunctionSelfBindingInvocation(
-          {required
-              DartFunctionSelfBindingInvocation
-                  dartFunctionSelfBindingInvocation}) =
+          {required DartFunctionSelfBindingInvocation
+              dartFunctionSelfBindingInvocation}) =
       _$FromDartFunctionSelfBindingInvocation;
   factory DartIr.fromDartLinebreak({required DartLinebreak dartLinebreak}) =
       _$FromDartLinebreak;
@@ -66,35 +62,29 @@ class DartIr with _$DartIr {
           {required DartUnpackClosures dartUnpackClosures}) =
       _$FromDartUnpackClosures;
   factory DartIr.fromDartVMManagedClassBoxerRegistrant(
-          {required
-              DartVMManagedClassBoxerRegistrant
-                  dartVMManagedClassBoxerRegistrant}) =
+          {required DartVMManagedClassBoxerRegistrant
+              dartVMManagedClassBoxerRegistrant}) =
       $FromDartVMManagedClassBoxerRegistrant;
   factory DartIr.fromLoadNamepsaceSymbolDeclaration(
-          {required
-              DartLoadNamespaceSymbolDeclaration
-                  loadNamespaceSymbolDeclaration}) =
+          {required DartLoadNamespaceSymbolDeclaration
+              loadNamespaceSymbolDeclaration}) =
       _$FromLoadNamespaceSymbolDeclaration;
   factory DartIr.fromMethodInjectionImplementation(
-          {required
-              DartMethodInjectionImplementation
-                  methodInjectionImplementation}) =
-      _$FromMethodInjectionImplementation;
+      {required DartMethodInjectionImplementation
+          methodInjectionImplementation}) = _$FromMethodInjectionImplementation;
   factory DartIr.fromRTManagedClassDeclaration(
           {required DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
       _$FromRTManagedClassDeclaration;
   factory DartIr.fromDartStaticMethodNamespaceSymbolDeclaration(
-          {required
-              DartStaticMethodNamespaceSymbolDeclaration
-                  staticMethodNamespaceSymbolDeclaration}) =
+          {required DartStaticMethodNamespaceSymbolDeclaration
+              staticMethodNamespaceSymbolDeclaration}) =
       _$FromDartStaticMethodNamespaceSymbolDeclaration;
   factory DartIr.fromVMManagedClassDeclaration(
           {required DartVMManagedClassDeclaration vmManagedClassDeclaration}) =
       _$FromVMManagedClassDeclaration;
   factory DartIr.fromVMManagedClassMethodInjectionImplementation(
-          {required
-              DartVMManagedClassMethodInjectionImplementation
-                  vmManagedClassMethodInjectionImplementation}) =
+          {required DartVMManagedClassMethodInjectionImplementation
+              vmManagedClassMethodInjectionImplementation}) =
       _$FromVMManagedClassMethodInjectionImplementation;
 }
 

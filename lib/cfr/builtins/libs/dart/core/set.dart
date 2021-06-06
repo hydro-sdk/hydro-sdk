@@ -1,7 +1,5 @@
 import 'dart:core';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -12,9 +10,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedSet extends VMManagedBox<Set<dynamic>?> {
   VMManagedSet(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -122,9 +118,9 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>?> {
     table!['difference'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Set>(
-            object: vmObject!.difference(maybeUnBoxAndBuildArgument<Set<Object>>(
-                args[1],
-                parentState: hydroState!)),
+            object: vmObject!.difference(
+                maybeUnBoxAndBuildArgument<Set<Object>>(args[1],
+                    parentState: hydroState!)),
             hydroState: hydroState!,
             table: HydroTable())
       ];
@@ -196,11 +192,12 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>?> {
         maybeBoxObject<Iterable>(
             object: vmObject!.expand(f != null
                 ? ((element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
-                      [args[0], element],
-                      parentState: hydroState!,
-                    )![0],
-                    parentState: hydroState!)) as Iterable<dynamic> Function(dynamic)
+                        f.dispatch(
+                          [args[0], element],
+                          parentState: hydroState!,
+                        )![0],
+                        parentState: hydroState!))
+                    as Iterable<dynamic> Function(dynamic)
                 : null),
             hydroState: hydroState!,
             table: HydroTable())

@@ -2,8 +2,6 @@ import 'dart:core';
 import 'dart:typed_data';
 import 'dart:ui';
 
-
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedPath extends VMManagedBox<Path?> {
   VMManagedPath(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -241,7 +237,8 @@ class RTManagedPath extends Path implements Box<Path> {
       super.moveTo(args[1]?.toDouble(), args[2]?.toDouble());
       return [];
     });
-    table!['_dart_relativeMoveTo'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_relativeMoveTo'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       super.relativeMoveTo(args[1]?.toDouble(), args[2]?.toDouble());
       return [];
     });
@@ -249,7 +246,8 @@ class RTManagedPath extends Path implements Box<Path> {
       super.lineTo(args[1]?.toDouble(), args[2]?.toDouble());
       return [];
     });
-    table!['_dart_relativeLineTo'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_relativeLineTo'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       super.relativeLineTo(args[1]?.toDouble(), args[2]?.toDouble());
       return [];
     });
@@ -363,7 +361,8 @@ class RTManagedPath extends Path implements Box<Path> {
               parentState: hydroState));
       return [];
     });
-    table!['_dart_extendWithPath'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_extendWithPath'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       super.extendWithPath(
           maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
@@ -412,7 +411,8 @@ class RTManagedPath extends Path implements Box<Path> {
             table: HydroTable())
       ];
     });
-    table!['_dart_computeMetrics'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table!['_dart_computeMetrics'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<PathMetrics>(
             object: super.computeMetrics(forceClosed: args[1]['forceClosed']),
