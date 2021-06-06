@@ -52,6 +52,7 @@ SwidClass swidClassFromInterfaceType({
                     swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
                   ),
+                  name: x.declaration.displayName,
                 ),
                 childClassMethod: swidFunctionTypeFromFunctionType(
                   functionType: x.type,
@@ -59,6 +60,7 @@ SwidClass swidClassFromInterfaceType({
                     swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
                     isAbstract: x.isAbstract,
                   ),
+                  name: x.declaration.displayName,
                 ),
               ),
             )
