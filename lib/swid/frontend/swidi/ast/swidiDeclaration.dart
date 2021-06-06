@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
@@ -10,16 +9,14 @@ part 'swidiDeclaration.freezed.dart';
 @freezed
 class SwidiDeclaration with _$SwidiDeclaration {
   const factory SwidiDeclaration({
-    required
-        String name,
-    required
-        SwidiInterface type,
+    required String name,
+    required SwidiInterface type,
     @Default(
       const SwidiConst.fromSwidiEmptyConst(
         swidiEmptyConst: SwidiEmptyConst(),
       ),
     )
-        required SwidiConst defaultConstValue,
+        SwidiConst defaultConstValue,
   }) = _$SwidiDeclarationCtor;
 
   factory SwidiDeclaration.clone({

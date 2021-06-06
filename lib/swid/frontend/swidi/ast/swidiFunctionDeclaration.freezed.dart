@@ -19,9 +19,9 @@ class _$SwidiFunctionDeclarationTearOff {
   _$SwidiFunctionDeclarationCtor call(
       {required String name,
       required SwidiInterface returnType,
-      required List<SwidiPositionalParameter?> positionalParameters,
-      required List<SwidiOptionalParameter?> optionalParameters,
-      required List<SwidiNamedParameter?> namedParameters}) {
+      required List<SwidiPositionalParameter> positionalParameters,
+      required List<SwidiOptionalParameter> optionalParameters,
+      required List<SwidiNamedParameter> namedParameters}) {
     return _$SwidiFunctionDeclarationCtor(
       name: name,
       returnType: returnType,
@@ -39,11 +39,11 @@ const $SwidiFunctionDeclaration = _$SwidiFunctionDeclarationTearOff();
 mixin _$SwidiFunctionDeclaration {
   String get name => throw _privateConstructorUsedError;
   SwidiInterface get returnType => throw _privateConstructorUsedError;
-  List<SwidiPositionalParameter?> get positionalParameters =>
+  List<SwidiPositionalParameter> get positionalParameters =>
       throw _privateConstructorUsedError;
-  List<SwidiOptionalParameter?> get optionalParameters =>
+  List<SwidiOptionalParameter> get optionalParameters =>
       throw _privateConstructorUsedError;
-  List<SwidiNamedParameter?> get namedParameters =>
+  List<SwidiNamedParameter> get namedParameters =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -59,9 +59,9 @@ abstract class $SwidiFunctionDeclarationCopyWith<$Res> {
   $Res call(
       {String name,
       SwidiInterface returnType,
-      List<SwidiPositionalParameter?> positionalParameters,
-      List<SwidiOptionalParameter?> optionalParameters,
-      List<SwidiNamedParameter?> namedParameters});
+      List<SwidiPositionalParameter> positionalParameters,
+      List<SwidiOptionalParameter> optionalParameters,
+      List<SwidiNamedParameter> namedParameters});
 
   $SwidiInterfaceCopyWith<$Res> get returnType;
 }
@@ -95,15 +95,15 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiPositionalParameter?>,
+              as List<SwidiPositionalParameter>,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
           : optionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiOptionalParameter?>,
+              as List<SwidiOptionalParameter>,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiNamedParameter?>,
+              as List<SwidiNamedParameter>,
     ));
   }
 
@@ -126,9 +126,9 @@ abstract class _$$SwidiFunctionDeclarationCtorCopyWith<$Res>
   $Res call(
       {String name,
       SwidiInterface returnType,
-      List<SwidiPositionalParameter?> positionalParameters,
-      List<SwidiOptionalParameter?> optionalParameters,
-      List<SwidiNamedParameter?> namedParameters});
+      List<SwidiPositionalParameter> positionalParameters,
+      List<SwidiOptionalParameter> optionalParameters,
+      List<SwidiNamedParameter> namedParameters});
 
   @override
   $SwidiInterfaceCopyWith<$Res> get returnType;
@@ -167,15 +167,15 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
           : positionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiPositionalParameter?>,
+              as List<SwidiPositionalParameter>,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
           : optionalParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiOptionalParameter?>,
+              as List<SwidiOptionalParameter>,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
           : namedParameters // ignore: cast_nullable_to_non_nullable
-              as List<SwidiNamedParameter?>,
+              as List<SwidiNamedParameter>,
     ));
   }
 }
@@ -196,11 +196,11 @@ class _$_$SwidiFunctionDeclarationCtor
   @override
   final SwidiInterface returnType;
   @override
-  final List<SwidiPositionalParameter?> positionalParameters;
+  final List<SwidiPositionalParameter> positionalParameters;
   @override
-  final List<SwidiOptionalParameter?> optionalParameters;
+  final List<SwidiOptionalParameter> optionalParameters;
   @override
-  final List<SwidiNamedParameter?> namedParameters;
+  final List<SwidiNamedParameter> namedParameters;
 
   @override
   String toString() {
@@ -248,9 +248,9 @@ abstract class _$SwidiFunctionDeclarationCtor
   const factory _$SwidiFunctionDeclarationCtor(
           {required String name,
           required SwidiInterface returnType,
-          required List<SwidiPositionalParameter?> positionalParameters,
-          required List<SwidiOptionalParameter?> optionalParameters,
-          required List<SwidiNamedParameter?> namedParameters}) =
+          required List<SwidiPositionalParameter> positionalParameters,
+          required List<SwidiOptionalParameter> optionalParameters,
+          required List<SwidiNamedParameter> namedParameters}) =
       _$_$SwidiFunctionDeclarationCtor;
 
   @override
@@ -258,13 +258,13 @@ abstract class _$SwidiFunctionDeclarationCtor
   @override
   SwidiInterface get returnType => throw _privateConstructorUsedError;
   @override
-  List<SwidiPositionalParameter?> get positionalParameters =>
+  List<SwidiPositionalParameter> get positionalParameters =>
       throw _privateConstructorUsedError;
   @override
-  List<SwidiOptionalParameter?> get optionalParameters =>
+  List<SwidiOptionalParameter> get optionalParameters =>
       throw _privateConstructorUsedError;
   @override
-  List<SwidiNamedParameter?> get namedParameters =>
+  List<SwidiNamedParameter> get namedParameters =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

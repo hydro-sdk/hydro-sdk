@@ -13,9 +13,9 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
   const factory SwidiFunctionDeclaration({
     required String name,
     required SwidiInterface returnType,
-    required List<SwidiPositionalParameter?> positionalParameters,
-    required List<SwidiOptionalParameter?> optionalParameters,
-    required List<SwidiNamedParameter?> namedParameters,
+    required List<SwidiPositionalParameter> positionalParameters,
+    required List<SwidiOptionalParameter> optionalParameters,
+    required List<SwidiNamedParameter> namedParameters,
   }) = _$SwidiFunctionDeclarationCtor;
 
   factory SwidiFunctionDeclaration.clone({

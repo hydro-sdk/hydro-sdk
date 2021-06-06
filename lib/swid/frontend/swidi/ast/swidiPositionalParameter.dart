@@ -12,13 +12,13 @@ class SwidiPositionalParameter with _$SwidiPositionalParameter {
   }) = _$SwidiPositionalParameterCtor;
 
   factory SwidiPositionalParameter.clone({
-    required SwidiPositionalParameter? swidiPositionalParameter,
+    required SwidiPositionalParameter swidiPositionalParameter,
     SwidiDeclaration? declaration,
   }) =>
       SwidiPositionalParameter(
         declaration: declaration ??
             SwidiDeclaration.clone(
-              swidiDeclaration: swidiPositionalParameter!.declaration,
+              swidiDeclaration: swidiPositionalParameter.declaration,
             ),
       );
 }
