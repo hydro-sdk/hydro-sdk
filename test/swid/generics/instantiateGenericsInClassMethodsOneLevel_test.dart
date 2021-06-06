@@ -145,10 +145,10 @@ void main() {
         swidClass: iterable,
       ),
     ).when(
-      fromSwidInterface: (_) => dartUnkownClass,
+      fromSwidInterface: (_) => dartUnknownClass,
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) =>dartUnkownClass ,
-      fromSwidFunctionType: (_) => dartUnkownClass,
+      fromSwidDefaultFormalParameter: (_) =>dartUnknownClass ,
+      fromSwidFunctionType: (_) => dartUnknownClass,
     );
 
     //All instances of T should be left alone

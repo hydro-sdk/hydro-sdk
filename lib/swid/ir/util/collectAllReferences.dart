@@ -19,7 +19,7 @@ List<SwidInterface> collectAllReferences({
                           swidType: x,
                         ))
                     .toList())
-              ]..removeWhere((x) => x == dartUnkownInterface),
+              ]..removeWhere((x) => x == dartUnknownInterface),
           fromSwidClass: (val) => ([
                 ...(val.constructorType != null
                     ? collectAllReferences(
@@ -87,9 +87,9 @@ List<SwidInterface> collectAllReferences({
                         ))
                     .toList()),
               ])
-                ..removeWhere((x) => x == dartUnkownInterface),
+                ..removeWhere((x) => x == dartUnknownInterface),
           fromSwidDefaultFormalParameter: (_) => [
-                dartUnkownInterface,
+                dartUnknownInterface,
               ],
           fromSwidFunctionType: (val) => ([
                 ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
@@ -124,7 +124,7 @@ List<SwidInterface> collectAllReferences({
                     .toList()),
                 ...collectAllReferences(swidType: val.returnType),
               ])
-                ..removeWhere((x) => x == dartUnkownInterface))
+                ..removeWhere((x) => x == dartUnknownInterface))
     ]
         .fold(
             <SwidInterface>[],
@@ -139,4 +139,4 @@ List<SwidInterface> collectAllReferences({
                 : prev)
         .toList()
         .cast<SwidInterface>())
-      ..removeWhere((x) => x == dartUnkownInterface);
+      ..removeWhere((x) => x == dartUnknownInterface);

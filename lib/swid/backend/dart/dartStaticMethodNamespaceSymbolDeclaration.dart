@@ -35,9 +35,9 @@ class DartStaticMethodNamespaceSymbolDeclaration {
           boxLists: true,
           type: swidFunctionType.returnType.when(
             fromSwidInterface: (val) => val,
-            fromSwidClass: (_) => dartUnkownInterface,
-            fromSwidDefaultFormalParameter: (_) => dartUnkownInterface,
-            fromSwidFunctionType: (_) => dartUnkownInterface,
+            fromSwidClass: (_) => dartUnknownInterface,
+            fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+            fromSwidFunctionType: (_) => dartUnknownInterface,
           ),
           objectReference: CodeExpression(Code(
               DartFunctionSelfBindingInvocation(

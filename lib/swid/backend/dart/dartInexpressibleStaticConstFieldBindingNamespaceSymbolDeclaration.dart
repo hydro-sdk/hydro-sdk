@@ -43,21 +43,21 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
                     boxLists: true,
                     type: swidStaticConstFieldDeclaration.value
                         .when<SwidInterface>(
-                      fromSwidBooleanLiteral: (_) => dartUnkownInterface,
-                      fromSwidStringLiteral: (_) => dartUnkownInterface,
-                      fromSwidIntegerLiteral: (_) => dartUnkownInterface,
-                      fromDoubleLiteral: (_) => dartUnkownInterface,
+                      fromSwidBooleanLiteral: (_) => dartUnknownInterface,
+                      fromSwidStringLiteral: (_) => dartUnknownInterface,
+                      fromSwidIntegerLiteral: (_) => dartUnknownInterface,
+                      fromDoubleLiteral: (_) => dartUnknownInterface,
                       fromSwidStaticConstFunctionInvocation: (val) =>
                           val.staticType.when(
                         fromSwidInterface: (val) => val,
-                        fromSwidClass: (_) => dartUnkownInterface,
-                        fromSwidDefaultFormalParameter: (_) => dartUnkownInterface,
-                        fromSwidFunctionType: (_) => dartUnkownInterface,
+                        fromSwidClass: (_) => dartUnknownInterface,
+                        fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+                        fromSwidFunctionType: (_) => dartUnknownInterface,
                       ),
-                      fromSwidStaticConstFieldReference: (_) => dartUnkownInterface,
-                      fromSwidStaticConstPrefixedExpression: (_) => dartUnkownInterface,
-                      fromSwidStaticConstBinaryExpression: (_) => dartUnkownInterface,
-                      fromSwidStaticConstPrefixedIdentifier: (_) => dartUnkownInterface,
+                      fromSwidStaticConstFieldReference: (_) => dartUnknownInterface,
+                      fromSwidStaticConstPrefixedExpression: (_) => dartUnknownInterface,
+                      fromSwidStaticConstBinaryExpression: (_) => dartUnknownInterface,
+                      fromSwidStaticConstPrefixedIdentifier: (_) => dartUnknownInterface,
                     ),
                     objectReference: CodeExpression(
                       Code(

@@ -29,10 +29,10 @@ SwidType instantiateAllGenericsAs({
                       instantiatedGeneric: instantiatedGeneric,
                     ),
                   ).when(
-                    fromSwidInterface: (_) => dartUnkownClass,
+                    fromSwidInterface: (_) => dartUnknownClass,
                     fromSwidClass: (val) => val,
-                    fromSwidDefaultFormalParameter: (_) => dartUnkownClass,
-                    fromSwidFunctionType: (_) => dartUnkownClass,
+                    fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+                    fromSwidFunctionType: (_) => dartUnknownClass,
                   )
                 : SwidClass.clone(
                     swidClass: previousValue,

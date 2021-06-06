@@ -93,10 +93,10 @@ class DartLoadNamespaceSymbolDeclaration {
         ...(instantiateAllGenericsAsDynamic(
                 swidType: SwidType.fromSwidClass(swidClass: swidClass))
             .when(
-              fromSwidInterface: (_) => dartUnkownClass,
+              fromSwidInterface: (_) => dartUnknownClass,
               fromSwidClass: (val) => val,
-              fromSwidDefaultFormalParameter: (_) => dartUnkownClass,
-              fromSwidFunctionType: (_) => dartUnkownClass,
+              fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+              fromSwidFunctionType: (_) => dartUnknownClass,
             )
             .factoryConstructors),
         ...swidClass.staticMethods,

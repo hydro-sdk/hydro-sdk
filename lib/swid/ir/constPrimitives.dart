@@ -82,7 +82,7 @@ const dartVoid = const SwidInterface(
   typeArguments: [],
 );
 
-const dartUnkownInterface = const SwidInterface(
+const dartUnknownInterface = const SwidInterface(
   name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
@@ -91,10 +91,10 @@ const dartUnkownInterface = const SwidInterface(
 );
 
 const dartUnkownType = const SwidType.fromSwidInterface(
-  swidInterface: dartUnkownInterface,
+  swidInterface: dartUnknownInterface,
 );
 
-const dartUnkownClass = const SwidClass(
+const dartUnknownClass = const SwidClass(
   name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
@@ -179,7 +179,7 @@ const dartUnknownFunction = const SwidFunctionType(
 
 const dartUnkownTypeFormal = const SwidTypeFormal(
   value: SwidTypeFormalValue.fromSwidInterface(
-    swidInterface: dartUnkownInterface,
+    swidInterface: dartUnknownInterface,
   ),
   swidReferenceDeclarationKind: SwidReferenceDeclarationKind.unknown,
 );
