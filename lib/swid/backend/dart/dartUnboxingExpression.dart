@@ -10,6 +10,7 @@ import 'package:code_builder/code_builder.dart'
         Code;
 
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
@@ -60,8 +61,13 @@ class DartUnboxingExpression {
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",
       fromSwidFunctionType: (val) => [
-            identifierName,
-            " != null ? ",
+            ...(val.returnType.nullabilitySuffix ==
+                    SwidNullabilitySuffix.question
+                ? [
+                    identifierName,
+                    " != null ? ",
+                  ]
+                : [""]),
             ...[
               val.typeFormals.isNotEmpty
                   ? ("<" +
@@ -113,6 +119,11 @@ class DartUnboxingExpression {
                   ).toDartSource()),
               ).closure.accept(DartEmitter()).toString(),
             ],
-            " : null "
+            ...(val.returnType.nullabilitySuffix ==
+                    SwidNullabilitySuffix.question
+                ? [
+                    " : null ",
+                  ]
+                : [""])
           ].join());
 }
