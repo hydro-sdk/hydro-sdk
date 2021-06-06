@@ -2,18 +2,25 @@ import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-typedef Box<T> Boxer<T>(
-    {required T vmObject,
-    required HydroState? hydroState,
-    required HydroTable? table});
+typedef Box<T> Boxer<T>({
+  required T vmObject,
+  required HydroState hydroState,
+  required HydroTable table,
+});
 
-Map<Type, Boxer<dynamic>> _boxers = {};
+Map<Type, 
+Box<dynamic> Function({
+        required dynamic vmObject,
+        required HydroState hydroState,
+        required HydroTable table,
+      })
+> _boxers = {};
 
-void registerBoxer<T>({required Boxer<T?> boxer}) {
+void registerBoxer<T>({required Boxer<T> boxer}) {
   _boxers[T] = ({
-    vmObject,
-    hydroState,
-    table,
+    required dynamic vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
   }) =>
       boxer(
         vmObject: vmObject,
@@ -22,12 +29,11 @@ void registerBoxer<T>({required Boxer<T?> boxer}) {
       );
 }
 
-Box<T?> maybeBoxObject<T>({
+Box<T> maybeBoxObject<T>({
   required T object,
   required HydroState hydroState,
-  required HydroTable? table,
+  required HydroTable table,
 }) {
-  assert(hydroState != null);
   Box<dynamic> Function(
       {HydroState hydroState,
       HydroTable? table,
@@ -40,7 +46,7 @@ Box<T?> maybeBoxObject<T>({
     );
 
     if (res != null) {
-      return res as Box<T?>;
+      return res as Box<T>;
     }
   }
   throw "No boxer registered for type $T";
