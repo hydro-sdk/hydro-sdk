@@ -38,7 +38,7 @@ String transformTypeDeclarationToTs({
                               ? "<" +
                                   val.typeArguments
                                       .map((x) => transformTypeDeclarationToTs(
-                                            swidType: x!,
+                                            swidType: x,
                                             emitTrailingReturnType:
                                                 emitTrailingReturnType,
                                             emitDefaultFormalsAsOptionalNamed:
@@ -60,7 +60,7 @@ String transformTypeDeclarationToTs({
                               ? "<" +
                                   val.typeArguments
                                       .map((x) => transformTypeDeclarationToTs(
-                                            swidType: x!,
+                                            swidType: x,
                                             emitTrailingReturnType:
                                                 emitTrailingReturnType,
                                             emitDefaultFormalsAsOptionalNamed:
@@ -75,7 +75,8 @@ String transformTypeDeclarationToTs({
                                   ">"
                               : ""),
                       onDynamic: (val) => "any",
-                    )!) as String Function(SwidInterface),
+                      onUnknown: (_)=>"unknown",
+                    )) ,
                 fromSwidClass: (_) => "",
                 fromSwidDefaultFormalParameter: (val) => val.name,
                 fromSwidFunctionType: (val) => transformFunctionTypeToTs(
@@ -91,11 +92,11 @@ String transformTypeDeclarationToTs({
                 "{[index: " +
                 transformTypeDeclarationToTs(
                     swidType: transformPrimitiveNamesToTs(
-                        swidType: val.typeArguments.first!)) +
+                        swidType: val.typeArguments.first,)) +
                 "]: " +
-                transformTypeDeclarationToTs(swidType: val.typeArguments.last!) +
+                transformTypeDeclarationToTs(swidType: val.typeArguments.last,) +
                 "}",
             fromSwidClass: (_) => "",
             fromSwidDefaultFormalParameter: (_) => "",
             fromSwidFunctionType: (_) => "",
-          )));
+          )),);

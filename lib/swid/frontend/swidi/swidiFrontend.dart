@@ -12,7 +12,7 @@ class SwidiFrontend extends SwidFrontend {
   SwidiFrontend({
     required this.inputs,
     required this.inputResolver,
-  });
+  }):super(inputs: inputs,);
 
   Future<List<SwidIr>> produceIr() async {
     List<SwidIr> result = [];
