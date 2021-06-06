@@ -10,6 +10,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/backend/util/removeNonEmitCandidates.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
@@ -101,10 +102,11 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                                                   SwidClass.mergeSuperClasses(
                                                       swidClass: swidClass)))
                                       .when(
-                            fromSwidInterface: (_) => null,
+                            fromSwidInterface: (_) => dartUnknownClass,
                             fromSwidClass: (val) => val,
-                            fromSwidDefaultFormalParameter: (_) => null,
-                            fromSwidFunctionType: (_) => null,
+                            fromSwidDefaultFormalParameter: (_) =>
+                                dartUnknownClass,
+                            fromSwidFunctionType: (_) => dartUnknownClass,
                           )),
                         )
                       : null,

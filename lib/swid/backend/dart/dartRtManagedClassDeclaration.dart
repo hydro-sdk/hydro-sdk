@@ -18,13 +18,13 @@ import 'package:code_builder/code_builder.dart'
         Reference;
 
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:dart_style/dart_style.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -36,17 +36,19 @@ import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 
 class DartRTManagedClassDeclaration {
-  final SwidClass? swidClass;
+  final SwidClass swidClass;
 
-  DartRTManagedClassDeclaration({required this.swidClass});
+  const DartRTManagedClassDeclaration({
+    required this.swidClass,
+  });
 
   String toDartSource() => (Class((x) => x
-    ..name = "RTManaged${swidClass!.name}"
-    ..extend = TypeReference((k) => k.symbol = swidClass!.name)
+    ..name = "RTManaged${swidClass.name}"
+    ..extend = TypeReference((k) => k.symbol = swidClass.name)
     ..implements.add(TypeReference(
       (k) => k
         ..symbol = "Box"
-        ..types.add(TypeReference((i) => i..symbol = swidClass!.name)),
+        ..types.add(TypeReference((i) => i..symbol = swidClass.name)),
     ))
     ..fields.addAll([
       Field(
@@ -63,13 +65,13 @@ class DartRTManagedClassDeclaration {
       ),
     ])
     ..constructors.add(Constructor((k) => k
-      ..requiredParameters.addAll(swidClass!
+      ..requiredParameters.addAll(swidClass
           .constructorType!.normalParameterNames
           .map((e) => Parameter((i) => i
             ..name = e
             ..type = TypeReference((j) => j
-              ..symbol = swidClass!.constructorType!.normalParameterTypes
-                  .elementAt(swidClass!.constructorType!.normalParameterNames
+              ..symbol = swidClass.constructorType!.normalParameterTypes
+                  .elementAt(swidClass.constructorType!.normalParameterNames
                       .indexOf(e))
                   .when(
                       fromSwidInterface: (val) => val.name,
@@ -77,7 +79,7 @@ class DartRTManagedClassDeclaration {
                       fromSwidDefaultFormalParameter: (val) => val.name,
                       fromSwidFunctionType: (val) => val.name))))
           .toList())
-      ..optionalParameters.addAll(swidClass!
+      ..optionalParameters.addAll(swidClass
           .constructorType!.namedParameterTypes.entries
           .map((x) => MapEntry(
               x.key,
@@ -109,14 +111,14 @@ class DartRTManagedClassDeclaration {
       ])
       ..initializers.addAll([
         Code("super(" +
-            swidClass!.constructorType!.normalParameterNames
+            swidClass.constructorType!.normalParameterNames
                 .map((e) => e)
                 .toList()
                 .join(",") +
-            (swidClass!.constructorType!.normalParameterNames.length >= 1
+            (swidClass.constructorType!.normalParameterNames.length >= 1
                 ? ","
                 : "") +
-            swidClass!.constructorType!.namedParameterTypes.entries
+            swidClass.constructorType!.namedParameterTypes.entries
                 .map((e) => e.key + ": " + e.key)
                 .toList()
                 .join(",") +
@@ -143,14 +145,14 @@ class DartRTManagedClassDeclaration {
                 ])).closure
             }))
             .statement,
-        ...(swidClass!.instanceFieldDeclarations.entries
+        ...(swidClass.instanceFieldDeclarations.entries
             .map((x) => Code(DartBindInstanceField(
                   tableKey: x.key,
                   instanceFieldName: x.key,
                   instanceField: x.value,
                 ).toDartSource()))
             .toList()),
-        ...(swidClass!.methods
+        ...(swidClass.methods
             .where((x) => !isOperator(
                   swidFunctionType: x,
                 ))
@@ -160,9 +162,9 @@ class DartRTManagedClassDeclaration {
                       swidFunctionType: x,
                     ),
                   ).when(
-                    fromSwidInterface: (_) => null,
-                    fromSwidClass: (_) => null,
-                    fromSwidDefaultFormalParameter: (_) => null,
+                    fromSwidInterface: (_) => dartUnknownFunction,
+                    fromSwidClass: (_) => dartUnknownFunction,
+                    fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
                     fromSwidFunctionType: (val) => val,
                   ),
                 ).toDartSource()))
@@ -171,15 +173,15 @@ class DartRTManagedClassDeclaration {
     ..methods.addAll([
       Method((k) => k
         ..name = "unwrap"
-        ..returns = refer(swidClass!.name)
+        ..returns = refer(swidClass.name)
         ..body = refer("this").code),
       Method((k) => k
         ..name = "vmObject"
         ..type = MethodType.getter
-        ..returns = refer(swidClass!.name)
+        ..returns = refer(swidClass.name)
         ..body = refer("this").code)
     ])
-    ..methods.addAll(swidClass!.methods
+    ..methods.addAll(swidClass.methods
         .where((x) => !isOperator(
               swidFunctionType: x,
             ))
