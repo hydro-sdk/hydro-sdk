@@ -214,9 +214,10 @@ class Driver {
                     result.unit?.accept(visitor);
                   }
                 }
-              } catch (e) {
+              } catch (e,stack) {
                 _print('Exception caught analyzing: $filePath');
                 _print(e.toString());
+                _print(stack.toString());
               }
             }
 

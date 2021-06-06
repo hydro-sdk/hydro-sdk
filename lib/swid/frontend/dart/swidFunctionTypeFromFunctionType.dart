@@ -1,4 +1,3 @@
-
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/frontend/dart/narrowDartTypeToSwidType.dart';
@@ -25,16 +24,14 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
         originalPackagePath:
             functionType.element?.librarySource.uri.toString() ?? "",
         swidDeclarationModifiers: swidDeclarationModifiers,
-        namedParameterTypes: Map.fromEntries(
-          (functionType.namedParameterTypes.keys
-            .map((x) => MapEntry<String, SwidType?>(
+        namedParameterTypes: Map.fromEntries(functionType
+            .namedParameterTypes.keys
+            .map((x) => MapEntry<String, SwidType>(
                 x,
                 narrowDartTypeToSwidType(
-                    dartType: functionType.namedParameterTypes[x]))
-                    
-                    ).toList()..removeWhere((x) =>x.value==null )) as List< MapEntry<String, SwidType>>
-                    
-                    ),
+                    dartType: functionType.namedParameterTypes[x])))
+            .where((x) => x != dartUnknownType)
+            .toList()),
         namedDefaults: functionType.parameters.isNotEmpty
             ? Map.fromEntries(functionType.parameters
                 .map((x) => MapEntry<String, SwidDefaultFormalParameter>(
@@ -57,17 +54,18 @@ SwidFunctionType swidFunctionTypeFromFunctionType(
                                   swidInterface: swidInterfaceFromInterface(
                                   interfaceType: x.type as InterfaceType,
                                 ))
-                              : dartUnkownType ,
+                              : dartUnknownType,
                     )))
                 .toList()
                   ..removeWhere((x) => x.value.name == ""))
             : {},
-        normalParameterNames:
-            List.from(functionType.normalParameterNames ),
-        normalParameterTypes: List.from(
-            functionType.normalParameterTypes.map((x) => narrowDartTypeToSwidType(dartType: x)).toList()),
-        optionalParameterNames: List.from(functionType.optionalParameterNames ),
-        optionalParameterTypes: List.from(functionType.optionalParameterTypes.map((x) => narrowDartTypeToSwidType(dartType: x)).toList() ),
+        normalParameterNames: List.from(functionType.normalParameterNames),
+        normalParameterTypes: List.from(functionType.normalParameterTypes
+            .map((x) => narrowDartTypeToSwidType(dartType: x))
+            .toList()),
+        optionalParameterNames: List.from(functionType.optionalParameterNames),
+        optionalParameterTypes: List.from(
+            functionType.optionalParameterTypes.map((x) => narrowDartTypeToSwidType(dartType: x)).toList()),
         returnType: narrowDartTypeToSwidType(dartType: functionType.returnType),
         isFactory: false,
         typeFormals: functionType.typeFormals.isNotEmpty

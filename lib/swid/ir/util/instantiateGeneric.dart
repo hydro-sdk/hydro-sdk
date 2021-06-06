@@ -92,7 +92,7 @@ SwidType instantiateGeneric({
                 .toList(),
           ),
         ),
-        onUnknown: (_)=>dartUnkownType,
+        onUnknown: (_)=>dartUnknownType,
       ),
       fromSwidClass: (val) => <SwidTypeFormal?>[ ...val.typeFormals].firstWhere(
                   (x) =>

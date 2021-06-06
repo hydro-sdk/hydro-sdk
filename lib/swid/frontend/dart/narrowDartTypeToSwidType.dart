@@ -39,4 +39,4 @@ SwidType narrowDartTypeToSwidType({required DartType? dartType}) => dartType
                     ? SwidType.fromSwidInterface(
                         swidInterface:
                             swidInterfaceFromDynamicType(dynamicType: dartType))
-                    : dartUnkownType;
+                    : dartUnknownType;

@@ -90,7 +90,7 @@ const dartUnknownInterface = const SwidInterface(
   typeArguments: [],
 );
 
-const dartUnkownType = const SwidType.fromSwidInterface(
+const dartUnknownType = const SwidType.fromSwidInterface(
   swidInterface: dartUnknownInterface,
 );
 
@@ -172,7 +172,7 @@ const dartUnknownFunction = const SwidFunctionType(
   normalParameterTypes: [],
   optionalParameterNames: [],
   optionalParameterTypes: [],
-  returnType: dartUnkownType,
+  returnType: dartUnknownType,
   isFactory: false,
   typeFormals: [],
 );
@@ -188,7 +188,7 @@ const dartUnknownDefaultFormalParameter = const SwidDefaultFormalParameter(
   name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
-  value: dartUnkownType,
+  value: dartUnknownType,
 );
 
 const dartUnkownDefaultFormalParameterEntry = const MapEntry(

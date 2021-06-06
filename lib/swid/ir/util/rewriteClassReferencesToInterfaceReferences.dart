@@ -134,7 +134,7 @@ SwidType rewriteClassReferencesToInterfaceReferences(
                     rewriteClassReferencesToInterfaceReferencesInClass(swidClass: x,))
                 .toList()),
       ),
-      fromSwidDefaultFormalParameter: (_) => dartUnkownType,
+      fromSwidDefaultFormalParameter: (_) => dartUnknownType,
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
         swidFunctionType: SwidFunctionType.clone(
             swidFunctionType: val,

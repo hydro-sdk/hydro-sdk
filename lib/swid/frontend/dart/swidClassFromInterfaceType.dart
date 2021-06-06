@@ -1,6 +1,5 @@
 import 'package:analyzer/dart/ast/ast.dart' show TypeName;
 
-
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
@@ -100,7 +99,7 @@ SwidClass swidClassFromInterfaceType({
               fullyResolveInterfaceTypeFormals: false,
             )
           : null,
-      typeFormals: (interfaceType.typeArguments
+      typeFormals: interfaceType.typeArguments
           .map((x) => x is InterfaceType && fullyResolveInterfaceTypeFormals
               ? SwidTypeFormal(
                   value: SwidTypeFormalValue.fromSwidClass(
@@ -116,7 +115,8 @@ SwidClass swidClassFromInterfaceType({
                   ? SwidTypeFormal(
                       value: SwidTypeFormalValue.fromSwidClass(
                         swidClass: swidClassFromInterfaceType(
-                            interfaceType: (x as TypeName).type as InterfaceType),
+                            interfaceType:
+                                (x as TypeName).type as InterfaceType),
                       ),
                       swidReferenceDeclarationKind:
                           SwidReferenceDeclarationKind.classElement,
@@ -131,5 +131,7 @@ SwidClass swidClassFromInterfaceType({
                               SwidReferenceDeclarationKind.typeParameterType,
                         )
                       : null)
-          .toList()..removeWhere((x) =>x==null)) as List<SwidTypeFormal>,
+          .where((x) => x != null)
+          .toList()
+          .cast<SwidTypeFormal>(),
     );

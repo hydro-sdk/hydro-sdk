@@ -9,7 +9,6 @@ import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 import 'package:hydro_sdk/swid/frontend/dart/dartClassOrMixinOrClassTypAliasDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/dart/narrowModifierProducer.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
@@ -19,6 +18,7 @@ import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.da
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidStaticConstFieldDeclarationFromVariableDeclarationList.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidTypeFormalFromTypeParameter.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -31,9 +31,8 @@ import 'package:analyzer/src/dart/ast/ast.dart'
     show ConstructorDeclarationImpl, MethodDeclarationImpl;
 
 SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
-  required
-      DartClassOrMixinOrClassTypAliasDeclaration
-          dartClassOrMixinOrClassTypAliasDeclaration,
+  required DartClassOrMixinOrClassTypAliasDeclaration
+      dartClassOrMixinOrClassTypAliasDeclaration,
 }) {
   final List<ConstructorDeclarationImpl> constructors =
       dartClassOrMixinOrClassTypAliasDeclaration.childEntities
@@ -45,8 +44,8 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
               ? x.declaredElement!.name[0] != "_"
               : true)
           .toList();
-  var constructorDeclarationImpl = constructors.firstWhereOrNull(
-      (x) => x.factoryKeyword == null && x.name == null);
+  var constructorDeclarationImpl = constructors
+      .firstWhereOrNull((x) => x.factoryKeyword == null && x.name == null);
 
   if (constructorDeclarationImpl == null) {
     constructorDeclarationImpl =
@@ -77,9 +76,10 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
       isMixin: dartClassOrMixinOrClassTypAliasDeclaration.isMixin,
       nullabilitySuffix: SwidNullabilitySuffix.none,
       swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-      originalPackagePath:
-          dartClassOrMixinOrClassTypAliasDeclaration.declaredElement?.librarySource.uri.toString() ??
-              "",
+      originalPackagePath: dartClassOrMixinOrClassTypAliasDeclaration
+              .declaredElement?.librarySource.uri
+              .toString() ??
+          "",
       constructorType: constructorDeclarationImpl != null
           ? SwidFunctionType.clone(
               swidFunctionType: swidFunctionTypeFromFunctionType(
@@ -106,15 +106,14 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
           methods.where((x) => x.swidDeclarationModifiers.isStatic).toList(),
       mixedInClasses: dartClassOrMixinOrClassTypAliasDeclaration.withClause != null
           ? dartClassOrMixinOrClassTypAliasDeclaration.withClause!.mixinTypes
-              .map((x) => swidClassFromInterfaceType(interfaceType: x.type as InterfaceType))
+              .map((x) => swidClassFromInterfaceType(
+                  interfaceType: x.type as InterfaceType))
               .toList()
           : [],
-      extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null &&
-              dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
-                  is InterfaceType
+      extendedClass: dartClassOrMixinOrClassTypAliasDeclaration.superClass != null && dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type is InterfaceType
           ? swidClassFromInterfaceType(
-              interfaceType:
-                  dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type as InterfaceType)
+              interfaceType: dartClassOrMixinOrClassTypAliasDeclaration.superClass!.type
+                  as InterfaceType)
           : null,
       implementedClasses: dartClassOrMixinOrClassTypAliasDeclaration.implementsClause != null
           ? dartClassOrMixinOrClassTypAliasDeclaration.implementsClause!.interfaces
@@ -122,59 +121,64 @@ SwidClass swidClassFromDartClassOrMixinOrClassTypAliasDeclaration({
               .map((x) => swidClassFromInterfaceType(interfaceType: x.type as InterfaceType))
               .toList()
           : [],
-      staticConstFieldDeclarations: (dartClassOrMixinOrClassTypAliasDeclaration.childEntities
-          .where((x) => x is FieldDeclaration)
-          .toList()
-          .cast<FieldDeclaration>()
-          .map((x) {
+      staticConstFieldDeclarations: (dartClassOrMixinOrClassTypAliasDeclaration.childEntities.where((x) => x is FieldDeclaration).toList().cast<FieldDeclaration>().map((x) {
         if (x.isStatic) {
           var declarationList =
               (x.childEntities.firstWhere((k) => k is VariableDeclarationList)
                   as VariableDeclarationList);
           if (declarationList.isConst) {
             VariableDeclaration declaration = declarationList.childEntities
-                .firstWhere((x) => x is VariableDeclaration) as VariableDeclaration;
+                    .firstWhere((x) => x is VariableDeclaration)
+                as VariableDeclaration;
             if (declaration.isConst &&
                 declaration.declaredElement!.isConst &&
                 declaration.declaredElement!.isStatic) {
               return swidStaticConstFieldDeclarationFromVariableDeclarationList(
                   variableDeclarationList: x.childEntities
-                      .firstWhere((k) => k is VariableDeclarationList) as VariableDeclarationList);
+                          .firstWhere((k) => k is VariableDeclarationList)
+                      as VariableDeclarationList);
             }
           }
         }
       }).toList()
-            ..removeWhere((x) => x == null))as List<SwidStaticConstFieldDeclaration> ,
+            ..removeWhere((x) => x == null))
+          .cast<SwidStaticConstFieldDeclaration>(),
       instanceFieldDeclarations: Map.fromEntries(
-        (dartClassOrMixinOrClassTypAliasDeclaration.childEntities
+        dartClassOrMixinOrClassTypAliasDeclaration.childEntities
             .where((x) => x is FieldDeclaration)
             .toList()
             .cast<FieldDeclaration>()
             .map((x) {
-          if (!x.isStatic) {
-            var declarationList =
-                (x.childEntities.firstWhere((k) => k is VariableDeclarationList)
+              if (!x.isStatic) {
+                var declarationList = (x.childEntities
+                        .firstWhere((k) => k is VariableDeclarationList)
                     as VariableDeclarationList);
-            if (!declarationList.isConst) {
-              VariableDeclaration declaration = declarationList.childEntities
-                  .firstWhere((x) => x is VariableDeclaration) as VariableDeclaration;
-              if (!declaration.isConst &&
-                  !declaration.declaredElement!.isConst &&
-                  !declaration.declaredElement!.isStatic &&
-                  declaration.declaredElement!.isPublic) {
-                if (declaration.declaredElement!.type is InterfaceType) {
-                  return MapEntry(
-                      declaration.declaredElement!.displayName,
-                      SwidType.fromSwidInterface(
-                          swidInterface: swidInterfaceFromInterface(
-                              interfaceType:
-                                  declaration.declaredElement!.type as InterfaceType)));
+                if (!declarationList.isConst) {
+                  VariableDeclaration declaration = declarationList
+                          .childEntities
+                          .firstWhere((x) => x is VariableDeclaration)
+                      as VariableDeclaration;
+                  if (!declaration.isConst &&
+                      !declaration.declaredElement!.isConst &&
+                      !declaration.declaredElement!.isStatic &&
+                      declaration.declaredElement!.isPublic) {
+                    if (declaration.declaredElement!.type is InterfaceType) {
+                      return MapEntry(
+                          declaration.declaredElement!.displayName,
+                          SwidType.fromSwidInterface(
+                              swidInterface: swidInterfaceFromInterface(
+                                  interfaceType: declaration.declaredElement!
+                                      .type as InterfaceType)));
+                    }
+                  }
                 }
               }
-            }
-          }
-        }).toList()
-              ..removeWhere((x) => x == null))as Iterable<MapEntry<String,SwidType>> ,
+            })
+            .toList()
+            .cast<MapEntry<String, SwidType>?>()
+            .where((x) => x != null)
+            .toList()
+            .cast<MapEntry<String, SwidType>>(),
       ),
       typeFormals: ((TypeParameterList? typeParameterList) => typeParameterList != null
           ? typeParameterList.typeParameters

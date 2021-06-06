@@ -8,13 +8,10 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleIdentifier,
         BooleanLiteral,
         ArgumentList;
-import 'package:analyzer/dart/element/type.dart'
-    show
-        InterfaceType;
+import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 
 import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromInterface.dart';
@@ -30,32 +27,26 @@ SwidStaticConstFunctionInvocation
   return SwidStaticConstFunctionInvocation(
       staticType: SwidType.fromSwidInterface(
           swidInterface: swidInterfaceFromInterface(
-              interfaceType: instanceCreationExpression.staticType as InterfaceType)),
+              interfaceType:
+                  instanceCreationExpression.staticType as InterfaceType)),
       value: constructor.type.name.name +
           (constructor.name != null ? ".${constructor.name!.name}" : ""),
-      normalParameters: 
-      (
-      (
-        instanceCreationExpression.childEntities
-                  .firstWhere((x) => x is ArgumentList) as ArgumentList)
-              .childEntities
-              .map((x) =>
-                  extractStaticConstFromSyntacticEntity(syntacticEntity: x))
-              .toList() 
-        ..removeWhere((x) => x == null)) as List<SwidStaticConst> ,
-      namedParameters: Map.fromEntries(
-        
-        (
-        (instanceCreationExpression.childEntities
-                  .firstWhere((x) => x is ArgumentList) as ArgumentList)
-              .childEntities
-              .map((x) {
+      normalParameters: (instanceCreationExpression.childEntities
+              .firstWhere((x) => x is ArgumentList) as ArgumentList)
+          .childEntities
+          .map((x) => extractStaticConstFromSyntacticEntity(syntacticEntity: x))
+          .where((x) => x != null)
+          .toList()
+          .cast<SwidStaticConst>(),
+      namedParameters: Map.fromEntries((instanceCreationExpression.childEntities
+              .firstWhere((x) => x is ArgumentList) as ArgumentList)
+          .childEntities
+          .map((x) {
             if (x is NamedExpression) {
-              var argument = x.childEntities.firstWhereOrNull(
-                  (x) =>
-                      x is SimpleStringLiteral ||
-                      x is BooleanLiteral ||
-                      x is SimpleIdentifier);
+              var argument = x.childEntities.firstWhereOrNull((x) =>
+                  x is SimpleStringLiteral ||
+                  x is BooleanLiteral ||
+                  x is SimpleIdentifier);
               return MapEntry(
                   (x.childEntities.firstWhere((x) => x is Label) as Label)
                       .label
@@ -63,11 +54,10 @@ SwidStaticConstFunctionInvocation
                   extractStaticConstFromSyntacticEntity(
                       syntacticEntity: argument));
             }
-            return MapEntry(null, null);
-          }).toList()..removeWhere((x) =>x.key==null||x.value==null ) )as List<MapEntry<String,SwidStaticConst>>
-          
-          
-          )
-        ..remove(null),
+            return const MapEntry(null, null);
+          })
+          .where((x) => x.key != null && x.value != null)
+          .toList()
+          .cast<MapEntry<String, SwidStaticConst>>()),
       isConstructorInvocation: constructor.name == null);
 }
