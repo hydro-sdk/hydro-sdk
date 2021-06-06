@@ -126,10 +126,11 @@ List<SwidInterface> collectAllReferences({
               ])
                 ..removeWhere((x) => x == dartUnknownInterface))
     ]
-        .fold(
+        .fold<List<SwidInterface>>(
             <SwidInterface>[],
-            (dynamic prev, element) => prev.firstWhere(
-                        (x) => x.name == element.name,
+            (prev, element) => <SwidInterface?>[
+                      ...prev,
+                    ].firstWhere((x) => x?.name == element.name,
                         orElse: () => null) ==
                     null
                 ? [

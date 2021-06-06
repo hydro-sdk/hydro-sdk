@@ -146,13 +146,17 @@ List<SwidInterface> collectAllStaticConstReferences({
         ]),
       )
     ]
-        .fold(
+        .fold<List<SwidInterface>>(
             <SwidInterface>[],
-            (dynamic prev, element) => prev.firstWhere(
-                        (x) => x.name == element.name,
+            (prev, element) => <SwidInterface?>[
+                      ...prev,
+                    ].firstWhere((x) => x?.name == element.name,
                         orElse: () => null) ==
                     null
-                ? [...prev, element]
+                ? [
+                    ...prev,
+                    element,
+                  ]
                 : prev)
         .toList()
         .cast<SwidInterface>())
