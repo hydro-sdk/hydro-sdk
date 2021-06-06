@@ -3,6 +3,7 @@ import 'package:analyzer/dart/ast/ast.dart' show TypeName;
 import 'package:hydro_sdk/swid/frontend/dart/mapAnalyzerNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/dart/mapClassLibrarySourcePath.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromFunctionType.dart';
+import 'package:hydro_sdk/swid/frontend/dart/swidFunctionTypeFromPropertyAccessor.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidInterfaceFromTypeParameterType.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
@@ -69,19 +70,9 @@ SwidClass swidClassFromInterfaceType({
             .whereType<PropertyAccessorElement>()
             .where((x) => x.name[0] != "_")
             .where((x) => !x.isStatic)
-            .map(
-              (x) => swidFunctionTypeFromFunctionType(
-                functionType: x.type,
-                swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                  swidDeclarationModifiers: SwidDeclarationModifiers.clone(
-                    swidDeclarationModifiers: SwidDeclarationModifiers.empty(),
-                    isAbstract: x.isAbstract,
-                  ),
-                  isGetter: x.isGetter,
-                  isSetter: x.isSetter,
-                ),
-              ),
-            )
+            .map((x) => swidFunctionTypeFromPropertyAccessor(
+                  propertyAccessorElement: x,
+                ))
             .toList()
       ],
       staticConstFieldDeclarations: [],
