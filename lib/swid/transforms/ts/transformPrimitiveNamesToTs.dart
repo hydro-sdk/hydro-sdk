@@ -12,16 +12,24 @@ SwidType transformPrimitiveNamesToTs({
 }) =>
     swidType.when(
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
-          swidFunctionType:
-              transformPrimitiveFunctionTypeNamesToTs(swidFunctionType: val)),
+        swidFunctionType: transformPrimitiveFunctionTypeNamesToTs(
+          swidFunctionType: val,
+        ),
+      ),
       fromSwidInterface: (val) => SwidType.fromSwidInterface(
         swidInterface: SwidInterface.clone(
           swidType: val,
           name: val.originalPackagePath == "dart:core"
-              ? mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(str: val.name)
+              ? mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(
+                  str: val.name,
+                )
               : val.name,
           typeArguments: val.typeArguments
-              .map((x) => transformPrimitiveNamesToTs(swidType: x!))
+              .map(
+                (x) => transformPrimitiveNamesToTs(
+                  swidType: x,
+                ),
+              )
               .toList(),
         ),
       ),
@@ -30,13 +38,16 @@ SwidType transformPrimitiveNamesToTs({
         swidClass: SwidClass.clone(
           swidClass: val,
           name: val.originalPackagePath == "dart:core"
-              ? mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(str: val.name)
+              ? mapPrimitiveSwidTypeNameToPrimitiveTsTypeName(
+                  str: val.name,
+                )
               : val.name,
           extendedClass: val.extendedClass != null
               ? transformPrimitiveNamesToTs(
-                      swidType:
-                          SwidType.fromSwidClass(swidClass: val.extendedClass!))
-                  .when(
+                  swidType: SwidType.fromSwidClass(
+                    swidClass: val.extendedClass!,
+                  ),
+                ).when(
                   fromSwidInterface: (_) => null,
                   fromSwidClass: (val) => val,
                   fromSwidDefaultFormalParameter: (_) => null,
