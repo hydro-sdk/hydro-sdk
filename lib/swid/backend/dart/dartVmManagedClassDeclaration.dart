@@ -88,15 +88,15 @@ class DartVMManagedClassDeclaration {
                               tableKey: x.key,
                               instanceFieldName: "vmObject.${x.key}",
                               instanceField: x.value,
-                            ).toDartSource()!))
+                            ).toDartSource()))
                         .toList()),
                     ...(swidClass!.methods
-                        .where((x) => !x!.swidDeclarationModifiers.hasProtected)
-                        .where((x) => !isOperator(swidFunctionType: x!))
+                        .where((x) => !x.swidDeclarationModifiers.hasProtected)
+                        .where((x) => !isOperator(swidFunctionType: x,))
                         .map((x) => Code(
                               DartVMManagedClassMethodInjectionImplementation(
                                   tableKey:
-                                      transformAccessorName(swidFunctionType: x!)
+                                      transformAccessorName(swidFunctionType: x,)
                                           .name,
                                   swidFunctionType: SwidFunctionType.clone(
                                     swidFunctionType: x,

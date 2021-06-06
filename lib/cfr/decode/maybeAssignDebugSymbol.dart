@@ -10,7 +10,7 @@ void maybeAssignDebugSymbol({
   required Prototype prototype,
 }) {
   if (prototype.buildProfile == BuildProfile.debug) {
-    prototype.debugSymbol = hydroState?.symbols?.firstWhereOrNull(
+    prototype.debugSymbol = hydroState.symbols?.firstWhereOrNull(
         (element) =>
             element.lineStart == prototype.lineStart &&
             element.lineEnd == prototype.lineEnd &&

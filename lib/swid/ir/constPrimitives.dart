@@ -82,7 +82,7 @@ const dartVoid = const SwidInterface(
 );
 
 const dartUnkownInterface = const SwidInterface(
-  name: "Unkown",
+  name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
   referenceDeclarationKind: SwidReferenceDeclarationKind.unknown,

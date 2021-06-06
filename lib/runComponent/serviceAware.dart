@@ -87,8 +87,8 @@ mixin ServiceAware {
           ),
           ".ota.sha256",
         ].join("") as Uri);
-        if (response?.statusCode == 200) {
-          return response?.body;
+        if (response.statusCode == 200) {
+          return response.body;
         }
       } catch (err) {
         print(err);

@@ -9,6 +9,6 @@ bool requiresDartBinding({required SwidClass swidClass}) =>
     swidClass.methods.isNotEmpty ||
     swidClass.staticConstFieldDeclarations.firstWhereOrNull(
           (x) => isInexpressibleStaticConst(
-              parentClass: swidClass, staticConst: x.value!),
+              parentClass: swidClass, staticConst: x.value,),
         ) !=
         null;

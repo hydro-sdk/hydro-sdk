@@ -90,7 +90,7 @@ class PackageBuilder {
     }
     progress.finish(showTiming: true);
 
-    if (copyMessage?.isNotEmpty ?? false) {
+    if (copyMessage.isNotEmpty ) {
       print(copyMessage);
     }
     return true;

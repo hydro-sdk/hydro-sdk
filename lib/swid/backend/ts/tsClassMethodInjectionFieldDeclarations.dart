@@ -10,9 +10,9 @@ import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
 class TsClassMethodInjectionFieldDeclarations {
   final SwidClass swidClass;
 
-  TsClassMethodInjectionFieldDeclarations({required this.swidClass});
+const  TsClassMethodInjectionFieldDeclarations({required this.swidClass,});
 
-  String toTsSource() => (swidClass.methods.isNotEmpty ?? false)
+  String toTsSource() => (swidClass.methods.isNotEmpty )
       ? [
             ...tsClassMethodInjectionCandidates(
                     swidFunctionTypes: swidClass.methods)

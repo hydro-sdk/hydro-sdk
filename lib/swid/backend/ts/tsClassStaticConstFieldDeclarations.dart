@@ -8,11 +8,11 @@ import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaratio
 class TsClassStaticConstFieldDeclarations {
   final SwidClass swidClass;
 
-  TsClassStaticConstFieldDeclarations({required this.swidClass});
+const  TsClassStaticConstFieldDeclarations({required this.swidClass,});
 
   String toTsSource() {
     var res = "";
-    swidClass.staticConstFieldDeclarations?.forEach((x) {
+    swidClass.staticConstFieldDeclarations.forEach((x) {
       res += "    " +
           transformStaticConstFieldDeclaration(
               staticConstFieldDeclaration: x,

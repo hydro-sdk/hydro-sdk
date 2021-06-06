@@ -12,9 +12,9 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 class TsClassMethodDeclarations {
   final SwidClass swidClass;
 
-  TsClassMethodDeclarations({required this.swidClass});
+const  TsClassMethodDeclarations({required this.swidClass,});
 
-  String toTsSource() => (swidClass.methods.isNotEmpty ?? false)
+  String toTsSource() => (swidClass.methods.isNotEmpty )
       ? [
             ...tsClassMethodInjectionCandidates(swidFunctionTypes: swidClass.methods)
                 .map((x) =>

@@ -18,7 +18,7 @@ class TsClassPreamble {
           ...swidClass.mixedInClasses
               .map(
                 (x) => transformPrimitiveNamesToTs(
-                  swidType: SwidType.fromSwidClass(swidClass: x!),
+                  swidType: SwidType.fromSwidClass(swidClass: x,),
                 ),
               )
               .map((x) => "I${x.displayName}")
@@ -26,7 +26,7 @@ class TsClassPreamble {
           ...swidClass.implementedClasses
               .map(
                 (x) => transformPrimitiveNamesToTs(
-                  swidType: SwidType.fromSwidClass(swidClass: x!),
+                  swidType: SwidType.fromSwidClass(swidClass: x,),
                 ),
               )
               .map((x) => "I${x.displayName}")

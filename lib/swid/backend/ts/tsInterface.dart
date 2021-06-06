@@ -13,7 +13,7 @@ class TsInterface {
   final List<SwidTypeFormal> typeFormals;
   final bool emitSuperInterfaceExtensions;
 
-  TsInterface({
+  const TsInterface({
     required this.name,
     required this.members,
     required this.emitSuperInterfaceExtensions,
@@ -33,7 +33,7 @@ class TsInterface {
               .toList()),
           ...Map.fromEntries(swidClass.methods
               .map((x) => MapEntry(
-                  x!.name, SwidType.fromSwidFunctionType(swidFunctionType: x)))
+                  x.name, SwidType.fromSwidFunctionType(swidFunctionType: x)))
               .toList()),
         },
         superInterfaces: ([

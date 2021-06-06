@@ -47,7 +47,7 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                     ...collectAllReferences(
                             swidType: SwidType.fromSwidClass(
                                 swidClass: SwidClass.mergeSuperClasses(
-                                    swidClass: swidClass)))!
+                                    swidClass: swidClass)))
                         .where((x) =>
                             x.originalPackagePath !=
                             swidClass.originalPackagePath)

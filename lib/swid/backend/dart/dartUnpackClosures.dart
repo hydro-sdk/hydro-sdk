@@ -102,7 +102,7 @@ class DartUnpackClosures {
                         .join(""),
                   ))(
                 parameterName: x.key,
-                parameterType: x.value!,
+                parameterType: x.value,
               ),
             )
             .toList()

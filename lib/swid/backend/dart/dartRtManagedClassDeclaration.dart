@@ -70,18 +70,18 @@ class DartRTManagedClassDeclaration {
                 ..type = TypeReference((j) => j
                   ..symbol = swidClass!.constructorType!.normalParameterTypes
                       .elementAt(swidClass!.constructorType!.normalParameterNames
-                          .indexOf(e))!
+                          .indexOf(e))
                       .when(
                           fromSwidInterface: (val) => val.name,
                           fromSwidClass: (val) => val.name,
                           fromSwidDefaultFormalParameter: (val) => val.name,
                           fromSwidFunctionType: (val) => val.name))))
-              ?.toList() ??
-          [])
+              .toList() 
+          )
       ..optionalParameters.addAll(swidClass!
               .constructorType!.namedParameterTypes.entries
               .map((x) => MapEntry(x.key,
-                  removeNullabilitySuffixFromTypeNames(swidType: x.value!)))
+                  removeNullabilitySuffixFromTypeNames(swidType: x.value,)))
               .toList()
               .map((x) => Parameter((k) => k
                 ..name = x.key
@@ -92,8 +92,8 @@ class DartRTManagedClassDeclaration {
                       fromSwidDefaultFormalParameter: (val) => val.name,
                       fromSwidFunctionType: (val) => val.name))
                 ..named = true))
-              ?.toList() ??
-          [])
+              .toList() 
+          )
       ..optionalParameters.addAll([
         Parameter((i) => i
           ..annotations.add(refer("required"))
@@ -147,14 +147,14 @@ class DartRTManagedClassDeclaration {
                   tableKey: x.key,
                   instanceFieldName: x.key,
                   instanceField: x.value,
-                ).toDartSource()!))
+                ).toDartSource()))
             .toList()),
         ...(swidClass!.methods
-            .where((x) => !isOperator(swidFunctionType: x!))
+            .where((x) => !isOperator(swidFunctionType: x ,))
             .map((x) => Code(DartMethodInjectionImplementation(
                   swidFunctionType: instantiateAllGenericsAsDynamic(
                     swidType:
-                        SwidType.fromSwidFunctionType(swidFunctionType: x!),
+                        SwidType.fromSwidFunctionType(swidFunctionType: x,),
                   ).when(
                     fromSwidInterface: (_) => null,
                     fromSwidClass: (_) => null,
@@ -176,10 +176,10 @@ class DartRTManagedClassDeclaration {
         ..body = refer("this").code)
     ])
     ..methods.addAll(swidClass!.methods
-            .where((x) => !isOperator(swidFunctionType: x!))
-            .where((x) => !x!.swidDeclarationModifiers.hasProtected)
+            .where((x) => !isOperator(swidFunctionType: x,))
+            .where((x) => !x.swidDeclarationModifiers.hasProtected)
             .map((x) => transformAccessorName(
-                  swidFunctionType: x!,
+                  swidFunctionType: x,
                   removeSuffixes: true,
                   addPrefixes: false,
                 ))
@@ -191,7 +191,7 @@ class DartRTManagedClassDeclaration {
                       ? MethodType.setter
                       : null
               ..types.addAll(
-                x.typeFormals.map((e) => Reference(e!.value.name)).toList(),
+                x.typeFormals.map((e) => Reference(e.value.name)).toList(),
               )
               ..requiredParameters.addAll([
                 ...x.normalParameterNames
@@ -264,9 +264,9 @@ class DartRTManagedClassDeclaration {
                             swidType: x.returnType,
                             expression: CodeExpression(Code(
                                 "closure.dispatch([table],parentState: hydroState)[0]")))
-                        .toDartSource()! +
+                        .toDartSource() +
                     ";"),
               ])))
-            ?.toList() ??
-        [])).accept(DartEmitter()).toString());
+            .toList() 
+        )).accept(DartEmitter()).toString());
 }
