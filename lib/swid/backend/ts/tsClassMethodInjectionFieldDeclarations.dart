@@ -27,7 +27,7 @@ const  TsClassMethodInjectionFieldDeclarations({required this.swidClass,});
                     transformFunctionTypeToTs(
                       swidFunctionType:
                           rewriteClassReferencesToInterfaceReferencesInFunction(
-                              swidFunctionType: x)!,
+                              swidFunctionType: x,),
                       trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
                     ) +
                     " = undefined as any;")

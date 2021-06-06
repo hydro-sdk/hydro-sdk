@@ -159,7 +159,7 @@ class TsClassVmDeclaration {
               ))(
             rewriteClassReferencesToInterfaceReferencesInClass(
               swidClass: swidClass,
-            )!,
+            ),
           ) +
           ";\n"
       : "";

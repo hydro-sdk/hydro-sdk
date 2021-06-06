@@ -28,7 +28,7 @@ const  TsClassMethodDeclarations({required this.swidClass,});
                         swidType: SwidType.fromSwidFunctionType(
                             swidFunctionType:
                                 rewriteClassReferencesToInterfaceReferencesInFunction(
-                                    swidFunctionType: x)!)) +
+                                    swidFunctionType: x))) +
                     " {\n" +
                     "    return " +
                     TsFunctionSelfBindingInvocation(

@@ -109,20 +109,20 @@ void main() {
       swidType: SwidType.fromSwidClass(
         swidClass: iterable,
       ),
-    )!.when(
-      fromSwidInterface: ((_) => null) as SwidClass Function(SwidInterface),
+    ).when(
+      fromSwidInterface: (_) => dartUnknownClass ,
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: ((_) => null) as SwidClass Function(SwidDefaultFormalParameter),
-      fromSwidFunctionType: ((_) => null) as SwidClass Function(SwidFunctionType),
+      fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+      fromSwidFunctionType: (_) => dartUnknownClass ,
     );
 
     expect(
-        replacedIterable.methods.first!.returnType
+        replacedIterable.methods.first.returnType
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
         dartDouble);
 
     expect(
-        replacedIterable.methods.last!.returnType
+        replacedIterable.methods.last.returnType
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null)!
             .displayName,
         "Iterator<double>");

@@ -14,14 +14,14 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 class TsClassStaticMethodImplementation {
   final SwidClass swidClass;
-  final SwidFunctionType? swidFunctionType;
+  final SwidFunctionType swidFunctionType;
 
-  TsClassStaticMethodImplementation(
-      {required this.swidClass, required this.swidFunctionType});
+  const TsClassStaticMethodImplementation(
+      {required this.swidClass, required this.swidFunctionType,});
 
   String toTsSource() =>
       "public static " +
-      swidFunctionType!.name +
+      swidFunctionType.name +
       transformTypeDeclarationToTs(
           emitTrailingReturnType: true,
           emitDefaultFormalsAsOptionalNamed: true,
@@ -30,15 +30,15 @@ class TsClassStaticMethodImplementation {
           swidType: SwidType.fromSwidFunctionType(
               swidFunctionType:
                   rewriteClassReferencesToInterfaceReferencesInFunction(
-                      swidFunctionType: swidFunctionType!)!)) +
+                      swidFunctionType: swidFunctionType,),),) +
       "{\n" +
       "return " +
       TsFunctionSelfBindingInvocation(
         functionReference: [
-          ...transformPackageUri(packageUri: swidClass.originalPackagePath)
+          ...transformPackageUri(packageUri: swidClass.originalPackagePath,)
               .split(path.separator),
-          transformToCamelCase(str: swidClass.name) +
-              transformToPascalCase(str: swidFunctionType!.name)
+          transformToCamelCase(str: swidClass.name,) +
+              transformToPascalCase(str: swidFunctionType.name,)
         ].join("."),
         swidFunctionType: swidFunctionType,
       ).toTsSource() +
