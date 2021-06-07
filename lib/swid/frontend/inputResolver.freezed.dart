@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'inputResolver.dart';
 
@@ -9,19 +9,20 @@ part of 'inputResolver.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ResolvedInputTearOff {
   const _$ResolvedInputTearOff();
 
-// ignore: unused_element
-  _$ResolvedInputFromString fromString({@required String str}) {
+  _$ResolvedInputFromString fromString({required String str}) {
     return _$ResolvedInputFromString(
       str: str,
     );
   }
 
-// ignore: unused_element
-  _$ResolvedInputFromList fromList({@required List<String> list}) {
+  _$ResolvedInputFromList fromList({required List<String> list}) {
     return _$ResolvedInputFromList(
       list: list,
     );
@@ -29,33 +30,36 @@ class _$ResolvedInputTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ResolvedInput = _$ResolvedInputTearOff();
 
 /// @nodoc
 mixin _$ResolvedInput {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fromString(String str),
-    @required TResult fromList(List<String> list),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(String str) fromString,
+    required TResult Function(List<String> list) fromList,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromString(String str),
-    TResult fromList(List<String> list),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String str)? fromString,
+    TResult Function(List<String> list)? fromList,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromString(_$ResolvedInputFromString value),
-    @required TResult fromList(_$ResolvedInputFromList value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$ResolvedInputFromString value) fromString,
+    required TResult Function(_$ResolvedInputFromList value) fromList,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromString(_$ResolvedInputFromString value),
-    TResult fromList(_$ResolvedInputFromList value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$ResolvedInputFromString value)? fromString,
+    TResult Function(_$ResolvedInputFromList value)? fromList,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -97,17 +101,21 @@ class __$$ResolvedInputFromStringCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object str = freezed,
+    Object? str = freezed,
   }) {
     return _then(_$ResolvedInputFromString(
-      str: str == freezed ? _value.str : str as String,
+      str: str == freezed
+          ? _value.str
+          : str // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$ResolvedInputFromString implements _$ResolvedInputFromString {
-  const _$_$ResolvedInputFromString({@required this.str}) : assert(str != null);
+  const _$_$ResolvedInputFromString({required this.str});
 
   @override
   final String str;
@@ -137,23 +145,20 @@ class _$_$ResolvedInputFromString implements _$ResolvedInputFromString {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fromString(String str),
-    @required TResult fromList(List<String> list),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String str) fromString,
+    required TResult Function(List<String> list) fromList,
   }) {
-    assert(fromString != null);
-    assert(fromList != null);
     return fromString(str);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromString(String str),
-    TResult fromList(List<String> list),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String str)? fromString,
+    TResult Function(List<String> list)? fromList,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromString != null) {
       return fromString(str);
     }
@@ -162,23 +167,20 @@ class _$_$ResolvedInputFromString implements _$ResolvedInputFromString {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromString(_$ResolvedInputFromString value),
-    @required TResult fromList(_$ResolvedInputFromList value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$ResolvedInputFromString value) fromString,
+    required TResult Function(_$ResolvedInputFromList value) fromList,
   }) {
-    assert(fromString != null);
-    assert(fromList != null);
     return fromString(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromString(_$ResolvedInputFromString value),
-    TResult fromList(_$ResolvedInputFromList value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$ResolvedInputFromString value)? fromString,
+    TResult Function(_$ResolvedInputFromList value)? fromList,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromString != null) {
       return fromString(this);
     }
@@ -187,12 +189,13 @@ class _$_$ResolvedInputFromString implements _$ResolvedInputFromString {
 }
 
 abstract class _$ResolvedInputFromString implements ResolvedInput {
-  const factory _$ResolvedInputFromString({@required String str}) =
+  const factory _$ResolvedInputFromString({required String str}) =
       _$_$ResolvedInputFromString;
 
-  String get str;
+  String get str => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$ResolvedInputFromStringCopyWith<_$ResolvedInputFromString> get copyWith;
+  _$$ResolvedInputFromStringCopyWith<_$ResolvedInputFromString> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -216,17 +219,21 @@ class __$$ResolvedInputFromListCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_$ResolvedInputFromList(
-      list: list == freezed ? _value.list : list as List<String>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$ResolvedInputFromList implements _$ResolvedInputFromList {
-  const _$_$ResolvedInputFromList({@required this.list}) : assert(list != null);
+  const _$_$ResolvedInputFromList({required this.list});
 
   @override
   final List<String> list;
@@ -256,23 +263,20 @@ class _$_$ResolvedInputFromList implements _$ResolvedInputFromList {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fromString(String str),
-    @required TResult fromList(List<String> list),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String str) fromString,
+    required TResult Function(List<String> list) fromList,
   }) {
-    assert(fromString != null);
-    assert(fromList != null);
     return fromList(list);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromString(String str),
-    TResult fromList(List<String> list),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String str)? fromString,
+    TResult Function(List<String> list)? fromList,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromList != null) {
       return fromList(list);
     }
@@ -281,23 +285,20 @@ class _$_$ResolvedInputFromList implements _$ResolvedInputFromList {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromString(_$ResolvedInputFromString value),
-    @required TResult fromList(_$ResolvedInputFromList value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$ResolvedInputFromString value) fromString,
+    required TResult Function(_$ResolvedInputFromList value) fromList,
   }) {
-    assert(fromString != null);
-    assert(fromList != null);
     return fromList(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromString(_$ResolvedInputFromString value),
-    TResult fromList(_$ResolvedInputFromList value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$ResolvedInputFromString value)? fromString,
+    TResult Function(_$ResolvedInputFromList value)? fromList,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromList != null) {
       return fromList(this);
     }
@@ -306,10 +307,11 @@ class _$_$ResolvedInputFromList implements _$ResolvedInputFromList {
 }
 
 abstract class _$ResolvedInputFromList implements ResolvedInput {
-  const factory _$ResolvedInputFromList({@required List<String> list}) =
+  const factory _$ResolvedInputFromList({required List<String> list}) =
       _$_$ResolvedInputFromList;
 
-  List<String> get list;
+  List<String> get list => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$ResolvedInputFromListCopyWith<_$ResolvedInputFromList> get copyWith;
+  _$$ResolvedInputFromListCopyWith<_$ResolvedInputFromList> get copyWith =>
+      throw _privateConstructorUsedError;
 }
