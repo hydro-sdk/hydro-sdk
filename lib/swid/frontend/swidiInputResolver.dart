@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:glob/glob.dart';
+import 'package:glob/list_local_fs.dart';
 
 import 'package:hydro_sdk/swid/frontend/inputResolver.dart';
 
@@ -8,7 +9,9 @@ class SwidiInputResolver extends InputResolver {
   const SwidiInputResolver();
 
   @override
-  Future<ResolvedInput> resolveInput({String input}) async =>
+  Future<ResolvedInput> resolveInput({
+    required String input,
+  }) async =>
       ResolvedInput.fromList(
           list: await Future.wait(
         Glob(input).listSync().map(

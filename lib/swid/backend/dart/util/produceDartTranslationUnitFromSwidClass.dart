@@ -84,10 +84,11 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                                     swidClass: SwidClass.mergeSuperClasses(
                                         swidClass: swidClass)))
                             .when(
-                          fromSwidInterface: (_) => null,
+                          fromSwidInterface: (_) => dartUnknownClass,
                           fromSwidClass: (val) => val,
-                          fromSwidDefaultFormalParameter: (_) => null,
-                          fromSwidFunctionType: (_) => null,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownClass,
+                          fromSwidFunctionType: (_) => dartUnknownClass,
                         ),
                       ),
                     ),
@@ -106,10 +107,11 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                                               SwidClass.mergeSuperClasses(
                                                   swidClass: swidClass)))
                                   .when(
-                                fromSwidInterface: (_) => null,
+                                fromSwidInterface: (_) => dartUnknownClass,
                                 fromSwidClass: (val) => val,
-                                fromSwidDefaultFormalParameter: (_) => null,
-                                fromSwidFunctionType: (_) => null,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownClass,
+                                fromSwidFunctionType: (_) => dartUnknownClass,
                               ),
                             ),
                           ),

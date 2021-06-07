@@ -112,8 +112,10 @@ class SwidClass with _$SwidClass {
         typeFormals: [],
       );
 
-  factory SwidClass.mergeDeclarations(
-          {required SwidClass swidClass, required SwidClass? superClass}) =>
+  factory SwidClass.mergeDeclarations({
+    required SwidClass swidClass,
+    required SwidClass? superClass,
+  }) =>
       superClass != null
           ? SwidClass.clone(
               swidClass: swidClass,
@@ -121,26 +123,38 @@ class SwidClass with _$SwidClass {
                   swidClass.extendedClass ?? superClass.extendedClass,
               implementedClasses: [
                 ...swidClass.implementedClasses
-                    .map((x) => SwidClass.clone(swidClass: x))
+                    .map((x) => SwidClass.clone(
+                          swidClass: x,
+                        ))
                     .toList(),
                 ...superClass.implementedClasses
                     .where((x) =>
-                        swidClass.implementedClasses.firstWhere(
-                            (k) => k.name == x.name,
-                            orElse: () => null) ==
+                        <SwidClass?>[
+                          ...swidClass.implementedClasses,
+                        ].firstWhere(
+                          (k) => k?.name == x.name,
+                          orElse: () => null,
+                        ) ==
                         null)
-                    .map((x) => SwidClass.clone(swidClass: x))
+                    .map((x) => SwidClass.clone(
+                          swidClass: x,
+                        ))
                     .toList()
               ],
               mixedInClasses: [
                 ...swidClass.mixedInClasses,
                 ...superClass.mixedInClasses
                     .where((x) =>
-                        swidClass.mixedInClasses.firstWhere(
-                            (k) => k.name == x.name,
-                            orElse: () => null) ==
+                        <SwidClass?>[
+                          ...swidClass.mixedInClasses,
+                        ].firstWhere(
+                          (k) => k?.name == x.name,
+                          orElse: () => null,
+                        ) ==
                         null)
-                    .map((x) => SwidClass.clone(swidClass: x))
+                    .map((x) => SwidClass.clone(
+                          swidClass: x,
+                        ))
                     .toList()
               ],
               constructorType:
@@ -179,36 +193,53 @@ class SwidClass with _$SwidClass {
                         null)
                     .toList()
               ]))
-          : SwidClass.clone(swidClass: swidClass);
+          : SwidClass.clone(
+              swidClass: swidClass,
+            );
 
-  factory SwidClass.mergeSuperClasses({required SwidClass swidClass}) =>
-      (({required SwidClass swidClassWithMergedInterfaces}) => ((
-                  {required SwidClass swidClassWithMixinApplications}) =>
+  factory SwidClass.mergeSuperClasses({
+    required SwidClass swidClass,
+  }) =>
+      (({
+        required SwidClass swidClassWithMergedInterfaces,
+      }) =>
+          (({
+            required SwidClass swidClassWithMixinApplications,
+          }) =>
               swidClassWithMixinApplications.extendedClass != null
                   ? SwidClass.mergeDeclarations(
                       swidClass: swidClassWithMixinApplications,
                       superClass: SwidClass.mergeSuperClasses(
-                          swidClass:
-                              swidClassWithMixinApplications.extendedClass!))
-                  : SwidClass.clone(swidClass: swidClassWithMixinApplications))(
-            swidClassWithMixinApplications: swidClassWithMergedInterfaces
-                    .mixedInClasses.isNotEmpty
-                ? swidClassWithMergedInterfaces.mixedInClasses.fold(
-                    swidClassWithMergedInterfaces,
-                    (previousValue, element) => SwidClass.mergeDeclarations(
-                        swidClass: previousValue,
-                        superClass:
-                            SwidClass.mergeSuperClasses(swidClass: element)))
-                : SwidClass.clone(swidClass: swidClassWithMergedInterfaces),
+                        swidClass:
+                            swidClassWithMixinApplications.extendedClass!,
+                      ))
+                  : SwidClass.clone(
+                      swidClass: swidClassWithMixinApplications,
+                    ))(
+            swidClassWithMixinApplications:
+                swidClassWithMergedInterfaces.mixedInClasses.isNotEmpty
+                    ? swidClassWithMergedInterfaces.mixedInClasses.fold(
+                        swidClassWithMergedInterfaces,
+                        (previousValue, element) => SwidClass.mergeDeclarations(
+                            swidClass: previousValue,
+                            superClass: SwidClass.mergeSuperClasses(
+                              swidClass: element,
+                            )))
+                    : SwidClass.clone(
+                        swidClass: swidClassWithMergedInterfaces,
+                      ),
           ))(
         swidClassWithMergedInterfaces: swidClass.implementedClasses.isNotEmpty
             ? swidClass.implementedClasses.fold(
                 swidClass,
                 (previousValue, element) => SwidClass.mergeDeclarations(
                     swidClass: previousValue,
-                    superClass:
-                        SwidClass.mergeSuperClasses(swidClass: element)))
-            : SwidClass.clone(swidClass: swidClass),
+                    superClass: SwidClass.mergeSuperClasses(
+                      swidClass: element,
+                    )))
+            : SwidClass.clone(
+                swidClass: swidClass,
+              ),
       );
 }
 

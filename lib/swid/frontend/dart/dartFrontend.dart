@@ -243,6 +243,12 @@ class _SwidVisitor extends RecursiveAstVisitor
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 
+    if (node.name.name == "List") {
+      print(node.name.name);
+      File("test/swid/res/List.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     super.visitClassDeclaration(node);
   }
 
