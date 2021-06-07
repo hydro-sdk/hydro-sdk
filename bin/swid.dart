@@ -11,19 +11,12 @@ import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
 import 'package:hydro_sdk/swid/backend/writeTranslationUnit.dart';
 import 'package:hydro_sdk/swid/config/swidConfig.dart';
 import 'package:hydro_sdk/swid/frontend/dart/dartFrontend.dart';
-import 'package:hydro_sdk/swid/frontend/inputResolver.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/swidiFrontend.dart';
+import 'package:hydro_sdk/swid/frontend/swidiInputResolver.dart';
 import 'package:hydro_sdk/swid/ir/swidIr.dart';
 import 'package:hydro_sdk/swid/ir/util/fixupNullability.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
-
-class SwidiInputResolver extends InputResolver {
-  const SwidiInputResolver();
-
-  @override
-  Future<String> resolveInput({required String input}) => File(input).readAsString();
-}
 
 void main(List<String> args) async {
   var parser = ArgParser();
@@ -38,6 +31,7 @@ void main(List<String> args) async {
   var dartFrontend = SwidDartFrontend(inputs: [
     config.inputPackagePath,
   ]);
+
   var swidiFrontend = SwidiFrontend(
     inputs: config.interfaces,
     inputResolver: const SwidiInputResolver(),

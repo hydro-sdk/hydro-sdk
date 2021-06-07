@@ -9,6 +9,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/backend/util/removeNonEmitCandidates.dart';
+import 'package:hydro_sdk/swid/backend/util/removePrivateMethods.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -77,15 +78,17 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                   ]),
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(
-                      swidClass: instantiateAllGenericsAsDynamic(
-                              swidType: SwidType.fromSwidClass(
-                                  swidClass: SwidClass.mergeSuperClasses(
-                                      swidClass: swidClass)))
-                          .when(
-                        fromSwidInterface: (_) => dartUnknownClass,
-                        fromSwidClass: (val) => val,
-                        fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
-                        fromSwidFunctionType: (_) => dartUnknownClass,
+                      swidClass: removePrivateMethods(
+                        swidClass: instantiateAllGenericsAsDynamic(
+                                swidType: SwidType.fromSwidClass(
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass)))
+                            .when(
+                          fromSwidInterface: (_) => null,
+                          fromSwidClass: (val) => val,
+                          fromSwidDefaultFormalParameter: (_) => null,
+                          fromSwidFunctionType: (_) => null,
+                        ),
                       ),
                     ),
                   ),
@@ -96,18 +99,20 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                       ? DartIr.fromRTManagedClassDeclaration(
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
-                                  swidClass: instantiateAllGenericsAsDynamic(
-                                          swidType: SwidType.fromSwidClass(
-                                              swidClass:
-                                                  SwidClass.mergeSuperClasses(
-                                                      swidClass: swidClass)))
-                                      .when(
-                            fromSwidInterface: (_) => dartUnknownClass,
-                            fromSwidClass: (val) => val,
-                            fromSwidDefaultFormalParameter: (_) =>
-                                dartUnknownClass,
-                            fromSwidFunctionType: (_) => dartUnknownClass,
-                          )),
+                            swidClass: removePrivateMethods(
+                              swidClass: instantiateAllGenericsAsDynamic(
+                                      swidType: SwidType.fromSwidClass(
+                                          swidClass:
+                                              SwidClass.mergeSuperClasses(
+                                                  swidClass: swidClass)))
+                                  .when(
+                                fromSwidInterface: (_) => null,
+                                fromSwidClass: (val) => val,
+                                fromSwidDefaultFormalParameter: (_) => null,
+                                fromSwidFunctionType: (_) => null,
+                              ),
+                            ),
+                          ),
                         )
                       : null,
                   DartIr.fromLoadNamepsaceSymbolDeclaration(

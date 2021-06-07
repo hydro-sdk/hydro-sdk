@@ -64,28 +64,30 @@ List<SwidClass> _mergeClasses({
 }) =>
     second.fold(
       first,
-      (previousValue, element) => <SwidClass?>[
-                ...previousValue,
-              ].firstWhere(
+      (previousValue, element) => <SwidClass?>[...previousValue].firstWhere(
                   (x) =>
                       x?.originalPackagePath == element.originalPackagePath &&
                       x?.name == element.name,
                   orElse: () => null) !=
               null
-          ? [
-              ...previousValue
-                  .where((x) =>
-                      x.originalPackagePath != element.originalPackagePath &&
-                      x.name != element.name)
-                  .toList(),
-              SwidClass.mergeDeclarations(
-                  swidClass: previousValue.firstWhere(
-                    (x) =>
-                        x.originalPackagePath == element.originalPackagePath &&
-                        x.name == element.name,
-                  ),
-                  superClass: element)
-            ]
+          ? (List.from(previousValue)
+            ..setAll(
+              previousValue.indexWhere(
+                (x) =>
+                    x.originalPackagePath == element.originalPackagePath &&
+                    x.name == element.name,
+              ),
+              [
+                SwidClass.mergeDeclarations(
+                    swidClass: previousValue.firstWhere(
+                      (x) =>
+                          x.originalPackagePath ==
+                              element.originalPackagePath &&
+                          x.name == element.name,
+                    ),
+                    superClass: element),
+              ],
+            ))
           : [
               ...previousValue,
               element,
