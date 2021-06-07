@@ -44,7 +44,6 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                           .map((x) => DartIr.fromDartImportStatement(
                               dartImportStatement: x))
                           .toList())(importStatements: [
-                    DartImportStatement(path: "package:meta/meta.dart"),
                     ...collectAllReferences(
                             swidType: SwidType.fromSwidClass(
                                 swidClass: SwidClass.mergeSuperClasses(
