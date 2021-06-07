@@ -1,5 +1,6 @@
-import 'dart:collection';
 import 'dart:core';
+import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
@@ -9,18 +10,191 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
-  VMManagedIterableBase(
+class VMManagedUnmodifiableInt16ListView
+    extends VMManagedBox<UnmodifiableInt16ListView> {
+  VMManagedUnmodifiableInt16ListView(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
+    table['sublist'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Int16List>(
+            object: vmObject.sublist(args[1], args[2]),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
     table['cast'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<Iterable>(
+        maybeBoxObject<List<dynamic>>(
             object: vmObject.cast(),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['add'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.add(args[1]);
+      return [];
+    });
+    table['addAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<int>>(args[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['sort'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure compare = args[1];
+      vmObject.sort((a, b) => compare.dispatch(
+            [args[0], a, b],
+            parentState: hydroState,
+          )[0]);
+      return [];
+    });
+    table['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.shuffle(
+          maybeUnBoxAndBuildArgument<Random>(args[1], parentState: hydroState));
+      return [];
+    });
+    table['indexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.indexOf(args[1], args[2])];
+    });
+    table['indexWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        vmObject.indexWhere(
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
+            args[2])
+      ];
+    });
+    table['lastIndexWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        vmObject.lastIndexWhere(
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
+            args[2])
+      ];
+    });
+    table['lastIndexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.lastIndexOf(args[1], args[2])];
+    });
+    table['clear'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.clear();
+      return [];
+    });
+    table['insert'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.insert(args[1], args[2]);
+      return [];
+    });
+    table['insertAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.insertAll(
+          args[1],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['setAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.setAll(
+          args[1],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['remove'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object>(args[1],
+            parentState: hydroState))
+      ];
+    });
+    table['removeAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.removeAt(args[1])];
+    });
+    table['removeLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.removeLast()];
+    });
+    table['removeWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      vmObject.removeWhere((element) => test.dispatch(
+            [args[0], element],
+            parentState: hydroState,
+          )[0]);
+      return [];
+    });
+    table['retainWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      vmObject.retainWhere((element) => test.dispatch(
+            [args[0], element],
+            parentState: hydroState,
+          )[0]);
+      return [];
+    });
+    table['getRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.getRange(args[1], args[2]),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['setRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.setRange(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[3],
+              parentState: hydroState),
+          args[4]);
+      return [];
+    });
+    table['removeRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.removeRange(args[1], args[2]);
+      return [];
+    });
+    table['fillRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.fillRange(args[1], args[2], args[3]);
+      return [];
+    });
+    table['replaceRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.replaceRange(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[3],
+              parentState: hydroState));
+      return [];
+    });
+    table['asMap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Map>(
+            object: vmObject.asMap(),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['setFirst'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.first = (args[1]);
+      return [];
+    });
+    table['setLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.last = (args[1]);
+      return [];
+    });
+    table['getLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.length];
+    });
+    table['setLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.length = (args[1]);
+      return [];
+    });
+    table['getReversed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Iterable>(
+            object: vmObject.reversed,
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -29,7 +203,7 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
+                maybeUnBoxAndBuildArgument<Iterable<int>>(args[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -258,9 +432,6 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
             table: HydroTable())
       ];
     });
-    table['getLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.length];
-    });
     table['getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.isEmpty];
     });
@@ -279,34 +450,221 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
     table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.hashCode];
     });
+    table['getElementSizeInBytes'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.elementSizeInBytes];
+    });
+    table['getOffsetInBytes'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.offsetInBytes];
+    });
+    table['getLengthInBytes'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.lengthInBytes];
+    });
+    table['getBuffer'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<ByteBuffer>(
+            object: vmObject.buffer,
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
   }
 
   final HydroTable table;
 
   final HydroState hydroState;
 
-  final IterableBase vmObject;
+  final UnmodifiableInt16ListView vmObject;
 }
 
-class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
-  RTManagedIterableBase({required this.table, required this.hydroState})
-      : super() {
+class RTManagedUnmodifiableInt16ListView extends UnmodifiableInt16ListView
+    implements Box<UnmodifiableInt16ListView> {
+  RTManagedUnmodifiableInt16ListView(Int16List list,
+      {required this.table, required this.hydroState})
+      : super(
+          list,
+        ) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
+    table['_dart_sublist'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Int16List>(
+            object: sublist(args[1], args[2]),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
     table['_dart_cast'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<Iterable>(
-            object: super.cast(), hydroState: hydroState, table: HydroTable())
+        maybeBoxObject<List<dynamic>>(
+            object: cast(), hydroState: hydroState, table: HydroTable())
       ];
+    });
+    table['_dart_add'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      add(args[1]);
+      return [];
+    });
+    table['_dart_addAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      addAll(maybeUnBoxAndBuildArgument<Iterable<int>>(args[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_sort'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure compare = args[1];
+      sort((a, b) => compare.dispatch(
+            [args[0], a, b],
+            parentState: hydroState,
+          )[0]);
+      return [];
+    });
+    table['_dart_shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      shuffle(
+          maybeUnBoxAndBuildArgument<Random>(args[1], parentState: hydroState));
+      return [];
+    });
+    table['_dart_indexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [indexOf(args[1], args[2])];
+    });
+    table['_dart_indexWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        indexWhere(
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
+            args[2])
+      ];
+    });
+    table['_dart_lastIndexWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      return [
+        lastIndexWhere(
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
+            args[2])
+      ];
+    });
+    table['_dart_lastIndexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [lastIndexOf(args[1], args[2])];
+    });
+    table['_dart_clear'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      clear();
+      return [];
+    });
+    table['_dart_insert'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      insert(args[1], args[2]);
+      return [];
+    });
+    table['_dart_insertAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      insertAll(
+          args[1],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_setAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      setAll(
+          args[1],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_remove'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        remove(maybeUnBoxAndBuildArgument<Object>(args[1],
+            parentState: hydroState))
+      ];
+    });
+    table['_dart_removeAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [removeAt(args[1])];
+    });
+    table['_dart_removeLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [removeLast()];
+    });
+    table['_dart_removeWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      removeWhere((element) => test.dispatch(
+            [args[0], element],
+            parentState: hydroState,
+          )[0]);
+      return [];
+    });
+    table['_dart_retainWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      Closure test = args[1];
+      retainWhere((element) => test.dispatch(
+            [args[0], element],
+            parentState: hydroState,
+          )[0]);
+      return [];
+    });
+    table['_dart_getRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Iterable>(
+            object: getRange(args[1], args[2]),
+            hydroState: hydroState,
+            table: HydroTable())
+      ];
+    });
+    table['_dart_setRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      setRange(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[3],
+              parentState: hydroState),
+          args[4]);
+      return [];
+    });
+    table['_dart_removeRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      removeRange(args[1], args[2]);
+      return [];
+    });
+    table['_dart_fillRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      fillRange(args[1], args[2], args[3]);
+      return [];
+    });
+    table['_dart_replaceRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      replaceRange(
+          args[1],
+          args[2],
+          maybeUnBoxAndBuildArgument<Iterable<int>>(args[3],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_asMap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        maybeBoxObject<Map>(
+            object: asMap(), hydroState: hydroState, table: HydroTable())
+      ];
+    });
+    table['_dart_setFirst'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      first = (args[1]);
+      return [];
+    });
+    table['_dart_setLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      last = (args[1]);
+      return [];
+    });
+    table['_dart_getLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [length];
+    });
+    table['_dart_setLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      length = (args[1]);
+      return [];
+    });
+    table['_dart_getReversed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [reversed];
     });
     table['_dart_followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
-            object: super.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
-                    parentState: hydroState)),
+            object: super.followedBy(maybeUnBoxAndBuildArgument<Iterable<int>>(
+                args[1],
+                parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -527,9 +885,6 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
     table['_dart_getIterator'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [iterator];
     });
-    table['_dart_getLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.length];
-    });
     table['_dart_getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.isEmpty];
     });
@@ -548,26 +903,224 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
     table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.hashCode];
     });
+    table['_dart_getElementSizeInBytes'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [elementSizeInBytes];
+    });
+    table['_dart_getOffsetInBytes'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [offsetInBytes];
+    });
+    table['_dart_getLengthInBytes'] =
+        makeLuaDartFunc(func: (List<dynamic> args) {
+      return [lengthInBytes];
+    });
+    table['_dart_getBuffer'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [buffer];
+    });
   }
 
   final HydroTable table;
 
   final HydroState hydroState;
 
-  IterableBase unwrap() => this;
-  IterableBase get vmObject => this;
+  UnmodifiableInt16ListView unwrap() => this;
+  UnmodifiableInt16ListView get vmObject => this;
   @override
-  Iterable<R> cast<R>() {
-    Closure closure = table["cast"];
-    return maybeUnBoxAndBuildArgument<Iterable<R>>(
+  Int16List sublist(int start, [int end]) {
+    Closure closure = table["sublist"];
+    return maybeUnBoxAndBuildArgument<Int16List>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<dynamic> followedBy(Iterable<dynamic> other) {
+  List<R> cast<R>() {
+    Closure closure = table["cast"];
+    return maybeUnBoxAndBuildArgument<List<R>>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void add(int value) {
+    Closure closure = table["add"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void addAll(Iterable<int> iterable) {
+    Closure closure = table["addAll"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void sort([compare]) {
+    Closure closure = table["sort"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void shuffle([Random random]) {
+    Closure closure = table["shuffle"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int indexOf(int element, [int start = 0]) {
+    Closure closure = table["indexOf"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int indexWhere(test, [int start = 0]) {
+    Closure closure = table["indexWhere"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int lastIndexWhere(test, [int start]) {
+    Closure closure = table["lastIndexWhere"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int lastIndexOf(int element, [int start]) {
+    Closure closure = table["lastIndexOf"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void clear() {
+    Closure closure = table["clear"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void insert(int index, int element) {
+    Closure closure = table["insert"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void insertAll(int index, Iterable<int> iterable) {
+    Closure closure = table["insertAll"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void setAll(int index, Iterable<int> iterable) {
+    Closure closure = table["setAll"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  bool remove(Object value) {
+    Closure closure = table["remove"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int removeAt(int index) {
+    Closure closure = table["removeAt"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int removeLast() {
+    Closure closure = table["removeLast"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void removeWhere(test) {
+    Closure closure = table["removeWhere"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void retainWhere(test) {
+    Closure closure = table["retainWhere"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  Iterable<int> getRange(int start, int end) {
+    Closure closure = table["getRange"];
+    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void setRange(int start, int end, Iterable<int> iterable,
+      [int skipCount = 0]) {
+    Closure closure = table["setRange"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void removeRange(int start, int end) {
+    Closure closure = table["removeRange"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void fillRange(int start, int end, [int fillValue]) {
+    Closure closure = table["fillRange"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void replaceRange(int start, int end, Iterable<int> replacement) {
+    Closure closure = table["replaceRange"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  Map<int, int> asMap() {
+    Closure closure = table["asMap"];
+    return maybeUnBoxAndBuildArgument<Map<int, int>>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  void set first(int value) {
+    Closure closure = table["setFirst"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void set last(int value) {
+    Closure closure = table["setLast"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get length {
+    Closure closure = table["getLength"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  void set length(int newLength) {
+    Closure closure = table["setLength"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  Iterable<int> get reversed {
+    Closure closure = table["getReversed"];
+    return maybeUnBoxAndBuildArgument<Iterable<int>>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
+
+  @override
+  Iterable<int> followedBy(Iterable<int> other) {
     Closure closure = table["followedBy"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -581,9 +1134,9 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   }
 
   @override
-  Iterable<dynamic> where(test) {
+  Iterable<int> where(test) {
     Closure closure = table["where"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
@@ -617,7 +1170,7 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   }
 
   @override
-  dynamic reduce(combine) {
+  int reduce(combine) {
     Closure closure = table["reduce"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -647,73 +1200,73 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   }
 
   @override
-  List<dynamic> toList({bool growable = true}) {
+  List<int> toList({bool growable = true}) {
     Closure closure = table["toList"];
-    return maybeUnBoxAndBuildArgument<List<dynamic>>(
+    return maybeUnBoxAndBuildArgument<List<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Set<dynamic> toSet() {
+  Set<int> toSet() {
     Closure closure = table["toSet"];
-    return maybeUnBoxAndBuildArgument<Set<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Set<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<dynamic> take(int count) {
+  Iterable<int> take(int count) {
     Closure closure = table["take"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<dynamic> takeWhile(test) {
+  Iterable<int> takeWhile(test) {
     Closure closure = table["takeWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<dynamic> skip(int count) {
+  Iterable<int> skip(int count) {
     Closure closure = table["skip"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  Iterable<dynamic> skipWhile(test) {
+  Iterable<int> skipWhile(test) {
     Closure closure = table["skipWhile"];
-    return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterable<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
-  dynamic firstWhere(test, {orElse}) {
+  int firstWhere(test, {orElse}) {
     Closure closure = table["firstWhere"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  dynamic lastWhere(test, {orElse}) {
+  int lastWhere(test, {orElse}) {
     Closure closure = table["lastWhere"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  dynamic singleWhere(test, {orElse}) {
+  int singleWhere(test, {orElse}) {
     Closure closure = table["singleWhere"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  dynamic elementAt(int index) {
+  int elementAt(int index) {
     Closure closure = table["elementAt"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -725,17 +1278,11 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   }
 
   @override
-  Iterator<dynamic> get iterator {
+  Iterator<int> get iterator {
     Closure closure = table["getIterator"];
-    return maybeUnBoxAndBuildArgument<Iterator<dynamic>>(
+    return maybeUnBoxAndBuildArgument<Iterator<int>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
-  }
-
-  @override
-  int get length {
-    Closure closure = table["getLength"];
-    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
@@ -751,19 +1298,19 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   }
 
   @override
-  dynamic get first {
+  int get first {
     Closure closure = table["getFirst"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  dynamic get last {
+  int get last {
     Closure closure = table["getLast"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  dynamic get single {
+  int get single {
     Closure closure = table["getSingle"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -773,44 +1320,51 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
     Closure closure = table["getHashCode"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
+
+  @override
+  int get elementSizeInBytes {
+    Closure closure = table["getElementSizeInBytes"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get offsetInBytes {
+    Closure closure = table["getOffsetInBytes"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  int get lengthInBytes {
+    Closure closure = table["getLengthInBytes"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
+  @override
+  ByteBuffer get buffer {
+    Closure closure = table["getBuffer"];
+    return maybeUnBoxAndBuildArgument<ByteBuffer>(
+        closure.dispatch([table], parentState: hydroState)[0],
+        parentState: hydroState);
+  }
 }
 
-void loadIterableBase(
+void loadUnmodifiableInt16ListView(
     {required HydroState hydroState, required HydroTable table}) {
-  table['iterableBase'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [RTManagedIterableBase(table: args[0], hydroState: hydroState)];
-  });
-  table['iterableBaseIterableToShortString'] =
+  table['unmodifiableInt16ListView'] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<String>(
-          object: IterableBase.iterableToShortString(
-              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
-                  parentState: hydroState),
-              args[2],
-              args[3]),
-          hydroState: hydroState,
-          table: HydroTable())
+      RTManagedUnmodifiableInt16ListView(
+          maybeUnBoxAndBuildArgument<Int16List>(args[1],
+              parentState: hydroState),
+          table: args[0],
+          hydroState: hydroState)
     ];
   });
-  table['iterableBaseIterableToFullString'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
-    return [
-      maybeBoxObject<String>(
-          object: IterableBase.iterableToFullString(
-              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
-                  parentState: hydroState),
-              args[2],
-              args[3]),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
-  });
-  registerBoxer<IterableBase>(boxer: (
-      {required IterableBase vmObject,
+  registerBoxer<UnmodifiableInt16ListView>(boxer: (
+      {required UnmodifiableInt16ListView vmObject,
       required HydroState hydroState,
       required HydroTable table}) {
-    return VMManagedIterableBase(
+    return VMManagedUnmodifiableInt16ListView(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
 }

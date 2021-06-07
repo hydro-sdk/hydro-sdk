@@ -10,7 +10,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedAccessibilityFeatures
-    extends VMManagedBox<AccessibilityFeatures?> {
+    extends VMManagedBox<AccessibilityFeatures> {
   VMManagedAccessibilityFeatures(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -18,47 +18,46 @@ class VMManagedAccessibilityFeatures
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table!['getAccessibleNavigation'] =
+    table['getAccessibleNavigation'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.accessibleNavigation];
+      return [vmObject.accessibleNavigation];
     });
-    table!['getInvertColors'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.invertColors];
+    table['getInvertColors'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.invertColors];
     });
-    table!['getDisableAnimations'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.disableAnimations];
+    table['getDisableAnimations'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.disableAnimations];
     });
-    table!['getBoldText'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.boldText];
+    table['getBoldText'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.boldText];
     });
-    table!['getReduceMotion'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.reduceMotion];
+    table['getReduceMotion'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.reduceMotion];
     });
-    table!['getHighContrast'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.highContrast];
+    table['getHighContrast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.highContrast];
     });
-    table!['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.toString()];
     });
-    table!['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.hashCode];
     });
   }
 
-  final HydroTable? table;
+  final HydroTable table;
 
-  final HydroState? hydroState;
+  final HydroState hydroState;
 
-  final AccessibilityFeatures? vmObject;
+  final AccessibilityFeatures vmObject;
 }
 
 void loadAccessibilityFeatures(
     {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<AccessibilityFeatures>(boxer: (
-      {required AccessibilityFeatures? vmObject,
-      required HydroState? hydroState,
-      required HydroTable? table}) {
+      {required AccessibilityFeatures vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedAccessibilityFeatures(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -9,7 +9,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedInt32x4 extends VMManagedBox<Int32x4?> {
+class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
   VMManagedInt32x4(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -17,135 +17,135 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4?> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table!['getX'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.x];
+    table['getX'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.x];
     });
-    table!['getY'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.y];
+    table['getY'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.y];
     });
-    table!['getZ'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.z];
+    table['getZ'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.z];
     });
-    table!['getW'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.w];
+    table['getW'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.w];
     });
-    table!['getSignMask'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.signMask];
+    table['getSignMask'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.signMask];
     });
-    table!['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.shuffle(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.shuffle(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['shuffleMix'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['shuffleMix'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.shuffleMix(
+            object: vmObject.shuffleMix(
                 maybeUnBoxAndBuildArgument<Int32x4>(args[1],
-                    parentState: hydroState!),
+                    parentState: hydroState),
                 args[2]),
-            hydroState: hydroState!,
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['withX'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withX'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.withX(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.withX(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['withY'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withY'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.withY(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.withY(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['withZ'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withZ'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.withZ(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.withZ(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['withW'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withW'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.withW(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.withW(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['getFlagX'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.flagX];
+    table['getFlagX'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.flagX];
     });
-    table!['getFlagY'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.flagY];
+    table['getFlagY'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.flagY];
     });
-    table!['getFlagZ'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.flagZ];
+    table['getFlagZ'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.flagZ];
     });
-    table!['getFlagW'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.flagW];
+    table['getFlagW'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.flagW];
     });
-    table!['withFlagX'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withFlagX'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.withFlagX(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.withFlagX(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['withFlagY'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withFlagY'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.withFlagY(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.withFlagY(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['withFlagZ'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withFlagZ'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.withFlagZ(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.withFlagZ(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['withFlagW'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withFlagW'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Int32x4>(
-            object: vmObject!.withFlagW(args[1]),
-            hydroState: hydroState!,
+            object: vmObject.withFlagW(args[1]),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['select'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['select'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Float32x4>(
-            object: vmObject!.select(
+            object: vmObject.select(
                 maybeUnBoxAndBuildArgument<Float32x4>(args[1],
-                    parentState: hydroState!),
+                    parentState: hydroState),
                 maybeUnBoxAndBuildArgument<Float32x4>(args[2],
-                    parentState: hydroState!)),
-            hydroState: hydroState!,
+                    parentState: hydroState)),
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
   }
 
-  final HydroTable? table;
+  final HydroTable table;
 
-  final HydroState? hydroState;
+  final HydroState hydroState;
 
-  final Int32x4? vmObject;
+  final Int32x4 vmObject;
 }
 
 void loadInt32x4({required HydroState hydroState, required HydroTable table}) {
@@ -177,9 +177,9 @@ void loadInt32x4({required HydroState hydroState, required HydroTable table}) {
     ];
   });
   registerBoxer<Int32x4>(boxer: (
-      {required Int32x4? vmObject,
-      required HydroState? hydroState,
-      required HydroTable? table}) {
+      {required Int32x4 vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedInt32x4(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
