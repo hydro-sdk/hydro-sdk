@@ -9,7 +9,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode?> {
+class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
   VMManagedDiagnosticsNode(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -17,81 +17,81 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode?> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table!['name'] = vmObject!.name;
-    table!['showSeparator'] = vmObject!.showSeparator;
-    table!['showName'] = vmObject!.showName;
-    table!['linePrefix'] = vmObject!.linePrefix;
-    table!['style'] = DiagnosticsTreeStyle.values.indexWhere((x) {
-      return x == vmObject!.style;
+    table['name'] = vmObject.name;
+    table['showSeparator'] = vmObject.showSeparator;
+    table['showName'] = vmObject.showName;
+    table['linePrefix'] = vmObject.linePrefix;
+    table['style'] = DiagnosticsTreeStyle.values.indexWhere((x) {
+      return x == vmObject.style;
     });
-    table!['toDescription'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toDescription'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject!.toDescription(
+        vmObject.toDescription(
             parentConfiguration:
                 maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
                     args[1]['parentConfiguration'],
-                    parentState: hydroState!))
+                    parentState: hydroState))
       ];
     });
-    table!['isFiltered'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['isFiltered'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject!.isFiltered(
+        vmObject.isFiltered(
             maybeUnBoxEnum(values: DiagnosticLevel.values, boxedEnum: args[1]))
       ];
     });
-    table!['getLevel'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getLevel'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         DiagnosticLevel.values.indexWhere((x) {
-          return x == vmObject!.level;
+          return x == vmObject.level;
         })
       ];
     });
-    table!['getEmptyBodyDescription'] =
+    table['getEmptyBodyDescription'] =
         makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.emptyBodyDescription];
+      return [vmObject.emptyBodyDescription];
     });
-    table!['getValue'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getValue'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Object?>(
-            object: vmObject!.value,
-            hydroState: hydroState!,
+            object: vmObject.value,
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['getAllowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.allowWrap];
+    table['getAllowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.allowWrap];
     });
-    table!['getAllowNameWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.allowNameWrap];
+    table['getAllowNameWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.allowNameWrap];
     });
-    table!['getAllowTruncate'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.allowTruncate];
+    table['getAllowTruncate'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.allowTruncate];
     });
-    table!['getProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: vmObject!
+            object: vmObject
                 .getProperties()
                 .map((x) => maybeBoxObject<DiagnosticsNode>(
-                    object: x, hydroState: hydroState!, table: HydroTable()))
+                    object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
-            hydroState: hydroState!,
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['getChildren'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getChildren'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: vmObject!
+            object: vmObject
                 .getChildren()
                 .map((x) => maybeBoxObject<DiagnosticsNode>(
-                    object: x, hydroState: hydroState!, table: HydroTable()))
+                    object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
-            hydroState: hydroState!,
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table!['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.toString(
             minLevel: maybeUnBoxEnum(
@@ -99,29 +99,29 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode?> {
             parentConfiguration:
                 maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
                     args[1]['parentConfiguration'],
-                    parentState: hydroState!))
+                    parentState: hydroState))
       ];
     });
-    table!['toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toStringDeep'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject!.toStringDeep(
+        vmObject.toStringDeep(
             minLevel: maybeUnBoxEnum(
                 values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']),
             parentConfiguration:
                 maybeUnBoxAndBuildArgument<TextTreeConfiguration>(
                     args[1]['parentConfiguration'],
-                    parentState: hydroState!),
+                    parentState: hydroState),
             prefixLineOne: args[1]['prefixLineOne'],
             prefixOtherLines: args[1]['prefixOtherLines'])
       ];
     });
   }
 
-  final HydroTable? table;
+  final HydroTable table;
 
-  final HydroState? hydroState;
+  final HydroState hydroState;
 
-  final DiagnosticsNode? vmObject;
+  final DiagnosticsNode vmObject;
 }
 
 class RTManagedDiagnosticsNode extends DiagnosticsNode
@@ -244,13 +244,13 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
   @override
   String? toDescription({TextTreeConfiguration? parentConfiguration}) {
     Closure closure = table!["toDescription"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool isFiltered(DiagnosticLevel minLevel) {
     Closure closure = table!["isFiltered"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
@@ -258,46 +258,46 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
     Closure closure = table!["getLevel"];
     return maybeUnBoxEnum(
         values: DiagnosticLevel.values,
-        boxedEnum: closure.dispatch([table], parentState: hydroState)![0]);
+        boxedEnum: closure.dispatch([table], parentState: hydroState)[0]);
   }
 
   @override
   String? get emptyBodyDescription {
     Closure closure = table!["getEmptyBodyDescription"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   Object? get value {
     Closure closure = table!["getValue"];
     return maybeUnBoxAndBuildArgument<Object>(
-        closure.dispatch([table], parentState: hydroState)![0],
+        closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
   @override
   bool get allowWrap {
     Closure closure = table!["getAllowWrap"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool get allowNameWrap {
     Closure closure = table!["getAllowNameWrap"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   bool get allowTruncate {
     Closure closure = table!["getAllowTruncate"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   List<DiagnosticsNode> getProperties() {
     Closure closure = table!["getProperties"];
     return maybeUnBoxAndBuildArgument<List>(
-        closure.dispatch([table], parentState: hydroState)![0],
+        closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
@@ -305,7 +305,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
   List<DiagnosticsNode> getChildren() {
     Closure closure = table!["getChildren"];
     return maybeUnBoxAndBuildArgument<List>(
-        closure.dispatch([table], parentState: hydroState)![0],
+        closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 
@@ -314,7 +314,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
       {DiagnosticLevel minLevel = DiagnosticLevel.info,
       TextTreeConfiguration? parentConfiguration}) {
     Closure closure = table!["__tostring"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
@@ -324,7 +324,7 @@ class RTManagedDiagnosticsNode extends DiagnosticsNode
       String prefixLineOne = '',
       String? prefixOtherLines}) {
     Closure closure = table!["toStringDeep"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
@@ -374,9 +374,9 @@ void loadDiagnosticsNode(
     ];
   });
   registerBoxer<DiagnosticsNode>(boxer: (
-      {required DiagnosticsNode? vmObject,
-      required HydroState? hydroState,
-      required HydroTable? table}) {
+      {required DiagnosticsNode vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedDiagnosticsNode(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

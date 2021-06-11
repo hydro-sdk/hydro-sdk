@@ -8,7 +8,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedDiagnosticable extends VMManagedBox<Diagnosticable?> {
+class VMManagedDiagnosticable extends VMManagedBox<Diagnosticable> {
   VMManagedDiagnosticable(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
@@ -16,10 +16,10 @@ class VMManagedDiagnosticable extends VMManagedBox<Diagnosticable?> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table!['toStringShort'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject!.toStringShort()];
+    table['toStringShort'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.toStringShort()];
     });
-    table!['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         vmObject.toString(
             minLevel: maybeUnBoxEnum(
@@ -29,30 +29,31 @@ class VMManagedDiagnosticable extends VMManagedBox<Diagnosticable?> {
     table!['toDiagnosticsNode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<DiagnosticsNode>(
-            object: vmObject!.toDiagnosticsNode(
+            object: vmObject.toDiagnosticsNode(
                 name: args[1]['name'],
                 style: maybeUnBoxEnum(
                     values: DiagnosticsTreeStyle.values,
                     boxedEnum: args[1]['style'])),
-            hydroState: hydroState!,
+            hydroState: hydroState,
             table: HydroTable())
       ];
     });
   }
 
-  final HydroTable? table;
+  final HydroTable table;
 
-  final HydroState? hydroState;
+  final HydroState hydroState;
 
-  final Diagnosticable? vmObject;
+  final Diagnosticable vmObject;
 }
 
 void loadDiagnosticable(
     {required HydroState hydroState, required HydroTable table}) {
-  registerBoxer<Diagnosticable>(boxer: (
-      {required Diagnosticable? vmObject,
-      required HydroState? hydroState,
-      required HydroTable? table}) {
+  registerBoxer<Diagnosticable>(boxer: ({
+    required Diagnosticable vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedDiagnosticable(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

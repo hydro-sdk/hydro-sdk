@@ -10,35 +10,37 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedDiagnosticPropertiesBuilder
-    extends VMManagedBox<DiagnosticPropertiesBuilder?> {
-  VMManagedDiagnosticPropertiesBuilder(
-      {required this.table, required this.vmObject, required this.hydroState})
-      : super(
+    extends VMManagedBox<DiagnosticPropertiesBuilder> {
+  VMManagedDiagnosticPropertiesBuilder({
+    required this.table,
+    required this.vmObject,
+    required this.hydroState,
+  }) : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table!['properties'] = maybeBoxObject<List<dynamic>>(
-        object: vmObject!.properties,
-        hydroState: hydroState!,
+    table['properties'] = maybeBoxObject<List<dynamic>>(
+        object: vmObject.properties,
+        hydroState: hydroState,
         table: HydroTable());
-    table!['defaultDiagnosticsTreeStyle'] =
+    table['defaultDiagnosticsTreeStyle'] =
         DiagnosticsTreeStyle.values.indexWhere((x) {
-      return x == vmObject!.defaultDiagnosticsTreeStyle;
+      return x == vmObject.defaultDiagnosticsTreeStyle;
     });
-    table!['emptyBodyDescription'] = vmObject!.emptyBodyDescription;
-    table!['add'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject!.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
-          parentState: hydroState!));
+    table['emptyBodyDescription'] = vmObject.emptyBodyDescription;
+    table['add'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      vmObject.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
+          parentState: hydroState));
       return [];
     });
   }
 
-  final HydroTable? table;
+  final HydroTable table;
 
-  final HydroState? hydroState;
+  final HydroState hydroState;
 
-  final DiagnosticPropertiesBuilder? vmObject;
+  final DiagnosticPropertiesBuilder vmObject;
 }
 
 class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
@@ -46,25 +48,25 @@ class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
   RTManagedDiagnosticPropertiesBuilder(
       {required this.table, required this.hydroState})
       : super() {
-    table!['vmObject'] = vmObject;
-    table!['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['vmObject'] = vmObject;
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
-    table!['properties'] = maybeBoxObject<List<dynamic>>(
+    table['properties'] = maybeBoxObject<List<dynamic>>(
         object: properties, hydroState: hydroState, table: HydroTable());
-    table!['defaultDiagnosticsTreeStyle'] =
+    table['defaultDiagnosticsTreeStyle'] =
         DiagnosticsTreeStyle.values.indexWhere((x) {
       return x == defaultDiagnosticsTreeStyle;
     });
-    table!['emptyBodyDescription'] = emptyBodyDescription;
-    table!['_dart_add'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['emptyBodyDescription'] = emptyBodyDescription;
+    table['_dart_add'] = makeLuaDartFunc(func: (List<dynamic> args) {
       super.add(maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[1],
           parentState: hydroState));
       return [];
     });
   }
 
-  final HydroTable? table;
+  final HydroTable table;
 
   final HydroState hydroState;
 
@@ -72,8 +74,8 @@ class RTManagedDiagnosticPropertiesBuilder extends DiagnosticPropertiesBuilder
   DiagnosticPropertiesBuilder get vmObject => this;
   @override
   void add(DiagnosticsNode property) {
-    Closure closure = table!["add"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    Closure closure = table["add"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
@@ -98,9 +100,9 @@ void loadDiagnosticPropertiesBuilder(
     ];
   });
   registerBoxer<DiagnosticPropertiesBuilder>(boxer: (
-      {required DiagnosticPropertiesBuilder? vmObject,
-      required HydroState? hydroState,
-      required HydroTable? table}) {
+      {required DiagnosticPropertiesBuilder vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedDiagnosticPropertiesBuilder(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
