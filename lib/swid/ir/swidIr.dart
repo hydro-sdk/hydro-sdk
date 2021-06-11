@@ -78,14 +78,17 @@ List<SwidClass> _mergeClasses({
                     x.name == element.name,
               ),
               [
-                SwidClass.mergeDeclarations(
-                    swidClass: previousValue.firstWhere(
-                      (x) =>
-                          x.originalPackagePath ==
-                              element.originalPackagePath &&
-                          x.name == element.name,
-                    ),
-                    superClass: element),
+                SwidClass.clone(
+                  swidClass: SwidClass.mergeDeclarations(
+                      swidClass: previousValue.firstWhere(
+                        (x) =>
+                            x.originalPackagePath ==
+                                element.originalPackagePath &&
+                            x.name == element.name,
+                      ),
+                      superClass: element),
+                  typeFormals: element.typeFormals,
+                ),
               ],
             ))
           : [
