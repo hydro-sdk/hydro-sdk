@@ -8,13 +8,13 @@ typedef Box<T> Boxer<T>({
   required HydroTable table,
 });
 
-Map<Type, 
-Box<dynamic> Function({
-        required dynamic vmObject,
-        required HydroState hydroState,
-        required HydroTable table,
-      })
-> _boxers = {};
+Map<
+    Type,
+    Box<dynamic> Function({
+  required dynamic vmObject,
+  required HydroState hydroState,
+  required HydroTable table,
+})> _boxers = {};
 
 void registerBoxer<T>({required Boxer<T> boxer}) {
   _boxers[T] = ({
