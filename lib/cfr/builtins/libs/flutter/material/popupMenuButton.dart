@@ -13,12 +13,12 @@ void loadPopupMenuButton(
       PopupMenuButton(
         onSelected: (dynamic arg) {
           Closure closure = args[0]["onSelected"];
-          return closure.dispatch([args[0], arg], parentState: luaState);
+          closure.dispatch([args[0], arg], parentState: luaState);
         },
         itemBuilder: (BuildContext context) {
           Closure closure = args[0]["itemBuilder"];
           HydroTable? closureRes =
-              closure.dispatch([context], parentState: luaState)![0];
+              closure.dispatch([context], parentState: luaState)[0];
           return maybeUnBoxAndBuildArgument<Widget>(closureRes,
                   parentState: luaState)
               .map((x) => x.build(context))

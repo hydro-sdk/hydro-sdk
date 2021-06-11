@@ -7,10 +7,10 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue?> {
-  final HydroTable? table;
-  final HydroState? hydroState;
-  final TextEditingValue? vmObject;
+class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue> {
+  final HydroTable table;
+  final HydroState hydroState;
+  final TextEditingValue vmObject;
   VMManagedTextEditingValue({
     required this.table,
     required this.hydroState,
@@ -20,22 +20,22 @@ class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue?> {
           hydroState: hydroState,
           vmObject: vmObject,
         ) {
-    table!["copyWith"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table["copyWith"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       TextEditingValue? caller;
       caller = maybeUnBoxAndBuildArgument<TextEditingValue>(rawCaller,
-          parentState: hydroState!);
+          parentState: hydroState);
       return [
         maybeBoxObject(
             object: caller!.copyWith(
                 text: args[1]["text"],
                 selection: maybeUnBoxAndBuildArgument<TextSelection>(
                     args[1]["selection"],
-                    parentState: hydroState!),
+                    parentState: hydroState),
                 composing: maybeUnBoxAndBuildArgument<TextRange>(
                     args[1]["composing"],
-                    parentState: hydroState!)),
-            hydroState: hydroState!,
+                    parentState: hydroState)),
+            hydroState: hydroState,
             table: HydroTable()),
       ];
     });
@@ -45,13 +45,15 @@ class VMManagedTextEditingValue extends VMManagedBox<TextEditingValue?> {
 void loadTextEditingValue(
     {required HydroState luaState, required HydroTable table}) {
   registerBoxer<TextEditingValue>(boxer: (
-      {TextEditingValue? vmObject, HydroState? hydroState, HydroTable? table}) {
+      {required TextEditingValue vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedTextEditingValue(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
 
   table["textEditingValue"] = makeLuaDartFunc(func: (List<dynamic> args) {
-    HydroTable? caller = args[0];
+    HydroTable caller = args[0];
 
     return [
       maybeBoxObject<TextEditingValue>(
