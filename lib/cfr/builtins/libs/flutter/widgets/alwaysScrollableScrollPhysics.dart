@@ -8,10 +8,10 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedAlwaysScrollableScrollPhysics
-    extends VMManagedBox<AlwaysScrollableScrollPhysics?> {
-  final HydroTable? table;
-  final HydroState? hydroState;
-  final AlwaysScrollableScrollPhysics? vmObject;
+    extends VMManagedBox<AlwaysScrollableScrollPhysics> {
+  final HydroTable table;
+  final HydroState hydroState;
+  final AlwaysScrollableScrollPhysics vmObject;
   VMManagedAlwaysScrollableScrollPhysics({
     required this.table,
     required this.hydroState,
@@ -21,22 +21,22 @@ class VMManagedAlwaysScrollableScrollPhysics
           hydroState: hydroState,
           vmObject: vmObject,
         ) {
-    table!["applyTo"] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table["applyTo"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       AlwaysScrollableScrollPhysics? caller;
       caller = maybeUnBoxAndBuildArgument<AlwaysScrollableScrollPhysics>(
           rawCaller,
-          parentState: hydroState!);
+          parentState: hydroState);
       ScrollPhysics? ancestor;
       if (args.length >= 2) {
         ancestor = maybeUnBoxAndBuildArgument<ScrollPhysics>(args[1],
-            parentState: hydroState!);
+            parentState: hydroState);
       }
 
       return [
         maybeBoxObject<AlwaysScrollableScrollPhysics>(
           object: caller!.applyTo(ancestor),
-          hydroState: hydroState!,
+          hydroState: hydroState,
           table: HydroTable(),
         )
       ];
@@ -46,10 +46,11 @@ class VMManagedAlwaysScrollableScrollPhysics
 
 void loadAlwaysScrollableScrollPhysics(
     {required HydroState hydroState, required HydroTable table}) {
-  registerBoxer<AlwaysScrollableScrollPhysics>(boxer: (
-      {AlwaysScrollableScrollPhysics? vmObject,
-      HydroState? hydroState,
-      HydroTable? table}) {
+  registerBoxer<AlwaysScrollableScrollPhysics>(boxer: ({
+    required AlwaysScrollableScrollPhysics vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedAlwaysScrollableScrollPhysics(
       vmObject: vmObject,
       hydroState: hydroState,
@@ -58,7 +59,7 @@ void loadAlwaysScrollableScrollPhysics(
   });
   table["alwaysScrollableScrollPhysics"] =
       makeLuaDartFunc(func: (List<dynamic> args) {
-    HydroTable? caller = args[0];
+    HydroTable caller = args[0];
     ScrollPhysics? parent;
     if (args.length >= 2 && args[1] != null) {
       parent = maybeUnBoxAndBuildArgument<ScrollPhysics>(args[1]["parent"],
@@ -67,9 +68,10 @@ void loadAlwaysScrollableScrollPhysics(
 
     return [
       maybeBoxObject(
-          object: AlwaysScrollableScrollPhysics(parent: parent),
-          hydroState: hydroState,
-          table: caller)
+        object: AlwaysScrollableScrollPhysics(parent: parent),
+        hydroState: hydroState,
+        table: caller,
+      )
     ];
   });
 }
