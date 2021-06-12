@@ -27,7 +27,6 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/navigator.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/neverScrollableScrollPhysics.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/padding.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/positioned.dart';
-import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/preferredSize.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/richText.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/row.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/widgets/safeArea.dart';
@@ -54,7 +53,6 @@ void loadWidgets({required HydroState luaState, required HydroTable table}) {
 
   loadInheritedWidget();
 
-  loadPreferredSize(luaState: luaState, table: table);
   loadStatelessWidget(luaState: luaState, table: table);
   loadStatefulWidget(luaState: luaState, table: table);
 
@@ -69,7 +67,6 @@ void loadWidgets({required HydroState luaState, required HydroTable table}) {
   loadAnimatedList(luaState: luaState, table: widgets);
   loadSizeTransition(luaState: luaState, table: widgets);
   loadGestureDetector(luaState: luaState, table: widgets);
-  loadPreferredSize(luaState: luaState, table: widgets);
   loadSafeArea(luaState: luaState, table: widgets);
   loadStack(luaState: luaState, table: widgets);
   loadPositioned(luaState: luaState, table: widgets);
