@@ -26,7 +26,7 @@ class VMManagedDiagnosticable extends VMManagedBox<Diagnosticable> {
                 values: DiagnosticLevel.values, boxedEnum: args[1]['minLevel']))
       ];
     });
-    table!['toDiagnosticsNode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toDiagnosticsNode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<DiagnosticsNode>(
             object: vmObject.toDiagnosticsNode(

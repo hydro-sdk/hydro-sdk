@@ -11,7 +11,6 @@ GlobalKey? translateRTTIToGenericGlobalKey(
   switch (runtimeType) {
     case RuntimeTypes.AnimatedListState:
       return GlobalKey<AnimatedListState>();
-      break;
     case RuntimeTypes.Color:
       break;
     case RuntimeTypes.double:
@@ -31,7 +30,6 @@ AlwaysStoppedAnimation? translateRTTIToAlwaysStoppedAnimation(
     case RuntimeTypes.Color:
       return AlwaysStoppedAnimation<Color?>(
           maybeUnBoxAndBuildArgument<Color>(value, parentState: luaState));
-      break;
     case RuntimeTypes.double:
       break;
   }

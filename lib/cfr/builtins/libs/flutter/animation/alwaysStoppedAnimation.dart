@@ -57,7 +57,6 @@ void loadAlwaysStoppedAnimation({
     switch (targetRuntimeType) {
       case RuntimeTypes.AnimatedListState:
         return [];
-        break;
       case RuntimeTypes.Color:
         return [
           maybeBoxObject<AlwaysStoppedAnimation<Color>>(
@@ -67,7 +66,6 @@ void loadAlwaysStoppedAnimation({
               hydroState: luaState,
               table: caller)
         ];
-        break;
       case RuntimeTypes.double:
         return [
           maybeBoxObject<AlwaysStoppedAnimation<double?>>(
@@ -75,8 +73,6 @@ void loadAlwaysStoppedAnimation({
               hydroState: luaState,
               table: caller)
         ];
-        break;
     }
-    return [];
   });
 }
