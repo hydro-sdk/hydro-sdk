@@ -44,13 +44,13 @@ class Closure {
     //there's no point trying to dispatch and enforce one
     if (parentState.dispatchContext != null) {
       Prototype? targetProto = parentState
-          ?.dispatchContext?.dispatchContext?.closure?.proto
+          .dispatchContext?.dispatchContext.closure.proto
           ?.findPrototypeByDebugSymbol(symbol: prototype.debugSymbol);
 
       if (targetProto != null) {
         prototype = targetProto;
       } else if (prototype.lineStart != 0 && prototype.lineEnd != 0) {
-        throw "Failed to dispatch to ${prototype?.debugSymbol?.symbolFullyQualifiedMangleName} from ${prototype.lineStart}-${prototype.lineEnd} in ${prototype.source}";
+        throw "Failed to dispatch to ${prototype.debugSymbol?.symbolFullyQualifiedMangleName} from ${prototype.lineStart}-${prototype.lineEnd} in ${prototype.source}";
       }
     }
     return prototype;

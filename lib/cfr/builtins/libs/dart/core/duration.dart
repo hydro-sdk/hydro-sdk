@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
@@ -74,13 +73,13 @@ class VMManagedDuration extends Duration implements Box<Duration> {
           object: other,
           hydroState: hydroState,
         ),
-      ], parentState: hydroState)![0];
+      ], parentState: hydroState)[0];
     }
 
     @override
     String? toString() {
       Closure closure = table!["toString"];
-      return closure.dispatch([table], parentState: hydroState)![0];
+      return closure.dispatch([table], parentState: hydroState)[0];
     }
   }
 

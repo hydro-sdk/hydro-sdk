@@ -74,7 +74,7 @@ void loadListView({required HydroState luaState, required HydroTable table}) {
               table: HydroTable(),
             ),
             index
-          ], parentState: luaState)![0];
+          ], parentState: luaState)[0];
           return maybeUnBoxAndBuildArgument<Widget>(res, parentState: luaState);
         },
       )

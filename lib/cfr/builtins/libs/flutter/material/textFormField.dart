@@ -113,7 +113,7 @@ void loadTextFormField(
                     [val],
                     parentState: luaState,
                     resetEnclosingLexicalEnvironment: true,
-                  )![0];
+                  )[0];
                 }
               : null,
           enabled: args[0]["enabled"],
@@ -142,7 +142,7 @@ void loadTextFormField(
                         hydroState: luaState,
                         table: HydroTable()),
                     props
-                  ], parentState: luaState)![0];
+                  ], parentState: luaState)[0];
                 }
               : null)
     ];

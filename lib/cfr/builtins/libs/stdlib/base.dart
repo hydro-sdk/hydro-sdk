@@ -73,7 +73,7 @@ void loadBaseLib({required HydroState hydroState, required Context ctx}) {
     try {
       return [
         true,
-        ...f.dispatch(args.skip(1).toList(), parentState: hydroState)!,
+        ...f.dispatch(args.skip(1).toList(), parentState: hydroState),
       ];
     } on HydroError catch (e) {
       return [

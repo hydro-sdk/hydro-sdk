@@ -115,8 +115,8 @@ class RTManagedDiagnosticableTree extends DiagnosticableTree
   String toStringShallow(
       {String joiner = ', ',
       DiagnosticLevel minLevel = DiagnosticLevel.debug}) {
-    Closure closure = table!["toStringShallow"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    Closure closure = table["toStringShallow"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
@@ -124,22 +124,22 @@ class RTManagedDiagnosticableTree extends DiagnosticableTree
       {DiagnosticLevel minLevel = DiagnosticLevel.debug,
       String prefixLineOne = '',
       String? prefixOtherLines}) {
-    Closure closure = table!["toStringDeep"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    Closure closure = table["toStringDeep"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   String toStringShort() {
-    Closure closure = table!["toStringShort"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    Closure closure = table["toStringShort"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   DiagnosticsNode toDiagnosticsNode(
       {String? name, DiagnosticsTreeStyle? style}) {
-    Closure closure = table!["toDiagnosticsNode"];
+    Closure closure = table["toDiagnosticsNode"];
     return maybeUnBoxAndBuildArgument<DiagnosticsNode>(
-        closure.dispatch([table], parentState: hydroState)![0],
+        closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
   }
 }

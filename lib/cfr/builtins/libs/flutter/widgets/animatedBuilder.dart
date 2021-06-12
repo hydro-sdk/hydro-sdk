@@ -25,7 +25,7 @@ void loadAnimatedBuilder(
                   table: HydroTable(),
                 ),
                 args[0]["child"],
-              ], parentState: luaState)![0],
+              ], parentState: luaState)[0],
               parentState: luaState);
           return res;
         },

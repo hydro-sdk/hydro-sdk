@@ -114,8 +114,8 @@ mixin ServiceAware {
           ),
           ".ota",
         ].join("") as Uri);
-        if (response?.statusCode == 200) {
-          return response?.bodyBytes;
+        if (response.statusCode == 200) {
+          return response.bodyBytes;
         }
       } catch (err) {
         print(err);

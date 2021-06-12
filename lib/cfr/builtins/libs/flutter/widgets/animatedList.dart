@@ -26,7 +26,7 @@ void loadAnimatedList(
                 num,
                 maybeBoxObject<Animation<double>>(
                     object: anim, hydroState: luaState, table: HydroTable())
-              ], parentState: luaState)![0],
+              ], parentState: luaState)[0],
               parentState: luaState);
         },
       )

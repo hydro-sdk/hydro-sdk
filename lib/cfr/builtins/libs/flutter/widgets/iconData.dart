@@ -7,31 +7,31 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedIconData extends VMManagedBox<IconData?> {
+class VMManagedIconData extends VMManagedBox<IconData> {
   VMManagedIconData(
-      {required this.table, required this.vmObject, required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState,})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table!['codePoint'] = vmObject!.codePoint;
-    table!['fontFamily'] = vmObject!.fontFamily;
-    table!['fontPackage'] = vmObject!.fontPackage;
-    table!['matchTextDirection'] = vmObject!.matchTextDirection;
-    table!['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['codePoint'] = vmObject.codePoint;
+    table['fontFamily'] = vmObject.fontFamily;
+    table['fontPackage'] = vmObject.fontPackage;
+    table['matchTextDirection'] = vmObject.matchTextDirection;
+    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.hashCode];
     });
-    table!['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.toString()];
     });
   }
 
-  final HydroTable? table;
+  final HydroTable table;
 
-  final HydroState? hydroState;
+  final HydroState hydroState;
 
-  final IconData? vmObject;
+  final IconData vmObject;
 }
 
 class RTManagedIconData extends IconData implements Box<IconData> {
@@ -70,13 +70,13 @@ class RTManagedIconData extends IconData implements Box<IconData> {
   @override
   int get hashCode {
     Closure closure = table!["getHashCode"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
   String toString() {
     Closure closure = table!["__tostring"];
-    return closure.dispatch([table], parentState: hydroState)![0];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 }
 
@@ -92,10 +92,10 @@ void loadIconData({required HydroState hydroState, required HydroTable table}) {
     ];
   });
   registerBoxer<IconData>(boxer: (
-      {required IconData? vmObject,
-      required HydroState? hydroState,
-      required HydroTable? table}) {
+      {required IconData  vmObject,
+      required HydroState  hydroState,
+      required HydroTable table,}) {
     return VMManagedIconData(
-        vmObject: vmObject, hydroState: hydroState, table: table);
+        vmObject: vmObject, hydroState: hydroState, table: table,);
   });
 }

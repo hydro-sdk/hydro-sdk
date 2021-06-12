@@ -24,7 +24,10 @@ class VMManagedFuture extends VMManagedBox<Future<List<dynamic>>> {
       Closure? catchError = args[1];
       Closure? test = args.length >= 3 ? args[2]["test"] : null;
       caller.unwrap().catchError((obj) {
-        catchError!.dispatch([null, obj], parentState: hydroState!);
+        catchError!.dispatch(
+          [null, obj],
+          parentState: hydroState,
+        );
       },
           test: test != null
               ? (obj) {
@@ -36,13 +39,18 @@ class VMManagedFuture extends VMManagedBox<Future<List<dynamic>>> {
     table["then"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       Future<List<dynamic>>? caller;
-      caller = maybeUnBoxAndBuildArgument<Future<List<dynamic>>>(rawCaller,
-          parentState: hydroState!);
+      caller = maybeUnBoxAndBuildArgument<Future<List<dynamic>>>(
+        rawCaller,
+        parentState: hydroState,
+      );
       Closure? then = args[1];
       return [
         maybeBoxObject<Future<List<dynamic>>>(
           object: caller!.then((val) {
-            List res = then!.dispatch(val, parentState: hydroState!)!;
+            List res = then!.dispatch(
+              val,
+              parentState: hydroState,
+            );
 
             return res;
           }),

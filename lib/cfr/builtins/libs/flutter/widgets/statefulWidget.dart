@@ -16,7 +16,7 @@ class StatefulWidgetBox extends StatefulWidget {
   StatefulWidgetBoxState createState() {
     HydroTable? newTable = maybeFindInheritedMethod(
             managedObject: table, methodName: "createState")!
-        .dispatch([table.map], parentState: parentState!)![0];
+        .dispatch([table.map], parentState: parentState!)[0];
     return StatefulWidgetBoxState(table: newTable, parentState: parentState);
   }
 }
@@ -68,7 +68,7 @@ class StatefulWidgetBoxState extends State<StatefulWidgetBox> {
       [table, context],
       parentState: parentState!,
       resetEnclosingLexicalEnvironment: true,
-    )![0];
+    )[0];
     return maybeUnBoxAndBuildArgument<Widget>(buildResult,
         parentState: parentState!);
   }

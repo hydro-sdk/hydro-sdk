@@ -12,7 +12,7 @@ Widget? managedBuild(
     required HydroTable hydroTable}) {
   Closure? managedBuild =
       maybeFindInheritedMethod(managedObject: hydroTable, methodName: "build")!;
-  var buildResult = managedBuild?.dispatch([
+  var buildResult = managedBuild.dispatch([
     hydroTable.map,
     maybeBoxObject(
       object: context,
@@ -20,14 +20,14 @@ Widget? managedBuild(
       table: HydroTable(),
     )
   ], parentState: hydroState, resetEnclosingLexicalEnvironment: true);
-  if (buildResult == null || buildResult.isEmpty) {
+  if ( buildResult.isEmpty) {
     String errMsg =
-        "A build function returned null ${managedBuild?.proto?.debugSymbol?.symbolName}\n";
+        "A build function returned null ${managedBuild.proto?.debugSymbol?.symbolName}\n";
     errMsg +=
-        "defined in   ${managedBuild?.proto?.debugSymbol?.originalFileName}:${managedBuild?.proto?.debugSymbol?.originalLineStart}\n";
+        "defined in   ${managedBuild.proto?.debugSymbol?.originalFileName}:${managedBuild.proto?.debugSymbol?.originalLineStart}\n";
 
     errMsg +=
-        "     (${managedBuild?.proto?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
+        "     (${managedBuild.proto?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
     throw errMsg;
   }
   return maybeUnBoxAndBuildArgument<Widget>(buildResult[0],

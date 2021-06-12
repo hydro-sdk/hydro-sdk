@@ -8,28 +8,30 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class RTManagedGlobalKey extends RTManagedBox<GlobalKey?> {
-  final HydroTable? table;
-  final GlobalKey? vmObject;
+class RTManagedGlobalKey extends RTManagedBox<GlobalKey> {
+  final HydroTable table;
+  final GlobalKey vmObject;
   final HydroState parentState;
 
   RTManagedGlobalKey(
-      {required this.table,
-      required this.parentState,
-      required this.vmObject}) {
-    table!["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
+      {required this.table, required this.parentState, required this.vmObject})
+      : super(
+          table: table,
+          vmObject: vmObject,
+        ) {
+    table["currentState"] = makeLuaDartFunc(func: (List<dynamic> args) {
       HydroTable currentState = HydroTable();
       currentState["insertItem"] = (List<dynamic> args) {
-        (vmObject!.currentState as dynamic).insertItem(args[1]);
+        (vmObject.currentState as dynamic).insertItem(args[1]);
       };
 
       currentState["removeItem"] = (List<dynamic> args) {
-        (vmObject!.currentState as dynamic).removeItem(args[1],
+        (vmObject.currentState as dynamic).removeItem(args[1],
             (BuildContext context, Animation<double> animation) {
           Closure closure = args[2];
           return maybeUnBoxAndBuildArgument<Widget>(
               closure.dispatch([args[0], context, animation],
-                  parentState: parentState)![0],
+                  parentState: parentState)[0],
               parentState: parentState) as Widget?;
         });
       };
@@ -48,7 +50,11 @@ void loadGlobalKey({required HydroState luaState, required HydroTable table}) {
                 runtimeTypePropName: "targetRuntimeType")));
 
     return [
-      RTManagedGlobalKey(table: args[0], parentState: luaState, vmObject: key)
+      RTManagedGlobalKey(
+        table: args[0],
+        parentState: luaState,
+        vmObject: key!,
+      )
     ];
   });
 }

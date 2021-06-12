@@ -55,19 +55,17 @@ class HydroError {
   String toString() {
     var res = "";
     res += "$errMsg\n";
-    if (_extractedSymbols?.isNotEmpty ?? false) {
+    if (_extractedSymbols.isNotEmpty) {
       res += "Error raised in: \n";
 
-      _extractedSymbols?.forEach((element) {
-        if (element != null) {
-          res += "  ${element.symbolName}\n";
+      _extractedSymbols.forEach((element) {
+        res += "  ${element.symbolName}\n";
 
-          if (element.originalFileName != "lualib_bundle") {
-            res +=
-                "     defined in ${element.originalFileName}:${element.originalLineStart}\n";
-          } else {
-            res += "    <generated function>\n";
-          }
+        if (element.originalFileName != "lualib_bundle") {
+          res +=
+              "     defined in ${element.originalFileName}:${element.originalLineStart}\n";
+        } else {
+          res += "    <generated function>\n";
         }
       });
     }
@@ -76,7 +74,7 @@ class HydroError {
       res +=
           "${element.prototype.source}:${maybeAt(element.prototype.lines, element.programCounter - 1)}\n";
       res +=
-          "  (${element.prototype?.debugSymbol?.symbolFullyQualifiedMangleName})\n";
+          "  (${element.prototype.debugSymbol?.symbolFullyQualifiedMangleName})\n";
     });
 
     res += "Dart stacktrace follows:\n";
