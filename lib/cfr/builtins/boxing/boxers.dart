@@ -34,12 +34,13 @@ Box<T> maybeBoxObject<T>({
   required HydroState hydroState,
   required HydroTable table,
 }) {
-  Box<dynamic> Function(
-      {HydroState hydroState,
-      HydroTable? table,
-      dynamic vmObject})? boxer = _boxers[T];
+  Box<dynamic> Function({
+    required HydroState hydroState,
+    required HydroTable table,
+    required dynamic vmObject,
+  })? boxer = _boxers[T];
   if (boxer != null) {
-    var res = boxer(
+    final Box<dynamic>? res = boxer(
       vmObject: object,
       hydroState: hydroState,
       table: table,
