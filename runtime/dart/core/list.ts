@@ -149,7 +149,7 @@ export interface IList<E> {
     getSingle: () => E;
     getHashCode: () => number;
 }
-export class List<E> implements IEfficientLengthIterable<E> {
+export class List<E> implements IIterable<E>, IEfficientLengthIterable<E> {
     public constructor(length?: number | undefined) {
         dart.core.list(this, length);
     }
