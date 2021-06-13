@@ -1,5 +1,5 @@
 {
-    "inputPackagePath": "/Users/chgibb/Downloads/sky_engine",
+    "inputPackagePath": "/Users/chgibb/Documents/dev/sky_engine",
     "interfaces": [
         "interfaces/*.i"
     ],
