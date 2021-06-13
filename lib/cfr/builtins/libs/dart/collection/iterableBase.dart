@@ -17,12 +17,6 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
-            parentState: hydroState))
-      ];
-    });
     table['cast'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
@@ -86,6 +80,12 @@ class VMManagedIterableBase extends VMManagedBox<IterableBase<dynamic>> {
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
+      ];
+    });
+    table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+            parentState: hydroState))
       ];
     });
     table['forEach'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -295,12 +295,6 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
-    table['_dart_contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [
-        super.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
-            parentState: hydroState))
-      ];
-    });
     table['_dart_cast'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
@@ -362,6 +356,12 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
+      ];
+    });
+    table['_dart_contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [
+        super.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+            parentState: hydroState))
       ];
     });
     table['_dart_forEach'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -557,12 +557,6 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
   IterableBase unwrap() => this;
   IterableBase get vmObject => this;
   @override
-  bool contains(Object? element) {
-    Closure closure = table["contains"];
-    return closure.dispatch([table], parentState: hydroState)[0];
-  }
-
-  @override
   Iterable<R> cast<R>() {
     Closure closure = table["cast"];
     return maybeUnBoxAndBuildArgument<Iterable<R>>(
@@ -608,6 +602,12 @@ class RTManagedIterableBase extends IterableBase implements Box<IterableBase> {
     return maybeUnBoxAndBuildArgument<Iterable<T>>(
         closure.dispatch([table], parentState: hydroState)[0],
         parentState: hydroState);
+  }
+
+  @override
+  bool contains(Object element) {
+    Closure closure = table["contains"];
+    return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override

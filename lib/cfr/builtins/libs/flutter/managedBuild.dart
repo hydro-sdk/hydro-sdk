@@ -20,7 +20,7 @@ Widget? managedBuild(
       table: HydroTable(),
     )
   ], parentState: hydroState, resetEnclosingLexicalEnvironment: true);
-  if ( buildResult.isEmpty) {
+  if (buildResult.isEmpty) {
     String errMsg =
         "A build function returned null ${managedBuild.proto?.debugSymbol?.symbolName}\n";
     errMsg +=

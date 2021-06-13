@@ -8,9 +8,11 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedIconData extends VMManagedBox<IconData> {
-  VMManagedIconData(
-      {required this.table, required this.vmObject, required this.hydroState,})
-      : super(
+  VMManagedIconData({
+    required this.table,
+    required this.vmObject,
+    required this.hydroState,
+  }) : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
@@ -91,11 +93,15 @@ void loadIconData({required HydroState hydroState, required HydroTable table}) {
           matchTextDirection: args[2]['matchTextDirection'])
     ];
   });
-  registerBoxer<IconData>(boxer: (
-      {required IconData  vmObject,
-      required HydroState  hydroState,
-      required HydroTable table,}) {
+  registerBoxer<IconData>(boxer: ({
+    required IconData vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedIconData(
-        vmObject: vmObject, hydroState: hydroState, table: table,);
+      vmObject: vmObject,
+      hydroState: hydroState,
+      table: table,
+    );
   });
 }

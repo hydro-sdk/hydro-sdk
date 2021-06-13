@@ -30,7 +30,7 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
     });
     table['extractPath'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<Path?>(
+        maybeBoxObject<Path>(
             object: vmObject.extractPath(
                 args[1]?.toDouble(), args[2]?.toDouble(),
                 startWithMoveTo: args[3]['startWithMoveTo']),

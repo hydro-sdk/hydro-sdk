@@ -405,6 +405,16 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
           table: HydroTable())
     ];
   });
+  table['setUnmodifiable'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<Set>(
+          object: Set.unmodifiable(
+              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
+                  parentState: hydroState)),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
   table['setCastFrom'] = makeLuaDartFunc(func: (List<dynamic> args) {
     Closure newSet = args[2]['newSet'];
     return [

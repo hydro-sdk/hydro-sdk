@@ -34,7 +34,7 @@ void loadCoroutineLib({required HydroState hydroState, required Context ctx}) {
 
   coroutine["yield"] = ctx.yield = (List<dynamic> args) {
     throw "attempt to yield across Dart call boundry";
-  } ;
+  };
 
   coroutine["status"] = (List<dynamic> args) {
     Thread x = Context.getArg1<Thread>(args, 0, "status");

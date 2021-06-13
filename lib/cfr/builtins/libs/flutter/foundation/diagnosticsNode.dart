@@ -53,9 +53,7 @@ class VMManagedDiagnosticsNode extends VMManagedBox<DiagnosticsNode> {
     table['getValue'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Object?>(
-            object: vmObject.value,
-            hydroState: hydroState,
-            table: HydroTable())
+            object: vmObject.value, hydroState: hydroState, table: HydroTable())
       ];
     });
     table['getAllowWrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
