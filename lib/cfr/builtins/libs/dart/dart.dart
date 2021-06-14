@@ -11,9 +11,9 @@ import 'package:hydro_sdk/hydroState.dart';
 void loaddart({required HydroState hydroState, required Context context}) {
   final dart = HydroTable();
   context.env['dart'] = dart;
+  loadcollection(table: dart, hydroState: hydroState);
   loadtyped_data(table: dart, hydroState: hydroState);
   loadui(table: dart, hydroState: hydroState);
-  loadcollection(table: dart, hydroState: hydroState);
   loadcore(table: dart, hydroState: hydroState);
   loadmath(table: dart, hydroState: hydroState);
 }
