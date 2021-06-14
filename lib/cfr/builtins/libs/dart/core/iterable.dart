@@ -605,7 +605,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   }
 
   @override
-  bool contains(Object element) {
+  bool contains(Object? element) {
     Closure closure = table["contains"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

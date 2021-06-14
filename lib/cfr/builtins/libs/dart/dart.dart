@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/libs/dart/collection/collection.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/core/core.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/math/math.dart';
@@ -12,7 +10,6 @@ void loaddart({required HydroState hydroState, required Context context}) {
   final dart = HydroTable();
   context.env['dart'] = dart;
   loadcollection(table: dart, hydroState: hydroState);
-  loadtyped_data(table: dart, hydroState: hydroState);
   loadui(table: dart, hydroState: hydroState);
   loadcore(table: dart, hydroState: hydroState);
   loadmath(table: dart, hydroState: hydroState);

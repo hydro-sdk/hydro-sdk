@@ -75,7 +75,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
     return arg;
   } else if (T == Iterable &&
       arg is HydroTable &&
-      (arg.arr?.isNotEmpty ?? false)) {
+      (arg.arr.isNotEmpty )) {
     return arg.arr;
   }
 
@@ -109,7 +109,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
                 hydroState: parentState,
                 table: HydroTable(),
               )
-            ], parentState: parentState)![0],
+            ], parentState: parentState)[0],
             parentState: parentState);
       } else {
         //unwrap is a method on a box
