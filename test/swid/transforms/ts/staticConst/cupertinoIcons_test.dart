@@ -10,7 +10,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var cupertinoIconsClass = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/CupertinoIcons.json").readAsStringSync()));
+        File("test/swid/res/CupertinoIcons.json").readAsStringSync()));
 
     //Trim thousands of icon definitions down to 1 plus 2 other static fields
     cupertinoIconsClass = cupertinoIconsClass.copyWith(

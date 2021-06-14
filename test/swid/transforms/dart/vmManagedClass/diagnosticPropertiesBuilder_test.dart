@@ -10,7 +10,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var diagnosticPropertiesBuilderClass = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/DiagnosticPropertiesBuilder.json")
+        File("test/swid/res/DiagnosticPropertiesBuilder.json")
             .readAsStringSync()));
 
     expect(

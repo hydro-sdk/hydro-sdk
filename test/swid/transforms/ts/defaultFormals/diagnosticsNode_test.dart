@@ -11,7 +11,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var diagnosticsNodeClass = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
+        File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
         TsFunctionDefaultNamedProps(

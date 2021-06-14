@@ -10,7 +10,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var keyClass = SwidClass.fromJson(
-        json.decode(File("../test/swid/res/Key.json").readAsStringSync()));
+        json.decode(File("test/swid/res/Key.json").readAsStringSync()));
 
     expect(
         DartLoadNamespaceSymbolDeclaration(swidClass: keyClass).toDartSource(),
