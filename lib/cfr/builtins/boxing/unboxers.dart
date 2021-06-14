@@ -73,9 +73,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
   //Unboxed target object
   if (arg is T) {
     return arg;
-  } else if (T == Iterable &&
-      arg is HydroTable &&
-      (arg.arr.isNotEmpty )) {
+  } else if (T == Iterable && arg is HydroTable && (arg.arr.isNotEmpty)) {
     return arg.arr;
   }
 

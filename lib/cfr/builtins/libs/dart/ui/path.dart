@@ -558,13 +558,13 @@ class RTManagedPath extends Path implements Box<Path> {
   }
 
   @override
-  void addPath(Path path, Offset offset, {Float64List ?matrix4}) {
+  void addPath(Path path, Offset offset, {Float64List? matrix4}) {
     Closure closure = table["addPath"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void extendWithPath(Path path, Offset offset, {Float64List ?matrix4}) {
+  void extendWithPath(Path path, Offset offset, {Float64List? matrix4}) {
     Closure closure = table["extendWithPath"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
