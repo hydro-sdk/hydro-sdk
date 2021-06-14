@@ -17,7 +17,7 @@ void main() {
 
     List<String> expectedOutLines = ["potatowalrusfizzbuzz"];
 
-    var res = await state.doFile("lua/concat.hc");
+    var res = await state.doFile("test/lua/concat.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

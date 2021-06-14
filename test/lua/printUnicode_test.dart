@@ -19,7 +19,7 @@ void main() {
       "你好，世界",
     ];
 
-    var res = await state.doFile("lua/printUnicode.hc");
+    var res = await state.doFile("test/lua/printUnicode.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

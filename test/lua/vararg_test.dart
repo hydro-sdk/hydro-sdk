@@ -19,7 +19,7 @@ void main() {
 
     List<String> expectedOutLines = ["0", "4", "2", "1", "6"];
 
-    var res = await state.doFile("lua/vararg.hc");
+    var res = await state.doFile("test/lua/vararg.hc");
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);
