@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/radius.dart';
 
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/accessibilityFeatures.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/callbackHandle.dart';
@@ -28,4 +28,5 @@ void loadui({required HydroState hydroState, required HydroTable table}) {
   loadSize(table: ui, hydroState: hydroState);
   loadRect(table: ui, hydroState: hydroState);
   loadRRect(table: ui, hydroState: hydroState);
+  loadRadius(ui);
 }
