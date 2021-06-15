@@ -7,7 +7,7 @@ void main() async {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var res = await unitTestHarness(
-        path: "../assets/test/co19/core/iterable.ts.hc",
+        path: "assets/test/co19/core/iterable.ts.hc",
         libs: [
           BuiltinLib.dart,
           BuiltinLib.flutter,
