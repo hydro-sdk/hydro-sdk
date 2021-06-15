@@ -69,12 +69,13 @@ class Decoder {
     return flavor!.decode(raw);
   }
 
-  Prototype readFunc(
-      {required Prototype? parent,
-      required CodeDump? root,
-      required LinkStatus? linkStatus,
-      required HydroState hydroState,
-      required Map<String, NativeThunk>? thunks}) {
+  Prototype readFunc({
+    required Prototype? parent,
+    required CodeDump root,
+    required LinkStatus? linkStatus,
+    required HydroState hydroState,
+    required Map<String, NativeThunk>? thunks,
+  }) {
     doing = "reading primitive";
     var prim = new Prototype(root);
     prim.parent = parent;
@@ -87,7 +88,7 @@ class Decoder {
     int instCount = readInt(code!.intSize, code!.bigEndian);
     prim.code = new InstBlock(new List.generate(instCount, (i) => readInst()));
     prim.rawCode = new Int32List.fromList(
-        prim.code!.expand((e) => [e.OP, e.A, e.B, e.C]).toList() as List<int>);
+        prim.code!.expand((e) => [e.OP, e.A, e.B, e.C]).toList().cast<int>() );
     doing = "reading constants";
     prim.constants =
         new List.generate(readInt(code!.intSize, code!.bigEndian), (i) {
@@ -208,7 +209,7 @@ class Decoder {
 
           code!.main = readFunc(
               parent: null,
-              root: code,
+              root: code!,
               hydroState: hydroState,
               linkStatus: linkStatus,
               thunks: thunks);

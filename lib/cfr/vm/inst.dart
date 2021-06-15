@@ -142,7 +142,12 @@ class InstInfo {
       A = out[0];
     }
 
-    return new Inst(opcode, A, B, C);
+    return new Inst(
+      opcode!,
+      A,
+      B,
+      C,
+    );
   }
 
   Inst decode(int raw) {
@@ -169,7 +174,7 @@ class InstInfo {
   }
 
   int encode(Inst inst) {
-    int raw = inst.OP! & 63;
+    int raw = inst.OP & 63;
 
     if (layout == InstLayout.LAYOUT_ABC ||
         layout == InstLayout.LAYOUT_ABx ||
@@ -223,7 +228,7 @@ class InstInfo {
 class Inst {
   Inst(this.OP, this.A, this.B, this.C);
   // ignore: non_constant_identifier_names
-  final int? OP;
+  final int OP;
   final int A;
   final int B;
   final int C;

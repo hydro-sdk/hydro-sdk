@@ -10,9 +10,15 @@ ThreadResult? tailcall({
   required int B,
   required int C,
 }) {
-  var args = [B == 0 ? frame.top - A : B - 1];
+  List<dynamic> args = List.filled(
+    B == 0 ? frame.top - A : B - 1,
+    null,
+    growable: true,
+  );
   if (B != 1)
-    for (int i = 0; i < args.length; i++) args[i] = frame.GR(i + A + 1);
+    for (int i = 0; i < args.length; i++) {
+      args[i] = frame.GR(i + A + 1);
+    }
   var x = frame.GR(A);
   frame.closeUpvals(0);
 
