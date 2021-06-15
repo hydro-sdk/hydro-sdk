@@ -10,10 +10,10 @@ import 'package:hydro_sdk/hydroState.dart';
 
 void main(List<String> args) async {
   List<String?> hcPaths =
-      args?.map((e) => extension(e) == ".hc" ? e : null)?.toList();
-  hcPaths?.removeWhere((x) => x == null);
+      args.map((e) => extension(e) == ".hc" ? e : null).toList();
+  hcPaths.removeWhere((x) => x == null);
 
-  if (hcPaths?.isEmpty ?? true) {
+  if (hcPaths.isEmpty) {
     print("Got no bytecode files");
     exit(1);
   }
@@ -43,7 +43,7 @@ void main(List<String> args) async {
   print("${protos.length} total function prototypes");
 
   List<HashedPrototype> candidatePrototypes =
-      protos.where((element) => element.prototype.prototypes!.isEmpty)?.toList();
+      protos.where((element) => element.prototype.prototypes!.isEmpty).toList();
 
   print("${candidatePrototypes.length} candidates for transpilation");
 
