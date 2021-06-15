@@ -23,8 +23,8 @@ iconData: (this: void, iconData: IIconData, codePoint: number, props : { fontFam
 };
 """);
 
-    var cupertinoIconsClass = SwidClass.fromJson(json.decode(
-        File("test/swid/res/CupertinoIcons.json").readAsStringSync()));
+    var cupertinoIconsClass = SwidClass.fromJson(json
+        .decode(File("test/swid/res/CupertinoIcons.json").readAsStringSync()));
 
     expect(
         TsClassVmDeclaration(swidClass: cupertinoIconsClass).toTsSource(), "");

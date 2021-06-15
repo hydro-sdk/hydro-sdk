@@ -15,7 +15,7 @@ void main() {
       outLines.add(args
           .map((a) => Context.luaToString(a, hydroState: state).toString())
           .join("\t"));
-          return [];
+      return [];
     };
 
     List<String> expectedOutLines = [

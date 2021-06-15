@@ -88,7 +88,7 @@ class Decoder {
     int instCount = readInt(code!.intSize, code!.bigEndian);
     prim.code = new InstBlock(new List.generate(instCount, (i) => readInst()));
     prim.rawCode = new Int32List.fromList(
-        prim.code!.expand((e) => [e.OP, e.A, e.B, e.C]).toList().cast<int>() );
+        prim.code!.expand((e) => [e.OP, e.A, e.B, e.C]).toList().cast<int>());
     doing = "reading constants";
     prim.constants =
         new List.generate(readInt(code!.intSize, code!.bigEndian), (i) {
