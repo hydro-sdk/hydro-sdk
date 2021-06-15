@@ -10,6 +10,11 @@ void main() {
         hydroState: state, builtins: [BuiltinLib.table, BuiltinLib.base]);
 
     var res = await state.doFile("test/lua/spec/checktable.hc");
+
+    if (!res.success) {
+      print(res.values);
+    }
+    
     print(res.toString());
 
     expect(res.success, true);

@@ -13,6 +13,7 @@ void main() {
       outLines.add(args
           .map((a) => Context.luaToString(a, hydroState: state).toString())
           .join("\t"));
+          return [];
     };
 
     List<String> expectedOutLines = [
@@ -20,6 +21,10 @@ void main() {
     ];
 
     var res = await state.doFile("test/lua/printUnicode.hc");
+
+    if (!res.success) {
+      print(res.values);
+    }
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

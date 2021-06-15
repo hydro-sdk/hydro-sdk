@@ -13,11 +13,16 @@ void main() {
       outLines.add(args
           .map((a) => Context.luaToString(a, hydroState: state).toString())
           .join("\t"));
+          return [];
     };
 
     List<String> expectedOutLines = ["potatowalrusfizzbuzz"];
 
     var res = await state.doFile("test/lua/concat.hc");
+
+    if (!res.success) {
+      print(res.values);
+    }
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);
