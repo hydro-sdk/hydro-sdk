@@ -11,8 +11,7 @@ jobs:
     env:
       ARCH: x64
       PLATFORM: linux
-    steps:
-      - uses: ilammy/setup-nasm@v1
+    steps:      
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
@@ -97,7 +96,7 @@ jobs:
       ARCH: x64
       PLATFORM: darwin
     steps:
-      - uses: ilammy/setup-nasm@v1
+      
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
@@ -177,7 +176,7 @@ jobs:
       ARCH: x64
       PLATFORM: win32
     steps:
-      - uses: ilammy/setup-nasm@v1
+      
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}

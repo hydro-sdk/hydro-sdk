@@ -17,8 +17,7 @@ jobs:
           TARGET: windows
       fail-fast: false
 
-    steps:
-    - uses: ilammy/setup-nasm@v1
+    steps:    
     - name: Install Linux dependencies
       if: startsWith(matrix.os, 'ubuntu')
       run: |
