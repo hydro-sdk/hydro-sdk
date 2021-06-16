@@ -86,7 +86,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['containsAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable<Object>>(
+        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable<Object?>>(
             args[1],
             parentState: hydroState))
       ];
