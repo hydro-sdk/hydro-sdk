@@ -12,7 +12,7 @@ import 'package:hydro_sdk/integrationTestHarness.dart';
 void main() {
   testWidgets('', (WidgetTester tester) async {
     await tester.runAsync(() async {
-      String fixturePath = "../assets/test/widget/stackTrace-2.ts";
+      String fixturePath = "assets/test/widget/stackTrace-2.ts";
 
       HydroState state = HydroState();
       var closure = await state.loadBuffer(

@@ -32,11 +32,11 @@ void main() {
           .join("\t"));
     };
 
-    HydroFunctionImpl res1 = await state1.loadFile("hot/simple1.hc");
+    HydroFunctionImpl res1 = await state1.loadFile("test/hot/simple1.hc");
 
-    HydroFunctionImpl res2 = await state2.loadFile("hot/simple2.hc");
+    HydroFunctionImpl res2 = await state2.loadFile("test/hot/simple2.hc");
 
-    HydroFunctionImpl res3 = await state2.loadFile("hot/simple3.hc");
+    HydroFunctionImpl res3 = await state2.loadFile("test/hot/simple3.hc");
 
     var res =
         reassembleClosures(destination: res1.closure, source: res2.closure);

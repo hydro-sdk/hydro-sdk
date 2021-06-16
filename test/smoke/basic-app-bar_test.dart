@@ -70,7 +70,7 @@ void main() {
     }
 
     await tester
-        .pumpWidget(integrationTestHarness("../assets/examples/basicAppBar"));
+        .pumpWidget(integrationTestHarness("assets/examples/basicAppBar"));
     await tester.pumpAndSettle();
 
     // Tap on the two action buttons and all of the overflow menu items.

@@ -11,7 +11,7 @@ void main() {
     expect(testMode, isNotNull);
 
     await tester
-        .pumpWidget(integrationTestHarness("../assets/examples/counter"));
+        .pumpWidget(integrationTestHarness("assets/examples/counter"));
     await tester.pumpAndSettle();
 
     var exception = tester.takeException();

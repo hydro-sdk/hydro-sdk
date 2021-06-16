@@ -7,7 +7,7 @@ void main() async {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var res = await unitTestHarness(
-        path: "../assets/test/unit/dart/collection/listMap-1.ts.hc",
+        path: "assets/test/unit/dart/collection/listMap-1.ts.hc",
         libs: [
           BuiltinLib.dart,
           BuiltinLib.base,

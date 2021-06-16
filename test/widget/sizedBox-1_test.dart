@@ -11,7 +11,7 @@ void main() {
     expect(testMode, isNotNull);
 
     await tester.pumpWidget(
-        integrationTestHarness("../assets/test/widget/sizedBox-1.ts"));
+        integrationTestHarness("assets/test/widget/sizedBox-1.ts"));
     await tester.pumpAndSettle();
 
     expect(find.byKey(Key("empty")), findsOneWidget);

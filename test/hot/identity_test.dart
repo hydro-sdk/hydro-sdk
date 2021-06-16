@@ -34,17 +34,17 @@ void main() {
           .join("\t"));
     };
 
-    HydroFunctionImpl res1 = await state1.loadFile("hot/simple1.hc");
+    HydroFunctionImpl res1 = await state1.loadFile("test/hot/simple1.hc");
 
     var global1 = res1.closure.proto!.prototypes![0];
     var local1 = res1.closure.proto!.prototypes![1];
 
-    HydroFunctionImpl res2 = await state2.loadFile("hot/simple2.hc");
+    HydroFunctionImpl res2 = await state2.loadFile("test/hot/simple2.hc");
 
     var global2 = res2.closure.proto!.prototypes![0];
     var local2 = res2.closure.proto!.prototypes![1];
 
-    HydroFunctionImpl res3 = await state2.loadFile("hot/simple3.hc");
+    HydroFunctionImpl res3 = await state2.loadFile("test/hot/simple3.hc");
 
     var global3 = res3.closure.proto!.prototypes![1];
     var local3 = res3.closure.proto!.prototypes![2];
