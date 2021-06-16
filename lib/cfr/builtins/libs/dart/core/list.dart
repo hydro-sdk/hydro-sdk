@@ -461,7 +461,9 @@ void loadList({required HydroState hydroState, required HydroTable table}) {
   table['list'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<List<dynamic>>(
-          object: [(args[1])], hydroState: hydroState, table: args[0])
+          object: List.filled(args[1], null, growable: true),
+          hydroState: hydroState,
+          table: args[0])
     ];
   });
   table['listFilled'] = makeLuaDartFunc(func: (List<dynamic> args) {
