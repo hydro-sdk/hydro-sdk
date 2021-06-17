@@ -7,11 +7,15 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 /// Attempt to unbox the given boxed enum into a value contained in values
-T? maybeUnBoxEnum<T>(
-    {required List<dynamic> values, required dynamic boxedEnum}) {
+T? maybeUnBoxEnum<T>({
+  required List<dynamic> values,
+  required dynamic boxedEnum,
+}) {
   //For Typescript, TSTL represents enums as their integer indices
   if (boxedEnum is int) {
-    return values.firstWhere((x) => x.index == boxedEnum, orElse: () => null);
+    return values.firstWhere(
+      (x) => x.index == boxedEnum,
+    );
   }
   //For Haxe, the enum index is placed onto the zero entry of the object's table for some reason.
   //This gets optimized into array storage by the VM
