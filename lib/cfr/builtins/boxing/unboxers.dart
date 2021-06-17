@@ -102,11 +102,13 @@ dynamic maybeUnBoxAndBuildArgument<T>(
         return maybeUnBoxAndBuildArgument<T>(
             unwrap.dispatch([
               arg.map,
-              maybeBoxObject<BuildContext?>(
-                object: context,
-                hydroState: parentState,
-                table: HydroTable(),
-              )
+              context != null
+                  ? maybeBoxObject<BuildContext>(
+                      object: context,
+                      hydroState: parentState,
+                      table: HydroTable(),
+                    )
+                  : null,
             ], parentState: parentState)[0],
             parentState: parentState);
       } else {
@@ -114,11 +116,13 @@ dynamic maybeUnBoxAndBuildArgument<T>(
         return maybeUnBoxAndBuildArgument<T>(
             unwrap([
               arg.map,
-              maybeBoxObject<BuildContext?>(
-                object: context,
-                hydroState: parentState,
-                table: HydroTable(),
-              )
+              context != null
+                  ? maybeBoxObject<BuildContext>(
+                      object: context,
+                      hydroState: parentState,
+                      table: HydroTable(),
+                    )
+                  : null,
             ])[0],
             parentState: parentState);
       }
