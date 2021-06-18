@@ -36,6 +36,8 @@ class Thread {
       return x(this, args);
     } else if (x is Closure) {
       return x.dispatch(args, parentState: hydroState);
+    } else if (x is Null Function(List<dynamic>)) {
+      x(args);
     } else {
       throw "attempt to call a ${Context.getTypename(x)} value $x with $args";
     }
