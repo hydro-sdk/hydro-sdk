@@ -53,7 +53,7 @@ void loadTextStyle({
   required HydroState luaState,
   required HydroTable table,
 }) {
-  registerBoxer(boxer: ({
+  registerBoxer<TextStyle>(boxer: ({
     required TextStyle vmObject,
     required HydroState hydroState,
     required HydroTable table,
