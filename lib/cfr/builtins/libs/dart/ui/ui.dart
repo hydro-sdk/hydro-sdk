@@ -11,6 +11,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/radius.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/rect.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/size.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/tangent.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/textRange.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
@@ -30,4 +31,5 @@ void loadui({required HydroState hydroState, required HydroTable table}) {
   loadRRect(table: ui, hydroState: hydroState);
   loadRadius(ui);
   loadColor(ui);
+  loadTextRange(ui);
 }
