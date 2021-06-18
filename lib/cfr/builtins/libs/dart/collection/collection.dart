@@ -8,5 +8,5 @@ void loadcollection(
   final collection = HydroTable();
   table['collection'] = collection;
   loadIterableBase(table: collection, hydroState: hydroState);
-  loadCoreList(hydroState: hydroState, table: table);
+  loadCoreList(hydroState: hydroState, table: collection);
 }
