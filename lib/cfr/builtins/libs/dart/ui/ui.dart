@@ -1,5 +1,6 @@
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/accessibilityFeatures.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/callbackHandle.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/color.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offset.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/offsetBase.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/ui/path.dart';
@@ -28,4 +29,5 @@ void loadui({required HydroState hydroState, required HydroTable table}) {
   loadRect(table: ui, hydroState: hydroState);
   loadRRect(table: ui, hydroState: hydroState);
   loadRadius(ui);
+  loadColor(ui);
 }
