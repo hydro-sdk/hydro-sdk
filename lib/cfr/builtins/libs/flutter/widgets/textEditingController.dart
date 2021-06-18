@@ -44,7 +44,7 @@ class VMManagedTextEditingController
     table["getValue"] = makeLuaDartFunc(func: (List<dynamic> args) {
       dynamic rawCaller = args[0];
       return [
-        maybeBoxObject<TextEditingValue?>(
+        maybeBoxObject<TextEditingValue>(
             object: maybeUnBoxAndBuildArgument<TextEditingController>(
               rawCaller,
               parentState: hydroState,
