@@ -39,7 +39,7 @@ void loadCupertinoContextMenu(
                       parentState: luaState,
                     )[0],
                     parentState: luaState);
-              } as Widget Function(BuildContext, Animation<double>, Widget)?
+              }
             : null,
       )
     ];
