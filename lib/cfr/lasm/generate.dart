@@ -72,7 +72,7 @@ import 'package:hydro_sdk/cfr/vm/instructions/vararg.dart';
 """;
 
   String _thunkPreamble = """
-Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = {
+Map<String, Prototype Function({required CodeDump codeDump, required Prototype parent,})> thunks = {
 """;
 
   String _generateThunk({required Prototype prototype}) {
@@ -80,8 +80,8 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
 
     res += """
 "${hashPrototype(prototype, includeSourceLocations: true)}": ({
-    CodeDump codeDump,
-    Prototype parent,
+    required CodeDump codeDump,
+    required Prototype parent,
   }) =>
       Prototype(
           codeDump,
@@ -134,7 +134,7 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
     res += "])\n";
     res += "..rawCode = Int32List.fromList(${prototype.rawCode})";
     res +=
-        """..interpreter= ({@required Frame frame, @required Prototype prototype}){
+        """..interpreter= ({required Frame frame, required Prototype prototype,}){
     while(true){
       var pc = frame.programCounter++;
       switch(pc){
@@ -350,7 +350,6 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
             return res;
           }
         """;
-          res += "break;\n";
           break;
         case 30:
           res += "case $i:\n";
@@ -360,7 +359,6 @@ Map<String, Prototype Function({CodeDump codeDump, Prototype parent})> thunks = 
             return res;
           }
         """;
-          res += "break;\n";
           break;
         case 31:
           res += "case $i:\n";
