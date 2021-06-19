@@ -55,9 +55,7 @@ void main() {
     expect(ir.toDartSource(), """
 class VMManagedfooClass extends VMManagedBox<fooClass> {
   VMManagedfooClass(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
