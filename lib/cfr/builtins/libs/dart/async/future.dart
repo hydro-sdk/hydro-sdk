@@ -24,7 +24,7 @@ class VMManagedFuture extends VMManagedBox<Future<List<dynamic>>> {
       Closure? catchError = args[1];
       Closure? test = args.length >= 3 ? args[2]["test"] : null;
       caller.unwrap().catchError((obj) {
-        catchError!.dispatch(
+        return catchError!.dispatch(
           [null, obj],
           parentState: hydroState,
         );
