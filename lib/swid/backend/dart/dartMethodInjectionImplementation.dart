@@ -1,5 +1,6 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, Block, Code;
+import 'package:dart_style/dart_style.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.dart';
@@ -43,7 +44,7 @@ class DartMethodInjectionImplementation {
                 "];")
       ]);
 
-  String toDartSource() => (refer("table")
+  String toDartSource() => DartFormatter().formatStatement(refer("table")
       .index(literalString(methodInjectionFieldName(
           swidFunctionType:
               transformAccessorName(swidFunctionType: swidFunctionType))))
