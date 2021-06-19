@@ -15,7 +15,7 @@ void main() {
     expect(
         DartLoadNamespaceSymbolDeclaration(swidClass: keyClass).toDartSource(),
         """
-void loadKey({@required HydroState hydroState, @required HydroTable table}) {
+void loadKey({required HydroState hydroState, required HydroTable table}) {
   table[\'key\'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Key>(
@@ -23,9 +23,9 @@ void loadKey({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Key>(boxer: (
-      {@required Key vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Key vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedKey(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

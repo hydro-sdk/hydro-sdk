@@ -21,9 +21,9 @@ void main() {
 class VMManagedDiagnosticPropertiesBuilder
     extends VMManagedBox<DiagnosticPropertiesBuilder> {
   VMManagedDiagnosticPropertiesBuilder(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table,
+      required this.vmObject,
+      required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,

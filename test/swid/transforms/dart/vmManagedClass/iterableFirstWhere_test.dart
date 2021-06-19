@@ -195,9 +195,9 @@ void main() {
         """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table,
+      required this.vmObject,
+      required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,

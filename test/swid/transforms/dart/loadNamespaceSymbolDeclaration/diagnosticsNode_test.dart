@@ -17,7 +17,7 @@ void main() {
             .toDartSource(),
         """
 void loadDiagnosticsNode(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table[\'diagnosticsNode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedDiagnosticsNode(
@@ -62,9 +62,9 @@ void loadDiagnosticsNode(
     ];
   });
   registerBoxer<DiagnosticsNode>(boxer: (
-      {@required DiagnosticsNode vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required DiagnosticsNode vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedDiagnosticsNode(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -53,6 +53,6 @@ void main() {
     ));
 
     expect(ir.toDartSource(),
-        """registerBoxer<fooClass>(boxer: ({@required fooClass vmObject, @required HydroState hydroState, @required HydroTable table}) { return  VMManagedfooClass(vmObject: vmObject, hydroState: hydroState, table: table); } );""");
+        """registerBoxer<fooClass>(boxer: ({required fooClass vmObject, required HydroState hydroState, required HydroTable table}) { return  VMManagedfooClass(vmObject: vmObject, hydroState: hydroState, table: table); } );""");
   }, tags: "swid");
 }
