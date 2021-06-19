@@ -195,9 +195,7 @@ void main() {
         """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
-      {required this.table,
-      required this.vmObject,
-      required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -205,15 +203,13 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
         ) {
     table[\'firstWhere\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2][\'orElse\'];
+      Closure? orElse = args[2][\'orElse\'];
       return [
         vmObject.firstWhere(
-            test != null
-                ? (element) => test.dispatch(
-                      [args[0], element],
-                      parentState: hydroState,
-                    )[0]
-                : null,
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
             orElse: orElse != null
                 ? () => orElse.dispatch(
                       [
