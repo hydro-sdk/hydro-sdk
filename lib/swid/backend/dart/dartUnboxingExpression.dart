@@ -61,8 +61,7 @@ class DartUnboxingExpression {
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",
       fromSwidFunctionType: (val) => [
-            ...(val.returnType.nullabilitySuffix ==
-                    SwidNullabilitySuffix.question
+            ...(val.nullabilitySuffix == SwidNullabilitySuffix.question
                 ? [
                     identifierName,
                     " != null ? ",
@@ -119,8 +118,7 @@ class DartUnboxingExpression {
                   ).toDartSource()),
               ).closure.accept(DartEmitter()).toString(),
             ],
-            ...(val.returnType.nullabilitySuffix ==
-                    SwidNullabilitySuffix.question
+            ...(val.nullabilitySuffix == SwidNullabilitySuffix.question
                 ? [
                     " : null ",
                   ]
