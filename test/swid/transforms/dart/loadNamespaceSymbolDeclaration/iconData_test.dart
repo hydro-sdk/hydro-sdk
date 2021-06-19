@@ -17,8 +17,7 @@ void main() {
         DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass)
             .toDartSource(),
         """
-void loadIconData(
-    {required HydroState hydroState, required HydroTable table}) {
+void loadIconData({required HydroState hydroState, required HydroTable table}) {
   table[\'iconData\'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedIconData(args[1],
