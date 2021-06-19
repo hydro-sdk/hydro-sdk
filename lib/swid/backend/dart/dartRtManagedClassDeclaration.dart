@@ -18,6 +18,7 @@ import 'package:code_builder/code_builder.dart'
         Reference;
 
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:dart_style/dart_style.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -42,7 +43,7 @@ class DartRTManagedClassDeclaration {
     required this.swidClass,
   });
 
-  String toDartSource() => (Class((x) => x
+  String toDartSource() => DartFormatter().format(Class((x) => x
     ..name = "RTManaged${swidClass.name}"
     ..extend = TypeReference((k) => k.symbol = swidClass.name)
     ..implements.add(TypeReference(
