@@ -158,7 +158,7 @@ void main() {
 table  [
 \'setCastFrom\'
 ] = makeLuaDartFunc(func: (List<dynamic> args) { 
-Closure newSet=args  [
+Closure? newSet=args  [
 2
 ]  [
 \'newSet\'
