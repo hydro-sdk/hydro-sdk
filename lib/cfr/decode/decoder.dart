@@ -145,7 +145,7 @@ class Decoder {
 
     if (thunks != null) {
       if (thunks[hashPrototype(prim)] != null) {
-        var res = thunks[hashPrototype(prim)]!(codeDump: root, parent: parent);
+        var res = thunks[hashPrototype(prim)]!(codeDump: root, parent: parent!);
         res.parent = parent;
         maybeAssignDebugSymbol(hydroState: hydroState, prototype: res);
         linkStatus?.nativePrototypes += 1;

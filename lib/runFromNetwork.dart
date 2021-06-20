@@ -72,8 +72,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
   final String baseUrl;
   final String filePath;
   final List<dynamic>? args;
-  final Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
-      thunks;
+  final Map<String, NativeThunk> thunks;
   final ErrorBuilder? errorBuilder;
   final bool? debugMode;
   Object? error;

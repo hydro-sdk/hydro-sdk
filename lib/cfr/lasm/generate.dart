@@ -350,6 +350,7 @@ Map<String, Prototype Function({required CodeDump codeDump, required Prototype p
             return res;
           }
         """;
+          res += "break;\n";
           break;
         case 30:
           res += "case $i:\n";
@@ -359,12 +360,12 @@ Map<String, Prototype Function({required CodeDump codeDump, required Prototype p
             return res;
           }
         """;
+          res += "break;\n";
           break;
         case 31:
           res += "case $i:\n";
           res +=
               "return instReturn(frame:frame,A:${prototype.code!.list[i].A},B:${prototype.code!.list[i].B},C:${prototype.code!.list[i].C});\n";
-          res += "break;\n";
           break;
         case 32:
           res += "case $i:\n";
