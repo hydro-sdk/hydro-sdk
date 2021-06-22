@@ -24,7 +24,7 @@ dependencies:
       url: "git://github.com/hydro-sdk/surveyor"
   waveform: 
     git: 
-      ref: "0.0.1-nightly.35"
+      ref: "0.0.1-nightly.40"
       url: "git://github.com/hydro-sdk/waveform.git"
   archive: null
   cli_util: null
