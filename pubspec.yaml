@@ -5,7 +5,6 @@ dependencies:
   analyzer: ^1.7.1
   args: ^2.1.1
   benchmark_harness: ^2.0.0
-  build_runner: ^2.0.4
   collection: ^1.15.0
   cupertino_icons: ^1.0.3
   http: ^0.13.3
@@ -32,8 +31,10 @@ dependencies:
   watcher: ^1.0.0
   glob: 2.0.1
 dev_dependencies:
-  import_sorter: ^4.6.0
+  import_sorter: 
+  build_runner:
   test: ^1.16.5
+  waveform: ^0.0.1-nightly.43
   flutter_test:
     sdk: flutter
 environment:
