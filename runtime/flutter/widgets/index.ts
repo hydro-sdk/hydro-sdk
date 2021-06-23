@@ -21,7 +21,6 @@ export * from "./flexible";
 export * from "./spacer";
 export * from "./animatedList";
 export * from "./positioned";
-export * from "./preferredSize";
 export * from "./transitionBuilder";
 export * from "./center";
 export * from "./toolbarOptions";
