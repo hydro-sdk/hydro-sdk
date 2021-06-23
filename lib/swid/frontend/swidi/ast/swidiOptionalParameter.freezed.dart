@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidiOptionalParameter.dart';
 
@@ -9,12 +9,14 @@ part of 'swidiOptionalParameter.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SwidiOptionalParameterTearOff {
   const _$SwidiOptionalParameterTearOff();
 
-// ignore: unused_element
-  _$SwidiOptionalParameterCtor call({@required SwidiDeclaration declaration}) {
+  _$SwidiOptionalParameterCtor call({required SwidiDeclaration declaration}) {
     return _$SwidiOptionalParameterCtor(
       declaration: declaration,
     );
@@ -22,15 +24,15 @@ class _$SwidiOptionalParameterTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidiOptionalParameter = _$SwidiOptionalParameterTearOff();
 
 /// @nodoc
 mixin _$SwidiOptionalParameter {
-  SwidiDeclaration get declaration;
+  SwidiDeclaration get declaration => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiOptionalParameterCopyWith<SwidiOptionalParameter> get copyWith;
+  $SwidiOptionalParameterCopyWith<SwidiOptionalParameter> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -54,20 +56,18 @@ class _$SwidiOptionalParameterCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object declaration = freezed,
+    Object? declaration = freezed,
   }) {
     return _then(_value.copyWith(
       declaration: declaration == freezed
           ? _value.declaration
-          : declaration as SwidiDeclaration,
+          : declaration // ignore: cast_nullable_to_non_nullable
+              as SwidiDeclaration,
     ));
   }
 
   @override
   $SwidiDeclarationCopyWith<$Res> get declaration {
-    if (_value.declaration == null) {
-      return null;
-    }
     return $SwidiDeclarationCopyWith<$Res>(_value.declaration, (value) {
       return _then(_value.copyWith(declaration: value));
     });
@@ -103,20 +103,21 @@ class __$$SwidiOptionalParameterCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object declaration = freezed,
+    Object? declaration = freezed,
   }) {
     return _then(_$SwidiOptionalParameterCtor(
       declaration: declaration == freezed
           ? _value.declaration
-          : declaration as SwidiDeclaration,
+          : declaration // ignore: cast_nullable_to_non_nullable
+              as SwidiDeclaration,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$SwidiOptionalParameterCtor implements _$SwidiOptionalParameterCtor {
-  const _$_$SwidiOptionalParameterCtor({@required this.declaration})
-      : assert(declaration != null);
+  const _$_$SwidiOptionalParameterCtor({required this.declaration});
 
   @override
   final SwidiDeclaration declaration;
@@ -148,13 +149,12 @@ class _$_$SwidiOptionalParameterCtor implements _$SwidiOptionalParameterCtor {
 
 abstract class _$SwidiOptionalParameterCtor implements SwidiOptionalParameter {
   const factory _$SwidiOptionalParameterCtor(
-          {@required SwidiDeclaration declaration}) =
-      _$_$SwidiOptionalParameterCtor;
+      {required SwidiDeclaration declaration}) = _$_$SwidiOptionalParameterCtor;
 
   @override
-  SwidiDeclaration get declaration;
+  SwidiDeclaration get declaration => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidiOptionalParameterCtorCopyWith<_$SwidiOptionalParameterCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

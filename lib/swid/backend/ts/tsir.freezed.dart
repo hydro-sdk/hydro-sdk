@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'tsir.dart';
 
@@ -9,186 +9,163 @@ part of 'tsir.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$TsIrTearOff {
   const _$TsIrTearOff();
 
-// ignore: unused_element
   _$FromTsClassConstructorImplementation fromTsClassConstructorImplementation(
-      {@required
-          TsClassConstructorImplementation tsClassConstructorImplementation}) {
+      {required TsClassConstructorImplementation
+          tsClassConstructorImplementation}) {
     return _$FromTsClassConstructorImplementation(
       tsClassConstructorImplementation: tsClassConstructorImplementation,
     );
   }
 
-// ignore: unused_element
   _$FromTsFunctionDefaultNamedProps fromTsFunctionDefaultNamedProps(
-      {@required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) {
+      {required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) {
     return _$FromTsFunctionDefaultNamedProps(
       tsFunctionDefaultNamedProps: tsFunctionDefaultNamedProps,
     );
   }
 
-// ignore: unused_element
   _$FromClassInstanceFieldDeclarations fromTsClassInstanceFieldDeclarations(
-      {@required
-          TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations}) {
+      {required TsClassInstanceFieldDeclarations
+          tsClassInstanceFieldDeclarations}) {
     return _$FromClassInstanceFieldDeclarations(
       tsClassInstanceFieldDeclarations: tsClassInstanceFieldDeclarations,
     );
   }
 
-// ignore: unused_element
   _$FromTsClassMethodDeclarations fromTsClassMethodDeclarations(
-      {@required TsClassMethodDeclarations tsClassMethodDeclarations}) {
+      {required TsClassMethodDeclarations tsClassMethodDeclarations}) {
     return _$FromTsClassMethodDeclarations(
       tsClassMethodDeclarations: tsClassMethodDeclarations,
     );
   }
 
-// ignore: unused_element
   _$FromTsClassMethodInjectionFieldDeclarations
       fromTsClassMethodInjectionFieldDeclarations(
-          {@required
-              TsClassMethodInjectionFieldDeclarations
-                  tsClassMethodInjectionFieldDeclarations}) {
+          {required TsClassMethodInjectionFieldDeclarations
+              tsClassMethodInjectionFieldDeclarations}) {
     return _$FromTsClassMethodInjectionFieldDeclarations(
       tsClassMethodInjectionFieldDeclarations:
           tsClassMethodInjectionFieldDeclarations,
     );
   }
 
-// ignore: unused_element
   _$FromTsClassMethodInjectionFieldName fromTsClassMethodInjectionFieldName(
-      {@required
-          TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName}) {
+      {required TsClassMethodInjectionFieldName
+          tsClassMethodInjectionFieldName}) {
     return _$FromTsClassMethodInjectionFieldName(
       tsClassMethodInjectionFieldName: tsClassMethodInjectionFieldName,
     );
   }
 
-// ignore: unused_element
   _$FromTsClassPostamble fromTsClassPostamble(
-      {@required TsClassPostamble tsClassPostamble}) {
+      {required TsClassPostamble tsClassPostamble}) {
     return _$FromTsClassPostamble(
       tsClassPostamble: tsClassPostamble,
     );
   }
 
-// ignore: unused_element
   _$FromTsClassPreamble fromTsClassPreamble(
-      {@required TsClassPreamble tsClassPreamble}) {
+      {required TsClassPreamble tsClassPreamble}) {
     return _$FromTsClassPreamble(
       tsClassPreamble: tsClassPreamble,
     );
   }
 
-// ignore: unused_element
   _$FromTsClassStaticConstFieldDeclarations
       fromTsClassStaticConstFieldDeclarations(
-          {@required
-              TsClassStaticConstFieldDeclarations
-                  tsClassStaticConstFieldDeclarations}) {
+          {required TsClassStaticConstFieldDeclarations
+              tsClassStaticConstFieldDeclarations}) {
     return _$FromTsClassStaticConstFieldDeclarations(
       tsClassStaticConstFieldDeclarations: tsClassStaticConstFieldDeclarations,
     );
   }
 
-// ignore: unused_element
   _$FromTsClassStaticMethodImplementation fromTsClassStaticMethodImplementation(
-      {@required
-          TsClassStaticMethodImplementation
-              tsClassStaticMethodImplementation}) {
+      {required TsClassStaticMethodImplementation
+          tsClassStaticMethodImplementation}) {
     return _$FromTsClassStaticMethodImplementation(
       tsClassStaticMethodImplementation: tsClassStaticMethodImplementation,
     );
   }
 
-// ignore: unused_element
-  _$FromTsEnum fromTsEnum({@required TsEnum tsEnum}) {
+  _$FromTsEnum fromTsEnum({required TsEnum tsEnum}) {
     return _$FromTsEnum(
       tsEnum: tsEnum,
     );
   }
 
-// ignore: unused_element
-  _$FromTsInterface fromTsInterface({@required TsInterface tsInterface}) {
+  _$FromTsInterface fromTsInterface({required TsInterface tsInterface}) {
     return _$FromTsInterface(
       tsInterface: tsInterface,
     );
   }
 
-// ignore: unused_element
   _$FromTsClassVmDeclaration fromTsClassVmDeclaration(
-      {@required TsClassVmDeclaration tsClassVmDeclaration}) {
+      {required TsClassVmDeclaration tsClassVmDeclaration}) {
     return _$FromTsClassVmDeclaration(
       tsClassVmDeclaration: tsClassVmDeclaration,
     );
   }
 
-// ignore: unused_element
   _$FromTsFunctionInvocation fromTsFunctionInvocation(
-      {@required TsFunctionInvocation tsFunctionInvocation}) {
+      {required TsFunctionInvocation tsFunctionInvocation}) {
     return _$FromTsFunctionInvocation(
       tsFunctionInvocation: tsFunctionInvocation,
     );
   }
 
-// ignore: unused_element
   _$FromTsFunctionInvocationNamedParameters
       fromTsFunctionInvocationNamedParameters(
-          {@required
-              TsFunctionInvocationNamedParameters
-                  tsFunctionInvocationNamedParameters}) {
+          {required TsFunctionInvocationNamedParameters
+              tsFunctionInvocationNamedParameters}) {
     return _$FromTsFunctionInvocationNamedParameters(
       tsFunctionInvocationNamedParameters: tsFunctionInvocationNamedParameters,
     );
   }
 
-// ignore: unused_element
   _$FromTsFunctionInvocationNamedParametersKeyValue
       fromTsFunctionInvocationNamedParametersKeyValue(
-          {@required
-              TsFunctionInvocationNamedParametersKeyValue
-                  tsFunctionInvocationNamedParametersKeyValue}) {
+          {required TsFunctionInvocationNamedParametersKeyValue
+              tsFunctionInvocationNamedParametersKeyValue}) {
     return _$FromTsFunctionInvocationNamedParametersKeyValue(
       tsFunctionInvocationNamedParametersKeyValue:
           tsFunctionInvocationNamedParametersKeyValue,
     );
   }
 
-// ignore: unused_element
   _$TsFunctionInvocationNamedParametersSpread
       fromTsFunctionInvocationNamedParametersSpread(
-          {@required
-              TsFunctionInvocationNamedParametersSpread
-                  tsFunctionInvocationNamedParametersSpread}) {
+          {required TsFunctionInvocationNamedParametersSpread
+              tsFunctionInvocationNamedParametersSpread}) {
     return _$TsFunctionInvocationNamedParametersSpread(
       tsFunctionInvocationNamedParametersSpread:
           tsFunctionInvocationNamedParametersSpread,
     );
   }
 
-// ignore: unused_element
-  _$FromTsLinebreak fromTsLinebreak({@required TsLinebreak tsLinebreak}) {
+  _$FromTsLinebreak fromTsLinebreak({required TsLinebreak tsLinebreak}) {
     return _$FromTsLinebreak(
       tsLinebreak: tsLinebreak,
     );
   }
 
-// ignore: unused_element
   _$FromTsFunctionSelfBindingInvocation fromTsFunctionSelfBindingInvocation(
-      {@required
-          TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation}) {
+      {required TsFunctionSelfBindingInvocation
+          tsFunctionSelfBindingInvocation}) {
     return _$FromTsFunctionSelfBindingInvocation(
       tsFunctionSelfBindingInvocation: tsFunctionSelfBindingInvocation,
     );
   }
 
-// ignore: unused_element
   _$FromTsResolvedImport fromTsResolvedImport(
-      {@required TsResolvedImport tsResolvedImport}) {
+      {required TsResolvedImport tsResolvedImport}) {
     return _$FromTsResolvedImport(
       tsResolvedImport: tsResolvedImport,
     );
@@ -196,194 +173,204 @@ class _$TsIrTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TsIr = _$TsIrTearOff();
 
 /// @nodoc
 mixin _$TsIr {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-  });
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -427,24 +414,24 @@ class __$$FromTsClassConstructorImplementationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassConstructorImplementation = freezed,
+    Object? tsClassConstructorImplementation = freezed,
   }) {
     return _then(_$FromTsClassConstructorImplementation(
-      tsClassConstructorImplementation:
-          tsClassConstructorImplementation == freezed
-              ? _value.tsClassConstructorImplementation
-              : tsClassConstructorImplementation
-                  as TsClassConstructorImplementation,
+      tsClassConstructorImplementation: tsClassConstructorImplementation ==
+              freezed
+          ? _value.tsClassConstructorImplementation
+          : tsClassConstructorImplementation // ignore: cast_nullable_to_non_nullable
+              as TsClassConstructorImplementation,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassConstructorImplementation
     implements _$FromTsClassConstructorImplementation {
   _$_$FromTsClassConstructorImplementation(
-      {@required this.tsClassConstructorImplementation})
-      : assert(tsClassConstructorImplementation != null);
+      {required this.tsClassConstructorImplementation});
 
   @override
   final TsClassConstructorImplementation tsClassConstructorImplementation;
@@ -479,129 +466,121 @@ class _$_$FromTsClassConstructorImplementation
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassConstructorImplementation(
         tsClassConstructorImplementation);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassConstructorImplementation != null) {
       return fromTsClassConstructorImplementation(
           tsClassConstructorImplementation);
@@ -611,115 +590,88 @@ class _$_$FromTsClassConstructorImplementation
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassConstructorImplementation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassConstructorImplementation != null) {
       return fromTsClassConstructorImplementation(this);
     }
@@ -729,15 +681,16 @@ class _$_$FromTsClassConstructorImplementation
 
 abstract class _$FromTsClassConstructorImplementation implements TsIr {
   factory _$FromTsClassConstructorImplementation(
-          {@required
-              TsClassConstructorImplementation
-                  tsClassConstructorImplementation}) =
+          {required TsClassConstructorImplementation
+              tsClassConstructorImplementation}) =
       _$_$FromTsClassConstructorImplementation;
 
-  TsClassConstructorImplementation get tsClassConstructorImplementation;
+  TsClassConstructorImplementation get tsClassConstructorImplementation =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsClassConstructorImplementationCopyWith<
-      _$FromTsClassConstructorImplementation> get copyWith;
+          _$FromTsClassConstructorImplementation>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -764,22 +717,23 @@ class __$$FromTsFunctionDefaultNamedPropsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsFunctionDefaultNamedProps = freezed,
+    Object? tsFunctionDefaultNamedProps = freezed,
   }) {
     return _then(_$FromTsFunctionDefaultNamedProps(
       tsFunctionDefaultNamedProps: tsFunctionDefaultNamedProps == freezed
           ? _value.tsFunctionDefaultNamedProps
-          : tsFunctionDefaultNamedProps as TsFunctionDefaultNamedProps,
+          : tsFunctionDefaultNamedProps // ignore: cast_nullable_to_non_nullable
+              as TsFunctionDefaultNamedProps,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsFunctionDefaultNamedProps
     implements _$FromTsFunctionDefaultNamedProps {
   _$_$FromTsFunctionDefaultNamedProps(
-      {@required this.tsFunctionDefaultNamedProps})
-      : assert(tsFunctionDefaultNamedProps != null);
+      {required this.tsFunctionDefaultNamedProps});
 
   @override
   final TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps;
@@ -813,128 +767,120 @@ class _$_$FromTsFunctionDefaultNamedProps
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionDefaultNamedProps(tsFunctionDefaultNamedProps);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionDefaultNamedProps != null) {
       return fromTsFunctionDefaultNamedProps(tsFunctionDefaultNamedProps);
     }
@@ -943,115 +889,88 @@ class _$_$FromTsFunctionDefaultNamedProps
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionDefaultNamedProps(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionDefaultNamedProps != null) {
       return fromTsFunctionDefaultNamedProps(this);
     }
@@ -1061,13 +980,14 @@ class _$_$FromTsFunctionDefaultNamedProps
 
 abstract class _$FromTsFunctionDefaultNamedProps implements TsIr {
   factory _$FromTsFunctionDefaultNamedProps(
-          {@required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
+          {required TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps}) =
       _$_$FromTsFunctionDefaultNamedProps;
 
-  TsFunctionDefaultNamedProps get tsFunctionDefaultNamedProps;
+  TsFunctionDefaultNamedProps get tsFunctionDefaultNamedProps =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsFunctionDefaultNamedPropsCopyWith<_$FromTsFunctionDefaultNamedProps>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1095,24 +1015,24 @@ class __$$FromClassInstanceFieldDeclarationsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassInstanceFieldDeclarations = freezed,
+    Object? tsClassInstanceFieldDeclarations = freezed,
   }) {
     return _then(_$FromClassInstanceFieldDeclarations(
-      tsClassInstanceFieldDeclarations:
-          tsClassInstanceFieldDeclarations == freezed
-              ? _value.tsClassInstanceFieldDeclarations
-              : tsClassInstanceFieldDeclarations
-                  as TsClassInstanceFieldDeclarations,
+      tsClassInstanceFieldDeclarations: tsClassInstanceFieldDeclarations ==
+              freezed
+          ? _value.tsClassInstanceFieldDeclarations
+          : tsClassInstanceFieldDeclarations // ignore: cast_nullable_to_non_nullable
+              as TsClassInstanceFieldDeclarations,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromClassInstanceFieldDeclarations
     implements _$FromClassInstanceFieldDeclarations {
   _$_$FromClassInstanceFieldDeclarations(
-      {@required this.tsClassInstanceFieldDeclarations})
-      : assert(tsClassInstanceFieldDeclarations != null);
+      {required this.tsClassInstanceFieldDeclarations});
 
   @override
   final TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations;
@@ -1147,129 +1067,121 @@ class _$_$FromClassInstanceFieldDeclarations
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassInstanceFieldDeclarations(
         tsClassInstanceFieldDeclarations);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassInstanceFieldDeclarations != null) {
       return fromTsClassInstanceFieldDeclarations(
           tsClassInstanceFieldDeclarations);
@@ -1279,115 +1191,88 @@ class _$_$FromClassInstanceFieldDeclarations
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassInstanceFieldDeclarations(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassInstanceFieldDeclarations != null) {
       return fromTsClassInstanceFieldDeclarations(this);
     }
@@ -1397,15 +1282,16 @@ class _$_$FromClassInstanceFieldDeclarations
 
 abstract class _$FromClassInstanceFieldDeclarations implements TsIr {
   factory _$FromClassInstanceFieldDeclarations(
-          {@required
-              TsClassInstanceFieldDeclarations
-                  tsClassInstanceFieldDeclarations}) =
+          {required TsClassInstanceFieldDeclarations
+              tsClassInstanceFieldDeclarations}) =
       _$_$FromClassInstanceFieldDeclarations;
 
-  TsClassInstanceFieldDeclarations get tsClassInstanceFieldDeclarations;
+  TsClassInstanceFieldDeclarations get tsClassInstanceFieldDeclarations =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromClassInstanceFieldDeclarationsCopyWith<
-      _$FromClassInstanceFieldDeclarations> get copyWith;
+          _$FromClassInstanceFieldDeclarations>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1432,21 +1318,22 @@ class __$$FromTsClassMethodDeclarationsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassMethodDeclarations = freezed,
+    Object? tsClassMethodDeclarations = freezed,
   }) {
     return _then(_$FromTsClassMethodDeclarations(
       tsClassMethodDeclarations: tsClassMethodDeclarations == freezed
           ? _value.tsClassMethodDeclarations
-          : tsClassMethodDeclarations as TsClassMethodDeclarations,
+          : tsClassMethodDeclarations // ignore: cast_nullable_to_non_nullable
+              as TsClassMethodDeclarations,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassMethodDeclarations
     implements _$FromTsClassMethodDeclarations {
-  _$_$FromTsClassMethodDeclarations({@required this.tsClassMethodDeclarations})
-      : assert(tsClassMethodDeclarations != null);
+  _$_$FromTsClassMethodDeclarations({required this.tsClassMethodDeclarations});
 
   @override
   final TsClassMethodDeclarations tsClassMethodDeclarations;
@@ -1480,128 +1367,120 @@ class _$_$FromTsClassMethodDeclarations
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassMethodDeclarations(tsClassMethodDeclarations);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassMethodDeclarations != null) {
       return fromTsClassMethodDeclarations(tsClassMethodDeclarations);
     }
@@ -1610,115 +1489,88 @@ class _$_$FromTsClassMethodDeclarations
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassMethodDeclarations(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassMethodDeclarations != null) {
       return fromTsClassMethodDeclarations(this);
     }
@@ -1728,13 +1580,14 @@ class _$_$FromTsClassMethodDeclarations
 
 abstract class _$FromTsClassMethodDeclarations implements TsIr {
   factory _$FromTsClassMethodDeclarations(
-          {@required TsClassMethodDeclarations tsClassMethodDeclarations}) =
+          {required TsClassMethodDeclarations tsClassMethodDeclarations}) =
       _$_$FromTsClassMethodDeclarations;
 
-  TsClassMethodDeclarations get tsClassMethodDeclarations;
+  TsClassMethodDeclarations get tsClassMethodDeclarations =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsClassMethodDeclarationsCopyWith<_$FromTsClassMethodDeclarations>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1764,24 +1617,24 @@ class __$$FromTsClassMethodInjectionFieldDeclarationsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassMethodInjectionFieldDeclarations = freezed,
+    Object? tsClassMethodInjectionFieldDeclarations = freezed,
   }) {
     return _then(_$FromTsClassMethodInjectionFieldDeclarations(
       tsClassMethodInjectionFieldDeclarations:
           tsClassMethodInjectionFieldDeclarations == freezed
               ? _value.tsClassMethodInjectionFieldDeclarations
-              : tsClassMethodInjectionFieldDeclarations
+              : tsClassMethodInjectionFieldDeclarations // ignore: cast_nullable_to_non_nullable
                   as TsClassMethodInjectionFieldDeclarations,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassMethodInjectionFieldDeclarations
     implements _$FromTsClassMethodInjectionFieldDeclarations {
   _$_$FromTsClassMethodInjectionFieldDeclarations(
-      {@required this.tsClassMethodInjectionFieldDeclarations})
-      : assert(tsClassMethodInjectionFieldDeclarations != null);
+      {required this.tsClassMethodInjectionFieldDeclarations});
 
   @override
   final TsClassMethodInjectionFieldDeclarations
@@ -1819,129 +1672,121 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassMethodInjectionFieldDeclarations(
         tsClassMethodInjectionFieldDeclarations);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassMethodInjectionFieldDeclarations != null) {
       return fromTsClassMethodInjectionFieldDeclarations(
           tsClassMethodInjectionFieldDeclarations);
@@ -1951,115 +1796,88 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassMethodInjectionFieldDeclarations(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassMethodInjectionFieldDeclarations != null) {
       return fromTsClassMethodInjectionFieldDeclarations(this);
     }
@@ -2069,16 +1887,17 @@ class _$_$FromTsClassMethodInjectionFieldDeclarations
 
 abstract class _$FromTsClassMethodInjectionFieldDeclarations implements TsIr {
   factory _$FromTsClassMethodInjectionFieldDeclarations(
-          {@required
-              TsClassMethodInjectionFieldDeclarations
-                  tsClassMethodInjectionFieldDeclarations}) =
+          {required TsClassMethodInjectionFieldDeclarations
+              tsClassMethodInjectionFieldDeclarations}) =
       _$_$FromTsClassMethodInjectionFieldDeclarations;
 
   TsClassMethodInjectionFieldDeclarations
-      get tsClassMethodInjectionFieldDeclarations;
+      get tsClassMethodInjectionFieldDeclarations =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsClassMethodInjectionFieldDeclarationsCopyWith<
-      _$FromTsClassMethodInjectionFieldDeclarations> get copyWith;
+          _$FromTsClassMethodInjectionFieldDeclarations>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2105,23 +1924,24 @@ class __$$FromTsClassMethodInjectionFieldNameCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassMethodInjectionFieldName = freezed,
+    Object? tsClassMethodInjectionFieldName = freezed,
   }) {
     return _then(_$FromTsClassMethodInjectionFieldName(
       tsClassMethodInjectionFieldName: tsClassMethodInjectionFieldName ==
               freezed
           ? _value.tsClassMethodInjectionFieldName
-          : tsClassMethodInjectionFieldName as TsClassMethodInjectionFieldName,
+          : tsClassMethodInjectionFieldName // ignore: cast_nullable_to_non_nullable
+              as TsClassMethodInjectionFieldName,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassMethodInjectionFieldName
     implements _$FromTsClassMethodInjectionFieldName {
   _$_$FromTsClassMethodInjectionFieldName(
-      {@required this.tsClassMethodInjectionFieldName})
-      : assert(tsClassMethodInjectionFieldName != null);
+      {required this.tsClassMethodInjectionFieldName});
 
   @override
   final TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName;
@@ -2156,128 +1976,120 @@ class _$_$FromTsClassMethodInjectionFieldName
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassMethodInjectionFieldName(tsClassMethodInjectionFieldName);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassMethodInjectionFieldName != null) {
       return fromTsClassMethodInjectionFieldName(
           tsClassMethodInjectionFieldName);
@@ -2287,115 +2099,88 @@ class _$_$FromTsClassMethodInjectionFieldName
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassMethodInjectionFieldName(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassMethodInjectionFieldName != null) {
       return fromTsClassMethodInjectionFieldName(this);
     }
@@ -2405,15 +2190,16 @@ class _$_$FromTsClassMethodInjectionFieldName
 
 abstract class _$FromTsClassMethodInjectionFieldName implements TsIr {
   factory _$FromTsClassMethodInjectionFieldName(
-          {@required
-              TsClassMethodInjectionFieldName
-                  tsClassMethodInjectionFieldName}) =
+          {required TsClassMethodInjectionFieldName
+              tsClassMethodInjectionFieldName}) =
       _$_$FromTsClassMethodInjectionFieldName;
 
-  TsClassMethodInjectionFieldName get tsClassMethodInjectionFieldName;
+  TsClassMethodInjectionFieldName get tsClassMethodInjectionFieldName =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsClassMethodInjectionFieldNameCopyWith<
-      _$FromTsClassMethodInjectionFieldName> get copyWith;
+          _$FromTsClassMethodInjectionFieldName>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2437,20 +2223,21 @@ class __$$FromTsClassPostambleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassPostamble = freezed,
+    Object? tsClassPostamble = freezed,
   }) {
     return _then(_$FromTsClassPostamble(
       tsClassPostamble: tsClassPostamble == freezed
           ? _value.tsClassPostamble
-          : tsClassPostamble as TsClassPostamble,
+          : tsClassPostamble // ignore: cast_nullable_to_non_nullable
+              as TsClassPostamble,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
-  _$_$FromTsClassPostamble({@required this.tsClassPostamble})
-      : assert(tsClassPostamble != null);
+  _$_$FromTsClassPostamble({required this.tsClassPostamble});
 
   @override
   final TsClassPostamble tsClassPostamble;
@@ -2482,128 +2269,120 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassPostamble(tsClassPostamble);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassPostamble != null) {
       return fromTsClassPostamble(tsClassPostamble);
     }
@@ -2612,115 +2391,88 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassPostamble(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassPostamble != null) {
       return fromTsClassPostamble(this);
     }
@@ -2729,12 +2481,13 @@ class _$_$FromTsClassPostamble implements _$FromTsClassPostamble {
 }
 
 abstract class _$FromTsClassPostamble implements TsIr {
-  factory _$FromTsClassPostamble(
-      {@required TsClassPostamble tsClassPostamble}) = _$_$FromTsClassPostamble;
+  factory _$FromTsClassPostamble({required TsClassPostamble tsClassPostamble}) =
+      _$_$FromTsClassPostamble;
 
-  TsClassPostamble get tsClassPostamble;
+  TsClassPostamble get tsClassPostamble => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromTsClassPostambleCopyWith<_$FromTsClassPostamble> get copyWith;
+  _$$FromTsClassPostambleCopyWith<_$FromTsClassPostamble> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2757,20 +2510,21 @@ class __$$FromTsClassPreambleCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassPreamble = freezed,
+    Object? tsClassPreamble = freezed,
   }) {
     return _then(_$FromTsClassPreamble(
       tsClassPreamble: tsClassPreamble == freezed
           ? _value.tsClassPreamble
-          : tsClassPreamble as TsClassPreamble,
+          : tsClassPreamble // ignore: cast_nullable_to_non_nullable
+              as TsClassPreamble,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
-  _$_$FromTsClassPreamble({@required this.tsClassPreamble})
-      : assert(tsClassPreamble != null);
+  _$_$FromTsClassPreamble({required this.tsClassPreamble});
 
   @override
   final TsClassPreamble tsClassPreamble;
@@ -2802,128 +2556,120 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassPreamble(tsClassPreamble);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassPreamble != null) {
       return fromTsClassPreamble(tsClassPreamble);
     }
@@ -2932,115 +2678,88 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassPreamble(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassPreamble != null) {
       return fromTsClassPreamble(this);
     }
@@ -3049,12 +2768,13 @@ class _$_$FromTsClassPreamble implements _$FromTsClassPreamble {
 }
 
 abstract class _$FromTsClassPreamble implements TsIr {
-  factory _$FromTsClassPreamble({@required TsClassPreamble tsClassPreamble}) =
+  factory _$FromTsClassPreamble({required TsClassPreamble tsClassPreamble}) =
       _$_$FromTsClassPreamble;
 
-  TsClassPreamble get tsClassPreamble;
+  TsClassPreamble get tsClassPreamble => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromTsClassPreambleCopyWith<_$FromTsClassPreamble> get copyWith;
+  _$$FromTsClassPreambleCopyWith<_$FromTsClassPreamble> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3084,24 +2804,24 @@ class __$$FromTsClassStaticConstFieldDeclarationsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassStaticConstFieldDeclarations = freezed,
+    Object? tsClassStaticConstFieldDeclarations = freezed,
   }) {
     return _then(_$FromTsClassStaticConstFieldDeclarations(
-      tsClassStaticConstFieldDeclarations:
-          tsClassStaticConstFieldDeclarations == freezed
-              ? _value.tsClassStaticConstFieldDeclarations
-              : tsClassStaticConstFieldDeclarations
-                  as TsClassStaticConstFieldDeclarations,
+      tsClassStaticConstFieldDeclarations: tsClassStaticConstFieldDeclarations ==
+              freezed
+          ? _value.tsClassStaticConstFieldDeclarations
+          : tsClassStaticConstFieldDeclarations // ignore: cast_nullable_to_non_nullable
+              as TsClassStaticConstFieldDeclarations,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassStaticConstFieldDeclarations
     implements _$FromTsClassStaticConstFieldDeclarations {
   _$_$FromTsClassStaticConstFieldDeclarations(
-      {@required this.tsClassStaticConstFieldDeclarations})
-      : assert(tsClassStaticConstFieldDeclarations != null);
+      {required this.tsClassStaticConstFieldDeclarations});
 
   @override
   final TsClassStaticConstFieldDeclarations tsClassStaticConstFieldDeclarations;
@@ -3136,129 +2856,121 @@ class _$_$FromTsClassStaticConstFieldDeclarations
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassStaticConstFieldDeclarations(
         tsClassStaticConstFieldDeclarations);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassStaticConstFieldDeclarations != null) {
       return fromTsClassStaticConstFieldDeclarations(
           tsClassStaticConstFieldDeclarations);
@@ -3268,115 +2980,88 @@ class _$_$FromTsClassStaticConstFieldDeclarations
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassStaticConstFieldDeclarations(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassStaticConstFieldDeclarations != null) {
       return fromTsClassStaticConstFieldDeclarations(this);
     }
@@ -3386,15 +3071,16 @@ class _$_$FromTsClassStaticConstFieldDeclarations
 
 abstract class _$FromTsClassStaticConstFieldDeclarations implements TsIr {
   factory _$FromTsClassStaticConstFieldDeclarations(
-          {@required
-              TsClassStaticConstFieldDeclarations
-                  tsClassStaticConstFieldDeclarations}) =
+          {required TsClassStaticConstFieldDeclarations
+              tsClassStaticConstFieldDeclarations}) =
       _$_$FromTsClassStaticConstFieldDeclarations;
 
-  TsClassStaticConstFieldDeclarations get tsClassStaticConstFieldDeclarations;
+  TsClassStaticConstFieldDeclarations get tsClassStaticConstFieldDeclarations =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsClassStaticConstFieldDeclarationsCopyWith<
-      _$FromTsClassStaticConstFieldDeclarations> get copyWith;
+          _$FromTsClassStaticConstFieldDeclarations>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3423,24 +3109,24 @@ class __$$FromTsClassStaticMethodImplementationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassStaticMethodImplementation = freezed,
+    Object? tsClassStaticMethodImplementation = freezed,
   }) {
     return _then(_$FromTsClassStaticMethodImplementation(
-      tsClassStaticMethodImplementation:
-          tsClassStaticMethodImplementation == freezed
-              ? _value.tsClassStaticMethodImplementation
-              : tsClassStaticMethodImplementation
-                  as TsClassStaticMethodImplementation,
+      tsClassStaticMethodImplementation: tsClassStaticMethodImplementation ==
+              freezed
+          ? _value.tsClassStaticMethodImplementation
+          : tsClassStaticMethodImplementation // ignore: cast_nullable_to_non_nullable
+              as TsClassStaticMethodImplementation,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassStaticMethodImplementation
     implements _$FromTsClassStaticMethodImplementation {
   _$_$FromTsClassStaticMethodImplementation(
-      {@required this.tsClassStaticMethodImplementation})
-      : assert(tsClassStaticMethodImplementation != null);
+      {required this.tsClassStaticMethodImplementation});
 
   @override
   final TsClassStaticMethodImplementation tsClassStaticMethodImplementation;
@@ -3475,129 +3161,121 @@ class _$_$FromTsClassStaticMethodImplementation
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassStaticMethodImplementation(
         tsClassStaticMethodImplementation);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassStaticMethodImplementation != null) {
       return fromTsClassStaticMethodImplementation(
           tsClassStaticMethodImplementation);
@@ -3607,115 +3285,88 @@ class _$_$FromTsClassStaticMethodImplementation
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassStaticMethodImplementation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassStaticMethodImplementation != null) {
       return fromTsClassStaticMethodImplementation(this);
     }
@@ -3725,15 +3376,16 @@ class _$_$FromTsClassStaticMethodImplementation
 
 abstract class _$FromTsClassStaticMethodImplementation implements TsIr {
   factory _$FromTsClassStaticMethodImplementation(
-          {@required
-              TsClassStaticMethodImplementation
-                  tsClassStaticMethodImplementation}) =
+          {required TsClassStaticMethodImplementation
+              tsClassStaticMethodImplementation}) =
       _$_$FromTsClassStaticMethodImplementation;
 
-  TsClassStaticMethodImplementation get tsClassStaticMethodImplementation;
+  TsClassStaticMethodImplementation get tsClassStaticMethodImplementation =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsClassStaticMethodImplementationCopyWith<
-      _$FromTsClassStaticMethodImplementation> get copyWith;
+          _$FromTsClassStaticMethodImplementation>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3756,17 +3408,21 @@ class __$$FromTsEnumCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsEnum = freezed,
+    Object? tsEnum = freezed,
   }) {
     return _then(_$FromTsEnum(
-      tsEnum: tsEnum == freezed ? _value.tsEnum : tsEnum as TsEnum,
+      tsEnum: tsEnum == freezed
+          ? _value.tsEnum
+          : tsEnum // ignore: cast_nullable_to_non_nullable
+              as TsEnum,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsEnum implements _$FromTsEnum {
-  _$_$FromTsEnum({@required this.tsEnum}) : assert(tsEnum != null);
+  _$_$FromTsEnum({required this.tsEnum});
 
   @override
   final TsEnum tsEnum;
@@ -3795,128 +3451,120 @@ class _$_$FromTsEnum implements _$FromTsEnum {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsEnum(tsEnum);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsEnum != null) {
       return fromTsEnum(tsEnum);
     }
@@ -3925,115 +3573,88 @@ class _$_$FromTsEnum implements _$FromTsEnum {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsEnum(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsEnum != null) {
       return fromTsEnum(this);
     }
@@ -4042,11 +3663,12 @@ class _$_$FromTsEnum implements _$FromTsEnum {
 }
 
 abstract class _$FromTsEnum implements TsIr {
-  factory _$FromTsEnum({@required TsEnum tsEnum}) = _$_$FromTsEnum;
+  factory _$FromTsEnum({required TsEnum tsEnum}) = _$_$FromTsEnum;
 
-  TsEnum get tsEnum;
+  TsEnum get tsEnum => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromTsEnumCopyWith<_$FromTsEnum> get copyWith;
+  _$$FromTsEnumCopyWith<_$FromTsEnum> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4069,20 +3691,21 @@ class __$$FromTsInterfaceCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsInterface = freezed,
+    Object? tsInterface = freezed,
   }) {
     return _then(_$FromTsInterface(
       tsInterface: tsInterface == freezed
           ? _value.tsInterface
-          : tsInterface as TsInterface,
+          : tsInterface // ignore: cast_nullable_to_non_nullable
+              as TsInterface,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsInterface implements _$FromTsInterface {
-  _$_$FromTsInterface({@required this.tsInterface})
-      : assert(tsInterface != null);
+  _$_$FromTsInterface({required this.tsInterface});
 
   @override
   final TsInterface tsInterface;
@@ -4112,128 +3735,120 @@ class _$_$FromTsInterface implements _$FromTsInterface {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsInterface(tsInterface);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsInterface != null) {
       return fromTsInterface(tsInterface);
     }
@@ -4242,115 +3857,88 @@ class _$_$FromTsInterface implements _$FromTsInterface {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsInterface(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsInterface != null) {
       return fromTsInterface(this);
     }
@@ -4359,12 +3947,13 @@ class _$_$FromTsInterface implements _$FromTsInterface {
 }
 
 abstract class _$FromTsInterface implements TsIr {
-  factory _$FromTsInterface({@required TsInterface tsInterface}) =
+  factory _$FromTsInterface({required TsInterface tsInterface}) =
       _$_$FromTsInterface;
 
-  TsInterface get tsInterface;
+  TsInterface get tsInterface => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromTsInterfaceCopyWith<_$FromTsInterface> get copyWith;
+  _$$FromTsInterfaceCopyWith<_$FromTsInterface> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4389,20 +3978,21 @@ class __$$FromTsClassVmDeclarationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsClassVmDeclaration = freezed,
+    Object? tsClassVmDeclaration = freezed,
   }) {
     return _then(_$FromTsClassVmDeclaration(
       tsClassVmDeclaration: tsClassVmDeclaration == freezed
           ? _value.tsClassVmDeclaration
-          : tsClassVmDeclaration as TsClassVmDeclaration,
+          : tsClassVmDeclaration // ignore: cast_nullable_to_non_nullable
+              as TsClassVmDeclaration,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
-  _$_$FromTsClassVmDeclaration({@required this.tsClassVmDeclaration})
-      : assert(tsClassVmDeclaration != null);
+  _$_$FromTsClassVmDeclaration({required this.tsClassVmDeclaration});
 
   @override
   final TsClassVmDeclaration tsClassVmDeclaration;
@@ -4435,128 +4025,120 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassVmDeclaration(tsClassVmDeclaration);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassVmDeclaration != null) {
       return fromTsClassVmDeclaration(tsClassVmDeclaration);
     }
@@ -4565,115 +4147,88 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsClassVmDeclaration(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsClassVmDeclaration != null) {
       return fromTsClassVmDeclaration(this);
     }
@@ -4683,12 +4238,14 @@ class _$_$FromTsClassVmDeclaration implements _$FromTsClassVmDeclaration {
 
 abstract class _$FromTsClassVmDeclaration implements TsIr {
   factory _$FromTsClassVmDeclaration(
-          {@required TsClassVmDeclaration tsClassVmDeclaration}) =
+          {required TsClassVmDeclaration tsClassVmDeclaration}) =
       _$_$FromTsClassVmDeclaration;
 
-  TsClassVmDeclaration get tsClassVmDeclaration;
+  TsClassVmDeclaration get tsClassVmDeclaration =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromTsClassVmDeclarationCopyWith<_$FromTsClassVmDeclaration> get copyWith;
+  _$$FromTsClassVmDeclarationCopyWith<_$FromTsClassVmDeclaration>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4715,20 +4272,18 @@ class __$$FromTsFunctionInvocationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsFunctionInvocation = freezed,
+    Object? tsFunctionInvocation = freezed,
   }) {
     return _then(_$FromTsFunctionInvocation(
       tsFunctionInvocation: tsFunctionInvocation == freezed
           ? _value.tsFunctionInvocation
-          : tsFunctionInvocation as TsFunctionInvocation,
+          : tsFunctionInvocation // ignore: cast_nullable_to_non_nullable
+              as TsFunctionInvocation,
     ));
   }
 
   @override
   $TsFunctionInvocationCopyWith<$Res> get tsFunctionInvocation {
-    if (_value.tsFunctionInvocation == null) {
-      return null;
-    }
     return $TsFunctionInvocationCopyWith<$Res>(_value.tsFunctionInvocation,
         (value) {
       return _then(_value.copyWith(tsFunctionInvocation: value));
@@ -4737,9 +4292,9 @@ class __$$FromTsFunctionInvocationCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
-  _$_$FromTsFunctionInvocation({@required this.tsFunctionInvocation})
-      : assert(tsFunctionInvocation != null);
+  _$_$FromTsFunctionInvocation({required this.tsFunctionInvocation});
 
   @override
   final TsFunctionInvocation tsFunctionInvocation;
@@ -4772,128 +4327,120 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocation(tsFunctionInvocation);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionInvocation != null) {
       return fromTsFunctionInvocation(tsFunctionInvocation);
     }
@@ -4902,115 +4449,88 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionInvocation != null) {
       return fromTsFunctionInvocation(this);
     }
@@ -5020,12 +4540,14 @@ class _$_$FromTsFunctionInvocation implements _$FromTsFunctionInvocation {
 
 abstract class _$FromTsFunctionInvocation implements TsIr {
   factory _$FromTsFunctionInvocation(
-          {@required TsFunctionInvocation tsFunctionInvocation}) =
+          {required TsFunctionInvocation tsFunctionInvocation}) =
       _$_$FromTsFunctionInvocation;
 
-  TsFunctionInvocation get tsFunctionInvocation;
+  TsFunctionInvocation get tsFunctionInvocation =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromTsFunctionInvocationCopyWith<_$FromTsFunctionInvocation> get copyWith;
+  _$$FromTsFunctionInvocationCopyWith<_$FromTsFunctionInvocation>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -5058,23 +4580,20 @@ class __$$FromTsFunctionInvocationNamedParametersCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsFunctionInvocationNamedParameters = freezed,
+    Object? tsFunctionInvocationNamedParameters = freezed,
   }) {
     return _then(_$FromTsFunctionInvocationNamedParameters(
-      tsFunctionInvocationNamedParameters:
-          tsFunctionInvocationNamedParameters == freezed
-              ? _value.tsFunctionInvocationNamedParameters
-              : tsFunctionInvocationNamedParameters
-                  as TsFunctionInvocationNamedParameters,
+      tsFunctionInvocationNamedParameters: tsFunctionInvocationNamedParameters ==
+              freezed
+          ? _value.tsFunctionInvocationNamedParameters
+          : tsFunctionInvocationNamedParameters // ignore: cast_nullable_to_non_nullable
+              as TsFunctionInvocationNamedParameters,
     ));
   }
 
   @override
   $TsFunctionInvocationNamedParametersCopyWith<$Res>
       get tsFunctionInvocationNamedParameters {
-    if (_value.tsFunctionInvocationNamedParameters == null) {
-      return null;
-    }
     return $TsFunctionInvocationNamedParametersCopyWith<$Res>(
         _value.tsFunctionInvocationNamedParameters, (value) {
       return _then(_value.copyWith(tsFunctionInvocationNamedParameters: value));
@@ -5083,11 +4602,11 @@ class __$$FromTsFunctionInvocationNamedParametersCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_$FromTsFunctionInvocationNamedParameters
     implements _$FromTsFunctionInvocationNamedParameters {
   _$_$FromTsFunctionInvocationNamedParameters(
-      {@required this.tsFunctionInvocationNamedParameters})
-      : assert(tsFunctionInvocationNamedParameters != null);
+      {required this.tsFunctionInvocationNamedParameters});
 
   @override
   final TsFunctionInvocationNamedParameters tsFunctionInvocationNamedParameters;
@@ -5122,129 +4641,121 @@ class _$_$FromTsFunctionInvocationNamedParameters
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParameters(
         tsFunctionInvocationNamedParameters);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionInvocationNamedParameters != null) {
       return fromTsFunctionInvocationNamedParameters(
           tsFunctionInvocationNamedParameters);
@@ -5254,115 +4765,88 @@ class _$_$FromTsFunctionInvocationNamedParameters
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParameters(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionInvocationNamedParameters != null) {
       return fromTsFunctionInvocationNamedParameters(this);
     }
@@ -5372,15 +4856,16 @@ class _$_$FromTsFunctionInvocationNamedParameters
 
 abstract class _$FromTsFunctionInvocationNamedParameters implements TsIr {
   factory _$FromTsFunctionInvocationNamedParameters(
-          {@required
-              TsFunctionInvocationNamedParameters
-                  tsFunctionInvocationNamedParameters}) =
+          {required TsFunctionInvocationNamedParameters
+              tsFunctionInvocationNamedParameters}) =
       _$_$FromTsFunctionInvocationNamedParameters;
 
-  TsFunctionInvocationNamedParameters get tsFunctionInvocationNamedParameters;
+  TsFunctionInvocationNamedParameters get tsFunctionInvocationNamedParameters =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsFunctionInvocationNamedParametersCopyWith<
-      _$FromTsFunctionInvocationNamedParameters> get copyWith;
+          _$FromTsFunctionInvocationNamedParameters>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -5418,13 +4903,13 @@ class __$$FromTsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsFunctionInvocationNamedParametersKeyValue = freezed,
+    Object? tsFunctionInvocationNamedParametersKeyValue = freezed,
   }) {
     return _then(_$FromTsFunctionInvocationNamedParametersKeyValue(
       tsFunctionInvocationNamedParametersKeyValue:
           tsFunctionInvocationNamedParametersKeyValue == freezed
               ? _value.tsFunctionInvocationNamedParametersKeyValue
-              : tsFunctionInvocationNamedParametersKeyValue
+              : tsFunctionInvocationNamedParametersKeyValue // ignore: cast_nullable_to_non_nullable
                   as TsFunctionInvocationNamedParametersKeyValue,
     ));
   }
@@ -5432,9 +4917,6 @@ class __$$FromTsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
   @override
   $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res>
       get tsFunctionInvocationNamedParametersKeyValue {
-    if (_value.tsFunctionInvocationNamedParametersKeyValue == null) {
-      return null;
-    }
     return $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res>(
         _value.tsFunctionInvocationNamedParametersKeyValue, (value) {
       return _then(
@@ -5444,11 +4926,11 @@ class __$$FromTsFunctionInvocationNamedParametersKeyValueCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_$FromTsFunctionInvocationNamedParametersKeyValue
     implements _$FromTsFunctionInvocationNamedParametersKeyValue {
   _$_$FromTsFunctionInvocationNamedParametersKeyValue(
-      {@required this.tsFunctionInvocationNamedParametersKeyValue})
-      : assert(tsFunctionInvocationNamedParametersKeyValue != null);
+      {required this.tsFunctionInvocationNamedParametersKeyValue});
 
   @override
   final TsFunctionInvocationNamedParametersKeyValue
@@ -5487,129 +4969,121 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParametersKeyValue(
         tsFunctionInvocationNamedParametersKeyValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionInvocationNamedParametersKeyValue != null) {
       return fromTsFunctionInvocationNamedParametersKeyValue(
           tsFunctionInvocationNamedParametersKeyValue);
@@ -5619,115 +5093,88 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParametersKeyValue(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionInvocationNamedParametersKeyValue != null) {
       return fromTsFunctionInvocationNamedParametersKeyValue(this);
     }
@@ -5738,16 +5185,17 @@ class _$_$FromTsFunctionInvocationNamedParametersKeyValue
 abstract class _$FromTsFunctionInvocationNamedParametersKeyValue
     implements TsIr {
   factory _$FromTsFunctionInvocationNamedParametersKeyValue(
-          {@required
-              TsFunctionInvocationNamedParametersKeyValue
-                  tsFunctionInvocationNamedParametersKeyValue}) =
+          {required TsFunctionInvocationNamedParametersKeyValue
+              tsFunctionInvocationNamedParametersKeyValue}) =
       _$_$FromTsFunctionInvocationNamedParametersKeyValue;
 
   TsFunctionInvocationNamedParametersKeyValue
-      get tsFunctionInvocationNamedParametersKeyValue;
+      get tsFunctionInvocationNamedParametersKeyValue =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsFunctionInvocationNamedParametersKeyValueCopyWith<
-      _$FromTsFunctionInvocationNamedParametersKeyValue> get copyWith;
+          _$FromTsFunctionInvocationNamedParametersKeyValue>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -5780,13 +5228,13 @@ class __$$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsFunctionInvocationNamedParametersSpread = freezed,
+    Object? tsFunctionInvocationNamedParametersSpread = freezed,
   }) {
     return _then(_$TsFunctionInvocationNamedParametersSpread(
       tsFunctionInvocationNamedParametersSpread:
           tsFunctionInvocationNamedParametersSpread == freezed
               ? _value.tsFunctionInvocationNamedParametersSpread
-              : tsFunctionInvocationNamedParametersSpread
+              : tsFunctionInvocationNamedParametersSpread // ignore: cast_nullable_to_non_nullable
                   as TsFunctionInvocationNamedParametersSpread,
     ));
   }
@@ -5794,9 +5242,6 @@ class __$$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>
   @override
   $TsFunctionInvocationNamedParametersSpreadCopyWith<$Res>
       get tsFunctionInvocationNamedParametersSpread {
-    if (_value.tsFunctionInvocationNamedParametersSpread == null) {
-      return null;
-    }
     return $TsFunctionInvocationNamedParametersSpreadCopyWith<$Res>(
         _value.tsFunctionInvocationNamedParametersSpread, (value) {
       return _then(
@@ -5806,11 +5251,11 @@ class __$$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_$TsFunctionInvocationNamedParametersSpread
     implements _$TsFunctionInvocationNamedParametersSpread {
   _$_$TsFunctionInvocationNamedParametersSpread(
-      {@required this.tsFunctionInvocationNamedParametersSpread})
-      : assert(tsFunctionInvocationNamedParametersSpread != null);
+      {required this.tsFunctionInvocationNamedParametersSpread});
 
   @override
   final TsFunctionInvocationNamedParametersSpread
@@ -5847,129 +5292,121 @@ class _$_$TsFunctionInvocationNamedParametersSpread
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParametersSpread(
         tsFunctionInvocationNamedParametersSpread);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionInvocationNamedParametersSpread != null) {
       return fromTsFunctionInvocationNamedParametersSpread(
           tsFunctionInvocationNamedParametersSpread);
@@ -5979,115 +5416,88 @@ class _$_$TsFunctionInvocationNamedParametersSpread
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionInvocationNamedParametersSpread(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionInvocationNamedParametersSpread != null) {
       return fromTsFunctionInvocationNamedParametersSpread(this);
     }
@@ -6097,16 +5507,17 @@ class _$_$TsFunctionInvocationNamedParametersSpread
 
 abstract class _$TsFunctionInvocationNamedParametersSpread implements TsIr {
   factory _$TsFunctionInvocationNamedParametersSpread(
-          {@required
-              TsFunctionInvocationNamedParametersSpread
-                  tsFunctionInvocationNamedParametersSpread}) =
+          {required TsFunctionInvocationNamedParametersSpread
+              tsFunctionInvocationNamedParametersSpread}) =
       _$_$TsFunctionInvocationNamedParametersSpread;
 
   TsFunctionInvocationNamedParametersSpread
-      get tsFunctionInvocationNamedParametersSpread;
+      get tsFunctionInvocationNamedParametersSpread =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$TsFunctionInvocationNamedParametersSpreadCopyWith<
-      _$TsFunctionInvocationNamedParametersSpread> get copyWith;
+          _$TsFunctionInvocationNamedParametersSpread>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -6129,20 +5540,21 @@ class __$$FromTsLinebreakCopyWithImpl<$Res> extends _$TsIrCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsLinebreak = freezed,
+    Object? tsLinebreak = freezed,
   }) {
     return _then(_$FromTsLinebreak(
       tsLinebreak: tsLinebreak == freezed
           ? _value.tsLinebreak
-          : tsLinebreak as TsLinebreak,
+          : tsLinebreak // ignore: cast_nullable_to_non_nullable
+              as TsLinebreak,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsLinebreak implements _$FromTsLinebreak {
-  _$_$FromTsLinebreak({@required this.tsLinebreak})
-      : assert(tsLinebreak != null);
+  _$_$FromTsLinebreak({required this.tsLinebreak});
 
   @override
   final TsLinebreak tsLinebreak;
@@ -6172,128 +5584,120 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsLinebreak(tsLinebreak);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsLinebreak != null) {
       return fromTsLinebreak(tsLinebreak);
     }
@@ -6302,115 +5706,88 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsLinebreak(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsLinebreak != null) {
       return fromTsLinebreak(this);
     }
@@ -6419,12 +5796,13 @@ class _$_$FromTsLinebreak implements _$FromTsLinebreak {
 }
 
 abstract class _$FromTsLinebreak implements TsIr {
-  factory _$FromTsLinebreak({@required TsLinebreak tsLinebreak}) =
+  factory _$FromTsLinebreak({required TsLinebreak tsLinebreak}) =
       _$_$FromTsLinebreak;
 
-  TsLinebreak get tsLinebreak;
+  TsLinebreak get tsLinebreak => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromTsLinebreakCopyWith<_$FromTsLinebreak> get copyWith;
+  _$$FromTsLinebreakCopyWith<_$FromTsLinebreak> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -6451,23 +5829,24 @@ class __$$FromTsFunctionSelfBindingInvocationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsFunctionSelfBindingInvocation = freezed,
+    Object? tsFunctionSelfBindingInvocation = freezed,
   }) {
     return _then(_$FromTsFunctionSelfBindingInvocation(
       tsFunctionSelfBindingInvocation: tsFunctionSelfBindingInvocation ==
               freezed
           ? _value.tsFunctionSelfBindingInvocation
-          : tsFunctionSelfBindingInvocation as TsFunctionSelfBindingInvocation,
+          : tsFunctionSelfBindingInvocation // ignore: cast_nullable_to_non_nullable
+              as TsFunctionSelfBindingInvocation,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsFunctionSelfBindingInvocation
     implements _$FromTsFunctionSelfBindingInvocation {
   _$_$FromTsFunctionSelfBindingInvocation(
-      {@required this.tsFunctionSelfBindingInvocation})
-      : assert(tsFunctionSelfBindingInvocation != null);
+      {required this.tsFunctionSelfBindingInvocation});
 
   @override
   final TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation;
@@ -6502,128 +5881,120 @@ class _$_$FromTsFunctionSelfBindingInvocation
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionSelfBindingInvocation(tsFunctionSelfBindingInvocation);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionSelfBindingInvocation != null) {
       return fromTsFunctionSelfBindingInvocation(
           tsFunctionSelfBindingInvocation);
@@ -6633,115 +6004,88 @@ class _$_$FromTsFunctionSelfBindingInvocation
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsFunctionSelfBindingInvocation(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsFunctionSelfBindingInvocation != null) {
       return fromTsFunctionSelfBindingInvocation(this);
     }
@@ -6751,15 +6095,16 @@ class _$_$FromTsFunctionSelfBindingInvocation
 
 abstract class _$FromTsFunctionSelfBindingInvocation implements TsIr {
   factory _$FromTsFunctionSelfBindingInvocation(
-          {@required
-              TsFunctionSelfBindingInvocation
-                  tsFunctionSelfBindingInvocation}) =
+          {required TsFunctionSelfBindingInvocation
+              tsFunctionSelfBindingInvocation}) =
       _$_$FromTsFunctionSelfBindingInvocation;
 
-  TsFunctionSelfBindingInvocation get tsFunctionSelfBindingInvocation;
+  TsFunctionSelfBindingInvocation get tsFunctionSelfBindingInvocation =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$FromTsFunctionSelfBindingInvocationCopyWith<
-      _$FromTsFunctionSelfBindingInvocation> get copyWith;
+          _$FromTsFunctionSelfBindingInvocation>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -6783,20 +6128,21 @@ class __$$FromTsResolvedImportCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsResolvedImport = freezed,
+    Object? tsResolvedImport = freezed,
   }) {
     return _then(_$FromTsResolvedImport(
       tsResolvedImport: tsResolvedImport == freezed
           ? _value.tsResolvedImport
-          : tsResolvedImport as TsResolvedImport,
+          : tsResolvedImport // ignore: cast_nullable_to_non_nullable
+              as TsResolvedImport,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$FromTsResolvedImport implements _$FromTsResolvedImport {
-  _$_$FromTsResolvedImport({@required this.tsResolvedImport})
-      : assert(tsResolvedImport != null);
+  _$_$FromTsResolvedImport({required this.tsResolvedImport});
 
   @override
   final TsResolvedImport tsResolvedImport;
@@ -6828,128 +6174,120 @@ class _$_$FromTsResolvedImport implements _$FromTsResolvedImport {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            TsClassConstructorImplementation tsClassConstructorImplementation),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            TsClassMethodDeclarations tsClassMethodDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)
+        fromTsClassConstructorImplementation,
+    required TResult Function(
+            TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(
+            TsClassMethodDeclarations tsClassMethodDeclarations)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
             TsClassMethodInjectionFieldDeclarations
-                tsClassMethodInjectionFieldDeclarations),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    @required TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    @required TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
+                tsClassMethodInjectionFieldDeclarations)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(TsClassPostamble tsClassPostamble)
+        fromTsClassPostamble,
+    required TResult Function(TsClassPreamble tsClassPreamble)
+        fromTsClassPreamble,
+    required TResult Function(
             TsClassStaticConstFieldDeclarations
-                tsClassStaticConstFieldDeclarations),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            TsClassStaticMethodImplementation
-                tsClassStaticMethodImplementation),
-    @required TResult fromTsEnum(TsEnum tsEnum),
-    @required TResult fromTsInterface(TsInterface tsInterface),
-    @required
-        TResult fromTsClassVmDeclaration(
-            TsClassVmDeclaration tsClassVmDeclaration),
-    @required
-        TResult fromTsFunctionInvocation(
-            TsFunctionInvocation tsFunctionInvocation),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
+                tsClassStaticConstFieldDeclarations)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(
+            TsClassStaticMethodImplementation tsClassStaticMethodImplementation)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(TsEnum tsEnum) fromTsEnum,
+    required TResult Function(TsInterface tsInterface) fromTsInterface,
+    required TResult Function(TsClassVmDeclaration tsClassVmDeclaration)
+        fromTsClassVmDeclaration,
+    required TResult Function(TsFunctionInvocation tsFunctionInvocation)
+        fromTsFunctionInvocation,
+    required TResult Function(
             TsFunctionInvocationNamedParameters
-                tsFunctionInvocationNamedParameters),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
+                tsFunctionInvocationNamedParameters)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    @required TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
+                tsFunctionInvocationNamedParametersSpread)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(TsLinebreak tsLinebreak) fromTsLinebreak,
+    required TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(TsResolvedImport tsResolvedImport)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsResolvedImport(tsResolvedImport);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        TsClassConstructorImplementation tsClassConstructorImplementation),
-    TResult fromTsFunctionDefaultNamedProps(
-        TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps),
-    TResult fromTsClassInstanceFieldDeclarations(
-        TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations),
-    TResult fromTsClassMethodDeclarations(
-        TsClassMethodDeclarations tsClassMethodDeclarations),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        TsClassMethodInjectionFieldDeclarations
-            tsClassMethodInjectionFieldDeclarations),
-    TResult fromTsClassMethodInjectionFieldName(
-        TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName),
-    TResult fromTsClassPostamble(TsClassPostamble tsClassPostamble),
-    TResult fromTsClassPreamble(TsClassPreamble tsClassPreamble),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        TsClassStaticConstFieldDeclarations
-            tsClassStaticConstFieldDeclarations),
-    TResult fromTsClassStaticMethodImplementation(
-        TsClassStaticMethodImplementation tsClassStaticMethodImplementation),
-    TResult fromTsEnum(TsEnum tsEnum),
-    TResult fromTsInterface(TsInterface tsInterface),
-    TResult fromTsClassVmDeclaration(TsClassVmDeclaration tsClassVmDeclaration),
-    TResult fromTsFunctionInvocation(TsFunctionInvocation tsFunctionInvocation),
-    TResult fromTsFunctionInvocationNamedParameters(
-        TsFunctionInvocationNamedParameters
-            tsFunctionInvocationNamedParameters),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromTsLinebreak(TsLinebreak tsLinebreak),
-    TResult fromTsFunctionSelfBindingInvocation(
-        TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation),
-    TResult fromTsResolvedImport(TsResolvedImport tsResolvedImport),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsClassConstructorImplementation tsClassConstructorImplementation)?
+        fromTsClassConstructorImplementation,
+    TResult Function(TsFunctionDefaultNamedProps tsFunctionDefaultNamedProps)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(
+            TsClassInstanceFieldDeclarations tsClassInstanceFieldDeclarations)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(TsClassMethodDeclarations tsClassMethodDeclarations)?
+        fromTsClassMethodDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldDeclarations
+                tsClassMethodInjectionFieldDeclarations)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(
+            TsClassMethodInjectionFieldName tsClassMethodInjectionFieldName)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(TsClassPostamble tsClassPostamble)? fromTsClassPostamble,
+    TResult Function(TsClassPreamble tsClassPreamble)? fromTsClassPreamble,
+    TResult Function(
+            TsClassStaticConstFieldDeclarations
+                tsClassStaticConstFieldDeclarations)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(
+            TsClassStaticMethodImplementation
+                tsClassStaticMethodImplementation)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(TsEnum tsEnum)? fromTsEnum,
+    TResult Function(TsInterface tsInterface)? fromTsInterface,
+    TResult Function(TsClassVmDeclaration tsClassVmDeclaration)?
+        fromTsClassVmDeclaration,
+    TResult Function(TsFunctionInvocation tsFunctionInvocation)?
+        fromTsFunctionInvocation,
+    TResult Function(
+            TsFunctionInvocationNamedParameters
+                tsFunctionInvocationNamedParameters)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(TsLinebreak tsLinebreak)? fromTsLinebreak,
+    TResult Function(
+            TsFunctionSelfBindingInvocation tsFunctionSelfBindingInvocation)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(TsResolvedImport tsResolvedImport)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsResolvedImport != null) {
       return fromTsResolvedImport(tsResolvedImport);
     }
@@ -6958,115 +6296,88 @@ class _$_$FromTsResolvedImport implements _$FromTsResolvedImport {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult fromTsClassConstructorImplementation(
-            _$FromTsClassConstructorImplementation value),
-    @required
-        TResult fromTsFunctionDefaultNamedProps(
-            _$FromTsFunctionDefaultNamedProps value),
-    @required
-        TResult fromTsClassInstanceFieldDeclarations(
-            _$FromClassInstanceFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodDeclarations(
-            _$FromTsClassMethodDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldDeclarations(
-            _$FromTsClassMethodInjectionFieldDeclarations value),
-    @required
-        TResult fromTsClassMethodInjectionFieldName(
-            _$FromTsClassMethodInjectionFieldName value),
-    @required TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    @required TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    @required
-        TResult fromTsClassStaticConstFieldDeclarations(
-            _$FromTsClassStaticConstFieldDeclarations value),
-    @required
-        TResult fromTsClassStaticMethodImplementation(
-            _$FromTsClassStaticMethodImplementation value),
-    @required TResult fromTsEnum(_$FromTsEnum value),
-    @required TResult fromTsInterface(_$FromTsInterface value),
-    @required
-        TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    @required
-        TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    @required
-        TResult fromTsFunctionInvocationNamedParameters(
-            _$FromTsFunctionInvocationNamedParameters value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersKeyValue(
-            _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    @required
-        TResult fromTsFunctionInvocationNamedParametersSpread(
-            _$TsFunctionInvocationNamedParametersSpread value),
-    @required TResult fromTsLinebreak(_$FromTsLinebreak value),
-    @required
-        TResult fromTsFunctionSelfBindingInvocation(
-            _$FromTsFunctionSelfBindingInvocation value),
-    @required TResult fromTsResolvedImport(_$FromTsResolvedImport value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromTsClassConstructorImplementation value)
+        fromTsClassConstructorImplementation,
+    required TResult Function(_$FromTsFunctionDefaultNamedProps value)
+        fromTsFunctionDefaultNamedProps,
+    required TResult Function(_$FromClassInstanceFieldDeclarations value)
+        fromTsClassInstanceFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodDeclarations value)
+        fromTsClassMethodDeclarations,
+    required TResult Function(
+            _$FromTsClassMethodInjectionFieldDeclarations value)
+        fromTsClassMethodInjectionFieldDeclarations,
+    required TResult Function(_$FromTsClassMethodInjectionFieldName value)
+        fromTsClassMethodInjectionFieldName,
+    required TResult Function(_$FromTsClassPostamble value)
+        fromTsClassPostamble,
+    required TResult Function(_$FromTsClassPreamble value) fromTsClassPreamble,
+    required TResult Function(_$FromTsClassStaticConstFieldDeclarations value)
+        fromTsClassStaticConstFieldDeclarations,
+    required TResult Function(_$FromTsClassStaticMethodImplementation value)
+        fromTsClassStaticMethodImplementation,
+    required TResult Function(_$FromTsEnum value) fromTsEnum,
+    required TResult Function(_$FromTsInterface value) fromTsInterface,
+    required TResult Function(_$FromTsClassVmDeclaration value)
+        fromTsClassVmDeclaration,
+    required TResult Function(_$FromTsFunctionInvocation value)
+        fromTsFunctionInvocation,
+    required TResult Function(_$FromTsFunctionInvocationNamedParameters value)
+        fromTsFunctionInvocationNamedParameters,
+    required TResult Function(
+            _$FromTsFunctionInvocationNamedParametersKeyValue value)
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    required TResult Function(_$TsFunctionInvocationNamedParametersSpread value)
+        fromTsFunctionInvocationNamedParametersSpread,
+    required TResult Function(_$FromTsLinebreak value) fromTsLinebreak,
+    required TResult Function(_$FromTsFunctionSelfBindingInvocation value)
+        fromTsFunctionSelfBindingInvocation,
+    required TResult Function(_$FromTsResolvedImport value)
+        fromTsResolvedImport,
   }) {
-    assert(fromTsClassConstructorImplementation != null);
-    assert(fromTsFunctionDefaultNamedProps != null);
-    assert(fromTsClassInstanceFieldDeclarations != null);
-    assert(fromTsClassMethodDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldDeclarations != null);
-    assert(fromTsClassMethodInjectionFieldName != null);
-    assert(fromTsClassPostamble != null);
-    assert(fromTsClassPreamble != null);
-    assert(fromTsClassStaticConstFieldDeclarations != null);
-    assert(fromTsClassStaticMethodImplementation != null);
-    assert(fromTsEnum != null);
-    assert(fromTsInterface != null);
-    assert(fromTsClassVmDeclaration != null);
-    assert(fromTsFunctionInvocation != null);
-    assert(fromTsFunctionInvocationNamedParameters != null);
-    assert(fromTsFunctionInvocationNamedParametersKeyValue != null);
-    assert(fromTsFunctionInvocationNamedParametersSpread != null);
-    assert(fromTsLinebreak != null);
-    assert(fromTsFunctionSelfBindingInvocation != null);
-    assert(fromTsResolvedImport != null);
     return fromTsResolvedImport(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromTsClassConstructorImplementation(
-        _$FromTsClassConstructorImplementation value),
-    TResult fromTsFunctionDefaultNamedProps(
-        _$FromTsFunctionDefaultNamedProps value),
-    TResult fromTsClassInstanceFieldDeclarations(
-        _$FromClassInstanceFieldDeclarations value),
-    TResult fromTsClassMethodDeclarations(
-        _$FromTsClassMethodDeclarations value),
-    TResult fromTsClassMethodInjectionFieldDeclarations(
-        _$FromTsClassMethodInjectionFieldDeclarations value),
-    TResult fromTsClassMethodInjectionFieldName(
-        _$FromTsClassMethodInjectionFieldName value),
-    TResult fromTsClassPostamble(_$FromTsClassPostamble value),
-    TResult fromTsClassPreamble(_$FromTsClassPreamble value),
-    TResult fromTsClassStaticConstFieldDeclarations(
-        _$FromTsClassStaticConstFieldDeclarations value),
-    TResult fromTsClassStaticMethodImplementation(
-        _$FromTsClassStaticMethodImplementation value),
-    TResult fromTsEnum(_$FromTsEnum value),
-    TResult fromTsInterface(_$FromTsInterface value),
-    TResult fromTsClassVmDeclaration(_$FromTsClassVmDeclaration value),
-    TResult fromTsFunctionInvocation(_$FromTsFunctionInvocation value),
-    TResult fromTsFunctionInvocationNamedParameters(
-        _$FromTsFunctionInvocationNamedParameters value),
-    TResult fromTsFunctionInvocationNamedParametersKeyValue(
-        _$FromTsFunctionInvocationNamedParametersKeyValue value),
-    TResult fromTsFunctionInvocationNamedParametersSpread(
-        _$TsFunctionInvocationNamedParametersSpread value),
-    TResult fromTsLinebreak(_$FromTsLinebreak value),
-    TResult fromTsFunctionSelfBindingInvocation(
-        _$FromTsFunctionSelfBindingInvocation value),
-    TResult fromTsResolvedImport(_$FromTsResolvedImport value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromTsClassConstructorImplementation value)?
+        fromTsClassConstructorImplementation,
+    TResult Function(_$FromTsFunctionDefaultNamedProps value)?
+        fromTsFunctionDefaultNamedProps,
+    TResult Function(_$FromClassInstanceFieldDeclarations value)?
+        fromTsClassInstanceFieldDeclarations,
+    TResult Function(_$FromTsClassMethodDeclarations value)?
+        fromTsClassMethodDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldDeclarations value)?
+        fromTsClassMethodInjectionFieldDeclarations,
+    TResult Function(_$FromTsClassMethodInjectionFieldName value)?
+        fromTsClassMethodInjectionFieldName,
+    TResult Function(_$FromTsClassPostamble value)? fromTsClassPostamble,
+    TResult Function(_$FromTsClassPreamble value)? fromTsClassPreamble,
+    TResult Function(_$FromTsClassStaticConstFieldDeclarations value)?
+        fromTsClassStaticConstFieldDeclarations,
+    TResult Function(_$FromTsClassStaticMethodImplementation value)?
+        fromTsClassStaticMethodImplementation,
+    TResult Function(_$FromTsEnum value)? fromTsEnum,
+    TResult Function(_$FromTsInterface value)? fromTsInterface,
+    TResult Function(_$FromTsClassVmDeclaration value)?
+        fromTsClassVmDeclaration,
+    TResult Function(_$FromTsFunctionInvocation value)?
+        fromTsFunctionInvocation,
+    TResult Function(_$FromTsFunctionInvocationNamedParameters value)?
+        fromTsFunctionInvocationNamedParameters,
+    TResult Function(_$FromTsFunctionInvocationNamedParametersKeyValue value)?
+        fromTsFunctionInvocationNamedParametersKeyValue,
+    TResult Function(_$TsFunctionInvocationNamedParametersSpread value)?
+        fromTsFunctionInvocationNamedParametersSpread,
+    TResult Function(_$FromTsLinebreak value)? fromTsLinebreak,
+    TResult Function(_$FromTsFunctionSelfBindingInvocation value)?
+        fromTsFunctionSelfBindingInvocation,
+    TResult Function(_$FromTsResolvedImport value)? fromTsResolvedImport,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromTsResolvedImport != null) {
       return fromTsResolvedImport(this);
     }
@@ -7075,10 +6386,11 @@ class _$_$FromTsResolvedImport implements _$FromTsResolvedImport {
 }
 
 abstract class _$FromTsResolvedImport implements TsIr {
-  factory _$FromTsResolvedImport(
-      {@required TsResolvedImport tsResolvedImport}) = _$_$FromTsResolvedImport;
+  factory _$FromTsResolvedImport({required TsResolvedImport tsResolvedImport}) =
+      _$_$FromTsResolvedImport;
 
-  TsResolvedImport get tsResolvedImport;
+  TsResolvedImport get tsResolvedImport => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromTsResolvedImportCopyWith<_$FromTsResolvedImport> get copyWith;
+  _$$FromTsResolvedImportCopyWith<_$FromTsResolvedImport> get copyWith =>
+      throw _privateConstructorUsedError;
 }

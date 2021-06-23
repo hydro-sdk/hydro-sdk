@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/animation/animation.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/cupertino/cupertino.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/foundation/foundation.dart';
@@ -11,7 +9,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadFlutterLib({@required HydroState luaState, @required Context ctx}) {
+void loadFlutterLib({required HydroState luaState, required Context ctx}) {
   var flutter = HydroTable();
 
   ctx.env["flutter"] = flutter;

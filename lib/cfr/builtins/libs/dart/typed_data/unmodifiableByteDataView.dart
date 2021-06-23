@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:typed_data';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class VMManagedUnmodifiableByteDataView
     extends VMManagedBox<UnmodifiableByteDataView> {
   VMManagedUnmodifiableByteDataView(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -176,7 +172,7 @@ class VMManagedUnmodifiableByteDataView
 class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
     implements Box<UnmodifiableByteDataView> {
   RTManagedUnmodifiableByteDataView(ByteData data,
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super(
           data,
         ) {
@@ -491,7 +487,7 @@ class RTManagedUnmodifiableByteDataView extends UnmodifiableByteDataView
 }
 
 void loadUnmodifiableByteDataView(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['unmodifiableByteDataView'] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
@@ -503,9 +499,9 @@ void loadUnmodifiableByteDataView(
     ];
   });
   registerBoxer<UnmodifiableByteDataView>(boxer: (
-      {@required UnmodifiableByteDataView vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required UnmodifiableByteDataView vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedUnmodifiableByteDataView(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

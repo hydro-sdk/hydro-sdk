@@ -11,8 +11,8 @@ import 'package:hydro_sdk/testMode.dart';
 
 class Choice {
   const Choice({this.title, this.icon});
-  final String title;
-  final IconData icon;
+  final String? title;
+  final IconData? icon;
 }
 
 const List<Choice> choices = <Choice>[
@@ -25,13 +25,13 @@ const List<Choice> choices = <Choice>[
 ];
 
 class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({Key key, this.choice}) : super(key: key);
+  const ChoiceCard({Key? key, this.choice}) : super(key: key);
 
-  final Choice choice;
+  final Choice? choice;
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    final TextStyle textStyle = Theme.of(context).textTheme.display1!;
     return Card(
       color: Colors.white,
       child: Center(
@@ -39,8 +39,8 @@ class ChoiceCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Icon(choice.icon, size: 128.0, color: textStyle.color),
-            Text(choice.title, style: textStyle),
+            Icon(choice!.icon, size: 128.0, color: textStyle.color),
+            Text(choice!.title!, style: textStyle),
           ],
         ),
       ),
@@ -49,8 +49,8 @@ class ChoiceCard extends StatelessWidget {
 }
 
 int choiceCount = choices.length;
-IconData iconAt(int index) => choices[index].icon;
-String titleAt(int index) => choices[index].title;
+IconData? iconAt(int index) => choices[index].icon;
+String? titleAt(int index) => choices[index].title;
 
 Finder findAppBarIcon(IconData icon) {
   return find.descendant(of: find.byType(AppBar), matching: find.byIcon(icon));
@@ -70,7 +70,7 @@ void main() {
     }
 
     await tester
-        .pumpWidget(integrationTestHarness("../assets/examples/basicAppBar"));
+        .pumpWidget(integrationTestHarness("assets/examples/basicAppBar"));
     await tester.pumpAndSettle();
 
     // Tap on the two action buttons and all of the overflow menu items.
@@ -87,7 +87,7 @@ void main() {
     for (int i = 2; i < choiceCount; i += 1) {
       await tester.tap(findAppBarIcon(Icons.more_vert));
       await tester.pumpAndSettle();
-      await tester.tap(find.text(titleAt(i)));
+      await tester.tap(find.text(titleAt(i)!));
       await tester.pumpAndSettle();
       expect(find.byKey(Key(iconAt(i).toString())), findsOneWidget);
     }

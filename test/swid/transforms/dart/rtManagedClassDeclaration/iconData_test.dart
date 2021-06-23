@@ -10,7 +10,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
-        json.decode(File("../test/swid/res/IconData.json").readAsStringSync()));
+        json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
@@ -21,8 +21,8 @@ class RTManagedIconData extends IconData implements Box<IconData> {
       {String fontFamily,
       String fontPackage,
       bool matchTextDirection,
-      @required this.table,
-      @required this.hydroState})
+      required this.table,
+      required this.hydroState})
       : super(codePoint,
             fontFamily: fontFamily,
             fontPackage: fontPackage,

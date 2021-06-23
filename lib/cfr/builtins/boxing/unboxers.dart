@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -9,40 +7,42 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 /// Attempt to unbox the given boxed enum into a value contained in values
-T maybeUnBoxEnum<T>(
-    {@required List<dynamic> values, @required dynamic boxedEnum}) {
+T? maybeUnBoxEnum<T>({
+  required List<dynamic> values,
+  required dynamic boxedEnum,
+}) {
   //For Typescript, TSTL represents enums as their integer indices
   if (boxedEnum is int) {
-    return values.firstWhere((x) => x.index == boxedEnum, orElse: () => null);
+    return values.firstWhere(
+      (x) => x.index == boxedEnum,
+    );
   }
   //For Haxe, the enum index is placed onto the zero entry of the object's table for some reason.
   //This gets optimized into array storage by the VM
-  else if (boxedEnum is HydroTable &&
-      boxedEnum.arr != null &&
-      boxedEnum.arr.isNotEmpty) {
+  else if (boxedEnum is HydroTable && boxedEnum.arr.isNotEmpty) {
     return values.firstWhere((x) => x.index == boxedEnum.arr[0],
         orElse: () => null);
   }
   return null;
 }
 
-Closure maybeFindInheritedMethod(
-    {@required HydroTable managedObject, @required String methodName}) {
+Closure? maybeFindInheritedMethod(
+    {required HydroTable? managedObject, required String methodName}) {
   return managedObject?.metatable != null
-      ? managedObject.metatable[methodName] != null
+      ? managedObject!.metatable![methodName] != null
           //For Typescript, TSTL places inherited methods directly onto an object's meta-table
-          ? managedObject.metatable[methodName]
-          : managedObject.metatable["__index"] != null
+          ? managedObject.metatable![methodName]
+          : managedObject.metatable!["__index"] != null
               //Haxe places inherited methods onto a meta-meta table for some reason
-              ? managedObject.metatable["__index"] is HydroTable
-                  ? managedObject.metatable["__index"][methodName]
+              ? managedObject.metatable!["__index"] is HydroTable
+                  ? managedObject.metatable!["__index"][methodName]
                   : null
               : null
       : null;
 }
 
-String maybeUnBoxRuntimeType(
-    {@required dynamic managedObject, @required String runtimeTypePropName}) {
+String? maybeUnBoxRuntimeType(
+    {required dynamic managedObject, required String runtimeTypePropName}) {
   return managedObject[runtimeTypePropName] != null
       ? managedObject[runtimeTypePropName]["displayName"] != null
           ? managedObject[runtimeTypePropName]["displayName"]
@@ -52,17 +52,17 @@ String maybeUnBoxRuntimeType(
 
 class DescriptorWrapper {
   dynamic descriptor;
-  DescriptorWrapper({@required this.descriptor});
+  DescriptorWrapper({required this.descriptor});
 }
 
 typedef dynamic UnBoxer<T>({
-  @required dynamic box,
-  @required HydroState parentState,
+  required dynamic box,
+  required HydroState parentState,
 });
 
 List<UnBoxer<dynamic>> _unboxers = [];
 
-void registerUnBoxer({@required UnBoxer unBoxer}) {
+void registerUnBoxer({required UnBoxer unBoxer}) {
   _unboxers.add(unBoxer);
 }
 
@@ -71,16 +71,13 @@ void registerUnBoxer({@required UnBoxer unBoxer}) {
 /// If attempting to unbox a List<T>, only specify the type as T.
 dynamic maybeUnBoxAndBuildArgument<T>(
   dynamic arg, {
-  BuildContext context,
-  @required HydroState parentState,
+  BuildContext? context,
+  required HydroState parentState,
 }) {
-  assert(parentState != null);
   //Unboxed target object
   if (arg is T) {
     return arg;
-  } else if (T == Iterable &&
-      arg is HydroTable &&
-      (arg.arr?.isNotEmpty ?? false)) {
+  } else if (T == Iterable && arg is HydroTable && (arg.arr.isNotEmpty)) {
     return arg.arr;
   }
 
@@ -109,11 +106,13 @@ dynamic maybeUnBoxAndBuildArgument<T>(
         return maybeUnBoxAndBuildArgument<T>(
             unwrap.dispatch([
               arg.map,
-              maybeBoxObject<BuildContext>(
-                object: context,
-                hydroState: parentState,
-                table: HydroTable(),
-              )
+              context != null
+                  ? maybeBoxObject<BuildContext>(
+                      object: context,
+                      hydroState: parentState,
+                      table: HydroTable(),
+                    )
+                  : null,
             ], parentState: parentState)[0],
             parentState: parentState);
       } else {
@@ -121,17 +120,19 @@ dynamic maybeUnBoxAndBuildArgument<T>(
         return maybeUnBoxAndBuildArgument<T>(
             unwrap([
               arg.map,
-              maybeBoxObject<BuildContext>(
-                object: context,
-                hydroState: parentState,
-                table: HydroTable(),
-              )
+              context != null
+                  ? maybeBoxObject<BuildContext>(
+                      object: context,
+                      hydroState: parentState,
+                      table: HydroTable(),
+                    )
+                  : null,
             ])[0],
             parentState: parentState);
       }
     }
     //Unbox an array of managed objects
-    if (arg.arr != null) {
+    if (arg.arr.isNotEmpty) {
       List<dynamic> target = arg.arr;
       //Haxe likes to place the first element of arrays using the string "0" as key instead of using integers
       //The VM will optimize tables with integer keys into array storage but this pattern will get missed
@@ -144,7 +145,7 @@ dynamic maybeUnBoxAndBuildArgument<T>(
               (x) => maybeUnBoxAndBuildArgument<T>(x, parentState: parentState))
           .toList()
           .cast<T>();
-    } else if (arg.arr != null && arg.arr.isEmpty) {
+    } else if (arg.arr.isEmpty) {
       return [].cast<T>();
     }
   } else if (arg is List) {

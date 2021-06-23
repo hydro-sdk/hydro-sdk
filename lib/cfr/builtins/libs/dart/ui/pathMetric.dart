@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedPathMetric extends VMManagedBox<PathMetric> {
   VMManagedPathMetric(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -26,7 +22,7 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
     table['contourIndex'] = vmObject.contourIndex;
     table['getTangentForOffset'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        maybeBoxObject<Tangent>(
+        maybeBoxObject<Tangent?>(
             object: vmObject.getTangentForOffset(args[1]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
@@ -55,11 +51,11 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
 }
 
 void loadPathMetric(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<PathMetric>(boxer: (
-      {@required PathMetric vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required PathMetric vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedPathMetric(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

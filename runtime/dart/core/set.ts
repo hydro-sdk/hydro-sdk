@@ -8,6 +8,7 @@ declare const dart: {
         setIdentity: <E>() => ISet<E>;
         setFrom: <E>(elements: IIterable<any>) => ISet<E>;
         setOf: <E>(elements: IIterable<E>) => ISet<E>;
+        setUnmodifiable: <E>(elements: IIterable<E>) => ISet<E>;
         setCastFrom: <S, T>(
             source: ISet<S>,
             props: { newSet?: <R>() => ISet<R> | undefined }
@@ -88,6 +89,9 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     }
     public static of<E>(elements: IIterable<E>): ISet<E> {
         return dart.core.setOf(elements);
+    }
+    public static unmodifiable<E>(elements: IIterable<E>): ISet<E> {
+        return dart.core.setUnmodifiable(elements);
     }
     public static castFrom<S, T>(
         source: ISet<S>,

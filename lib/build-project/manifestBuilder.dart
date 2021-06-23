@@ -4,7 +4,6 @@ import 'dart:typed_data';
 
 import 'package:cli_util/cli_logging.dart';
 import 'package:encrypt/encrypt.dart';
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 import 'package:pointycastle/export.dart' as pc;
 
@@ -18,22 +17,22 @@ import 'package:hydro_sdk/projectConfig/projectConfigComponentChunk.dart';
 class ManifestBuilder {
   final ProjectConfigComponent projectConfigComponent;
   final ComponentBuilder componentBuilder;
-  final String ts2hc;
-  final String cacheDir;
-  final String profile;
+  final String? ts2hc;
+  final String? cacheDir;
+  final String? profile;
   final String signingKey;
 
   const ManifestBuilder({
-    @required this.projectConfigComponent,
-    @required this.componentBuilder,
-    @required this.ts2hc,
-    @required this.cacheDir,
-    @required this.profile,
-    @required this.signingKey,
+    required this.projectConfigComponent,
+    required this.componentBuilder,
+    required this.ts2hc,
+    required this.cacheDir,
+    required this.profile,
+    required this.signingKey,
   });
 
   Future<bool> build({
-    @required bool signManifest,
+    required bool signManifest,
   }) async {
     Logger logger = Logger.standard();
 
@@ -68,7 +67,7 @@ class ManifestBuilder {
       }));
 
       String rawSignature;
-      String signature;
+      String? signature;
 
       if (signManifest) {
         String concatShas = "";
@@ -79,7 +78,8 @@ class ManifestBuilder {
 
         rawSignature = sha256Data(concatShas.codeUnits);
 
-        final pc.RSAPrivateKey privateKey = RSAKeyParser().parse(signingKey);
+        final pc.RSAPrivateKey privateKey =
+            RSAKeyParser().parse(signingKey) as pc.RSAPrivateKey;
         final signer =
             pc.RSASigner(pc.SHA256Digest(), '0609608648016503040201');
 

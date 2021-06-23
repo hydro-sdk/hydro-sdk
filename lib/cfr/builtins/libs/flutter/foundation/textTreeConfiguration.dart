@@ -9,9 +9,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class VMManagedTextTreeConfiguration
     extends VMManagedBox<TextTreeConfiguration> {
   VMManagedTextTreeConfiguration(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -56,33 +54,33 @@ class VMManagedTextTreeConfiguration
 class RTManagedTextTreeConfiguration extends TextTreeConfiguration
     implements Box<TextTreeConfiguration> {
   RTManagedTextTreeConfiguration(
-      {bool addBlankLineIfNoChildren,
-      String afterDescription,
-      String afterDescriptionIfBody,
-      String afterName,
-      String afterProperties,
-      String beforeName,
-      String beforeProperties,
-      String bodyIndent,
-      String footer,
-      bool isBlankLineBetweenPropertiesAndChildren,
-      bool isNameOnOwnLine,
-      String lineBreak,
-      bool lineBreakProperties,
-      String mandatoryAfterProperties,
-      String mandatoryFooter,
-      String propertySeparator,
-      bool showChildren,
-      String suffixLineOne,
-      String linkCharacter,
-      String prefixLastChildLineOne,
-      String prefixLineOne,
-      String prefixOtherLines,
-      String prefixOtherLinesRootNode,
-      String propertyPrefixIfChildren,
-      String propertyPrefixNoChildren,
-      @required this.table,
-      @required this.hydroState})
+      {required bool addBlankLineIfNoChildren,
+      required String afterDescription,
+      required String afterDescriptionIfBody,
+      required String afterName,
+      required String afterProperties,
+      required String beforeName,
+      required String beforeProperties,
+      required String bodyIndent,
+      required String footer,
+      required bool isBlankLineBetweenPropertiesAndChildren,
+      required bool isNameOnOwnLine,
+      required String lineBreak,
+      required bool lineBreakProperties,
+      required String mandatoryAfterProperties,
+      required String mandatoryFooter,
+      required String propertySeparator,
+      required bool showChildren,
+      required String suffixLineOne,
+      required String linkCharacter,
+      required String prefixLastChildLineOne,
+      required String prefixLineOne,
+      required String prefixOtherLines,
+      required String prefixOtherLinesRootNode,
+      required String propertyPrefixIfChildren,
+      required String propertyPrefixNoChildren,
+      required this.table,
+      required this.hydroState})
       : super(
             addBlankLineIfNoChildren: addBlankLineIfNoChildren,
             afterDescription: afterDescription,
@@ -152,7 +150,7 @@ class RTManagedTextTreeConfiguration extends TextTreeConfiguration
 }
 
 void loadTextTreeConfiguration(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['textTreeConfiguration'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedTextTreeConfiguration(
@@ -187,9 +185,9 @@ void loadTextTreeConfiguration(
     ];
   });
   registerBoxer<TextTreeConfiguration>(boxer: (
-      {@required TextTreeConfiguration vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required TextTreeConfiguration vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedTextTreeConfiguration(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

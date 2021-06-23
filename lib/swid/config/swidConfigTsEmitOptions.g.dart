@@ -10,7 +10,7 @@ _$_$SwidConfigTsEmitOptionsCtor _$_$_$SwidConfigTsEmitOptionsCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$SwidConfigTsEmitOptionsCtor(
     prefixPaths:
-        (json['prefixPaths'] as List)?.map((e) => e as String)?.toList(),
+        (json['prefixPaths'] as List<dynamic>).map((e) => e as String).toList(),
   );
 }
 

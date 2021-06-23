@@ -9,20 +9,13 @@ part of 'swidStaticConstFunctionInvocation.dart';
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     value: json['value'] as String,
-    staticType: json['staticType'] == null
-        ? null
-        : SwidType.fromJson(json['staticType'] as Map<String, dynamic>),
-    normalParameters: (json['normalParameters'] as List)
-        ?.map((e) => e == null
-            ? null
-            : SwidStaticConst.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    namedParameters: (json['namedParameters'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(
-          k,
-          e == null
-              ? null
-              : SwidStaticConst.fromJson(e as Map<String, dynamic>)),
+    staticType: SwidType.fromJson(json['staticType'] as Map<String, dynamic>),
+    normalParameters: (json['normalParameters'] as List<dynamic>)
+        .map((e) => SwidStaticConst.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    namedParameters: (json['namedParameters'] as Map<String, dynamic>).map(
+      (k, e) =>
+          MapEntry(k, SwidStaticConst.fromJson(e as Map<String, dynamic>)),
     ),
     isConstructorInvocation: json['isConstructorInvocation'] as bool,
   );

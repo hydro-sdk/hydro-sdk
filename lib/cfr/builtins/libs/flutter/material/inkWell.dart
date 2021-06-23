@@ -6,7 +6,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadInkWell({@required HydroState luaState, @required HydroTable table}) {
+void loadInkWell({required HydroState luaState, required HydroTable table}) {
   table["inkWell"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       InkWell(

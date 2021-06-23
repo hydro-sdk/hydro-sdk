@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidConfig.dart';
 
@@ -8,6 +8,10 @@ part of 'swidConfig.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidConfig _$SwidConfigFromJson(Map<String, dynamic> json) {
   return _$SwidConfigCtor.fromJson(json);
 }
@@ -16,11 +20,10 @@ SwidConfig _$SwidConfigFromJson(Map<String, dynamic> json) {
 class _$SwidConfigTearOff {
   const _$SwidConfigTearOff();
 
-// ignore: unused_element
   _$SwidConfigCtor call(
-      {@required String inputPackagePath,
-      @required List<String> interfaces,
-      @required SwidConfigEmitOptions emitOptions}) {
+      {required String inputPackagePath,
+      required List<String> interfaces,
+      required SwidConfigEmitOptions emitOptions}) {
     return _$SwidConfigCtor(
       inputPackagePath: inputPackagePath,
       interfaces: interfaces,
@@ -28,25 +31,24 @@ class _$SwidConfigTearOff {
     );
   }
 
-// ignore: unused_element
   SwidConfig fromJson(Map<String, Object> json) {
     return SwidConfig.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidConfig = _$SwidConfigTearOff();
 
 /// @nodoc
 mixin _$SwidConfig {
-  String get inputPackagePath;
-  List<String> get interfaces;
-  SwidConfigEmitOptions get emitOptions;
+  String get inputPackagePath => throw _privateConstructorUsedError;
+  List<String> get interfaces => throw _privateConstructorUsedError;
+  SwidConfigEmitOptions get emitOptions => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidConfigCopyWith<SwidConfig> get copyWith;
+  $SwidConfigCopyWith<SwidConfig> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -72,28 +74,28 @@ class _$SwidConfigCopyWithImpl<$Res> implements $SwidConfigCopyWith<$Res> {
 
   @override
   $Res call({
-    Object inputPackagePath = freezed,
-    Object interfaces = freezed,
-    Object emitOptions = freezed,
+    Object? inputPackagePath = freezed,
+    Object? interfaces = freezed,
+    Object? emitOptions = freezed,
   }) {
     return _then(_value.copyWith(
       inputPackagePath: inputPackagePath == freezed
           ? _value.inputPackagePath
-          : inputPackagePath as String,
+          : inputPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
       interfaces: interfaces == freezed
           ? _value.interfaces
-          : interfaces as List<String>,
+          : interfaces // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       emitOptions: emitOptions == freezed
           ? _value.emitOptions
-          : emitOptions as SwidConfigEmitOptions,
+          : emitOptions // ignore: cast_nullable_to_non_nullable
+              as SwidConfigEmitOptions,
     ));
   }
 
   @override
   $SwidConfigEmitOptionsCopyWith<$Res> get emitOptions {
-    if (_value.emitOptions == null) {
-      return null;
-    }
     return $SwidConfigEmitOptionsCopyWith<$Res>(_value.emitOptions, (value) {
       return _then(_value.copyWith(emitOptions: value));
     });
@@ -129,35 +131,34 @@ class __$$SwidConfigCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object inputPackagePath = freezed,
-    Object interfaces = freezed,
-    Object emitOptions = freezed,
+    Object? inputPackagePath = freezed,
+    Object? interfaces = freezed,
+    Object? emitOptions = freezed,
   }) {
     return _then(_$SwidConfigCtor(
       inputPackagePath: inputPackagePath == freezed
           ? _value.inputPackagePath
-          : inputPackagePath as String,
+          : inputPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
       interfaces: interfaces == freezed
           ? _value.interfaces
-          : interfaces as List<String>,
+          : interfaces // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       emitOptions: emitOptions == freezed
           ? _value.emitOptions
-          : emitOptions as SwidConfigEmitOptions,
+          : emitOptions // ignore: cast_nullable_to_non_nullable
+              as SwidConfigEmitOptions,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$SwidConfigCtor implements _$SwidConfigCtor {
   const _$_$SwidConfigCtor(
-      {@required this.inputPackagePath,
-      @required this.interfaces,
-      @required this.emitOptions})
-      : assert(inputPackagePath != null),
-        assert(interfaces != null),
-        assert(emitOptions != null);
+      {required this.inputPackagePath,
+      required this.interfaces,
+      required this.emitOptions});
 
   factory _$_$SwidConfigCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidConfigCtorFromJson(json);
@@ -209,20 +210,21 @@ class _$_$SwidConfigCtor implements _$SwidConfigCtor {
 
 abstract class _$SwidConfigCtor implements SwidConfig {
   const factory _$SwidConfigCtor(
-      {@required String inputPackagePath,
-      @required List<String> interfaces,
-      @required SwidConfigEmitOptions emitOptions}) = _$_$SwidConfigCtor;
+      {required String inputPackagePath,
+      required List<String> interfaces,
+      required SwidConfigEmitOptions emitOptions}) = _$_$SwidConfigCtor;
 
   factory _$SwidConfigCtor.fromJson(Map<String, dynamic> json) =
       _$_$SwidConfigCtor.fromJson;
 
   @override
-  String get inputPackagePath;
+  String get inputPackagePath => throw _privateConstructorUsedError;
   @override
-  List<String> get interfaces;
+  List<String> get interfaces => throw _privateConstructorUsedError;
   @override
-  SwidConfigEmitOptions get emitOptions;
+  SwidConfigEmitOptions get emitOptions => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$SwidConfigCtorCopyWith<_$SwidConfigCtor> get copyWith;
+  _$$SwidConfigCtorCopyWith<_$SwidConfigCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

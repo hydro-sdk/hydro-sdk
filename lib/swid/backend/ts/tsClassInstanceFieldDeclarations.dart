@@ -1,21 +1,20 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 class TsClassInstanceFieldDeclarations {
-  final SwidClass swidClass;
+  final SwidClass? swidClass;
 
-  TsClassInstanceFieldDeclarations({@required this.swidClass});
+  const TsClassInstanceFieldDeclarations({
+    required this.swidClass,
+  });
 
-  String toTsSource() =>
-      (swidClass.instanceFieldDeclarations?.isNotEmpty ?? false)
-          ? [
-                ...swidClass.instanceFieldDeclarations.entries
-                    .map((x) =>
-                        "    public readonly ${x.key}: ${transformTypeDeclarationToTs(swidType: x.value)} = undefined as any;")
-                    .toList()
-              ].join("\n") +
-              "\n"
-          : "";
+  String toTsSource() => (swidClass!.instanceFieldDeclarations.isNotEmpty)
+      ? [
+            ...swidClass!.instanceFieldDeclarations.entries
+                .map((x) =>
+                    "    public readonly ${x.key}: ${transformTypeDeclarationToTs(swidType: x.value)} = undefined as any;")
+                .toList()
+          ].join("\n") +
+          "\n"
+      : "";
 }

@@ -9,7 +9,7 @@ mixin SwidiConstGrammarDefinition
         GrammarDefinition,
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition {
-  Parser CONST() => (ref(constNumber));
+  Parser CONST() => (ref0(constNumber));
 
-  Parser constNumber() => (ref(NUMBER));
+  Parser constNumber() => (ref0(NUMBER));
 }

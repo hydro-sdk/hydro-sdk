@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'packageManifestEntry.dart';
 
@@ -8,6 +8,10 @@ part of 'packageManifestEntry.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PackageManifestEntry _$PackageManifestEntryFromJson(Map<String, dynamic> json) {
   return _$PackageManifestEntryCtor.fromJson(json);
 }
@@ -16,33 +20,31 @@ PackageManifestEntry _$PackageManifestEntryFromJson(Map<String, dynamic> json) {
 class _$PackageManifestEntryTearOff {
   const _$PackageManifestEntryTearOff();
 
-// ignore: unused_element
   _$PackageManifestEntryCtor call(
-      {@required String path, @required String sha256}) {
+      {required String path, required String sha256}) {
     return _$PackageManifestEntryCtor(
       path: path,
       sha256: sha256,
     );
   }
 
-// ignore: unused_element
   PackageManifestEntry fromJson(Map<String, Object> json) {
     return PackageManifestEntry.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PackageManifestEntry = _$PackageManifestEntryTearOff();
 
 /// @nodoc
 mixin _$PackageManifestEntry {
-  String get path;
-  String get sha256;
+  String get path => throw _privateConstructorUsedError;
+  String get sha256 => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PackageManifestEntryCopyWith<PackageManifestEntry> get copyWith;
+  $PackageManifestEntryCopyWith<PackageManifestEntry> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -64,12 +66,18 @@ class _$PackageManifestEntryCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object path = freezed,
-    Object sha256 = freezed,
+    Object? path = freezed,
+    Object? sha256 = freezed,
   }) {
     return _then(_value.copyWith(
-      path: path == freezed ? _value.path : path as String,
-      sha256: sha256 == freezed ? _value.sha256 : sha256 as String,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      sha256: sha256 == freezed
+          ? _value.sha256
+          : sha256 // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -98,24 +106,27 @@ class __$$PackageManifestEntryCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object path = freezed,
-    Object sha256 = freezed,
+    Object? path = freezed,
+    Object? sha256 = freezed,
   }) {
     return _then(_$PackageManifestEntryCtor(
-      path: path == freezed ? _value.path : path as String,
-      sha256: sha256 == freezed ? _value.sha256 : sha256 as String,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      sha256: sha256 == freezed
+          ? _value.sha256
+          : sha256 // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$PackageManifestEntryCtor implements _$PackageManifestEntryCtor {
   const _$_$PackageManifestEntryCtor(
-      {@required this.path, @required this.sha256})
-      : assert(path != null),
-        assert(sha256 != null);
+      {required this.path, required this.sha256});
 
   factory _$_$PackageManifestEntryCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$PackageManifestEntryCtorFromJson(json);
@@ -161,17 +172,18 @@ class _$_$PackageManifestEntryCtor implements _$PackageManifestEntryCtor {
 
 abstract class _$PackageManifestEntryCtor implements PackageManifestEntry {
   const factory _$PackageManifestEntryCtor(
-      {@required String path,
-      @required String sha256}) = _$_$PackageManifestEntryCtor;
+      {required String path,
+      required String sha256}) = _$_$PackageManifestEntryCtor;
 
   factory _$PackageManifestEntryCtor.fromJson(Map<String, dynamic> json) =
       _$_$PackageManifestEntryCtor.fromJson;
 
   @override
-  String get path;
+  String get path => throw _privateConstructorUsedError;
   @override
-  String get sha256;
+  String get sha256 => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$PackageManifestEntryCtorCopyWith<_$PackageManifestEntryCtor> get copyWith;
+  _$$PackageManifestEntryCtorCopyWith<_$PackageManifestEntryCtor>
+      get copyWith => throw _privateConstructorUsedError;
 }

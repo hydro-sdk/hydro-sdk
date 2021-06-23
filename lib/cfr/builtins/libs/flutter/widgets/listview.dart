@@ -8,13 +8,13 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadListView({@required HydroState luaState, @required HydroTable table}) {
+void loadListView({required HydroState luaState, required HydroTable table}) {
   table["listViewRegular"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       ListView(
         key: maybeUnBoxAndBuildArgument(args[0]["key"], parentState: luaState),
         scrollDirection: maybeUnBoxEnum<Axis>(
-            values: Axis.values, boxedEnum: args[0]["scrollDirection"]),
+            values: Axis.values, boxedEnum: args[0]["scrollDirection"])!,
         reverse: args[0]["reverse"],
         primary: args[0]["primary"],
         physics: maybeUnBoxAndBuildArgument<ScrollPhysics>(args[0]["physics"],
@@ -30,13 +30,13 @@ void loadListView({@required HydroState luaState, @required HydroTable table}) {
         semanticChildCount: args[0]["semanticChildCount"],
         dragStartBehavior: maybeUnBoxEnum<DragStartBehavior>(
             values: DragStartBehavior.values,
-            boxedEnum: args[0]["dragStartBehavior"]),
+            boxedEnum: args[0]["dragStartBehavior"])!,
         children: maybeUnBoxAndBuildArgument<Widget>(args[0]["children"],
             parentState: luaState),
         keyboardDismissBehavior:
             maybeUnBoxEnum<ScrollViewKeyboardDismissBehavior>(
                 values: ScrollViewKeyboardDismissBehavior.values,
-                boxedEnum: args[0]["keyboardDismissBehavior"]),
+                boxedEnum: args[0]["keyboardDismissBehavior"])!,
       )
     ];
   });
@@ -46,7 +46,7 @@ void loadListView({@required HydroState luaState, @required HydroTable table}) {
       ListView.builder(
         key: maybeUnBoxAndBuildArgument(args[0]["key"], parentState: luaState),
         scrollDirection: maybeUnBoxEnum<Axis>(
-            values: Axis.values, boxedEnum: args[0]["scrollDirection"]),
+            values: Axis.values, boxedEnum: args[0]["scrollDirection"])!,
         reverse: args[0]["reverse"],
         primary: args[0]["primary"],
         physics: maybeUnBoxAndBuildArgument<ScrollPhysics>(args[0]["physics"],
@@ -62,7 +62,7 @@ void loadListView({@required HydroState luaState, @required HydroTable table}) {
         semanticChildCount: args[0]["semanticChildCount"],
         dragStartBehavior: maybeUnBoxEnum<DragStartBehavior>(
             values: DragStartBehavior.values,
-            boxedEnum: args[0]["dragStartBehavior"]),
+            boxedEnum: args[0]["dragStartBehavior"])!,
         itemCount: args[0]["itemCount"],
         itemBuilder: (BuildContext context, int index) {
           Closure closure = args[0]["itemBuilder"];

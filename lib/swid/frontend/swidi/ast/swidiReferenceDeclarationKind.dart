@@ -4,4 +4,5 @@ enum SwidiReferenceDeclarationKind {
   voidType,
   typeParameterType,
   dynamicType,
+  unknown,
 }

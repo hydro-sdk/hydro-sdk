@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParse
 
 mixin SwidiFunctionDeclarationOptionalParameterParser
     on SwidiGrammarDefinition, SwidiSimpleDeclarationParser {
-  Parser<SwidiOptionalParameter> functionDeclarationOptionalParameter() =>
+  Parser<SwidiOptionalParameter?> functionDeclarationOptionalParameter() =>
       super.functionDeclarationOptionalParameter().map((x) {
         if (x is SwidiDeclaration) {
           return SwidiOptionalParameter(declaration: x);

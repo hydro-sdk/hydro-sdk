@@ -10,18 +10,14 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     functionReference: json['functionReference'] as String,
     tsFunctionInvocationPositionalParameters:
-        json['tsFunctionInvocationPositionalParameters'] == null
-            ? null
-            : TsFunctionInvocationPositionalParameters.fromJson(
-                json['tsFunctionInvocationPositionalParameters']
-                    as Map<String, dynamic>),
+        TsFunctionInvocationPositionalParameters.fromJson(
+            json['tsFunctionInvocationPositionalParameters']
+                as Map<String, dynamic>),
     tsFunctionInvocationNamedParameters:
-        (json['tsFunctionInvocationNamedParameters'] as List)
-            ?.map((e) => e == null
-                ? null
-                : TsFunctionInvocationNamedParameters.fromJson(
-                    e as Map<String, dynamic>))
-            ?.toList(),
+        (json['tsFunctionInvocationNamedParameters'] as List<dynamic>)
+            .map((e) => TsFunctionInvocationNamedParameters.fromJson(
+                e as Map<String, dynamic>))
+            .toList(),
   );
 }
 

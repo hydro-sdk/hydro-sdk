@@ -10,20 +10,20 @@ mixin SwidiFunctionDeclarationPositionalParameterGrammarDefinition
         SwidiGrammarTokenizer,
         SwidiDeclarationGrammarDefinition {
   Parser functionDeclarationPositionalParameterListForm1() =>
-      ref(functionDeclarationPositionalParameter) & ref(token, ",");
+      ref0(functionDeclarationPositionalParameter) & ref1(token, ",");
 
   Parser functionDeclarationPositionalParameterListForm2() =>
-      ref(functionDeclarationPositionalParameter) &
-      ref(functionDeclarationPositionalParameterTail).optional();
+      ref0(functionDeclarationPositionalParameter) &
+      ref0(functionDeclarationPositionalParameterTail).optional();
 
-  Parser functionDeclarationPositionalParameterTail() => (ref(token, ",") &
-      ref(functionDeclarationPositionalParameter) &
-      ref(functionDeclarationPositionalParameterTail).optional());
+  Parser functionDeclarationPositionalParameterTail() => (ref1(token, ",") &
+      ref0(functionDeclarationPositionalParameter) &
+      ref0(functionDeclarationPositionalParameterTail).optional());
 
   Parser functionDeclarationPositionalParameterListForm3() =>
-      ref(functionDeclarationPositionalParameter) &
-      ref(functionDeclarationPositionalParameterTail).optional() &
-      ref(token, ",");
+      ref0(functionDeclarationPositionalParameter) &
+      ref0(functionDeclarationPositionalParameterTail).optional() &
+      ref1(token, ",");
 
-  Parser functionDeclarationPositionalParameter() => ref(simpleDeclaration);
+  Parser functionDeclarationPositionalParameter() => ref0(simpleDeclaration);
 }

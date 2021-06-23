@@ -23,18 +23,18 @@ class SwidiGrammarDefinition extends GrammarDefinition
         SwidiFunctionGrammarDefinition {
   const SwidiGrammarDefinition();
 
-  Parser start() => ref(compilationUnit).end();
+  Parser start() => ref0(compilationUnit).end();
 
-  Parser compilationUnit() => ref(topLevelDefinition).star();
+  Parser compilationUnit() => ref0(topLevelDefinition).star();
 
-  Parser topLevelDefinition() => ref(classDefinition);
+  Parser topLevelDefinition() => ref0(classDefinition);
 
   Parser classDefinition() =>
-      ref(ABSTRACT).optional() &
-      ref(CLASS) &
-      ref(libraryScopePrefix).optional() &
-      ref(identifier) &
-      ref(token, "{") &
-      ref(functionDeclaration).star() &
-      ref(token, "}");
+      ref0(ABSTRACT).optional() &
+      ref0(CLASS) &
+      ref0(libraryScopePrefix).optional() &
+      ref0(identifier) &
+      ref1(token, "{") &
+      ref0(functionDeclaration).star() &
+      ref1(token, "}");
 }

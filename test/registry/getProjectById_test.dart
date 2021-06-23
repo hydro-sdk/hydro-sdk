@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -42,24 +43,25 @@ void main() {
       expect(createProjectResponse, isNull);
 
       final loginResponse = await api.login(
-          dto: LoginUserDto(
-        username: username,
-        password: password,
-      ));
+        dto: LoginUserDto(
+          username: username,
+          password: password,
+        ),
+      );
 
       expect(loginResponse, isNotNull);
-      expect(loginResponse.authenticatedUser.username, username);
+      expect(loginResponse?.authenticatedUser.username, username);
 
       createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: loginResponse,
+        sessionDto: loginResponse!,
       );
 
       expect(createProjectResponse, isNotNull);
-      expect(createProjectResponse.name, projectName);
+      expect(createProjectResponse!.name, projectName);
       expect(createProjectResponse.description, projectDescription);
 
       var canUpdateProjectResponse = await api.canUpdateProjects(
@@ -72,9 +74,8 @@ void main() {
         sessionDto: loginResponse,
       );
 
-      var createdProject = canUpdateProjectResponse.firstWhere(
-          (x) => x.name == createProjectResponse.name,
-          orElse: () => null);
+      var createdProject = canUpdateProjectResponse!
+          .firstWhereOrNull((x) => x.name == createProjectResponse!.name)!;
 
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);
@@ -84,14 +85,14 @@ void main() {
       );
 
       expect(firstProjectById, isNotNull);
-      expect(firstProjectById.name, username);
+      expect(firstProjectById?.name, username);
 
       var lastProjectById = await api.getProjectById(
         projectId: canUpdateProjectResponse.last.id,
       );
 
       expect(lastProjectById, isNotNull);
-      expect(lastProjectById.name, projectName);
+      expect(lastProjectById?.name, projectName);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

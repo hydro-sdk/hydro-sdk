@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/backend/ts/tsVmDeclaration.dart';
@@ -22,10 +21,12 @@ import 'package:hydro_sdk/swid/transforms/ts/transformVmDeclarationToTs.dart';
 class TsClassVmDeclaration {
   final SwidClass swidClass;
 
-  TsClassVmDeclaration({@required this.swidClass});
+  const TsClassVmDeclaration({
+    required this.swidClass,
+  });
 
   TsVmDeclaration _addConstructorBindingDeclarations(
-          {@required TsVmDeclaration tsVmDeclaration}) =>
+          {required TsVmDeclaration tsVmDeclaration}) =>
       swidClass.constructorType != null &&
               transformPackageUri(packageUri: swidClass.originalPackagePath)
                       .split(path.separator)
@@ -119,7 +120,7 @@ class TsClassVmDeclaration {
                                           normalParameterTypes: [],
                                           optionalParameterNames: [],
                                           optionalParameterTypes: [],
-                                          returnType: x.value.when<SwidType>(
+                                          returnType: x.value.when<SwidType?>(
                                             fromSwidBooleanLiteral: (_) => null,
                                             fromSwidStringLiteral: (_) => null,
                                             fromSwidIntegerLiteral: (_) => null,
@@ -134,7 +135,7 @@ class TsClassVmDeclaration {
                                                 (_) => null,
                                             fromSwidStaticConstPrefixedIdentifier:
                                                 (_) => null,
-                                          ),
+                                          )!,
                                           isFactory: false,
                                           typeFormals: [],
                                         ),

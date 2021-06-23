@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'projectConfig.dart';
 
@@ -8,6 +8,10 @@ part of 'projectConfig.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ProjectConfig _$ProjectConfigFromJson(Map<String, dynamic> json) {
   return _$ProjectConfigCtor.fromJson(json);
 }
@@ -16,34 +20,33 @@ ProjectConfig _$ProjectConfigFromJson(Map<String, dynamic> json) {
 class _$ProjectConfigTearOff {
   const _$ProjectConfigTearOff();
 
-// ignore: unused_element
   _$ProjectConfigCtor call(
-      {@required String project,
-      @required List<ProjectConfigComponent> components}) {
+      {required String project,
+      required List<ProjectConfigComponent> components}) {
     return _$ProjectConfigCtor(
       project: project,
       components: components,
     );
   }
 
-// ignore: unused_element
   ProjectConfig fromJson(Map<String, Object> json) {
     return ProjectConfig.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ProjectConfig = _$ProjectConfigTearOff();
 
 /// @nodoc
 mixin _$ProjectConfig {
-  String get project;
-  List<ProjectConfigComponent> get components;
+  String get project => throw _privateConstructorUsedError;
+  List<ProjectConfigComponent> get components =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProjectConfigCopyWith<ProjectConfig> get copyWith;
+  $ProjectConfigCopyWith<ProjectConfig> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -65,14 +68,18 @@ class _$ProjectConfigCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object project = freezed,
-    Object components = freezed,
+    Object? project = freezed,
+    Object? components = freezed,
   }) {
     return _then(_value.copyWith(
-      project: project == freezed ? _value.project : project as String,
+      project: project == freezed
+          ? _value.project
+          : project // ignore: cast_nullable_to_non_nullable
+              as String,
       components: components == freezed
           ? _value.components
-          : components as List<ProjectConfigComponent>,
+          : components // ignore: cast_nullable_to_non_nullable
+              as List<ProjectConfigComponent>,
     ));
   }
 }
@@ -100,26 +107,27 @@ class __$$ProjectConfigCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object project = freezed,
-    Object components = freezed,
+    Object? project = freezed,
+    Object? components = freezed,
   }) {
     return _then(_$ProjectConfigCtor(
-      project: project == freezed ? _value.project : project as String,
+      project: project == freezed
+          ? _value.project
+          : project // ignore: cast_nullable_to_non_nullable
+              as String,
       components: components == freezed
           ? _value.components
-          : components as List<ProjectConfigComponent>,
+          : components // ignore: cast_nullable_to_non_nullable
+              as List<ProjectConfigComponent>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ProjectConfigCtor implements _$ProjectConfigCtor {
   const _$_$ProjectConfigCtor(
-      {@required this.project, @required this.components})
-      : assert(project != null),
-        assert(components != null);
+      {required this.project, required this.components});
 
   factory _$_$ProjectConfigCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ProjectConfigCtorFromJson(json);
@@ -165,18 +173,20 @@ class _$_$ProjectConfigCtor implements _$ProjectConfigCtor {
 
 abstract class _$ProjectConfigCtor implements ProjectConfig {
   const factory _$ProjectConfigCtor(
-          {@required String project,
-          @required List<ProjectConfigComponent> components}) =
+          {required String project,
+          required List<ProjectConfigComponent> components}) =
       _$_$ProjectConfigCtor;
 
   factory _$ProjectConfigCtor.fromJson(Map<String, dynamic> json) =
       _$_$ProjectConfigCtor.fromJson;
 
   @override
-  String get project;
+  String get project => throw _privateConstructorUsedError;
   @override
-  List<ProjectConfigComponent> get components;
+  List<ProjectConfigComponent> get components =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$ProjectConfigCtorCopyWith<_$ProjectConfigCtor> get copyWith;
+  _$$ProjectConfigCtorCopyWith<_$ProjectConfigCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -23,9 +23,9 @@ void main() {
         return;
       }
 
-      String hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
-      String bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
-      String symbolsPath = "../assets/test/hot/stateful/counter1.ts.hc.symbols";
+      String hashPath = "assets/test/hot/stateful/counter1.ts.hc.sha256";
+      String bytecodePath = "assets/test/hot/stateful/counter1.ts.hc";
+      String symbolsPath = "assets/test/hot/stateful/counter1.ts.hc.symbols";
 
       HydroState state = HydroState();
       var closure = await state.loadBuffer(
@@ -89,8 +89,8 @@ void main() {
 
       //Switch out files in response to polling
       //Should trigger a hot reload
-      hashPath = "../assets/test/hot/stateful/counter2.ts.hc.sha256";
-      bytecodePath = "../assets/test/hot/stateful/counter2.ts.hc";
+      hashPath = "assets/test/hot/stateful/counter2.ts.hc.sha256";
+      bytecodePath = "assets/test/hot/stateful/counter2.ts.hc";
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
 
@@ -119,8 +119,8 @@ void main() {
       expect(find.text("3"), findsOneWidget);
 
       //Switch back to original files
-      hashPath = "../assets/test/hot/stateful/counter1.ts.hc.sha256";
-      bytecodePath = "../assets/test/hot/stateful/counter1.ts.hc";
+      hashPath = "assets/test/hot/stateful/counter1.ts.hc.sha256";
+      bytecodePath = "assets/test/hot/stateful/counter1.ts.hc";
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
 

@@ -61,7 +61,7 @@ class RelJumpTo extends IO {
 }
 
 _InstInfoIO iBasicInst(
-    {List<int> read, List<int> write, List<int> jmp, List<int> reljmp}) {
+    {List<int>? read, List<int>? write, List<int>? jmp, List<int>? reljmp}) {
   return (Inst i, InstInfo info) {
     var params = info.getParams(i).item1;
     return [
@@ -106,16 +106,16 @@ class InstInfo {
     assert(sParams.length == 3);
     params = [];
     for (int i = 0; i < 3; i++) {
-      params.add(InstParamType.values[instParamTypeStr.indexOf(sParams[i])]);
+      params!.add(InstParamType.values[instParamTypeStr.indexOf(sParams[i])]);
     }
   }
 
-  _InstInfoIO io;
+  _InstInfoIO? io;
   InstInfo(this.name, this.layout, this.params);
   String name;
-  InstLayout layout;
-  List<InstParamType> params;
-  int opcode;
+  InstLayout? layout;
+  List<InstParamType>? params;
+  int? opcode;
 
   Inst withParams(List<int> iparams) {
     int A = 0;
@@ -125,7 +125,7 @@ class InstInfo {
     List<int> out = [0, 0, 0];
     int j = 0;
     for (int i = 0; i < 3; i++) {
-      if (params[i] == InstParamType.PARAM_NONE) continue;
+      if (params![i] == InstParamType.PARAM_NONE) continue;
       out[i] = iparams[j++];
     }
     if (layout == InstLayout.LAYOUT_ABC) {
@@ -142,7 +142,12 @@ class InstInfo {
       A = out[0];
     }
 
-    return new Inst(opcode, A, B, C);
+    return new Inst(
+      opcode!,
+      A,
+      B,
+      C,
+    );
   }
 
   Inst decode(int raw) {
@@ -191,7 +196,7 @@ class InstInfo {
     List<int> data = [];
     List<InstParamType> types = [];
 
-    List<int> rparams;
+    late List<int> rparams;
     if (layout == InstLayout.LAYOUT_ABC) {
       rparams = [inst.A, inst.B, inst.C];
     } else if (layout == InstLayout.LAYOUT_ABx) {
@@ -203,8 +208,8 @@ class InstInfo {
     }
 
     for (int i = 0; i < rparams.length; i++) {
-      if (params[i] == InstParamType.PARAM_NONE) continue;
-      if (params[i] == InstParamType.PARAM_RK) {
+      if (params![i] == InstParamType.PARAM_NONE) continue;
+      if (params![i] == InstParamType.PARAM_RK) {
         data.add(i == 0
             ? lua_sign(rparams[i], 8)
             : rparams[i] >> 8 == 0
@@ -213,7 +218,7 @@ class InstInfo {
       } else {
         data.add(rparams[i]);
       }
-      types.add(params[i]);
+      types.add(params![i]);
     }
 
     return new Tuple2(data, types);

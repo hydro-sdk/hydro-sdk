@@ -8,7 +8,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadTextFormField(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["textFormField"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       TextFormField(
@@ -97,7 +97,7 @@ void loadTextFormField(
                 }
               : null,
           onSaved: args[0]["onSaved"] != null
-              ? (String val) {
+              ? (String? val) {
                   Closure closure = args[0]["onSaved"];
                   closure.dispatch(
                     [val],
@@ -107,7 +107,7 @@ void loadTextFormField(
                 }
               : null,
           validator: args[0]["validator"] != null
-              ? (String val) {
+              ? (String? val) {
                   Closure closure = args[0]["validator"];
                   return closure.dispatch(
                     [val],
@@ -126,9 +126,9 @@ void loadTextFormField(
           buildCounter: args[0]["buildCounter"] != null
               ? (
                   BuildContext context, {
-                  int currentLength,
-                  int maxLength,
-                  bool isFocused,
+                  int? currentLength,
+                  int? maxLength,
+                  bool? isFocused,
                 }) {
                   HydroTable props = HydroTable();
                   props["currentLength"] = currentLength;

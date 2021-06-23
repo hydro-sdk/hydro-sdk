@@ -10,7 +10,8 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
     originalPackagePath: json['originalPackagePath'] as String,
     identifier: json['identifier'] as String,
-    children: (json['children'] as List)?.map((e) => e as String)?.toList(),
+    children:
+        (json['children'] as List<dynamic>).map((e) => e as String).toList(),
   );
 }
 

@@ -1372,6 +1372,8 @@
     },
     "mixedInClasses": [],
     "implementedClasses": [],
+    "isMixin": false,
+    "typeFormals": [],
     "extendedClass": {
         "name": "OffsetBase",
         "nullabilitySuffix": "none",
@@ -1907,6 +1909,8 @@
         },
         "mixedInClasses": [],
         "implementedClasses": [],
+        "isMixin": false,
+        "typeFormals": [],
         "extendedClass": {
             "name": "Object",
             "nullabilitySuffix": "none",
@@ -2213,13 +2217,9 @@
             },
             "mixedInClasses": [],
             "implementedClasses": [],
-            "extendedClass": null,
             "isMixin": false,
-            "typeFormals": []
-        },
-        "isMixin": false,
-        "typeFormals": []
-    },
-    "isMixin": false,
-    "typeFormals": []
+            "typeFormals": [],
+            "extendedClass": null
+        }
+    }
 }

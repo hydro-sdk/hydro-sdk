@@ -21,5 +21,4 @@ export * from "./typedData";
 export * from "./typedFloatList";
 export * from "./typedIntList";
 export * from "./uint16List";
-export * from "./unmodifiableByteBufferView";
 export * from "./uint32List";

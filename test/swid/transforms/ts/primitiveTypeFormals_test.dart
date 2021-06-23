@@ -67,7 +67,7 @@ void main() {
         isMixin: false,
         typeFormals: []);
 
-    expect(float32List.extendedClass.displayName, "List<double>");
+    expect(float32List.extendedClass!.displayName, "List<double>");
     expect(
         transformPrimitiveNamesToTs(
                 swidType: SwidType.fromSwidClass(swidClass: float32List))
@@ -76,8 +76,8 @@ void main() {
               fromSwidClass: (val) => val,
               fromSwidDefaultFormalParameter: (_) => null,
               fromSwidFunctionType: (_) => null,
-            )
-            .extendedClass
+            )!
+            .extendedClass!
             .displayName,
         "List<number>");
   }, tags: "swid");

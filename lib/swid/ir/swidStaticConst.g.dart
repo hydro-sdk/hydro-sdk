@@ -9,10 +9,8 @@ part of 'swidStaticConst.dart';
 _$_$FromSwidBooleanLiteral _$_$_$FromSwidBooleanLiteralFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidBooleanLiteral(
-    swidBooleanLiteral: json['swidBooleanLiteral'] == null
-        ? null
-        : SwidBooleanLiteral.fromJson(
-            json['swidBooleanLiteral'] as Map<String, dynamic>),
+    swidBooleanLiteral: SwidBooleanLiteral.fromJson(
+        json['swidBooleanLiteral'] as Map<String, dynamic>),
   );
 }
 
@@ -25,10 +23,8 @@ Map<String, dynamic> _$_$_$FromSwidBooleanLiteralToJson(
 _$_$FromSwidStringLiteral _$_$_$FromSwidStringLiteralFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidStringLiteral(
-    swidStringLiteral: json['swidStringLiteral'] == null
-        ? null
-        : SwidStringLiteral.fromJson(
-            json['swidStringLiteral'] as Map<String, dynamic>),
+    swidStringLiteral: SwidStringLiteral.fromJson(
+        json['swidStringLiteral'] as Map<String, dynamic>),
   );
 }
 
@@ -41,10 +37,8 @@ Map<String, dynamic> _$_$_$FromSwidStringLiteralToJson(
 _$_$FromSwidIntegerLiteral _$_$_$FromSwidIntegerLiteralFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidIntegerLiteral(
-    swidIntegerLiteral: json['swidIntegerLiteral'] == null
-        ? null
-        : SwidIntegerLiteral.fromJson(
-            json['swidIntegerLiteral'] as Map<String, dynamic>),
+    swidIntegerLiteral: SwidIntegerLiteral.fromJson(
+        json['swidIntegerLiteral'] as Map<String, dynamic>),
   );
 }
 
@@ -57,10 +51,8 @@ Map<String, dynamic> _$_$_$FromSwidIntegerLiteralToJson(
 _$_$FromSwidDoubleLiteral _$_$_$FromSwidDoubleLiteralFromJson(
     Map<String, dynamic> json) {
   return _$_$FromSwidDoubleLiteral(
-    swidDoubleLiteral: json['swidDoubleLiteral'] == null
-        ? null
-        : SwidDoubleLiteral.fromJson(
-            json['swidDoubleLiteral'] as Map<String, dynamic>),
+    swidDoubleLiteral: SwidDoubleLiteral.fromJson(
+        json['swidDoubleLiteral'] as Map<String, dynamic>),
   );
 }
 
@@ -74,10 +66,8 @@ _$_$FromSwidStaticConstFunctionInvocation
     _$_$_$FromSwidStaticConstFunctionInvocationFromJson(
         Map<String, dynamic> json) {
   return _$_$FromSwidStaticConstFunctionInvocation(
-    staticConstFunctionInvocation: json['staticConstFunctionInvocation'] == null
-        ? null
-        : SwidStaticConstFunctionInvocation.fromJson(
-            json['staticConstFunctionInvocation'] as Map<String, dynamic>),
+    staticConstFunctionInvocation: SwidStaticConstFunctionInvocation.fromJson(
+        json['staticConstFunctionInvocation'] as Map<String, dynamic>),
   );
 }
 
@@ -90,10 +80,8 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstFunctionInvocationToJson(
 _$_$FromSwidStaticConstFieldReference
     _$_$_$FromSwidStaticConstFieldReferenceFromJson(Map<String, dynamic> json) {
   return _$_$FromSwidStaticConstFieldReference(
-    swidStaticConstFieldReference: json['swidStaticConstFieldReference'] == null
-        ? null
-        : SwidStaticConstFieldReference.fromJson(
-            json['swidStaticConstFieldReference'] as Map<String, dynamic>),
+    swidStaticConstFieldReference: SwidStaticConstFieldReference.fromJson(
+        json['swidStaticConstFieldReference'] as Map<String, dynamic>),
   );
 }
 
@@ -108,11 +96,8 @@ _$_$FromSwidStaticConstPrefixedExpression
         Map<String, dynamic> json) {
   return _$_$FromSwidStaticConstPrefixedExpression(
     swidStaticConstPrefixedExpression:
-        json['swidStaticConstPrefixedExpression'] == null
-            ? null
-            : SwidStaticConstPrefixedExpression.fromJson(
-                json['swidStaticConstPrefixedExpression']
-                    as Map<String, dynamic>),
+        SwidStaticConstPrefixedExpression.fromJson(
+            json['swidStaticConstPrefixedExpression'] as Map<String, dynamic>),
   );
 }
 
@@ -127,11 +112,8 @@ _$_$FromSwidStaticConstBinaryExpression
     _$_$_$FromSwidStaticConstBinaryExpressionFromJson(
         Map<String, dynamic> json) {
   return _$_$FromSwidStaticConstBinaryExpression(
-    swidStaticConstBinaryExpression: json['swidStaticConstBinaryExpression'] ==
-            null
-        ? null
-        : SwidStaticConstBinaryExpression.fromJson(
-            json['swidStaticConstBinaryExpression'] as Map<String, dynamic>),
+    swidStaticConstBinaryExpression: SwidStaticConstBinaryExpression.fromJson(
+        json['swidStaticConstBinaryExpression'] as Map<String, dynamic>),
   );
 }
 
@@ -146,10 +128,8 @@ _$_$FromSwidStaticConstPrefixedIdentifier
     _$_$_$FromSwidStaticConstPrefixedIdentifierFromJson(
         Map<String, dynamic> json) {
   return _$_$FromSwidStaticConstPrefixedIdentifier(
-    staticConstPrefixedIdentifier: json['staticConstPrefixedIdentifier'] == null
-        ? null
-        : SwidStaticConstPrefixedIdentifier.fromJson(
-            json['staticConstPrefixedIdentifier'] as Map<String, dynamic>),
+    staticConstPrefixedIdentifier: SwidStaticConstPrefixedIdentifier.fromJson(
+        json['staticConstPrefixedIdentifier'] as Map<String, dynamic>),
   );
 }
 

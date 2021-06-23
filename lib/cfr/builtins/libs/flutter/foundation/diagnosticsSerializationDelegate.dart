@@ -11,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class VMManagedDiagnosticsSerializationDelegate
     extends VMManagedBox<DiagnosticsSerializationDelegate> {
   VMManagedDiagnosticsSerializationDelegate(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -118,11 +116,12 @@ class VMManagedDiagnosticsSerializationDelegate
 }
 
 void loadDiagnosticsSerializationDelegate(
-    {@required HydroState hydroState, @required HydroTable table}) {
-  registerBoxer<DiagnosticsSerializationDelegate>(boxer: (
-      {@required DiagnosticsSerializationDelegate vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
+  registerBoxer<DiagnosticsSerializationDelegate>(boxer: ({
+    required DiagnosticsSerializationDelegate vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedDiagnosticsSerializationDelegate(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

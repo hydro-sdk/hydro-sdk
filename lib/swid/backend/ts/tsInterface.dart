@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
@@ -8,22 +6,22 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 class TsInterface {
   final String name;
-  final Map<String, SwidType> members;
-  final List<String> superInterfaces;
+  final Map<String, SwidType?> members;
+  final List<String?> superInterfaces;
   final List<SwidTypeFormal> typeFormals;
   final bool emitSuperInterfaceExtensions;
 
-  TsInterface({
-    @required this.name,
-    @required this.members,
-    @required this.emitSuperInterfaceExtensions,
+  const TsInterface({
+    required this.name,
+    required this.members,
+    required this.emitSuperInterfaceExtensions,
     this.superInterfaces = const [],
     this.typeFormals = const [],
   });
 
   factory TsInterface.fromSwidClass(
-          {@required SwidClass swidClass,
-          @required bool emitSuperInterfaceExtensions}) =>
+          {required SwidClass swidClass,
+          required bool emitSuperInterfaceExtensions}) =>
       TsInterface(
         name: swidClass.name,
         emitSuperInterfaceExtensions: emitSuperInterfaceExtensions,
@@ -38,7 +36,7 @@ class TsInterface {
         },
         superInterfaces: ([
           swidClass.extendedClass != null
-              ? "I${swidClass.extendedClass.name}"
+              ? "I${swidClass.extendedClass!.name}"
               : null
         ]..removeWhere(
             (x) => x == null,
@@ -57,7 +55,7 @@ class TsInterface {
         "{",
         ...members.entries
             .map((x) =>
-                "${x.key}: ${transformTypeDeclarationToTs(swidType: x.value)};")
+                "${x.key}: ${transformTypeDeclarationToTs(swidType: x.value!)};")
             .toList(),
         "}"
       ]..removeWhere((x) => x == null))

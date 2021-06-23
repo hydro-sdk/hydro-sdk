@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'componentSearchDto.dart';
 
@@ -8,6 +8,10 @@ part of 'componentSearchDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ComponentSearchDto _$ComponentSearchDtoFromJson(Map<String, dynamic> json) {
   return _$ComponentSearchDtoCtor.fromJson(json);
 }
@@ -16,12 +20,11 @@ ComponentSearchDto _$ComponentSearchDtoFromJson(Map<String, dynamic> json) {
 class _$ComponentSearchDtoTearOff {
   const _$ComponentSearchDtoTearOff();
 
-// ignore: unused_element
   _$ComponentSearchDtoCtor call(
-      {@required String id,
-      @required String projectName,
-      @required String name,
-      @required String description}) {
+      {required String id,
+      required String projectName,
+      required String name,
+      required String description}) {
     return _$ComponentSearchDtoCtor(
       id: id,
       projectName: projectName,
@@ -30,26 +33,25 @@ class _$ComponentSearchDtoTearOff {
     );
   }
 
-// ignore: unused_element
   ComponentSearchDto fromJson(Map<String, Object> json) {
     return ComponentSearchDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ComponentSearchDto = _$ComponentSearchDtoTearOff();
 
 /// @nodoc
 mixin _$ComponentSearchDto {
-  String get id;
-  String get projectName;
-  String get name;
-  String get description;
+  String get id => throw _privateConstructorUsedError;
+  String get projectName => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ComponentSearchDtoCopyWith<ComponentSearchDto> get copyWith;
+  $ComponentSearchDtoCopyWith<ComponentSearchDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -71,18 +73,28 @@ class _$ComponentSearchDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object projectName = freezed,
-    Object name = freezed,
-    Object description = freezed,
+    Object? id = freezed,
+    Object? projectName = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      projectName:
-          projectName == freezed ? _value.projectName : projectName as String,
-      name: name == freezed ? _value.name : name as String,
-      description:
-          description == freezed ? _value.description : description as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectName: projectName == freezed
+          ? _value.projectName
+          : projectName // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -111,35 +123,40 @@ class __$$ComponentSearchDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object projectName = freezed,
-    Object name = freezed,
-    Object description = freezed,
+    Object? id = freezed,
+    Object? projectName = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$ComponentSearchDtoCtor(
-      id: id == freezed ? _value.id : id as String,
-      projectName:
-          projectName == freezed ? _value.projectName : projectName as String,
-      name: name == freezed ? _value.name : name as String,
-      description:
-          description == freezed ? _value.description : description as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectName: projectName == freezed
+          ? _value.projectName
+          : projectName // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
   const _$_$ComponentSearchDtoCtor(
-      {@required this.id,
-      @required this.projectName,
-      @required this.name,
-      @required this.description})
-      : assert(id != null),
-        assert(projectName != null),
-        assert(name != null),
-        assert(description != null);
+      {required this.id,
+      required this.projectName,
+      required this.name,
+      required this.description});
 
   factory _$_$ComponentSearchDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$ComponentSearchDtoCtorFromJson(json);
@@ -196,23 +213,24 @@ class _$_$ComponentSearchDtoCtor implements _$ComponentSearchDtoCtor {
 
 abstract class _$ComponentSearchDtoCtor implements ComponentSearchDto {
   const factory _$ComponentSearchDtoCtor(
-      {@required String id,
-      @required String projectName,
-      @required String name,
-      @required String description}) = _$_$ComponentSearchDtoCtor;
+      {required String id,
+      required String projectName,
+      required String name,
+      required String description}) = _$_$ComponentSearchDtoCtor;
 
   factory _$ComponentSearchDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$ComponentSearchDtoCtor.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get projectName;
+  String get projectName => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$ComponentSearchDtoCtorCopyWith<_$ComponentSearchDtoCtor> get copyWith;
+  _$$ComponentSearchDtoCtorCopyWith<_$ComponentSearchDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,14 +1,12 @@
 import 'package:code_builder/code_builder.dart'
     show refer, Block, Method, Parameter, TypeReference, DartEmitter;
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
 class DartVMManagedClassBoxerRegistrant {
   final SwidClass swidClass;
 
-  DartVMManagedClassBoxerRegistrant({@required this.swidClass});
+  DartVMManagedClassBoxerRegistrant({required this.swidClass});
 
   String toDartSource() => refer("registerBoxer")
       .call([], {
@@ -16,17 +14,17 @@ class DartVMManagedClassBoxerRegistrant {
           ..optionalParameters.addAll([
             Parameter((p) => p
               ..named = true
-              ..annotations.add(refer("required"))
+              ..required = true
               ..name = "vmObject"
               ..type = TypeReference((t) => t..symbol = swidClass.name)),
             Parameter((p) => p
               ..named = true
-              ..annotations.add(refer("required"))
+              ..required = true
               ..name = "hydroState"
               ..type = TypeReference((t) => t..symbol = "HydroState")),
             Parameter((p) => p
               ..named = true
-              ..annotations.add(refer("required"))
+              ..required = true
               ..name = "table"
               ..type = TypeReference((t) => t..symbol = "HydroTable")),
           ])

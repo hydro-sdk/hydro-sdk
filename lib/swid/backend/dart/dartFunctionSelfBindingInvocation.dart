@@ -8,8 +8,6 @@ import 'package:code_builder/code_builder.dart'
         Code,
         CodeExpression;
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
@@ -24,13 +22,13 @@ class DartFunctionSelfBindingInvocation {
   final DartBoxingProcedure argumentBoxingProcedure;
   final DartBoxingProcedure returnValueBoxingProcedure;
   final bool emitTableBindingPrefix;
-  final Expression returnValueBoxingTableExpression;
+  final Expression? returnValueBoxingTableExpression;
 
   DartFunctionSelfBindingInvocation({
-    @required this.swidFunctionType,
-    @required this.argumentBoxingProcedure,
-    @required this.returnValueBoxingProcedure,
-    @required this.emitTableBindingPrefix,
+    required this.swidFunctionType,
+    required this.argumentBoxingProcedure,
+    required this.returnValueBoxingProcedure,
+    required this.emitTableBindingPrefix,
     this.returnValueBoxingTableExpression,
   });
 
@@ -63,6 +61,8 @@ class DartFunctionSelfBindingInvocation {
                         .toDartSource(),
                     onVoid: (_) => expression.accept(DartEmitter()).toString(),
                     onTypeParameter: (_) =>
+                        expression.accept(DartEmitter()).toString(),
+                    onUnknown: (_) =>
                         expression.accept(DartEmitter()).toString(),
                   ),
                   fromSwidClass: (_) => "",
@@ -146,5 +146,5 @@ class DartFunctionSelfBindingInvocation {
                                     .toDartSource()
                                 : ""))))),
               ]..removeWhere((x) => x == null)))
-      : refer(swidFunctionType.name));
+      : refer(swidFunctionType.name)) as String;
 }

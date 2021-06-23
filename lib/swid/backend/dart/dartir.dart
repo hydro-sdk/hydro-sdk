@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
@@ -24,82 +23,73 @@ import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassMethodInjectionImp
 part 'dartir.freezed.dart';
 
 @freezed
-abstract class DartIr with _$DartIr {
+class DartIr with _$DartIr {
   factory DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
-          {@required
-              DartBarrelLoadNamespaceSymbolDeclaration
-                  dartBarrelLoadNamespaceSymbolDeclaration}) =
+          {required DartBarrelLoadNamespaceSymbolDeclaration
+              dartBarrelLoadNamespaceSymbolDeclaration}) =
       _$FromDartBarrelLoadNamespaceSymbolDeclaration;
   factory DartIr.fromDartBindInstanceField(
-          {@required DartBindInstanceField dartBindInstanceField}) =
+          {required DartBindInstanceField dartBindInstanceField}) =
       _$FromDartBindInstanceField;
   factory DartIr.fromDartBindInstanceFieldDirect(
-          {@required DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) =
+          {required DartBindInstanceFieldDirect dartBindInstanceFieldDirect}) =
       _$FromDartBindInstanceFieldDirect;
   factory DartIr.fromDartBoxEnumReference(
-          {@required DartBoxEnumReference dartBoxEnumReference}) =
+          {required DartBoxEnumReference dartBoxEnumReference}) =
       _$FromDartBoxEnumReference;
-  factory DartIr.fromDartBoxList({@required DartBoxList dartBoxList}) =
+  factory DartIr.fromDartBoxList({required DartBoxList dartBoxList}) =
       _$FromDartBoxList;
   factory DartIr.fromDartBoxObjectReference(
-          {@required DartBoxObjectReference dartBoxObjectReference}) =
+          {required DartBoxObjectReference dartBoxObjectReference}) =
       _$FromDartBoxObjectReference;
   factory DartIr.fromDartImportStatement(
-          {@required DartImportStatement dartImportStatement}) =
+          {required DartImportStatement dartImportStatement}) =
       _$FromDartImportStatement;
   factory DartIr.fromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration(
-          {@required
-              DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
-                  dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
+          {required DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration
+              dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration}) =
       _$FromDartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration;
   factory DartIr.fromDartFunctionSelfBindingInvocation(
-          {@required
-              DartFunctionSelfBindingInvocation
-                  dartFunctionSelfBindingInvocation}) =
+          {required DartFunctionSelfBindingInvocation
+              dartFunctionSelfBindingInvocation}) =
       _$FromDartFunctionSelfBindingInvocation;
-  factory DartIr.fromDartLinebreak({@required DartLinebreak dartLinebreak}) =
+  factory DartIr.fromDartLinebreak({required DartLinebreak dartLinebreak}) =
       _$FromDartLinebreak;
   factory DartIr.fromDartUnboxingExpression(
-          {@required DartUnboxingExpression dartUnboxingExpression}) =
+          {required DartUnboxingExpression dartUnboxingExpression}) =
       _$FromDartUnboxingExpression;
   factory DartIr.fromDartUnpackClosures(
-          {@required DartUnpackClosures dartUnpackClosures}) =
+          {required DartUnpackClosures dartUnpackClosures}) =
       _$FromDartUnpackClosures;
   factory DartIr.fromDartVMManagedClassBoxerRegistrant(
-          {@required
-              DartVMManagedClassBoxerRegistrant
-                  dartVMManagedClassBoxerRegistrant}) =
+          {required DartVMManagedClassBoxerRegistrant
+              dartVMManagedClassBoxerRegistrant}) =
       $FromDartVMManagedClassBoxerRegistrant;
   factory DartIr.fromLoadNamepsaceSymbolDeclaration(
-          {@required
-              DartLoadNamespaceSymbolDeclaration
-                  loadNamespaceSymbolDeclaration}) =
+          {required DartLoadNamespaceSymbolDeclaration
+              loadNamespaceSymbolDeclaration}) =
       _$FromLoadNamespaceSymbolDeclaration;
   factory DartIr.fromMethodInjectionImplementation(
-          {@required
-              DartMethodInjectionImplementation
-                  methodInjectionImplementation}) =
-      _$FromMethodInjectionImplementation;
+      {required DartMethodInjectionImplementation
+          methodInjectionImplementation}) = _$FromMethodInjectionImplementation;
   factory DartIr.fromRTManagedClassDeclaration(
-          {@required DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
+          {required DartRTManagedClassDeclaration rtManagedClassDeclaration}) =
       _$FromRTManagedClassDeclaration;
   factory DartIr.fromDartStaticMethodNamespaceSymbolDeclaration(
-          {@required
-              DartStaticMethodNamespaceSymbolDeclaration
-                  staticMethodNamespaceSymbolDeclaration}) =
+          {required DartStaticMethodNamespaceSymbolDeclaration
+              staticMethodNamespaceSymbolDeclaration}) =
       _$FromDartStaticMethodNamespaceSymbolDeclaration;
   factory DartIr.fromVMManagedClassDeclaration(
-          {@required DartVMManagedClassDeclaration vmManagedClassDeclaration}) =
+          {required DartVMManagedClassDeclaration vmManagedClassDeclaration}) =
       _$FromVMManagedClassDeclaration;
   factory DartIr.fromVMManagedClassMethodInjectionImplementation(
-          {@required
-              DartVMManagedClassMethodInjectionImplementation
-                  vmManagedClassMethodInjectionImplementation}) =
+          {required DartVMManagedClassMethodInjectionImplementation
+              vmManagedClassMethodInjectionImplementation}) =
       _$FromVMManagedClassMethodInjectionImplementation;
 }
 
 extension DartIrMethods on DartIr {
-  String toDartSource() => when(
+  String? toDartSource() => when(
         fromDartBarrelLoadNamespaceSymbolDeclaration: (val) =>
             val.toDartSource(),
         fromDartBindInstanceField: (val) => val.toDartSource(),

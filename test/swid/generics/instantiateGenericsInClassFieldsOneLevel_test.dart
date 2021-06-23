@@ -110,10 +110,10 @@ void main() {
         swidClass: iterable,
       ),
     ).when(
-      fromSwidInterface: (_) => null,
+      fromSwidInterface: (_) => dartUnknownClass,
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) => null,
-      fromSwidFunctionType: (_) => null,
+      fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+      fromSwidFunctionType: (_) => dartUnknownClass,
     );
 
     expect(
@@ -123,7 +123,7 @@ void main() {
 
     expect(
         replacedIterable.methods.last.returnType
-            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null)
+            .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null)!
             .displayName,
         "Iterator<double>");
   }, tags: "swid");

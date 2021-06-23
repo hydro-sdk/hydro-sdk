@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'tsFunctionInvocationNamedParameters.dart';
 
@@ -8,6 +8,10 @@ part of 'tsFunctionInvocationNamedParameters.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 TsFunctionInvocationNamedParameters
     _$TsFunctionInvocationNamedParametersFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
@@ -25,74 +29,74 @@ TsFunctionInvocationNamedParameters
 class _$TsFunctionInvocationNamedParametersTearOff {
   const _$TsFunctionInvocationNamedParametersTearOff();
 
-// ignore: unused_element
   _$FromSpread fromSpread(
-      {@required
-          TsFunctionInvocationNamedParametersSpread
-              tsFunctionInvocationNamedParametersSpread}) {
+      {required TsFunctionInvocationNamedParametersSpread
+          tsFunctionInvocationNamedParametersSpread}) {
     return _$FromSpread(
       tsFunctionInvocationNamedParametersSpread:
           tsFunctionInvocationNamedParametersSpread,
     );
   }
 
-// ignore: unused_element
   _$FromKeyValue fromKeyValue(
-      {@required
-          TsFunctionInvocationNamedParametersKeyValue
-              tsFunctionInvocationNamedParametersKeyValue}) {
+      {required TsFunctionInvocationNamedParametersKeyValue
+          tsFunctionInvocationNamedParametersKeyValue}) {
     return _$FromKeyValue(
       tsFunctionInvocationNamedParametersKeyValue:
           tsFunctionInvocationNamedParametersKeyValue,
     );
   }
 
-// ignore: unused_element
   TsFunctionInvocationNamedParameters fromJson(Map<String, Object> json) {
     return TsFunctionInvocationNamedParameters.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TsFunctionInvocationNamedParameters =
     _$TsFunctionInvocationNamedParametersTearOff();
 
 /// @nodoc
 mixin _$TsFunctionInvocationNamedParameters {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromSpread(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required
-        TResult fromKeyValue(
+                tsFunctionInvocationNamedParametersSpread)
+        fromSpread,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
-  });
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromKeyValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromSpread,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromKeyValue,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromSpread(_$FromSpread value),
-    @required TResult fromKeyValue(_$FromKeyValue value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromSpread value) fromSpread,
+    required TResult Function(_$FromKeyValue value) fromKeyValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromSpread(_$FromSpread value),
-    TResult fromKeyValue(_$FromKeyValue value),
-    @required TResult orElse(),
-  });
-  Map<String, dynamic> toJson();
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromSpread value)? fromSpread,
+    TResult Function(_$FromKeyValue value)? fromKeyValue,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -139,13 +143,13 @@ class __$$FromSpreadCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsFunctionInvocationNamedParametersSpread = freezed,
+    Object? tsFunctionInvocationNamedParametersSpread = freezed,
   }) {
     return _then(_$FromSpread(
       tsFunctionInvocationNamedParametersSpread:
           tsFunctionInvocationNamedParametersSpread == freezed
               ? _value.tsFunctionInvocationNamedParametersSpread
-              : tsFunctionInvocationNamedParametersSpread
+              : tsFunctionInvocationNamedParametersSpread // ignore: cast_nullable_to_non_nullable
                   as TsFunctionInvocationNamedParametersSpread,
     ));
   }
@@ -153,9 +157,6 @@ class __$$FromSpreadCopyWithImpl<$Res>
   @override
   $TsFunctionInvocationNamedParametersSpreadCopyWith<$Res>
       get tsFunctionInvocationNamedParametersSpread {
-    if (_value.tsFunctionInvocationNamedParametersSpread == null) {
-      return null;
-    }
     return $TsFunctionInvocationNamedParametersSpreadCopyWith<$Res>(
         _value.tsFunctionInvocationNamedParametersSpread, (value) {
       return _then(
@@ -164,12 +165,10 @@ class __$$FromSpreadCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$FromSpread implements _$FromSpread {
-  _$_$FromSpread({@required this.tsFunctionInvocationNamedParametersSpread})
-      : assert(tsFunctionInvocationNamedParametersSpread != null);
+  _$_$FromSpread({required this.tsFunctionInvocationNamedParametersSpread});
 
   factory _$_$FromSpread.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSpreadFromJson(json);
@@ -207,33 +206,32 @@ class _$_$FromSpread implements _$FromSpread {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromSpread(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required
-        TResult fromKeyValue(
+                tsFunctionInvocationNamedParametersSpread)
+        fromSpread,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromKeyValue,
   }) {
-    assert(fromSpread != null);
-    assert(fromKeyValue != null);
     return fromSpread(tsFunctionInvocationNamedParametersSpread);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromSpread,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromKeyValue,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromSpread != null) {
       return fromSpread(tsFunctionInvocationNamedParametersSpread);
     }
@@ -242,23 +240,20 @@ class _$_$FromSpread implements _$FromSpread {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromSpread(_$FromSpread value),
-    @required TResult fromKeyValue(_$FromKeyValue value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromSpread value) fromSpread,
+    required TResult Function(_$FromKeyValue value) fromKeyValue,
   }) {
-    assert(fromSpread != null);
-    assert(fromKeyValue != null);
     return fromSpread(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromSpread(_$FromSpread value),
-    TResult fromKeyValue(_$FromKeyValue value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromSpread value)? fromSpread,
+    TResult Function(_$FromKeyValue value)? fromKeyValue,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromSpread != null) {
       return fromSpread(this);
     }
@@ -273,17 +268,18 @@ class _$_$FromSpread implements _$FromSpread {
 
 abstract class _$FromSpread implements TsFunctionInvocationNamedParameters {
   factory _$FromSpread(
-      {@required
-          TsFunctionInvocationNamedParametersSpread
-              tsFunctionInvocationNamedParametersSpread}) = _$_$FromSpread;
+      {required TsFunctionInvocationNamedParametersSpread
+          tsFunctionInvocationNamedParametersSpread}) = _$_$FromSpread;
 
   factory _$FromSpread.fromJson(Map<String, dynamic> json) =
       _$_$FromSpread.fromJson;
 
   TsFunctionInvocationNamedParametersSpread
-      get tsFunctionInvocationNamedParametersSpread;
+      get tsFunctionInvocationNamedParametersSpread =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromSpreadCopyWith<_$FromSpread> get copyWith;
+  _$$FromSpreadCopyWith<_$FromSpread> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -312,13 +308,13 @@ class __$$FromKeyValueCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object tsFunctionInvocationNamedParametersKeyValue = freezed,
+    Object? tsFunctionInvocationNamedParametersKeyValue = freezed,
   }) {
     return _then(_$FromKeyValue(
       tsFunctionInvocationNamedParametersKeyValue:
           tsFunctionInvocationNamedParametersKeyValue == freezed
               ? _value.tsFunctionInvocationNamedParametersKeyValue
-              : tsFunctionInvocationNamedParametersKeyValue
+              : tsFunctionInvocationNamedParametersKeyValue // ignore: cast_nullable_to_non_nullable
                   as TsFunctionInvocationNamedParametersKeyValue,
     ));
   }
@@ -326,9 +322,6 @@ class __$$FromKeyValueCopyWithImpl<$Res>
   @override
   $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res>
       get tsFunctionInvocationNamedParametersKeyValue {
-    if (_value.tsFunctionInvocationNamedParametersKeyValue == null) {
-      return null;
-    }
     return $TsFunctionInvocationNamedParametersKeyValueCopyWith<$Res>(
         _value.tsFunctionInvocationNamedParametersKeyValue, (value) {
       return _then(
@@ -337,12 +330,10 @@ class __$$FromKeyValueCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$FromKeyValue implements _$FromKeyValue {
-  _$_$FromKeyValue({@required this.tsFunctionInvocationNamedParametersKeyValue})
-      : assert(tsFunctionInvocationNamedParametersKeyValue != null);
+  _$_$FromKeyValue({required this.tsFunctionInvocationNamedParametersKeyValue});
 
   factory _$_$FromKeyValue.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromKeyValueFromJson(json);
@@ -380,33 +371,32 @@ class _$_$FromKeyValue implements _$FromKeyValue {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult fromSpread(
+  TResult when<TResult extends Object?>({
+    required TResult Function(
             TsFunctionInvocationNamedParametersSpread
-                tsFunctionInvocationNamedParametersSpread),
-    @required
-        TResult fromKeyValue(
+                tsFunctionInvocationNamedParametersSpread)
+        fromSpread,
+    required TResult Function(
             TsFunctionInvocationNamedParametersKeyValue
-                tsFunctionInvocationNamedParametersKeyValue),
+                tsFunctionInvocationNamedParametersKeyValue)
+        fromKeyValue,
   }) {
-    assert(fromSpread != null);
-    assert(fromKeyValue != null);
     return fromKeyValue(tsFunctionInvocationNamedParametersKeyValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromSpread(
-        TsFunctionInvocationNamedParametersSpread
-            tsFunctionInvocationNamedParametersSpread),
-    TResult fromKeyValue(
-        TsFunctionInvocationNamedParametersKeyValue
-            tsFunctionInvocationNamedParametersKeyValue),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TsFunctionInvocationNamedParametersSpread
+                tsFunctionInvocationNamedParametersSpread)?
+        fromSpread,
+    TResult Function(
+            TsFunctionInvocationNamedParametersKeyValue
+                tsFunctionInvocationNamedParametersKeyValue)?
+        fromKeyValue,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromKeyValue != null) {
       return fromKeyValue(tsFunctionInvocationNamedParametersKeyValue);
     }
@@ -415,23 +405,20 @@ class _$_$FromKeyValue implements _$FromKeyValue {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromSpread(_$FromSpread value),
-    @required TResult fromKeyValue(_$FromKeyValue value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$FromSpread value) fromSpread,
+    required TResult Function(_$FromKeyValue value) fromKeyValue,
   }) {
-    assert(fromSpread != null);
-    assert(fromKeyValue != null);
     return fromKeyValue(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromSpread(_$FromSpread value),
-    TResult fromKeyValue(_$FromKeyValue value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$FromSpread value)? fromSpread,
+    TResult Function(_$FromKeyValue value)? fromKeyValue,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromKeyValue != null) {
       return fromKeyValue(this);
     }
@@ -446,15 +433,16 @@ class _$_$FromKeyValue implements _$FromKeyValue {
 
 abstract class _$FromKeyValue implements TsFunctionInvocationNamedParameters {
   factory _$FromKeyValue(
-      {@required
-          TsFunctionInvocationNamedParametersKeyValue
-              tsFunctionInvocationNamedParametersKeyValue}) = _$_$FromKeyValue;
+      {required TsFunctionInvocationNamedParametersKeyValue
+          tsFunctionInvocationNamedParametersKeyValue}) = _$_$FromKeyValue;
 
   factory _$FromKeyValue.fromJson(Map<String, dynamic> json) =
       _$_$FromKeyValue.fromJson;
 
   TsFunctionInvocationNamedParametersKeyValue
-      get tsFunctionInvocationNamedParametersKeyValue;
+      get tsFunctionInvocationNamedParametersKeyValue =>
+          throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$FromKeyValueCopyWith<_$FromKeyValue> get copyWith;
+  _$$FromKeyValueCopyWith<_$FromKeyValue> get copyWith =>
+      throw _privateConstructorUsedError;
 }

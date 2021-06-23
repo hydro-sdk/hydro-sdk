@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidiInterface.dart';
 
@@ -9,16 +9,18 @@ part of 'swidiInterface.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SwidiInterfaceTearOff {
   const _$SwidiInterfaceTearOff();
 
-// ignore: unused_element
   _$SwidiInterfaceCtor call(
-      {@required String name,
-      @required SwidiLibraryScopePrefix libraryScopePrefix,
-      @required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-      @required SwidiNullabilitySuffix nullabilitySuffix}) {
+      {required String name,
+      required SwidiLibraryScopePrefix libraryScopePrefix,
+      required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
+      required SwidiNullabilitySuffix nullabilitySuffix}) {
     return _$SwidiInterfaceCtor(
       name: name,
       libraryScopePrefix: libraryScopePrefix,
@@ -29,18 +31,21 @@ class _$SwidiInterfaceTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidiInterface = _$SwidiInterfaceTearOff();
 
 /// @nodoc
 mixin _$SwidiInterface {
-  String get name;
-  SwidiLibraryScopePrefix get libraryScopePrefix;
-  SwidiReferenceDeclarationPrefix get referenceDeclarationPrefix;
-  SwidiNullabilitySuffix get nullabilitySuffix;
+  String get name => throw _privateConstructorUsedError;
+  SwidiLibraryScopePrefix get libraryScopePrefix =>
+      throw _privateConstructorUsedError;
+  SwidiReferenceDeclarationPrefix get referenceDeclarationPrefix =>
+      throw _privateConstructorUsedError;
+  SwidiNullabilitySuffix get nullabilitySuffix =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiInterfaceCopyWith<SwidiInterface> get copyWith;
+  $SwidiInterfaceCopyWith<SwidiInterface> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -69,30 +74,33 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object libraryScopePrefix = freezed,
-    Object referenceDeclarationPrefix = freezed,
-    Object nullabilitySuffix = freezed,
+    Object? name = freezed,
+    Object? libraryScopePrefix = freezed,
+    Object? referenceDeclarationPrefix = freezed,
+    Object? nullabilitySuffix = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
-          : libraryScopePrefix as SwidiLibraryScopePrefix,
+          : libraryScopePrefix // ignore: cast_nullable_to_non_nullable
+              as SwidiLibraryScopePrefix,
       referenceDeclarationPrefix: referenceDeclarationPrefix == freezed
           ? _value.referenceDeclarationPrefix
-          : referenceDeclarationPrefix as SwidiReferenceDeclarationPrefix,
+          : referenceDeclarationPrefix // ignore: cast_nullable_to_non_nullable
+              as SwidiReferenceDeclarationPrefix,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidiNullabilitySuffix,
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidiNullabilitySuffix,
     ));
   }
 
   @override
   $SwidiLibraryScopePrefixCopyWith<$Res> get libraryScopePrefix {
-    if (_value.libraryScopePrefix == null) {
-      return null;
-    }
     return $SwidiLibraryScopePrefixCopyWith<$Res>(_value.libraryScopePrefix,
         (value) {
       return _then(_value.copyWith(libraryScopePrefix: value));
@@ -102,9 +110,6 @@ class _$SwidiInterfaceCopyWithImpl<$Res>
   @override
   $SwidiReferenceDeclarationPrefixCopyWith<$Res>
       get referenceDeclarationPrefix {
-    if (_value.referenceDeclarationPrefix == null) {
-      return null;
-    }
     return $SwidiReferenceDeclarationPrefixCopyWith<$Res>(
         _value.referenceDeclarationPrefix, (value) {
       return _then(_value.copyWith(referenceDeclarationPrefix: value));
@@ -144,37 +149,40 @@ class __$$SwidiInterfaceCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object libraryScopePrefix = freezed,
-    Object referenceDeclarationPrefix = freezed,
-    Object nullabilitySuffix = freezed,
+    Object? name = freezed,
+    Object? libraryScopePrefix = freezed,
+    Object? referenceDeclarationPrefix = freezed,
+    Object? nullabilitySuffix = freezed,
   }) {
     return _then(_$SwidiInterfaceCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       libraryScopePrefix: libraryScopePrefix == freezed
           ? _value.libraryScopePrefix
-          : libraryScopePrefix as SwidiLibraryScopePrefix,
+          : libraryScopePrefix // ignore: cast_nullable_to_non_nullable
+              as SwidiLibraryScopePrefix,
       referenceDeclarationPrefix: referenceDeclarationPrefix == freezed
           ? _value.referenceDeclarationPrefix
-          : referenceDeclarationPrefix as SwidiReferenceDeclarationPrefix,
+          : referenceDeclarationPrefix // ignore: cast_nullable_to_non_nullable
+              as SwidiReferenceDeclarationPrefix,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidiNullabilitySuffix,
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidiNullabilitySuffix,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
   const _$_$SwidiInterfaceCtor(
-      {@required this.name,
-      @required this.libraryScopePrefix,
-      @required this.referenceDeclarationPrefix,
-      @required this.nullabilitySuffix})
-      : assert(name != null),
-        assert(libraryScopePrefix != null),
-        assert(referenceDeclarationPrefix != null),
-        assert(nullabilitySuffix != null);
+      {required this.name,
+      required this.libraryScopePrefix,
+      required this.referenceDeclarationPrefix,
+      required this.nullabilitySuffix});
 
   @override
   final String name;
@@ -226,21 +234,25 @@ class _$_$SwidiInterfaceCtor implements _$SwidiInterfaceCtor {
 
 abstract class _$SwidiInterfaceCtor implements SwidiInterface {
   const factory _$SwidiInterfaceCtor(
-          {@required String name,
-          @required SwidiLibraryScopePrefix libraryScopePrefix,
-          @required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
-          @required SwidiNullabilitySuffix nullabilitySuffix}) =
+          {required String name,
+          required SwidiLibraryScopePrefix libraryScopePrefix,
+          required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
+          required SwidiNullabilitySuffix nullabilitySuffix}) =
       _$_$SwidiInterfaceCtor;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  SwidiLibraryScopePrefix get libraryScopePrefix;
+  SwidiLibraryScopePrefix get libraryScopePrefix =>
+      throw _privateConstructorUsedError;
   @override
-  SwidiReferenceDeclarationPrefix get referenceDeclarationPrefix;
+  SwidiReferenceDeclarationPrefix get referenceDeclarationPrefix =>
+      throw _privateConstructorUsedError;
   @override
-  SwidiNullabilitySuffix get nullabilitySuffix;
+  SwidiNullabilitySuffix get nullabilitySuffix =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$SwidiInterfaceCtorCopyWith<_$SwidiInterfaceCtor> get copyWith;
+  _$$SwidiInterfaceCtorCopyWith<_$SwidiInterfaceCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

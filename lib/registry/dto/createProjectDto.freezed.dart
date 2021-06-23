@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'createProjectDto.dart';
 
@@ -8,6 +8,10 @@ part of 'createProjectDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 CreateProjectDto _$CreateProjectDtoFromJson(Map<String, dynamic> json) {
   return _$CreateProjectDtoCtor.fromJson(json);
 }
@@ -16,33 +20,31 @@ CreateProjectDto _$CreateProjectDtoFromJson(Map<String, dynamic> json) {
 class _$CreateProjectDtoTearOff {
   const _$CreateProjectDtoTearOff();
 
-// ignore: unused_element
   _$CreateProjectDtoCtor call(
-      {@required String name, @required String description}) {
+      {required String name, required String description}) {
     return _$CreateProjectDtoCtor(
       name: name,
       description: description,
     );
   }
 
-// ignore: unused_element
   CreateProjectDto fromJson(Map<String, Object> json) {
     return CreateProjectDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateProjectDto = _$CreateProjectDtoTearOff();
 
 /// @nodoc
 mixin _$CreateProjectDto {
-  String get name;
-  String get description;
+  String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreateProjectDtoCopyWith<CreateProjectDto> get copyWith;
+  $CreateProjectDtoCopyWith<CreateProjectDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -64,13 +66,18 @@ class _$CreateProjectDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
-      description:
-          description == freezed ? _value.description : description as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -98,25 +105,27 @@ class __$$CreateProjectDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object description = freezed,
+    Object? name = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$CreateProjectDtoCtor(
-      name: name == freezed ? _value.name : name as String,
-      description:
-          description == freezed ? _value.description : description as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$CreateProjectDtoCtor implements _$CreateProjectDtoCtor {
   const _$_$CreateProjectDtoCtor(
-      {@required this.name, @required this.description})
-      : assert(name != null),
-        assert(description != null);
+      {required this.name, required this.description});
 
   factory _$_$CreateProjectDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$CreateProjectDtoCtorFromJson(json);
@@ -162,17 +171,18 @@ class _$_$CreateProjectDtoCtor implements _$CreateProjectDtoCtor {
 
 abstract class _$CreateProjectDtoCtor implements CreateProjectDto {
   const factory _$CreateProjectDtoCtor(
-      {@required String name,
-      @required String description}) = _$_$CreateProjectDtoCtor;
+      {required String name,
+      required String description}) = _$_$CreateProjectDtoCtor;
 
   factory _$CreateProjectDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreateProjectDtoCtor.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$CreateProjectDtoCtorCopyWith<_$CreateProjectDtoCtor> get copyWith;
+  _$$CreateProjectDtoCtorCopyWith<_$CreateProjectDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

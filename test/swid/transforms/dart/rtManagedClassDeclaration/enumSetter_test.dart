@@ -92,7 +92,7 @@ void main() {
         isMixin: false);
     expect(DartRTManagedClassDeclaration(swidClass: ast).toDartSource(), """
 class RTManagedPath extends Path implements Box<Path> {
-  RTManagedPath({@required this.table, @required this.hydroState}) : super() {
+  RTManagedPath({required this.table, required this.hydroState}) : super() {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];

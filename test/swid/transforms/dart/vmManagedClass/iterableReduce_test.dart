@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -150,16 +151,17 @@ void main() {
         ]);
     expect(
         DartVMManagedClassDeclaration(
-                swidClass: instantiateAllGenericsAsDynamic(
-                        swidType: SwidType.fromSwidClass(swidClass: iterable))
-                    .maybeWhen(fromSwidClass: (val) => val, orElse: () => null))
-            .toDartSource(),
+          swidClass: instantiateAllGenericsAsDynamic(
+                  swidType: SwidType.fromSwidClass(swidClass: iterable))
+              .maybeWhen(
+            fromSwidClass: (val) => val,
+            orElse: () => dartUnknownClass,
+          ),
+        ).toDartSource(),
         """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -168,12 +170,10 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
     table[\'reduce\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure combine = args[1];
       return [
-        vmObject.reduce(combine != null
-            ? (value, element) => combine.dispatch(
-                  [args[0], value, element],
-                  parentState: hydroState,
-                )[0]
-            : null)
+        vmObject.reduce((value, element) => combine.dispatch(
+              [args[0], value, element],
+              parentState: hydroState,
+            )[0])
       ];
     });
   }

@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
@@ -13,9 +12,9 @@ import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 
 List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
-  @required String packageName,
-  @required List<String> prefixPaths,
-  @required BarrelSpec barrelSpec,
+  required String packageName,
+  required List<String> prefixPaths,
+  required BarrelSpec barrelSpec,
 }) =>
     [
       DartTranslationUnit(
@@ -79,7 +78,10 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
                         ].join()))
                       ]
                     : [])
-                .reduce((value, element) => [...value, ...element]),
+                .reduce((value, element) => [
+                      ...value,
+                      ...element,
+                    ]),
             DartIr.fromDartBarrelLoadNamespaceSymbolDeclaration(
                 dartBarrelLoadNamespaceSymbolDeclaration:
                     DartBarrelLoadNamespaceSymbolDeclaration(
@@ -93,12 +95,12 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
             .map((x) =>
                 x.maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null))
             .where((x) => x != null)
-            .where((x) => x.name != "_internal")
+            .where((x) => x!.name != "_internal")
             .map(
               (x) => produceDartTranslationUnitsFromBarrelSpec(
                 packageName: packageName,
                 prefixPaths: prefixPaths,
-                barrelSpec: x,
+                barrelSpec: x!,
               ),
             )
             .toList(),

@@ -8,7 +8,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadCupertinoContextMenu(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["cupertinoContextMenu"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       CupertinoContextMenu(

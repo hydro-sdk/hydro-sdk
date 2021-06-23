@@ -225,9 +225,8 @@ export class Float64x2List implements IList<IFloat64x2>, ITypedData {
         end: number,
         replacement: IIterable<IFloat64x2>
     ) => void = undefined as any;
-    private readonly _dart_asMap: () => {
-        [index: number]: IFloat64x2;
-    } = undefined as any;
+    private readonly _dart_asMap: () => { [index: number]: IFloat64x2 } =
+        undefined as any;
     private readonly _dart_setFirst: (value: IFloat64x2) => void =
         undefined as any;
     private readonly _dart_setLast: (value: IFloat64x2) => void =

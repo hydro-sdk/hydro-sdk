@@ -2,8 +2,6 @@ import 'dart:collection';
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
   VMManagedPathMetrics(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -52,12 +48,10 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.map(f != null
-                ? (e) => f.dispatch(
-                      [args[0], e],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.map((e) => f.dispatch(
+                  [args[0], e],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -66,12 +60,10 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.where(test != null
-                ? (element) => test.dispatch(
-                      [args[0], element],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.where((element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -88,14 +80,13 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.expand(f != null
-                ? (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+            object: vmObject.expand(
+                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
                     f.dispatch(
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
-                    parentState: hydroState)
-                : null),
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -108,26 +99,23 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     });
     table['forEach'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure f = args[1];
-      vmObject.forEach(f != null
-          ? (element) => f.dispatch(
-                [args[0], element],
-                parentState: hydroState,
-              )
-          : null);
+      vmObject.forEach((element) => f.dispatch(
+            [args[0], element],
+            parentState: hydroState,
+          ));
       return [];
     });
     table['reduce'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure combine = args[1];
       return [
         maybeBoxObject<PathMetric>(
-            object: vmObject.reduce(combine != null
-                ? (value, element) => maybeUnBoxAndBuildArgument<PathMetric>(
+            object: vmObject.reduce(
+                (value, element) => maybeUnBoxAndBuildArgument<PathMetric>(
                     combine.dispatch(
                       [args[0], value, element],
                       parentState: hydroState,
                     )[0],
-                    parentState: hydroState)
-                : null),
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -137,23 +125,19 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       return [
         vmObject.fold(
             args[1],
-            combine != null
-                ? (previousValue, element) => combine.dispatch(
-                      [args[0], previousValue, element],
-                      parentState: hydroState,
-                    )[0]
-                : null)
+            (previousValue, element) => combine.dispatch(
+                  [args[0], previousValue, element],
+                  parentState: hydroState,
+                )[0])
       ];
     });
     table['every'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
       return [
-        vmObject.every(test != null
-            ? (element) => test.dispatch(
-                  [args[0], element],
-                  parentState: hydroState,
-                )[0]
-            : null)
+        vmObject.every((element) => test.dispatch(
+              [args[0], element],
+              parentState: hydroState,
+            )[0])
       ];
     });
     table['join'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -162,12 +146,10 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     table['any'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
       return [
-        vmObject.any(test != null
-            ? (element) => test.dispatch(
-                  [args[0], element],
-                  parentState: hydroState,
-                )[0]
-            : null)
+        vmObject.any((element) => test.dispatch(
+              [args[0], element],
+              parentState: hydroState,
+            )[0])
       ];
     });
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -202,12 +184,10 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.takeWhile(test != null
-                ? (value) => test.dispatch(
-                      [args[0], value],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.takeWhile((value) => test.dispatch(
+                  [args[0], value],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -224,12 +204,10 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.skipWhile(test != null
-                ? (value) => test.dispatch(
-                      [args[0], value],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.skipWhile((value) => test.dispatch(
+                  [args[0], value],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -240,22 +218,18 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.firstWhere(
-                test != null
-                    ? (element) => test.dispatch(
-                          [args[0], element],
-                          parentState: hydroState,
-                        )[0]
-                    : null,
-                orElse: orElse != null
-                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
-                        orElse.dispatch(
-                          [
-                            args[0],
-                          ],
-                          parentState: hydroState,
-                        )[0],
-                        parentState: hydroState)
-                    : null),
+                (element) => test.dispatch(
+                      [args[0], element],
+                      parentState: hydroState,
+                    )[0],
+                orElse: () => maybeUnBoxAndBuildArgument<PathMetric>(
+                    orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -266,22 +240,18 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.lastWhere(
-                test != null
-                    ? (element) => test.dispatch(
-                          [args[0], element],
-                          parentState: hydroState,
-                        )[0]
-                    : null,
-                orElse: orElse != null
-                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
-                        orElse.dispatch(
-                          [
-                            args[0],
-                          ],
-                          parentState: hydroState,
-                        )[0],
-                        parentState: hydroState)
-                    : null),
+                (element) => test.dispatch(
+                      [args[0], element],
+                      parentState: hydroState,
+                    )[0],
+                orElse: () => maybeUnBoxAndBuildArgument<PathMetric>(
+                    orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -292,22 +262,18 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.singleWhere(
-                test != null
-                    ? (element) => test.dispatch(
-                          [args[0], element],
-                          parentState: hydroState,
-                        )[0]
-                    : null,
-                orElse: orElse != null
-                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
-                        orElse.dispatch(
-                          [
-                            args[0],
-                          ],
-                          parentState: hydroState,
-                        )[0],
-                        parentState: hydroState)
-                    : null),
+                (element) => test.dispatch(
+                      [args[0], element],
+                      parentState: hydroState,
+                    )[0],
+                orElse: () => maybeUnBoxAndBuildArgument<PathMetric>(
+                    orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -365,11 +331,11 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
 }
 
 void loadPathMetrics(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<PathMetrics>(boxer: (
-      {@required PathMetrics vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required PathMetrics vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedPathMetrics(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

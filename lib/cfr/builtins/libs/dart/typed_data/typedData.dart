@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:typed_data';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedTypedData extends VMManagedBox<TypedData> {
   VMManagedTypedData(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -49,11 +45,11 @@ class VMManagedTypedData extends VMManagedBox<TypedData> {
 }
 
 void loadTypedData(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<TypedData>(boxer: (
-      {@required TypedData vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required TypedData vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedTypedData(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

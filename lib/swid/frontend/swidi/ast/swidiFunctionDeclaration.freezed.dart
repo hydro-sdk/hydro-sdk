@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidiFunctionDeclaration.dart';
 
@@ -9,17 +9,19 @@ part of 'swidiFunctionDeclaration.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SwidiFunctionDeclarationTearOff {
   const _$SwidiFunctionDeclarationTearOff();
 
-// ignore: unused_element
   _$SwidiFunctionDeclarationCtor call(
-      {@required String name,
-      @required SwidiInterface returnType,
-      @required List<SwidiPositionalParameter> positionalParameters,
-      @required List<SwidiOptionalParameter> optionalParameters,
-      @required List<SwidiNamedParameter> namedParameters}) {
+      {required String name,
+      required SwidiInterface returnType,
+      required List<SwidiPositionalParameter> positionalParameters,
+      required List<SwidiOptionalParameter> optionalParameters,
+      required List<SwidiNamedParameter> namedParameters}) {
     return _$SwidiFunctionDeclarationCtor(
       name: name,
       returnType: returnType,
@@ -31,19 +33,22 @@ class _$SwidiFunctionDeclarationTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidiFunctionDeclaration = _$SwidiFunctionDeclarationTearOff();
 
 /// @nodoc
 mixin _$SwidiFunctionDeclaration {
-  String get name;
-  SwidiInterface get returnType;
-  List<SwidiPositionalParameter> get positionalParameters;
-  List<SwidiOptionalParameter> get optionalParameters;
-  List<SwidiNamedParameter> get namedParameters;
+  String get name => throw _privateConstructorUsedError;
+  SwidiInterface get returnType => throw _privateConstructorUsedError;
+  List<SwidiPositionalParameter> get positionalParameters =>
+      throw _privateConstructorUsedError;
+  List<SwidiOptionalParameter> get optionalParameters =>
+      throw _privateConstructorUsedError;
+  List<SwidiNamedParameter> get namedParameters =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith;
+  $SwidiFunctionDeclarationCopyWith<SwidiFunctionDeclaration> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -72,34 +77,38 @@ class _$SwidiFunctionDeclarationCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object returnType = freezed,
-    Object positionalParameters = freezed,
-    Object optionalParameters = freezed,
-    Object namedParameters = freezed,
+    Object? name = freezed,
+    Object? returnType = freezed,
+    Object? positionalParameters = freezed,
+    Object? optionalParameters = freezed,
+    Object? namedParameters = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       returnType: returnType == freezed
           ? _value.returnType
-          : returnType as SwidiInterface,
+          : returnType // ignore: cast_nullable_to_non_nullable
+              as SwidiInterface,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
-          : positionalParameters as List<SwidiPositionalParameter>,
+          : positionalParameters // ignore: cast_nullable_to_non_nullable
+              as List<SwidiPositionalParameter>,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
-          : optionalParameters as List<SwidiOptionalParameter>,
+          : optionalParameters // ignore: cast_nullable_to_non_nullable
+              as List<SwidiOptionalParameter>,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
-          : namedParameters as List<SwidiNamedParameter>,
+          : namedParameters // ignore: cast_nullable_to_non_nullable
+              as List<SwidiNamedParameter>,
     ));
   }
 
   @override
   $SwidiInterfaceCopyWith<$Res> get returnType {
-    if (_value.returnType == null) {
-      return null;
-    }
     return $SwidiInterfaceCopyWith<$Res>(_value.returnType, (value) {
       return _then(_value.copyWith(returnType: value));
     });
@@ -140,44 +149,47 @@ class __$$SwidiFunctionDeclarationCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object returnType = freezed,
-    Object positionalParameters = freezed,
-    Object optionalParameters = freezed,
-    Object namedParameters = freezed,
+    Object? name = freezed,
+    Object? returnType = freezed,
+    Object? positionalParameters = freezed,
+    Object? optionalParameters = freezed,
+    Object? namedParameters = freezed,
   }) {
     return _then(_$SwidiFunctionDeclarationCtor(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       returnType: returnType == freezed
           ? _value.returnType
-          : returnType as SwidiInterface,
+          : returnType // ignore: cast_nullable_to_non_nullable
+              as SwidiInterface,
       positionalParameters: positionalParameters == freezed
           ? _value.positionalParameters
-          : positionalParameters as List<SwidiPositionalParameter>,
+          : positionalParameters // ignore: cast_nullable_to_non_nullable
+              as List<SwidiPositionalParameter>,
       optionalParameters: optionalParameters == freezed
           ? _value.optionalParameters
-          : optionalParameters as List<SwidiOptionalParameter>,
+          : optionalParameters // ignore: cast_nullable_to_non_nullable
+              as List<SwidiOptionalParameter>,
       namedParameters: namedParameters == freezed
           ? _value.namedParameters
-          : namedParameters as List<SwidiNamedParameter>,
+          : namedParameters // ignore: cast_nullable_to_non_nullable
+              as List<SwidiNamedParameter>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_$SwidiFunctionDeclarationCtor
     implements _$SwidiFunctionDeclarationCtor {
   const _$_$SwidiFunctionDeclarationCtor(
-      {@required this.name,
-      @required this.returnType,
-      @required this.positionalParameters,
-      @required this.optionalParameters,
-      @required this.namedParameters})
-      : assert(name != null),
-        assert(returnType != null),
-        assert(positionalParameters != null),
-        assert(optionalParameters != null),
-        assert(namedParameters != null);
+      {required this.name,
+      required this.returnType,
+      required this.positionalParameters,
+      required this.optionalParameters,
+      required this.namedParameters});
 
   @override
   final String name;
@@ -234,25 +246,28 @@ class _$_$SwidiFunctionDeclarationCtor
 abstract class _$SwidiFunctionDeclarationCtor
     implements SwidiFunctionDeclaration {
   const factory _$SwidiFunctionDeclarationCtor(
-          {@required String name,
-          @required SwidiInterface returnType,
-          @required List<SwidiPositionalParameter> positionalParameters,
-          @required List<SwidiOptionalParameter> optionalParameters,
-          @required List<SwidiNamedParameter> namedParameters}) =
+          {required String name,
+          required SwidiInterface returnType,
+          required List<SwidiPositionalParameter> positionalParameters,
+          required List<SwidiOptionalParameter> optionalParameters,
+          required List<SwidiNamedParameter> namedParameters}) =
       _$_$SwidiFunctionDeclarationCtor;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  SwidiInterface get returnType;
+  SwidiInterface get returnType => throw _privateConstructorUsedError;
   @override
-  List<SwidiPositionalParameter> get positionalParameters;
+  List<SwidiPositionalParameter> get positionalParameters =>
+      throw _privateConstructorUsedError;
   @override
-  List<SwidiOptionalParameter> get optionalParameters;
+  List<SwidiOptionalParameter> get optionalParameters =>
+      throw _privateConstructorUsedError;
   @override
-  List<SwidiNamedParameter> get namedParameters;
+  List<SwidiNamedParameter> get namedParameters =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$SwidiFunctionDeclarationCtorCopyWith<_$SwidiFunctionDeclarationCtor>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }

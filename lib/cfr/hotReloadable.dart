@@ -2,34 +2,27 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/loadBuiltins.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
-import 'package:hydro_sdk/cfr/decode/codedump.dart';
+import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
 import 'package:hydro_sdk/cfr/linkStatus.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
-import 'package:hydro_sdk/cfr/vm/prototype.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 mixin HotReloadable<T extends StatefulWidget> on State<T>
     implements PreloadableCustomNamespaces<T> {
   HydroState luaState = HydroState();
-  String lastHash;
-  HydroFunctionImpl func;
-  CoroutineResult res;
+  String? lastHash;
+  HydroFunctionImpl? func;
+  CoroutineResult? res;
 
-  Future<bool> hotReload(
-      {@required
-          Uint8List bytecodeImage,
-      @required
-          List<ModuleDebugInfo> symbols,
-      @required
-          String baseUrl,
-      @required
-          Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
-              thunks}) async {
+  Future<bool> hotReload({
+    required Uint8List bytecodeImage,
+    required List<ModuleDebugInfo>? symbols,
+    required String baseUrl,
+    required Map<String, NativeThunk> thunks,
+  }) async {
     var linkStatus = LinkStatus();
     luaState.symbols = symbols;
     var val = await luaState.loadBuffer(
@@ -41,22 +34,18 @@ mixin HotReloadable<T extends StatefulWidget> on State<T>
     print("I/Hydro: Reloaded function prototypes");
     setState(() {
       func = val;
-      res = func.pcall([], parentState: luaState);
+      res = func!.pcall([], parentState: luaState);
     });
-    WidgetsBinding.instance.reassembleApplication();
+    WidgetsBinding.instance!.reassembleApplication();
     return true;
   }
 
-  Future<void> fullRestart(
-      {@required
-          Uint8List bytecodeImage,
-      @required
-          String baseUrl,
-      @required
-          List<ModuleDebugInfo> symbols,
-      @required
-          Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
-              thunks}) async {
+  Future<void> fullRestart({
+    required Uint8List bytecodeImage,
+    required String baseUrl,
+    required List<ModuleDebugInfo>? symbols,
+    required Map<String, NativeThunk> thunks,
+  }) async {
     setState(() {
       luaState = HydroState();
       luaState.symbols = symbols;
@@ -79,7 +68,7 @@ mixin HotReloadable<T extends StatefulWidget> on State<T>
       //  print("I/Hydro Linked ${linkStatus.linkedNativePrototypes} native prototypes");
       setState(() {
         func = val;
-        res = func.pcall([], parentState: luaState);
+        res = func!.pcall([], parentState: luaState);
       });
     });
   }

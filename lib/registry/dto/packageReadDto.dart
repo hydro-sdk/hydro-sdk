@@ -1,23 +1,22 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'packageReadDto.freezed.dart';
 part 'packageReadDto.g.dart';
 
 @freezed
-abstract class PackageReadDto with _$PackageReadDto {
+class PackageReadDto with _$PackageReadDto {
   const factory PackageReadDto({
-    @required String id,
-    @required String createdAt,
-    @required String componentId,
-    @required String sha256,
-    @required String displayVersion,
-    @required String description,
-    @required String deploymentPublicKey,
-    @required String deploymentPublicKeySha256,
-    @required String readmeMd,
-    @required String pubspecYaml,
-    @required String pubspecLock,
+    required String id,
+    required String createdAt,
+    required String componentId,
+    required String sha256,
+    required String displayVersion,
+    required String description,
+    required String deploymentPublicKey,
+    required String deploymentPublicKeySha256,
+    required String readmeMd,
+    required String pubspecYaml,
+    required String pubspecLock,
   }) = _$PackageReadDtoCtor;
 
   factory PackageReadDto.fromJson(Map<String, dynamic> json) =>

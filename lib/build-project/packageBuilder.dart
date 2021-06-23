@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:archive/archive_io.dart';
 import 'package:cli_util/cli_logging.dart';
 import 'package:filesize/filesize.dart';
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/build-project/componentBuilder.dart';
@@ -13,17 +12,17 @@ import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 class PackageBuilder {
   final ProjectConfigComponent projectConfigComponent;
   final ComponentBuilder componentBuilder;
-  final String ts2hc;
-  final String cacheDir;
-  final String profile;
-  final String outDir;
+  final String? ts2hc;
+  final String? cacheDir;
+  final String? profile;
+  final String? outDir;
 
   const PackageBuilder({
-    @required this.projectConfigComponent,
-    @required this.componentBuilder,
-    @required this.ts2hc,
-    @required this.cacheDir,
-    @required this.profile,
+    required this.projectConfigComponent,
+    required this.componentBuilder,
+    required this.ts2hc,
+    required this.cacheDir,
+    required this.profile,
     this.outDir = "",
   });
 
@@ -63,8 +62,8 @@ class PackageBuilder {
 
       await outputPackageHash.writeAsString(sha256Data(bzip2));
 
-      if (outDir != null && outDir.isNotEmpty) {
-        await Directory(outDir).create(recursive: true);
+      if (outDir != null && outDir!.isNotEmpty) {
+        await Directory(outDir!).create(recursive: true);
 
         var copyPackagePath = [
           outDir,
@@ -90,7 +89,7 @@ class PackageBuilder {
     }
     progress.finish(showTiming: true);
 
-    if (copyMessage?.isNotEmpty ?? false) {
+    if (copyMessage.isNotEmpty) {
       print(copyMessage);
     }
     return true;

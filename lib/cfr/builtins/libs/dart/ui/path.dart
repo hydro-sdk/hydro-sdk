@@ -2,8 +2,6 @@ import 'dart:core';
 import 'dart:typed_data';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedPath extends VMManagedBox<Path> {
   VMManagedPath(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -224,7 +220,7 @@ class VMManagedPath extends VMManagedBox<Path> {
 }
 
 class RTManagedPath extends Path implements Box<Path> {
-  RTManagedPath({@required this.table, @required this.hydroState}) : super() {
+  RTManagedPath({required this.table, required this.hydroState}) : super() {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
@@ -562,13 +558,13 @@ class RTManagedPath extends Path implements Box<Path> {
   }
 
   @override
-  void addPath(Path path, Offset offset, {Float64List matrix4}) {
+  void addPath(Path path, Offset offset, {Float64List? matrix4}) {
     Closure closure = table["addPath"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
 
   @override
-  void extendWithPath(Path path, Offset offset, {Float64List matrix4}) {
+  void extendWithPath(Path path, Offset offset, {Float64List? matrix4}) {
     Closure closure = table["extendWithPath"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }
@@ -624,7 +620,7 @@ class RTManagedPath extends Path implements Box<Path> {
   }
 }
 
-void loadPath({@required HydroState hydroState, @required HydroTable table}) {
+void loadPath({required HydroState hydroState, required HydroTable table}) {
   table['path'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [RTManagedPath(table: args[0], hydroState: hydroState)];
   });
@@ -651,9 +647,9 @@ void loadPath({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Path>(boxer: (
-      {@required Path vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Path vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedPath(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedTangent extends VMManagedBox<Tangent> {
   VMManagedTangent(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -39,7 +35,7 @@ class VMManagedTangent extends VMManagedBox<Tangent> {
 
 class RTManagedTangent extends Tangent implements Box<Tangent> {
   RTManagedTangent(Offset position, Offset vector,
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super(
           position,
           vector,
@@ -70,8 +66,7 @@ class RTManagedTangent extends Tangent implements Box<Tangent> {
   }
 }
 
-void loadTangent(
-    {@required HydroState hydroState, @required HydroTable table}) {
+void loadTangent({required HydroState hydroState, required HydroTable table}) {
   table['tangent'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedTangent(
@@ -93,9 +88,9 @@ void loadTangent(
     ];
   });
   registerBoxer<Tangent>(boxer: (
-      {@required Tangent vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Tangent vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedTangent(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

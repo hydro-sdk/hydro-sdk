@@ -10,8 +10,7 @@ void main() {
     var testMode = getTestMode();
     expect(testMode, isNotNull);
 
-    await tester
-        .pumpWidget(integrationTestHarness("../assets/examples/counter"));
+    await tester.pumpWidget(integrationTestHarness("assets/examples/counter"));
     await tester.pumpAndSettle();
 
     var exception = tester.takeException();

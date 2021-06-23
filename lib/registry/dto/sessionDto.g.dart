@@ -8,10 +8,8 @@ part of 'sessionDto.dart';
 
 _$_$SessionDtoCtor _$_$_$SessionDtoCtorFromJson(Map<String, dynamic> json) {
   return _$_$SessionDtoCtor(
-    authenticatedUser: json['authenticatedUser'] == null
-        ? null
-        : AuthTokenDto.fromJson(
-            json['authenticatedUser'] as Map<String, dynamic>),
+    authenticatedUser: AuthTokenDto.fromJson(
+        json['authenticatedUser'] as Map<String, dynamic>),
     authToken: json['authToken'] as String,
   );
 }

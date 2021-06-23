@@ -1,6 +1,8 @@
 {
-    "inputPackagePath": "/Users/chgibb/Downloads/sky_engine",
-    "interfaces": [],
+    "inputPackagePath": "/Users/chgibb/Documents/dev/sky_engine",
+    "interfaces": [
+        "interfaces/*.i"
+    ],
     "emitOptions": {
         "prefixPaths": [
             "runtime"
@@ -10,6 +12,7 @@
                 "dart:typed_data"
             ],
             "classNames": [
+                "Random",
                 "Icons",
                 "CupertinoIcons",
                 "IconData",

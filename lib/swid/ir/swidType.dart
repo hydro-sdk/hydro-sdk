@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidDefaultFormalParameter.dart';
@@ -14,19 +13,19 @@ part 'swidType.freezed.dart';
 part 'swidType.g.dart';
 
 @freezed
-abstract class SwidType with _$SwidType {
+class SwidType with _$SwidType {
   const factory SwidType.fromSwidInterface(
-      {@required SwidInterface swidInterface}) = _$FromSwidInterface;
+      {required SwidInterface swidInterface}) = _$FromSwidInterface;
 
-  const factory SwidType.fromSwidClass({@required SwidClass swidClass}) =
+  const factory SwidType.fromSwidClass({required SwidClass swidClass}) =
       _$FromSwidClass;
 
   const factory SwidType.fromSwidDefaultFormalParameter(
-          {@required SwidDefaultFormalParameter swidDefaultFormalParameter}) =
+          {required SwidDefaultFormalParameter swidDefaultFormalParameter}) =
       _$FromSwidDefaultFormalParameter;
 
   const factory SwidType.fromSwidFunctionType(
-      {@required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
+      {required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
 
   factory SwidType.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFromJson(json);

@@ -7,7 +7,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class InheritedWidgetBox extends InheritedWidget {
   final HydroTable table;
   final HydroState parentState;
-  InheritedWidgetBox({@required this.table, @required this.parentState})
+  InheritedWidgetBox({required this.table, required this.parentState})
       : super(
             child: maybeUnBoxAndBuildArgument<Widget>(table["child"],
                 parentState: parentState));
@@ -17,15 +17,15 @@ class InheritedWidgetBox extends InheritedWidget {
 }
 
 void loadInheritedWidget() {
-  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState? parentState}) {
     if (box is HydroTable) {
-      String internalRuntimeType = maybeUnBoxRuntimeType(
+      String? internalRuntimeType = maybeUnBoxRuntimeType(
           managedObject: box, runtimeTypePropName: "internalRuntimeType");
 
       if (internalRuntimeType == "InheritedWidget") {
         return InheritedWidgetBox(
           table: box,
-          parentState: parentState,
+          parentState: parentState!,
         );
       }
     }

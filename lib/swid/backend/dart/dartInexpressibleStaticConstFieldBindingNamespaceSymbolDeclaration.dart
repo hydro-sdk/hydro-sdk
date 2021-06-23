@@ -8,11 +8,10 @@ import 'package:code_builder/code_builder.dart'
         Block,
         DartEmitter;
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
@@ -24,8 +23,8 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
   final SwidStaticConstFieldDeclaration swidStaticConstFieldDeclaration;
 
   DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration({
-    @required this.swidClass,
-    @required this.swidStaticConstFieldDeclaration,
+    required this.swidClass,
+    required this.swidStaticConstFieldDeclaration,
   });
 
   Code toCode() => refer("table")
@@ -42,21 +41,26 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
                     boxLists: true,
                     type: swidStaticConstFieldDeclaration.value
                         .when<SwidInterface>(
-                      fromSwidBooleanLiteral: (_) => null,
-                      fromSwidStringLiteral: (_) => null,
-                      fromSwidIntegerLiteral: (_) => null,
-                      fromDoubleLiteral: (_) => null,
+                      fromSwidBooleanLiteral: (_) => dartUnknownInterface,
+                      fromSwidStringLiteral: (_) => dartUnknownInterface,
+                      fromSwidIntegerLiteral: (_) => dartUnknownInterface,
+                      fromDoubleLiteral: (_) => dartUnknownInterface,
                       fromSwidStaticConstFunctionInvocation: (val) =>
                           val.staticType.when(
                         fromSwidInterface: (val) => val,
-                        fromSwidClass: (_) => null,
-                        fromSwidDefaultFormalParameter: (_) => null,
-                        fromSwidFunctionType: (_) => null,
+                        fromSwidClass: (_) => dartUnknownInterface,
+                        fromSwidDefaultFormalParameter: (_) =>
+                            dartUnknownInterface,
+                        fromSwidFunctionType: (_) => dartUnknownInterface,
                       ),
-                      fromSwidStaticConstFieldReference: (_) => null,
-                      fromSwidStaticConstPrefixedExpression: (_) => null,
-                      fromSwidStaticConstBinaryExpression: (_) => null,
-                      fromSwidStaticConstPrefixedIdentifier: (_) => null,
+                      fromSwidStaticConstFieldReference: (_) =>
+                          dartUnknownInterface,
+                      fromSwidStaticConstPrefixedExpression: (_) =>
+                          dartUnknownInterface,
+                      fromSwidStaticConstBinaryExpression: (_) =>
+                          dartUnknownInterface,
+                      fromSwidStaticConstPrefixedIdentifier: (_) =>
+                          dartUnknownInterface,
                     ),
                     objectReference: CodeExpression(
                       Code(

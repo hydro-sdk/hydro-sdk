@@ -2,7 +2,6 @@ import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, Block, Code;
 
 import 'package:dart_style/dart_style.dart';
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.dart';
@@ -16,9 +15,11 @@ import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 class DartMethodInjectionImplementation {
   final SwidFunctionType swidFunctionType;
 
-  DartMethodInjectionImplementation({@required this.swidFunctionType});
+  const DartMethodInjectionImplementation({
+    required this.swidFunctionType,
+  });
 
-  String _methodInvocation() =>
+  String? _methodInvocation() =>
       (swidFunctionType.swidDeclarationModifiers.isGetter
           ? (!swidFunctionType.swidDeclarationModifiers.isAbstract
                   ? "super."
@@ -40,7 +41,7 @@ class DartMethodInjectionImplementation {
   Block _nonVoidBody() => Block.of([
         Code(
             "${DartUnpackClosures(swidFunctionType: swidFunctionType).toDartSource()} return [" +
-                _methodInvocation() +
+                _methodInvocation()! +
                 "];")
       ]);
 
@@ -49,7 +50,7 @@ class DartMethodInjectionImplementation {
           swidFunctionType:
               transformAccessorName(swidFunctionType: swidFunctionType))))
       .assign(luaDartBinding(
-          code: swidFunctionType.returnType.when<Block>(
+          code: swidFunctionType.returnType.when<Block?>(
         fromSwidInterface: (val) =>
             narrowSwidInterfaceByReferenceDeclaration<Block>(
           swidInterface: val,
@@ -58,10 +59,11 @@ class DartMethodInjectionImplementation {
           onEnum: (_) => _nonVoidBody(),
           onTypeParameter: (_) => _nonVoidBody(),
           onDynamic: (_) => _nonVoidBody(),
+          onUnknown: (_) => _nonVoidBody(),
           onVoid: (_) => Block.of([
             Code(DartUnpackClosures(swidFunctionType: swidFunctionType)
                     .toDartSource() +
-                _methodInvocation() +
+                _methodInvocation()! +
                 ";" +
                 "\n" +
                 "return [];")

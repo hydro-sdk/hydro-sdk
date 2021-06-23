@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/backend/ts/tsLinebreak.dart';
@@ -12,8 +12,8 @@ import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 List<TsIr> tsImportBlock({
-  @required SwidClass swidClass,
-  @required List<String> prefixPaths,
+  required SwidClass swidClass,
+  required List<String> prefixPaths,
 }) {
   List<Tuple2<List<String>, String>> symbolModulePairs =
       resolveDependencyInformation(
@@ -27,6 +27,7 @@ List<TsIr> tsImportBlock({
                     onVoid: (_) => false,
                     onTypeParameter: (_) => false,
                     onDynamic: (_) => false,
+                    onUnknown: (_) => false,
                   ))
               .toList(),
           importer: SwidType.fromSwidClass(swidClass: swidClass),
@@ -45,22 +46,23 @@ List<TsIr> tsImportBlock({
                     onVoid: (_) => false,
                     onTypeParameter: (_) => false,
                     onDynamic: (_) => false,
+                    onUnknown: (_) => false,
                   ))
               .toList(),
           importer: SwidType.fromSwidClass(swidClass: swidClass),
           prefixPaths: prefixPaths);
 
-  staticConstSymbolModulePairs.forEach((x) => symbolModulePairs
-              .firstWhere((k) => k.item2 == x.item2, orElse: () => null) !=
-          null
-      ? symbolModulePairs
-          .setAll(symbolModulePairs.indexWhere((k) => k.item2 == x.item2), [
-          Tuple2<List<String>, String>(
-              symbolModulePairs.firstWhere((k) => k.item2 == x.item2).item1
-                ..addAll(x.item1),
-              x.item2)
-        ])
-      : symbolModulePairs.add(Tuple2<List<String>, String>(x.item1, x.item2)));
+  staticConstSymbolModulePairs.forEach((x) =>
+      symbolModulePairs.firstWhereOrNull((k) => k.item2 == x.item2) != null
+          ? symbolModulePairs
+              .setAll(symbolModulePairs.indexWhere((k) => k.item2 == x.item2), [
+              Tuple2<List<String>, String>(
+                  symbolModulePairs.firstWhere((k) => k.item2 == x.item2).item1
+                    ..addAll(x.item1),
+                  x.item2)
+            ])
+          : symbolModulePairs
+              .add(Tuple2<List<String>, String>(x.item1, x.item2)));
 
   var res = symbolModulePairs
       .map((x) => [

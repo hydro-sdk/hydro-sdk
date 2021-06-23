@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/coroutine/coroutinestatus.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
@@ -9,25 +7,25 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 class Thread {
-  Thread({@required Closure closure, @required this.hydroState}) {
+  Thread({required Closure closure, required this.hydroState}) {
     frame = newFrame(closure);
   }
 
   HydroState hydroState;
 
-  Frame newFrame(Closure closure) => new Frame(closure.proto,
+  Frame newFrame(Closure closure) => new Frame(closure.proto!,
       context: closure.context, upvalues: closure.upvalues, thread: this);
 
-  Frame frame;
-  Frame _resumeTo;
+  Frame? frame;
+  Frame? _resumeTo;
 
   CoroutineStatus status = CoroutineStatus.SUSPENDED;
   bool started = false;
 
-  List<dynamic> attemptCall(
+  List<dynamic>? attemptCall(
     dynamic x, {
     List<dynamic> args = const [],
-    @required HydroState hydroState,
+    required HydroState hydroState,
   }) {
     if (x is HydroTable) {
       return Context.invokeMetamethod(x, "__call", args,
@@ -38,6 +36,8 @@ class Thread {
       return x(this, args);
     } else if (x is Closure) {
       return x.dispatch(args, parentState: hydroState);
+    } else if (x is Null Function(List<dynamic>)) {
+      x(args);
     } else {
       throw "attempt to call a ${Context.getTypename(x)} value $x with $args";
     }
@@ -55,8 +55,8 @@ class Thread {
     status = CoroutineStatus.RUNNING;
 
     try {
-      _resumeTo.loadArgs(params);
-      var res = _resumeTo.cont();
+      _resumeTo!.loadArgs(params);
+      var res = _resumeTo!.cont();
       _resumeTo = res.resumeTo;
       status =
           _resumeTo != null ? CoroutineStatus.DEAD : CoroutineStatus.SUSPENDED;
