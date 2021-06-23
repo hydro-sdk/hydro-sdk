@@ -10,11 +10,9 @@ _$_$ProjectConfigCtor _$_$_$ProjectConfigCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$ProjectConfigCtor(
     project: json['project'] as String,
-    components: (json['components'] as List)
-        ?.map((e) => e == null
-            ? null
-            : ProjectConfigComponent.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    components: (json['components'] as List<dynamic>)
+        .map((e) => ProjectConfigComponent.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 

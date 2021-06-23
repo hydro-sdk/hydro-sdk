@@ -11,17 +11,22 @@ void main() {
 
     List<String> outLines = [];
 
-    state.context.env["print"] = (List<dynamic> args) {
+    state.context!.env["print"] = (List<dynamic> args) {
       outLines.add(args
           .map((a) => Context.luaToString(a, hydroState: state).toString())
           .join("\t"));
+      return [];
     };
 
     List<String> expectedOutLines = [
       "e91c254ad58860a02c788dfb5c1a65d6a8846ab1dc649631c7db16fef4af2dec"
     ];
 
-    var res = await state.doFile("lua/sha256.hc");
+    var res = await state.doFile("test/lua/sha256.hc");
+
+    if (!res.success) {
+      print(res.values);
+    }
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

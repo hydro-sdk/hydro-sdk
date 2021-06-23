@@ -225,9 +225,8 @@ export class Float32x4List implements IList<IFloat32x4>, ITypedData {
         end: number,
         replacement: IIterable<IFloat32x4>
     ) => void = undefined as any;
-    private readonly _dart_asMap: () => {
-        [index: number]: IFloat32x4;
-    } = undefined as any;
+    private readonly _dart_asMap: () => { [index: number]: IFloat32x4 } =
+        undefined as any;
     private readonly _dart_setFirst: (value: IFloat32x4) => void =
         undefined as any;
     private readonly _dart_setLast: (value: IFloat32x4) => void =

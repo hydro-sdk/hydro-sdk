@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 
@@ -7,21 +6,21 @@ part 'tsVmDeclaration.freezed.dart';
 part 'tsVmDeclaration.g.dart';
 
 @freezed
-abstract class TsVmDeclaration with _$TsVmDeclaration {
+class TsVmDeclaration with _$TsVmDeclaration {
   factory TsVmDeclaration({
-    @required String name,
-    @required List<SwidFunctionType> methods,
-    @required List<TsVmDeclaration> children,
+    required String name,
+    required List<SwidFunctionType?> methods,
+    required List<TsVmDeclaration> children,
   }) = _$Data;
 
   factory TsVmDeclaration.fromJson(Map<String, dynamic> json) =>
       _$TsVmDeclarationFromJson(json);
 
   factory TsVmDeclaration.clone({
-    @required TsVmDeclaration tsVmDeclaration,
-    String name,
-    List<SwidFunctionType> methods,
-    List<TsVmDeclaration> children,
+    required TsVmDeclaration tsVmDeclaration,
+    String? name,
+    List<SwidFunctionType?>? methods,
+    List<TsVmDeclaration>? children,
   }) =>
       TsVmDeclaration(
           name: name ?? tsVmDeclaration.name,

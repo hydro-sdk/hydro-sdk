@@ -1,5 +1,4 @@
-import 'package:meta/meta.dart';
-
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
@@ -10,7 +9,7 @@ enum SwidClassTypeFormalClosureKind {
 }
 
 List<SwidTypeFormal> unsatisfiedTypeParameters({
-  @required SwidType swidType,
+  required SwidType swidType,
   SwidClassTypeFormalClosureKind classTypeFormalClosureKind =
       SwidClassTypeFormalClosureKind.kNoCloseOverTypeFormalsInStaticMembers,
   List<SwidTypeFormal> ancestorTypeFormals = const [],
@@ -25,7 +24,7 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                   value: SwidTypeFormalValue.fromString(string: val.name),
                   swidReferenceDeclarationKind:
                       SwidReferenceDeclarationKind.typeParameterType)
-              : null),
+              : dartUnkownTypeFormal),
           ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
                   ? unsatisfiedTypes
@@ -36,8 +35,10 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                     ancestorTypeFormals: ancestorTypeFormals,
                   ))
               .toList())
-        ]..removeWhere((x) => x == null)),
-        fromSwidDefaultFormalParameter: (_) => null,
+        ]..removeWhere((x) => x == dartUnkownTypeFormal)),
+        fromSwidDefaultFormalParameter: (_) => [
+          dartUnkownTypeFormal,
+        ],
         fromSwidFunctionType: (val) => ([
           ...((List<List<SwidTypeFormal>> unsatisfiedTypes) =>
               unsatisfiedTypes.isNotEmpty
@@ -72,12 +73,12 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
               ...val.typeFormals,
             ],
           )
-        ]..removeWhere((x) => x == null)),
+        ]..removeWhere((x) => x == dartUnkownTypeFormal)),
         fromSwidClass: (val) => ([
           ...(val.constructorType != null
               ? unsatisfiedTypeParameters(
                   swidType: SwidType.fromSwidFunctionType(
-                      swidFunctionType: val.constructorType),
+                      swidFunctionType: val.constructorType!),
                   ancestorTypeFormals: [
                       ...ancestorTypeFormals,
                       ...val.typeFormals,
@@ -89,8 +90,9 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.factoryConstructors
               .map((x) => unsatisfiedTypeParameters(
-                      swidType:
-                          SwidType.fromSwidFunctionType(swidFunctionType: x),
+                      swidType: SwidType.fromSwidFunctionType(
+                        swidFunctionType: x,
+                      ),
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
                         ...(classTypeFormalClosureKind ==
@@ -106,8 +108,9 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.staticMethods
               .map((x) => unsatisfiedTypeParameters(
-                      swidType:
-                          SwidType.fromSwidFunctionType(swidFunctionType: x),
+                      swidType: SwidType.fromSwidFunctionType(
+                        swidFunctionType: x,
+                      ),
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
                         ...(classTypeFormalClosureKind ==
@@ -123,8 +126,9 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                       .reduce((value, element) => [...value, ...element])
                   : [])(val.methods
               .map((x) => unsatisfiedTypeParameters(
-                      swidType:
-                          SwidType.fromSwidFunctionType(swidFunctionType: x),
+                      swidType: SwidType.fromSwidFunctionType(
+                        swidFunctionType: x,
+                      ),
                       ancestorTypeFormals: [
                         ...ancestorTypeFormals,
                         ...val.typeFormals,
@@ -142,7 +146,7 @@ List<SwidTypeFormal> unsatisfiedTypeParameters({
                         ...val.typeFormals,
                       ]))
               .toList()),
-        ]..removeWhere((x) => x == null)),
+        ]..removeWhere((x) => x == dartUnkownTypeFormal)),
       )
     ])
-      ..removeWhere((x) => x == null);
+      ..removeWhere((x) => x == dartUnkownTypeFormal);

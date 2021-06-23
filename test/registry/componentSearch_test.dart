@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -46,24 +47,25 @@ void main() {
       expect(createProjectResponse, isNull);
 
       final loginResponse = await api.login(
-          dto: LoginUserDto(
-        username: username,
-        password: password,
-      ));
+        dto: LoginUserDto(
+          username: username,
+          password: password,
+        ),
+      );
 
       expect(loginResponse, isNotNull);
-      expect(loginResponse.authenticatedUser.username, username);
+      expect(loginResponse?.authenticatedUser.username, username);
 
       createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: loginResponse,
+        sessionDto: loginResponse!,
       );
 
       expect(createProjectResponse, isNotNull);
-      expect(createProjectResponse.name, projectName);
+      expect(createProjectResponse!.name, projectName);
       expect(createProjectResponse.description, projectDescription);
 
       var canUpdateProjectResponse = await api.canUpdateProjects(
@@ -76,9 +78,8 @@ void main() {
         sessionDto: loginResponse,
       );
 
-      var createdProject = canUpdateProjectResponse.firstWhere(
-          (x) => x.name == createProjectResponse.name,
-          orElse: () => null);
+      var createdProject = canUpdateProjectResponse!
+          .firstWhereOrNull((x) => x.name == createProjectResponse!.name)!;
 
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);
@@ -104,7 +105,7 @@ void main() {
       );
 
       expect(createComponentResponse, isNotNull);
-      expect(createComponentResponse.name, componentName);
+      expect(createComponentResponse!.name, componentName);
       expect(createComponentResponse.description, componentDescription);
 
       var canUpdateComponentResponse = await api.canUpdateComponents(
@@ -113,21 +114,21 @@ void main() {
 
       expect(canUpdateComponentResponse, isNotNull);
       expect(
-          canUpdateComponentResponse.first.name, createComponentResponse.name);
-      expect(canUpdateComponentResponse.first.description,
+          canUpdateComponentResponse?.first.name, createComponentResponse.name);
+      expect(canUpdateComponentResponse?.first.description,
           createComponentResponse.description);
 
       var componentSearchResponse =
           await api.searchComponents(searchTerm: componentName);
       expect(componentSearchResponse, isNotNull);
-      expect(componentSearchResponse.isNotEmpty, true);
-      expect(componentSearchResponse.length, 1);
+      expect(componentSearchResponse?.isNotEmpty, true);
+      expect(componentSearchResponse?.length, 1);
 
       componentSearchResponse = await api.searchComponents(searchTerm: "test");
       expect(componentSearchResponse, isNotNull);
-      expect(componentSearchResponse.isNotEmpty, true);
-      expect(componentSearchResponse.length, greaterThan(1));
-      expect(componentSearchResponse.length, lessThanOrEqualTo(10));
+      expect(componentSearchResponse?.isNotEmpty, true);
+      expect(componentSearchResponse?.length, greaterThan(1));
+      expect(componentSearchResponse?.length, lessThanOrEqualTo(10));
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

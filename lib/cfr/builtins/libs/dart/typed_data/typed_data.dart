@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/byteBuffer.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/byteData.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/endian.dart';
@@ -21,11 +19,12 @@ import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/uint32List.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/uint64List.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/uint8ClampedList.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/uint8List.dart';
+import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/unmodifiableByteDataView.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadtyped_data(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   final typed_data = HydroTable();
   table['typed_data'] = typed_data;
   loadByteBuffer(table: typed_data, hydroState: hydroState);
@@ -49,4 +48,5 @@ void loadtyped_data(
   loadFloat32x4(table: typed_data, hydroState: hydroState);
   loadInt32x4(table: typed_data, hydroState: hydroState);
   loadFloat64x2(table: typed_data, hydroState: hydroState);
+  loadUnmodifiableByteDataView(table: typed_data, hydroState: hydroState);
 }

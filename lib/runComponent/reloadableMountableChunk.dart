@@ -3,11 +3,11 @@ part of hydro_sdk.run_component;
 mixin ReloadableMountableChunk<T extends StatefulWidget> on State<T>
     implements HotReloadable<T> {
   Future<void> maybeReloadMountableChunk({
-    @required Uint8List rawPackage,
-    @required String component,
-    @required
-        Map<String, Prototype Function({CodeDump codeDump, Prototype parent})>
-            thunks,
+    required Uint8List rawPackage,
+    required String component,
+    required Map<String,
+            Prototype Function({CodeDump? codeDump, Prototype? parent})>
+        thunks,
   }) async {
     final decodedBzip2 = BZip2Decoder().decodeBytes(rawPackage);
     final decodedTar = TarDecoder().decodeBytes(decodedBzip2);

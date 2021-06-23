@@ -15,25 +15,25 @@ mixin SwidiTypeParser
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser {
   Parser<SwidiInterface> type() => super.type().map((x) {
-        var tokenList = collectTokens<Token>(x);
-        String token;
-        String nullabilitySuffix;
-        if (tokenList?.isNotEmpty ?? false) {
-          token = tokenList.last?.input ?? "";
-          nullabilitySuffix = tokenList.first?.input ?? "";
+        final tokenList = collectTokens<Token>(x);
+        String? token;
+        String? nullabilitySuffix;
+        if (tokenList.isNotEmpty) {
+          token = tokenList.last.input;
+          nullabilitySuffix = tokenList.first.input;
         }
         return SwidiInterface(
-          name: token != nullabilitySuffix ? token + nullabilitySuffix : token,
+          name:
+              token != nullabilitySuffix ? token! + nullabilitySuffix! : token!,
           nullabilitySuffix: nullabilitySuffix == "?"
               ? SwidiNullabilitySuffix.question
               : SwidiNullabilitySuffix.none,
           libraryScopePrefix:
-              collectTokens<SwidiLibraryScopePrefix>(x)?.isNotEmpty ?? false
+              collectTokens<SwidiLibraryScopePrefix>(x).isNotEmpty
                   ? collectTokens<SwidiLibraryScopePrefix>(x).first
                   : SwidiLibraryScopePrefix.empty,
           referenceDeclarationPrefix:
-              collectTokens<SwidiReferenceDeclarationPrefix>(x)?.isNotEmpty ??
-                      false
+              collectTokens<SwidiReferenceDeclarationPrefix>(x).isNotEmpty
                   ? collectTokens<SwidiReferenceDeclarationPrefix>(x).first
                   : SwidiReferenceDeclarationPrefix.empty,
         );

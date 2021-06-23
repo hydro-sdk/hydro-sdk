@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedOffset extends VMManagedBox<Offset> {
   VMManagedOffset(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -76,7 +72,7 @@ class VMManagedOffset extends VMManagedBox<Offset> {
 
 class RTManagedOffset extends Offset implements Box<Offset> {
   RTManagedOffset(double dx, double dy,
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super(
           dx,
           dy,
@@ -208,7 +204,7 @@ class RTManagedOffset extends Offset implements Box<Offset> {
   }
 }
 
-void loadOffset({@required HydroState hydroState, @required HydroTable table}) {
+void loadOffset({required HydroState hydroState, required HydroTable table}) {
   table['offset'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedOffset(args[1]?.toDouble(), args[2]?.toDouble(),
@@ -226,7 +222,7 @@ void loadOffset({@required HydroState hydroState, @required HydroTable table}) {
   });
   table['offsetLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<Offset>(
+      maybeBoxObject<Offset?>(
           object: Offset.lerp(
               maybeUnBoxAndBuildArgument<Offset>(args[1],
                   parentState: hydroState),
@@ -238,9 +234,9 @@ void loadOffset({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Offset>(boxer: (
-      {@required Offset vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Offset vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedOffset(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

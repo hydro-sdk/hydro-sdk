@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/ts/tsClassConstructorImplementation.dart';
@@ -25,15 +24,15 @@ import 'package:hydro_sdk/swid/ir/util/propagateUnsatisfiedTypeParameters.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
 
 TsTranslationUnit produceTsTranslationUnitFromSwidClass({
-  @required SwidClass swidClass,
-  @required String baseFileName,
-  @required String path,
-  @required List<String> prefixPaths,
+  required SwidClass swidClass,
+  required String baseFileName,
+  required String path,
+  required List<String> prefixPaths,
 }) =>
     (({
-      @required SwidClass swidClass,
-      @required SwidClass swidClassWithInterfaceReferences,
-      @required SwidClass unMergedSwidClassWithInterfaceReferences,
+      required SwidClass swidClass,
+      required SwidClass swidClassWithInterfaceReferences,
+      required SwidClass unMergedSwidClassWithInterfaceReferences,
     }) =>
         TsTranslationUnit(
             path: prefixPaths.join(p.separator) + p.separator + path,

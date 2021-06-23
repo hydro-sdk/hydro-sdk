@@ -9,11 +9,10 @@ part of 'swidConfig.dart';
 _$_$SwidConfigCtor _$_$_$SwidConfigCtorFromJson(Map<String, dynamic> json) {
   return _$_$SwidConfigCtor(
     inputPackagePath: json['inputPackagePath'] as String,
-    interfaces: (json['interfaces'] as List)?.map((e) => e as String)?.toList(),
-    emitOptions: json['emitOptions'] == null
-        ? null
-        : SwidConfigEmitOptions.fromJson(
-            json['emitOptions'] as Map<String, dynamic>),
+    interfaces:
+        (json['interfaces'] as List<dynamic>).map((e) => e as String).toList(),
+    emitOptions: SwidConfigEmitOptions.fromJson(
+        json['emitOptions'] as Map<String, dynamic>),
   );
 }
 

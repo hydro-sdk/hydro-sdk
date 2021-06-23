@@ -10,8 +10,8 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var diagnosticsNodeClass = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
+    var diagnosticsNodeClass = SwidClass.fromJson(json
+        .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
         TsFunctionDefaultNamedProps(

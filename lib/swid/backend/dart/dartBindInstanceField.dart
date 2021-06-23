@@ -1,11 +1,10 @@
 import 'package:code_builder/code_builder.dart'
     show Code, CodeExpression, DartEmitter, refer, literalString;
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceFieldDirect.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
@@ -14,10 +13,11 @@ class DartBindInstanceField {
   final String tableKey;
   final SwidType instanceField;
 
-  DartBindInstanceField(
-      {@required this.instanceFieldName,
-      @required this.tableKey,
-      @required this.instanceField});
+  const DartBindInstanceField({
+    required this.instanceFieldName,
+    required this.tableKey,
+    required this.instanceField,
+  });
 
   String toDartSource() => instanceField.when(
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
@@ -48,7 +48,8 @@ class DartBindInstanceField {
                 .accept(DartEmitter())
                 .toString(),
             onVoid: (_) => "void",
-            onTypeParameter: (_) => null,
+            onUnknown: (_) => "unknown",
+            onTypeParameter: (_) => "",
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",

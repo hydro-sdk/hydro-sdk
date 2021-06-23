@@ -10,15 +10,14 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
-        json.decode(File("../test/swid/res/IconData.json").readAsStringSync()));
+        json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
         DartLoadNamespaceSymbolDeclaration(swidClass: iconDataClass)
             .toDartSource(),
         """
-void loadIconData(
-    {@required HydroState hydroState, @required HydroTable table}) {
+void loadIconData({required HydroState hydroState, required HydroTable table}) {
   table[\'iconData\'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedIconData(args[1],
@@ -30,9 +29,9 @@ void loadIconData(
     ];
   });
   registerBoxer<IconData>(boxer: (
-      {@required IconData vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required IconData vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedIconData(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

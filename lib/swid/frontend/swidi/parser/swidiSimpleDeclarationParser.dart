@@ -13,8 +13,8 @@ mixin SwidiSimpleDeclarationParser
   Parser<SwidiDeclaration> simpleDeclaration() =>
       super.simpleDeclaration().map((x) {
         return SwidiDeclaration(
-            name: List.from(x).whereType<Token>()?.first?.input ?? "",
-            type: List.from(x).whereType<SwidiInterface>()?.first);
+            name: List.from(x).whereType<Token?>().first?.input ?? "",
+            type: List.from(x).whereType<SwidiInterface>().first);
       });
 
   Parser<SwidiDeclaration> declarationWithDefaultConstValue() =>

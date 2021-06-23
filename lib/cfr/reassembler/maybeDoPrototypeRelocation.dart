@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/reassembler/hashPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/hashedPrototype.dart';
 import 'package:hydro_sdk/cfr/reassembler/isRelocationCandidate.dart';
@@ -8,9 +6,9 @@ import 'package:hydro_sdk/cfr/reassembler/relocatePrototype.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
 
 void maybeDoPrototypeRelocation(
-    {@required ReassembleStatus reassembleStatus,
-    @required Prototype destination,
-    @required List<HashedPrototype> sourceProtos}) {
+    {required ReassembleStatus reassembleStatus,
+    required Prototype destination,
+    required List<HashedPrototype> sourceProtos}) {
   String destinationHash =
       hashPrototype(destination, includeSourceLocations: false);
   if (reassembleStatus.bailedOut) {
@@ -31,8 +29,8 @@ void maybeDoPrototypeRelocation(
       break;
     }
   }
-  if (destination.prototypes != null && destination.prototypes.isNotEmpty) {
-    destination.prototypes.forEach((x) {
+  if (destination.prototypes != null && destination.prototypes!.isNotEmpty) {
+    destination.prototypes!.forEach((x) {
       maybeDoPrototypeRelocation(
           reassembleStatus: reassembleStatus,
           destination: x,

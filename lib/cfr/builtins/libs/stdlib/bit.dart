@@ -22,7 +22,7 @@ void loadBitLib(Context ctx) {
     num n = args.length < 2
         ? 8
         : Context.getArg1<num>(args, 1, "tohex").abs().floor();
-    var o = _tobit(x).toRadixString(16).padLeft(n, "0");
+    var o = _tobit(x).toRadixString(16).padLeft(n as int, "0");
     return [o.substring(o.length - n)];
   };
 
@@ -73,7 +73,7 @@ void loadBitLib(Context ctx) {
     num y = _tobit(Context.getArg1<num>(args, 1, "arshift"));
     var o = _tobit(x);
     return [
-      (o >> y) |
+      (o >> (y as int)) |
           ((o & 0x80000000 == 0 ? 0 : (0xFFFFFFFF << (32 - y)) & 0xFFFFFFFF))
     ];
   };

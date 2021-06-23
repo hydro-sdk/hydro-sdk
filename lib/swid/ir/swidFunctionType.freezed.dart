@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidFunctionType.dart';
 
@@ -8,6 +8,10 @@ part of 'swidFunctionType.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidFunctionType _$SwidFunctionTypeFromJson(Map<String, dynamic> json) {
   return _$Data.fromJson(json);
 }
@@ -16,21 +20,20 @@ SwidFunctionType _$SwidFunctionTypeFromJson(Map<String, dynamic> json) {
 class _$SwidFunctionTypeTearOff {
   const _$SwidFunctionTypeTearOff();
 
-// ignore: unused_element
   _$Data call(
-      {@required String name,
-      @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath,
-      @required SwidDeclarationModifiers swidDeclarationModifiers,
-      @required Map<String, SwidType> namedParameterTypes,
-      @required Map<String, SwidDefaultFormalParameter> namedDefaults,
-      @required List<String> normalParameterNames,
-      @required List<SwidType> normalParameterTypes,
-      @required List<String> optionalParameterNames,
-      @required List<SwidType> optionalParameterTypes,
-      @required SwidType returnType,
-      @required bool isFactory,
-      @required List<SwidTypeFormal> typeFormals}) {
+      {required String name,
+      required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      required SwidDeclarationModifiers swidDeclarationModifiers,
+      required Map<String, SwidType> namedParameterTypes,
+      required Map<String, SwidDefaultFormalParameter> namedDefaults,
+      required List<String> normalParameterNames,
+      required List<SwidType> normalParameterTypes,
+      required List<String> optionalParameterNames,
+      required List<SwidType> optionalParameterTypes,
+      required SwidType returnType,
+      required bool isFactory,
+      required List<SwidTypeFormal> typeFormals}) {
     return _$Data(
       name: name,
       nullabilitySuffix: nullabilitySuffix,
@@ -48,35 +51,39 @@ class _$SwidFunctionTypeTearOff {
     );
   }
 
-// ignore: unused_element
   SwidFunctionType fromJson(Map<String, Object> json) {
     return SwidFunctionType.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidFunctionType = _$SwidFunctionTypeTearOff();
 
 /// @nodoc
 mixin _$SwidFunctionType {
-  String get name;
-  SwidNullabilitySuffix get nullabilitySuffix;
-  String get originalPackagePath;
-  SwidDeclarationModifiers get swidDeclarationModifiers;
-  Map<String, SwidType> get namedParameterTypes;
-  Map<String, SwidDefaultFormalParameter> get namedDefaults;
-  List<String> get normalParameterNames;
-  List<SwidType> get normalParameterTypes;
-  List<String> get optionalParameterNames;
-  List<SwidType> get optionalParameterTypes;
-  SwidType get returnType;
-  bool get isFactory;
-  List<SwidTypeFormal> get typeFormals;
+  String get name => throw _privateConstructorUsedError;
+  SwidNullabilitySuffix get nullabilitySuffix =>
+      throw _privateConstructorUsedError;
+  String get originalPackagePath => throw _privateConstructorUsedError;
+  SwidDeclarationModifiers get swidDeclarationModifiers =>
+      throw _privateConstructorUsedError;
+  Map<String, SwidType> get namedParameterTypes =>
+      throw _privateConstructorUsedError;
+  Map<String, SwidDefaultFormalParameter> get namedDefaults =>
+      throw _privateConstructorUsedError;
+  List<String> get normalParameterNames => throw _privateConstructorUsedError;
+  List<SwidType> get normalParameterTypes => throw _privateConstructorUsedError;
+  List<String> get optionalParameterNames => throw _privateConstructorUsedError;
+  List<SwidType> get optionalParameterTypes =>
+      throw _privateConstructorUsedError;
+  SwidType get returnType => throw _privateConstructorUsedError;
+  bool get isFactory => throw _privateConstructorUsedError;
+  List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwidFunctionTypeCopyWith<SwidFunctionType> get copyWith;
+  $SwidFunctionTypeCopyWith<SwidFunctionType> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -114,63 +121,78 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object nullabilitySuffix = freezed,
-    Object originalPackagePath = freezed,
-    Object swidDeclarationModifiers = freezed,
-    Object namedParameterTypes = freezed,
-    Object namedDefaults = freezed,
-    Object normalParameterNames = freezed,
-    Object normalParameterTypes = freezed,
-    Object optionalParameterNames = freezed,
-    Object optionalParameterTypes = freezed,
-    Object returnType = freezed,
-    Object isFactory = freezed,
-    Object typeFormals = freezed,
+    Object? name = freezed,
+    Object? nullabilitySuffix = freezed,
+    Object? originalPackagePath = freezed,
+    Object? swidDeclarationModifiers = freezed,
+    Object? namedParameterTypes = freezed,
+    Object? namedDefaults = freezed,
+    Object? normalParameterNames = freezed,
+    Object? normalParameterTypes = freezed,
+    Object? optionalParameterNames = freezed,
+    Object? optionalParameterTypes = freezed,
+    Object? returnType = freezed,
+    Object? isFactory = freezed,
+    Object? typeFormals = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix,
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidNullabilitySuffix,
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
+          : originalPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
       swidDeclarationModifiers: swidDeclarationModifiers == freezed
           ? _value.swidDeclarationModifiers
-          : swidDeclarationModifiers as SwidDeclarationModifiers,
+          : swidDeclarationModifiers // ignore: cast_nullable_to_non_nullable
+              as SwidDeclarationModifiers,
       namedParameterTypes: namedParameterTypes == freezed
           ? _value.namedParameterTypes
-          : namedParameterTypes as Map<String, SwidType>,
+          : namedParameterTypes // ignore: cast_nullable_to_non_nullable
+              as Map<String, SwidType>,
       namedDefaults: namedDefaults == freezed
           ? _value.namedDefaults
-          : namedDefaults as Map<String, SwidDefaultFormalParameter>,
+          : namedDefaults // ignore: cast_nullable_to_non_nullable
+              as Map<String, SwidDefaultFormalParameter>,
       normalParameterNames: normalParameterNames == freezed
           ? _value.normalParameterNames
-          : normalParameterNames as List<String>,
+          : normalParameterNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       normalParameterTypes: normalParameterTypes == freezed
           ? _value.normalParameterTypes
-          : normalParameterTypes as List<SwidType>,
+          : normalParameterTypes // ignore: cast_nullable_to_non_nullable
+              as List<SwidType>,
       optionalParameterNames: optionalParameterNames == freezed
           ? _value.optionalParameterNames
-          : optionalParameterNames as List<String>,
+          : optionalParameterNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       optionalParameterTypes: optionalParameterTypes == freezed
           ? _value.optionalParameterTypes
-          : optionalParameterTypes as List<SwidType>,
-      returnType:
-          returnType == freezed ? _value.returnType : returnType as SwidType,
-      isFactory: isFactory == freezed ? _value.isFactory : isFactory as bool,
+          : optionalParameterTypes // ignore: cast_nullable_to_non_nullable
+              as List<SwidType>,
+      returnType: returnType == freezed
+          ? _value.returnType
+          : returnType // ignore: cast_nullable_to_non_nullable
+              as SwidType,
+      isFactory: isFactory == freezed
+          ? _value.isFactory
+          : isFactory // ignore: cast_nullable_to_non_nullable
+              as bool,
       typeFormals: typeFormals == freezed
           ? _value.typeFormals
-          : typeFormals as List<SwidTypeFormal>,
+          : typeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidTypeFormal>,
     ));
   }
 
   @override
   $SwidDeclarationModifiersCopyWith<$Res> get swidDeclarationModifiers {
-    if (_value.swidDeclarationModifiers == null) {
-      return null;
-    }
     return $SwidDeclarationModifiersCopyWith<$Res>(
         _value.swidDeclarationModifiers, (value) {
       return _then(_value.copyWith(swidDeclarationModifiers: value));
@@ -179,9 +201,6 @@ class _$SwidFunctionTypeCopyWithImpl<$Res>
 
   @override
   $SwidTypeCopyWith<$Res> get returnType {
-    if (_value.returnType == null) {
-      return null;
-    }
     return $SwidTypeCopyWith<$Res>(_value.returnType, (value) {
       return _then(_value.copyWith(returnType: value));
     });
@@ -226,90 +245,94 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidFunctionTypeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object nullabilitySuffix = freezed,
-    Object originalPackagePath = freezed,
-    Object swidDeclarationModifiers = freezed,
-    Object namedParameterTypes = freezed,
-    Object namedDefaults = freezed,
-    Object normalParameterNames = freezed,
-    Object normalParameterTypes = freezed,
-    Object optionalParameterNames = freezed,
-    Object optionalParameterTypes = freezed,
-    Object returnType = freezed,
-    Object isFactory = freezed,
-    Object typeFormals = freezed,
+    Object? name = freezed,
+    Object? nullabilitySuffix = freezed,
+    Object? originalPackagePath = freezed,
+    Object? swidDeclarationModifiers = freezed,
+    Object? namedParameterTypes = freezed,
+    Object? namedDefaults = freezed,
+    Object? normalParameterNames = freezed,
+    Object? normalParameterTypes = freezed,
+    Object? optionalParameterNames = freezed,
+    Object? optionalParameterTypes = freezed,
+    Object? returnType = freezed,
+    Object? isFactory = freezed,
+    Object? typeFormals = freezed,
   }) {
     return _then(_$Data(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       nullabilitySuffix: nullabilitySuffix == freezed
           ? _value.nullabilitySuffix
-          : nullabilitySuffix as SwidNullabilitySuffix,
+          : nullabilitySuffix // ignore: cast_nullable_to_non_nullable
+              as SwidNullabilitySuffix,
       originalPackagePath: originalPackagePath == freezed
           ? _value.originalPackagePath
-          : originalPackagePath as String,
+          : originalPackagePath // ignore: cast_nullable_to_non_nullable
+              as String,
       swidDeclarationModifiers: swidDeclarationModifiers == freezed
           ? _value.swidDeclarationModifiers
-          : swidDeclarationModifiers as SwidDeclarationModifiers,
+          : swidDeclarationModifiers // ignore: cast_nullable_to_non_nullable
+              as SwidDeclarationModifiers,
       namedParameterTypes: namedParameterTypes == freezed
           ? _value.namedParameterTypes
-          : namedParameterTypes as Map<String, SwidType>,
+          : namedParameterTypes // ignore: cast_nullable_to_non_nullable
+              as Map<String, SwidType>,
       namedDefaults: namedDefaults == freezed
           ? _value.namedDefaults
-          : namedDefaults as Map<String, SwidDefaultFormalParameter>,
+          : namedDefaults // ignore: cast_nullable_to_non_nullable
+              as Map<String, SwidDefaultFormalParameter>,
       normalParameterNames: normalParameterNames == freezed
           ? _value.normalParameterNames
-          : normalParameterNames as List<String>,
+          : normalParameterNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       normalParameterTypes: normalParameterTypes == freezed
           ? _value.normalParameterTypes
-          : normalParameterTypes as List<SwidType>,
+          : normalParameterTypes // ignore: cast_nullable_to_non_nullable
+              as List<SwidType>,
       optionalParameterNames: optionalParameterNames == freezed
           ? _value.optionalParameterNames
-          : optionalParameterNames as List<String>,
+          : optionalParameterNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       optionalParameterTypes: optionalParameterTypes == freezed
           ? _value.optionalParameterTypes
-          : optionalParameterTypes as List<SwidType>,
-      returnType:
-          returnType == freezed ? _value.returnType : returnType as SwidType,
-      isFactory: isFactory == freezed ? _value.isFactory : isFactory as bool,
+          : optionalParameterTypes // ignore: cast_nullable_to_non_nullable
+              as List<SwidType>,
+      returnType: returnType == freezed
+          ? _value.returnType
+          : returnType // ignore: cast_nullable_to_non_nullable
+              as SwidType,
+      isFactory: isFactory == freezed
+          ? _value.isFactory
+          : isFactory // ignore: cast_nullable_to_non_nullable
+              as bool,
       typeFormals: typeFormals == freezed
           ? _value.typeFormals
-          : typeFormals as List<SwidTypeFormal>,
+          : typeFormals // ignore: cast_nullable_to_non_nullable
+              as List<SwidTypeFormal>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
   const _$_$Data(
-      {@required this.name,
-      @required this.nullabilitySuffix,
-      @required this.originalPackagePath,
-      @required this.swidDeclarationModifiers,
-      @required this.namedParameterTypes,
-      @required this.namedDefaults,
-      @required this.normalParameterNames,
-      @required this.normalParameterTypes,
-      @required this.optionalParameterNames,
-      @required this.optionalParameterTypes,
-      @required this.returnType,
-      @required this.isFactory,
-      @required this.typeFormals})
-      : assert(name != null),
-        assert(nullabilitySuffix != null),
-        assert(originalPackagePath != null),
-        assert(swidDeclarationModifiers != null),
-        assert(namedParameterTypes != null),
-        assert(namedDefaults != null),
-        assert(normalParameterNames != null),
-        assert(normalParameterTypes != null),
-        assert(optionalParameterNames != null),
-        assert(optionalParameterTypes != null),
-        assert(returnType != null),
-        assert(isFactory != null),
-        assert(typeFormals != null);
+      {required this.name,
+      required this.nullabilitySuffix,
+      required this.originalPackagePath,
+      required this.swidDeclarationModifiers,
+      required this.namedParameterTypes,
+      required this.namedDefaults,
+      required this.normalParameterNames,
+      required this.normalParameterTypes,
+      required this.optionalParameterNames,
+      required this.optionalParameterTypes,
+      required this.returnType,
+      required this.isFactory,
+      required this.typeFormals});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -422,49 +445,54 @@ class _$_$Data implements _$Data {
 
 abstract class _$Data implements SwidFunctionType {
   const factory _$Data(
-      {@required String name,
-      @required SwidNullabilitySuffix nullabilitySuffix,
-      @required String originalPackagePath,
-      @required SwidDeclarationModifiers swidDeclarationModifiers,
-      @required Map<String, SwidType> namedParameterTypes,
-      @required Map<String, SwidDefaultFormalParameter> namedDefaults,
-      @required List<String> normalParameterNames,
-      @required List<SwidType> normalParameterTypes,
-      @required List<String> optionalParameterNames,
-      @required List<SwidType> optionalParameterTypes,
-      @required SwidType returnType,
-      @required bool isFactory,
-      @required List<SwidTypeFormal> typeFormals}) = _$_$Data;
+      {required String name,
+      required SwidNullabilitySuffix nullabilitySuffix,
+      required String originalPackagePath,
+      required SwidDeclarationModifiers swidDeclarationModifiers,
+      required Map<String, SwidType> namedParameterTypes,
+      required Map<String, SwidDefaultFormalParameter> namedDefaults,
+      required List<String> normalParameterNames,
+      required List<SwidType> normalParameterTypes,
+      required List<String> optionalParameterNames,
+      required List<SwidType> optionalParameterTypes,
+      required SwidType returnType,
+      required bool isFactory,
+      required List<SwidTypeFormal> typeFormals}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  SwidNullabilitySuffix get nullabilitySuffix;
+  SwidNullabilitySuffix get nullabilitySuffix =>
+      throw _privateConstructorUsedError;
   @override
-  String get originalPackagePath;
+  String get originalPackagePath => throw _privateConstructorUsedError;
   @override
-  SwidDeclarationModifiers get swidDeclarationModifiers;
+  SwidDeclarationModifiers get swidDeclarationModifiers =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, SwidType> get namedParameterTypes;
+  Map<String, SwidType> get namedParameterTypes =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, SwidDefaultFormalParameter> get namedDefaults;
+  Map<String, SwidDefaultFormalParameter> get namedDefaults =>
+      throw _privateConstructorUsedError;
   @override
-  List<String> get normalParameterNames;
+  List<String> get normalParameterNames => throw _privateConstructorUsedError;
   @override
-  List<SwidType> get normalParameterTypes;
+  List<SwidType> get normalParameterTypes => throw _privateConstructorUsedError;
   @override
-  List<String> get optionalParameterNames;
+  List<String> get optionalParameterNames => throw _privateConstructorUsedError;
   @override
-  List<SwidType> get optionalParameterTypes;
+  List<SwidType> get optionalParameterTypes =>
+      throw _privateConstructorUsedError;
   @override
-  SwidType get returnType;
+  SwidType get returnType => throw _privateConstructorUsedError;
   @override
-  bool get isFactory;
+  bool get isFactory => throw _privateConstructorUsedError;
   @override
-  List<SwidTypeFormal> get typeFormals;
+  List<SwidTypeFormal> get typeFormals => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

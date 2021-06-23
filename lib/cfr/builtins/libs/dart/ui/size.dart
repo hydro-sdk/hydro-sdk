@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedSize extends VMManagedBox<Size> {
   VMManagedSize(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -164,7 +160,7 @@ class VMManagedSize extends VMManagedBox<Size> {
 
 class RTManagedSize extends Size implements Box<Size> {
   RTManagedSize(double width, double height,
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super(
           width,
           height,
@@ -452,7 +448,7 @@ class RTManagedSize extends Size implements Box<Size> {
   }
 }
 
-void loadSize({@required HydroState hydroState, @required HydroTable table}) {
+void loadSize({required HydroState hydroState, required HydroTable table}) {
   table['size'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedSize(args[1]?.toDouble(), args[2]?.toDouble(),
@@ -502,7 +498,7 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
   });
   table['sizeLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<Size>(
+      maybeBoxObject<Size?>(
           object: Size.lerp(
               maybeUnBoxAndBuildArgument<Size>(args[1],
                   parentState: hydroState),
@@ -514,9 +510,9 @@ void loadSize({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Size>(boxer: (
-      {@required Size vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Size vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedSize(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

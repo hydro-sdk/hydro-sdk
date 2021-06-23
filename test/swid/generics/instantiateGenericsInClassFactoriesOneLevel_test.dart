@@ -140,10 +140,10 @@ void main() {
         swidClass: iterable,
       ),
     ).when(
-      fromSwidInterface: (_) => null,
+      fromSwidInterface: (_) => dartUnknownClass,
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) => null,
-      fromSwidFunctionType: (_) => null,
+      fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+      fromSwidFunctionType: (_) => dartUnknownClass,
     );
 
     expect(replacedIterable.typeFormals.isNotEmpty, true);
@@ -153,20 +153,22 @@ void main() {
     //with a double
     expect(
         replacedIterable.factoryConstructors.first.optionalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .returnType
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
         dartDouble);
 
-    var generateReturnType = replacedIterable
-        .factoryConstructors.first.returnType
-        .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null);
+    var generateReturnType =
+        replacedIterable.factoryConstructors.first.returnType.maybeWhen(
+      fromSwidInterface: (val) => val,
+      orElse: () => null,
+    );
 
     //The return type of Iterable.generate should be Iterable<double>
     expect(
-        generateReturnType.typeArguments.first
+        generateReturnType?.typeArguments.first
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),
         dartDouble);
-    expect(generateReturnType.displayName, "Iterable<double>");
+    expect(generateReturnType?.displayName, "Iterable<double>");
   }, tags: "swid");
 }

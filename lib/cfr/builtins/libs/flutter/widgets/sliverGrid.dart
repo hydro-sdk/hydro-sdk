@@ -5,8 +5,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadSliverGrid(
-    {@required HydroState luaState, @required HydroTable table}) {
+void loadSliverGrid({required HydroState luaState, required HydroTable table}) {
   table["sliverGridCount"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       SliverGrid.count(

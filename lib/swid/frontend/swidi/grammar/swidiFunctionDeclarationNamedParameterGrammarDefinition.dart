@@ -10,28 +10,28 @@ mixin SwidiFunctionDeclarationNamedParameterGrammarDefinition
         SwidiGrammarTokenizer,
         SwidiDeclarationGrammarDefinition {
   Parser functionDeclarationNamedParameterListForm1() =>
-      ref(token, "{") &
-      ref(functionDeclarationNamedParameter) &
-      ref(token, ",") &
-      ref(token, "}");
+      ref1(token, "{") &
+      ref0(functionDeclarationNamedParameter) &
+      ref1(token, ",") &
+      ref1(token, "}");
 
   Parser functionDeclarationNamedParameterListForm2() =>
-      ref(token, "{") &
-      ref(functionDeclarationNamedParameter) &
-      ref(functionDeclarationNamedParameterTail).optional() &
-      ref(token, "}");
+      ref1(token, "{") &
+      ref0(functionDeclarationNamedParameter) &
+      ref0(functionDeclarationNamedParameterTail).optional() &
+      ref1(token, "}");
 
-  Parser functionDeclarationNamedParameterTail() => (ref(token, ",") &
-      ref(functionDeclarationNamedParameter) &
-      ref(functionDeclarationNamedParameterTail).optional());
+  Parser functionDeclarationNamedParameterTail() => (ref1(token, ",") &
+      ref0(functionDeclarationNamedParameter) &
+      ref0(functionDeclarationNamedParameterTail).optional());
 
   Parser functionDeclarationNamedParameterListForm3() =>
-      ref(token, "{") &
-      ref(functionDeclarationNamedParameter) &
-      ref(functionDeclarationNamedParameterTail).optional() &
-      ref(token, ",") &
-      ref(token, "}");
+      ref1(token, "{") &
+      ref0(functionDeclarationNamedParameter) &
+      ref0(functionDeclarationNamedParameterTail).optional() &
+      ref1(token, ",") &
+      ref1(token, "}");
 
   Parser functionDeclarationNamedParameter() =>
-      ref(declarationWithDefaultConstValue) | ref(simpleDeclaration);
+      ref0(declarationWithDefaultConstValue) | ref0(simpleDeclaration);
 }

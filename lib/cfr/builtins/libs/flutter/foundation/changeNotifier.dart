@@ -8,7 +8,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class ChangeNotifierBox extends ChangeNotifier {
   final HydroTable table;
 
-  ChangeNotifierBox({@required this.table}) {
+  ChangeNotifierBox({required this.table}) {
     table.map["notifyListeners"] = makeLuaDartFunc(func: (List<dynamic> args) {
       notifyListeners();
       return [];
@@ -17,9 +17,9 @@ class ChangeNotifierBox extends ChangeNotifier {
 }
 
 void loadChangeNotifier() {
-  registerUnBoxer(unBoxer: ({dynamic box, HydroState parentState}) {
+  registerUnBoxer(unBoxer: ({dynamic box, HydroState? parentState}) {
     if (box is HydroTable) {
-      String internalRuntimeType = maybeUnBoxRuntimeType(
+      String? internalRuntimeType = maybeUnBoxRuntimeType(
           managedObject: box, runtimeTypePropName: "internalRuntimeType");
 
       if (internalRuntimeType == "ChangeNotifier") {

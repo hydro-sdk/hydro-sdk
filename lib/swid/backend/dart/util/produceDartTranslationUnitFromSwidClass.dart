@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/dart/dartImportStatement.dart';
@@ -9,20 +9,22 @@ import 'package:hydro_sdk/swid/backend/dart/dartTranslationUnit.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartir.dart';
 import 'package:hydro_sdk/swid/backend/util/removeNonEmitCandidates.dart';
+import 'package:hydro_sdk/swid/backend/util/removePrivateMethods.dart';
 import 'package:hydro_sdk/swid/backend/util/requiresDartClassTranslationUnit.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 
-DartTranslationUnit produceDartTranslationUnitFromSwidClass({
-  @required SwidClass swidClass,
-  @required String baseFileName,
-  @required String path,
-  @required List<String> prefixPaths,
+DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
+  required SwidClass swidClass,
+  required String baseFileName,
+  required String path,
+  required List<String> prefixPaths,
 }) =>
     (({
-      @required SwidClass swidClass,
+      required SwidClass swidClass,
     }) =>
         requiresDartClassTranslationUnit(swidClass: swidClass)
             ? DartTranslationUnit(
@@ -30,20 +32,18 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                 fileName: "$baseFileName.dart",
                 ir: [
                   DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  ...(({List<DartImportStatement> importStatements}) =>
+                  ...(({required List<DartImportStatement> importStatements}) =>
                       importStatements
                           .fold<List<DartImportStatement>>(
                               <DartImportStatement>[],
-                              (prev, element) => prev.firstWhere(
-                                          (x) => x.path == element.path,
-                                          orElse: () => null) ==
+                              (prev, element) => prev.firstWhereOrNull(
+                                          (x) => x.path == element.path) ==
                                       null
                                   ? [...prev, element]
                                   : prev)
                           .map((x) => DartIr.fromDartImportStatement(
                               dartImportStatement: x))
                           .toList())(importStatements: [
-                    DartImportStatement(path: "package:meta/meta.dart"),
                     ...collectAllReferences(
                             swidType: SwidType.fromSwidClass(
                                 swidClass: SwidClass.mergeSuperClasses(
@@ -77,36 +77,43 @@ DartTranslationUnit produceDartTranslationUnitFromSwidClass({
                   ]),
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(
-                      swidClass: instantiateAllGenericsAsDynamic(
-                              swidType: SwidType.fromSwidClass(
-                                  swidClass: SwidClass.mergeSuperClasses(
-                                      swidClass: swidClass)))
-                          .when(
-                        fromSwidInterface: (_) => null,
-                        fromSwidClass: (val) => val,
-                        fromSwidDefaultFormalParameter: (_) => null,
-                        fromSwidFunctionType: (_) => null,
+                      swidClass: removePrivateMethods(
+                        swidClass: instantiateAllGenericsAsDynamic(
+                                swidType: SwidType.fromSwidClass(
+                                    swidClass: SwidClass.mergeSuperClasses(
+                                        swidClass: swidClass)))
+                            .when(
+                          fromSwidInterface: (_) => dartUnknownClass,
+                          fromSwidClass: (val) => val,
+                          fromSwidDefaultFormalParameter: (_) =>
+                              dartUnknownClass,
+                          fromSwidFunctionType: (_) => dartUnknownClass,
+                        ),
                       ),
                     ),
                   ),
                   DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
                   !swidClass.isPureAbstract() &&
                           swidClass.isConstructible() &&
-                          !swidClass.constructorType.isFactory
+                          !swidClass.constructorType!.isFactory
                       ? DartIr.fromRTManagedClassDeclaration(
                           rtManagedClassDeclaration:
                               DartRTManagedClassDeclaration(
-                                  swidClass: instantiateAllGenericsAsDynamic(
-                                          swidType: SwidType.fromSwidClass(
-                                              swidClass:
-                                                  SwidClass.mergeSuperClasses(
-                                                      swidClass: swidClass)))
-                                      .when(
-                            fromSwidInterface: (_) => null,
-                            fromSwidClass: (val) => val,
-                            fromSwidDefaultFormalParameter: (_) => null,
-                            fromSwidFunctionType: (_) => null,
-                          )),
+                            swidClass: removePrivateMethods(
+                              swidClass: instantiateAllGenericsAsDynamic(
+                                      swidType: SwidType.fromSwidClass(
+                                          swidClass:
+                                              SwidClass.mergeSuperClasses(
+                                                  swidClass: swidClass)))
+                                  .when(
+                                fromSwidInterface: (_) => dartUnknownClass,
+                                fromSwidClass: (val) => val,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownClass,
+                                fromSwidFunctionType: (_) => dartUnknownClass,
+                              ),
+                            ),
+                          ),
                         )
                       : null,
                   DartIr.fromLoadNamepsaceSymbolDeclaration(

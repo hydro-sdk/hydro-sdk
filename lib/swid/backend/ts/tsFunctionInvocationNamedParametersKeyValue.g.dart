@@ -8,9 +8,7 @@ part of 'tsFunctionInvocationNamedParametersKeyValue.dart';
 
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
-    namedReferences: (json['namedReferences'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(k, e as String),
-    ),
+    namedReferences: Map<String, String>.from(json['namedReferences'] as Map),
   );
 }
 

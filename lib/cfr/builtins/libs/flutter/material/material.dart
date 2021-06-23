@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/appBar.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/card.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/circularProgressIndicator.dart';
@@ -22,7 +20,7 @@ import 'package:hydro_sdk/cfr/builtins/libs/flutter/material/themeData.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadMaterial({@required HydroState luaState, @required HydroTable table}) {
+void loadMaterial({required HydroState luaState, required HydroTable table}) {
   var material = HydroTable();
 
   table["material"] = material;

@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedCallbackHandle extends VMManagedBox<CallbackHandle> {
   VMManagedCallbackHandle(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -37,7 +33,7 @@ class VMManagedCallbackHandle extends VMManagedBox<CallbackHandle> {
 }
 
 void loadCallbackHandle(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['callbackHandleFromRawHandle'] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     return [
@@ -48,9 +44,9 @@ void loadCallbackHandle(
     ];
   });
   registerBoxer<CallbackHandle>(boxer: (
-      {@required CallbackHandle vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required CallbackHandle vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedCallbackHandle(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

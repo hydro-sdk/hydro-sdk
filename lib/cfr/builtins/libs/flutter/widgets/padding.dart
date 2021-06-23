@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadPadding({@required HydroState luaState, @required HydroTable table}) {
+void loadPadding({required HydroState luaState, required HydroTable table}) {
   table["padding"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Padding(

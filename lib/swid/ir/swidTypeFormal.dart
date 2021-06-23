@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
@@ -11,21 +10,21 @@ part 'swidTypeFormal.freezed.dart';
 part 'swidTypeFormal.g.dart';
 
 @freezed
-abstract class SwidTypeFormalValue with _$SwidTypeFormalValue {
-  const factory SwidTypeFormalValue.fromString({@required String string}) =
+class SwidTypeFormalValue with _$SwidTypeFormalValue {
+  const factory SwidTypeFormalValue.fromString({required String string}) =
       _$FromString;
 
   const factory SwidTypeFormalValue.fromSwidClass(
-      {@required SwidClass swidClass}) = _$FromSwidClass;
+      {required SwidClass swidClass}) = _$FromSwidClass;
 
   const factory SwidTypeFormalValue.fromSwidInterface(
-      {@required SwidInterface swidInterface}) = _$FromSwidInterface;
+      {required SwidInterface swidInterface}) = _$FromSwidInterface;
 
   const factory SwidTypeFormalValue.fromSwidFunctionType(
-      {@required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
+      {required SwidFunctionType swidFunctionType}) = _$FromSwidFunctionType;
 
   factory SwidTypeFormalValue.clone({
-    @required SwidTypeFormalValue swidTypeFormalValue,
+    required SwidTypeFormalValue swidTypeFormalValue,
   }) =>
       swidTypeFormalValue.when(
         fromString: (val) => SwidTypeFormalValue.fromString(string: val),
@@ -66,19 +65,19 @@ extension SwidTypeFormalValueMethods on SwidTypeFormalValue {
 }
 
 @freezed
-abstract class SwidTypeFormal with _$SwidTypeFormal {
+class SwidTypeFormal with _$SwidTypeFormal {
   const factory SwidTypeFormal({
-    @required SwidTypeFormalValue value,
-    @required SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+    required SwidTypeFormalValue value,
+    required SwidReferenceDeclarationKind swidReferenceDeclarationKind,
   }) = _$Data;
 
   factory SwidTypeFormal.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFormalFromJson(json);
 
   factory SwidTypeFormal.clone({
-    @required SwidTypeFormal swidTypeFormal,
-    SwidTypeFormalValue value,
-    SwidReferenceDeclarationKind swidReferenceDeclarationKind,
+    required SwidTypeFormal swidTypeFormal,
+    SwidTypeFormalValue? value,
+    SwidReferenceDeclarationKind? swidReferenceDeclarationKind,
   }) =>
       SwidTypeFormal(
         value: value ??

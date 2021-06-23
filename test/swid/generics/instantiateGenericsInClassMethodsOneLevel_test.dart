@@ -145,10 +145,10 @@ void main() {
         swidClass: iterable,
       ),
     ).when(
-      fromSwidInterface: (_) => null,
+      fromSwidInterface: (_) => dartUnknownClass,
       fromSwidClass: (val) => val,
-      fromSwidDefaultFormalParameter: (_) => null,
-      fromSwidFunctionType: (_) => null,
+      fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+      fromSwidFunctionType: (_) => dartUnknownClass,
     );
 
     //All instances of T should be left alone
@@ -163,21 +163,21 @@ void main() {
         iterable.methods.first.returnType);
     expect(
         replacedIterable.methods.first.normalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .returnType
             .displayName,
         "Iterable<T>");
     expect(
         replacedIterable.methods.first.normalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .returnType,
         iterable.methods.first.normalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .returnType);
     //E should have been replaced with double
     expect(
         replacedIterable.methods.first.normalParameterTypes.first
-            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)
+            .maybeWhen(fromSwidFunctionType: (val) => val, orElse: () => null)!
             .normalParameterTypes
             .first
             .maybeWhen(fromSwidInterface: (val) => val, orElse: () => null),

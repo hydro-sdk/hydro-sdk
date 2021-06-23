@@ -2,7 +2,6 @@ import 'package:code_builder/code_builder.dart'
     show DartEmitter, Parameter, refer, literalString, Method, Code;
 
 import 'package:dart_style/dart_style.dart';
-import 'package:meta/meta.dart';
 
 import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
 import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
@@ -12,24 +11,24 @@ import 'package:hydro_sdk/swid/transforms/transformToPascalCase.dart';
 class DartBarrelLoadNamespaceSymbolDeclaration {
   final BarrelSpec barrelSpec;
 
-  DartBarrelLoadNamespaceSymbolDeclaration({@required this.barrelSpec});
+  DartBarrelLoadNamespaceSymbolDeclaration({required this.barrelSpec});
   String toDartSource() => DartFormatter().format(Method((m) => m
     ..name = "load${barrelSpec.name}"
     ..returns = refer("void")
     ..optionalParameters.addAll([
       Parameter((p) => p
-        ..annotations.add(refer("required"))
+        ..required = true
         ..named = true
         ..name = "hydroState"
         ..type = refer("HydroState")),
       barrelSpec.isTopLevel()
           ? Parameter((p) => p
-            ..annotations.add(refer("required"))
+            ..required = true
             ..named = true
             ..name = "context"
             ..type = refer("Context"))
           : Parameter((p) => p
-            ..annotations.add(refer("required"))
+            ..required = true
             ..named = true
             ..name = "table"
             ..type = refer("HydroTable")),

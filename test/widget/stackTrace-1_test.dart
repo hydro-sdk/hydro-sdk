@@ -15,9 +15,9 @@ import 'package:hydro_sdk/runFromNetwork.dart';
 void main() {
   testWidgets('', (WidgetTester tester) async {
     await tester.runAsync(() async {
-      String hashPath = "../assets/test/widget/stackTrace-1.ts.hc.sha256";
-      String bytecodePath = "../assets/test/widget/stackTrace-1.ts.hc";
-      String symbolsPath = "../assets/test/widget/stackTrace-1.ts.hc.symbols";
+      String hashPath = "assets/test/widget/stackTrace-1.ts.hc.sha256";
+      String bytecodePath = "assets/test/widget/stackTrace-1.ts.hc";
+      String symbolsPath = "assets/test/widget/stackTrace-1.ts.hc.symbols";
 
       HydroState state = HydroState();
       var closure = await state.loadBuffer(

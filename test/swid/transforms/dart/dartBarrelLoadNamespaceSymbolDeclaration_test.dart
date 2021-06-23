@@ -122,7 +122,7 @@ void main() {
         DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec)
             .toDartSource(),
         """
-void loaddart({@required HydroState hydroState, @required Context context}) {
+void loaddart({required HydroState hydroState, required Context context}) {
   final dart = HydroTable();
   context.env[\'dart\'] = dart;
   loadcore(table: dart, hydroState: hydroState);

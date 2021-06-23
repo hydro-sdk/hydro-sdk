@@ -5,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadCenter({@required HydroState luaState, @required HydroTable table}) {
+void loadCenter({required HydroState luaState, required HydroTable table}) {
   table["center"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       Center(

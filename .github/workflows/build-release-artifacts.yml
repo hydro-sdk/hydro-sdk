@@ -11,8 +11,7 @@ jobs:
     env:
       ARCH: x64
       PLATFORM: linux
-    steps:
-      - uses: ilammy/setup-nasm@v1
+    steps:      
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
@@ -28,7 +27,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "flutter/flutter"
-          ref: "1.22.0"
+          ref: "2.0.6"
           path: "flutter"
           fetch-depth: 0
       - name: Add Flutter to the PATH for Unix
@@ -97,7 +96,7 @@ jobs:
       ARCH: x64
       PLATFORM: darwin
     steps:
-      - uses: ilammy/setup-nasm@v1
+      
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
@@ -108,7 +107,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "flutter/flutter"
-          ref: "1.22.0"
+          ref: "2.0.6"
           path: "flutter"
           fetch-depth: 0
       - name: Add Flutter to the PATH for Unix
@@ -177,7 +176,7 @@ jobs:
       ARCH: x64
       PLATFORM: win32
     steps:
-      - uses: ilammy/setup-nasm@v1
+      
       - name: Extract Ref Names
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
@@ -188,7 +187,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "flutter/flutter"
-          ref: "1.22.0"
+          ref: "2.0.6"
           path: "flutter"
           fetch-depth: 0
       - name: Add Flutter to the PATH for Unix
@@ -271,7 +270,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: "flutter/flutter"
-          ref: "1.22.0"
+          ref: "2.0.6"
           path: "flutter"
           fetch-depth: 0
       - name: Add Flutter to the PATH for Unix

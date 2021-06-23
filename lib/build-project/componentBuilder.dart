@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/build-project/chunkBuilder.dart';
@@ -8,18 +7,18 @@ import 'package:hydro_sdk/projectConfig/projectConfigComponent.dart';
 
 class ComponentBuilder {
   final ProjectConfigComponent projectConfigComponent;
-  final String ts2hc;
-  final String cacheDir;
-  final String profile;
-  final String outDir;
+  final String? ts2hc;
+  final String? cacheDir;
+  final String? profile;
+  final String? outDir;
   final String signingKey;
 
   const ComponentBuilder({
-    @required this.projectConfigComponent,
-    @required this.ts2hc,
-    @required this.cacheDir,
-    @required this.profile,
-    @required this.signingKey,
+    required this.projectConfigComponent,
+    required this.ts2hc,
+    required this.cacheDir,
+    required this.profile,
+    required this.signingKey,
     this.outDir = "",
   });
 
@@ -34,7 +33,7 @@ class ComponentBuilder {
       ].join("");
 
   Future<bool> build({
-    @required bool signManifest,
+    required bool signManifest,
   }) async {
     try {
       print("Building component ${projectConfigComponent.name}");

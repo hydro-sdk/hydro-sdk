@@ -1,14 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'createUserDto.freezed.dart';
 part 'createUserDto.g.dart';
 
 @freezed
-abstract class CreateUserDto with _$CreateUserDto {
+class CreateUserDto with _$CreateUserDto {
   const factory CreateUserDto({
-    @required String username,
-    @required String password,
+    required String username,
+    required String password,
   }) = _$CreateUserDtoCtor;
 
   factory CreateUserDto.fromJson(Map<String, dynamic> json) =>

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidiEmptyConst.dart';
 
@@ -9,18 +9,19 @@ part of 'swidiEmptyConst.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SwidiEmptyConstTearOff {
   const _$SwidiEmptyConstTearOff();
 
-// ignore: unused_element
   _$SwidiEmptyConstCtor call() {
     return const _$SwidiEmptyConstCtor();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidiEmptyConst = _$SwidiEmptyConstTearOff();
 
 /// @nodoc
@@ -63,6 +64,7 @@ class __$$SwidiEmptyConstCtorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_$SwidiEmptyConstCtor implements _$SwidiEmptyConstCtor {
   const _$_$SwidiEmptyConstCtor();
 

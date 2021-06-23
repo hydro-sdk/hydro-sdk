@@ -16,75 +16,75 @@ mixin SwidiFunctionGrammarDefinition
         SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
         SwidiFunctionDeclarationNamedParameterGrammarDefinition {
   Parser functionDeclaration() =>
-      ref(returnType) &
-      ref(identifier) &
-      ref(functionDeclarationParameterList) &
-      ref(token, ";");
+      ref0(returnType) &
+      ref0(identifier) &
+      ref0(functionDeclarationParameterList) &
+      ref1(token, ";");
 
   Parser functionDeclarationParameterList() =>
-      (ref(token, "(") & ref(token, ")")) |
+      (ref1(token, "(") & ref1(token, ")")) |
       //Positional only
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm1) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm2) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm3) &
-          ref(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref1(token, ")")) |
       //Optional only
-      (ref(token, "(") &
-          ref(functionDeclarationOptionalParameterListForm1) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationOptionalParameterListForm2) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationOptionalParameterListForm3) &
-          ref(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationOptionalParameterListForm1) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationOptionalParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationOptionalParameterListForm3) &
+          ref1(token, ")")) |
       //Named only
-      (ref(token, "(") &
-          ref(functionDeclarationNamedParameterListForm1) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationNamedParameterListForm2) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationNamedParameterListForm3) &
-          ref(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationNamedParameterListForm1) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationNamedParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationNamedParameterListForm3) &
+          ref1(token, ")")) |
       //Positional and named
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm1) &
-          ref(functionDeclarationNamedParameterListForm3) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm1) &
-          ref(functionDeclarationNamedParameterListForm2) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm3) &
-          ref(functionDeclarationNamedParameterListForm3) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm3) &
-          ref(functionDeclarationNamedParameterListForm2) &
-          ref(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref0(functionDeclarationNamedParameterListForm3) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref0(functionDeclarationNamedParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref0(functionDeclarationNamedParameterListForm3) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref0(functionDeclarationNamedParameterListForm2) &
+          ref1(token, ")")) |
       //Positional and  optional
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm1) &
-          ref(functionDeclarationOptionalParameterListForm3) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm1) &
-          ref(functionDeclarationOptionalParameterListForm2) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm3) &
-          ref(functionDeclarationOptionalParameterListForm3) &
-          ref(token, ")")) |
-      (ref(token, "(") &
-          ref(functionDeclarationPositionalParameterListForm3) &
-          ref(functionDeclarationOptionalParameterListForm2) &
-          ref(token, ")"));
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref0(functionDeclarationOptionalParameterListForm3) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref0(functionDeclarationOptionalParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref0(functionDeclarationOptionalParameterListForm3) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref0(functionDeclarationOptionalParameterListForm2) &
+          ref1(token, ")"));
 }

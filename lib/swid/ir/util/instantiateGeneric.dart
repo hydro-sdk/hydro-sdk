@@ -1,6 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
-
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidGenericInstantiator.dart';
@@ -11,8 +9,8 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 SwidType instantiateGeneric({
-  @required SwidGenericInstantiator genericInstantiator,
-  @required SwidType swidType,
+  required SwidGenericInstantiator genericInstantiator,
+  required SwidType swidType,
 }) =>
     swidType.when(
       fromSwidInterface: (val) => narrowSwidInterfaceByReferenceDeclaration(
@@ -93,10 +91,11 @@ SwidType instantiateGeneric({
                 .toList(),
           ),
         ),
+        onUnknown: (_) => dartUnknownType,
       ),
-      fromSwidClass: (val) => val.typeFormals.firstWhere(
+      fromSwidClass: (val) => <SwidTypeFormal?>[...val.typeFormals].firstWhere(
                   (x) =>
-                      x.swidReferenceDeclarationKind ==
+                      x!.swidReferenceDeclarationKind ==
                           SwidReferenceDeclarationKind.typeParameterType &&
                       x.value.displayName == genericInstantiator.name,
                   orElse: () => null) !=
@@ -129,12 +128,12 @@ SwidType instantiateGeneric({
                             )
                           : x)
                       .toList(),
-                ]..removeWhere((x) => x == null),
+                ]..removeWhere((x) => x == dartUnkownTypeFormal),
                 constructorType: val.constructorType != null
                     ? instantiateGeneric(
                         genericInstantiator: genericInstantiator,
                         swidType: SwidType.fromSwidFunctionType(
-                            swidFunctionType: val.constructorType),
+                            swidFunctionType: val.constructorType!),
                       ).when(
                         fromSwidInterface: (_) => null,
                         fromSwidClass: (_) => null,
@@ -156,7 +155,9 @@ SwidType instantiateGeneric({
                         fromSwidFunctionType: (val) => val,
                       ),
                     )
-                    .toList(),
+                    .where((x) => x != null)
+                    .toList()
+                    .cast<SwidFunctionType>(),
                 staticMethods: val.staticMethods
                     .map(
                       (x) => instantiateGeneric(
@@ -171,7 +172,9 @@ SwidType instantiateGeneric({
                         fromSwidFunctionType: (val) => val,
                       ),
                     )
-                    .toList(),
+                    .where((x) => x != null)
+                    .toList()
+                    .cast<SwidFunctionType>(),
                 methods: val.methods
                     .map(
                       (x) => instantiateGeneric(
@@ -186,7 +189,9 @@ SwidType instantiateGeneric({
                         fromSwidFunctionType: (val) => val,
                       ),
                     )
-                    .toList(),
+                    .where((x) => x != null)
+                    .toList()
+                    .cast<SwidFunctionType>(),
               ),
             )
           : SwidType.fromSwidClass(
@@ -223,7 +228,7 @@ SwidType instantiateGeneric({
                         )
                       : x)
                   .toList(),
-            ]..removeWhere((x) => x == null),
+            ]..removeWhere((x) => x == dartUnkownTypeFormal),
             namedParameterTypes: Map.fromEntries(
               val.namedParameterTypes.entries
                   .map(

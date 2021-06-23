@@ -10,7 +10,7 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var diagnosticPropertiesBuilderClass = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/DiagnosticPropertiesBuilder.json")
+        File("test/swid/res/DiagnosticPropertiesBuilder.json")
             .readAsStringSync()));
 
     expect(
@@ -21,9 +21,7 @@ void main() {
 class VMManagedDiagnosticPropertiesBuilder
     extends VMManagedBox<DiagnosticPropertiesBuilder> {
   VMManagedDiagnosticPropertiesBuilder(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,

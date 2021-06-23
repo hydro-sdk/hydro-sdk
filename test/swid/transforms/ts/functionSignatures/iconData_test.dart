@@ -11,13 +11,13 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
-        json.decode(File("../test/swid/res/IconData.json").readAsStringSync()));
+        json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
         transformTypeDeclarationToTs(
             swidType: SwidType.fromSwidFunctionType(
-                swidFunctionType: iconDataClass.constructorType)),
+                swidFunctionType: iconDataClass.constructorType!)),
         "(codePoint: number, props : { fontFamily : string, fontPackage : string, matchTextDirection : boolean, }) => IconData");
   }, tags: "swid");
 }

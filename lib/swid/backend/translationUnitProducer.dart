@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:hydro_sdk/swid/backend/dart/util/produceDartTranslationUnitFromSwidClass.dart';
@@ -18,21 +17,21 @@ class TranslationUnitProducer {
   final List<String> prefixPaths;
 
   TranslationUnitProducer({
-    @required this.tsPrefixPaths,
-    @required this.dartPrefixPaths,
-    @required this.path,
-    @required this.baseFileName,
-    @required this.prefixPaths,
+    required this.tsPrefixPaths,
+    required this.dartPrefixPaths,
+    required this.path,
+    required this.baseFileName,
+    required this.prefixPaths,
   });
 
-  List<TranslationUnit> produceFromSwidEnum({@required SwidEnum swidEnum}) => [
+  List<TranslationUnit> produceFromSwidEnum({required SwidEnum? swidEnum}) => [
         TsTranslationUnit(
             path: tsPrefixPaths.join(p.separator) + p.separator + path,
             fileName: "$baseFileName.ts",
             ir: [TsIr.fromTsEnum(tsEnum: TsEnum(swidEnum: swidEnum))])
       ];
 
-  List<TranslationUnit> produceFromSwidClass({@required SwidClass swidClass}) =>
+  List<TranslationUnit?> produceFromSwidClass({required SwidClass swidClass}) =>
       [
         produceTsTranslationUnitFromSwidClass(
             swidClass: swidClass,

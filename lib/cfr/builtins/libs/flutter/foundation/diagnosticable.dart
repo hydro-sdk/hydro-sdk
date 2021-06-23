@@ -10,9 +10,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedDiagnosticable extends VMManagedBox<Diagnosticable> {
   VMManagedDiagnosticable(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -50,11 +48,12 @@ class VMManagedDiagnosticable extends VMManagedBox<Diagnosticable> {
 }
 
 void loadDiagnosticable(
-    {@required HydroState hydroState, @required HydroTable table}) {
-  registerBoxer<Diagnosticable>(boxer: (
-      {@required Diagnosticable vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
+  registerBoxer<Diagnosticable>(boxer: ({
+    required Diagnosticable vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedDiagnosticable(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

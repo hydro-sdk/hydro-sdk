@@ -10,9 +10,7 @@ _$_$SwidInstantiableGenericFromSwidClass
     _$_$_$SwidInstantiableGenericFromSwidClassFromJson(
         Map<String, dynamic> json) {
   return _$_$SwidInstantiableGenericFromSwidClass(
-    swidClass: json['swidClass'] == null
-        ? null
-        : SwidClass.fromJson(json['swidClass'] as Map<String, dynamic>),
+    swidClass: SwidClass.fromJson(json['swidClass'] as Map<String, dynamic>),
   );
 }
 
@@ -26,9 +24,8 @@ _$_$SwidInstantiableGenericFromSwidInterface
     _$_$_$SwidInstantiableGenericFromSwidInterfaceFromJson(
         Map<String, dynamic> json) {
   return _$_$SwidInstantiableGenericFromSwidInterface(
-    swidInterface: json['swidInterface'] == null
-        ? null
-        : SwidInterface.fromJson(json['swidInterface'] as Map<String, dynamic>),
+    swidInterface:
+        SwidInterface.fromJson(json['swidInterface'] as Map<String, dynamic>),
   );
 }
 
@@ -42,10 +39,8 @@ _$_$SwidInstantiableGenericFromSwidFunctionType
     _$_$_$SwidInstantiableGenericFromSwidFunctionTypeFromJson(
         Map<String, dynamic> json) {
   return _$_$SwidInstantiableGenericFromSwidFunctionType(
-    swidFunctionType: json['swidFunctionType'] == null
-        ? null
-        : SwidFunctionType.fromJson(
-            json['swidFunctionType'] as Map<String, dynamic>),
+    swidFunctionType: SwidFunctionType.fromJson(
+        json['swidFunctionType'] as Map<String, dynamic>),
   );
 }
 

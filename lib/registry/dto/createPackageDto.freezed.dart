@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'createPackageDto.dart';
 
@@ -8,6 +8,10 @@ part of 'createPackageDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 CreatePackageDto _$CreatePackageDtoFromJson(Map<String, dynamic> json) {
   return _$CreatePackageDtoCtor.fromJson(json);
 }
@@ -16,16 +20,15 @@ CreatePackageDto _$CreatePackageDtoFromJson(Map<String, dynamic> json) {
 class _$CreatePackageDtoTearOff {
   const _$CreatePackageDtoTearOff();
 
-// ignore: unused_element
   _$CreatePackageDtoCtor call(
-      {@required String publishingPrivateKeySha256,
-      @required String otaPackageBase64,
-      @required String componentName,
-      @required String displayVersion,
-      @required String description,
-      @required String readmeMd,
-      @required String pubspecYaml,
-      @required String pubspecLock,
+      {required String publishingPrivateKeySha256,
+      required String otaPackageBase64,
+      required String componentName,
+      required String displayVersion,
+      required String description,
+      required String readmeMd,
+      required String pubspecYaml,
+      required String pubspecLock,
       String releaseChannelName = "latest"}) {
     return _$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256,
@@ -40,31 +43,30 @@ class _$CreatePackageDtoTearOff {
     );
   }
 
-// ignore: unused_element
   CreatePackageDto fromJson(Map<String, Object> json) {
     return CreatePackageDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreatePackageDto = _$CreatePackageDtoTearOff();
 
 /// @nodoc
 mixin _$CreatePackageDto {
-  String get publishingPrivateKeySha256;
-  String get otaPackageBase64;
-  String get componentName;
-  String get displayVersion;
-  String get description;
-  String get readmeMd;
-  String get pubspecYaml;
-  String get pubspecLock;
-  String get releaseChannelName;
+  String get publishingPrivateKeySha256 => throw _privateConstructorUsedError;
+  String get otaPackageBase64 => throw _privateConstructorUsedError;
+  String get componentName => throw _privateConstructorUsedError;
+  String get displayVersion => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get readmeMd => throw _privateConstructorUsedError;
+  String get pubspecYaml => throw _privateConstructorUsedError;
+  String get pubspecLock => throw _privateConstructorUsedError;
+  String get releaseChannelName => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreatePackageDtoCopyWith<CreatePackageDto> get copyWith;
+  $CreatePackageDtoCopyWith<CreatePackageDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -95,39 +97,53 @@ class _$CreatePackageDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object publishingPrivateKeySha256 = freezed,
-    Object otaPackageBase64 = freezed,
-    Object componentName = freezed,
-    Object displayVersion = freezed,
-    Object description = freezed,
-    Object readmeMd = freezed,
-    Object pubspecYaml = freezed,
-    Object pubspecLock = freezed,
-    Object releaseChannelName = freezed,
+    Object? publishingPrivateKeySha256 = freezed,
+    Object? otaPackageBase64 = freezed,
+    Object? componentName = freezed,
+    Object? displayVersion = freezed,
+    Object? description = freezed,
+    Object? readmeMd = freezed,
+    Object? pubspecYaml = freezed,
+    Object? pubspecLock = freezed,
+    Object? releaseChannelName = freezed,
   }) {
     return _then(_value.copyWith(
       publishingPrivateKeySha256: publishingPrivateKeySha256 == freezed
           ? _value.publishingPrivateKeySha256
-          : publishingPrivateKeySha256 as String,
+          : publishingPrivateKeySha256 // ignore: cast_nullable_to_non_nullable
+              as String,
       otaPackageBase64: otaPackageBase64 == freezed
           ? _value.otaPackageBase64
-          : otaPackageBase64 as String,
+          : otaPackageBase64 // ignore: cast_nullable_to_non_nullable
+              as String,
       componentName: componentName == freezed
           ? _value.componentName
-          : componentName as String,
+          : componentName // ignore: cast_nullable_to_non_nullable
+              as String,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
-          : displayVersion as String,
-      description:
-          description == freezed ? _value.description : description as String,
-      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String,
-      pubspecYaml:
-          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
-      pubspecLock:
-          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+          : displayVersion // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      readmeMd: readmeMd == freezed
+          ? _value.readmeMd
+          : readmeMd // ignore: cast_nullable_to_non_nullable
+              as String,
+      pubspecYaml: pubspecYaml == freezed
+          ? _value.pubspecYaml
+          : pubspecYaml // ignore: cast_nullable_to_non_nullable
+              as String,
+      pubspecLock: pubspecLock == freezed
+          ? _value.pubspecLock
+          : pubspecLock // ignore: cast_nullable_to_non_nullable
+              as String,
       releaseChannelName: releaseChannelName == freezed
           ? _value.releaseChannelName
-          : releaseChannelName as String,
+          : releaseChannelName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -164,66 +180,70 @@ class __$$CreatePackageDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object publishingPrivateKeySha256 = freezed,
-    Object otaPackageBase64 = freezed,
-    Object componentName = freezed,
-    Object displayVersion = freezed,
-    Object description = freezed,
-    Object readmeMd = freezed,
-    Object pubspecYaml = freezed,
-    Object pubspecLock = freezed,
-    Object releaseChannelName = freezed,
+    Object? publishingPrivateKeySha256 = freezed,
+    Object? otaPackageBase64 = freezed,
+    Object? componentName = freezed,
+    Object? displayVersion = freezed,
+    Object? description = freezed,
+    Object? readmeMd = freezed,
+    Object? pubspecYaml = freezed,
+    Object? pubspecLock = freezed,
+    Object? releaseChannelName = freezed,
   }) {
     return _then(_$CreatePackageDtoCtor(
       publishingPrivateKeySha256: publishingPrivateKeySha256 == freezed
           ? _value.publishingPrivateKeySha256
-          : publishingPrivateKeySha256 as String,
+          : publishingPrivateKeySha256 // ignore: cast_nullable_to_non_nullable
+              as String,
       otaPackageBase64: otaPackageBase64 == freezed
           ? _value.otaPackageBase64
-          : otaPackageBase64 as String,
+          : otaPackageBase64 // ignore: cast_nullable_to_non_nullable
+              as String,
       componentName: componentName == freezed
           ? _value.componentName
-          : componentName as String,
+          : componentName // ignore: cast_nullable_to_non_nullable
+              as String,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
-          : displayVersion as String,
-      description:
-          description == freezed ? _value.description : description as String,
-      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String,
-      pubspecYaml:
-          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
-      pubspecLock:
-          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+          : displayVersion // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      readmeMd: readmeMd == freezed
+          ? _value.readmeMd
+          : readmeMd // ignore: cast_nullable_to_non_nullable
+              as String,
+      pubspecYaml: pubspecYaml == freezed
+          ? _value.pubspecYaml
+          : pubspecYaml // ignore: cast_nullable_to_non_nullable
+              as String,
+      pubspecLock: pubspecLock == freezed
+          ? _value.pubspecLock
+          : pubspecLock // ignore: cast_nullable_to_non_nullable
+              as String,
       releaseChannelName: releaseChannelName == freezed
           ? _value.releaseChannelName
-          : releaseChannelName as String,
+          : releaseChannelName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
   const _$_$CreatePackageDtoCtor(
-      {@required this.publishingPrivateKeySha256,
-      @required this.otaPackageBase64,
-      @required this.componentName,
-      @required this.displayVersion,
-      @required this.description,
-      @required this.readmeMd,
-      @required this.pubspecYaml,
-      @required this.pubspecLock,
-      this.releaseChannelName = "latest"})
-      : assert(publishingPrivateKeySha256 != null),
-        assert(otaPackageBase64 != null),
-        assert(componentName != null),
-        assert(displayVersion != null),
-        assert(description != null),
-        assert(readmeMd != null),
-        assert(pubspecYaml != null),
-        assert(pubspecLock != null),
-        assert(releaseChannelName != null);
+      {required this.publishingPrivateKeySha256,
+      required this.otaPackageBase64,
+      required this.componentName,
+      required this.displayVersion,
+      required this.description,
+      required this.readmeMd,
+      required this.pubspecYaml,
+      required this.pubspecLock,
+      this.releaseChannelName = "latest"});
 
   factory _$_$CreatePackageDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$CreatePackageDtoCtorFromJson(json);
@@ -315,38 +335,39 @@ class _$_$CreatePackageDtoCtor implements _$CreatePackageDtoCtor {
 
 abstract class _$CreatePackageDtoCtor implements CreatePackageDto {
   const factory _$CreatePackageDtoCtor(
-      {@required String publishingPrivateKeySha256,
-      @required String otaPackageBase64,
-      @required String componentName,
-      @required String displayVersion,
-      @required String description,
-      @required String readmeMd,
-      @required String pubspecYaml,
-      @required String pubspecLock,
+      {required String publishingPrivateKeySha256,
+      required String otaPackageBase64,
+      required String componentName,
+      required String displayVersion,
+      required String description,
+      required String readmeMd,
+      required String pubspecYaml,
+      required String pubspecLock,
       String releaseChannelName}) = _$_$CreatePackageDtoCtor;
 
   factory _$CreatePackageDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$CreatePackageDtoCtor.fromJson;
 
   @override
-  String get publishingPrivateKeySha256;
+  String get publishingPrivateKeySha256 => throw _privateConstructorUsedError;
   @override
-  String get otaPackageBase64;
+  String get otaPackageBase64 => throw _privateConstructorUsedError;
   @override
-  String get componentName;
+  String get componentName => throw _privateConstructorUsedError;
   @override
-  String get displayVersion;
+  String get displayVersion => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  String get readmeMd;
+  String get readmeMd => throw _privateConstructorUsedError;
   @override
-  String get pubspecYaml;
+  String get pubspecYaml => throw _privateConstructorUsedError;
   @override
-  String get pubspecLock;
+  String get pubspecLock => throw _privateConstructorUsedError;
   @override
-  String get releaseChannelName;
+  String get releaseChannelName => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$CreatePackageDtoCtorCopyWith<_$CreatePackageDtoCtor> get copyWith;
+  _$$CreatePackageDtoCtorCopyWith<_$CreatePackageDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

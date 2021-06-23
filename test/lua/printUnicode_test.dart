@@ -9,17 +9,22 @@ void main() {
 
     List<String> outLines = [];
 
-    state.context.env["print"] = (List<dynamic> args) {
+    state.context!.env["print"] = (List<dynamic> args) {
       outLines.add(args
           .map((a) => Context.luaToString(a, hydroState: state).toString())
           .join("\t"));
+      return [];
     };
 
     List<String> expectedOutLines = [
       "你好，世界",
     ];
 
-    var res = await state.doFile("lua/printUnicode.hc");
+    var res = await state.doFile("test/lua/printUnicode.hc");
+
+    if (!res.success) {
+      print(res.values);
+    }
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

@@ -220,9 +220,8 @@ export class Int32x4List implements IList<IInt32x4>, ITypedData {
         end: number,
         replacement: IIterable<IInt32x4>
     ) => void = undefined as any;
-    private readonly _dart_asMap: () => {
-        [index: number]: IInt32x4;
-    } = undefined as any;
+    private readonly _dart_asMap: () => { [index: number]: IInt32x4 } =
+        undefined as any;
     private readonly _dart_setFirst: (value: IInt32x4) => void =
         undefined as any;
     private readonly _dart_setLast: (value: IInt32x4) => void =

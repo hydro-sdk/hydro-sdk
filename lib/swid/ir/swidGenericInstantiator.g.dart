@@ -10,10 +10,8 @@ _$_$SwidGenericInstantiatorCtor _$_$_$SwidGenericInstantiatorCtorFromJson(
     Map<String, dynamic> json) {
   return _$_$SwidGenericInstantiatorCtor(
     name: json['name'] as String,
-    instantiatedGeneric: json['instantiatedGeneric'] == null
-        ? null
-        : SwidInstantiatedGeneric.fromJson(
-            json['instantiatedGeneric'] as Map<String, dynamic>),
+    instantiatedGeneric: SwidInstantiatedGeneric.fromJson(
+        json['instantiatedGeneric'] as Map<String, dynamic>),
   );
 }
 

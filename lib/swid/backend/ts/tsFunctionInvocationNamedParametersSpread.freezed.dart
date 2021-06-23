@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'tsFunctionInvocationNamedParametersSpread.dart';
 
@@ -8,6 +8,10 @@ part of 'tsFunctionInvocationNamedParametersSpread.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 TsFunctionInvocationNamedParametersSpread
     _$TsFunctionInvocationNamedParametersSpreadFromJson(
         Map<String, dynamic> json) {
@@ -18,32 +22,30 @@ TsFunctionInvocationNamedParametersSpread
 class _$TsFunctionInvocationNamedParametersSpreadTearOff {
   const _$TsFunctionInvocationNamedParametersSpreadTearOff();
 
-// ignore: unused_element
-  _$Data call({@required List<String> references}) {
+  _$Data call({required List<String> references}) {
     return _$Data(
       references: references,
     );
   }
 
-// ignore: unused_element
   TsFunctionInvocationNamedParametersSpread fromJson(Map<String, Object> json) {
     return TsFunctionInvocationNamedParametersSpread.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TsFunctionInvocationNamedParametersSpread =
     _$TsFunctionInvocationNamedParametersSpreadTearOff();
 
 /// @nodoc
 mixin _$TsFunctionInvocationNamedParametersSpread {
-  List<String> get references;
+  List<String> get references => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TsFunctionInvocationNamedParametersSpreadCopyWith<
-      TsFunctionInvocationNamedParametersSpread> get copyWith;
+          TsFunctionInvocationNamedParametersSpread>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -67,12 +69,13 @@ class _$TsFunctionInvocationNamedParametersSpreadCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object references = freezed,
+    Object? references = freezed,
   }) {
     return _then(_value.copyWith(
       references: references == freezed
           ? _value.references
-          : references as List<String>,
+          : references // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -98,21 +101,21 @@ class __$$DataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object references = freezed,
+    Object? references = freezed,
   }) {
     return _then(_$Data(
       references: references == freezed
           ? _value.references
-          : references as List<String>,
+          : references // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$Data implements _$Data {
-  _$_$Data({@required this.references}) : assert(references != null);
+  _$_$Data({required this.references});
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -150,13 +153,13 @@ class _$_$Data implements _$Data {
 }
 
 abstract class _$Data implements TsFunctionInvocationNamedParametersSpread {
-  factory _$Data({@required List<String> references}) = _$_$Data;
+  factory _$Data({required List<String> references}) = _$_$Data;
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 
   @override
-  List<String> get references;
+  List<String> get references => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith;
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }

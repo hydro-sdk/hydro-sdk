@@ -1,14 +1,9 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/vm/frame.dart';
 
 @pragma('vm:prefer-inline')
 @pragma('dart2js:tryInline')
 void forprep(
-    {@required Frame frame,
-    @required int A,
-    @required int B,
-    @required int C}) {
+    {required Frame frame, required int A, required int B, required int C}) {
   var init = frame.GR(A);
   var limit = frame.GR(A + 1);
   var step = frame.GR(A + 2);

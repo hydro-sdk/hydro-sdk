@@ -7,7 +7,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadCupertinoButton(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["cupertinoButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       CupertinoButton(
@@ -28,7 +28,7 @@ void loadCupertinoButton(
             args[0]["borderRadius"],
             parentState: luaState),
         onPressed: () {
-          Closure closure = args[0]["onPressed"];
+          Closure? closure = args[0]["onPressed"];
           if (closure != null) {
             closure.dispatch(
               [],

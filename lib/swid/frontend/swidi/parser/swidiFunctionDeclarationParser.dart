@@ -1,5 +1,6 @@
 import 'package:petitparser/petitparser.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
@@ -25,26 +26,30 @@ mixin SwidiFunctionDeclarationParser
             ...collectTokens<SwidiOptionalParameter>(x),
             ...collectTokens<SwidiPositionalOrOptionalOrNamedParameter>(x)
                 .map((e) => e.maybeWhen(
-                    fromSwidiOptionalParameter: (val) => val,
-                    orElse: () => null))
-                .where((e) => e != null)
+                      fromSwidiOptionalParameter: (val) => val,
+                      orElse: () => swidiUnknownOptionalParameter,
+                    ))
+                .where((e) => e != swidiUnknownOptionalParameter)
                 .toList()
           ],
           positionalParameters: [
             ...collectTokens<SwidiPositionalParameter>(x),
             ...collectTokens<SwidiPositionalOrOptionalOrNamedParameter>(x)
                 .map((e) => e.maybeWhen(
-                    fromSwidiPositionalParameter: (val) => val,
-                    orElse: () => null))
-                .where((e) => e != null)
+                      fromSwidiPositionalParameter: (val) => val,
+                      orElse: () => swidiUnknownPositionalParameter,
+                    ))
+                .where((e) => e != swidiUnknownPositionalParameter)
                 .toList()
           ],
           namedParameters: [
             ...collectTokens<SwidiNamedParameter>(x),
             ...collectTokens<SwidiPositionalOrOptionalOrNamedParameter>(x)
                 .map((e) => e.maybeWhen(
-                    fromSwidiNamedParameter: (val) => val, orElse: () => null))
-                .where((e) => e != null)
+                      fromSwidiNamedParameter: (val) => val,
+                      orElse: () => swidiUnknownNamedParameter,
+                    ))
+                .where((e) => e != swidiUnknownNamedParameter)
                 .toList()
           ],
         );

@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:dart_console/dart_console.dart';
-import 'package:meta/meta.dart';
 import 'package:synchronized/synchronized.dart';
 import 'package:watcher/watcher.dart';
 
@@ -13,12 +12,12 @@ import 'package:hydro_sdk/projectConfig/projectConfig.dart';
 
 Lock _rebuildLock = Lock();
 
-void _rebuild({
-  @required String project,
-  @required String ts2hc,
-  @required String cacheDir,
-  @required String profile,
-  @required String watchPath,
+Future<void> _rebuild({
+  required String? project,
+  required String? ts2hc,
+  required String? cacheDir,
+  required String? profile,
+  required String watchPath,
 }) async =>
     _rebuildLock.synchronized(() async {
       var console = Console();
@@ -27,7 +26,7 @@ void _rebuild({
       _printInfo(watchPath: watchPath);
 
       ProjectConfig projectConfig = ProjectConfig.fromJson(
-          jsonDecode(await File(project).readAsString()));
+          jsonDecode(await File(project!).readAsString()));
 
       ProjectBuilder projectBuilder = ProjectBuilder(
         projectConfig: projectConfig,
@@ -47,7 +46,7 @@ void _rebuild({
     });
 
 void _printInfo({
-  @required String watchPath,
+  required String watchPath,
 }) {
   print("Watching for changes in ${watchPath}");
 }

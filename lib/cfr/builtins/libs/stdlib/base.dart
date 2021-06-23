@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/closure.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
@@ -7,7 +5,7 @@ import 'package:hydro_sdk/cfr/vm/hydroError.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadBaseLib({@required HydroState hydroState, @required Context ctx}) {
+void loadBaseLib({required HydroState hydroState, required Context ctx}) {
   ctx.env["assert"] = (List<dynamic> args) {
     if (args.length < 1 || args[0] == null || args[0] == false) {
       throw args.length < 2 ? "assertion failed!" : args[1];
@@ -39,7 +37,7 @@ void loadBaseLib({@required HydroState hydroState, @required Context ctx}) {
 
     if (Context.hasMetamethod(t, "__ipairs")) {
       return Context.invokeMetamethod(t, "__ipairs", [t],
-              parentState: hydroState)
+              parentState: hydroState)!
           .take(3)
           .toList(growable: false);
     }

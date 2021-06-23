@@ -9,15 +9,15 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var diagnosticsNode = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
+    var diagnosticsNode = SwidClass.fromJson(json
+        .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
         DartLoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
             .toDartSource(),
         """
 void loadDiagnosticsNode(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table[\'diagnosticsNode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedDiagnosticsNode(
@@ -62,9 +62,9 @@ void loadDiagnosticsNode(
     ];
   });
   registerBoxer<DiagnosticsNode>(boxer: (
-      {@required DiagnosticsNode vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required DiagnosticsNode vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedDiagnosticsNode(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

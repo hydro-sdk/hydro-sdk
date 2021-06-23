@@ -7,7 +7,7 @@ import 'package:hydro_sdk/integrationTestHarness.dart';
 void main() {
   testWidgets('', (WidgetTester tester) async {
     await tester.pumpWidget(
-        integrationTestHarness("../assets/test/widget/changeNotifier-1.ts"));
+        integrationTestHarness("assets/test/widget/changeNotifier-1.ts"));
     await tester.pumpAndSettle();
 
     expect(find.byKey(Key("counter")), findsOneWidget);

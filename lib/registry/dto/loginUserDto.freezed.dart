@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'loginUserDto.dart';
 
@@ -8,6 +8,10 @@ part of 'loginUserDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 LoginUserDto _$LoginUserDtoFromJson(Map<String, dynamic> json) {
   return _$LoginUserDtoCtor.fromJson(json);
 }
@@ -16,33 +20,31 @@ LoginUserDto _$LoginUserDtoFromJson(Map<String, dynamic> json) {
 class _$LoginUserDtoTearOff {
   const _$LoginUserDtoTearOff();
 
-// ignore: unused_element
   _$LoginUserDtoCtor call(
-      {@required String username, @required String password}) {
+      {required String username, required String password}) {
     return _$LoginUserDtoCtor(
       username: username,
       password: password,
     );
   }
 
-// ignore: unused_element
   LoginUserDto fromJson(Map<String, Object> json) {
     return LoginUserDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LoginUserDto = _$LoginUserDtoTearOff();
 
 /// @nodoc
 mixin _$LoginUserDto {
-  String get username;
-  String get password;
+  String get username => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LoginUserDtoCopyWith<LoginUserDto> get copyWith;
+  $LoginUserDtoCopyWith<LoginUserDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -63,12 +65,18 @@ class _$LoginUserDtoCopyWithImpl<$Res> implements $LoginUserDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object username = freezed,
-    Object password = freezed,
+    Object? username = freezed,
+    Object? password = freezed,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed ? _value.username : username as String,
-      password: password == freezed ? _value.password : password as String,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -96,23 +104,26 @@ class __$$LoginUserDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object username = freezed,
-    Object password = freezed,
+    Object? username = freezed,
+    Object? password = freezed,
   }) {
     return _then(_$LoginUserDtoCtor(
-      username: username == freezed ? _value.username : username as String,
-      password: password == freezed ? _value.password : password as String,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$LoginUserDtoCtor implements _$LoginUserDtoCtor {
-  const _$_$LoginUserDtoCtor({@required this.username, @required this.password})
-      : assert(username != null),
-        assert(password != null);
+  const _$_$LoginUserDtoCtor({required this.username, required this.password});
 
   factory _$_$LoginUserDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$LoginUserDtoCtorFromJson(json);
@@ -158,17 +169,18 @@ class _$_$LoginUserDtoCtor implements _$LoginUserDtoCtor {
 
 abstract class _$LoginUserDtoCtor implements LoginUserDto {
   const factory _$LoginUserDtoCtor(
-      {@required String username,
-      @required String password}) = _$_$LoginUserDtoCtor;
+      {required String username,
+      required String password}) = _$_$LoginUserDtoCtor;
 
   factory _$LoginUserDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$LoginUserDtoCtor.fromJson;
 
   @override
-  String get username;
+  String get username => throw _privateConstructorUsedError;
   @override
-  String get password;
+  String get password => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$LoginUserDtoCtorCopyWith<_$LoginUserDtoCtor> get copyWith;
+  _$$LoginUserDtoCtorCopyWith<_$LoginUserDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

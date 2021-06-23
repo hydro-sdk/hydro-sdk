@@ -1,12 +1,11 @@
-import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
 
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/transformPackageUri.dart';
 
 String resolveTsImportsPaths({
-  @required SwidType importee,
-  @required SwidType importer,
+  required SwidType importee,
+  required SwidType importer,
   List<String> prefixPaths = const [],
 }) =>
     path.relative(

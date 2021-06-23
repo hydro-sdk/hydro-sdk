@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'packageReadDto.dart';
 
@@ -8,6 +8,10 @@ part of 'packageReadDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PackageReadDto _$PackageReadDtoFromJson(Map<String, dynamic> json) {
   return _$PackageReadDtoCtor.fromJson(json);
 }
@@ -16,19 +20,18 @@ PackageReadDto _$PackageReadDtoFromJson(Map<String, dynamic> json) {
 class _$PackageReadDtoTearOff {
   const _$PackageReadDtoTearOff();
 
-// ignore: unused_element
   _$PackageReadDtoCtor call(
-      {@required String id,
-      @required String createdAt,
-      @required String componentId,
-      @required String sha256,
-      @required String displayVersion,
-      @required String description,
-      @required String deploymentPublicKey,
-      @required String deploymentPublicKeySha256,
-      @required String readmeMd,
-      @required String pubspecYaml,
-      @required String pubspecLock}) {
+      {required String id,
+      required String createdAt,
+      required String componentId,
+      required String sha256,
+      required String displayVersion,
+      required String description,
+      required String deploymentPublicKey,
+      required String deploymentPublicKeySha256,
+      required String readmeMd,
+      required String pubspecYaml,
+      required String pubspecLock}) {
     return _$PackageReadDtoCtor(
       id: id,
       createdAt: createdAt,
@@ -44,33 +47,32 @@ class _$PackageReadDtoTearOff {
     );
   }
 
-// ignore: unused_element
   PackageReadDto fromJson(Map<String, Object> json) {
     return PackageReadDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PackageReadDto = _$PackageReadDtoTearOff();
 
 /// @nodoc
 mixin _$PackageReadDto {
-  String get id;
-  String get createdAt;
-  String get componentId;
-  String get sha256;
-  String get displayVersion;
-  String get description;
-  String get deploymentPublicKey;
-  String get deploymentPublicKeySha256;
-  String get readmeMd;
-  String get pubspecYaml;
-  String get pubspecLock;
+  String get id => throw _privateConstructorUsedError;
+  String get createdAt => throw _privateConstructorUsedError;
+  String get componentId => throw _privateConstructorUsedError;
+  String get sha256 => throw _privateConstructorUsedError;
+  String get displayVersion => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get deploymentPublicKey => throw _privateConstructorUsedError;
+  String get deploymentPublicKeySha256 => throw _privateConstructorUsedError;
+  String get readmeMd => throw _privateConstructorUsedError;
+  String get pubspecYaml => throw _privateConstructorUsedError;
+  String get pubspecLock => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PackageReadDtoCopyWith<PackageReadDto> get copyWith;
+  $PackageReadDtoCopyWith<PackageReadDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -103,40 +105,63 @@ class _$PackageReadDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object createdAt = freezed,
-    Object componentId = freezed,
-    Object sha256 = freezed,
-    Object displayVersion = freezed,
-    Object description = freezed,
-    Object deploymentPublicKey = freezed,
-    Object deploymentPublicKeySha256 = freezed,
-    Object readmeMd = freezed,
-    Object pubspecYaml = freezed,
-    Object pubspecLock = freezed,
+    Object? id = freezed,
+    Object? createdAt = freezed,
+    Object? componentId = freezed,
+    Object? sha256 = freezed,
+    Object? displayVersion = freezed,
+    Object? description = freezed,
+    Object? deploymentPublicKey = freezed,
+    Object? deploymentPublicKeySha256 = freezed,
+    Object? readmeMd = freezed,
+    Object? pubspecYaml = freezed,
+    Object? pubspecLock = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
-      componentId:
-          componentId == freezed ? _value.componentId : componentId as String,
-      sha256: sha256 == freezed ? _value.sha256 : sha256 as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: componentId == freezed
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      sha256: sha256 == freezed
+          ? _value.sha256
+          : sha256 // ignore: cast_nullable_to_non_nullable
+              as String,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
-          : displayVersion as String,
-      description:
-          description == freezed ? _value.description : description as String,
+          : displayVersion // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       deploymentPublicKey: deploymentPublicKey == freezed
           ? _value.deploymentPublicKey
-          : deploymentPublicKey as String,
+          : deploymentPublicKey // ignore: cast_nullable_to_non_nullable
+              as String,
       deploymentPublicKeySha256: deploymentPublicKeySha256 == freezed
           ? _value.deploymentPublicKeySha256
-          : deploymentPublicKeySha256 as String,
-      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String,
-      pubspecYaml:
-          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
-      pubspecLock:
-          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+          : deploymentPublicKeySha256 // ignore: cast_nullable_to_non_nullable
+              as String,
+      readmeMd: readmeMd == freezed
+          ? _value.readmeMd
+          : readmeMd // ignore: cast_nullable_to_non_nullable
+              as String,
+      pubspecYaml: pubspecYaml == freezed
+          ? _value.pubspecYaml
+          : pubspecYaml // ignore: cast_nullable_to_non_nullable
+              as String,
+      pubspecLock: pubspecLock == freezed
+          ? _value.pubspecLock
+          : pubspecLock // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -175,71 +200,82 @@ class __$$PackageReadDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object createdAt = freezed,
-    Object componentId = freezed,
-    Object sha256 = freezed,
-    Object displayVersion = freezed,
-    Object description = freezed,
-    Object deploymentPublicKey = freezed,
-    Object deploymentPublicKeySha256 = freezed,
-    Object readmeMd = freezed,
-    Object pubspecYaml = freezed,
-    Object pubspecLock = freezed,
+    Object? id = freezed,
+    Object? createdAt = freezed,
+    Object? componentId = freezed,
+    Object? sha256 = freezed,
+    Object? displayVersion = freezed,
+    Object? description = freezed,
+    Object? deploymentPublicKey = freezed,
+    Object? deploymentPublicKeySha256 = freezed,
+    Object? readmeMd = freezed,
+    Object? pubspecYaml = freezed,
+    Object? pubspecLock = freezed,
   }) {
     return _then(_$PackageReadDtoCtor(
-      id: id == freezed ? _value.id : id as String,
-      createdAt: createdAt == freezed ? _value.createdAt : createdAt as String,
-      componentId:
-          componentId == freezed ? _value.componentId : componentId as String,
-      sha256: sha256 == freezed ? _value.sha256 : sha256 as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: componentId == freezed
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      sha256: sha256 == freezed
+          ? _value.sha256
+          : sha256 // ignore: cast_nullable_to_non_nullable
+              as String,
       displayVersion: displayVersion == freezed
           ? _value.displayVersion
-          : displayVersion as String,
-      description:
-          description == freezed ? _value.description : description as String,
+          : displayVersion // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       deploymentPublicKey: deploymentPublicKey == freezed
           ? _value.deploymentPublicKey
-          : deploymentPublicKey as String,
+          : deploymentPublicKey // ignore: cast_nullable_to_non_nullable
+              as String,
       deploymentPublicKeySha256: deploymentPublicKeySha256 == freezed
           ? _value.deploymentPublicKeySha256
-          : deploymentPublicKeySha256 as String,
-      readmeMd: readmeMd == freezed ? _value.readmeMd : readmeMd as String,
-      pubspecYaml:
-          pubspecYaml == freezed ? _value.pubspecYaml : pubspecYaml as String,
-      pubspecLock:
-          pubspecLock == freezed ? _value.pubspecLock : pubspecLock as String,
+          : deploymentPublicKeySha256 // ignore: cast_nullable_to_non_nullable
+              as String,
+      readmeMd: readmeMd == freezed
+          ? _value.readmeMd
+          : readmeMd // ignore: cast_nullable_to_non_nullable
+              as String,
+      pubspecYaml: pubspecYaml == freezed
+          ? _value.pubspecYaml
+          : pubspecYaml // ignore: cast_nullable_to_non_nullable
+              as String,
+      pubspecLock: pubspecLock == freezed
+          ? _value.pubspecLock
+          : pubspecLock // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$PackageReadDtoCtor implements _$PackageReadDtoCtor {
   const _$_$PackageReadDtoCtor(
-      {@required this.id,
-      @required this.createdAt,
-      @required this.componentId,
-      @required this.sha256,
-      @required this.displayVersion,
-      @required this.description,
-      @required this.deploymentPublicKey,
-      @required this.deploymentPublicKeySha256,
-      @required this.readmeMd,
-      @required this.pubspecYaml,
-      @required this.pubspecLock})
-      : assert(id != null),
-        assert(createdAt != null),
-        assert(componentId != null),
-        assert(sha256 != null),
-        assert(displayVersion != null),
-        assert(description != null),
-        assert(deploymentPublicKey != null),
-        assert(deploymentPublicKeySha256 != null),
-        assert(readmeMd != null),
-        assert(pubspecYaml != null),
-        assert(pubspecLock != null);
+      {required this.id,
+      required this.createdAt,
+      required this.componentId,
+      required this.sha256,
+      required this.displayVersion,
+      required this.description,
+      required this.deploymentPublicKey,
+      required this.deploymentPublicKeySha256,
+      required this.readmeMd,
+      required this.pubspecYaml,
+      required this.pubspecLock});
 
   factory _$_$PackageReadDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$PackageReadDtoCtorFromJson(json);
@@ -340,44 +376,45 @@ class _$_$PackageReadDtoCtor implements _$PackageReadDtoCtor {
 
 abstract class _$PackageReadDtoCtor implements PackageReadDto {
   const factory _$PackageReadDtoCtor(
-      {@required String id,
-      @required String createdAt,
-      @required String componentId,
-      @required String sha256,
-      @required String displayVersion,
-      @required String description,
-      @required String deploymentPublicKey,
-      @required String deploymentPublicKeySha256,
-      @required String readmeMd,
-      @required String pubspecYaml,
-      @required String pubspecLock}) = _$_$PackageReadDtoCtor;
+      {required String id,
+      required String createdAt,
+      required String componentId,
+      required String sha256,
+      required String displayVersion,
+      required String description,
+      required String deploymentPublicKey,
+      required String deploymentPublicKeySha256,
+      required String readmeMd,
+      required String pubspecYaml,
+      required String pubspecLock}) = _$_$PackageReadDtoCtor;
 
   factory _$PackageReadDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$PackageReadDtoCtor.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get createdAt;
+  String get createdAt => throw _privateConstructorUsedError;
   @override
-  String get componentId;
+  String get componentId => throw _privateConstructorUsedError;
   @override
-  String get sha256;
+  String get sha256 => throw _privateConstructorUsedError;
   @override
-  String get displayVersion;
+  String get displayVersion => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  String get deploymentPublicKey;
+  String get deploymentPublicKey => throw _privateConstructorUsedError;
   @override
-  String get deploymentPublicKeySha256;
+  String get deploymentPublicKeySha256 => throw _privateConstructorUsedError;
   @override
-  String get readmeMd;
+  String get readmeMd => throw _privateConstructorUsedError;
   @override
-  String get pubspecYaml;
+  String get pubspecYaml => throw _privateConstructorUsedError;
   @override
-  String get pubspecLock;
+  String get pubspecLock => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$PackageReadDtoCtorCopyWith<_$PackageReadDtoCtor> get copyWith;
+  _$$PackageReadDtoCtorCopyWith<_$PackageReadDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

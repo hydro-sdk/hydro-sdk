@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'swidIr.dart';
 
@@ -8,6 +8,10 @@ part of 'swidIr.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SwidIr _$SwidIrFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'fromSwidClass':
@@ -24,55 +28,55 @@ SwidIr _$SwidIrFromJson(Map<String, dynamic> json) {
 class _$SwidIrTearOff {
   const _$SwidIrTearOff();
 
-// ignore: unused_element
-  _$SwidIrFromSwidClass fromSwidClass({@required SwidClass swidClass}) {
+  _$SwidIrFromSwidClass fromSwidClass({required SwidClass swidClass}) {
     return _$SwidIrFromSwidClass(
       swidClass: swidClass,
     );
   }
 
-// ignore: unused_element
-  _$SwidIrFromSwidEnum fromSwidEnum({@required SwidEnum swidEnum}) {
+  _$SwidIrFromSwidEnum fromSwidEnum({required SwidEnum swidEnum}) {
     return _$SwidIrFromSwidEnum(
       swidEnum: swidEnum,
     );
   }
 
-// ignore: unused_element
   SwidIr fromJson(Map<String, Object> json) {
     return SwidIr.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SwidIr = _$SwidIrTearOff();
 
 /// @nodoc
 mixin _$SwidIr {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fromSwidClass(SwidClass swidClass),
-    @required TResult fromSwidEnum(SwidEnum swidEnum),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(SwidClass swidClass) fromSwidClass,
+    required TResult Function(SwidEnum swidEnum) fromSwidEnum,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidClass(SwidClass swidClass),
-    TResult fromSwidEnum(SwidEnum swidEnum),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SwidClass swidClass)? fromSwidClass,
+    TResult Function(SwidEnum swidEnum)? fromSwidEnum,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromSwidClass(_$SwidIrFromSwidClass value),
-    @required TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$SwidIrFromSwidClass value) fromSwidClass,
+    required TResult Function(_$SwidIrFromSwidEnum value) fromSwidEnum,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromSwidClass(_$SwidIrFromSwidClass value),
-    TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
-    @required TResult orElse(),
-  });
-  Map<String, dynamic> toJson();
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$SwidIrFromSwidClass value)? fromSwidClass,
+    TResult Function(_$SwidIrFromSwidEnum value)? fromSwidEnum,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -113,31 +117,28 @@ class __$$SwidIrFromSwidClassCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object swidClass = freezed,
+    Object? swidClass = freezed,
   }) {
     return _then(_$SwidIrFromSwidClass(
-      swidClass:
-          swidClass == freezed ? _value.swidClass : swidClass as SwidClass,
+      swidClass: swidClass == freezed
+          ? _value.swidClass
+          : swidClass // ignore: cast_nullable_to_non_nullable
+              as SwidClass,
     ));
   }
 
   @override
   $SwidClassCopyWith<$Res> get swidClass {
-    if (_value.swidClass == null) {
-      return null;
-    }
     return $SwidClassCopyWith<$Res>(_value.swidClass, (value) {
       return _then(_value.copyWith(swidClass: value));
     });
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
-  const _$_$SwidIrFromSwidClass({@required this.swidClass})
-      : assert(swidClass != null);
+  const _$_$SwidIrFromSwidClass({required this.swidClass});
 
   factory _$_$SwidIrFromSwidClass.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidIrFromSwidClassFromJson(json);
@@ -171,23 +172,20 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fromSwidClass(SwidClass swidClass),
-    @required TResult fromSwidEnum(SwidEnum swidEnum),
+  TResult when<TResult extends Object?>({
+    required TResult Function(SwidClass swidClass) fromSwidClass,
+    required TResult Function(SwidEnum swidEnum) fromSwidEnum,
   }) {
-    assert(fromSwidClass != null);
-    assert(fromSwidEnum != null);
     return fromSwidClass(swidClass);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidClass(SwidClass swidClass),
-    TResult fromSwidEnum(SwidEnum swidEnum),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SwidClass swidClass)? fromSwidClass,
+    TResult Function(SwidEnum swidEnum)? fromSwidEnum,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromSwidClass != null) {
       return fromSwidClass(swidClass);
     }
@@ -196,23 +194,20 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromSwidClass(_$SwidIrFromSwidClass value),
-    @required TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$SwidIrFromSwidClass value) fromSwidClass,
+    required TResult Function(_$SwidIrFromSwidEnum value) fromSwidEnum,
   }) {
-    assert(fromSwidClass != null);
-    assert(fromSwidEnum != null);
     return fromSwidClass(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromSwidClass(_$SwidIrFromSwidClass value),
-    TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$SwidIrFromSwidClass value)? fromSwidClass,
+    TResult Function(_$SwidIrFromSwidEnum value)? fromSwidEnum,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromSwidClass != null) {
       return fromSwidClass(this);
     }
@@ -227,15 +222,16 @@ class _$_$SwidIrFromSwidClass implements _$SwidIrFromSwidClass {
 }
 
 abstract class _$SwidIrFromSwidClass implements SwidIr {
-  const factory _$SwidIrFromSwidClass({@required SwidClass swidClass}) =
+  const factory _$SwidIrFromSwidClass({required SwidClass swidClass}) =
       _$_$SwidIrFromSwidClass;
 
   factory _$SwidIrFromSwidClass.fromJson(Map<String, dynamic> json) =
       _$_$SwidIrFromSwidClass.fromJson;
 
-  SwidClass get swidClass;
+  SwidClass get swidClass => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$SwidIrFromSwidClassCopyWith<_$SwidIrFromSwidClass> get copyWith;
+  _$$SwidIrFromSwidClassCopyWith<_$SwidIrFromSwidClass> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -261,30 +257,28 @@ class __$$SwidIrFromSwidEnumCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object swidEnum = freezed,
+    Object? swidEnum = freezed,
   }) {
     return _then(_$SwidIrFromSwidEnum(
-      swidEnum: swidEnum == freezed ? _value.swidEnum : swidEnum as SwidEnum,
+      swidEnum: swidEnum == freezed
+          ? _value.swidEnum
+          : swidEnum // ignore: cast_nullable_to_non_nullable
+              as SwidEnum,
     ));
   }
 
   @override
   $SwidEnumCopyWith<$Res> get swidEnum {
-    if (_value.swidEnum == null) {
-      return null;
-    }
     return $SwidEnumCopyWith<$Res>(_value.swidEnum, (value) {
       return _then(_value.copyWith(swidEnum: value));
     });
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
-  const _$_$SwidIrFromSwidEnum({@required this.swidEnum})
-      : assert(swidEnum != null);
+  const _$_$SwidIrFromSwidEnum({required this.swidEnum});
 
   factory _$_$SwidIrFromSwidEnum.fromJson(Map<String, dynamic> json) =>
       _$_$_$SwidIrFromSwidEnumFromJson(json);
@@ -318,23 +312,20 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult fromSwidClass(SwidClass swidClass),
-    @required TResult fromSwidEnum(SwidEnum swidEnum),
+  TResult when<TResult extends Object?>({
+    required TResult Function(SwidClass swidClass) fromSwidClass,
+    required TResult Function(SwidEnum swidEnum) fromSwidEnum,
   }) {
-    assert(fromSwidClass != null);
-    assert(fromSwidEnum != null);
     return fromSwidEnum(swidEnum);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult fromSwidClass(SwidClass swidClass),
-    TResult fromSwidEnum(SwidEnum swidEnum),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SwidClass swidClass)? fromSwidClass,
+    TResult Function(SwidEnum swidEnum)? fromSwidEnum,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromSwidEnum != null) {
       return fromSwidEnum(swidEnum);
     }
@@ -343,23 +334,20 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult fromSwidClass(_$SwidIrFromSwidClass value),
-    @required TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$SwidIrFromSwidClass value) fromSwidClass,
+    required TResult Function(_$SwidIrFromSwidEnum value) fromSwidEnum,
   }) {
-    assert(fromSwidClass != null);
-    assert(fromSwidEnum != null);
     return fromSwidEnum(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult fromSwidClass(_$SwidIrFromSwidClass value),
-    TResult fromSwidEnum(_$SwidIrFromSwidEnum value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$SwidIrFromSwidClass value)? fromSwidClass,
+    TResult Function(_$SwidIrFromSwidEnum value)? fromSwidEnum,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (fromSwidEnum != null) {
       return fromSwidEnum(this);
     }
@@ -374,13 +362,14 @@ class _$_$SwidIrFromSwidEnum implements _$SwidIrFromSwidEnum {
 }
 
 abstract class _$SwidIrFromSwidEnum implements SwidIr {
-  const factory _$SwidIrFromSwidEnum({@required SwidEnum swidEnum}) =
+  const factory _$SwidIrFromSwidEnum({required SwidEnum swidEnum}) =
       _$_$SwidIrFromSwidEnum;
 
   factory _$SwidIrFromSwidEnum.fromJson(Map<String, dynamic> json) =
       _$_$SwidIrFromSwidEnum.fromJson;
 
-  SwidEnum get swidEnum;
+  SwidEnum get swidEnum => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$SwidIrFromSwidEnumCopyWith<_$SwidIrFromSwidEnum> get copyWith;
+  _$$SwidIrFromSwidEnumCopyWith<_$SwidIrFromSwidEnum> get copyWith =>
+      throw _privateConstructorUsedError;
 }

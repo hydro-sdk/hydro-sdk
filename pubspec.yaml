@@ -1,52 +1,43 @@
 description: "A new Flutter project."
 name: "hydro_sdk"
 version: "1.0.0+1"
-dependencies: 
-  analyzer: "^0.40.3"
-  args: "1.6.0"
-  benchmark_harness: "any"
-  build_runner: "^1.10.1"
-  collection: "any"
-  cupertino_icons: "^0.1.2"
-  http: "0.12.2"
-  json_serializable: "3.5.0"
-  petitparser: "3.1.0"
-  recase: "^3.0.0"
-  tuple: "^1.0.2"
-  flutter: 
+dependencies:
+  analyzer: ^1.7.1
+  args: ^2.1.1
+  benchmark_harness: ^2.0.0
+  collection: ^1.15.0
+  cupertino_icons: ^1.0.3
+  http: ^0.13.3
+  json_serializable: ^4.1.3
+  petitparser: ^4.1.0
+  recase: ^4.0.0
+  tuple: ^2.0.0
+  flutter:
     sdk: flutter
-  progress_bar: 
-    git: 
-      url: "git://github.com/hydro-sdk/progress_bar"
-  surveyor: 
-    git: 
-      ref: "e050fb0dee8f228e0da660f1b49b28daf42291b9"
-      url: "git://github.com/hydro-sdk/surveyor"
-  waveform: 
-    git: 
-      ref: "0.0.1-nightly.35"
-      url: "git://github.com/hydro-sdk/waveform.git"
-  archive: null
-  cli_util: null
-  code_builder: null
-  corsac_jwt: null
-  dart_console: null
-  dart_style: null
-  encrypt: null
-  filesize: null
-  freezed: null
-  freezed_annotation: null
-  pointycastle: null
-  rsa_pkcs: null
-  synchronized: null
-  uuid: null
-  watcher: null
-dev_dependencies: 
-  import_sorter: "4.4.1"
-  test: "any"
-  flutter_test: 
+  archive: ^3.1.2
+  cli_util: ^0.3.0
+  code_builder: ^4.0.0
+  corsac_jwt: ^1.0.0-nullsafety.1
+  dart_console: ^1.0.0
+  dart_style: ^2.0.1
+  encrypt: ^5.0.0
+  filesize: ^2.0.1
+  freezed: ^0.14.2
+  freezed_annotation: ^0.14.2
+  pointycastle: ^3.1.1
+  rsa_pkcs: ^2.0.0
+  synchronized: ^3.0.0
+  uuid: ^3.0.4
+  watcher: ^1.0.0
+  glob: 2.0.1
+dev_dependencies:
+  import_sorter: 
+  build_runner:
+  test: ^1.16.5
+  waveform: ^0.0.1-nightly.43
+  flutter_test:
     sdk: flutter
-environment: 
-  sdk: ">=2.9.0 <3.0.0"
-flutter: 
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+flutter:
   uses-material-design: true

@@ -1,7 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -12,9 +10,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedEndian extends VMManagedBox<Endian> {
   VMManagedEndian(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -28,7 +24,7 @@ class VMManagedEndian extends VMManagedBox<Endian> {
   final Endian vmObject;
 }
 
-void loadEndian({@required HydroState hydroState, @required HydroTable table}) {
+void loadEndian({required HydroState hydroState, required HydroTable table}) {
   table['endianBig'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Endian>(
@@ -42,9 +38,9 @@ void loadEndian({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Endian>(boxer: (
-      {@required Endian vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Endian vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedEndian(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

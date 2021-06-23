@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'getPackageDto.dart';
 
@@ -8,6 +8,10 @@ part of 'getPackageDto.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 GetPackageDto _$GetPackageDtoFromJson(Map<String, dynamic> json) {
   return _$GetPackageDtoCtor.fromJson(json);
 }
@@ -16,13 +20,12 @@ GetPackageDto _$GetPackageDtoFromJson(Map<String, dynamic> json) {
 class _$GetPackageDtoTearOff {
   const _$GetPackageDtoTearOff();
 
-// ignore: unused_element
   _$GetPackageDtoCtor call(
-      {@required String sessionId,
-      @required String projectName,
-      @required String componentName,
-      @required String releaseChannelName,
-      @required String currentPackageId}) {
+      {required String sessionId,
+      required String projectName,
+      required String componentName,
+      required String releaseChannelName,
+      required String currentPackageId}) {
     return _$GetPackageDtoCtor(
       sessionId: sessionId,
       projectName: projectName,
@@ -32,27 +35,26 @@ class _$GetPackageDtoTearOff {
     );
   }
 
-// ignore: unused_element
   GetPackageDto fromJson(Map<String, Object> json) {
     return GetPackageDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $GetPackageDto = _$GetPackageDtoTearOff();
 
 /// @nodoc
 mixin _$GetPackageDto {
-  String get sessionId;
-  String get projectName;
-  String get componentName;
-  String get releaseChannelName;
-  String get currentPackageId;
+  String get sessionId => throw _privateConstructorUsedError;
+  String get projectName => throw _privateConstructorUsedError;
+  String get componentName => throw _privateConstructorUsedError;
+  String get releaseChannelName => throw _privateConstructorUsedError;
+  String get currentPackageId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GetPackageDtoCopyWith<GetPackageDto> get copyWith;
+  $GetPackageDtoCopyWith<GetPackageDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -79,25 +81,33 @@ class _$GetPackageDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object sessionId = freezed,
-    Object projectName = freezed,
-    Object componentName = freezed,
-    Object releaseChannelName = freezed,
-    Object currentPackageId = freezed,
+    Object? sessionId = freezed,
+    Object? projectName = freezed,
+    Object? componentName = freezed,
+    Object? releaseChannelName = freezed,
+    Object? currentPackageId = freezed,
   }) {
     return _then(_value.copyWith(
-      sessionId: sessionId == freezed ? _value.sessionId : sessionId as String,
-      projectName:
-          projectName == freezed ? _value.projectName : projectName as String,
+      sessionId: sessionId == freezed
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectName: projectName == freezed
+          ? _value.projectName
+          : projectName // ignore: cast_nullable_to_non_nullable
+              as String,
       componentName: componentName == freezed
           ? _value.componentName
-          : componentName as String,
+          : componentName // ignore: cast_nullable_to_non_nullable
+              as String,
       releaseChannelName: releaseChannelName == freezed
           ? _value.releaseChannelName
-          : releaseChannelName as String,
+          : releaseChannelName // ignore: cast_nullable_to_non_nullable
+              as String,
       currentPackageId: currentPackageId == freezed
           ? _value.currentPackageId
-          : currentPackageId as String,
+          : currentPackageId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -130,44 +140,46 @@ class __$$GetPackageDtoCtorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object sessionId = freezed,
-    Object projectName = freezed,
-    Object componentName = freezed,
-    Object releaseChannelName = freezed,
-    Object currentPackageId = freezed,
+    Object? sessionId = freezed,
+    Object? projectName = freezed,
+    Object? componentName = freezed,
+    Object? releaseChannelName = freezed,
+    Object? currentPackageId = freezed,
   }) {
     return _then(_$GetPackageDtoCtor(
-      sessionId: sessionId == freezed ? _value.sessionId : sessionId as String,
-      projectName:
-          projectName == freezed ? _value.projectName : projectName as String,
+      sessionId: sessionId == freezed
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectName: projectName == freezed
+          ? _value.projectName
+          : projectName // ignore: cast_nullable_to_non_nullable
+              as String,
       componentName: componentName == freezed
           ? _value.componentName
-          : componentName as String,
+          : componentName // ignore: cast_nullable_to_non_nullable
+              as String,
       releaseChannelName: releaseChannelName == freezed
           ? _value.releaseChannelName
-          : releaseChannelName as String,
+          : releaseChannelName // ignore: cast_nullable_to_non_nullable
+              as String,
       currentPackageId: currentPackageId == freezed
           ? _value.currentPackageId
-          : currentPackageId as String,
+          : currentPackageId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_$GetPackageDtoCtor implements _$GetPackageDtoCtor {
   const _$_$GetPackageDtoCtor(
-      {@required this.sessionId,
-      @required this.projectName,
-      @required this.componentName,
-      @required this.releaseChannelName,
-      @required this.currentPackageId})
-      : assert(sessionId != null),
-        assert(projectName != null),
-        assert(componentName != null),
-        assert(releaseChannelName != null),
-        assert(currentPackageId != null);
+      {required this.sessionId,
+      required this.projectName,
+      required this.componentName,
+      required this.releaseChannelName,
+      required this.currentPackageId});
 
   factory _$_$GetPackageDtoCtor.fromJson(Map<String, dynamic> json) =>
       _$_$_$GetPackageDtoCtorFromJson(json);
@@ -231,26 +243,27 @@ class _$_$GetPackageDtoCtor implements _$GetPackageDtoCtor {
 
 abstract class _$GetPackageDtoCtor implements GetPackageDto {
   const factory _$GetPackageDtoCtor(
-      {@required String sessionId,
-      @required String projectName,
-      @required String componentName,
-      @required String releaseChannelName,
-      @required String currentPackageId}) = _$_$GetPackageDtoCtor;
+      {required String sessionId,
+      required String projectName,
+      required String componentName,
+      required String releaseChannelName,
+      required String currentPackageId}) = _$_$GetPackageDtoCtor;
 
   factory _$GetPackageDtoCtor.fromJson(Map<String, dynamic> json) =
       _$_$GetPackageDtoCtor.fromJson;
 
   @override
-  String get sessionId;
+  String get sessionId => throw _privateConstructorUsedError;
   @override
-  String get projectName;
+  String get projectName => throw _privateConstructorUsedError;
   @override
-  String get componentName;
+  String get componentName => throw _privateConstructorUsedError;
   @override
-  String get releaseChannelName;
+  String get releaseChannelName => throw _privateConstructorUsedError;
   @override
-  String get currentPackageId;
+  String get currentPackageId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$GetPackageDtoCtorCopyWith<_$GetPackageDtoCtor> get copyWith;
+  _$$GetPackageDtoCtorCopyWith<_$GetPackageDtoCtor> get copyWith =>
+      throw _privateConstructorUsedError;
 }

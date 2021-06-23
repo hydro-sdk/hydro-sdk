@@ -1,13 +1,11 @@
 import 'dart:math';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/util.dart';
 import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadStringLib({@required HydroState hydroState, @required Context ctx}) {
+void loadStringLib({required HydroState hydroState, required Context ctx}) {
   var string = new HydroTable();
 
   ctx.env["string"] = string;
@@ -15,7 +13,7 @@ void loadStringLib({@required HydroState hydroState, @required Context ctx}) {
 
   string["rep"] = (List<dynamic> args) {
     String str = Context.luaToString(Context.getArg1<String>(args, 0, "rep"),
-        hydroState: hydroState);
+        hydroState: hydroState)!;
     num amount = Context.getArg1<num>(args, 1, "rep");
     return [str * amount.floor()];
   };
@@ -75,7 +73,7 @@ void loadStringLib({@required HydroState hydroState, @required Context ctx}) {
     int start = Context.getArg1<num>(args, 1, "byte").floor();
     int end = maybeAt(args, 2) == null
         ? start
-        : Context.getArg1<num>(args, 2, "byte");
+        : Context.getArg1<num>(args, 2, "byte") as int;
 
     if (start == 0) start = 1;
     if (start < 0) start = str.length + start + 1;

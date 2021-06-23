@@ -7,7 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParse
 
 mixin SwidiFunctionDeclarationNamedParameterParser
     on SwidiGrammarDefinition, SwidiSimpleDeclarationParser {
-  Parser<SwidiNamedParameter> functionDeclarationNamedParameter() =>
+  Parser<SwidiNamedParameter?> functionDeclarationNamedParameter() =>
       super.functionDeclarationNamedParameter().map((x) {
         if (x is SwidiDeclaration) {
           return SwidiNamedParameter(declaration: x);

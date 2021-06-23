@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:typed_data';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedByteData extends VMManagedBox<ByteData> {
   VMManagedByteData(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -172,8 +168,7 @@ class VMManagedByteData extends VMManagedBox<ByteData> {
   final ByteData vmObject;
 }
 
-void loadByteData(
-    {@required HydroState hydroState, @required HydroTable table}) {
+void loadByteData({required HydroState hydroState, required HydroTable table}) {
   table['byteData'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<ByteData>(
@@ -205,9 +200,9 @@ void loadByteData(
     ];
   });
   registerBoxer<ByteData>(boxer: (
-      {@required ByteData vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required ByteData vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedByteData(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

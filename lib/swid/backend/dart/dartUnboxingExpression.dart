@@ -9,9 +9,8 @@ import 'package:code_builder/code_builder.dart'
         CodeExpression,
         Code;
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
@@ -21,9 +20,9 @@ class DartUnboxingExpression {
   final Expression expression;
   final String identifierName;
 
-  DartUnboxingExpression({
-    @required this.swidType,
-    @required this.expression,
+  const DartUnboxingExpression({
+    required this.swidType,
+    required this.expression,
     this.identifierName = "",
   });
 
@@ -57,12 +56,17 @@ class DartUnboxingExpression {
             onVoid: (_) => expression.accept(DartEmitter()).toString(),
             onTypeParameter: (_) => expression.accept(DartEmitter()).toString(),
             onDynamic: (_) => expression.accept(DartEmitter()).toString(),
+            onUnknown: (_) => expression.accept(DartEmitter()).toString(),
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",
       fromSwidFunctionType: (val) => [
-            identifierName,
-            " != null ? ",
+            ...(val.nullabilitySuffix == SwidNullabilitySuffix.question
+                ? [
+                    identifierName,
+                    " != null ? ",
+                  ]
+                : [""]),
             ...[
               val.typeFormals.isNotEmpty
                   ? ("<" +
@@ -101,6 +105,7 @@ class DartUnboxingExpression {
                               onVoid: (_) => "",
                               onTypeParameter: (_) => "[0]",
                               onDynamic: (_) => "[0]",
+                              onUnknown: (_) => "",
                             ),
                             fromSwidClass: (_) => "[0]",
                             fromSwidDefaultFormalParameter: (_) => "[0]",
@@ -113,6 +118,10 @@ class DartUnboxingExpression {
                   ).toDartSource()),
               ).closure.accept(DartEmitter()).toString(),
             ],
-            " : null "
+            ...(val.nullabilitySuffix == SwidNullabilitySuffix.question
+                ? [
+                    " : null ",
+                  ]
+                : [""])
           ].join());
 }

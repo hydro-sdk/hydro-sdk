@@ -1,13 +1,10 @@
 import 'package:analyzer/dart/element/element.dart'
     show PropertyAccessorElement;
 
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
 
 SwidDeclarationModifiers swidDeclarationModifiersFromPropertyAccessorElement(
-        {@required PropertyAccessorElement propertyAccessorElement}) =>
+        {required PropertyAccessorElement propertyAccessorElement}) =>
     SwidDeclarationModifiers(
       isAbstract: propertyAccessorElement.isAbstract,
       isGetter: propertyAccessorElement.isGetter,

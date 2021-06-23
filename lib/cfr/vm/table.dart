@@ -24,7 +24,7 @@ class HydroTable {
             : null) ??
         (map.containsKey(k) ? map[k] : null);
     if (res == null && metatable != null) {
-      return metatable.rawget(k);
+      return metatable!.rawget(k);
     }
     return res;
   }
@@ -32,7 +32,7 @@ class HydroTable {
   dynamic operator [](dynamic k) => rawget(k);
   void operator []=(dynamic k, dynamic v) => rawset(k, v);
 
-  Iterator<dynamic> _nextIter;
+  Iterator<dynamic>? _nextIter;
 
   dynamic next(dynamic k) {
     if (k == null) {
@@ -40,24 +40,24 @@ class HydroTable {
         return 1;
       } else if (map.isNotEmpty) {
         _nextIter = map.keys.iterator;
-        if (!_nextIter.moveNext()) return null;
-        return _nextIter.current;
+        if (!_nextIter!.moveNext()) return null;
+        return _nextIter!.current;
       } else
         return null;
-    } else if (_nextIter != null && k == _nextIter.current) {
-      if (!_nextIter.moveNext()) return null;
-      return _nextIter.current;
+    } else if (_nextIter != null && k == _nextIter!.current) {
+      if (!_nextIter!.moveNext()) return null;
+      return _nextIter!.current;
     } else if (k is num && k.floor() == k && k > 0 && k <= arr.length) {
       if (k == arr.length) {
         _nextIter = map.keys.iterator;
-        return _nextIter.current;
+        return _nextIter!.current;
       }
       return k + 1;
     } else {
       _nextIter = map.keys.iterator;
-      while (_nextIter.current != k) if (!_nextIter.moveNext()) return null;
-      if (!_nextIter.moveNext()) return null;
-      return _nextIter.current;
+      while (_nextIter!.current != k) if (!_nextIter!.moveNext()) return null;
+      if (!_nextIter!.moveNext()) return null;
+      return _nextIter!.current;
     }
   }
 
@@ -84,7 +84,7 @@ class HydroTable {
     return i;
   }
 
-  HydroTable metatable;
+  HydroTable? metatable;
 
   @override
   String toString() {

@@ -1,24 +1,24 @@
 import 'package:code_builder/code_builder.dart'
     show DartEmitter, refer, literalString, literalNum;
 
-import 'package:meta/meta.dart';
 import 'package:tuple/tuple.dart';
 
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 class DartUnpackClosures {
   final SwidFunctionType swidFunctionType;
 
-  DartUnpackClosures({
-    @required this.swidFunctionType,
+  const DartUnpackClosures({
+    required this.swidFunctionType,
   });
 
   String toDartSource() => ([
         ...([
           ...swidFunctionType.normalParameterNames
               .map(
-                (x) => Tuple3<String, SwidType, int>(
+                (x) => Tuple3<String, SwidType?, int>(
                     x,
                     swidFunctionType.normalParameterTypes.elementAt(
                       swidFunctionType.normalParameterNames
@@ -49,9 +49,9 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                String parameterName,
-                SwidType parameterType,
-                int argIndex,
+                String? parameterName,
+                required SwidType parameterType,
+                int? argIndex,
               }) =>
                   parameterType.when(
                     fromSwidInterface: (_) => "",
@@ -62,7 +62,7 @@ class DartUnpackClosures {
                       parameterName,
                       "=",
                       refer("args")
-                          .index(literalNum(argIndex))
+                          .index(literalNum(argIndex!))
                           .statement
                           .accept(DartEmitter())
                           .toString(),
@@ -70,7 +70,7 @@ class DartUnpackClosures {
                         .join(""),
                   ))(
                 parameterName: x.item1,
-                parameterType: x.item2,
+                parameterType: x.item2!,
                 argIndex: x.item3,
               ),
             )
@@ -80,21 +80,24 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                String parameterName,
-                SwidType parameterType,
+                String? parameterName,
+                required SwidType parameterType,
               }) =>
                   parameterType.when(
                     fromSwidInterface: (_) => "",
                     fromSwidClass: (_) => "",
                     fromSwidDefaultFormalParameter: (_) => "",
                     fromSwidFunctionType: (val) => ([
-                      "Closure ",
+                      "Closure",
+                      (val.nullabilitySuffix == SwidNullabilitySuffix.question
+                          ? "? "
+                          : " "),
                       parameterName,
                       "=",
                       refer("args")
                           .index(literalNum(
                               swidFunctionType.normalParameterNames.length + 1))
-                          .index(literalString(parameterName))
+                          .index(literalString(parameterName!))
                           .statement
                           .accept(DartEmitter())
                           .toString(),
