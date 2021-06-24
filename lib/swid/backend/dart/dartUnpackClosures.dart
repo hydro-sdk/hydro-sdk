@@ -58,7 +58,10 @@ class DartUnpackClosures {
                     fromSwidClass: (_) => "",
                     fromSwidDefaultFormalParameter: (_) => "",
                     fromSwidFunctionType: (val) => ([
-                      "Closure ",
+                      "Closure",
+                      (val.nullabilitySuffix == SwidNullabilitySuffix.question
+                          ? "? "
+                          : " "),
                       parameterName,
                       "=",
                       refer("args")
