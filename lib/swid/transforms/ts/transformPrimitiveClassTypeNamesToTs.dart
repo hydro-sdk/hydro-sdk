@@ -5,14 +5,13 @@ SwidClass transformPrimitiveClassTypeNamesToTs({
   required SwidClass swidClass,
 }) =>
     SwidClass.clone(
-        swidClass: swidClass,
-        constructorType: transformPrimitiveFunctionTypeNamesToTs(
-          swidFunctionType: swidClass.constructorType!,
-        ),
-        methods: swidClass.methods != null
-            ? swidClass.methods
-                .map((x) => transformPrimitiveFunctionTypeNamesToTs(
-                      swidFunctionType: x,
-                    ))
-                .toList()
-            : null);
+      swidClass: swidClass,
+      constructorType: transformPrimitiveFunctionTypeNamesToTs(
+        swidFunctionType: swidClass.constructorType!,
+      ),
+      methods: swidClass.methods
+          .map((x) => transformPrimitiveFunctionTypeNamesToTs(
+                swidFunctionType: x,
+              ))
+          .toList(),
+    );

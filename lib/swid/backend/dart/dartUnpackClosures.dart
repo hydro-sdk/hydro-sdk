@@ -109,6 +109,5 @@ class DartUnpackClosures {
               ),
             )
             .toList()
-      ]..removeWhere((x) => x == null))
-          .join("\n");
+      ]).join("\n");
 }
