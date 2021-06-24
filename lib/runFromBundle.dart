@@ -74,9 +74,9 @@ class _RunFromBundle extends State<RunFromBundle>
       builder: (BuildContext context, AsyncSnapshot<CoroutineResult> snapshot) {
         if (snapshot.hasData) {
           return maybeUnBoxAndBuildArgument<Widget>(
-              luaState.context!.env["hydro"]["globalBuildResult"].dispatch(
-                  args != null ? [...args] : [],
-                  parentState: luaState)[0],
+              luaState.context!.env["hydro"]["globalBuildResult"].dispatch([
+                ...args,
+              ], parentState: luaState)[0],
               parentState: luaState);
         }
         return Center(child: CircularProgressIndicator());
