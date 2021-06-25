@@ -107,7 +107,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
     Future<Response?> _attemptDownloadWithDegradation(String uri) async {
       if (_debugUrl != "") {
         try {
-          return await get("$_debugUrl/$uri" as Uri);
+          return await get(Uri.parse("$_debugUrl/$uri"));
         } catch (err) {
           print(err);
           setState(() {
@@ -116,7 +116,7 @@ class _RunFromNetwork extends State<RunFromNetwork>
         }
       }
       try {
-        return await get("$baseUrl/$uri" as Uri);
+        return await get(Uri.parse("$baseUrl/$uri"));
       } catch (err) {
         print(err);
         setState(() {
