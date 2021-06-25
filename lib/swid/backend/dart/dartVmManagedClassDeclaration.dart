@@ -7,7 +7,6 @@ import 'package:code_builder/code_builder.dart'
         FieldModifier,
         Parameter,
         TypeReference,
-        refer,
         Block,
         Code;
 

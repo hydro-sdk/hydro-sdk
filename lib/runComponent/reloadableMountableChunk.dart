@@ -16,10 +16,6 @@ mixin ReloadableMountableChunk<T extends StatefulWidget> on State<T>
         _getFileContentFromArchiveAsString(
             fileName: "${component}/manifest.json", archive: decodedTar)));
 
-    if (manifest == null) {
-      print("Failed to find package manifest");
-    }
-
     final debugInfo = jsonDecode(_getFileContentFromArchiveAsString(
             fileName: "${component}/${manifest.mountableChunk}.hc.symbols",
             archive: decodedTar))
@@ -36,10 +32,6 @@ mixin ReloadableMountableChunk<T extends StatefulWidget> on State<T>
     final mountableChunk = _getFileContentFromArchive(
         fileName: "${component}/${manifest.mountableChunk}.hc",
         archive: decodedTar);
-
-    if (mountableChunk == null) {
-      print("Failed to find mountableChunk");
-    }
 
     if (res == null) {
       await fullRestart(

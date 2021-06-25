@@ -121,7 +121,7 @@ class DartFunctionSelfBindingInvocation {
                         .toList()
                         .cast<Expression>()
                     : [])
-              ]..removeWhere((x) => x == null)),
+              ]),
               Map.fromEntries([
                 ...(emitTableBindingPrefix
                     ? [
@@ -145,6 +145,6 @@ class DartFunctionSelfBindingInvocation {
                                             .index(literalString(x.key)))
                                     .toDartSource()
                                 : ""))))),
-              ]..removeWhere((x) => x == null)))
+              ]))
       : refer(swidFunctionType.name)) as String;
 }

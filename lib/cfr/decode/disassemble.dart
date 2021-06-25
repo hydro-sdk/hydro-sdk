@@ -94,7 +94,7 @@ String disassemble(CodeDump code) {
             "\""));
       }
 
-      var info = code.flavor!.instructions![c.OP!];
+      var info = code.flavor!.instructions![c.OP];
       writeLine(info.name + " " + info.getParams(c).item1.join(" "));
     }
 
