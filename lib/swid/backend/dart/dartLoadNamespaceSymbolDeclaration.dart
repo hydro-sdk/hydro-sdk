@@ -130,5 +130,5 @@ class DartLoadNamespaceSymbolDeclaration {
           .toList(),
       Code(DartVMManagedClassBoxerRegistrant(swidClass: swidClass)
           .toDartSource()),
-    ]..removeWhere((x) => x == null))).accept(DartEmitter()).toString());
+    ])).accept(DartEmitter()).toString());
 }

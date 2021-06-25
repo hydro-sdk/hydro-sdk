@@ -111,8 +111,7 @@ class DartUnboxingExpression {
                             fromSwidDefaultFormalParameter: (_) => "[0]",
                             fromSwidFunctionType: (_) => "[0]",
                           )
-                        ]..removeWhere((x) => x == null))
-                            .join(""),
+                        ]).join(""),
                       ),
                     ),
                   ).toDartSource()),

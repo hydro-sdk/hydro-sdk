@@ -22,8 +22,7 @@ SwidFunctionType transformAccessorName({
               : removeSuffixes
                   ? swidFunctionType.name.replaceAll("=", "")
                   : swidFunctionType.name,
-        ]..removeWhere((x) => x == null))
-            .join());
+        ]).join());
   } else if (swidFunctionType.swidDeclarationModifiers.isGetter) {
     return SwidFunctionType.clone(
         swidFunctionType: swidFunctionType,
@@ -36,8 +35,7 @@ SwidFunctionType transformAccessorName({
                   )
                 ]).join()
               : swidFunctionType.name
-        ]..removeWhere((x) => x == null))
-            .join());
+        ]).join());
   }
 
   return swidFunctionType;

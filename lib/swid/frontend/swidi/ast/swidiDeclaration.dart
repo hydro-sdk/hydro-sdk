@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiEmptyConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 
 part 'swidiDeclaration.freezed.dart';
