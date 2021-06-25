@@ -55,8 +55,9 @@ mixin ServiceAware {
   }) async {
     if (kDebugMode) {
       try {
-        final response = await get(_debugPackageAvailabilityUrl(
-            project: project, component: component, port: port) as Uri);
+        final response = await get(Uri.parse(_debugPackageAvailabilityUrl(
+                project: project, component: component, port: port) ??
+            ""));
         if (response.statusCode == 204) {
           return RunProjectResponseKind.kReady;
         } else if (response.statusCode == 503) {
@@ -79,14 +80,14 @@ mixin ServiceAware {
   }) async {
     if (kDebugMode) {
       try {
-        final response = await get([
+        final response = await get(Uri.parse([
           _debugComponentUrl(
             port: port,
             project: project,
             component: component,
           ),
           ".ota.sha256",
-        ].join("") as Uri);
+        ].join("")));
         if (response.statusCode == 200) {
           return response.body;
         }
@@ -106,14 +107,14 @@ mixin ServiceAware {
   }) async {
     if (kDebugMode) {
       try {
-        final response = await get([
+        final response = await get(Uri.parse([
           _debugComponentUrl(
             port: port,
             project: project,
             component: component,
           ),
           ".ota",
-        ].join("") as Uri);
+        ].join("")));
         if (response.statusCode == 200) {
           return response.bodyBytes;
         }
