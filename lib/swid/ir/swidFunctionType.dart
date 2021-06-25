@@ -125,7 +125,7 @@ extension SwidFunctionTypeMethods on SwidFunctionType {
                     .firstWhereOrNull((k) => k.key == x.key) !=
                 null)
             .toList()
-      ]..removeWhere((x) => x == null)));
+      ]));
 
   Map<String, SwidDefaultFormalParameter> get positionalDefaultParameters =>
       Map.fromEntries(([
@@ -134,5 +134,5 @@ extension SwidFunctionTypeMethods on SwidFunctionType {
                 optionalParameterNames.firstWhereOrNull((k) => k == x.key) !=
                 null)
             .toList()
-      ]..removeWhere((x) => x == null)));
+      ]));
 }
