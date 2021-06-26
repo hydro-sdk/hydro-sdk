@@ -24,7 +24,7 @@ SwidClass swidClassFromInterfaceType({
       Should probably use an inheritance manager of some sort similar to package:analyzer.
       A SWID inheritance manager would have to be fully serializable.
     */
-  bool fullyResolveInterfaceTypeFormals = true,
+  int interfaceTypeFormalResolutionDepth = 10,
 }) =>
     SwidClass(
       name: interfaceType.getDisplayString(withNullability: false),
@@ -82,23 +82,27 @@ SwidClass swidClassFromInterfaceType({
       implementedClasses: interfaceType.interfaces
           .map((x) => swidClassFromInterfaceType(
                 interfaceType: x,
-                fullyResolveInterfaceTypeFormals: false,
+                interfaceTypeFormalResolutionDepth:
+                    interfaceTypeFormalResolutionDepth - 1,
               ))
           .toList(),
       isMixin: false,
       extendedClass: interfaceType.superclass != null
           ? swidClassFromInterfaceType(
               interfaceType: interfaceType.superclass!,
-              fullyResolveInterfaceTypeFormals: false,
+              interfaceTypeFormalResolutionDepth:
+                  interfaceTypeFormalResolutionDepth - 1,
             )
           : null,
       typeFormals: interfaceType.typeArguments
-          .map((x) => x is InterfaceType && fullyResolveInterfaceTypeFormals
+          .map((x) => x is InterfaceType &&
+                  interfaceTypeFormalResolutionDepth > 0
               ? SwidTypeFormal(
                   value: SwidTypeFormalValue.fromSwidClass(
                     swidClass: swidClassFromInterfaceType(
                       interfaceType: x,
-                      fullyResolveInterfaceTypeFormals: false,
+                      interfaceTypeFormalResolutionDepth:
+                          interfaceTypeFormalResolutionDepth - 1,
                     ),
                   ),
                   swidReferenceDeclarationKind:
