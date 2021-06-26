@@ -6,4 +6,5 @@ bool methodIsEmitCandidate({required SwidFunctionType swidFunctionType}) =>
     !isOperator(swidFunctionType: swidFunctionType) &&
     !swidFunctionType.swidDeclarationModifiers.hasProtected &&
     swidFunctionType.name != "noSuchMethod" &&
-    swidFunctionType.name != "runtimeType";
+    swidFunctionType.name != "runtimeType" &&
+    swidFunctionType.name[0] != "_";
