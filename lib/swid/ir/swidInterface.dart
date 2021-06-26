@@ -10,6 +10,8 @@ part 'swidInterface.g.dart';
 
 @freezed
 class SwidInterface with _$SwidInterface {
+  const SwidInterface._();
+
   const factory SwidInterface({
     required String name,
     required SwidNullabilitySuffix nullabilitySuffix,
@@ -21,13 +23,14 @@ class SwidInterface with _$SwidInterface {
   factory SwidInterface.fromJson(Map<String, dynamic> json) =>
       _$SwidInterfaceFromJson(json);
 
-  factory SwidInterface.clone(
-          {required SwidInterface swidType,
-          String? name,
-          SwidNullabilitySuffix? nullabilitySuffix,
-          String? originalPackagePath,
-          List<SwidType>? typeArguments,
-          SwidReferenceDeclarationKind? referenceDeclarationKind}) =>
+  factory SwidInterface.clone({
+    required SwidInterface swidType,
+    String? name,
+    SwidNullabilitySuffix? nullabilitySuffix,
+    String? originalPackagePath,
+    List<SwidType>? typeArguments,
+    SwidReferenceDeclarationKind? referenceDeclarationKind,
+  }) =>
       SwidInterface(
         name: name ?? swidType.name,
         nullabilitySuffix: nullabilitySuffix ?? swidType.nullabilitySuffix,
@@ -38,16 +41,16 @@ class SwidInterface with _$SwidInterface {
             referenceDeclarationKind ?? swidType.referenceDeclarationKind,
       );
 
-  factory SwidInterface.fromSwidClass({required SwidClass swidClass}) =>
+  factory SwidInterface.fromSwidClass({
+    required SwidClass swidClass,
+  }) =>
       SwidInterface(
           name: swidClass.name,
           nullabilitySuffix: swidClass.nullabilitySuffix,
           originalPackagePath: swidClass.originalPackagePath,
           typeArguments: [],
           referenceDeclarationKind: SwidReferenceDeclarationKind.classElement);
-}
 
-extension SwidInterfaceMethods on SwidInterface {
   String get displayName =>
       SwidType.fromSwidInterface(swidInterface: this).displayName;
 }
