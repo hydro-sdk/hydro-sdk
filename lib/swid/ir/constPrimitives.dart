@@ -58,6 +58,47 @@ const dartNullableObject = const SwidInterface(
   referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
 );
 
+bool isDartType({
+  required SwidType swidType,
+}) =>
+    _isConstPrimitive(
+      swidType: swidType,
+      constPrimitive: const SwidType.fromSwidInterface(
+        swidInterface: dartType,
+      ),
+    ) ||
+    _isConstPrimitive(
+      swidType: swidType,
+      constPrimitive: const SwidType.fromSwidInterface(
+        swidInterface: dartNullableType,
+      ),
+    );
+
+bool isClassDartType({
+  required SwidClass swidClass,
+}) =>
+    isDartType(
+      swidType: SwidType.fromSwidClass(
+        swidClass: swidClass,
+      ),
+    );
+
+const dartType = const SwidInterface(
+  name: "Type",
+  nullabilitySuffix: SwidNullabilitySuffix.none,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+);
+
+const dartNullableType = const SwidInterface(
+  name: "Type?",
+  nullabilitySuffix: SwidNullabilitySuffix.question,
+  originalPackagePath: "dart:core",
+  typeArguments: [],
+  referenceDeclarationKind: SwidReferenceDeclarationKind.classElement,
+);
+
 const dartDouble = const SwidInterface(
   name: "double",
   nullabilitySuffix: SwidNullabilitySuffix.none,

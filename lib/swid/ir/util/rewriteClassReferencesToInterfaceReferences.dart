@@ -16,12 +16,14 @@ String rewriteReferenceName({
 }) =>
     isDartObject(swidType: swidType)
         ? "Object"
-        : [
-            "I",
-            removeNullabilitySuffix(
-              str: swidType.name,
-            )
-          ].join("");
+        : isDartType(swidType: swidType)
+            ? "Type"
+            : [
+                "I",
+                removeNullabilitySuffix(
+                  str: swidType.name,
+                )
+              ].join("");
 
 SwidType rewriteClassReferencesToInterfaceReferences({
   required SwidType swidType,
