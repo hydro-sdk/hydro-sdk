@@ -91,7 +91,7 @@ class SwidType with _$SwidType {
                       val.typeFormals
                           .map((x) => x.value.displayName)
                           .toList()
-                          .join(""),
+                          .join(","),
                       ">"
                     ]
                   : [])
