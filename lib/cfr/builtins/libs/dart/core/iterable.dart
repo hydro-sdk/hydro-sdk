@@ -223,19 +223,18 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
       Closure? orElse = args[2]['orElse'];
       return [
         vmObject.firstWhere(
-          (element) => test.dispatch(
-            [args[0], element],
-            parentState: hydroState,
-          )[0],
-          orElse: orElse != null
-              ? () => orElse.dispatch(
-                    [
-                      args[0],
-                    ],
-                    parentState: hydroState,
-                  )[0]
-              : null,
-        )
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -262,19 +261,18 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
       Closure? orElse = args[2]['orElse'];
       return [
         vmObject.singleWhere(
-          (element) => test.dispatch(
-            [args[0], element],
-            parentState: hydroState,
-          )[0],
-          orElse: orElse != null
-              ? () => orElse.dispatch(
-                    [
-                      args[0],
-                    ],
-                    parentState: hydroState,
-                  )[0]
-              : null,
-        )
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['elementAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -493,53 +491,59 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
     });
     table['_dart_firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         super.firstWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['_dart_lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         super.lastWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['_dart_singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         super.singleWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['_dart_elementAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -573,7 +577,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
   }
 
   @override
-  Iterable<dynamic> followedBy(Iterable<dynamic> other) {
+  Iterable<dynamic> followedBy(Iterable other) {
     Closure closure = table["followedBy"];
     return maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
         closure.dispatch([table], parentState: hydroState)[0],
@@ -778,14 +782,13 @@ void loadIterable({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Iterable>(
           object: Iterable.generate(
-            args[1],
-            generator != null
-                ? (index) => generator.dispatch(
-                      [args[0], index],
-                      parentState: hydroState,
-                    )[0]
-                : null,
-          ),
+              args[1],
+              generator != null
+                  ? (index) => generator.dispatch(
+                        [args[0], index],
+                        parentState: hydroState,
+                      )[0]
+                  : null),
           hydroState: hydroState,
           table: HydroTable())
     ];
