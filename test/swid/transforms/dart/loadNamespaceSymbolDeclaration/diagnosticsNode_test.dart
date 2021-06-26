@@ -50,9 +50,9 @@ void loadDiagnosticsNode(
     return [
       maybeBoxObject<List<dynamic>>(
           object: DiagnosticsNode.toJsonList(
-              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>?>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+              maybeUnBoxAndBuildArgument<DiagnosticsNode?>(args[2],
                   parentState: hydroState),
               maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate>(
                   args[3],
