@@ -82,7 +82,7 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
     )
         .then((latestPackageUri) {
       if (latestPackageUri.statusCode == 201) {
-        get(latestPackageUri.body as Uri).then((downloadResponse) {
+        get(Uri.parse(latestPackageUri.body)).then((downloadResponse) {
           if (mounted) {
             setState(() {
               runComponentKind = RunComponentKind.kRunComponentFromRegistry;
