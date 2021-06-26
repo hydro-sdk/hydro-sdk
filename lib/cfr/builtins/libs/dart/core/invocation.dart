@@ -183,9 +183,9 @@ void loadInvocation(
           object: Invocation.method(
               maybeUnBoxAndBuildArgument<Symbol>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Object>>(args[2],
+              maybeUnBoxAndBuildArgument<Iterable<Object?>?>(args[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Map<Symbol, Object>>(args[3],
+              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?>(args[3],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
@@ -198,11 +198,11 @@ void loadInvocation(
           object: Invocation.genericMethod(
               maybeUnBoxAndBuildArgument<Symbol>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Type>>(args[2],
+              maybeUnBoxAndBuildArgument<Iterable<Type>?>(args[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Object>>(args[3],
+              maybeUnBoxAndBuildArgument<Iterable<Object?>?>(args[3],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Map<Symbol, Object>>(args[4],
+              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?>(args[4],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
@@ -223,7 +223,7 @@ void loadInvocation(
           object: Invocation.setter(
               maybeUnBoxAndBuildArgument<Symbol>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Object>(args[2],
+              maybeUnBoxAndBuildArgument<Object?>(args[2],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())

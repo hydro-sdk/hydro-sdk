@@ -93,7 +93,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     });
     table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });

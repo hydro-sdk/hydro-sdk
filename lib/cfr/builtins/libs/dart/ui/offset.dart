@@ -224,9 +224,9 @@ void loadOffset({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Offset?>(
           object: Offset.lerp(
-              maybeUnBoxAndBuildArgument<Offset>(args[1],
+              maybeUnBoxAndBuildArgument<Offset?>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Offset>(args[2],
+              maybeUnBoxAndBuildArgument<Offset?>(args[2],
                   parentState: hydroState),
               args[3]?.toDouble()),
           hydroState: hydroState,
