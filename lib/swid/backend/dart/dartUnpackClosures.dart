@@ -67,7 +67,9 @@ class DartUnpackClosures {
                       refer("args")
                           .index(literalNum(argIndex!))
                           .statement
-                          .accept(DartEmitter())
+                          .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
                           .toString(),
                     ]..removeWhere((x) => x == null))
                         .join(""),
@@ -102,7 +104,9 @@ class DartUnpackClosures {
                               swidFunctionType.normalParameterNames.length + 1))
                           .index(literalString(parameterName!))
                           .statement
-                          .accept(DartEmitter())
+                          .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
                           .toString(),
                     ]..removeWhere((x) => x == null))
                         .join(""),

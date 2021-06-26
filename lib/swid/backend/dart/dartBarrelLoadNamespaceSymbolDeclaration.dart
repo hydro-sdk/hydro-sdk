@@ -38,7 +38,9 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
           .call([])
           .assignFinal(barrelSpec.name)
           .statement
-          .accept(DartEmitter())
+          .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
           .toString(),
       barrelSpec.isTopLevel()
           ? refer("context")
@@ -46,13 +48,17 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
               .index(literalString(barrelSpec.name))
               .assign(refer(barrelSpec.name))
               .statement
-              .accept(DartEmitter())
+              .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
               .toString()
           : refer("table")
               .index(literalString(barrelSpec.name))
               .assign(refer(barrelSpec.name))
               .statement
-              .accept(DartEmitter())
+              .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
               .toString(),
       ...barrelSpec.members
           .where((x) => x.name != "_internal")
@@ -74,8 +80,12 @@ class DartBarrelLoadNamespaceSymbolDeclaration {
                     "hydroState": refer("hydroState"),
                   })
                   .statement
-                  .accept(DartEmitter())
+                  .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
                   .toString())
           .toList()
-    ].join("\n"))).accept(DartEmitter()).toString());
+    ].join("\n"))).accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString());
 }

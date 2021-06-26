@@ -38,7 +38,9 @@ class DartBoxObjectReference {
                 !isPrimitiveMap(swidType: type.typeArguments.first)
             ? CodeExpression(Code(DartBoxList(
                 type: type,
-                referenceName: objectReference.accept(DartEmitter()).toString(),
+                referenceName: objectReference.accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString(),
                 codeKind: CodeKind.expression,
               ).toDartSource()))
             : objectReference,
@@ -70,6 +72,8 @@ class DartBoxObjectReference {
         onDynamic: (_) => _boxObject(),
         onUnknown: (_) => objectReference,
       ))!
-          .accept(DartEmitter())
+          .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
           .toString();
 }

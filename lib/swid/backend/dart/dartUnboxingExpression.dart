@@ -33,9 +33,13 @@ class DartUnboxingExpression {
                 ? expression
                     .nullSafeProperty("toDouble")
                     .call([])
-                    .accept(DartEmitter())
+                    .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
                     .toString()
-                : expression.accept(DartEmitter()).toString(),
+                : expression.accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString(),
             onClass: (val) => refer("maybeUnBoxAndBuildArgument")
                 .call([
                   expression
@@ -44,19 +48,31 @@ class DartUnboxingExpression {
                 }, [
                   TypeReference((t) => t..symbol = val.displayName),
                 ])
-                .accept(DartEmitter())
+                .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
                 .toString(),
             onEnum: (val) => refer("maybeUnBoxEnum")
                 .call([], {
                   "values": refer(val.name).property("values"),
                   "boxedEnum": expression
                 })
-                .accept(DartEmitter())
+                .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
                 .toString(),
-            onVoid: (_) => expression.accept(DartEmitter()).toString(),
-            onTypeParameter: (_) => expression.accept(DartEmitter()).toString(),
-            onDynamic: (_) => expression.accept(DartEmitter()).toString(),
-            onUnknown: (_) => expression.accept(DartEmitter()).toString(),
+            onVoid: (_) => expression.accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString(),
+            onTypeParameter: (_) => expression.accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString(),
+            onDynamic: (_) => expression.accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString(),
+            onUnknown: (_) => expression.accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString(),
           ),
       fromSwidClass: (_) => "",
       fromSwidDefaultFormalParameter: (_) => "",
@@ -115,7 +131,9 @@ class DartUnboxingExpression {
                       ),
                     ),
                   ).toDartSource()),
-              ).closure.accept(DartEmitter()).toString(),
+              ).closure.accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString(),
             ],
             ...(val.nullabilitySuffix == SwidNullabilitySuffix.question
                 ? [

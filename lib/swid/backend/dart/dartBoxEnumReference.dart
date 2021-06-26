@@ -31,6 +31,8 @@ class DartBoxEnumReference {
         ],
         {},
       ))!
-          .accept(DartEmitter())
+          .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
           .toString();
 }

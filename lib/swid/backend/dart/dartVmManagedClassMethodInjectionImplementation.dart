@@ -80,6 +80,8 @@ class DartVMManagedClassMethodInjectionImplementation {
         fromSwidFunctionType: (_) => Block.of([Code("bar")]),
       )))
       .statement
-      .accept(DartEmitter())
+      .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
       .toString());
 }

@@ -55,7 +55,9 @@ class DartBoxList {
                                     swidInterface: val),
                                 codeKind: CodeKind.expression,
                                 referenceName:
-                                    refer("x").accept(DartEmitter()).toString())
+                                    refer("x").accept(DartEmitter(
+          useNullSafetySyntax: true,
+        )).toString())
                             .toDartSource(),
                         onVoid: (_) => "",
                         onTypeParameter: (_) => "",
@@ -67,7 +69,9 @@ class DartBoxList {
               ], {})
               .property("toList")
               .call([]))!
-          .accept(DartEmitter())
+          .accept(DartEmitter(
+          useNullSafetySyntax: true,
+        ))
           .toString();
 
   String toDartSource() => narrowSwidInterfaceByReferenceDeclaration(
