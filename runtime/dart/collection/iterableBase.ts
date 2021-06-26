@@ -24,13 +24,13 @@ const toListDefaultProps = {
     growable: true,
 };
 export interface IIterableBase<E> {
+    contains: (element?: Object | undefined) => boolean;
     cast: <R>() => IIterable<R>;
     followedBy: (other: IIterable<E>) => IIterable<E>;
     map: <T>(f: (e: E) => T) => IIterable<T>;
     where: (test: (element: E) => boolean) => IIterable<E>;
     whereType: <T>() => IIterable<T>;
     expand: <T>(f: (element: E) => IIterable<T>) => IIterable<T>;
-    contains: (element?: Object | undefined) => boolean;
     forEach: (f: (element: E) => void) => void;
     reduce: (combine: (value: E, element: E) => E) => E;
     fold: <T>(
@@ -95,6 +95,8 @@ export class IterableBase<E> implements IIterable<E> {
             rightDelimiter
         );
     }
+    private readonly _dart_contains: (element?: Object | undefined) => boolean =
+        undefined as any;
     private readonly _dart_cast: <R>() => IIterable<R> = undefined as any;
     private readonly _dart_followedBy: (other: IIterable<E>) => IIterable<E> =
         undefined as any;
@@ -107,8 +109,6 @@ export class IterableBase<E> implements IIterable<E> {
     private readonly _dart_expand: <T>(
         f: (element: E) => IIterable<T>
     ) => IIterable<T> = undefined as any;
-    private readonly _dart_contains: (element?: Object | undefined) => boolean =
-        undefined as any;
     private readonly _dart_forEach: (f: (element: E) => void) => void =
         undefined as any;
     private readonly _dart_reduce: (combine: (value: E, element: E) => E) => E =
@@ -158,6 +158,9 @@ export class IterableBase<E> implements IIterable<E> {
     private readonly _dart_getLast: () => E = undefined as any;
     private readonly _dart_getSingle: () => E = undefined as any;
     private readonly _dart_getHashCode: () => number = undefined as any;
+    public contains(element?: Object | undefined): boolean {
+        return this._dart_contains(element);
+    }
     public cast<R>(): IIterable<R> {
         return this._dart_cast();
     }
@@ -175,9 +178,6 @@ export class IterableBase<E> implements IIterable<E> {
     }
     public expand<T>(f: (element: E) => IIterable<T>): IIterable<T> {
         return this._dart_expand(f);
-    }
-    public contains(element?: Object | undefined): boolean {
-        return this._dart_contains(element);
     }
     public forEach(f: (element: E) => void): void {
         return this._dart_forEach(f);
