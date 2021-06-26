@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferences.dart';
+import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
@@ -59,7 +60,13 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
                   prefixPaths: prefixPaths,
                 ) +
                 p.separator +
-                transformToCamelCase(str: removeTypeArguments(str: x.name)),
+                transformToCamelCase(
+                  str: removeNullabilitySuffix(
+                    str: removeTypeArguments(
+                      str: x.name,
+                    ),
+                  ),
+                ),
           ),
         )
         .toList()
