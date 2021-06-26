@@ -45,11 +45,13 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
       return [];
     });
     table['sort'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure compare = args[1];
-      vmObject.sort((a, b) => compare.dispatch(
-            [args[0], a, b],
-            parentState: hydroState,
-          )[0]);
+      Closure? compare = args[1];
+      vmObject.sort(compare != null
+          ? (a, b) => compare.dispatch(
+                [args[0], a, b],
+                parentState: hydroState,
+              )[0]
+          : null);
       return [];
     });
     table['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -408,7 +410,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
     });
     table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         maybeBoxObject<Float64x2>(
             object: vmObject.firstWhere(
@@ -416,21 +418,23 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
-                orElse: () => maybeUnBoxAndBuildArgument<Float64x2>(
-                    orElse.dispatch(
-                      [
-                        args[0],
-                      ],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)),
+                orElse: orElse != null
+                    ? () => maybeUnBoxAndBuildArgument<Float64x2>(
+                        orElse.dispatch(
+                          [
+                            args[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         maybeBoxObject<Float64x2>(
             object: vmObject.lastWhere(
@@ -438,21 +442,23 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
-                orElse: () => maybeUnBoxAndBuildArgument<Float64x2>(
-                    orElse.dispatch(
-                      [
-                        args[0],
-                      ],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)),
+                orElse: orElse != null
+                    ? () => maybeUnBoxAndBuildArgument<Float64x2>(
+                        orElse.dispatch(
+                          [
+                            args[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         maybeBoxObject<Float64x2>(
             object: vmObject.singleWhere(
@@ -460,14 +466,16 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
-                orElse: () => maybeUnBoxAndBuildArgument<Float64x2>(
-                    orElse.dispatch(
-                      [
-                        args[0],
-                      ],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)),
+                orElse: orElse != null
+                    ? () => maybeUnBoxAndBuildArgument<Float64x2>(
+                        orElse.dispatch(
+                          [
+                            args[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];

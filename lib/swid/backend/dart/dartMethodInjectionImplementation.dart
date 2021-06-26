@@ -74,6 +74,8 @@ class DartMethodInjectionImplementation {
         fromSwidFunctionType: (_) => null,
       )))
       .statement
-      .accept(DartEmitter())
+      .accept(DartEmitter(
+        useNullSafetySyntax: true,
+      ))
       .toString());
 }

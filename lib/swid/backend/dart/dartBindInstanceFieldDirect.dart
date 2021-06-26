@@ -16,6 +16,8 @@ class DartBindInstanceFieldDirect {
       .index(literalString(tableKey))
       .assign(refer(instanceFieldName))
       .statement
-      .accept(DartEmitter())
+      .accept(DartEmitter(
+        useNullSafetySyntax: true,
+      ))
       .toString());
 }

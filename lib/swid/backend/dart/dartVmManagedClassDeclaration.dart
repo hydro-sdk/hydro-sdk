@@ -117,5 +117,9 @@ class DartVMManagedClassDeclaration {
                 ),
             ),
           ),
-      ).accept(DartEmitter()).toString());
+      )
+          .accept(DartEmitter(
+            useNullSafetySyntax: true,
+          ))
+          .toString());
 }

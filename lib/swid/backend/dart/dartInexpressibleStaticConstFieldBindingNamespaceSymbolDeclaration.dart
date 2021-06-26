@@ -80,5 +80,9 @@ class DartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration {
       )
       .statement;
 
-  String toDartSource() => toCode().accept(DartEmitter()).toString();
+  String toDartSource() => toCode()
+      .accept(DartEmitter(
+        useNullSafetySyntax: true,
+      ))
+      .toString();
 }

@@ -81,8 +81,12 @@ class DartStaticMethodNamespaceSymbolDeclaration {
                   onPrimitive: (_) => _nonVoidBody(),
                   onClass: (_) => _nonVoidBody(),
                   onEnum: (_) => _nonVoidBody(),
-                  onVoid: (_) => Code(
-                      _body().accept(DartEmitter()).toString() + ";return[];"),
+                  onVoid: (_) => Code(_body()
+                          .accept(DartEmitter(
+                            useNullSafetySyntax: true,
+                          ))
+                          .toString() +
+                      ";return[];"),
                   onTypeParameter: (_) => _nonVoidBody(),
                   onDynamic: (_) => _nonVoidBody(),
                   onUnknown: (_) => _nonVoidBody(),
@@ -97,5 +101,9 @@ class DartStaticMethodNamespaceSymbolDeclaration {
       )
       .statement;
 
-  String toDartSource() => toCode().accept(DartEmitter()).toString();
+  String toDartSource() => toCode()
+      .accept(DartEmitter(
+        useNullSafetySyntax: true,
+      ))
+      .toString();
 }

@@ -86,7 +86,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['containsAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable<Object?>>(
+        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable<Object>>(
             args[1],
             parentState: hydroState))
       ];
@@ -292,53 +292,59 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.firstWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.lastWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.singleWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['elementAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -416,20 +422,22 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
     ];
   });
   table['setCastFrom'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    Closure newSet = args[2]['newSet'];
+    Closure? newSet = args[2]['newSet'];
     return [
       maybeBoxObject<Set>(
           object: Set.castFrom(
               maybeUnBoxAndBuildArgument<Set<dynamic>>(args[1],
                   parentState: hydroState),
-              newSet: <R>() => maybeUnBoxAndBuildArgument<Set<R>>(
-                  newSet.dispatch(
-                    [
-                      args[0],
-                    ],
-                    parentState: hydroState,
-                  )[0],
-                  parentState: hydroState)),
+              newSet: newSet != null
+                  ? <R>() => maybeUnBoxAndBuildArgument<Set<R>>(
+                      newSet.dispatch(
+                        [
+                          args[0],
+                        ],
+                        parentState: hydroState,
+                      )[0],
+                      parentState: hydroState)
+                  : null),
           hydroState: hydroState,
           table: HydroTable())
     ];

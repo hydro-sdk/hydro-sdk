@@ -546,7 +546,7 @@ class RTManagedPath extends Path implements Box<Path> {
   }
 
   @override
-  void addPolygon(List<Offset> points, bool close) {
+  void addPolygon(List points, bool close) {
     Closure closure = table["addPolygon"];
     return closure.dispatch([table], parentState: hydroState)[0];
   }

@@ -37,14 +37,18 @@ class DartBindInstanceField {
                         objectReference:
                             CodeExpression(Code(instanceFieldName)))
                     .toDartSource())))
-                .accept(DartEmitter())
+                .accept(DartEmitter(
+                  useNullSafetySyntax: true,
+                ))
                 .toString(),
             onEnum: (val) => refer("table")
                 .index(literalString(tableKey))
                 .assign(CodeExpression(Code(DartBoxEnumReference(
                         type: instanceField, referenceName: instanceFieldName)
                     .toDartSource())))
-                .accept(DartEmitter())
+                .accept(DartEmitter(
+                  useNullSafetySyntax: true,
+                ))
                 .toString(),
             onVoid: (_) => "void",
             onUnknown: (_) => "unknown",

@@ -42,6 +42,8 @@ class DartVMManagedClassBoxerRegistrant {
         TypeReference((t) => t..symbol = swidClass.name),
       ])
       .statement
-      .accept(DartEmitter())
+      .accept(DartEmitter(
+        useNullSafetySyntax: true,
+      ))
       .toString();
 }

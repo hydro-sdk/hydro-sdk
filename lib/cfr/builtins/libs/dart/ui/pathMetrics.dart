@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:core';
 import 'dart:ui';
 
@@ -213,7 +214,7 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
     });
     table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.firstWhere(
@@ -221,21 +222,23 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
-                orElse: () => maybeUnBoxAndBuildArgument<PathMetric>(
-                    orElse.dispatch(
-                      [
-                        args[0],
-                      ],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)),
+                orElse: orElse != null
+                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
+                        orElse.dispatch(
+                          [
+                            args[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.lastWhere(
@@ -243,21 +246,23 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
-                orElse: () => maybeUnBoxAndBuildArgument<PathMetric>(
-                    orElse.dispatch(
-                      [
-                        args[0],
-                      ],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)),
+                orElse: orElse != null
+                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
+                        orElse.dispatch(
+                          [
+                            args[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.singleWhere(
@@ -265,14 +270,16 @@ class VMManagedPathMetrics extends VMManagedBox<PathMetrics> {
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
-                orElse: () => maybeUnBoxAndBuildArgument<PathMetric>(
-                    orElse.dispatch(
-                      [
-                        args[0],
-                      ],
-                      parentState: hydroState,
-                    )[0],
-                    parentState: hydroState)),
+                orElse: orElse != null
+                    ? () => maybeUnBoxAndBuildArgument<PathMetric>(
+                        orElse.dispatch(
+                          [
+                            args[0],
+                          ],
+                          parentState: hydroState,
+                        )[0],
+                        parentState: hydroState)
+                    : null),
             hydroState: hydroState,
             table: HydroTable())
       ];
