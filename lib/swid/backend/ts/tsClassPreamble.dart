@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
@@ -10,10 +11,16 @@ class TsClassPreamble {
   TsClassPreamble({
     required this.swidClass,
   }) : superInterfaces = ([
-          swidClass.extendedClass != null
+          swidClass.extendedClass != null &&
+                  !isClassDartObject(
+                    swidClass: swidClass.extendedClass!,
+                  )
               ? "I${swidClass.extendedClass!.displayName}"
               : null,
           ...swidClass.mixedInClasses
+              .where((x) => !isClassDartObject(
+                    swidClass: x,
+                  ))
               .map(
                 (x) => transformPrimitiveNamesToTs(
                   swidType: SwidType.fromSwidClass(
@@ -24,6 +31,9 @@ class TsClassPreamble {
               .map((x) => "I${x.displayName}")
               .toList(),
           ...swidClass.implementedClasses
+              .where((x) => !isClassDartObject(
+                    swidClass: x,
+                  ))
               .map(
                 (x) => transformPrimitiveNamesToTs(
                   swidType: SwidType.fromSwidClass(
