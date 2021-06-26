@@ -2,6 +2,7 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:path/path.dart' as p;
 import 'package:tuple/tuple.dart';
 
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -34,13 +35,22 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
         .where((x) =>
             removeTypeArguments(str: x.name) !=
             removeTypeArguments(str: importer.name))
+        .where((x) => !isDartObject(
+              swidType: SwidType.fromSwidInterface(
+                swidInterface: x,
+              ),
+            ))
         .map(
           (x) => Tuple2(
             [
               rewriteReferences &&
                       x.referenceDeclarationKind ==
                           SwidReferenceDeclarationKind.classElement
-                  ? rewriteReferenceName(name: removeTypeArguments(str: x.name))
+                  ? rewriteReferenceName(
+                      swidType: SwidType.fromSwidInterface(
+                        swidInterface: x,
+                      ),
+                    )
                   : removeTypeArguments(str: x.name),
             ],
             resolveTsImportsPaths(

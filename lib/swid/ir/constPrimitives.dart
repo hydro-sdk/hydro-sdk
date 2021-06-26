@@ -25,6 +25,12 @@ bool isDartObject({
       constPrimitive: const SwidType.fromSwidInterface(
         swidInterface: dartObject,
       ),
+    ) ||
+    _isConstPrimitive(
+      swidType: swidType,
+      constPrimitive: const SwidType.fromSwidInterface(
+        swidInterface: dartNullableObject,
+      ),
     );
 
 bool isClassDartObject({
