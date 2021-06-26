@@ -81,7 +81,7 @@ class DartVMManagedClassMethodInjectionImplementation {
       )))
       .statement
       .accept(DartEmitter(
-          useNullSafetySyntax: true,
-        ))
+        useNullSafetySyntax: true,
+      ))
       .toString());
 }

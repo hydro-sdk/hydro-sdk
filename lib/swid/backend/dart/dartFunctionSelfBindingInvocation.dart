@@ -41,14 +41,16 @@ class DartFunctionSelfBindingInvocation {
                   fromSwidInterface: (val) =>
                       narrowSwidInterfaceByReferenceDeclaration(
                     swidInterface: val,
-                    onPrimitive: (_) =>
-                        expression.accept(DartEmitter(
-          useNullSafetySyntax: true,
-        )).toString(),
-                    onDynamic: (_) =>
-                        expression.accept(DartEmitter(
-          useNullSafetySyntax: true,
-        )).toString(),
+                    onPrimitive: (_) => expression
+                        .accept(DartEmitter(
+                          useNullSafetySyntax: true,
+                        ))
+                        .toString(),
+                    onDynamic: (_) => expression
+                        .accept(DartEmitter(
+                          useNullSafetySyntax: true,
+                        ))
+                        .toString(),
                     onClass: (val) => DartBoxObjectReference(
                       type: val,
                       objectReference: expression,
@@ -60,30 +62,37 @@ class DartFunctionSelfBindingInvocation {
                             type:
                                 SwidType.fromSwidInterface(swidInterface: val),
                             codeKind: CodeKind.expression,
-                            referenceName:
-                                expression.accept(DartEmitter(
-          useNullSafetySyntax: true,
-        )).toString())
+                            referenceName: expression
+                                .accept(DartEmitter(
+                                  useNullSafetySyntax: true,
+                                ))
+                                .toString())
                         .toDartSource(),
-                    onVoid: (_) => expression.accept(DartEmitter(
-          useNullSafetySyntax: true,
-        )).toString(),
-                    onTypeParameter: (_) =>
-                        expression.accept(DartEmitter(
-          useNullSafetySyntax: true,
-        )).toString(),
-                    onUnknown: (_) =>
-                        expression.accept(DartEmitter(
-          useNullSafetySyntax: true,
-        )).toString(),
+                    onVoid: (_) => expression
+                        .accept(DartEmitter(
+                          useNullSafetySyntax: true,
+                        ))
+                        .toString(),
+                    onTypeParameter: (_) => expression
+                        .accept(DartEmitter(
+                          useNullSafetySyntax: true,
+                        ))
+                        .toString(),
+                    onUnknown: (_) => expression
+                        .accept(DartEmitter(
+                          useNullSafetySyntax: true,
+                        ))
+                        .toString(),
                   ),
                   fromSwidClass: (_) => "",
                   fromSwidDefaultFormalParameter: (_) => "",
                   fromSwidFunctionType: (_) => "",
                 )
-              : expression.accept(DartEmitter(
-          useNullSafetySyntax: true,
-        )).toString())(!swidFunctionType
+              : expression
+                  .accept(DartEmitter(
+                    useNullSafetySyntax: true,
+                  ))
+                  .toString())(!swidFunctionType
           .swidDeclarationModifiers.isGetter
       ? refer(swidFunctionType.name)
           /*

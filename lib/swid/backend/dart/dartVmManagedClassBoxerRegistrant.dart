@@ -43,7 +43,7 @@ class DartVMManagedClassBoxerRegistrant {
       ])
       .statement
       .accept(DartEmitter(
-          useNullSafetySyntax: true,
-        ))
+        useNullSafetySyntax: true,
+      ))
       .toString();
 }

@@ -38,8 +38,8 @@ class DartBindInstanceField {
                             CodeExpression(Code(instanceFieldName)))
                     .toDartSource())))
                 .accept(DartEmitter(
-          useNullSafetySyntax: true,
-        ))
+                  useNullSafetySyntax: true,
+                ))
                 .toString(),
             onEnum: (val) => refer("table")
                 .index(literalString(tableKey))
@@ -47,8 +47,8 @@ class DartBindInstanceField {
                         type: instanceField, referenceName: instanceFieldName)
                     .toDartSource())))
                 .accept(DartEmitter(
-          useNullSafetySyntax: true,
-        ))
+                  useNullSafetySyntax: true,
+                ))
                 .toString(),
             onVoid: (_) => "void",
             onUnknown: (_) => "unknown",

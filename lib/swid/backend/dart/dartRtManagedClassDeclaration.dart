@@ -43,11 +43,7 @@ class DartRTManagedClassDeclaration {
     required this.swidClass,
   });
 
-  String toDartSource() {
-    if (swidClass.name == "Iterable") {
-      print("Iterable");
-    }
-    return DartFormatter().format(Class((x) => x
+  String toDartSource() => DartFormatter().format(Class((x) => x
           ..name = "RTManaged${swidClass.name}"
           ..extend = TypeReference((k) => k.symbol = swidClass.name)
           ..implements.add(TypeReference(
@@ -69,115 +65,119 @@ class DartRTManagedClassDeclaration {
                 ..name = "hydroState",
             ),
           ])
-          ..constructors.add(Constructor((k) => k
-            ..requiredParameters.addAll(swidClass
-                .constructorType!.normalParameterNames
-                .map((e) => Parameter((i) => i
-                  ..name = e
-                  ..type = TypeReference((j) => j
-                    ..symbol = swidClass.constructorType!.normalParameterTypes
-                        .elementAt(swidClass.constructorType!.normalParameterNames
-                            .indexOf(e))
-                        .when(
-                            fromSwidInterface: (val) => val.name,
-                            fromSwidClass: (val) => val.name,
-                            fromSwidDefaultFormalParameter: (val) => val.name,
-                            fromSwidFunctionType: (val) => val.name))))
-                .toList())
-            ..optionalParameters.addAll(swidClass
-                .constructorType!.namedParameterTypes.entries
-                .map((x) => MapEntry(
-                    x.key,
-                    removeNullabilitySuffixFromTypeNames(
-                      swidType: x.value,
-                    )))
-                .toList()
-                .map((x) => Parameter((k) => k
-                  ..name = x.key
-                  ..type = TypeReference((i) => i
-                    ..symbol = x.value.when(
-                        fromSwidInterface: (val) => val.name,
-                        fromSwidClass: (val) => val.name,
-                        fromSwidDefaultFormalParameter: (val) => val.name,
-                        fromSwidFunctionType: (val) => val.name))
-                  ..named = true))
-                .toList())
-            ..optionalParameters.addAll([
-              Parameter((i) => i
-                ..required = true
-                ..toThis = true
-                ..named = true
-                ..name = "table"),
-              Parameter((i) => i
-                ..required = true
-                ..toThis = true
-                ..named = true
-                ..name = "hydroState")
-            ])
-            ..initializers.addAll([
-              Code("super(" +
-                  swidClass.constructorType!.normalParameterNames
-                      .map((e) => e)
+          ..constructors.add(Constructor(
+            swidClass.constructorType != null
+                ? (k) => k
+                  ..requiredParameters.addAll(swidClass
+                      .constructorType!.normalParameterNames
+                      .map((e) => Parameter((i) => i
+                        ..name = e
+                        ..type = TypeReference((j) => j
+                          ..symbol = swidClass
+                              .constructorType!.normalParameterTypes
+                              .elementAt(swidClass
+                                  .constructorType!.normalParameterNames
+                                  .indexOf(e))
+                              .when(
+                                  fromSwidInterface: (val) => val.name,
+                                  fromSwidClass: (val) => val.name,
+                                  fromSwidDefaultFormalParameter: (val) =>
+                                      val.name,
+                                  fromSwidFunctionType: (val) => val.name))))
+                      .toList())
+                  ..optionalParameters.addAll(swidClass
+                      .constructorType!.namedParameterTypes.entries
+                      .map((x) => MapEntry(
+                          x.key,
+                          removeNullabilitySuffixFromTypeNames(
+                            swidType: x.value,
+                          )))
                       .toList()
-                      .join(",") +
-                  (swidClass.constructorType!.normalParameterNames.length >= 1
-                      ? ","
-                      : "") +
-                  swidClass.constructorType!.namedParameterTypes.entries
-                      .map((e) => e.key + ": " + e.key)
-                      .toList()
-                      .join(",") +
-                  ")")
-            ])
-            ..body = Block.of([
-              refer("table")
-                  .index(literalString("vmObject"))
-                  .assign(refer("vmObject"))
-                  .statement,
-              refer("table")
-                  .index(literalString("unwrap"))
-                  .assign(refer("makeLuaDartFunc").call([], {
-                    "func": Method((x) => x
-                      ..requiredParameters.addAll([
-                        Parameter((i) => i
-                          ..name = "args"
-                          ..type = TypeReference(((j) => j
-                            ..symbol = "List"
-                            ..types.add(refer("dynamic")))))
-                      ])
-                      ..body = Block.of([
-                        literalList([refer("unwrap").call([])])
-                            .returned
-                            .statement,
-                      ])).closure
-                  }))
-                  .statement,
-              ...(swidClass.instanceFieldDeclarations.entries
-                  .map((x) => Code(DartBindInstanceField(
-                        tableKey: x.key,
-                        instanceFieldName: x.key,
-                        instanceField: x.value,
-                      ).toDartSource()))
-                  .toList()),
-              ...(swidClass.methods
-                  .where((x) => !isOperator(
-                        swidFunctionType: x,
-                      ))
-                  .map((x) => Code(DartMethodInjectionImplementation(
-                        swidFunctionType: instantiateAllGenericsAsDynamic(
-                          swidType: SwidType.fromSwidFunctionType(
-                            swidFunctionType: x,
-                          ),
-                        ).when(
-                          fromSwidInterface: (_) => dartUnknownFunction,
-                          fromSwidClass: (_) => dartUnknownFunction,
-                          fromSwidDefaultFormalParameter: (_) =>
-                              dartUnknownFunction,
-                          fromSwidFunctionType: (val) => val,
-                        ),
-                      ).toDartSource()))
-                  .toList())
-            ])))
+                      .map((x) => Parameter((k) => k
+                        ..name = x.key
+                        ..type = TypeReference((i) => i..symbol = x.value.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
+                        ..named = true))
+                      .toList())
+                  ..optionalParameters.addAll([
+                    Parameter((i) => i
+                      ..required = true
+                      ..toThis = true
+                      ..named = true
+                      ..name = "table"),
+                    Parameter((i) => i
+                      ..required = true
+                      ..toThis = true
+                      ..named = true
+                      ..name = "hydroState")
+                  ])
+                  ..initializers.addAll([
+                    Code("super(" +
+                        swidClass.constructorType!.normalParameterNames
+                            .map((e) => e)
+                            .toList()
+                            .join(",") +
+                        (swidClass.constructorType!.normalParameterNames
+                                    .length >=
+                                1
+                            ? ","
+                            : "") +
+                        swidClass.constructorType!.namedParameterTypes.entries
+                            .map((e) => e.key + ": " + e.key)
+                            .toList()
+                            .join(",") +
+                        ")")
+                  ])
+                  ..body = Block.of([
+                    refer("table")
+                        .index(literalString("vmObject"))
+                        .assign(refer("vmObject"))
+                        .statement,
+                    refer("table")
+                        .index(literalString("unwrap"))
+                        .assign(refer("makeLuaDartFunc").call([], {
+                          "func": Method((x) => x
+                            ..requiredParameters.addAll([
+                              Parameter((i) => i
+                                ..name = "args"
+                                ..type = TypeReference(((j) => j
+                                  ..symbol = "List"
+                                  ..types.add(refer("dynamic")))))
+                            ])
+                            ..body = Block.of([
+                              literalList([refer("unwrap").call([])])
+                                  .returned
+                                  .statement,
+                            ])).closure
+                        }))
+                        .statement,
+                    ...(swidClass.instanceFieldDeclarations.entries
+                        .map((x) => Code(DartBindInstanceField(
+                              tableKey: x.key,
+                              instanceFieldName: x.key,
+                              instanceField: x.value,
+                            ).toDartSource()))
+                        .toList()),
+                    ...(swidClass.methods
+                        .where((x) => !isOperator(
+                              swidFunctionType: x,
+                            ))
+                        .map((x) => Code(DartMethodInjectionImplementation(
+                              swidFunctionType: instantiateAllGenericsAsDynamic(
+                                swidType: SwidType.fromSwidFunctionType(
+                                  swidFunctionType: x,
+                                ),
+                              ).when(
+                                fromSwidInterface: (_) => dartUnknownFunction,
+                                fromSwidClass: (_) => dartUnknownFunction,
+                                fromSwidDefaultFormalParameter: (_) =>
+                                    dartUnknownFunction,
+                                fromSwidFunctionType: (val) => val,
+                              ),
+                            ).toDartSource()))
+                        .toList())
+                  ])
+                : (k) => k,
+          ))
           ..methods.addAll([
             Method((k) => k
               ..name = "unwrap"
@@ -293,4 +293,3 @@ class DartRTManagedClassDeclaration {
         ))
         .toString());
   }
-}

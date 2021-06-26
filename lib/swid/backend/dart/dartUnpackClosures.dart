@@ -68,8 +68,8 @@ class DartUnpackClosures {
                           .index(literalNum(argIndex!))
                           .statement
                           .accept(DartEmitter(
-          useNullSafetySyntax: true,
-        ))
+                            useNullSafetySyntax: true,
+                          ))
                           .toString(),
                     ]..removeWhere((x) => x == null))
                         .join(""),
@@ -105,8 +105,8 @@ class DartUnpackClosures {
                           .index(literalString(parameterName!))
                           .statement
                           .accept(DartEmitter(
-          useNullSafetySyntax: true,
-        ))
+                            useNullSafetySyntax: true,
+                          ))
                           .toString(),
                     ]..removeWhere((x) => x == null))
                         .join(""),

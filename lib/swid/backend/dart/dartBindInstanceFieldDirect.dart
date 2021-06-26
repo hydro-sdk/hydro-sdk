@@ -17,7 +17,7 @@ class DartBindInstanceFieldDirect {
       .assign(refer(instanceFieldName))
       .statement
       .accept(DartEmitter(
-          useNullSafetySyntax: true,
-        ))
+        useNullSafetySyntax: true,
+      ))
       .toString());
 }

@@ -32,7 +32,7 @@ class DartBoxEnumReference {
         {},
       ))!
           .accept(DartEmitter(
-          useNullSafetySyntax: true,
-        ))
+            useNullSafetySyntax: true,
+          ))
           .toString();
 }
