@@ -34,7 +34,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
@@ -48,23 +48,23 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
     table['lookup'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.lookup(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.lookup(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
     table['removeAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.removeAll(maybeUnBoxAndBuildArgument<Iterable<Object>>(args[1],
+      vmObject.removeAll(maybeUnBoxAndBuildArgument<Iterable<Object?>>(args[1],
           parentState: hydroState));
       return [];
     });
     table['retainAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.retainAll(maybeUnBoxAndBuildArgument<Iterable<Object>>(args[1],
+      vmObject.retainAll(maybeUnBoxAndBuildArgument<Iterable<Object?>>(args[1],
           parentState: hydroState));
       return [];
     });
@@ -86,7 +86,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['containsAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable<Object>>(
+        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable<Object?>>(
             args[1],
             parentState: hydroState))
       ];
@@ -95,7 +95,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       return [
         maybeBoxObject<Set>(
             object: vmObject.intersection(
-                maybeUnBoxAndBuildArgument<Set<Object>>(args[1],
+                maybeUnBoxAndBuildArgument<Set<Object?>>(args[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -114,9 +114,9 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['difference'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Set>(
-            object: vmObject.difference(maybeUnBoxAndBuildArgument<Set<Object>>(
-                args[1],
-                parentState: hydroState)),
+            object: vmObject.difference(
+                maybeUnBoxAndBuildArgument<Set<Object?>>(args[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];

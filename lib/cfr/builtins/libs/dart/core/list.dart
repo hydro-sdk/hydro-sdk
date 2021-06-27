@@ -58,16 +58,18 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
       ];
     });
     table['sort'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure compare = args[1];
-      vmObject.sort((a, b) => compare.dispatch(
-            [args[0], a, b],
-            parentState: hydroState,
-          )[0]);
+      Closure? compare = args[1];
+      vmObject.sort(compare != null
+          ? (a, b) => compare.dispatch(
+                [args[0], a, b],
+                parentState: hydroState,
+              )[0]
+          : null);
       return [];
     });
     table['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.shuffle(
-          maybeUnBoxAndBuildArgument<Random>(args[1], parentState: hydroState));
+      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?>(args[1],
+          parentState: hydroState));
       return [];
     });
     table['indexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -122,7 +124,7 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
@@ -256,7 +258,7 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
     });
     table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
@@ -367,53 +369,59 @@ class VMManagedList extends VMManagedBox<List<dynamic>> {
     });
     table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.firstWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.lastWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.singleWhere(
             (element) => test.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: () => orElse.dispatch(
-                  [
-                    args[0],
-                  ],
-                  parentState: hydroState,
-                )[0])
+            orElse: orElse != null
+                ? () => orElse.dispatch(
+                      [
+                        args[0],
+                      ],
+                      parentState: hydroState,
+                    )[0]
+                : null)
       ];
     });
     table['elementAt'] = makeLuaDartFunc(func: (List<dynamic> args) {

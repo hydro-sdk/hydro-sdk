@@ -171,8 +171,8 @@ class __$$FromSwidInterfaceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidInterface implements _$FromSwidInterface {
-  const _$_$FromSwidInterface({required this.swidInterface});
+class _$_$FromSwidInterface extends _$FromSwidInterface {
+  const _$_$FromSwidInterface({required this.swidInterface}) : super._();
 
   factory _$_$FromSwidInterface.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidInterfaceFromJson(json);
@@ -269,9 +269,10 @@ class _$_$FromSwidInterface implements _$FromSwidInterface {
   }
 }
 
-abstract class _$FromSwidInterface implements SwidType {
+abstract class _$FromSwidInterface extends SwidType {
   const factory _$FromSwidInterface({required SwidInterface swidInterface}) =
       _$_$FromSwidInterface;
+  const _$FromSwidInterface._() : super._();
 
   factory _$FromSwidInterface.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidInterface.fromJson;
@@ -324,8 +325,8 @@ class __$$FromSwidClassCopyWithImpl<$Res> extends _$SwidTypeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidClass implements _$FromSwidClass {
-  const _$_$FromSwidClass({required this.swidClass});
+class _$_$FromSwidClass extends _$FromSwidClass {
+  const _$_$FromSwidClass({required this.swidClass}) : super._();
 
   factory _$_$FromSwidClass.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidClassFromJson(json);
@@ -421,9 +422,10 @@ class _$_$FromSwidClass implements _$FromSwidClass {
   }
 }
 
-abstract class _$FromSwidClass implements SwidType {
+abstract class _$FromSwidClass extends SwidType {
   const factory _$FromSwidClass({required SwidClass swidClass}) =
       _$_$FromSwidClass;
+  const _$FromSwidClass._() : super._();
 
   factory _$FromSwidClass.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidClass.fromJson;
@@ -482,9 +484,10 @@ class __$$FromSwidDefaultFormalParameterCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_$FromSwidDefaultFormalParameter
-    implements _$FromSwidDefaultFormalParameter {
+    extends _$FromSwidDefaultFormalParameter {
   const _$_$FromSwidDefaultFormalParameter(
-      {required this.swidDefaultFormalParameter});
+      {required this.swidDefaultFormalParameter})
+      : super._();
 
   factory _$_$FromSwidDefaultFormalParameter.fromJson(
           Map<String, dynamic> json) =>
@@ -586,10 +589,11 @@ class _$_$FromSwidDefaultFormalParameter
   }
 }
 
-abstract class _$FromSwidDefaultFormalParameter implements SwidType {
+abstract class _$FromSwidDefaultFormalParameter extends SwidType {
   const factory _$FromSwidDefaultFormalParameter(
           {required SwidDefaultFormalParameter swidDefaultFormalParameter}) =
       _$_$FromSwidDefaultFormalParameter;
+  const _$FromSwidDefaultFormalParameter._() : super._();
 
   factory _$FromSwidDefaultFormalParameter.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidDefaultFormalParameter.fromJson;
@@ -644,8 +648,8 @@ class __$$FromSwidFunctionTypeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
-  const _$_$FromSwidFunctionType({required this.swidFunctionType});
+class _$_$FromSwidFunctionType extends _$FromSwidFunctionType {
+  const _$_$FromSwidFunctionType({required this.swidFunctionType}) : super._();
 
   factory _$_$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =>
       _$_$_$FromSwidFunctionTypeFromJson(json);
@@ -744,9 +748,10 @@ class _$_$FromSwidFunctionType implements _$FromSwidFunctionType {
   }
 }
 
-abstract class _$FromSwidFunctionType implements SwidType {
+abstract class _$FromSwidFunctionType extends SwidType {
   const factory _$FromSwidFunctionType(
       {required SwidFunctionType swidFunctionType}) = _$_$FromSwidFunctionType;
+  const _$FromSwidFunctionType._() : super._();
 
   factory _$FromSwidFunctionType.fromJson(Map<String, dynamic> json) =
       _$_$FromSwidFunctionType.fromJson;

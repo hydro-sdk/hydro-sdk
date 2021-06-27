@@ -171,13 +171,14 @@ class __$$DataCopyWithImpl<$Res> extends _$SwidInterfaceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$Data implements _$Data {
+class _$_$Data extends _$Data {
   const _$_$Data(
       {required this.name,
       required this.nullabilitySuffix,
       required this.originalPackagePath,
       required this.typeArguments,
-      required this.referenceDeclarationKind});
+      required this.referenceDeclarationKind})
+      : super._();
 
   factory _$_$Data.fromJson(Map<String, dynamic> json) =>
       _$_$_$DataFromJson(json);
@@ -239,7 +240,7 @@ class _$_$Data implements _$Data {
   }
 }
 
-abstract class _$Data implements SwidInterface {
+abstract class _$Data extends SwidInterface {
   const factory _$Data(
           {required String name,
           required SwidNullabilitySuffix nullabilitySuffix,
@@ -247,6 +248,7 @@ abstract class _$Data implements SwidInterface {
           required List<SwidType> typeArguments,
           required SwidReferenceDeclarationKind referenceDeclarationKind}) =
       _$_$Data;
+  const _$Data._() : super._();
 
   factory _$Data.fromJson(Map<String, dynamic> json) = _$_$Data.fromJson;
 

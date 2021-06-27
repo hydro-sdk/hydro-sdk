@@ -261,9 +261,9 @@ void loadRect({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Rect?>(
           object: Rect.lerp(
-              maybeUnBoxAndBuildArgument<Rect>(args[1],
+              maybeUnBoxAndBuildArgument<Rect?>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Rect>(args[2],
+              maybeUnBoxAndBuildArgument<Rect?>(args[2],
                   parentState: hydroState),
               args[3]?.toDouble()),
           hydroState: hydroState,

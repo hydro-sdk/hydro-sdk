@@ -148,7 +148,7 @@ class VMManagedPath extends VMManagedBox<Path> {
       vmObject.addPath(
           maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          matrix4: maybeUnBoxAndBuildArgument<Float64List>(args[3]['matrix4'],
+          matrix4: maybeUnBoxAndBuildArgument<Float64List?>(args[3]['matrix4'],
               parentState: hydroState));
       return [];
     });
@@ -156,7 +156,7 @@ class VMManagedPath extends VMManagedBox<Path> {
       vmObject.extendWithPath(
           maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          matrix4: maybeUnBoxAndBuildArgument<Float64List>(args[3]['matrix4'],
+          matrix4: maybeUnBoxAndBuildArgument<Float64List?>(args[3]['matrix4'],
               parentState: hydroState));
       return [];
     });
@@ -355,7 +355,7 @@ class RTManagedPath extends Path implements Box<Path> {
       super.addPath(
           maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          matrix4: maybeUnBoxAndBuildArgument<Float64List>(args[3]['matrix4'],
+          matrix4: maybeUnBoxAndBuildArgument<Float64List?>(args[3]['matrix4'],
               parentState: hydroState));
       return [];
     });
@@ -363,7 +363,7 @@ class RTManagedPath extends Path implements Box<Path> {
       super.extendWithPath(
           maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
           maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          matrix4: maybeUnBoxAndBuildArgument<Float64List>(args[3]['matrix4'],
+          matrix4: maybeUnBoxAndBuildArgument<Float64List?>(args[3]['matrix4'],
               parentState: hydroState));
       return [];
     });

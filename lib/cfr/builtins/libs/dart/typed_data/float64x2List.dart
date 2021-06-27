@@ -55,8 +55,8 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
       return [];
     });
     table['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.shuffle(
-          maybeUnBoxAndBuildArgument<Random>(args[1], parentState: hydroState));
+      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?>(args[1],
+          parentState: hydroState));
       return [];
     });
     table['indexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -124,7 +124,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
@@ -185,7 +185,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
       vmObject.fillRange(
           args[1],
           args[2],
-          maybeUnBoxAndBuildArgument<Float64x2>(args[3],
+          maybeUnBoxAndBuildArgument<Float64x2?>(args[3],
               parentState: hydroState));
       return [];
     });
@@ -289,7 +289,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
     });
     table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });

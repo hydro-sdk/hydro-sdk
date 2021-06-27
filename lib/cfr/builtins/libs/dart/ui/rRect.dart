@@ -294,9 +294,9 @@ void loadRRect({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<RRect?>(
           object: RRect.lerp(
-              maybeUnBoxAndBuildArgument<RRect>(args[1],
+              maybeUnBoxAndBuildArgument<RRect?>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<RRect>(args[2],
+              maybeUnBoxAndBuildArgument<RRect?>(args[2],
                   parentState: hydroState),
               args[3]?.toDouble()),
           hydroState: hydroState,

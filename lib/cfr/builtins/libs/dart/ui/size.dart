@@ -500,9 +500,9 @@ void loadSize({required HydroState hydroState, required HydroTable table}) {
     return [
       maybeBoxObject<Size?>(
           object: Size.lerp(
-              maybeUnBoxAndBuildArgument<Size>(args[1],
+              maybeUnBoxAndBuildArgument<Size?>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Size>(args[2],
+              maybeUnBoxAndBuildArgument<Size?>(args[2],
                   parentState: hydroState),
               args[3]?.toDouble()),
           hydroState: hydroState,

@@ -91,7 +91,7 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
     });
     table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
@@ -364,7 +364,7 @@ class RTManagedIterable extends Iterable implements Box<Iterable> {
     });
     table['_dart_contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        super.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+        super.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
