@@ -7,7 +7,7 @@ void main() async {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var res = await unitTestHarness(
-        path: "../assets/test/unit/dart/async/futureConstructor.ts.hc",
+        path: "assets/test/unit/dart/async/futureConstructor.ts.hc",
         libs: [
           BuiltinLib.dart,
           BuiltinLib.flutter,
@@ -18,7 +18,7 @@ void main() async {
         ]);
 
     if (!res.success) {
-      print(res.values[0]);
+      print(res.values![0]);
     }
 
     expect(res.success, true);

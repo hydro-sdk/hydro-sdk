@@ -15,7 +15,7 @@ export interface IPathMetric {
         start: number,
         end: number,
         props: { startWithMoveTo: boolean }
-    ) => IPath | undefined;
+    ) => IPath;
     toString: () => string;
 }
 export class PathMetric {
@@ -29,7 +29,7 @@ export class PathMetric {
         start: number,
         end: number,
         props: { startWithMoveTo: boolean }
-    ) => IPath | undefined = undefined as any;
+    ) => IPath = undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     public getTangentForOffset(distance: number): ITangent | undefined {
         return this._dart_getTangentForOffset(distance);
@@ -38,7 +38,7 @@ export class PathMetric {
         start: number,
         end: number,
         props: { startWithMoveTo?: boolean }
-    ): IPath | undefined {
+    ): IPath {
         return this._dart_extractPath(start, end, {
             ...extractPathDefaultProps,
             ...props,

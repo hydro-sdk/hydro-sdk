@@ -6,7 +6,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadLinearGradient(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["linearGradient"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       LinearGradient(
@@ -17,7 +17,7 @@ void loadLinearGradient(
           colors: maybeUnBoxAndBuildArgument<Color>(args[0]["colors"],
               parentState: luaState),
           tileMode: maybeUnBoxEnum<TileMode>(
-              values: TileMode.values, boxedEnum: args[0]["tileMode"]))
+              values: TileMode.values, boxedEnum: args[0]["tileMode"])!)
     ];
   });
 }

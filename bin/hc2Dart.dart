@@ -9,11 +9,11 @@ import 'package:hydro_sdk/cfr/reassembler/reassembleClosures.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void main(List<String> args) async {
-  List<String> hcPaths =
-      args?.map((e) => extension(e) == ".hc" ? e : null)?.toList();
-  hcPaths?.removeWhere((x) => x == null);
+  List<String?> hcPaths =
+      args.map((e) => extension(e) == ".hc" ? e : null).toList();
+  hcPaths.removeWhere((x) => x == null);
 
-  if (hcPaths?.isEmpty ?? true) {
+  if (hcPaths.isEmpty) {
     print("Got no bytecode files");
     exit(1);
   }
@@ -33,23 +33,23 @@ void main(List<String> args) async {
   for (var i = 0; i != hcPaths.length; ++i) {
     HydroState state = HydroState();
     var closure = await state.loadBuffer(
-        buffer: File(hcPaths[i]).readAsBytesSync(),
+        buffer: File(hcPaths[i]!).readAsBytesSync(),
         name: hcPaths[i],
         linkStatus: null,
         thunks: null);
-    hashProtos(sourceProtos: protos, prototype: closure.closure.proto);
+    hashProtos(sourceProtos: protos, prototype: closure.closure.proto!);
   }
 
   print("${protos.length} total function prototypes");
 
   List<HashedPrototype> candidatePrototypes =
-      protos.where((element) => element.prototype.prototypes.isEmpty)?.toList();
+      protos.where((element) => element.prototype.prototypes!.isEmpty).toList();
 
   print("${candidatePrototypes.length} candidates for transpilation");
 
   var generator = LStubGenerator(prototypes: candidatePrototypes);
 
-  print("${generator.protoypes.length} unqiue candidates to be transpiled");
+  print("${generator.protoypes!.length} unqiue candidates to be transpiled");
 
   File(argResults["out-file"]).writeAsStringSync(generator.generate());
 }

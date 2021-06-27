@@ -7,18 +7,20 @@ void main() async {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var res = await unitTestHarness(
-        path: "../assets/test/co19/core/iterable.ts.hc",
+        path: "assets/test/co19/core/iterable.ts.hc",
         libs: [
           BuiltinLib.dart,
           BuiltinLib.flutter,
           BuiltinLib.base,
           BuiltinLib.string,
           BuiltinLib.table,
-          BuiltinLib.math
+          BuiltinLib.math,
+          BuiltinLib.bit,
+          BuiltinLib.bit32,
         ]);
 
     if (!res.success) {
-      print(res.values[0]);
+      print(res.values![0]);
     }
 
     expect(res.success, true);

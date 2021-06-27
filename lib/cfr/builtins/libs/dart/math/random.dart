@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:math';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedRandom extends VMManagedBox<Random> {
   VMManagedRandom(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -39,7 +35,7 @@ class VMManagedRandom extends VMManagedBox<Random> {
   final Random vmObject;
 }
 
-void loadRandom({@required HydroState hydroState, @required HydroTable table}) {
+void loadRandom({required HydroState hydroState, required HydroTable table}) {
   table['random'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Random>(
@@ -53,9 +49,9 @@ void loadRandom({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Random>(boxer: (
-      {@required Random vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Random vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedRandom(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

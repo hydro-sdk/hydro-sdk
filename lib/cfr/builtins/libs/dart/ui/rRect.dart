@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedRRect extends VMManagedBox<RRect> {
   VMManagedRRect(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -200,7 +196,7 @@ class VMManagedRRect extends VMManagedBox<RRect> {
   final RRect vmObject;
 }
 
-void loadRRect({@required HydroState hydroState, @required HydroTable table}) {
+void loadRRect({required HydroState hydroState, required HydroTable table}) {
   table['rRectFromLTRBXY'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<RRect>(
@@ -296,11 +292,11 @@ void loadRRect({@required HydroState hydroState, @required HydroTable table}) {
   });
   table['rRectLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<RRect>(
+      maybeBoxObject<RRect?>(
           object: RRect.lerp(
-              maybeUnBoxAndBuildArgument<RRect>(args[1],
+              maybeUnBoxAndBuildArgument<RRect?>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<RRect>(args[2],
+              maybeUnBoxAndBuildArgument<RRect?>(args[2],
                   parentState: hydroState),
               args[3]?.toDouble()),
           hydroState: hydroState,
@@ -308,9 +304,9 @@ void loadRRect({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<RRect>(boxer: (
-      {@required RRect vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required RRect vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedRRect(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

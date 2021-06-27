@@ -3,25 +3,26 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartRtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var iconDataClass = SwidClass.fromJson(
-        json.decode(File("../test/swid/res/IconData.json").readAsStringSync()));
+        json.decode(File("test/swid/res/IconData.json").readAsStringSync()));
 
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
-        RTManagedClassDeclaration(swidClass: iconDataClass).toDartSource(), """
+        DartRTManagedClassDeclaration(swidClass: iconDataClass).toDartSource(),
+        """
 class RTManagedIconData extends IconData implements Box<IconData> {
   RTManagedIconData(int codePoint,
       {String fontFamily,
       String fontPackage,
       bool matchTextDirection,
-      @required this.table,
-      @required this.hydroState})
+      required this.table,
+      required this.hydroState})
       : super(codePoint,
             fontFamily: fontFamily,
             fontPackage: fontPackage,

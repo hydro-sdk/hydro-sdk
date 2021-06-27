@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -14,9 +12,7 @@ import 'package:hydro_sdk/hydroState.dart';
 class VMManagedAccessibilityFeatures
     extends VMManagedBox<AccessibilityFeatures> {
   VMManagedAccessibilityFeatures(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -57,11 +53,11 @@ class VMManagedAccessibilityFeatures
 }
 
 void loadAccessibilityFeatures(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<AccessibilityFeatures>(boxer: (
-      {@required AccessibilityFeatures vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required AccessibilityFeatures vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedAccessibilityFeatures(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

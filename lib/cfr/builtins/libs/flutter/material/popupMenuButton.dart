@@ -7,17 +7,17 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadPopupMenuButton(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["popupMenuButton"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       PopupMenuButton(
         onSelected: (dynamic arg) {
           Closure closure = args[0]["onSelected"];
-          return closure.dispatch([args[0], arg], parentState: luaState);
+          closure.dispatch([args[0], arg], parentState: luaState);
         },
         itemBuilder: (BuildContext context) {
           Closure closure = args[0]["itemBuilder"];
-          HydroTable closureRes =
+          HydroTable? closureRes =
               closure.dispatch([context], parentState: luaState)[0];
           return maybeUnBoxAndBuildArgument<Widget>(closureRes,
                   parentState: luaState)

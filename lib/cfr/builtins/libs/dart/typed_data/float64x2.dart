@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:typed_data';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
   VMManagedFloat64x2(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -108,7 +104,7 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
 }
 
 void loadFloat64x2(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['float64x2'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Float64x2>(
@@ -142,9 +138,9 @@ void loadFloat64x2(
     ];
   });
   registerBoxer<Float64x2>(boxer: (
-      {@required Float64x2 vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Float64x2 vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedFloat64x2(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

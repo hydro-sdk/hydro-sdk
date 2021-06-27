@@ -10,9 +10,9 @@ class VMManagedThemeData extends VMManagedBox<ThemeData> {
   final ThemeData vmObject;
   final HydroState hydroState;
   VMManagedThemeData({
-    @required this.table,
-    @required this.vmObject,
-    @required this.hydroState,
+    required this.table,
+    required this.vmObject,
+    required this.hydroState,
   }) : super(
           table: table,
           vmObject: vmObject,
@@ -26,9 +26,12 @@ class VMManagedThemeData extends VMManagedBox<ThemeData> {
   }
 }
 
-void loadThemeData({@required HydroState hydroState}) {
-  registerBoxer(
-      boxer: ({ThemeData vmObject, HydroState hydroState, HydroTable table}) {
+void loadThemeData({required HydroState hydroState}) {
+  registerBoxer<ThemeData>(boxer: ({
+    required ThemeData vmObject,
+    required HydroState hydroState,
+    required HydroTable table,
+  }) {
     return VMManagedThemeData(
       vmObject: vmObject,
       hydroState: hydroState,

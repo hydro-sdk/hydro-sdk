@@ -11,10 +11,11 @@ void main() {
 
     List<String> outLines = [];
 
-    state.context.env["print"] = (List<dynamic> args) {
+    state.context!.env["print"] = (List<dynamic> args) {
       outLines.add(args
           .map((a) => Context.luaToString(a, hydroState: state).toString())
           .join("\t"));
+      return [];
     };
 
     List<String> expectedOutLines = [
@@ -25,7 +26,11 @@ void main() {
       "done",
     ];
 
-    var res = await state.doFile("lua/pairs.hc");
+    var res = await state.doFile("test/lua/pairs.hc");
+
+    if (!res.success) {
+      print(res.values);
+    }
 
     expect(res.success, true);
     expect(outLines.length, expectedOutLines.length);

@@ -1,15 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/castTypeParametersToDynamic.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInstantiableGeneric.dart';
+import 'package:hydro_sdk/swid/ir/swidInstantiatedGeneric.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAs.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -153,24 +156,34 @@ void main() {
           )
         ]);
     expect(
-        VMManagedClassDeclaration(
-          swidClass: castTypeParametersToDynamic(
+        DartVMManagedClassDeclaration(
+          swidClass: instantiateAllGenericsAs(
             swidType: SwidType.fromSwidClass(swidClass: iterable),
-            preserveTypeParametersInLists: false,
-            preserveFunctionTypeFormals: false,
+            instantiatedGeneric:
+                SwidInstantiatedGeneric.fromSwidInstantiableGeneric(
+              swidInstantiableGeneric:
+                  SwidInstantiableGeneric.fromSwidInterface(
+                swidInterface: SwidInterface(
+                  name: "dynamic",
+                  nullabilitySuffix: SwidNullabilitySuffix.none,
+                  originalPackagePath: "",
+                  referenceDeclarationKind:
+                      SwidReferenceDeclarationKind.dynamicType,
+                  typeArguments: [],
+                ),
+              ),
+            ),
           ).when(
-            fromSwidInterface: (_) => null,
+            fromSwidInterface: (_) => dartUnknownClass,
             fromSwidClass: (val) => val,
-            fromSwidDefaultFormalParameter: (_) => null,
-            fromSwidFunctionType: (_) => null,
+            fromSwidDefaultFormalParameter: (_) => dartUnknownClass,
+            fromSwidFunctionType: (_) => dartUnknownClass,
           ),
         ).toDartSource(),
         """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -180,12 +193,10 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
       Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.map(f != null
-                ? (e) => f.dispatch(
-                      [args[0], e],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.map((e) => f.dispatch(
+                  [args[0], e],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];

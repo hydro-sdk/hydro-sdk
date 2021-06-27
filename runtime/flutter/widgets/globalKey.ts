@@ -12,7 +12,8 @@ declare const flutter: {
 
 export class GlobalKey<T extends State<StatefulWidget>>
     extends RTManagedBox<T>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(GlobalKey);
     private readonly targetRuntimeType: Type;
     protected vmObject: T;

@@ -1,0 +1,310 @@
+name: Build Release Artifacts
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  linux-x64-build:
+    runs-on: ubuntu-18.04
+    env:
+      ARCH: x64
+      PLATFORM: linux
+    steps:      
+      - name: Extract Ref Names
+        run: |
+          echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
+          echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
+          echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+        shell: bash
+      - name: Install Linux dependencies
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config libreadline-dev
+      - name: Clone Flutter repository with stable channel
+        uses: actions/checkout@v2
+        with:
+          repository: "flutter/flutter"
+          ref: "2.0.6"
+          path: "flutter"
+          fetch-depth: 0
+      - name: Add Flutter to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+      - name: Add Flutter to the PATH for Windows
+        run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_PATH}
+        if: runner.os == 'Windows'
+      - name: Add Dart to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+      - name: Add Dart to the PATH for Windows
+        run: echo "${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin" >> ${env:GITHUB_PATH}
+        if: runner.os == 'Windows'
+      - name: Run Flutter doctor
+        run: flutter doctor -v
+      - name: Node and NPM Versions
+        run: node -v && npm -v
+      - name: Clone Hydro-SDK
+        uses: actions/checkout@v2
+        with:
+          path: "hydro"
+      - name: Get packages for Hydro-SDK JS
+        run: npm install
+        working-directory: hydro
+      - name: Get packages for Hydro-SDK Dart
+        run: flutter pub get
+        working-directory: hydro
+
+      - name: Cache Linux Nexe Node Builds
+        if: runner.os == 'Linux'
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Cache Darwin Nexe Node Builds
+        if: runner.os == 'macOS'
+        uses: actions/cache@v2
+        with:
+          path: /Users/runner/.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Cache Windows Nexe Node Builds
+        if: runner.os == 'Windows'
+        uses: actions/cache@v2
+        with:
+          path: C:\Users\runneradmin\.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Build Sdk Tools 
+        shell: bash
+        run: bash scripts/buildSdkTools.bash
+        working-directory: hydro
+      - name: Push Artifacts
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "hydro/.hydroc/**/*"
+          token: ${{ secrets.WAVEFORM_BOT_PAT }}
+          allowUpdates: true
+          replacesArtifacts: false
+
+  darwin-x64-build:
+    runs-on: macos-10.15
+    env:
+      ARCH: x64
+      PLATFORM: darwin
+    steps:
+      
+      - name: Extract Ref Names
+        run: |
+          echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
+          echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
+          echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+        shell: bash
+      - name: Clone Flutter repository with stable channel
+        uses: actions/checkout@v2
+        with:
+          repository: "flutter/flutter"
+          ref: "2.0.6"
+          path: "flutter"
+          fetch-depth: 0
+      - name: Add Flutter to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+      - name: Add Flutter to the PATH for Windows
+        run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_PATH}
+        if: runner.os == 'Windows'
+      - name: Add Dart to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+      - name: Add Dart to the PATH for Windows
+        run: echo "${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin" >> ${env:GITHUB_PATH}
+        if: runner.os == 'Windows'
+      - name: Run Flutter doctor
+        run: flutter doctor -v
+      - name: Node and NPM Versions
+        run: node -v && npm -v
+      - name: Clone Hydro-SDK
+        uses: actions/checkout@v2
+        with:
+          path: "hydro"
+      - name: Get packages for Hydro-SDK JS
+        run: npm install
+        working-directory: hydro
+      - name: Get packages for Hydro-SDK Dart
+        run: flutter pub get
+        working-directory: hydro
+
+      - name: Cache Linux Nexe Node Builds
+        if: runner.os == 'Linux'
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Cache Darwin Nexe Node Builds
+        if: runner.os == 'macOS'
+        uses: actions/cache@v2
+        with:
+          path: /Users/runner/.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Cache Windows Nexe Node Builds
+        if: runner.os == 'Windows'
+        uses: actions/cache@v2
+        with:
+          path: C:\Users\runneradmin\.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Build Sdk Tools 
+        shell: bash
+        run: bash scripts/buildSdkTools.bash
+        working-directory: hydro
+      - name: Push Artifacts
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "hydro/.hydroc/**/*"
+          token: ${{ secrets.WAVEFORM_BOT_PAT }}
+          allowUpdates: true
+          replacesArtifacts: false
+
+  win32-x64-build:
+    runs-on: windows-2019
+    env:
+      ARCH: x64
+      PLATFORM: win32
+    steps:
+      
+      - name: Extract Ref Names
+        run: |
+          echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
+          echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
+          echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+        shell: bash
+      - name: Clone Flutter repository with stable channel
+        uses: actions/checkout@v2
+        with:
+          repository: "flutter/flutter"
+          ref: "2.0.6"
+          path: "flutter"
+          fetch-depth: 0
+      - name: Add Flutter to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+      - name: Add Flutter to the PATH for Windows
+        run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_PATH}
+        if: runner.os == 'Windows'
+      - name: Add Dart to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+      - name: Add Dart to the PATH for Windows
+        run: echo "${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin" >> ${env:GITHUB_PATH}
+        if: runner.os == 'Windows'
+      - name: Run Flutter doctor
+        run: flutter doctor -v
+      - name: Node and NPM Versions
+        run: node -v && npm -v
+      - name: Clone Hydro-SDK
+        uses: actions/checkout@v2
+        with:
+          path: "hydro"
+      - name: Get packages for Hydro-SDK JS
+        run: npm install
+        working-directory: hydro
+      - name: Get packages for Hydro-SDK Dart
+        run: flutter pub get
+        working-directory: hydro
+
+      - name: Cache Linux Nexe Node Builds
+        if: runner.os == 'Linux'
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Cache Darwin Nexe Node Builds
+        if: runner.os == 'macOS'
+        uses: actions/cache@v2
+        with:
+          path: /Users/runner/.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Cache Windows Nexe Node Builds
+        if: runner.os == 'Windows'
+        uses: actions/cache@v2
+        with:
+          path: C:\Users\runneradmin\.nexe
+          key: ${{ runner.os }}-nexe
+
+      - name: Build Sdk Tools   
+        shell: bash
+        run: bash scripts/buildSdkTools.bash
+        working-directory: hydro
+      - name: Push Artifacts
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "hydro/.hydroc/**/*"
+          token: ${{ secrets.WAVEFORM_BOT_PAT }}
+          allowUpdates: true
+          replacesArtifacts: false
+
+  trigger-dependents:
+    needs: [linux-x64-build, darwin-x64-build, win32-x64-build]
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Extract Ref Names
+        id: refs
+        run: |
+          echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
+          echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
+          echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+        shell: bash
+      - name: Install Linux dependencies
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config libreadline-dev
+      - name: Clone Flutter repository with stable channel
+        uses: actions/checkout@v2
+        with:
+          repository: "flutter/flutter"
+          ref: "2.0.6"
+          path: "flutter"
+          fetch-depth: 0
+      - name: Add Flutter to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+      - name: Add Flutter to the PATH for Windows
+        run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" >> ${env:GITHUB_PATH}
+        if: runner.os == 'Windows'
+      - name: Add Dart to the PATH for Unix
+        run: echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
+      - name: Add Dart to the PATH for Windows
+        run: echo "${env:GITHUB_WORKSPACE}\flutter\bin\cache\dart-sdk\bin" >> ${env:GITHUB_PATH}
+        if: runner.os == 'Windows'
+      - name: Run Flutter doctor
+        run: flutter doctor -v
+      - name: Node and NPM Versions
+        run: node -v && npm -v
+      - name: Clone Hydro-SDK
+        uses: actions/checkout@v2
+        with:
+          path: "hydro"
+      - name: Get packages for Hydro-SDK JS
+        run: npm install
+        working-directory: hydro
+      - name: Get packages for Hydro-SDK Dart
+        run: flutter pub get
+        working-directory: hydro
+
+      - name: Trigger Dependents
+        run: |
+          flutter pub run waveform:triggerDependent --repo="counter-app" --ref="master" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
+          flutter pub run waveform:triggerDependent --repo="animated-list-app" --ref="main" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
+          flutter pub run waveform:triggerDependent --repo="basic-appbar-app" --ref="main" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
+          flutter pub run waveform:triggerDependent --repo="hotel-booking-app" --ref="main" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
+          flutter pub run waveform:triggerDependent --repo="codepush-tests" --ref="main" --token="${{secrets.DISPATCH_TOKEN}}" --version="${{steps.refs.outputs.SOURCE_TAG}}"
+        working-directory: hydro

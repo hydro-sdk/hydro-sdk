@@ -8,7 +8,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadAnimatedList(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["animatedList"] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       AnimatedList(

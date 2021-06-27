@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
 
 void main() {
@@ -67,7 +67,7 @@ void main() {
         isMixin: false,
         typeFormals: []);
 
-    expect(float32List.extendedClass.displayName, "List<double>");
+    expect(float32List.extendedClass!.displayName, "List<double>");
     expect(
         transformPrimitiveNamesToTs(
                 swidType: SwidType.fromSwidClass(swidClass: float32List))
@@ -76,8 +76,8 @@ void main() {
               fromSwidClass: (val) => val,
               fromSwidDefaultFormalParameter: (_) => null,
               fromSwidFunctionType: (_) => null,
-            )
-            .extendedClass
+            )!
+            .extendedClass!
             .displayName,
         "List<number>");
   }, tags: "swid");

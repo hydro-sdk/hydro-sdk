@@ -1,14 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/staticMethodNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -142,21 +144,27 @@ void main() {
     );
 
     expect(
-        StaticMethodNamespaceSymbolDeclaration(
+        DartStaticMethodNamespaceSymbolDeclaration(
           swidClass: set,
-          swidFunctionType: castFrom,
+          swidFunctionType: instantiateAllGenericsAsDynamic(
+                  swidType:
+                      SwidType.fromSwidFunctionType(swidFunctionType: castFrom))
+              .maybeWhen(
+            fromSwidFunctionType: (val) => val,
+            orElse: () => dartUnknownFunction,
+          ),
         ).toDartSource(),
         """
 table  [
 \'setCastFrom\'
 ] = makeLuaDartFunc(func: (List<dynamic> args) { 
-Closure newSet=args  [
+Closure? newSet=args  [
 2
 ]  [
 \'newSet\'
 ];
-return  [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set>(args  [
+return  [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set<dynamic>>(args  [
 1
-], parentState: hydroState), newSet: newSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set>(newSet.dispatch([args[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable())]; } );""");
+], parentState: hydroState), newSet: newSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set<R>>(newSet.dispatch([args[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable())]; } );""");
   }, tags: "swid");
 }

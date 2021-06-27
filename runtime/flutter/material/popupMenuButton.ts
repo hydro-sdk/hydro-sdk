@@ -21,7 +21,8 @@ declare const flutter: {
 
 export class PopupMenuButton<T>
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(PopupMenuButton);
     public props: PopupMenuButtonProps<T>;
     public constructor(props: PopupMenuButtonProps<T>) {

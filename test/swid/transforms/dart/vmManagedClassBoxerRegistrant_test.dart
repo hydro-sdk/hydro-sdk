@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -53,6 +53,6 @@ void main() {
     ));
 
     expect(ir.toDartSource(),
-        """registerBoxer<fooClass>(boxer: ({@required fooClass vmObject, @required HydroState hydroState, @required HydroTable table}) { return  VMManagedfooClass(vmObject: vmObject, hydroState: hydroState, table: table); } );""");
+        """registerBoxer<fooClass>(boxer: ({required fooClass vmObject, required HydroState hydroState, required HydroTable table}) { return  VMManagedfooClass(vmObject: vmObject, hydroState: hydroState, table: table); } );""");
   }, tags: "swid");
 }

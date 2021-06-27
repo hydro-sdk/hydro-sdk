@@ -13,7 +13,7 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
 
       await tester.pumpWidget(integrationTestHarness(
-          "../assets/test/widget/cupertinoContextMenu-2.ts"));
+          "assets/test/widget/cupertinoContextMenu-2.ts"));
       await Future.delayed(Duration(seconds: 3));
       await tester.pumpAndSettle();
 

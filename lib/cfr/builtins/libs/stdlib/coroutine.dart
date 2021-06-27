@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/coroutine/coroutinestatus.dart';
 import 'package:hydro_sdk/cfr/thread/thread.dart';
 import 'package:hydro_sdk/cfr/util.dart';
@@ -8,8 +6,7 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-void loadCoroutineLib(
-    {@required HydroState hydroState, @required Context ctx}) {
+void loadCoroutineLib({required HydroState hydroState, required Context ctx}) {
   var coroutine = new HydroTable();
   ctx.env["coroutine"] = coroutine;
 
@@ -30,7 +27,7 @@ void loadCoroutineLib(
     if (!res.success) return [false, maybeAt(res.values, 0)];
 
     var o = <dynamic>[true];
-    o.addAll(res.values);
+    o.addAll(res.values!);
 
     return [];
   };
@@ -51,7 +48,6 @@ void loadCoroutineLib(
       case CoroutineStatus.RUNNING:
         return ["running"];
     }
-    return [];
   };
 
   coroutine["running"] = (Thread thread, List<dynamic> args) {

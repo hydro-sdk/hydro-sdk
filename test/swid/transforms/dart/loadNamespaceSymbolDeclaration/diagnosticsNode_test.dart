@@ -3,21 +3,21 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/loadNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartLoadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var diagnosticsNode = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/DiagnosticsNode.json").readAsStringSync()));
+    var diagnosticsNode = SwidClass.fromJson(json
+        .decode(File("test/swid/res/DiagnosticsNode.json").readAsStringSync()));
 
     expect(
-        LoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
+        DartLoadNamespaceSymbolDeclaration(swidClass: diagnosticsNode)
             .toDartSource(),
         """
 void loadDiagnosticsNode(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table[\'diagnosticsNode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedDiagnosticsNode(
@@ -50,9 +50,9 @@ void loadDiagnosticsNode(
     return [
       maybeBoxObject<List<dynamic>>(
           object: DiagnosticsNode.toJsonList(
-              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>>(args[1],
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>?>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsNode>(args[2],
+              maybeUnBoxAndBuildArgument<DiagnosticsNode?>(args[2],
                   parentState: hydroState),
               maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate>(
                   args[3],
@@ -62,9 +62,9 @@ void loadDiagnosticsNode(
     ];
   });
   registerBoxer<DiagnosticsNode>(boxer: (
-      {@required DiagnosticsNode vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required DiagnosticsNode vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedDiagnosticsNode(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

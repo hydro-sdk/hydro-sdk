@@ -8,7 +8,7 @@ int lua_sign(int n, int bits) {
   return n - (1 << (bits - 1));
 }
 
-int unsign(n, bits) => n < 0 ? (~(n + 1)) & (1 << (bits - 1)) : n;
+int? unsign(n, bits) => n < 0 ? (~(n + 1)) & (1 << (bits - 1)) : n;
 
 // ignore: non_constant_identifier_names
 int lua_unsign(int n, int bits) {
@@ -51,4 +51,5 @@ String luaEscape(String x) {
 
 @pragma('vm:prefer-inline')
 @pragma('dart2js:tryInline')
-T maybeAt<T>(List<T> l, int idx) => idx < 0 || idx >= l.length ? null : l[idx];
+T? maybeAt<T>(List<T>? l, int idx) =>
+    idx < 0 || idx >= l!.length ? null : l[idx];

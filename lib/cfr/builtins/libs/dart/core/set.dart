@@ -1,7 +1,5 @@
 import 'dart:core';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -12,9 +10,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedSet extends VMManagedBox<Set<dynamic>> {
   VMManagedSet(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -38,7 +34,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
@@ -46,64 +42,61 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       return [vmObject.add(args[1])];
     });
     table['addAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
           parentState: hydroState));
       return [];
     });
     table['remove'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
     table['lookup'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.lookup(maybeUnBoxAndBuildArgument<Object>(args[1],
+        vmObject.lookup(maybeUnBoxAndBuildArgument<Object?>(args[1],
             parentState: hydroState))
       ];
     });
     table['removeAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.removeAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+      vmObject.removeAll(maybeUnBoxAndBuildArgument<Iterable<Object?>>(args[1],
           parentState: hydroState));
       return [];
     });
     table['retainAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.retainAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+      vmObject.retainAll(maybeUnBoxAndBuildArgument<Iterable<Object?>>(args[1],
           parentState: hydroState));
       return [];
     });
     table['removeWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      vmObject.removeWhere(test != null
-          ? (element) => test.dispatch(
-                [args[0], element],
-                parentState: hydroState,
-              )[0]
-          : null);
+      vmObject.removeWhere((element) => test.dispatch(
+            [args[0], element],
+            parentState: hydroState,
+          )[0]);
       return [];
     });
     table['retainWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      vmObject.retainWhere(test != null
-          ? (element) => test.dispatch(
-                [args[0], element],
-                parentState: hydroState,
-              )[0]
-          : null);
+      vmObject.retainWhere((element) => test.dispatch(
+            [args[0], element],
+            parentState: hydroState,
+          )[0]);
       return [];
     });
     table['containsAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
-        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+        vmObject.containsAll(maybeUnBoxAndBuildArgument<Iterable<Object?>>(
+            args[1],
             parentState: hydroState))
       ];
     });
     table['intersection'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Set>(
-            object: vmObject.intersection(maybeUnBoxAndBuildArgument<Set>(
-                args[1],
-                parentState: hydroState)),
+            object: vmObject.intersection(
+                maybeUnBoxAndBuildArgument<Set<Object?>>(args[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -111,7 +104,8 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['union'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Set>(
-            object: vmObject.union(maybeUnBoxAndBuildArgument<Set>(args[1],
+            object: vmObject.union(maybeUnBoxAndBuildArgument<Set<dynamic>>(
+                args[1],
                 parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
@@ -120,8 +114,9 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['difference'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Set>(
-            object: vmObject.difference(maybeUnBoxAndBuildArgument<Set>(args[1],
-                parentState: hydroState)),
+            object: vmObject.difference(
+                maybeUnBoxAndBuildArgument<Set<Object?>>(args[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -144,9 +139,9 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.followedBy(maybeUnBoxAndBuildArgument<Iterable>(
-                args[1],
-                parentState: hydroState)),
+            object: vmObject.followedBy(
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -155,12 +150,10 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.map(f != null
-                ? (e) => f.dispatch(
-                      [args[0], e],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.map((e) => f.dispatch(
+                  [args[0], e],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -169,12 +162,10 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.where(test != null
-                ? (element) => test.dispatch(
-                      [args[0], element],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.where((element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -191,37 +182,32 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       Closure f = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.expand(f != null
-                ? (element) => maybeUnBoxAndBuildArgument<Iterable>(
+            object: vmObject.expand(
+                (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
                     f.dispatch(
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
-                    parentState: hydroState)
-                : null),
+                    parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['forEach'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure f = args[1];
-      vmObject.forEach(f != null
-          ? (element) => f.dispatch(
-                [args[0], element],
-                parentState: hydroState,
-              )
-          : null);
+      vmObject.forEach((element) => f.dispatch(
+            [args[0], element],
+            parentState: hydroState,
+          ));
       return [];
     });
     table['reduce'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure combine = args[1];
       return [
-        vmObject.reduce(combine != null
-            ? (value, element) => combine.dispatch(
-                  [args[0], value, element],
-                  parentState: hydroState,
-                )[0]
-            : null)
+        vmObject.reduce((value, element) => combine.dispatch(
+              [args[0], value, element],
+              parentState: hydroState,
+            )[0])
       ];
     });
     table['fold'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -229,23 +215,19 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       return [
         vmObject.fold(
             args[1],
-            combine != null
-                ? (previousValue, element) => combine.dispatch(
-                      [args[0], previousValue, element],
-                      parentState: hydroState,
-                    )[0]
-                : null)
+            (previousValue, element) => combine.dispatch(
+                  [args[0], previousValue, element],
+                  parentState: hydroState,
+                )[0])
       ];
     });
     table['every'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
       return [
-        vmObject.every(test != null
-            ? (element) => test.dispatch(
-                  [args[0], element],
-                  parentState: hydroState,
-                )[0]
-            : null)
+        vmObject.every((element) => test.dispatch(
+              [args[0], element],
+              parentState: hydroState,
+            )[0])
       ];
     });
     table['join'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -254,12 +236,10 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     table['any'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
       return [
-        vmObject.any(test != null
-            ? (element) => test.dispatch(
-                  [args[0], element],
-                  parentState: hydroState,
-                )[0]
-            : null)
+        vmObject.any((element) => test.dispatch(
+              [args[0], element],
+              parentState: hydroState,
+            )[0])
       ];
     });
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> args) {
@@ -282,12 +262,10 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.takeWhile(test != null
-                ? (value) => test.dispatch(
-                      [args[0], value],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.takeWhile((value) => test.dispatch(
+                  [args[0], value],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -304,27 +282,23 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
       Closure test = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.skipWhile(test != null
-                ? (value) => test.dispatch(
-                      [args[0], value],
-                      parentState: hydroState,
-                    )[0]
-                : null),
+            object: vmObject.skipWhile((value) => test.dispatch(
+                  [args[0], value],
+                  parentState: hydroState,
+                )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.firstWhere(
-            test != null
-                ? (element) => test.dispatch(
-                      [args[0], element],
-                      parentState: hydroState,
-                    )[0]
-                : null,
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
             orElse: orElse != null
                 ? () => orElse.dispatch(
                       [
@@ -337,15 +311,13 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.lastWhere(
-            test != null
-                ? (element) => test.dispatch(
-                      [args[0], element],
-                      parentState: hydroState,
-                    )[0]
-                : null,
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
             orElse: orElse != null
                 ? () => orElse.dispatch(
                       [
@@ -358,15 +330,13 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
     });
     table['singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure test = args[1];
-      Closure orElse = args[2]['orElse'];
+      Closure? orElse = args[2]['orElse'];
       return [
         vmObject.singleWhere(
-            test != null
-                ? (element) => test.dispatch(
-                      [args[0], element],
-                      parentState: hydroState,
-                    )[0]
-                : null,
+            (element) => test.dispatch(
+                  [args[0], element],
+                  parentState: hydroState,
+                )[0],
             orElse: orElse != null
                 ? () => orElse.dispatch(
                       [
@@ -410,7 +380,7 @@ class VMManagedSet extends VMManagedBox<Set<dynamic>> {
   final Set vmObject;
 }
 
-void loadSet({@required HydroState hydroState, @required HydroTable table}) {
+void loadSet({required HydroState hydroState, required HydroTable table}) {
   table['set'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Set>(object: Set(), hydroState: hydroState, table: args[0])
@@ -425,7 +395,8 @@ void loadSet({@required HydroState hydroState, @required HydroTable table}) {
   table['setFrom'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Set>(
-          object: Set.from(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+          object: Set.from(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+              args[1],
               parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
@@ -434,20 +405,31 @@ void loadSet({@required HydroState hydroState, @required HydroTable table}) {
   table['setOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Set>(
-          object: Set.of(maybeUnBoxAndBuildArgument<Iterable>(args[1],
+          object: Set.of(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
               parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
+  table['setUnmodifiable'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<Set>(
+          object: Set.unmodifiable(
+              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
+                  parentState: hydroState)),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
   table['setCastFrom'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    Closure newSet = args[2]['newSet'];
+    Closure? newSet = args[2]['newSet'];
     return [
       maybeBoxObject<Set>(
           object: Set.castFrom(
-              maybeUnBoxAndBuildArgument<Set>(args[1], parentState: hydroState),
+              maybeUnBoxAndBuildArgument<Set<dynamic>>(args[1],
+                  parentState: hydroState),
               newSet: newSet != null
-                  ? <R>() => maybeUnBoxAndBuildArgument<Set>(
+                  ? <R>() => maybeUnBoxAndBuildArgument<Set<R>>(
                       newSet.dispatch(
                         [
                           args[0],
@@ -461,9 +443,9 @@ void loadSet({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Set>(boxer: (
-      {@required Set vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Set vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedSet(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

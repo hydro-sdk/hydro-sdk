@@ -2298,6 +2298,16 @@
             "value": {
                 "staticConstFunctionInvocation": {
                     "value": "RRect._raw",
+                    "staticType": {
+                        "swidInterface": {
+                            "name": "RRect",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
                     "normalParameters": [],
                     "namedParameters": {},
                     "isConstructorInvocation": false
@@ -2456,7 +2466,7 @@
     },
     "mixedInClasses": [],
     "implementedClasses": [],
-    "extendedClass": null,
     "isMixin": false,
-    "typeFormals": []
+    "typeFormals": [],
+    "extendedClass": null
 }

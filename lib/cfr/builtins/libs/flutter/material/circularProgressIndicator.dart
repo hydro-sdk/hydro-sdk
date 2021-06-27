@@ -6,7 +6,7 @@ import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
 void loadCircularProgressIndicator(
-    {@required HydroState luaState, @required HydroTable table}) {
+    {required HydroState luaState, required HydroTable table}) {
   table["circularProgressIndicator"] =
       makeLuaDartFunc(func: (List<dynamic> args) {
     dynamic arg = args.length >= 1 && args[0] != null ? args[0] : null;

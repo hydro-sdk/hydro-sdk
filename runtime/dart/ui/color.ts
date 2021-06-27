@@ -10,7 +10,8 @@ declare const dart: {
 
 export class Color
     extends JITAllocatingRTManagedBox<undefined, Color>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(Color);
     public props = undefined;
     private hex: number;

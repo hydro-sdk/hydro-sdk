@@ -3,26 +3,25 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     var diagnosticPropertiesBuilderClass = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/DiagnosticPropertiesBuilder.json")
+        File("test/swid/res/DiagnosticPropertiesBuilder.json")
             .readAsStringSync()));
 
     expect(
-        VMManagedClassDeclaration(swidClass: diagnosticPropertiesBuilderClass)
+        DartVMManagedClassDeclaration(
+                swidClass: diagnosticPropertiesBuilderClass)
             .toDartSource(),
         """
 class VMManagedDiagnosticPropertiesBuilder
     extends VMManagedBox<DiagnosticPropertiesBuilder> {
   VMManagedDiagnosticPropertiesBuilder(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,

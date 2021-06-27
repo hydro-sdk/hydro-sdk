@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedOffsetBase extends VMManagedBox<OffsetBase> {
   VMManagedOffsetBase(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -44,7 +40,7 @@ class VMManagedOffsetBase extends VMManagedBox<OffsetBase> {
 
 class RTManagedOffsetBase extends OffsetBase implements Box<OffsetBase> {
   RTManagedOffsetBase(double _dx, double _dy,
-      {@required this.table, @required this.hydroState})
+      {required this.table, required this.hydroState})
       : super(
           _dx,
           _dy,
@@ -99,7 +95,7 @@ class RTManagedOffsetBase extends OffsetBase implements Box<OffsetBase> {
 }
 
 void loadOffsetBase(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   table['offsetBase'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       RTManagedOffsetBase(args[1]?.toDouble(), args[2]?.toDouble(),
@@ -107,9 +103,9 @@ void loadOffsetBase(
     ];
   });
   registerBoxer<OffsetBase>(boxer: (
-      {@required OffsetBase vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required OffsetBase vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedOffsetBase(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

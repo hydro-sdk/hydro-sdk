@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/collectAllReferences.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 import 'package:hydro_sdk/swid/transforms/ts/resolveTsImportPaths.dart';
 
 void main() {
@@ -50,7 +50,8 @@ void main() {
     expect(
         collectAllReferences(
                 swidType: SwidType.fromSwidFunctionType(
-                    swidFunctionType: getProperties))
+          swidFunctionType: getProperties,
+        ))
             .map((x) => resolveTsImportsPaths(
                 importee: SwidType.fromSwidInterface(swidInterface: x),
                 importer: SwidType.fromSwidFunctionType(

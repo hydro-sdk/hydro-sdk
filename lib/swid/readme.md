@@ -1,6 +1,7 @@
 # Structured Wrapper and Interface generator for Dart (SWID)
+![Logo](https://github.com/chgibb/hydro-sdk/blob/master/img/swidLogo.png)
 
-This folder contains the code for SWID. SWID is a highly experimental utility for translating a Dart package's public declarations into Typescript and corresponding Dart code that can be loaded as a CFR namespace. While experimental in nature, SWID is rapidly becoming the author of more and more Typescript code under `runtime/flutter` and associated Dart glue code in `lib/cfr/builtins/libs/flutter`.
+This folder contains the code for SWID. SWID is a highly experimental language projection toolchain. SWID allows for translating a Dart package's public declarations into Typescript and corresponding Dart code that can be loaded as a CFR namespace. While experimental in nature, SWID is rapidly becoming the author of more and more Typescript code under `runtime/flutter` and associated Dart glue code in `lib/cfr/builtins/libs/flutter`.
 
 With time SWID should obsolete writing Dart bindings by hand. Both for Flutter itself as well as third party packages that want to offer Hydro-SDK ports.
 
@@ -27,27 +28,8 @@ Current and WIP results:
 - [x] `Random`
 
 ### `dart:typed_data`
-- [ ] `ByteBuffer`
-- [ ] `ByteData`x
-- [ ] `Endian`
-- [ ] `Float32List`
-- [ ] `Float32x4`
-- [ ] `Float32x4List`
-- [ ] `Float64List`
-- [ ] `Float64x2`
-- [ ] `Int8List`
-- [ ] `Int16List`
-- [ ] `Int32List`
-- [ ] `Int32x4`
-- [ ] `Int32x4List`x
-- [ ] `Int64List`
-- [ ] `TypedData`
-- [ ] `TypeFloatList`
-- [ ] `Uint8ClampedList`
-- [ ] `Uint8List`
-- [ ] `Uint16List`
-- [ ] `Uint32List`
-- [ ] `Uint64List`
+- [x] All enums
+- [ ] most classes
 
 ### `dart:_internal`
 - [x] `EfficientLengthIterable`

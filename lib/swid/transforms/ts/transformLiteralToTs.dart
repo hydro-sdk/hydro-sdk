@@ -1,7 +1,6 @@
-import 'package:meta/meta.dart';
-
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConst.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidStaticConstFieldReference.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformBooleanLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformDoubleLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';
@@ -11,12 +10,14 @@ import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedExpress
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedIdentifierToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
 
-typedef String SwidStaticConstFieldReferenceScopeResolver(
+typedef String? SwidStaticConstFieldReferenceScopeResolver(
     SwidStaticConstFieldReference staticConstFieldReference);
 
 String transformLiteralToTs(
-        {@required SwidStaticConst swidLiteral,
-        @required SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
+        {required SwidStaticConst swidLiteral,
+        required SwidClass parentClass,
+        required String inexpressibleFunctionInvocationFallback,
+        required SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
     swidLiteral.when(
         fromSwidIntegerLiteral: (val) =>
             transformIntegerLiteralToTs(swidIntegerLiteral: val),
@@ -28,24 +29,37 @@ String transformLiteralToTs(
             transformBooleanLiteralToTs(swidBooleanLiteral: val),
         fromSwidStaticConstPrefixedExpression: (val) =>
             transformStaticConstPrefixedExpressionToTs(
-                swidStaticConstPrefixedExpression: val,
-                scopeResolver: scopeResolver),
+              swidStaticConstPrefixedExpression: val,
+              parentClass: parentClass,
+              scopeResolver: scopeResolver,
+              inexpressibleFunctionInvocationFallback:
+                  inexpressibleFunctionInvocationFallback,
+            ),
         fromSwidStaticConstBinaryExpression: (val) =>
             transformStaticConstBinaryExpressionToTs(
               swidStaticConstBinaryExpression: val,
               scopeResolver: scopeResolver,
+              parentClass: parentClass,
+              inexpressibleFunctionInvocationFallback:
+                  inexpressibleFunctionInvocationFallback,
             ),
         fromSwidStaticConstFunctionInvocation: (val) =>
             transformStaticConstFunctionInvocation(
               swidStaticConstFunctionInvocation: val,
+              parentClass: parentClass,
               scopeResolver: scopeResolver,
+              inexpressibleFunctionInvocationFallback:
+                  inexpressibleFunctionInvocationFallback,
             ),
         fromSwidStaticConstPrefixedIdentifier: (val) =>
             transformStaticConstPrefixedIdentifierToTs(
-                staticConstPrefixedIdentifier: val,
-                scopeResolver: scopeResolver),
+              staticConstPrefixedIdentifier: val,
+              parentClass: parentClass,
+              scopeResolver: scopeResolver,
+              inexpressibleFunctionInvocationFallback:
+                  inexpressibleFunctionInvocationFallback,
+            ),
         fromSwidStaticConstFieldReference: (val) {
-          var res = scopeResolver(val);
-          assert(res != null);
+          var res = scopeResolver(val)!;
           return res;
         });

@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/barrelSpec.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartBarrelLoadNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
+import 'package:hydro_sdk/swid/backend/util/barrelSpec.dart';
+import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -122,7 +122,7 @@ void main() {
         DartBarrelLoadNamespaceSymbolDeclaration(barrelSpec: barrelSpec)
             .toDartSource(),
         """
-void loaddart({@required HydroState hydroState, @required Context context}) {
+void loaddart({required HydroState hydroState, required Context context}) {
   final dart = HydroTable();
   context.env[\'dart\'] = dart;
   loadcore(table: dart, hydroState: hydroState);

@@ -1,4 +1,4 @@
-import { IIterable } from "../../../../runtime/dart/core/iterable";
+import { IIterable } from "../../../../runtime/dart/index";
 import { any_A01_t01 } from "./any_A01_t01";
 import { any_A01_t02 } from "./any_A01_t02";
 import { any_A01_t03 } from "./any_A01_t03";

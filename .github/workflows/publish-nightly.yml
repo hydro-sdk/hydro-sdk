@@ -26,7 +26,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: 'flutter/flutter'
-        ref: '1.22.0'
+        ref: '2.0.6'
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Unix
@@ -50,6 +50,7 @@ jobs:
     - name: Clone Hydro-SDK
       uses: actions/checkout@v2
       with:
+        token: ${{ secrets.WAVEFORM_BOT_PAT }}
         path: 'hydro'
     
     - name: Get packages for Hydro-SDK JS
@@ -73,6 +74,11 @@ jobs:
         git config --global user.name "$PUBLISH_USERNAME"
       working-directory: hydro
 
+    - name: Run Tsc
+      shell: bash
+      run: ./node_modules/.bin/tsc
+      working-directory: hydro
+
     - name: Publish Nightly
       env:
         NPM_ORG_TOKEN: ${{secrets.NPM_ORG_TOKEN}}
@@ -81,9 +87,4 @@ jobs:
       
     - name: Push Tags
       run: git push --tags
-      working-directory: hydro
-
-    - name: Trigger Dependents
-      run: |
-        flutter pub run waveform:triggerDependent --repo="hydro_demo" --ref="master" --token="${{secrets.DISPATCH_TOKEN}}" 
       working-directory: hydro

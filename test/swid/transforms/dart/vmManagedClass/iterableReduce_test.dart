@@ -1,14 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/vmManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
+import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -147,12 +149,19 @@ void main() {
                 SwidReferenceDeclarationKind.typeParameterType,
           )
         ]);
-    expect(VMManagedClassDeclaration(swidClass: iterable).toDartSource(), """
+    expect(
+        DartVMManagedClassDeclaration(
+          swidClass: instantiateAllGenericsAsDynamic(
+                  swidType: SwidType.fromSwidClass(swidClass: iterable))
+              .maybeWhen(
+            fromSwidClass: (val) => val,
+            orElse: () => dartUnknownClass,
+          ),
+        ).toDartSource(),
+        """
 class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
   VMManagedIterable(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -161,12 +170,10 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
     table[\'reduce\'] = makeLuaDartFunc(func: (List<dynamic> args) {
       Closure combine = args[1];
       return [
-        vmObject.reduce(combine != null
-            ? (value, element) => combine.dispatch(
-                  [args[0], value, element],
-                  parentState: hydroState,
-                )[0]
-            : null)
+        vmObject.reduce((value, element) => combine.dispatch(
+              [args[0], value, element],
+              parentState: hydroState,
+            )[0])
       ];
     });
   }

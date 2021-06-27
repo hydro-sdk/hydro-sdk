@@ -18,7 +18,8 @@ declare const flutter: {
 
 export class NetworkImage
     extends JITAllocatingRTManagedBox<NetworkImageProps, NetworkImage>
-    implements ImageProvider {
+    implements ImageProvider
+{
     public readonly internalRuntimeType = new Type(NetworkImage);
     public url: string;
     public props: NetworkImageProps;

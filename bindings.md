@@ -1,10 +1,10 @@
-# Binding Dart Code to Guest Code
+## Binding Dart Code to Guest Code
 Hydro's binding system is based on namespaced hook functions. Marshalling is based on a system of object boxers and unboxers.
 
-## Namespaces
+### Namespaces
 Namespaces are objects that are always available at the global scope in any context. They contain other objects and ultimately hook functions. The namespaces `hydro`, `dart`, `flutter`, and `http` are reserved for use by the CFR. The namespaces `com`, `edu`, `gov`, `mil`, `net`, and `org` are reserved as extension points for user code.
 
-## Hook Functions
+### Hook Functions
 Hook functions are functions written in Dart that are exposed to the CFR. Because the CFR is based on a Lua 5.2 environment, hook functions expect Lua calling conventions. They must have the following signature:  
 ```dart
     //Functions in Lua can have multiple return types.
@@ -18,13 +18,13 @@ Hook functions are functions written in Dart that are exposed to the CFR. Becaus
     List<dynamic> HookFunction(List<dynamic>);
 ```
 
-## Boxers
+### Boxers
 The marshalling of objects into running CFR code from Dart is referred to as "boxing". The CFR only knows how to deal with instances of `HydroTable` or instances of Dart classes which extend the class `VMManagedBox<T>`. `VMManagedBox<T>` can be exploited to bind custom Dart classes and will be discussed in its own section along with registering boxers for custom types.
 
-## Unboxing
+### Unboxing
 The marshalling of objects out of the CFR to be passed to Dart code is referred to as "unboxing". Strictly speaking, the term "unboxing" as it's used in other object systems isn't always the operation that takes place. For instance, for interoperating with Flutter, instances of guest code classes are usually further wrapped into instances of `StatelessWidget`, `StatefulWidget`, `State`, etc. Registering custom unboxers for guest runtime types will be discussed in its own section.
 
-## Hello World Hook
+### Hello World Hook
 Exposing a Dart function which adds two numbers could look someting like the below:
 ```dart
 //embedder.dart
@@ -70,15 +70,15 @@ declare const org : {
 export function add(a : number, b : number) => org.myNamespace.add(a,b);
 ```
 
-## Binding Custom Dart Widgets
-https://github.com/chgibb/hydro-sdk/blob/master/test/widget/customWidget-1_test.dart
-https://github.com/chgibb/hydro-sdk/blob/master/test/widget/customWidget-1.ts
+### Binding Custom Dart Widgets
+See https://github.com/chgibb/hydro-sdk/blob/master/test/widget/customWidget-1_test.dart  and
+https://github.com/chgibb/hydro-sdk/blob/master/test/widget/customWidget-1.ts for examples
 
-## Injecting Methods Defined in Dart Into Instances of Classes Defined in Guest Code
+### Injecting Methods Defined in Dart Into Instances of Classes Defined in Guest Code
 TODO: This is done for `State`, `Future`, `List` etc. Explain how this works.
 
-## Allow Guest Code to Allocate and Manipulate Classes Defined in Dart
+### Allow Guest Code to Allocate and Manipulate Classes Defined in Dart
 TODO: This is done for `Future` etc. Explain how this works.
 
-## Registering Object Boxers for Custom Types
+### Registering Object Boxers for Custom Types
 TODO: This is done for `BuildContext`, `Response`, `Future` etc. Explain how this works.

@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/util/barrelMember.dart';
-import 'package:hydro_sdk/swid/ir/backend/util/resolveBarrelSpecs.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/backend/util/barrelMember.dart';
+import 'package:hydro_sdk/swid/backend/util/resolveBarrelSpecs.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -122,7 +122,7 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[0]
             .originalPackagePath,
         "dart:core");
@@ -132,12 +132,12 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[0]
             .maybeWhen(
               fromSwidClass: (val) => val,
               orElse: () => null,
-            )
+            )!
             .name,
         "Iterable");
     expect(
@@ -145,23 +145,23 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[1]
             .maybeWhen(
               fromSwidClass: (val) => val,
               orElse: () => null,
-            )
+            )!
             .name,
         "List");
 
     expect(
         res.members[1]
-            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)
+            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)!
             .path,
         "dart/ui");
     expect(
         res.members[1]
-            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)
+            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)!
             .name,
         "ui");
     expect(
@@ -169,7 +169,7 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[0]
             .originalPackagePath,
         "dart:ui");
@@ -179,12 +179,12 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[0]
             .maybeWhen(
               fromSwidClass: (val) => val,
               orElse: () => null,
-            )
+            )!
             .name,
         "Offset");
     expect(
@@ -192,23 +192,23 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[1]
             .maybeWhen(
               fromSwidClass: (val) => val,
               orElse: () => null,
-            )
+            )!
             .name,
         "RRect");
 
     expect(
         res.members[2]
-            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)
+            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)!
             .path,
         "dart/_internal");
     expect(
         res.members[2]
-            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)
+            .maybeWhen(fromBarrelSpec: (val) => val, orElse: () => null)!
             .name,
         "_internal");
     expect(
@@ -216,7 +216,7 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[0]
             .originalPackagePath,
         "dart:_internal");
@@ -226,12 +226,12 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[0]
             .maybeWhen(
               fromSwidClass: (val) => val,
               orElse: () => null,
-            )
+            )!
             .name,
         "EfficientLengthIterable");
     expect(
@@ -239,12 +239,12 @@ void main() {
             .maybeWhen(
               fromBarrelSpec: (val) => val,
               orElse: () => null,
-            )
+            )!
             .members[1]
             .maybeWhen(
               fromSwidClass: (val) => val,
               orElse: () => null,
-            )
+            )!
             .name,
         "RRect");
   }, tags: "swid");

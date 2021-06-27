@@ -37,7 +37,8 @@ declare const flutter: {
 };
 export class CupertinoButton
     extends StatelessWidget
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(CupertinoButton);
     private filled = false;
     public props: CupertinoButtonProps;

@@ -1263,6 +1263,16 @@
             "value": {
                 "staticConstFunctionInvocation": {
                     "value": "Offset",
+                    "staticType": {
+                        "swidInterface": {
+                            "name": "Offset",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
                     "normalParameters": [
                         {
                             "swidDoubleLiteral": { "value": "0.0" },
@@ -1284,6 +1294,16 @@
             "value": {
                 "staticConstFunctionInvocation": {
                     "value": "Offset",
+                    "staticType": {
+                        "swidInterface": {
+                            "name": "Offset",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:ui",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "classElement"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
                     "normalParameters": [
                         {
                             "staticConstPrefixedIdentifier": {
@@ -1352,6 +1372,8 @@
     },
     "mixedInClasses": [],
     "implementedClasses": [],
+    "isMixin": false,
+    "typeFormals": [],
     "extendedClass": {
         "name": "OffsetBase",
         "nullabilitySuffix": "none",
@@ -1887,6 +1909,8 @@
         },
         "mixedInClasses": [],
         "implementedClasses": [],
+        "isMixin": false,
+        "typeFormals": [],
         "extendedClass": {
             "name": "Object",
             "nullabilitySuffix": "none",
@@ -2193,13 +2217,9 @@
             },
             "mixedInClasses": [],
             "implementedClasses": [],
-            "extendedClass": null,
             "isMixin": false,
-            "typeFormals": []
-        },
-        "isMixin": false,
-        "typeFormals": []
-    },
-    "isMixin": false,
-    "typeFormals": []
+            "typeFormals": [],
+            "extendedClass": null
+        }
+    }
 }

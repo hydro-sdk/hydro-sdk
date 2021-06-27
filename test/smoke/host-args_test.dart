@@ -12,7 +12,7 @@ void main() {
       expect(testMode, isNotNull);
 
       await tester.pumpWidget(integrationTestHarness(
-        "../assets/examples/hostArgs",
+        "assets/examples/hostArgs",
         args: [
           "hello world",
           Column(

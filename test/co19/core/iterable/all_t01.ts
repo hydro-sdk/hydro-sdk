@@ -15,7 +15,7 @@
  * of [generator].
  */
 
-import { IIterable, Iterable } from "../../../../runtime/dart/core/iterable";
+import { IIterable, Iterable } from "../../../../runtime/dart/index";
 import { allIterableTests } from "./allTests";
 
 function create(content: IIterable<any> | undefined): IIterable<any> {

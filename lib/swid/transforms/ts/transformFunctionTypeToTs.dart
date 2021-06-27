@@ -1,17 +1,17 @@
-import 'package:meta/meta.dart';
+import 'package:collection/collection.dart' show IterableExtension;
 
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/util/cloneSwidType.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/util/cloneSwidType.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformReturnTypeToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 String transformFunctionTypeToTs({
-  @required SwidFunctionType swidFunctionType,
-  @required TrailingReturnTypeKind trailingReturnTypeKind,
+  required SwidFunctionType swidFunctionType,
+  required TrailingReturnTypeKind trailingReturnTypeKind,
   TrailingReturnTypeKind nestedTrailingReturnTypeKind =
       TrailingReturnTypeKind.fatArrow,
   bool emitTrailingReturnType = true,
@@ -22,7 +22,7 @@ String transformFunctionTypeToTs({
       transformTypeFormalsToTs(swidTypeFormals: swidFunctionType.typeFormals) +
           "(";
 
-  Map<String, SwidType> normalTypes = {};
+  Map<String, SwidType?> normalTypes = {};
   for (var i = 0; i != swidFunctionType.normalParameterNames.length; ++i) {
     normalTypes[swidFunctionType.normalParameterNames[i]] =
         swidFunctionType.normalParameterTypes[i];
@@ -36,10 +36,10 @@ String transformFunctionTypeToTs({
     ]);
   }
 
-  var shouldEmitPositionalAsOptional = ({@required String argName}) =>
+  var shouldEmitPositionalAsOptional = ({required String argName}) =>
       normalTypes.entries
               .takeWhile((x) =>
-                  x.value.nullabilitySuffix == SwidNullabilitySuffix.question)
+                  x.value!.nullabilitySuffix == SwidNullabilitySuffix.question)
               .toList()
               .length ==
           normalTypes.entries.length ||
@@ -48,13 +48,13 @@ String transformFunctionTypeToTs({
               .reversed
               .toList()
               .takeWhile((x) =>
-                  x.value.nullabilitySuffix == SwidNullabilitySuffix.question)
+                  x.value!.nullabilitySuffix == SwidNullabilitySuffix.question)
               .toList()
-              .firstWhere((x) => x.key == argName, orElse: () => null) !=
+              .firstWhereOrNull((x) => x.key == argName) !=
           null);
 
   normalTypes.forEach((key, value) {
-    value.when(
+    value!.when(
       fromSwidClass: (_) => null,
       fromSwidFunctionType: (val) {
         res += "$key";
@@ -85,7 +85,7 @@ String transformFunctionTypeToTs({
 
         if (emitInitializersForOptionalPositionals) {
           var initializer = swidFunctionType.positionalDefaultParameters.entries
-              .firstWhere((x) => x.key == key, orElse: () => null);
+              .firstWhereOrNull((x) => x.key == key);
           if (initializer != null) {
             res += " = ${initializer.value.name}";
           }

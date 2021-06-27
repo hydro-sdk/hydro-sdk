@@ -41,7 +41,6 @@ export class TextEditingValue {
         flutter.services.textEditingValue(this, this.props);
     }
 
-    public copyWith: (
-        props: TextEditingValueProps
-    ) => TextEditingValue = undefined as any;
+    public copyWith: (props: TextEditingValueProps) => TextEditingValue =
+        undefined as any;
 }

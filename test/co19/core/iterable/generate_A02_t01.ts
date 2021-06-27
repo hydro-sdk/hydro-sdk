@@ -12,7 +12,7 @@
  * function on integers (int x) => x
  */
 
-import { Iterable } from "./../../../../runtime/dart/core/iterable";
+import { Iterable } from "./../../../../runtime/dart/index";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 function check(count: number) {

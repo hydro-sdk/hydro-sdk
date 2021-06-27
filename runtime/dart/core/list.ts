@@ -45,6 +45,9 @@ declare const dart: {
         ) => void;
     };
 };
+const toListDefaultProps = {
+    growable: true,
+};
 const filledDefaultProps = {
     growable: false,
 };
@@ -146,7 +149,7 @@ export interface IList<E> {
     getSingle: () => E;
     getHashCode: () => number;
 }
-export class List<E> implements IEfficientLengthIterable<E> {
+export class List<E> implements IIterable<E>, IEfficientLengthIterable<E> {
     public constructor(length?: number | undefined) {
         dart.core.list(this, length);
     }
@@ -220,24 +223,18 @@ export class List<E> implements IEfficientLengthIterable<E> {
     private readonly _dart_setFirst: (value: E) => void = undefined as any;
     private readonly _dart_setLast: (value: E) => void = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
-    private readonly _dart_setLength: (
-        newLength: number
-    ) => void = undefined as any;
+    private readonly _dart_setLength: (newLength: number) => void =
+        undefined as any;
     private readonly _dart_add: (value: E) => void = undefined as any;
-    private readonly _dart_addAll: (
-        iterable: IIterable<E>
-    ) => void = undefined as any;
+    private readonly _dart_addAll: (iterable: IIterable<E>) => void =
+        undefined as any;
     private readonly _dart_getReversed: () => IIterable<E> = undefined as any;
-    private readonly _dart_sort: (
-        compare?: (a: E, b: E) => number
-    ) => void = undefined as any;
-    private readonly _dart_shuffle: (
-        random?: IRandom | undefined
-    ) => void = undefined as any;
-    private readonly _dart_indexOf: (
-        element: E,
-        start: number
-    ) => number = undefined as any;
+    private readonly _dart_sort: (compare?: (a: E, b: E) => number) => void =
+        undefined as any;
+    private readonly _dart_shuffle: (random?: IRandom | undefined) => void =
+        undefined as any;
+    private readonly _dart_indexOf: (element: E, start: number) => number =
+        undefined as any;
     private readonly _dart_indexWhere: (
         test: (element: E) => boolean,
         start: number
@@ -251,10 +248,8 @@ export class List<E> implements IEfficientLengthIterable<E> {
         start?: number | undefined
     ) => number = undefined as any;
     private readonly _dart_clear: () => void = undefined as any;
-    private readonly _dart_insert: (
-        index: number,
-        element: E
-    ) => void = undefined as any;
+    private readonly _dart_insert: (index: number, element: E) => void =
+        undefined as any;
     private readonly _dart_insertAll: (
         index: number,
         iterable: IIterable<E>
@@ -263,9 +258,8 @@ export class List<E> implements IEfficientLengthIterable<E> {
         index: number,
         iterable: IIterable<E>
     ) => void = undefined as any;
-    private readonly _dart_remove: (
-        value?: Object | undefined
-    ) => boolean = undefined as any;
+    private readonly _dart_remove: (value?: Object | undefined) => boolean =
+        undefined as any;
     private readonly _dart_removeAt: (index: number) => E = undefined as any;
     private readonly _dart_removeLast: () => E = undefined as any;
     private readonly _dart_removeWhere: (
@@ -288,10 +282,8 @@ export class List<E> implements IEfficientLengthIterable<E> {
         iterable: IIterable<E>,
         skipCount: number
     ) => void = undefined as any;
-    private readonly _dart_removeRange: (
-        start: number,
-        end: number
-    ) => void = undefined as any;
+    private readonly _dart_removeRange: (start: number, end: number) => void =
+        undefined as any;
     private readonly _dart_fillRange: (
         start: number,
         end: number,
@@ -302,15 +294,12 @@ export class List<E> implements IEfficientLengthIterable<E> {
         end: number,
         replacement: IIterable<E>
     ) => void = undefined as any;
-    private readonly _dart_asMap: () => {
-        [index: number]: E;
-    } = undefined as any;
-    private readonly _dart_followedBy: (
-        other: IIterable<E>
-    ) => IIterable<E> = undefined as any;
-    private readonly _dart_map: <T>(
-        f: (e: E) => T
-    ) => IIterable<T> = undefined as any;
+    private readonly _dart_asMap: () => { [index: number]: E } =
+        undefined as any;
+    private readonly _dart_followedBy: (other: IIterable<E>) => IIterable<E> =
+        undefined as any;
+    private readonly _dart_map: <T>(f: (e: E) => T) => IIterable<T> =
+        undefined as any;
     private readonly _dart_where: (
         test: (element: E) => boolean
     ) => IIterable<E> = undefined as any;
@@ -318,41 +307,32 @@ export class List<E> implements IEfficientLengthIterable<E> {
     private readonly _dart_expand: <T>(
         f: (element: E) => IIterable<T>
     ) => IIterable<T> = undefined as any;
-    private readonly _dart_contains: (
-        element?: Object | undefined
-    ) => boolean = undefined as any;
-    private readonly _dart_forEach: (
-        f: (element: E) => void
-    ) => void = undefined as any;
-    private readonly _dart_reduce: (
-        combine: (value: E, element: E) => E
-    ) => E = undefined as any;
+    private readonly _dart_contains: (element?: Object | undefined) => boolean =
+        undefined as any;
+    private readonly _dart_forEach: (f: (element: E) => void) => void =
+        undefined as any;
+    private readonly _dart_reduce: (combine: (value: E, element: E) => E) => E =
+        undefined as any;
     private readonly _dart_fold: <T>(
         initialValue: T,
         combine: (previousValue: T, element: E) => T
     ) => T = undefined as any;
-    private readonly _dart_every: (
-        test: (element: E) => boolean
-    ) => boolean = undefined as any;
-    private readonly _dart_join: (
-        separator: string
-    ) => string = undefined as any;
-    private readonly _dart_any: (
-        test: (element: E) => boolean
-    ) => boolean = undefined as any;
-    private readonly _dart_toList: (props: {
-        growable: boolean;
-    }) => IList<E> = undefined as any;
+    private readonly _dart_every: (test: (element: E) => boolean) => boolean =
+        undefined as any;
+    private readonly _dart_join: (separator: string) => string =
+        undefined as any;
+    private readonly _dart_any: (test: (element: E) => boolean) => boolean =
+        undefined as any;
+    private readonly _dart_toList: (props: { growable: boolean }) => IList<E> =
+        undefined as any;
     private readonly _dart_toSet: () => ISet<E> = undefined as any;
-    private readonly _dart_take: (
-        count: number
-    ) => IIterable<E> = undefined as any;
+    private readonly _dart_take: (count: number) => IIterable<E> =
+        undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: E) => boolean
     ) => IIterable<E> = undefined as any;
-    private readonly _dart_skip: (
-        count: number
-    ) => IIterable<E> = undefined as any;
+    private readonly _dart_skip: (count: number) => IIterable<E> =
+        undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: E) => boolean
     ) => IIterable<E> = undefined as any;
@@ -525,8 +505,11 @@ export class List<E> implements IEfficientLengthIterable<E> {
     public any(test: (element: E) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<E> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<E> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public toSet(): ISet<E> {
         return this._dart_toSet();

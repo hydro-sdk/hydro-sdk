@@ -13455,18 +13455,12 @@ export class Icons {
         0xe9e7,
         { fontFamily: "MaterialIcons" }
     );
-    public static signal_cellular_connected_no_internet_4_bar_outlined = new IconData(
-        0xe41f,
-        { fontFamily: "MaterialIcons" }
-    );
-    public static signal_cellular_connected_no_internet_4_bar_rounded = new IconData(
-        0xf452,
-        { fontFamily: "MaterialIcons" }
-    );
-    public static signal_cellular_connected_no_internet_4_bar_sharp = new IconData(
-        0xef23,
-        { fontFamily: "MaterialIcons" }
-    );
+    public static signal_cellular_connected_no_internet_4_bar_outlined =
+        new IconData(0xe41f, { fontFamily: "MaterialIcons" });
+    public static signal_cellular_connected_no_internet_4_bar_rounded =
+        new IconData(0xf452, { fontFamily: "MaterialIcons" });
+    public static signal_cellular_connected_no_internet_4_bar_sharp =
+        new IconData(0xef23, { fontFamily: "MaterialIcons" });
     public static signal_cellular_no_sim = new IconData(0xe9e8, {
         fontFamily: "MaterialIcons",
     });

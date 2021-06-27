@@ -33,9 +33,8 @@ export class Duration {
     private readonly _dart_getInSeconds: () => number = undefined as any;
     private readonly _dart_getInMilliseconds: () => number = undefined as any;
     private readonly _dart_getInMicroseconds: () => number = undefined as any;
-    private readonly _dart_compareTo: (
-        other: Duration
-    ) => number = undefined as any;
+    private readonly _dart_compareTo: (other: Duration) => number =
+        undefined as any;
     private readonly _dart_toString: () => string = undefined as any;
     private readonly _dart_getIsNegative: () => boolean = undefined as any;
     private readonly _dart_abs: () => Duration = undefined as any;

@@ -21,7 +21,8 @@ declare const flutter: {
 
 export class ToolbarOptions
     extends JITAllocatingRTManagedBox<ToolbarOptionsProps, ToolbarOptions>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(ToolbarOptions);
     public props: ToolbarOptionsProps;
     public constructor(props: ToolbarOptionsProps) {

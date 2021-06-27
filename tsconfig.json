@@ -4,15 +4,19 @@
         "lib": [
             "esnext"
         ],
+        "esModuleInterop": true,
         "strict": true,
         "strictPropertyInitialization": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "module": "CommonJS"
     },
     "include": [
         "examples",
+        "scripts",
+        "hydroc.ts"
     ],
     "exclude": [
         "node_modules"

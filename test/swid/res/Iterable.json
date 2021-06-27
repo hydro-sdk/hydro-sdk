@@ -3223,12 +3223,12 @@
     },
     "mixedInClasses": [],
     "implementedClasses": [],
-    "extendedClass": null,
     "isMixin": false,
     "typeFormals": [
         {
             "value": { "string": "E", "runtimeType": "fromString" },
             "swidReferenceDeclarationKind": "typeParameterType"
         }
-    ]
+    ],
+    "extendedClass": null
 }

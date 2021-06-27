@@ -1,0 +1,1 @@
+This is a vendoring of https://github.com/pq/surveyor with deletions of parts not relevant for Hydro-SDK

@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/dart/rtManagedClassDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidDeclarationModifiers.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidInterface.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidNullabilitySuffix.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidReferenceDeclarationKind.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidType.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartRtManagedClassDeclaration.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
+import 'package:hydro_sdk/swid/ir/swidDeclarationModifiers.dart';
+import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidInterface.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
+import 'package:hydro_sdk/swid/ir/swidReferenceDeclarationKind.dart';
+import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
@@ -90,9 +90,9 @@ void main() {
         mixedInClasses: [],
         extendedClass: null,
         isMixin: false);
-    expect(RTManagedClassDeclaration(swidClass: ast).toDartSource(), """
+    expect(DartRTManagedClassDeclaration(swidClass: ast).toDartSource(), """
 class RTManagedPath extends Path implements Box<Path> {
-  RTManagedPath({@required this.table, @required this.hydroState}) : super() {
+  RTManagedPath({required this.table, required this.hydroState}) : super() {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];

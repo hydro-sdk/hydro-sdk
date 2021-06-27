@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:typed_data';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
   VMManagedByteBuffer(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -154,11 +150,11 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
 }
 
 void loadByteBuffer(
-    {@required HydroState hydroState, @required HydroTable table}) {
+    {required HydroState hydroState, required HydroTable table}) {
   registerBoxer<ByteBuffer>(boxer: (
-      {@required ByteBuffer vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required ByteBuffer vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedByteBuffer(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

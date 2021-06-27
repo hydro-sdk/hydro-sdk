@@ -26,7 +26,8 @@ export class SliverChildBuilderDelegate
         SliverChildBuilderDelegateProps,
         SliverChildBuilderDelegate
     >
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(SliverChildBuilderDelegate);
     public builder: (context: BuildContext, index: number) => Widget;
     public props: SliverChildBuilderDelegateProps;

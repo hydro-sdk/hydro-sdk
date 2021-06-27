@@ -18,7 +18,8 @@ declare const flutter: {
 
 export class BorderSide
     extends JITAllocatingRTManagedBox<BorderSideProps, BorderSide>
-    implements RuntimeBaseClass {
+    implements RuntimeBaseClass
+{
     public readonly internalRuntimeType = new Type(BorderSide);
     public props: BorderSideProps;
     public constructor(props: BorderSideProps) {

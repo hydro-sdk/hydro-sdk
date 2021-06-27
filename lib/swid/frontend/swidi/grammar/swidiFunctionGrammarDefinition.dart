@@ -1,0 +1,90 @@
+import 'package:petitparser/definition.dart';
+import 'package:petitparser/petitparser.dart';
+
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationNamedParameterGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationOptionalParameterGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationPositionalParameterGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
+
+mixin SwidiFunctionGrammarDefinition
+    on
+        GrammarDefinition,
+        SwidiGrammarTokenizer,
+        SwidiDeclarationGrammarDefinition,
+        SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
+        SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
+        SwidiFunctionDeclarationNamedParameterGrammarDefinition {
+  Parser functionDeclaration() =>
+      ref0(returnType) &
+      ref0(identifier) &
+      ref0(functionDeclarationParameterList) &
+      ref1(token, ";");
+
+  Parser functionDeclarationParameterList() =>
+      (ref1(token, "(") & ref1(token, ")")) |
+      //Positional only
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref1(token, ")")) |
+      //Optional only
+      (ref1(token, "(") &
+          ref0(functionDeclarationOptionalParameterListForm1) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationOptionalParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationOptionalParameterListForm3) &
+          ref1(token, ")")) |
+      //Named only
+      (ref1(token, "(") &
+          ref0(functionDeclarationNamedParameterListForm1) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationNamedParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationNamedParameterListForm3) &
+          ref1(token, ")")) |
+      //Positional and named
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref0(functionDeclarationNamedParameterListForm3) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref0(functionDeclarationNamedParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref0(functionDeclarationNamedParameterListForm3) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref0(functionDeclarationNamedParameterListForm2) &
+          ref1(token, ")")) |
+      //Positional and  optional
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref0(functionDeclarationOptionalParameterListForm3) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm1) &
+          ref0(functionDeclarationOptionalParameterListForm2) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref0(functionDeclarationOptionalParameterListForm3) &
+          ref1(token, ")")) |
+      (ref1(token, "(") &
+          ref0(functionDeclarationPositionalParameterListForm3) &
+          ref0(functionDeclarationOptionalParameterListForm2) &
+          ref1(token, ")"));
+}

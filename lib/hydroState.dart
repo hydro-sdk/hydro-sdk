@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/coroutine/coroutineresult.dart';
 import 'package:hydro_sdk/cfr/decode/decoder.dart';
 import 'package:hydro_sdk/cfr/lasm/nativeThunk.dart';
@@ -18,11 +16,10 @@ import 'package:hydro_sdk/cfr/vm/upVal.dart';
 class HydroFunctionImpl extends HydroFunction {
   HydroFunctionImpl(this.closure);
   Closure closure;
-  HydroState get state => closure.context.userdata as HydroState;
-  List<dynamic> call(List<dynamic> args) =>
-      closure.dispatch(args, parentState: state);
-  CoroutineResult pcall(List<dynamic> args,
-      {@required HydroState parentState}) {
+  HydroState? get state => closure.context!.userdata as HydroState?;
+  List<dynamic>? call(List<dynamic> args) =>
+      closure.dispatch(args, parentState: state!);
+  CoroutineResult pcall(List<dynamic> args, {required HydroState parentState}) {
     try {
       return new CoroutineResult(
           true, closure.dispatch(args, parentState: parentState));
@@ -39,21 +36,21 @@ class HydroFunctionImpl extends HydroFunction {
 class DispatchContext {
   final HydroFunctionImpl dispatchContext;
 
-  DispatchContext({@required this.dispatchContext});
+  DispatchContext({required this.dispatchContext});
 }
 
 class HydroState {
   // ignore: non_constant_identifier_names
-  HydroTable get _G => _context.env;
-  Context _context;
-  Context get context => _context;
+  HydroTable get _G => _context!.env;
+  Context? _context;
+  Context? get context => _context;
 
-  DispatchContext dispatchContext;
-  List<ModuleDebugInfo> symbols;
+  DispatchContext? dispatchContext;
+  List<ModuleDebugInfo>? symbols;
 
   HydroState() {
     _context = new Context(env: new HydroTable(), hydroState: this);
-    _context.userdata = this;
+    _context!.userdata = this;
   }
 
   Future<HydroFunctionImpl> loadFile(String path) async {
@@ -70,30 +67,30 @@ class HydroState {
         dump: null,
         hydroState: this,
         linkStatus: null,
-        thunks: null);
+        thunks: null)!;
 
     return HydroFunctionImpl(Closure(
       dump.main,
       context: _context,
-      upvalues: [Upval.store(_context.env)],
+      upvalues: [Upval.store(_context!.env)],
     ));
   }
 
   Future<HydroFunctionImpl> loadBuffer(
-      {@required Uint8List buffer,
-      @required String name,
-      @required LinkStatus linkStatus,
-      @required Map<String, NativeThunk> thunks}) async {
+      {required Uint8List buffer,
+      required String? name,
+      required LinkStatus? linkStatus,
+      required Map<String, NativeThunk>? thunks}) async {
     var decoder = Decoder(buffer.buffer);
     var dump = decoder.readCodeDump(
         name: name,
         dump: null,
         hydroState: this,
         linkStatus: linkStatus,
-        thunks: thunks);
+        thunks: thunks)!;
 
     return HydroFunctionImpl(Closure(dump.main,
-        context: _context, upvalues: [Upval.store(_context.env)]));
+        context: _context, upvalues: [Upval.store(_context!.env)]));
   }
 
   Future<CoroutineResult> doBuffer(Uint8List buffer, String name) async {

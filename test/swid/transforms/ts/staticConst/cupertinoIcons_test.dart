@@ -3,14 +3,14 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:hydro_sdk/swid/ir/backend/ts/tsClassStaticConstFieldDeclarations.dart';
-import 'package:hydro_sdk/swid/ir/frontend/dart/swidClass.dart';
+import 'package:hydro_sdk/swid/backend/ts/tsClassStaticConstFieldDeclarations.dart';
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 
 void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
-    var cupertinoIconsClass = SwidClass.fromJson(json.decode(
-        File("../test/swid/res/CupertinoIcons.json").readAsStringSync()));
+    var cupertinoIconsClass = SwidClass.fromJson(json
+        .decode(File("test/swid/res/CupertinoIcons.json").readAsStringSync()));
 
     //Trim thousands of icon definitions down to 1 plus 2 other static fields
     cupertinoIconsClass = cupertinoIconsClass.copyWith(

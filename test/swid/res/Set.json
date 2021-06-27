@@ -286,6 +286,88 @@
             },
             "isFactory": true,
             "typeFormals": []
+        },
+        {
+            "name": "unmodifiable",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": false,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false,
+                "isPublic": true
+            },
+            "namedParameterTypes": {},
+            "namedDefaults": {},
+            "normalParameterNames": ["elements"],
+            "normalParameterTypes": [
+                {
+                    "swidInterface": {
+                        "name": "Iterable<E>",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [
+                            {
+                                "swidInterface": {
+                                    "name": "E",
+                                    "nullabilitySuffix": "none",
+                                    "originalPackagePath": "dart:core",
+                                    "typeArguments": [],
+                                    "referenceDeclarationKind": "typeParameterType"
+                                },
+                                "runtimeType": "fromSwidInterface"
+                            }
+                        ],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                }
+            ],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "swidInterface": {
+                    "name": "Set<E>",
+                    "nullabilitySuffix": "none",
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [
+                        {
+                            "swidInterface": {
+                                "name": "E",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:core",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "typeParameterType"
+                            },
+                            "runtimeType": "fromSwidInterface"
+                        }
+                    ],
+                    "referenceDeclarationKind": "classElement"
+                },
+                "runtimeType": "fromSwidInterface"
+            },
+            "isFactory": true,
+            "typeFormals": []
         }
     ],
     "staticMethods": [
@@ -1715,6 +1797,13 @@
     },
     "mixedInClasses": [],
     "implementedClasses": [],
+    "isMixin": false,
+    "typeFormals": [
+        {
+            "value": { "string": "E", "runtimeType": "fromString" },
+            "swidReferenceDeclarationKind": "typeParameterType"
+        }
+    ],
     "extendedClass": {
         "name": "EfficientLengthIterable<E>",
         "nullabilitySuffix": "none",
@@ -1728,7 +1817,7 @@
                 "nullabilitySuffix": "none",
                 "originalPackagePath": "dart:_internal",
                 "swidDeclarationModifiers": {
-                    "isAbstract": false,
+                    "isAbstract": true,
                     "isGetter": true,
                     "isOperator": false,
                     "isSetter": false,
@@ -1803,6 +1892,22 @@
         },
         "mixedInClasses": [],
         "implementedClasses": [],
+        "isMixin": false,
+        "typeFormals": [
+            {
+                "value": {
+                    "swidInterface": {
+                        "name": "E",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "typeParameterType"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                },
+                "swidReferenceDeclarationKind": "typeParameterType"
+            }
+        ],
         "extendedClass": {
             "name": "Iterable<E>",
             "nullabilitySuffix": "none",
@@ -1882,7 +1987,7 @@
                 {
                     "name": "followedBy",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -1964,7 +2069,7 @@
                 {
                     "name": "map",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -2096,7 +2201,7 @@
                 {
                     "name": "where",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -2288,7 +2393,7 @@
                 {
                     "name": "expand",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -2491,7 +2596,7 @@
                 {
                     "name": "forEach",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -2604,7 +2709,7 @@
                 {
                     "name": "reduce",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -2727,7 +2832,7 @@
                 {
                     "name": "fold",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -2871,7 +2976,7 @@
                 {
                     "name": "every",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3060,7 +3165,7 @@
                 {
                     "name": "any",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3173,7 +3278,7 @@
                 {
                     "name": "toList",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3212,7 +3317,23 @@
                             "runtimeType": "fromSwidInterface"
                         }
                     },
-                    "namedDefaults": {},
+                    "namedDefaults": {
+                        "growable": {
+                            "name": "true",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:core",
+                            "value": {
+                                "swidInterface": {
+                                    "name": "bool",
+                                    "nullabilitySuffix": "none",
+                                    "originalPackagePath": "dart:core",
+                                    "typeArguments": [],
+                                    "referenceDeclarationKind": "classElement"
+                                },
+                                "runtimeType": "fromSwidInterface"
+                            }
+                        }
+                    },
                     "normalParameterNames": [],
                     "normalParameterTypes": [],
                     "optionalParameterNames": [],
@@ -3244,7 +3365,7 @@
                 {
                     "name": "toSet",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3304,7 +3425,7 @@
                 {
                     "name": "take",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3375,7 +3496,7 @@
                 {
                     "name": "takeWhile",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3499,7 +3620,7 @@
                 {
                     "name": "skip",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3570,7 +3691,7 @@
                 {
                     "name": "skipWhile",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3694,7 +3815,7 @@
                 {
                     "name": "firstWhere",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -3860,7 +3981,7 @@
                 {
                     "name": "lastWhere",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -4026,7 +4147,7 @@
                 {
                     "name": "singleWhere",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -4192,7 +4313,7 @@
                 {
                     "name": "elementAt",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": false,
@@ -4301,9 +4422,9 @@
                 {
                     "name": "iterator",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
-                        "isAbstract": false,
+                        "isAbstract": true,
                         "isGetter": true,
                         "isOperator": false,
                         "isSetter": false,
@@ -4508,7 +4629,7 @@
                 {
                     "name": "first",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": true,
@@ -4557,7 +4678,7 @@
                 {
                     "name": "last",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": true,
@@ -4606,7 +4727,7 @@
                 {
                     "name": "single",
                     "nullabilitySuffix": "none",
-                    "originalPackagePath": "dart:core",
+                    "originalPackagePath": "",
                     "swidDeclarationModifiers": {
                         "isAbstract": false,
                         "isGetter": true,
@@ -4683,6 +4804,22 @@
             },
             "mixedInClasses": [],
             "implementedClasses": [],
+            "isMixin": false,
+            "typeFormals": [
+                {
+                    "value": {
+                        "swidInterface": {
+                            "name": "E",
+                            "nullabilitySuffix": "none",
+                            "originalPackagePath": "dart:core",
+                            "typeArguments": [],
+                            "referenceDeclarationKind": "typeParameterType"
+                        },
+                        "runtimeType": "fromSwidInterface"
+                    },
+                    "swidReferenceDeclarationKind": "typeParameterType"
+                }
+            ],
             "extendedClass": {
                 "name": "Object",
                 "nullabilitySuffix": "none",
@@ -4989,49 +5126,10 @@
                 },
                 "mixedInClasses": [],
                 "implementedClasses": [],
-                "extendedClass": null,
                 "isMixin": false,
-                "typeFormals": []
-            },
-            "isMixin": false,
-            "typeFormals": [
-                {
-                    "value": {
-                        "swidInterface": {
-                            "name": "E",
-                            "nullabilitySuffix": "none",
-                            "originalPackagePath": "dart:core",
-                            "typeArguments": [],
-                            "referenceDeclarationKind": "typeParameterType"
-                        },
-                        "runtimeType": "fromSwidInterface"
-                    },
-                    "swidReferenceDeclarationKind": "typeParameterType"
-                }
-            ]
-        },
-        "isMixin": false,
-        "typeFormals": [
-            {
-                "value": {
-                    "swidInterface": {
-                        "name": "E",
-                        "nullabilitySuffix": "none",
-                        "originalPackagePath": "dart:core",
-                        "typeArguments": [],
-                        "referenceDeclarationKind": "typeParameterType"
-                    },
-                    "runtimeType": "fromSwidInterface"
-                },
-                "swidReferenceDeclarationKind": "typeParameterType"
+                "typeFormals": [],
+                "extendedClass": null
             }
-        ]
-    },
-    "isMixin": false,
-    "typeFormals": [
-        {
-            "value": { "string": "E", "runtimeType": "fromString" },
-            "swidReferenceDeclarationKind": "typeParameterType"
         }
-    ]
+    }
 }

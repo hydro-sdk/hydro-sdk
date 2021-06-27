@@ -6,7 +6,7 @@
  * @description Checks that a StateError is thrown when this is empty.
  */
 
-import { IIterable } from "./../../../../runtime/dart/core/iterable";
+import { IIterable } from "./../../../../runtime/dart/index";
 declare const assert: (this: void, arg: boolean, message?: string) => void;
 
 export function first_A02_t01(

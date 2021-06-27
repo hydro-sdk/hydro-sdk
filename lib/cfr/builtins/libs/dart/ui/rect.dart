@@ -1,8 +1,6 @@
 import 'dart:core';
 import 'dart:ui';
 
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
 import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
@@ -13,9 +11,7 @@ import 'package:hydro_sdk/hydroState.dart';
 
 class VMManagedRect extends VMManagedBox<Rect> {
   VMManagedRect(
-      {@required this.table,
-      @required this.vmObject,
-      @required this.hydroState})
+      {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
@@ -207,7 +203,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
   final Rect vmObject;
 }
 
-void loadRect({@required HydroState hydroState, @required HydroTable table}) {
+void loadRect({required HydroState hydroState, required HydroTable table}) {
   table['rectFromLTRB'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
       maybeBoxObject<Rect>(
@@ -263,11 +259,11 @@ void loadRect({@required HydroState hydroState, @required HydroTable table}) {
   });
   table['rectLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      maybeBoxObject<Rect>(
+      maybeBoxObject<Rect?>(
           object: Rect.lerp(
-              maybeUnBoxAndBuildArgument<Rect>(args[1],
+              maybeUnBoxAndBuildArgument<Rect?>(args[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Rect>(args[2],
+              maybeUnBoxAndBuildArgument<Rect?>(args[2],
                   parentState: hydroState),
               args[3]?.toDouble()),
           hydroState: hydroState,
@@ -275,9 +271,9 @@ void loadRect({@required HydroState hydroState, @required HydroTable table}) {
     ];
   });
   registerBoxer<Rect>(boxer: (
-      {@required Rect vmObject,
-      @required HydroState hydroState,
-      @required HydroTable table}) {
+      {required Rect vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
     return VMManagedRect(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });

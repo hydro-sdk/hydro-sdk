@@ -8,11 +8,15 @@ declare const dart: {
         setIdentity: <E>() => ISet<E>;
         setFrom: <E>(elements: IIterable<any>) => ISet<E>;
         setOf: <E>(elements: IIterable<E>) => ISet<E>;
+        setUnmodifiable: <E>(elements: IIterable<E>) => ISet<E>;
         setCastFrom: <S, T>(
             source: ISet<S>,
             props: { newSet?: <R>() => ISet<R> | undefined }
         ) => ISet<T>;
     };
+};
+const toListDefaultProps = {
+    growable: true,
 };
 export interface ISet<E> {
     cast: <R>() => ISet<R>;
@@ -86,6 +90,9 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     public static of<E>(elements: IIterable<E>): ISet<E> {
         return dart.core.setOf(elements);
     }
+    public static unmodifiable<E>(elements: IIterable<E>): ISet<E> {
+        return dart.core.setUnmodifiable(elements);
+    }
     public static castFrom<S, T>(
         source: ISet<S>,
         props: { newSet?: <R>() => ISet<R> | undefined }
@@ -94,16 +101,13 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     }
     private readonly _dart_cast: <R>() => ISet<R> = undefined as any;
     private readonly _dart_getIterator: () => IIterator<E> = undefined as any;
-    private readonly _dart_contains: (
-        value?: Object | undefined
-    ) => boolean = undefined as any;
+    private readonly _dart_contains: (value?: Object | undefined) => boolean =
+        undefined as any;
     private readonly _dart_add: (value: E) => boolean = undefined as any;
-    private readonly _dart_addAll: (
-        elements: IIterable<E>
-    ) => void = undefined as any;
-    private readonly _dart_remove: (
-        value?: Object | undefined
-    ) => boolean = undefined as any;
+    private readonly _dart_addAll: (elements: IIterable<E>) => void =
+        undefined as any;
+    private readonly _dart_remove: (value?: Object | undefined) => boolean =
+        undefined as any;
     private readonly _dart_lookup: (
         object?: Object | undefined
     ) => E | undefined = undefined as any;
@@ -125,21 +129,18 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     private readonly _dart_intersection: (
         other: ISet<Object | undefined>
     ) => ISet<E> = undefined as any;
-    private readonly _dart_union: (
-        other: ISet<E>
-    ) => ISet<E> = undefined as any;
+    private readonly _dart_union: (other: ISet<E>) => ISet<E> =
+        undefined as any;
     private readonly _dart_difference: (
         other: ISet<Object | undefined>
     ) => ISet<E> = undefined as any;
     private readonly _dart_clear: () => void = undefined as any;
     private readonly _dart_toSet: () => ISet<E> = undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
-    private readonly _dart_followedBy: (
-        other: IIterable<E>
-    ) => IIterable<E> = undefined as any;
-    private readonly _dart_map: <T>(
-        f: (e: E) => T
-    ) => IIterable<T> = undefined as any;
+    private readonly _dart_followedBy: (other: IIterable<E>) => IIterable<E> =
+        undefined as any;
+    private readonly _dart_map: <T>(f: (e: E) => T) => IIterable<T> =
+        undefined as any;
     private readonly _dart_where: (
         test: (element: E) => boolean
     ) => IIterable<E> = undefined as any;
@@ -147,37 +148,29 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     private readonly _dart_expand: <T>(
         f: (element: E) => IIterable<T>
     ) => IIterable<T> = undefined as any;
-    private readonly _dart_forEach: (
-        f: (element: E) => void
-    ) => void = undefined as any;
-    private readonly _dart_reduce: (
-        combine: (value: E, element: E) => E
-    ) => E = undefined as any;
+    private readonly _dart_forEach: (f: (element: E) => void) => void =
+        undefined as any;
+    private readonly _dart_reduce: (combine: (value: E, element: E) => E) => E =
+        undefined as any;
     private readonly _dart_fold: <T>(
         initialValue: T,
         combine: (previousValue: T, element: E) => T
     ) => T = undefined as any;
-    private readonly _dart_every: (
-        test: (element: E) => boolean
-    ) => boolean = undefined as any;
-    private readonly _dart_join: (
-        separator: string
-    ) => string = undefined as any;
-    private readonly _dart_any: (
-        test: (element: E) => boolean
-    ) => boolean = undefined as any;
-    private readonly _dart_toList: (props: {
-        growable: boolean;
-    }) => IList<E> = undefined as any;
-    private readonly _dart_take: (
-        count: number
-    ) => IIterable<E> = undefined as any;
+    private readonly _dart_every: (test: (element: E) => boolean) => boolean =
+        undefined as any;
+    private readonly _dart_join: (separator: string) => string =
+        undefined as any;
+    private readonly _dart_any: (test: (element: E) => boolean) => boolean =
+        undefined as any;
+    private readonly _dart_toList: (props: { growable: boolean }) => IList<E> =
+        undefined as any;
+    private readonly _dart_take: (count: number) => IIterable<E> =
+        undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: E) => boolean
     ) => IIterable<E> = undefined as any;
-    private readonly _dart_skip: (
-        count: number
-    ) => IIterable<E> = undefined as any;
+    private readonly _dart_skip: (count: number) => IIterable<E> =
+        undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: E) => boolean
     ) => IIterable<E> = undefined as any;
@@ -291,8 +284,11 @@ export class Set<E> implements IEfficientLengthIterable<E> {
     public any(test: (element: E) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<E> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<E> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public take(count: number): IIterable<E> {
         return this._dart_take(count);

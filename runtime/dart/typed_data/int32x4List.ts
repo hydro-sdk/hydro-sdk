@@ -1,3 +1,4 @@
+import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
@@ -25,6 +26,9 @@ declare const dart: {
             end?: number | undefined
         ) => IInt32x4List;
     };
+};
+const toListDefaultProps = {
+    growable: true,
 };
 export interface IInt32x4List {
     sublist: (start: number, end?: number | undefined) => IInt32x4List;
@@ -73,8 +77,6 @@ export interface IInt32x4List {
     getLength: () => number;
     setLength: (newLength: number) => void;
     getReversed: () => IIterable<IInt32x4>;
-    toString: () => string;
-    getHashCode: () => number;
     followedBy: (other: IIterable<IInt32x4>) => IIterable<IInt32x4>;
     map: <T>(f: (e: IInt32x4) => T) => IIterable<T>;
     where: (test: (element: IInt32x4) => boolean) => IIterable<IInt32x4>;
@@ -111,18 +113,22 @@ export interface IInt32x4List {
         props: { orElse?: () => IInt32x4 | undefined }
     ) => IInt32x4;
     elementAt: (index: number) => IInt32x4;
+    toString: () => string;
     getIterator: () => IIterator<IInt32x4>;
     getIsEmpty: () => boolean;
     getIsNotEmpty: () => boolean;
     getFirst: () => IInt32x4;
     getLast: () => IInt32x4;
     getSingle: () => IInt32x4;
+    getHashCode: () => number;
     getElementSizeInBytes: () => number;
     getOffsetInBytes: () => number;
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Int32x4List implements IList<Int32x4>, ITypedData {
+export class Int32x4List
+    implements IList<IInt32x4>, ITypedData, IEfficientLengthIterable<IInt32x4>
+{
     public static bytesPerElement = 16;
     public constructor(length: number) {
         dart.typed_data.int32x4List(this, length);
@@ -150,15 +156,13 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
     ) => IInt32x4List = undefined as any;
     private readonly _dart_cast: <R>() => IList<R> = undefined as any;
     private readonly _dart_add: (value: IInt32x4) => void = undefined as any;
-    private readonly _dart_addAll: (
-        iterable: IIterable<IInt32x4>
-    ) => void = undefined as any;
+    private readonly _dart_addAll: (iterable: IIterable<IInt32x4>) => void =
+        undefined as any;
     private readonly _dart_sort: (
         compare?: (a: IInt32x4, b: IInt32x4) => number
     ) => void = undefined as any;
-    private readonly _dart_shuffle: (
-        random?: IRandom | undefined
-    ) => void = undefined as any;
+    private readonly _dart_shuffle: (random?: IRandom | undefined) => void =
+        undefined as any;
     private readonly _dart_indexOf: (
         element: IInt32x4,
         start: number
@@ -176,10 +180,8 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
         start?: number | undefined
     ) => number = undefined as any;
     private readonly _dart_clear: () => void = undefined as any;
-    private readonly _dart_insert: (
-        index: number,
-        element: IInt32x4
-    ) => void = undefined as any;
+    private readonly _dart_insert: (index: number, element: IInt32x4) => void =
+        undefined as any;
     private readonly _dart_insertAll: (
         index: number,
         iterable: IIterable<IInt32x4>
@@ -188,12 +190,10 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
         index: number,
         iterable: IIterable<IInt32x4>
     ) => void = undefined as any;
-    private readonly _dart_remove: (
-        value?: Object | undefined
-    ) => boolean = undefined as any;
-    private readonly _dart_removeAt: (
-        index: number
-    ) => IInt32x4 = undefined as any;
+    private readonly _dart_remove: (value?: Object | undefined) => boolean =
+        undefined as any;
+    private readonly _dart_removeAt: (index: number) => IInt32x4 =
+        undefined as any;
     private readonly _dart_removeLast: () => IInt32x4 = undefined as any;
     private readonly _dart_removeWhere: (
         test: (element: IInt32x4) => boolean
@@ -211,10 +211,8 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
         iterable: IIterable<IInt32x4>,
         skipCount: number
     ) => void = undefined as any;
-    private readonly _dart_removeRange: (
-        start: number,
-        end: number
-    ) => void = undefined as any;
+    private readonly _dart_removeRange: (start: number, end: number) => void =
+        undefined as any;
     private readonly _dart_fillRange: (
         start: number,
         end: number,
@@ -225,28 +223,22 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
         end: number,
         replacement: IIterable<IInt32x4>
     ) => void = undefined as any;
-    private readonly _dart_asMap: () => {
-        [index: number]: IInt32x4;
-    } = undefined as any;
-    private readonly _dart_setFirst: (
-        value: IInt32x4
-    ) => void = undefined as any;
-    private readonly _dart_setLast: (
-        value: IInt32x4
-    ) => void = undefined as any;
+    private readonly _dart_asMap: () => { [index: number]: IInt32x4 } =
+        undefined as any;
+    private readonly _dart_setFirst: (value: IInt32x4) => void =
+        undefined as any;
+    private readonly _dart_setLast: (value: IInt32x4) => void =
+        undefined as any;
     private readonly _dart_getLength: () => number = undefined as any;
-    private readonly _dart_setLength: (
-        newLength: number
-    ) => void = undefined as any;
-    private readonly _dart_getReversed: () => IIterable<IInt32x4> = undefined as any;
-    private readonly _dart_toString: () => string = undefined as any;
-    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_setLength: (newLength: number) => void =
+        undefined as any;
+    private readonly _dart_getReversed: () => IIterable<IInt32x4> =
+        undefined as any;
     private readonly _dart_followedBy: (
         other: IIterable<IInt32x4>
     ) => IIterable<IInt32x4> = undefined as any;
-    private readonly _dart_map: <T>(
-        f: (e: IInt32x4) => T
-    ) => IIterable<T> = undefined as any;
+    private readonly _dart_map: <T>(f: (e: IInt32x4) => T) => IIterable<T> =
+        undefined as any;
     private readonly _dart_where: (
         test: (element: IInt32x4) => boolean
     ) => IIterable<IInt32x4> = undefined as any;
@@ -254,12 +246,10 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
     private readonly _dart_expand: <T>(
         f: (element: IInt32x4) => IIterable<T>
     ) => IIterable<T> = undefined as any;
-    private readonly _dart_contains: (
-        element?: Object | undefined
-    ) => boolean = undefined as any;
-    private readonly _dart_forEach: (
-        f: (element: IInt32x4) => void
-    ) => void = undefined as any;
+    private readonly _dart_contains: (element?: Object | undefined) => boolean =
+        undefined as any;
+    private readonly _dart_forEach: (f: (element: IInt32x4) => void) => void =
+        undefined as any;
     private readonly _dart_reduce: (
         combine: (value: IInt32x4, element: IInt32x4) => IInt32x4
     ) => IInt32x4 = undefined as any;
@@ -270,9 +260,8 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
     private readonly _dart_every: (
         test: (element: IInt32x4) => boolean
     ) => boolean = undefined as any;
-    private readonly _dart_join: (
-        separator: string
-    ) => string = undefined as any;
+    private readonly _dart_join: (separator: string) => string =
+        undefined as any;
     private readonly _dart_any: (
         test: (element: IInt32x4) => boolean
     ) => boolean = undefined as any;
@@ -280,15 +269,13 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
         growable: boolean;
     }) => IList<IInt32x4> = undefined as any;
     private readonly _dart_toSet: () => ISet<IInt32x4> = undefined as any;
-    private readonly _dart_take: (
-        count: number
-    ) => IIterable<IInt32x4> = undefined as any;
+    private readonly _dart_take: (count: number) => IIterable<IInt32x4> =
+        undefined as any;
     private readonly _dart_takeWhile: (
         test: (value: IInt32x4) => boolean
     ) => IIterable<IInt32x4> = undefined as any;
-    private readonly _dart_skip: (
-        count: number
-    ) => IIterable<IInt32x4> = undefined as any;
+    private readonly _dart_skip: (count: number) => IIterable<IInt32x4> =
+        undefined as any;
     private readonly _dart_skipWhile: (
         test: (value: IInt32x4) => boolean
     ) => IIterable<IInt32x4> = undefined as any;
@@ -304,16 +291,19 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
         test: (element: IInt32x4) => boolean,
         props: { orElse?: () => IInt32x4 | undefined }
     ) => IInt32x4 = undefined as any;
-    private readonly _dart_elementAt: (
-        index: number
-    ) => IInt32x4 = undefined as any;
-    private readonly _dart_getIterator: () => IIterator<IInt32x4> = undefined as any;
+    private readonly _dart_elementAt: (index: number) => IInt32x4 =
+        undefined as any;
+    private readonly _dart_toString: () => string = undefined as any;
+    private readonly _dart_getIterator: () => IIterator<IInt32x4> =
+        undefined as any;
     private readonly _dart_getIsEmpty: () => boolean = undefined as any;
     private readonly _dart_getIsNotEmpty: () => boolean = undefined as any;
     private readonly _dart_getFirst: () => IInt32x4 = undefined as any;
     private readonly _dart_getLast: () => IInt32x4 = undefined as any;
     private readonly _dart_getSingle: () => IInt32x4 = undefined as any;
-    private readonly _dart_getElementSizeInBytes: () => number = undefined as any;
+    private readonly _dart_getHashCode: () => number = undefined as any;
+    private readonly _dart_getElementSizeInBytes: () => number =
+        undefined as any;
     private readonly _dart_getOffsetInBytes: () => number = undefined as any;
     private readonly _dart_getLengthInBytes: () => number = undefined as any;
     private readonly _dart_getBuffer: () => IByteBuffer = undefined as any;
@@ -335,12 +325,12 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
     public shuffle(random?: IRandom | undefined): void {
         return this._dart_shuffle(random);
     }
-    public indexOf(element: IInt32x4, start: number): number {
+    public indexOf(element: IInt32x4, start: number = 0): number {
         return this._dart_indexOf(element, start);
     }
     public indexWhere(
         test: (element: IInt32x4) => boolean,
-        start: number
+        start: number = 0
     ): number {
         return this._dart_indexWhere(test, start);
     }
@@ -387,7 +377,7 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
         start: number,
         end: number,
         iterable: IIterable<IInt32x4>,
-        skipCount: number
+        skipCount: number = 0
     ): void {
         return this._dart_setRange(start, end, iterable, skipCount);
     }
@@ -425,12 +415,6 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
     }
     public getReversed(): IIterable<IInt32x4> {
         return this._dart_getReversed();
-    }
-    public toString(): string {
-        return this._dart_toString();
-    }
-    public getHashCode(): number {
-        return this._dart_getHashCode();
     }
     public followedBy(other: IIterable<IInt32x4>): IIterable<IInt32x4> {
         return this._dart_followedBy(other);
@@ -473,8 +457,11 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
     public any(test: (element: IInt32x4) => boolean): boolean {
         return this._dart_any(test);
     }
-    public toList(props: { growable: boolean }): IList<IInt32x4> {
-        return this._dart_toList(props);
+    public toList(props: { growable?: boolean }): IList<IInt32x4> {
+        return this._dart_toList({
+            ...toListDefaultProps,
+            ...props,
+        });
     }
     public toSet(): ISet<IInt32x4> {
         return this._dart_toSet();
@@ -512,6 +499,9 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
     public elementAt(index: number): IInt32x4 {
         return this._dart_elementAt(index);
     }
+    public toString(): string {
+        return this._dart_toString();
+    }
     public getIterator(): IIterator<IInt32x4> {
         return this._dart_getIterator();
     }
@@ -529,6 +519,9 @@ export class Int32x4List implements IList<Int32x4>, ITypedData {
     }
     public getSingle(): IInt32x4 {
         return this._dart_getSingle();
+    }
+    public getHashCode(): number {
+        return this._dart_getHashCode();
     }
     public getElementSizeInBytes(): number {
         return this._dart_getElementSizeInBytes();
