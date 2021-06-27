@@ -127,6 +127,13 @@ SwidType transformPrimitiveNamesToTs({
               )
               .where((x) => x != dartUnkownTypeFormal)
               .toList(),
+          methods: val.methods
+              .map(
+                (x) => transformPrimitiveFunctionTypeNamesToTs(
+                  swidFunctionType: x,
+                ),
+              )
+              .toList(),
         ),
       ),
     );
