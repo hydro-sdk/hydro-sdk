@@ -64,7 +64,11 @@
                 "Endian",
                 "_TypedFloatList",
                 "UnmodifiableListBase",
-                "Invocation"
+                "Invocation",
+                "ListBase",
+                "_UnmodifiableListMixin",
+                "UnmodifiableListMixin",
+                "ListMixin"
             ]
         },
         "denyList": {
