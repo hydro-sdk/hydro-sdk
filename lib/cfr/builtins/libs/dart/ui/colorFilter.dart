@@ -1,0 +1,83 @@
+import 'dart:core';
+import 'dart:ui';
+
+import 'package:hydro_sdk/cfr/builtins/boxing/boxers.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/boxes.dart';
+import 'package:hydro_sdk/cfr/builtins/boxing/unboxers.dart';
+import 'package:hydro_sdk/cfr/vm/closure.dart';
+import 'package:hydro_sdk/cfr/vm/context.dart';
+import 'package:hydro_sdk/cfr/vm/table.dart';
+import 'package:hydro_sdk/hydroState.dart';
+
+class VMManagedColorFilter extends VMManagedBox<ColorFilter> {
+  VMManagedColorFilter(
+      {required this.table, required this.vmObject, required this.hydroState})
+      : super(
+          table: table,
+          vmObject: vmObject,
+          hydroState: hydroState,
+        ) {
+    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.hashCode];
+    });
+    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.toString()];
+    });
+  }
+
+  final HydroTable table;
+
+  final HydroState hydroState;
+
+  final ColorFilter vmObject;
+}
+
+void loadColorFilter(
+    {required HydroState hydroState, required HydroTable table}) {
+  table['colorFilterMode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<ColorFilter>(
+          object: ColorFilter.mode(
+              maybeUnBoxAndBuildArgument<Color>(args[1],
+                  parentState: hydroState),
+              maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[2])),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
+  table['colorFilterMatrix'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<ColorFilter>(
+          object: ColorFilter.matrix(maybeUnBoxAndBuildArgument<List<double>>(
+              args[1],
+              parentState: hydroState)),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
+  table['colorFilterLinearToSrgbGamma'] =
+      makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<ColorFilter>(
+          object: ColorFilter.linearToSrgbGamma(),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
+  table['colorFilterSrgbToLinearGamma'] =
+      makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<ColorFilter>(
+          object: ColorFilter.srgbToLinearGamma(),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
+  registerBoxer<ColorFilter>(boxer: (
+      {required ColorFilter vmObject,
+      required HydroState hydroState,
+      required HydroTable table}) {
+    return VMManagedColorFilter(
+        vmObject: vmObject, hydroState: hydroState, table: table);
+  });
+}
