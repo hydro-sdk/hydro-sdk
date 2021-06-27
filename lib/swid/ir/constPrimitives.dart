@@ -10,6 +10,32 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFieldReference.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 
+bool _isConstPrimitive({
+  required SwidType swidType,
+  required SwidType constPrimitive,
+}) =>
+    swidType.name == constPrimitive.name &&
+    swidType.originalPackagePath == constPrimitive.originalPackagePath;
+
+bool isDartObject({
+  required SwidType swidType,
+}) =>
+    _isConstPrimitive(
+      swidType: swidType,
+      constPrimitive: const SwidType.fromSwidInterface(
+        swidInterface: dartObject,
+      ),
+    );
+
+bool isClassDartObject({
+  required SwidClass swidClass,
+}) =>
+    isDartObject(
+      swidType: SwidType.fromSwidClass(
+        swidClass: swidClass,
+      ),
+    );
+
 const dartObject = const SwidInterface(
   name: "Object",
   nullabilitySuffix: SwidNullabilitySuffix.none,
