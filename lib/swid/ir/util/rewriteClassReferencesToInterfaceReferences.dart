@@ -9,9 +9,19 @@ import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
 import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencesToInterfaceReferencesInFunction.dart';
 import 'package:hydro_sdk/swid/ir/util/rewriteClassReferencestoInterfaceReferencesInClass.dart';
+import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 
-String rewriteReferenceName({required String name}) =>
-    name != "Object" ? "I${name}" : name;
+String rewriteReferenceName({
+  required SwidType swidType,
+}) =>
+    isDartObject(swidType: swidType)
+        ? "Object"
+        : [
+            "I",
+            removeNullabilitySuffix(
+              str: swidType.name,
+            )
+          ].join("");
 
 SwidType rewriteClassReferencesToInterfaceReferences({
   required SwidType swidType,
@@ -34,7 +44,11 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                     name: !isPrimitive(
                             swidType:
                                 SwidType.fromSwidInterface(swidInterface: val))
-                        ? rewriteReferenceName(name: val.name)
+                        ? rewriteReferenceName(
+                            swidType: SwidType.fromSwidInterface(
+                              swidInterface: val,
+                            ),
+                          )
                         : val.name,
                     typeArguments: val.typeArguments
                         .map((x) => rewriteClassReferencesToInterfaceReferences(
@@ -71,7 +85,11 @@ SwidType rewriteClassReferencesToInterfaceReferences({
                           name: !isPrimitive(
                                   swidType:
                                       SwidType.fromSwidClass(swidClass: val))
-                              ? rewriteReferenceName(name: val.name)
+                              ? rewriteReferenceName(
+                                  swidType: SwidType.fromSwidClass(
+                                    swidClass: val,
+                                  ),
+                                )
                               : val.name,
                         ),
                       ),
