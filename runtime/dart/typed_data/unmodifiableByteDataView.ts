@@ -1,6 +1,7 @@
 import { IByteBuffer } from "./byteBuffer";
 import { IByteData } from "./byteData";
 import { Endian, IEndian } from "./endian";
+import { ITypedData } from "./typedData";
 declare const dart: {
     typed_data: {
         unmodifiableByteDataView: (
@@ -38,7 +39,7 @@ export interface IUnmodifiableByteDataView {
     toString: () => string;
     getHashCode: () => number;
 }
-export class UnmodifiableByteDataView implements IByteData {
+export class UnmodifiableByteDataView implements IByteData, ITypedData {
     public constructor(data: IByteData) {
         dart.typed_data.unmodifiableByteDataView(this, data);
     }

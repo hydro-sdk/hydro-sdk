@@ -1,3 +1,4 @@
+import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
@@ -125,7 +126,9 @@ export interface IUint8ClampedList {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Uint8ClampedList implements IList<number>, I_TypedIntList {
+export class Uint8ClampedList
+    implements IList<number>, I_TypedIntList, IEfficientLengthIterable<number>
+{
     public static bytesPerElement = 1;
     public constructor(length: number) {
         dart.typed_data.uint8ClampedList(this, length);

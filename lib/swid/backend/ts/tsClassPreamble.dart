@@ -15,7 +15,14 @@ class TsClassPreamble {
                   !isClassDartObject(
                     swidClass: swidClass.extendedClass!,
                   )
-              ? "I${swidClass.extendedClass!.displayName}"
+              ? [
+                  "I",
+                  transformPrimitiveNamesToTs(
+                    swidType: SwidType.fromSwidClass(
+                      swidClass: swidClass.extendedClass!,
+                    ),
+                  ).displayName,
+                ].join("")
               : null,
           ...swidClass.mixedInClasses
               .where((x) => !isClassDartObject(

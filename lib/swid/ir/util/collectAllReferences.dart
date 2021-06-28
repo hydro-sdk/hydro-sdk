@@ -38,7 +38,7 @@ List<SwidInterface> collectAllReferences({
                           swidClass: x,
                         ))
                     .toList(),
-                ...val.implementedClasses
+                ...val.mixedInClasses
                     .map((x) => SwidInterface.fromSwidClass(
                           swidClass: x,
                         ))

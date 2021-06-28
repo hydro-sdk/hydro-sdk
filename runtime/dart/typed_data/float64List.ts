@@ -1,3 +1,4 @@
+import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
@@ -123,7 +124,12 @@ export interface IFloat64List {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Float64List implements IList<number>, I_TypedFloatList {
+export class Float64List
+    implements
+        IList<number>,
+        I_TypedFloatList,
+        IEfficientLengthIterable<number>
+{
     public static bytesPerElement = 8;
     public constructor(length: number) {
         dart.typed_data.float64List(this, length);

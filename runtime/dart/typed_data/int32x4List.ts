@@ -1,3 +1,4 @@
+import { IEfficientLengthIterable } from "../_internal/efficientLengthIterable";
 import { IIterable } from "../core/iterable";
 import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
@@ -125,7 +126,9 @@ export interface IInt32x4List {
     getLengthInBytes: () => number;
     getBuffer: () => IByteBuffer;
 }
-export class Int32x4List implements IList<IInt32x4>, ITypedData {
+export class Int32x4List
+    implements IList<IInt32x4>, ITypedData, IEfficientLengthIterable<IInt32x4>
+{
     public static bytesPerElement = 16;
     public constructor(length: number) {
         dart.typed_data.int32x4List(this, length);
