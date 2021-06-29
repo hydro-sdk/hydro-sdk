@@ -43,7 +43,7 @@
     "clear": "^0.1.0",
     "cli-progress": "^3.8.2",
     "colors": "^1.4.0",
-    "commander": "^7.1.0",
+    "commander": "^8.0.0",
     "escape-regex-string": "^1.0.6",
     "import-sort-style-module": "^6.0.0",
     "jest": "^26.1.0",
