@@ -33,6 +33,7 @@ import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
 import 'package:hydro_sdk/swid/ir/util/isOperator.dart';
 import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNames.dart';
+import 'package:hydro_sdk/swid/transforms/removeNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/transforms/transformAccessorName.dart';
 import 'package:hydro_sdk/swid/transforms/tstl/transformTstlMethodNames.dart';
 
@@ -85,6 +86,28 @@ class DartRTManagedClassDeclaration {
                                     val.name,
                                 fromSwidFunctionType: (val) => val.name))))
                     .toList())
+                ..requiredParameters
+                    .addAll(swidClass.constructorType!.optionalParameterNames
+                        .map(
+                          (x) => Parameter((k) => k
+                            ..name = removeNullabilitySuffix(
+                              str: x,
+                            )
+                            ..type = swidTypeToDartTypeReference(
+                              swidType: swidClass
+                                  .constructorType!.optionalParameterTypes
+                                  .elementAt(
+                                swidClass
+                                    .constructorType!.optionalParameterNames
+                                    .indexWhere(
+                                  (e) => e == x,
+                                ),
+                              ),
+                            )
+                            ..required = false
+                            ..named = false),
+                        )
+                        .toList())
                 ..optionalParameters.addAll(swidClass
                     .constructorType!.namedParameterTypes.entries
                     .map((x) => MapEntry(
@@ -112,11 +135,16 @@ class DartRTManagedClassDeclaration {
                 ])
                 ..initializers.addAll([
                   Code("super(" +
-                      swidClass.constructorType!.normalParameterNames
-                          .map((e) => e)
-                          .toList()
-                          .join(",") +
-                      (swidClass.constructorType!.normalParameterNames.length >=
+                      [
+                        ...swidClass.constructorType!.normalParameterNames,
+                        ...swidClass.constructorType!.optionalParameterNames,
+                      ].map((e) => e).toList().join(",") +
+                      ([
+                                ...swidClass
+                                    .constructorType!.normalParameterNames,
+                                ...swidClass
+                                    .constructorType!.optionalParameterNames,
+                              ].length >=
                               1
                           ? ","
                           : "") +
