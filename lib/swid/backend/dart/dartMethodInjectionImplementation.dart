@@ -29,6 +29,7 @@ class DartMethodInjectionImplementation {
           : DartFunctionSelfBindingInvocation(
                   argumentBoxingProcedure: DartBoxingProcedure.unbox,
                   returnValueBoxingProcedure: DartBoxingProcedure.box,
+                  useClosureUnpackNameForUnboxingIdentifiers: true,
                   swidFunctionType: SwidFunctionType.clone(
                     swidFunctionType: swidFunctionType,
                     name: !swidFunctionType.swidDeclarationModifiers.isAbstract

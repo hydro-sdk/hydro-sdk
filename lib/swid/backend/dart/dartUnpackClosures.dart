@@ -3,6 +3,7 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:tuple/tuple.dart';
 
+import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -49,7 +50,7 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                String? parameterName,
+                required String parameterName,
                 required SwidType parameterType,
                 int? argIndex,
               }) =>
@@ -62,7 +63,9 @@ class DartUnpackClosures {
                       (val.nullabilitySuffix == SwidNullabilitySuffix.question
                           ? "? "
                           : " "),
-                      parameterName,
+                      unpackedClosureName(
+                        str: parameterName,
+                      ),
                       "=",
                       refer("args")
                           .index(literalNum(argIndex!))
@@ -85,7 +88,7 @@ class DartUnpackClosures {
         ]
             .map(
               (x) => (({
-                String? parameterName,
+                required String parameterName,
                 required SwidType parameterType,
               }) =>
                   parameterType.when(
@@ -97,7 +100,9 @@ class DartUnpackClosures {
                       (val.nullabilitySuffix == SwidNullabilitySuffix.question
                           ? "? "
                           : " "),
-                      parameterName,
+                      unpackedClosureName(
+                        str: parameterName,
+                      ),
                       "=",
                       refer("args")
                           .index(literalNum(

@@ -42,6 +42,7 @@ class DartStaticMethodNamespaceSymbolDeclaration {
         objectReference: CodeExpression(
           Code(
             DartFunctionSelfBindingInvocation(
+              useClosureUnpackNameForUnboxingIdentifiers: true,
               argumentBoxingProcedure: DartBoxingProcedure.unbox,
               returnValueBoxingProcedure: DartBoxingProcedure.none,
               emitTableBindingPrefix: false,

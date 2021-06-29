@@ -61,6 +61,8 @@ class DartLoadNamespaceSymbolDeclaration {
                             [
                               Code(
                                 DartFunctionSelfBindingInvocation(
+                                        useClosureUnpackNameForUnboxingIdentifiers:
+                                            false,
                                         argumentBoxingProcedure:
                                             DartBoxingProcedure.unbox,
                                         returnValueBoxingProcedure: !swidClass

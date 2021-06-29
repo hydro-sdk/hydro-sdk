@@ -23,19 +23,21 @@ class DartVMManagedClassMethodInjectionImplementation {
   });
 
   String _methodInvocation() => DartFunctionSelfBindingInvocation(
-          argumentBoxingProcedure: DartBoxingProcedure.unbox,
-          returnValueBoxingProcedure: DartBoxingProcedure.box,
-          swidFunctionType: instantiateAllGenericsAsDynamic(
-            swidType: SwidType.fromSwidFunctionType(
-                swidFunctionType: swidFunctionType),
-          ).when(
-            fromSwidInterface: (_) => dartUnknownFunction,
-            fromSwidClass: (_) => dartUnknownFunction,
-            fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
-            fromSwidFunctionType: (val) => val,
+        useClosureUnpackNameForUnboxingIdentifiers: true,
+        argumentBoxingProcedure: DartBoxingProcedure.unbox,
+        returnValueBoxingProcedure: DartBoxingProcedure.box,
+        swidFunctionType: instantiateAllGenericsAsDynamic(
+          swidType: SwidType.fromSwidFunctionType(
+            swidFunctionType: swidFunctionType,
           ),
-          emitTableBindingPrefix: false)
-      .toDartSource();
+        ).when(
+          fromSwidInterface: (_) => dartUnknownFunction,
+          fromSwidClass: (_) => dartUnknownFunction,
+          fromSwidDefaultFormalParameter: (_) => dartUnknownFunction,
+          fromSwidFunctionType: (val) => val,
+        ),
+        emitTableBindingPrefix: false,
+      ).toDartSource();
 
   Block _nonVoidBody() => Block.of([
         Code(
