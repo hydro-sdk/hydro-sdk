@@ -70,4 +70,18 @@ List<Tuple2<List<String>, String>> resolveDependencyInformation({
           ),
         )
         .toList()
-        .cast<Tuple2<List<String>, String>>();
+        .cast<Tuple2<List<String>, String>>()
+        .map((x) => Tuple2(
+              x.item1.fold<List<String>>(
+                <String>[],
+                (prev, element) =>
+                    prev.firstWhereOrNull((k) => k == element) == null
+                        ? [
+                            ...prev,
+                            element,
+                          ]
+                        : prev,
+              ),
+              x.item2,
+            ))
+        .toList();

@@ -64,6 +64,22 @@ List<TsIr> tsImportBlock({
           : symbolModulePairs
               .add(Tuple2<List<String>, String>(x.item1, x.item2)));
 
+  symbolModulePairs = symbolModulePairs
+      .map((x) => Tuple2(
+            x.item1.fold<List<String>>(
+              <String>[],
+              (prev, element) =>
+                  prev.firstWhereOrNull((k) => k == element) == null
+                      ? [
+                          ...prev,
+                          element,
+                        ]
+                      : prev,
+            ),
+            x.item2,
+          ))
+      .toList();
+
   var res = symbolModulePairs
       .map((x) => [
             TsIr.fromTsResolvedImport(

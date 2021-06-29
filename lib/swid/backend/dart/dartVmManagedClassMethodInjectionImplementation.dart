@@ -77,7 +77,7 @@ class DartVMManagedClassMethodInjectionImplementation {
         ),
         fromSwidClass: (_) => null,
         fromSwidDefaultFormalParameter: (_) => null,
-        fromSwidFunctionType: (_) => Block.of([Code("bar")]),
+        fromSwidFunctionType: (_) => _nonVoidBody(),
       )))
       .statement
       .accept(DartEmitter(
