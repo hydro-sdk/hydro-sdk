@@ -264,7 +264,13 @@ class DartRTManagedClassDeclaration {
                           ? Code(x.namedDefaults[e.key]!.name)
                           : null)
                       ..named = true
-                      ..type = swidTypeToDartTypeReference(swidType: e.value)))
+                      ..required = (x.namedDefaults[e.key] == null)
+                          ? e.value.nullabilitySuffix ==
+                              SwidNullabilitySuffix.none
+                          : false
+                      ..type = swidTypeToDartTypeReference(
+                        swidType: e.value,
+                      )))
                     .toList(),
                 ...x.positionalDefaultParameters.entries
                     .map(
