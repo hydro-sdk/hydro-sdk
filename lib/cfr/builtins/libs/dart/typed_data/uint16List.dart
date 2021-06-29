@@ -44,9 +44,9 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       return [];
     });
     table['sort'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure? compare = args[1];
-      vmObject.sort(compare != null
-          ? (a, b) => compare.dispatch(
+      Closure? unpackedcompare = args[1];
+      vmObject.sort(unpackedcompare != null
+          ? (a, b) => unpackedcompare.dispatch(
                 [args[0], a, b],
                 parentState: hydroState,
               )[0]
@@ -62,10 +62,10 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       return [vmObject.indexOf(args[1], args[2])];
     });
     table['indexWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
+      Closure unpackedtest = args[1];
       return [
         vmObject.indexWhere(
-            (element) => test.dispatch(
+            (element) => unpackedtest.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
@@ -73,10 +73,10 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['lastIndexWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
+      Closure unpackedtest = args[1];
       return [
         vmObject.lastIndexWhere(
-            (element) => test.dispatch(
+            (element) => unpackedtest.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
@@ -121,16 +121,16 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       return [vmObject.removeLast()];
     });
     table['removeWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
-      vmObject.removeWhere((element) => test.dispatch(
+      Closure unpackedtest = args[1];
+      vmObject.removeWhere((element) => unpackedtest.dispatch(
             [args[0], element],
             parentState: hydroState,
           )[0]);
       return [];
     });
     table['retainWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
-      vmObject.retainWhere((element) => test.dispatch(
+      Closure unpackedtest = args[1];
+      vmObject.retainWhere((element) => unpackedtest.dispatch(
             [args[0], element],
             parentState: hydroState,
           )[0]);
@@ -211,10 +211,10 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['map'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure f = args[1];
+      Closure unpackedf = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.map((e) => f.dispatch(
+            object: vmObject.map((e) => unpackedf.dispatch(
                   [args[0], e],
                   parentState: hydroState,
                 )[0]),
@@ -223,10 +223,10 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['where'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
+      Closure unpackedtest = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.where((element) => test.dispatch(
+            object: vmObject.where((element) => unpackedtest.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0]),
@@ -243,12 +243,12 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['expand'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure f = args[1];
+      Closure unpackedf = args[1];
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.expand(
                 (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                    f.dispatch(
+                    unpackedf.dispatch(
                       [args[0], element],
                       parentState: hydroState,
                     )[0],
@@ -264,37 +264,37 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['forEach'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure f = args[1];
-      vmObject.forEach((element) => f.dispatch(
+      Closure unpackedf = args[1];
+      vmObject.forEach((element) => unpackedf.dispatch(
             [args[0], element],
             parentState: hydroState,
           ));
       return [];
     });
     table['reduce'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure combine = args[1];
+      Closure unpackedcombine = args[1];
       return [
-        vmObject.reduce((value, element) => combine.dispatch(
+        vmObject.reduce((value, element) => unpackedcombine.dispatch(
               [args[0], value, element],
               parentState: hydroState,
             )[0])
       ];
     });
     table['fold'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure combine = args[2];
+      Closure unpackedcombine = args[2];
       return [
         vmObject.fold(
             args[1],
-            (previousValue, element) => combine.dispatch(
+            (previousValue, element) => unpackedcombine.dispatch(
                   [args[0], previousValue, element],
                   parentState: hydroState,
                 )[0])
       ];
     });
     table['every'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
+      Closure unpackedtest = args[1];
       return [
-        vmObject.every((element) => test.dispatch(
+        vmObject.every((element) => unpackedtest.dispatch(
               [args[0], element],
               parentState: hydroState,
             )[0])
@@ -304,9 +304,9 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       return [vmObject.join(args[1])];
     });
     table['any'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
+      Closure unpackedtest = args[1];
       return [
-        vmObject.any((element) => test.dispatch(
+        vmObject.any((element) => unpackedtest.dispatch(
               [args[0], element],
               parentState: hydroState,
             )[0])
@@ -337,10 +337,10 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['takeWhile'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
+      Closure unpackedtest = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.takeWhile((value) => test.dispatch(
+            object: vmObject.takeWhile((value) => unpackedtest.dispatch(
                   [args[0], value],
                   parentState: hydroState,
                 )[0]),
@@ -357,10 +357,10 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['skipWhile'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
+      Closure unpackedtest = args[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.skipWhile((value) => test.dispatch(
+            object: vmObject.skipWhile((value) => unpackedtest.dispatch(
                   [args[0], value],
                   parentState: hydroState,
                 )[0]),
@@ -369,16 +369,16 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
-      Closure? orElse = args[2]['orElse'];
+      Closure unpackedtest = args[1];
+      Closure? unpackedorElse = args[2]['orElse'];
       return [
         vmObject.firstWhere(
-            (element) => test.dispatch(
+            (element) => unpackedtest.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: orElse != null
-                ? () => orElse.dispatch(
+            orElse: unpackedorElse != null
+                ? () => unpackedorElse.dispatch(
                       [
                         args[0],
                       ],
@@ -388,16 +388,16 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
-      Closure? orElse = args[2]['orElse'];
+      Closure unpackedtest = args[1];
+      Closure? unpackedorElse = args[2]['orElse'];
       return [
         vmObject.lastWhere(
-            (element) => test.dispatch(
+            (element) => unpackedtest.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: orElse != null
-                ? () => orElse.dispatch(
+            orElse: unpackedorElse != null
+                ? () => unpackedorElse.dispatch(
                       [
                         args[0],
                       ],
@@ -407,16 +407,16 @@ class VMManagedUint16List extends VMManagedBox<Uint16List> {
       ];
     });
     table['singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure test = args[1];
-      Closure? orElse = args[2]['orElse'];
+      Closure unpackedtest = args[1];
+      Closure? unpackedorElse = args[2]['orElse'];
       return [
         vmObject.singleWhere(
-            (element) => test.dispatch(
+            (element) => unpackedtest.dispatch(
                   [args[0], element],
                   parentState: hydroState,
                 )[0],
-            orElse: orElse != null
-                ? () => orElse.dispatch(
+            orElse: unpackedorElse != null
+                ? () => unpackedorElse.dispatch(
                       [
                         args[0],
                       ],
