@@ -28,6 +28,7 @@ import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dar
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
+import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
 import 'package:hydro_sdk/swid/ir/util/instantiateAllGenericsAsDynamic.dart';
@@ -118,7 +119,10 @@ class DartRTManagedClassDeclaration {
                     .toList()
                     .map((x) => Parameter((k) => k
                       ..name = x.key
-                      ..type = TypeReference((i) => i..symbol = x.value.when(fromSwidInterface: (val) => val.name, fromSwidClass: (val) => val.name, fromSwidDefaultFormalParameter: (val) => val.name, fromSwidFunctionType: (val) => val.name))
+                      ..type = swidTypeToDartTypeReference(
+                        swidType: x.value,
+                      )
+                      ..required = x.value.nullabilitySuffix == SwidNullabilitySuffix.none
                       ..named = true))
                     .toList())
                 ..optionalParameters.addAll([
