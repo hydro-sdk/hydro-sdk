@@ -18,7 +18,8 @@ class VMManagedSemanticsFlag extends VMManagedBox<SemanticsFlag> {
           hydroState: hydroState,
         ) {
     table['index'] = vmObject.index;
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -33,7 +34,7 @@ class VMManagedSemanticsFlag extends VMManagedBox<SemanticsFlag> {
 void loadSemanticsFlag(
     {required HydroState hydroState, required HydroTable table}) {
   table['semanticsFlagHasCheckedState'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.hasCheckedState,
@@ -41,7 +42,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsChecked'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsChecked'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isChecked,
@@ -50,7 +52,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagIsSelected'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isSelected,
@@ -58,7 +60,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsButton'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsButton'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isButton,
@@ -67,7 +70,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagIsTextField'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isTextField,
@@ -75,7 +78,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsSlider'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsSlider'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isSlider,
@@ -84,7 +88,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagIsReadOnly'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isReadOnly,
@@ -92,7 +96,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsLink'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsLink'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isLink,
@@ -101,7 +106,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagIsFocusable'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isFocusable,
@@ -109,7 +114,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsFocused'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsFocused'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isFocused,
@@ -118,7 +124,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagHasEnabledState'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.hasEnabledState,
@@ -126,7 +132,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsEnabled'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsEnabled'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isEnabled,
@@ -135,7 +142,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagIsInMutuallyExclusiveGroup'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isInMutuallyExclusiveGroup,
@@ -143,7 +150,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsHeader'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsHeader'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isHeader,
@@ -152,7 +160,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagIsObscured'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isObscured,
@@ -161,7 +169,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagIsMultiline'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isMultiline,
@@ -170,7 +178,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagScopesRoute'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.scopesRoute,
@@ -179,7 +187,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagNamesRoute'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.namesRoute,
@@ -187,7 +195,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsHidden'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsHidden'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isHidden,
@@ -195,7 +204,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsImage'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsImage'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isImage,
@@ -204,7 +214,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagIsLiveRegion'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isLiveRegion,
@@ -213,7 +223,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagHasToggledState'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.hasToggledState,
@@ -221,7 +231,8 @@ void loadSemanticsFlag(
           table: HydroTable())
     ];
   });
-  table['semanticsFlagIsToggled'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsFlagIsToggled'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.isToggled,
@@ -230,7 +241,7 @@ void loadSemanticsFlag(
     ];
   });
   table['semanticsFlagHasImplicitScrolling'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsFlag>(
           object: SemanticsFlag.hasImplicitScrolling,

@@ -17,10 +17,12 @@ class VMManagedCallbackHandle extends VMManagedBox<CallbackHandle> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['toRawHandle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toRawHandle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toRawHandle()];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
   }
@@ -35,10 +37,10 @@ class VMManagedCallbackHandle extends VMManagedBox<CallbackHandle> {
 void loadCallbackHandle(
     {required HydroState hydroState, required HydroTable table}) {
   table['callbackHandleFromRawHandle'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<CallbackHandle>(
-          object: CallbackHandle.fromRawHandle(args[1]),
+          object: CallbackHandle.fromRawHandle(luaCallerArguments[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];

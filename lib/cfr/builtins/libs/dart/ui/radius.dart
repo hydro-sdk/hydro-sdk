@@ -19,10 +19,12 @@ class VMManagedRadius extends VMManagedBox<Radius> {
         ) {
     table['x'] = vmObject.x;
     table['y'] = vmObject.y;
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -35,31 +37,35 @@ class VMManagedRadius extends VMManagedBox<Radius> {
 }
 
 void loadRadius({required HydroState hydroState, required HydroTable table}) {
-  table['radiusCircular'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['radiusCircular'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Radius>(
-          object: Radius.circular(args[1]?.toDouble()),
+          object: Radius.circular(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['radiusElliptical'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['radiusElliptical'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Radius>(
-          object: Radius.elliptical(args[1]?.toDouble(), args[2]?.toDouble()),
+          object: Radius.elliptical(luaCallerArguments[1]?.toDouble(),
+              luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['radiusLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['radiusLerp'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Radius?>(
           object: Radius.lerp(
-              maybeUnBoxAndBuildArgument<Radius?>(args[1],
+              maybeUnBoxAndBuildArgument<Radius?>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Radius?>(args[2],
+              maybeUnBoxAndBuildArgument<Radius?>(luaCallerArguments[2],
                   parentState: hydroState),
-              args[3]?.toDouble()),
+              luaCallerArguments[3]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];

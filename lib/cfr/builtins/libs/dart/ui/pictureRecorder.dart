@@ -17,10 +17,12 @@ class VMManagedPictureRecorder extends VMManagedBox<PictureRecorder> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getIsRecording'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsRecording'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isRecording];
     });
-    table['endRecording'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['endRecording'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Picture>(
             object: vmObject.endRecording(),
@@ -42,13 +44,15 @@ class RTManagedPictureRecorder extends PictureRecorder
   RTManagedPictureRecorder({required this.table, required this.hydroState})
       : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_getIsRecording'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsRecording'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.isRecording];
     });
-    table['_dart_endRecording'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_endRecording'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Picture>(
             object: super.endRecording(),
@@ -81,8 +85,12 @@ class RTManagedPictureRecorder extends PictureRecorder
 
 void loadPictureRecorder(
     {required HydroState hydroState, required HydroTable table}) {
-  table['pictureRecorder'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [RTManagedPictureRecorder(table: args[0], hydroState: hydroState)];
+  table['pictureRecorder'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    return [
+      RTManagedPictureRecorder(
+          table: luaCallerArguments[0], hydroState: hydroState)
+    ];
   });
   registerBoxer<PictureRecorder>(boxer: (
       {required PictureRecorder vmObject,

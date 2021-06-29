@@ -18,16 +18,19 @@ class VMManagedTypedData extends VMManagedBox<TypedData> {
           hydroState: hydroState,
         ) {
     table['getElementSizeInBytes'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.elementSizeInBytes];
     });
-    table['getOffsetInBytes'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getOffsetInBytes'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.offsetInBytes];
     });
-    table['getLengthInBytes'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getLengthInBytes'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.lengthInBytes];
     });
-    table['getBuffer'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBuffer'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<ByteBuffer>(
             object: vmObject.buffer,

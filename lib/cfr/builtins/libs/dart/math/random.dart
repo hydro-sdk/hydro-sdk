@@ -17,13 +17,16 @@ class VMManagedRandom extends VMManagedBox<Random> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['nextInt'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.nextInt(args[1])];
+    table['nextInt'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [vmObject.nextInt(luaCallerArguments[1])];
     });
-    table['nextDouble'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['nextDouble'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.nextDouble()];
     });
-    table['nextBool'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['nextBool'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.nextBool()];
     });
   }
@@ -36,13 +39,16 @@ class VMManagedRandom extends VMManagedBox<Random> {
 }
 
 void loadRandom({required HydroState hydroState, required HydroTable table}) {
-  table['random'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['random'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Random>(
-          object: Random(args[1]), hydroState: hydroState, table: args[0])
+          object: Random(luaCallerArguments[1]),
+          hydroState: hydroState,
+          table: luaCallerArguments[0])
     ];
   });
-  table['randomSecure'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['randomSecure'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Random>(
           object: Random.secure(), hydroState: hydroState, table: HydroTable())

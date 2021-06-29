@@ -18,7 +18,8 @@ class VMManagedFontWeight extends VMManagedBox<FontWeight> {
           hydroState: hydroState,
         ) {
     table['index'] = vmObject.index;
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -32,69 +33,79 @@ class VMManagedFontWeight extends VMManagedBox<FontWeight> {
 
 void loadFontWeight(
     {required HydroState hydroState, required HydroTable table}) {
-  table['fontWeightW100'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW100'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w100, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightW200'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW200'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w200, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightW300'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW300'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w300, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightW400'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW400'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w400, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightW500'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW500'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w500, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightW600'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW600'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w600, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightW700'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW700'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w700, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightW800'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW800'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w800, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightW900'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightW900'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight>(
           object: FontWeight.w900, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['fontWeightLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontWeightLerp'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontWeight?>(
           object: FontWeight.lerp(
-              maybeUnBoxAndBuildArgument<FontWeight?>(args[1],
+              maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<FontWeight?>(args[2],
+              maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[2],
                   parentState: hydroState),
-              args[3]?.toDouble()),
+              luaCallerArguments[3]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];

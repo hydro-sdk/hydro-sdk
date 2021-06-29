@@ -18,7 +18,8 @@ class VMManagedSemanticsAction extends VMManagedBox<SemanticsAction> {
           hydroState: hydroState,
         ) {
     table['index'] = vmObject.index;
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -32,7 +33,8 @@ class VMManagedSemanticsAction extends VMManagedBox<SemanticsAction> {
 
 void loadSemanticsAction(
     {required HydroState hydroState, required HydroTable table}) {
-  table['semanticsActionTap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsActionTap'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.tap,
@@ -41,7 +43,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionLongPress'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.longPress,
@@ -50,7 +52,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionScrollLeft'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.scrollLeft,
@@ -59,7 +61,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionScrollRight'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.scrollRight,
@@ -68,7 +70,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionScrollUp'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.scrollUp,
@@ -77,7 +79,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionScrollDown'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.scrollDown,
@@ -86,7 +88,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionIncrease'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.increase,
@@ -95,7 +97,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionDecrease'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.decrease,
@@ -104,7 +106,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionShowOnScreen'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.showOnScreen,
@@ -113,7 +115,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionMoveCursorForwardByCharacter'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.moveCursorForwardByCharacter,
@@ -122,7 +124,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionMoveCursorBackwardByCharacter'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.moveCursorBackwardByCharacter,
@@ -131,7 +133,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionSetSelection'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.setSelection,
@@ -139,7 +141,8 @@ void loadSemanticsAction(
           table: HydroTable())
     ];
   });
-  table['semanticsActionCopy'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsActionCopy'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.copy,
@@ -147,7 +150,8 @@ void loadSemanticsAction(
           table: HydroTable())
     ];
   });
-  table['semanticsActionCut'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsActionCut'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.cut,
@@ -155,7 +159,8 @@ void loadSemanticsAction(
           table: HydroTable())
     ];
   });
-  table['semanticsActionPaste'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsActionPaste'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.paste,
@@ -164,7 +169,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionDidGainAccessibilityFocus'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.didGainAccessibilityFocus,
@@ -173,7 +178,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionDidLoseAccessibilityFocus'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.didLoseAccessibilityFocus,
@@ -182,7 +187,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionCustomAction'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.customAction,
@@ -190,7 +195,8 @@ void loadSemanticsAction(
           table: HydroTable())
     ];
   });
-  table['semanticsActionDismiss'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsActionDismiss'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.dismiss,
@@ -199,7 +205,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionMoveCursorForwardByWord'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.moveCursorForwardByWord,
@@ -208,7 +214,7 @@ void loadSemanticsAction(
     ];
   });
   table['semanticsActionMoveCursorBackwardByWord'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SemanticsAction>(
           object: SemanticsAction.moveCursorBackwardByWord,

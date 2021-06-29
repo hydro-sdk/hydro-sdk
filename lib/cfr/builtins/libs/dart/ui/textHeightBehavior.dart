@@ -19,13 +19,15 @@ class VMManagedTextHeightBehavior extends VMManagedBox<TextHeightBehavior> {
         ) {
     table['applyHeightToFirstAscent'] = vmObject.applyHeightToFirstAscent;
     table['applyHeightToLastDescent'] = vmObject.applyHeightToLastDescent;
-    table['encode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['encode'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.encode()];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -48,18 +50,21 @@ class RTManagedTextHeightBehavior extends TextHeightBehavior
             applyHeightToFirstAscent: applyHeightToFirstAscent,
             applyHeightToLastDescent: applyHeightToLastDescent) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['applyHeightToFirstAscent'] = applyHeightToFirstAscent;
     table['applyHeightToLastDescent'] = applyHeightToLastDescent;
-    table['_dart_encode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_encode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.encode()];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -91,20 +96,23 @@ class RTManagedTextHeightBehavior extends TextHeightBehavior
 
 void loadTextHeightBehavior(
     {required HydroState hydroState, required HydroTable table}) {
-  table['textHeightBehavior'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textHeightBehavior'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedTextHeightBehavior(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          applyHeightToFirstAscent: args[1]['applyHeightToFirstAscent'],
-          applyHeightToLastDescent: args[1]['applyHeightToLastDescent'])
+          applyHeightToFirstAscent: luaCallerArguments[1]
+              ['applyHeightToFirstAscent'],
+          applyHeightToLastDescent: luaCallerArguments[1]
+              ['applyHeightToLastDescent'])
     ];
   });
   table['textHeightBehaviorFromEncoded'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<TextHeightBehavior>(
-          object: TextHeightBehavior.fromEncoded(args[1]),
+          object: TextHeightBehavior.fromEncoded(luaCallerArguments[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];

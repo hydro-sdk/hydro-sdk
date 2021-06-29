@@ -22,10 +22,12 @@ class VMManagedShadow extends VMManagedBox<Shadow> {
     table['offset'] = maybeBoxObject<Offset>(
         object: vmObject.offset, hydroState: hydroState, table: HydroTable());
     table['blurRadius'] = vmObject.blurRadius;
-    table['getBlurSigma'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBlurSigma'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.blurSigma];
     });
-    table['toPaint'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toPaint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Paint>(
             object: vmObject.toPaint(),
@@ -33,18 +35,20 @@ class VMManagedShadow extends VMManagedBox<Shadow> {
             table: HydroTable())
       ];
     });
-    table['scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['scale'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Shadow>(
-            object: vmObject.scale(args[1]?.toDouble()),
+            object: vmObject.scale(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -65,7 +69,7 @@ class RTManagedShadow extends Shadow implements Box<Shadow> {
       required this.hydroState})
       : super(blurRadius: blurRadius, color: color, offset: offset) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['color'] = maybeBoxObject<Color>(
@@ -73,10 +77,12 @@ class RTManagedShadow extends Shadow implements Box<Shadow> {
     table['offset'] = maybeBoxObject<Offset>(
         object: offset, hydroState: hydroState, table: HydroTable());
     table['blurRadius'] = blurRadius;
-    table['_dart_getBlurSigma'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getBlurSigma'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.blurSigma];
     });
-    table['_dart_toPaint'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toPaint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Paint>(
             object: super.toPaint(),
@@ -84,18 +90,21 @@ class RTManagedShadow extends Shadow implements Box<Shadow> {
             table: HydroTable())
       ];
     });
-    table['_dart_scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_scale'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Shadow>(
-            object: super.scale(args[1]?.toDouble()),
+            object: super.scale(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -142,49 +151,56 @@ class RTManagedShadow extends Shadow implements Box<Shadow> {
 }
 
 void loadShadow({required HydroState hydroState, required HydroTable table}) {
-  table['shadow'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['shadow'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedShadow(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          blurRadius: args[1]['blurRadius']?.toDouble(),
-          color: maybeUnBoxAndBuildArgument<Color>(args[1]['color'],
+          blurRadius: luaCallerArguments[1]['blurRadius']?.toDouble(),
+          color: maybeUnBoxAndBuildArgument<Color>(
+              luaCallerArguments[1]['color'],
               parentState: hydroState),
-          offset: maybeUnBoxAndBuildArgument<Offset>(args[1]['offset'],
+          offset: maybeUnBoxAndBuildArgument<Offset>(
+              luaCallerArguments[1]['offset'],
               parentState: hydroState))
     ];
   });
   table['shadowConvertRadiusToSigma'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<double>(
-          object: Shadow.convertRadiusToSigma(args[1]?.toDouble()),
+          object:
+              Shadow.convertRadiusToSigma(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['shadowLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['shadowLerp'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Shadow?>(
           object: Shadow.lerp(
-              maybeUnBoxAndBuildArgument<Shadow?>(args[1],
+              maybeUnBoxAndBuildArgument<Shadow?>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Shadow?>(args[2],
+              maybeUnBoxAndBuildArgument<Shadow?>(luaCallerArguments[2],
                   parentState: hydroState),
-              args[3]?.toDouble()),
+              luaCallerArguments[3]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['shadowLerpList'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['shadowLerpList'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<List<dynamic>>(
           object: Shadow.lerpList(
-                  maybeUnBoxAndBuildArgument<List<Shadow>?>(args[1],
+                  maybeUnBoxAndBuildArgument<List<Shadow>?>(
+                      luaCallerArguments[1],
                       parentState: hydroState),
-                  maybeUnBoxAndBuildArgument<List<Shadow>?>(args[2],
+                  maybeUnBoxAndBuildArgument<List<Shadow>?>(
+                      luaCallerArguments[2],
                       parentState: hydroState),
-                  args[3]?.toDouble())
+                  luaCallerArguments[3]?.toDouble())
               .map((x) => maybeBoxObject<Shadow>(
                   object: x, hydroState: hydroState, table: HydroTable()))
               .toList(),

@@ -17,16 +17,18 @@ class VMManagedRSTransform extends VMManagedBox<RSTransform> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getScos'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getScos'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.scos];
     });
-    table['getSsin'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getSsin'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.ssin];
     });
-    table['getTx'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getTx'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.tx];
     });
-    table['getTy'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getTy'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.ty];
     });
   }
@@ -48,19 +50,23 @@ class RTManagedRSTransform extends RSTransform implements Box<RSTransform> {
           ty,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_getScos'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getScos'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.scos];
     });
-    table['_dart_getSsin'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getSsin'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.ssin];
     });
-    table['_dart_getTx'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getTx'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.tx];
     });
-    table['_dart_getTy'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getTy'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.ty];
     });
   }
@@ -98,24 +104,29 @@ class RTManagedRSTransform extends RSTransform implements Box<RSTransform> {
 
 void loadRSTransform(
     {required HydroState hydroState, required HydroTable table}) {
-  table['rSTransform'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['rSTransform'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      RTManagedRSTransform(args[1]?.toDouble(), args[2]?.toDouble(),
-          args[3]?.toDouble(), args[4]?.toDouble(),
-          table: args[0], hydroState: hydroState)
+      RTManagedRSTransform(
+          luaCallerArguments[1]?.toDouble(),
+          luaCallerArguments[2]?.toDouble(),
+          luaCallerArguments[3]?.toDouble(),
+          luaCallerArguments[4]?.toDouble(),
+          table: luaCallerArguments[0],
+          hydroState: hydroState)
     ];
   });
   table['rSTransformFromComponents'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<RSTransform>(
           object: RSTransform.fromComponents(
-              anchorX: args[1]['anchorX']?.toDouble(),
-              anchorY: args[1]['anchorY']?.toDouble(),
-              rotation: args[1]['rotation']?.toDouble(),
-              scale: args[1]['scale']?.toDouble(),
-              translateX: args[1]['translateX']?.toDouble(),
-              translateY: args[1]['translateY']?.toDouble()),
+              anchorX: luaCallerArguments[1]['anchorX']?.toDouble(),
+              anchorY: luaCallerArguments[1]['anchorY']?.toDouble(),
+              rotation: luaCallerArguments[1]['rotation']?.toDouble(),
+              scale: luaCallerArguments[1]['scale']?.toDouble(),
+              translateX: luaCallerArguments[1]['translateX']?.toDouble(),
+              translateY: luaCallerArguments[1]['translateY']?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];

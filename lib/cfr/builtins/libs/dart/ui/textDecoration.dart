@@ -17,16 +17,20 @@ class VMManagedTextDecoration extends VMManagedBox<TextDecoration> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['contains'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<TextDecoration>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<TextDecoration>(
+            luaCallerArguments[1],
             parentState: hydroState))
       ];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -40,7 +44,8 @@ class VMManagedTextDecoration extends VMManagedBox<TextDecoration> {
 
 void loadTextDecoration(
     {required HydroState hydroState, required HydroTable table}) {
-  table['textDecorationNone'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textDecorationNone'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<TextDecoration>(
           object: TextDecoration.none,
@@ -49,7 +54,7 @@ void loadTextDecoration(
     ];
   });
   table['textDecorationUnderline'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<TextDecoration>(
           object: TextDecoration.underline,
@@ -57,7 +62,8 @@ void loadTextDecoration(
           table: HydroTable())
     ];
   });
-  table['textDecorationOverline'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textDecorationOverline'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<TextDecoration>(
           object: TextDecoration.overline,
@@ -66,7 +72,7 @@ void loadTextDecoration(
     ];
   });
   table['textDecorationLineThrough'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<TextDecoration>(
           object: TextDecoration.lineThrough,
@@ -74,11 +80,13 @@ void loadTextDecoration(
           table: HydroTable())
     ];
   });
-  table['textDecorationCombine'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textDecorationCombine'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<TextDecoration>(
           object: TextDecoration.combine(
-              maybeUnBoxAndBuildArgument<List<TextDecoration>>(args[1],
+              maybeUnBoxAndBuildArgument<List<TextDecoration>>(
+                  luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())

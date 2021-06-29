@@ -18,10 +18,12 @@ class VMManagedImageShader extends VMManagedBox<ImageShader> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
   }
@@ -44,13 +46,15 @@ class RTManagedImageShader extends ImageShader implements Box<ImageShader> {
           matrix4,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
@@ -76,15 +80,19 @@ class RTManagedImageShader extends ImageShader implements Box<ImageShader> {
 
 void loadImageShader(
     {required HydroState hydroState, required HydroTable table}) {
-  table['imageShader'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['imageShader'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedImageShader(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxEnum(values: TileMode.values, boxedEnum: args[2]),
-          maybeUnBoxEnum(values: TileMode.values, boxedEnum: args[3]),
-          maybeUnBoxAndBuildArgument<Float64List>(args[4],
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
               parentState: hydroState),
-          table: args[0],
+          maybeUnBoxEnum(
+              values: TileMode.values, boxedEnum: luaCallerArguments[2]),
+          maybeUnBoxEnum(
+              values: TileMode.values, boxedEnum: luaCallerArguments[3]),
+          maybeUnBoxAndBuildArgument<Float64List>(luaCallerArguments[4],
+              parentState: hydroState),
+          table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });

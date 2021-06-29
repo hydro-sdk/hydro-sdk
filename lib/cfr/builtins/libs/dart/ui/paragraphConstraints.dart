@@ -18,10 +18,12 @@ class VMManagedParagraphConstraints extends VMManagedBox<ParagraphConstraints> {
           hydroState: hydroState,
         ) {
     table['width'] = vmObject.width;
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -39,14 +41,16 @@ class RTManagedParagraphConstraints extends ParagraphConstraints
       {required double width, required this.table, required this.hydroState})
       : super(width: width) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['width'] = width;
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -72,12 +76,13 @@ class RTManagedParagraphConstraints extends ParagraphConstraints
 
 void loadParagraphConstraints(
     {required HydroState hydroState, required HydroTable table}) {
-  table['paragraphConstraints'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['paragraphConstraints'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedParagraphConstraints(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          width: args[1]['width']?.toDouble())
+          width: luaCallerArguments[1]['width']?.toDouble())
     ];
   });
   registerBoxer<ParagraphConstraints>(boxer: (

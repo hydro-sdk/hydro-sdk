@@ -19,41 +19,43 @@ class VMManagedChannelBuffers extends VMManagedBox<ChannelBuffers> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['push'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedcallback = args[3];
+    table['push'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcallback = luaCallerArguments[3];
       vmObject.push(
-          args[1],
-          maybeUnBoxAndBuildArgument<ByteData?>(args[2],
+          luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<ByteData?>(luaCallerArguments[2],
               parentState: hydroState),
           (data) => unpackedcallback.dispatch(
-                [args[0], data],
+                [luaCallerArguments[0], data],
                 parentState: hydroState,
               ));
       return [];
     });
-    table['setListener'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedcallback = args[2];
+    table['setListener'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcallback = luaCallerArguments[2];
       vmObject.setListener(
-          args[1],
+          luaCallerArguments[1],
           (data, callback) => unpackedcallback.dispatch(
-                [args[0], data, callback],
+                [luaCallerArguments[0], data, callback],
                 parentState: hydroState,
               ));
       return [];
     });
-    table['clearListener'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.clearListener(args[1]);
+    table['clearListener'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.clearListener(luaCallerArguments[1]);
       return [];
     });
-    table['drain'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedcallback = args[2];
+    table['drain'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcallback = luaCallerArguments[2];
       return [
         maybeBoxObject<Future>(
             object: vmObject.drain(
-                args[1],
+                luaCallerArguments[1],
                 (data, callback) => maybeUnBoxAndBuildArgument<Future<void>>(
                     unpackedcallback.dispatch(
-                      [args[0], data, callback],
+                      [luaCallerArguments[0], data, callback],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)),
@@ -61,17 +63,20 @@ class VMManagedChannelBuffers extends VMManagedBox<ChannelBuffers> {
             table: HydroTable())
       ];
     });
-    table['handleMessage'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.handleMessage(maybeUnBoxAndBuildArgument<ByteData>(args[1],
+    table['handleMessage'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.handleMessage(maybeUnBoxAndBuildArgument<ByteData>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['resize'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.resize(args[1], args[2]);
+    table['resize'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.resize(luaCallerArguments[1], luaCallerArguments[2]);
       return [];
     });
-    table['allowOverflow'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.allowOverflow(args[1], args[2]);
+    table['allowOverflow'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.allowOverflow(luaCallerArguments[1], luaCallerArguments[2]);
       return [];
     });
   }
@@ -88,44 +93,48 @@ class RTManagedChannelBuffers extends ChannelBuffers
   RTManagedChannelBuffers({required this.table, required this.hydroState})
       : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_push'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedcallback = args[3];
+    table['_dart_push'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcallback = luaCallerArguments[3];
       super.push(
-          args[1],
-          maybeUnBoxAndBuildArgument<ByteData?>(args[2],
+          luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<ByteData?>(luaCallerArguments[2],
               parentState: hydroState),
           (data) => unpackedcallback.dispatch(
-                [args[0], data],
+                [luaCallerArguments[0], data],
                 parentState: hydroState,
               ));
       return [];
     });
-    table['_dart_setListener'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedcallback = args[2];
+    table['_dart_setListener'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcallback = luaCallerArguments[2];
       super.setListener(
-          args[1],
+          luaCallerArguments[1],
           (data, callback) => unpackedcallback.dispatch(
-                [args[0], data, callback],
+                [luaCallerArguments[0], data, callback],
                 parentState: hydroState,
               ));
       return [];
     });
-    table['_dart_clearListener'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.clearListener(args[1]);
+    table['_dart_clearListener'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.clearListener(luaCallerArguments[1]);
       return [];
     });
-    table['_dart_drain'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedcallback = args[2];
+    table['_dart_drain'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcallback = luaCallerArguments[2];
       return [
         maybeBoxObject<Future>(
             object: super.drain(
-                args[1],
+                luaCallerArguments[1],
                 (data, callback) => maybeUnBoxAndBuildArgument<Future<void>>(
                     unpackedcallback.dispatch(
-                      [args[0], data, callback],
+                      [luaCallerArguments[0], data, callback],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)),
@@ -133,17 +142,21 @@ class RTManagedChannelBuffers extends ChannelBuffers
             table: HydroTable())
       ];
     });
-    table['_dart_handleMessage'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.handleMessage(maybeUnBoxAndBuildArgument<ByteData>(args[1],
+    table['_dart_handleMessage'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.handleMessage(maybeUnBoxAndBuildArgument<ByteData>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['_dart_resize'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.resize(args[1], args[2]);
+    table['_dart_resize'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.resize(luaCallerArguments[1], luaCallerArguments[2]);
       return [];
     });
-    table['_dart_allowOverflow'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.allowOverflow(args[1], args[2]);
+    table['_dart_allowOverflow'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.allowOverflow(luaCallerArguments[1], luaCallerArguments[2]);
       return [];
     });
   }
@@ -201,8 +214,12 @@ class RTManagedChannelBuffers extends ChannelBuffers
 
 void loadChannelBuffers(
     {required HydroState hydroState, required HydroTable table}) {
-  table['channelBuffers'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [RTManagedChannelBuffers(table: args[0], hydroState: hydroState)];
+  table['channelBuffers'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    return [
+      RTManagedChannelBuffers(
+          table: luaCallerArguments[0], hydroState: hydroState)
+    ];
   });
   registerBoxer<ChannelBuffers>(boxer: (
       {required ChannelBuffers vmObject,

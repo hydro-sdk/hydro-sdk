@@ -18,68 +18,80 @@ class VMManagedColor extends VMManagedBox<Color> {
           hydroState: hydroState,
         ) {
     table['value'] = vmObject.value;
-    table['getAlpha'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getAlpha'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.alpha];
     });
-    table['getOpacity'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getOpacity'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.opacity];
     });
-    table['getRed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getRed'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.red];
     });
-    table['getGreen'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getGreen'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.green];
     });
-    table['getBlue'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBlue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.blue];
     });
-    table['withAlpha'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withAlpha'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: vmObject.withAlpha(args[1]),
+            object: vmObject.withAlpha(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['withOpacity'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withOpacity'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: vmObject.withOpacity(args[1]?.toDouble()),
+            object: vmObject.withOpacity(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['withRed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withRed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: vmObject.withRed(args[1]),
+            object: vmObject.withRed(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['withGreen'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withGreen'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: vmObject.withGreen(args[1]),
+            object: vmObject.withGreen(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['withBlue'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['withBlue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: vmObject.withBlue(args[1]),
+            object: vmObject.withBlue(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['computeLuminance'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['computeLuminance'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.computeLuminance()];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -97,73 +109,85 @@ class RTManagedColor extends Color implements Box<Color> {
           value,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['value'] = value;
-    table['_dart_getAlpha'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getAlpha'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.alpha];
     });
-    table['_dart_getOpacity'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getOpacity'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.opacity];
     });
-    table['_dart_getRed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getRed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.red];
     });
-    table['_dart_getGreen'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getGreen'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.green];
     });
-    table['_dart_getBlue'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getBlue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.blue];
     });
-    table['_dart_withAlpha'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_withAlpha'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: super.withAlpha(args[1]),
+            object: super.withAlpha(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['_dart_withOpacity'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_withOpacity'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: super.withOpacity(args[1]?.toDouble()),
+            object: super.withOpacity(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['_dart_withRed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_withRed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: super.withRed(args[1]),
+            object: super.withRed(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['_dart_withGreen'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_withGreen'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: super.withGreen(args[1]),
+            object: super.withGreen(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['_dart_withBlue'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_withBlue'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: super.withBlue(args[1]),
+            object: super.withBlue(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['_dart_computeLuminance'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.computeLuminance()];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -264,56 +288,64 @@ class RTManagedColor extends Color implements Box<Color> {
 }
 
 void loadColor({required HydroState hydroState, required HydroTable table}) {
-  table['color'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [RTManagedColor(args[1], table: args[0], hydroState: hydroState)];
+  table['color'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    return [
+      RTManagedColor(luaCallerArguments[1],
+          table: luaCallerArguments[0], hydroState: hydroState)
+    ];
   });
-  table['colorFromARGB'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['colorFromARGB'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Color>(
-          object: Color.fromARGB(args[1], args[2], args[3], args[4]),
+          object: Color.fromARGB(luaCallerArguments[1], luaCallerArguments[2],
+              luaCallerArguments[3], luaCallerArguments[4]),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['colorFromRGBO'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['colorFromRGBO'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Color>(
-          object:
-              Color.fromRGBO(args[1], args[2], args[3], args[4]?.toDouble()),
+          object: Color.fromRGBO(luaCallerArguments[1], luaCallerArguments[2],
+              luaCallerArguments[3], luaCallerArguments[4]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['colorLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['colorLerp'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Color?>(
           object: Color.lerp(
-              maybeUnBoxAndBuildArgument<Color?>(args[1],
+              maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Color?>(args[2],
+              maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[2],
                   parentState: hydroState),
-              args[3]?.toDouble()),
+              luaCallerArguments[3]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['colorAlphaBlend'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['colorAlphaBlend'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Color>(
           object: Color.alphaBlend(
-              maybeUnBoxAndBuildArgument<Color>(args[1],
+              maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Color>(args[2],
+              maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
   table['colorGetAlphaFromOpacity'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<int>(
-          object: Color.getAlphaFromOpacity(args[1]?.toDouble()),
+          object: Color.getAlphaFromOpacity(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];

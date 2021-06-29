@@ -38,7 +38,7 @@ class RTManagedVertices extends Vertices implements Box<Vertices> {
             indices: indices,
             textureCoordinates: textureCoordinates) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
   }
@@ -52,37 +52,43 @@ class RTManagedVertices extends Vertices implements Box<Vertices> {
 }
 
 void loadVertices({required HydroState hydroState, required HydroTable table}) {
-  table['vertices'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['vertices'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedVertices(
-          maybeUnBoxEnum(values: VertexMode.values, boxedEnum: args[1]),
-          maybeUnBoxAndBuildArgument<List<Offset>>(args[2],
+          maybeUnBoxEnum(
+              values: VertexMode.values, boxedEnum: luaCallerArguments[1]),
+          maybeUnBoxAndBuildArgument<List<Offset>>(luaCallerArguments[2],
               parentState: hydroState),
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          colors: maybeUnBoxAndBuildArgument<List<Color>?>(args[3]['colors'],
+          colors: maybeUnBoxAndBuildArgument<List<Color>?>(
+              luaCallerArguments[3]['colors'],
               parentState: hydroState),
-          indices: maybeUnBoxAndBuildArgument<List<int>?>(args[3]['indices'],
+          indices: maybeUnBoxAndBuildArgument<List<int>?>(
+              luaCallerArguments[3]['indices'],
               parentState: hydroState),
           textureCoordinates: maybeUnBoxAndBuildArgument<List<Offset>?>(
-              args[3]['textureCoordinates'],
+              luaCallerArguments[3]['textureCoordinates'],
               parentState: hydroState))
     ];
   });
-  table['verticesRaw'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['verticesRaw'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Vertices>(
           object: Vertices.raw(
-              maybeUnBoxEnum(values: VertexMode.values, boxedEnum: args[1]),
-              maybeUnBoxAndBuildArgument<Float32List>(args[2],
+              maybeUnBoxEnum(
+                  values: VertexMode.values, boxedEnum: luaCallerArguments[1]),
+              maybeUnBoxAndBuildArgument<Float32List>(luaCallerArguments[2],
                   parentState: hydroState),
-              colors: maybeUnBoxAndBuildArgument<Int32List?>(args[3]['colors'],
+              colors: maybeUnBoxAndBuildArgument<Int32List?>(
+                  luaCallerArguments[3]['colors'],
                   parentState: hydroState),
               indices: maybeUnBoxAndBuildArgument<Uint16List?>(
-                  args[3]['indices'],
+                  luaCallerArguments[3]['indices'],
                   parentState: hydroState),
               textureCoordinates: maybeUnBoxAndBuildArgument<Float32List?>(
-                  args[3]['textureCoordinates'],
+                  luaCallerArguments[3]['textureCoordinates'],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())

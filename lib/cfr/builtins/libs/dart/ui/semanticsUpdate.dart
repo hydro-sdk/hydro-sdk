@@ -16,7 +16,8 @@ class VMManagedSemanticsUpdate extends VMManagedBox<SemanticsUpdate> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['dispose'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.dispose();
       return [];
     });

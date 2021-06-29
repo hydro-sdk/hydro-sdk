@@ -21,96 +21,115 @@ class VMManagedRect extends VMManagedBox<Rect> {
     table['top'] = vmObject.top;
     table['right'] = vmObject.right;
     table['bottom'] = vmObject.bottom;
-    table['getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.width];
     });
-    table['getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHeight'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.height];
     });
-    table['getSize'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getSize'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Size>(
             object: vmObject.size, hydroState: hydroState, table: HydroTable())
       ];
     });
-    table['getHasNaN'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHasNaN'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hasNaN];
     });
-    table['getIsInfinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsInfinite'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isInfinite];
     });
-    table['getIsFinite'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsFinite'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isFinite];
     });
-    table['getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsEmpty'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isEmpty];
     });
-    table['shift'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['shift'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Rect>(
-            object: vmObject.shift(maybeUnBoxAndBuildArgument<Offset>(args[1],
+            object: vmObject.shift(maybeUnBoxAndBuildArgument<Offset>(
+                luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['translate'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['translate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Rect>(
-            object:
-                vmObject.translate(args[1]?.toDouble(), args[2]?.toDouble()),
+            object: vmObject.translate(luaCallerArguments[1]?.toDouble(),
+                luaCallerArguments[2]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['inflate'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['inflate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Rect>(
-            object: vmObject.inflate(args[1]?.toDouble()),
+            object: vmObject.inflate(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['deflate'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['deflate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Rect>(
-            object: vmObject.deflate(args[1]?.toDouble()),
+            object: vmObject.deflate(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['intersect'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['intersect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Rect>(
-            object: vmObject.intersect(maybeUnBoxAndBuildArgument<Rect>(args[1],
+            object: vmObject.intersect(maybeUnBoxAndBuildArgument<Rect>(
+                luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['expandToInclude'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['expandToInclude'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Rect>(
             object: vmObject.expandToInclude(maybeUnBoxAndBuildArgument<Rect>(
-                args[1],
+                luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['overlaps'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['overlaps'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.overlaps(
-            maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState))
+        vmObject.overlaps(maybeUnBoxAndBuildArgument<Rect>(
+            luaCallerArguments[1],
+            parentState: hydroState))
       ];
     });
-    table['getShortestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getShortestSide'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.shortestSide];
     });
-    table['getLongestSide'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getLongestSide'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.longestSide];
     });
-    table['getTopLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getTopLeft'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.topLeft,
@@ -118,7 +137,8 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['getTopCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getTopCenter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.topCenter,
@@ -126,7 +146,8 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['getTopRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getTopRight'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.topRight,
@@ -134,7 +155,8 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['getCenterLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getCenterLeft'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.centerLeft,
@@ -142,7 +164,8 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['getCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getCenter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.center,
@@ -150,7 +173,8 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['getCenterRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getCenterRight'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.centerRight,
@@ -158,7 +182,8 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['getBottomLeft'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBottomLeft'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.bottomLeft,
@@ -166,7 +191,8 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['getBottomCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBottomCenter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.bottomCenter,
@@ -174,7 +200,8 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['getBottomRight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBottomRight'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Offset>(
             object: vmObject.bottomRight,
@@ -182,16 +209,20 @@ class VMManagedRect extends VMManagedBox<Rect> {
             table: HydroTable())
       ];
     });
-    table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['contains'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Offset>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<Offset>(
+            luaCallerArguments[1],
             parentState: hydroState))
       ];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -204,68 +235,81 @@ class VMManagedRect extends VMManagedBox<Rect> {
 }
 
 void loadRect({required HydroState hydroState, required HydroTable table}) {
-  table['rectFromLTRB'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['rectFromLTRB'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Rect>(
-          object: Rect.fromLTRB(args[1]?.toDouble(), args[2]?.toDouble(),
-              args[3]?.toDouble(), args[4]?.toDouble()),
+          object: Rect.fromLTRB(
+              luaCallerArguments[1]?.toDouble(),
+              luaCallerArguments[2]?.toDouble(),
+              luaCallerArguments[3]?.toDouble(),
+              luaCallerArguments[4]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['rectFromLTWH'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['rectFromLTWH'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Rect>(
-          object: Rect.fromLTWH(args[1]?.toDouble(), args[2]?.toDouble(),
-              args[3]?.toDouble(), args[4]?.toDouble()),
+          object: Rect.fromLTWH(
+              luaCallerArguments[1]?.toDouble(),
+              luaCallerArguments[2]?.toDouble(),
+              luaCallerArguments[3]?.toDouble(),
+              luaCallerArguments[4]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['rectFromCircle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['rectFromCircle'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Rect>(
           object: Rect.fromCircle(
-              center: maybeUnBoxAndBuildArgument<Offset>(args[1]['center'],
+              center: maybeUnBoxAndBuildArgument<Offset>(
+                  luaCallerArguments[1]['center'],
                   parentState: hydroState),
-              radius: args[1]['radius']?.toDouble()),
+              radius: luaCallerArguments[1]['radius']?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['rectFromCenter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['rectFromCenter'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Rect>(
           object: Rect.fromCenter(
-              center: maybeUnBoxAndBuildArgument<Offset>(args[1]['center'],
+              center: maybeUnBoxAndBuildArgument<Offset>(
+                  luaCallerArguments[1]['center'],
                   parentState: hydroState),
-              height: args[1]['height']?.toDouble(),
-              width: args[1]['width']?.toDouble()),
+              height: luaCallerArguments[1]['height']?.toDouble(),
+              width: luaCallerArguments[1]['width']?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['rectFromPoints'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['rectFromPoints'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Rect>(
           object: Rect.fromPoints(
-              maybeUnBoxAndBuildArgument<Offset>(args[1],
+              maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Offset>(args[2],
+              maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['rectLerp'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['rectLerp'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Rect?>(
           object: Rect.lerp(
-              maybeUnBoxAndBuildArgument<Rect?>(args[1],
+              maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Rect?>(args[2],
+              maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[2],
                   parentState: hydroState),
-              args[3]?.toDouble()),
+              luaCallerArguments[3]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];

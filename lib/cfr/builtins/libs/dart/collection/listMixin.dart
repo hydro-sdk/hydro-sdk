@@ -18,7 +18,8 @@ class VMManagedListMixin extends VMManagedBox<ListMixin<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getIterator'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIterator'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterator>(
             object: vmObject.iterator,
@@ -26,147 +27,164 @@ class VMManagedListMixin extends VMManagedBox<ListMixin<dynamic>> {
             table: HydroTable())
       ];
     });
-    table['elementAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.elementAt(args[1])];
+    table['elementAt'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [vmObject.elementAt(luaCallerArguments[1])];
     });
-    table['followedBy'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['followedBy'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.followedBy(
-                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
+                maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+                    luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['forEach'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedaction = args[1];
+    table['forEach'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedaction = luaCallerArguments[1];
       vmObject.forEach((element) => unpackedaction.dispatch(
-            [args[0], element],
+            [luaCallerArguments[0], element],
             parentState: hydroState,
           ));
       return [];
     });
-    table['getIsEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsEmpty'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isEmpty];
     });
-    table['getIsNotEmpty'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsNotEmpty'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isNotEmpty];
     });
-    table['getFirst'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getFirst'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.first];
     });
-    table['setFirst'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.first = (args[1]);
+    table['setFirst'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.first = (luaCallerArguments[1]);
       return [];
     });
-    table['getLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getLast'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.last];
     });
-    table['setLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.last = (args[1]);
+    table['setLast'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.last = (luaCallerArguments[1]);
       return [];
     });
-    table['getSingle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getSingle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.single];
     });
-    table['contains'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['contains'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(args[1],
+        vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(
+            luaCallerArguments[1],
             parentState: hydroState))
       ];
     });
-    table['every'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['every'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       return [
         vmObject.every((element) => unpackedtest.dispatch(
-              [args[0], element],
+              [luaCallerArguments[0], element],
               parentState: hydroState,
             )[0])
       ];
     });
-    table['any'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['any'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       return [
         vmObject.any((element) => unpackedtest.dispatch(
-              [args[0], element],
+              [luaCallerArguments[0], element],
               parentState: hydroState,
             )[0])
       ];
     });
-    table['firstWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
-      Closure? unpackedorElse = args[2]['orElse'];
+    table['firstWhere'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
+      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
       return [
         vmObject.firstWhere(
             (element) => unpackedtest.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
                       [
-                        args[0],
+                        luaCallerArguments[0],
                       ],
                       parentState: hydroState,
                     )[0]
                 : null)
       ];
     });
-    table['lastWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
-      Closure? unpackedorElse = args[2]['orElse'];
+    table['lastWhere'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
+      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
       return [
         vmObject.lastWhere(
             (element) => unpackedtest.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
                       [
-                        args[0],
+                        luaCallerArguments[0],
                       ],
                       parentState: hydroState,
                     )[0]
                 : null)
       ];
     });
-    table['singleWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
-      Closure? unpackedorElse = args[2]['orElse'];
+    table['singleWhere'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
+      Closure? unpackedorElse = luaCallerArguments[2]['orElse'];
       return [
         vmObject.singleWhere(
             (element) => unpackedtest.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
             orElse: unpackedorElse != null
                 ? () => unpackedorElse.dispatch(
                       [
-                        args[0],
+                        luaCallerArguments[0],
                       ],
                       parentState: hydroState,
                     )[0]
                 : null)
       ];
     });
-    table['join'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.join(args[1])];
+    table['join'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [vmObject.join(luaCallerArguments[1])];
     });
-    table['where'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['where'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.where((element) => unpackedtest.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['whereType'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['whereType'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.whereType(),
@@ -174,26 +192,26 @@ class VMManagedListMixin extends VMManagedBox<ListMixin<dynamic>> {
             table: HydroTable())
       ];
     });
-    table['map'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedf = args[1];
+    table['map'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.map((element) => unpackedf.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['expand'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedf = args[1];
+    table['expand'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.expand(
                 (element) => maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
                     unpackedf.dispatch(
-                      [args[0], element],
+                      [luaCallerArguments[0], element],
                       parentState: hydroState,
                     )[0],
                     parentState: hydroState)),
@@ -201,75 +219,78 @@ class VMManagedListMixin extends VMManagedBox<ListMixin<dynamic>> {
             table: HydroTable())
       ];
     });
-    table['reduce'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedcombine = args[1];
+    table['reduce'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcombine = luaCallerArguments[1];
       return [
         vmObject.reduce((previousValue, element) => unpackedcombine.dispatch(
-              [args[0], previousValue, element],
+              [luaCallerArguments[0], previousValue, element],
               parentState: hydroState,
             )[0])
       ];
     });
-    table['fold'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedcombine = args[2];
+    table['fold'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcombine = luaCallerArguments[2];
       return [
         vmObject.fold(
-            args[1],
+            luaCallerArguments[1],
             (previousValue, element) => unpackedcombine.dispatch(
-                  [args[0], previousValue, element],
+                  [luaCallerArguments[0], previousValue, element],
                   parentState: hydroState,
                 )[0])
       ];
     });
-    table['skip'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['skip'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.skip(args[1]),
+            object: vmObject.skip(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['skipWhile'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['skipWhile'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.skipWhile((element) => unpackedtest.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['take'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['take'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.take(args[1]),
+            object: vmObject.take(luaCallerArguments[1]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['takeWhile'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['takeWhile'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.takeWhile((element) => unpackedtest.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['toList'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toList'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: vmObject.toList(growable: args[1]['growable']),
+            object:
+                vmObject.toList(growable: luaCallerArguments[1]['growable']),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['toSet'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toSet'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Set>(
             object: vmObject.toSet(),
@@ -277,42 +298,46 @@ class VMManagedListMixin extends VMManagedBox<ListMixin<dynamic>> {
             table: HydroTable())
       ];
     });
-    table['add'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.add(args[1]);
+    table['add'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.add(luaCallerArguments[1]);
       return [];
     });
-    table['addAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[1],
+    table['addAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.addAll(maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['remove'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['remove'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(args[1],
+        vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(
+            luaCallerArguments[1],
             parentState: hydroState))
       ];
     });
-    table['removeWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['removeWhere'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       vmObject.removeWhere((element) => unpackedtest.dispatch(
-            [args[0], element],
+            [luaCallerArguments[0], element],
             parentState: hydroState,
           )[0]);
       return [];
     });
-    table['retainWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['retainWhere'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       vmObject.retainWhere((element) => unpackedtest.dispatch(
-            [args[0], element],
+            [luaCallerArguments[0], element],
             parentState: hydroState,
           )[0]);
       return [];
     });
-    table['clear'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['clear'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.clear();
       return [];
     });
-    table['cast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['cast'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject.cast(),
@@ -320,25 +345,28 @@ class VMManagedListMixin extends VMManagedBox<ListMixin<dynamic>> {
             table: HydroTable())
       ];
     });
-    table['removeLast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['removeLast'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.removeLast()];
     });
-    table['sort'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure? unpackedcompare = args[1];
+    table['sort'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure? unpackedcompare = luaCallerArguments[1];
       vmObject.sort(unpackedcompare != null
           ? (a, b) => unpackedcompare.dispatch(
-                [args[0], a, b],
+                [luaCallerArguments[0], a, b],
                 parentState: hydroState,
               )[0]
           : null);
       return [];
     });
-    table['shuffle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?>(args[1],
+    table['shuffle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.shuffle(maybeUnBoxAndBuildArgument<Random?>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['asMap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['asMap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Map>(
             object: vmObject.asMap(),
@@ -346,107 +374,123 @@ class VMManagedListMixin extends VMManagedBox<ListMixin<dynamic>> {
             table: HydroTable())
       ];
     });
-    table['sublist'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['sublist'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
-            object: vmObject.sublist(args[1], args[2]),
+            object:
+                vmObject.sublist(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['getRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getRange'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.getRange(args[1], args[2]),
+            object:
+                vmObject.getRange(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['removeRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.removeRange(args[1], args[2]);
+    table['removeRange'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.removeRange(luaCallerArguments[1], luaCallerArguments[2]);
       return [];
     });
-    table['fillRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.fillRange(args[1], args[2], args[3]);
+    table['fillRange'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.fillRange(
+          luaCallerArguments[1], luaCallerArguments[2], luaCallerArguments[3]);
       return [];
     });
-    table['setRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['setRange'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setRange(
-          args[1],
-          args[2],
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[3],
+          luaCallerArguments[1],
+          luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[3],
               parentState: hydroState),
-          args[4]);
+          luaCallerArguments[4]);
       return [];
     });
-    table['replaceRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['replaceRange'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.replaceRange(
-          args[1],
-          args[2],
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[3],
+          luaCallerArguments[1],
+          luaCallerArguments[2],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[3],
               parentState: hydroState));
       return [];
     });
-    table['indexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['indexOf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.indexOf(
-            maybeUnBoxAndBuildArgument<Object?>(args[1],
+            maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
                 parentState: hydroState),
-            args[2])
+            luaCallerArguments[2])
       ];
     });
-    table['indexWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['indexWhere'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       return [
         vmObject.indexWhere(
             (element) => unpackedtest.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
-            args[2])
+            luaCallerArguments[2])
       ];
     });
-    table['lastIndexOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['lastIndexOf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.lastIndexOf(
-            maybeUnBoxAndBuildArgument<Object?>(args[1],
+            maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
                 parentState: hydroState),
-            args[2])
+            luaCallerArguments[2])
       ];
     });
-    table['lastIndexWhere'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure unpackedtest = args[1];
+    table['lastIndexWhere'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedtest = luaCallerArguments[1];
       return [
         vmObject.lastIndexWhere(
             (element) => unpackedtest.dispatch(
-                  [args[0], element],
+                  [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
-            args[2])
+            luaCallerArguments[2])
       ];
     });
-    table['insert'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.insert(args[1], args[2]);
+    table['insert'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.insert(luaCallerArguments[1], luaCallerArguments[2]);
       return [];
     });
-    table['removeAt'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.removeAt(args[1])];
+    table['removeAt'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [vmObject.removeAt(luaCallerArguments[1])];
     });
-    table['insertAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['insertAll'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.insertAll(
-          args[1],
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[2],
+          luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
-    table['setAll'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['setAll'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setAll(
-          args[1],
-          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(args[2],
+          luaCallerArguments[1],
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[2],
               parentState: hydroState));
       return [];
     });
-    table['getReversed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getReversed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterable>(
             object: vmObject.reversed,
@@ -454,17 +498,21 @@ class VMManagedListMixin extends VMManagedBox<ListMixin<dynamic>> {
             table: HydroTable())
       ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
-    table['getLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getLength'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.length];
     });
-    table['setLength'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.length = (args[1]);
+    table['setLength'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.length = (luaCallerArguments[1]);
       return [];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
   }

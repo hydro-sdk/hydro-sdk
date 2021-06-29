@@ -17,10 +17,12 @@ class VMManagedParagraphBuilder extends VMManagedBox<ParagraphBuilder> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getPlaceholderCount'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getPlaceholderCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.placeholderCount];
     });
-    table['getPlaceholderScales'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getPlaceholderScales'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject.placeholderScales,
@@ -28,32 +30,38 @@ class VMManagedParagraphBuilder extends VMManagedBox<ParagraphBuilder> {
             table: HydroTable())
       ];
     });
-    table['pushStyle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.pushStyle(maybeUnBoxAndBuildArgument<TextStyle>(args[1],
+    table['pushStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.pushStyle(maybeUnBoxAndBuildArgument<TextStyle>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['pop'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['pop'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.pop();
       return [];
     });
-    table['addText'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.addText(args[1]);
+    table['addText'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.addText(luaCallerArguments[1]);
       return [];
     });
-    table['addPlaceholder'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['addPlaceholder'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.addPlaceholder(
-          args[1]?.toDouble(),
-          args[2]?.toDouble(),
+          luaCallerArguments[1]?.toDouble(),
+          luaCallerArguments[2]?.toDouble(),
           maybeUnBoxEnum(
-              values: PlaceholderAlignment.values, boxedEnum: args[3]),
+              values: PlaceholderAlignment.values,
+              boxedEnum: luaCallerArguments[3]),
           baseline: maybeUnBoxEnum(
-              values: TextBaseline.values, boxedEnum: args[4]['baseline']),
-          baselineOffset: args[4]['baselineOffset']?.toDouble(),
-          scale: args[4]['scale']?.toDouble());
+              values: TextBaseline.values,
+              boxedEnum: luaCallerArguments[4]['baseline']),
+          baselineOffset: luaCallerArguments[4]['baselineOffset']?.toDouble(),
+          scale: luaCallerArguments[4]['scale']?.toDouble());
       return [];
     });
-    table['build'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['build'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Paragraph>(
             object: vmObject.build(),
@@ -78,43 +86,51 @@ class RTManagedParagraphBuilder extends ParagraphBuilder
           style,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['_dart_getPlaceholderCount'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.placeholderCount];
     });
     table['_dart_getPlaceholderScales'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.placeholderScales];
     });
-    table['_dart_pushStyle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.pushStyle(maybeUnBoxAndBuildArgument<TextStyle>(args[1],
+    table['_dart_pushStyle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.pushStyle(maybeUnBoxAndBuildArgument<TextStyle>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['_dart_pop'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_pop'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.pop();
       return [];
     });
-    table['_dart_addText'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.addText(args[1]);
+    table['_dart_addText'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.addText(luaCallerArguments[1]);
       return [];
     });
-    table['_dart_addPlaceholder'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_addPlaceholder'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.addPlaceholder(
-          args[1]?.toDouble(),
-          args[2]?.toDouble(),
+          luaCallerArguments[1]?.toDouble(),
+          luaCallerArguments[2]?.toDouble(),
           maybeUnBoxEnum(
-              values: PlaceholderAlignment.values, boxedEnum: args[3]),
+              values: PlaceholderAlignment.values,
+              boxedEnum: luaCallerArguments[3]),
           baseline: maybeUnBoxEnum(
-              values: TextBaseline.values, boxedEnum: args[4]['baseline']),
-          baselineOffset: args[4]['baselineOffset']?.toDouble(),
-          scale: args[4]['scale']?.toDouble());
+              values: TextBaseline.values,
+              boxedEnum: luaCallerArguments[4]['baseline']),
+          baselineOffset: luaCallerArguments[4]['baselineOffset']?.toDouble(),
+          scale: luaCallerArguments[4]['scale']?.toDouble());
       return [];
     });
-    table['_dart_build'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_build'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Paragraph>(
             object: super.build(), hydroState: hydroState, table: HydroTable())
@@ -179,12 +195,13 @@ class RTManagedParagraphBuilder extends ParagraphBuilder
 
 void loadParagraphBuilder(
     {required HydroState hydroState, required HydroTable table}) {
-  table['paragraphBuilder'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['paragraphBuilder'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedParagraphBuilder(
-          maybeUnBoxAndBuildArgument<ParagraphStyle>(args[1],
+          maybeUnBoxAndBuildArgument<ParagraphStyle>(luaCallerArguments[1],
               parentState: hydroState),
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });

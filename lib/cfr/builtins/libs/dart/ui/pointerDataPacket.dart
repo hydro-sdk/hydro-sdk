@@ -34,7 +34,7 @@ class RTManagedPointerDataPacket extends PointerDataPacket
       {required List data, required this.table, required this.hydroState})
       : super(data: data) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['data'] = maybeBoxObject<List<dynamic>>(
@@ -51,12 +51,14 @@ class RTManagedPointerDataPacket extends PointerDataPacket
 
 void loadPointerDataPacket(
     {required HydroState hydroState, required HydroTable table}) {
-  table['pointerDataPacket'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['pointerDataPacket'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedPointerDataPacket(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          data: maybeUnBoxAndBuildArgument<List<PointerData>>(args[1]['data'],
+          data: maybeUnBoxAndBuildArgument<List<PointerData>>(
+              luaCallerArguments[1]['data'],
               parentState: hydroState))
     ];
   });

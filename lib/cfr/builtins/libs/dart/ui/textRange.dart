@@ -19,28 +19,36 @@ class VMManagedTextRange extends VMManagedBox<TextRange> {
         ) {
     table['start'] = vmObject.start;
     table['end'] = vmObject.end;
-    table['getIsValid'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsValid'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isValid];
     });
-    table['getIsCollapsed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsCollapsed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isCollapsed];
     });
-    table['getIsNormalized'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsNormalized'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isNormalized];
     });
-    table['textBefore'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.textBefore(args[1])];
+    table['textBefore'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [vmObject.textBefore(luaCallerArguments[1])];
     });
-    table['textAfter'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.textAfter(args[1])];
+    table['textAfter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [vmObject.textAfter(luaCallerArguments[1])];
     });
-    table['textInside'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [vmObject.textInside(args[1])];
+    table['textInside'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [vmObject.textInside(luaCallerArguments[1])];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -60,34 +68,41 @@ class RTManagedTextRange extends TextRange implements Box<TextRange> {
       required this.hydroState})
       : super(end: end, start: start) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['start'] = start;
     table['end'] = end;
-    table['_dart_getIsValid'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsValid'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.isValid];
     });
-    table['_dart_getIsCollapsed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsCollapsed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.isCollapsed];
     });
     table['_dart_getIsNormalized'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.isNormalized];
     });
-    table['_dart_textBefore'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.textBefore(args[1])];
+    table['_dart_textBefore'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.textBefore(luaCallerArguments[1])];
     });
-    table['_dart_textAfter'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.textAfter(args[1])];
+    table['_dart_textAfter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.textAfter(luaCallerArguments[1])];
     });
-    table['_dart_textInside'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      return [super.textInside(args[1])];
+    table['_dart_textInside'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      return [super.textInside(luaCallerArguments[1])];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -149,19 +164,21 @@ class RTManagedTextRange extends TextRange implements Box<TextRange> {
 
 void loadTextRange(
     {required HydroState hydroState, required HydroTable table}) {
-  table['textRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textRange'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedTextRange(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          end: args[1]['end'],
-          start: args[1]['start'])
+          end: luaCallerArguments[1]['end'],
+          start: luaCallerArguments[1]['start'])
     ];
   });
-  table['textRangeCollapsed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textRangeCollapsed'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<TextRange>(
-          object: TextRange.collapsed(args[1]),
+          object: TextRange.collapsed(luaCallerArguments[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];

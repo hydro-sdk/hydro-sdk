@@ -18,222 +18,311 @@ class VMManagedCanvas extends VMManagedBox<Canvas> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['save'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['save'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.save();
       return [];
     });
-    table['saveLayer'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['saveLayer'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.saveLayer(
-          maybeUnBoxAndBuildArgument<Rect?>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
-    table['restore'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['restore'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.restore();
       return [];
     });
-    table['getSaveCount'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getSaveCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.getSaveCount()];
     });
-    table['translate'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.translate(args[1]?.toDouble(), args[2]?.toDouble());
+    table['translate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.translate(
+          luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble());
       return [];
     });
-    table['scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.scale(args[1]?.toDouble(), args[2]?.toDouble());
+    table['scale'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.scale(
+          luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble());
       return [];
     });
-    table['rotate'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.rotate(args[1]?.toDouble());
+    table['rotate'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.rotate(luaCallerArguments[1]?.toDouble());
       return [];
     });
-    table['skew'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.skew(args[1]?.toDouble(), args[2]?.toDouble());
+    table['skew'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.skew(
+          luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble());
       return [];
     });
-    table['transform'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.transform(maybeUnBoxAndBuildArgument<Float64List>(args[1],
+    table['transform'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.transform(maybeUnBoxAndBuildArgument<Float64List>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['clipRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['clipRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.clipRect(
-          maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
           clipOp: maybeUnBoxEnum(
-              values: ClipOp.values, boxedEnum: args[2]['clipOp']),
-          doAntiAlias: args[2]['doAntiAlias']);
+              values: ClipOp.values,
+              boxedEnum: luaCallerArguments[2]['clipOp']),
+          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
       return [];
     });
-    table['clipRRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['clipRRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.clipRRect(
-          maybeUnBoxAndBuildArgument<RRect>(args[1], parentState: hydroState),
-          doAntiAlias: args[2]['doAntiAlias']);
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+              parentState: hydroState),
+          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
       return [];
     });
-    table['clipPath'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['clipPath'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.clipPath(
-          maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
-          doAntiAlias: args[2]['doAntiAlias']);
+          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+              parentState: hydroState),
+          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
       return [];
     });
-    table['drawColor'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawColor'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawColor(
-          maybeUnBoxAndBuildArgument<Color>(args[1], parentState: hydroState),
-          maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[2]));
+          maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[2]));
       return [];
     });
-    table['drawLine'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawLine'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawLine(
-          maybeUnBoxAndBuildArgument<Offset>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
-    table['drawPaint'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawPaint(
-          maybeUnBoxAndBuildArgument<Paint>(args[1], parentState: hydroState));
-      return [];
-    });
-    table['drawRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawRect(
-          maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
-      return [];
-    });
-    table['drawRRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawRRect(
-          maybeUnBoxAndBuildArgument<RRect>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
-      return [];
-    });
-    table['drawDRRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawDRRect(
-          maybeUnBoxAndBuildArgument<RRect>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<RRect>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
-      return [];
-    });
-    table['drawOval'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawOval(
-          maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
-      return [];
-    });
-    table['drawCircle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawCircle(
-          maybeUnBoxAndBuildArgument<Offset>(args[1], parentState: hydroState),
-          args[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
-      return [];
-    });
-    table['drawArc'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawArc(
-          maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState),
-          args[2]?.toDouble(),
-          args[3]?.toDouble(),
-          args[4],
-          maybeUnBoxAndBuildArgument<Paint>(args[5], parentState: hydroState));
-      return [];
-    });
-    table['drawPath'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawPath(
-          maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
-      return [];
-    });
-    table['drawImage'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawImage(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
-      return [];
-    });
-    table['drawImageRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawImageRect(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect>(args[3], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[4], parentState: hydroState));
-      return [];
-    });
-    table['drawImageNine'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawImageNine(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect>(args[3], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[4], parentState: hydroState));
-      return [];
-    });
-    table['drawPicture'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.drawPicture(maybeUnBoxAndBuildArgument<Picture>(args[1],
+    table['drawPaint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawPaint(maybeUnBoxAndBuildArgument<Paint>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['drawParagraph'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawRect(
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawRRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawRRect(
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawDRRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawDRRect(
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawOval'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawOval(
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawCircle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawCircle(
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+              parentState: hydroState),
+          luaCallerArguments[2]?.toDouble(),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawArc'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawArc(
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
+          luaCallerArguments[2]?.toDouble(),
+          luaCallerArguments[3]?.toDouble(),
+          luaCallerArguments[4],
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[5],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawPath'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawPath(
+          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawImage'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawImage(
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawImageRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawImageRect(
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[3],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[4],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawImageNine'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawImageNine(
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[3],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[4],
+              parentState: hydroState));
+      return [];
+    });
+    table['drawPicture'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.drawPicture(maybeUnBoxAndBuildArgument<Picture>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['drawParagraph'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawParagraph(
-          maybeUnBoxAndBuildArgument<Paragraph>(args[1],
+          maybeUnBoxAndBuildArgument<Paragraph>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
-    table['drawPoints'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawPoints'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawPoints(
-          maybeUnBoxEnum(values: PointMode.values, boxedEnum: args[1]),
-          maybeUnBoxAndBuildArgument<List<Offset>>(args[2],
+          maybeUnBoxEnum(
+              values: PointMode.values, boxedEnum: luaCallerArguments[1]),
+          maybeUnBoxAndBuildArgument<List<Offset>>(luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
-    table['drawRawPoints'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawRawPoints'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawRawPoints(
-          maybeUnBoxEnum(values: PointMode.values, boxedEnum: args[1]),
-          maybeUnBoxAndBuildArgument<Float32List>(args[2],
+          maybeUnBoxEnum(
+              values: PointMode.values, boxedEnum: luaCallerArguments[1]),
+          maybeUnBoxAndBuildArgument<Float32List>(luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
-    table['drawVertices'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawVertices'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawVertices(
-          maybeUnBoxAndBuildArgument<Vertices>(args[1],
+          maybeUnBoxAndBuildArgument<Vertices>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[2]),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[2]),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
-    table['drawAtlas'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawAtlas'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawAtlas(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<RSTransform>>(args[2],
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<Rect>>(args[3],
+          maybeUnBoxAndBuildArgument<List<RSTransform>>(luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<Color>?>(args[4],
+          maybeUnBoxAndBuildArgument<List<Rect>>(luaCallerArguments[3],
               parentState: hydroState),
-          maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[5]),
-          maybeUnBoxAndBuildArgument<Rect?>(args[6], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[7], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<List<Color>?>(luaCallerArguments[4],
+              parentState: hydroState),
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[5]),
+          maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[6],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[7],
+              parentState: hydroState));
       return [];
     });
-    table['drawRawAtlas'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawRawAtlas'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawRawAtlas(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Float32List>(args[2],
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Float32List>(args[3],
+          maybeUnBoxAndBuildArgument<Float32List>(luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Int32List?>(args[4],
+          maybeUnBoxAndBuildArgument<Float32List>(luaCallerArguments[3],
               parentState: hydroState),
-          maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[5]),
-          maybeUnBoxAndBuildArgument<Rect?>(args[6], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[7], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Int32List?>(luaCallerArguments[4],
+              parentState: hydroState),
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[5]),
+          maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[6],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[7],
+              parentState: hydroState));
       return [];
     });
-    table['drawShadow'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['drawShadow'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.drawShadow(
-          maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Color>(args[2], parentState: hydroState),
-          args[3]?.toDouble(),
-          args[4]);
+          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[2],
+              parentState: hydroState),
+          luaCallerArguments[3]?.toDouble(),
+          luaCallerArguments[4]);
       return [];
     });
   }
@@ -253,225 +342,317 @@ class RTManagedCanvas extends Canvas implements Box<Canvas> {
           cullRect,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_save'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_save'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.save();
       return [];
     });
-    table['_dart_saveLayer'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_saveLayer'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.saveLayer(
-          maybeUnBoxAndBuildArgument<Rect?>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_restore'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_restore'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.restore();
       return [];
     });
-    table['_dart_getSaveCount'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getSaveCount'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.getSaveCount()];
     });
-    table['_dart_translate'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.translate(args[1]?.toDouble(), args[2]?.toDouble());
+    table['_dart_translate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.translate(
+          luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble());
       return [];
     });
-    table['_dart_scale'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.scale(args[1]?.toDouble(), args[2]?.toDouble());
+    table['_dart_scale'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.scale(
+          luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble());
       return [];
     });
-    table['_dart_rotate'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.rotate(args[1]?.toDouble());
+    table['_dart_rotate'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.rotate(luaCallerArguments[1]?.toDouble());
       return [];
     });
-    table['_dart_skew'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.skew(args[1]?.toDouble(), args[2]?.toDouble());
+    table['_dart_skew'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.skew(
+          luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble());
       return [];
     });
-    table['_dart_transform'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.transform(maybeUnBoxAndBuildArgument<Float64List>(args[1],
+    table['_dart_transform'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.transform(maybeUnBoxAndBuildArgument<Float64List>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['_dart_clipRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_clipRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.clipRect(
-          maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
           clipOp: maybeUnBoxEnum(
-              values: ClipOp.values, boxedEnum: args[2]['clipOp']),
-          doAntiAlias: args[2]['doAntiAlias']);
+              values: ClipOp.values,
+              boxedEnum: luaCallerArguments[2]['clipOp']),
+          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
       return [];
     });
-    table['_dart_clipRRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_clipRRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.clipRRect(
-          maybeUnBoxAndBuildArgument<RRect>(args[1], parentState: hydroState),
-          doAntiAlias: args[2]['doAntiAlias']);
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+              parentState: hydroState),
+          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
       return [];
     });
-    table['_dart_clipPath'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_clipPath'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.clipPath(
-          maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
-          doAntiAlias: args[2]['doAntiAlias']);
+          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+              parentState: hydroState),
+          doAntiAlias: luaCallerArguments[2]['doAntiAlias']);
       return [];
     });
-    table['_dart_drawColor'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawColor'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawColor(
-          maybeUnBoxAndBuildArgument<Color>(args[1], parentState: hydroState),
-          maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[2]));
+          maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[2]));
       return [];
     });
-    table['_dart_drawLine'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawLine'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawLine(
-          maybeUnBoxAndBuildArgument<Offset>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_drawPaint'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawPaint(
-          maybeUnBoxAndBuildArgument<Paint>(args[1], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawRect(
-          maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawRRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawRRect(
-          maybeUnBoxAndBuildArgument<RRect>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawDRRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawDRRect(
-          maybeUnBoxAndBuildArgument<RRect>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<RRect>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawOval'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawOval(
-          maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawCircle'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawCircle(
-          maybeUnBoxAndBuildArgument<Offset>(args[1], parentState: hydroState),
-          args[2]?.toDouble(),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawArc'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawArc(
-          maybeUnBoxAndBuildArgument<Rect>(args[1], parentState: hydroState),
-          args[2]?.toDouble(),
-          args[3]?.toDouble(),
-          args[4],
-          maybeUnBoxAndBuildArgument<Paint>(args[5], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawPath'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawPath(
-          maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[2], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawImage'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawImage(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawImageRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawImageRect(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect>(args[3], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[4], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawImageNine'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawImageNine(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect>(args[2], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect>(args[3], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[4], parentState: hydroState));
-      return [];
-    });
-    table['_dart_drawPicture'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.drawPicture(maybeUnBoxAndBuildArgument<Picture>(args[1],
+    table['_dart_drawPaint'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawPaint(maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['_dart_drawParagraph'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawRect(
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawRRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawRRect(
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawDRRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawDRRect(
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawOval'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawOval(
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawCircle'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawCircle(
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
+              parentState: hydroState),
+          luaCallerArguments[2]?.toDouble(),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawArc'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawArc(
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
+          luaCallerArguments[2]?.toDouble(),
+          luaCallerArguments[3]?.toDouble(),
+          luaCallerArguments[4],
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[5],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawPath'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawPath(
+          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[2],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawImage'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawImage(
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawImageRect'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawImageRect(
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[3],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[4],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawImageNine'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawImageNine(
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[3],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[4],
+              parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawPicture'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.drawPicture(maybeUnBoxAndBuildArgument<Picture>(
+          luaCallerArguments[1],
+          parentState: hydroState));
+      return [];
+    });
+    table['_dart_drawParagraph'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawParagraph(
-          maybeUnBoxAndBuildArgument<Paragraph>(args[1],
+          maybeUnBoxAndBuildArgument<Paragraph>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Offset>(args[2], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_drawPoints'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawPoints'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawPoints(
-          maybeUnBoxEnum(values: PointMode.values, boxedEnum: args[1]),
-          maybeUnBoxAndBuildArgument<List<Offset>>(args[2],
+          maybeUnBoxEnum(
+              values: PointMode.values, boxedEnum: luaCallerArguments[1]),
+          maybeUnBoxAndBuildArgument<List<Offset>>(luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_drawRawPoints'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawRawPoints'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawRawPoints(
-          maybeUnBoxEnum(values: PointMode.values, boxedEnum: args[1]),
-          maybeUnBoxAndBuildArgument<Float32List>(args[2],
+          maybeUnBoxEnum(
+              values: PointMode.values, boxedEnum: luaCallerArguments[1]),
+          maybeUnBoxAndBuildArgument<Float32List>(luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_drawVertices'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawVertices'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawVertices(
-          maybeUnBoxAndBuildArgument<Vertices>(args[1],
+          maybeUnBoxAndBuildArgument<Vertices>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[2]),
-          maybeUnBoxAndBuildArgument<Paint>(args[3], parentState: hydroState));
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[2]),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[3],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_drawAtlas'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawAtlas'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawAtlas(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<RSTransform>>(args[2],
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<Rect>>(args[3],
+          maybeUnBoxAndBuildArgument<List<RSTransform>>(luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<List<Color>?>(args[4],
+          maybeUnBoxAndBuildArgument<List<Rect>>(luaCallerArguments[3],
               parentState: hydroState),
-          maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[5]),
-          maybeUnBoxAndBuildArgument<Rect?>(args[6], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[7], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<List<Color>?>(luaCallerArguments[4],
+              parentState: hydroState),
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[5]),
+          maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[6],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[7],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_drawRawAtlas'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawRawAtlas'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawRawAtlas(
-          maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Float32List>(args[2],
+          maybeUnBoxAndBuildArgument<Image>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Float32List>(args[3],
+          maybeUnBoxAndBuildArgument<Float32List>(luaCallerArguments[2],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Int32List?>(args[4],
+          maybeUnBoxAndBuildArgument<Float32List>(luaCallerArguments[3],
               parentState: hydroState),
-          maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[5]),
-          maybeUnBoxAndBuildArgument<Rect?>(args[6], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Paint>(args[7], parentState: hydroState));
+          maybeUnBoxAndBuildArgument<Int32List?>(luaCallerArguments[4],
+              parentState: hydroState),
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[5]),
+          maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[6],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Paint>(luaCallerArguments[7],
+              parentState: hydroState));
       return [];
     });
-    table['_dart_drawShadow'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_drawShadow'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.drawShadow(
-          maybeUnBoxAndBuildArgument<Path>(args[1], parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Color>(args[2], parentState: hydroState),
-          args[3]?.toDouble(),
-          args[4]);
+          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[2],
+              parentState: hydroState),
+          luaCallerArguments[3]?.toDouble(),
+          luaCallerArguments[4]);
       return [];
     });
   }
@@ -687,13 +868,14 @@ class RTManagedCanvas extends Canvas implements Box<Canvas> {
 }
 
 void loadCanvas({required HydroState hydroState, required HydroTable table}) {
-  table['canvas'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['canvas'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedCanvas(
-          maybeUnBoxAndBuildArgument<PictureRecorder>(args[1],
+          maybeUnBoxAndBuildArgument<PictureRecorder>(luaCallerArguments[1],
               parentState: hydroState),
-          maybeUnBoxAndBuildArgument<Rect?>(args[2], parentState: hydroState),
-          table: args[0],
+          maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[2],
+              parentState: hydroState),
+          table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });

@@ -21,7 +21,8 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         object: vmObject.platformDispatcher,
         hydroState: hydroState,
         table: HydroTable());
-    table['getViewConfiguration'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getViewConfiguration'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<ViewConfiguration>(
             object: vmObject.viewConfiguration,
@@ -29,13 +30,13 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
             table: HydroTable())
       ];
     });
-    table['render'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.render(
-          maybeUnBoxAndBuildArgument<Scene>(args[1], parentState: hydroState));
+    table['render'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.render(maybeUnBoxAndBuildArgument<Scene>(luaCallerArguments[1],
+          parentState: hydroState));
       return [];
     });
     table['getPlatformDispatcher'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<PlatformDispatcher>(
             object: vmObject.platformDispatcher,
@@ -43,10 +44,12 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
             table: HydroTable())
       ];
     });
-    table['getDevicePixelRatio'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getDevicePixelRatio'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.devicePixelRatio];
     });
-    table['getPhysicalGeometry'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getPhysicalGeometry'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Rect>(
             object: vmObject.physicalGeometry,
@@ -54,7 +57,8 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
             table: HydroTable())
       ];
     });
-    table['getPhysicalSize'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getPhysicalSize'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Size>(
             object: vmObject.physicalSize,
@@ -62,7 +66,8 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
             table: HydroTable())
       ];
     });
-    table['getViewInsets'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getViewInsets'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<WindowPadding>(
             object: vmObject.viewInsets,
@@ -70,7 +75,8 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
             table: HydroTable())
       ];
     });
-    table['getViewPadding'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getViewPadding'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<WindowPadding>(
             object: vmObject.viewPadding,
@@ -79,7 +85,7 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
       ];
     });
     table['getSystemGestureInsets'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<WindowPadding>(
             object: vmObject.systemGestureInsets,
@@ -87,7 +93,8 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
             table: HydroTable())
       ];
     });
-    table['getPadding'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getPadding'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<WindowPadding>(
             object: vmObject.padding,
@@ -95,10 +102,12 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
             table: HydroTable())
       ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
   }

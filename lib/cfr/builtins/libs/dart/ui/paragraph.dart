@@ -17,48 +17,56 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.width];
     });
-    table['getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHeight'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.height];
     });
-    table['getLongestLine'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getLongestLine'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.longestLine];
     });
-    table['getMinIntrinsicWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getMinIntrinsicWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.minIntrinsicWidth];
     });
-    table['getMaxIntrinsicWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getMaxIntrinsicWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.maxIntrinsicWidth];
     });
     table['getAlphabeticBaseline'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.alphabeticBaseline];
     });
     table['getIdeographicBaseline'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.ideographicBaseline];
     });
-    table['getDidExceedMaxLines'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getDidExceedMaxLines'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.didExceedMaxLines];
     });
-    table['layout'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      vmObject.layout(maybeUnBoxAndBuildArgument<ParagraphConstraints>(args[1],
+    table['layout'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      vmObject.layout(maybeUnBoxAndBuildArgument<ParagraphConstraints>(
+          luaCallerArguments[1],
           parentState: hydroState));
       return [];
     });
-    table['getBoxesForRange'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBoxesForRange'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject
-                .getBoxesForRange(args[1], args[2],
+                .getBoxesForRange(luaCallerArguments[1], luaCallerArguments[2],
                     boxHeightStyle: maybeUnBoxEnum(
                         values: BoxHeightStyle.values,
-                        boxedEnum: args[3]['boxHeightStyle']),
+                        boxedEnum: luaCallerArguments[3]['boxHeightStyle']),
                     boxWidthStyle: maybeUnBoxEnum(
                         values: BoxWidthStyle.values,
-                        boxedEnum: args[3]['boxWidthStyle']))
+                        boxedEnum: luaCallerArguments[3]['boxWidthStyle']))
                 .map((x) => maybeBoxObject<TextBox>(
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
@@ -67,7 +75,7 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
       ];
     });
     table['getBoxesForPlaceholders'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject
@@ -79,37 +87,41 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
             table: HydroTable())
       ];
     });
-    table['getPositionForOffset'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getPositionForOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<TextPosition>(
             object: vmObject.getPositionForOffset(
-                maybeUnBoxAndBuildArgument<Offset>(args[1],
+                maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['getWordBoundary'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getWordBoundary'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<TextRange>(
             object: vmObject.getWordBoundary(
-                maybeUnBoxAndBuildArgument<TextPosition>(args[1],
+                maybeUnBoxAndBuildArgument<TextPosition>(luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['getLineBoundary'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getLineBoundary'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<TextRange>(
             object: vmObject.getLineBoundary(
-                maybeUnBoxAndBuildArgument<TextPosition>(args[1],
+                maybeUnBoxAndBuildArgument<TextPosition>(luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['computeLineMetrics'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['computeLineMetrics'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject

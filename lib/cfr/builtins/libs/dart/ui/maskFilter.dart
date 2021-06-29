@@ -17,10 +17,12 @@ class VMManagedMaskFilter extends VMManagedBox<MaskFilter> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -34,12 +36,14 @@ class VMManagedMaskFilter extends VMManagedBox<MaskFilter> {
 
 void loadMaskFilter(
     {required HydroState hydroState, required HydroTable table}) {
-  table['maskFilterBlur'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['maskFilterBlur'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<MaskFilter>(
           object: MaskFilter.blur(
-              maybeUnBoxEnum(values: BlurStyle.values, boxedEnum: args[1]),
-              args[2]?.toDouble()),
+              maybeUnBoxEnum(
+                  values: BlurStyle.values, boxedEnum: luaCallerArguments[1]),
+              luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,
           table: HydroTable())
     ];

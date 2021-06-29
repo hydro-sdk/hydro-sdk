@@ -16,10 +16,12 @@ class VMManagedIterator extends VMManagedBox<Iterator<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['moveNext'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['moveNext'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.moveNext()];
     });
-    table['getCurrent'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getCurrent'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.current];
     });
   }

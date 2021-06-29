@@ -55,10 +55,12 @@ class VMManagedPointerData extends VMManagedBox<PointerData> {
     table['platformData'] = vmObject.platformData;
     table['scrollDeltaX'] = vmObject.scrollDeltaX;
     table['scrollDeltaY'] = vmObject.scrollDeltaY;
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
-    table['toStringFull'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toStringFull'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toStringFull()];
     });
   }
@@ -134,7 +136,7 @@ class RTManagedPointerData extends PointerData implements Box<PointerData> {
             tilt: tilt,
             timeStamp: timeStamp) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['embedderId'] = embedderId;
@@ -173,10 +175,12 @@ class RTManagedPointerData extends PointerData implements Box<PointerData> {
     table['platformData'] = platformData;
     table['scrollDeltaX'] = scrollDeltaX;
     table['scrollDeltaY'] = scrollDeltaY;
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
-    table['_dart_toStringFull'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toStringFull'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toStringFull()];
     });
   }
@@ -202,44 +206,48 @@ class RTManagedPointerData extends PointerData implements Box<PointerData> {
 
 void loadPointerData(
     {required HydroState hydroState, required HydroTable table}) {
-  table['pointerData'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['pointerData'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedPointerData(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          buttons: args[1]['buttons'],
+          buttons: luaCallerArguments[1]['buttons'],
           change: maybeUnBoxEnum(
-              values: PointerChange.values, boxedEnum: args[1]['change']),
-          device: args[1]['device'],
-          distance: args[1]['distance']?.toDouble(),
-          distanceMax: args[1]['distanceMax']?.toDouble(),
-          embedderId: args[1]['embedderId'],
+              values: PointerChange.values,
+              boxedEnum: luaCallerArguments[1]['change']),
+          device: luaCallerArguments[1]['device'],
+          distance: luaCallerArguments[1]['distance']?.toDouble(),
+          distanceMax: luaCallerArguments[1]['distanceMax']?.toDouble(),
+          embedderId: luaCallerArguments[1]['embedderId'],
           kind: maybeUnBoxEnum(
-              values: PointerDeviceKind.values, boxedEnum: args[1]['kind']),
-          obscured: args[1]['obscured'],
-          orientation: args[1]['orientation']?.toDouble(),
-          physicalDeltaX: args[1]['physicalDeltaX']?.toDouble(),
-          physicalDeltaY: args[1]['physicalDeltaY']?.toDouble(),
-          physicalX: args[1]['physicalX']?.toDouble(),
-          physicalY: args[1]['physicalY']?.toDouble(),
-          platformData: args[1]['platformData'],
-          pointerIdentifier: args[1]['pointerIdentifier'],
-          pressure: args[1]['pressure']?.toDouble(),
-          pressureMax: args[1]['pressureMax']?.toDouble(),
-          pressureMin: args[1]['pressureMin']?.toDouble(),
-          radiusMajor: args[1]['radiusMajor']?.toDouble(),
-          radiusMax: args[1]['radiusMax']?.toDouble(),
-          radiusMin: args[1]['radiusMin']?.toDouble(),
-          radiusMinor: args[1]['radiusMinor']?.toDouble(),
-          scrollDeltaX: args[1]['scrollDeltaX']?.toDouble(),
-          scrollDeltaY: args[1]['scrollDeltaY']?.toDouble(),
+              values: PointerDeviceKind.values,
+              boxedEnum: luaCallerArguments[1]['kind']),
+          obscured: luaCallerArguments[1]['obscured'],
+          orientation: luaCallerArguments[1]['orientation']?.toDouble(),
+          physicalDeltaX: luaCallerArguments[1]['physicalDeltaX']?.toDouble(),
+          physicalDeltaY: luaCallerArguments[1]['physicalDeltaY']?.toDouble(),
+          physicalX: luaCallerArguments[1]['physicalX']?.toDouble(),
+          physicalY: luaCallerArguments[1]['physicalY']?.toDouble(),
+          platformData: luaCallerArguments[1]['platformData'],
+          pointerIdentifier: luaCallerArguments[1]['pointerIdentifier'],
+          pressure: luaCallerArguments[1]['pressure']?.toDouble(),
+          pressureMax: luaCallerArguments[1]['pressureMax']?.toDouble(),
+          pressureMin: luaCallerArguments[1]['pressureMin']?.toDouble(),
+          radiusMajor: luaCallerArguments[1]['radiusMajor']?.toDouble(),
+          radiusMax: luaCallerArguments[1]['radiusMax']?.toDouble(),
+          radiusMin: luaCallerArguments[1]['radiusMin']?.toDouble(),
+          radiusMinor: luaCallerArguments[1]['radiusMinor']?.toDouble(),
+          scrollDeltaX: luaCallerArguments[1]['scrollDeltaX']?.toDouble(),
+          scrollDeltaY: luaCallerArguments[1]['scrollDeltaY']?.toDouble(),
           signalKind: maybeUnBoxEnum(
               values: PointerSignalKind.values,
-              boxedEnum: args[1]['signalKind']),
-          size: args[1]['size']?.toDouble(),
-          synthesized: args[1]['synthesized'],
-          tilt: args[1]['tilt']?.toDouble(),
-          timeStamp: maybeUnBoxAndBuildArgument<Duration>(args[1]['timeStamp'],
+              boxedEnum: luaCallerArguments[1]['signalKind']),
+          size: luaCallerArguments[1]['size']?.toDouble(),
+          synthesized: luaCallerArguments[1]['synthesized'],
+          tilt: luaCallerArguments[1]['tilt']?.toDouble(),
+          timeStamp: maybeUnBoxAndBuildArgument<Duration>(
+              luaCallerArguments[1]['timeStamp'],
               parentState: hydroState))
     ];
   });

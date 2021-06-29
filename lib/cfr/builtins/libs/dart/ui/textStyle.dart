@@ -17,10 +17,12 @@ class VMManagedTextStyle extends VMManagedBox<TextStyle> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -76,13 +78,15 @@ class RTManagedTextStyle extends TextStyle implements Box<TextStyle> {
             textBaseline: textBaseline,
             wordSpacing: wordSpacing) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -108,45 +112,43 @@ class RTManagedTextStyle extends TextStyle implements Box<TextStyle> {
 
 void loadTextStyle(
     {required HydroState hydroState, required HydroTable table}) {
-  table['textStyle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textStyle'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedTextStyle(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          background: maybeUnBoxAndBuildArgument<Paint?>(args[1]['background'],
+          background: maybeUnBoxAndBuildArgument<Paint?>(luaCallerArguments[1]['background'],
               parentState: hydroState),
-          color: maybeUnBoxAndBuildArgument<Color?>(args[1]['color'],
+          color: maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[1]['color'],
               parentState: hydroState),
-          decoration: maybeUnBoxAndBuildArgument<TextDecoration?>(
-              args[1]['decoration'],
+          decoration: maybeUnBoxAndBuildArgument<TextDecoration?>(luaCallerArguments[1]['decoration'],
               parentState: hydroState),
           decorationColor: maybeUnBoxAndBuildArgument<Color?>(
-              args[1]['decorationColor'],
+              luaCallerArguments[1]['decorationColor'],
               parentState: hydroState),
           decorationStyle: maybeUnBoxEnum(
               values: TextDecorationStyle.values,
-              boxedEnum: args[1]['decorationStyle']),
-          decorationThickness: args[1]['decorationThickness']?.toDouble(),
-          fontFamily: args[1]['fontFamily'],
+              boxedEnum: luaCallerArguments[1]['decorationStyle']),
+          decorationThickness:
+              luaCallerArguments[1]['decorationThickness']?.toDouble(),
+          fontFamily: luaCallerArguments[1]['fontFamily'],
           fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?>(
-              args[1]['fontFamilyFallback'],
+              luaCallerArguments[1]['fontFamilyFallback'],
               parentState: hydroState),
           fontFeatures: maybeUnBoxAndBuildArgument<List<FontFeature>?>(
-              args[1]['fontFeatures'],
+              luaCallerArguments[1]['fontFeatures'],
               parentState: hydroState),
-          fontSize: args[1]['fontSize']?.toDouble(),
-          fontStyle: maybeUnBoxEnum(
-              values: FontStyle.values, boxedEnum: args[1]['fontStyle']),
-          fontWeight: maybeUnBoxAndBuildArgument<FontWeight?>(args[1]['fontWeight'],
-              parentState: hydroState),
-          foreground: maybeUnBoxAndBuildArgument<Paint?>(args[1]['foreground'],
-              parentState: hydroState),
-          height: args[1]['height']?.toDouble(),
-          letterSpacing: args[1]['letterSpacing']?.toDouble(),
-          locale: maybeUnBoxAndBuildArgument<Locale?>(args[1]['locale'], parentState: hydroState),
-          shadows: maybeUnBoxAndBuildArgument<List<Shadow>?>(args[1]['shadows'], parentState: hydroState),
-          textBaseline: maybeUnBoxEnum(values: TextBaseline.values, boxedEnum: args[1]['textBaseline']),
-          wordSpacing: args[1]['wordSpacing']?.toDouble())
+          fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
+          fontStyle: maybeUnBoxEnum(values: FontStyle.values, boxedEnum: luaCallerArguments[1]['fontStyle']),
+          fontWeight: maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[1]['fontWeight'], parentState: hydroState),
+          foreground: maybeUnBoxAndBuildArgument<Paint?>(luaCallerArguments[1]['foreground'], parentState: hydroState),
+          height: luaCallerArguments[1]['height']?.toDouble(),
+          letterSpacing: luaCallerArguments[1]['letterSpacing']?.toDouble(),
+          locale: maybeUnBoxAndBuildArgument<Locale?>(luaCallerArguments[1]['locale'], parentState: hydroState),
+          shadows: maybeUnBoxAndBuildArgument<List<Shadow>?>(luaCallerArguments[1]['shadows'], parentState: hydroState),
+          textBaseline: maybeUnBoxEnum(values: TextBaseline.values, boxedEnum: luaCallerArguments[1]['textBaseline']),
+          wordSpacing: luaCallerArguments[1]['wordSpacing']?.toDouble())
     ];
   });
   registerBoxer<TextStyle>(boxer: (

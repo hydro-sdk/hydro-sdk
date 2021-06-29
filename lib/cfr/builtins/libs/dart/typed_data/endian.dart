@@ -25,13 +25,15 @@ class VMManagedEndian extends VMManagedBox<Endian> {
 }
 
 void loadEndian({required HydroState hydroState, required HydroTable table}) {
-  table['endianBig'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['endianBig'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Endian>(
           object: Endian.big, hydroState: hydroState, table: HydroTable())
     ];
   });
-  table['endianLittle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['endianLittle'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Endian>(
           object: Endian.little, hydroState: hydroState, table: HydroTable())

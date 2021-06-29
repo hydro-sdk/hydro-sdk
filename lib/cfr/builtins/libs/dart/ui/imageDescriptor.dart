@@ -18,25 +18,30 @@ class VMManagedImageDescriptor extends VMManagedBox<ImageDescriptor> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.width];
     });
-    table['getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHeight'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.height];
     });
-    table['getBytesPerPixel'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBytesPerPixel'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.bytesPerPixel];
     });
-    table['dispose'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.dispose();
       return [];
     });
-    table['instantiateCodec'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['instantiateCodec'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Future>(
             object: vmObject.instantiateCodec(
-                targetHeight: args[1]['targetHeight'],
-                targetWidth: args[1]['targetWidth']),
+                targetHeight: luaCallerArguments[1]['targetHeight'],
+                targetWidth: luaCallerArguments[1]['targetWidth']),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -52,27 +57,29 @@ class VMManagedImageDescriptor extends VMManagedBox<ImageDescriptor> {
 
 void loadImageDescriptor(
     {required HydroState hydroState, required HydroTable table}) {
-  table['imageDescriptorRaw'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['imageDescriptorRaw'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<ImageDescriptor>(
           object: ImageDescriptor.raw(
-              maybeUnBoxAndBuildArgument<ImmutableBuffer>(args[1],
+              maybeUnBoxAndBuildArgument<ImmutableBuffer>(luaCallerArguments[1],
                   parentState: hydroState),
-              rowBytes: args[2]['rowBytes'],
-              height: args[2]['height'],
+              rowBytes: luaCallerArguments[2]['rowBytes'],
+              height: luaCallerArguments[2]['height'],
               pixelFormat: maybeUnBoxEnum(
                   values: PixelFormat.values,
-                  boxedEnum: args[2]['pixelFormat']),
-              width: args[2]['width']),
+                  boxedEnum: luaCallerArguments[2]['pixelFormat']),
+              width: luaCallerArguments[2]['width']),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['imageDescriptorEncoded'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['imageDescriptorEncoded'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Future>(
           object: ImageDescriptor.encoded(
-              maybeUnBoxAndBuildArgument<ImmutableBuffer>(args[1],
+              maybeUnBoxAndBuildArgument<ImmutableBuffer>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())

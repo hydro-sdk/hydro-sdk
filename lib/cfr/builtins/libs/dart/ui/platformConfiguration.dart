@@ -31,24 +31,27 @@ class VMManagedPlatformConfiguration
     table['locales'] = maybeBoxObject<List<dynamic>>(
         object: vmObject.locales, hydroState: hydroState, table: HydroTable());
     table['defaultRouteName'] = vmObject.defaultRouteName;
-    table['copyWith'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['copyWith'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<PlatformConfiguration>(
             object: vmObject.copyWith(
                 accessibilityFeatures:
                     maybeUnBoxAndBuildArgument<AccessibilityFeatures?>(
-                        args[1]['accessibilityFeatures'],
+                        luaCallerArguments[1]['accessibilityFeatures'],
                         parentState: hydroState),
-                alwaysUse24HourFormat: args[1]['alwaysUse24HourFormat'],
-                defaultRouteName: args[1]['defaultRouteName'],
+                alwaysUse24HourFormat: luaCallerArguments[1]
+                    ['alwaysUse24HourFormat'],
+                defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
                 locales: maybeUnBoxAndBuildArgument<List<Locale>?>(
-                    args[1]['locales'],
+                    luaCallerArguments[1]['locales'],
                     parentState: hydroState),
                 platformBrightness: maybeUnBoxEnum(
                     values: Brightness.values,
-                    boxedEnum: args[1]['platformBrightness']),
-                semanticsEnabled: args[1]['semanticsEnabled'],
-                textScaleFactor: args[1]['textScaleFactor']?.toDouble()),
+                    boxedEnum: luaCallerArguments[1]['platformBrightness']),
+                semanticsEnabled: luaCallerArguments[1]['semanticsEnabled'],
+                textScaleFactor:
+                    luaCallerArguments[1]['textScaleFactor']?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -83,7 +86,7 @@ class RTManagedPlatformConfiguration extends PlatformConfiguration
             semanticsEnabled: semanticsEnabled,
             textScaleFactor: textScaleFactor) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['accessibilityFeatures'] = maybeBoxObject<AccessibilityFeatures>(
@@ -99,24 +102,27 @@ class RTManagedPlatformConfiguration extends PlatformConfiguration
     table['locales'] = maybeBoxObject<List<dynamic>>(
         object: locales, hydroState: hydroState, table: HydroTable());
     table['defaultRouteName'] = defaultRouteName;
-    table['_dart_copyWith'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_copyWith'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<PlatformConfiguration>(
             object: super.copyWith(
                 accessibilityFeatures:
                     maybeUnBoxAndBuildArgument<AccessibilityFeatures?>(
-                        args[1]['accessibilityFeatures'],
+                        luaCallerArguments[1]['accessibilityFeatures'],
                         parentState: hydroState),
-                alwaysUse24HourFormat: args[1]['alwaysUse24HourFormat'],
-                defaultRouteName: args[1]['defaultRouteName'],
+                alwaysUse24HourFormat: luaCallerArguments[1]
+                    ['alwaysUse24HourFormat'],
+                defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
                 locales: maybeUnBoxAndBuildArgument<List<Locale>?>(
-                    args[1]['locales'],
+                    luaCallerArguments[1]['locales'],
                     parentState: hydroState),
                 platformBrightness: maybeUnBoxEnum(
                     values: Brightness.values,
-                    boxedEnum: args[1]['platformBrightness']),
-                semanticsEnabled: args[1]['semanticsEnabled'],
-                textScaleFactor: args[1]['textScaleFactor']?.toDouble()),
+                    boxedEnum: luaCallerArguments[1]['platformBrightness']),
+                semanticsEnabled: luaCallerArguments[1]['semanticsEnabled'],
+                textScaleFactor:
+                    luaCallerArguments[1]['textScaleFactor']?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
@@ -147,24 +153,26 @@ class RTManagedPlatformConfiguration extends PlatformConfiguration
 
 void loadPlatformConfiguration(
     {required HydroState hydroState, required HydroTable table}) {
-  table['platformConfiguration'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['platformConfiguration'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedPlatformConfiguration(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
           accessibilityFeatures:
               maybeUnBoxAndBuildArgument<AccessibilityFeatures>(
-                  args[1]['accessibilityFeatures'],
+                  luaCallerArguments[1]['accessibilityFeatures'],
                   parentState: hydroState),
-          alwaysUse24HourFormat: args[1]['alwaysUse24HourFormat'],
-          defaultRouteName: args[1]['defaultRouteName'],
-          locales: maybeUnBoxAndBuildArgument<List<Locale>>(args[1]['locales'],
+          alwaysUse24HourFormat: luaCallerArguments[1]['alwaysUse24HourFormat'],
+          defaultRouteName: luaCallerArguments[1]['defaultRouteName'],
+          locales: maybeUnBoxAndBuildArgument<List<Locale>>(
+              luaCallerArguments[1]['locales'],
               parentState: hydroState),
           platformBrightness: maybeUnBoxEnum(
               values: Brightness.values,
-              boxedEnum: args[1]['platformBrightness']),
-          semanticsEnabled: args[1]['semanticsEnabled'],
-          textScaleFactor: args[1]['textScaleFactor']?.toDouble())
+              boxedEnum: luaCallerArguments[1]['platformBrightness']),
+          semanticsEnabled: luaCallerArguments[1]['semanticsEnabled'],
+          textScaleFactor: luaCallerArguments[1]['textScaleFactor']?.toDouble())
     ];
   });
   registerBoxer<PlatformConfiguration>(boxer: (

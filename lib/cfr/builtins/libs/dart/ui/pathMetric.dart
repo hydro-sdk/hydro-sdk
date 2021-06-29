@@ -20,25 +20,29 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
     table['length'] = vmObject.length;
     table['isClosed'] = vmObject.isClosed;
     table['contourIndex'] = vmObject.contourIndex;
-    table['getTangentForOffset'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getTangentForOffset'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Tangent?>(
-            object: vmObject.getTangentForOffset(args[1]?.toDouble()),
+            object:
+                vmObject.getTangentForOffset(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['extractPath'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['extractPath'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Path>(
-            object: vmObject.extractPath(
-                args[1]?.toDouble(), args[2]?.toDouble(),
-                startWithMoveTo: args[3]['startWithMoveTo']),
+            object: vmObject.extractPath(luaCallerArguments[1]?.toDouble(),
+                luaCallerArguments[2]?.toDouble(),
+                startWithMoveTo: luaCallerArguments[3]['startWithMoveTo']),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }

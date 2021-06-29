@@ -17,19 +17,21 @@ class VMManagedSceneHost extends VMManagedBox<SceneHost> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['dispose'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.dispose();
       return [];
     });
-    table['setProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['setProperties'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.setProperties(
-          args[1]?.toDouble(),
-          args[2]?.toDouble(),
-          args[3]?.toDouble(),
-          args[4]?.toDouble(),
-          args[5]?.toDouble(),
-          args[6]?.toDouble(),
-          args[7]);
+          luaCallerArguments[1]?.toDouble(),
+          luaCallerArguments[2]?.toDouble(),
+          luaCallerArguments[3]?.toDouble(),
+          luaCallerArguments[4]?.toDouble(),
+          luaCallerArguments[5]?.toDouble(),
+          luaCallerArguments[6]?.toDouble(),
+          luaCallerArguments[7]);
       return [];
     });
   }
@@ -52,22 +54,24 @@ class RTManagedSceneHost extends SceneHost implements Box<SceneHost> {
           viewStateChangedCallback,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_dispose'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.dispose();
       return [];
     });
-    table['_dart_setProperties'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_setProperties'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.setProperties(
-          args[1]?.toDouble(),
-          args[2]?.toDouble(),
-          args[3]?.toDouble(),
-          args[4]?.toDouble(),
-          args[5]?.toDouble(),
-          args[6]?.toDouble(),
-          args[7]);
+          luaCallerArguments[1]?.toDouble(),
+          luaCallerArguments[2]?.toDouble(),
+          luaCallerArguments[3]?.toDouble(),
+          luaCallerArguments[4]?.toDouble(),
+          luaCallerArguments[5]?.toDouble(),
+          luaCallerArguments[6]?.toDouble(),
+          luaCallerArguments[7]);
       return [];
     });
   }
@@ -94,14 +98,15 @@ class RTManagedSceneHost extends SceneHost implements Box<SceneHost> {
 
 void loadSceneHost(
     {required HydroState hydroState, required HydroTable table}) {
-  table['sceneHost'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['sceneHost'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedSceneHost(
-          args[1],
+          luaCallerArguments[1],
           viewConnectedCallback != null
               ? () => viewConnectedCallback.dispatch(
                     [
-                      args[0],
+                      luaCallerArguments[0],
                     ],
                     parentState: hydroState,
                   )
@@ -109,7 +114,7 @@ void loadSceneHost(
           viewDisconnectedCallback != null
               ? () => viewDisconnectedCallback.dispatch(
                     [
-                      args[0],
+                      luaCallerArguments[0],
                     ],
                     parentState: hydroState,
                   )
@@ -117,12 +122,12 @@ void loadSceneHost(
           viewStateChangedCallback != null
               ? () => viewStateChangedCallback.dispatch(
                     [
-                      args[0],
+                      luaCallerArguments[0],
                     ],
                     parentState: hydroState,
                   )
               : null,
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState)
     ];
   });

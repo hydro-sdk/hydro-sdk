@@ -19,10 +19,12 @@ class VMManagedFontFeature extends VMManagedBox<FontFeature> {
         ) {
     table['feature'] = vmObject.feature;
     table['value'] = vmObject.value;
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -42,15 +44,17 @@ class RTManagedFontFeature extends FontFeature implements Box<FontFeature> {
           value,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['feature'] = feature;
     table['value'] = value;
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -76,29 +80,33 @@ class RTManagedFontFeature extends FontFeature implements Box<FontFeature> {
 
 void loadFontFeature(
     {required HydroState hydroState, required HydroTable table}) {
-  table['fontFeature'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontFeature'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      RTManagedFontFeature(args[1], args[2],
-          table: args[0], hydroState: hydroState)
+      RTManagedFontFeature(luaCallerArguments[1], luaCallerArguments[2],
+          table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  table['fontFeatureEnable'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontFeatureEnable'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontFeature>(
-          object: FontFeature.enable(args[1]),
+          object: FontFeature.enable(luaCallerArguments[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['fontFeatureDisable'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontFeatureDisable'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontFeature>(
-          object: FontFeature.disable(args[1]),
+          object: FontFeature.disable(luaCallerArguments[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['fontFeatureRandomize'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontFeatureRandomize'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontFeature>(
           object: FontFeature.randomize(),
@@ -107,15 +115,16 @@ void loadFontFeature(
     ];
   });
   table['fontFeatureStylisticSet'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontFeature>(
-          object: FontFeature.stylisticSet(args[1]),
+          object: FontFeature.stylisticSet(luaCallerArguments[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['fontFeatureSlashedZero'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['fontFeatureSlashedZero'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontFeature>(
           object: FontFeature.slashedZero(),
@@ -124,7 +133,7 @@ void loadFontFeature(
     ];
   });
   table['fontFeatureOldstyleFigures'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontFeature>(
           object: FontFeature.oldstyleFigures(),
@@ -133,7 +142,7 @@ void loadFontFeature(
     ];
   });
   table['fontFeatureProportionalFigures'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontFeature>(
           object: FontFeature.proportionalFigures(),
@@ -142,7 +151,7 @@ void loadFontFeature(
     ];
   });
   table['fontFeatureTabularFigures'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FontFeature>(
           object: FontFeature.tabularFigures(),

@@ -18,15 +18,18 @@ class VMManagedScene extends VMManagedBox<Scene> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['toImage'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toImage'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Future>(
-            object: vmObject.toImage(args[1], args[2]),
+            object:
+                vmObject.toImage(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['dispose'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.dispose();
       return [];
     });

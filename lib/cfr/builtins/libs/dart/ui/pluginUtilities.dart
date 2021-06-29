@@ -28,22 +28,22 @@ class VMManagedPluginUtilities extends VMManagedBox<PluginUtilities> {
 void loadPluginUtilities(
     {required HydroState hydroState, required HydroTable table}) {
   table['pluginUtilitiesGetCallbackHandle'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<CallbackHandle?>(
           object: PluginUtilities.getCallbackHandle(
-              maybeUnBoxAndBuildArgument<Function>(args[1],
+              maybeUnBoxAndBuildArgument<Function>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
   table['pluginUtilitiesGetCallbackFromHandle'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Function?>(
           object: PluginUtilities.getCallbackFromHandle(
-              maybeUnBoxAndBuildArgument<CallbackHandle>(args[1],
+              maybeUnBoxAndBuildArgument<CallbackHandle>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())

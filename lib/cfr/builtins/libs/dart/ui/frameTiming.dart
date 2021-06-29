@@ -18,13 +18,14 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
           hydroState: hydroState,
         ) {
     table['timestampInMicroseconds'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.timestampInMicroseconds(
-            maybeUnBoxEnum(values: FramePhase.values, boxedEnum: args[1]))
+        vmObject.timestampInMicroseconds(maybeUnBoxEnum(
+            values: FramePhase.values, boxedEnum: luaCallerArguments[1]))
       ];
     });
-    table['getBuildDuration'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBuildDuration'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Duration>(
             object: vmObject.buildDuration,
@@ -32,7 +33,8 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
             table: HydroTable())
       ];
     });
-    table['getRasterDuration'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getRasterDuration'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Duration>(
             object: vmObject.rasterDuration,
@@ -40,7 +42,8 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
             table: HydroTable())
       ];
     });
-    table['getVsyncOverhead'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getVsyncOverhead'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Duration>(
             object: vmObject.vsyncOverhead,
@@ -48,7 +51,8 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
             table: HydroTable())
       ];
     });
-    table['getTotalSpan'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getTotalSpan'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Duration>(
             object: vmObject.totalSpan,
@@ -56,7 +60,8 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
             table: HydroTable())
       ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -70,17 +75,18 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
 
 void loadFrameTiming(
     {required HydroState hydroState, required HydroTable table}) {
-  table['frameTiming'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['frameTiming'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<FrameTiming>(
           object: FrameTiming(
-              buildFinish: args[1]['buildFinish'],
-              buildStart: args[1]['buildStart'],
-              rasterFinish: args[1]['rasterFinish'],
-              rasterStart: args[1]['rasterStart'],
-              vsyncStart: args[1]['vsyncStart']),
+              buildFinish: luaCallerArguments[1]['buildFinish'],
+              buildStart: luaCallerArguments[1]['buildStart'],
+              rasterFinish: luaCallerArguments[1]['rasterFinish'],
+              rasterStart: luaCallerArguments[1]['rasterStart'],
+              vsyncStart: luaCallerArguments[1]['vsyncStart']),
           hydroState: hydroState,
-          table: args[0])
+          table: luaCallerArguments[0])
     ];
   });
   registerBoxer<FrameTiming>(boxer: (

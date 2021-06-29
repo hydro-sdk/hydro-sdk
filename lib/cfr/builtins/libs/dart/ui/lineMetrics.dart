@@ -26,10 +26,12 @@ class VMManagedLineMetrics extends VMManagedBox<LineMetrics> {
     table['left'] = vmObject.left;
     table['baseline'] = vmObject.baseline;
     table['lineNumber'] = vmObject.lineNumber;
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -65,7 +67,7 @@ class RTManagedLineMetrics extends LineMetrics implements Box<LineMetrics> {
             unscaledAscent: unscaledAscent,
             width: width) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['hardBreak'] = hardBreak;
@@ -77,10 +79,12 @@ class RTManagedLineMetrics extends LineMetrics implements Box<LineMetrics> {
     table['left'] = left;
     table['baseline'] = baseline;
     table['lineNumber'] = lineNumber;
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -106,20 +110,21 @@ class RTManagedLineMetrics extends LineMetrics implements Box<LineMetrics> {
 
 void loadLineMetrics(
     {required HydroState hydroState, required HydroTable table}) {
-  table['lineMetrics'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['lineMetrics'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedLineMetrics(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          ascent: args[1]['ascent']?.toDouble(),
-          baseline: args[1]['baseline']?.toDouble(),
-          descent: args[1]['descent']?.toDouble(),
-          hardBreak: args[1]['hardBreak'],
-          height: args[1]['height']?.toDouble(),
-          left: args[1]['left']?.toDouble(),
-          lineNumber: args[1]['lineNumber'],
-          unscaledAscent: args[1]['unscaledAscent']?.toDouble(),
-          width: args[1]['width']?.toDouble())
+          ascent: luaCallerArguments[1]['ascent']?.toDouble(),
+          baseline: luaCallerArguments[1]['baseline']?.toDouble(),
+          descent: luaCallerArguments[1]['descent']?.toDouble(),
+          hardBreak: luaCallerArguments[1]['hardBreak'],
+          height: luaCallerArguments[1]['height']?.toDouble(),
+          left: luaCallerArguments[1]['left']?.toDouble(),
+          lineNumber: luaCallerArguments[1]['lineNumber'],
+          unscaledAscent: luaCallerArguments[1]['unscaledAscent']?.toDouble(),
+          width: luaCallerArguments[1]['width']?.toDouble())
     ];
   });
   registerBoxer<LineMetrics>(boxer: (

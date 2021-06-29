@@ -37,31 +37,34 @@ class VMManagedViewConfiguration extends VMManagedBox<ViewConfiguration> {
         table: HydroTable());
     table['padding'] = maybeBoxObject<WindowPadding>(
         object: vmObject.padding, hydroState: hydroState, table: HydroTable());
-    table['copyWith'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['copyWith'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<ViewConfiguration>(
             object: vmObject.copyWith(
-                devicePixelRatio: args[1]['devicePixelRatio']?.toDouble(),
-                geometry: maybeUnBoxAndBuildArgument<Rect?>(args[1]['geometry'],
+                devicePixelRatio:
+                    luaCallerArguments[1]['devicePixelRatio']?.toDouble(),
+                geometry: maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[1]['geometry'],
                     parentState: hydroState),
-                padding: maybeUnBoxAndBuildArgument<WindowPadding?>(args[1]['padding'],
+                padding: maybeUnBoxAndBuildArgument<WindowPadding?>(luaCallerArguments[1]['padding'],
                     parentState: hydroState),
                 systemGestureInsets: maybeUnBoxAndBuildArgument<WindowPadding?>(
-                    args[1]['systemGestureInsets'],
+                    luaCallerArguments[1]['systemGestureInsets'],
                     parentState: hydroState),
-                viewInsets: maybeUnBoxAndBuildArgument<WindowPadding?>(args[1]['viewInsets'],
+                viewInsets: maybeUnBoxAndBuildArgument<WindowPadding?>(
+                    luaCallerArguments[1]['viewInsets'],
                     parentState: hydroState),
                 viewPadding: maybeUnBoxAndBuildArgument<WindowPadding?>(
-                    args[1]['viewPadding'],
+                    luaCallerArguments[1]['viewPadding'],
                     parentState: hydroState),
-                visible: args[1]['visible'],
-                window: maybeUnBoxAndBuildArgument<FlutterView?>(args[1]['window'],
-                    parentState: hydroState)),
+                visible: luaCallerArguments[1]['visible'],
+                window: maybeUnBoxAndBuildArgument<FlutterView?>(luaCallerArguments[1]['window'], parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -96,7 +99,7 @@ class RTManagedViewConfiguration extends ViewConfiguration
             visible: visible,
             window: window) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['window'] = maybeBoxObject<FlutterView?>(
@@ -115,31 +118,34 @@ class RTManagedViewConfiguration extends ViewConfiguration
         table: HydroTable());
     table['padding'] = maybeBoxObject<WindowPadding>(
         object: padding, hydroState: hydroState, table: HydroTable());
-    table['_dart_copyWith'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_copyWith'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<ViewConfiguration>(
             object: super.copyWith(
-                devicePixelRatio: args[1]['devicePixelRatio']?.toDouble(),
-                geometry: maybeUnBoxAndBuildArgument<Rect?>(args[1]['geometry'],
+                devicePixelRatio:
+                    luaCallerArguments[1]['devicePixelRatio']?.toDouble(),
+                geometry: maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[1]['geometry'],
                     parentState: hydroState),
-                padding: maybeUnBoxAndBuildArgument<WindowPadding?>(args[1]['padding'],
+                padding: maybeUnBoxAndBuildArgument<WindowPadding?>(luaCallerArguments[1]['padding'],
                     parentState: hydroState),
                 systemGestureInsets: maybeUnBoxAndBuildArgument<WindowPadding?>(
-                    args[1]['systemGestureInsets'],
+                    luaCallerArguments[1]['systemGestureInsets'],
                     parentState: hydroState),
-                viewInsets: maybeUnBoxAndBuildArgument<WindowPadding?>(args[1]['viewInsets'],
+                viewInsets: maybeUnBoxAndBuildArgument<WindowPadding?>(
+                    luaCallerArguments[1]['viewInsets'],
                     parentState: hydroState),
                 viewPadding: maybeUnBoxAndBuildArgument<WindowPadding?>(
-                    args[1]['viewPadding'],
+                    luaCallerArguments[1]['viewPadding'],
                     parentState: hydroState),
-                visible: args[1]['visible'],
-                window: maybeUnBoxAndBuildArgument<FlutterView?>(args[1]['window'],
-                    parentState: hydroState)),
+                visible: luaCallerArguments[1]['visible'],
+                window: maybeUnBoxAndBuildArgument<FlutterView?>(luaCallerArguments[1]['window'], parentState: hydroState)),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -175,27 +181,30 @@ class RTManagedViewConfiguration extends ViewConfiguration
 
 void loadViewConfiguration(
     {required HydroState hydroState, required HydroTable table}) {
-  table['viewConfiguration'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['viewConfiguration'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedViewConfiguration(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          devicePixelRatio: args[1]['devicePixelRatio']?.toDouble(),
-          geometry: maybeUnBoxAndBuildArgument<Rect>(args[1]['geometry'],
+          devicePixelRatio:
+              luaCallerArguments[1]['devicePixelRatio']?.toDouble(),
+          geometry: maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1]['geometry'],
               parentState: hydroState),
-          padding: maybeUnBoxAndBuildArgument<WindowPadding>(args[1]['padding'],
+          padding: maybeUnBoxAndBuildArgument<WindowPadding>(
+              luaCallerArguments[1]['padding'],
               parentState: hydroState),
           systemGestureInsets: maybeUnBoxAndBuildArgument<WindowPadding>(
-              args[1]['systemGestureInsets'],
+              luaCallerArguments[1]['systemGestureInsets'],
               parentState: hydroState),
           viewInsets: maybeUnBoxAndBuildArgument<WindowPadding>(
-              args[1]['viewInsets'],
+              luaCallerArguments[1]['viewInsets'],
               parentState: hydroState),
           viewPadding: maybeUnBoxAndBuildArgument<WindowPadding>(
-              args[1]['viewPadding'],
+              luaCallerArguments[1]['viewPadding'],
               parentState: hydroState),
-          visible: args[1]['visible'],
-          window: maybeUnBoxAndBuildArgument<FlutterView?>(args[1]['window'],
+          visible: luaCallerArguments[1]['visible'],
+          window: maybeUnBoxAndBuildArgument<FlutterView?>(luaCallerArguments[1]['window'],
               parentState: hydroState))
     ];
   });

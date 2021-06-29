@@ -21,7 +21,8 @@ class VMManagedWindowPadding extends VMManagedBox<WindowPadding> {
     table['top'] = vmObject.top;
     table['right'] = vmObject.right;
     table['bottom'] = vmObject.bottom;
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -35,7 +36,8 @@ class VMManagedWindowPadding extends VMManagedBox<WindowPadding> {
 
 void loadWindowPadding(
     {required HydroState hydroState, required HydroTable table}) {
-  table['windowPaddingZero'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['windowPaddingZero'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<WindowPadding>(
           object: WindowPadding.zero,

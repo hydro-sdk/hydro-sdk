@@ -17,7 +17,8 @@ class VMManagedPathMetricIterator extends VMManagedBox<PathMetricIterator> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getCurrent'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getCurrent'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<PathMetric>(
             object: vmObject.current,
@@ -25,13 +26,16 @@ class VMManagedPathMetricIterator extends VMManagedBox<PathMetricIterator> {
             table: HydroTable())
       ];
     });
-    table['moveNext'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['moveNext'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.moveNext()];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
   }

@@ -18,20 +18,23 @@ class VMManagedPicture extends VMManagedBox<Picture> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['toImage'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toImage'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Future>(
-            object: vmObject.toImage(args[1], args[2]),
+            object:
+                vmObject.toImage(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
-    table['dispose'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.dispose();
       return [];
     });
     table['getApproximateBytesUsed'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.approximateBytesUsed];
     });
   }

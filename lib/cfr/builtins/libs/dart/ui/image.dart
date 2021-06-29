@@ -19,32 +19,37 @@ class VMManagedImage extends VMManagedBox<Image> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getWidth'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getWidth'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.width];
     });
-    table['getHeight'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHeight'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.height];
     });
-    table['dispose'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.dispose();
       return [];
     });
-    table['getDebugDisposed'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getDebugDisposed'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.debugDisposed];
     });
-    table['toByteData'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toByteData'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Future>(
             object: vmObject.toByteData(
                 format: maybeUnBoxEnum(
                     values: ImageByteFormat.values,
-                    boxedEnum: args[1]['format'])),
+                    boxedEnum: luaCallerArguments[1]['format'])),
             hydroState: hydroState,
             table: HydroTable())
       ];
     });
     table['debugGetOpenHandleStackTraces'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject
@@ -56,7 +61,7 @@ class VMManagedImage extends VMManagedBox<Image> {
             table: HydroTable())
       ];
     });
-    table['clone'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['clone'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Image>(
             object: vmObject.clone(),
@@ -64,13 +69,16 @@ class VMManagedImage extends VMManagedBox<Image> {
             table: HydroTable())
       ];
     });
-    table['isCloneOf'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['isCloneOf'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
-        vmObject.isCloneOf(
-            maybeUnBoxAndBuildArgument<Image>(args[1], parentState: hydroState))
+        vmObject.isCloneOf(maybeUnBoxAndBuildArgument<Image>(
+            luaCallerArguments[1],
+            parentState: hydroState))
       ];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }

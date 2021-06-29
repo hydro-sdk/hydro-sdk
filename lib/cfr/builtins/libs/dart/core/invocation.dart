@@ -16,7 +16,8 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getMemberName'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getMemberName'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Symbol>(
             object: vmObject.memberName,
@@ -24,7 +25,8 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
             table: HydroTable())
       ];
     });
-    table['getTypeArguments'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getTypeArguments'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject.typeArguments
@@ -36,7 +38,7 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
       ];
     });
     table['getPositionalArguments'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<List<dynamic>>(
             object: vmObject.positionalArguments,
@@ -44,7 +46,8 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
             table: HydroTable())
       ];
     });
-    table['getNamedArguments'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getNamedArguments'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Map>(
             object: vmObject.namedArguments,
@@ -52,16 +55,20 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
             table: HydroTable())
       ];
     });
-    table['getIsMethod'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsMethod'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isMethod];
     });
-    table['getIsGetter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsGetter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isGetter];
     });
-    table['getIsSetter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsSetter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isSetter];
     });
-    table['getIsAccessor'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getIsAccessor'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.isAccessor];
     });
   }
@@ -77,34 +84,39 @@ class RTManagedInvocation extends Invocation implements Box<Invocation> {
   RTManagedInvocation({required this.table, required this.hydroState})
       : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_getMemberName'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getMemberName'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [memberName];
     });
     table['_dart_getTypeArguments'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.typeArguments];
     });
     table['_dart_getPositionalArguments'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [positionalArguments];
     });
     table['_dart_getNamedArguments'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [namedArguments];
     });
-    table['_dart_getIsMethod'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsMethod'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [isMethod];
     });
-    table['_dart_getIsGetter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsGetter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [isGetter];
     });
-    table['_dart_getIsSetter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsSetter'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [isSetter];
     });
-    table['_dart_getIsAccessor'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getIsAccessor'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.isAccessor];
     });
   }
@@ -174,56 +186,67 @@ class RTManagedInvocation extends Invocation implements Box<Invocation> {
 
 void loadInvocation(
     {required HydroState hydroState, required HydroTable table}) {
-  table['invocation'] = makeLuaDartFunc(func: (List<dynamic> args) {
-    return [RTManagedInvocation(table: args[0], hydroState: hydroState)];
+  table['invocation'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    return [
+      RTManagedInvocation(table: luaCallerArguments[0], hydroState: hydroState)
+    ];
   });
-  table['invocationMethod'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['invocationMethod'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Invocation>(
           object: Invocation.method(
-              maybeUnBoxAndBuildArgument<Symbol>(args[1],
+              maybeUnBoxAndBuildArgument<Symbol>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Object?>?>(args[2],
+              maybeUnBoxAndBuildArgument<Iterable<Object?>?>(
+                  luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?>(args[3],
+              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?>(
+                  luaCallerArguments[3],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
   table['invocationGenericMethod'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Invocation>(
           object: Invocation.genericMethod(
-              maybeUnBoxAndBuildArgument<Symbol>(args[1],
+              maybeUnBoxAndBuildArgument<Symbol>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Type>?>(args[2],
+              maybeUnBoxAndBuildArgument<Iterable<Type>?>(luaCallerArguments[2],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Iterable<Object?>?>(args[3],
+              maybeUnBoxAndBuildArgument<Iterable<Object?>?>(
+                  luaCallerArguments[3],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?>(args[4],
+              maybeUnBoxAndBuildArgument<Map<Symbol, Object?>?>(
+                  luaCallerArguments[4],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['invocationGetter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['invocationGetter'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Invocation>(
-          object: Invocation.getter(maybeUnBoxAndBuildArgument<Symbol>(args[1],
+          object: Invocation.getter(maybeUnBoxAndBuildArgument<Symbol>(
+              luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['invocationSetter'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['invocationSetter'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Invocation>(
           object: Invocation.setter(
-              maybeUnBoxAndBuildArgument<Symbol>(args[1],
+              maybeUnBoxAndBuildArgument<Symbol>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Object?>(args[2],
+              maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())

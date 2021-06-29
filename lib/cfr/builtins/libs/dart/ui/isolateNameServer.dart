@@ -29,31 +29,32 @@ class VMManagedIsolateNameServer extends VMManagedBox<IsolateNameServer> {
 void loadIsolateNameServer(
     {required HydroState hydroState, required HydroTable table}) {
   table['isolateNameServerLookupPortByName'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<SendPort?>(
-          object: IsolateNameServer.lookupPortByName(args[1]),
+          object: IsolateNameServer.lookupPortByName(luaCallerArguments[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
   table['isolateNameServerRegisterPortWithName'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<bool>(
           object: IsolateNameServer.registerPortWithName(
-              maybeUnBoxAndBuildArgument<SendPort>(args[1],
+              maybeUnBoxAndBuildArgument<SendPort>(luaCallerArguments[1],
                   parentState: hydroState),
-              args[2]),
+              luaCallerArguments[2]),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
   table['isolateNameServerRemovePortNameMapping'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<bool>(
-          object: IsolateNameServer.removePortNameMapping(args[1]),
+          object:
+              IsolateNameServer.removePortNameMapping(luaCallerArguments[1]),
           hydroState: hydroState,
           table: HydroTable())
     ];

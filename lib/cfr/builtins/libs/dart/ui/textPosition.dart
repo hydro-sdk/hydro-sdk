@@ -21,10 +21,12 @@ class VMManagedTextPosition extends VMManagedBox<TextPosition> {
     table['affinity'] = TextAffinity.values.indexWhere((x) {
       return x == vmObject.affinity;
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -44,17 +46,19 @@ class RTManagedTextPosition extends TextPosition implements Box<TextPosition> {
       required this.hydroState})
       : super(affinity: affinity, offset: offset) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['offset'] = offset;
     table['affinity'] = TextAffinity.values.indexWhere((x) {
       return x == affinity;
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -80,14 +84,16 @@ class RTManagedTextPosition extends TextPosition implements Box<TextPosition> {
 
 void loadTextPosition(
     {required HydroState hydroState, required HydroTable table}) {
-  table['textPosition'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textPosition'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedTextPosition(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
           affinity: maybeUnBoxEnum(
-              values: TextAffinity.values, boxedEnum: args[1]['affinity']),
-          offset: args[1]['offset'])
+              values: TextAffinity.values,
+              boxedEnum: luaCallerArguments[1]['affinity']),
+          offset: luaCallerArguments[1]['offset'])
     ];
   });
   registerBoxer<TextPosition>(boxer: (

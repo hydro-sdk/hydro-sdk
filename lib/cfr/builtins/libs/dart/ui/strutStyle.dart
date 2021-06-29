@@ -17,7 +17,8 @@ class VMManagedStrutStyle extends VMManagedBox<StrutStyle> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
   }
@@ -51,10 +52,11 @@ class RTManagedStrutStyle extends StrutStyle implements Box<StrutStyle> {
             height: height,
             leading: leading) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
   }
@@ -74,24 +76,26 @@ class RTManagedStrutStyle extends StrutStyle implements Box<StrutStyle> {
 
 void loadStrutStyle(
     {required HydroState hydroState, required HydroTable table}) {
-  table['strutStyle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['strutStyle'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedStrutStyle(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          fontFamily: args[1]['fontFamily'],
+          fontFamily: luaCallerArguments[1]['fontFamily'],
           fontFamilyFallback: maybeUnBoxAndBuildArgument<List<String>?>(
-              args[1]['fontFamilyFallback'],
+              luaCallerArguments[1]['fontFamilyFallback'],
               parentState: hydroState),
-          fontSize: args[1]['fontSize']?.toDouble(),
+          fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
           fontStyle: maybeUnBoxEnum(
-              values: FontStyle.values, boxedEnum: args[1]['fontStyle']),
+              values: FontStyle.values,
+              boxedEnum: luaCallerArguments[1]['fontStyle']),
           fontWeight: maybeUnBoxAndBuildArgument<FontWeight?>(
-              args[1]['fontWeight'],
+              luaCallerArguments[1]['fontWeight'],
               parentState: hydroState),
-          forceStrutHeight: args[1]['forceStrutHeight'],
-          height: args[1]['height']?.toDouble(),
-          leading: args[1]['leading']?.toDouble())
+          forceStrutHeight: luaCallerArguments[1]['forceStrutHeight'],
+          height: luaCallerArguments[1]['height']?.toDouble(),
+          leading: luaCallerArguments[1]['leading']?.toDouble())
     ];
   });
   registerBoxer<StrutStyle>(boxer: (

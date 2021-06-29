@@ -24,7 +24,7 @@ class VMManagedTextBox extends VMManagedBox<TextBox> {
     table['direction'] = TextDirection.values.indexWhere((x) {
       return x == vmObject.direction;
     });
-    table['toRect'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toRect'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Rect>(
             object: vmObject.toRect(),
@@ -32,16 +32,19 @@ class VMManagedTextBox extends VMManagedBox<TextBox> {
             table: HydroTable())
       ];
     });
-    table['getStart'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getStart'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.start];
     });
-    table['getEnd'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getEnd'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.end];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -54,15 +57,18 @@ class VMManagedTextBox extends VMManagedBox<TextBox> {
 }
 
 void loadTextBox({required HydroState hydroState, required HydroTable table}) {
-  table['textBoxFromLTRBD'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textBoxFromLTRBD'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<TextBox>(
           object: TextBox.fromLTRBD(
-              args[1]?.toDouble(),
-              args[2]?.toDouble(),
-              args[3]?.toDouble(),
-              args[4]?.toDouble(),
-              maybeUnBoxEnum(values: TextDirection.values, boxedEnum: args[5])),
+              luaCallerArguments[1]?.toDouble(),
+              luaCallerArguments[2]?.toDouble(),
+              luaCallerArguments[3]?.toDouble(),
+              luaCallerArguments[4]?.toDouble(),
+              maybeUnBoxEnum(
+                  values: TextDirection.values,
+                  boxedEnum: luaCallerArguments[5])),
           hydroState: hydroState,
           table: HydroTable())
     ];

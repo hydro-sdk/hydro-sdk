@@ -19,28 +19,35 @@ class VMManagedAccessibilityFeatures
           hydroState: hydroState,
         ) {
     table['getAccessibleNavigation'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.accessibleNavigation];
     });
-    table['getInvertColors'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getInvertColors'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.invertColors];
     });
-    table['getDisableAnimations'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getDisableAnimations'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.disableAnimations];
     });
-    table['getBoldText'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getBoldText'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.boldText];
     });
-    table['getReduceMotion'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getReduceMotion'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.reduceMotion];
     });
-    table['getHighContrast'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHighContrast'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.highContrast];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
   }

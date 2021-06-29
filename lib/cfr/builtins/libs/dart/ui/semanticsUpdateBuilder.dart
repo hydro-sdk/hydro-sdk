@@ -19,56 +19,58 @@ class VMManagedSemanticsUpdateBuilder
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['updateNode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['updateNode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.updateNode(
           textDirection: maybeUnBoxEnum(
               values: TextDirection.values,
-              boxedEnum: args[1]['textDirection']),
-          actions: args[1]['actions'],
+              boxedEnum: luaCallerArguments[1]['textDirection']),
+          actions: luaCallerArguments[1]['actions'],
           additionalActions: maybeUnBoxAndBuildArgument<Int32List>(
-              args[1]['additionalActions'],
+              luaCallerArguments[1]['additionalActions'],
               parentState: hydroState),
           childrenInHitTestOrder: maybeUnBoxAndBuildArgument<Int32List>(
-              args[1]['childrenInHitTestOrder'],
+              luaCallerArguments[1]['childrenInHitTestOrder'],
               parentState: hydroState),
           childrenInTraversalOrder: maybeUnBoxAndBuildArgument<Int32List>(
-              args[1]['childrenInTraversalOrder'],
+              luaCallerArguments[1]['childrenInTraversalOrder'],
               parentState: hydroState),
-          currentValueLength: args[1]['currentValueLength'],
-          decreasedValue: args[1]['decreasedValue'],
-          elevation: args[1]['elevation']?.toDouble(),
-          flags: args[1]['flags'],
-          hint: args[1]['hint'],
-          id: args[1]['id'],
-          increasedValue: args[1]['increasedValue'],
-          label: args[1]['label'],
-          maxValueLength: args[1]['maxValueLength'],
-          platformViewId: args[1]['platformViewId'],
-          rect: maybeUnBoxAndBuildArgument<Rect>(args[1]['rect'],
+          currentValueLength: luaCallerArguments[1]['currentValueLength'],
+          decreasedValue: luaCallerArguments[1]['decreasedValue'],
+          elevation: luaCallerArguments[1]['elevation']?.toDouble(),
+          flags: luaCallerArguments[1]['flags'],
+          hint: luaCallerArguments[1]['hint'],
+          id: luaCallerArguments[1]['id'],
+          increasedValue: luaCallerArguments[1]['increasedValue'],
+          label: luaCallerArguments[1]['label'],
+          maxValueLength: luaCallerArguments[1]['maxValueLength'],
+          platformViewId: luaCallerArguments[1]['platformViewId'],
+          rect: maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1]['rect'],
               parentState: hydroState),
-          scrollChildren: args[1]['scrollChildren'],
-          scrollExtentMax: args[1]['scrollExtentMax']?.toDouble(),
-          scrollExtentMin: args[1]['scrollExtentMin']?.toDouble(),
-          scrollIndex: args[1]['scrollIndex'],
-          scrollPosition: args[1]['scrollPosition']?.toDouble(),
-          textSelectionBase: args[1]['textSelectionBase'],
-          textSelectionExtent: args[1]['textSelectionExtent'],
-          thickness: args[1]['thickness']?.toDouble(),
+          scrollChildren: luaCallerArguments[1]['scrollChildren'],
+          scrollExtentMax: luaCallerArguments[1]['scrollExtentMax']?.toDouble(),
+          scrollExtentMin: luaCallerArguments[1]['scrollExtentMin']?.toDouble(),
+          scrollIndex: luaCallerArguments[1]['scrollIndex'],
+          scrollPosition: luaCallerArguments[1]['scrollPosition']?.toDouble(),
+          textSelectionBase: luaCallerArguments[1]['textSelectionBase'],
+          textSelectionExtent: luaCallerArguments[1]['textSelectionExtent'],
+          thickness: luaCallerArguments[1]['thickness']?.toDouble(),
           transform: maybeUnBoxAndBuildArgument<Float64List>(
-              args[1]['transform'],
+              luaCallerArguments[1]['transform'],
               parentState: hydroState),
-          value: args[1]['value']);
+          value: luaCallerArguments[1]['value']);
       return [];
     });
-    table['updateCustomAction'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['updateCustomAction'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.updateCustomAction(
-          hint: args[1]['hint'],
-          label: args[1]['label'],
-          overrideId: args[1]['overrideId'],
-          id: args[1]['id']);
+          hint: luaCallerArguments[1]['hint'],
+          label: luaCallerArguments[1]['label'],
+          overrideId: luaCallerArguments[1]['overrideId'],
+          id: luaCallerArguments[1]['id']);
       return [];
     });
-    table['build'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['build'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<SemanticsUpdate>(
             object: vmObject.build(),
@@ -91,60 +93,62 @@ class RTManagedSemanticsUpdateBuilder extends SemanticsUpdateBuilder
       {required this.table, required this.hydroState})
       : super() {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_updateNode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_updateNode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.updateNode(
           textDirection: maybeUnBoxEnum(
               values: TextDirection.values,
-              boxedEnum: args[1]['textDirection']),
-          actions: args[1]['actions'],
+              boxedEnum: luaCallerArguments[1]['textDirection']),
+          actions: luaCallerArguments[1]['actions'],
           additionalActions: maybeUnBoxAndBuildArgument<Int32List>(
-              args[1]['additionalActions'],
+              luaCallerArguments[1]['additionalActions'],
               parentState: hydroState),
           childrenInHitTestOrder: maybeUnBoxAndBuildArgument<Int32List>(
-              args[1]['childrenInHitTestOrder'],
+              luaCallerArguments[1]['childrenInHitTestOrder'],
               parentState: hydroState),
           childrenInTraversalOrder: maybeUnBoxAndBuildArgument<Int32List>(
-              args[1]['childrenInTraversalOrder'],
+              luaCallerArguments[1]['childrenInTraversalOrder'],
               parentState: hydroState),
-          currentValueLength: args[1]['currentValueLength'],
-          decreasedValue: args[1]['decreasedValue'],
-          elevation: args[1]['elevation']?.toDouble(),
-          flags: args[1]['flags'],
-          hint: args[1]['hint'],
-          id: args[1]['id'],
-          increasedValue: args[1]['increasedValue'],
-          label: args[1]['label'],
-          maxValueLength: args[1]['maxValueLength'],
-          platformViewId: args[1]['platformViewId'],
-          rect: maybeUnBoxAndBuildArgument<Rect>(args[1]['rect'],
+          currentValueLength: luaCallerArguments[1]['currentValueLength'],
+          decreasedValue: luaCallerArguments[1]['decreasedValue'],
+          elevation: luaCallerArguments[1]['elevation']?.toDouble(),
+          flags: luaCallerArguments[1]['flags'],
+          hint: luaCallerArguments[1]['hint'],
+          id: luaCallerArguments[1]['id'],
+          increasedValue: luaCallerArguments[1]['increasedValue'],
+          label: luaCallerArguments[1]['label'],
+          maxValueLength: luaCallerArguments[1]['maxValueLength'],
+          platformViewId: luaCallerArguments[1]['platformViewId'],
+          rect: maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1]['rect'],
               parentState: hydroState),
-          scrollChildren: args[1]['scrollChildren'],
-          scrollExtentMax: args[1]['scrollExtentMax']?.toDouble(),
-          scrollExtentMin: args[1]['scrollExtentMin']?.toDouble(),
-          scrollIndex: args[1]['scrollIndex'],
-          scrollPosition: args[1]['scrollPosition']?.toDouble(),
-          textSelectionBase: args[1]['textSelectionBase'],
-          textSelectionExtent: args[1]['textSelectionExtent'],
-          thickness: args[1]['thickness']?.toDouble(),
+          scrollChildren: luaCallerArguments[1]['scrollChildren'],
+          scrollExtentMax: luaCallerArguments[1]['scrollExtentMax']?.toDouble(),
+          scrollExtentMin: luaCallerArguments[1]['scrollExtentMin']?.toDouble(),
+          scrollIndex: luaCallerArguments[1]['scrollIndex'],
+          scrollPosition: luaCallerArguments[1]['scrollPosition']?.toDouble(),
+          textSelectionBase: luaCallerArguments[1]['textSelectionBase'],
+          textSelectionExtent: luaCallerArguments[1]['textSelectionExtent'],
+          thickness: luaCallerArguments[1]['thickness']?.toDouble(),
           transform: maybeUnBoxAndBuildArgument<Float64List>(
-              args[1]['transform'],
+              luaCallerArguments[1]['transform'],
               parentState: hydroState),
-          value: args[1]['value']);
+          value: luaCallerArguments[1]['value']);
       return [];
     });
     table['_dart_updateCustomAction'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       super.updateCustomAction(
-          hint: args[1]['hint'],
-          label: args[1]['label'],
-          overrideId: args[1]['overrideId'],
-          id: args[1]['id']);
+          hint: luaCallerArguments[1]['hint'],
+          label: luaCallerArguments[1]['label'],
+          overrideId: luaCallerArguments[1]['overrideId'],
+          id: luaCallerArguments[1]['id']);
       return [];
     });
-    table['_dart_build'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_build'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<SemanticsUpdate>(
             object: super.build(), hydroState: hydroState, table: HydroTable())
@@ -208,9 +212,11 @@ class RTManagedSemanticsUpdateBuilder extends SemanticsUpdateBuilder
 
 void loadSemanticsUpdateBuilder(
     {required HydroState hydroState, required HydroTable table}) {
-  table['semanticsUpdateBuilder'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['semanticsUpdateBuilder'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      RTManagedSemanticsUpdateBuilder(table: args[0], hydroState: hydroState)
+      RTManagedSemanticsUpdateBuilder(
+          table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
   registerBoxer<SemanticsUpdateBuilder>(boxer: (

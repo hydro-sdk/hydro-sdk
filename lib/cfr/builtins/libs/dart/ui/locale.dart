@@ -18,19 +18,24 @@ class VMManagedLocale extends VMManagedBox<Locale> {
           hydroState: hydroState,
         ) {
     table['scriptCode'] = vmObject.scriptCode;
-    table['getLanguageCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getLanguageCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.languageCode];
     });
-    table['getCountryCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getCountryCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.countryCode];
     });
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
-    table['toLanguageTag'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toLanguageTag'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toLanguageTag()];
     });
   }
@@ -50,24 +55,28 @@ class RTManagedLocale extends Locale implements Box<Locale> {
           _countryCode,
         ) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
     table['scriptCode'] = scriptCode;
     table['_dart_getLanguageCode'] =
-        makeLuaDartFunc(func: (List<dynamic> args) {
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.languageCode];
     });
-    table['_dart_getCountryCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getCountryCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.countryCode];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
-    table['_dart_toLanguageTag'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toLanguageTag'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toLanguageTag()];
     });
   }
@@ -110,18 +119,20 @@ class RTManagedLocale extends Locale implements Box<Locale> {
 }
 
 void loadLocale({required HydroState hydroState, required HydroTable table}) {
-  table['locale'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['locale'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      RTManagedLocale(args[1], args[2], table: args[0], hydroState: hydroState)
+      RTManagedLocale(luaCallerArguments[1], luaCallerArguments[2],
+          table: luaCallerArguments[0], hydroState: hydroState)
     ];
   });
-  table['localeFromSubtags'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['localeFromSubtags'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Locale>(
           object: Locale.fromSubtags(
-              countryCode: args[1]['countryCode'],
-              languageCode: args[1]['languageCode'],
-              scriptCode: args[1]['scriptCode']),
+              countryCode: luaCallerArguments[1]['countryCode'],
+              languageCode: luaCallerArguments[1]['languageCode'],
+              scriptCode: luaCallerArguments[1]['scriptCode']),
           hydroState: hydroState,
           table: HydroTable())
     ];

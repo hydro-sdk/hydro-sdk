@@ -17,10 +17,12 @@ class VMManagedParagraphStyle extends VMManagedBox<ParagraphStyle> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -63,13 +65,15 @@ class RTManagedParagraphStyle extends ParagraphStyle
             textDirection: textDirection,
             textHeightBehavior: textHeightBehavior) {
     table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.hashCode];
     });
-    table['_dart_toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['_dart_toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [super.toString()];
     });
   }
@@ -95,33 +99,37 @@ class RTManagedParagraphStyle extends ParagraphStyle
 
 void loadParagraphStyle(
     {required HydroState hydroState, required HydroTable table}) {
-  table['paragraphStyle'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['paragraphStyle'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedParagraphStyle(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          ellipsis: args[1]['ellipsis'],
-          fontFamily: args[1]['fontFamily'],
-          fontSize: args[1]['fontSize']?.toDouble(),
+          ellipsis: luaCallerArguments[1]['ellipsis'],
+          fontFamily: luaCallerArguments[1]['fontFamily'],
+          fontSize: luaCallerArguments[1]['fontSize']?.toDouble(),
           fontStyle: maybeUnBoxEnum(
-              values: FontStyle.values, boxedEnum: args[1]['fontStyle']),
+              values: FontStyle.values,
+              boxedEnum: luaCallerArguments[1]['fontStyle']),
           fontWeight: maybeUnBoxAndBuildArgument<FontWeight?>(
-              args[1]['fontWeight'],
+              luaCallerArguments[1]['fontWeight'],
               parentState: hydroState),
-          height: args[1]['height']?.toDouble(),
-          locale: maybeUnBoxAndBuildArgument<Locale?>(args[1]['locale'],
+          height: luaCallerArguments[1]['height']?.toDouble(),
+          locale: maybeUnBoxAndBuildArgument<Locale?>(
+              luaCallerArguments[1]['locale'],
               parentState: hydroState),
-          maxLines: args[1]['maxLines'],
+          maxLines: luaCallerArguments[1]['maxLines'],
           strutStyle: maybeUnBoxAndBuildArgument<StrutStyle?>(
-              args[1]['strutStyle'],
+              luaCallerArguments[1]['strutStyle'],
               parentState: hydroState),
           textAlign: maybeUnBoxEnum(
-              values: TextAlign.values, boxedEnum: args[1]['textAlign']),
+              values: TextAlign.values,
+              boxedEnum: luaCallerArguments[1]['textAlign']),
           textDirection: maybeUnBoxEnum(
               values: TextDirection.values,
-              boxedEnum: args[1]['textDirection']),
+              boxedEnum: luaCallerArguments[1]['textDirection']),
           textHeightBehavior: maybeUnBoxAndBuildArgument<TextHeightBehavior?>(
-              args[1]['textHeightBehavior'],
+              luaCallerArguments[1]['textHeightBehavior'],
               parentState: hydroState))
     ];
   });

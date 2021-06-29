@@ -20,7 +20,8 @@ class VMManagedImmutableBuffer extends VMManagedBox<ImmutableBuffer> {
           hydroState: hydroState,
         ) {
     table['length'] = vmObject.length;
-    table['dispose'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['dispose'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.dispose();
       return [];
     });
@@ -36,11 +37,11 @@ class VMManagedImmutableBuffer extends VMManagedBox<ImmutableBuffer> {
 void loadImmutableBuffer(
     {required HydroState hydroState, required HydroTable table}) {
   table['immutableBufferFromUint8List'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Future>(
           object: ImmutableBuffer.fromUint8List(
-              maybeUnBoxAndBuildArgument<Uint8List>(args[1],
+              maybeUnBoxAndBuildArgument<Uint8List>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())

@@ -17,10 +17,12 @@ class VMManagedColorFilter extends VMManagedBox<ColorFilter> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['getHashCode'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.hashCode];
     });
-    table['toString'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table['toString'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [vmObject.toString()];
     });
   }
@@ -34,29 +36,32 @@ class VMManagedColorFilter extends VMManagedBox<ColorFilter> {
 
 void loadColorFilter(
     {required HydroState hydroState, required HydroTable table}) {
-  table['colorFilterMode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['colorFilterMode'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<ColorFilter>(
           object: ColorFilter.mode(
-              maybeUnBoxAndBuildArgument<Color>(args[1],
+              maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxEnum(values: BlendMode.values, boxedEnum: args[2])),
+              maybeUnBoxEnum(
+                  values: BlendMode.values, boxedEnum: luaCallerArguments[2])),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
-  table['colorFilterMatrix'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['colorFilterMatrix'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<ColorFilter>(
           object: ColorFilter.matrix(maybeUnBoxAndBuildArgument<List<double>>(
-              args[1],
+              luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
           table: HydroTable())
     ];
   });
   table['colorFilterLinearToSrgbGamma'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<ColorFilter>(
           object: ColorFilter.linearToSrgbGamma(),
@@ -65,7 +70,7 @@ void loadColorFilter(
     ];
   });
   table['colorFilterSrgbToLinearGamma'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<ColorFilter>(
           object: ColorFilter.srgbToLinearGamma(),
