@@ -1,9 +1,9 @@
 import { IByteData } from "../typed_data/byteData";
 declare const dart: {
     ui: {
-        channelCallbackRecord: (
+        _channelCallbackRecord: (
             this: void,
-            channelCallbackRecord: I_ChannelCallbackRecord,
+            _channelCallbackRecord: I_ChannelCallbackRecord,
             _callback: (
                 data: IByteData | undefined,
                 callback: (data?: IByteData | undefined) => void
@@ -24,7 +24,7 @@ export class _ChannelCallbackRecord {
             callback: (data?: IByteData | undefined) => void
         ) => void
     ) {
-        dart.ui.channelCallbackRecord(this, _callback);
+        dart.ui._channelCallbackRecord(this, _callback);
     }
     private readonly _dart_invoke: (
         dataArg: IByteData | undefined,

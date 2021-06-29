@@ -1,9 +1,9 @@
 import { IByteData } from "../typed_data/byteData";
 declare const dart: {
     ui: {
-        storedMessage: (
+        _storedMessage: (
             this: void,
-            storedMessage: I_StoredMessage,
+            _storedMessage: I_StoredMessage,
             data: IByteData | undefined,
             _callback: (data?: IByteData | undefined) => void
         ) => I_StoredMessage;
@@ -19,7 +19,7 @@ export class _StoredMessage {
         data: IByteData | undefined,
         _callback: (data?: IByteData | undefined) => void
     ) {
-        dart.ui.storedMessage(this, data, _callback);
+        dart.ui._storedMessage(this, data, _callback);
     }
     private readonly _dart_invoke: (dataArg?: IByteData | undefined) => void =
         undefined as any;

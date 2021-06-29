@@ -4,9 +4,9 @@ import { IIterator } from "../core/iterator";
 import { IList } from "../core/list";
 import { ISet } from "../core/set";
 import { IRandom } from "../math/random";
+import { I_TypedIntList } from "./_typedIntList";
 import { IByteBuffer } from "./byteBuffer";
 import { ITypedData } from "./typedData";
-import { I_TypedIntList } from "./typedIntList";
 declare const dart: {
     typed_data: {
         uint32List: (

@@ -1,14 +1,14 @@
 declare const dart: {
     ui: {
-        keepToString: (
+        _keepToString: (
             this: void,
-            keepToString: I_KeepToString
+            _keepToString: I_KeepToString
         ) => I_KeepToString;
     };
 };
 export interface I_KeepToString {}
 export class _KeepToString {
     public constructor() {
-        dart.ui.keepToString(this);
+        dart.ui._keepToString(this);
     }
 }
