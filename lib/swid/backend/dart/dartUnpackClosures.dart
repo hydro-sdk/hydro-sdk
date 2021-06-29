@@ -3,6 +3,7 @@ import 'package:code_builder/code_builder.dart'
 
 import 'package:tuple/tuple.dart';
 
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
@@ -67,7 +68,7 @@ class DartUnpackClosures {
                         str: parameterName,
                       ),
                       "=",
-                      refer("args")
+                      refer("$luaCallerArgumentsParameterName")
                           .index(literalNum(argIndex!))
                           .statement
                           .accept(DartEmitter(
@@ -104,7 +105,7 @@ class DartUnpackClosures {
                         str: parameterName,
                       ),
                       "=",
-                      refer("args")
+                      refer("$luaCallerArgumentsParameterName")
                           .index(literalNum(
                               swidFunctionType.normalParameterNames.length + 1))
                           .index(literalString(parameterName!))

@@ -13,6 +13,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -123,8 +124,11 @@ class DartFunctionSelfBindingInvocation {
                                               )
                                             : x,
                                   ).toDartSource()))
-                                : CodeExpression(Code("")))(refer("args").index(
-                            literalNum(swidFunctionType.normalParameterNames
+                                : CodeExpression(
+                                    Code("")))(refer(
+                                "$luaCallerArgumentsParameterName")
+                            .index(literalNum(swidFunctionType
+                                    .normalParameterNames
                                     .indexWhere((e) => e == x) +
                                 1))))
                         .toList()
@@ -148,7 +152,9 @@ class DartFunctionSelfBindingInvocation {
                                               )
                                             : x,
                                   ).toDartSource()))
-                                : CodeExpression(Code("")))(refer("args")
+                                : CodeExpression(
+                                    Code("")))(refer(
+                                "$luaCallerArgumentsParameterName")
                             .index(literalNum([
                                   ...swidFunctionType.normalParameterNames,
                                   ...swidFunctionType.optionalParameterNames,
@@ -161,7 +167,10 @@ class DartFunctionSelfBindingInvocation {
               Map.fromEntries([
                 ...(emitTableBindingPrefix
                     ? [
-                        MapEntry("table", refer("args").index(literalNum(0))),
+                        MapEntry(
+                            "table",
+                            refer("$luaCallerArgumentsParameterName")
+                                .index(literalNum(0))),
                         MapEntry("hydroState", refer("hydroState"))
                       ]
                     : []),
@@ -178,11 +187,12 @@ class DartFunctionSelfBindingInvocation {
                                               str: x.key,
                                             )
                                           : x.key,
-                                  expression: refer("args")
-                                      .index(literalNum(swidFunctionType
-                                              .normalParameterNames.length +
-                                          1))
-                                      .index(literalString(x.key)))
+                                  expression:
+                                      refer("$luaCallerArgumentsParameterName")
+                                          .index(literalNum(swidFunctionType
+                                                  .normalParameterNames.length +
+                                              1))
+                                          .index(literalString(x.key)))
                               .toDartSource()
                           : ""),
                     ),

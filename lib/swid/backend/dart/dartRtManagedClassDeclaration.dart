@@ -24,6 +24,7 @@ import 'package:tuple/tuple.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBindInstanceField.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartMethodInjectionImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/swidTypeToDartTypeReference.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -169,7 +170,7 @@ class DartRTManagedClassDeclaration {
                         "func": Method((x) => x
                           ..requiredParameters.addAll([
                             Parameter((i) => i
-                              ..name = "args"
+                              ..name = "$luaCallerArgumentsParameterName"
                               ..type = TypeReference(((j) => j
                                 ..symbol = "List"
                                 ..types.add(refer("dynamic")))))

@@ -17,6 +17,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.da
 import 'package:hydro_sdk/swid/backend/dart/dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
+import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
@@ -78,11 +79,11 @@ class DartLoadNamespaceSymbolDeclaration {
                                                     .constructorType!.isFactory
                                                 ? "RTManaged${swidClass.name}"
                                                 : swidClass.name),
-                                        returnValueBoxingTableExpression:
-                                            swidClass.constructorType!.isFactory
-                                                ? refer("args")
-                                                    .index(literalNum(0))
-                                                : null)
+                                        returnValueBoxingTableExpression: swidClass
+                                                .constructorType!.isFactory
+                                            ? refer("$luaCallerArgumentsParameterName")
+                                                .index(literalNum(0))
+                                            : null)
                                     .toDartSource(),
                               ),
                             ],
