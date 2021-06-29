@@ -9,17 +9,18 @@ import 'package:hydro_sdk/cfr/vm/context.dart';
 import 'package:hydro_sdk/cfr/vm/table.dart';
 import 'package:hydro_sdk/hydroState.dart';
 
-class VMManagedTextPosition extends VMManagedBox<TextPosition> {
-  VMManagedTextPosition(
+class VMManagedTextHeightBehavior extends VMManagedBox<TextHeightBehavior> {
+  VMManagedTextHeightBehavior(
       {required this.table, required this.vmObject, required this.hydroState})
       : super(
           table: table,
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table['offset'] = vmObject.offset;
-    table['affinity'] = TextAffinity.values.indexWhere((x) {
-      return x == vmObject.affinity;
+    table['applyHeightToFirstAscent'] = vmObject.applyHeightToFirstAscent;
+    table['applyHeightToLastDescent'] = vmObject.applyHeightToLastDescent;
+    table['encode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [vmObject.encode()];
     });
     table['getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [vmObject.hashCode];
@@ -33,23 +34,27 @@ class VMManagedTextPosition extends VMManagedBox<TextPosition> {
 
   final HydroState hydroState;
 
-  final TextPosition vmObject;
+  final TextHeightBehavior vmObject;
 }
 
-class RTManagedTextPosition extends TextPosition implements Box<TextPosition> {
-  RTManagedTextPosition(
-      {required TextAffinity affinity,
-      required int offset,
+class RTManagedTextHeightBehavior extends TextHeightBehavior
+    implements Box<TextHeightBehavior> {
+  RTManagedTextHeightBehavior(
+      {required bool applyHeightToFirstAscent,
+      required bool applyHeightToLastDescent,
       required this.table,
       required this.hydroState})
-      : super(affinity: affinity, offset: offset) {
+      : super(
+            applyHeightToFirstAscent: applyHeightToFirstAscent,
+            applyHeightToLastDescent: applyHeightToLastDescent) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [unwrap()];
     });
-    table['offset'] = offset;
-    table['affinity'] = TextAffinity.values.indexWhere((x) {
-      return x == affinity;
+    table['applyHeightToFirstAscent'] = applyHeightToFirstAscent;
+    table['applyHeightToLastDescent'] = applyHeightToLastDescent;
+    table['_dart_encode'] = makeLuaDartFunc(func: (List<dynamic> args) {
+      return [super.encode()];
     });
     table['_dart_getHashCode'] = makeLuaDartFunc(func: (List<dynamic> args) {
       return [super.hashCode];
@@ -63,8 +68,14 @@ class RTManagedTextPosition extends TextPosition implements Box<TextPosition> {
 
   final HydroState hydroState;
 
-  TextPosition unwrap() => this;
-  TextPosition get vmObject => this;
+  TextHeightBehavior unwrap() => this;
+  TextHeightBehavior get vmObject => this;
+  @override
+  int encode() {
+    Closure closure = table["encode"];
+    return closure.dispatch([table], parentState: hydroState)[0];
+  }
+
   @override
   int get hashCode {
     Closure closure = table["getHashCode"];
@@ -78,23 +89,31 @@ class RTManagedTextPosition extends TextPosition implements Box<TextPosition> {
   }
 }
 
-void loadTextPosition(
+void loadTextHeightBehavior(
     {required HydroState hydroState, required HydroTable table}) {
-  table['textPosition'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table['textHeightBehavior'] = makeLuaDartFunc(func: (List<dynamic> args) {
     return [
-      RTManagedTextPosition(
+      RTManagedTextHeightBehavior(
           table: args[0],
           hydroState: hydroState,
-          affinity: maybeUnBoxEnum(
-              values: TextAffinity.values, boxedEnum: args[1]['affinity']),
-          offset: args[1]['offset'])
+          applyHeightToFirstAscent: args[1]['applyHeightToFirstAscent'],
+          applyHeightToLastDescent: args[1]['applyHeightToLastDescent'])
     ];
   });
-  registerBoxer<TextPosition>(boxer: (
-      {required TextPosition vmObject,
+  table['textHeightBehaviorFromEncoded'] =
+      makeLuaDartFunc(func: (List<dynamic> args) {
+    return [
+      maybeBoxObject<TextHeightBehavior>(
+          object: TextHeightBehavior.fromEncoded(args[1]),
+          hydroState: hydroState,
+          table: HydroTable())
+    ];
+  });
+  registerBoxer<TextHeightBehavior>(boxer: (
+      {required TextHeightBehavior vmObject,
       required HydroState hydroState,
       required HydroTable table}) {
-    return VMManagedTextPosition(
+    return VMManagedTextHeightBehavior(
         vmObject: vmObject, hydroState: hydroState, table: table);
   });
 }
