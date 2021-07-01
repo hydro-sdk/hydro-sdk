@@ -10,7 +10,6 @@ import 'package:code_builder/code_builder.dart'
         Code;
 
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
-import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/swidTypeFormal.dart';
