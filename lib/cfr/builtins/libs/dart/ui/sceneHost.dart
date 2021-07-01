@@ -100,27 +100,30 @@ void loadSceneHost(
     {required HydroState hydroState, required HydroTable table}) {
   table['sceneHost'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    Closure? unpackedviewConnectedCallback = luaCallerArguments[2];
+    Closure? unpackedviewDisconnectedCallback = luaCallerArguments[3];
+    Closure? unpackedviewStateChangedCallback = luaCallerArguments[4];
     return [
       RTManagedSceneHost(
           luaCallerArguments[1],
-          viewConnectedCallback != null
-              ? () => viewConnectedCallback.dispatch(
+          unpackedviewConnectedCallback != null
+              ? () => unpackedviewConnectedCallback.dispatch(
                     [
                       luaCallerArguments[0],
                     ],
                     parentState: hydroState,
                   )
               : null,
-          viewDisconnectedCallback != null
-              ? () => viewDisconnectedCallback.dispatch(
+          unpackedviewDisconnectedCallback != null
+              ? () => unpackedviewDisconnectedCallback.dispatch(
                     [
                       luaCallerArguments[0],
                     ],
                     parentState: hydroState,
                   )
               : null,
-          viewStateChangedCallback != null
-              ? () => viewStateChangedCallback.dispatch(
+          unpackedviewStateChangedCallback != null
+              ? () => unpackedviewStateChangedCallback.dispatch(
                     [
                       luaCallerArguments[0],
                     ],
