@@ -108,14 +108,13 @@ class DartUnpackClosures {
                       refer("$luaCallerArgumentsParameterName")
                           .index(literalNum(
                               swidFunctionType.normalParameterNames.length + 1))
-                          .index(literalString(parameterName!))
+                          .index(literalString(parameterName))
                           .statement
                           .accept(DartEmitter(
                             useNullSafetySyntax: true,
                           ))
                           .toString(),
-                    ]..removeWhere((x) => x == null))
-                        .join(""),
+                    ]).join(""),
                   ))(
                 parameterName: x.key,
                 parameterType: x.value,
