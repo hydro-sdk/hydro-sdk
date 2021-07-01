@@ -21,9 +21,6 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
           path: prefixPaths.join(p.separator) + p.separator + barrelSpec.path,
           fileName: barrelSpec.name + ".dart",
           ir: [
-            DartIr.fromDartImportStatement(
-                dartImportStatement:
-                    DartImportStatement(path: "package:meta/meta.dart")),
             DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
             DartIr.fromDartImportStatement(
                 dartImportStatement: DartImportStatement(
