@@ -1,9 +1,5 @@
 import 'package:code_builder/code_builder.dart'
-    show
-        refer,
-        literalString,
-        Code,
-        DartEmitter;
+    show refer, literalString, Code, DartEmitter;
 
 import 'package:hydro_sdk/swid/backend/dart/dartMethodBindingImplementation.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
@@ -20,7 +16,6 @@ class DartStaticMethodNamespaceSymbolDeclaration {
     required this.swidClass,
     required this.swidFunctionType,
   });
-
 
   Code toCode() => refer("table")
       .index(
