@@ -96,6 +96,7 @@ class DartRTManagedClassDeclaration {
                               str: x,
                             )
                             ..type = swidTypeToDartTypeReference(
+                              preserveTypeArguments: true,
                               swidType: swidClass
                                   .constructorType!.optionalParameterTypes
                                   .elementAt(
@@ -121,6 +122,7 @@ class DartRTManagedClassDeclaration {
                     .map((x) => Parameter((k) => k
                       ..name = x.key
                       ..type = swidTypeToDartTypeReference(
+                        preserveTypeArguments: true,
                         swidType: x.value,
                       )
                       ..required = x.value.nullabilitySuffix == SwidNullabilitySuffix.none
