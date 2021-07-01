@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/byteBuffer.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/byteData.dart';
 import 'package:hydro_sdk/cfr/builtins/libs/dart/typed_data/endian.dart';
