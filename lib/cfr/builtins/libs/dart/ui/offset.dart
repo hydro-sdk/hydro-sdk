@@ -18,22 +18,32 @@ class VMManagedOffset extends VMManagedBox<Offset> {
           hydroState: hydroState,
         ) {
     table['getDx'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.dx];
+      return [
+        vmObject.dx,
+      ];
     });
     table['getDy'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.dy];
+      return [
+        vmObject.dy,
+      ];
     });
     table['getDistance'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.distance];
+      return [
+        vmObject.distance,
+      ];
     });
     table['getDistanceSquared'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.distanceSquared];
+      return [
+        vmObject.distanceSquared,
+      ];
     });
     table['getDirection'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.direction];
+      return [
+        vmObject.direction,
+      ];
     });
     table['scale'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -41,7 +51,7 @@ class VMManagedOffset extends VMManagedBox<Offset> {
             object: vmObject.scale(luaCallerArguments[1]?.toDouble(),
                 luaCallerArguments[2]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['translate'] =
@@ -51,24 +61,32 @@ class VMManagedOffset extends VMManagedBox<Offset> {
             object: vmObject.translate(luaCallerArguments[1]?.toDouble(),
                 luaCallerArguments[2]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['getIsInfinite'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isInfinite];
+      return [
+        vmObject.isInfinite,
+      ];
     });
     table['getIsFinite'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isFinite];
+      return [
+        vmObject.isFinite,
+      ];
     });
   }
 

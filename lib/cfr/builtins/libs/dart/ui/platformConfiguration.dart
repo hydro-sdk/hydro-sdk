@@ -53,7 +53,7 @@ class VMManagedPlatformConfiguration
                 textScaleFactor:
                     luaCallerArguments[1]['textScaleFactor']?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

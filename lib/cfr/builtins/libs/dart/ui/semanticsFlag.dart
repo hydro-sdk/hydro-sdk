@@ -20,7 +20,9 @@ class VMManagedSemanticsFlag extends VMManagedBox<SemanticsFlag> {
     table['index'] = vmObject.index;
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

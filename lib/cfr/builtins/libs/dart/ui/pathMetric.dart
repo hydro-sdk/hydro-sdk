@@ -22,13 +22,15 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
     table['contourIndex'] = vmObject.contourIndex;
     table['getTangentForOffset'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Tangent?>(
-            object:
-                vmObject.getTangentForOffset(luaCallerArguments[1]?.toDouble()),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue =
+          vmObject.getTangentForOffset(luaCallerArguments[1]?.toDouble());
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Tangent?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['extractPath'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -38,12 +40,14 @@ class VMManagedPathMetric extends VMManagedBox<PathMetric> {
                 luaCallerArguments[2]?.toDouble(),
                 startWithMoveTo: luaCallerArguments[3]['startWithMoveTo']),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

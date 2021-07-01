@@ -20,23 +20,37 @@ class VMManagedLocale extends VMManagedBox<Locale> {
     table['scriptCode'] = vmObject.scriptCode;
     table['getLanguageCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.languageCode];
+      return [
+        vmObject.languageCode,
+      ];
     });
     table['getCountryCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.countryCode];
+      final returnValue = vmObject.countryCode;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
+      return [];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['toLanguageTag'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toLanguageTag()];
+      return [
+        vmObject.toLanguageTag(),
+      ];
     });
   }
 

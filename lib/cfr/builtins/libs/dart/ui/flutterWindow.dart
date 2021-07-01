@@ -27,7 +27,7 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         maybeBoxObject<ViewConfiguration>(
             object: vmObject.viewConfiguration,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['render'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -41,12 +41,14 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         maybeBoxObject<PlatformDispatcher>(
             object: vmObject.platformDispatcher,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getDevicePixelRatio'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.devicePixelRatio];
+      return [
+        vmObject.devicePixelRatio,
+      ];
     });
     table['getPhysicalGeometry'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -54,7 +56,7 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         maybeBoxObject<Rect>(
             object: vmObject.physicalGeometry,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getPhysicalSize'] =
@@ -63,7 +65,7 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         maybeBoxObject<Size>(
             object: vmObject.physicalSize,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getViewInsets'] =
@@ -72,7 +74,7 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         maybeBoxObject<WindowPadding>(
             object: vmObject.viewInsets,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getViewPadding'] =
@@ -81,7 +83,7 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         maybeBoxObject<WindowPadding>(
             object: vmObject.viewPadding,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getSystemGestureInsets'] =
@@ -90,7 +92,7 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         maybeBoxObject<WindowPadding>(
             object: vmObject.systemGestureInsets,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getPadding'] =
@@ -99,16 +101,20 @@ class VMManagedFlutterWindow extends VMManagedBox<FlutterWindow> {
         maybeBoxObject<WindowPadding>(
             object: vmObject.padding,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
   }
 

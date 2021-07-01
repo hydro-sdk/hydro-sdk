@@ -20,7 +20,9 @@ class VMManagedFontWeight extends VMManagedBox<FontWeight> {
     table['index'] = vmObject.index;
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

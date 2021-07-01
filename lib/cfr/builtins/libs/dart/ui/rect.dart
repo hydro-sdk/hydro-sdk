@@ -23,34 +23,46 @@ class VMManagedRect extends VMManagedBox<Rect> {
     table['bottom'] = vmObject.bottom;
     table['getWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.width];
+      return [
+        vmObject.width,
+      ];
     });
     table['getHeight'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.height];
+      return [
+        vmObject.height,
+      ];
     });
     table['getSize'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Size>(
-            object: vmObject.size, hydroState: hydroState, table: HydroTable())
+            object: vmObject.size, hydroState: hydroState, table: HydroTable()),
       ];
     });
     table['getHasNaN'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hasNaN];
+      return [
+        vmObject.hasNaN,
+      ];
     });
     table['getIsInfinite'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isInfinite];
+      return [
+        vmObject.isInfinite,
+      ];
     });
     table['getIsFinite'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isFinite];
+      return [
+        vmObject.isFinite,
+      ];
     });
     table['getIsEmpty'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isEmpty];
+      return [
+        vmObject.isEmpty,
+      ];
     });
     table['shift'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
@@ -59,7 +71,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['translate'] =
@@ -69,7 +81,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
             object: vmObject.translate(luaCallerArguments[1]?.toDouble(),
                 luaCallerArguments[2]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['inflate'] =
@@ -78,7 +90,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Rect>(
             object: vmObject.inflate(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['deflate'] =
@@ -87,7 +99,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Rect>(
             object: vmObject.deflate(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['intersect'] =
@@ -98,7 +110,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['expandToInclude'] =
@@ -109,7 +121,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['overlaps'] =
@@ -117,16 +129,20 @@ class VMManagedRect extends VMManagedBox<Rect> {
       return [
         vmObject.overlaps(maybeUnBoxAndBuildArgument<Rect>(
             luaCallerArguments[1],
-            parentState: hydroState))
+            parentState: hydroState)),
       ];
     });
     table['getShortestSide'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.shortestSide];
+      return [
+        vmObject.shortestSide,
+      ];
     });
     table['getLongestSide'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.longestSide];
+      return [
+        vmObject.longestSide,
+      ];
     });
     table['getTopLeft'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -134,7 +150,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.topLeft,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getTopCenter'] =
@@ -143,7 +159,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.topCenter,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getTopRight'] =
@@ -152,7 +168,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.topRight,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getCenterLeft'] =
@@ -161,7 +177,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.centerLeft,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getCenter'] =
@@ -170,7 +186,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.center,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getCenterRight'] =
@@ -179,7 +195,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.centerRight,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getBottomLeft'] =
@@ -188,7 +204,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.bottomLeft,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getBottomCenter'] =
@@ -197,7 +213,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.bottomCenter,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getBottomRight'] =
@@ -206,7 +222,7 @@ class VMManagedRect extends VMManagedBox<Rect> {
         maybeBoxObject<Offset>(
             object: vmObject.bottomRight,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['contains'] =
@@ -214,16 +230,20 @@ class VMManagedRect extends VMManagedBox<Rect> {
       return [
         vmObject.contains(maybeUnBoxAndBuildArgument<Offset>(
             luaCallerArguments[1],
-            parentState: hydroState))
+            parentState: hydroState)),
       ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

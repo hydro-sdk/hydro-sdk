@@ -25,7 +25,7 @@ class VMManagedScene extends VMManagedBox<Scene> {
             object:
                 vmObject.toImage(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['dispose'] =

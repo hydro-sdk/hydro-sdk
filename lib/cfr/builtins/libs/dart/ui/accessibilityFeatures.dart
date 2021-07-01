@@ -20,35 +20,51 @@ class VMManagedAccessibilityFeatures
         ) {
     table['getAccessibleNavigation'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.accessibleNavigation];
+      return [
+        vmObject.accessibleNavigation,
+      ];
     });
     table['getInvertColors'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.invertColors];
+      return [
+        vmObject.invertColors,
+      ];
     });
     table['getDisableAnimations'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.disableAnimations];
+      return [
+        vmObject.disableAnimations,
+      ];
     });
     table['getBoldText'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.boldText];
+      return [
+        vmObject.boldText,
+      ];
     });
     table['getReduceMotion'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.reduceMotion];
+      return [
+        vmObject.reduceMotion,
+      ];
     });
     table['getHighContrast'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.highContrast];
+      return [
+        vmObject.highContrast,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
   }
 

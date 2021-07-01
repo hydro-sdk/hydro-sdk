@@ -20,11 +20,15 @@ class VMManagedCodec extends VMManagedBox<Codec> {
         ) {
     table['getFrameCount'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.frameCount];
+      return [
+        vmObject.frameCount,
+      ];
     });
     table['getRepetitionCount'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.repetitionCount];
+      return [
+        vmObject.repetitionCount,
+      ];
     });
     table['getNextFrame'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -32,7 +36,7 @@ class VMManagedCodec extends VMManagedBox<Codec> {
         maybeBoxObject<Future>(
             object: vmObject.getNextFrame(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['dispose'] =

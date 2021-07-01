@@ -24,7 +24,9 @@ class VMManagedShadow extends VMManagedBox<Shadow> {
     table['blurRadius'] = vmObject.blurRadius;
     table['getBlurSigma'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.blurSigma];
+      return [
+        vmObject.blurSigma,
+      ];
     });
     table['toPaint'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -32,7 +34,7 @@ class VMManagedShadow extends VMManagedBox<Shadow> {
         maybeBoxObject<Paint>(
             object: vmObject.toPaint(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['scale'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -40,16 +42,20 @@ class VMManagedShadow extends VMManagedBox<Shadow> {
         maybeBoxObject<Shadow>(
             object: vmObject.scale(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

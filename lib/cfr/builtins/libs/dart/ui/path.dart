@@ -23,7 +23,7 @@ class VMManagedPath extends VMManagedBox<Path> {
       return [
         PathFillType.values.indexWhere((x) {
           return x == vmObject.fillType;
-        })
+        }),
       ];
     });
     table['setFillType'] =
@@ -220,7 +220,7 @@ class VMManagedPath extends VMManagedBox<Path> {
       return [
         vmObject.contains(maybeUnBoxAndBuildArgument<Offset>(
             luaCallerArguments[1],
-            parentState: hydroState))
+            parentState: hydroState)),
       ];
     });
     table['shift'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -230,7 +230,7 @@ class VMManagedPath extends VMManagedBox<Path> {
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['transform'] =
@@ -241,7 +241,7 @@ class VMManagedPath extends VMManagedBox<Path> {
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getBounds'] =
@@ -250,7 +250,7 @@ class VMManagedPath extends VMManagedBox<Path> {
         maybeBoxObject<Rect>(
             object: vmObject.getBounds(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['computeMetrics'] =
@@ -260,7 +260,7 @@ class VMManagedPath extends VMManagedBox<Path> {
             object: vmObject.computeMetrics(
                 forceClosed: luaCallerArguments[1]['forceClosed']),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

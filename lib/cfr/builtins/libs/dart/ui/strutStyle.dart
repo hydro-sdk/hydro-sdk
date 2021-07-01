@@ -19,7 +19,9 @@ class VMManagedStrutStyle extends VMManagedBox<StrutStyle> {
         ) {
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
   }
 

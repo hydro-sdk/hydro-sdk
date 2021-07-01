@@ -18,20 +18,30 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
           hydroState: hydroState,
         ) {
     table['getX'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.x];
+      return [
+        vmObject.x,
+      ];
     });
     table['getY'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.y];
+      return [
+        vmObject.y,
+      ];
     });
     table['getZ'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.z];
+      return [
+        vmObject.z,
+      ];
     });
     table['getW'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.w];
+      return [
+        vmObject.w,
+      ];
     });
     table['getSignMask'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.signMask];
+      return [
+        vmObject.signMask,
+      ];
     });
     table['shuffle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -39,7 +49,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.shuffle(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['shuffleMix'] =
@@ -51,7 +61,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
                     parentState: hydroState),
                 luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withX'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -59,7 +69,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.withX(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withY'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -67,7 +77,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.withY(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withZ'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -75,7 +85,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.withZ(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withW'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -83,24 +93,32 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.withW(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getFlagX'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.flagX];
+      return [
+        vmObject.flagX,
+      ];
     });
     table['getFlagY'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.flagY];
+      return [
+        vmObject.flagY,
+      ];
     });
     table['getFlagZ'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.flagZ];
+      return [
+        vmObject.flagZ,
+      ];
     });
     table['getFlagW'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.flagW];
+      return [
+        vmObject.flagW,
+      ];
     });
     table['withFlagX'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -108,7 +126,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.withFlagX(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withFlagY'] =
@@ -117,7 +135,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.withFlagY(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withFlagZ'] =
@@ -126,7 +144,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.withFlagZ(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withFlagW'] =
@@ -135,7 +153,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
         maybeBoxObject<Int32x4>(
             object: vmObject.withFlagW(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['select'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -147,7 +165,7 @@ class VMManagedInt32x4 extends VMManagedBox<Int32x4> {
                 maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[2],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

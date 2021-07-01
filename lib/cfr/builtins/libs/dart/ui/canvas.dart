@@ -38,7 +38,9 @@ class VMManagedCanvas extends VMManagedBox<Canvas> {
     });
     table['getSaveCount'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.getSaveCount()];
+      return [
+        vmObject.getSaveCount(),
+      ];
     });
     table['translate'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {

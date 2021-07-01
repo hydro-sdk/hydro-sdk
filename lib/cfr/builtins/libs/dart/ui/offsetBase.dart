@@ -19,19 +19,27 @@ class VMManagedOffsetBase extends VMManagedBox<OffsetBase> {
         ) {
     table['getIsInfinite'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isInfinite];
+      return [
+        vmObject.isInfinite,
+      ];
     });
     table['getIsFinite'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isFinite];
+      return [
+        vmObject.isFinite,
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

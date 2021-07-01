@@ -19,35 +19,51 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
         ) {
     table['getWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.width];
+      return [
+        vmObject.width,
+      ];
     });
     table['getHeight'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.height];
+      return [
+        vmObject.height,
+      ];
     });
     table['getLongestLine'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.longestLine];
+      return [
+        vmObject.longestLine,
+      ];
     });
     table['getMinIntrinsicWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.minIntrinsicWidth];
+      return [
+        vmObject.minIntrinsicWidth,
+      ];
     });
     table['getMaxIntrinsicWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.maxIntrinsicWidth];
+      return [
+        vmObject.maxIntrinsicWidth,
+      ];
     });
     table['getAlphabeticBaseline'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.alphabeticBaseline];
+      return [
+        vmObject.alphabeticBaseline,
+      ];
     });
     table['getIdeographicBaseline'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.ideographicBaseline];
+      return [
+        vmObject.ideographicBaseline,
+      ];
     });
     table['getDidExceedMaxLines'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.didExceedMaxLines];
+      return [
+        vmObject.didExceedMaxLines,
+      ];
     });
     table['layout'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.layout(maybeUnBoxAndBuildArgument<ParagraphConstraints>(
@@ -71,7 +87,7 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getBoxesForPlaceholders'] =
@@ -84,7 +100,7 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getPositionForOffset'] =
@@ -95,7 +111,7 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
                 maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getWordBoundary'] =
@@ -106,7 +122,7 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
                 maybeUnBoxAndBuildArgument<TextPosition>(luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getLineBoundary'] =
@@ -117,7 +133,7 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
                 maybeUnBoxAndBuildArgument<TextPosition>(luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['computeLineMetrics'] =
@@ -130,7 +146,7 @@ class VMManagedParagraph extends VMManagedBox<Paragraph> {
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

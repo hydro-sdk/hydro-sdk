@@ -24,11 +24,17 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
         maybeBoxObject<PlatformConfiguration>(
             object: vmObject.configuration,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getOnPlatformConfigurationChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onPlatformConfigurationChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnPlatformConfigurationChanged'] =
@@ -48,11 +54,19 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.views, hydroState: hydroState, table: HydroTable())
+            object: vmObject.views,
+            hydroState: hydroState,
+            table: HydroTable()),
       ];
     });
     table['getOnMetricsChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onMetricsChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnMetricsChanged'] =
@@ -70,6 +84,12 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getOnBeginFrame'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onBeginFrame;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnBeginFrame'] =
@@ -85,6 +105,12 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getOnDrawFrame'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onDrawFrame;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnDrawFrame'] =
@@ -102,6 +128,12 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getOnPointerDataPacket'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onPointerDataPacket;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnPointerDataPacket'] =
@@ -117,6 +149,12 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getOnReportTimings'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onReportTimings;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnReportTimings'] =
@@ -147,6 +185,12 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getOnPlatformMessage'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onPlatformMessage;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnPlatformMessage'] =
@@ -167,12 +211,14 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getPersistentIsolateData'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ByteData?>(
-            object: vmObject.getPersistentIsolateData(),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.getPersistentIsolateData();
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ByteData?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['scheduleFrame'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -185,11 +231,17 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
         maybeBoxObject<AccessibilityFeatures>(
             object: vmObject.accessibilityFeatures,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getOnAccessibilityFeaturesChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onAccessibilityFeaturesChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnAccessibilityFeaturesChanged'] =
@@ -218,7 +270,7 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
         maybeBoxObject<Locale>(
             object: vmObject.locale,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getLocales'] =
@@ -230,22 +282,30 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['computePlatformResolvedLocale'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Locale?>(
-            object: vmObject.computePlatformResolvedLocale(
-                maybeUnBoxAndBuildArgument<List<Locale>>(luaCallerArguments[1],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.computePlatformResolvedLocale(
+          maybeUnBoxAndBuildArgument<List<Locale>>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Locale?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['getOnLocaleChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onLocaleChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnLocaleChanged'] =
@@ -263,18 +323,30 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getInitialLifecycleState'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.initialLifecycleState];
+      return [
+        vmObject.initialLifecycleState,
+      ];
     });
     table['getAlwaysUse24HourFormat'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.alwaysUse24HourFormat];
+      return [
+        vmObject.alwaysUse24HourFormat,
+      ];
     });
     table['getTextScaleFactor'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.textScaleFactor];
+      return [
+        vmObject.textScaleFactor,
+      ];
     });
     table['getOnTextScaleFactorChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onTextScaleFactorChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnTextScaleFactorChanged'] =
@@ -295,11 +367,17 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
       return [
         Brightness.values.indexWhere((x) {
           return x == vmObject.platformBrightness;
-        })
+        }),
       ];
     });
     table['getOnPlatformBrightnessChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onPlatformBrightnessChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnPlatformBrightnessChanged'] =
@@ -317,10 +395,18 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getSemanticsEnabled'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.semanticsEnabled];
+      return [
+        vmObject.semanticsEnabled,
+      ];
     });
     table['getOnSemanticsEnabledChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onSemanticsEnabledChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnSemanticsEnabledChanged'] =
@@ -338,6 +424,12 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getOnSemanticsAction'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onSemanticsAction;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnSemanticsAction'] =
@@ -353,7 +445,9 @@ class VMManagedPlatformDispatcher extends VMManagedBox<PlatformDispatcher> {
     });
     table['getDefaultRouteName'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.defaultRouteName];
+      return [
+        vmObject.defaultRouteName,
+      ];
     });
   }
 

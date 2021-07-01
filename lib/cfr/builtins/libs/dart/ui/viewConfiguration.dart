@@ -60,12 +60,14 @@ class VMManagedViewConfiguration extends VMManagedBox<ViewConfiguration> {
                 visible: luaCallerArguments[1]['visible'],
                 window: maybeUnBoxAndBuildArgument<FlutterView?>(luaCallerArguments[1]['window'], parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

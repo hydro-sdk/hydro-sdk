@@ -19,15 +19,21 @@ class VMManagedTypedData extends VMManagedBox<TypedData> {
         ) {
     table['getElementSizeInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.elementSizeInBytes];
+      return [
+        vmObject.elementSizeInBytes,
+      ];
     });
     table['getOffsetInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.offsetInBytes];
+      return [
+        vmObject.offsetInBytes,
+      ];
     });
     table['getLengthInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.lengthInBytes];
+      return [
+        vmObject.lengthInBytes,
+      ];
     });
     table['getBuffer'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -35,7 +41,7 @@ class VMManagedTypedData extends VMManagedBox<TypedData> {
         maybeBoxObject<ByteBuffer>(
             object: vmObject.buffer,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

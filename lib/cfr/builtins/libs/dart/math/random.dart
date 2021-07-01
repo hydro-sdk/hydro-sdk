@@ -19,15 +19,21 @@ class VMManagedRandom extends VMManagedBox<Random> {
         ) {
     table['nextInt'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.nextInt(luaCallerArguments[1])];
+      return [
+        vmObject.nextInt(luaCallerArguments[1]),
+      ];
     });
     table['nextDouble'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.nextDouble()];
+      return [
+        vmObject.nextDouble(),
+      ];
     });
     table['nextBool'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.nextBool()];
+      return [
+        vmObject.nextBool(),
+      ];
     });
   }
 

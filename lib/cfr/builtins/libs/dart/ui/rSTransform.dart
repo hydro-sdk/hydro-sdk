@@ -19,17 +19,25 @@ class VMManagedRSTransform extends VMManagedBox<RSTransform> {
         ) {
     table['getScos'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.scos];
+      return [
+        vmObject.scos,
+      ];
     });
     table['getSsin'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.ssin];
+      return [
+        vmObject.ssin,
+      ];
     });
     table['getTx'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.tx];
+      return [
+        vmObject.tx,
+      ];
     });
     table['getTy'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.ty];
+      return [
+        vmObject.ty,
+      ];
     });
   }
 

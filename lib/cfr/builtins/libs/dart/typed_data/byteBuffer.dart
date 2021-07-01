@@ -19,7 +19,9 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
         ) {
     table['getLengthInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.lengthInBytes];
+      return [
+        vmObject.lengthInBytes,
+      ];
     });
     table['asUint8List'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -28,7 +30,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asUint8List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asInt8List'] =
@@ -38,7 +40,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asInt8List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asUint8ClampedList'] =
@@ -48,7 +50,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asUint8ClampedList(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asUint16List'] =
@@ -58,7 +60,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asUint16List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asInt16List'] =
@@ -68,7 +70,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asInt16List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asUint32List'] =
@@ -78,7 +80,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asUint32List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asInt32List'] =
@@ -88,7 +90,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asInt32List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asUint64List'] =
@@ -98,7 +100,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asUint64List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asInt64List'] =
@@ -108,7 +110,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asInt64List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asInt32x4List'] =
@@ -118,7 +120,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asInt32x4List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asFloat32List'] =
@@ -128,7 +130,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asFloat32List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asFloat64List'] =
@@ -138,7 +140,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asFloat64List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asFloat32x4List'] =
@@ -148,7 +150,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asFloat32x4List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asFloat64x2List'] =
@@ -158,7 +160,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asFloat64x2List(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['asByteData'] =
@@ -168,7 +170,7 @@ class VMManagedByteBuffer extends VMManagedBox<ByteBuffer> {
             object: vmObject.asByteData(
                 luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

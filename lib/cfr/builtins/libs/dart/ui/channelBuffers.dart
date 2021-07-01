@@ -60,7 +60,7 @@ class VMManagedChannelBuffers extends VMManagedBox<ChannelBuffers> {
                     )[0],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['handleMessage'] =

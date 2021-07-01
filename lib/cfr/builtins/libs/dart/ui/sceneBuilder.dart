@@ -20,182 +20,202 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
         ) {
     table['pushTransform'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<TransformEngineLayer?>(
-            object: vmObject.pushTransform(
-                maybeUnBoxAndBuildArgument<Float64List>(luaCallerArguments[1],
-                    parentState: hydroState),
-                oldLayer: maybeUnBoxAndBuildArgument<TransformEngineLayer?>(
-                    luaCallerArguments[2]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushTransform(
+          maybeUnBoxAndBuildArgument<Float64List>(luaCallerArguments[1],
+              parentState: hydroState),
+          oldLayer: maybeUnBoxAndBuildArgument<TransformEngineLayer?>(
+              luaCallerArguments[2]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<TransformEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushOffset'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<OffsetEngineLayer?>(
-            object: vmObject.pushOffset(luaCallerArguments[1]?.toDouble(),
-                luaCallerArguments[2]?.toDouble(),
-                oldLayer: maybeUnBoxAndBuildArgument<OffsetEngineLayer?>(
-                    luaCallerArguments[3]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushOffset(
+          luaCallerArguments[1]?.toDouble(), luaCallerArguments[2]?.toDouble(),
+          oldLayer: maybeUnBoxAndBuildArgument<OffsetEngineLayer?>(
+              luaCallerArguments[3]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<OffsetEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushClipRect'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ClipRectEngineLayer?>(
-            object: vmObject.pushClipRect(
-                maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
-                    parentState: hydroState),
-                clipBehavior: maybeUnBoxEnum(
-                    values: Clip.values,
-                    boxedEnum: luaCallerArguments[2]['clipBehavior']),
-                oldLayer: maybeUnBoxAndBuildArgument<ClipRectEngineLayer?>(
-                    luaCallerArguments[2]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushClipRect(
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[1],
+              parentState: hydroState),
+          clipBehavior: maybeUnBoxEnum(
+              values: Clip.values,
+              boxedEnum: luaCallerArguments[2]['clipBehavior']),
+          oldLayer: maybeUnBoxAndBuildArgument<ClipRectEngineLayer?>(
+              luaCallerArguments[2]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ClipRectEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushClipRRect'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ClipRRectEngineLayer?>(
-            object: vmObject.pushClipRRect(
-                maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
-                    parentState: hydroState),
-                clipBehavior: maybeUnBoxEnum(
-                    values: Clip.values,
-                    boxedEnum: luaCallerArguments[2]['clipBehavior']),
-                oldLayer: maybeUnBoxAndBuildArgument<ClipRRectEngineLayer?>(
-                    luaCallerArguments[2]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushClipRRect(
+          maybeUnBoxAndBuildArgument<RRect>(luaCallerArguments[1],
+              parentState: hydroState),
+          clipBehavior: maybeUnBoxEnum(
+              values: Clip.values,
+              boxedEnum: luaCallerArguments[2]['clipBehavior']),
+          oldLayer: maybeUnBoxAndBuildArgument<ClipRRectEngineLayer?>(
+              luaCallerArguments[2]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ClipRRectEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushClipPath'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ClipPathEngineLayer?>(
-            object: vmObject.pushClipPath(
-                maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
-                    parentState: hydroState),
-                clipBehavior: maybeUnBoxEnum(
-                    values: Clip.values,
-                    boxedEnum: luaCallerArguments[2]['clipBehavior']),
-                oldLayer: maybeUnBoxAndBuildArgument<ClipPathEngineLayer?>(
-                    luaCallerArguments[2]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushClipPath(
+          maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1],
+              parentState: hydroState),
+          clipBehavior: maybeUnBoxEnum(
+              values: Clip.values,
+              boxedEnum: luaCallerArguments[2]['clipBehavior']),
+          oldLayer: maybeUnBoxAndBuildArgument<ClipPathEngineLayer?>(
+              luaCallerArguments[2]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ClipPathEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushOpacity'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<OpacityEngineLayer?>(
-            object: vmObject.pushOpacity(luaCallerArguments[1],
-                offset: maybeUnBoxAndBuildArgument<Offset?>(
-                    luaCallerArguments[2]['offset'],
-                    parentState: hydroState),
-                oldLayer: maybeUnBoxAndBuildArgument<OpacityEngineLayer?>(
-                    luaCallerArguments[2]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushOpacity(luaCallerArguments[1],
+          offset: maybeUnBoxAndBuildArgument<Offset?>(
+              luaCallerArguments[2]['offset'],
+              parentState: hydroState),
+          oldLayer: maybeUnBoxAndBuildArgument<OpacityEngineLayer?>(
+              luaCallerArguments[2]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<OpacityEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushColorFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ColorFilterEngineLayer?>(
-            object: vmObject.pushColorFilter(
-                maybeUnBoxAndBuildArgument<ColorFilter>(luaCallerArguments[1],
-                    parentState: hydroState),
-                oldLayer: maybeUnBoxAndBuildArgument<ColorFilterEngineLayer?>(
-                    luaCallerArguments[2]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushColorFilter(
+          maybeUnBoxAndBuildArgument<ColorFilter>(luaCallerArguments[1],
+              parentState: hydroState),
+          oldLayer: maybeUnBoxAndBuildArgument<ColorFilterEngineLayer?>(
+              luaCallerArguments[2]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ColorFilterEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushImageFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ImageFilterEngineLayer?>(
-            object: vmObject.pushImageFilter(
-                maybeUnBoxAndBuildArgument<ImageFilter>(luaCallerArguments[1],
-                    parentState: hydroState),
-                oldLayer: maybeUnBoxAndBuildArgument<ImageFilterEngineLayer?>(
-                    luaCallerArguments[2]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushImageFilter(
+          maybeUnBoxAndBuildArgument<ImageFilter>(luaCallerArguments[1],
+              parentState: hydroState),
+          oldLayer: maybeUnBoxAndBuildArgument<ImageFilterEngineLayer?>(
+              luaCallerArguments[2]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ImageFilterEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushBackdropFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<BackdropFilterEngineLayer?>(
-            object: vmObject.pushBackdropFilter(
-                maybeUnBoxAndBuildArgument<ImageFilter>(luaCallerArguments[1],
-                    parentState: hydroState),
-                oldLayer:
-                    maybeUnBoxAndBuildArgument<BackdropFilterEngineLayer?>(
-                        luaCallerArguments[2]['oldLayer'],
-                        parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushBackdropFilter(
+          maybeUnBoxAndBuildArgument<ImageFilter>(luaCallerArguments[1],
+              parentState: hydroState),
+          oldLayer: maybeUnBoxAndBuildArgument<BackdropFilterEngineLayer?>(
+              luaCallerArguments[2]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<BackdropFilterEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushShaderMask'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ShaderMaskEngineLayer?>(
-            object: vmObject.pushShaderMask(
-                maybeUnBoxAndBuildArgument<Shader>(luaCallerArguments[1],
-                    parentState: hydroState),
-                maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[2],
-                    parentState: hydroState),
-                maybeUnBoxEnum(
-                    values: BlendMode.values, boxedEnum: luaCallerArguments[3]),
-                oldLayer: maybeUnBoxAndBuildArgument<ShaderMaskEngineLayer?>(
-                    luaCallerArguments[4]['oldLayer'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushShaderMask(
+          maybeUnBoxAndBuildArgument<Shader>(luaCallerArguments[1],
+              parentState: hydroState),
+          maybeUnBoxAndBuildArgument<Rect>(luaCallerArguments[2],
+              parentState: hydroState),
+          maybeUnBoxEnum(
+              values: BlendMode.values, boxedEnum: luaCallerArguments[3]),
+          oldLayer: maybeUnBoxAndBuildArgument<ShaderMaskEngineLayer?>(
+              luaCallerArguments[4]['oldLayer'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ShaderMaskEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pushPhysicalShape'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<PhysicalShapeEngineLayer?>(
-            object: vmObject.pushPhysicalShape(
-                clipBehavior: maybeUnBoxEnum(
-                    values: Clip.values,
-                    boxedEnum: luaCallerArguments[1]['clipBehavior']),
-                oldLayer: maybeUnBoxAndBuildArgument<PhysicalShapeEngineLayer?>(
-                    luaCallerArguments[1]['oldLayer'],
-                    parentState: hydroState),
-                shadowColor: maybeUnBoxAndBuildArgument<Color?>(
-                    luaCallerArguments[1]['shadowColor'],
-                    parentState: hydroState),
-                color: maybeUnBoxAndBuildArgument<Color>(
-                    luaCallerArguments[1]['color'],
-                    parentState: hydroState),
-                elevation: luaCallerArguments[1]['elevation']?.toDouble(),
-                path: maybeUnBoxAndBuildArgument<Path>(
-                    luaCallerArguments[1]['path'],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.pushPhysicalShape(
+          clipBehavior: maybeUnBoxEnum(
+              values: Clip.values,
+              boxedEnum: luaCallerArguments[1]['clipBehavior']),
+          oldLayer: maybeUnBoxAndBuildArgument<PhysicalShapeEngineLayer?>(
+              luaCallerArguments[1]['oldLayer'],
+              parentState: hydroState),
+          shadowColor: maybeUnBoxAndBuildArgument<Color?>(
+              luaCallerArguments[1]['shadowColor'],
+              parentState: hydroState),
+          color: maybeUnBoxAndBuildArgument<Color>(
+              luaCallerArguments[1]['color'],
+              parentState: hydroState),
+          elevation: luaCallerArguments[1]['elevation']?.toDouble(),
+          path: maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[1]['path'],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<PhysicalShapeEngineLayer?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['pop'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       vmObject.pop();
@@ -285,7 +305,7 @@ class VMManagedSceneBuilder extends VMManagedBox<SceneBuilder> {
         maybeBoxObject<Scene>(
             object: vmObject.build(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

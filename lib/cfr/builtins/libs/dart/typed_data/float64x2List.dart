@@ -25,7 +25,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
             object:
                 vmObject.sublist(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['cast'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -33,7 +33,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<List<dynamic>>(
             object: vmObject.cast(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['add'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -70,7 +70,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         vmObject.indexOf(
             maybeUnBoxAndBuildArgument<Float64x2>(luaCallerArguments[1],
                 parentState: hydroState),
-            luaCallerArguments[2])
+            luaCallerArguments[2]),
       ];
     });
     table['indexWhere'] =
@@ -82,7 +82,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                   [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
-            luaCallerArguments[2])
+            luaCallerArguments[2]),
       ];
     });
     table['lastIndexWhere'] =
@@ -94,7 +94,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                   [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
-            luaCallerArguments[2])
+            luaCallerArguments[2]),
       ];
     });
     table['lastIndexOf'] =
@@ -103,7 +103,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         vmObject.lastIndexOf(
             maybeUnBoxAndBuildArgument<Float64x2>(luaCallerArguments[1],
                 parentState: hydroState),
-            luaCallerArguments[2])
+            luaCallerArguments[2]),
       ];
     });
     table['clear'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -136,7 +136,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
       return [
         vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(
             luaCallerArguments[1],
-            parentState: hydroState))
+            parentState: hydroState)),
       ];
     });
     table['removeAt'] =
@@ -145,7 +145,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Float64x2>(
             object: vmObject.removeAt(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['removeLast'] =
@@ -154,7 +154,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Float64x2>(
             object: vmObject.removeLast(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['removeWhere'] =
@@ -182,7 +182,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
             object:
                 vmObject.getRange(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['setRange'] =
@@ -223,7 +223,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Map>(
             object: vmObject.asMap(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['setFirst'] =
@@ -242,7 +242,9 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
     });
     table['getLength'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.length];
+      return [
+        vmObject.length,
+      ];
     });
     table['setLength'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -255,7 +257,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Iterable>(
             object: vmObject.reversed,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['followedBy'] =
@@ -267,7 +269,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['map'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -279,7 +281,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['where'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -291,7 +293,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['whereType'] =
@@ -300,7 +302,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Iterable>(
             object: vmObject.whereType(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['expand'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -315,7 +317,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                     )[0],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['contains'] =
@@ -323,7 +325,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
       return [
         vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(
             luaCallerArguments[1],
-            parentState: hydroState))
+            parentState: hydroState)),
       ];
     });
     table['forEach'] =
@@ -347,7 +349,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                     )[0],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['fold'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -358,7 +360,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
             (previousValue, element) => unpackedcombine.dispatch(
                   [luaCallerArguments[0], previousValue, element],
                   parentState: hydroState,
-                )[0])
+                )[0]),
       ];
     });
     table['every'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -367,11 +369,13 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         vmObject.every((element) => unpackedtest.dispatch(
               [luaCallerArguments[0], element],
               parentState: hydroState,
-            )[0])
+            )[0]),
       ];
     });
     table['join'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.join(luaCallerArguments[1])];
+      return [
+        vmObject.join(luaCallerArguments[1]),
+      ];
     });
     table['any'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
@@ -379,7 +383,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         vmObject.any((element) => unpackedtest.dispatch(
               [luaCallerArguments[0], element],
               parentState: hydroState,
-            )[0])
+            )[0]),
       ];
     });
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -391,7 +395,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toSet'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -399,7 +403,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Set>(
             object: vmObject.toSet(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['take'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -407,7 +411,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Iterable>(
             object: vmObject.take(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['takeWhile'] =
@@ -420,7 +424,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['skip'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -428,7 +432,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Iterable>(
             object: vmObject.skip(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['skipWhile'] =
@@ -441,7 +445,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['firstWhere'] =
@@ -466,7 +470,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                         parentState: hydroState)
                     : null),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['lastWhere'] =
@@ -491,7 +495,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                         parentState: hydroState)
                     : null),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['singleWhere'] =
@@ -516,7 +520,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
                         parentState: hydroState)
                     : null),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['elementAt'] =
@@ -525,12 +529,14 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Float64x2>(
             object: vmObject.elementAt(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['getIterator'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -538,29 +544,35 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Iterator>(
             object: vmObject.iterator,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getIsEmpty'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isEmpty];
+      return [
+        vmObject.isEmpty,
+      ];
     });
     table['getIsNotEmpty'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isNotEmpty];
+      return [
+        vmObject.isNotEmpty,
+      ];
     });
     table['getFirst'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.first, hydroState: hydroState, table: HydroTable())
+            object: vmObject.first,
+            hydroState: hydroState,
+            table: HydroTable()),
       ];
     });
     table['getLast'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.last, hydroState: hydroState, table: HydroTable())
+            object: vmObject.last, hydroState: hydroState, table: HydroTable()),
       ];
     });
     table['getSingle'] =
@@ -569,24 +581,32 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<Float64x2>(
             object: vmObject.single,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['getElementSizeInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.elementSizeInBytes];
+      return [
+        vmObject.elementSizeInBytes,
+      ];
     });
     table['getOffsetInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.offsetInBytes];
+      return [
+        vmObject.offsetInBytes,
+      ];
     });
     table['getLengthInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.lengthInBytes];
+      return [
+        vmObject.lengthInBytes,
+      ];
     });
     table['getBuffer'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -594,7 +614,7 @@ class VMManagedFloat64x2List extends VMManagedBox<Float64x2List> {
         maybeBoxObject<ByteBuffer>(
             object: vmObject.buffer,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

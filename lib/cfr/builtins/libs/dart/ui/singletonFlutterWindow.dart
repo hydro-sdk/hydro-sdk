@@ -21,6 +21,12 @@ class VMManagedSingletonFlutterWindow
         ) {
     table['getOnMetricsChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onMetricsChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnMetricsChanged'] =
@@ -42,7 +48,7 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<Locale>(
             object: vmObject.locale,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getLocales'] =
@@ -54,22 +60,30 @@ class VMManagedSingletonFlutterWindow
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['computePlatformResolvedLocale'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Locale?>(
-            object: vmObject.computePlatformResolvedLocale(
-                maybeUnBoxAndBuildArgument<List<Locale>>(luaCallerArguments[1],
-                    parentState: hydroState)),
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.computePlatformResolvedLocale(
+          maybeUnBoxAndBuildArgument<List<Locale>>(luaCallerArguments[1],
+              parentState: hydroState));
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Locale?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['getOnLocaleChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onLocaleChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnLocaleChanged'] =
@@ -87,18 +101,30 @@ class VMManagedSingletonFlutterWindow
     });
     table['getInitialLifecycleState'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.initialLifecycleState];
+      return [
+        vmObject.initialLifecycleState,
+      ];
     });
     table['getTextScaleFactor'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.textScaleFactor];
+      return [
+        vmObject.textScaleFactor,
+      ];
     });
     table['getAlwaysUse24HourFormat'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.alwaysUse24HourFormat];
+      return [
+        vmObject.alwaysUse24HourFormat,
+      ];
     });
     table['getOnTextScaleFactorChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onTextScaleFactorChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnTextScaleFactorChanged'] =
@@ -119,11 +145,17 @@ class VMManagedSingletonFlutterWindow
       return [
         Brightness.values.indexWhere((x) {
           return x == vmObject.platformBrightness;
-        })
+        }),
       ];
     });
     table['getOnPlatformBrightnessChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onPlatformBrightnessChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnPlatformBrightnessChanged'] =
@@ -141,6 +173,12 @@ class VMManagedSingletonFlutterWindow
     });
     table['getOnBeginFrame'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onBeginFrame;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnBeginFrame'] =
@@ -156,6 +194,12 @@ class VMManagedSingletonFlutterWindow
     });
     table['getOnDrawFrame'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onDrawFrame;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnDrawFrame'] =
@@ -173,6 +217,12 @@ class VMManagedSingletonFlutterWindow
     });
     table['getOnReportTimings'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onReportTimings;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnReportTimings'] =
@@ -188,6 +238,12 @@ class VMManagedSingletonFlutterWindow
     });
     table['getOnPointerDataPacket'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onPointerDataPacket;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnPointerDataPacket'] =
@@ -203,7 +259,9 @@ class VMManagedSingletonFlutterWindow
     });
     table['getDefaultRouteName'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.defaultRouteName];
+      return [
+        vmObject.defaultRouteName,
+      ];
     });
     table['scheduleFrame'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -212,10 +270,18 @@ class VMManagedSingletonFlutterWindow
     });
     table['getSemanticsEnabled'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.semanticsEnabled];
+      return [
+        vmObject.semanticsEnabled,
+      ];
     });
     table['getOnSemanticsEnabledChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onSemanticsEnabledChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnSemanticsEnabledChanged'] =
@@ -233,6 +299,12 @@ class VMManagedSingletonFlutterWindow
     });
     table['getOnSemanticsAction'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onSemanticsAction;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnSemanticsAction'] =
@@ -252,11 +324,17 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<AccessibilityFeatures>(
             object: vmObject.accessibilityFeatures,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getOnAccessibilityFeaturesChanged'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onAccessibilityFeaturesChanged;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnAccessibilityFeaturesChanged'] =
@@ -296,6 +374,12 @@ class VMManagedSingletonFlutterWindow
     });
     table['getOnPlatformMessage'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      final returnValue = vmObject.onPlatformMessage;
+      if (returnValue != null) {
+        return [
+          returnValue,
+        ];
+      }
       return [];
     });
     table['setOnPlatformMessage'] =
@@ -320,7 +404,7 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<PlatformDispatcher>(
             object: vmObject.platformDispatcher,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getViewConfiguration'] =
@@ -329,7 +413,7 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<ViewConfiguration>(
             object: vmObject.viewConfiguration,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['render'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -339,7 +423,9 @@ class VMManagedSingletonFlutterWindow
     });
     table['getDevicePixelRatio'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.devicePixelRatio];
+      return [
+        vmObject.devicePixelRatio,
+      ];
     });
     table['getPhysicalGeometry'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -347,7 +433,7 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<Rect>(
             object: vmObject.physicalGeometry,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getPhysicalSize'] =
@@ -356,7 +442,7 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<Size>(
             object: vmObject.physicalSize,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getViewInsets'] =
@@ -365,7 +451,7 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<WindowPadding>(
             object: vmObject.viewInsets,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getViewPadding'] =
@@ -374,7 +460,7 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<WindowPadding>(
             object: vmObject.viewPadding,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getSystemGestureInsets'] =
@@ -383,7 +469,7 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<WindowPadding>(
             object: vmObject.systemGestureInsets,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getPadding'] =
@@ -392,16 +478,20 @@ class VMManagedSingletonFlutterWindow
         maybeBoxObject<WindowPadding>(
             object: vmObject.padding,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
   }
 

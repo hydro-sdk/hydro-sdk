@@ -21,7 +21,7 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         vmObject.timestampInMicroseconds(maybeUnBoxEnum(
-            values: FramePhase.values, boxedEnum: luaCallerArguments[1]))
+            values: FramePhase.values, boxedEnum: luaCallerArguments[1])),
       ];
     });
     table['getBuildDuration'] =
@@ -30,7 +30,7 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
         maybeBoxObject<Duration>(
             object: vmObject.buildDuration,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getRasterDuration'] =
@@ -39,7 +39,7 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
         maybeBoxObject<Duration>(
             object: vmObject.rasterDuration,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getVsyncOverhead'] =
@@ -48,7 +48,7 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
         maybeBoxObject<Duration>(
             object: vmObject.vsyncOverhead,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getTotalSpan'] =
@@ -57,12 +57,14 @@ class VMManagedFrameTiming extends VMManagedBox<FrameTiming> {
         maybeBoxObject<Duration>(
             object: vmObject.totalSpan,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

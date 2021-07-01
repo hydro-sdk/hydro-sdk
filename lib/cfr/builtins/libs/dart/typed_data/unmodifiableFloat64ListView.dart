@@ -26,7 +26,7 @@ class VMManagedUnmodifiableFloat64ListView
             maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
                 parentState: hydroState),
             maybeUnBoxAndBuildArgument<int?>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['indexOf'] =
@@ -35,7 +35,7 @@ class VMManagedUnmodifiableFloat64ListView
         vmObject.indexOf(
             maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[1],
                 parentState: hydroState),
-            luaCallerArguments[2])
+            luaCallerArguments[2]),
       ];
     });
     table['sublist'] =
@@ -45,7 +45,7 @@ class VMManagedUnmodifiableFloat64ListView
             object:
                 vmObject.sublist(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['cast'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -53,7 +53,7 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<List<dynamic>>(
             object: vmObject.cast(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['add'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -92,7 +92,7 @@ class VMManagedUnmodifiableFloat64ListView
                   [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
-            luaCallerArguments[2])
+            luaCallerArguments[2]),
       ];
     });
     table['lastIndexWhere'] =
@@ -104,7 +104,7 @@ class VMManagedUnmodifiableFloat64ListView
                   [luaCallerArguments[0], element],
                   parentState: hydroState,
                 )[0],
-            luaCallerArguments[2])
+            luaCallerArguments[2]),
       ];
     });
     table['clear'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -134,16 +134,20 @@ class VMManagedUnmodifiableFloat64ListView
       return [
         vmObject.remove(maybeUnBoxAndBuildArgument<Object?>(
             luaCallerArguments[1],
-            parentState: hydroState))
+            parentState: hydroState)),
       ];
     });
     table['removeAt'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.removeAt(luaCallerArguments[1])];
+      return [
+        vmObject.removeAt(luaCallerArguments[1]),
+      ];
     });
     table['removeLast'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.removeLast()];
+      return [
+        vmObject.removeLast(),
+      ];
     });
     table['removeWhere'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -170,7 +174,7 @@ class VMManagedUnmodifiableFloat64ListView
             object:
                 vmObject.getRange(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['setRange'] =
@@ -208,7 +212,7 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<Map>(
             object: vmObject.asMap(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['setFirst'] =
@@ -223,7 +227,9 @@ class VMManagedUnmodifiableFloat64ListView
     });
     table['getLength'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.length];
+      return [
+        vmObject.length,
+      ];
     });
     table['setLength'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -236,7 +242,7 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<Iterable>(
             object: vmObject.reversed,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['followedBy'] =
@@ -248,7 +254,7 @@ class VMManagedUnmodifiableFloat64ListView
                     luaCallerArguments[1],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['map'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -260,7 +266,7 @@ class VMManagedUnmodifiableFloat64ListView
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['where'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -272,7 +278,7 @@ class VMManagedUnmodifiableFloat64ListView
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['whereType'] =
@@ -281,7 +287,7 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<Iterable>(
             object: vmObject.whereType(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['expand'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -296,7 +302,7 @@ class VMManagedUnmodifiableFloat64ListView
                     )[0],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['contains'] =
@@ -304,7 +310,7 @@ class VMManagedUnmodifiableFloat64ListView
       return [
         vmObject.contains(maybeUnBoxAndBuildArgument<Object?>(
             luaCallerArguments[1],
-            parentState: hydroState))
+            parentState: hydroState)),
       ];
     });
     table['forEach'] =
@@ -322,7 +328,7 @@ class VMManagedUnmodifiableFloat64ListView
         vmObject.reduce((value, element) => unpackedcombine.dispatch(
               [luaCallerArguments[0], value, element],
               parentState: hydroState,
-            )[0]?.toDouble())
+            )[0]?.toDouble()),
       ];
     });
     table['fold'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -333,7 +339,7 @@ class VMManagedUnmodifiableFloat64ListView
             (previousValue, element) => unpackedcombine.dispatch(
                   [luaCallerArguments[0], previousValue, element],
                   parentState: hydroState,
-                )[0])
+                )[0]),
       ];
     });
     table['every'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -342,11 +348,13 @@ class VMManagedUnmodifiableFloat64ListView
         vmObject.every((element) => unpackedtest.dispatch(
               [luaCallerArguments[0], element],
               parentState: hydroState,
-            )[0])
+            )[0]),
       ];
     });
     table['join'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.join(luaCallerArguments[1])];
+      return [
+        vmObject.join(luaCallerArguments[1]),
+      ];
     });
     table['any'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       Closure unpackedtest = luaCallerArguments[1];
@@ -354,7 +362,7 @@ class VMManagedUnmodifiableFloat64ListView
         vmObject.any((element) => unpackedtest.dispatch(
               [luaCallerArguments[0], element],
               parentState: hydroState,
-            )[0])
+            )[0]),
       ];
     });
     table['toList'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -363,7 +371,7 @@ class VMManagedUnmodifiableFloat64ListView
             object:
                 vmObject.toList(growable: luaCallerArguments[1]['growable']),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toSet'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -371,7 +379,7 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<Set>(
             object: vmObject.toSet(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['take'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -379,7 +387,7 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<Iterable>(
             object: vmObject.take(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['takeWhile'] =
@@ -392,7 +400,7 @@ class VMManagedUnmodifiableFloat64ListView
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['skip'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -400,7 +408,7 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<Iterable>(
             object: vmObject.skip(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['skipWhile'] =
@@ -413,7 +421,7 @@ class VMManagedUnmodifiableFloat64ListView
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['firstWhere'] =
@@ -433,7 +441,7 @@ class VMManagedUnmodifiableFloat64ListView
                       ],
                       parentState: hydroState,
                     )[0]?.toDouble()
-                : null)
+                : null),
       ];
     });
     table['lastWhere'] =
@@ -453,7 +461,7 @@ class VMManagedUnmodifiableFloat64ListView
                       ],
                       parentState: hydroState,
                     )[0]?.toDouble()
-                : null)
+                : null),
       ];
     });
     table['singleWhere'] =
@@ -473,16 +481,20 @@ class VMManagedUnmodifiableFloat64ListView
                       ],
                       parentState: hydroState,
                     )[0]?.toDouble()
-                : null)
+                : null),
       ];
     });
     table['elementAt'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.elementAt(luaCallerArguments[1])];
+      return [
+        vmObject.elementAt(luaCallerArguments[1]),
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['getIterator'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -490,44 +502,62 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<Iterator>(
             object: vmObject.iterator,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getIsEmpty'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isEmpty];
+      return [
+        vmObject.isEmpty,
+      ];
     });
     table['getIsNotEmpty'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isNotEmpty];
+      return [
+        vmObject.isNotEmpty,
+      ];
     });
     table['getFirst'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.first];
+      return [
+        vmObject.first,
+      ];
     });
     table['getLast'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.last];
+      return [
+        vmObject.last,
+      ];
     });
     table['getSingle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.single];
+      return [
+        vmObject.single,
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['getElementSizeInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.elementSizeInBytes];
+      return [
+        vmObject.elementSizeInBytes,
+      ];
     });
     table['getOffsetInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.offsetInBytes];
+      return [
+        vmObject.offsetInBytes,
+      ];
     });
     table['getLengthInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.lengthInBytes];
+      return [
+        vmObject.lengthInBytes,
+      ];
     });
     table['getBuffer'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -535,7 +565,7 @@ class VMManagedUnmodifiableFloat64ListView
         maybeBoxObject<ByteBuffer>(
             object: vmObject.buffer,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

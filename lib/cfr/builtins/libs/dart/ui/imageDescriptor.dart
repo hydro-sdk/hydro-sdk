@@ -20,15 +20,21 @@ class VMManagedImageDescriptor extends VMManagedBox<ImageDescriptor> {
         ) {
     table['getWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.width];
+      return [
+        vmObject.width,
+      ];
     });
     table['getHeight'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.height];
+      return [
+        vmObject.height,
+      ];
     });
     table['getBytesPerPixel'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.bytesPerPixel];
+      return [
+        vmObject.bytesPerPixel,
+      ];
     });
     table['dispose'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -43,7 +49,7 @@ class VMManagedImageDescriptor extends VMManagedBox<ImageDescriptor> {
                 targetHeight: luaCallerArguments[1]['targetHeight'],
                 targetWidth: luaCallerArguments[1]['targetWidth']),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

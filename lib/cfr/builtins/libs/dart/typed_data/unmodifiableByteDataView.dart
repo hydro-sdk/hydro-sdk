@@ -20,7 +20,9 @@ class VMManagedUnmodifiableByteDataView
         ) {
     table['getInt8'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.getInt8(luaCallerArguments[1])];
+      return [
+        vmObject.getInt8(luaCallerArguments[1]),
+      ];
     });
     table['setInt8'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -29,7 +31,9 @@ class VMManagedUnmodifiableByteDataView
     });
     table['getUint8'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.getUint8(luaCallerArguments[1])];
+      return [
+        vmObject.getUint8(luaCallerArguments[1]),
+      ];
     });
     table['setUint8'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -42,7 +46,7 @@ class VMManagedUnmodifiableByteDataView
         vmObject.getInt16(
             luaCallerArguments[1],
             maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['setInt16'] =
@@ -60,7 +64,7 @@ class VMManagedUnmodifiableByteDataView
         vmObject.getUint16(
             luaCallerArguments[1],
             maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['setUint16'] =
@@ -78,7 +82,7 @@ class VMManagedUnmodifiableByteDataView
         vmObject.getInt32(
             luaCallerArguments[1],
             maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['setInt32'] =
@@ -96,7 +100,7 @@ class VMManagedUnmodifiableByteDataView
         vmObject.getUint32(
             luaCallerArguments[1],
             maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['setUint32'] =
@@ -114,7 +118,7 @@ class VMManagedUnmodifiableByteDataView
         vmObject.getInt64(
             luaCallerArguments[1],
             maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['setInt64'] =
@@ -132,7 +136,7 @@ class VMManagedUnmodifiableByteDataView
         vmObject.getUint64(
             luaCallerArguments[1],
             maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['setUint64'] =
@@ -150,7 +154,7 @@ class VMManagedUnmodifiableByteDataView
         vmObject.getFloat32(
             luaCallerArguments[1],
             maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['setFloat32'] =
@@ -168,7 +172,7 @@ class VMManagedUnmodifiableByteDataView
         vmObject.getFloat64(
             luaCallerArguments[1],
             maybeUnBoxAndBuildArgument<Endian>(luaCallerArguments[2],
-                parentState: hydroState))
+                parentState: hydroState)),
       ];
     });
     table['setFloat64'] =
@@ -182,15 +186,21 @@ class VMManagedUnmodifiableByteDataView
     });
     table['getElementSizeInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.elementSizeInBytes];
+      return [
+        vmObject.elementSizeInBytes,
+      ];
     });
     table['getOffsetInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.offsetInBytes];
+      return [
+        vmObject.offsetInBytes,
+      ];
     });
     table['getLengthInBytes'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.lengthInBytes];
+      return [
+        vmObject.lengthInBytes,
+      ];
     });
     table['getBuffer'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -198,16 +208,20 @@ class VMManagedUnmodifiableByteDataView
         maybeBoxObject<ByteBuffer>(
             object: vmObject.buffer,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
   }
 

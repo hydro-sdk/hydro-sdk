@@ -22,13 +22,15 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
         maybeBoxObject<Float64x2>(
             object: vmObject.scale(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['abs'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float64x2>(
-            object: vmObject.abs(), hydroState: hydroState, table: HydroTable())
+            object: vmObject.abs(),
+            hydroState: hydroState,
+            table: HydroTable()),
       ];
     });
     table['clamp'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -40,25 +42,31 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
                 maybeUnBoxAndBuildArgument<Float64x2>(luaCallerArguments[2],
                     parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getX'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.x];
+      return [
+        vmObject.x,
+      ];
     });
     table['getY'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.y];
+      return [
+        vmObject.y,
+      ];
     });
     table['getSignMask'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.signMask];
+      return [
+        vmObject.signMask,
+      ];
     });
     table['withX'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Float64x2>(
             object: vmObject.withX(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withY'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -66,7 +74,7 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
         maybeBoxObject<Float64x2>(
             object: vmObject.withY(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['min'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -76,7 +84,7 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['max'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -86,7 +94,7 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
                 luaCallerArguments[1],
                 parentState: hydroState)),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['sqrt'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -94,7 +102,7 @@ class VMManagedFloat64x2 extends VMManagedBox<Float64x2> {
         maybeBoxObject<Float64x2>(
             object: vmObject.sqrt(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

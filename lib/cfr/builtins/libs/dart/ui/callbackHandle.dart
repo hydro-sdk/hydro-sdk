@@ -19,11 +19,15 @@ class VMManagedCallbackHandle extends VMManagedBox<CallbackHandle> {
         ) {
     table['toRawHandle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toRawHandle()];
+      return [
+        vmObject.toRawHandle(),
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
   }
 

@@ -20,15 +20,21 @@ class VMManagedTextHeightBehavior extends VMManagedBox<TextHeightBehavior> {
     table['applyHeightToFirstAscent'] = vmObject.applyHeightToFirstAscent;
     table['applyHeightToLastDescent'] = vmObject.applyHeightToLastDescent;
     table['encode'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.encode()];
+      return [
+        vmObject.encode(),
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

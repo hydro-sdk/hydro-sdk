@@ -25,7 +25,7 @@ class VMManagedPicture extends VMManagedBox<Picture> {
             object:
                 vmObject.toImage(luaCallerArguments[1], luaCallerArguments[2]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['dispose'] =
@@ -35,7 +35,9 @@ class VMManagedPicture extends VMManagedBox<Picture> {
     });
     table['getApproximateBytesUsed'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.approximateBytesUsed];
+      return [
+        vmObject.approximateBytesUsed,
+      ];
     });
   }
 

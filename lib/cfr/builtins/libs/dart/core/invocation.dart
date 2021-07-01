@@ -22,7 +22,7 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
         maybeBoxObject<Symbol>(
             object: vmObject.memberName,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getTypeArguments'] =
@@ -34,7 +34,7 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
                     object: x, hydroState: hydroState, table: HydroTable()))
                 .toList(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getPositionalArguments'] =
@@ -43,7 +43,7 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
         maybeBoxObject<List<dynamic>>(
             object: vmObject.positionalArguments,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getNamedArguments'] =
@@ -52,24 +52,32 @@ class VMManagedInvocation extends VMManagedBox<Invocation> {
         maybeBoxObject<Map>(
             object: vmObject.namedArguments,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getIsMethod'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isMethod];
+      return [
+        vmObject.isMethod,
+      ];
     });
     table['getIsGetter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isGetter];
+      return [
+        vmObject.isGetter,
+      ];
     });
     table['getIsSetter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isSetter];
+      return [
+        vmObject.isSetter,
+      ];
     });
     table['getIsAccessor'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isAccessor];
+      return [
+        vmObject.isAccessor,
+      ];
     });
   }
 

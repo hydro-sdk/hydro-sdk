@@ -19,7 +19,9 @@ class VMManagedParagraphBuilder extends VMManagedBox<ParagraphBuilder> {
         ) {
     table['getPlaceholderCount'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.placeholderCount];
+      return [
+        vmObject.placeholderCount,
+      ];
     });
     table['getPlaceholderScales'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -27,7 +29,7 @@ class VMManagedParagraphBuilder extends VMManagedBox<ParagraphBuilder> {
         maybeBoxObject<List<dynamic>>(
             object: vmObject.placeholderScales,
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['pushStyle'] =
@@ -66,7 +68,7 @@ class VMManagedParagraphBuilder extends VMManagedBox<ParagraphBuilder> {
         maybeBoxObject<Paragraph>(
             object: vmObject.build(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

@@ -23,7 +23,9 @@ class VMManagedWindowPadding extends VMManagedBox<WindowPadding> {
     table['bottom'] = vmObject.bottom;
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

@@ -57,11 +57,15 @@ class VMManagedPointerData extends VMManagedBox<PointerData> {
     table['scrollDeltaY'] = vmObject.scrollDeltaY;
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
     table['toStringFull'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toStringFull()];
+      return [
+        vmObject.toStringFull(),
+      ];
     });
   }
 

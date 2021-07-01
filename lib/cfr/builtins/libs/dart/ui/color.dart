@@ -20,22 +20,32 @@ class VMManagedColor extends VMManagedBox<Color> {
     table['value'] = vmObject.value;
     table['getAlpha'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.alpha];
+      return [
+        vmObject.alpha,
+      ];
     });
     table['getOpacity'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.opacity];
+      return [
+        vmObject.opacity,
+      ];
     });
     table['getRed'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.red];
+      return [
+        vmObject.red,
+      ];
     });
     table['getGreen'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.green];
+      return [
+        vmObject.green,
+      ];
     });
     table['getBlue'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.blue];
+      return [
+        vmObject.blue,
+      ];
     });
     table['withAlpha'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -43,7 +53,7 @@ class VMManagedColor extends VMManagedBox<Color> {
         maybeBoxObject<Color>(
             object: vmObject.withAlpha(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withOpacity'] =
@@ -52,7 +62,7 @@ class VMManagedColor extends VMManagedBox<Color> {
         maybeBoxObject<Color>(
             object: vmObject.withOpacity(luaCallerArguments[1]?.toDouble()),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withRed'] =
@@ -61,7 +71,7 @@ class VMManagedColor extends VMManagedBox<Color> {
         maybeBoxObject<Color>(
             object: vmObject.withRed(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withGreen'] =
@@ -70,7 +80,7 @@ class VMManagedColor extends VMManagedBox<Color> {
         maybeBoxObject<Color>(
             object: vmObject.withGreen(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['withBlue'] =
@@ -79,20 +89,26 @@ class VMManagedColor extends VMManagedBox<Color> {
         maybeBoxObject<Color>(
             object: vmObject.withBlue(luaCallerArguments[1]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['computeLuminance'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.computeLuminance()];
+      return [
+        vmObject.computeLuminance(),
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

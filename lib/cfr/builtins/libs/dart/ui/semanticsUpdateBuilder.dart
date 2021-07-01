@@ -75,7 +75,7 @@ class VMManagedSemanticsUpdateBuilder
         maybeBoxObject<SemanticsUpdate>(
             object: vmObject.build(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

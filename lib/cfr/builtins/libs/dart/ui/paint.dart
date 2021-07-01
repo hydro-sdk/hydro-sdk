@@ -19,7 +19,9 @@ class VMManagedPaint extends VMManagedBox<Paint> {
         ) {
     table['getIsAntiAlias'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isAntiAlias];
+      return [
+        vmObject.isAntiAlias,
+      ];
     });
     table['setIsAntiAlias'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -30,7 +32,9 @@ class VMManagedPaint extends VMManagedBox<Paint> {
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [
         maybeBoxObject<Color>(
-            object: vmObject.color, hydroState: hydroState, table: HydroTable())
+            object: vmObject.color,
+            hydroState: hydroState,
+            table: HydroTable()),
       ];
     });
     table['setColor'] =
@@ -44,7 +48,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
       return [
         BlendMode.values.indexWhere((x) {
           return x == vmObject.blendMode;
-        })
+        }),
       ];
     });
     table['setBlendMode'] =
@@ -58,7 +62,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
       return [
         PaintingStyle.values.indexWhere((x) {
           return x == vmObject.style;
-        })
+        }),
       ];
     });
     table['setStyle'] =
@@ -69,7 +73,9 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['getStrokeWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.strokeWidth];
+      return [
+        vmObject.strokeWidth,
+      ];
     });
     table['setStrokeWidth'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -81,7 +87,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
       return [
         StrokeCap.values.indexWhere((x) {
           return x == vmObject.strokeCap;
-        })
+        }),
       ];
     });
     table['setStrokeCap'] =
@@ -95,7 +101,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
       return [
         StrokeJoin.values.indexWhere((x) {
           return x == vmObject.strokeJoin;
-        })
+        }),
       ];
     });
     table['setStrokeJoin'] =
@@ -106,7 +112,9 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['getStrokeMiterLimit'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.strokeMiterLimit];
+      return [
+        vmObject.strokeMiterLimit,
+      ];
     });
     table['setStrokeMiterLimit'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -115,12 +123,14 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['getMaskFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<MaskFilter?>(
-            object: vmObject.maskFilter,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.maskFilter;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<MaskFilter?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['setMaskFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -134,7 +144,7 @@ class VMManagedPaint extends VMManagedBox<Paint> {
       return [
         FilterQuality.values.indexWhere((x) {
           return x == vmObject.filterQuality;
-        })
+        }),
       ];
     });
     table['setFilterQuality'] =
@@ -145,12 +155,14 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['getShader'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<Shader?>(
-            object: vmObject.shader,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.shader;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<Shader?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['setShader'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -161,12 +173,14 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['getColorFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ColorFilter?>(
-            object: vmObject.colorFilter,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.colorFilter;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ColorFilter?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['setColorFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -177,12 +191,14 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['getImageFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [
-        maybeBoxObject<ImageFilter?>(
-            object: vmObject.imageFilter,
-            hydroState: hydroState,
-            table: HydroTable())
-      ];
+      final returnValue = vmObject.imageFilter;
+      if (returnValue != null) {
+        return [
+          maybeBoxObject<ImageFilter?>(
+              object: returnValue, hydroState: hydroState, table: HydroTable()),
+        ];
+      }
+      return [];
     });
     table['setImageFilter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -193,7 +209,9 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['getInvertColors'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.invertColors];
+      return [
+        vmObject.invertColors,
+      ];
     });
     table['setInvertColors'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -202,7 +220,9 @@ class VMManagedPaint extends VMManagedBox<Paint> {
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

@@ -23,7 +23,9 @@ class VMManagedTangent extends VMManagedBox<Tangent> {
         object: vmObject.vector, hydroState: hydroState, table: HydroTable());
     table['getAngle'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.angle];
+      return [
+        vmObject.angle,
+      ];
     });
   }
 

@@ -29,23 +29,31 @@ class VMManagedTextBox extends VMManagedBox<TextBox> {
         maybeBoxObject<Rect>(
             object: vmObject.toRect(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
     table['getStart'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.start];
+      return [
+        vmObject.start,
+      ];
     });
     table['getEnd'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.end];
+      return [
+        vmObject.end,
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 

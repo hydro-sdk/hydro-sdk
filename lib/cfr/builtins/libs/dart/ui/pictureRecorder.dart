@@ -19,7 +19,9 @@ class VMManagedPictureRecorder extends VMManagedBox<PictureRecorder> {
         ) {
     table['getIsRecording'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isRecording];
+      return [
+        vmObject.isRecording,
+      ];
     });
     table['endRecording'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -27,7 +29,7 @@ class VMManagedPictureRecorder extends VMManagedBox<PictureRecorder> {
         maybeBoxObject<Picture>(
             object: vmObject.endRecording(),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

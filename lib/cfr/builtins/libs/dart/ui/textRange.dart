@@ -21,35 +21,51 @@ class VMManagedTextRange extends VMManagedBox<TextRange> {
     table['end'] = vmObject.end;
     table['getIsValid'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isValid];
+      return [
+        vmObject.isValid,
+      ];
     });
     table['getIsCollapsed'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isCollapsed];
+      return [
+        vmObject.isCollapsed,
+      ];
     });
     table['getIsNormalized'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.isNormalized];
+      return [
+        vmObject.isNormalized,
+      ];
     });
     table['textBefore'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.textBefore(luaCallerArguments[1])];
+      return [
+        vmObject.textBefore(luaCallerArguments[1]),
+      ];
     });
     table['textAfter'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.textAfter(luaCallerArguments[1])];
+      return [
+        vmObject.textAfter(luaCallerArguments[1]),
+      ];
     });
     table['textInside'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.textInside(luaCallerArguments[1])];
+      return [
+        vmObject.textInside(luaCallerArguments[1]),
+      ];
     });
     table['getHashCode'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.hashCode];
+      return [
+        vmObject.hashCode,
+      ];
     });
     table['toString'] =
         makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-      return [vmObject.toString()];
+      return [
+        vmObject.toString(),
+      ];
     });
   }
 
