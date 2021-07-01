@@ -16,6 +16,7 @@ import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartFunctionSelfBindingInvocation.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartInexpressibleStaticConstFieldBindingNamespaceSymbolDeclaration.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartStaticMethodNamespaceSymbolDeclaration.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartUnpackClosures.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartVmManagedClassBoxerRegistrant.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaDartBinding.dart';
@@ -58,12 +59,17 @@ class DartLoadNamespaceSymbolDeclaration {
                     luaDartBinding(
                       code: Block.of(
                         [
+                          Code(
+                            DartUnpackClosures(
+                              swidFunctionType: swidClass.constructorType!,
+                            ).toDartSource(),
+                          ),
                           literalList(
                             [
                               Code(
                                 DartFunctionSelfBindingInvocation(
                                         useClosureUnpackNameForUnboxingIdentifiers:
-                                            false,
+                                            true,
                                         argumentBoxingProcedure:
                                             DartBoxingProcedure.unbox,
                                         returnValueBoxingProcedure: !swidClass
