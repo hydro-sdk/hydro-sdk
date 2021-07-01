@@ -93,7 +93,7 @@ void loadTextDecoration(
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<TextDecoration>(boxer: (

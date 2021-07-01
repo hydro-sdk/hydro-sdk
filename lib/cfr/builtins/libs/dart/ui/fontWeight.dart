@@ -100,17 +100,19 @@ void loadFontWeight(
   });
   table['fontWeightLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<FontWeight?>(
-          object: FontWeight.lerp(
-              maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[2],
-                  parentState: hydroState),
-              luaCallerArguments[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = FontWeight.lerp(
+        maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<FontWeight?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<FontWeight?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<FontWeight>(boxer: (
       {required FontWeight vmObject,

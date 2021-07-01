@@ -587,7 +587,7 @@ void loadInt32List(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['int32ListView'] =
@@ -600,7 +600,7 @@ void loadInt32List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['int32ListSublistView'] =
@@ -613,7 +613,7 @@ void loadInt32List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Int32List>(boxer: (

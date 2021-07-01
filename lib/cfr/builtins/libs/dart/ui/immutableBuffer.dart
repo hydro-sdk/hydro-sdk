@@ -44,7 +44,7 @@ void loadImmutableBuffer(
               maybeUnBoxAndBuildArgument<Uint8List>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<ImmutableBuffer>(boxer: (

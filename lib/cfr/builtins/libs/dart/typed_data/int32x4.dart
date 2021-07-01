@@ -194,7 +194,7 @@ void loadInt32x4({required HydroState hydroState, required HydroTable table}) {
           object: Int32x4.bool(luaCallerArguments[1], luaCallerArguments[2],
               luaCallerArguments[3], luaCallerArguments[4]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['int32x4FromFloat32x4Bits'] =
@@ -205,7 +205,7 @@ void loadInt32x4({required HydroState hydroState, required HydroTable table}) {
               maybeUnBoxAndBuildArgument<Float32x4>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Int32x4>(boxer: (

@@ -590,7 +590,7 @@ void loadFloat64List(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['float64ListView'] =
@@ -603,7 +603,7 @@ void loadFloat64List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['float64ListSublistView'] =
@@ -616,7 +616,7 @@ void loadFloat64List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Float64List>(boxer: (

@@ -47,7 +47,7 @@ void loadRadius({required HydroState hydroState, required HydroTable table}) {
       maybeBoxObject<Radius>(
           object: Radius.circular(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['radiusElliptical'] =
@@ -57,22 +57,24 @@ void loadRadius({required HydroState hydroState, required HydroTable table}) {
           object: Radius.elliptical(luaCallerArguments[1]?.toDouble(),
               luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['radiusLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<Radius?>(
-          object: Radius.lerp(
-              maybeUnBoxAndBuildArgument<Radius?>(luaCallerArguments[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Radius?>(luaCallerArguments[2],
-                  parentState: hydroState),
-              luaCallerArguments[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = Radius.lerp(
+        maybeUnBoxAndBuildArgument<Radius?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<Radius?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<Radius?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<Radius>(boxer: (
       {required Radius vmObject,

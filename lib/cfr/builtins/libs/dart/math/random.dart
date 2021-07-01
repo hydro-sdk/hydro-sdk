@@ -57,7 +57,7 @@ void loadRandom({required HydroState hydroState, required HydroTable table}) {
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Random>(
-          object: Random.secure(), hydroState: hydroState, table: HydroTable())
+          object: Random.secure(), hydroState: hydroState, table: HydroTable()),
     ];
   });
   registerBoxer<Random>(boxer: (

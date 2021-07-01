@@ -91,7 +91,7 @@ void loadVertices({required HydroState hydroState, required HydroTable table}) {
                   luaCallerArguments[3]['textureCoordinates'],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Vertices>(boxer: (

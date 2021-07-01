@@ -742,7 +742,7 @@ void loadPath({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['pathCombine'] =
@@ -758,7 +758,7 @@ void loadPath({required HydroState hydroState, required HydroTable table}) {
               maybeUnBoxAndBuildArgument<Path>(luaCallerArguments[3],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Path>(boxer: (

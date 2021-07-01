@@ -532,7 +532,7 @@ void loadSize({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['sizeSquare'] =
@@ -541,7 +541,7 @@ void loadSize({required HydroState hydroState, required HydroTable table}) {
       maybeBoxObject<Size>(
           object: Size.square(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['sizeFromWidth'] =
@@ -550,7 +550,7 @@ void loadSize({required HydroState hydroState, required HydroTable table}) {
       maybeBoxObject<Size>(
           object: Size.fromWidth(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['sizeFromHeight'] =
@@ -559,7 +559,7 @@ void loadSize({required HydroState hydroState, required HydroTable table}) {
       maybeBoxObject<Size>(
           object: Size.fromHeight(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['sizeFromRadius'] =
@@ -568,21 +568,23 @@ void loadSize({required HydroState hydroState, required HydroTable table}) {
       maybeBoxObject<Size>(
           object: Size.fromRadius(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['sizeLerp'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<Size?>(
-          object: Size.lerp(
-              maybeUnBoxAndBuildArgument<Size?>(luaCallerArguments[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Size?>(luaCallerArguments[2],
-                  parentState: hydroState),
-              luaCallerArguments[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = Size.lerp(
+        maybeUnBoxAndBuildArgument<Size?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<Size?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<Size?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<Size>(boxer: (
       {required Size vmObject,

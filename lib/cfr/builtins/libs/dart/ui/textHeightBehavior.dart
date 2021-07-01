@@ -120,7 +120,7 @@ void loadTextHeightBehavior(
       maybeBoxObject<TextHeightBehavior>(
           object: TextHeightBehavior.fromEncoded(luaCallerArguments[1]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<TextHeightBehavior>(boxer: (

@@ -645,7 +645,7 @@ void loadInt32x4List(
               maybeUnBoxAndBuildArgument<List<Int32x4>>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['int32x4ListView'] =
@@ -658,7 +658,7 @@ void loadInt32x4List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['int32x4ListSublistView'] =
@@ -671,7 +671,7 @@ void loadInt32x4List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Int32x4List>(boxer: (

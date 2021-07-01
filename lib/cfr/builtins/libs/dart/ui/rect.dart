@@ -265,7 +265,7 @@ void loadRect({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[3]?.toDouble(),
               luaCallerArguments[4]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rectFromLTWH'] =
@@ -278,7 +278,7 @@ void loadRect({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[3]?.toDouble(),
               luaCallerArguments[4]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rectFromCircle'] =
@@ -291,7 +291,7 @@ void loadRect({required HydroState hydroState, required HydroTable table}) {
                   parentState: hydroState),
               radius: luaCallerArguments[1]['radius']?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rectFromCenter'] =
@@ -305,7 +305,7 @@ void loadRect({required HydroState hydroState, required HydroTable table}) {
               height: luaCallerArguments[1]['height']?.toDouble(),
               width: luaCallerArguments[1]['width']?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rectFromPoints'] =
@@ -318,21 +318,23 @@ void loadRect({required HydroState hydroState, required HydroTable table}) {
               maybeUnBoxAndBuildArgument<Offset>(luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rectLerp'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<Rect?>(
-          object: Rect.lerp(
-              maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[2],
-                  parentState: hydroState),
-              luaCallerArguments[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = Rect.lerp(
+        maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<Rect?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<Rect?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<Rect>(boxer: (
       {required Rect vmObject,

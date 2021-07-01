@@ -77,7 +77,7 @@ void loadImageDescriptor(
                   boxedEnum: luaCallerArguments[2]['pixelFormat']),
               width: luaCallerArguments[2]['width']),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['imageDescriptorEncoded'] =
@@ -88,7 +88,7 @@ void loadImageDescriptor(
               maybeUnBoxAndBuildArgument<ImmutableBuffer>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<ImageDescriptor>(boxer: (

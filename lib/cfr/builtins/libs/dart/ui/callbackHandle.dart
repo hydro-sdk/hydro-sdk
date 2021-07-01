@@ -46,7 +46,7 @@ void loadCallbackHandle(
       maybeBoxObject<CallbackHandle>(
           object: CallbackHandle.fromRawHandle(luaCallerArguments[1]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<CallbackHandle>(boxer: (

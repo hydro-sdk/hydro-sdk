@@ -447,7 +447,7 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Set>(
-          object: Set.identity(), hydroState: hydroState, table: HydroTable())
+          object: Set.identity(), hydroState: hydroState, table: HydroTable()),
     ];
   });
   table['setFrom'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -457,7 +457,7 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['setOf'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -467,7 +467,7 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['setUnmodifiable'] =
@@ -479,7 +479,7 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['setCastFrom'] =
@@ -501,7 +501,7 @@ void loadSet({required HydroState hydroState, required HydroTable table}) {
                       parentState: hydroState)
                   : null),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Set>(boxer: (

@@ -78,7 +78,7 @@ void loadTextBox({required HydroState hydroState, required HydroTable table}) {
                   values: TextDirection.values,
                   boxedEnum: luaCallerArguments[5])),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<TextBox>(boxer: (

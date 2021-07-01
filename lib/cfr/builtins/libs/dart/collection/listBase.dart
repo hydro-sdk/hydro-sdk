@@ -552,12 +552,9 @@ void loadListBase({required HydroState hydroState, required HydroTable table}) {
   table['listBaseListToString'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<String>(
-          object: ListBase.listToString(
-              maybeUnBoxAndBuildArgument<List<dynamic>>(luaCallerArguments[1],
-                  parentState: hydroState)),
-          hydroState: hydroState,
-          table: HydroTable())
+      ListBase.listToString(maybeUnBoxAndBuildArgument<List<dynamic>>(
+          luaCallerArguments[1],
+          parentState: hydroState)),
     ];
   });
   registerBoxer<ListBase>(boxer: (

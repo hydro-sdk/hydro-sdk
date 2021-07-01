@@ -30,33 +30,29 @@ void loadIsolateNameServer(
     {required HydroState hydroState, required HydroTable table}) {
   table['isolateNameServerLookupPortByName'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<SendPort?>(
-          object: IsolateNameServer.lookupPortByName(luaCallerArguments[1]),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue =
+        IsolateNameServer.lookupPortByName(luaCallerArguments[1]);
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<SendPort?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   table['isolateNameServerRegisterPortWithName'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<bool>(
-          object: IsolateNameServer.registerPortWithName(
-              maybeUnBoxAndBuildArgument<SendPort>(luaCallerArguments[1],
-                  parentState: hydroState),
-              luaCallerArguments[2]),
-          hydroState: hydroState,
-          table: HydroTable())
+      IsolateNameServer.registerPortWithName(
+          maybeUnBoxAndBuildArgument<SendPort>(luaCallerArguments[1],
+              parentState: hydroState),
+          luaCallerArguments[2]),
     ];
   });
   table['isolateNameServerRemovePortNameMapping'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<bool>(
-          object:
-              IsolateNameServer.removePortNameMapping(luaCallerArguments[1]),
-          hydroState: hydroState,
-          table: HydroTable())
+      IsolateNameServer.removePortNameMapping(luaCallerArguments[1]),
     ];
   });
   registerBoxer<IsolateNameServer>(boxer: (

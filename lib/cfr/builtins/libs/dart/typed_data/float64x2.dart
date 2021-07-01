@@ -132,14 +132,16 @@ void loadFloat64x2(
       maybeBoxObject<Float64x2>(
           object: Float64x2.splat(luaCallerArguments[1]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['float64x2Zero'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Float64x2>(
-          object: Float64x2.zero(), hydroState: hydroState, table: HydroTable())
+          object: Float64x2.zero(),
+          hydroState: hydroState,
+          table: HydroTable()),
     ];
   });
   table['float64x2FromFloat32x4'] =
@@ -150,7 +152,7 @@ void loadFloat64x2(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Float64x2>(boxer: (

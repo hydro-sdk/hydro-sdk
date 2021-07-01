@@ -865,14 +865,16 @@ void loadIterable({required HydroState hydroState, required HydroTable table}) {
                       )[0]
                   : null),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['iterableEmpty'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<Iterable>(
-          object: Iterable.empty(), hydroState: hydroState, table: HydroTable())
+          object: Iterable.empty(),
+          hydroState: hydroState,
+          table: HydroTable()),
     ];
   });
   table['iterableCastFrom'] =
@@ -884,7 +886,7 @@ void loadIterable({required HydroState hydroState, required HydroTable table}) {
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Iterable>(boxer: (

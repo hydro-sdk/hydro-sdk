@@ -136,7 +136,7 @@ void loadRSTransform(
               translateX: luaCallerArguments[1]['translateX']?.toDouble(),
               translateY: luaCallerArguments[1]['translateY']?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<RSTransform>(boxer: (

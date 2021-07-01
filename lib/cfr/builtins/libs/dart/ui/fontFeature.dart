@@ -97,7 +97,7 @@ void loadFontFeature(
       maybeBoxObject<FontFeature>(
           object: FontFeature.enable(luaCallerArguments[1]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['fontFeatureDisable'] =
@@ -106,7 +106,7 @@ void loadFontFeature(
       maybeBoxObject<FontFeature>(
           object: FontFeature.disable(luaCallerArguments[1]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['fontFeatureRandomize'] =
@@ -115,7 +115,7 @@ void loadFontFeature(
       maybeBoxObject<FontFeature>(
           object: FontFeature.randomize(),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['fontFeatureStylisticSet'] =
@@ -124,7 +124,7 @@ void loadFontFeature(
       maybeBoxObject<FontFeature>(
           object: FontFeature.stylisticSet(luaCallerArguments[1]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['fontFeatureSlashedZero'] =
@@ -133,7 +133,7 @@ void loadFontFeature(
       maybeBoxObject<FontFeature>(
           object: FontFeature.slashedZero(),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['fontFeatureOldstyleFigures'] =
@@ -142,7 +142,7 @@ void loadFontFeature(
       maybeBoxObject<FontFeature>(
           object: FontFeature.oldstyleFigures(),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['fontFeatureProportionalFigures'] =
@@ -151,7 +151,7 @@ void loadFontFeature(
       maybeBoxObject<FontFeature>(
           object: FontFeature.proportionalFigures(),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['fontFeatureTabularFigures'] =
@@ -160,7 +160,7 @@ void loadFontFeature(
       maybeBoxObject<FontFeature>(
           object: FontFeature.tabularFigures(),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<FontFeature>(boxer: (

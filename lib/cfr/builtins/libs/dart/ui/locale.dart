@@ -148,7 +148,7 @@ void loadLocale({required HydroState hydroState, required HydroTable table}) {
               languageCode: luaCallerArguments[1]['languageCode'],
               scriptCode: luaCallerArguments[1]['scriptCode']),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Locale>(boxer: (

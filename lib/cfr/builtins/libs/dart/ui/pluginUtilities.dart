@@ -29,25 +29,29 @@ void loadPluginUtilities(
     {required HydroState hydroState, required HydroTable table}) {
   table['pluginUtilitiesGetCallbackHandle'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<CallbackHandle?>(
-          object: PluginUtilities.getCallbackHandle(
-              maybeUnBoxAndBuildArgument<Function>(luaCallerArguments[1],
-                  parentState: hydroState)),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = PluginUtilities.getCallbackHandle(
+        maybeUnBoxAndBuildArgument<Function>(luaCallerArguments[1],
+            parentState: hydroState));
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<CallbackHandle?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   table['pluginUtilitiesGetCallbackFromHandle'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<Function?>(
-          object: PluginUtilities.getCallbackFromHandle(
-              maybeUnBoxAndBuildArgument<CallbackHandle>(luaCallerArguments[1],
-                  parentState: hydroState)),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = PluginUtilities.getCallbackFromHandle(
+        maybeUnBoxAndBuildArgument<CallbackHandle>(luaCallerArguments[1],
+            parentState: hydroState));
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<Function?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<PluginUtilities>(boxer: (
       {required PluginUtilities vmObject,

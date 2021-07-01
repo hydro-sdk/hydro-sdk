@@ -645,7 +645,7 @@ void loadFloat32x4List(
               maybeUnBoxAndBuildArgument<List<Float32x4>>(luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['float32x4ListView'] =
@@ -658,7 +658,7 @@ void loadFloat32x4List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['float32x4ListSublistView'] =
@@ -671,7 +671,7 @@ void loadFloat32x4List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Float32x4List>(boxer: (

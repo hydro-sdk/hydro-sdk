@@ -557,7 +557,7 @@ void loadList({required HydroState hydroState, required HydroTable table}) {
           object: List.filled(luaCallerArguments[1], luaCallerArguments[2],
               growable: luaCallerArguments[3]['growable']),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['listEmpty'] =
@@ -566,7 +566,7 @@ void loadList({required HydroState hydroState, required HydroTable table}) {
       maybeBoxObject<List<dynamic>>(
           object: List.empty(growable: luaCallerArguments[1]['growable']),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['listFrom'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -578,7 +578,7 @@ void loadList({required HydroState hydroState, required HydroTable table}) {
                   parentState: hydroState),
               growable: luaCallerArguments[2]['growable']),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['listOf'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -590,13 +590,12 @@ void loadList({required HydroState hydroState, required HydroTable table}) {
                   parentState: hydroState),
               growable: luaCallerArguments[2]['growable']),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['listGenerate'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     Closure unpackedgenerator = luaCallerArguments[2];
-
     return [
       maybeBoxObject<List<dynamic>>(
           object: List.generate(
@@ -607,7 +606,7 @@ void loadList({required HydroState hydroState, required HydroTable table}) {
                   )[0],
               growable: luaCallerArguments[3]['growable']),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['listUnmodifiable'] =
@@ -619,7 +618,7 @@ void loadList({required HydroState hydroState, required HydroTable table}) {
                   luaCallerArguments[1],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['listCastFrom'] =
@@ -630,7 +629,7 @@ void loadList({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['listCopyRange'] =

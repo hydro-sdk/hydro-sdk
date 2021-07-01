@@ -50,7 +50,7 @@ void loadColorFilter(
               maybeUnBoxEnum(
                   values: BlendMode.values, boxedEnum: luaCallerArguments[2])),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['colorFilterMatrix'] =
@@ -61,7 +61,7 @@ void loadColorFilter(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['colorFilterLinearToSrgbGamma'] =
@@ -70,7 +70,7 @@ void loadColorFilter(
       maybeBoxObject<ColorFilter>(
           object: ColorFilter.linearToSrgbGamma(),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['colorFilterSrgbToLinearGamma'] =
@@ -79,7 +79,7 @@ void loadColorFilter(
       maybeBoxObject<ColorFilter>(
           object: ColorFilter.srgbToLinearGamma(),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<ColorFilter>(boxer: (

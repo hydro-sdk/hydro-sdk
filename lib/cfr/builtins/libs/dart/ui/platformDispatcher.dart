@@ -466,7 +466,7 @@ void loadPlatformDispatcher(
       maybeBoxObject<PlatformDispatcher>(
           object: PlatformDispatcher.instance,
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<PlatformDispatcher>(boxer: (

@@ -317,7 +317,7 @@ void loadColor({required HydroState hydroState, required HydroTable table}) {
           object: Color.fromARGB(luaCallerArguments[1], luaCallerArguments[2],
               luaCallerArguments[3], luaCallerArguments[4]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['colorFromRGBO'] =
@@ -327,22 +327,24 @@ void loadColor({required HydroState hydroState, required HydroTable table}) {
           object: Color.fromRGBO(luaCallerArguments[1], luaCallerArguments[2],
               luaCallerArguments[3], luaCallerArguments[4]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['colorLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<Color?>(
-          object: Color.lerp(
-              maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[2],
-                  parentState: hydroState),
-              luaCallerArguments[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = Color.lerp(
+        maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<Color?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<Color?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   table['colorAlphaBlend'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
@@ -354,16 +356,13 @@ void loadColor({required HydroState hydroState, required HydroTable table}) {
               maybeUnBoxAndBuildArgument<Color>(luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['colorGetAlphaFromOpacity'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<int>(
-          object: Color.getAlphaFromOpacity(luaCallerArguments[1]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
+      Color.getAlphaFromOpacity(luaCallerArguments[1]?.toDouble()),
     ];
   });
   registerBoxer<Color>(boxer: (

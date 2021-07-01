@@ -875,29 +875,21 @@ void loadIterableBase(
   table['iterableBaseIterableToShortString'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<String>(
-          object: IterableBase.iterableToShortString(
-              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                  luaCallerArguments[1],
-                  parentState: hydroState),
-              luaCallerArguments[2],
-              luaCallerArguments[3]),
-          hydroState: hydroState,
-          table: HydroTable())
+      IterableBase.iterableToShortString(
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[1],
+              parentState: hydroState),
+          luaCallerArguments[2],
+          luaCallerArguments[3]),
     ];
   });
   table['iterableBaseIterableToFullString'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<String>(
-          object: IterableBase.iterableToFullString(
-              maybeUnBoxAndBuildArgument<Iterable<dynamic>>(
-                  luaCallerArguments[1],
-                  parentState: hydroState),
-              luaCallerArguments[2],
-              luaCallerArguments[3]),
-          hydroState: hydroState,
-          table: HydroTable())
+      IterableBase.iterableToFullString(
+          maybeUnBoxAndBuildArgument<Iterable<dynamic>>(luaCallerArguments[1],
+              parentState: hydroState),
+          luaCallerArguments[2],
+          luaCallerArguments[3]),
     ];
   });
   registerBoxer<IterableBase>(boxer: (

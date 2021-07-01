@@ -587,7 +587,7 @@ void loadUint64List(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['uint64ListView'] =
@@ -600,7 +600,7 @@ void loadUint64List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['uint64ListSublistView'] =
@@ -613,7 +613,7 @@ void loadUint64List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Uint64List>(boxer: (

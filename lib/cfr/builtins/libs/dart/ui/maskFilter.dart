@@ -49,7 +49,7 @@ void loadMaskFilter(
                   values: BlurStyle.values, boxedEnum: luaCallerArguments[1]),
               luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<MaskFilter>(boxer: (

@@ -258,22 +258,24 @@ void loadOffset({required HydroState hydroState, required HydroTable table}) {
           object: Offset.fromDirection(luaCallerArguments[1]?.toDouble(),
               luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['offsetLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<Offset?>(
-          object: Offset.lerp(
-              maybeUnBoxAndBuildArgument<Offset?>(luaCallerArguments[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Offset?>(luaCallerArguments[2],
-                  parentState: hydroState),
-              luaCallerArguments[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = Offset.lerp(
+        maybeUnBoxAndBuildArgument<Offset?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<Offset?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<Offset?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<Offset>(boxer: (
       {required Offset vmObject,

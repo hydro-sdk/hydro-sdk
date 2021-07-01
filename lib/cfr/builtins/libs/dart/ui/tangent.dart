@@ -91,7 +91,7 @@ void loadTangent({required HydroState hydroState, required HydroTable table}) {
                   parentState: hydroState),
               luaCallerArguments[2]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Tangent>(boxer: (

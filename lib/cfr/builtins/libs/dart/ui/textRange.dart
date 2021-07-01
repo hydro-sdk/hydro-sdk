@@ -196,7 +196,7 @@ void loadTextRange(
       maybeBoxObject<TextRange>(
           object: TextRange.collapsed(luaCallerArguments[1]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<TextRange>(boxer: (

@@ -264,7 +264,7 @@ void loadRRect({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[5]?.toDouble(),
               luaCallerArguments[6]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rRectFromLTRBR'] =
@@ -279,7 +279,7 @@ void loadRRect({required HydroState hydroState, required HydroTable table}) {
               maybeUnBoxAndBuildArgument<Radius>(luaCallerArguments[5],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rRectFromRectXY'] =
@@ -292,7 +292,7 @@ void loadRRect({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[2]?.toDouble(),
               luaCallerArguments[3]?.toDouble()),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rRectFromRectAndRadius'] =
@@ -305,7 +305,7 @@ void loadRRect({required HydroState hydroState, required HydroTable table}) {
               maybeUnBoxAndBuildArgument<Radius>(luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rRectFromLTRBAndCorners'] =
@@ -328,7 +328,7 @@ void loadRRect({required HydroState hydroState, required HydroTable table}) {
               topRight: maybeUnBoxAndBuildArgument<Radius>(luaCallerArguments[5]['topRight'],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rRectFromRectAndCorners'] =
@@ -351,22 +351,24 @@ void loadRRect({required HydroState hydroState, required HydroTable table}) {
                   luaCallerArguments[2]['topRight'],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['rRectLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<RRect?>(
-          object: RRect.lerp(
-              maybeUnBoxAndBuildArgument<RRect?>(luaCallerArguments[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<RRect?>(luaCallerArguments[2],
-                  parentState: hydroState),
-              luaCallerArguments[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = RRect.lerp(
+        maybeUnBoxAndBuildArgument<RRect?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<RRect?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<RRect?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<RRect>(boxer: (
       {required RRect vmObject,

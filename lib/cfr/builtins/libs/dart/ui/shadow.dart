@@ -174,45 +174,45 @@ void loadShadow({required HydroState hydroState, required HydroTable table}) {
   table['shadowConvertRadiusToSigma'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
-      maybeBoxObject<double>(
-          object:
-              Shadow.convertRadiusToSigma(luaCallerArguments[1]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
+      Shadow.convertRadiusToSigma(luaCallerArguments[1]?.toDouble()),
     ];
   });
   table['shadowLerp'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<Shadow?>(
-          object: Shadow.lerp(
-              maybeUnBoxAndBuildArgument<Shadow?>(luaCallerArguments[1],
-                  parentState: hydroState),
-              maybeUnBoxAndBuildArgument<Shadow?>(luaCallerArguments[2],
-                  parentState: hydroState),
-              luaCallerArguments[3]?.toDouble()),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = Shadow.lerp(
+        maybeUnBoxAndBuildArgument<Shadow?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<Shadow?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<Shadow?>(
+            object: returnValue, hydroState: hydroState, table: HydroTable()),
+      ];
+    }
+    return [];
   });
   table['shadowLerpList'] =
       makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
-    return [
-      maybeBoxObject<List<dynamic>>(
-          object: Shadow.lerpList(
-                  maybeUnBoxAndBuildArgument<List<Shadow>?>(
-                      luaCallerArguments[1],
-                      parentState: hydroState),
-                  maybeUnBoxAndBuildArgument<List<Shadow>?>(
-                      luaCallerArguments[2],
-                      parentState: hydroState),
-                  luaCallerArguments[3]?.toDouble())
-              .map((x) => maybeBoxObject<Shadow>(
-                  object: x, hydroState: hydroState, table: HydroTable()))
-              .toList(),
-          hydroState: hydroState,
-          table: HydroTable())
-    ];
+    final returnValue = Shadow.lerpList(
+        maybeUnBoxAndBuildArgument<List<Shadow>?>(luaCallerArguments[1],
+            parentState: hydroState),
+        maybeUnBoxAndBuildArgument<List<Shadow>?>(luaCallerArguments[2],
+            parentState: hydroState),
+        luaCallerArguments[3]?.toDouble());
+    if (returnValue != null) {
+      return [
+        maybeBoxObject<List<dynamic>>(
+            object: returnValue
+                .map((x) => maybeBoxObject<Shadow>(
+                    object: x, hydroState: hydroState, table: HydroTable()))
+                .toList(),
+            hydroState: hydroState,
+            table: HydroTable()),
+      ];
+    }
+    return [];
   });
   registerBoxer<Shadow>(boxer: (
       {required Shadow vmObject,

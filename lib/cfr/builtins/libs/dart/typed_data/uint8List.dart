@@ -587,7 +587,7 @@ void loadUint8List(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['uint8ListView'] =
@@ -600,7 +600,7 @@ void loadUint8List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['uint8ListSublistView'] =
@@ -613,7 +613,7 @@ void loadUint8List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Uint8List>(boxer: (

@@ -214,7 +214,7 @@ void loadInvocation(
                   luaCallerArguments[3],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['invocationGenericMethod'] =
@@ -233,7 +233,7 @@ void loadInvocation(
                   luaCallerArguments[4],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['invocationGetter'] =
@@ -244,7 +244,7 @@ void loadInvocation(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['invocationSetter'] =
@@ -257,7 +257,7 @@ void loadInvocation(
               maybeUnBoxAndBuildArgument<Object?>(luaCallerArguments[2],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Invocation>(boxer: (

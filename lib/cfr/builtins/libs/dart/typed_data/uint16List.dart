@@ -587,7 +587,7 @@ void loadUint16List(
               luaCallerArguments[1],
               parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['uint16ListView'] =
@@ -600,7 +600,7 @@ void loadUint16List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['uint16ListSublistView'] =
@@ -613,7 +613,7 @@ void loadUint16List(
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<Uint16List>(boxer: (

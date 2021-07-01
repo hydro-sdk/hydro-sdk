@@ -250,7 +250,7 @@ void loadByteData({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table['byteDataSublistView'] =
@@ -263,7 +263,7 @@ void loadByteData({required HydroState hydroState, required HydroTable table}) {
               luaCallerArguments[2],
               luaCallerArguments[3]),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<ByteData>(boxer: (
