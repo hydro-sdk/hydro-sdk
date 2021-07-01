@@ -8,16 +8,12 @@ import 'package:code_builder/code_builder.dart'
         Code,
         CodeExpression;
 
-import 'package:hydro_sdk/swid/backend/dart/dartBoxEnumReference.dart';
-import 'package:hydro_sdk/swid/backend/dart/dartBoxObjectReference.dart';
+import 'package:hydro_sdk/swid/backend/dart/dartBoxingExpression.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartBoxingProcedure.dart';
 import 'package:hydro_sdk/swid/backend/dart/dartUnboxingExpression.dart';
-import 'package:hydro_sdk/swid/backend/dart/util/codeKind.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/luaCallerArgumentsParameterName.dart';
 import 'package:hydro_sdk/swid/backend/dart/util/unpackedClosureName.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
-import 'package:hydro_sdk/swid/ir/util/narrowSwidInterfaceByReferenceDeclaration.dart';
 
 class DartFunctionSelfBindingInvocation {
   final SwidFunctionType swidFunctionType;
@@ -27,7 +23,7 @@ class DartFunctionSelfBindingInvocation {
   final bool useClosureUnpackNameForUnboxingIdentifiers;
   final Expression? returnValueBoxingTableExpression;
 
-  DartFunctionSelfBindingInvocation({
+  const DartFunctionSelfBindingInvocation({
     required this.swidFunctionType,
     required this.argumentBoxingProcedure,
     required this.returnValueBoxingProcedure,
@@ -39,59 +35,14 @@ class DartFunctionSelfBindingInvocation {
   String toDartSource() => ((Expression expression) =>
       returnValueBoxingProcedure == DartBoxingProcedure.unbox
           ? DartUnboxingExpression(
-              swidType: swidFunctionType.returnType, expression: expression)
+                  swidType: swidFunctionType.returnType, expression: expression)
+              .toDartSource()
           : returnValueBoxingProcedure == DartBoxingProcedure.box
-              ? swidFunctionType.returnType.when(
-                  fromSwidInterface: (val) =>
-                      narrowSwidInterfaceByReferenceDeclaration(
-                    swidInterface: val,
-                    onPrimitive: (_) => expression
-                        .accept(DartEmitter(
-                          useNullSafetySyntax: true,
-                        ))
-                        .toString(),
-                    onDynamic: (_) => expression
-                        .accept(DartEmitter(
-                          useNullSafetySyntax: true,
-                        ))
-                        .toString(),
-                    onClass: (val) => DartBoxObjectReference(
-                      type: val,
-                      objectReference: expression,
-                      boxLists: true,
-                      codeKind: CodeKind.expression,
-                      tableExpression: returnValueBoxingTableExpression,
-                    ).toDartSource(),
-                    onEnum: (val) => DartBoxEnumReference(
-                            type:
-                                SwidType.fromSwidInterface(swidInterface: val),
-                            codeKind: CodeKind.expression,
-                            referenceName: expression
-                                .accept(DartEmitter(
-                                  useNullSafetySyntax: true,
-                                ))
-                                .toString())
-                        .toDartSource(),
-                    onVoid: (_) => expression
-                        .accept(DartEmitter(
-                          useNullSafetySyntax: true,
-                        ))
-                        .toString(),
-                    onTypeParameter: (_) => expression
-                        .accept(DartEmitter(
-                          useNullSafetySyntax: true,
-                        ))
-                        .toString(),
-                    onUnknown: (_) => expression
-                        .accept(DartEmitter(
-                          useNullSafetySyntax: true,
-                        ))
-                        .toString(),
-                  ),
-                  fromSwidClass: (_) => "",
-                  fromSwidDefaultFormalParameter: (_) => "",
-                  fromSwidFunctionType: (_) => "",
-                )
+              ? DartBoxingExpression(
+                  swidType: swidFunctionType.returnType,
+                  expression: expression,
+                  tableExpression: returnValueBoxingTableExpression,
+                ).toDartSource()
               : expression
                   .accept(DartEmitter(
                     useNullSafetySyntax: true,
@@ -199,5 +150,5 @@ class DartFunctionSelfBindingInvocation {
                   ),
                 )),
               ]))
-      : refer(swidFunctionType.name)) as String;
+      : refer(swidFunctionType.name));
 }
