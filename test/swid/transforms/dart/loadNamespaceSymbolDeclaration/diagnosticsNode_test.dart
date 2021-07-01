@@ -18,47 +18,53 @@ void main() {
         """
 void loadDiagnosticsNode(
     {required HydroState hydroState, required HydroTable table}) {
-  table[\'diagnosticsNode\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table[\'diagnosticsNode\'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       RTManagedDiagnosticsNode(
-          table: args[0],
+          table: luaCallerArguments[0],
           hydroState: hydroState,
-          linePrefix: args[1][\'linePrefix\'],
-          showName: args[1][\'showName\'],
-          showSeparator: args[1][\'showSeparator\'],
+          linePrefix: luaCallerArguments[1][\'linePrefix\'],
+          showName: luaCallerArguments[1][\'showName\'],
+          showSeparator: luaCallerArguments[1][\'showSeparator\'],
           style: maybeUnBoxEnum(
-              values: DiagnosticsTreeStyle.values, boxedEnum: args[1][\'style\']),
-          name: args[1][\'name\'])
+              values: DiagnosticsTreeStyle.values,
+              boxedEnum: luaCallerArguments[1][\'style\']),
+          name: luaCallerArguments[1][\'name\'])
     ];
   });
-  table[\'diagnosticsNodeMessage\'] = makeLuaDartFunc(func: (List<dynamic> args) {
+  table[\'diagnosticsNodeMessage\'] =
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<DiagnosticsNode>(
-          object: DiagnosticsNode.message(args[1],
-              allowWrap: args[2][\'allowWrap\'],
+          object: DiagnosticsNode.message(luaCallerArguments[1],
+              allowWrap: luaCallerArguments[2][\'allowWrap\'],
               level: maybeUnBoxEnum(
-                  values: DiagnosticLevel.values, boxedEnum: args[2][\'level\']),
+                  values: DiagnosticLevel.values,
+                  boxedEnum: luaCallerArguments[2][\'level\']),
               style: maybeUnBoxEnum(
                   values: DiagnosticsTreeStyle.values,
-                  boxedEnum: args[2][\'style\'])),
+                  boxedEnum: luaCallerArguments[2][\'style\'])),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   table[\'diagnosticsNodeToJsonList\'] =
-      makeLuaDartFunc(func: (List<dynamic> args) {
+      makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
     return [
       maybeBoxObject<List<dynamic>>(
           object: DiagnosticsNode.toJsonList(
-              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>?>(args[1],
+              maybeUnBoxAndBuildArgument<List<DiagnosticsNode>?>(
+                  luaCallerArguments[1],
                   parentState: hydroState),
-              maybeUnBoxAndBuildArgument<DiagnosticsNode?>(args[2],
+              maybeUnBoxAndBuildArgument<DiagnosticsNode?>(
+                  luaCallerArguments[2],
                   parentState: hydroState),
               maybeUnBoxAndBuildArgument<DiagnosticsSerializationDelegate>(
-                  args[3],
+                  luaCallerArguments[3],
                   parentState: hydroState)),
           hydroState: hydroState,
-          table: HydroTable())
+          table: HydroTable()),
     ];
   });
   registerBoxer<DiagnosticsNode>(boxer: (

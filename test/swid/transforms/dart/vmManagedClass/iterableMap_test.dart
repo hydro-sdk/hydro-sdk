@@ -189,16 +189,16 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'map\'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure f = args[1];
+    table[\'map\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedf = luaCallerArguments[1];
       return [
         maybeBoxObject<Iterable>(
-            object: vmObject.map((e) => f.dispatch(
-                  [args[0], e],
+            object: vmObject.map((e) => unpackedf.dispatch(
+                  [luaCallerArguments[0], e],
                   parentState: hydroState,
                 )[0]),
             hydroState: hydroState,
-            table: HydroTable())
+            table: HydroTable()),
       ];
     });
   }

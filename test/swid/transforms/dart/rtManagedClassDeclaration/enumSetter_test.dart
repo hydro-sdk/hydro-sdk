@@ -93,13 +93,14 @@ void main() {
     expect(DartRTManagedClassDeclaration(swidClass: ast).toDartSource(), """
 class RTManagedPath extends Path implements Box<Path> {
   RTManagedPath({required this.table, required this.hydroState}) : super() {
-    table['vmObject'] = vmObject;
-    table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> args) {
+    table[\'vmObject\'] = vmObject;
+    table[\'unwrap\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
       return [unwrap()];
     });
-    table['_dart_setFillType'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      super.fillType =
-          (maybeUnBoxEnum(values: PathFillType.values, boxedEnum: args[1]));
+    table[\'_dart_setFillType\'] =
+        makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      super.fillType = (maybeUnBoxEnum(
+          values: PathFillType.values, boxedEnum: luaCallerArguments[1]));
       return [];
     });
   }

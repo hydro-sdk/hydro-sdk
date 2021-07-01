@@ -167,13 +167,13 @@ class VMManagedIterable extends VMManagedBox<Iterable<dynamic>> {
           vmObject: vmObject,
           hydroState: hydroState,
         ) {
-    table[\'reduce\'] = makeLuaDartFunc(func: (List<dynamic> args) {
-      Closure combine = args[1];
+    table[\'reduce\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+      Closure unpackedcombine = luaCallerArguments[1];
       return [
-        vmObject.reduce((value, element) => combine.dispatch(
-              [args[0], value, element],
+        vmObject.reduce((value, element) => unpackedcombine.dispatch(
+              [luaCallerArguments[0], value, element],
               parentState: hydroState,
-            )[0])
+            )[0]),
       ];
     });
   }

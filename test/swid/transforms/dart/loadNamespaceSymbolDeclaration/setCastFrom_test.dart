@@ -157,14 +157,13 @@ void main() {
         """
 table  [
 \'setCastFrom\'
-] = makeLuaDartFunc(func: (List<dynamic> args) { 
-Closure? newSet=args  [
+] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) { 
+Closure? unpackednewSet=luaCallerArguments  [
 2
 ]  [
 \'newSet\'
-];
-return  [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set<dynamic>>(args  [
+];return [maybeBoxObject<Set>(object: Set.castFrom(maybeUnBoxAndBuildArgument<Set<dynamic>>(luaCallerArguments  [
 1
-], parentState: hydroState), newSet: newSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set<R>>(newSet.dispatch([args[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable())]; } );""");
+], parentState: hydroState), newSet: unpackednewSet != null ? <R>() => maybeUnBoxAndBuildArgument<Set<R>>(unpackednewSet.dispatch([luaCallerArguments[0],],parentState:hydroState,)[0], parentState: hydroState) : null ), hydroState: hydroState, table: HydroTable()),]; } );""");
   }, tags: "swid");
 }
