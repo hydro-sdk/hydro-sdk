@@ -28,9 +28,9 @@ class VMManagedVertices extends VMManagedBox<Vertices> {
 
 class RTManagedVertices extends Vertices implements Box<Vertices> {
   RTManagedVertices(VertexMode mode, List<Offset> positions,
-      {List? colors,
-      List? indices,
-      List? textureCoordinates,
+      {List<Color>? colors,
+      List<int>? indices,
+      List<Offset>? textureCoordinates,
       required this.table,
       required this.hydroState})
       : super(mode, positions,

@@ -35,7 +35,7 @@ class VMManagedStrutStyle extends VMManagedBox<StrutStyle> {
 class RTManagedStrutStyle extends StrutStyle implements Box<StrutStyle> {
   RTManagedStrutStyle(
       {String? fontFamily,
-      List? fontFamilyFallback,
+      List<String>? fontFamilyFallback,
       double? fontSize,
       FontStyle? fontStyle,
       FontWeight? fontWeight,

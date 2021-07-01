@@ -71,7 +71,7 @@ class RTManagedPlatformConfiguration extends PlatformConfiguration
       {required AccessibilityFeatures accessibilityFeatures,
       required bool alwaysUse24HourFormat,
       String? defaultRouteName,
-      required List locales,
+      required List<Locale> locales,
       required Brightness platformBrightness,
       required bool semanticsEnabled,
       required double textScaleFactor,

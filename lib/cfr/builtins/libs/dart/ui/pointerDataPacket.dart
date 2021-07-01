@@ -31,7 +31,9 @@ class VMManagedPointerDataPacket extends VMManagedBox<PointerDataPacket> {
 class RTManagedPointerDataPacket extends PointerDataPacket
     implements Box<PointerDataPacket> {
   RTManagedPointerDataPacket(
-      {required List data, required this.table, required this.hydroState})
+      {required List<PointerData> data,
+      required this.table,
+      required this.hydroState})
       : super(data: data) {
     table['vmObject'] = vmObject;
     table['unwrap'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
