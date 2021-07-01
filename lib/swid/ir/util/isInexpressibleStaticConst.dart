@@ -3,7 +3,6 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
-import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 bool isInexpressibleStaticConst(
         {required SwidClass parentClass,
