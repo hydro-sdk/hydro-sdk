@@ -58,22 +58,8 @@ DartTranslationUnit? produceDartTranslationUnitFromSwidClass({
                         .toList(),
                     DartImportStatement(path: swidClass.originalPackagePath),
                     DartImportStatement(
-                        path:
-                            "package:hydro_sdk/cfr/builtins/boxing/boxers.dart"),
-                    DartImportStatement(
-                        path:
-                            "package:hydro_sdk/cfr/builtins/boxing/boxes.dart"),
-                    DartImportStatement(
-                        path:
-                            "package:hydro_sdk/cfr/builtins/boxing/unboxers.dart"),
-                    DartImportStatement(
-                        path: "package:hydro_sdk/cfr/vm/closure.dart"),
-                    DartImportStatement(
-                        path: "package:hydro_sdk/cfr/vm/context.dart"),
-                    DartImportStatement(
-                        path: "package:hydro_sdk/cfr/vm/table.dart"),
-                    DartImportStatement(
-                        path: "package:hydro_sdk/hydroState.dart"),
+                      path: "package:hydro_sdk/cfr/runtimeSupport.dart",
+                    ),
                   ]),
                   DartIr.fromVMManagedClassDeclaration(
                     vmManagedClassDeclaration: DartVMManagedClassDeclaration(

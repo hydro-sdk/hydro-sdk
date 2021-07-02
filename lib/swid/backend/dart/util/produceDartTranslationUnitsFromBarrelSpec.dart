@@ -23,21 +23,10 @@ List<DartTranslationUnit> produceDartTranslationUnitsFromBarrelSpec({
           ir: [
             DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
             DartIr.fromDartImportStatement(
-                dartImportStatement: DartImportStatement(
-                    path: "package:hydro_sdk/cfr/vm/table.dart")),
-            DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-            DartIr.fromDartImportStatement(
-                dartImportStatement: DartImportStatement(
-                    path: "package:hydro_sdk/hydroState.dart")),
-            DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-            ...(barrelSpec.isTopLevel()
-                ? [
-                    DartIr.fromDartImportStatement(
-                        dartImportStatement: DartImportStatement(
-                            path: "package:hydro_sdk/cfr/vm/context.dart")),
-                    DartIr.fromDartLinebreak(dartLinebreak: DartLinebreak()),
-                  ]
-                : []),
+              dartImportStatement: DartImportStatement(
+                path: "package:hydro_sdk/cfr/runtimeSupport.dart",
+              ),
+            ),
             ...barrelSpec.members
                 .map((x) => x.when(
                         fromSwidClass: (val) =>
