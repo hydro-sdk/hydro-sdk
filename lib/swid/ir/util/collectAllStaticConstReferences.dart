@@ -12,6 +12,7 @@ List<SwidInterface> collectReferencesFromStaticConst({
         fromSwidStringLiteral: (_) => [],
         fromSwidIntegerLiteral: (_) => [],
         fromDoubleLiteral: (_) => [],
+        fromSwidStaticConstIdentifier: (_) => [],
         fromSwidStaticConstFunctionInvocation: (val) => [
           ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
               ? elements.reduce((value, element) => [

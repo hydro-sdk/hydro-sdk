@@ -138,3 +138,17 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstPrefixedIdentifierToJson(
     <String, dynamic>{
       'staticConstPrefixedIdentifier': instance.staticConstPrefixedIdentifier,
     };
+
+_$_$FromSwidStaticConstIdentifier _$_$_$FromSwidStaticConstIdentifierFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstIdentifier(
+    staticConstIdentifier: SwidStaticConstIdentifier.fromJson(
+        json['staticConstIdentifier'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstIdentifierToJson(
+        _$_$FromSwidStaticConstIdentifier instance) =>
+    <String, dynamic>{
+      'staticConstIdentifier': instance.staticConstIdentifier,
+    };

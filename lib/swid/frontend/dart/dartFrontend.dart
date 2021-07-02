@@ -97,6 +97,12 @@ class _SwidVisitor extends RecursiveAstVisitor
 
   @override
   void visitClassDeclaration(ClassDeclaration node) {
+    if (node.name.name == "FontWeight") {
+      print(node.name.name);
+      File("test/swid/res/FontWeight.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
     if (node.nativeClause == null) {
       var res = swidClassFromDartClassOrMixinOrClassTypAliasDeclaration(
           dartClassOrMixinOrClassTypAliasDeclaration:
@@ -246,6 +252,12 @@ class _SwidVisitor extends RecursiveAstVisitor
     if (node.name.name == "List") {
       print(node.name.name);
       File("test/swid/res/List.json")
+          .writeAsStringSync(json.encode(classes.last.toJson()));
+    }
+
+    if (node.name.name == "FontWeight") {
+      print(node.name.name);
+      File("test/swid/res/FontWeight.json")
           .writeAsStringSync(json.encode(classes.last.toJson()));
     }
 

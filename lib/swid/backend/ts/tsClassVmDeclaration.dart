@@ -135,6 +135,8 @@ class TsClassVmDeclaration {
                                                 (_) => null,
                                             fromSwidStaticConstPrefixedIdentifier:
                                                 (_) => null,
+                                            fromSwidStaticConstIdentifier:
+                                                (_) => null,
                                           )!,
                                           isFactory: false,
                                           typeFormals: [],

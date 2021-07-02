@@ -27,6 +27,11 @@ String transformLiteralToTs(
             transformDoubleLiteralToTs(swidDoubleLiteral: val),
         fromSwidBooleanLiteral: (val) =>
             transformBooleanLiteralToTs(swidBooleanLiteral: val),
+        fromSwidStaticConstIdentifier: (val) => [
+              val.enclosingType.name,
+              ".",
+              val.identifier,
+            ].join(""),
         fromSwidStaticConstPrefixedExpression: (val) =>
             transformStaticConstPrefixedExpressionToTs(
               swidStaticConstPrefixedExpression: val,

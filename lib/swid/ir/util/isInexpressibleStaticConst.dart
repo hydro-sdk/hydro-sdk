@@ -12,6 +12,7 @@ bool isInexpressibleStaticConst(
       fromSwidStringLiteral: (_) => false,
       fromSwidIntegerLiteral: (_) => false,
       fromDoubleLiteral: (_) => false,
+      fromSwidStaticConstIdentifier: (_) => false,
       fromSwidStaticConstFunctionInvocation: (val) =>
           val.value[0] == "_" ||
           val.staticType.displayName[0] == "_" ||
