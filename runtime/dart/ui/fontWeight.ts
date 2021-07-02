@@ -30,8 +30,8 @@ export class FontWeight {
     public static w700 = dart.ui.fontWeightW700();
     public static w800 = dart.ui.fontWeightW800();
     public static w900 = dart.ui.fontWeightW900();
-    public static normal = Unknown;
-    public static bold = Unknown;
+    public static normal = FontWeight.w400;
+    public static bold = FontWeight.w700;
     public static values = Unknown;
     public readonly index: number = undefined as any;
     public static lerp(
