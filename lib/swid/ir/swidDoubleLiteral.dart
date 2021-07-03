@@ -5,8 +5,18 @@ part 'swidDoubleLiteral.g.dart';
 
 @freezed
 class SwidDoubleLiteral with _$SwidDoubleLiteral {
-  const factory SwidDoubleLiteral({required String value}) = _$Data;
+  const factory SwidDoubleLiteral({
+    required String value,
+  }) = _$Data;
 
   factory SwidDoubleLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidDoubleLiteralFromJson(json);
+
+  factory SwidDoubleLiteral.clone({
+    required SwidDoubleLiteral swidDoubleLiteral,
+    String? value,
+  }) =>
+      SwidDoubleLiteral(
+        value: value ?? swidDoubleLiteral.value,
+      );
 }

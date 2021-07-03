@@ -17,4 +17,22 @@ class SwidStaticConstPrefixedIdentifier
   factory SwidStaticConstPrefixedIdentifier.fromJson(
           Map<String, dynamic> json) =>
       _$SwidStaticConstPrefixedIdentifierFromJson(json);
+
+  factory SwidStaticConstPrefixedIdentifier.clone({
+    required SwidStaticConstPrefixedIdentifier
+        swidStaticConstPrefixedIdentifier,
+    SwidInterface? prefix,
+    SwidStaticConstFieldReference? staticConstFieldReference,
+  }) =>
+      SwidStaticConstPrefixedIdentifier(
+        prefix: prefix ??
+            SwidInterface.clone(
+              swidType: swidStaticConstPrefixedIdentifier.prefix,
+            ),
+        staticConstFieldReference: staticConstFieldReference ??
+            SwidStaticConstFieldReference.clone(
+              swidStaticConstFieldReference:
+                  swidStaticConstPrefixedIdentifier.staticConstFieldReference,
+            ),
+      );
 }

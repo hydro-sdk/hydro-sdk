@@ -14,4 +14,17 @@ class SwidStaticConstIdentifier with _$SwidStaticConstIdentifier {
 
   factory SwidStaticConstIdentifier.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstIdentifierFromJson(json);
+
+  factory SwidStaticConstIdentifier.clone({
+    required SwidStaticConstIdentifier swidStaticConstIdentifier,
+    String? identifier,
+    SwidType? enclosingType,
+  }) =>
+      SwidStaticConstIdentifier(
+        identifier: identifier ?? swidStaticConstIdentifier.identifier,
+        enclosingType: enclosingType ??
+            SwidType.clone(
+              swidType: swidStaticConstIdentifier.enclosingType,
+            ),
+      );
 }

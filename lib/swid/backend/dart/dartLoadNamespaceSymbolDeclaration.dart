@@ -80,7 +80,7 @@ class DartLoadNamespaceSymbolDeclaration {
                                             .constructorType!.isFactory,
                                         swidFunctionType: SwidFunctionType.clone(
                                             swidFunctionType:
-                                                swidClass.constructorType,
+                                                swidClass.constructorType!,
                                             name: !swidClass
                                                     .constructorType!.isFactory
                                                 ? "RTManaged${swidClass.name}"

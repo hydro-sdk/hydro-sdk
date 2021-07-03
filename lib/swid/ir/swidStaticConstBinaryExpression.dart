@@ -15,4 +15,22 @@ class SwidStaticConstBinaryExpression with _$SwidStaticConstBinaryExpression {
 
   factory SwidStaticConstBinaryExpression.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstBinaryExpressionFromJson(json);
+
+  factory SwidStaticConstBinaryExpression.clone({
+    required SwidStaticConstBinaryExpression swidStaticConstBinaryExpression,
+    String? operator,
+    SwidStaticConst? leftOperand,
+    SwidStaticConst? rightOperand,
+  }) =>
+      SwidStaticConstBinaryExpression(
+        operator: operator ?? swidStaticConstBinaryExpression.operator,
+        leftOperand: SwidStaticConst.clone(
+          swidStaticConst:
+              leftOperand ?? swidStaticConstBinaryExpression.leftOperand,
+        ),
+        rightOperand: SwidStaticConst.clone(
+          swidStaticConst:
+              rightOperand ?? swidStaticConstBinaryExpression.rightOperand,
+        ),
+      );
 }

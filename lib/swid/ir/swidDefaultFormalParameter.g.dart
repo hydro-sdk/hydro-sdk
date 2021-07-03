@@ -12,7 +12,7 @@ _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
     nullabilitySuffix:
         _$enumDecode(_$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
     originalPackagePath: json['originalPackagePath'] as String,
-    value: SwidType.fromJson(json['value'] as Map<String, dynamic>),
+    value: SwidStaticConst.fromJson(json['value'] as Map<String, dynamic>),
   );
 }
 

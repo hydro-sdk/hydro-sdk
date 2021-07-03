@@ -36,6 +36,33 @@ class SwidType with _$SwidType {
   factory SwidType.fromJson(Map<String, dynamic> json) =>
       _$SwidTypeFromJson(json);
 
+  factory SwidType.clone({
+    required SwidType swidType,
+  }) =>
+      swidType.when(
+        fromSwidInterface: (val) => SwidType.fromSwidInterface(
+          swidInterface: SwidInterface.clone(
+            swidType: val,
+          ),
+        ),
+        fromSwidClass: (val) => SwidType.fromSwidClass(
+          swidClass: SwidClass.clone(
+            swidClass: val,
+          ),
+        ),
+        fromSwidDefaultFormalParameter: (val) =>
+            SwidType.fromSwidDefaultFormalParameter(
+          swidDefaultFormalParameter: SwidDefaultFormalParameter.clone(
+            swidType: val,
+          ),
+        ),
+        fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
+          swidFunctionType: SwidFunctionType.clone(
+            swidFunctionType: val,
+          ),
+        ),
+      );
+
   SwidNullabilitySuffix get nullabilitySuffix => when(
       fromSwidInterface: (val) => val.nullabilitySuffix,
       fromSwidClass: (val) => val.nullabilitySuffix,

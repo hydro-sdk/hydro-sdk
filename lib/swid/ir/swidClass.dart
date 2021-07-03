@@ -61,7 +61,7 @@ class SwidClass with _$SwidClass {
             ? constructorType
             : swidClass.constructorType != null
                 ? SwidFunctionType.clone(
-                    swidFunctionType: swidClass.constructorType)
+                    swidFunctionType: swidClass.constructorType!)
                 : null,
         factoryConstructors: factoryConstructors ??
             List.from(swidClass.factoryConstructors

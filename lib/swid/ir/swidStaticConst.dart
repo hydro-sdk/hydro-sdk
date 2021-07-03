@@ -64,4 +64,76 @@ class SwidStaticConst with _$SwidStaticConst {
 
   factory SwidStaticConst.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFromJson(json);
+
+  factory SwidStaticConst.clone({
+    required SwidStaticConst swidStaticConst,
+  }) =>
+      swidStaticConst.when(
+        fromSwidBooleanLiteral: (val) => SwidStaticConst.fromSwidBooleanLiteral(
+          swidBooleanLiteral: SwidBooleanLiteral.clone(
+            swidBooleanLiteral: val,
+          ),
+        ),
+        fromSwidStringLiteral: (val) => SwidStaticConst.fromSwidStringLiteral(
+          swidStringLiteral: SwidStringLiteral.clone(
+            swidStringLiteral: val,
+          ),
+        ),
+        fromSwidIntegerLiteral: (val) => SwidStaticConst.fromSwidIntegerLiteral(
+          swidIntegerLiteral: SwidIntegerLiteral.clone(
+            swidIntegerLiteral: val,
+          ),
+        ),
+        fromDoubleLiteral: (val) => SwidStaticConst.fromDoubleLiteral(
+          swidDoubleLiteral: SwidDoubleLiteral.clone(
+            swidDoubleLiteral: val,
+          ),
+        ),
+        fromSwidStaticConstFunctionInvocation: (val) =>
+            SwidStaticConst.fromSwidStaticConstFunctionInvocation(
+          staticConstFunctionInvocation:
+              SwidStaticConstFunctionInvocation.clone(
+            swidStaticConstFunctionInvocation: val,
+          ),
+        ),
+        fromSwidStaticConstFieldReference: (val) =>
+            SwidStaticConst.fromSwidStaticConstFieldReference(
+          swidStaticConstFieldReference: SwidStaticConstFieldReference.clone(
+            swidStaticConstFieldReference: val,
+          ),
+        ),
+        fromSwidStaticConstPrefixedExpression: (val) =>
+            SwidStaticConst.fromSwidStaticConstPrefixedExpression(
+          swidStaticConstPrefixedExpression:
+              SwidStaticConstPrefixedExpression.clone(
+            swidStaticConstPrefixedExpression: val,
+          ),
+        ),
+        fromSwidStaticConstBinaryExpression: (val) =>
+            SwidStaticConst.fromSwidStaticConstBinaryExpression(
+          swidStaticConstBinaryExpression:
+              SwidStaticConstBinaryExpression.clone(
+            swidStaticConstBinaryExpression: val,
+          ),
+        ),
+        fromSwidStaticConstPrefixedIdentifier: (val) =>
+            SwidStaticConst.fromSwidStaticConstPrefixedIdentifier(
+          staticConstPrefixedIdentifier:
+              SwidStaticConstPrefixedIdentifier.clone(
+            swidStaticConstPrefixedIdentifier: val,
+          ),
+        ),
+        fromSwidStaticConstIdentifier: (val) =>
+            SwidStaticConst.fromSwidStaticConstIdentifier(
+          staticConstIdentifier: SwidStaticConstIdentifier.clone(
+            swidStaticConstIdentifier: val,
+          ),
+        ),
+        fromSwidStaticConstListLiteral: (val) =>
+            SwidStaticConst.fromSwidStaticConstListLiteral(
+          staticConstListLiteral: SwidStaticConstListLiteral.clone(
+            swidStaticConstListLiteral: val,
+          ),
+        ),
+      );
 }

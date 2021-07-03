@@ -14,4 +14,16 @@ class SwidStaticConstFieldDeclaration with _$SwidStaticConstFieldDeclaration {
 
   factory SwidStaticConstFieldDeclaration.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstFieldDeclarationFromJson(json);
+
+  factory SwidStaticConstFieldDeclaration.clone({
+    required SwidStaticConstFieldDeclaration swidStaticConstFieldDeclaration,
+    String? name,
+    SwidStaticConst? value,
+  }) =>
+      SwidStaticConstFieldDeclaration(
+        name: name ?? swidStaticConstFieldDeclaration.name,
+        value: SwidStaticConst.clone(
+          swidStaticConst: value ?? swidStaticConstFieldDeclaration.value,
+        ),
+      );
 }

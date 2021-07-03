@@ -13,4 +13,19 @@ class SwidStaticConstListLiteral with _$SwidStaticConstListLiteral {
 
   factory SwidStaticConstListLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidStaticConstListLiteralFromJson(json);
+
+  factory SwidStaticConstListLiteral.clone({
+    required SwidStaticConstListLiteral swidStaticConstListLiteral,
+    List<SwidStaticConst>? elements,
+  }) =>
+      SwidStaticConstListLiteral(
+        elements: elements ??
+            List.from(
+              swidStaticConstListLiteral.elements
+                  .map((x) => SwidStaticConst.clone(
+                        swidStaticConst: x,
+                      ))
+                  .toList(),
+            ),
+      );
 }

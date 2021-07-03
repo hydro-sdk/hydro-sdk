@@ -5,8 +5,18 @@ part 'swidIntegerLiteral.g.dart';
 
 @freezed
 class SwidIntegerLiteral with _$SwidIntegerLiteral {
-  const factory SwidIntegerLiteral({required String value}) = _$Data;
+  const factory SwidIntegerLiteral({
+    required String value,
+  }) = _$Data;
 
   factory SwidIntegerLiteral.fromJson(Map<String, dynamic> json) =>
       _$SwidIntegerLiteralFromJson(json);
+
+  factory SwidIntegerLiteral.clone({
+    required SwidIntegerLiteral swidIntegerLiteral,
+    String? value,
+  }) =>
+      SwidIntegerLiteral(
+        value: value ?? swidIntegerLiteral.value,
+      );
 }
