@@ -21,7 +21,7 @@ export interface ITextRange {
     toString: () => string;
 }
 export class TextRange {
-    public static empty = new TextRange();
+    public static empty = new TextRange({start:-1,end:-1,});
     public readonly start: number = undefined as any;
     public readonly end: number = undefined as any;
     public constructor(props: { end: number; start: number }) {
