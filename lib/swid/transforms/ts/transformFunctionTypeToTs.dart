@@ -53,11 +53,19 @@ String transformFunctionTypeToTs({
               .firstWhereOrNull((x) => x.key == argName) !=
           null);
 
+  int normalAnonymousTypesSeen = 0;
   normalTypes.forEach((key, value) {
     value!.when(
       fromSwidClass: (_) => null,
       fromSwidFunctionType: (val) {
-        res += "$key";
+        if (key.trim().isNotEmpty) {
+          res += "$key";
+        } else {
+          normalAnonymousTypesSeen++;
+          res += "_";
+          res +=
+              List.generate(normalAnonymousTypesSeen, (index) => "_").join("");
+        }
         if (shouldEmitPositionalAsOptional(argName: key)) {
           res +=
               "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
@@ -73,7 +81,14 @@ String transformFunctionTypeToTs({
         return null;
       },
       fromSwidInterface: (val) {
-        res += key;
+        if (key.trim().isNotEmpty) {
+          res += "$key";
+        } else {
+          normalAnonymousTypesSeen++;
+          res += "_";
+          res +=
+              List.generate(normalAnonymousTypesSeen, (index) => "_").join("");
+        }
         if (shouldEmitPositionalAsOptional(argName: key)) {
           res +=
               "${val.nullabilitySuffix == SwidNullabilitySuffix.question ? "?" : ""}";
