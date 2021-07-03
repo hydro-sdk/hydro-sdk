@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformDoubleLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformIntegerLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstBinaryExpressionToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFunctionInvocation.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstListLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedExpressionToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstPrefixedIdentifierToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
@@ -13,11 +14,12 @@ import 'package:hydro_sdk/swid/transforms/ts/transformStringLiteralToTs.dart';
 typedef String? SwidStaticConstFieldReferenceScopeResolver(
     SwidStaticConstFieldReference staticConstFieldReference);
 
-String transformLiteralToTs(
-        {required SwidStaticConst swidLiteral,
-        required SwidClass parentClass,
-        required String inexpressibleFunctionInvocationFallback,
-        required SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
+String transformLiteralToTs({
+  required SwidStaticConst swidLiteral,
+  required SwidClass parentClass,
+  required String inexpressibleFunctionInvocationFallback,
+  required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
+}) =>
     swidLiteral.when(
         fromSwidIntegerLiteral: (val) =>
             transformIntegerLiteralToTs(swidIntegerLiteral: val),
@@ -32,6 +34,14 @@ String transformLiteralToTs(
               ".",
               val.identifier,
             ].join(""),
+        fromSwidStaticConstListLiteral: (val) =>
+            transformStaticConstListLiteralToTs(
+              staticConstListLiteral: val,
+              parentClass: parentClass,
+              inexpressibleFunctionInvocationFallback:
+                  inexpressibleFunctionInvocationFallback,
+              scopeResolver: scopeResolver,
+            ),
         fromSwidStaticConstPrefixedExpression: (val) =>
             transformStaticConstPrefixedExpressionToTs(
               swidStaticConstPrefixedExpression: val,

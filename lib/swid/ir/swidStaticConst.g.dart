@@ -152,3 +152,17 @@ Map<String, dynamic> _$_$_$FromSwidStaticConstIdentifierToJson(
     <String, dynamic>{
       'staticConstIdentifier': instance.staticConstIdentifier,
     };
+
+_$_$FromSwidStaticConstListLiteral _$_$_$FromSwidStaticConstListLiteralFromJson(
+    Map<String, dynamic> json) {
+  return _$_$FromSwidStaticConstListLiteral(
+    staticConstListLiteral: SwidStaticConstListLiteral.fromJson(
+        json['staticConstListLiteral'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$_$_$FromSwidStaticConstListLiteralToJson(
+        _$_$FromSwidStaticConstListLiteral instance) =>
+    <String, dynamic>{
+      'staticConstListLiteral': instance.staticConstListLiteral,
+    };

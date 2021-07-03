@@ -1,5 +1,17 @@
-import 'package:analyzer/dart/ast/ast.dart';
-import 'package:analyzer/dart/ast/syntactic_entity.dart';
+import 'package:analyzer/dart/ast/ast.dart'
+    show
+        BinaryExpression,
+        BooleanLiteral,
+        DoubleLiteral,
+        InstanceCreationExpression,
+        IntegerLiteral,
+        ListLiteral,
+        PrefixExpression,
+        PrefixedIdentifier,
+        SimpleIdentifier,
+        SimpleStringLiteral,
+        StringLiteral;
+import 'package:analyzer/dart/ast/syntactic_entity.dart' show SyntacticEntity;
 
 T? narrowStaticConstSyntacticEntity<T>({
   required SyntacticEntity? syntacticEntity,
@@ -13,6 +25,7 @@ T? narrowStaticConstSyntacticEntity<T>({
   required T Function(PrefixExpression) onPrefixExpression,
   required T Function(InstanceCreationExpression) onInstanceCreationExpression,
   required T Function(BinaryExpression) onBinaryExpression,
+  required T Function(ListLiteral) onListLiteral,
 }) =>
     syntacticEntity is InstanceCreationExpression
         ? onInstanceCreationExpression(syntacticEntity)
@@ -26,13 +39,16 @@ T? narrowStaticConstSyntacticEntity<T>({
                         ? onBooleanLiteral(syntacticEntity)
                         : syntacticEntity is PrefixedIdentifier
                             ? onPrefixedIdentifier(syntacticEntity)
-                            : syntacticEntity is SimpleIdentifier
-                                ? onSimpleIdentifier(syntacticEntity)
-                                : syntacticEntity is PrefixExpression
-                                    ? onPrefixExpression(syntacticEntity)
-                                    : syntacticEntity is IntegerLiteral
-                                        ? onIntegerLiteral(syntacticEntity)
-                                        : syntacticEntity is BinaryExpression
-                                            ? onBinaryExpression(
-                                                syntacticEntity)
-                                            : null;
+                            : syntacticEntity is PrefixExpression
+                                ? onPrefixExpression(syntacticEntity)
+                                : syntacticEntity is IntegerLiteral
+                                    ? onIntegerLiteral(syntacticEntity)
+                                    : syntacticEntity is BinaryExpression
+                                        ? onBinaryExpression(syntacticEntity)
+                                        : syntacticEntity is ListLiteral
+                                            ? onListLiteral(syntacticEntity)
+                                            : syntacticEntity
+                                                    is SimpleIdentifier
+                                                ? onSimpleIdentifier(
+                                                    syntacticEntity)
+                                                : null;

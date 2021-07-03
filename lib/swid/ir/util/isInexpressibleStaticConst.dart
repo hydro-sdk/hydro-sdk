@@ -38,16 +38,28 @@ bool isInexpressibleStaticConst(
                   .firstWhereOrNull((x) => x.name == val.name)),
       fromSwidStaticConstPrefixedExpression: (val) =>
           isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: val.expression),
+        parentClass: parentClass,
+        staticConst: val.expression,
+      ),
       fromSwidStaticConstBinaryExpression: (val) =>
           isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: val.leftOperand) ||
+            parentClass: parentClass,
+            staticConst: val.leftOperand,
+          ) ||
           isInexpressibleStaticConst(
-              parentClass: parentClass, staticConst: val.rightOperand),
+            parentClass: parentClass,
+            staticConst: val.rightOperand,
+          ),
       fromSwidStaticConstPrefixedIdentifier: (val) =>
           isInexpressibleStaticConst(
-              parentClass: parentClass,
-              staticConst: SwidStaticConst.fromSwidStaticConstFieldReference(
-                  swidStaticConstFieldReference:
-                      val.staticConstFieldReference)),
+        parentClass: parentClass,
+        staticConst: SwidStaticConst.fromSwidStaticConstFieldReference(
+          swidStaticConstFieldReference: val.staticConstFieldReference,
+        ),
+      ),
+      fromSwidStaticConstListLiteral: (val) =>
+          val.elements.any((x) => isInexpressibleStaticConst(
+                parentClass: parentClass,
+                staticConst: x,
+              )),
     );

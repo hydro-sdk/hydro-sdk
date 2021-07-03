@@ -48,6 +48,18 @@ List<SwidInterface> collectReferencesFromStaticConst({
         fromSwidStaticConstPrefixedIdentifier: (val) => [
           val.prefix,
         ],
+        fromSwidStaticConstListLiteral: (val) => [
+          ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
+              ? elements.reduce((value, element) => [
+                    ...value,
+                    ...element,
+                  ])
+              : <SwidInterface>[])(val.elements
+              .map((x) => collectReferencesFromStaticConst(
+                    swidStaticConst: x,
+                  )..removeWhere((x) => x == dartUnknownInterface))
+              .toList()),
+        ],
       )
     ]
         .fold<List<SwidInterface>>(

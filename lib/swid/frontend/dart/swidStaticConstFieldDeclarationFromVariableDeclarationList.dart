@@ -9,10 +9,11 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleIdentifier,
         IntegerLiteral;
 
-import 'package:analyzer/dart/element/type.dart';
+import 'package:analyzer/dart/element/type.dart' show InterfaceType;
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:hydro_sdk/swid/frontend/dart/extractStaticConstFromSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidClassFromInterfaceType.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDoubleLiteralFromDoubleLiteral.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidIntegerLiteralFromIntegerLiteral.dart';
@@ -29,8 +30,9 @@ import 'package:analyzer/src/dart/element/element.dart'
     show ConstFieldElementImpl;
 
 SwidStaticConstFieldDeclaration
-    swidStaticConstFieldDeclarationFromVariableDeclarationList(
-        {required VariableDeclarationList variableDeclarationList}) {
+    swidStaticConstFieldDeclarationFromVariableDeclarationList({
+  required VariableDeclarationList variableDeclarationList,
+}) {
   assert(variableDeclarationList.isConst);
   assert(!variableDeclarationList.isLate);
   VariableDeclaration declaration = variableDeclarationList.childEntities
@@ -124,6 +126,21 @@ SwidStaticConstFieldDeclaration
                                       !x.inDeclarationContext(),
                                 ) as SimpleIdentifier?,
                               )
-                            : dartUnknownConst,
+                            : (({
+                                required List<SwidStaticConst>
+                                    childStaticConsts,
+                              }) =>
+                                childStaticConsts.isNotEmpty ? childStaticConsts.first : dartUnknownConst)(
+                                childStaticConsts: <SwidStaticConst>[
+                                  ...declaration.childEntities
+                                      .map((x) =>
+                                          extractStaticConstFromSyntacticEntity(
+                                            syntacticEntity: x,
+                                          ))
+                                      .toList()
+                                        ..removeWhere(
+                                            (x) => x == dartUnknownConst),
+                                ],
+                              ),
   );
 }
