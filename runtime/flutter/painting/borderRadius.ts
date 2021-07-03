@@ -1,5 +1,5 @@
 import { Type } from "../../dart/core/type";
-import { IRadius,Radius } from "../../dart/ui/radius";
+import { IRadius, Radius } from "../../dart/ui/radius";
 import { RuntimeBaseClass } from "../../runtimeBaseClass";
 
 export interface BorderRadiusProps {
