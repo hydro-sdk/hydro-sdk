@@ -11,6 +11,7 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleIdentifier,
         SimpleStringLiteral,
         StringLiteral;
+
 import 'package:analyzer/dart/ast/syntactic_entity.dart' show SyntacticEntity;
 
 T? narrowStaticConstSyntacticEntity<T>({

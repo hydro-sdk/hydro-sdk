@@ -1,8 +1,6 @@
 import 'package:analyzer/dart/ast/syntactic_entity.dart';
 import 'package:analyzer/dart/element/element.dart' show ClassElement;
 import 'package:analyzer/dart/element/type.dart' show FunctionType;
-import 'package:analyzer/src/dart/element/element.dart'
-    show PropertyAccessorElementImpl_ImplicitGetter;
 
 import 'package:hydro_sdk/swid/frontend/dart/narrowStaticConstSyntacticEntity.dart';
 import 'package:hydro_sdk/swid/frontend/dart/swidDoubleLiteralFromDoubleLiteral.dart';
@@ -21,6 +19,9 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstListLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedExpression.dart';
 import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+
+import 'package:analyzer/src/dart/element/element.dart'
+    show PropertyAccessorElementImpl_ImplicitGetter;
 
 SwidStaticConst extractStaticConstFromSyntacticEntity({
   required SyntacticEntity syntacticEntity,
