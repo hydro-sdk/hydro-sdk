@@ -67,7 +67,7 @@ class TsClassVmDeclaration {
                             nullabilitySuffix: SwidNullabilitySuffix.star,
                             originalPackagePath: "")),
                     swidFunctionType: SwidFunctionType.clone(
-                      swidFunctionType: swidClass.constructorType,
+                      swidFunctionType: swidClass.constructorType!,
                       typeFormals: swidClass.typeFormals,
                       name: transformToCamelCase(
                         str: swidClass.name,

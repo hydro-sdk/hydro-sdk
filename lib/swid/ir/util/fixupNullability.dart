@@ -8,7 +8,7 @@ SwidClass fixupNullability({required SwidClass swidClass}) => swidClass.name ==
     ? SwidClass.clone(
         swidClass: swidClass,
         constructorType: SwidFunctionType.clone(
-            swidFunctionType: swidClass.constructorType,
+            swidFunctionType: swidClass.constructorType!,
             namedParameterTypes: Map.fromEntries(swidClass
                 .constructorType!.namedParameterTypes.entries
                 .map((x) => x.key == "fontPackage"

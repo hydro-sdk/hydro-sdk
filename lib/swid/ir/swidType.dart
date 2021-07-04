@@ -53,7 +53,7 @@ class SwidType with _$SwidType {
         fromSwidDefaultFormalParameter: (val) =>
             SwidType.fromSwidDefaultFormalParameter(
           swidDefaultFormalParameter: SwidDefaultFormalParameter.clone(
-            swidType: val,
+            swidDefaultFormalParameter: val,
           ),
         ),
         fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
@@ -72,7 +72,7 @@ class SwidType with _$SwidType {
   String get name => when(
         fromSwidInterface: (val) => val.name,
         fromSwidClass: (val) => val.name,
-        fromSwidDefaultFormalParameter: (val) => val.name,
+        fromSwidDefaultFormalParameter: (val) => val.staticType.name,
         fromSwidFunctionType: (val) => val.name,
       );
 
@@ -123,7 +123,7 @@ class SwidType with _$SwidType {
                     ]
                   : [])
             ].join(""),
-            fromSwidDefaultFormalParameter: (val) => val.name,
+            fromSwidDefaultFormalParameter: (val) => val.staticType.name,
             fromSwidFunctionType: (val) => val.name,
           ),
         )

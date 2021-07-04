@@ -85,7 +85,7 @@ class DartRTManagedClassDeclaration {
                                 fromSwidInterface: (val) => val.name,
                                 fromSwidClass: (val) => val.name,
                                 fromSwidDefaultFormalParameter: (val) =>
-                                    val.name,
+                                    val.staticType.name,
                                 fromSwidFunctionType: (val) => val.name))))
                     .toList())
                 ..requiredParameters
@@ -264,7 +264,7 @@ class DartRTManagedClassDeclaration {
                     .map((e) => Parameter((p) => p
                       ..name = e.key
                       ..defaultTo = (x.namedDefaults[e.key] != null
-                          ? Code(x.namedDefaults[e.key]!.name)
+                          ? Code(x.namedDefaults[e.key]!.defaultValueCode)
                           : null)
                       ..named = true
                       ..required = (x.namedDefaults[e.key] == null)
@@ -280,11 +280,11 @@ class DartRTManagedClassDeclaration {
                       (e) => Parameter((p) => p
                         ..name = e.key
                         ..type = swidTypeToDartTypeReference(
-                          swidType: e.value.value,
+                          swidType: e.value.staticType,
                         )
                         ..named = false
                         ..required = false
-                        ..defaultTo = Code(e.value.name)),
+                        ..defaultTo = Code(e.value.defaultValueCode)),
                     )
                     .toList(),
                 ...x.optionalParameterNames

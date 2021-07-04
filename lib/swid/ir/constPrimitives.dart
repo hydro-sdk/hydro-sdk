@@ -258,10 +258,11 @@ const dartUnkownTypeFormal = const SwidTypeFormal(
 );
 
 const dartUnknownDefaultFormalParameter = const SwidDefaultFormalParameter(
-  name: "Unknown",
   nullabilitySuffix: SwidNullabilitySuffix.none,
   originalPackagePath: "",
-  value: dartUnknownType,
+  defaultValueCode: "Unknown",
+  value: dartUnknownConst,
+  staticType: dartUnknownType,
 );
 
 const dartUnkownDefaultFormalParameterEntry = const MapEntry(

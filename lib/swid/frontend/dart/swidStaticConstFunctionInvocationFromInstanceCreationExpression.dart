@@ -26,10 +26,14 @@ SwidStaticConstFunctionInvocation
   ConstructorName constructor = instanceCreationExpression.childEntities
       .firstWhere((x) => x is ConstructorName) as ConstructorName;
   return SwidStaticConstFunctionInvocation(
-      staticType: SwidType.fromSwidInterface(
-          swidInterface: swidInterfaceFromInterface(
-              interfaceType:
-                  instanceCreationExpression.staticType as InterfaceType)),
+      staticType: instanceCreationExpression.staticType != null
+          ? SwidType.fromSwidInterface(
+              swidInterface: swidInterfaceFromInterface(
+                interfaceType:
+                    instanceCreationExpression.staticType as InterfaceType,
+              ),
+            )
+          : dartUnknownType,
       value: constructor.type.name.name +
           (constructor.name != null ? ".${constructor.name!.name}" : ""),
       normalParameters: (instanceCreationExpression.childEntities

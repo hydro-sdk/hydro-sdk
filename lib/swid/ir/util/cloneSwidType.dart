@@ -21,7 +21,7 @@ SwidType cloneSwidType({
       fromSwidDefaultFormalParameter: (val) =>
           SwidType.fromSwidDefaultFormalParameter(
               swidDefaultFormalParameter: SwidDefaultFormalParameter.clone(
-        swidType: val.swidDefaultFormalParameter,
+        swidDefaultFormalParameter: val.swidDefaultFormalParameter,
       )),
       fromSwidFunctionType: (val) => SwidType.fromSwidFunctionType(
           swidFunctionType: SwidFunctionType.clone(

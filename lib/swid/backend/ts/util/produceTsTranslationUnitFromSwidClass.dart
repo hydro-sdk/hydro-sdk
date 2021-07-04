@@ -61,7 +61,7 @@ TsTranslationUnit produceTsTranslationUnitFromSwidClass({
                                 TsFunctionDefaultNamedProps(
                                     swidFunctionType: SwidFunctionType.clone(
                                         swidFunctionType:
-                                            swidClass.constructorType,
+                                            swidClass.constructorType!,
                                         name: swidClass.name)),
                           )
                         : null,

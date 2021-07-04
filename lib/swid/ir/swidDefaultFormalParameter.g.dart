@@ -8,20 +8,22 @@ part of 'swidDefaultFormalParameter.dart';
 
 _$_$Data _$_$_$DataFromJson(Map<String, dynamic> json) {
   return _$_$Data(
-    name: json['name'] as String,
     nullabilitySuffix:
         _$enumDecode(_$SwidNullabilitySuffixEnumMap, json['nullabilitySuffix']),
     originalPackagePath: json['originalPackagePath'] as String,
+    staticType: SwidType.fromJson(json['staticType'] as Map<String, dynamic>),
     value: SwidStaticConst.fromJson(json['value'] as Map<String, dynamic>),
+    defaultValueCode: json['defaultValueCode'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_$DataToJson(_$_$Data instance) => <String, dynamic>{
-      'name': instance.name,
       'nullabilitySuffix':
           _$SwidNullabilitySuffixEnumMap[instance.nullabilitySuffix],
       'originalPackagePath': instance.originalPackagePath,
+      'staticType': instance.staticType,
       'value': instance.value,
+      'defaultValueCode': instance.defaultValueCode,
     };
 
 K _$enumDecode<K, V>(
