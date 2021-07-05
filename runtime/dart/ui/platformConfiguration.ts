@@ -1,18 +1,17 @@
 
-import { IAccessibilityFeatures,AccessibilityFeatures } from "./accessibilityFeatures";
-import { IList,List } from "../core/list";
+import { IAccessibilityFeatures } from "./accessibilityFeatures";
+import { IList } from "../core/list";
 import { ILocale } from "./locale";
 import { Brightness } from "./brightness";
-import { double } from "../core/double";
 declare const dart: {
 ui: {
 platformConfiguration: (this: void, platformConfiguration: IPlatformConfiguration, props : { accessibilityFeatures : IAccessibilityFeatures, alwaysUse24HourFormat : boolean, defaultRouteName? : string | undefined, locales : IList<ILocale>, platformBrightness : Brightness, semanticsEnabled : boolean, textScaleFactor : number, }) => IPlatformConfiguration
 }
 };
 const platformConfigurationDefaultProps = {
-    accessibilityFeatures: const AccessibilityFeatures._(0),
+    accessibilityFeatures: (),
     alwaysUse24HourFormat: false,
-    locales: const <Locale>[],
+    locales: [],
     platformBrightness: Brightness.light,
     semanticsEnabled: false,
     textScaleFactor: 1.0

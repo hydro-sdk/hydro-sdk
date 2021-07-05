@@ -1,4 +1,3 @@
-import { double } from "../core/double";
 import { Duration, IDuration } from "../core/duration";
 import { PointerChange } from "./pointerChange";
 import { PointerDeviceKind } from "./pointerDeviceKind";

@@ -1,5 +1,6 @@
 import { IByteData } from "../typed_data/byteData";
 import { I_StoredMessage } from "./_storedMessage";
+import { ChannelBuffers } from "./channelBuffers";
 declare const dart: {
     ui: {
         _channel: (

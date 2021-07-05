@@ -1,4 +1,3 @@
-import { double } from "../core/double";
 import { IFloat64List } from "../typed_data/float64List";
 import { FilterQuality } from "./filterQuality";
 import { TileMode } from "./tileMode";

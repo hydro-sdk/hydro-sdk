@@ -1,4 +1,3 @@
-import { double } from "../core/double";
 import { IList } from "../core/list";
 import { IParagraph } from "./paragraph";
 import { IParagraphStyle } from "./paragraphStyle";

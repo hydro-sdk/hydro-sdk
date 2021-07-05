@@ -1,4 +1,3 @@
-import { double } from "../core/double";
 import { IFlutterView } from "./flutterView";
 import { IRect, Rect } from "./rect";
 import { IWindowPadding, WindowPadding } from "./windowPadding";

@@ -1,4 +1,3 @@
-import { double } from "../core/double";
 import { IList } from "../core/list";
 import { IFloat64List } from "../typed_data/float64List";
 import { IOffset } from "./offset";
