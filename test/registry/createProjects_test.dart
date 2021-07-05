@@ -15,7 +15,11 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   group("", () {
     test("", () async {
-      final api = RegistryApi(baseUrl: registryTestUrl);
+      final api = RegistryApi(
+        scheme: registryTestScheme!,
+        host: registryTestHost!,
+        port: registryTestPort,
+      );
 
       final username = "test${Uuid().v4()}";
       final password = Uuid().v4();

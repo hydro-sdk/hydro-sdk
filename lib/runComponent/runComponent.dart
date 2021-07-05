@@ -48,7 +48,10 @@ class RunComponent extends StatefulWidget {
     required this.project,
     required this.component,
     this.releaseChannel = "latest",
-    this.registryApi = const RegistryApi(baseUrl: ""),
+    this.registryApi = const RegistryApi(
+      scheme: "https",
+      host: "",
+    ),
     this.thunks = const {},
     this.debugPort = 5000,
     this.loading = const Center(

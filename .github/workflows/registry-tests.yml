@@ -67,5 +67,5 @@ jobs:
 
     - name: Run Hydro-SDK Registry Tests
       shell: bash
-      run: export REGISTRY_TEST_URL=${{ secrets.REGISTRY_TEST_URL }}; flutter test --tags "registry"
+      run: export REGISTRY_TEST_SCHEME=${{ secrets.REGISTRY_TEST_SCHEME }} REGISTRY_TEST_HOST=${{ secrets.REGISTRY_TEST_HOST }}; flutter test --tags "registry"
       working-directory: hydro
