@@ -11,6 +11,7 @@ String _transformVmDeclarationToTs({
           (x) =>
               "${x!.name}: " +
               transformTypeDeclarationToTs(
+                parentClass: null,
                 swidType: SwidType.fromSwidFunctionType(
                   swidFunctionType: x,
                 ),

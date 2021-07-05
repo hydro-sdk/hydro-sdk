@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart' show IterableExtension;
 
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
@@ -11,6 +12,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformTypeFormalsToTs.dart';
 
 String transformFunctionTypeToTs({
   required SwidFunctionType swidFunctionType,
+  required SwidClass? parentClass,
   required TrailingReturnTypeKind trailingReturnTypeKind,
   TrailingReturnTypeKind nestedTrailingReturnTypeKind =
       TrailingReturnTypeKind.fatArrow,
@@ -73,6 +75,7 @@ String transformFunctionTypeToTs({
 
         res += " : ";
         res += transformFunctionTypeToTs(
+          parentClass: parentClass,
           swidFunctionType: val,
           trailingReturnTypeKind: nestedTrailingReturnTypeKind,
           nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
@@ -96,13 +99,23 @@ String transformFunctionTypeToTs({
 
         res += ": " +
             transformTypeDeclarationToTs(
-                swidType: SwidType.fromSwidInterface(swidInterface: val));
+              parentClass: parentClass,
+              swidType: SwidType.fromSwidInterface(
+                swidInterface: val,
+              ),
+              emitDefaultFormalsAsOptionalNamed:
+                  emitDefaultFormalsAsOptionalNamed,
+              emitTopLevelInitializersForOptionalPositionals:
+                  emitInitializersForOptionalPositionals,
+              emitTrailingReturnType: emitTrailingReturnType,
+              nestedTrailingReturnTypeKind: nestedTrailingReturnTypeKind,
+            );
 
         if (emitInitializersForOptionalPositionals) {
           var initializer = swidFunctionType.positionalDefaultParameters.entries
               .firstWhereOrNull((x) => x.key == key);
           if (initializer != null) {
-            res += " = ${initializer.value.name}";
+            res += " = ${initializer.value.defaultValueCode}";
           }
         }
 
@@ -127,7 +140,7 @@ String transformFunctionTypeToTs({
 
     swidFunctionType.namedParameterTypes.entries.forEach((x) {
       res +=
-          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question || (emitDefaultFormalsAsOptionalNamed && swidFunctionType.namedDefaults[x.key] != null) ? "?" : ""} : ${transformTypeDeclarationToTs(swidType: x.value)}, ";
+          "${x.key}${x.value.nullabilitySuffix == SwidNullabilitySuffix.question || (emitDefaultFormalsAsOptionalNamed && swidFunctionType.namedDefaults[x.key] != null) ? "?" : ""} : ${transformTypeDeclarationToTs(parentClass: parentClass, swidType: x.value)}, ";
     });
     res += "}";
   }

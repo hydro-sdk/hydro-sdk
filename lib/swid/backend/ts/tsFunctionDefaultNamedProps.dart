@@ -13,9 +13,17 @@ class TsFunctionDefaultNamedProps {
   String toTsSource() => swidFunctionType.namedDefaultParameters.isNotEmpty
       ? "const ${TsFunctionDefaultNamedPropsObjectName(swidFunctionType: swidFunctionType).toTsSource()} = {\n" +
           swidFunctionType.namedDefaultParameters.entries
-              .map((x) =>
-                  "    ${x.key}: " +
-                  "${transformTypeDeclarationToTs(swidType: SwidType.fromSwidDefaultFormalParameter(swidDefaultFormalParameter: x.value))}")
+              .map(
+                (x) =>
+                    "    ${x.key}: " +
+                    transformTypeDeclarationToTs(
+                      parentClass: null,
+                      emitTopLevelInitializersForOptionalPositionals: true,
+                      swidType: SwidType.fromSwidDefaultFormalParameter(
+                        swidDefaultFormalParameter: x.value,
+                      ),
+                    ),
+              )
               .toList()
               .join(",\n") +
           "\n};\n"

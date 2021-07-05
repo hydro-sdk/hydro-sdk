@@ -24,6 +24,7 @@ class TsClassStaticMethodImplementation {
       "public static " +
       swidFunctionType.name +
       transformTypeDeclarationToTs(
+        parentClass: swidClass,
         emitTrailingReturnType: true,
         emitDefaultFormalsAsOptionalNamed: true,
         emitTopLevelInitializersForOptionalPositionals: true,

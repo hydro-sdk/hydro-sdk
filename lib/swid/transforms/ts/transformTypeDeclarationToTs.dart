@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 import 'package:hydro_sdk/swid/ir/util/isPrimitiveMap.dart';
@@ -6,10 +7,14 @@ import 'package:hydro_sdk/swid/transforms/dart/removeNullabilitySuffixFromTypeNa
 import 'package:hydro_sdk/swid/transforms/removeTypeArguments.dart';
 import 'package:hydro_sdk/swid/transforms/ts/trailingReturnTypeKind.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformFunctionTypeToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformPrimitiveNamesToTs.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultInexpressibleFunctionInvocationFallback.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 
 String transformTypeDeclarationToTs({
   required SwidType swidType,
+  required SwidClass? parentClass,
   bool emitTrailingReturnType = true,
   bool emitDefaultFormalsAsOptionalNamed = false,
   bool emitTopLevelInitializersForOptionalPositionals = false,
@@ -39,6 +44,7 @@ String transformTypeDeclarationToTs({
                                         .map(
                                             (x) => transformTypeDeclarationToTs(
                                                   swidType: x,
+                                                  parentClass: parentClass,
                                                   emitTrailingReturnType:
                                                       emitTrailingReturnType,
                                                   emitDefaultFormalsAsOptionalNamed:
@@ -62,6 +68,7 @@ String transformTypeDeclarationToTs({
                                         .map(
                                             (x) => transformTypeDeclarationToTs(
                                                   swidType: x,
+                                                  parentClass: parentClass,
                                                   emitTrailingReturnType:
                                                       emitTrailingReturnType,
                                                   emitDefaultFormalsAsOptionalNamed:
@@ -79,9 +86,25 @@ String transformTypeDeclarationToTs({
                         onUnknown: (_) => "unknown",
                       )),
                   fromSwidClass: (_) => "",
-                  fromSwidDefaultFormalParameter: (val) => val.name,
+                  fromSwidDefaultFormalParameter: (val) =>
+                      !emitTopLevelInitializersForOptionalPositionals
+                          ? val.staticType.name
+                          : transformLiteralToTs(
+                              swidLiteral: val.value,
+                              parentClass: parentClass,
+                              inexpressibleFunctionInvocationFallback:
+                                  makeDefaultInexpressibleFunctionInvocationFallback(
+                                parentClass: parentClass,
+                                name: "",
+                              ),
+                              scopeResolver:
+                                  makeDefaultStaticConstFieldReferenceScopeResolver(
+                                parentClass: parentClass,
+                              ),
+                            ),
                   fromSwidFunctionType: (val) => transformFunctionTypeToTs(
                       swidFunctionType: val,
+                      parentClass: parentClass,
                       emitInitializersForOptionalPositionals:
                           emitTopLevelInitializersForOptionalPositionals,
                       emitTrailingReturnType: emitTrailingReturnType,
@@ -92,11 +115,13 @@ String transformTypeDeclarationToTs({
               fromSwidInterface: (val) =>
                   "{[index: " +
                   transformTypeDeclarationToTs(
+                      parentClass: parentClass,
                       swidType: transformPrimitiveNamesToTs(
-                    swidType: val.typeArguments.first,
-                  )) +
+                        swidType: val.typeArguments.first,
+                      )) +
                   "]: " +
                   transformTypeDeclarationToTs(
+                    parentClass: parentClass,
                     swidType: val.typeArguments.last,
                   ) +
                   "}",

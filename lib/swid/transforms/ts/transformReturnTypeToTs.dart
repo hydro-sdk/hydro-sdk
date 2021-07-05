@@ -7,4 +7,7 @@ String transformReturnTypeToTs({
   required TrailingReturnTypeKind trailingReturnTypeKind,
 }) =>
     " ${trailingReturnTypeKind == TrailingReturnTypeKind.fatArrow ? "=>" : trailingReturnTypeKind == TrailingReturnTypeKind.colon ? ":" : ""} " +
-    transformTypeDeclarationToTs(swidType: swidFunctionType.returnType);
+    transformTypeDeclarationToTs(
+      parentClass: null,
+      swidType: swidFunctionType.returnType,
+    );

@@ -16,7 +16,7 @@ typedef String? SwidStaticConstFieldReferenceScopeResolver(
 
 String transformLiteralToTs({
   required SwidStaticConst swidLiteral,
-  required SwidClass parentClass,
+  required SwidClass? parentClass,
   required String inexpressibleFunctionInvocationFallback,
   required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>
@@ -74,7 +74,4 @@ String transformLiteralToTs({
               inexpressibleFunctionInvocationFallback:
                   inexpressibleFunctionInvocationFallback,
             ),
-        fromSwidStaticConstFieldReference: (val) {
-          var res = scopeResolver(val)!;
-          return res;
-        });
+        fromSwidStaticConstFieldReference: (val) => val.name);

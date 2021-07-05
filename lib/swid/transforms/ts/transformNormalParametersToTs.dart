@@ -4,7 +4,7 @@ import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
 String transformNormalParametersToTs({
   required List<SwidStaticConst?> swidLiterals,
-  required SwidClass parentClass,
+  required SwidClass? parentClass,
   required String inexpressibleFunctionInvocationFallback,
   required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
 }) =>

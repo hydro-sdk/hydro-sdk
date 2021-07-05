@@ -19,9 +19,10 @@ class TsInterface {
     this.typeFormals = const [],
   });
 
-  factory TsInterface.fromSwidClass(
-          {required SwidClass swidClass,
-          required bool emitSuperInterfaceExtensions}) =>
+  factory TsInterface.fromSwidClass({
+    required SwidClass swidClass,
+    required bool emitSuperInterfaceExtensions,
+  }) =>
       TsInterface(
         name: swidClass.name,
         emitSuperInterfaceExtensions: emitSuperInterfaceExtensions,
@@ -55,7 +56,7 @@ class TsInterface {
         "{",
         ...members.entries
             .map((x) =>
-                "${x.key}: ${transformTypeDeclarationToTs(swidType: x.value!)};")
+                "${x.key}: ${transformTypeDeclarationToTs(parentClass: null, swidType: x.value!)};")
             .toList(),
         "}"
       ]..removeWhere((x) => x == null))

@@ -12,29 +12,35 @@ import 'package:hydro_sdk/swid/transforms/transformToCamelCase.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformTypeDeclarationToTs.dart';
 
 class TsClassConstructorImplementation {
-  final SwidClass? swidClass;
+  final SwidClass swidClass;
 
-  TsClassConstructorImplementation({required this.swidClass});
+  const TsClassConstructorImplementation({
+    required this.swidClass,
+  });
 
-  String toTsSource() => swidClass!.constructorType != null
+  String toTsSource() => swidClass.constructorType != null
       ? "public constructor" +
           transformTypeDeclarationToTs(
+              parentClass: swidClass,
               emitTrailingReturnType: false,
               emitDefaultFormalsAsOptionalNamed: true,
               emitTopLevelInitializersForOptionalPositionals: true,
               swidType: SwidType.fromSwidFunctionType(
-                  swidFunctionType: swidClass!.constructorType!)) +
+                  swidFunctionType: swidClass.constructorType!)) +
           "{\n" +
           TsFunctionSelfBindingInvocation(
             functionReference: [
-              ...transformPackageUri(packageUri: swidClass!.originalPackagePath)
-                  .split(path.separator),
-              transformToCamelCase(str: swidClass!.name)
+              ...transformPackageUri(
+                packageUri: swidClass.originalPackagePath,
+              ).split(path.separator),
+              transformToCamelCase(
+                str: swidClass.name,
+              )
             ].join("."),
             swidFunctionType: SwidFunctionType.clone(
               swidFunctionType:
                   SwidFunctionType.InsertLeadingPositionalParameter(
-                      swidFunctionType: swidClass!.constructorType!,
+                      swidFunctionType: swidClass.constructorType!,
                       typeName: "this",
                       swidType: SwidType.fromSwidInterface(
                           swidInterface: SwidInterface(
@@ -47,7 +53,7 @@ class TsClassConstructorImplementation {
                         nullabilitySuffix: SwidNullabilitySuffix.star,
                         originalPackagePath: "",
                       ))),
-              name: swidClass!.name,
+              name: swidClass.name,
             ),
           ).toTsSource() +
           "}\n"

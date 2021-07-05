@@ -3,6 +3,7 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformStaticConstFieldDeclaration.dart';
+import 'package:hydro_sdk/swid/transforms/ts/util/makeDefaultStaticConstFieldReferenceScopeResolver.dart';
 
 class TsClassStaticConstFieldDeclarations {
   final SwidClass swidClass;
@@ -18,15 +19,9 @@ class TsClassStaticConstFieldDeclarations {
           transformStaticConstFieldDeclaration(
               staticConstFieldDeclaration: x,
               parentClass: swidClass,
-              scopeResolver: (staticConstFieldReference) =>
-                  ((SwidStaticConstFieldDeclaration?
-                          swidStaticConstFieldDeclaration) =>
-                      swidStaticConstFieldDeclaration != null
-                          ? "${swidClass.name}.${swidStaticConstFieldDeclaration.name}"
-                          : staticConstFieldReference.name)(swidClass
-                      .staticConstFieldDeclarations
-                      .firstWhereOrNull(
-                          (k) => k.name == staticConstFieldReference.name)));
+              scopeResolver: makeDefaultStaticConstFieldReferenceScopeResolver(
+                parentClass: swidClass,
+              ));
       res += "\n";
     });
     return res;

@@ -25,6 +25,7 @@ class TsClassMethodInjectionFieldDeclarations {
                         .toTsSource() +
                     ": " +
                     transformFunctionTypeToTs(
+                      parentClass: swidClass,
                       swidFunctionType:
                           rewriteClassReferencesToInterfaceReferencesInFunction(
                         swidFunctionType: x,

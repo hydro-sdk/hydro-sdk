@@ -3,12 +3,12 @@ import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstPrefixedIdentifier.dart';
 import 'package:hydro_sdk/swid/transforms/ts/transformLiteralToTs.dart';
 
-String transformStaticConstPrefixedIdentifierToTs(
-        {required SwidStaticConstPrefixedIdentifier
-            staticConstPrefixedIdentifier,
-        required SwidClass parentClass,
-        required String inexpressibleFunctionInvocationFallback,
-        required SwidStaticConstFieldReferenceScopeResolver scopeResolver}) =>
+String transformStaticConstPrefixedIdentifierToTs({
+  required SwidStaticConstPrefixedIdentifier staticConstPrefixedIdentifier,
+  required SwidClass? parentClass,
+  required String inexpressibleFunctionInvocationFallback,
+  required SwidStaticConstFieldReferenceScopeResolver scopeResolver,
+}) =>
     [
       staticConstPrefixedIdentifier.prefix.name,
       ".",

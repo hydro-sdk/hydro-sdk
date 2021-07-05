@@ -4,9 +4,10 @@ import 'package:hydro_sdk/swid/ir/swidClass.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConstFieldDeclaration.dart';
 
-bool isInexpressibleStaticConst(
-        {required SwidClass parentClass,
-        required SwidStaticConst staticConst}) =>
+bool isInexpressibleStaticConst({
+  required SwidClass? parentClass,
+  required SwidStaticConst staticConst,
+}) =>
     staticConst.when(
       fromSwidBooleanLiteral: (_) => false,
       fromSwidStringLiteral: (_) => false,
@@ -34,7 +35,7 @@ bool isInexpressibleStaticConst(
                           staticConst: declarationOnParent.value,
                         )
                       : false)(
-              declarationOnParent: parentClass.staticConstFieldDeclarations
+              declarationOnParent: parentClass?.staticConstFieldDeclarations
                   .firstWhereOrNull((x) => x.name == val.name)),
       fromSwidStaticConstPrefixedExpression: (val) =>
           isInexpressibleStaticConst(

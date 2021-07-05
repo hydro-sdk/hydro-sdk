@@ -1,6 +1,7 @@
 import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/util/collectAllStaticConstReferences.dart';
 
 List<SwidInterface> collectAllReferences({
   required SwidType swidType,
@@ -88,9 +89,10 @@ List<SwidInterface> collectAllReferences({
                     .toList()),
               ])
                 ..removeWhere((x) => x == dartUnknownInterface),
-          fromSwidDefaultFormalParameter: (_) => [
-                dartUnknownInterface,
-              ],
+          fromSwidDefaultFormalParameter: (val) =>
+              collectReferencesFromStaticConst(
+                swidStaticConst: val.value,
+              )..removeWhere((x) => x == dartUnknownInterface),
           fromSwidFunctionType: (val) => ([
                 ...((List<List<SwidInterface>> elements) => elements.isNotEmpty
                     ? elements.reduce((value, element) => [

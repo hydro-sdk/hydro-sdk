@@ -16,25 +16,31 @@ class TsClassMethodDeclarations {
 
   String toTsSource() => (swidClass.methods.isNotEmpty)
       ? [
-            ...tsClassMethodInjectionCandidates(swidFunctionTypes: swidClass.methods)
+            ...tsClassMethodInjectionCandidates(
+                    swidFunctionTypes: swidClass.methods)
                 .map((x) =>
                     "public ${x.name}" +
                     transformTypeDeclarationToTs(
-                        emitTrailingReturnType: true,
-                        emitDefaultFormalsAsOptionalNamed: true,
-                        emitTopLevelInitializersForOptionalPositionals: true,
-                        topLevelTrailingReturnTypeKind:
-                            TrailingReturnTypeKind.colon,
-                        swidType: SwidType.fromSwidFunctionType(
-                            swidFunctionType:
-                                rewriteClassReferencesToInterfaceReferencesInFunction(
-                                    swidFunctionType: x))) +
+                      parentClass: swidClass,
+                      emitTrailingReturnType: true,
+                      emitDefaultFormalsAsOptionalNamed: true,
+                      emitTopLevelInitializersForOptionalPositionals: true,
+                      topLevelTrailingReturnTypeKind:
+                          TrailingReturnTypeKind.colon,
+                      swidType: SwidType.fromSwidFunctionType(
+                        swidFunctionType:
+                            rewriteClassReferencesToInterfaceReferencesInFunction(
+                          swidFunctionType: x,
+                        ),
+                      ),
+                    ) +
                     " {\n" +
                     "    return " +
                     TsFunctionSelfBindingInvocation(
                       functionReference: "this." +
-                          TsClassMethodInjectionFieldName(swidFunctionType: x)
-                              .toTsSource(),
+                          TsClassMethodInjectionFieldName(
+                            swidFunctionType: x,
+                          ).toTsSource(),
                       swidFunctionType: x,
                     ).toTsSource() +
                     "\n}")
