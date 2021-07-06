@@ -362,4 +362,26 @@ class RegistryApi {
 
     return null;
   }
+
+  Future<bool> provisionUser({
+    required SessionDto sessionDto,
+  }) async {
+    final response = await post(
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/user/provision",
+      ),
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer ${sessionDto.authToken}",
+      },
+    );
+
+    if (response.statusCode == 201) {
+      return true;
+    }
+    return false;
+  }
 }
