@@ -170,13 +170,14 @@ class RegistryApi {
         scheme: scheme,
         host: host,
         port: port,
-        path: "/api/component/canUpdate/",
+        path: "/api/component/canupdate/",
       ),
       headers: {
         "content-type": "application/json",
         "Authorization": "Bearer ${sessionDto.authToken}",
       },
     );
+
     if (response.statusCode == 200) {
       return jsonDecode(response.body)
           .map((x) => ComponentReadDto.fromJson(x))
