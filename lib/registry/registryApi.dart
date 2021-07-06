@@ -1,16 +1,16 @@
-import 'package:convert/convert.dart';
 import 'dart:convert';
-import 'package:crypto/crypto.dart';
 
+import 'package:convert/convert.dart';
+import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
 import 'package:hydro_sdk/registry/dto/componentSearchDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentResponseDto.dart';
+import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
-import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
@@ -103,7 +103,7 @@ class RegistryApi {
           "Authorization": "Bearer ${sessionDto.authToken}",
         },
         body: jsonEncode(dto.toJson()));
-        print(response.statusCode);
+    print(response.statusCode);
     if (response.statusCode == 201) {
       return ProjectEntity.fromJson(jsonDecode(response.body));
     }

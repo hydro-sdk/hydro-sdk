@@ -5,8 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
-import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
+import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/registryApi.dart';
 import 'registryTestUrl.dart';
