@@ -27,14 +27,15 @@ void main() {
       final projectName = "test-project-${Uuid().v4()}";
       final projectDescription = "test project descrption ${Uuid().v4()}";
 
-      final response = await api.createUser(
-          dto: CreateUserDto(
-        username: username,
-        password: password,
+      final response = await api.createMockUser(
+          dto: CreateMockUserDto(
+        displayName: username,
+        email: "${api.hash(Uuid().v4())}@example.com",
+        password: Uuid().v4(),
       ));
 
       expect(response, isNotNull);
-      expect(response, true);
+      expect(response, isNotEmpty);
 
       var createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
@@ -46,22 +47,14 @@ void main() {
 
       expect(createProjectResponse, isNull);
 
-      final loginResponse = await api.login(
-        dto: LoginUserDto(
-          username: username,
-          password: password,
-        ),
-      );
-
-      expect(loginResponse, isNotNull);
-      expect(loginResponse?.authenticatedUser.username, username);
-
       createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: loginResponse!,
+        sessionDto: SessionDto(
+          authToken: response!,
+        ),
       );
 
       expect(createProjectResponse, isNotNull);
@@ -75,7 +68,9 @@ void main() {
       expect(canUpdateProjectResponse, isNull);
 
       canUpdateProjectResponse = await api.canUpdateProjects(
-        sessionDto: loginResponse,
+        sessionDto: SessionDto(
+          authToken: response,
+        ),
       );
 
       var createdProject = canUpdateProjectResponse!
