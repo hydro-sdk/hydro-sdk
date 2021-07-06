@@ -384,4 +384,30 @@ class RegistryApi {
     }
     return false;
   }
+
+  Future<List<ComponentReadDto>?> getAllComponentsInProject(
+      {required String projectId}) async {
+    final response = await get(
+      Uri(
+          scheme: scheme,
+          host: host,
+          port: port,
+          path: "/api/component/all-for-project",
+          queryParameters: {
+            "project": projectId,
+          }),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)
+          .map((x) => ComponentReadDto.fromJson(x))
+          .toList()
+          .cast<ComponentReadDto>();
+    }
+
+    return null;
+  }
 }
