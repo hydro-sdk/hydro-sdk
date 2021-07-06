@@ -6,7 +6,6 @@ import 'package:uuid/uuid.dart';
 
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
-import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/registryApi.dart';
 import 'registryTestUrl.dart';
@@ -22,7 +21,6 @@ void main() {
       );
 
       final username = "test${Uuid().v4()}";
-      final password = Uuid().v4();
 
       final projectName = "test-project-${Uuid().v4()}";
       final projectDescription = "test project descrption ${Uuid().v4()}";

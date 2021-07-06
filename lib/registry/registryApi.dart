@@ -2,7 +2,6 @@ import 'package:convert/convert.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 
-import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart';
 
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
@@ -13,7 +12,6 @@ import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
-import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
