@@ -1,16 +1,17 @@
+import 'package:convert/convert.dart';
 import 'dart:convert';
+import 'package:crypto/crypto.dart';
 
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart';
 
-import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
 import 'package:hydro_sdk/registry/dto/componentSearchDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentResponseDto.dart';
 import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
-import 'package:hydro_sdk/registry/dto/createUserDto.dart';
+import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
@@ -30,6 +31,19 @@ class RegistryApi {
     required this.host,
     this.port,
   });
+
+  String hash(String str) {
+    final output = AccumulatorSink<Digest>();
+
+    final input = sha256.startChunkedConversion(output);
+
+    input.add(str.codeUnits);
+
+    input.close();
+    output.close();
+
+    return output.events.single.toString();
+  }
 
   Future<UserReadDto?> getUser({
     required String username,
@@ -53,15 +67,15 @@ class RegistryApi {
     return null;
   }
 
-  Future<bool> createUser({
-    required CreateUserDto dto,
+  Future<String?> createMockUser({
+    required CreateMockUserDto dto,
   }) async {
     final response = await post(
         Uri(
           scheme: scheme,
           host: host,
           port: port,
-          path: "/api/user",
+          path: "/api/user/mock-user",
         ),
         headers: {
           "content-type": "application/json",
@@ -69,39 +83,9 @@ class RegistryApi {
         },
         body: jsonEncode(dto.toJson()));
     if (response.statusCode == 201) {
-      return true;
+      return response.body;
     }
 
-    return false;
-  }
-
-  Future<SessionDto?> login({
-    required LoginUserDto dto,
-  }) async {
-    final response = await post(
-        Uri(
-          scheme: scheme,
-          host: host,
-          port: port,
-          path: "/api/login",
-        ),
-        headers: {
-          "content-type": "application/json",
-          "accept": "*/*",
-        },
-        body: jsonEncode(dto.toJson()));
-
-    if (response.statusCode == 201) {
-      var token = JWT.parse(response.body);
-
-      return SessionDto(
-        authenticatedUser: AuthTokenDto(
-            exp: token.getClaim("exp").toInt(),
-            sub: token.getClaim("sub"),
-            username: token.getClaim("username")),
-        authToken: response.body,
-      );
-    }
     return null;
   }
 
@@ -121,6 +105,7 @@ class RegistryApi {
           "Authorization": "Bearer ${sessionDto.authToken}",
         },
         body: jsonEncode(dto.toJson()));
+        print(response.statusCode);
     if (response.statusCode == 201) {
       return ProjectEntity.fromJson(jsonDecode(response.body));
     }
@@ -159,7 +144,7 @@ class RegistryApi {
         scheme: scheme,
         host: host,
         port: port,
-        path: "/api/project/canUpdate/${sessionDto.authenticatedUser.sub}",
+        path: "/api/project/canUpdate",
       ),
       headers: {
         "content-type": "application/json",
@@ -185,7 +170,7 @@ class RegistryApi {
         scheme: scheme,
         host: host,
         port: port,
-        path: "/api/component/canUpdate/${sessionDto.authenticatedUser.sub}",
+        path: "/api/component/canUpdate/",
       ),
       headers: {
         "content-type": "application/json",

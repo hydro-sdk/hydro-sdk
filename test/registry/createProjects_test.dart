@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
-import 'package:hydro_sdk/registry/dto/createUserDto.dart';
+import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/registryApi.dart';
@@ -27,41 +27,34 @@ void main() {
       final projectName = "test-project-${Uuid().v4()}";
       final projectDescription = "test project descrption ${Uuid().v4()}";
 
-      final response = await api.createUser(
-          dto: CreateUserDto(
-        username: username,
-        password: password,
+      final response = await api.createMockUser(
+          dto: CreateMockUserDto(
+        displayName: username,
+        email: "${api.hash(Uuid().v4())}@example.com",
+        password: Uuid().v4(),
       ));
 
       expect(response, isNotNull);
-      expect(response, true);
+      expect(response, isNotEmpty);
+      print(response);
+      // var createProjectResponse = await api.createProject(
+      //   dto: CreateProjectDto(
+      //     name: projectName,
+      //     description: projectDescription,
+      //   ),
+      //   sessionDto: SessionDto.empty(),
+      // );
+
+      // expect(createProjectResponse, isNull);
 
       var createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: SessionDto.empty(),
-      );
-
-      expect(createProjectResponse, isNull);
-
-      final loginResponse = await api.login(
-        dto: LoginUserDto(
-          username: username,
-          password: password,
+        sessionDto: SessionDto(
+          authToken: response!,
         ),
-      );
-
-      expect(loginResponse, isNotNull);
-      expect(loginResponse?.authenticatedUser.username, username);
-
-      createProjectResponse = await api.createProject(
-        dto: CreateProjectDto(
-          name: projectName,
-          description: projectDescription,
-        ),
-        sessionDto: loginResponse!,
       );
 
       expect(createProjectResponse, isNotNull);
@@ -75,11 +68,15 @@ void main() {
       expect(canUpdateProjectResponse, isNull);
 
       canUpdateProjectResponse = await api.canUpdateProjects(
-        sessionDto: loginResponse,
+        sessionDto: SessionDto(
+          authToken: response,
+        ),
       );
 
+      expect(canUpdateProjectResponse, isNotNull);
+
       var createdProject = canUpdateProjectResponse!
-          .firstWhereOrNull((x) => x.name == createProjectResponse!.name)!;
+          .firstWhereOrNull((x) => x.name == createProjectResponse.name)!;
 
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);
