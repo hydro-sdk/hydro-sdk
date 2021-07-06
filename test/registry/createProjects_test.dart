@@ -36,18 +36,18 @@ void main() {
 
       expect(response, isNotNull);
       expect(response, isNotEmpty);
-      print(response);
-      // var createProjectResponse = await api.createProject(
-      //   dto: CreateProjectDto(
-      //     name: projectName,
-      //     description: projectDescription,
-      //   ),
-      //   sessionDto: SessionDto.empty(),
-      // );
-
-      // expect(createProjectResponse, isNull);
 
       var createProjectResponse = await api.createProject(
+        dto: CreateProjectDto(
+          name: projectName,
+          description: projectDescription,
+        ),
+        sessionDto: SessionDto.empty(),
+      );
+
+      expect(createProjectResponse, isNull);
+
+      createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
@@ -76,7 +76,7 @@ void main() {
       expect(canUpdateProjectResponse, isNotNull);
 
       var createdProject = canUpdateProjectResponse!
-          .firstWhereOrNull((x) => x.name == createProjectResponse.name)!;
+          .firstWhereOrNull((x) => x.name == createProjectResponse!.name)!;
 
       expect(createdProject, isNotNull);
       expect(createdProject.description, createProjectResponse.description);
