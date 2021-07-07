@@ -71,7 +71,7 @@ void main(List<String> args) async {
   }
 
   final Logger logger = Logger.standard();
-  final Progress progress = logger.progress("Publishing...");
+  final Progress progress = logger.progress("Publishing");
 
   final ComponentBuilder componentBuilder = ComponentBuilder(
     projectConfigComponent: projectBuilder.projectConfig.components.first,
