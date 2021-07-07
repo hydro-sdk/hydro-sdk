@@ -569,7 +569,7 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
             await hydroc.downloadMissingSdkTools();
 
             await new Promise((resolve, reject) => {
-                const buildProject = hydroc.codepush({
+                const codepush = hydroc.codepush({
                     project: options.project,
                     profile: options.profile,
                     outDir: options.outDir,
@@ -587,7 +587,7 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
                     }),
                 });
 
-                buildProject.on("exit", (exitCode) =>
+                codepush.on("exit", (exitCode) =>
                     exitCode == 0 ? resolve(undefined) : reject(exitCode)
                 );
             }).catch((err) => process.exit(err));
