@@ -30,6 +30,12 @@ class RegistryApi {
     this.port,
   });
 
+  String toString() => Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+      ).toString();
+
   String hash(String str) {
     final output = AccumulatorSink<Digest>();
 
