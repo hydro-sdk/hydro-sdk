@@ -4,9 +4,8 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:uuid/uuid.dart';
 
+import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
-import 'package:hydro_sdk/registry/dto/createUserDto.dart';
-import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/registryApi.dart';
 import 'registryTestUrl.dart';
@@ -15,22 +14,26 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   group("", () {
     test("", () async {
-      final api = RegistryApi(baseUrl: registryTestUrl);
+      final api = RegistryApi(
+        scheme: registryTestScheme!,
+        host: registryTestHost!,
+        port: registryTestPort,
+      );
 
       final username = "test${Uuid().v4()}";
-      final password = Uuid().v4();
 
       final projectName = "test-project-${Uuid().v4()}";
       final projectDescription = "test project descrption ${Uuid().v4()}";
 
-      final response = await api.createUser(
-          dto: CreateUserDto(
-        username: username,
-        password: password,
+      final response = await api.createMockUser(
+          dto: CreateMockUserDto(
+        displayName: username,
+        email: "${api.hash(Uuid().v4())}@example.com",
+        password: Uuid().v4(),
       ));
 
       expect(response, isNotNull);
-      expect(response, true);
+      expect(response, isNotEmpty);
 
       var createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
@@ -42,22 +45,14 @@ void main() {
 
       expect(createProjectResponse, isNull);
 
-      final loginResponse = await api.login(
-        dto: LoginUserDto(
-          username: username,
-          password: password,
-        ),
-      );
-
-      expect(loginResponse, isNotNull);
-      expect(loginResponse?.authenticatedUser.username, username);
-
       createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
-        sessionDto: loginResponse!,
+        sessionDto: SessionDto(
+          authToken: response!,
+        ),
       );
 
       expect(createProjectResponse, isNotNull);
@@ -71,7 +66,9 @@ void main() {
       expect(canUpdateProjectResponse, isNull);
 
       canUpdateProjectResponse = await api.canUpdateProjects(
-        sessionDto: loginResponse,
+        sessionDto: SessionDto(
+          authToken: response,
+        ),
       );
 
       var createdProject = canUpdateProjectResponse!

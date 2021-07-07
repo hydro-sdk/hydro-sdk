@@ -1,18 +1,17 @@
 import 'dart:convert';
 
-import 'package:corsac_jwt/corsac_jwt.dart';
+import 'package:convert/convert.dart';
+import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 
-import 'package:hydro_sdk/registry/dto/authTokenDto.dart';
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
 import 'package:hydro_sdk/registry/dto/componentSearchDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentResponseDto.dart';
+import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
-import 'package:hydro_sdk/registry/dto/createUserDto.dart';
 import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
-import 'package:hydro_sdk/registry/dto/loginUserDto.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
@@ -21,17 +20,39 @@ import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/dto/userReadDto.dart';
 
 class RegistryApi {
-  final String? baseUrl;
+  final String scheme;
+  final String host;
+  final int? port;
 
   const RegistryApi({
-    required this.baseUrl,
+    required this.scheme,
+    required this.host,
+    this.port,
   });
+
+  String hash(String str) {
+    final output = AccumulatorSink<Digest>();
+
+    final input = sha256.startChunkedConversion(output);
+
+    input.add(str.codeUnits);
+
+    input.close();
+    output.close();
+
+    return output.events.single.toString();
+  }
 
   Future<UserReadDto?> getUser({
     required String username,
   }) async {
     final response = await get(
-      Uri.https(baseUrl!, "api/user/${username}"),
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/user/${username}",
+      ),
       headers: {
         "content-type": "application/json",
       },
@@ -44,43 +65,25 @@ class RegistryApi {
     return null;
   }
 
-  Future<bool> createUser({
-    required CreateUserDto dto,
+  Future<String?> createMockUser({
+    required CreateMockUserDto dto,
   }) async {
-    final response = await post(Uri.https(baseUrl!, "api/user"),
+    final response = await post(
+        Uri(
+          scheme: scheme,
+          host: host,
+          port: port,
+          path: "/api/user/mock-user",
+        ),
         headers: {
           "content-type": "application/json",
           "accept": "*/*",
         },
         body: jsonEncode(dto.toJson()));
     if (response.statusCode == 201) {
-      return true;
+      return response.body;
     }
 
-    return false;
-  }
-
-  Future<SessionDto?> login({
-    required LoginUserDto dto,
-  }) async {
-    final response = await post(Uri.https(baseUrl!, "api/login"),
-        headers: {
-          "content-type": "application/json",
-          "accept": "*/*",
-        },
-        body: jsonEncode(dto.toJson()));
-
-    if (response.statusCode == 201) {
-      var token = JWT.parse(response.body);
-
-      return SessionDto(
-        authenticatedUser: AuthTokenDto(
-            exp: token.getClaim("exp").toInt(),
-            sub: token.getClaim("sub"),
-            username: token.getClaim("username")),
-        authToken: response.body,
-      );
-    }
     return null;
   }
 
@@ -88,12 +91,19 @@ class RegistryApi {
     required CreateProjectDto dto,
     required SessionDto sessionDto,
   }) async {
-    final response = await post(Uri.https(baseUrl!, "api/project"),
+    final response = await post(
+        Uri(
+          scheme: scheme,
+          host: host,
+          port: port,
+          path: "/api/project",
+        ),
         headers: {
           "content-type": "application/json",
           "Authorization": "Bearer ${sessionDto.authToken}",
         },
         body: jsonEncode(dto.toJson()));
+    print(response.statusCode);
     if (response.statusCode == 201) {
       return ProjectEntity.fromJson(jsonDecode(response.body));
     }
@@ -105,7 +115,13 @@ class RegistryApi {
     required CreateComponentDto dto,
     required SessionDto sessionDto,
   }) async {
-    final response = await post(Uri.https(baseUrl!, "api/component"),
+    final response = await post(
+        Uri(
+          scheme: scheme,
+          host: host,
+          port: port,
+          path: "/api/component",
+        ),
         headers: {
           "content-type": "application/json",
           "Authorization": "Bearer ${sessionDto.authToken}",
@@ -122,8 +138,12 @@ class RegistryApi {
     required SessionDto sessionDto,
   }) async {
     final response = await get(
-      Uri.https(baseUrl!,
-          "api/project/canUpdate/${sessionDto.authenticatedUser.sub}"),
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/project/canUpdate",
+      ),
       headers: {
         "content-type": "application/json",
         "Authorization": "Bearer ${sessionDto.authToken}",
@@ -144,13 +164,18 @@ class RegistryApi {
     required SessionDto sessionDto,
   }) async {
     final response = await get(
-      Uri.https(baseUrl!,
-          "api/component/canUpdate/${sessionDto.authenticatedUser.sub}"),
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/component/canupdate/",
+      ),
       headers: {
         "content-type": "application/json",
         "Authorization": "Bearer ${sessionDto.authToken}",
       },
     );
+
     if (response.statusCode == 200) {
       return jsonDecode(response.body)
           .map((x) => ComponentReadDto.fromJson(x))
@@ -164,7 +189,13 @@ class RegistryApi {
   Future<Response> createPackage({
     required CreatePackageDto createPackageDto,
   }) async {
-    final response = await post(Uri.https(baseUrl!, "api/package"),
+    final response = await post(
+        Uri(
+          scheme: scheme,
+          host: host,
+          port: port,
+          path: "/api/package",
+        ),
         headers: {
           "content-type": "application/json",
         },
@@ -175,7 +206,13 @@ class RegistryApi {
 
   Future<Response> getLatestPackageUri(
       {required GetPackageDto getPackageDto}) async {
-    final response = await post(Uri.https(baseUrl!, "api/package/latestUri"),
+    final response = await post(
+        Uri(
+          scheme: scheme,
+          host: host,
+          port: port,
+          path: "/api/package/latestUri",
+        ),
         headers: {
           "content-type": "application/json",
         },
@@ -187,9 +224,15 @@ class RegistryApi {
   Future<List<ComponentSearchDto>?> searchComponents(
       {required String searchTerm}) async {
     final response = await get(
-      Uri.https(baseUrl!, "api/component/search", {
-        "q": searchTerm,
-      }),
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/component/search",
+        queryParameters: {
+          "q": searchTerm,
+        },
+      ),
       headers: {
         "content-type": "application/json",
       },
@@ -210,13 +253,20 @@ class RegistryApi {
     required String componentName,
   }) async {
     final response = await get(
-        Uri.https(baseUrl!, "api/component", {
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/component",
+        queryParameters: {
           "project": projectName,
           "component": componentName,
-        }),
-        headers: {
-          "content-type": "application/json",
-        });
+        },
+      ),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
     if (response.statusCode == 200) {
       return ComponentReadDto.fromJson(jsonDecode(response.body));
     }
@@ -227,7 +277,12 @@ class RegistryApi {
   Future<List<ReleaseChannelReadDto>?> getAllReleaseChannelsByComponentId(
       {required String componentId}) async {
     final response = await get(
-      Uri.https(baseUrl!, "api/release-channel/component/${componentId}"),
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/release-channel/component/${componentId}",
+      ),
       headers: {
         "content-type": "application/json",
       },
@@ -246,7 +301,12 @@ class RegistryApi {
   Future<PackageReadDto?> getLatestMetadataForReleaseChannelId(
       {required String releaseChannelId}) async {
     final response = await get(
-      Uri.https(baseUrl!, "api/package/release-channel/${releaseChannelId}"),
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/package/release-channel/${releaseChannelId}",
+      ),
       headers: {
         "content-type": "application/json",
       },
@@ -262,7 +322,12 @@ class RegistryApi {
   Future<ProjectCreationsReadDto?> getRemainingProjectCreations(
       {required SessionDto sessionDto}) async {
     final response = await get(
-      Uri.https(baseUrl!, "api/user/remaining-project-creations"),
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/user/remaining-project-creations",
+      ),
       headers: {
         "content-type": "application/json",
         "Authorization": "Bearer ${sessionDto.authToken}",
@@ -280,7 +345,12 @@ class RegistryApi {
     required String projectId,
   }) async {
     final response = await get(
-      Uri.https(baseUrl!, "api/project/${projectId}"),
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/project/${projectId}",
+      ),
       headers: {
         "content-type": "application/json",
       },
@@ -288,6 +358,54 @@ class RegistryApi {
 
     if (response.statusCode == 200) {
       return ProjectEntity.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
+
+  Future<bool> provisionUser({
+    required SessionDto sessionDto,
+  }) async {
+    final response = await post(
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/user/provision",
+      ),
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer ${sessionDto.authToken}",
+      },
+    );
+
+    if (response.statusCode == 201) {
+      return true;
+    }
+    return false;
+  }
+
+  Future<List<ComponentReadDto>?> getAllComponentsInProject(
+      {required String projectId}) async {
+    final response = await get(
+      Uri(
+          scheme: scheme,
+          host: host,
+          port: port,
+          path: "/api/component/all-for-project",
+          queryParameters: {
+            "project": projectId,
+          }),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body)
+          .map((x) => ComponentReadDto.fromJson(x))
+          .toList()
+          .cast<ComponentReadDto>();
     }
 
     return null;

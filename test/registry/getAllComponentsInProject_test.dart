@@ -119,17 +119,15 @@ void main() {
       expect(canUpdateComponentResponse?.first.description,
           createComponentResponse.description);
 
-      var componentSearchResponse =
-          await api.searchComponents(searchTerm: componentName);
-      expect(componentSearchResponse, isNotNull);
-      expect(componentSearchResponse?.isNotEmpty, true);
-      expect(componentSearchResponse?.length, 1);
+      var getAllComponentsInProjectResponse =
+          await api.getAllComponentsInProject(
+        projectId: createProjectResponse.id,
+      );
 
-      componentSearchResponse = await api.searchComponents(searchTerm: "test");
-      expect(componentSearchResponse, isNotNull);
-      expect(componentSearchResponse?.isNotEmpty, true);
-      expect(componentSearchResponse?.length, greaterThan(1));
-      expect(componentSearchResponse?.length, lessThanOrEqualTo(10));
+      expect(getAllComponentsInProjectResponse, isNotNull);
+      expect(getAllComponentsInProjectResponse, isNotEmpty);
+      expect(getAllComponentsInProjectResponse!.first.name,
+          createComponentResponse.name);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }
