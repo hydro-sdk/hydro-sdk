@@ -87,6 +87,10 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
       if (latestPackageUri.statusCode == 201) {
         get(Uri.parse(latestPackageUri.body)).then((downloadResponse) {
           if (mounted) {
+            if (kDebugMode) {
+              print(
+                  "This host app is built in debug mode. ${widget.project}/${widget.component} was downloaded from ${widget.registryApi.toString()}");
+            }
             setState(() {
               runComponentKind = RunComponentKind.kRunComponentFromRegistry;
               rawPackage = base64Decode(downloadResponse.body);
