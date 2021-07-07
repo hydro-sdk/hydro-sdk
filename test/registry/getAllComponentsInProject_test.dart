@@ -126,7 +126,8 @@ void main() {
 
       expect(getAllComponentsInProjectResponse, isNotNull);
       expect(getAllComponentsInProjectResponse, isNotEmpty);
-      expect(getAllComponentsInProjectResponse!.first.name, createComponentResponse.name);
+      expect(getAllComponentsInProjectResponse!.first.name,
+          createComponentResponse.name);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }
