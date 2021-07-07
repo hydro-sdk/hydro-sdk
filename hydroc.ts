@@ -48,8 +48,9 @@ class Hydroc {
     }: {
         toolName: string;
     }): Readonly<string> {
-        return `${toolName}-${process.platform}-${process.arch}${process.platform == "win32" ? ".exe" : ""
-            }`;
+        return `${toolName}-${process.platform}-${process.arch}${
+            process.platform == "win32" ? ".exe" : ""
+        }`;
     }
 
     public makeSdkToolPlatformPath({
@@ -68,7 +69,8 @@ class Hydroc {
         return this.sdkTools
             .map((x) =>
                 !fs.existsSync(
-                    `${this.sdkToolsDir}${path.sep
+                    `${this.sdkToolsDir}${
+                        path.sep
                     }${this.makeSdkToolPlatformName({ toolName: x })}`
                 )
                     ? x
@@ -88,10 +90,11 @@ class Hydroc {
             for (let i = 0; i != missingSdkTools.length; ++i) {
                 const missingSdkTool = missingSdkTools[i];
                 await new Promise(async (resolve, reject) => {
-                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${this.sdkToolsVersion
-                        }/${this.makeSdkToolPlatformName({
-                            toolName: missingSdkTool,
-                        })}`;
+                    const url = `https://github.com/hydro-sdk/hydro-sdk/releases/download/${
+                        this.sdkToolsVersion
+                    }/${this.makeSdkToolPlatformName({
+                        toolName: missingSdkTool,
+                    })}`;
 
                     const { data, headers } = await Axios({
                         url,
@@ -114,7 +117,8 @@ class Hydroc {
                     );
 
                     const writer = fs.createWriteStream(
-                        `${this.sdkToolsDir}${path.sep
+                        `${this.sdkToolsDir}${
+                            path.sep
                         }${this.makeSdkToolPlatformName({
                             toolName: missingSdkTool,
                         })}`
@@ -313,8 +317,8 @@ class Hydroc {
 
 async function readSdkPackage({ directory }: { directory: string }): Promise<
     | Readonly<{
-        version: string;
-    }>
+          version: string;
+      }>
     | undefined
 > {
     try {
@@ -525,19 +529,19 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
             new Option(
                 "--private-key-file <private-key-file>",
                 "The path to the key to use to sign the release"
-            ).makeOptionMandatory())
+            ).makeOptionMandatory()
+        )
         .addOption(
             new Option(
                 "--channel <channel>",
                 "The channel to publish the release to"
-            ).default("latest"))
+            ).default("latest")
+        )
         .addOption(
             new Option(
                 "--readme <readme>",
                 "The path to the readme (in markdown format) to use for this release"
             ).default("readme.md")
-
-
         )
         .addOption(
             new Option(

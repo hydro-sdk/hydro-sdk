@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:cli_util/cli_logging.dart';
-import 'package:hydro_sdk/build-project/componentBuilder.dart';
 
+import 'package:hydro_sdk/build-project/componentBuilder.dart';
 import 'package:hydro_sdk/build-project/projectBuilder.dart';
 import 'package:hydro_sdk/build-project/sha256Data.dart';
 import 'package:hydro_sdk/projectConfig/projectConfig.dart';
