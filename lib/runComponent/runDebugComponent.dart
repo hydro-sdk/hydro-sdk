@@ -63,16 +63,18 @@ class _RunDebugComponentState extends State<_RunDebugComponent>
               setState(() {
                 lastHash = newHash;
               });
-              final rawPackage = await (_downloadDebugPackage(
+              final rawPackage = await _downloadDebugPackage(
                   port: widget.port,
                   project: widget.project,
-                  component: widget.component) as FutureOr<Uint8List>);
+                  component: widget.component);
 
-              await maybeReloadMountableChunk(
-                rawPackage: rawPackage,
-                component: widget.component,
-                thunks: widget.thunks,
-              );
+              if (rawPackage != null) {
+                await maybeReloadMountableChunk(
+                  rawPackage: rawPackage,
+                  component: widget.component,
+                  thunks: widget.thunks,
+                );
+              }
             }
           }
         }
