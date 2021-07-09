@@ -416,4 +416,26 @@ class RegistryApi {
 
     return null;
   }
+
+  Future<ComponentReadDto?> getComponentById({
+    required String componentId,
+  }) async {
+    final response = await get(
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/component/${componentId}",
+      ),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return ComponentReadDto.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
+  }
 }
