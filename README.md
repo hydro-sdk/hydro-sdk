@@ -58,6 +58,10 @@ Continue expanding available Dart APIs with automatic language projection (ALP) 
 - John C. Reynolds, Definitional Interpreters for Higher-Order Programming Languages https://surface.syr.edu/cgi/viewcontent.cgi?article=1012&context=lcsmith_other
 - Andrey Mokhov, Neil Mitchell, Simon Peyton Jones, Build Systems a la carte: Theory and Practice https://www.cambridge.org/core/journals/journal-of-functional-programming/article/build-systems-a-la-carte-theory-and-practice/097CE52C750E69BD16B78C318754C7A4
 - Fabio Mascarenhas de Queiroz, Optimized Compilation of a Dynamic Language to a Managed Runtime Environment http://www.lua.inf.puc-rio.br/publications/mascarenhas09optimized.pdf
+- Michael Schroder, Optimizing Lua Using Run-time Type Specialization https://www.complang.tuwien.ac.at/anton/praktika-fertig/schroeder/thesis.pdf
+- Satoru Kawahara, Optimizing Lua VM Bytecode Using Global Dataflow Analysis https://nymphium.github.io/pdf/opeth_report.pdf
+- Haichuan Wang, Compiler and Runtime Techniques for Optimizing Dynamic Scripting Languages https://www.ideals.illinois.edu/bitstream/handle/2142/78638/WANG-DISSERTATION-2015.pdf?sequence=1&isAllowed=y
+- Kevin Williams, Jason McCandless, David Gregg, Dynamic Interpretation for Dynamic Scripting Languages https://sites.cs.ucsb.edu/~ckrintz/papers/TCD-CS-2009-37.pdf
 - Dibyendu Majumdar, Ravi Lua 5.3 bytecode reference https://the-ravi-programming-language.readthedocs.io/en/latest/lua_bytecode_reference.html
 - Kein-Hong Man, A No-Frills Introduction to Lua 5.1 VM Instructions http://luaforge.net/docman/83/98/ANoFrillsIntroToLua51VMInstructions.pdf
 - Rust Programming Language Request for Comments 2603, Symbol Name Mangling https://github.com/rust-lang/rfcs/blob/master/text/2603-rust-symbol-name-mangling-v0.md
