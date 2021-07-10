@@ -74,3 +74,5 @@ sdk-tools/lua52/src/luac.exe
 #Typedoc 
 !docs/assets/js/main.js
 !docs/assets/js/search.js
+
+key.pem
