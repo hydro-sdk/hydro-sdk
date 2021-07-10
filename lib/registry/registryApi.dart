@@ -9,10 +9,12 @@ import 'package:hydro_sdk/registry/dto/componentSearchDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentResponseDto.dart';
 import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
+import 'package:hydro_sdk/registry/dto/createMockUserResult.dart';
 import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/getLatestPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/getLatestPackageReadDto.dart';
+import 'package:hydro_sdk/registry/dto/getUserResult.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
@@ -50,7 +52,7 @@ class RegistryApi {
     return output.events.single.toString();
   }
 
-  Future<UserReadDto?> getUser({
+  Future<GetUserResult> getUser({
     required String username,
   }) async {
     final response = await get(
@@ -66,13 +68,23 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return UserReadDto.fromJson(jsonDecode(response.body));
+      return GetUserResult.success(
+        getUserSuccessResult: GetUserSuccessResult(
+          statusCode: response.statusCode,
+          result: UserReadDto.fromJson(jsonDecode(response.body)),
+        ),
+      );
     }
 
-    return null;
+    return GetUserResult.failure(
+      getUserFailureResult: GetUserFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<String?> createMockUser({
+  Future<CreateMockUserResult> createMockUser({
     required CreateMockUserDto dto,
   }) async {
     final response = await post(
@@ -88,10 +100,20 @@ class RegistryApi {
         },
         body: jsonEncode(dto.toJson()));
     if (response.statusCode == 201) {
-      return response.body;
+      return CreateMockUserResult.success(
+        createMockUserSuccessResult: CreateMockUserSuccessResult(
+          statusCode: response.statusCode,
+          result: response.body,
+        ),
+      );
     }
 
-    return null;
+    return CreateMockUserResult.failure(
+      createMockUserFailureResult: CreateMockUserFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
   Future<ProjectEntity?> createProject({

@@ -19,17 +19,20 @@ void main() {
 
       final username = "test${Uuid().v4()}";
 
-      final response = await api.createMockUser(
+      final getUserResult = await api.createMockUser(
           dto: CreateMockUserDto(
         displayName: username,
         email: "${api.hash(Uuid().v4())}@example.com",
         password: Uuid().v4(),
       ));
 
-      expect(response, isNotNull);
-      expect(response, isNotEmpty);
+      final result = getUserResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
 
-      print(response);
+      expect(result?.result, isNotNull);
+      expect(result!.result, isNotEmpty);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }

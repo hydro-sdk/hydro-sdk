@@ -25,15 +25,20 @@ void main() {
       final projectName = "test-project-${Uuid().v4()}";
       final projectDescription = "test project descrption ${Uuid().v4()}";
 
-      final response = await api.createMockUser(
+      final createMockUserResult = await api.createMockUser(
           dto: CreateMockUserDto(
         displayName: username,
         email: "${api.hash(Uuid().v4())}@example.com",
         password: Uuid().v4(),
       ));
 
-      expect(response, isNotNull);
-      expect(response, isNotEmpty);
+      final mockUserToken = createMockUserResult.maybeWhen(
+        success: (val) => val.result,
+        orElse: () => null,
+      );
+
+      expect(mockUserToken, isNotNull);
+      expect(mockUserToken, isNotEmpty);
 
       var createProjectResponse = await api.createProject(
         dto: CreateProjectDto(
@@ -51,7 +56,7 @@ void main() {
           description: projectDescription,
         ),
         sessionDto: SessionDto(
-          authToken: response!,
+          authToken: mockUserToken!,
         ),
       );
 
@@ -67,7 +72,7 @@ void main() {
 
       canUpdateProjectResponse = await api.canUpdateProjects(
         sessionDto: SessionDto(
-          authToken: response,
+          authToken: mockUserToken,
         ),
       );
 
