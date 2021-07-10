@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 
 import 'package:archive/archive_io.dart';
 import 'package:http/http.dart';
+import 'package:hydro_sdk/otaCacheMgr/otaCacheMgr.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:hydro_sdk/build-project/packageManifest.dart';
@@ -19,7 +20,7 @@ import 'package:hydro_sdk/cfr/hotReloadable.dart';
 import 'package:hydro_sdk/cfr/moduleDebugInfo.dart';
 import 'package:hydro_sdk/cfr/preloadCustomNamespaces.dart';
 import 'package:hydro_sdk/cfr/vm/prototype.dart';
-import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
+import 'package:hydro_sdk/registry/dto/getLatestPackageDto.dart';
 import 'package:hydro_sdk/registry/registryApi.dart';
 
 part 'runDebugComponent.dart';
@@ -39,8 +40,13 @@ class RunComponent extends StatefulWidget {
   final String component;
   final String releaseChannel;
   final RegistryApi registryApi;
-  final Map<String, Prototype Function({CodeDump? codeDump, Prototype? parent})>
-      thunks;
+  final OtaCacheMgr otaCacheMgr;
+  final Map<
+      String,
+      Prototype Function({
+    CodeDump? codeDump,
+    Prototype? parent,
+  })> thunks;
   final Widget loading;
   final int debugPort;
 
@@ -52,6 +58,7 @@ class RunComponent extends StatefulWidget {
       scheme: "https",
       host: "",
     ),
+    this.otaCacheMgr = const OtaCacheMgr(),
     this.thunks = const {},
     this.debugPort = 5000,
     this.loading = const Center(
@@ -67,44 +74,91 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
   RunComponentKind? runComponentKind;
   Uint8List? rawPackage;
 
-  void _attemptToLoadComponentFromRegistry() {
+  void _runPackageFromRegistry({
+    required Uint8List package,
+  }) {
     if (mounted) {
+      if (kDebugMode) {
+        print(
+            "This host app is built in debug mode. ${widget.project}/${widget.component} was downloaded from ${widget.registryApi.toString()}");
+      }
       setState(() {
-        runComponentKind = RunComponentKind.kLoadingComponentFromRegistry;
+        runComponentKind = RunComponentKind.kRunComponentFromRegistry;
+        rawPackage = package;
       });
     }
-    widget.registryApi
-        .getLatestPackageUri(
-      getPackageDto: GetPackageDto(
-        sessionId: Uuid().v4(),
-        projectName: widget.project,
-        componentName: widget.component,
-        releaseChannelName: widget.releaseChannel,
-        currentPackageId: "",
-      ),
-    )
-        .then((latestPackageUri) {
-      if (latestPackageUri.statusCode == 201) {
-        get(Uri.parse(latestPackageUri.body)).then((downloadResponse) {
-          if (mounted) {
-            if (kDebugMode) {
-              print(
-                  "This host app is built in debug mode. ${widget.project}/${widget.component} was downloaded from ${widget.registryApi.toString()}");
-            }
-            setState(() {
-              runComponentKind = RunComponentKind.kRunComponentFromRegistry;
-              rawPackage = base64Decode(downloadResponse.body);
-            });
-          }
-        }).onError((dynamic error, stackTrace) {
-          print(error);
-          print(stackTrace);
+  }
+
+  Future<void> _attemptToLoadComponentFromRegistry() async {
+    try {
+      if (mounted) {
+        setState(() {
+          runComponentKind = RunComponentKind.kLoadingComponentFromRegistry;
         });
       }
-    }).onError((dynamic error, stackTrace) {
-      print(error);
-      print(stackTrace);
-    });
+
+      final otaCacheManifest = await widget.otaCacheMgr.getManifestForComponent(
+        project: widget.project,
+        component: widget.component,
+        releaseChannel: widget.releaseChannel,
+      );
+
+      if (otaCacheManifest != null) {
+        final otaCachePackage = await widget.otaCacheMgr.getPackageForManifest(
+          project: widget.project,
+          component: widget.component,
+          releaseChannel: widget.releaseChannel,
+          otaCacheManifest: otaCacheManifest,
+        );
+
+        //A cached package for this componet exists, start running it
+        _runPackageFromRegistry(
+          package: otaCachePackage,
+        );
+      }
+
+      final latestPackage = await widget.registryApi.getLatestPackage(
+        getLatestPackageDto: GetLatestPackageDto(
+          sessionId: Uuid().v4(),
+          projectName: widget.project,
+          componentName: widget.component,
+          releaseChannelName: widget.releaseChannel,
+          currentPackageId: otaCacheManifest?.id ?? "",
+        ),
+      );
+
+      if (latestPackage != null) {
+        //A newer package than what is cached is available for this component
+        final id = latestPackage.id;
+        final url = latestPackage.url;
+
+        if (id.isNotEmpty && url.isNotEmpty) {
+          final newPackage = await get(Uri.parse(url));
+
+          if (newPackage.statusCode == 200) {
+            //Download and cache new version
+            final decodedPackage = base64Decode(newPackage.body);
+            widget.otaCacheMgr.cachePackageForComponent(
+              project: widget.project,
+              component: widget.component,
+              releaseChannel: widget.releaseChannel,
+              id: id,
+              package: decodedPackage,
+            );
+
+            if (otaCacheManifest?.id.isEmpty ?? true) {
+              //If we weren't running anything from the cache, start running the newly downloaded package
+              _runPackageFromRegistry(
+                package: decodedPackage,
+              );
+            }
+          }
+        }
+      }
+    } catch (err, stack) {
+      print(err);
+      print(stack);
+    }
   }
 
   @override

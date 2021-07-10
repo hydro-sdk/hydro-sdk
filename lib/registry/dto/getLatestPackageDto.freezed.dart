@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'getPackageDto.dart';
+part of 'getLatestPackageDto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,21 +12,21 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GetPackageDto _$GetPackageDtoFromJson(Map<String, dynamic> json) {
-  return _$GetPackageDtoCtor.fromJson(json);
+GetLatestPackageDto _$GetLatestPackageDtoFromJson(Map<String, dynamic> json) {
+  return _$GetLatestPackageDtoCtor.fromJson(json);
 }
 
 /// @nodoc
-class _$GetPackageDtoTearOff {
-  const _$GetPackageDtoTearOff();
+class _$GetLatestPackageDtoTearOff {
+  const _$GetLatestPackageDtoTearOff();
 
-  _$GetPackageDtoCtor call(
+  _$GetLatestPackageDtoCtor call(
       {required String sessionId,
       required String projectName,
       required String componentName,
       required String releaseChannelName,
       required String currentPackageId}) {
-    return _$GetPackageDtoCtor(
+    return _$GetLatestPackageDtoCtor(
       sessionId: sessionId,
       projectName: projectName,
       componentName: componentName,
@@ -35,16 +35,16 @@ class _$GetPackageDtoTearOff {
     );
   }
 
-  GetPackageDto fromJson(Map<String, Object> json) {
-    return GetPackageDto.fromJson(json);
+  GetLatestPackageDto fromJson(Map<String, Object> json) {
+    return GetLatestPackageDto.fromJson(json);
   }
 }
 
 /// @nodoc
-const $GetPackageDto = _$GetPackageDtoTearOff();
+const $GetLatestPackageDto = _$GetLatestPackageDtoTearOff();
 
 /// @nodoc
-mixin _$GetPackageDto {
+mixin _$GetLatestPackageDto {
   String get sessionId => throw _privateConstructorUsedError;
   String get projectName => throw _privateConstructorUsedError;
   String get componentName => throw _privateConstructorUsedError;
@@ -53,15 +53,15 @@ mixin _$GetPackageDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GetPackageDtoCopyWith<GetPackageDto> get copyWith =>
+  $GetLatestPackageDtoCopyWith<GetLatestPackageDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetPackageDtoCopyWith<$Res> {
-  factory $GetPackageDtoCopyWith(
-          GetPackageDto value, $Res Function(GetPackageDto) then) =
-      _$GetPackageDtoCopyWithImpl<$Res>;
+abstract class $GetLatestPackageDtoCopyWith<$Res> {
+  factory $GetLatestPackageDtoCopyWith(
+          GetLatestPackageDto value, $Res Function(GetLatestPackageDto) then) =
+      _$GetLatestPackageDtoCopyWithImpl<$Res>;
   $Res call(
       {String sessionId,
       String projectName,
@@ -71,13 +71,13 @@ abstract class $GetPackageDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GetPackageDtoCopyWithImpl<$Res>
-    implements $GetPackageDtoCopyWith<$Res> {
-  _$GetPackageDtoCopyWithImpl(this._value, this._then);
+class _$GetLatestPackageDtoCopyWithImpl<$Res>
+    implements $GetLatestPackageDtoCopyWith<$Res> {
+  _$GetLatestPackageDtoCopyWithImpl(this._value, this._then);
 
-  final GetPackageDto _value;
+  final GetLatestPackageDto _value;
   // ignore: unused_field
-  final $Res Function(GetPackageDto) _then;
+  final $Res Function(GetLatestPackageDto) _then;
 
   @override
   $Res call({
@@ -113,11 +113,11 @@ class _$GetPackageDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$GetPackageDtoCtorCopyWith<$Res>
-    implements $GetPackageDtoCopyWith<$Res> {
-  factory _$$GetPackageDtoCtorCopyWith(
-          _$GetPackageDtoCtor value, $Res Function(_$GetPackageDtoCtor) then) =
-      __$$GetPackageDtoCtorCopyWithImpl<$Res>;
+abstract class _$$GetLatestPackageDtoCtorCopyWith<$Res>
+    implements $GetLatestPackageDtoCopyWith<$Res> {
+  factory _$$GetLatestPackageDtoCtorCopyWith(_$GetLatestPackageDtoCtor value,
+          $Res Function(_$GetLatestPackageDtoCtor) then) =
+      __$$GetLatestPackageDtoCtorCopyWithImpl<$Res>;
   @override
   $Res call(
       {String sessionId,
@@ -128,15 +128,16 @@ abstract class _$$GetPackageDtoCtorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GetPackageDtoCtorCopyWithImpl<$Res>
-    extends _$GetPackageDtoCopyWithImpl<$Res>
-    implements _$$GetPackageDtoCtorCopyWith<$Res> {
-  __$$GetPackageDtoCtorCopyWithImpl(
-      _$GetPackageDtoCtor _value, $Res Function(_$GetPackageDtoCtor) _then)
-      : super(_value, (v) => _then(v as _$GetPackageDtoCtor));
+class __$$GetLatestPackageDtoCtorCopyWithImpl<$Res>
+    extends _$GetLatestPackageDtoCopyWithImpl<$Res>
+    implements _$$GetLatestPackageDtoCtorCopyWith<$Res> {
+  __$$GetLatestPackageDtoCtorCopyWithImpl(_$GetLatestPackageDtoCtor _value,
+      $Res Function(_$GetLatestPackageDtoCtor) _then)
+      : super(_value, (v) => _then(v as _$GetLatestPackageDtoCtor));
 
   @override
-  _$GetPackageDtoCtor get _value => super._value as _$GetPackageDtoCtor;
+  _$GetLatestPackageDtoCtor get _value =>
+      super._value as _$GetLatestPackageDtoCtor;
 
   @override
   $Res call({
@@ -146,7 +147,7 @@ class __$$GetPackageDtoCtorCopyWithImpl<$Res>
     Object? releaseChannelName = freezed,
     Object? currentPackageId = freezed,
   }) {
-    return _then(_$GetPackageDtoCtor(
+    return _then(_$GetLatestPackageDtoCtor(
       sessionId: sessionId == freezed
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
@@ -173,16 +174,17 @@ class __$$GetPackageDtoCtorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$GetPackageDtoCtor implements _$GetPackageDtoCtor {
-  const _$_$GetPackageDtoCtor(
+class _$_$GetLatestPackageDtoCtor extends _$GetLatestPackageDtoCtor {
+  const _$_$GetLatestPackageDtoCtor(
       {required this.sessionId,
       required this.projectName,
       required this.componentName,
       required this.releaseChannelName,
-      required this.currentPackageId});
+      required this.currentPackageId})
+      : super._();
 
-  factory _$_$GetPackageDtoCtor.fromJson(Map<String, dynamic> json) =>
-      _$_$_$GetPackageDtoCtorFromJson(json);
+  factory _$_$GetLatestPackageDtoCtor.fromJson(Map<String, dynamic> json) =>
+      _$_$_$GetLatestPackageDtoCtorFromJson(json);
 
   @override
   final String sessionId;
@@ -197,13 +199,13 @@ class _$_$GetPackageDtoCtor implements _$GetPackageDtoCtor {
 
   @override
   String toString() {
-    return 'GetPackageDto(sessionId: $sessionId, projectName: $projectName, componentName: $componentName, releaseChannelName: $releaseChannelName, currentPackageId: $currentPackageId)';
+    return 'GetLatestPackageDto(sessionId: $sessionId, projectName: $projectName, componentName: $componentName, releaseChannelName: $releaseChannelName, currentPackageId: $currentPackageId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$GetPackageDtoCtor &&
+        (other is _$GetLatestPackageDtoCtor &&
             (identical(other.sessionId, sessionId) ||
                 const DeepCollectionEquality()
                     .equals(other.sessionId, sessionId)) &&
@@ -232,25 +234,27 @@ class _$_$GetPackageDtoCtor implements _$GetPackageDtoCtor {
 
   @JsonKey(ignore: true)
   @override
-  _$$GetPackageDtoCtorCopyWith<_$GetPackageDtoCtor> get copyWith =>
-      __$$GetPackageDtoCtorCopyWithImpl<_$GetPackageDtoCtor>(this, _$identity);
+  _$$GetLatestPackageDtoCtorCopyWith<_$GetLatestPackageDtoCtor> get copyWith =>
+      __$$GetLatestPackageDtoCtorCopyWithImpl<_$GetLatestPackageDtoCtor>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_$GetPackageDtoCtorToJson(this);
+    return _$_$_$GetLatestPackageDtoCtorToJson(this);
   }
 }
 
-abstract class _$GetPackageDtoCtor implements GetPackageDto {
-  const factory _$GetPackageDtoCtor(
+abstract class _$GetLatestPackageDtoCtor extends GetLatestPackageDto {
+  const factory _$GetLatestPackageDtoCtor(
       {required String sessionId,
       required String projectName,
       required String componentName,
       required String releaseChannelName,
-      required String currentPackageId}) = _$_$GetPackageDtoCtor;
+      required String currentPackageId}) = _$_$GetLatestPackageDtoCtor;
+  const _$GetLatestPackageDtoCtor._() : super._();
 
-  factory _$GetPackageDtoCtor.fromJson(Map<String, dynamic> json) =
-      _$_$GetPackageDtoCtor.fromJson;
+  factory _$GetLatestPackageDtoCtor.fromJson(Map<String, dynamic> json) =
+      _$_$GetLatestPackageDtoCtor.fromJson;
 
   @override
   String get sessionId => throw _privateConstructorUsedError;
@@ -264,6 +268,6 @@ abstract class _$GetPackageDtoCtor implements GetPackageDto {
   String get currentPackageId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$GetPackageDtoCtorCopyWith<_$GetPackageDtoCtor> get copyWith =>
+  _$$GetLatestPackageDtoCtorCopyWith<_$GetLatestPackageDtoCtor> get copyWith =>
       throw _privateConstructorUsedError;
 }
