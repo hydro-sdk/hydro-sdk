@@ -12,6 +12,7 @@ import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/createMockUserResult.dart';
 import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
+import 'package:hydro_sdk/registry/dto/createProjectResult.dart';
 import 'package:hydro_sdk/registry/dto/getLatestPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/getLatestPackageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/getUserResult.dart';
@@ -116,7 +117,7 @@ class RegistryApi {
     );
   }
 
-  Future<ProjectEntity?> createProject({
+  Future<CreateProjectResult> createProject({
     required CreateProjectDto dto,
     required SessionDto sessionDto,
   }) async {
@@ -132,12 +133,21 @@ class RegistryApi {
           "Authorization": "Bearer ${sessionDto.authToken}",
         },
         body: jsonEncode(dto.toJson()));
-    print(response.statusCode);
     if (response.statusCode == 201) {
-      return ProjectEntity.fromJson(jsonDecode(response.body));
+      return CreateProjectResult.success(
+        createProjectSuccessResult: CreateProjectSuccessResult(
+          statusCode: response.statusCode,
+          result: ProjectEntity.fromJson(jsonDecode(response.body)),
+        ),
+      );
     }
 
-    return null;
+    return CreateProjectResult.failure(
+      createProjectFailureResult: CreateProjectFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
   Future<CreateComponentResponseDto?> createComponent({
