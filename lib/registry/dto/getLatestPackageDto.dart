@@ -6,7 +6,7 @@ part 'getLatestPackageDto.g.dart';
 @freezed
 class GetLatestPackageDto with _$GetLatestPackageDto {
   const GetLatestPackageDto._();
-  
+
   const factory GetLatestPackageDto({
     required String sessionId,
     required String projectName,

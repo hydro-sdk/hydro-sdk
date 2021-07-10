@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:path/path.dart' as path;
+
 import 'package:hydro_sdk/build-project/sha256Data.dart';
 import 'package:hydro_sdk/otaCacheMgr/directoryProvider.dart';
 import 'package:hydro_sdk/otaCacheMgr/mobileDirectoryProvider.dart';
 import 'package:hydro_sdk/otaCacheMgr/otaCacheManifest.dart';
-import 'package:path/path.dart' as path;
 
 class OtaCacheMgr {
   final String basePath;
