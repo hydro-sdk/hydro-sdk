@@ -82,7 +82,7 @@ void main(List<String> args) async {
     signingKey: privateKey,
   );
 
-  final createPackageResponse = await registryApi.createPackage(
+  final createPackageResult = await registryApi.createPackage(
     createPackageDto: CreatePackageDto(
       publishingPrivateKeySha256: sha256Data(privateKey.codeUnits),
       otaPackageBase64: base64Encode(
@@ -106,7 +106,12 @@ void main(List<String> args) async {
     showTiming: true,
   );
 
-  if (createPackageResponse.statusCode != 201) {
+  final createPackageSuccessResult = createPackageResult.maybeWhen(
+    success: (val) => val,
+    orElse: () => null,
+  );
+
+  if (createPackageSuccessResult == null) {
     print("Failed to publish");
 
     exit(1);
