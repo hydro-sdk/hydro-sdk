@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/registry/dto/apiResult.dart';
 import 'package:hydro_sdk/registry/dto/releaseChannelReadDto.dart';
 
@@ -6,18 +7,22 @@ part 'getAllReleaseChannelsByComponentIdResult.freezed.dart';
 part 'getAllReleaseChannelsByComponentIdResult.g.dart';
 
 @freezed
-class GetAllReleaseChannelsByComponentIdResult with _$GetAllReleaseChannelsByComponentIdResult {
+class GetAllReleaseChannelsByComponentIdResult
+    with _$GetAllReleaseChannelsByComponentIdResult {
   const GetAllReleaseChannelsByComponentIdResult._();
 
   const factory GetAllReleaseChannelsByComponentIdResult.success({
-    required GetAllReleaseChannelsByComponentIdSuccessResult getAllReleaseChannelsByComponentIdSuccessResult,
+    required GetAllReleaseChannelsByComponentIdSuccessResult
+        getAllReleaseChannelsByComponentIdSuccessResult,
   }) = _$GetAllReleaseChannelsByComponentIdResultSuccess;
 
   const factory GetAllReleaseChannelsByComponentIdResult.failure({
-    required GetAllReleaseChannelsByComponentIdFailureResult getAllReleaseChannelsByComponentIdFailureResult,
+    required GetAllReleaseChannelsByComponentIdFailureResult
+        getAllReleaseChannelsByComponentIdFailureResult,
   }) = _$GetAllReleaseChannelsByComponentIdResultFailure;
 
-  factory GetAllReleaseChannelsByComponentIdResult.fromJson(Map<String, dynamic> json) =>
+  factory GetAllReleaseChannelsByComponentIdResult.fromJson(
+          Map<String, dynamic> json) =>
       _$GetAllReleaseChannelsByComponentIdResultFromJson(json);
 }
 
@@ -32,7 +37,8 @@ class GetAllReleaseChannelsByComponentIdSuccessResult
     required List<ReleaseChannelReadDto> result,
   }) = _$GetAllReleaseChannelsByComponentIdSuccessResultCtor;
 
-  factory GetAllReleaseChannelsByComponentIdSuccessResult.fromJson(Map<String, dynamic> json) =>
+  factory GetAllReleaseChannelsByComponentIdSuccessResult.fromJson(
+          Map<String, dynamic> json) =>
       _$GetAllReleaseChannelsByComponentIdSuccessResultFromJson(json);
 }
 
@@ -47,6 +53,7 @@ class GetAllReleaseChannelsByComponentIdFailureResult
     required String message,
   }) = _$GetAllReleaseChannelsByComponentIdFailureResultCtor;
 
-  factory GetAllReleaseChannelsByComponentIdFailureResult.fromJson(Map<String, dynamic> json) =>
+  factory GetAllReleaseChannelsByComponentIdFailureResult.fromJson(
+          Map<String, dynamic> json) =>
       _$GetAllReleaseChannelsByComponentIdFailureResultFromJson(json);
 }

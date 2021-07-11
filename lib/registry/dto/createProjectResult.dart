@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/registry/dto/apiResult.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
-import 'package:hydro_sdk/registry/dto/userReadDto.dart';
 
 part 'createProjectResult.freezed.dart';
 part 'createProjectResult.g.dart';

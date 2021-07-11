@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/registry/dto/apiResult.dart';
 
 part 'createMockUserResult.freezed.dart';

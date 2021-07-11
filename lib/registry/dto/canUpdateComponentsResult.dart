@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/registry/dto/apiResult.dart';
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
-import 'package:hydro_sdk/registry/dto/userReadDto.dart';
 
 part 'canUpdateComponentsResult.freezed.dart';
 part 'canUpdateComponentsResult.g.dart';
@@ -33,7 +33,8 @@ class CanUpdateComponentsSuccessResult
     required List<ComponentReadDto> result,
   }) = _$CanUpdateComponentsSuccessResultCtor;
 
-  factory CanUpdateComponentsSuccessResult.fromJson(Map<String, dynamic> json) =>
+  factory CanUpdateComponentsSuccessResult.fromJson(
+          Map<String, dynamic> json) =>
       _$CanUpdateComponentsSuccessResultFromJson(json);
 }
 
@@ -48,6 +49,7 @@ class CanUpdateComponentsFailureResult
     required String message,
   }) = _$CanUpdateComponentsFailureResultCtor;
 
-  factory CanUpdateComponentsFailureResult.fromJson(Map<String, dynamic> json) =>
+  factory CanUpdateComponentsFailureResult.fromJson(
+          Map<String, dynamic> json) =>
       _$CanUpdateComponentsFailureResultFromJson(json);
 }
