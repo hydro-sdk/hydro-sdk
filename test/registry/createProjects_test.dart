@@ -40,7 +40,7 @@ void main() {
       expect(mockUserToken, isNotNull);
       expect(mockUserToken, isNotEmpty);
 
-      var createProjectResponse = await api.createProject(
+      var createProjectResult = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
@@ -48,9 +48,14 @@ void main() {
         sessionDto: SessionDto.empty(),
       );
 
-      expect(createProjectResponse, isNull);
+      expect(
+          createProjectResult.maybeWhen(
+            failure: (_) => true,
+            orElse: () => null,
+          ),
+          true);
 
-      createProjectResponse = await api.createProject(
+      createProjectResult = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
@@ -60,29 +65,46 @@ void main() {
         ),
       );
 
-      expect(createProjectResponse, isNotNull);
-      expect(createProjectResponse!.name, projectName);
-      expect(createProjectResponse.description, projectDescription);
+      final createProjectSuccessResult = createProjectResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
 
-      var canUpdateProjectResponse = await api.canUpdateProjects(
+      expect(createProjectSuccessResult, isNotNull);
+      expect(createProjectSuccessResult!.result.name, projectName);
+      expect(createProjectSuccessResult.result.description, projectDescription);
+
+      var canUpdateProjectResult = await api.canUpdateProjects(
         sessionDto: SessionDto.empty(),
       );
 
-      expect(canUpdateProjectResponse, isNull);
+      expect(
+          canUpdateProjectResult.maybeWhen(
+            failure: (_) => true,
+            orElse: () => null,
+          ),
+          true);
 
-      canUpdateProjectResponse = await api.canUpdateProjects(
+      canUpdateProjectResult = await api.canUpdateProjects(
         sessionDto: SessionDto(
           authToken: mockUserToken,
         ),
       );
 
-      expect(canUpdateProjectResponse, isNotNull);
+      final canUpdateProjectSuccessResult = canUpdateProjectResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
 
-      var createdProject = canUpdateProjectResponse!
-          .firstWhereOrNull((x) => x.name == createProjectResponse!.name)!;
+      expect(canUpdateProjectSuccessResult, isNotNull);
+
+      var createdProject = canUpdateProjectSuccessResult!.result
+          .firstWhereOrNull(
+              (x) => x.name == createProjectSuccessResult.result.name)!;
 
       expect(createdProject, isNotNull);
-      expect(createdProject.description, createProjectResponse.description);
+      expect(createdProject.description,
+          createProjectSuccessResult.result.description);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }
