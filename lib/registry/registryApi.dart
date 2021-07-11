@@ -3,23 +3,37 @@ import 'dart:convert';
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
+import 'package:hydro_sdk/registry/dto/canUpdateComponentsResult.dart';
+import 'package:hydro_sdk/registry/dto/canUpdateProjectsResult.dart';
 
 import 'package:hydro_sdk/registry/dto/componentReadDto.dart';
 import 'package:hydro_sdk/registry/dto/componentSearchDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentDto.dart';
 import 'package:hydro_sdk/registry/dto/createComponentResponseDto.dart';
+import 'package:hydro_sdk/registry/dto/createComponentResult.dart';
 import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/createMockUserResult.dart';
 import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
+import 'package:hydro_sdk/registry/dto/createPackageResult.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectResult.dart';
+import 'package:hydro_sdk/registry/dto/getAllComponentsInProjectResult.dart';
+import 'package:hydro_sdk/registry/dto/getAllReleaseChannelsByComponentIdResult.dart';
+import 'package:hydro_sdk/registry/dto/getComponentByIdResult.dart';
+import 'package:hydro_sdk/registry/dto/getComponentByNameInProjectByNameResult.dart';
+import 'package:hydro_sdk/registry/dto/getLatestMetadataForReleaseChannelIdResult.dart';
 import 'package:hydro_sdk/registry/dto/getLatestPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/getLatestPackageReadDto.dart';
+import 'package:hydro_sdk/registry/dto/getLatestPackageResult.dart';
+import 'package:hydro_sdk/registry/dto/getProjectByIdResult.dart';
+import 'package:hydro_sdk/registry/dto/getRemainingProjectCreationsResult.dart';
 import 'package:hydro_sdk/registry/dto/getUserResult.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
+import 'package:hydro_sdk/registry/dto/provisionUserResult.dart';
 import 'package:hydro_sdk/registry/dto/releaseChannelReadDto.dart';
+import 'package:hydro_sdk/registry/dto/searchComponentsResult.dart';
 import 'package:hydro_sdk/registry/dto/sessionDto.dart';
 import 'package:hydro_sdk/registry/dto/userReadDto.dart';
 
@@ -89,17 +103,19 @@ class RegistryApi {
     required CreateMockUserDto dto,
   }) async {
     final response = await post(
-        Uri(
-          scheme: scheme,
-          host: host,
-          port: port,
-          path: "/api/user/mock-user",
-        ),
-        headers: {
-          "content-type": "application/json",
-          "accept": "*/*",
-        },
-        body: jsonEncode(dto.toJson()));
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/user/mock-user",
+      ),
+      headers: {
+        "content-type": "application/json",
+        "accept": "*/*",
+      },
+      body: jsonEncode(dto.toJson()),
+    );
+
     if (response.statusCode == 201) {
       return CreateMockUserResult.success(
         createMockUserSuccessResult: CreateMockUserSuccessResult(
@@ -122,17 +138,19 @@ class RegistryApi {
     required SessionDto sessionDto,
   }) async {
     final response = await post(
-        Uri(
-          scheme: scheme,
-          host: host,
-          port: port,
-          path: "/api/project",
-        ),
-        headers: {
-          "content-type": "application/json",
-          "Authorization": "Bearer ${sessionDto.authToken}",
-        },
-        body: jsonEncode(dto.toJson()));
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/project",
+      ),
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer ${sessionDto.authToken}",
+      },
+      body: jsonEncode(dto.toJson()),
+    );
+
     if (response.statusCode == 201) {
       return CreateProjectResult.success(
         createProjectSuccessResult: CreateProjectSuccessResult(
@@ -150,30 +168,43 @@ class RegistryApi {
     );
   }
 
-  Future<CreateComponentResponseDto?> createComponent({
+  Future<CreateComponentResult> createComponent({
     required CreateComponentDto dto,
     required SessionDto sessionDto,
   }) async {
     final response = await post(
-        Uri(
-          scheme: scheme,
-          host: host,
-          port: port,
-          path: "/api/component",
-        ),
-        headers: {
-          "content-type": "application/json",
-          "Authorization": "Bearer ${sessionDto.authToken}",
-        },
-        body: jsonEncode(dto.toJson()));
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/component",
+      ),
+      headers: {
+        "content-type": "application/json",
+        "Authorization": "Bearer ${sessionDto.authToken}",
+      },
+      body: jsonEncode(dto.toJson()),
+    );
+
     if (response.statusCode == 201) {
-      return CreateComponentResponseDto.fromJson(jsonDecode(response.body));
+      return CreateComponentResult.success(
+        createComponentSuccessResult: CreateComponentSuccessResult(
+          statusCode: response.statusCode,
+          result:
+              CreateComponentResponseDto.fromJson(jsonDecode(response.body)),
+        ),
+      );
     }
 
-    return null;
+    return CreateComponentResult.failure(
+      createComponentFailureResult: CreateComponentFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<List<ProjectEntity>?> canUpdateProjects({
+  Future<CanUpdateProjectsResult> canUpdateProjects({
     required SessionDto sessionDto,
   }) async {
     final response = await get(
@@ -190,16 +221,26 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200 || response.statusCode == 304) {
-      return jsonDecode(response.body)
-          .map((x) => ProjectEntity.fromJson(x))
-          .toList()
-          .cast<ProjectEntity>();
+      return CanUpdateProjectsResult.success(
+        canUpdateProjectsSuccessResult: CanUpdateProjectsSuccessResult(
+          statusCode: response.statusCode,
+          result: jsonDecode(response.body)
+              .map((x) => ProjectEntity.fromJson(x))
+              .toList()
+              .cast<ProjectEntity>(),
+        ),
+      );
     }
 
-    return null;
+    return CanUpdateProjectsResult.failure(
+      canUpdateProjectsFailureResult: CanUpdateProjectsFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<List<ComponentReadDto>?> canUpdateComponents({
+  Future<CanUpdateComponentsResult> canUpdateComponents({
     required SessionDto sessionDto,
   }) async {
     final response = await get(
@@ -216,56 +257,92 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return jsonDecode(response.body)
-          .map((x) => ComponentReadDto.fromJson(x))
-          .toList()
-          .cast<ComponentReadDto>();
+      return CanUpdateComponentsResult.success(
+        canUpdateComponentsSuccessResult: CanUpdateComponentsSuccessResult(
+          statusCode: response.statusCode,
+          result: jsonDecode(response.body)
+              .map((x) => ComponentReadDto.fromJson(x))
+              .toList()
+              .cast<ComponentReadDto>(),
+        ),
+      );
     }
 
-    return null;
+    return CanUpdateComponentsResult.failure(
+      canUpdateComponentsFailureResult: CanUpdateComponentsFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<Response> createPackage({
+  Future<CreatePackageResult> createPackage({
     required CreatePackageDto createPackageDto,
   }) async {
     final response = await post(
-        Uri(
-          scheme: scheme,
-          host: host,
-          port: port,
-          path: "/api/package",
-        ),
-        headers: {
-          "content-type": "application/json",
-        },
-        body: jsonEncode(createPackageDto.toJson()));
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/package",
+      ),
+      headers: {
+        "content-type": "application/json",
+      },
+      body: jsonEncode(createPackageDto.toJson()),
+    );
 
-    return response;
+    if (response.statusCode == 200) {
+      return CreatePackageResult.success(
+        createPackageSuccessResult: CreatePackageSuccessResult(
+          statusCode: response.statusCode,
+          result: const CreatePackageSuccess(),
+        ),
+      );
+    }
+
+    return CreatePackageResult.failure(
+      createPackageFailureResult: CreatePackageFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<GetLatestPackageReadDto?> getLatestPackage({
+  Future<GetLatestPackageResult> getLatestPackage({
     required GetLatestPackageDto getLatestPackageDto,
   }) async {
     final response = await post(
-        Uri(
-          scheme: scheme,
-          host: host,
-          port: port,
-          path: "/api/package/latest",
-        ),
-        headers: {
-          "content-type": "application/json",
-        },
-        body: jsonEncode(getLatestPackageDto.toJson()));
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/package/latest",
+      ),
+      headers: {
+        "content-type": "application/json",
+      },
+      body: jsonEncode(getLatestPackageDto.toJson()),
+    );
 
     if (response.statusCode == 201) {
-      return GetLatestPackageReadDto.fromJson(jsonDecode(response.body));
+      return GetLatestPackageResult.success(
+        getLatestPackageSuccessResult: GetLatestPackageSuccessResult(
+          result: GetLatestPackageReadDto.fromJson(jsonDecode(response.body)),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return GetLatestPackageResult.failure(
+      getLatestPackageFailureResult: GetLatestPackageFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<List<ComponentSearchDto>?> searchComponents(
+  Future<SearchComponentsResult> searchComponents(
       {required String searchTerm}) async {
     final response = await get(
       Uri(
@@ -283,16 +360,28 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return jsonDecode(response.body)
-          .map((x) => ComponentSearchDto.fromJson(x))
-          .toList()
-          .cast<ComponentSearchDto>();
+      return SearchComponentsResult.success(
+        searchComponentsResultSuccessResult:
+            SearchComponentsResultSuccessResult(
+          result: jsonDecode(response.body)
+              .map((x) => ComponentSearchDto.fromJson(x))
+              .toList()
+              .cast<ComponentSearchDto>(),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return SearchComponentsResult.failure(
+      searchComponentsResultFailure: SearchComponentsResultFailure(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<ComponentReadDto?> getComponentByNameInProjectByName({
+  Future<GetComponentByNameInProjectByNameResult>
+      getComponentByNameInProjectByName({
     required String projectName,
     required String componentName,
   }) async {
@@ -311,15 +400,30 @@ class RegistryApi {
         "content-type": "application/json",
       },
     );
+
     if (response.statusCode == 200) {
-      return ComponentReadDto.fromJson(jsonDecode(response.body));
+      return GetComponentByNameInProjectByNameResult.success(
+        getComponentByNameInProjectByNameSuccessResult:
+            GetComponentByNameInProjectByNameSuccessResult(
+          result: ComponentReadDto.fromJson(jsonDecode(response.body)),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return GetComponentByNameInProjectByNameResult.failure(
+      getComponentByNameInProjectByNameFailureResult:
+          GetComponentByNameInProjectByNameFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<List<ReleaseChannelReadDto>?> getAllReleaseChannelsByComponentId(
-      {required String componentId}) async {
+  Future<GetAllReleaseChannelsByComponentIdResult>
+      getAllReleaseChannelsByComponentId({
+    required String componentId,
+  }) async {
     final response = await get(
       Uri(
         scheme: scheme,
@@ -333,17 +437,31 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return jsonDecode(response.body)
-          .map((x) => ReleaseChannelReadDto.fromJson(x))
-          .toList()
-          .cast<ReleaseChannelReadDto>();
+      return GetAllReleaseChannelsByComponentIdResult.success(
+        getAllReleaseChannelsByComponentIdSuccessResult:
+            GetAllReleaseChannelsByComponentIdSuccessResult(
+          result: jsonDecode(response.body)
+              .map((x) => ReleaseChannelReadDto.fromJson(x))
+              .toList()
+              .cast<ReleaseChannelReadDto>(),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return GetAllReleaseChannelsByComponentIdResult.failure(
+      getAllReleaseChannelsByComponentIdFailureResult:
+          GetAllReleaseChannelsByComponentIdFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<PackageReadDto?> getLatestMetadataForReleaseChannelId(
-      {required String releaseChannelId}) async {
+  Future<GetLatestMetadataForReleaseChannelIdResult>
+      getLatestMetadataForReleaseChannelId({
+    required String releaseChannelId,
+  }) async {
     final response = await get(
       Uri(
         scheme: scheme,
@@ -357,14 +475,27 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return PackageReadDto.fromJson(jsonDecode(response.body));
+      return GetLatestMetadataForReleaseChannelIdResult.success(
+        getLatestMetadataForReleaseChannelIdSuccessResult:
+            GetLatestMetadataForReleaseChannelIdSuccessResult(
+          result: PackageReadDto.fromJson(jsonDecode(response.body)),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return GetLatestMetadataForReleaseChannelIdResult.failure(
+      getLatestMetadataForReleaseChannelIdFailureResult:
+          GetLatestMetadataForReleaseChannelIdFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<ProjectCreationsReadDto?> getRemainingProjectCreations(
-      {required SessionDto sessionDto}) async {
+  Future<GetRemainingProjectCreationsResult> getRemainingProjectCreations({
+    required SessionDto sessionDto,
+  }) async {
     final response = await get(
       Uri(
         scheme: scheme,
@@ -379,13 +510,25 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return ProjectCreationsReadDto.fromJson(jsonDecode(response.body));
+      return GetRemainingProjectCreationsResult.success(
+        getRemainingProjectCreationsSuccessResult:
+            GetRemainingProjectCreationsSuccessResult(
+          result: ProjectCreationsReadDto.fromJson(jsonDecode(response.body)),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return GetRemainingProjectCreationsResult.failure(
+      getRemainingProjectCreationsFailureResult:
+          GetRemainingProjectCreationsFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<ProjectEntity?> getProjectById({
+  Future<GetProjectByIdResult> getProjectById({
     required String projectId,
   }) async {
     final response = await get(
@@ -401,13 +544,23 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return ProjectEntity.fromJson(jsonDecode(response.body));
+      return GetProjectByIdResult.success(
+        getProjectByIdSuccessResult: GetProjectByIdSuccessResult(
+          result: ProjectEntity.fromJson(jsonDecode(response.body)),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return GetProjectByIdResult.failure(
+      getProjectByIdFailureResult: GetProjectByIdFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<bool> provisionUser({
+  Future<ProvisionUserResult> provisionUser({
     required SessionDto sessionDto,
   }) async {
     final response = await post(
@@ -424,13 +577,25 @@ class RegistryApi {
     );
 
     if (response.statusCode == 201) {
-      return true;
+      return ProvisionUserResult.success(
+        provisionUserSuccessResult: ProvisionUserSuccessResult(
+          result: true,
+          statusCode: response.statusCode,
+        ),
+      );
     }
-    return false;
+
+    return ProvisionUserResult.failure(
+      provisionUserFailureResult: ProvisionUserFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<List<ComponentReadDto>?> getAllComponentsInProject(
-      {required String projectId}) async {
+  Future<GetAllComponentsInProjectResult> getAllComponentsInProject({
+    required String projectId,
+  }) async {
     final response = await get(
       Uri(
           scheme: scheme,
@@ -446,16 +611,28 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return jsonDecode(response.body)
-          .map((x) => ComponentReadDto.fromJson(x))
-          .toList()
-          .cast<ComponentReadDto>();
+      return GetAllComponentsInProjectResult.success(
+        getAllComponentsInProjectSuccessResult:
+            GetAllComponentsInProjectSuccessResult(
+          result: jsonDecode(response.body)
+              .map((x) => ComponentReadDto.fromJson(x))
+              .toList()
+              .cast<ComponentReadDto>(),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return GetAllComponentsInProjectResult.failure(
+      getAllComponentsInProjectFailureResult:
+          GetAllComponentsInProjectFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 
-  Future<ComponentReadDto?> getComponentById({
+  Future<GetComponentByIdResult> getComponentById({
     required String componentId,
   }) async {
     final response = await get(
@@ -471,9 +648,19 @@ class RegistryApi {
     );
 
     if (response.statusCode == 200) {
-      return ComponentReadDto.fromJson(jsonDecode(response.body));
+      return GetComponentByIdResult.success(
+        getComponentByIdSuccessResult: GetComponentByIdSuccessResult(
+          result: ComponentReadDto.fromJson(jsonDecode(response.body)),
+          statusCode: response.statusCode,
+        ),
+      );
     }
 
-    return null;
+    return GetComponentByIdResult.failure(
+      getComponentByIdFailureResult: GetComponentByIdFailureResult(
+        statusCode: response.statusCode,
+        message: response.body,
+      ),
+    );
   }
 }

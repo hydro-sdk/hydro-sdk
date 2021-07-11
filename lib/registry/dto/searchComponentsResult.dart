@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydro_sdk/registry/dto/apiResult.dart';
 import 'package:hydro_sdk/registry/dto/componentSearchDto.dart';
-import 'package:hydro_sdk/registry/dto/userReadDto.dart';
 
 part 'searchComponentsResult.freezed.dart';
 part 'searchComponentsResult.g.dart';
@@ -11,12 +10,13 @@ class SearchComponentsResult with _$SearchComponentsResult {
   const SearchComponentsResult._();
 
   const factory SearchComponentsResult.success({
-    required SearchComponentsResultSuccessResult searchComponentsResultSuccessResult,
+    required SearchComponentsResultSuccessResult
+        searchComponentsResultSuccessResult,
   }) = _$SearchComponentsResultSuccess;
 
   const factory SearchComponentsResult.failure({
-    required SearchComponentsResultFailureResult searchComponentsResultFailureResult,
-  }) = _$SearchComponentsResultFailure;
+    required SearchComponentsResultFailure searchComponentsResultFailure,
+  }) = _$SearchComponentsResultFromSearchComponentsResultFailureCtor;
 
   factory SearchComponentsResult.fromJson(Map<String, dynamic> json) =>
       _$SearchComponentsResultFromJson(json);
@@ -33,21 +33,22 @@ class SearchComponentsResultSuccessResult
     required List<ComponentSearchDto> result,
   }) = _$SearchComponentsResultSuccessResultCtor;
 
-  factory SearchComponentsResultSuccessResult.fromJson(Map<String, dynamic> json) =>
+  factory SearchComponentsResultSuccessResult.fromJson(
+          Map<String, dynamic> json) =>
       _$SearchComponentsResultSuccessResultFromJson(json);
 }
 
 @freezed
-class SearchComponentsResultFailureResult
-    with _$SearchComponentsResultFailureResult
+class SearchComponentsResultFailure
+    with _$SearchComponentsResultFailure
     implements IApiFailureResult {
-  const SearchComponentsResultFailureResult._();
+  const SearchComponentsResultFailure._();
 
-  const factory SearchComponentsResultFailureResult({
+  const factory SearchComponentsResultFailure({
     required int statusCode,
     required String message,
-  }) = _$SearchComponentsResultFailureResultCtor;
+  }) = _$SearchComponentsResultFailureCtor;
 
-  factory SearchComponentsResultFailureResult.fromJson(Map<String, dynamic> json) =>
-      _$SearchComponentsResultFailureResultFromJson(json);
+  factory SearchComponentsResultFailure.fromJson(Map<String, dynamic> json) =>
+      _$SearchComponentsResultFailureFromJson(json);
 }

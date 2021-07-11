@@ -18,7 +18,8 @@ SearchComponentsResult _$SearchComponentsResultFromJson(
     case 'success':
       return _$SearchComponentsResultSuccess.fromJson(json);
     case 'failure':
-      return _$SearchComponentsResultFailure.fromJson(json);
+      return _$SearchComponentsResultFromSearchComponentsResultFailureCtor
+          .fromJson(json);
 
     default:
       throw FallThroughError();
@@ -37,11 +38,10 @@ class _$SearchComponentsResultTearOff {
     );
   }
 
-  _$SearchComponentsResultFailure failure(
-      {required SearchComponentsResultFailureResult
-          searchComponentsResultFailureResult}) {
-    return _$SearchComponentsResultFailure(
-      searchComponentsResultFailureResult: searchComponentsResultFailureResult,
+  _$SearchComponentsResultFromSearchComponentsResultFailureCtor failure(
+      {required SearchComponentsResultFailure searchComponentsResultFailure}) {
+    return _$SearchComponentsResultFromSearchComponentsResultFailureCtor(
+      searchComponentsResultFailure: searchComponentsResultFailure,
     );
   }
 
@@ -62,8 +62,7 @@ mixin _$SearchComponentsResult {
                 searchComponentsResultSuccessResult)
         success,
     required TResult Function(
-            SearchComponentsResultFailureResult
-                searchComponentsResultFailureResult)
+            SearchComponentsResultFailure searchComponentsResultFailure)
         failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -74,8 +73,7 @@ mixin _$SearchComponentsResult {
                 searchComponentsResultSuccessResult)?
         success,
     TResult Function(
-            SearchComponentsResultFailureResult
-                searchComponentsResultFailureResult)?
+            SearchComponentsResultFailure searchComponentsResultFailure)?
         failure,
     required TResult orElse(),
   }) =>
@@ -83,13 +81,18 @@ mixin _$SearchComponentsResult {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$SearchComponentsResultSuccess value) success,
-    required TResult Function(_$SearchComponentsResultFailure value) failure,
+    required TResult Function(
+            _$SearchComponentsResultFromSearchComponentsResultFailureCtor value)
+        failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$SearchComponentsResultSuccess value)? success,
-    TResult Function(_$SearchComponentsResultFailure value)? failure,
+    TResult Function(
+            _$SearchComponentsResultFromSearchComponentsResultFailureCtor
+                value)?
+        failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -213,8 +216,7 @@ class _$_$SearchComponentsResultSuccess
                 searchComponentsResultSuccessResult)
         success,
     required TResult Function(
-            SearchComponentsResultFailureResult
-                searchComponentsResultFailureResult)
+            SearchComponentsResultFailure searchComponentsResultFailure)
         failure,
   }) {
     return success(searchComponentsResultSuccessResult);
@@ -228,8 +230,7 @@ class _$_$SearchComponentsResultSuccess
                 searchComponentsResultSuccessResult)?
         success,
     TResult Function(
-            SearchComponentsResultFailureResult
-                searchComponentsResultFailureResult)?
+            SearchComponentsResultFailure searchComponentsResultFailure)?
         failure,
     required TResult orElse(),
   }) {
@@ -243,7 +244,9 @@ class _$_$SearchComponentsResultSuccess
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$SearchComponentsResultSuccess value) success,
-    required TResult Function(_$SearchComponentsResultFailure value) failure,
+    required TResult Function(
+            _$SearchComponentsResultFromSearchComponentsResultFailureCtor value)
+        failure,
   }) {
     return success(this);
   }
@@ -252,7 +255,10 @@ class _$_$SearchComponentsResultSuccess
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$SearchComponentsResultSuccess value)? success,
-    TResult Function(_$SearchComponentsResultFailure value)? failure,
+    TResult Function(
+            _$SearchComponentsResultFromSearchComponentsResultFailureCtor
+                value)?
+        failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -286,96 +292,109 @@ abstract class _$SearchComponentsResultSuccess extends SearchComponentsResult {
 }
 
 /// @nodoc
-abstract class _$$SearchComponentsResultFailureCopyWith<$Res> {
-  factory _$$SearchComponentsResultFailureCopyWith(
-          _$SearchComponentsResultFailure value,
-          $Res Function(_$SearchComponentsResultFailure) then) =
-      __$$SearchComponentsResultFailureCopyWithImpl<$Res>;
-  $Res call(
-      {SearchComponentsResultFailureResult
-          searchComponentsResultFailureResult});
+abstract class _$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWith<
+    $Res> {
+  factory _$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWith(
+          _$SearchComponentsResultFromSearchComponentsResultFailureCtor value,
+          $Res Function(
+                  _$SearchComponentsResultFromSearchComponentsResultFailureCtor)
+              then) =
+      __$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWithImpl<
+          $Res>;
+  $Res call({SearchComponentsResultFailure searchComponentsResultFailure});
 
-  $SearchComponentsResultFailureResultCopyWith<$Res>
-      get searchComponentsResultFailureResult;
+  $SearchComponentsResultFailureCopyWith<$Res>
+      get searchComponentsResultFailure;
 }
 
 /// @nodoc
-class __$$SearchComponentsResultFailureCopyWithImpl<$Res>
-    extends _$SearchComponentsResultCopyWithImpl<$Res>
-    implements _$$SearchComponentsResultFailureCopyWith<$Res> {
-  __$$SearchComponentsResultFailureCopyWithImpl(
-      _$SearchComponentsResultFailure _value,
-      $Res Function(_$SearchComponentsResultFailure) _then)
-      : super(_value, (v) => _then(v as _$SearchComponentsResultFailure));
+class __$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWithImpl<
+        $Res> extends _$SearchComponentsResultCopyWithImpl<$Res>
+    implements
+        _$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWith<
+            $Res> {
+  __$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWithImpl(
+      _$SearchComponentsResultFromSearchComponentsResultFailureCtor _value,
+      $Res Function(
+              _$SearchComponentsResultFromSearchComponentsResultFailureCtor)
+          _then)
+      : super(
+            _value,
+            (v) => _then(v
+                as _$SearchComponentsResultFromSearchComponentsResultFailureCtor));
 
   @override
-  _$SearchComponentsResultFailure get _value =>
-      super._value as _$SearchComponentsResultFailure;
+  _$SearchComponentsResultFromSearchComponentsResultFailureCtor get _value =>
+      super._value
+          as _$SearchComponentsResultFromSearchComponentsResultFailureCtor;
 
   @override
   $Res call({
-    Object? searchComponentsResultFailureResult = freezed,
+    Object? searchComponentsResultFailure = freezed,
   }) {
-    return _then(_$SearchComponentsResultFailure(
-      searchComponentsResultFailureResult: searchComponentsResultFailureResult ==
-              freezed
-          ? _value.searchComponentsResultFailureResult
-          : searchComponentsResultFailureResult // ignore: cast_nullable_to_non_nullable
-              as SearchComponentsResultFailureResult,
+    return _then(_$SearchComponentsResultFromSearchComponentsResultFailureCtor(
+      searchComponentsResultFailure: searchComponentsResultFailure == freezed
+          ? _value.searchComponentsResultFailure
+          : searchComponentsResultFailure // ignore: cast_nullable_to_non_nullable
+              as SearchComponentsResultFailure,
     ));
   }
 
   @override
-  $SearchComponentsResultFailureResultCopyWith<$Res>
-      get searchComponentsResultFailureResult {
-    return $SearchComponentsResultFailureResultCopyWith<$Res>(
-        _value.searchComponentsResultFailureResult, (value) {
-      return _then(_value.copyWith(searchComponentsResultFailureResult: value));
+  $SearchComponentsResultFailureCopyWith<$Res>
+      get searchComponentsResultFailure {
+    return $SearchComponentsResultFailureCopyWith<$Res>(
+        _value.searchComponentsResultFailure, (value) {
+      return _then(_value.copyWith(searchComponentsResultFailure: value));
     });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_$SearchComponentsResultFailure
-    extends _$SearchComponentsResultFailure {
-  const _$_$SearchComponentsResultFailure(
-      {required this.searchComponentsResultFailureResult})
+class _$_$SearchComponentsResultFromSearchComponentsResultFailureCtor
+    extends _$SearchComponentsResultFromSearchComponentsResultFailureCtor {
+  const _$_$SearchComponentsResultFromSearchComponentsResultFailureCtor(
+      {required this.searchComponentsResultFailure})
       : super._();
 
-  factory _$_$SearchComponentsResultFailure.fromJson(
+  factory _$_$SearchComponentsResultFromSearchComponentsResultFailureCtor.fromJson(
           Map<String, dynamic> json) =>
-      _$_$_$SearchComponentsResultFailureFromJson(json);
+      _$_$_$SearchComponentsResultFromSearchComponentsResultFailureCtorFromJson(
+          json);
 
   @override
-  final SearchComponentsResultFailureResult searchComponentsResultFailureResult;
+  final SearchComponentsResultFailure searchComponentsResultFailure;
 
   @override
   String toString() {
-    return 'SearchComponentsResult.failure(searchComponentsResultFailureResult: $searchComponentsResultFailureResult)';
+    return 'SearchComponentsResult.failure(searchComponentsResultFailure: $searchComponentsResultFailure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$SearchComponentsResultFailure &&
-            (identical(other.searchComponentsResultFailureResult,
-                    searchComponentsResultFailureResult) ||
+        (other is _$SearchComponentsResultFromSearchComponentsResultFailureCtor &&
+            (identical(other.searchComponentsResultFailure,
+                    searchComponentsResultFailure) ||
                 const DeepCollectionEquality().equals(
-                    other.searchComponentsResultFailureResult,
-                    searchComponentsResultFailureResult)));
+                    other.searchComponentsResultFailure,
+                    searchComponentsResultFailure)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(searchComponentsResultFailureResult);
+      const DeepCollectionEquality().hash(searchComponentsResultFailure);
 
   @JsonKey(ignore: true)
   @override
-  _$$SearchComponentsResultFailureCopyWith<_$SearchComponentsResultFailure>
-      get copyWith => __$$SearchComponentsResultFailureCopyWithImpl<
-          _$SearchComponentsResultFailure>(this, _$identity);
+  _$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWith<
+          _$SearchComponentsResultFromSearchComponentsResultFailureCtor>
+      get copyWith =>
+          __$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWithImpl<
+                  _$SearchComponentsResultFromSearchComponentsResultFailureCtor>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -385,11 +404,10 @@ class _$_$SearchComponentsResultFailure
                 searchComponentsResultSuccessResult)
         success,
     required TResult Function(
-            SearchComponentsResultFailureResult
-                searchComponentsResultFailureResult)
+            SearchComponentsResultFailure searchComponentsResultFailure)
         failure,
   }) {
-    return failure(searchComponentsResultFailureResult);
+    return failure(searchComponentsResultFailure);
   }
 
   @override
@@ -400,13 +418,12 @@ class _$_$SearchComponentsResultFailure
                 searchComponentsResultSuccessResult)?
         success,
     TResult Function(
-            SearchComponentsResultFailureResult
-                searchComponentsResultFailureResult)?
+            SearchComponentsResultFailure searchComponentsResultFailure)?
         failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(searchComponentsResultFailureResult);
+      return failure(searchComponentsResultFailure);
     }
     return orElse();
   }
@@ -415,7 +432,9 @@ class _$_$SearchComponentsResultFailure
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$SearchComponentsResultSuccess value) success,
-    required TResult Function(_$SearchComponentsResultFailure value) failure,
+    required TResult Function(
+            _$SearchComponentsResultFromSearchComponentsResultFailureCtor value)
+        failure,
   }) {
     return failure(this);
   }
@@ -424,7 +443,10 @@ class _$_$SearchComponentsResultFailure
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$SearchComponentsResultSuccess value)? success,
-    TResult Function(_$SearchComponentsResultFailure value)? failure,
+    TResult Function(
+            _$SearchComponentsResultFromSearchComponentsResultFailureCtor
+                value)?
+        failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -435,25 +457,30 @@ class _$_$SearchComponentsResultFailure
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_$SearchComponentsResultFailureToJson(this)
+    return _$_$_$SearchComponentsResultFromSearchComponentsResultFailureCtorToJson(
+        this)
       ..['runtimeType'] = 'failure';
   }
 }
 
-abstract class _$SearchComponentsResultFailure extends SearchComponentsResult {
-  const factory _$SearchComponentsResultFailure(
-          {required SearchComponentsResultFailureResult
-              searchComponentsResultFailureResult}) =
-      _$_$SearchComponentsResultFailure;
-  const _$SearchComponentsResultFailure._() : super._();
+abstract class _$SearchComponentsResultFromSearchComponentsResultFailureCtor
+    extends SearchComponentsResult {
+  const factory _$SearchComponentsResultFromSearchComponentsResultFailureCtor(
+          {required SearchComponentsResultFailure
+              searchComponentsResultFailure}) =
+      _$_$SearchComponentsResultFromSearchComponentsResultFailureCtor;
+  const _$SearchComponentsResultFromSearchComponentsResultFailureCtor._()
+      : super._();
 
-  factory _$SearchComponentsResultFailure.fromJson(Map<String, dynamic> json) =
-      _$_$SearchComponentsResultFailure.fromJson;
+  factory _$SearchComponentsResultFromSearchComponentsResultFailureCtor.fromJson(
+          Map<String, dynamic> json) =
+      _$_$SearchComponentsResultFromSearchComponentsResultFailureCtor.fromJson;
 
-  SearchComponentsResultFailureResult get searchComponentsResultFailureResult =>
+  SearchComponentsResultFailure get searchComponentsResultFailure =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$SearchComponentsResultFailureCopyWith<_$SearchComponentsResultFailure>
+  _$$SearchComponentsResultFromSearchComponentsResultFailureCtorCopyWith<
+          _$SearchComponentsResultFromSearchComponentsResultFailureCtor>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -648,61 +675,59 @@ abstract class _$SearchComponentsResultSuccessResultCtor
       get copyWith => throw _privateConstructorUsedError;
 }
 
-SearchComponentsResultFailureResult
-    _$SearchComponentsResultFailureResultFromJson(Map<String, dynamic> json) {
-  return _$SearchComponentsResultFailureResultCtor.fromJson(json);
+SearchComponentsResultFailure _$SearchComponentsResultFailureFromJson(
+    Map<String, dynamic> json) {
+  return _$SearchComponentsResultFailureCtor.fromJson(json);
 }
 
 /// @nodoc
-class _$SearchComponentsResultFailureResultTearOff {
-  const _$SearchComponentsResultFailureResultTearOff();
+class _$SearchComponentsResultFailureTearOff {
+  const _$SearchComponentsResultFailureTearOff();
 
-  _$SearchComponentsResultFailureResultCtor call(
+  _$SearchComponentsResultFailureCtor call(
       {required int statusCode, required String message}) {
-    return _$SearchComponentsResultFailureResultCtor(
+    return _$SearchComponentsResultFailureCtor(
       statusCode: statusCode,
       message: message,
     );
   }
 
-  SearchComponentsResultFailureResult fromJson(Map<String, Object> json) {
-    return SearchComponentsResultFailureResult.fromJson(json);
+  SearchComponentsResultFailure fromJson(Map<String, Object> json) {
+    return SearchComponentsResultFailure.fromJson(json);
   }
 }
 
 /// @nodoc
-const $SearchComponentsResultFailureResult =
-    _$SearchComponentsResultFailureResultTearOff();
+const $SearchComponentsResultFailure = _$SearchComponentsResultFailureTearOff();
 
 /// @nodoc
-mixin _$SearchComponentsResultFailureResult {
+mixin _$SearchComponentsResultFailure {
   int get statusCode => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SearchComponentsResultFailureResultCopyWith<
-          SearchComponentsResultFailureResult>
+  $SearchComponentsResultFailureCopyWith<SearchComponentsResultFailure>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SearchComponentsResultFailureResultCopyWith<$Res> {
-  factory $SearchComponentsResultFailureResultCopyWith(
-          SearchComponentsResultFailureResult value,
-          $Res Function(SearchComponentsResultFailureResult) then) =
-      _$SearchComponentsResultFailureResultCopyWithImpl<$Res>;
+abstract class $SearchComponentsResultFailureCopyWith<$Res> {
+  factory $SearchComponentsResultFailureCopyWith(
+          SearchComponentsResultFailure value,
+          $Res Function(SearchComponentsResultFailure) then) =
+      _$SearchComponentsResultFailureCopyWithImpl<$Res>;
   $Res call({int statusCode, String message});
 }
 
 /// @nodoc
-class _$SearchComponentsResultFailureResultCopyWithImpl<$Res>
-    implements $SearchComponentsResultFailureResultCopyWith<$Res> {
-  _$SearchComponentsResultFailureResultCopyWithImpl(this._value, this._then);
+class _$SearchComponentsResultFailureCopyWithImpl<$Res>
+    implements $SearchComponentsResultFailureCopyWith<$Res> {
+  _$SearchComponentsResultFailureCopyWithImpl(this._value, this._then);
 
-  final SearchComponentsResultFailureResult _value;
+  final SearchComponentsResultFailure _value;
   // ignore: unused_field
-  final $Res Function(SearchComponentsResultFailureResult) _then;
+  final $Res Function(SearchComponentsResultFailure) _then;
 
   @override
   $Res call({
@@ -723,36 +748,35 @@ class _$SearchComponentsResultFailureResultCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$SearchComponentsResultFailureResultCtorCopyWith<$Res>
-    implements $SearchComponentsResultFailureResultCopyWith<$Res> {
-  factory _$$SearchComponentsResultFailureResultCtorCopyWith(
-          _$SearchComponentsResultFailureResultCtor value,
-          $Res Function(_$SearchComponentsResultFailureResultCtor) then) =
-      __$$SearchComponentsResultFailureResultCtorCopyWithImpl<$Res>;
+abstract class _$$SearchComponentsResultFailureCtorCopyWith<$Res>
+    implements $SearchComponentsResultFailureCopyWith<$Res> {
+  factory _$$SearchComponentsResultFailureCtorCopyWith(
+          _$SearchComponentsResultFailureCtor value,
+          $Res Function(_$SearchComponentsResultFailureCtor) then) =
+      __$$SearchComponentsResultFailureCtorCopyWithImpl<$Res>;
   @override
   $Res call({int statusCode, String message});
 }
 
 /// @nodoc
-class __$$SearchComponentsResultFailureResultCtorCopyWithImpl<$Res>
-    extends _$SearchComponentsResultFailureResultCopyWithImpl<$Res>
-    implements _$$SearchComponentsResultFailureResultCtorCopyWith<$Res> {
-  __$$SearchComponentsResultFailureResultCtorCopyWithImpl(
-      _$SearchComponentsResultFailureResultCtor _value,
-      $Res Function(_$SearchComponentsResultFailureResultCtor) _then)
-      : super(_value,
-            (v) => _then(v as _$SearchComponentsResultFailureResultCtor));
+class __$$SearchComponentsResultFailureCtorCopyWithImpl<$Res>
+    extends _$SearchComponentsResultFailureCopyWithImpl<$Res>
+    implements _$$SearchComponentsResultFailureCtorCopyWith<$Res> {
+  __$$SearchComponentsResultFailureCtorCopyWithImpl(
+      _$SearchComponentsResultFailureCtor _value,
+      $Res Function(_$SearchComponentsResultFailureCtor) _then)
+      : super(_value, (v) => _then(v as _$SearchComponentsResultFailureCtor));
 
   @override
-  _$SearchComponentsResultFailureResultCtor get _value =>
-      super._value as _$SearchComponentsResultFailureResultCtor;
+  _$SearchComponentsResultFailureCtor get _value =>
+      super._value as _$SearchComponentsResultFailureCtor;
 
   @override
   $Res call({
     Object? statusCode = freezed,
     Object? message = freezed,
   }) {
-    return _then(_$SearchComponentsResultFailureResultCtor(
+    return _then(_$SearchComponentsResultFailureCtor(
       statusCode: statusCode == freezed
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
@@ -767,15 +791,15 @@ class __$$SearchComponentsResultFailureResultCtorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_$SearchComponentsResultFailureResultCtor
-    extends _$SearchComponentsResultFailureResultCtor {
-  const _$_$SearchComponentsResultFailureResultCtor(
+class _$_$SearchComponentsResultFailureCtor
+    extends _$SearchComponentsResultFailureCtor {
+  const _$_$SearchComponentsResultFailureCtor(
       {required this.statusCode, required this.message})
       : super._();
 
-  factory _$_$SearchComponentsResultFailureResultCtor.fromJson(
+  factory _$_$SearchComponentsResultFailureCtor.fromJson(
           Map<String, dynamic> json) =>
-      _$_$_$SearchComponentsResultFailureResultCtorFromJson(json);
+      _$_$_$SearchComponentsResultFailureCtorFromJson(json);
 
   @override
   final int statusCode;
@@ -784,13 +808,13 @@ class _$_$SearchComponentsResultFailureResultCtor
 
   @override
   String toString() {
-    return 'SearchComponentsResultFailureResult(statusCode: $statusCode, message: $message)';
+    return 'SearchComponentsResultFailure(statusCode: $statusCode, message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _$SearchComponentsResultFailureResultCtor &&
+        (other is _$SearchComponentsResultFailureCtor &&
             (identical(other.statusCode, statusCode) ||
                 const DeepCollectionEquality()
                     .equals(other.statusCode, statusCode)) &&
@@ -806,27 +830,27 @@ class _$_$SearchComponentsResultFailureResultCtor
 
   @JsonKey(ignore: true)
   @override
-  _$$SearchComponentsResultFailureResultCtorCopyWith<
-          _$SearchComponentsResultFailureResultCtor>
-      get copyWith => __$$SearchComponentsResultFailureResultCtorCopyWithImpl<
-          _$SearchComponentsResultFailureResultCtor>(this, _$identity);
+  _$$SearchComponentsResultFailureCtorCopyWith<
+          _$SearchComponentsResultFailureCtor>
+      get copyWith => __$$SearchComponentsResultFailureCtorCopyWithImpl<
+          _$SearchComponentsResultFailureCtor>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_$SearchComponentsResultFailureResultCtorToJson(this);
+    return _$_$_$SearchComponentsResultFailureCtorToJson(this);
   }
 }
 
-abstract class _$SearchComponentsResultFailureResultCtor
-    extends SearchComponentsResultFailureResult {
-  const factory _$SearchComponentsResultFailureResultCtor(
+abstract class _$SearchComponentsResultFailureCtor
+    extends SearchComponentsResultFailure {
+  const factory _$SearchComponentsResultFailureCtor(
       {required int statusCode,
-      required String message}) = _$_$SearchComponentsResultFailureResultCtor;
-  const _$SearchComponentsResultFailureResultCtor._() : super._();
+      required String message}) = _$_$SearchComponentsResultFailureCtor;
+  const _$SearchComponentsResultFailureCtor._() : super._();
 
-  factory _$SearchComponentsResultFailureResultCtor.fromJson(
+  factory _$SearchComponentsResultFailureCtor.fromJson(
           Map<String, dynamic> json) =
-      _$_$SearchComponentsResultFailureResultCtor.fromJson;
+      _$_$SearchComponentsResultFailureCtor.fromJson;
 
   @override
   int get statusCode => throw _privateConstructorUsedError;
@@ -834,7 +858,7 @@ abstract class _$SearchComponentsResultFailureResultCtor
   String get message => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$SearchComponentsResultFailureResultCtorCopyWith<
-          _$SearchComponentsResultFailureResultCtor>
+  _$$SearchComponentsResultFailureCtorCopyWith<
+          _$SearchComponentsResultFailureCtor>
       get copyWith => throw _privateConstructorUsedError;
 }

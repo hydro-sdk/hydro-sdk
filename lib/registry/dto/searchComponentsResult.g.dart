@@ -23,22 +23,23 @@ Map<String, dynamic> _$_$_$SearchComponentsResultSuccessToJson(
           instance.searchComponentsResultSuccessResult,
     };
 
-_$_$SearchComponentsResultFailure _$_$_$SearchComponentsResultFailureFromJson(
-    Map<String, dynamic> json) {
-  return _$_$SearchComponentsResultFailure(
-    searchComponentsResultFailureResult:
-        SearchComponentsResultFailureResult.fromJson(
-            json['searchComponentsResultFailureResult']
-                as Map<String, dynamic>),
+_$_$SearchComponentsResultFromSearchComponentsResultFailureCtor
+    _$_$_$SearchComponentsResultFromSearchComponentsResultFailureCtorFromJson(
+        Map<String, dynamic> json) {
+  return _$_$SearchComponentsResultFromSearchComponentsResultFailureCtor(
+    searchComponentsResultFailure: SearchComponentsResultFailure.fromJson(
+        json['searchComponentsResultFailure'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$_$_$SearchComponentsResultFailureToJson(
-        _$_$SearchComponentsResultFailure instance) =>
-    <String, dynamic>{
-      'searchComponentsResultFailureResult':
-          instance.searchComponentsResultFailureResult,
-    };
+Map<String, dynamic>
+    _$_$_$SearchComponentsResultFromSearchComponentsResultFailureCtorToJson(
+            _$_$SearchComponentsResultFromSearchComponentsResultFailureCtor
+                instance) =>
+        <String, dynamic>{
+          'searchComponentsResultFailure':
+              instance.searchComponentsResultFailure,
+        };
 
 _$_$SearchComponentsResultSuccessResultCtor
     _$_$_$SearchComponentsResultSuccessResultCtorFromJson(
@@ -58,17 +59,16 @@ Map<String, dynamic> _$_$_$SearchComponentsResultSuccessResultCtorToJson(
       'result': instance.result,
     };
 
-_$_$SearchComponentsResultFailureResultCtor
-    _$_$_$SearchComponentsResultFailureResultCtorFromJson(
-        Map<String, dynamic> json) {
-  return _$_$SearchComponentsResultFailureResultCtor(
+_$_$SearchComponentsResultFailureCtor
+    _$_$_$SearchComponentsResultFailureCtorFromJson(Map<String, dynamic> json) {
+  return _$_$SearchComponentsResultFailureCtor(
     statusCode: json['statusCode'] as int,
     message: json['message'] as String,
   );
 }
 
-Map<String, dynamic> _$_$_$SearchComponentsResultFailureResultCtorToJson(
-        _$_$SearchComponentsResultFailureResultCtor instance) =>
+Map<String, dynamic> _$_$_$SearchComponentsResultFailureCtorToJson(
+        _$_$SearchComponentsResultFailureCtor instance) =>
     <String, dynamic>{
       'statusCode': instance.statusCode,
       'message': instance.message,
