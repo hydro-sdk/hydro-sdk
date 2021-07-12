@@ -30,6 +30,12 @@ class RegistryApi {
     this.port,
   });
 
+  String toString() => Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+      ).toString();
+
   String hash(String str) {
     final output = AccumulatorSink<Digest>();
 
@@ -406,6 +412,28 @@ class RegistryApi {
           .map((x) => ComponentReadDto.fromJson(x))
           .toList()
           .cast<ComponentReadDto>();
+    }
+
+    return null;
+  }
+
+  Future<ComponentReadDto?> getComponentById({
+    required String componentId,
+  }) async {
+    final response = await get(
+      Uri(
+        scheme: scheme,
+        host: host,
+        port: port,
+        path: "/api/component/${componentId}",
+      ),
+      headers: {
+        "content-type": "application/json",
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return ComponentReadDto.fromJson(jsonDecode(response.body));
     }
 
     return null;
