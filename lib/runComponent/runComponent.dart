@@ -117,7 +117,7 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
         );
       }
 
-      final latestPackage = await widget.registryApi.getLatestPackage(
+      final latestPackageResult = await widget.registryApi.getLatestPackage(
         getLatestPackageDto: GetLatestPackageDto(
           sessionId: Uuid().v4(),
           projectName: widget.project,
@@ -125,6 +125,11 @@ class _RunComponentState extends State<RunComponent> with ServiceAware {
           releaseChannelName: widget.releaseChannel,
           currentPackageId: otaCacheManifest?.id ?? "",
         ),
+      );
+
+      final latestPackage = latestPackageResult.maybeWhen(
+        success: (val) => val.result,
+        orElse: () => null,
       );
 
       if (latestPackage != null) {

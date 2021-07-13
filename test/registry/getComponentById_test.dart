@@ -29,17 +29,22 @@ void main() {
       final componentName = "test-component-${Uuid().v4()}";
       final componentDescription = "test component descrption ${Uuid().v4()}";
 
-      final response = await api.createMockUser(
+      final createMockUserResult = await api.createMockUser(
           dto: CreateMockUserDto(
         displayName: username,
         email: "${api.hash(Uuid().v4())}@example.com",
         password: Uuid().v4(),
       ));
 
-      expect(response, isNotNull);
-      expect(response, isNotEmpty);
+      final mockUserToken = createMockUserResult.maybeWhen(
+        success: (val) => val.result,
+        orElse: () => null,
+      );
 
-      var createProjectResponse = await api.createProject(
+      expect(mockUserToken, isNotNull);
+      expect(mockUserToken, isNotEmpty);
+
+      var createProjectResult = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
@@ -47,92 +52,147 @@ void main() {
         sessionDto: SessionDto.empty(),
       );
 
-      expect(createProjectResponse, isNull);
+      expect(
+          createProjectResult.maybeWhen(
+            failure: (_) => true,
+            orElse: () => null,
+          ),
+          true);
 
-      createProjectResponse = await api.createProject(
+      createProjectResult = await api.createProject(
         dto: CreateProjectDto(
           name: projectName,
           description: projectDescription,
         ),
         sessionDto: SessionDto(
-          authToken: response!,
+          authToken: mockUserToken!,
         ),
       );
 
-      expect(createProjectResponse, isNotNull);
-      expect(createProjectResponse!.name, projectName);
-      expect(createProjectResponse.description, projectDescription);
+      final createProjectSuccessResult = createProjectResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
 
-      var canUpdateProjectResponse = await api.canUpdateProjects(
+      expect(createProjectSuccessResult, isNotNull);
+      expect(createProjectSuccessResult!.result.name, projectName);
+      expect(createProjectSuccessResult.result.description, projectDescription);
+
+      var canUpdateProjectResult = await api.canUpdateProjects(
         sessionDto: SessionDto.empty(),
       );
 
-      expect(canUpdateProjectResponse, isNull);
+      expect(
+          canUpdateProjectResult.maybeWhen(
+            failure: (_) => true,
+            orElse: () => null,
+          ),
+          true);
 
-      canUpdateProjectResponse = await api.canUpdateProjects(
+      canUpdateProjectResult = await api.canUpdateProjects(
         sessionDto: SessionDto(
-          authToken: response,
+          authToken: mockUserToken,
         ),
       );
 
-      var createdProject = canUpdateProjectResponse!
-          .firstWhereOrNull((x) => x.name == createProjectResponse!.name)!;
+      final canUpdateProjectSuccessResult = canUpdateProjectResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
+
+      expect(canUpdateProjectSuccessResult, isNotNull);
+
+      var createdProject = canUpdateProjectSuccessResult!.result
+          .firstWhereOrNull(
+              (x) => x.name == createProjectSuccessResult.result.name)!;
 
       expect(createdProject, isNotNull);
-      expect(createdProject.description, createProjectResponse.description);
+      expect(createdProject.description,
+          createProjectSuccessResult.result.description);
 
-      var createComponentResponse = await api.createComponent(
+      var createComponentResult = await api.createComponent(
         dto: CreateComponentDto(
           name: componentName,
           description: componentDescription,
-          projectId: createProjectResponse.id,
+          projectId: createProjectSuccessResult.result.id,
         ),
         sessionDto: SessionDto.empty(),
       );
 
-      expect(createComponentResponse, isNull);
+      expect(
+          createComponentResult.maybeWhen(
+            failure: (_) => true,
+            orElse: () => null,
+          ),
+          true);
 
-      createComponentResponse = await api.createComponent(
+      createComponentResult = await api.createComponent(
         dto: CreateComponentDto(
           name: componentName,
           description: componentDescription,
-          projectId: createProjectResponse.id,
+          projectId: createProjectSuccessResult.result.id,
         ),
         sessionDto: SessionDto(
-          authToken: response,
+          authToken: mockUserToken,
         ),
       );
 
-      expect(createComponentResponse, isNotNull);
-      expect(createComponentResponse!.name, componentName);
-      expect(createComponentResponse.description, componentDescription);
+      final createComponentSuccessResult = createComponentResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
 
-      var canUpdateComponentResponse = await api.canUpdateComponents(
+      expect(createComponentSuccessResult, isNotNull);
+      expect(createComponentSuccessResult!.result.name, componentName);
+      expect(createComponentSuccessResult.result.description,
+          componentDescription);
+
+      var canUpdateComponentResult = await api.canUpdateComponents(
         sessionDto: SessionDto(
-          authToken: response,
+          authToken: mockUserToken,
         ),
       );
 
-      expect(canUpdateComponentResponse, isNotNull);
-      expect(
-          canUpdateComponentResponse?.first.name, createComponentResponse.name);
-      expect(canUpdateComponentResponse?.first.description,
-          createComponentResponse.description);
+      final canUpdateComponentSuccessResult =
+          canUpdateComponentResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
 
-      var getComponentResponse = await api.getComponentByNameInProjectByName(
+      expect(canUpdateComponentSuccessResult, isNotNull);
+
+      expect(canUpdateComponentSuccessResult!.result.first.name,
+          createComponentSuccessResult.result.name);
+      expect(canUpdateComponentSuccessResult.result.first.description,
+          createComponentSuccessResult.result.description);
+
+      var getComponentResult = await api.getComponentByNameInProjectByName(
         projectName: projectName,
         componentName: componentName,
       );
 
-      expect(getComponentResponse, isNotNull);
-      expect(getComponentResponse?.name, componentName);
-      expect(getComponentResponse?.isPublic, true);
-
-      var getComponenyByIdResponse = await api.getComponentById(
-        componentId: getComponentResponse!.id,
+      final getComponentSuccessResult = getComponentResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
       );
 
-      expect(getComponenyByIdResponse, getComponentResponse);
+      expect(getComponentSuccessResult, isNotNull);
+      expect(getComponentSuccessResult!.result.name, componentName);
+      expect(getComponentSuccessResult.result.isPublic, true);
+
+      var getComponenyByIdResult = await api.getComponentById(
+        componentId: getComponentSuccessResult.result.id,
+      );
+
+      final getComponentByIdSuccessResult = getComponenyByIdResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
+
+      expect(getComponentByIdSuccessResult, isNotNull);
+
+      expect(getComponentByIdSuccessResult!.result,
+          getComponentSuccessResult.result);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }
