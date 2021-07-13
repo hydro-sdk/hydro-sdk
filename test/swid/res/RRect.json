@@ -451,10 +451,9 @@
             },
             "namedDefaults": {
                 "bottomLeft": {
-                    "name": "Radius.zero",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "Radius",
                             "nullabilitySuffix": "none",
@@ -463,13 +462,26 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "Radius",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:ui",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "zero" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "Radius.zero"
                 },
                 "bottomRight": {
-                    "name": "Radius.zero",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "Radius",
                             "nullabilitySuffix": "none",
@@ -478,13 +490,26 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "Radius",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:ui",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "zero" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "Radius.zero"
                 },
                 "topLeft": {
-                    "name": "Radius.zero",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "Radius",
                             "nullabilitySuffix": "none",
@@ -493,13 +518,26 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "Radius",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:ui",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "zero" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "Radius.zero"
                 },
                 "topRight": {
-                    "name": "Radius.zero",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "Radius",
                             "nullabilitySuffix": "none",
@@ -508,7 +546,21 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "Radius",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:ui",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "zero" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "Radius.zero"
                 }
             },
             "normalParameterNames": ["left", "top", "right", "bottom"],
@@ -643,10 +695,9 @@
             },
             "namedDefaults": {
                 "bottomLeft": {
-                    "name": "Radius.zero",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "Radius",
                             "nullabilitySuffix": "none",
@@ -655,13 +706,26 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "Radius",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:ui",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "zero" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "Radius.zero"
                 },
                 "bottomRight": {
-                    "name": "Radius.zero",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "Radius",
                             "nullabilitySuffix": "none",
@@ -670,13 +734,26 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "Radius",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:ui",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "zero" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "Radius.zero"
                 },
                 "topLeft": {
-                    "name": "Radius.zero",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "Radius",
                             "nullabilitySuffix": "none",
@@ -685,13 +762,26 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "Radius",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:ui",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "zero" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "Radius.zero"
                 },
                 "topRight": {
-                    "name": "Radius.zero",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "Radius",
                             "nullabilitySuffix": "none",
@@ -700,7 +790,21 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "Radius",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "dart:ui",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "zero" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "Radius.zero"
                 }
             },
             "normalParameterNames": ["rect"],

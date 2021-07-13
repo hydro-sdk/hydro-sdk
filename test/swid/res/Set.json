@@ -3119,10 +3119,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "separator": {
-                            "name": "\"\"",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:core",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "String",
                                     "nullabilitySuffix": "none",
@@ -3131,7 +3130,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidStringLiteral": { "value": "" },
+                                "runtimeType": "fromSwidStringLiteral"
+                            },
+                            "defaultValueCode": "\"\""
                         }
                     },
                     "normalParameterNames": [],
@@ -3319,10 +3323,9 @@
                     },
                     "namedDefaults": {
                         "growable": {
-                            "name": "true",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:core",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "bool",
                                     "nullabilitySuffix": "none",
@@ -3331,7 +3334,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidBooleanLiteral": { "value": "true" },
+                                "runtimeType": "fromSwidBooleanLiteral"
+                            },
+                            "defaultValueCode": "true"
                         }
                     },
                     "normalParameterNames": [],

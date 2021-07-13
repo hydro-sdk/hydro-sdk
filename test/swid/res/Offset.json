@@ -106,10 +106,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "distance": {
-                    "name": "1.0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:ui",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "double",
                             "nullabilitySuffix": "none",
@@ -118,7 +117,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidDoubleLiteral": { "value": "1.0" },
+                        "runtimeType": "fromDoubleLiteral"
+                    },
+                    "defaultValueCode": "1.0"
                 }
             },
             "normalParameterNames": ["direction"],

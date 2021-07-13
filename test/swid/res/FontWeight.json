@@ -1,0 +1,163 @@
+{
+    "name": "PluginUtilities",
+    "nullabilitySuffix": "none",
+    "originalPackagePath": "dart:ui",
+    "constructorType": null,
+    "factoryConstructors": [],
+    "staticMethods": [
+        {
+            "name": "getCallbackHandle",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "dart:ui",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": true,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false,
+                "isPublic": true
+            },
+            "namedParameterTypes": {},
+            "namedDefaults": {},
+            "normalParameterNames": ["callback"],
+            "normalParameterTypes": [
+                {
+                    "swidInterface": {
+                        "name": "Function",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:core",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                }
+            ],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "swidInterface": {
+                    "name": "CallbackHandle",
+                    "nullabilitySuffix": "question",
+                    "originalPackagePath": "dart:ui",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
+                },
+                "runtimeType": "fromSwidInterface"
+            },
+            "isFactory": false,
+            "typeFormals": []
+        },
+        {
+            "name": "getCallbackFromHandle",
+            "nullabilitySuffix": "none",
+            "originalPackagePath": "dart:ui",
+            "swidDeclarationModifiers": {
+                "isAbstract": false,
+                "isGetter": false,
+                "isOperator": false,
+                "isSetter": false,
+                "isStatic": true,
+                "isSynthetic": false,
+                "hasAlwaysThrows": false,
+                "hasDeprecated": false,
+                "hasFactory": false,
+                "hasImplicitReturnType": false,
+                "hasIsTest": false,
+                "hasIsTestGroup": false,
+                "hasJS": false,
+                "hasLiteral": false,
+                "hasMustCallSuper": false,
+                "hasNonVirtual": false,
+                "hasOptionalTypeArgs": false,
+                "hasOverride": false,
+                "hasProtected": false,
+                "hasRequired": false,
+                "hasSealed": false,
+                "hasVisibleForTemplate": false,
+                "hasVisibleForTesting": false,
+                "isPublic": true
+            },
+            "namedParameterTypes": {},
+            "namedDefaults": {},
+            "normalParameterNames": ["handle"],
+            "normalParameterTypes": [
+                {
+                    "swidInterface": {
+                        "name": "CallbackHandle",
+                        "nullabilitySuffix": "none",
+                        "originalPackagePath": "dart:ui",
+                        "typeArguments": [],
+                        "referenceDeclarationKind": "classElement"
+                    },
+                    "runtimeType": "fromSwidInterface"
+                }
+            ],
+            "optionalParameterNames": [],
+            "optionalParameterTypes": [],
+            "returnType": {
+                "swidInterface": {
+                    "name": "Function",
+                    "nullabilitySuffix": "question",
+                    "originalPackagePath": "dart:core",
+                    "typeArguments": [],
+                    "referenceDeclarationKind": "classElement"
+                },
+                "runtimeType": "fromSwidInterface"
+            },
+            "isFactory": false,
+            "typeFormals": []
+        }
+    ],
+    "methods": [],
+    "staticConstFieldDeclarations": [],
+    "instanceFieldDeclarations": {},
+    "swidDeclarationModifiers": {
+        "isAbstract": false,
+        "isGetter": false,
+        "isOperator": false,
+        "isSetter": false,
+        "isStatic": false,
+        "isSynthetic": false,
+        "hasAlwaysThrows": false,
+        "hasDeprecated": false,
+        "hasFactory": false,
+        "hasImplicitReturnType": false,
+        "hasIsTest": false,
+        "hasIsTestGroup": false,
+        "hasJS": false,
+        "hasLiteral": false,
+        "hasMustCallSuper": false,
+        "hasNonVirtual": false,
+        "hasOptionalTypeArgs": false,
+        "hasOverride": false,
+        "hasProtected": false,
+        "hasRequired": false,
+        "hasSealed": false,
+        "hasVisibleForTemplate": false,
+        "hasVisibleForTesting": false,
+        "isPublic": true
+    },
+    "mixedInClasses": [],
+    "implementedClasses": [],
+    "isMixin": false,
+    "typeFormals": [],
+    "extendedClass": null
+}

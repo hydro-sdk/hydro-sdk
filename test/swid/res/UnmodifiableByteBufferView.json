@@ -147,10 +147,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -159,7 +158,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -233,10 +237,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -245,7 +248,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -319,10 +327,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -331,7 +338,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -405,10 +417,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -417,7 +428,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -491,10 +507,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -503,7 +518,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -577,10 +597,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -589,7 +608,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -663,10 +687,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -675,7 +698,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -749,10 +777,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -761,7 +788,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -835,10 +867,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -847,7 +878,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -921,10 +957,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -933,7 +968,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -1007,10 +1047,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -1019,7 +1058,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -1093,10 +1137,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -1105,7 +1148,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -1179,10 +1227,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -1191,7 +1238,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -1265,10 +1317,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -1277,7 +1328,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -1351,10 +1407,9 @@
             "namedParameterTypes": {},
             "namedDefaults": {
                 "offsetInBytes": {
-                    "name": "0",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:typed_data",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "int",
                             "nullabilitySuffix": "none",
@@ -1363,7 +1418,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidIntegerLiteral": { "value": "0" },
+                        "runtimeType": "fromSwidIntegerLiteral"
+                    },
+                    "defaultValueCode": "0"
                 }
             },
             "normalParameterNames": [],
@@ -1476,10 +1536,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -1488,7 +1547,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -1562,10 +1626,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -1574,7 +1637,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -1648,10 +1716,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -1660,7 +1727,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -1734,10 +1806,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -1746,7 +1817,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -1820,10 +1896,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -1832,7 +1907,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -1906,10 +1986,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -1918,7 +1997,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -1992,10 +2076,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2004,7 +2087,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -2078,10 +2166,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2090,7 +2177,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -2164,10 +2256,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2176,7 +2267,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -2250,10 +2346,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2262,7 +2357,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -2336,10 +2436,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2348,7 +2447,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -2422,10 +2526,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2434,7 +2537,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -2508,10 +2616,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2520,7 +2627,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -2594,10 +2706,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2606,7 +2717,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
@@ -2680,10 +2796,9 @@
                     "namedParameterTypes": {},
                     "namedDefaults": {
                         "offsetInBytes": {
-                            "name": "0",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "dart:typed_data",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "int",
                                     "nullabilitySuffix": "none",
@@ -2692,7 +2807,12 @@
                                     "referenceDeclarationKind": "classElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "swidIntegerLiteral": { "value": "0" },
+                                "runtimeType": "fromSwidIntegerLiteral"
+                            },
+                            "defaultValueCode": "0"
                         }
                     },
                     "normalParameterNames": [],
