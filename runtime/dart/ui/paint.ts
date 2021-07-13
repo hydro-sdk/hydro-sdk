@@ -45,43 +45,42 @@ export interface IPaint {
     toString: () => string;
 }
 export class Paint {
-    private static _kIsAntiAliasIndex = 0;
-    private static _kColorIndex = 1;
-    private static _kBlendModeIndex = 2;
-    private static _kStyleIndex = 3;
-    private static _kStrokeWidthIndex = 4;
-    private static _kStrokeCapIndex = 5;
-    private static _kStrokeJoinIndex = 6;
-    private static _kStrokeMiterLimitIndex = 7;
-    private static _kFilterQualityIndex = 8;
-    private static _kMaskFilterIndex = 9;
-    private static _kMaskFilterBlurStyleIndex = 10;
-    private static _kMaskFilterSigmaIndex = 11;
-    private static _kInvertColorIndex = 12;
-    private static _kDitherIndex = 13;
-    private static _kIsAntiAliasOffset = Paint._kIsAntiAliasIndex << 2;
-    private static _kColorOffset = Paint._kColorIndex << 2;
-    private static _kBlendModeOffset = Paint._kBlendModeIndex << 2;
-    private static _kStyleOffset = Paint._kStyleIndex << 2;
-    private static _kStrokeWidthOffset = Paint._kStrokeWidthIndex << 2;
-    private static _kStrokeCapOffset = Paint._kStrokeCapIndex << 2;
-    private static _kStrokeJoinOffset = Paint._kStrokeJoinIndex << 2;
-    private static _kStrokeMiterLimitOffset =
-        Paint._kStrokeMiterLimitIndex << 2;
-    private static _kFilterQualityOffset = Paint._kFilterQualityIndex << 2;
-    private static _kMaskFilterOffset = Paint._kMaskFilterIndex << 2;
-    private static _kMaskFilterBlurStyleOffset =
+    public static _kIsAntiAliasIndex = 0;
+    public static _kColorIndex = 1;
+    public static _kBlendModeIndex = 2;
+    public static _kStyleIndex = 3;
+    public static _kStrokeWidthIndex = 4;
+    public static _kStrokeCapIndex = 5;
+    public static _kStrokeJoinIndex = 6;
+    public static _kStrokeMiterLimitIndex = 7;
+    public static _kFilterQualityIndex = 8;
+    public static _kMaskFilterIndex = 9;
+    public static _kMaskFilterBlurStyleIndex = 10;
+    public static _kMaskFilterSigmaIndex = 11;
+    public static _kInvertColorIndex = 12;
+    public static _kDitherIndex = 13;
+    public static _kIsAntiAliasOffset = Paint._kIsAntiAliasIndex << 2;
+    public static _kColorOffset = Paint._kColorIndex << 2;
+    public static _kBlendModeOffset = Paint._kBlendModeIndex << 2;
+    public static _kStyleOffset = Paint._kStyleIndex << 2;
+    public static _kStrokeWidthOffset = Paint._kStrokeWidthIndex << 2;
+    public static _kStrokeCapOffset = Paint._kStrokeCapIndex << 2;
+    public static _kStrokeJoinOffset = Paint._kStrokeJoinIndex << 2;
+    public static _kStrokeMiterLimitOffset = Paint._kStrokeMiterLimitIndex << 2;
+    public static _kFilterQualityOffset = Paint._kFilterQualityIndex << 2;
+    public static _kMaskFilterOffset = Paint._kMaskFilterIndex << 2;
+    public static _kMaskFilterBlurStyleOffset =
         Paint._kMaskFilterBlurStyleIndex << 2;
-    private static _kMaskFilterSigmaOffset = Paint._kMaskFilterSigmaIndex << 2;
-    private static _kInvertColorOffset = Paint._kInvertColorIndex << 2;
-    private static _kDitherOffset = Paint._kDitherIndex << 2;
-    private static _kDataByteCount = 56;
-    private static _kShaderIndex = 0;
-    private static _kColorFilterIndex = 1;
-    private static _kImageFilterIndex = 2;
-    private static _kObjectCount = 3;
-    private static _kColorDefault = 0xff000000;
-    private static _kStrokeMiterLimitDefault = 4.0;
+    public static _kMaskFilterSigmaOffset = Paint._kMaskFilterSigmaIndex << 2;
+    public static _kInvertColorOffset = Paint._kInvertColorIndex << 2;
+    public static _kDitherOffset = Paint._kDitherIndex << 2;
+    public static _kDataByteCount = 56;
+    public static _kShaderIndex = 0;
+    public static _kColorFilterIndex = 1;
+    public static _kImageFilterIndex = 2;
+    public static _kObjectCount = 3;
+    public static _kColorDefault = 0xff000000;
+    public static _kStrokeMiterLimitDefault = 4.0;
     public constructor() {
         dart.ui.paint(this);
     }

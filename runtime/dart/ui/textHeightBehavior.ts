@@ -11,10 +11,6 @@ declare const dart: {
         textHeightBehaviorFromEncoded: (encoded: number) => ITextHeightBehavior;
     };
 };
-const textHeightBehaviorDefaultProps = {
-    applyHeightToFirstAscent: true,
-    applyHeightToLastDescent: true,
-};
 export interface ITextHeightBehavior {
     applyHeightToFirstAscent: boolean;
     applyHeightToLastDescent: boolean;
@@ -50,3 +46,7 @@ export class TextHeightBehavior {
         return this._dart_toString();
     }
 }
+const textHeightBehaviorDefaultProps = {
+    applyHeightToFirstAscent: true,
+    applyHeightToLastDescent: true,
+};

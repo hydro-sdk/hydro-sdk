@@ -96,7 +96,7 @@ export interface IPlatformDispatcher {
     getDefaultRouteName: () => string;
 }
 export class PlatformDispatcher {
-    private static _kPointerDataFieldCount = 29;
+    public static _kPointerDataFieldCount = 29;
     public static instance(): IPlatformDispatcher {
         return dart.ui.platformDispatcherInstance();
     }

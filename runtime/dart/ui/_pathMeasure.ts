@@ -10,9 +10,6 @@ declare const dart: {
         ) => I_PathMeasure;
     };
 };
-const extractPathDefaultProps = {
-    startWithMoveTo: true,
-};
 export interface I_PathMeasure {
     currentContourIndex: number;
     length: (contourIndex: number) => number;
@@ -71,3 +68,6 @@ export class _PathMeasure {
         return this._dart_isClosed(contourIndex);
     }
 }
+const extractPathDefaultProps = {
+    startWithMoveTo: true,
+};

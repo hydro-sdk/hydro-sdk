@@ -19,9 +19,6 @@ declare const dart: {
         ) => IUnmodifiableFloat32x4ListView;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IUnmodifiableFloat32x4ListView {
     lastIndexOf: (
         element?: Object | undefined,
@@ -533,3 +530,6 @@ export class UnmodifiableFloat32x4ListView
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

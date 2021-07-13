@@ -8,14 +8,6 @@ ui: {
 platformConfiguration: (this: void, platformConfiguration: IPlatformConfiguration, props : { accessibilityFeatures : IAccessibilityFeatures, alwaysUse24HourFormat : boolean, defaultRouteName? : string | undefined, locales : IList<ILocale>, platformBrightness : Brightness, semanticsEnabled : boolean, textScaleFactor : number, }) => IPlatformConfiguration
 }
 };
-const platformConfigurationDefaultProps = {
-    accessibilityFeatures: (),
-    alwaysUse24HourFormat: false,
-    locales: [],
-    platformBrightness: Brightness.light,
-    semanticsEnabled: false,
-    textScaleFactor: 1.0
-};
 export interface IPlatformConfiguration
 
 {
@@ -46,3 +38,11 @@ public copyWith( props : { accessibilityFeatures? : IAccessibilityFeatures | und
     return this._dart_copyWith(props);
 }
 }
+const platformConfigurationDefaultProps = {
+    accessibilityFeatures: (),
+    alwaysUse24HourFormat: false,
+    locales: [],
+    platformBrightness: Brightness.light,
+    semanticsEnabled: false,
+    textScaleFactor: 1.0
+};

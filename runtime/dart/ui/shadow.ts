@@ -22,11 +22,6 @@ declare const dart: {
         ) => IList<IShadow> | undefined;
     };
 };
-const shadowDefaultProps = {
-    blurRadius: 0.0,
-    color: new Color(Shadow._kColorDefault),
-    offset: Offset.zero,
-};
 export interface IShadow {
     color: IColor;
     offset: IOffset;
@@ -38,12 +33,12 @@ export interface IShadow {
     toString: () => string;
 }
 export class Shadow {
-    private static _kColorDefault = 0xff000000;
-    private static _kBytesPerShadow = 16;
-    private static _kColorOffset = 0 << 2;
-    private static _kXOffset = 1 << 2;
-    private static _kYOffset = 2 << 2;
-    private static _kBlurOffset = 3 << 2;
+    public static _kColorDefault = 0xff000000;
+    public static _kBytesPerShadow = 16;
+    public static _kColorOffset = 0 << 2;
+    public static _kXOffset = 1 << 2;
+    public static _kYOffset = 2 << 2;
+    public static _kBlurOffset = 3 << 2;
     public readonly color: IColor = undefined as any;
     public readonly offset: IOffset = undefined as any;
     public readonly blurRadius: number = undefined as any;
@@ -96,3 +91,8 @@ export class Shadow {
         return this._dart_toString();
     }
 }
+const shadowDefaultProps = {
+    blurRadius: 0.0,
+    color: new Color(Shadow._kColorDefault),
+    offset: Offset.zero,
+};

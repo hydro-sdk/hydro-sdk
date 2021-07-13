@@ -13,9 +13,6 @@ declare const dart: {
         ) => IParagraphBuilder;
     };
 };
-const addPlaceholderDefaultProps = {
-    scale: 1.0,
-};
 export interface IParagraphBuilder {
     getPlaceholderCount: () => number;
     getPlaceholderScales: () => IList<number>;
@@ -90,3 +87,6 @@ export class ParagraphBuilder {
         return this._dart_build();
     }
 }
+const addPlaceholderDefaultProps = {
+    scale: 1.0,
+};

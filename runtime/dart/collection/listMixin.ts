@@ -7,9 +7,6 @@ import { IRandom } from "../math/random";
 declare const dart: {
     collection: {};
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IListMixin<E> {
     getIterator: () => IIterator<E>;
     elementAt: (index: number) => E;
@@ -455,3 +452,6 @@ export class ListMixin<E> implements IList<E>, IEfficientLengthIterable<E> {
         return this._dart_getHashCode();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

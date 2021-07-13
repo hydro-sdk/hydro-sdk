@@ -27,16 +27,6 @@ declare const dart: {
         ) => ICanvas;
     };
 };
-const clipRectDefaultProps = {
-    clipOp: ClipOp.intersect,
-    doAntiAlias: true,
-};
-const clipRRectDefaultProps = {
-    doAntiAlias: true,
-};
-const clipPathDefaultProps = {
-    doAntiAlias: true,
-};
 export interface ICanvas {
     save: () => void;
     saveLayer: (bounds: IRect | undefined, paint: IPaint) => void;
@@ -447,3 +437,13 @@ export class Canvas {
         );
     }
 }
+const clipRectDefaultProps = {
+    clipOp: ClipOp.intersect,
+    doAntiAlias: true,
+};
+const clipRRectDefaultProps = {
+    doAntiAlias: true,
+};
+const clipPathDefaultProps = {
+    doAntiAlias: true,
+};

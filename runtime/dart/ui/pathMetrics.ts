@@ -7,9 +7,6 @@ import { IPathMetric } from "./pathMetric";
 declare const dart: {
     ui: {};
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IPathMetrics {
     getIterator: () => IIterator<IPathMetric>;
     cast: <R>() => IIterable<R>;
@@ -254,3 +251,6 @@ export class PathMetrics implements IIterableBase<IPathMetric> {
         return this._dart_getHashCode();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

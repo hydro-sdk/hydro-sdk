@@ -18,9 +18,6 @@ declare const dart: {
         ) => IUnmodifiableUint8ListView;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IUnmodifiableUint8ListView {
     lastIndexOf: (
         element?: Object | undefined,
@@ -515,3 +512,6 @@ export class UnmodifiableUint8ListView
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

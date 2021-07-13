@@ -18,9 +18,6 @@ declare const dart: {
         ) => IUnmodifiableInt64ListView;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IUnmodifiableInt64ListView {
     lastIndexOf: (
         element?: Object | undefined,
@@ -515,3 +512,6 @@ export class UnmodifiableInt64ListView
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

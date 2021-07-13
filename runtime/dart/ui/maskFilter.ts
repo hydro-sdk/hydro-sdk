@@ -9,8 +9,8 @@ export interface IMaskFilter {
     toString: () => string;
 }
 export class MaskFilter {
-    private static _TypeNone = 0;
-    private static _TypeBlur = 1;
+    public static _TypeNone = 0;
+    public static _TypeBlur = 1;
     public static blur(_style: BlurStyle, _sigma: number): IMaskFilter {
         return dart.ui.maskFilterBlur(_style, _sigma);
     }

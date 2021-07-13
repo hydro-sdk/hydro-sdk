@@ -19,15 +19,6 @@ declare const dart: {
         ) => IViewConfiguration;
     };
 };
-const viewConfigurationDefaultProps = {
-    devicePixelRatio: 1.0,
-    geometry: Rect.zero,
-    padding: WindowPadding.zero,
-    systemGestureInsets: WindowPadding.zero,
-    viewInsets: WindowPadding.zero,
-    viewPadding: WindowPadding.zero,
-    visible: false,
-};
 export interface IViewConfiguration {
     window: IFlutterView | undefined;
     devicePixelRatio: number;
@@ -100,3 +91,12 @@ export class ViewConfiguration {
         return this._dart_toString();
     }
 }
+const viewConfigurationDefaultProps = {
+    devicePixelRatio: 1.0,
+    geometry: Rect.zero,
+    padding: WindowPadding.zero,
+    systemGestureInsets: WindowPadding.zero,
+    viewInsets: WindowPadding.zero,
+    viewPadding: WindowPadding.zero,
+    visible: false,
+};

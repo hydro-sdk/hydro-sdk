@@ -41,36 +41,6 @@ declare const dart: {
         ) => IPointerData;
     };
 };
-const pointerDataDefaultProps = {
-    buttons: 0,
-    change: PointerChange.cancel,
-    device: 0,
-    distance: 0.0,
-    distanceMax: 0.0,
-    embedderId: 0,
-    kind: PointerDeviceKind.touch,
-    obscured: false,
-    orientation: 0.0,
-    physicalDeltaX: 0.0,
-    physicalDeltaY: 0.0,
-    physicalX: 0.0,
-    physicalY: 0.0,
-    platformData: 0,
-    pointerIdentifier: 0,
-    pressure: 0.0,
-    pressureMax: 0.0,
-    pressureMin: 0.0,
-    radiusMajor: 0.0,
-    radiusMax: 0.0,
-    radiusMin: 0.0,
-    radiusMinor: 0.0,
-    scrollDeltaX: 0.0,
-    scrollDeltaY: 0.0,
-    size: 0.0,
-    synthesized: false,
-    tilt: 0.0,
-    timeStamp: Duration.zero,
-};
 export interface IPointerData {
     embedderId: number;
     timeStamp: IDuration;
@@ -180,3 +150,33 @@ export class PointerData {
         return this._dart_toStringFull();
     }
 }
+const pointerDataDefaultProps = {
+    buttons: 0,
+    change: PointerChange.cancel,
+    device: 0,
+    distance: 0.0,
+    distanceMax: 0.0,
+    embedderId: 0,
+    kind: PointerDeviceKind.touch,
+    obscured: false,
+    orientation: 0.0,
+    physicalDeltaX: 0.0,
+    physicalDeltaY: 0.0,
+    physicalX: 0.0,
+    physicalY: 0.0,
+    platformData: 0,
+    pointerIdentifier: 0,
+    pressure: 0.0,
+    pressureMax: 0.0,
+    pressureMin: 0.0,
+    radiusMajor: 0.0,
+    radiusMax: 0.0,
+    radiusMin: 0.0,
+    radiusMinor: 0.0,
+    scrollDeltaX: 0.0,
+    scrollDeltaY: 0.0,
+    size: 0.0,
+    synthesized: false,
+    tilt: 0.0,
+    timeStamp: Duration.zero,
+};

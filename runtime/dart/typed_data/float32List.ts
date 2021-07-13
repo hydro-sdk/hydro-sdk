@@ -27,9 +27,6 @@ declare const dart: {
         ) => IFloat32List;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IFloat32List {
     sublist: (start: number, end?: number | undefined) => IFloat32List;
     cast: <R>() => IList<R>;
@@ -531,3 +528,6 @@ export class Float32List
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

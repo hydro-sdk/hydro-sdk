@@ -11,9 +11,6 @@ declare const dart: {
         ) => ISemanticsUpdateBuilder;
     };
 };
-const updateCustomActionDefaultProps = {
-    overrideId: -1,
-};
 export interface ISemanticsUpdateBuilder {
     updateNode: (props: {
         textDirection?: TextDirection | undefined;
@@ -135,3 +132,6 @@ export class SemanticsUpdateBuilder {
         return this._dart_build();
     }
 }
+const updateCustomActionDefaultProps = {
+    overrideId: -1,
+};

@@ -15,10 +15,10 @@ export interface IColorFilter {
     toString: () => string;
 }
 export class ColorFilter implements IImageFilter {
-    private static _kTypeMode = 1;
-    private static _kTypeMatrix = 2;
-    private static _kTypeLinearToSrgbGamma = 3;
-    private static _kTypeSrgbToLinearGamma = 4;
+    public static _kTypeMode = 1;
+    public static _kTypeMatrix = 2;
+    public static _kTypeLinearToSrgbGamma = 3;
+    public static _kTypeSrgbToLinearGamma = 4;
     public static mode(color: IColor, blendMode: BlendMode): IColorFilter {
         return dart.ui.colorFilterMode(color, blendMode);
     }

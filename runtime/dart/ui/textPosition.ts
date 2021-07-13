@@ -8,9 +8,6 @@ declare const dart: {
         ) => ITextPosition;
     };
 };
-const textPositionDefaultProps = {
-    affinity: TextAffinity.downstream,
-};
 export interface ITextPosition {
     offset: number;
     affinity: TextAffinity;
@@ -35,3 +32,6 @@ export class TextPosition {
         return this._dart_toString();
     }
 }
+const textPositionDefaultProps = {
+    affinity: TextAffinity.downstream,
+};

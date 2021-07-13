@@ -4,9 +4,6 @@ import { ImageByteFormat } from "./imageByteFormat";
 declare const dart: {
     ui: {};
 };
-const toByteDataDefaultProps = {
-    format: ImageByteFormat.rawRgba,
-};
 export interface I_Image {
     getWidth: () => number;
     getHeight: () => number;
@@ -45,3 +42,6 @@ export class _Image {
         return this._dart_toString();
     }
 }
+const toByteDataDefaultProps = {
+    format: ImageByteFormat.rawRgba,
+};

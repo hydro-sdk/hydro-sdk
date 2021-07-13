@@ -33,43 +33,6 @@ declare const dart: {
         ) => ISceneBuilder;
     };
 };
-const pushClipRectDefaultProps = {
-    clipBehavior: Clip.antiAlias,
-};
-const pushClipRRectDefaultProps = {
-    clipBehavior: Clip.antiAlias,
-};
-const pushClipPathDefaultProps = {
-    clipBehavior: Clip.antiAlias,
-};
-const pushOpacityDefaultProps = {
-    offset: Offset.zero,
-};
-const pushPhysicalShapeDefaultProps = {
-    clipBehavior: Clip.none,
-};
-const addPictureDefaultProps = {
-    isComplexHint: false,
-    willChangeHint: false,
-};
-const addTextureDefaultProps = {
-    filterQuality: FilterQuality.low,
-    freeze: false,
-    height: 0.0,
-    offset: Offset.zero,
-    width: 0.0,
-};
-const addPlatformViewDefaultProps = {
-    height: 0.0,
-    offset: Offset.zero,
-    width: 0.0,
-};
-const addChildSceneDefaultProps = {
-    height: 0.0,
-    hitTestable: true,
-    offset: Offset.zero,
-    width: 0.0,
-};
 export interface ISceneBuilder {
     pushTransform: (
         matrix4: IFloat64List,
@@ -446,3 +409,40 @@ export class SceneBuilder {
         return this._dart_build();
     }
 }
+const pushClipRectDefaultProps = {
+    clipBehavior: Clip.antiAlias,
+};
+const pushClipRRectDefaultProps = {
+    clipBehavior: Clip.antiAlias,
+};
+const pushClipPathDefaultProps = {
+    clipBehavior: Clip.antiAlias,
+};
+const pushOpacityDefaultProps = {
+    offset: Offset.zero,
+};
+const pushPhysicalShapeDefaultProps = {
+    clipBehavior: Clip.none,
+};
+const addPictureDefaultProps = {
+    isComplexHint: false,
+    willChangeHint: false,
+};
+const addTextureDefaultProps = {
+    filterQuality: FilterQuality.low,
+    freeze: false,
+    height: 0.0,
+    offset: Offset.zero,
+    width: 0.0,
+};
+const addPlatformViewDefaultProps = {
+    height: 0.0,
+    offset: Offset.zero,
+    width: 0.0,
+};
+const addChildSceneDefaultProps = {
+    height: 0.0,
+    hitTestable: true,
+    offset: Offset.zero,
+    width: 0.0,
+};

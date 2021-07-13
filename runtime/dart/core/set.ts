@@ -15,9 +15,6 @@ declare const dart: {
         ) => ISet<T>;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface ISet<E> {
     cast: <R>() => ISet<R>;
     getIterator: () => IIterator<E>;
@@ -345,3 +342,6 @@ export class Set<E> implements IEfficientLengthIterable<E> {
         return this._dart_getHashCode();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

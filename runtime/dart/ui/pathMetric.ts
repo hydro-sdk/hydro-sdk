@@ -3,9 +3,6 @@ import { ITangent } from "./tangent";
 declare const dart: {
     ui: {};
 };
-const extractPathDefaultProps = {
-    startWithMoveTo: true,
-};
 export interface IPathMetric {
     length: number;
     isClosed: boolean;
@@ -48,3 +45,6 @@ export class PathMetric {
         return this._dart_toString();
     }
 }
+const extractPathDefaultProps = {
+    startWithMoveTo: true,
+};

@@ -27,9 +27,6 @@ declare const dart: {
         ) => IInt32x4List;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IInt32x4List {
     sublist: (start: number, end?: number | undefined) => IInt32x4List;
     cast: <R>() => IList<R>;
@@ -536,3 +533,6 @@ export class Int32x4List
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

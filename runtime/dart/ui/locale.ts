@@ -13,9 +13,6 @@ declare const dart: {
         }) => ILocale;
     };
 };
-const fromSubtagsDefaultProps = {
-    languageCode: "und",
-};
 export interface ILocale {
     scriptCode: string | undefined;
     getLanguageCode: () => string;
@@ -25,8 +22,8 @@ export interface ILocale {
     toLanguageTag: () => string;
 }
 export class Locale {
-    private static _deprecatedLanguageSubtagMap = Unknown;
-    private static _deprecatedRegionSubtagMap = Unknown;
+    public static _deprecatedLanguageSubtagMap = Unknown;
+    public static _deprecatedRegionSubtagMap = Unknown;
     public readonly scriptCode: string | undefined = undefined as any;
     public constructor(
         _languageCode: string,
@@ -66,3 +63,6 @@ export class Locale {
         return this._dart_toLanguageTag();
     }
 }
+const fromSubtagsDefaultProps = {
+    languageCode: "und",
+};

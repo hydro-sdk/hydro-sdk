@@ -27,9 +27,6 @@ declare const dart: {
         ) => IUint16List;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IUint16List {
     sublist: (start: number, end?: number | undefined) => IUint16List;
     cast: <R>() => IList<R>;
@@ -528,3 +525,6 @@ export class Uint16List
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

@@ -1,14 +1,6 @@
 import { IFloat64List } from "../typed_data/float64List";
 import { FilterQuality } from "./filterQuality";
 import { TileMode } from "./tileMode";
-const blurDefaultProps = {
-    sigmaX: 0.0,
-    sigmaY: 0.0,
-    tileMode: TileMode.clamp,
-};
-const matrixDefaultProps = {
-    filterQuality: FilterQuality.low,
-};
 export interface IImageFilter {}
 export class ImageFilter {
     public static blur(props: {
@@ -37,3 +29,11 @@ export class ImageFilter {
         return dart.ui.imageFilterCompose(props);
     }
 }
+const blurDefaultProps = {
+    sigmaX: 0.0,
+    sigmaY: 0.0,
+    tileMode: TileMode.clamp,
+};
+const matrixDefaultProps = {
+    filterQuality: FilterQuality.low,
+};

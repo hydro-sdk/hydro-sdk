@@ -23,7 +23,7 @@ export interface IFontFeature {
     toString: () => string;
 }
 export class FontFeature {
-    private static _kEncodedSize = 8;
+    public static _kEncodedSize = 8;
     public readonly feature: string = undefined as any;
     public readonly value: number = undefined as any;
     public constructor(feature: string, value: number = 1) {

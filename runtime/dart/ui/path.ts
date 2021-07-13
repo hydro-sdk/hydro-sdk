@@ -18,21 +18,6 @@ declare const dart: {
         ) => IPath;
     };
 };
-const arcToPointDefaultProps = {
-    clockwise: true,
-    largeArc: false,
-    radius: Radius.zero,
-    rotation: 0.0,
-};
-const relativeArcToPointDefaultProps = {
-    clockwise: true,
-    largeArc: false,
-    radius: Radius.zero,
-    rotation: 0.0,
-};
-const computeMetricsDefaultProps = {
-    forceClosed: false,
-};
 export interface IPath {
     getFillType: () => PathFillType;
     setFillType: (value: PathFillType) => void;
@@ -410,3 +395,18 @@ export class Path {
         });
     }
 }
+const arcToPointDefaultProps = {
+    clockwise: true,
+    largeArc: false,
+    radius: Radius.zero,
+    rotation: 0.0,
+};
+const relativeArcToPointDefaultProps = {
+    clockwise: true,
+    largeArc: false,
+    radius: Radius.zero,
+    rotation: 0.0,
+};
+const computeMetricsDefaultProps = {
+    forceClosed: false,
+};

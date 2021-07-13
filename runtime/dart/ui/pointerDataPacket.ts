@@ -9,9 +9,6 @@ declare const dart: {
         ) => IPointerDataPacket;
     };
 };
-const pointerDataPacketDefaultProps = {
-    data: [],
-};
 export interface IPointerDataPacket {
     data: IList<IPointerData>;
 }
@@ -24,3 +21,6 @@ export class PointerDataPacket {
         });
     }
 }
+const pointerDataPacketDefaultProps = {
+    data: [],
+};

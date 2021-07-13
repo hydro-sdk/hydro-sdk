@@ -45,24 +45,6 @@ declare const dart: {
         ) => void;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
-const filledDefaultProps = {
-    growable: false,
-};
-const emptyDefaultProps = {
-    growable: false,
-};
-const fromDefaultProps = {
-    growable: true,
-};
-const ofDefaultProps = {
-    growable: true,
-};
-const generateDefaultProps = {
-    growable: true,
-};
 export interface IList<E> {
     cast: <R>() => IList<R>;
     setFirst: (value: E) => void;
@@ -572,3 +554,21 @@ export class List<E> implements IIterable<E>, IEfficientLengthIterable<E> {
         return this._dart_getHashCode();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};
+const filledDefaultProps = {
+    growable: false,
+};
+const emptyDefaultProps = {
+    growable: false,
+};
+const fromDefaultProps = {
+    growable: true,
+};
+const ofDefaultProps = {
+    growable: true,
+};
+const generateDefaultProps = {
+    growable: true,
+};

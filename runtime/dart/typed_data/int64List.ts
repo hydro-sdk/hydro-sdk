@@ -27,9 +27,6 @@ declare const dart: {
         ) => IInt64List;
     };
 };
-const toListDefaultProps = {
-    growable: true,
-};
 export interface IInt64List {
     sublist: (start: number, end?: number | undefined) => IInt64List;
     cast: <R>() => IList<R>;
@@ -528,3 +525,6 @@ export class Int64List
         return this._dart_getBuffer();
     }
 }
+const toListDefaultProps = {
+    growable: true,
+};

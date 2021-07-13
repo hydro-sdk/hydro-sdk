@@ -10,10 +10,6 @@ import { ITextRange } from "./textRange";
 declare const dart: {
     ui: {};
 };
-const getBoxesForRangeDefaultProps = {
-    boxHeightStyle: BoxHeightStyle.tight,
-    boxWidthStyle: BoxWidthStyle.tight,
-};
 export interface IParagraph {
     getWidth: () => number;
     getHeight: () => number;
@@ -126,3 +122,7 @@ export class Paragraph {
         return this._dart_computeLineMetrics();
     }
 }
+const getBoxesForRangeDefaultProps = {
+    boxHeightStyle: BoxHeightStyle.tight,
+    boxWidthStyle: BoxWidthStyle.tight,
+};
