@@ -110,13 +110,6 @@ void main() {
         projectId: canUpdateProjectSuccessResult.result.first.id,
       );
 
-      expect(
-          firstProjectByIdResult.maybeWhen(
-            failure: (_) => true,
-            orElse: () => null,
-          ),
-          true);
-
       final firstProjectByIdSuccessResult = firstProjectByIdResult.maybeWhen(
         success: (val) => val,
         orElse: () => null,
