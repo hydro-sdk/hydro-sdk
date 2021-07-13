@@ -9,7 +9,7 @@ String transformStaticConstFieldDeclaration({
   required SwidClass parentClass,
 }) =>
     [
-      staticConstFieldDeclaration.name[0] != "_" ? "public" : "private",
+      "public",
       " ",
       "static",
       " ",
