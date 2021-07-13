@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'getPackageDto.dart';
+part of 'getLatestPackageDto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_$GetPackageDtoCtor _$_$_$GetPackageDtoCtorFromJson(
+_$_$GetLatestPackageDtoCtor _$_$_$GetLatestPackageDtoCtorFromJson(
     Map<String, dynamic> json) {
-  return _$_$GetPackageDtoCtor(
+  return _$_$GetLatestPackageDtoCtor(
     sessionId: json['sessionId'] as String,
     projectName: json['projectName'] as String,
     componentName: json['componentName'] as String,
@@ -17,8 +17,8 @@ _$_$GetPackageDtoCtor _$_$_$GetPackageDtoCtorFromJson(
   );
 }
 
-Map<String, dynamic> _$_$_$GetPackageDtoCtorToJson(
-        _$_$GetPackageDtoCtor instance) =>
+Map<String, dynamic> _$_$_$GetLatestPackageDtoCtorToJson(
+        _$_$GetLatestPackageDtoCtor instance) =>
     <String, dynamic>{
       'sessionId': instance.sessionId,
       'projectName': instance.projectName,

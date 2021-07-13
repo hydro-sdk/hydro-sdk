@@ -11,7 +11,8 @@ import 'package:hydro_sdk/registry/dto/createComponentResponseDto.dart';
 import 'package:hydro_sdk/registry/dto/createMockUserDto.dart';
 import 'package:hydro_sdk/registry/dto/createPackageDto.dart';
 import 'package:hydro_sdk/registry/dto/createProjectDto.dart';
-import 'package:hydro_sdk/registry/dto/getPackageDto.dart';
+import 'package:hydro_sdk/registry/dto/getLatestPackageDto.dart';
+import 'package:hydro_sdk/registry/dto/getLatestPackageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/packageReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectCreationsReadDto.dart';
 import 'package:hydro_sdk/registry/dto/projectEntity.dart';
@@ -210,21 +211,26 @@ class RegistryApi {
     return response;
   }
 
-  Future<Response> getLatestPackageUri(
-      {required GetPackageDto getPackageDto}) async {
+  Future<GetLatestPackageReadDto?> getLatestPackage({
+    required GetLatestPackageDto getLatestPackageDto,
+  }) async {
     final response = await post(
         Uri(
           scheme: scheme,
           host: host,
           port: port,
-          path: "/api/package/latestUri",
+          path: "/api/package/latest",
         ),
         headers: {
           "content-type": "application/json",
         },
-        body: jsonEncode(getPackageDto.toJson()));
+        body: jsonEncode(getLatestPackageDto.toJson()));
 
-    return response;
+    if (response.statusCode == 201) {
+      return GetLatestPackageReadDto.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
   }
 
   Future<List<ComponentSearchDto>?> searchComponents(
