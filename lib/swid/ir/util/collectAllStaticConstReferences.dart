@@ -2,6 +2,7 @@ import 'package:hydro_sdk/swid/ir/constPrimitives.dart';
 import 'package:hydro_sdk/swid/ir/swidInterface.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
+import 'package:hydro_sdk/swid/ir/util/collectAllReferences.dart';
 
 List<SwidInterface> collectReferencesFromStaticConst({
   required SwidStaticConst swidStaticConst,
@@ -34,10 +35,20 @@ List<SwidInterface> collectReferencesFromStaticConst({
                     swidStaticConst: x.value,
                   ))
               .toList()),
+          ...([
+            val.staticType.when(
+              fromSwidInterface: (val) => val,
+              fromSwidClass: (_) => dartUnknownInterface,
+              fromSwidDefaultFormalParameter: (_) => dartUnknownInterface,
+              fromSwidFunctionType: (_) => dartUnknownInterface,
+            )
+          ]..removeWhere((x) => x == dartUnknownInterface))
         ],
         fromSwidStaticConstFieldReference: (_) => [],
         fromSwidStaticConstPrefixedExpression: (val) =>
-            collectReferencesFromStaticConst(swidStaticConst: val.expression),
+            collectReferencesFromStaticConst(
+          swidStaticConst: val.expression,
+        ),
         fromSwidStaticConstBinaryExpression: (val) => [
           ...(collectReferencesFromStaticConst(swidStaticConst: val.leftOperand)
             ..removeWhere((x) => x == dartUnknownInterface)),

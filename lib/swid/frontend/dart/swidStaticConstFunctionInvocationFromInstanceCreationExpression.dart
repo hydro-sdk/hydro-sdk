@@ -21,8 +21,9 @@ import 'package:hydro_sdk/swid/ir/swidStaticConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidStaticConstFunctionInvocation
-    swidStaticConstFunctionInvocationFromInstanceCreationExpression(
-        {required InstanceCreationExpression instanceCreationExpression}) {
+    swidStaticConstFunctionInvocationFromInstanceCreationExpression({
+  required InstanceCreationExpression instanceCreationExpression,
+}) {
   ConstructorName constructor = instanceCreationExpression.childEntities
       .firstWhere((x) => x is ConstructorName) as ConstructorName;
   return SwidStaticConstFunctionInvocation(
@@ -33,7 +34,14 @@ SwidStaticConstFunctionInvocation
                     instanceCreationExpression.staticType as InterfaceType,
               ),
             )
-          : dartUnknownType,
+          : constructor.type.type != null &&
+                  constructor.type.type is InterfaceType
+              ? SwidType.fromSwidInterface(
+                  swidInterface: swidInterfaceFromInterface(
+                    interfaceType: constructor.type.type as InterfaceType,
+                  ),
+                )
+              : dartUnknownType,
       value: constructor.type.name.name +
           (constructor.name != null ? ".${constructor.name!.name}" : ""),
       normalParameters: (instanceCreationExpression.childEntities
