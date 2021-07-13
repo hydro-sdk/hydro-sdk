@@ -7,6 +7,7 @@ import 'package:analyzer/dart/ast/ast.dart'
         SimpleStringLiteral,
         SimpleIdentifier,
         BooleanLiteral,
+        PrefixExpression,
         ArgumentList;
 
 import 'package:analyzer/dart/element/type.dart' show InterfaceType;
@@ -59,7 +60,8 @@ SwidStaticConstFunctionInvocation
               var argument = x.childEntities.firstWhereOrNull((x) =>
                   x is SimpleStringLiteral ||
                   x is BooleanLiteral ||
-                  x is SimpleIdentifier);
+                  x is SimpleIdentifier ||
+                  x is PrefixExpression);
               if (argument != null) {
                 return MapEntry(
                   (x.childEntities.firstWhere((x) => x is Label) as Label)
