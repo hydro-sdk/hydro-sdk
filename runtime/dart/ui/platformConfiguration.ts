@@ -1,5 +1,5 @@
 
-import { IAccessibilityFeatures } from "./accessibilityFeatures";
+import { IAccessibilityFeatures,AccessibilityFeatures } from "./accessibilityFeatures";
 import { IList } from "../core/list";
 import { ILocale } from "./locale";
 import { Brightness } from "./brightness";

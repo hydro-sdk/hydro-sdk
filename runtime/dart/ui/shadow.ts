@@ -1,5 +1,5 @@
 import { IList } from "../core/list";
-import { IColor } from "./color";
+import { Color, IColor } from "./color";
 import { IOffset, Offset } from "./offset";
 import { IPaint } from "./paint";
 declare const dart: {
