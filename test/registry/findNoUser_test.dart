@@ -17,9 +17,14 @@ void main() {
 
       final username = "12345";
 
-      final response = await api.getUser(username: username);
+      final getUserResult = await api.getUser(username: username);
 
-      expect(response, isNull);
+      final result = getUserResult.maybeWhen(
+        success: (val) => val,
+        orElse: () => null,
+      );
+
+      expect(result, isNull);
     }, tags: "registry", timeout: const Timeout(Duration(minutes: 5)));
   });
 }
