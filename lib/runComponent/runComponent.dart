@@ -56,7 +56,7 @@ class RunComponent extends StatefulWidget {
     this.releaseChannel = "latest",
     this.registryApi = const RegistryApi(
       scheme: "https",
-      host: "",
+      host: "api.registry.hydro-sdk.io",
     ),
     this.otaCacheMgr = const OtaCacheMgr(),
     this.thunks = const {},
