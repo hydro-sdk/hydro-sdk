@@ -724,12 +724,12 @@ packages:
     source: hosted
     version: "1.0.0"
   waveform:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: waveform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1-nightly.44"
+    version: "0.0.1-nightly.47"
   web_socket_channel:
     dependency: transitive
     description:
