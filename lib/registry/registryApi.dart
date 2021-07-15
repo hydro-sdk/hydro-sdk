@@ -292,7 +292,7 @@ class RegistryApi {
       body: jsonEncode(createPackageDto.toJson()),
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return CreatePackageResult.success(
         createPackageSuccessResult: CreatePackageSuccessResult(
           statusCode: response.statusCode,

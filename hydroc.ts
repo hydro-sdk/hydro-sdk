@@ -517,7 +517,7 @@ async function readSdkPackage({ directory }: { directory: string }): Promise<
             new Option(
                 "--registry-host <registry-host>",
                 "The registry host to use"
-            ).makeOptionMandatory()
+            ).default("api.registry.hydro-sdk.io")
         )
         .addOption(
             new Option(

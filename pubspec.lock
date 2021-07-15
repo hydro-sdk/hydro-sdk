@@ -729,7 +729,7 @@ packages:
       name: waveform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1-nightly.44"
+    version: "0.0.1-nightly.48"
   web_socket_channel:
     dependency: transitive
     description:

@@ -35,7 +35,7 @@ dev_dependencies:
   import_sorter: 
   build_runner:
   test: ^1.16.5
-  waveform: ^0.0.1-nightly.43
+  waveform: ^0.0.1-nightly.47
   flutter_test:
     sdk: flutter
 environment:
