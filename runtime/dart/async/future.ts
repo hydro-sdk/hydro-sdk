@@ -41,6 +41,20 @@ declare const dart: {
     };
 };
 
+export interface IFuture<T> {
+    catchError: (
+        onError: (error?: T | undefined) => void,
+        props?: { test?: (error: T) => boolean | undefined } | undefined
+    ) => Future<T>;
+
+    then: <R>(
+        onValue: (this: void, value: T) => R,
+        props?: { onError?: (err: any) => void | undefined } | undefined
+    ) => Future<R>;
+
+    whenComplete: (action: () => FutureOr<any>) => Future<T>;
+}
+
 export class Future<T> {
     public constructor(computation: () => FutureOr<T>) {
         this.catchError = undefined as any;

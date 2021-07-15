@@ -26,6 +26,19 @@ declare const dart: {
     };
 };
 
+export interface IDuration {
+    getInDays: () => number;
+    getInHours: () => number;
+    getInMinutes: () => number;
+    getInSeconds: () => number;
+    getInMilliseconds: () => number;
+    getInMicroseconds: () => number;
+    compareTo: (other: Duration) => number;
+    toString: () => string;
+    getIsNegative: () => boolean;
+    abs: () => IDuration;
+}
+
 export class Duration {
     private readonly _dart_getInDays: () => number = undefined as any;
     private readonly _dart_getInHours: () => number = undefined as any;
