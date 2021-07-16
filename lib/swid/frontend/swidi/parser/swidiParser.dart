@@ -1,4 +1,5 @@
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiClassParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
@@ -19,6 +20,7 @@ class SwidiParser extends SwidiGrammarDefinition
         SwidiReferenceDeclarationPrefixParser,
         SwidiLibraryScopePrefixParser,
         SwidiTypeParser,
+        SwidiTypeListParser,
         SwidiConstNumberParser,
         SwidiConstStringParser,
         SwidiConstParser,
