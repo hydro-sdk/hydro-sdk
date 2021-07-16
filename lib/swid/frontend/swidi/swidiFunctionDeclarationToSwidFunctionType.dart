@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/ir/swidFunctionType.dart';
 import 'package:hydro_sdk/swid/ir/swidIntegerLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/ir/swidStaticConst.dart';
+import 'package:hydro_sdk/swid/ir/swidStringLiteral.dart';
 import 'package:hydro_sdk/swid/ir/swidType.dart';
 
 SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
@@ -43,6 +44,24 @@ SwidFunctionType swidiFunctionDeclarationToSwidFunctionType({
                   defaultValueCode: val.value,
                   value: SwidStaticConst.fromSwidIntegerLiteral(
                     swidIntegerLiteral: SwidIntegerLiteral(
+                      value: val.value,
+                    ),
+                  ),
+                  staticType: SwidType.fromSwidInterface(
+                    swidInterface: swidiInterfaceToSwidInterface(
+                      swidiInterface: x.declaration.type,
+                    ),
+                  ),
+                ),
+              ),
+              fromSwidiConstString: (val) => MapEntry(
+                x.declaration.name,
+                SwidDefaultFormalParameter(
+                  nullabilitySuffix: dartNum.nullabilitySuffix,
+                  originalPackagePath: dartNum.originalPackagePath,
+                  defaultValueCode: val.value,
+                  value: SwidStaticConst.fromSwidStringLiteral(
+                    swidStringLiteral: SwidStringLiteral(
                       value: val.value,
                     ),
                   ),
