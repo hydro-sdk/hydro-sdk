@@ -724,7 +724,7 @@ packages:
     source: hosted
     version: "1.0.0"
   waveform:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: waveform
       url: "https://pub.dartlang.org"
