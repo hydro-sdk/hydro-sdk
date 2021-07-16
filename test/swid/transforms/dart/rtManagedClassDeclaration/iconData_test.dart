@@ -18,9 +18,9 @@ void main() {
         """
 class RTManagedIconData extends IconData implements Box<IconData> {
   RTManagedIconData(int codePoint,
-      {String fontFamily,
-      String fontPackage,
-      bool matchTextDirection,
+      {String? fontFamily,
+      String? fontPackage,
+      required bool matchTextDirection,
       required this.table,
       required this.hydroState})
       : super(codePoint,

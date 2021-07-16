@@ -17,8 +17,8 @@ void main() {
         TsClassInstanceFieldDeclarations(swidClass: iconDataClass).toTsSource(),
         """
     public readonly codePoint: number = undefined as any;
-    public readonly fontFamily: string = undefined as any;
-    public readonly fontPackage: string = undefined as any;
+    public readonly fontFamily: string | undefined = undefined as any;
+    public readonly fontPackage: string | undefined = undefined as any;
     public readonly matchTextDirection: boolean = undefined as any;
 """);
   }, tags: "swid");

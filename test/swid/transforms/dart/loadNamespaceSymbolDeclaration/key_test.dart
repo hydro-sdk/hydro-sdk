@@ -24,6 +24,12 @@ void loadKey({required HydroState hydroState, required HydroTable table}) {
           table: luaCallerArguments[0])
     ];
   });
+  table[\'keyEmpty\'] = makeLuaDartFunc(func: (List<dynamic> luaCallerArguments) {
+    return [
+      maybeBoxObject<Key>(
+          object: Key.empty(), hydroState: hydroState, table: HydroTable()),
+    ];
+  });
   registerBoxer<Key>(boxer: (
       {required Key vmObject,
       required HydroState hydroState,
