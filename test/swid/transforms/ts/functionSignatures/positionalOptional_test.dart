@@ -18,6 +18,7 @@ void main() {
     //List<Map<String, Object?>> toJsonList (List<DiagnosticsNode>? nodes, DiagnosticsNode? parent, DiagnosticsSerializationDelegate delegate)
     expect(
         transformFunctionTypeToTs(
+            parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
               isFactory: false,
@@ -111,6 +112,7 @@ void main() {
     //List<Map<String, Object?>> toJsonList (List<DiagnosticsNode>? nodes, DiagnosticsNode? parent, DiagnosticsSerializationDelegate? delegate)
     expect(
         transformFunctionTypeToTs(
+            parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
               isFactory: false,
@@ -204,6 +206,7 @@ void main() {
     //List<Map<String, Object?>> toJsonList (List<DiagnosticsNode> nodes, DiagnosticsNode parent, DiagnosticsSerializationDelegate? delegate)
     expect(
         transformFunctionTypeToTs(
+          parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
               isFactory: false,

@@ -69,7 +69,11 @@ void main() {
     );
     expect(
         transformTypeDeclarationToTs(
-            swidType: SwidType.fromSwidFunctionType(swidFunctionType: from)),
+          parentClass: null,
+          swidType: SwidType.fromSwidFunctionType(
+            swidFunctionType: from,
+          ),
+        ),
         "(elements: Iterable<any>) => Set<E>");
   }, tags: "swid");
 }

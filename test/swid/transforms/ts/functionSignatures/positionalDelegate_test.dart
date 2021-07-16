@@ -16,6 +16,7 @@ void main() {
     expect(
         //num? (Widget Function() foo)
         transformFunctionTypeToTs(
+          parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
                 isFactory: false,
@@ -69,6 +70,7 @@ void main() {
     expect(
         //Iterable<T> map<T>(T f(E e))
         transformFunctionTypeToTs(
+          parentClass: null,
           emitTrailingReturnType: true,
           trailingReturnTypeKind: TrailingReturnTypeKind.colon,
           swidFunctionType: SwidFunctionType(

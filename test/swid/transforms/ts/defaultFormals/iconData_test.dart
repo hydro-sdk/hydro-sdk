@@ -16,10 +16,11 @@ void main() {
     expect(iconDataClass.instanceFieldDeclarations.length, 4);
     expect(
         TsFunctionDefaultNamedProps(
-                swidFunctionType: SwidFunctionType.clone(
-                    swidFunctionType: iconDataClass.constructorType,
-                    name: iconDataClass.name))
-            .toTsSource(),
+          swidFunctionType: SwidFunctionType.clone(
+            swidFunctionType: iconDataClass.constructorType!,
+            name: iconDataClass.name,
+          ),
+        ).toTsSource(),
         """
 const iconDataDefaultProps = {
     matchTextDirection: false

@@ -15,6 +15,7 @@ void main() {
     expect(
         //num (int? foo,String bar)
         transformFunctionTypeToTs(
+            parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
                 isFactory: false,

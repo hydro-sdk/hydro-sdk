@@ -15,6 +15,7 @@ void main() {
     expect(
         //num? foo(int itemCount, [Widget Function([Duration Function(int? millis)? resolveDuration])? onTap])
         transformFunctionTypeToTs(
+            parentClass: null,
             trailingReturnTypeKind: TrailingReturnTypeKind.fatArrow,
             swidFunctionType: SwidFunctionType(
                 namedDefaults: {},

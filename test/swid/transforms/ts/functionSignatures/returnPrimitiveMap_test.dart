@@ -55,8 +55,11 @@ void main() {
 
     expect(
         transformTypeDeclarationToTs(
-            swidType:
-                SwidType.fromSwidFunctionType(swidFunctionType: functionType)),
+          parentClass: null,
+          swidType: SwidType.fromSwidFunctionType(
+            swidFunctionType: functionType,
+          ),
+        ),
         "() => {[index: string]: Object}");
   }, tags: "swid");
 }

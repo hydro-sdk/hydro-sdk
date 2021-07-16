@@ -15,10 +15,11 @@ void main() {
 
     expect(
         TsFunctionDefaultNamedProps(
-                swidFunctionType: SwidFunctionType.clone(
-                    swidFunctionType: diagnosticsNodeClass.constructorType,
-                    name: diagnosticsNodeClass.name))
-            .toTsSource(),
+          swidFunctionType: SwidFunctionType.clone(
+            swidFunctionType: diagnosticsNodeClass.constructorType!,
+            name: diagnosticsNodeClass.name,
+          ),
+        ).toTsSource(),
         """
 const diagnosticsNodeDefaultProps = {
     showName: true,
