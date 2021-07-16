@@ -1,0 +1,93 @@
+{
+    "inputPackagePath": "/Users/chgibb/Downloads/flutter/packages/flutter",
+    "interfaces": [
+        "interfaces/*.i"
+    ],
+    "emitOptions": {
+        "prefixPaths": [
+            "runtime"
+        ],
+        "allowList": {
+            "packagePaths": [
+    
+            ],
+            "classNames": [
+                "Random",
+                "Icons",
+                "CupertinoIcons",
+                "IconData",
+                "TextTreeConfiguration",
+                "DiagnosticsNode",
+                "DiagnosticsSerializationDelegate",
+                "DiagnosticPropertiesBuilder",
+                "Diagnosticable",
+                "DiagnosticableTree",
+                "Key",
+                "Size",
+                "Offset",
+                "OffsetBase",
+                "Rect",
+                "AccessibilityFeatures",
+                "CallbackHandle",
+                "RRect",
+                "Path",
+                "PathMetric",
+                "PathMetrics",
+                "IterableBase",
+                "Tangent",
+                "Iterable",
+                "Iterator",
+                "EfficientLengthIterable",
+                "Set",
+                "List",
+                "Float64List",
+                "ByteBuffer",
+                "TypedData",
+                "ByteData",
+                "Float32List",
+                "Float32x4List",
+                "Float64List",
+                "Float64x2List",
+                "Int16List",
+                "Int32List",
+                "Int32x4List",
+                "Int64List",
+                "Int8List",
+                "Uint16List",
+                "Uint32List",
+                "Uint64List",
+                "Uint8ClampedList",
+                "Uint8List",
+                "Float32x4",
+                "Float64x2",
+                "Int32x4",
+                "Endian",
+                "_TypedFloatList",
+                "UnmodifiableListBase",
+                "Invocation",
+                "ListBase",
+                "_UnmodifiableListMixin",
+                "UnmodifiableListMixin",
+                "ListMixin"
+            ]
+        },
+        "denyList": {
+            "packagePaths": [],
+            "classNames": []
+        },
+        "tsEmitOptions": {
+            "prefixPaths": [
+                "runtime"
+            ]
+        },
+        "dartEmitOptions": {
+            "hostPackageName": "hydro_sdk",
+            "prefixPaths": [
+                "lib",
+                "cfr",
+                "builtins",
+                "libs"
+            ]
+        }
+    }
+}
