@@ -4,7 +4,7 @@
     "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
     "constructorType": {
         "name": "",
-        "nullabilitySuffix": "star",
+        "nullabilitySuffix": "none",
         "originalPackagePath": "",
         "swidDeclarationModifiers": {
             "isAbstract": false,
@@ -36,7 +36,7 @@
             "fontFamily": {
                 "swidInterface": {
                     "name": "String",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "question",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -46,7 +46,7 @@
             "fontPackage": {
                 "swidInterface": {
                     "name": "String",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "question",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -56,7 +56,7 @@
             "matchTextDirection": {
                 "swidInterface": {
                     "name": "bool",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -66,19 +66,23 @@
         },
         "namedDefaults": {
             "matchTextDirection": {
-                "name": "false",
                 "nullabilitySuffix": "none",
                 "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
-                "value": {
+                "staticType": {
                     "swidInterface": {
                         "name": "bool",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "dart:core",
                         "typeArguments": [],
                         "referenceDeclarationKind": "classElement"
                     },
                     "runtimeType": "fromSwidInterface"
-                }
+                },
+                "value": {
+                    "swidBooleanLiteral": { "value": "false" },
+                    "runtimeType": "fromSwidBooleanLiteral"
+                },
+                "defaultValueCode": "false"
             }
         },
         "normalParameterNames": ["codePoint"],
@@ -86,7 +90,7 @@
             {
                 "swidInterface": {
                     "name": "int",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -99,7 +103,7 @@
         "returnType": {
             "swidInterface": {
                 "name": "IconData",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "none",
                 "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
                 "typeArguments": [],
                 "referenceDeclarationKind": "classElement"
@@ -114,7 +118,7 @@
     "methods": [
         {
             "name": "==",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -149,7 +153,7 @@
                 {
                     "swidInterface": {
                         "name": "Object",
-                        "nullabilitySuffix": "star",
+                        "nullabilitySuffix": "none",
                         "originalPackagePath": "dart:core",
                         "typeArguments": [],
                         "referenceDeclarationKind": "classElement"
@@ -162,7 +166,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "bool",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -174,7 +178,7 @@
         },
         {
             "name": "hashCode",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -211,7 +215,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "int",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -223,7 +227,7 @@
         },
         {
             "name": "toString",
-            "nullabilitySuffix": "star",
+            "nullabilitySuffix": "none",
             "originalPackagePath": "package:flutter/src/widgets/icon_data.dart",
             "swidDeclarationModifiers": {
                 "isAbstract": false,
@@ -260,7 +264,7 @@
             "returnType": {
                 "swidInterface": {
                     "name": "String",
-                    "nullabilitySuffix": "star",
+                    "nullabilitySuffix": "none",
                     "originalPackagePath": "dart:core",
                     "typeArguments": [],
                     "referenceDeclarationKind": "classElement"
@@ -276,7 +280,7 @@
         "codePoint": {
             "swidInterface": {
                 "name": "int",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "none",
                 "originalPackagePath": "dart:core",
                 "typeArguments": [],
                 "referenceDeclarationKind": "classElement"
@@ -286,7 +290,7 @@
         "fontFamily": {
             "swidInterface": {
                 "name": "String",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "question",
                 "originalPackagePath": "dart:core",
                 "typeArguments": [],
                 "referenceDeclarationKind": "classElement"
@@ -296,7 +300,7 @@
         "fontPackage": {
             "swidInterface": {
                 "name": "String",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "question",
                 "originalPackagePath": "dart:core",
                 "typeArguments": [],
                 "referenceDeclarationKind": "classElement"
@@ -306,7 +310,7 @@
         "matchTextDirection": {
             "swidInterface": {
                 "name": "bool",
-                "nullabilitySuffix": "star",
+                "nullabilitySuffix": "none",
                 "originalPackagePath": "dart:core",
                 "typeArguments": [],
                 "referenceDeclarationKind": "classElement"
@@ -342,7 +346,7 @@
     },
     "mixedInClasses": [],
     "implementedClasses": [],
-    "extendedClass": null,
     "isMixin": false,
-    "typeFormals": []
+    "typeFormals": [],
+    "extendedClass": null
 }

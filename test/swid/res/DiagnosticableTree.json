@@ -108,10 +108,9 @@
             },
             "namedDefaults": {
                 "joiner": {
-                    "name": "', '",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "String",
                             "nullabilitySuffix": "none",
@@ -120,13 +119,17 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidStringLiteral": { "value": ", " },
+                        "runtimeType": "fromSwidStringLiteral"
+                    },
+                    "defaultValueCode": "', '"
                 },
                 "minLevel": {
-                    "name": "DiagnosticLevel.debug",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "DiagnosticLevel",
                             "nullabilitySuffix": "none",
@@ -135,7 +138,21 @@
                             "referenceDeclarationKind": "enumElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "DiagnosticLevel",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "debug" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "DiagnosticLevel.debug"
                 }
             },
             "normalParameterNames": [],
@@ -219,10 +236,9 @@
             },
             "namedDefaults": {
                 "minLevel": {
-                    "name": "DiagnosticLevel.debug",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "DiagnosticLevel",
                             "nullabilitySuffix": "none",
@@ -231,13 +247,26 @@
                             "referenceDeclarationKind": "enumElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "DiagnosticLevel",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "debug" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "DiagnosticLevel.debug"
                 },
                 "prefixLineOne": {
-                    "name": "''",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "String",
                             "nullabilitySuffix": "none",
@@ -246,7 +275,12 @@
                             "referenceDeclarationKind": "classElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "swidStringLiteral": { "value": "" },
+                        "runtimeType": "fromSwidStringLiteral"
+                    },
+                    "defaultValueCode": "''"
                 }
             },
             "normalParameterNames": [],
@@ -408,7 +442,7 @@
                 "hasNonVirtual": false,
                 "hasOptionalTypeArgs": false,
                 "hasOverride": false,
-                "hasProtected": true,
+                "hasProtected": false,
                 "hasRequired": false,
                 "hasSealed": false,
                 "hasVisibleForTemplate": false,
@@ -576,10 +610,9 @@
                     },
                     "namedDefaults": {
                         "minLevel": {
-                            "name": "DiagnosticLevel.info",
                             "nullabilitySuffix": "none",
                             "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
-                            "value": {
+                            "staticType": {
                                 "swidInterface": {
                                     "name": "DiagnosticLevel",
                                     "nullabilitySuffix": "none",
@@ -588,7 +621,23 @@
                                     "referenceDeclarationKind": "enumElement"
                                 },
                                 "runtimeType": "fromSwidInterface"
-                            }
+                            },
+                            "value": {
+                                "staticConstPrefixedIdentifier": {
+                                    "prefix": {
+                                        "name": "DiagnosticLevel",
+                                        "nullabilitySuffix": "none",
+                                        "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                                        "typeArguments": [],
+                                        "referenceDeclarationKind": "classElement"
+                                    },
+                                    "staticConstFieldReference": {
+                                        "name": "info"
+                                    }
+                                },
+                                "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                            },
+                            "defaultValueCode": "DiagnosticLevel.info"
                         }
                     },
                     "normalParameterNames": [],
@@ -769,13 +818,13 @@
             },
             "mixedInClasses": [],
             "implementedClasses": [],
-            "extendedClass": null,
             "isMixin": false,
-            "typeFormals": []
+            "typeFormals": [],
+            "extendedClass": null
         }
     ],
     "implementedClasses": [],
-    "extendedClass": null,
     "isMixin": false,
-    "typeFormals": []
+    "typeFormals": [],
+    "extendedClass": null
 }

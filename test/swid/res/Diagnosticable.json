@@ -99,10 +99,9 @@
             },
             "namedDefaults": {
                 "minLevel": {
-                    "name": "DiagnosticLevel.info",
                     "nullabilitySuffix": "none",
                     "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
-                    "value": {
+                    "staticType": {
                         "swidInterface": {
                             "name": "DiagnosticLevel",
                             "nullabilitySuffix": "none",
@@ -111,7 +110,21 @@
                             "referenceDeclarationKind": "enumElement"
                         },
                         "runtimeType": "fromSwidInterface"
-                    }
+                    },
+                    "value": {
+                        "staticConstPrefixedIdentifier": {
+                            "prefix": {
+                                "name": "DiagnosticLevel",
+                                "nullabilitySuffix": "none",
+                                "originalPackagePath": "package:flutter/src/foundation/diagnostics.dart",
+                                "typeArguments": [],
+                                "referenceDeclarationKind": "classElement"
+                            },
+                            "staticConstFieldReference": { "name": "info" }
+                        },
+                        "runtimeType": "fromSwidStaticConstPrefixedIdentifier"
+                    },
+                    "defaultValueCode": "DiagnosticLevel.info"
                 }
             },
             "normalParameterNames": [],
@@ -220,11 +233,11 @@
                 "hasIsTestGroup": false,
                 "hasJS": false,
                 "hasLiteral": false,
-                "hasMustCallSuper": true,
+                "hasMustCallSuper": false,
                 "hasNonVirtual": false,
                 "hasOptionalTypeArgs": false,
                 "hasOverride": false,
-                "hasProtected": true,
+                "hasProtected": false,
                 "hasRequired": false,
                 "hasSealed": false,
                 "hasVisibleForTemplate": false,
@@ -292,7 +305,7 @@
     },
     "mixedInClasses": [],
     "implementedClasses": [],
-    "extendedClass": null,
     "isMixin": true,
-    "typeFormals": []
+    "typeFormals": [],
+    "extendedClass": null
 }
