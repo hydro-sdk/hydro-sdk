@@ -9,7 +9,10 @@ mixin SwidiConstGrammarDefinition
         GrammarDefinition,
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition {
-  Parser CONST() => (ref0(constNumber));
+  Parser CONST() => ref0(constNumber) | ref0(constString);
 
   Parser constNumber() => (ref0(NUMBER));
+
+  Parser constString() =>
+      char('@') & char('"') & ref0(STRING_CONTENT_DQ).star() & char('"');
 }

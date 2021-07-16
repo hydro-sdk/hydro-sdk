@@ -1,16 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
+
 import 'lib/parserTestHarness.dart';
 
-class SimpleConstNumberParser extends SwidiGrammarDefinition
-    with SwidiConstNumberParser {
-  const SimpleConstNumberParser();
+class SimpleConstStringParser extends SwidiGrammarDefinition
+    with SwidiConstStringParser {
+  const SimpleConstStringParser();
 }
 
 class SimpleConstParser extends SwidiGrammarDefinition
@@ -22,21 +22,21 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-      input: const ParserTestHarnessInput.fromString(input: "100"),
-      parser: const SimpleConstNumberParser()
-          .build(start: const SimpleConstNumberParser().constNumber),
-      result: const SwidiConstNumber(
-        value: "100",
+      input: const ParserTestHarnessInput.fromString(input: '@"abc"'),
+      parser: const SimpleConstStringParser()
+          .build(start: const SimpleConstStringParser().constString),
+      result: const SwidiConstString(
+        value: "abc",
       ),
     );
 
     parserTestHarness(
-      input: const ParserTestHarnessInput.fromString(input: "100"),
+      input: const ParserTestHarnessInput.fromString(input: '@"abc"'),
       parser: const SimpleConstParser()
           .build(start: const SimpleConstParser().CONST),
-      result: const SwidiConst.fromSwidiConstNumber(
-          swidiConstNumber: SwidiConstNumber(
-        value: "100",
+      result: const SwidiConst.fromSwidiConstString(
+          swidiConstString: SwidiConstString(
+        value: "abc",
       )),
     );
   });
