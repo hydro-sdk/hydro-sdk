@@ -52,26 +52,27 @@ void main() {
   LiveTestWidgetsFlutterBinding();
   testWidgets('', (WidgetTester tester) async {
     parserTestHarness(
-        input: const ParserTestHarnessInput.fromString(input: 'void foo<T extends "dart:core"::class::Object?>();'),
+        input: const ParserTestHarnessInput.fromString(
+            input: 'void foo<T extends "dart:core"::class::Object?>();'),
         parser: const BasicFunctionDeclarationParser().build(
             start: const BasicFunctionDeclarationParser().functionDeclaration),
         result: const SwidiFunctionDeclaration(
           typeFormals: [
-              SwidiTypeFormal(
-                name: "T",
-                bound: SwidiInterface(
-                  name: "Object?",
-                  libraryScopePrefix: SwidiLibraryScopePrefix(
-                    name: "dart:core",
-                  ),
-                  referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
-                    name: "class",
-                  ),
-                  nullabilitySuffix: SwidiNullabilitySuffix.question,
-                  typeArguments: [],
+            SwidiTypeFormal(
+              name: "T",
+              bound: SwidiInterface(
+                name: "Object?",
+                libraryScopePrefix: SwidiLibraryScopePrefix(
+                  name: "dart:core",
                 ),
-              )
-            ],
+                referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix(
+                  name: "class",
+                ),
+                nullabilitySuffix: SwidiNullabilitySuffix.question,
+                typeArguments: [],
+              ),
+            )
+          ],
           returnType: SwidiInterface(
             typeArguments: [],
             name: "void",

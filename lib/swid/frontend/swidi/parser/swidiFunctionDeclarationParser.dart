@@ -1,6 +1,3 @@
-import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListDeclarationParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
@@ -10,9 +7,12 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiFunctionDeclarationParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListDeclarationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
 mixin SwidiFunctionDeclarationParser
