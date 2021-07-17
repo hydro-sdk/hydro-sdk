@@ -1,7 +1,8 @@
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
-import 'package:petitparser/petitparser.dart';
 
 mixin SwidiConstStringParser on SwidiConstGrammarDefinition {
   Parser<SwidiConstString> constString() => super.constString().map(

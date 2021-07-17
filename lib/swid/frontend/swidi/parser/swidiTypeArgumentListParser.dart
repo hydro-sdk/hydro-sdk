@@ -1,9 +1,10 @@
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeArgumentList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
-import 'package:petitparser/petitparser.dart';
 
 mixin SwidiTypeArgumentListParser
     on SwidiDeclarationGrammarDefinition, SwidiTypeListParser {

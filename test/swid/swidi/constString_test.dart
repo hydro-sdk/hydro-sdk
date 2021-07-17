@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstString.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
-
 import 'lib/parserTestHarness.dart';
 
 class SimpleConstStringParser extends SwidiGrammarDefinition
