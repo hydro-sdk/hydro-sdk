@@ -18,6 +18,7 @@ mixin SwidiFunctionGrammarDefinition
   Parser functionDeclaration() =>
       ref0(returnType) &
       ref0(identifier) &
+      ref0(typeFormalListDeclaration).optional() &
       ref0(functionDeclarationParameterList) &
       ref1(token, ";");
 

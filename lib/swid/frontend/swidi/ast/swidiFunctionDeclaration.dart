@@ -4,6 +4,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiOptionalParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalParameter.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 
 part 'swidiFunctionDeclaration.freezed.dart';
 
@@ -15,6 +16,7 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
     required List<SwidiPositionalParameter> positionalParameters,
     required List<SwidiOptionalParameter> optionalParameters,
     required List<SwidiNamedParameter> namedParameters,
+    required List<SwidiTypeFormal> typeFormals,
   }) = _$SwidiFunctionDeclarationCtor;
 
   factory SwidiFunctionDeclaration.clone({
@@ -24,6 +26,7 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
     List<SwidiPositionalParameter>? positionalParameters,
     List<SwidiOptionalParameter>? optionalParameters,
     List<SwidiNamedParameter>? namedParameters,
+    List<SwidiTypeFormal>? typeFormals,
   }) =>
       SwidiFunctionDeclaration(
         name: name ?? swidiFunctionDeclaration.name,
@@ -59,6 +62,14 @@ class SwidiFunctionDeclaration with _$SwidiFunctionDeclaration {
                       swidiNamedParameter: x,
                     ),
                   )
+                  .toList(),
+            ),
+        typeFormals: typeFormals ??
+            List.from(
+              swidiFunctionDeclaration.typeFormals
+                  .map((x) => SwidiTypeFormal.clone(
+                        swidiTypeFormal: x,
+                      ))
                   .toList(),
             ),
       );

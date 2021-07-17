@@ -1,3 +1,6 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListDeclarationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/constantPrimitives.dart';
@@ -15,6 +18,8 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 mixin SwidiFunctionDeclarationParser
     on
         SwidiGrammarDefinition,
+        SwidiTypeFormalListParser,
+        SwidiTypeFormalListDeclarationParser,
         SwidiSimpleDeclarationParser,
         SwidiFunctionDeclarationParameterListParser {
   Parser<SwidiFunctionDeclaration> functionDeclaration() =>
@@ -51,6 +56,14 @@ mixin SwidiFunctionDeclarationParser
                     ))
                 .where((e) => e != swidiUnknownNamedParameter)
                 .toList()
+          ],
+          typeFormals: [
+            ...((({
+              required List<SwidiTypeFormalList> typeFormals,
+            }) =>
+                typeFormals.isNotEmpty ? typeFormals.first.typeFormalList : [])(
+              typeFormals: collectTokens<SwidiTypeFormalList>(x),
+            )),
           ],
         );
       });
