@@ -8,6 +8,8 @@ part 'swidiInterface.freezed.dart';
 
 @freezed
 class SwidiInterface with _$SwidiInterface {
+  const SwidiInterface._();
+
   const factory SwidiInterface({
     required String name,
     required SwidiLibraryScopePrefix libraryScopePrefix,
@@ -15,6 +17,14 @@ class SwidiInterface with _$SwidiInterface {
     required SwidiNullabilitySuffix nullabilitySuffix,
     required List<SwidiInterface> typeArguments,
   }) = _$SwidiInterfaceCtor;
+
+  static const empty = const SwidiInterface(
+    name: "",
+    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+    referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
+    nullabilitySuffix: SwidiNullabilitySuffix.none,
+    typeArguments: [],
+  );
 
   factory SwidiInterface.clone({
     required SwidiInterface swidiInterface,
