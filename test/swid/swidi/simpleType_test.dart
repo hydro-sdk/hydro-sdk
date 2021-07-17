@@ -17,8 +17,8 @@ class SimpleTypeParser extends SwidiGrammarDefinition
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
         SwidiTypeListParser,
-        SwidiTypeParser,
-        SwidiTypeArgumentListParser {
+        SwidiTypeArgumentListParser,
+        SwidiTypeParser {
   const SimpleTypeParser();
 }
 
