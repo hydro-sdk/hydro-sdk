@@ -13,6 +13,7 @@ class SwidiInterface with _$SwidiInterface {
     required SwidiLibraryScopePrefix libraryScopePrefix,
     required SwidiReferenceDeclarationPrefix referenceDeclarationPrefix,
     required SwidiNullabilitySuffix nullabilitySuffix,
+    required List<SwidiInterface> typeArguments,
   }) = _$SwidiInterfaceCtor;
 
   factory SwidiInterface.clone({
@@ -21,6 +22,7 @@ class SwidiInterface with _$SwidiInterface {
     SwidiLibraryScopePrefix? libraryScopePrefix,
     SwidiReferenceDeclarationPrefix? referenceDeclarationPrefix,
     SwidiNullabilitySuffix? nullabilitySuffix,
+    List<SwidiInterface>? typeArguments,
   }) =>
       SwidiInterface(
         name: name ?? swidiInterface.name,
@@ -35,5 +37,11 @@ class SwidiInterface with _$SwidiInterface {
             ),
         nullabilitySuffix:
             nullabilitySuffix ?? swidiInterface.nullabilitySuffix,
+        typeArguments: typeArguments ??
+            swidiInterface.typeArguments
+                .map((x) => SwidiInterface.clone(
+                      swidiInterface: x,
+                    ))
+                .toList(),
       );
 }

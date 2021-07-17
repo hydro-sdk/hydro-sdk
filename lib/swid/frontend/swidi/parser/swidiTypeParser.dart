@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeArgumentList.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiTypeListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
@@ -12,6 +14,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 mixin SwidiTypeParser
     on
         SwidiGrammarDefinition,
+        SwidiTypeListParser,
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser {
   Parser<SwidiInterface> type() => super.type().map((x) {
@@ -22,6 +25,8 @@ mixin SwidiTypeParser
           token = tokenList.last.input;
           nullabilitySuffix = tokenList.first.input;
         }
+        final typeArguments = collectTokens<SwidiTypeArgumentList>(x);
+
         return SwidiInterface(
           name:
               token != nullabilitySuffix ? token! + nullabilitySuffix! : token!,
@@ -36,6 +41,8 @@ mixin SwidiTypeParser
               collectTokens<SwidiReferenceDeclarationPrefix>(x).isNotEmpty
                   ? collectTokens<SwidiReferenceDeclarationPrefix>(x).first
                   : SwidiReferenceDeclarationPrefix.empty,
+          typeArguments:
+              typeArguments.isNotEmpty ? typeArguments.first.typeList : [],
         );
       });
 }

@@ -8,6 +8,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dar
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeParser.dart';
 
 import 'lib/parserTestHarness.dart';
@@ -16,7 +17,9 @@ class SimpleTypeListParser extends SwidiGrammarDefinition
     with
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser,
+        SwidiTypeListParser,
         SwidiTypeParser,
+        SwidiTypeArgumentListParser,
         SwidiTypeListParser {
   const SimpleTypeListParser();
 }
@@ -34,8 +37,10 @@ void main() {
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
           nullabilitySuffix: SwidiNullabilitySuffix.none,
+          typeArguments: [],
         ),
         SwidiInterface(
+          typeArguments: [],
           name: "int",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
@@ -51,6 +56,7 @@ void main() {
           .build(start: const SimpleTypeListParser().typeList),
       result: const [
         SwidiInterface(
+          typeArguments: [],
           name: "int?",
           libraryScopePrefix: SwidiLibraryScopePrefix(
             name: "dart:core",
@@ -61,6 +67,7 @@ void main() {
           nullabilitySuffix: SwidiNullabilitySuffix.question,
         ),
         SwidiInterface(
+          typeArguments: [],
           name: "int",
           libraryScopePrefix: SwidiLibraryScopePrefix.empty,
           referenceDeclarationPrefix: SwidiReferenceDeclarationPrefix.empty,
