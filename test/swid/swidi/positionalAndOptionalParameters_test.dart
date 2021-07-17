@@ -50,6 +50,7 @@ void main() {
               SwidiFunctionDeclaration(
                 name: "foo",
                 returnType: SwidiInterface(
+                  typeArguments: [],
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix:
@@ -58,31 +59,38 @@ void main() {
                 ),
                 optionalParameters: [
                   SwidiOptionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "baz",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "baz",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
                   SwidiOptionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "qux",
-                          type: SwidiInterface(
-                            name: "int?",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.question,
-                          )))
+                    declaration: SwidiDeclaration(
+                      name: "qux",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int?",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                      ),
+                    ),
+                  )
                 ],
                 positionalParameters: [
                   SwidiPositionalParameter(
                       declaration: SwidiDeclaration(
                           name: "bar",
                           type: SwidiInterface(
+                            typeArguments: [],
                             name: "int",
                             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                             referenceDeclarationPrefix:
@@ -123,6 +131,7 @@ void main() {
               SwidiFunctionDeclaration(
                 name: "foo",
                 returnType: SwidiInterface(
+                  typeArguments: [],
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix:
@@ -131,47 +140,59 @@ void main() {
                 ),
                 optionalParameters: [
                   SwidiOptionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "baz",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "baz",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
                   SwidiOptionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "qux",
-                          type: SwidiInterface(
-                            name: "int?",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.question,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "qux",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int?",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                      ),
+                    ),
+                  ),
                   SwidiOptionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "quux",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          )))
+                    declaration: SwidiDeclaration(
+                      name: "quux",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  )
                 ],
                 positionalParameters: [
                   SwidiPositionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "bar",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "bar",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
                 ],
                 namedParameters: [],
               )
@@ -201,6 +222,7 @@ void main() {
               SwidiFunctionDeclaration(
                 name: "foo",
                 returnType: SwidiInterface(
+                  typeArguments: [],
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix:
@@ -209,47 +231,59 @@ void main() {
                 ),
                 optionalParameters: [
                   SwidiOptionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "quux",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          )))
+                    declaration: SwidiDeclaration(
+                      name: "quux",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  )
                 ],
                 positionalParameters: [
                   SwidiPositionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "bar",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "bar",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
                   SwidiPositionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "baz",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "baz",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
                   SwidiPositionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "qux",
-                          type: SwidiInterface(
-                            name: "int?",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.question,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "qux",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int?",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.question,
+                      ),
+                    ),
+                  ),
                 ],
                 namedParameters: [],
               )
@@ -282,6 +316,7 @@ void main() {
               SwidiFunctionDeclaration(
                 name: "foo",
                 returnType: SwidiInterface(
+                  typeArguments: [],
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix:
@@ -290,27 +325,33 @@ void main() {
                 ),
                 optionalParameters: [
                   SwidiOptionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "baz",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "baz",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
                 ],
                 positionalParameters: [
                   SwidiPositionalParameter(
-                      declaration: SwidiDeclaration(
-                          name: "bar",
-                          type: SwidiInterface(
-                            name: "int",
-                            libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                            referenceDeclarationPrefix:
-                                SwidiReferenceDeclarationPrefix.empty,
-                            nullabilitySuffix: SwidiNullabilitySuffix.none,
-                          ))),
+                    declaration: SwidiDeclaration(
+                      name: "bar",
+                      type: SwidiInterface(
+                        typeArguments: [],
+                        name: "int",
+                        libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                        referenceDeclarationPrefix:
+                            SwidiReferenceDeclarationPrefix.empty,
+                        nullabilitySuffix: SwidiNullabilitySuffix.none,
+                      ),
+                    ),
+                  ),
                 ],
                 namedParameters: [],
               )

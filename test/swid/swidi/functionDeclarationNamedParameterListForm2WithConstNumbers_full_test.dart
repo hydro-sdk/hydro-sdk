@@ -33,6 +33,7 @@ void main() {
               SwidiFunctionDeclaration(
                 name: "foo",
                 returnType: SwidiInterface(
+                  typeArguments: [],
                   name: "void",
                   libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                   referenceDeclarationPrefix:
@@ -46,6 +47,7 @@ void main() {
                     declaration: SwidiDeclaration(
                       name: "bar",
                       type: SwidiInterface(
+                        typeArguments: [],
                         name: "int",
                         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                         referenceDeclarationPrefix:
@@ -63,6 +65,7 @@ void main() {
                     declaration: SwidiDeclaration(
                       name: "baz",
                       type: SwidiInterface(
+                        typeArguments: [],
                         name: "int",
                         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                         referenceDeclarationPrefix:
@@ -80,6 +83,7 @@ void main() {
                     declaration: SwidiDeclaration(
                       name: "qux",
                       type: SwidiInterface(
+                        typeArguments: [],
                         name: "int",
                         libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                         referenceDeclarationPrefix:
@@ -116,6 +120,7 @@ void main() {
             SwidiFunctionDeclaration(
               name: "foo",
               returnType: SwidiInterface(
+                typeArguments: [],
                 name: "void",
                 libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                 referenceDeclarationPrefix:
@@ -129,6 +134,7 @@ void main() {
                   declaration: SwidiDeclaration(
                     name: "bar",
                     type: SwidiInterface(
+                      typeArguments: [],
                       name: "int",
                       libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                       referenceDeclarationPrefix:
@@ -146,6 +152,7 @@ void main() {
                   declaration: SwidiDeclaration(
                     name: "baz",
                     type: SwidiInterface(
+                      typeArguments: [],
                       name: "int?",
                       libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                       referenceDeclarationPrefix:
@@ -163,6 +170,7 @@ void main() {
                   declaration: SwidiDeclaration(
                     name: "qux",
                     type: SwidiInterface(
+                      typeArguments: [],
                       name: "int",
                       libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                       referenceDeclarationPrefix:

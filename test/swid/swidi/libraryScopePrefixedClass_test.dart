@@ -32,6 +32,7 @@ void main() {
                 SwidiFunctionDeclaration(
                   name: "foo",
                   returnType: SwidiInterface(
+                    typeArguments: [],
                     name: "void",
                     libraryScopePrefix: SwidiLibraryScopePrefix.empty,
                     referenceDeclarationPrefix:
@@ -40,35 +41,44 @@ void main() {
                   ),
                   optionalParameters: [
                     SwidiOptionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "bar",
-                            type: SwidiInterface(
-                              name: "int",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix: SwidiNullabilitySuffix.none,
-                            ))),
+                      declaration: SwidiDeclaration(
+                        name: "bar",
+                        type: SwidiInterface(
+                          typeArguments: [],
+                          name: "int",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        ),
+                      ),
+                    ),
                     SwidiOptionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "baz",
-                            type: SwidiInterface(
-                              name: "int",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix: SwidiNullabilitySuffix.none,
-                            ))),
+                      declaration: SwidiDeclaration(
+                        name: "baz",
+                        type: SwidiInterface(
+                          typeArguments: [],
+                          name: "int",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        ),
+                      ),
+                    ),
                     SwidiOptionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "qux",
-                            type: SwidiInterface(
-                              name: "int",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix: SwidiNullabilitySuffix.none,
-                            )))
+                      declaration: SwidiDeclaration(
+                        name: "qux",
+                        type: SwidiInterface(
+                          typeArguments: [],
+                          name: "int",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.none,
+                        ),
+                      ),
+                    )
                   ],
                   positionalParameters: [],
                   namedParameters: [],
