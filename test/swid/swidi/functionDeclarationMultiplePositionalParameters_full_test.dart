@@ -34,6 +34,7 @@ void main() {
               libraryScopePrefix: SwidiLibraryScopePrefix.empty,
               methods: [
                 SwidiFunctionDeclaration(
+                  typeFormals: [],
                   name: "foo",
                   returnType: SwidiInterface(
                     typeArguments: [],
@@ -74,184 +75,199 @@ void main() {
         ]);
 
     parserTestHarness(
-        input: const ParserTestHarnessInput.fromList(inputs: [
-          """
+      input: const ParserTestHarnessInput.fromList(inputs: [
+        """
   class IconData {
     void foo(int? bar,int baz);
   }
     """,
-          """
+        """
   class IconData {
     void foo(int? bar,int baz,);
   }
     """,
-        ]),
-        parser: const SwidiParser().build(),
-        result: [
-          const SwidiClass(
-              name: "IconData",
-              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-              methods: [
-                SwidiFunctionDeclaration(
-                  name: "foo",
-                  returnType: SwidiInterface(
-                    typeArguments: [],
-                    name: "void",
-                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                    referenceDeclarationPrefix:
-                        SwidiReferenceDeclarationPrefix.empty,
-                    nullabilitySuffix: SwidiNullabilitySuffix.none,
+      ]),
+      parser: const SwidiParser().build(),
+      result: [
+        const SwidiClass(
+          name: "IconData",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          methods: [
+            SwidiFunctionDeclaration(
+              typeFormals: [],
+              name: "foo",
+              returnType: SwidiInterface(
+                typeArguments: [],
+                name: "void",
+                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                referenceDeclarationPrefix:
+                    SwidiReferenceDeclarationPrefix.empty,
+                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              ),
+              optionalParameters: [],
+              namedParameters: [],
+              positionalParameters: [
+                SwidiPositionalParameter(
+                  declaration: SwidiDeclaration(
+                    name: "bar",
+                    type: SwidiInterface(
+                      typeArguments: [],
+                      name: "int?",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.question,
+                    ),
                   ),
-                  optionalParameters: [],
-                  namedParameters: [],
-                  positionalParameters: [
-                    SwidiPositionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "bar",
-                            type: SwidiInterface(
-                              typeArguments: [],
-                              name: "int?",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix:
-                                  SwidiNullabilitySuffix.question,
-                            ))),
-                    SwidiPositionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "baz",
-                            type: SwidiInterface(
-                              typeArguments: [],
-                              name: "int",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix: SwidiNullabilitySuffix.none,
-                            )))
-                  ],
+                ),
+                SwidiPositionalParameter(
+                  declaration: SwidiDeclaration(
+                    name: "baz",
+                    type: SwidiInterface(
+                      typeArguments: [],
+                      name: "int",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    ),
+                  ),
                 )
-              ]),
-        ]);
+              ],
+            )
+          ],
+        ),
+      ],
+    );
 
     parserTestHarness(
-        input: const ParserTestHarnessInput.fromList(inputs: [
-          """
+      input: const ParserTestHarnessInput.fromList(inputs: [
+        """
   class IconData {
     void foo(int bar,int? baz);
   }
     """,
-          """
+        """
   class IconData {
     void foo(int bar,int? baz,);
   }
     """,
-        ]),
-        parser: const SwidiParser().build(),
-        result: [
-          const SwidiClass(
-              name: "IconData",
-              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-              methods: [
-                SwidiFunctionDeclaration(
-                  name: "foo",
-                  returnType: SwidiInterface(
-                    typeArguments: [],
-                    name: "void",
-                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                    referenceDeclarationPrefix:
-                        SwidiReferenceDeclarationPrefix.empty,
-                    nullabilitySuffix: SwidiNullabilitySuffix.none,
+      ]),
+      parser: const SwidiParser().build(),
+      result: [
+        const SwidiClass(
+          name: "IconData",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          methods: [
+            SwidiFunctionDeclaration(
+              typeFormals: [],
+              name: "foo",
+              returnType: SwidiInterface(
+                typeArguments: [],
+                name: "void",
+                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                referenceDeclarationPrefix:
+                    SwidiReferenceDeclarationPrefix.empty,
+                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              ),
+              optionalParameters: [],
+              namedParameters: [],
+              positionalParameters: [
+                SwidiPositionalParameter(
+                  declaration: SwidiDeclaration(
+                    name: "bar",
+                    type: SwidiInterface(
+                      typeArguments: [],
+                      name: "int",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.none,
+                    ),
                   ),
-                  optionalParameters: [],
-                  namedParameters: [],
-                  positionalParameters: [
-                    SwidiPositionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "bar",
-                            type: SwidiInterface(
-                              typeArguments: [],
-                              name: "int",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix: SwidiNullabilitySuffix.none,
-                            ))),
-                    SwidiPositionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "baz",
-                            type: SwidiInterface(
-                              typeArguments: [],
-                              name: "int?",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix:
-                                  SwidiNullabilitySuffix.question,
-                            )))
-                  ],
+                ),
+                SwidiPositionalParameter(
+                  declaration: SwidiDeclaration(
+                    name: "baz",
+                    type: SwidiInterface(
+                      typeArguments: [],
+                      name: "int?",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.question,
+                    ),
+                  ),
                 )
-              ]),
-        ]);
+              ],
+            )
+          ],
+        ),
+      ],
+    );
 
     parserTestHarness(
-        input: const ParserTestHarnessInput.fromList(inputs: [
-          """
+      input: const ParserTestHarnessInput.fromList(inputs: [
+        """
   class IconData {
     void foo(int? bar,int? baz);
   }
     """,
-          """
+        """
   class IconData {
     void foo(int? bar,int? baz,);
   }
     """,
-        ]),
-        parser: const SwidiParser().build(),
-        result: [
-          const SwidiClass(
-              name: "IconData",
-              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-              methods: [
-                SwidiFunctionDeclaration(
-                  name: "foo",
-                  returnType: SwidiInterface(
-                    typeArguments: [],
-                    name: "void",
-                    libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                    referenceDeclarationPrefix:
-                        SwidiReferenceDeclarationPrefix.empty,
-                    nullabilitySuffix: SwidiNullabilitySuffix.none,
+      ]),
+      parser: const SwidiParser().build(),
+      result: [
+        const SwidiClass(
+          name: "IconData",
+          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+          methods: [
+            SwidiFunctionDeclaration(
+              typeFormals: [],
+              name: "foo",
+              returnType: SwidiInterface(
+                typeArguments: [],
+                name: "void",
+                libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                referenceDeclarationPrefix:
+                    SwidiReferenceDeclarationPrefix.empty,
+                nullabilitySuffix: SwidiNullabilitySuffix.none,
+              ),
+              optionalParameters: [],
+              namedParameters: [],
+              positionalParameters: [
+                SwidiPositionalParameter(
+                    declaration: SwidiDeclaration(
+                        name: "bar",
+                        type: SwidiInterface(
+                          typeArguments: [],
+                          name: "int?",
+                          libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                          referenceDeclarationPrefix:
+                              SwidiReferenceDeclarationPrefix.empty,
+                          nullabilitySuffix: SwidiNullabilitySuffix.question,
+                        ))),
+                SwidiPositionalParameter(
+                  declaration: SwidiDeclaration(
+                    name: "baz",
+                    type: SwidiInterface(
+                      typeArguments: [],
+                      name: "int?",
+                      libraryScopePrefix: SwidiLibraryScopePrefix.empty,
+                      referenceDeclarationPrefix:
+                          SwidiReferenceDeclarationPrefix.empty,
+                      nullabilitySuffix: SwidiNullabilitySuffix.question,
+                    ),
                   ),
-                  optionalParameters: [],
-                  namedParameters: [],
-                  positionalParameters: [
-                    SwidiPositionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "bar",
-                            type: SwidiInterface(
-                              typeArguments: [],
-                              name: "int?",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix:
-                                  SwidiNullabilitySuffix.question,
-                            ))),
-                    SwidiPositionalParameter(
-                        declaration: SwidiDeclaration(
-                            name: "baz",
-                            type: SwidiInterface(
-                              typeArguments: [],
-                              name: "int?",
-                              libraryScopePrefix: SwidiLibraryScopePrefix.empty,
-                              referenceDeclarationPrefix:
-                                  SwidiReferenceDeclarationPrefix.empty,
-                              nullabilitySuffix:
-                                  SwidiNullabilitySuffix.question,
-                            )))
-                  ],
                 )
-              ]),
-        ]);
+              ],
+            )
+          ],
+        ),
+      ],
+    );
   }, tags: "swid");
 }

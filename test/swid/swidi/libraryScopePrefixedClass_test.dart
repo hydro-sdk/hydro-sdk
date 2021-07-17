@@ -30,6 +30,7 @@ void main() {
                   name: "package:flutter/src/widgets/icon_data.dart"),
               methods: [
                 SwidiFunctionDeclaration(
+                  typeFormals: [],
                   name: "foo",
                   returnType: SwidiInterface(
                     typeArguments: [],

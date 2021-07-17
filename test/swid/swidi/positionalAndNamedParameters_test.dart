@@ -48,6 +48,7 @@ void main() {
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
             methods: [
               SwidiFunctionDeclaration(
+                typeFormals: [],
                 name: "foo",
                 returnType: SwidiInterface(
                   typeArguments: [],
@@ -131,6 +132,7 @@ void main() {
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
             methods: [
               SwidiFunctionDeclaration(
+                typeFormals: [],
                 name: "foo",
                 returnType: SwidiInterface(
                   typeArguments: [],
@@ -222,6 +224,7 @@ void main() {
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
             methods: [
               SwidiFunctionDeclaration(
+                typeFormals: [],
                 name: "foo",
                 returnType: SwidiInterface(
                   typeArguments: [],
@@ -316,6 +319,7 @@ void main() {
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
             methods: [
               SwidiFunctionDeclaration(
+                typeFormals: [],
                 name: "foo",
                 returnType: SwidiInterface(
                   typeArguments: [],
