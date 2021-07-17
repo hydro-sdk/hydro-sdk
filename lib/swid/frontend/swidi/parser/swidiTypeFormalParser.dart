@@ -11,7 +11,12 @@ mixin SwidiTypeFormalParser
   Parser<SwidiTypeFormal> typeFormal() => super.typeFormal().map(
         (x) => SwidiTypeFormal(
           name: List.from(x).whereType<Token?>().first?.input ?? "",
-          bound: collectTokens<SwidiInterface>(x).first,
+          bound: (({
+            required List<SwidiInterface> bound,
+          }) =>
+              bound.isNotEmpty ? bound.first : SwidiInterface.empty)(
+            bound: collectTokens<SwidiInterface>(x),
+          ),
         ),
       );
 }

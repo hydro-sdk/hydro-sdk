@@ -53,4 +53,10 @@ mixin SwidiDeclarationGrammarDefinition
 
   Parser typeFormal() =>
       ref0(identifier) & (ref1(token, "extends") & ref0(type)).optional();
+
+  Parser typeFormalList() =>
+      ref0(typeFormal) & (ref1(token, ",") & ref0(typeFormal)).star();
+
+  Parser typeFormalListDeclaration() =>
+      ref1(token, "<") & ref0(typeFormalList) & ref1(token, ">");
 }
