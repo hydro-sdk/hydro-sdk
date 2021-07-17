@@ -34,7 +34,7 @@ void main() {
             libraryScopePrefix: SwidiLibraryScopePrefix.empty,
             methods: [
               SwidiFunctionDeclaration(
-                typeFormals: [],
+                  typeFormals: [],
                   name: "foo",
                   returnType: SwidiInterface(
                     typeArguments: [],
