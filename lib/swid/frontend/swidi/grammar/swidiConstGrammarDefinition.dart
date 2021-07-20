@@ -18,5 +18,6 @@ mixin SwidiConstGrammarDefinition
   Parser constString() =>
       char('@') & char('"') & ref0(STRING_CONTENT_DQ).star() & char('"');
 
-  Parser constNamedParameter() => ref0(identifier) & char(':') & ref0(CONST);
+  Parser constNamedParameter() =>
+      ref0(identifier) & ref1(token, ':') & ref0(CONST);
 }
