@@ -14,11 +14,9 @@ mixin SwidiConstPositionalParameterListParser
         SwidiConstNumberParser,
         SwidiConstParser {
   Parser<SwidiConstPositionalParameterList> constPositionalParameterList() =>
-      super.constPositionalParameterList().map((x) {
-        final parameters = collectTokens<SwidiConst>(x);
-
-        return SwidiConstPositionalParameterList(
-          parameters: parameters,
-        );
-      });
+      super.constPositionalParameterList().map(
+            (x) => SwidiConstPositionalParameterList(
+              parameters: collectTokens<SwidiConst>(x),
+            ),
+          );
 }
