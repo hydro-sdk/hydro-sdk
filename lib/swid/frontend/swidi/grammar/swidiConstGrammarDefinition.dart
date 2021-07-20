@@ -33,6 +33,18 @@ mixin SwidiConstGrammarDefinition
               ))
           .star());
 
+  Parser constNamedParameterList() => (ref0(
+        constNamedParameter,
+      ) &
+      (ref1(
+                token,
+                ",",
+              ) &
+              ref0(
+                constNamedParameter,
+              ))
+          .star());
+
   Parser constParameterList() =>
       (ref0(
             CONST,
