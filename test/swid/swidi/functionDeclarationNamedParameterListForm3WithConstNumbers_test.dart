@@ -10,7 +10,6 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiPositionalOrOptionalOrNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
@@ -22,6 +21,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixPars
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiSimpleDeclarationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeParser.dart';
 import 'lib/parserTestHarness.dart';
 

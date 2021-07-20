@@ -7,13 +7,13 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefi
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormal.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeFormalList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListDeclarationParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeFormalParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeParser.dart';
 import 'lib/parserTestHarness.dart';
 
