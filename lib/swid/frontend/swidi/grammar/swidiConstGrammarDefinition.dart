@@ -20,4 +20,47 @@ mixin SwidiConstGrammarDefinition
 
   Parser constNamedParameter() =>
       ref0(identifier) & ref1(token, ':') & ref0(CONST);
+
+  Parser constPositionalParameterList() => (ref0(
+        CONST,
+      ) &
+      (ref1(
+                token,
+                ",",
+              ) &
+              ref0(
+                CONST,
+              ))
+          .star());
+
+  Parser constParameterList() =>
+      (ref0(
+            CONST,
+          ) &
+          (ref1(
+                    token,
+                    ",",
+                  ) &
+                  ref0(
+                    CONST,
+                  ))
+              .star() &
+          (ref0(
+                constNamedParameter,
+              ) &
+              (ref1(
+                        token,
+                        ",",
+                      ) &
+                      ref0(
+                        constNamedParameter,
+                      ))
+                  .star()
+                  .optional())) |
+      (ref0(
+        constNamedParameter,
+      )) |
+      (ref0(
+        CONST,
+      ));
 }
