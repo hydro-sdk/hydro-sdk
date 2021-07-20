@@ -53,5 +53,5 @@ void main() {
           defaultConstValue: SwidiConst.fromSwidiConstNumber(
               swidiConstNumber: SwidiConstNumber(value: "100"))),
     );
-  });
+  }, tags: "swid");
 }

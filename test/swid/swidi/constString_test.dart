@@ -39,5 +39,5 @@ void main() {
         value: "abc",
       )),
     );
-  });
+  }, tags: "swid");
 }

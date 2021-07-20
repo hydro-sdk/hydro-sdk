@@ -39,5 +39,5 @@ void main() {
         value: "100",
       )),
     );
-  });
+  }, tags: "swid");
 }
