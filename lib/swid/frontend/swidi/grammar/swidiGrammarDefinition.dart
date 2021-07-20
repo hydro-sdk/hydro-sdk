@@ -7,6 +7,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationOp
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationPositionalParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiIdentifierGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiLexicalTokensGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
 
@@ -15,6 +16,7 @@ class SwidiGrammarDefinition extends GrammarDefinition
         SwidiWhitespaceGrammarDefinition,
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition,
+        SwidiIdentifierGrammarDefinition,
         SwidiConstGrammarDefinition,
         SwidiDeclarationGrammarDefinition,
         SwidiFunctionDeclarationPositionalParameterGrammarDefinition,

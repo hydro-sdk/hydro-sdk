@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
 
 part 'swidiConstFunctionInvocation.freezed.dart';
 
 @freezed
-class SwidiConstFunctionInvocation
-    with _$SwidiConstFunctionInvocation {
+class SwidiConstFunctionInvocation with _$SwidiConstFunctionInvocation {
   const SwidiConstFunctionInvocation._();
 
   const factory SwidiConstFunctionInvocation({
@@ -15,8 +15,7 @@ class SwidiConstFunctionInvocation
   }) = _$SwidiConstFunctionInvocationCtor;
 
   factory SwidiConstFunctionInvocation.clone({
-    required SwidiConstFunctionInvocation
-        swidiConstFunctionInvocation,
+    required SwidiConstFunctionInvocation swidiConstFunctionInvocation,
     String? value,
     List<SwidiConst>? positionalParameters,
     Map<String, SwidiConst>? namedParameters,

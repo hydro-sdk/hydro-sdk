@@ -3,6 +3,7 @@ import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiIdentifierGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiLexicalTokensGrammarDefinition.dart';
 
 mixin SwidiDeclarationGrammarDefinition
@@ -10,10 +11,9 @@ mixin SwidiDeclarationGrammarDefinition
         GrammarDefinition,
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition,
+        SwidiIdentifierGrammarDefinition,
         SwidiConstGrammarDefinition {
   Parser returnType() => ref0(type);
-
-  Parser identifier() => ref1(token, ref0(IDENTIFIER));
 
   Parser simpleDeclaration() => (ref0(type) & ref0(identifier));
 
