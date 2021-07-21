@@ -15,10 +15,12 @@ mixin SwidiConstNamedParameterListParser
         SwidiConstNumberParser,
         SwidiConstNamedParameterParser,
         SwidiConstParser {
-  Parser<SwidiConstNamedParameterList> constNamedParameterList() =>
+  Parser<List<SwidiConstNamedParameterList>> constNamedParameterList() =>
       super.constNamedParameterList().map(
-            (x) => SwidiConstNamedParameterList(
-              parameters: collectTokens<SwidiConstNamedParameter>(x),
-            ),
+            (x) => [
+              SwidiConstNamedParameterList(
+                parameters: collectTokens<SwidiConstNamedParameter>(x),
+              ),
+            ],
           );
 }

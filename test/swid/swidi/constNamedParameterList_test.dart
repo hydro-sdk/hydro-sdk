@@ -33,18 +33,20 @@ void main() {
       parser: const SimpleConstParameterListParser().build(
           start:
               const SimpleConstParameterListParser().constNamedParameterList),
-      result: const SwidiConstNamedParameterList(
-        parameters: [
-          SwidiConstNamedParameter(
-            name: "foo",
-            value: SwidiConst.fromSwidiConstNumber(
-              swidiConstNumber: SwidiConstNumber(
-                value: "100",
+      result: const [
+        SwidiConstNamedParameterList(
+          parameters: [
+            SwidiConstNamedParameter(
+              name: "foo",
+              value: SwidiConst.fromSwidiConstNumber(
+                swidiConstNumber: SwidiConstNumber(
+                  value: "100",
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      ],
     );
 
     parserTestHarness(
@@ -55,26 +57,28 @@ void main() {
       parser: const SimpleConstParameterListParser().build(
           start:
               const SimpleConstParameterListParser().constNamedParameterList),
-      result: const SwidiConstNamedParameterList(
-        parameters: [
-          SwidiConstNamedParameter(
-            name: "foo",
-            value: SwidiConst.fromSwidiConstNumber(
-              swidiConstNumber: SwidiConstNumber(
-                value: "100",
+      result: const [
+        SwidiConstNamedParameterList(
+          parameters: [
+            SwidiConstNamedParameter(
+              name: "foo",
+              value: SwidiConst.fromSwidiConstNumber(
+                swidiConstNumber: SwidiConstNumber(
+                  value: "100",
+                ),
               ),
             ),
-          ),
-          SwidiConstNamedParameter(
-            name: "bar",
-            value: SwidiConst.fromSwidiConstNumber(
-              swidiConstNumber: SwidiConstNumber(
-                value: "200",
+            SwidiConstNamedParameter(
+              name: "bar",
+              value: SwidiConst.fromSwidiConstNumber(
+                swidiConstNumber: SwidiConstNumber(
+                  value: "200",
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      ],
     );
   }, tags: "swid");
 }

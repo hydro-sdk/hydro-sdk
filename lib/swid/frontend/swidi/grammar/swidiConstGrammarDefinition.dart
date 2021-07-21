@@ -46,33 +46,9 @@ mixin SwidiConstGrammarDefinition
           .star());
 
   Parser constParameterList() =>
-      (ref0(
-            CONST,
-          ) &
-          (ref1(
-                    token,
-                    ",",
-                  ) &
-                  ref0(
-                    CONST,
-                  ))
-              .star() &
-          (ref0(
-                constNamedParameter,
-              ) &
-              (ref1(
-                        token,
-                        ",",
-                      ) &
-                      ref0(
-                        constNamedParameter,
-                      ))
-                  .star()
-                  .optional())) |
-      (ref0(
-        constNamedParameter,
-      )) |
-      (ref0(
-        CONST,
-      ));
+      (ref0(constPositionalParameterList) &
+          ref1(token, ",") &
+          ref0(constNamedParameterList)) |
+      (ref0(constPositionalParameterList)) |
+      (ref0(constNamedParameterList));
 }

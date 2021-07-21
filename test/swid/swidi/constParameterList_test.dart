@@ -5,10 +5,12 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNamedParameter.dart'
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNumber.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstParameterList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstPositionalParameterListParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
 import 'lib/parserTestHarness.dart';
 
@@ -18,6 +20,8 @@ class SimpleConstParameterListParser extends SwidiGrammarDefinition
         SwidiConstNumberParser,
         SwidiConstParser,
         SwidiConstNamedParameterParser,
+        SwidiConstNamedParameterListParser,
+        SwidiConstPositionalParameterListParser,
         SwidiConstParameterListParser {
   const SimpleConstParameterListParser();
 }
@@ -71,9 +75,7 @@ void main() {
     parserTestHarness(
       input: const ParserTestHarnessInput.fromList(inputs: [
         "100, 100, foo : 100, bar : 100",
-        // "100,foo:100",
-        // "100,foo:100,",
-        // "100 , foo : 100 , ",
+        "100,100,foo:100,bar :100,",
       ]),
       parser: const SimpleConstParameterListParser().build(
           start: const SimpleConstParameterListParser().constParameterList),
@@ -84,10 +86,23 @@ void main() {
               value: "100",
             ),
           ),
+          SwidiConst.fromSwidiConstNumber(
+            swidiConstNumber: SwidiConstNumber(
+              value: "100",
+            ),
+          ),
         ],
         namedParameters: [
           SwidiConstNamedParameter(
             name: "foo",
+            value: SwidiConst.fromSwidiConstNumber(
+              swidiConstNumber: SwidiConstNumber(
+                value: "100",
+              ),
+            ),
+          ),
+          SwidiConstNamedParameter(
+            name: "bar",
             value: SwidiConst.fromSwidiConstNumber(
               swidiConstNumber: SwidiConstNumber(
                 value: "100",
