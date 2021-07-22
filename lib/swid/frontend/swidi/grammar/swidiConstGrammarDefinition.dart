@@ -11,7 +11,8 @@ mixin SwidiConstGrammarDefinition
         SwidiGrammarTokenizer,
         SwidiIdentifierGrammarDefinition,
         SwidiLexicalTokensGrammarDefinition {
-  Parser CONST() => ref0(constNumber) | ref0(constString);
+  Parser CONST() =>
+      ref0(constNumber) | ref0(constString) | ref0(constFunctionInvocation);
 
   Parser constNumber() => (ref0(NUMBER));
 
