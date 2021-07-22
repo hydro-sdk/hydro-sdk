@@ -42,6 +42,7 @@ void _parserTestHarness<T>({
   if (res.isFailure) {
     trace(parser).parse(input);
     print(res.message);
+    print("Failed to parse \"$input\"");
   }
 
   expect(res.isSuccess, true);
