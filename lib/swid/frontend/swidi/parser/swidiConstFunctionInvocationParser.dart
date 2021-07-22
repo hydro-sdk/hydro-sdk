@@ -22,25 +22,27 @@ mixin SwidiConstFunctionInvocationParser
         SwidiConstParameterListParser,
         SwidiConstParser {
   Parser<SwidiConstFunctionInvocation> constFunctionInvocation() =>
-      super.constFunctionInvocation().map((x) {
-        final identifier = List.from(x).whereType<Token?>().first?.input ?? "";
-        final parameterList = collectTokens<SwidiConstParameterList>(x);
-
-        return SwidiConstFunctionInvocation(
-          value: identifier,
-          positionalParameters: parameterList.isNotEmpty
-              ? parameterList.first.positionalParameters
-              : [],
-          namedParameters: parameterList.isNotEmpty
-              ? Map.fromEntries(
-                  parameterList.first.namedParameters.map(
-                    (x) => MapEntry(
-                      x.name,
-                      x.value,
-                    ),
-                  ),
-                )
-              : {},
-        );
-      });
+      super.constFunctionInvocation().map(
+            (x) => (({
+              required List<SwidiConstParameterList> parameterList,
+            }) =>
+                SwidiConstFunctionInvocation(
+                  value: List.from(x).whereType<Token?>().first?.input ?? "",
+                  positionalParameters: parameterList.isNotEmpty
+                      ? parameterList.first.positionalParameters
+                      : [],
+                  namedParameters: parameterList.isNotEmpty
+                      ? Map.fromEntries(
+                          parameterList.first.namedParameters.map(
+                            (x) => MapEntry(
+                              x.name,
+                              x.value,
+                            ),
+                          ),
+                        )
+                      : {},
+                ))(
+              parameterList: collectTokens<SwidiConstParameterList>(x),
+            ),
+          );
 }
