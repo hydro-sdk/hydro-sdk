@@ -51,4 +51,11 @@ mixin SwidiConstGrammarDefinition
           ref0(constNamedParameterList)) |
       (ref0(constPositionalParameterList)) |
       (ref0(constNamedParameterList));
+
+  Parser constFunctionInvocation() =>
+      ref0(identifier) &
+      ref1(token, "(") &
+      ref0(constParameterList) &
+      ref1(token, ",").optional() &
+      ref1(token, ")");
 }
