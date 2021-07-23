@@ -1,8 +1,8 @@
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNamedParameterListLexer.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNamedParameter.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstNamedParameterList.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNamedParameterListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';

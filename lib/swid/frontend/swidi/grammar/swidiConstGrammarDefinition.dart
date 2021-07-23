@@ -1,3 +1,6 @@
+import 'package:petitparser/definition.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstFunctionInvocationLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNamedParameterLexer.dart';
@@ -6,9 +9,6 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNumberLexer.d
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstParameterListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstPositionalParameterListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstStringLexer.dart';
-import 'package:petitparser/definition.dart';
-import 'package:petitparser/petitparser.dart';
-
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiIdentifierGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiLexicalTokensGrammarDefinition.dart';

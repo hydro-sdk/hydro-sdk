@@ -1,4 +1,3 @@
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHashbangLexer.dart';
 import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
@@ -7,6 +6,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAbstractLexer.dart
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDigitLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iExponentLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHashbangLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHexDigitLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHexNumberLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iIdentifierPartLexer.dart';
