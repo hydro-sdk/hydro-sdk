@@ -32,7 +32,7 @@ mixin SwidiGrammarTokenizer
   @nonVirtual
   Parser token(Object input) {
     if (input is Parser) {
-      return input.token().trim(ref0(HIDDEN_STUFF));
+      return input.token().trim(ref0(lexHiddenStuff));
     } else if (input is String) {
       return token(input.toParser());
     } else if (input is Function) {

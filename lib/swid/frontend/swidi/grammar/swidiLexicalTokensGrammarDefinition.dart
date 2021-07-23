@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHashbangLexer.dart';
 import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
@@ -50,7 +51,8 @@ mixin SwidiLexicalTokensGrammarDefinition
         IExponentLexer,
         IStringLexer,
         IMultiLineStringLexer,
-        ISingleLineStringLexer {
+        ISingleLineStringLexer,
+        IHashbangLexer {
   @override
   Parser lexAbstract() => ref1(token, "abstract");
 
@@ -134,6 +136,7 @@ mixin SwidiLexicalTokensGrammarDefinition
   Parser lexStringContentSq() =>
       pattern("^\\'\n\r") | char('\\') & pattern('\n\r');
 
-  Parser HASHBANG() =>
-      string('#!') & pattern('^\n\r').star() & ref0(NEWLINE).optional();
+  @override
+  Parser lexHashbang() =>
+      string('#!') & pattern('^\n\r').star() & ref0(lexNewline).optional();
 }

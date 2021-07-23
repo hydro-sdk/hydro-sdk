@@ -1,22 +1,45 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHiddenLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iHiddenStuffLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iMultiLineCommentLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iNewlineLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSingleLineCommentLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iWhitespaceLexer.dart';
 import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
-mixin SwidiWhitespaceGrammarDefinition on GrammarDefinition {
-  Parser HIDDEN() => ref0(HIDDEN_STUFF).plus();
+mixin SwidiWhitespaceGrammarDefinition on GrammarDefinition
+    implements
+        IHiddenLexer,
+        IHiddenStuffLexer,
+        IWhitespaceLexer,
+        ISingleLineCommentLexer,
+        IMultiLineCommentLexer,
+        INewlineLexer {
+  @override
+  Parser lexHidden() => ref0(lexHiddenStuff).plus();
 
-  Parser HIDDEN_STUFF() =>
-      ref0(WHITESPACE) | ref0(SINGLE_LINE_COMMENT) | ref0(MULTI_LINE_COMMENT);
+  @override
+  Parser lexHiddenStuff() =>
+      ref0(lexWhitespace) |
+      ref0(lexSingleLineComment) |
+      ref0(lexMultiLineComment);
 
-  Parser WHITESPACE() => whitespace();
+  @override
+  Parser lexWhitespace() => whitespace();
 
-  Parser SINGLE_LINE_COMMENT() =>
-      string('//') & ref0(NEWLINE).neg().star() & ref0(NEWLINE).optional();
+  @override
+  Parser lexSingleLineComment() =>
+      string('//') &
+      ref0(lexNewline).neg().star() &
+      ref0(lexNewline).optional();
 
-  Parser MULTI_LINE_COMMENT() =>
+  @override
+  Parser lexMultiLineComment() =>
       string('/*') &
-      (ref0(MULTI_LINE_COMMENT) | string('*/').neg()).star() &
+      (ref0(lexMultiLineComment) | string('*/').neg()).star() &
       string('*/');
 
-  Parser NEWLINE() => pattern('\n\r');
+  @override
+  Parser lexNewline() => pattern('\n\r');
 }
