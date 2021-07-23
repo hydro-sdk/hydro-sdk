@@ -35,7 +35,7 @@ class SwidiGrammarDefinition extends GrammarDefinition
       ref0(lexAbstract).optional() &
       ref0(lexClass) &
       ref0(libraryScopePrefix).optional() &
-      ref0(identifier) &
+      ref0(lexIdentifier) &
       ref1(token, "{") &
       ref0(functionDeclaration).star() &
       ref1(token, "}");

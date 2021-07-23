@@ -20,7 +20,7 @@ mixin SwidiConstGrammarDefinition
       char('@') & char('"') & ref0(lexStringContentDq).star() & char('"');
 
   Parser constNamedParameter() =>
-      ref0(identifier) & ref1(token, ':') & ref0(CONST);
+      ref0(lexIdentifier) & ref1(token, ':') & ref0(CONST);
 
   Parser constPositionalParameterList() => (ref0(
         CONST,
@@ -54,7 +54,7 @@ mixin SwidiConstGrammarDefinition
       (ref0(constNamedParameterList));
 
   Parser constFunctionInvocation() =>
-      ref0(identifier) &
+      ref0(lexIdentifier) &
       ref1(token, "(") &
       ref0(constParameterList) &
       ref1(token, ",").optional() &
