@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstFunctionInvocationLexer.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstFunctionInvocation.dart';
@@ -21,9 +22,10 @@ mixin SwidiConstFunctionInvocationParser
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
         SwidiConstParameterListParser,
-        SwidiConstParser {
+        SwidiConstParser
+    implements IConstFunctionInvocationLexer {
   Parser<SwidiConstFunctionInvocation> constFunctionInvocation() =>
-      super.constFunctionInvocation().map(
+      super.lexConstFunctionInvocation().map(
             (x) => (({
               required List<SwidiConstParameterList> parameterList,
             }) =>

@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNamedParameterLexer.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -8,9 +9,10 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
 mixin SwidiConstNamedParameterParser
-    on SwidiConstGrammarDefinition, SwidiConstParser {
+    on SwidiConstGrammarDefinition, SwidiConstParser
+    implements IConstNamedParameterLexer {
   Parser<SwidiConstNamedParameter> constNamedParameter() =>
-      super.constNamedParameter().map(
+      super.lexConstNamedParameter().map(
             (x) => SwidiConstNamedParameter(
               name: List.from(x).whereType<Token?>().first?.input ?? "",
               value: (({

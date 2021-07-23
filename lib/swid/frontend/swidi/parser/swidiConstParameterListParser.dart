@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstParameterListLexer.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -22,9 +23,10 @@ mixin SwidiConstParameterListParser
         SwidiConstNamedParameterParser,
         SwidiConstNamedParameterListParser,
         SwidiConstPositionalParameterListParser,
-        SwidiConstParser {
+        SwidiConstParser
+    implements IConstParameterListLexer {
   Parser<SwidiConstParameterList> constParameterList() =>
-      super.constParameterList().map(
+      super.lexConstParameterList().map(
             (x) => SwidiConstParameterList(
               namedParameters: (({
                 required List<SwidiConstNamedParameterList> namedParameterList,

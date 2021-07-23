@@ -18,7 +18,7 @@ mixin SwidiDeclarationGrammarDefinition
   Parser simpleDeclaration() => (ref0(type) & ref0(lexIdentifier));
 
   Parser declarationWithDefaultConstValue() =>
-      ref0(simpleDeclaration) & ref1(token, "=") & ref0(CONST);
+      ref0(simpleDeclaration) & ref1(token, "=") & ref0(lexConst );
 
   Parser qualified() =>
       ref0(lexIdentifier) & (ref1(token, ".") & ref0(lexIdentifier)).star();

@@ -1,3 +1,11 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstFunctionInvocationLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNamedParameterLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNamedParameterListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstNumberLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstParameterListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstPositionalParameterListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstStringLexer.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
@@ -10,53 +18,72 @@ mixin SwidiConstGrammarDefinition
         GrammarDefinition,
         SwidiGrammarTokenizer,
         SwidiIdentifierGrammarDefinition,
-        SwidiLexicalTokensGrammarDefinition {
-  Parser CONST() =>
-      ref0(constNumber) | ref0(constString) | ref0(constFunctionInvocation);
+        SwidiLexicalTokensGrammarDefinition
+    implements
+        IConstFunctionInvocationLexer,
+        IConstLexer,
+        IConstNamedParameterLexer,
+        IConstNamedParameterListLexer,
+        IConstNumberLexer,
+        IConstParameterListLexer,
+        IConstPositionalParameterListLexer,
+        IConstStringLexer {
+  @override
+  Parser lexConst() =>
+      ref0(lexConstNumber) |
+      ref0(lexConstString) |
+      ref0(lexConstFunctionInvocation);
 
-  Parser constNumber() => (ref0(lexNumber));
+  @override
+  Parser lexConstNumber() => (ref0(lexNumber));
 
-  Parser constString() =>
+  @override
+  Parser lexConstString() =>
       char('@') & char('"') & ref0(lexStringContentDq).star() & char('"');
 
-  Parser constNamedParameter() =>
-      ref0(lexIdentifier) & ref1(token, ':') & ref0(CONST);
+  @override
+  Parser lexConstNamedParameter() =>
+      ref0(lexIdentifier) & ref1(token, ':') & ref0(lexConst);
 
-  Parser constPositionalParameterList() => (ref0(
-        CONST,
+  @override
+  Parser lexConstPositionalParameterList() => (ref0(
+        lexConst,
       ) &
       (ref1(
                 token,
                 ",",
               ) &
               ref0(
-                CONST,
+                lexConst,
               ))
           .star());
 
-  Parser constNamedParameterList() => (ref0(
-        constNamedParameter,
+  @override
+  Parser lexConstNamedParameterList() => (ref0(
+        lexConstNamedParameter,
       ) &
       (ref1(
                 token,
                 ",",
               ) &
               ref0(
-                constNamedParameter,
+                lexConstNamedParameter,
               ))
           .star());
 
-  Parser constParameterList() =>
-      (ref0(constPositionalParameterList) &
+  @override
+  Parser lexConstParameterList() =>
+      (ref0(lexConstPositionalParameterList) &
           ref1(token, ",") &
-          ref0(constNamedParameterList)) |
-      (ref0(constPositionalParameterList)) |
-      (ref0(constNamedParameterList));
+          ref0(lexConstNamedParameterList)) |
+      (ref0(lexConstPositionalParameterList)) |
+      (ref0(lexConstNamedParameterList));
 
-  Parser constFunctionInvocation() =>
+  @override
+  Parser lexConstFunctionInvocation() =>
       ref0(lexIdentifier) &
       ref1(token, "(") &
-      ref0(constParameterList) &
+      ref0(lexConstParameterList) &
       ref1(token, ",").optional() &
       ref1(token, ")");
 }
