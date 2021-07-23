@@ -1,4 +1,3 @@
-
 abstract class IVoidLexer<T> {
   const IVoidLexer();
 

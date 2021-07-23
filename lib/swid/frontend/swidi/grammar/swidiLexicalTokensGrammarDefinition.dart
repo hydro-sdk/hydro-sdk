@@ -1,3 +1,7 @@
+import 'package:petitparser/core.dart';
+import 'package:petitparser/definition.dart';
+import 'package:petitparser/petitparser.dart';
+
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iAbstractLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDigitLexer.dart';
@@ -18,10 +22,6 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentDqLex
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringContentSqLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStringLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iVoidLexer.dart';
-import 'package:petitparser/core.dart';
-import 'package:petitparser/definition.dart';
-import 'package:petitparser/petitparser.dart';
-
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiWhitespaceGrammarDefinition.dart';
 

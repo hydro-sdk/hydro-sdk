@@ -1,4 +1,3 @@
-
 abstract class IAbstractLexer<T> {
   const IAbstractLexer();
 

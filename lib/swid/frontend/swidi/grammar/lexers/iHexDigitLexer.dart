@@ -1,4 +1,3 @@
-
 abstract class IHexDigitLexer<T> {
   const IHexDigitLexer();
 
