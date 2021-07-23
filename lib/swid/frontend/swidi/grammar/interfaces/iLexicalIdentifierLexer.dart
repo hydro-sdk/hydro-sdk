@@ -2,7 +2,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/interfaces/iIdentifierPart
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/interfaces/iIdentifierStartLexer.dart';
 
 abstract class ILexicalIdentifierLexer<T>
-    implements IIdentifierStartLexer, IIdentifierPartLexer {
+    implements IIdentifierStartLexer<T>, IIdentifierPartLexer<T> {
   const ILexicalIdentifierLexer();
 
   T lexLexicalIdentifier();

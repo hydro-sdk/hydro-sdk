@@ -2,7 +2,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/interfaces/iMultiLineStrin
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/interfaces/iSingleLineStringLexer.dart';
 
 abstract class IStringLexer<T>
-    implements IMultiLineStringLexer, ISingleLineStringLexer {
+    implements IMultiLineStringLexer<T>, ISingleLineStringLexer<T> {
   const IStringLexer();
 
   T lexString();

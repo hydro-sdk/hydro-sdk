@@ -2,7 +2,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/interfaces/iStringContentD
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/interfaces/iStringContentSqLexer.dart';
 
 abstract class ISingleLineStringLexer<T>
-    implements IStringContentDqLexer, IStringContentSqLexer {
+    implements IStringContentDqLexer<T>, IStringContentSqLexer<T> {
   const ISingleLineStringLexer();
 
   T lexSingleLineString();
