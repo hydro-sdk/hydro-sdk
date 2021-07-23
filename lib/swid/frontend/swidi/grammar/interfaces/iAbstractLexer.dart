@@ -1,7 +1,6 @@
-import 'package:petitparser/petitparser.dart';
 
-abstract class IAbstractLexer {
+abstract class IAbstractLexer<T> {
   const IAbstractLexer();
 
-  Parser lexAbstract();
+  T lexAbstract();
 }

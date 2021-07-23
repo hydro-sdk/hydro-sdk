@@ -14,10 +14,10 @@ mixin SwidiConstGrammarDefinition
   Parser CONST() =>
       ref0(constNumber) | ref0(constString) | ref0(constFunctionInvocation);
 
-  Parser constNumber() => (ref0(NUMBER));
+  Parser constNumber() => (ref0(lexNumber));
 
   Parser constString() =>
-      char('@') & char('"') & ref0(STRING_CONTENT_DQ).star() & char('"');
+      char('@') & char('"') & ref0(lexStringContentDq).star() & char('"');
 
   Parser constNamedParameter() =>
       ref0(identifier) & ref1(token, ':') & ref0(CONST);

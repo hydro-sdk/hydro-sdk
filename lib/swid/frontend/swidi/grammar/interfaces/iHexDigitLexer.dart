@@ -1,7 +1,6 @@
-import 'package:petitparser/petitparser.dart';
 
-abstract class IHexDigitLexer {
+abstract class IHexDigitLexer<T> {
   const IHexDigitLexer();
 
-  Parser lexHexDigit();
+  T lexHexDigit();
 }

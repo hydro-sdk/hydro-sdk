@@ -1,7 +1,5 @@
-import 'package:petitparser/petitparser.dart';
-
-abstract class ILetterLexer {
+abstract class ILetterLexer<T> {
   const ILetterLexer();
 
-  Parser lexLetter();
+  T lexLetter();
 }

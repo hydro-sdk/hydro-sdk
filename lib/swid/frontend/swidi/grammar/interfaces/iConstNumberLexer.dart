@@ -1,7 +1,5 @@
-import 'package:petitparser/petitparser.dart';
-
-abstract class IConstNumberLexer {
+abstract class IConstNumberLexer<T> {
   const IConstNumberLexer();
 
-  Parser lexConstNumber();
+  T lexConstNumber();
 }

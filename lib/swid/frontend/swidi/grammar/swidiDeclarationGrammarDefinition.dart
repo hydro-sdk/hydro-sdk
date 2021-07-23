@@ -41,7 +41,7 @@ mixin SwidiDeclarationGrammarDefinition
 
   Parser libraryScopePrefix() =>
       char('"') &
-      ref0(STRING_CONTENT_DQ).star() &
+      ref0(lexStringContentDq).star() &
       char('"') &
       ref1(token, ":") &
       ref1(token, ":");

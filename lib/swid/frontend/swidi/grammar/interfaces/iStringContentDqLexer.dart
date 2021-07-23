@@ -1,7 +1,5 @@
-import 'package:petitparser/petitparser.dart';
-
-abstract class IStringContentDqLexer {
+abstract class IStringContentDqLexer<T> {
   const IStringContentDqLexer();
 
-  Parser lexStringContentDq();
+  T lexStringContentDq();
 }

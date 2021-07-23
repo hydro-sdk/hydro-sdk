@@ -1,7 +1,6 @@
-import 'package:petitparser/petitparser.dart';
 
-abstract class IVoidLexer {
+abstract class IVoidLexer<T> {
   const IVoidLexer();
 
-  Parser lexVoid();
+  T lexVoid();
 }

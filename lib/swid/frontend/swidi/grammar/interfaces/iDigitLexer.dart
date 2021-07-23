@@ -1,8 +1,6 @@
 
-import 'package:petitparser/petitparser.dart';
-
-abstract class IDigitLexer {
+abstract class IDigitLexer<T> {
   const IDigitLexer();
 
-  Parser lexDigit();
+  T lexDigit();
 }

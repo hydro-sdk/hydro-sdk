@@ -5,5 +5,5 @@ import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiLexicalTokensGrammarD
 
 mixin SwidiIdentifierGrammarDefinition
     on GrammarDefinition, SwidiLexicalTokensGrammarDefinition {
-  Parser identifier() => ref1(token, ref0(IDENTIFIER));
+  Parser identifier() => ref1(token, ref0(lexLexicalIdentifier));
 }
