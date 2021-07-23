@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/interfaces/iClassLexer.dart';
 import 'package:petitparser/core.dart';
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
@@ -9,12 +10,14 @@ mixin SwidiLexicalTokensGrammarDefinition
     on
         GrammarDefinition,
         SwidiGrammarTokenizer,
-        SwidiWhitespaceGrammarDefinition {
+        SwidiWhitespaceGrammarDefinition
+    implements IClassLexer {
   Parser ABSTRACT() => ref1(token, "abstract");
 
   Parser VOID() => ref1(token, "void");
 
-  Parser CLASS() => ref1(token, "class");
+  @override
+  Parser lexClass() => ref1(token, "class");
   Parser IDENTIFIER() => ref0(IDENTIFIER_START) & ref0(IDENTIFIER_PART).star();
 
   Parser HEX_NUMBER() =>

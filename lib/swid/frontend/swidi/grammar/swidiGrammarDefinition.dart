@@ -33,7 +33,7 @@ class SwidiGrammarDefinition extends GrammarDefinition
 
   Parser classDefinition() =>
       ref0(ABSTRACT).optional() &
-      ref0(CLASS) &
+      ref0(lexClass) &
       ref0(libraryScopePrefix).optional() &
       ref0(identifier) &
       ref1(token, "{") &
