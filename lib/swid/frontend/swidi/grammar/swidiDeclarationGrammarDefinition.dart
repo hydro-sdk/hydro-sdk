@@ -1,6 +1,7 @@
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLibraryScopePrefixLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiIdentifierGrammarDefinition.dart';
@@ -12,7 +13,8 @@ mixin SwidiDeclarationGrammarDefinition
         SwidiGrammarTokenizer,
         SwidiLexicalTokensGrammarDefinition,
         SwidiIdentifierGrammarDefinition,
-        SwidiConstGrammarDefinition {
+        SwidiConstGrammarDefinition
+    implements ILibraryScopePrefixLexer {
   Parser returnType() => ref0(type);
 
   Parser simpleDeclaration() => (ref0(type) & ref0(identifier));
@@ -39,6 +41,7 @@ mixin SwidiDeclarationGrammarDefinition
       ref1(token, ":") &
       ref1(token, ":");
 
+  @override
   Parser libraryScopePrefix() =>
       char('"') &
       ref0(stringContentDq).star() &

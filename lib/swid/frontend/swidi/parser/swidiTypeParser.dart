@@ -6,6 +6,7 @@ import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiNullabilitySuffix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiReferenceDeclarationPrefix.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiTypeArgumentList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiLibraryScopePrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiReferenceDeclarationPrefixParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiTypeArgumentListParser.dart';
@@ -18,7 +19,8 @@ mixin SwidiTypeParser
         SwidiTypeArgumentListParser,
         SwidiTypeListParser,
         SwidiLibraryScopePrefixParser,
-        SwidiReferenceDeclarationPrefixParser {
+        SwidiReferenceDeclarationPrefixParser
+    implements ILibraryScopePrefixParser<Parser<SwidiLibraryScopePrefix>> {
   Parser<SwidiInterface> type() => super.type().map((x) {
         final tokenList = collectTokens<Token>(x);
         String? token;
