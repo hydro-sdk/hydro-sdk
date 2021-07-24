@@ -1,6 +1,8 @@
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iFunctionDeclarationParameterListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationNamedParameterGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationOptionalParameterGrammarDefinition.dart';
@@ -14,7 +16,11 @@ mixin SwidiFunctionGrammarDefinition
         SwidiDeclarationGrammarDefinition,
         SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
         SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
-        SwidiFunctionDeclarationNamedParameterGrammarDefinition {
+        SwidiFunctionDeclarationNamedParameterGrammarDefinition
+    implements
+        IFunctionDeclarationLexer,
+        IFunctionDeclarationParameterListLexer {
+  @override
   Parser functionDeclaration() =>
       ref0(returnType) &
       ref0(identifier) &
@@ -22,6 +28,7 @@ mixin SwidiFunctionGrammarDefinition
       ref0(functionDeclarationParameterList) &
       ref1(token, ";");
 
+  @override
   Parser functionDeclarationParameterList() =>
       (ref1(token, "(") & ref1(token, ")")) |
       //Positional only
