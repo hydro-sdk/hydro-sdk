@@ -15,6 +15,7 @@ mixin SwidiConstFunctionInvocationParser on SwidiConstGrammarDefinition
         IConstParameterListLexer,
         IConstFunctionInvocationParser<Parser<SwidiConstFunctionInvocation>>,
         IConstParameterListParser<Parser<SwidiConstParameterList>> {
+  @override
   Parser<SwidiConstFunctionInvocation> constFunctionInvocation() =>
       super.constFunctionInvocation().map(
             (x) => (({
