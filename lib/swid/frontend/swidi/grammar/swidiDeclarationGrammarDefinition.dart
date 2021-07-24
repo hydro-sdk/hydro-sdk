@@ -2,6 +2,14 @@ import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLibraryScopePrefixLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iQualifiedLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iReferenceDeclarationPrefixLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeArgumentsLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalListDeclarationLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalListLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeListLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarTokenizer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiIdentifierGrammarDefinition.dart';
@@ -14,7 +22,16 @@ mixin SwidiDeclarationGrammarDefinition
         SwidiLexicalTokensGrammarDefinition,
         SwidiIdentifierGrammarDefinition,
         SwidiConstGrammarDefinition
-    implements ILibraryScopePrefixLexer {
+    implements
+        ILibraryScopePrefixLexer,
+        IReferenceDeclarationPrefixLexer,
+        IQualifiedLexer,
+        ITypeLexer,
+        ITypeListLexer,
+        ITypeArgumentsLexer,
+        ITypeFormalLexer,
+        ITypeFormalListLexer,
+        ITypeFormalListDeclarationLexer {
   Parser returnType() => ref0(type);
 
   Parser simpleDeclaration() => (ref0(type) & ref0(identifier));
@@ -22,9 +39,11 @@ mixin SwidiDeclarationGrammarDefinition
   Parser declarationWithDefaultConstValue() =>
       ref0(simpleDeclaration) & ref1(token, "=") & ref0(lexicalConst);
 
+  @override
   Parser qualified() =>
       ref0(identifier) & (ref1(token, ".") & ref0(identifier)).star();
 
+  @override
   Parser type() =>
       ref0(libraryScopePrefix).optional() &
       ref0(referenceDeclarationPrefix).optional() &
@@ -32,6 +51,7 @@ mixin SwidiDeclarationGrammarDefinition
       ref0(typeArguments).optional() &
       ref1(token, "?").optional();
 
+  @override
   Parser referenceDeclarationPrefix() =>
       (ref1(token, "class") |
           ref1(token, "enum") |
@@ -49,17 +69,22 @@ mixin SwidiDeclarationGrammarDefinition
       ref1(token, ":") &
       ref1(token, ":");
 
+  @override
   Parser typeArguments() =>
       ref1(token, "<") & ref0(typeList) & ref1(token, ">");
 
+  @override
   Parser typeList() => ref0(type) & (ref1(token, ",") & ref0(type)).star();
 
+  @override
   Parser typeFormal() =>
       ref0(identifier) & (ref1(token, "extends") & ref0(type)).optional();
 
+  @override
   Parser typeFormalList() =>
       ref0(typeFormal) & (ref1(token, ",") & ref0(typeFormal)).star();
 
+  @override
   Parser typeFormalListDeclaration() =>
       ref1(token, "<") & ref0(typeFormalList) & ref1(token, ">");
 }
