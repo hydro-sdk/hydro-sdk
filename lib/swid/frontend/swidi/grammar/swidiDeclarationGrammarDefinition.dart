@@ -1,9 +1,12 @@
 import 'package:petitparser/definition.dart';
 import 'package:petitparser/petitparser.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iDeclarationWithDefaultConstValueLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iLibraryScopePrefixLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iQualifiedLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iReferenceDeclarationPrefixLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iReturnTypeLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iSimpleDeclarationLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeArgumentsLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeFormalListDeclarationLexer.dart';
@@ -31,11 +34,17 @@ mixin SwidiDeclarationGrammarDefinition
         ITypeArgumentsLexer,
         ITypeFormalLexer,
         ITypeFormalListLexer,
-        ITypeFormalListDeclarationLexer {
+        ITypeFormalListDeclarationLexer,
+        ISimpleDeclarationLexer,
+        IReturnTypeLexer,
+        IDeclarationWithDefaultConstValueLexer {
+  @override
   Parser returnType() => ref0(type);
 
+  @override
   Parser simpleDeclaration() => (ref0(type) & ref0(identifier));
 
+  @override
   Parser declarationWithDefaultConstValue() =>
       ref0(simpleDeclaration) & ref1(token, "=") & ref0(lexicalConst);
 
