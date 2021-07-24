@@ -1,11 +1,11 @@
-import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassLexer.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iClassParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiClass.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiFunctionDeclaration.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiLibraryScopePrefix.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiGrammarDefinition.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iClassParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
 mixin SwidiClassParser on SwidiGrammarDefinition

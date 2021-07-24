@@ -1,5 +1,4 @@
-
-abstract class ITypeParser<T>{
+abstract class ITypeParser<T> {
   const ITypeParser();
 
   T type();
