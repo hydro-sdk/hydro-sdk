@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstLexer.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -19,6 +20,7 @@ mixin SwidiConstPositionalParameterListParser
         SwidiConstParser
     implements
         IConstPositionalParameterListLexer,
+        IConstLexer,
         IConstPositionalParameterListParser<
             Parser<List<SwidiConstPositionalParameterList>>>,
         IConstParser<Parser<SwidiConst>> {
