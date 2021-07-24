@@ -1,5 +1,4 @@
-
-abstract class IConstFunctionInvocationParser<T>{
+abstract class IConstFunctionInvocationParser<T> {
   const IConstFunctionInvocationParser();
 
   T constFunctionInvocation();
