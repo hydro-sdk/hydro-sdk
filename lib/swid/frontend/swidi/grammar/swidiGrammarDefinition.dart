@@ -1,5 +1,9 @@
 import 'package:petitparser/petitparser.dart';
 
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iClassDefinitionLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iCompilationUnitLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iStartLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTopLevelDefinitionLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiDeclarationGrammarDefinition.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiFunctionDeclarationNamedParameterGrammarDefinition.dart';
@@ -22,15 +26,24 @@ class SwidiGrammarDefinition extends GrammarDefinition
         SwidiFunctionDeclarationPositionalParameterGrammarDefinition,
         SwidiFunctionDeclarationOptionalParameterGrammarDefinition,
         SwidiFunctionDeclarationNamedParameterGrammarDefinition,
-        SwidiFunctionGrammarDefinition {
+        SwidiFunctionGrammarDefinition
+    implements
+        IClassDefinitionLexer,
+        ITopLevelDefinitionLexer,
+        ICompilationUnitLexer,
+        IStartLexer {
   const SwidiGrammarDefinition();
 
+  @override
   Parser start() => ref0(compilationUnit).end();
 
+  @override
   Parser compilationUnit() => ref0(topLevelDefinition).star();
 
+  @override
   Parser topLevelDefinition() => ref0(classDefinition);
 
+  @override
   Parser classDefinition() =>
       ref0(lexicalAbstract).optional() &
       ref0(lexicalClass) &
