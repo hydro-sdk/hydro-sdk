@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -14,7 +15,7 @@ mixin SwidiConstParser
         SwidiConstGrammarDefinition,
         SwidiConstNumberParser,
         SwidiConstStringParser
-    implements IConstLexer {
+    implements IConstLexer, IConstParser<Parser<SwidiConst>> {
   @override
   Parser<SwidiConst> lexicalConst() => super.lexicalConst().map((x) {
         if (x is SwidiConstNumber) {

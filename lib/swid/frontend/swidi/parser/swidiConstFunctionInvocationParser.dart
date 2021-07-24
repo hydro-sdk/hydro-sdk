@@ -1,29 +1,18 @@
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstFunctionInvocationParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstParameterListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstFunctionInvocation.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConstParameterList.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iConstFunctionInvocationLexer.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/grammar/swidiConstGrammarDefinition.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterListParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNamedParameterParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstNumberParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParameterListParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstPositionalParameterListParser.dart';
-import 'package:hydro_sdk/swid/frontend/swidi/parser/swidiConstStringParser.dart';
 import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
-mixin SwidiConstFunctionInvocationParser
-    on
-        SwidiConstGrammarDefinition,
-        SwidiConstStringParser,
-        SwidiConstNumberParser,
-        SwidiConstPositionalParameterListParser,
-        SwidiConstNamedParameterParser,
-        SwidiConstNamedParameterListParser,
-        SwidiConstParameterListParser,
-        SwidiConstParser
-    implements IConstFunctionInvocationLexer {
+mixin SwidiConstFunctionInvocationParser on SwidiConstGrammarDefinition
+    implements
+        IConstFunctionInvocationLexer,
+        IConstFunctionInvocationParser<Parser<SwidiConstFunctionInvocation>>,
+        IConstParameterListParser<Parser<SwidiConstParameterList>> {
   Parser<SwidiConstFunctionInvocation> constFunctionInvocation() =>
       super.constFunctionInvocation().map(
             (x) => (({

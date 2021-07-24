@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iReferenceDeclarationPrefixParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
@@ -20,7 +21,10 @@ mixin SwidiTypeParser
         SwidiTypeListParser,
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser
-    implements ILibraryScopePrefixParser<Parser<SwidiLibraryScopePrefix>> {
+    implements
+        ILibraryScopePrefixParser<Parser<SwidiLibraryScopePrefix>>,
+        IReferenceDeclarationPrefixParser<
+            Parser<SwidiReferenceDeclarationPrefix>> {
   Parser<SwidiInterface> type() => super.type().map((x) {
         final tokenList = collectTokens<Token>(x);
         String? token;

@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstParser.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstPositionalParameterListParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -15,7 +17,12 @@ mixin SwidiConstPositionalParameterListParser
         SwidiConstStringParser,
         SwidiConstNumberParser,
         SwidiConstParser
-    implements IConstPositionalParameterListLexer {
+    implements
+        IConstPositionalParameterListLexer,
+        IConstPositionalParameterListParser<
+            Parser<List<SwidiConstPositionalParameterList>>>,
+        IConstParser<Parser<SwidiConst>> {
+  @override
   Parser<List<SwidiConstPositionalParameterList>>
       constPositionalParameterList() =>
           super.constPositionalParameterList().map(

@@ -1,3 +1,4 @@
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iConstNamedParameterParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiConst.dart';
@@ -10,7 +11,10 @@ import 'package:hydro_sdk/swid/frontend/swidi/parser/util/collectTokens.dart';
 
 mixin SwidiConstNamedParameterParser
     on SwidiConstGrammarDefinition, SwidiConstParser
-    implements IConstNamedParameterLexer {
+    implements
+        IConstNamedParameterLexer,
+        IConstNamedParameterParser<Parser<SwidiConstNamedParameter>> {
+  @override
   Parser<SwidiConstNamedParameter> constNamedParameter() =>
       super.constNamedParameter().map(
             (x) => SwidiConstNamedParameter(
