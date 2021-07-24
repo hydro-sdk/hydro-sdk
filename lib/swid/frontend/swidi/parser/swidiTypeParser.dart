@@ -1,3 +1,5 @@
+import 'package:hydro_sdk/swid/frontend/swidi/grammar/lexers/iTypeLexer.dart';
+import 'package:hydro_sdk/swid/frontend/swidi/parser/parsers/iTypeParser.dart';
 import 'package:petitparser/petitparser.dart';
 
 import 'package:hydro_sdk/swid/frontend/swidi/ast/swidiInterface.dart';
@@ -22,6 +24,8 @@ mixin SwidiTypeParser
         SwidiLibraryScopePrefixParser,
         SwidiReferenceDeclarationPrefixParser
     implements
+        ITypeLexer,
+        ITypeParser<Parser<SwidiInterface>>,
         ILibraryScopePrefixParser<Parser<SwidiLibraryScopePrefix>>,
         IReferenceDeclarationPrefixParser<
             Parser<SwidiReferenceDeclarationPrefix>> {
